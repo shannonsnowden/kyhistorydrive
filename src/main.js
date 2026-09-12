@@ -61,10 +61,6 @@ const DATA_LAYERS = [
     defaultOn: true,
     geojson: '/data/markers.geojson',
     yearFilter: true,
-    // Dense statewide set — small orange dots
-    circleRadius: ['interpolate', ['linear'], ['zoom'], 6, 2.2, 9, 3.2, 12, 4.5, 16, 6.5],
-    iconSize: ['interpolate', ['linear'], ['zoom'], 6, 0.16, 9, 0.22, 12, 0.3, 16, 0.4],
-    hitRadius: 10,
   },
   {
     id: 'history',
@@ -369,7 +365,8 @@ function applyFiltersToMapInstance(targetMap) {
   if (!targetMap) return
   const onTimeline = targetMap === timelineMap
   for (const def of DATA_LAYERS) {
-    const filter = onTimeline ? buildTimelineMapFilter(def) : buildYearEraFilter(def)
+    // Home map: show all enabled-layer dots. Year/era filters only affect Timeline.
+    const filter = onTimeline ? buildTimelineMapFilter(def) : null
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
       if (targetMap.getLayer(lid)) targetMap.setFilter(lid, filter)
     }
@@ -378,7 +375,7 @@ function applyFiltersToMapInstance(targetMap) {
     if (!targetMap.getLayer(lid)) continue
     const f = onTimeline
       ? buildTimelineMapFilter({ yearFilter: true, filterByEra: true })
-      : buildYearEraFilter({ yearFilter: true, filterByEra: true })
+      : null
     targetMap.setFilter(lid, f)
   }
 }
@@ -1134,9 +1131,21 @@ async function addDataLayerOn(targetMap, def, visMap) {
     targetMap.addSource(def.id, { type: 'geojson', data })
 
     const vis = visMap[def.id] ? 'visible' : 'none'
-    const circleRadius =
-      def.circleRadius || ['interpolate', ['linear'], ['zoom'], 7, 3.5, 12, 7, 16, 11]
-    const hitRadius = def.hitRadius ?? 14
+    // Same size for every layer (including Markers)
+    const circleRadius = def.circleRadius || [
+      'interpolate',
+      ['linear'],
+      ['zoom'],
+      6,
+      4,
+      9,
+      6,
+      12,
+      8,
+      16,
+      11,
+    ]
+    const hitRadius = def.hitRadius ?? 16
     targetMap.addLayer({
       id: layerCircleId(def.id),
       type: 'circle',
@@ -1145,9 +1154,9 @@ async function addDataLayerOn(targetMap, def, visMap) {
       paint: {
         'circle-radius': circleRadius,
         'circle-color': def.color,
-        'circle-stroke-width': def.id === 'markers' ? 0.75 : 1.25,
-        'circle-stroke-color': '#101812',
-        'circle-opacity': 0.9,
+        'circle-stroke-width': 1.5,
+        'circle-stroke-color': '#f3ead8',
+        'circle-opacity': 0.95,
       },
     })
     targetMap.addLayer({
