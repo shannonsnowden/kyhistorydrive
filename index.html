@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KY History Drive — Kentucky Historical Markers</title>
-    <meta name="description" content="Explore Kentucky Historical Society markers on an open-source map, plus daily history stories and a filterable timeline. Companion to the KY Markers Drive iPhone app." />
+    <meta name="description" content="Explore Kentucky Historical Society markers on an open-source map, plus a filterable Kentucky history timeline with stories and places. Companion to the KY Markers Drive iPhone app." />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
@@ -16,7 +16,6 @@
       <nav id="mainNav">
         <a href="#map" data-route="map">Map</a>
         <a href="#timeline" data-route="timeline">Timeline</a>
-        <a href="#stories" data-route="stories">Stories</a>
         <a href="#about" data-route="about">About</a>
         <a href="#app" data-route="app">App</a>
       </nav>
@@ -24,9 +23,9 @@
 
     <section id="hero" class="hero" data-view="map">
       <p class="hero-welcome">
-        Welcome to KY History Drive — a map of Kentucky’s historical markers, daily history stories, and a timeline you can filter by era and year.
+        Welcome to KY History Drive — a map of Kentucky’s historical markers and a timeline of Kentucky history you can filter by era and year.
         Start on the map: turn layers on and off in the sidebar, tap a pin for details, and use <strong>Full state</strong> anytime to zoom back out.
-        Open <strong>Stories</strong> to read a story with its place on the map, or <strong>Timeline</strong> to see what was happening in Kentucky in a chosen timeframe.
+        Open <strong>Timeline</strong> to filter by year, turn on layers for places in that range, and read matching stories.
       </p>
     </section>
 
@@ -41,7 +40,7 @@
           </label>
           <div id="layerToggles" class="layer-toggles"></div>
           <p class="filter-note muted">
-            Year/era filters apply to History (and Stories) pins; highway Markers stay as layer toggles.
+            Year/era filters from Timeline also apply to year-aware layers here; highway Markers stay as layer toggles.
           </p>
         </div>
         <p id="stats" class="stats"></p>
@@ -59,7 +58,7 @@
         <div class="timeline-main">
           <div class="panel-head">
             <h2>Timeline</h2>
-            <p class="muted">Pick a year or era filter first, then turn on layers. The map shows only places that match — not the whole layer. Matching stories are listed below.</p>
+            <p class="muted">Filter by year or era, turn on layers for matching places, then open a story to read it. The map highlights the story’s location when it has one.</p>
           </div>
           <div class="filters">
             <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
@@ -93,6 +92,7 @@
             </div>
           </div>
           <ol id="timelineList" class="timeline-list"></ol>
+          <article id="timelineStoryReader" class="story-reader is-empty" aria-live="polite"></article>
         </div>
         <aside class="timeline-map-pane" aria-label="Timeline places map">
           <div class="timeline-map-head">
@@ -105,53 +105,13 @@
       </div>
     </section>
 
-    <section id="stories" class="view stories-section" data-view="stories" hidden>
-      <div class="stories-layout">
-        <div class="stories-list-pane">
-          <div class="panel-head">
-            <h2>Stories</h2>
-            <p class="muted">Kentucky history stories. Pick one to read it and see where it happened.</p>
-          </div>
-          <div class="stories-toolbar" role="region" aria-label="Story list controls">
-            <label class="stories-sort-label">
-              <span class="muted">Sort</span>
-              <select id="storiesSort" aria-label="Sort stories">
-                <option value="brief-desc">Newest</option>
-                <option value="brief-asc">Oldest</option>
-                <option value="year-asc">Year (oldest first)</option>
-                <option value="year-desc">Year (newest first)</option>
-                <option value="county">County A–Z</option>
-                <option value="tag">Tag A–Z</option>
-                <option value="title">Title A–Z</option>
-              </select>
-            </label>
-            <p id="storiesSortMeta" class="muted stories-sort-meta"></p>
-            <div class="stories-scroll-controls" aria-label="Scroll story list">
-              <button type="button" id="storiesScrollTop" class="scroll-fab" title="Back to top">↑ Top</button>
-              <button type="button" id="storiesScrollUp" class="scroll-fab" title="Scroll up">▲</button>
-              <button type="button" id="storiesScrollDown" class="scroll-fab" title="Scroll down">▼</button>
-            </div>
-          </div>
-          <div id="storiesList" class="stories-list"></div>
-          <article id="storyReader" class="story-reader is-empty" aria-live="polite"></article>
-        </div>
-        <aside class="stories-map-pane" aria-label="Story location map">
-          <div class="stories-map-head">
-            <h3 id="storiesMapTitle">Location</h3>
-            <p id="storiesMapMeta" class="muted">Choose a story to see its place on the map.</p>
-          </div>
-          <div id="storiesMapCanvas"></div>
-          <p id="storiesNoLoc" class="stories-no-loc muted" hidden>No map location yet for this story.</p>
-        </aside>
-      </div>
-    </section>
 
     <section id="about" class="view panel" data-view="about" hidden>
       <h2>About</h2>
       <p>
         KY History Drive is a web companion to the KY Markers Drive iPhone app. It helps you explore
-        Kentucky’s historical highway markers on a map, read daily Kentucky History stories, and browse
-        those stories on a timeline by era and year.
+        Kentucky’s historical highway markers on a map, and browse Kentucky history stories on a
+        timeline by era and year.
       </p>
       <h3 class="about-credits-heading">Credits</h3>
       <ul class="about-credits">
