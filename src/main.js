@@ -174,6 +174,89 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;')
 }
 
+function absoluteShareUrl(hashPath) {
+  const path = String(hashPath || '').replace(/^#/, '')
+  return `${location.origin}${location.pathname}${location.search}#${path}`
+}
+
+function featureShareId(props, layerId) {
+  const p = props || {}
+  if (layerId === 'markers' && p.marker_number != null && p.marker_number !== '') {
+    return String(p.marker_number)
+  }
+  if (p.id != null && p.id !== '') return String(p.id)
+  if (p.slug) return String(p.slug)
+  const name = p.name || p.title || ''
+  return String(name)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+function placeShareHash(layerId, props) {
+  const id = featureShareId(props, layerId)
+  if (!layerId || !id) return '#map'
+  return `#map/${encodeURIComponent(layerId)}/${encodeURIComponent(id)}`
+}
+
+function storyShareHash(slug) {
+  if (!slug) return '#timeline'
+  return `#timeline/${encodeURIComponent(slug)}`
+}
+
+function shareControlHtml(url, title) {
+  return `<div class="share-row">
+    <button type="button" class="share-btn" data-share-url="${escapeHtml(url)}" data-share-title="${escapeHtml(title || 'Kentucky History Drive')}" aria-label="Share link">
+      Share
+    </button>
+    <span class="share-status muted" aria-live="polite"></span>
+  </div>`
+}
+
+async function shareDetailUrl(url, title, statusEl) {
+  const setStatus = (msg) => {
+    if (statusEl) {
+      statusEl.textContent = msg
+      window.setTimeout(() => {
+        if (statusEl.textContent === msg) statusEl.textContent = ''
+      }, 2000)
+    }
+  }
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: title || 'Kentucky History Drive', url })
+      setStatus('Shared')
+      return
+    }
+  } catch (err) {
+    if (err && err.name === 'AbortError') return
+  }
+  try {
+    await navigator.clipboard.writeText(url)
+    setStatus('Link copied')
+  } catch {
+    // Fallback prompt
+    window.prompt('Copy this link:', url)
+    setStatus('Copy link')
+  }
+}
+
+function wireShareButtons(root = document) {
+  root.querySelectorAll('.share-btn').forEach((btn) => {
+    if (btn.dataset.shareWired) return
+    btn.dataset.shareWired = '1'
+    btn.addEventListener('click', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      const url = btn.dataset.shareUrl
+      const title = btn.dataset.shareTitle
+      const statusEl = btn.parentElement?.querySelector('.share-status')
+      shareDetailUrl(url, title, statusEl).catch(console.error)
+    })
+  })
+}
+
+
 function formatYear(y) {
   if (y == null || Number.isNaN(y)) return '—'
   if (y < 0) return `${Math.abs(y)} BCE`
@@ -216,7 +299,12 @@ function parseHash() {
   if (path === 'timeline') {
     return { view: 'timeline', slug: rest[0] ? decodeURIComponent(rest[0]) : null }
   }
-  if (['map', 'about', 'app'].includes(path)) return { view: path }
+  if (path === 'map') {
+    const placeLayer = rest[0] ? decodeURIComponent(rest[0]) : null
+    const placeId = rest[1] ? decodeURIComponent(rest.slice(1).join('/')) : null
+    return { view: 'map', placeLayer, placeId }
+  }
+  if (['about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
 
@@ -1035,11 +1123,13 @@ function detailHtmlFromProps(p, layerId, coords) {
     layer: layerId === 'markers' ? 'marker' : layerId,
   })
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
+  const shareUrl = absoluteShareUrl(placeShareHash(layerId, p))
   return `
     <div class="map-popup">
       <div class="detail-layer">${escapeHtml(layerLabel)}</div>
       <h3>${escapeHtml(name)}</h3>
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
+      ${shareControlHtml(shareUrl, name)}
       ${desc ? `<div class="popup-full-text">${escapeHtml(desc)}</div>` : ''}
       ${link}
       ${extras}
@@ -1060,6 +1150,12 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
       : null)
   if (!coords) return
   await loadHistoricPhotoData()
+  const props = enrichFeatureProps(layerId, feature.properties || {})
+  const shareHash = placeShareHash(layerId, props)
+  // Keep a shareable deep link in the address bar (home map only)
+  if (targetMap === map && shareHash.startsWith('#map/')) {
+    history.replaceState(null, '', shareHash)
+  }
   activePopup = new maplibregl.Popup({
     closeButton: true,
     closeOnClick: true,
@@ -1068,10 +1164,16 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     className: 'ky-popup',
   })
     .setLngLat(coords)
-    .setHTML(
-      detailHtmlFromProps(enrichFeatureProps(layerId, feature.properties || {}), layerId, coords),
-    )
+    .setHTML(detailHtmlFromProps(props, layerId, coords))
     .addTo(targetMap)
+  wireShareButtons(activePopup.getElement())
+  activePopup.on('close', () => {
+    if (activePopup) activePopup = null
+    // Clear place deep link when popup closes on home map
+    if (targetMap === map && parseHash().view === 'map' && parseHash().placeId) {
+      history.replaceState(null, '', '#map')
+    }
+  })
 }
 
 function updateStats() {
@@ -1382,10 +1484,14 @@ function initMap() {
     mapReady = true
     syncAllLayersCheckbox()
     updateStats()
-    // Home Map always starts on the whole state
     pendingFocus = null
     ensureHighlightSource(map, null)
-    fitMapToKentucky(map, { duration: 0 })
+    const place = parseHash()
+    if (place.view === 'map' && place.placeLayer && place.placeId) {
+      openPlaceFromHash({ placeLayer: place.placeLayer, placeId: place.placeId }).catch(console.error)
+    } else {
+      fitMapToKentucky(map, { duration: 0 })
+    }
   })
 }
 
@@ -1984,6 +2090,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
               <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
             </div>
             <h2>${escapeHtml(s.title)}</h2>
+            ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
             <p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>
             <div class="tags">${tags}</div>
           </header>
@@ -1995,6 +2102,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
         ${storySidebarPhotoHtml(sidebarPhoto, s.title)}
       </div>
     `
+    wireShareButtons(reader)
     if (scroll) reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   } catch {
     reader.innerHTML = `<p class="muted">Could not load this story.</p>`
@@ -2330,6 +2438,30 @@ function scrollTimelineToFilters() {
   }
 }
 
+
+function featureMatchesShareId(props, layerId, placeId) {
+  if (!placeId) return false
+  const want = String(placeId)
+  return featureShareId(props, layerId) === want || String(props?.id || '') === want || String(props?.marker_number || '') === want
+}
+
+async function openPlaceFromHash({ placeLayer, placeId }) {
+  if (!placeLayer || !placeId || !map || !mapReady) return
+  const def = DATA_LAYERS.find((l) => l.id === placeLayer)
+  if (!def) return
+  setLayerVisible(placeLayer, true)
+  const input = document.querySelector(`input[data-layer="${placeLayer}"]`)
+  if (input) input.checked = true
+  syncAllLayersCheckbox()
+  const src = map.getSource(placeLayer)
+  const features = src?._data?.features || []
+  const feature = features.find((f) => featureMatchesShareId(f.properties || {}, placeLayer, placeId))
+  if (!feature || feature.geometry?.type !== 'Point') return
+  const [lon, lat] = feature.geometry.coordinates
+  map.flyTo({ center: [lon, lat], zoom: Math.max(map.getZoom(), 11), essential: true })
+  await showDetailPopup(feature, placeLayer, [lon, lat], map)
+}
+
 /* -------------------- Router -------------------- */
 function setActiveNav(view) {
   document.querySelectorAll('#mainNav a').forEach((a) => {
@@ -2350,13 +2482,19 @@ async function applyRoute() {
   setActiveNav(view)
 
   if (view === 'map') {
+    const { placeLayer, placeId } = parseHash()
     // Always open Map on the full state (start or navigating back from Timeline/etc.)
+    // unless a shared place deep link is present
     pendingFocus = null
     initMap()
     requestAnimationFrame(() => {
       scrollPageToTop()
       map?.resize()
       if (!mapReady) return
+      if (placeLayer && placeId) {
+        openPlaceFromHash({ placeLayer, placeId }).catch(console.error)
+        return
+      }
       setLayerVisible('markers', true)
       const markersToggle = document.querySelector('input[data-layer="markers"]')
       if (markersToggle) markersToggle.checked = true
