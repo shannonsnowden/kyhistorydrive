@@ -854,3 +854,31 @@ nav a:hover, nav a.active { color: var(--accent); }
   text-align: center;
 }
 
+
+.share-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.55rem 0 0.35rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  appearance: none;
+  border: 1px solid var(--accent);
+  background: rgba(201, 137, 58, 0.15);
+  color: #e8d5a8;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.share-btn:hover {
+  background: rgba(201, 137, 58, 0.28);
+}
+.share-status {
+  font-size: 0.8rem;
+}
+.ky-popup .share-row { margin-top: 0.4rem; }
+.story-head .share-row { margin: 0.65rem 0 0.25rem; }
