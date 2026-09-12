@@ -171,19 +171,36 @@ nav a:hover, nav a.active { color: var(--accent); }
   margin-left: auto;
   align-items: center;
 }
-.stories-scroll-controls .scroll-fab {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--text);
+/* Jump / scroll nav buttons — always readable (not black-on-dark) */
+.scroll-fab,
+.nav-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--accent);
+  background: #243628;
+  color: #f3ead8 !important;
   border-radius: 999px;
-  padding: 0.4rem 0.7rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
-.stories-scroll-controls .scroll-fab:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+.scroll-fab:hover,
+.nav-jump:hover {
+  background: #c9893a;
+  border-color: #e8d5a8;
+  color: #1a140c !important;
+}
+.nav-jump-ico {
+  font-size: 1rem;
+  line-height: 1;
+  color: inherit;
+}
+.nav-jump-label {
+  color: inherit;
 }
 
 .stories-list-pane .panel-head { margin-bottom: 0.85rem; }
@@ -399,20 +416,21 @@ nav a:hover, nav a.active { color: var(--accent); }
   left: 12px;
   bottom: 28px;
   z-index: 2;
-  border: 1px solid var(--line);
-  background: rgba(26, 36, 28, 0.92);
-  color: var(--text);
+  border: 1px solid var(--accent);
+  background: #243628;
+  color: #f3ead8;
   border-radius: 8px;
-  padding: 0.45rem 0.75rem;
+  padding: 0.5rem 0.85rem;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   backdrop-filter: blur(6px);
   box-shadow: 0 4px 14px rgba(0,0,0,0.35);
 }
 .full-state-fab:hover {
-  border-color: var(--accent);
-  color: #e8d5a8;
+  background: #c9893a;
+  border-color: #e8d5a8;
+  color: #1a140c;
 }
 
 .about-credits-heading {
@@ -601,7 +619,34 @@ nav a:hover, nav a.active { color: var(--accent); }
 }
 .timeline-reader-jump .scroll-fab {
   pointer-events: auto;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-  background: rgba(26, 36, 28, 0.96);
   backdrop-filter: blur(8px);
+}
+
+
+/* MapLibre zoom / navigation controls */
+.maplibregl-ctrl-group {
+  background: #243628 !important;
+  border: 1px solid var(--accent) !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4) !important;
+  overflow: hidden;
+}
+.maplibregl-ctrl-group button {
+  background-color: #243628 !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid #3d5344 !important;
+}
+.maplibregl-ctrl-group button:hover {
+  background-color: #314a38 !important;
+}
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(1) sepia(0.2) saturate(0.6) brightness(1.15);
+  opacity: 1 !important;
+}
+.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon,
+.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon {
+  background-size: 18px 18px;
 }
