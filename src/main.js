@@ -61,8 +61,8 @@ const DATA_LAYERS = [
     defaultOn: true,
     geojson: '/data/markers.geojson',
     yearFilter: true,
-    // Dense statewide set — small orange icons
-    circleRadius: ['interpolate', ['linear'], ['zoom'], 6, 1.5, 9, 2.2, 12, 3.2, 16, 5],
+    // Dense statewide set — small orange dots
+    circleRadius: ['interpolate', ['linear'], ['zoom'], 6, 2.2, 9, 3.2, 12, 4.5, 16, 6.5],
     iconSize: ['interpolate', ['linear'], ['zoom'], 6, 0.16, 9, 0.22, 12, 0.3, 16, 0.4],
     hitRadius: 10,
   },
@@ -1158,52 +1158,7 @@ async function addDataLayerOn(targetMap, def, visMap) {
       paint: { 'circle-radius': hitRadius, 'circle-opacity': 0 },
     })
 
-    if (def.icon.type === 'img') {
-      const imgId = `icon-${def.id}`
-      const ok = await loadImage(targetMap, imgId, def.icon.src)
-      if (ok) {
-        targetMap.addLayer({
-          id: layerSymbolId(def.id),
-          type: 'symbol',
-          source: def.id,
-          layout: {
-            visibility: vis,
-            'icon-image': imgId,
-            'icon-size': def.iconSize || [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              7,
-              0.45,
-              12,
-              0.7,
-              16,
-              0.95,
-            ],
-            'icon-allow-overlap': true,
-            'icon-ignore-placement': true,
-          },
-        })
-        targetMap.setPaintProperty(
-          layerCircleId(def.id),
-          'circle-opacity',
-          def.id === 'markers' ? 0.85 : 0.35,
-        )
-        if (!def.circleRadius) {
-          targetMap.setPaintProperty(layerCircleId(def.id), 'circle-radius', [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
-            7,
-            5,
-            12,
-            9,
-            16,
-            12,
-          ])
-        }
-      }
-    }
+    // Map uses colored dots only (layer color). Icons stay in the Layers list UI.
 
     targetMap.on('mouseenter', layerHitId(def.id), () => {
       targetMap.getCanvas().style.cursor = 'pointer'
