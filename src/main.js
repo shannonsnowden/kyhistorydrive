@@ -322,7 +322,23 @@ function syncAllLayersCheckbox() {
   el.checked = DATA_LAYERS.every((l) => layerVisibility[l.id])
 }
 
-function detailHtmlFromProps(p, layerId) {
+function mapsLinksHtml(lat, lon, label) {
+  if (lat == null || lon == null || Number.isNaN(Number(lat)) || Number.isNaN(Number(lon))) {
+    return ''
+  }
+  const la = Number(lat)
+  const lo = Number(lon)
+  const q = encodeURIComponent(label || `${la},${lo}`)
+  const apple = `https://maps.apple.com/?ll=${la},${lo}&q=${q}`
+  const google = `https://www.google.com/maps/search/?api=1&query=${la}%2C${lo}`
+  return `<p class="popup-maps">
+    <a href="${apple}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+    <span class="popup-maps-sep" aria-hidden="true">·</span>
+    <a href="${google}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+  </p>`
+}
+
+function detailHtmlFromProps(p, layerId, coords) {
   const name = p.name || p.title || 'Untitled'
   const metaBits = []
   if (layerId === 'markers' || p.marker_number) {
@@ -342,8 +358,19 @@ function detailHtmlFromProps(p, layerId) {
   const href = p.source_url || p.website || null
   const linkLabel = p.source_url ? 'history.ky.gov' : 'Website'
   const link = href
-    ? `<p class="popup-link"><a href="${escapeHtml(href)}" target="_blank" rel="noopener">${linkLabel}</a></p>`
+    ? `<p class="popup-link"><a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${linkLabel}</a></p>`
     : ''
+  let lat = null
+  let lon = null
+  if (coords) {
+    const c = Array.isArray(coords) ? coords : [coords.lng, coords.lat]
+    lon = c[0]
+    lat = c[1]
+  } else if (p.lat != null && p.lon != null) {
+    lat = p.lat
+    lon = p.lon
+  }
+  const maps = mapsLinksHtml(lat, lon, name)
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
   return `
     <div class="map-popup">
@@ -352,12 +379,13 @@ function detailHtmlFromProps(p, layerId) {
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${short ? `<p>${escapeHtml(short)}</p>` : ''}
       ${link}
+      ${maps}
     </div>
   `
 }
 
-function showDetailPopup(feature, layerId, lngLat) {
-  if (!map) return
+function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
+  if (!targetMap || !feature) return
   if (activePopup) {
     activePopup.remove()
     activePopup = null
@@ -376,8 +404,8 @@ function showDetailPopup(feature, layerId, lngLat) {
     className: 'ky-popup',
   })
     .setLngLat(coords)
-    .setHTML(detailHtmlFromProps(feature.properties || {}, layerId))
-    .addTo(map)
+    .setHTML(detailHtmlFromProps(feature.properties || {}, layerId, coords))
+    .addTo(targetMap)
 }
 
 function updateStats() {
@@ -1220,6 +1248,7 @@ async function showStoryInReader(meta) {
         <div class="tags">${tags}</div>
       </header>
       <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
+      ${mapsLinksHtml(meta.lat ?? s.lat, meta.lon ?? s.lon, s.title)}
       <p class="story-source muted">Source: ${escapeHtml(s.source || 'daily-brief')}</p>
     `
     reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })

@@ -487,3 +487,17 @@ nav a:hover, nav a.active { color: var(--accent); }
   }
   #timelineMapCanvas { min-height: 320px; }
 }
+
+
+.popup-maps, .story-reader .popup-maps {
+  margin: 0.65rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.popup-maps a { color: var(--accent); text-decoration: none; }
+.popup-maps a:hover { text-decoration: underline; }
+.popup-maps-sep { color: var(--muted); font-weight: 400; }
