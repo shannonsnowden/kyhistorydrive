@@ -248,6 +248,39 @@ let timelineState = {
 
 const layerVisibility = Object.fromEntries(DATA_LAYERS.map((l) => [l.id, l.defaultOn]))
 
+
+/* Full GeoJSON props — MapLibre truncates long strings on queryRenderedFeatures */
+const layerFeatureCache = Object.create(null)
+
+function featureLookupKey(props) {
+  if (!props) return null
+  if (props.id != null && props.id !== '') return `id:${props.id}`
+  if (props.marker_number != null && props.marker_number !== '') return `mn:${props.marker_number}`
+  if (props.slug) return `slug:${props.slug}`
+  const title = props.title || props.name
+  if (title) return `t:${String(title).toLowerCase()}`
+  return null
+}
+
+function cacheLayerFeatures(layerId, collection) {
+  const map = Object.create(null)
+  for (const f of collection?.features || []) {
+    const k = featureLookupKey(f.properties)
+    if (k) map[k] = f.properties
+  }
+  layerFeatureCache[layerId] = map
+}
+
+function enrichFeatureProps(layerId, props) {
+  const thin = props || {}
+  const cache = layerFeatureCache[layerId]
+  if (!cache) return { ...thin }
+  const k = featureLookupKey(thin)
+  const full = k ? cache[k] : null
+  // Prefer cached full text fields (MapLibre often truncates these)
+  return full ? { ...thin, ...full } : { ...thin }
+}
+
 /* -------------------- Map -------------------- */
 let map = null
 let mapReady = false
@@ -617,12 +650,14 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   activePopup = new maplibregl.Popup({
     closeButton: true,
     closeOnClick: true,
-    maxWidth: '420px',
+    maxWidth: '480px',
     offset: 14,
     className: 'ky-popup',
   })
     .setLngLat(coords)
-    .setHTML(detailHtmlFromProps(feature.properties || {}, layerId, coords))
+    .setHTML(
+      detailHtmlFromProps(enrichFeatureProps(layerId, feature.properties || {}), layerId, coords),
+    )
     .addTo(targetMap)
 }
 
@@ -678,6 +713,7 @@ async function addDataLayerOn(targetMap, def, visMap) {
     const res = await fetch(def.geojson)
     if (!res.ok) throw new Error(String(res.status))
     const data = await res.json()
+    cacheLayerFeatures(def.id, data)
     if (targetMap.getSource(def.id)) return
     targetMap.addSource(def.id, { type: 'geojson', data })
 
@@ -1524,7 +1560,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
         historyId,
         name: s.title,
         title: s.title,
-        history: s.bodyMarkdown ? s.bodyMarkdown.replace(/[#>*_`\[\]()]/g, ' ').slice(0, 4000) : s.summary || '',
+        history: s.bodyMarkdown ? s.bodyMarkdown.replace(/[#>*_`\[\]()]/g, ' ') : s.summary || '',
         description: s.summary || '',
         bodyMarkdown: s.bodyMarkdown || '',
         county: meta.county || s.county,
@@ -1715,6 +1751,15 @@ function setupTimelineJumpControls() {
   wire('timelineJumpFiltersBottom', 'filters')
   wire('timelineJumpStoriesBottom', 'stories')
   wire('timelineJumpTop', 'top')
+
+  const wireReset = (id) => {
+    const btn = document.getElementById(id)
+    if (!btn || btn.dataset.ready) return
+    btn.dataset.ready = '1'
+    btn.addEventListener('click', () => resetTimelineShowAllStories())
+  }
+  wireReset('timelineJumpReset')
+  wireReset('timelineJumpResetBottom')
 }
 
 function setupTimelineStoriesSort() {
@@ -1849,6 +1894,23 @@ function resetTimelineFiltersOff() {
     ensureHighlightSource(timelineMap, null)
     fitMapToKentucky(timelineMap, { duration: 0 })
   }
+}
+
+
+function resetTimelineShowAllStories() {
+  resetTimelineFiltersOff()
+  selectedStorySlug = null
+  history.replaceState(null, '', '#timeline')
+  const reader = document.getElementById('timelineStoryReader')
+  if (reader) {
+    reader.classList.add('is-empty')
+    reader.innerHTML = ''
+  }
+  const jumpBar = document.getElementById('timelineReaderJump')
+  if (jumpBar) jumpBar.hidden = true
+  if (timelineMapReady) ensureHighlightSource(timelineMap, null)
+  renderTimelineList(null).catch(console.error)
+  scrollTimelineToFilters()
 }
 
 function scrollTimelineToFilters() {

@@ -389,7 +389,8 @@ nav a:hover, nav a.active { color: var(--accent); }
   border-radius: 10px;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
   padding: 0.75rem 0.85rem 0.85rem;
-  max-width: 320px;
+  max-width: min(92vw, 480px);
+  width: max-content;
 }
 .ky-popup .maplibregl-popup-close-button {
   color: var(--muted);
@@ -563,7 +564,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 
 
 .ky-popup .maplibregl-popup-content {
-  max-height: min(70vh, 560px);
+  max-height: min(78vh, 720px);
   overflow: auto;
 }
 .map-popup .popup-full-text {
@@ -572,6 +573,9 @@ nav a:hover, nav a.active { color: var(--accent); }
   line-height: 1.45;
   margin: 0.5rem 0 0.65rem;
   max-height: none;
+  overflow: visible;
+  display: block;
+  -webkit-line-clamp: unset;
 }
 .historic-photos { margin-top: 0.75rem; }
 .historic-photos-label {
