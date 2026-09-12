@@ -39,7 +39,7 @@ a { color: var(--accent); }
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  background: #f7f4ea;
+  background: #000;
   border: 1px solid var(--accent);
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.35);
