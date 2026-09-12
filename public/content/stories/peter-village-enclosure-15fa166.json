@@ -2,8 +2,8 @@
   "slug": "peter-village-enclosure-15fa166",
   "title": "Peter Village enclosure (15Fa166)",
   "publishedDate": "2026-09-11",
-  "summary": "Just north of Lexington along the Mount Horeb complex, Peter Village is a huge, non-geometric ditch-and-embankment earthwork Rafinesque paced as a roughly twenty-sided polygon…",
-  "bodyMarkdown": "Just north of Lexington along the Mount Horeb complex, Peter Village is a huge, non-geometric ditch-and-embankment earthwork Rafinesque paced as a roughly twenty-sided polygon nearly 3,800 feet around. Early use (~300–200 BCE) looks pre-Adena: a stockade, then ditch and bank, tied to harvesting and working local galena and barite rather than a simple village. Later Adena people reused the enclosure briefly; recent LiDAR and radiocarbon work suggest it may be among the Middle Ohio Valley’s earliest ditch-and-embankment monuments, with a southern entrance and a second outer embankment still reading in the ground.\nSource: [https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex](https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex)",
+  "summary": "Just north of Lexington along the Mount Horeb complex, Peter Village is a huge, non-geometric ditch-and-embankment earthwork Rafinesque paced as a roughly twenty-sided polygon\u2026",
+  "bodyMarkdown": "Just north of Lexington along the Mount Horeb complex, Peter Village is a huge, non-geometric ditch-and-embankment earthwork Rafinesque paced as a roughly twenty-sided polygon nearly 3,800 feet around. Early use (~300\u2013200 BCE) looks pre-Adena: a stockade, then ditch and bank, tied to harvesting and working local galena and barite rather than a simple village. Later Adena people reused the enclosure briefly; recent LiDAR and radiocarbon work suggest it may be among the Middle Ohio Valley\u2019s earliest ditch-and-embankment monuments, with a southern entrance and a second outer embankment still reading in the ground.\nSource: [https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex](https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex)",
   "yearStart": -200,
   "yearEnd": 800,
   "era": "prehistoric",
@@ -12,6 +12,6 @@
     "kentucky",
     "archaeology"
   ],
-  "source": "daily-brief",
+  "source": "ky-history",
   "briefDate": "2026-09-11"
 }

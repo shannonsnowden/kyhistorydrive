@@ -1201,7 +1201,7 @@ function storyCardHtml(s) {
             ${county}
             <span class="era-pill era-${escapeHtml(s.era || 'unknown')}">${escapeHtml(s.era || '')}</span>
             <span>${escapeHtml(years)}</span>
-            <span>Brief ${escapeHtml(s.briefDate || '')}</span>
+            <span>${escapeHtml(s.briefDate || '')}</span>
             ${tagHtml}${loc}
           </span>
           <h3>${escapeHtml(s.title)}</h3>
@@ -1281,7 +1281,7 @@ async function showStoryInReader(meta) {
           ${countyLine}
           <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
           <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
-          <span>Brief ${escapeHtml(s.briefDate || '')}</span>
+          <span>${escapeHtml(s.briefDate || '')}</span>
         </div>
         <h2>${escapeHtml(s.title)}</h2>
         <p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>
@@ -1289,7 +1289,7 @@ async function showStoryInReader(meta) {
       </header>
       <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
       ${mapsLinksHtml(meta.lat ?? s.lat, meta.lon ?? s.lon, s.title)}
-      <p class="story-source muted">Source: ${escapeHtml(s.source || 'daily-brief')}</p>
+      <p class="story-source muted">Kentucky History Drive</p>
     `
     reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   } catch {

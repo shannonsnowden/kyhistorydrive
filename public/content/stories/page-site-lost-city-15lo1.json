@@ -1,9 +1,9 @@
 {
   "slug": "page-site-lost-city-15lo1",
-  "title": "Page Site / “Lost City” (15LO1)",
+  "title": "Page Site / \u201cLost City\u201d (15LO1)",
   "publishedDate": "2026-09-12",
-  "summary": "Above the Mud River east of Lewisburg in Logan County sits the Page Site, a major Mississippian mound-and-ossuary complex (roughly A.D. 1000–1600) excavated by William S. Webb…",
-  "bodyMarkdown": "Above the Mud River east of Lewisburg in Logan County sits the Page Site, a major Mississippian mound-and-ossuary complex (roughly A.D. 1000–1600) excavated by William S. Webb and W. D. Funkhouser for the University of Kentucky in the 1930s. For a stretch that same decade the place was run as a heritage tourist stop called Lost City. Listed on the National Register in 1985, it remains one of south-central Kentucky’s clearest windows on Mississippian mortuary practice and settlement along the Green River drainage—far from the Ohio River mound centers that usually get the headlines.\nSource: [https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Logan_County,_Kentucky](https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Logan_County,_Kentucky)",
+  "summary": "Above the Mud River east of Lewisburg in Logan County sits the Page Site, a major Mississippian mound-and-ossuary complex (roughly A.D. 1000\u20131600) excavated by William S. Webb\u2026",
+  "bodyMarkdown": "Above the Mud River east of Lewisburg in Logan County sits the Page Site, a major Mississippian mound-and-ossuary complex (roughly A.D. 1000\u20131600) excavated by William S. Webb and W. D. Funkhouser for the University of Kentucky in the 1930s. For a stretch that same decade the place was run as a heritage tourist stop called Lost City. Listed on the National Register in 1985, it remains one of south-central Kentucky\u2019s clearest windows on Mississippian mortuary practice and settlement along the Green River drainage\u2014far from the Ohio River mound centers that usually get the headlines.\nSource: [https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Logan_County,_Kentucky](https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Logan_County,_Kentucky)",
   "yearStart": 1000,
   "yearEnd": 1985,
   "era": "prehistoric",
@@ -12,6 +12,6 @@
     "kentucky",
     "archaeology"
   ],
-  "source": "daily-brief",
+  "source": "ky-history",
   "briefDate": "2026-09-12"
 }

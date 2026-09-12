@@ -2,8 +2,8 @@
   "slug": "springfield-first-county-seat-after-statehood",
   "title": "Springfield, first county seat after statehood",
   "publishedDate": "2026-09-12",
-  "summary": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton—Virginia…",
-  "bodyMarkdown": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton—Virginia surveyor, Revolutionary officer, and one of the state’s biggest early landholders—introduced the bill, then donated about fifty acres at the county’s surveyed center. Springfield was laid off there in 1793 around a public square; a log courthouse rose early in 1794 (the brick courthouse of 1816 later became Kentucky’s longest-serving). Settlers had already planted Sandusky Station (1776) and Cartwright’s Station (1778) along the Wilderness Trace that still runs through town.\nSource: [https://history.ky.gov/markers/washington-county](https://history.ky.gov/markers/washington-county)",
+  "summary": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton\u2014Virginia\u2026",
+  "bodyMarkdown": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton\u2014Virginia surveyor, Revolutionary officer, and one of the state\u2019s biggest early landholders\u2014introduced the bill, then donated about fifty acres at the county\u2019s surveyed center. Springfield was laid off there in 1793 around a public square; a log courthouse rose early in 1794 (the brick courthouse of 1816 later became Kentucky\u2019s longest-serving). Settlers had already planted Sandusky Station (1776) and Cartwright\u2019s Station (1778) along the Wilderness Trace that still runs through town.\nSource: [https://history.ky.gov/markers/washington-county](https://history.ky.gov/markers/washington-county)",
   "yearStart": 1776,
   "yearEnd": 1816,
   "era": "frontier",
@@ -13,6 +13,6 @@
     "frontier-war",
     "town-founding"
   ],
-  "source": "daily-brief",
+  "source": "ky-history",
   "briefDate": "2026-09-12"
 }

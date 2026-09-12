@@ -2,8 +2,8 @@
   "slug": "jonathan-creek-mississippian-center",
   "title": "Jonathan Creek Mississippian center",
   "publishedDate": "2026-09-08",
-  "summary": "On the west bank of the Tennessee River in Marshall County (site 15Ml4), Jonathan Creek was a fortified Mississippian town occupied roughly A.D. 1200–1300. CCC crews working…",
-  "bodyMarkdown": "On the west bank of the Tennessee River in Marshall County (site 15Ml4), Jonathan Creek was a fortified Mississippian town occupied roughly A.D. 1200–1300. CCC crews working with the University of Kentucky excavated in 1940–42 before Kentucky Lake rose, recording platform and burial mounds, a plaza, multiple stockade lines with bastions, and remnants of some 70–89 houses in both single-post and wall-trench styles—evidence of a community built for defense and ritual.\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Jonathan-Creek.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Jonathan-Creek.aspx)",
+  "summary": "On the west bank of the Tennessee River in Marshall County (site 15Ml4), Jonathan Creek was a fortified Mississippian town occupied roughly A.D. 1200\u20131300. CCC crews working\u2026",
+  "bodyMarkdown": "On the west bank of the Tennessee River in Marshall County (site 15Ml4), Jonathan Creek was a fortified Mississippian town occupied roughly A.D. 1200\u20131300. CCC crews working with the University of Kentucky excavated in 1940\u201342 before Kentucky Lake rose, recording platform and burial mounds, a plaza, multiple stockade lines with bastions, and remnants of some 70\u201389 houses in both single-post and wall-trench styles\u2014evidence of a community built for defense and ritual.\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Jonathan-Creek.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Jonathan-Creek.aspx)",
   "yearStart": 1200,
   "yearEnd": 1940,
   "era": "prehistoric",
@@ -12,6 +12,6 @@
     "kentucky",
     "archaeology"
   ],
-  "source": "daily-brief",
+  "source": "ky-history",
   "briefDate": "2026-09-08"
 }

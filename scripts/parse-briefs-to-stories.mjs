@@ -263,7 +263,7 @@ function toStory(section, briefDate, usedSlugs) {
     yearEnd,
     era,
     tags,
-    source: 'daily-brief',
+    source: 'ky-history',
     briefDate,
   }
 }

@@ -2,8 +2,8 @@
   "slug": "frankfort-franks-ford-becomes-the-capital",
   "title": "Frankfort: Frank's Ford becomes the capital",
   "publishedDate": "2026-08-29",
-  "summary": "Before it was the capital, the site was a buffalo-trail ford on the Kentucky River. In 1780 pioneer Stephen Frank was killed in a skirmish there; settlers called the crossing…",
-  "bodyMarkdown": "Before it was the capital, the site was a buffalo-trail ford on the Kentucky River. In 1780 pioneer Stephen Frank was killed in a skirmish there; settlers called the crossing Frank's Ford, which shortened to Frankfort. In 1786 Virginia chartered a town on land promoted by Gen. James Wilkinson. When Kentucky became a state in 1792, Frankfort outbid Lexington and others—Andrew Holmes pledged lots, building materials, and cash for a capitol—and the legislature locked it in that December. The first two capitols burned; Gideon Shryock's Greek Revival Old Capitol (1830) finally stuck.\nSource: [https://www.frankfort.ky.gov/323/City-History](https://www.frankfort.ky.gov/323/City-History)",
+  "summary": "Before it was the capital, the site was a buffalo-trail ford on the Kentucky River. In 1780 pioneer Stephen Frank was killed in a skirmish there; settlers called the crossing\u2026",
+  "bodyMarkdown": "Before it was the capital, the site was a buffalo-trail ford on the Kentucky River. In 1780 pioneer Stephen Frank was killed in a skirmish there; settlers called the crossing Frank's Ford, which shortened to Frankfort. In 1786 Virginia chartered a town on land promoted by Gen. James Wilkinson. When Kentucky became a state in 1792, Frankfort outbid Lexington and others\u2014Andrew Holmes pledged lots, building materials, and cash for a capitol\u2014and the legislature locked it in that December. The first two capitols burned; Gideon Shryock's Greek Revival Old Capitol (1830) finally stuck.\nSource: [https://www.frankfort.ky.gov/323/City-History](https://www.frankfort.ky.gov/323/City-History)",
   "yearStart": 323,
   "yearEnd": 1830,
   "era": "prehistoric",
@@ -14,6 +14,6 @@
     "town-founding",
     "transport"
   ],
-  "source": "daily-brief",
+  "source": "ky-history",
   "briefDate": "2026-08-29"
 }
