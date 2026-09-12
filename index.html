@@ -59,7 +59,7 @@
         <div class="timeline-main">
           <div class="panel-head">
             <h2>Timeline</h2>
-            <p class="muted">Filter by era or year — the map shows Markers, History, and other places in that range. Stories for the same filter are listed below.</p>
+            <p class="muted">Pick a year or era filter first, then turn on layers. The map shows only places that match — not the whole layer. Matching stories are listed below.</p>
           </div>
           <div class="filters">
             <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
@@ -71,7 +71,7 @@
               <button type="button" id="yearClear" class="btn ghost">Clear</button>
             </div>
             <p class="filter-note muted">
-              Only places with years in range appear on the Timeline map. The same filter applies on the Map page for year-aware layers.
+              Layers start off. After you set a year/era filter, enable layers to see only matching places. The same year filter also applies on the Map page for year-aware layers.
             </p>
             <div id="timelineLayerToggles" class="timeline-layer-toggles layer-toggles" aria-label="Timeline map layers"></div>
             <p id="timelineStats" class="stats"></p>
@@ -82,7 +82,7 @@
         <aside class="timeline-map-pane" aria-label="Timeline places map">
           <div class="timeline-map-head">
             <h3>Places in this timeframe</h3>
-            <p id="timelineMapMeta" class="muted">Adjust era or year filters to focus the map.</p>
+            <p id="timelineMapMeta" class="muted">Pick a year/era filter, then turn layers on.</p>
             <button type="button" id="timelineZoomFullState" class="btn ghost small">Full state</button>
           </div>
           <div id="timelineMapCanvas"></div>
