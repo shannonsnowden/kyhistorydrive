@@ -375,3 +375,11 @@ nav a:hover, nav a.active { color: var(--accent); }
 }
 .about-credits li { margin: 0.35rem 0; }
 .about-credits a { color: var(--accent); }
+
+.hero-welcome {
+  max-width: 46rem;
+  line-height: 1.55;
+  font-size: 1.02rem;
+  color: var(--muted);
+}
+.hero-welcome strong { color: #e8d5a8; font-weight: 600; }
