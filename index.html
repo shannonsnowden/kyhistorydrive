@@ -76,6 +76,21 @@
             <div id="timelineLayerToggles" class="timeline-layer-toggles layer-toggles" aria-label="Timeline map layers"></div>
             <p id="timelineStats" class="stats"></p>
             <p id="timelineMapCounts" class="stats"></p>
+            <div class="stories-toolbar timeline-stories-toolbar" role="region" aria-label="Timeline story list controls">
+              <label class="stories-sort-label">
+                <span class="muted">Sort stories</span>
+                <select id="timelineStoriesSort" aria-label="Sort timeline stories">
+                  <option value="year-asc">Year (oldest first)</option>
+                  <option value="year-desc">Year (newest first)</option>
+                  <option value="brief-desc">Newest</option>
+                  <option value="brief-asc">Oldest</option>
+                  <option value="county">County A–Z</option>
+                  <option value="tag">Tag A–Z</option>
+                  <option value="title">Title A–Z</option>
+                </select>
+              </label>
+              <p id="timelineStoriesSortMeta" class="muted stories-sort-meta"></p>
+            </div>
           </div>
           <ol id="timelineList" class="timeline-list"></ol>
         </div>

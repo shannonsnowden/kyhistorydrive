@@ -1019,6 +1019,7 @@ function focusStoryOnMaps(story) {
 let storiesIndex = null
 let storiesCountyReady = false
 let storiesSortMode = 'brief-desc'
+let timelineStoriesSortMode = 'year-asc'
 let storiesBySlug = {}
 
 async function loadStories() {
@@ -1417,36 +1418,59 @@ function storyMatchesFilters(s) {
   return true
 }
 
+function setupTimelineStoriesSort() {
+  const select = document.getElementById('timelineStoriesSort')
+  if (!select || select.dataset.ready) return
+  select.dataset.ready = '1'
+  select.value = timelineStoriesSortMode
+  select.addEventListener('change', () => {
+    timelineStoriesSortMode = select.value
+    renderTimelineList().catch(console.error)
+  })
+}
+
 async function renderTimelineList() {
   setupTimelineFilters()
+  setupTimelineStoriesSort()
   const idx = await loadStories()
   const list = document.getElementById('timelineList')
   const stats = document.getElementById('timelineStats')
-  const filtered = idx.stories
-    .filter(storyMatchesFilters)
-    .sort((a, b) => {
-      const ya = a.yearStart ?? 99999
-      const yb = b.yearStart ?? 99999
-      if (ya !== yb) return ya - yb
-      return String(a.title).localeCompare(String(b.title))
-    })
+  const sortMeta = document.getElementById('timelineStoriesSortMeta')
+  const sortEl = document.getElementById('timelineStoriesSort')
+  if (sortEl) sortEl.value = timelineStoriesSortMode
+
+  const filtered = sortStoriesList(
+    idx.stories.filter(storyMatchesFilters),
+    timelineStoriesSortMode,
+  )
   stats.textContent = `Showing ${filtered.length} of ${idx.stories.length} stories`
+  if (sortMeta) {
+    const withCounty = filtered.filter((s) => s.county).length
+    sortMeta.textContent = `${filtered.length} in this filter · ${withCounty} with county`
+  }
   list.innerHTML =
     filtered
-      .map(
-        (s) => `
+      .map((s) => {
+        const county = s.county
+          ? `<span class="story-county">${escapeHtml(s.county)} Co.</span>`
+          : ''
+        const tag = primaryStoryTag(s)
+        const tagHtml = tag ? `<span class="muted">#${escapeHtml(tag)}</span>` : ''
+        return `
       <li class="timeline-item">
         <div class="timeline-year">${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</div>
         <div class="timeline-body">
-          <a href="#story/${encodeURIComponent(s.slug)}"><strong>${escapeHtml(s.title)}</strong></a>
+          <a href="#stories/${encodeURIComponent(s.slug)}"><strong>${escapeHtml(s.title)}</strong></a>
           <div class="story-card-meta">
+            ${county}
             <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
             <span>${escapeHtml(s.briefDate || '')}</span>
+            ${tagHtml}
           </div>
           <p>${escapeHtml(s.summary || '')}</p>
         </div>
       </li>`
-      )
+      })
       .join('') || '<li class="muted">No stories match these filters.</li>'
 }
 
