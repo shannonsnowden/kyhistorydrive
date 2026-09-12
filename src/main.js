@@ -583,6 +583,21 @@ function wikipediaSearchUrl(title) {
   return `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(title || '')}`
 }
 
+function locSearchUrl(title, placeHint) {
+  const q = [title, placeHint, 'Kentucky'].filter(Boolean).join(' ')
+  return `https://www.loc.gov/search/?q=${encodeURIComponent(q)}&fa=online-format:image`
+}
+
+function naraSearchUrl(title, placeHint) {
+  const q = [title, placeHint, 'Kentucky'].filter(Boolean).join(' ')
+  return `https://catalog.archives.gov/search?q=${encodeURIComponent(q)}`
+}
+
+function kyhsSearchUrl(title, placeHint) {
+  const q = [title, placeHint].filter(Boolean).join(' ')
+  return `https://history.ky.gov/?s=${encodeURIComponent(q)}`
+}
+
 function extractWikipediaUrl(markdown) {
   if (!markdown) return null
   const m = String(markdown).match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s)"'\]]+/i)
@@ -601,6 +616,42 @@ function wikipediaTitleFromUrl(url) {
   return null
 }
 
+function stripHtmlCredits(html) {
+  return String(html || '')
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function inferPhotoInstitution(text) {
+  const t = String(text || '').toLowerCase()
+  if (/library of congress|loc\.gov|\bloc\b/.test(t)) return 'Library of Congress'
+  if (/national archives|archives\.gov|\bnara\b|u\.s\. national archive/.test(t)) return 'National Archives'
+  if (/kentucky historical society|history\.ky\.gov|\bkyhs\b/.test(t)) {
+    return 'Kentucky Historical Society'
+  }
+  if (/smithsonian/.test(t)) return 'Smithsonian'
+  if (/historypin/.test(t)) return 'Historypin'
+  if (/university of louisville|ulpa/.test(t)) return 'University of Louisville (ULPA)'
+  if (/wikimedia commons/.test(t)) return 'Wikimedia Commons'
+  if (/wikipedia/.test(t)) return 'Wikipedia'
+  return null
+}
+
+function photoSearchLinks(title, placeHint, extra = {}) {
+  return {
+    google_url: extra.google_url || googleImagesSearchUrl(title, placeHint),
+    wikipedia_url: extra.wikipedia_url || wikipediaSearchUrl(title),
+    grokipedia_url: extra.grokipedia_url || grokipediaSearchUrl(title),
+    loc_url: extra.loc_url || locSearchUrl(title, placeHint),
+    nara_url: extra.nara_url || naraSearchUrl(title, placeHint),
+    kyhs_url: extra.kyhs_url || kyhsSearchUrl(title, placeHint),
+  }
+}
+
 async function fetchWikipediaThumbnail(titleOrUrl) {
   if (!titleOrUrl) return null
   let title = titleOrUrl
@@ -609,7 +660,6 @@ async function fetchWikipediaThumbnail(titleOrUrl) {
   }
   title = String(title).trim()
   if (!title) return null
-  // Try exact title, then with ", Kentucky"
   const candidates = [title]
   if (!/,?\s*kentucky$/i.test(title)) candidates.push(`${title}, Kentucky`)
   for (const cand of candidates) {
@@ -624,6 +674,8 @@ async function fetchWikipediaThumbnail(titleOrUrl) {
         image_url: src,
         title: data.title || cand,
         source_url: data.content_urls?.desktop?.page || `https://en.wikipedia.org/wiki/${encodeURIComponent(cand.replace(/ /g, '_'))}`,
+        source_label: 'Wikipedia',
+        attribution: 'Wikipedia',
         credit: 'Wikipedia',
         year: null,
       }
@@ -634,8 +686,90 @@ async function fetchWikipediaThumbnail(titleOrUrl) {
   return null
 }
 
+async function fetchCommonsImage(title, placeHint) {
+  const queries = [
+    `${title} Kentucky`,
+    `${title} Kentucky "Library of Congress"`,
+    `${title} Kentucky "National Archives"`,
+    `${title} "Kentucky Historical Society"`,
+    title,
+  ]
+  for (const q of queries) {
+    try {
+      const params = new URLSearchParams({
+        action: 'query',
+        generator: 'search',
+        gsrnamespace: '6',
+        gsrsearch: q,
+        gsrlimit: '8',
+        prop: 'imageinfo',
+        iiprop: 'url|mime|extmetadata|size',
+        iiurlwidth: '640',
+        format: 'json',
+        origin: '*',
+      })
+      const res = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`)
+      if (!res.ok) continue
+      const data = await res.json()
+      const pages = Object.values(data?.query?.pages || {})
+      if (!pages.length) continue
+
+      const scored = []
+      for (const page of pages) {
+        const info = page.imageinfo?.[0]
+        if (!info) continue
+        const mime = info.mime || ''
+        if (!/^image\//.test(mime) || /svg|gif|tiff/i.test(mime)) continue
+        const meta = info.extmetadata || {}
+        const artist = stripHtmlCredits(meta.Artist?.value)
+        const credit = stripHtmlCredits(meta.Credit?.value)
+        const license = stripHtmlCredits(meta.LicenseShortName?.value)
+        const desc = stripHtmlCredits(meta.ImageDescription?.value)
+        const blob = [artist, credit, license, desc, page.title].join(' | ')
+        const institution = inferPhotoInstitution(blob)
+        let score = 0
+        if (institution === 'Library of Congress') score += 50
+        else if (institution === 'National Archives') score += 48
+        else if (institution === 'Kentucky Historical Society') score += 46
+        else if (institution) score += 20
+        if (/kentucky/i.test(blob) || /kentucky/i.test(page.title || '')) score += 8
+        if (placeHint && new RegExp(String(placeHint).slice(0, 12), 'i').test(blob)) score += 5
+        const img = info.thumburl || info.url
+        if (!img) continue
+        scored.push({
+          score,
+          image_url: img,
+          title: stripHtmlCredits(meta.ObjectName?.value) || String(page.title || '').replace(/^File:/, ''),
+          source_url: info.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(page.title)}`,
+          source_label: institution || 'Wikimedia Commons',
+          attribution: [institution || 'Wikimedia Commons', artist || credit, license]
+            .filter(Boolean)
+            .filter((v, i, a) => a.indexOf(v) === i)
+            .join(' · '),
+          credit: institution || artist || credit || 'Wikimedia Commons',
+          year: null,
+        })
+      }
+      scored.sort((a, b) => b.score - a.score)
+      // Prefer a government/source hit when this query asked for one
+      const preferGov = /library of congress|national archives|kentucky historical/i.test(q)
+      const pick = preferGov
+        ? scored.find((s) => /Library of Congress|National Archives|Kentucky Historical/.test(s.source_label)) || scored[0]
+        : scored[0]
+      if (pick) return pick
+    } catch {
+      /* try next query */
+    }
+  }
+  return null
+}
+
 async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown }) {
   await loadHistoricPhotoData()
+  const links = photoSearchLinks(title, placeHint, {
+    wikipedia_url: extractWikipediaUrl(bodyMarkdown) || wikipediaSearchUrl(title),
+  })
+
   const local = photosForPlace({
     lat,
     lon,
@@ -644,34 +778,55 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
     layer: 'history',
   })
   if (local[0]?.image_url) {
+    const rawCredit = local[0].source || local[0].collection || 'Historic photo'
+    const institution = inferPhotoInstitution(rawCredit) || rawCredit
     return {
       ...local[0],
-      credit: local[0].source || local[0].collection || 'Historic photo',
+      ...links,
+      source_label: institution,
+      attribution: [institution, local[0].collection, local[0].year].filter(Boolean).join(' · '),
+      credit: institution,
     }
   }
 
   const wikiFromBody = extractWikipediaUrl(bodyMarkdown)
   const wikiPhoto = await fetchWikipediaThumbnail(wikiFromBody || title)
-  if (wikiPhoto) return wikiPhoto
+  if (wikiPhoto) return { ...wikiPhoto, ...links }
 
-  // Soft fallback: no embeddable image — still return link targets for the card
+  const commonsPhoto = await fetchCommonsImage(title, placeHint)
+  if (commonsPhoto) return { ...commonsPhoto, ...links }
+
   return {
     image_url: null,
     title,
+    source_label: null,
+    attribution: null,
     credit: null,
     source_url: null,
-    google_url: googleImagesSearchUrl(title, placeHint),
-    wikipedia_url: wikiFromBody || wikipediaSearchUrl(title),
-    grokipedia_url: grokipediaSearchUrl(title),
+    ...links,
   }
 }
 
 function storySidebarPhotoHtml(photo, title) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
-  const credit = photo.credit ? escapeHtml(String(photo.credit)) : ''
+  const sourceLabel = escapeHtml(photo.source_label || photo.credit || '')
+  const attribution = escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
   const year = photo.year ? escapeHtml(String(photo.year)) : ''
-  const meta = [credit, year].filter(Boolean).join(' · ')
+
+  const linkRow = `<p class="story-sidebar-photo-links">
+      <a href="${escapeHtml(photo.google_url || '#')}" target="_blank" rel="noopener noreferrer">Google</a>
+      <span aria-hidden="true">·</span>
+      <a href="${escapeHtml(photo.wikipedia_url || '#')}" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+      <span aria-hidden="true">·</span>
+      <a href="${escapeHtml(photo.grokipedia_url || '#')}" target="_blank" rel="noopener noreferrer">Grokipedia</a>
+      <span aria-hidden="true">·</span>
+      <a href="${escapeHtml(photo.kyhs_url || '#')}" target="_blank" rel="noopener noreferrer">KYHS</a>
+      <span aria-hidden="true">·</span>
+      <a href="${escapeHtml(photo.loc_url || '#')}" target="_blank" rel="noopener noreferrer">Library of Congress</a>
+      <span aria-hidden="true">·</span>
+      <a href="${escapeHtml(photo.nara_url || '#')}" target="_blank" rel="noopener noreferrer">National Archives</a>
+    </p>`
 
   if (photo.image_url) {
     const href = escapeHtml(photo.source_url || photo.image_url)
@@ -680,26 +835,16 @@ function storySidebarPhotoHtml(photo, title) {
       <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer">
         <img src="${img}" alt="${caption}" loading="lazy" />
       </a>
-      <p class="story-sidebar-photo-cap">${caption}${meta ? `<span class="muted"> · ${meta}</span>` : ''}</p>
-      <p class="story-sidebar-photo-links">
-        <a href="${escapeHtml(photo.google_url || googleImagesSearchUrl(title))}" target="_blank" rel="noopener noreferrer">Google Photos</a>
-        <span aria-hidden="true">·</span>
-        <a href="${escapeHtml(photo.wikipedia_url || wikipediaSearchUrl(title))}" target="_blank" rel="noopener noreferrer">Wikipedia</a>
-        <span aria-hidden="true">·</span>
-        <a href="${escapeHtml(photo.grokipedia_url || grokipediaSearchUrl(title) || '#')}" target="_blank" rel="noopener noreferrer">Grokipedia</a>
-      </p>
+      <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
+      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>
+      ${linkRow}
     </aside>`
   }
 
   return `<aside class="story-sidebar-photo story-sidebar-photo--empty" aria-label="Find a photo">
     <p class="story-sidebar-photo-cap">Find a photo</p>
-    <p class="story-sidebar-photo-links">
-      <a href="${escapeHtml(photo.google_url)}" target="_blank" rel="noopener noreferrer">Google Photos</a>
-      <span aria-hidden="true">·</span>
-      <a href="${escapeHtml(photo.wikipedia_url)}" target="_blank" rel="noopener noreferrer">Wikipedia</a>
-      <span aria-hidden="true">·</span>
-      <a href="${escapeHtml(photo.grokipedia_url || '#')}" target="_blank" rel="noopener noreferrer">Grokipedia</a>
-    </p>
+    <p class="story-sidebar-photo-attr muted">Try KY Historical Society, Library of Congress, National Archives, Wikipedia, or Google.</p>
+    ${linkRow}
   </aside>`
 }
 
@@ -1726,15 +1871,6 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
       historyId,
       bodyMarkdown: s.bodyMarkdown || '',
     })
-    // Attach search links even when we have an embed
-    if (sidebarPhoto) {
-      sidebarPhoto.google_url = sidebarPhoto.google_url || googleImagesSearchUrl(s.title, meta.matchedPlace || meta.county)
-      sidebarPhoto.wikipedia_url =
-        sidebarPhoto.wikipedia_url ||
-        extractWikipediaUrl(s.bodyMarkdown) ||
-        wikipediaSearchUrl(s.title)
-      sidebarPhoto.grokipedia_url = sidebarPhoto.grokipedia_url || grokipediaSearchUrl(s.title)
-    }
     reader.innerHTML = `
       <div class="story-reader-layout">
         <div class="story-reader-main">

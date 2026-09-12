@@ -706,10 +706,23 @@ nav a:hover, nav a.active { color: var(--accent); }
   object-fit: cover;
 }
 .story-sidebar-photo-cap {
-  margin: 0.45rem 0 0.25rem;
+  margin: 0.45rem 0 0.2rem;
   font-size: 0.75rem;
   line-height: 1.35;
   color: var(--text);
+}
+.story-sidebar-photo-attr {
+  margin: 0 0 0.35rem;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+.story-photo-source-label {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
 }
 .story-sidebar-photo-links {
   margin: 0;
