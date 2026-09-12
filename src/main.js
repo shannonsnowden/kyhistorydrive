@@ -2040,6 +2040,23 @@ function setupStoriesSortControl() {
   })
 }
 
+
+/** Daily briefs store summary as a truncated copy of bodyMarkdown — don't show both. */
+function summaryDuplicatesBody(summary, bodyMarkdown) {
+  const sum = String(summary || '')
+    .replace(/\s+/g, ' ')
+    .replace(/[…\.]+$/u, '')
+    .trim()
+    .toLowerCase()
+  const body = String(bodyMarkdown || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase()
+  if (!sum || !body) return false
+  const prefix = sum.slice(0, Math.min(sum.length, 100))
+  return prefix.length >= 24 && body.startsWith(prefix)
+}
+
 async function showStoryInReader(meta, { scroll = true } = {}) {
   const reader = document.getElementById('timelineStoryReader')
   if (!reader || !meta) return
@@ -2123,7 +2140,11 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
             </div>
             <h2>${escapeHtml(s.title)}</h2>
             ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
-            <p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>
+            ${
+              summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
+                ? ''
+                : `<p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>`
+            }
             <div class="tags">${tags}</div>
           </header>
           <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
