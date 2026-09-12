@@ -7,7 +7,7 @@ Web companion to the **KY Markers Drive** iOS app — Kentucky Historical Societ
 - [Vite](https://vitejs.dev/) static site
 - [MapLibre GL JS](https://maplibre.org/) (no Google Maps / MapKit JS)
 - [marked](https://marked.js.org/) for story markdown
-- Basemap: CARTO Voyager raster (OSM data) — works locally without an API key
+- Basemap: CARTO Voyager raster (OSM data) — needs `VITE_CARTO_API_KEY` (free key from https://carto.com/basemaps/apikey/)
 - Optional overlay: [OpenHistoricalMap](https://www.openhistoricalmap.org/) tiles
 - Marker data: GeoJSON derived from `ky-markers-drive` `data/markers.phase1.json`
 - Stories: `public/content/stories/*.json` + `public/content/stories.json` index
@@ -66,7 +66,7 @@ npm run preview
 3. When **kyhistorydrive.com** is live in Route53, Amplify → Domain management → add `kyhistorydrive.com` (+ `www` if desired)
 4. Amplify will ask for Route53 DNS records (or provide CNAME/ALIAS to paste into the hosted zone)
 
-No secrets required for the default OSM/CARTO basemap. If you later switch to MapTiler/Stadia vector styles, add the key in Amplify environment variables and wire `VITE_MAP_STYLE_URL` in `src/main.js`.
+Set `VITE_CARTO_API_KEY` in Amplify Hosting → Environment variables (and locally in a gitignored `.env`), then redeploy. Without it, CARTO serves an “API key required” watermark. If you later switch to MapTiler/Stadia vector styles, also set `VITE_MAP_STYLE_URL`.
 
 ## Data attribution
 

@@ -2,18 +2,20 @@ import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { marked } from 'marked'
 
-/** Default free OSM-friendly style (CARTO Voyager via openstreetmap.fr-compatible raster). */
+/** CARTO Voyager raster (OSM data). Requires VITE_CARTO_API_KEY at build time. */
+const CARTO_KEY = (import.meta.env.VITE_CARTO_API_KEY || '').trim()
+const cartoTile = (host) => {
+  const base = `https://${host}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png`
+  return CARTO_KEY ? `${base}?key=${encodeURIComponent(CARTO_KEY)}` : base
+}
+
 const OSM_STYLE = {
   version: 8,
   name: 'OSM Voyager',
   sources: {
     osm: {
       type: 'raster',
-      tiles: [
-        'https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png',
-        'https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png',
-        'https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png',
-      ],
+      tiles: [cartoTile('a'), cartoTile('b'), cartoTile('c')],
       tileSize: 256,
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',

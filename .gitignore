@@ -5,3 +5,7 @@ dist
 .env.*
 !.env.example
 _ingest/
+
+.env
+.env.*
+!.env.example
