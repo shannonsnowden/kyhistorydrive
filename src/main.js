@@ -868,11 +868,15 @@ function ensureHighlightSource(targetMap, focus) {
 
 function initMap() {
   if (map) {
-    requestAnimationFrame(() => map.resize())
-    if (pendingFocus) {
-      flyToFocus(map, pendingFocus)
-      if (mapReady) ensureHighlightSource(map, pendingFocus)
-    }
+    requestAnimationFrame(() => {
+      map.resize()
+      // Returning to Map always shows the whole state
+      pendingFocus = null
+      if (mapReady) {
+        ensureHighlightSource(map, null)
+        fitMapToKentucky(map, { duration: 0 })
+      }
+    })
     return
   }
   renderLayerToggles()
@@ -962,10 +966,10 @@ function initMap() {
     mapReady = true
     syncAllLayersCheckbox()
     updateStats()
-    if (pendingFocus) {
-      ensureHighlightSource(map, pendingFocus)
-      flyToFocus(map, pendingFocus)
-    }
+    // Home Map always starts on the whole state
+    pendingFocus = null
+    ensureHighlightSource(map, null)
+    fitMapToKentucky(map, { duration: 0 })
   })
 }
 
@@ -1832,26 +1836,18 @@ async function applyRoute() {
   setActiveNav(view)
 
   if (view === 'map') {
+    // Always open Map on the full state (start or navigating back from Timeline/etc.)
+    pendingFocus = null
     initMap()
     requestAnimationFrame(() => {
       map?.resize()
-      if (pendingFocus && mapReady) {
-        ensureHighlightSource(map, pendingFocus)
-        flyToFocus(map, pendingFocus)
-        if (pendingFocus.slug) {
-          const hist = document.querySelector('input[data-layer="history"]')
-          if (hist && !hist.checked) {
-            hist.checked = true
-            setLayerVisible('history', true)
-          }
-        }
-      } else if (mapReady && !pendingFocus) {
-        setLayerVisible('markers', true)
-        const markersToggle = document.querySelector('input[data-layer="markers"]')
-        if (markersToggle) markersToggle.checked = true
-        syncAllLayersCheckbox()
-        fitMapToKentucky(map, { duration: 0 })
-      }
+      if (!mapReady) return
+      setLayerVisible('markers', true)
+      const markersToggle = document.querySelector('input[data-layer="markers"]')
+      if (markersToggle) markersToggle.checked = true
+      syncAllLayersCheckbox()
+      ensureHighlightSource(map, null)
+      fitMapToKentucky(map, { duration: 0 })
     })
   } else if (view === 'timeline') {
     setupTimelineFilters()
