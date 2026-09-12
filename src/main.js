@@ -1721,11 +1721,14 @@ function setupTimelineFilters() {
 
 function storyMatchesFilters(s) {
   if (!timelineState.eras.has(s.era)) return false
-  const y = s.yearStart
-  if (timelineState.yearMin != null || timelineState.yearMax != null) {
-    if (y == null) return false
-    if (timelineState.yearMin != null && y < timelineState.yearMin) return false
-    if (timelineState.yearMax != null && y > timelineState.yearMax) return false
+  const { yearMin, yearMax } = timelineState
+  if (yearMin != null || yearMax != null) {
+    if (s.yearStart == null) return false
+    const start = Number(s.yearStart)
+    const end = Number(s.yearEnd != null ? s.yearEnd : s.yearStart)
+    // Overlap: story [start, end] intersects filter [yearMin, yearMax]
+    if (yearMax != null && start > yearMax) return false
+    if (yearMin != null && end < yearMin) return false
   }
   return true
 }

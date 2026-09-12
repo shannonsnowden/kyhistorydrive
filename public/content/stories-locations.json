@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T13:57:16.386Z",
+  "generatedAt": "2026-09-12T15:52:01.424Z",
   "stats": {
     "exact": 9,
     "fuzzy": 28,
@@ -30,198 +30,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
-    },
-    "cleek-mccabe-fort-ancient-village": {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "lat": 38.772860422898226,
-      "lon": -84.00880725804063,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Cleek-McCabe Fort Ancient village Boone County",
-      "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
-    },
-    "versailles-takes-shape": {
-      "slug": "versailles-takes-shape",
-      "lat": 38.08491,
-      "lon": -84.71149,
-      "mapConfidence": "county",
-      "matchedPlace": "Woodford County (centroid)",
-      "historyId": null
-    },
-    "evan-williams-on-the-louisville-wharf": {
-      "slug": "evan-williams-on-the-louisville-wharf",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "robbins-mounds-boone-county": {
-      "slug": "robbins-mounds-boone-county",
-      "lat": 39.0933727,
-      "lon": -84.7133552,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Robbins Mounds (Boone County Adena)",
-      "historyId": "robbins-mounds"
-    },
-    "benjamin-logan": {
-      "slug": "benjamin-logan",
-      "lat": 37.5302888,
-      "lon": -84.6676739,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Benjamin Logan / Logan's Station",
-      "historyId": "logans-station"
-    },
-    "cynthiana-cynthia-anna-on-the-licking": {
-      "slug": "cynthiana-cynthia-anna-on-the-licking",
-      "lat": 38.34127,
-      "lon": -84.09811,
-      "mapConfidence": "county",
-      "matchedPlace": "Harrison County (centroid)",
-      "historyId": null
-    },
-    "col-john-bowman-at-old-chillicothe": {
-      "slug": "col-john-bowman-at-old-chillicothe",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "bland-w-ballard-of-tick-creek": {
-      "slug": "bland-w-ballard-of-tick-creek",
-      "lat": 38.20919,
-      "lon": -85.25251,
-      "mapConfidence": "county",
-      "matchedPlace": "Shelby County (centroid)",
-      "historyId": null
-    },
-    "wright-mounds-montgomery-county": {
-      "slug": "wright-mounds-montgomery-county",
-      "lat": 38.05699,
-      "lon": -83.94437,
-      "mapConfidence": "county",
-      "matchedPlace": "Montgomery County (centroid)",
-      "historyId": null
-    },
-    "battle-of-blue-licks": {
-      "slug": "battle-of-blue-licks",
-      "lat": 38.43443333333333,
-      "lon": -83.99151666666667,
-      "mapConfidence": "exact",
-      "matchedPlace": "Battle of Blue Licks",
-      "historyId": "battle-of-blue-licks"
-    },
-    "lower-shawneetown-at-the-scioto-mouth": {
-      "slug": "lower-shawneetown-at-the-scioto-mouth",
-      "lat": 38.7250509,
-      "lon": -83.0141361,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Lower Shawneetown",
-      "historyId": "lower-shawneetown"
-    },
-    "paris-from-hopewell": {
-      "slug": "paris-from-hopewell",
-      "lat": 38.21439,
-      "lon": -84.25175,
-      "mapConfidence": "county",
-      "matchedPlace": "Bourbon County (centroid)",
-      "historyId": null
-    },
-    "shelbyville": {
-      "slug": "shelbyville",
-      "lat": 38.211083333333335,
-      "lon": -85.21585,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Shelbyville Founding",
-      "historyId": "shelbyville-founding"
-    },
-    "chickasaw-hunting-grounds": {
-      "slug": "chickasaw-hunting-grounds",
-      "lat": 37.5753439,
-      "lon": -84.7919732,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Isaac Shelby",
-      "historyId": "isaac-shelby"
-    },
-    "frankfort-franks-ford-becomes-the-capital": {
-      "slug": "frankfort-franks-ford-becomes-the-capital",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "falls-of-the-ohio": {
-      "slug": "falls-of-the-ohio",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "exact",
-      "matchedPlace": "Falls of the Ohio",
-      "historyId": "falls-of-the-ohio"
-    },
-    "jacob-spears-early-bourbon-whiskey": {
-      "slug": "jacob-spears-early-bourbon-whiskey",
-      "lat": 38.27406666666667,
-      "lon": -84.29951666666666,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Jacob Spears",
-      "historyId": "jacob-spears"
-    },
-    "lexington-ohio-railroad": {
-      "slug": "lexington-ohio-railroad",
-      "lat": 38.1884,
-      "lon": -84.81528333333333,
-      "mapConfidence": "exact",
-      "matchedPlace": "Lexington & Ohio Railroad",
-      "historyId": "lexington-ohio-railroad"
-    },
-    "delaware-lenape-in-the-1780-kentucky-raids": {
-      "slug": "delaware-lenape-in-the-1780-kentucky-raids",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "ashlands-adena-mounds": {
-      "slug": "ashlands-adena-mounds",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "odawa-raid-at-eskippakithiki-1753": {
-      "slug": "odawa-raid-at-eskippakithiki-1753",
-      "lat": 37.98859,
-      "lon": -84.25209,
-      "mapConfidence": "county",
-      "matchedPlace": "Clark County (centroid)",
-      "historyId": null
-    },
-    "mount-sterling-little-mountain-town": {
-      "slug": "mount-sterling-little-mountain-town",
-      "lat": 38.05699,
-      "lon": -83.94437,
-      "mapConfidence": "county",
-      "matchedPlace": "Montgomery County (centroid)",
-      "historyId": null
-    },
-    "michael-stoner-german-long-hunter": {
-      "slug": "michael-stoner-german-long-hunter",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio",
-      "historyId": "falls-of-the-ohio"
-    },
-    "bullitts-lick-kentuckys-first-industry": {
-      "slug": "bullitts-lick-kentuckys-first-industry",
-      "lat": 38.000782,
-      "lon": -85.7640065,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Bullitt's Lick",
-      "historyId": "bullitts-lick"
     },
     "page-site-lost-city-15lo1": {
       "slug": "page-site-lost-city-15lo1",
@@ -303,6 +111,14 @@
       "matchedPlace": "Mercer County (centroid)",
       "historyId": null
     },
+    "michael-stoner-german-long-hunter": {
+      "slug": "michael-stoner-german-long-hunter",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio",
+      "historyId": "falls-of-the-ohio"
+    },
     "christopher-gist-1750-51": {
       "slug": "christopher-gist-1750-51",
       "lat": 38.7250509,
@@ -318,6 +134,38 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Cumberland Gap / Thomas Walker",
       "historyId": "cumberland-gap-thomas-walker"
+    },
+    "lower-shawneetown-at-the-scioto-mouth": {
+      "slug": "lower-shawneetown-at-the-scioto-mouth",
+      "lat": 38.7250509,
+      "lon": -83.0141361,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lower Shawneetown",
+      "historyId": "lower-shawneetown"
+    },
+    "odawa-raid-at-eskippakithiki-1753": {
+      "slug": "odawa-raid-at-eskippakithiki-1753",
+      "lat": 37.98859,
+      "lon": -84.25209,
+      "mapConfidence": "county",
+      "matchedPlace": "Clark County (centroid)",
+      "historyId": null
+    },
+    "evan-williams-on-the-louisville-wharf": {
+      "slug": "evan-williams-on-the-louisville-wharf",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "bland-w-ballard-of-tick-creek": {
+      "slug": "bland-w-ballard-of-tick-creek",
+      "lat": 38.20919,
+      "lon": -85.25251,
+      "mapConfidence": "county",
+      "matchedPlace": "Shelby County (centroid)",
+      "historyId": null
     },
     "treaty-of-fort-stanwix-1768": {
       "slug": "treaty-of-fort-stanwix-1768",
@@ -342,6 +190,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "bullitts-lick-kentuckys-first-industry": {
+      "slug": "bullitts-lick-kentuckys-first-industry",
+      "lat": 38.000782,
+      "lon": -85.7640065,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Bullitt's Lick",
+      "historyId": "bullitts-lick"
     },
     "leestown": {
       "slug": "leestown",
@@ -375,6 +231,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "benjamin-logan": {
+      "slug": "benjamin-logan",
+      "lat": 37.5302888,
+      "lon": -84.6676739,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Benjamin Logan / Logan's Station",
+      "historyId": "logans-station"
+    },
     "richard-henderson": {
       "slug": "richard-henderson",
       "lat": 37.8310805,
@@ -399,6 +263,14 @@
       "matchedPlace": "Clark County (centroid)",
       "historyId": null
     },
+    "paris-from-hopewell": {
+      "slug": "paris-from-hopewell",
+      "lat": 38.21439,
+      "lon": -84.25175,
+      "mapConfidence": "county",
+      "matchedPlace": "Bourbon County (centroid)",
+      "historyId": null
+    },
     "springfield-first-county-seat-after-statehood": {
       "slug": "springfield-first-county-seat-after-statehood",
       "lat": 37.70957,
@@ -407,6 +279,22 @@
       "matchedPlace": "Washington County (centroid)",
       "historyId": null
     },
+    "delaware-lenape-in-the-1780-kentucky-raids": {
+      "slug": "delaware-lenape-in-the-1780-kentucky-raids",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "falls-of-the-ohio": {
+      "slug": "falls-of-the-ohio",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "exact",
+      "matchedPlace": "Falls of the Ohio",
+      "historyId": "falls-of-the-ohio"
+    },
     "george-rogers-clark": {
       "slug": "george-rogers-clark",
       "lat": 38.2434,
@@ -414,6 +302,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "George Rogers Clark / Corn Island",
       "historyId": "george-rogers-clark-corn-island"
+    },
+    "col-john-bowman-at-old-chillicothe": {
+      "slug": "col-john-bowman-at-old-chillicothe",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "col-robert-patterson-builds-lexington": {
       "slug": "col-robert-patterson-builds-lexington",
@@ -447,6 +343,14 @@
       "matchedPlace": "Hardin County (centroid)",
       "historyId": null
     },
+    "frankfort-franks-ford-becomes-the-capital": {
+      "slug": "frankfort-franks-ford-becomes-the-capital",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "isaac-shelby-old-kings-mountain": {
       "slug": "isaac-shelby-old-kings-mountain",
       "lat": 37.5753439,
@@ -455,6 +359,14 @@
       "matchedPlace": "Isaac Shelby",
       "historyId": "isaac-shelby"
     },
+    "shelbyville": {
+      "slug": "shelbyville",
+      "lat": 38.211083333333335,
+      "lon": -85.21585,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Shelbyville Founding",
+      "historyId": "shelbyville-founding"
+    },
     "squire-boones-painted-stone": {
       "slug": "squire-boones-painted-stone",
       "lat": 38.20919,
@@ -462,6 +374,14 @@
       "mapConfidence": "county",
       "matchedPlace": "Shelby County (centroid)",
       "historyId": null
+    },
+    "battle-of-blue-licks": {
+      "slug": "battle-of-blue-licks",
+      "lat": 38.43443333333333,
+      "lon": -83.99151666666667,
+      "mapConfidence": "exact",
+      "matchedPlace": "Battle of Blue Licks",
+      "historyId": "battle-of-blue-licks"
     },
     "capt-james-estill-estills-defeat": {
       "slug": "capt-james-estill-estills-defeat",
@@ -511,6 +431,22 @@
       "matchedPlace": "Washington County (centroid)",
       "historyId": null
     },
+    "jacob-spears-early-bourbon-whiskey": {
+      "slug": "jacob-spears-early-bourbon-whiskey",
+      "lat": 38.27406666666667,
+      "lon": -84.29951666666666,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Jacob Spears",
+      "historyId": "jacob-spears"
+    },
+    "mount-sterling-little-mountain-town": {
+      "slug": "mount-sterling-little-mountain-town",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "county",
+      "matchedPlace": "Montgomery County (centroid)",
+      "historyId": null
+    },
     "mascouten-fire-nation-on-the-wabash": {
       "slug": "mascouten-fire-nation-on-the-wabash",
       "lat": null,
@@ -535,12 +471,28 @@
       "matchedPlace": "Jessamine County (centroid)",
       "historyId": null
     },
+    "versailles-takes-shape": {
+      "slug": "versailles-takes-shape",
+      "lat": 38.08491,
+      "lon": -84.71149,
+      "mapConfidence": "county",
+      "matchedPlace": "Woodford County (centroid)",
+      "historyId": null
+    },
     "winchester-clark-county-seat": {
       "slug": "winchester-clark-county-seat",
       "lat": 37.98859,
       "lon": -84.25209,
       "mapConfidence": "county",
       "matchedPlace": "Clark County (centroid)",
+      "historyId": null
+    },
+    "cynthiana-cynthia-anna-on-the-licking": {
+      "slug": "cynthiana-cynthia-anna-on-the-licking",
+      "lat": 38.34127,
+      "lon": -84.09811,
+      "mapConfidence": "county",
+      "matchedPlace": "Harrison County (centroid)",
       "historyId": null
     },
     "lancaster-at-wallace-s-crossroads": {
@@ -591,6 +543,22 @@
       "matchedPlace": "Catherine Spears Carpenter",
       "historyId": "catherine-spears-carpenter"
     },
+    "chickasaw-hunting-grounds": {
+      "slug": "chickasaw-hunting-grounds",
+      "lat": 37.5753439,
+      "lon": -84.7919732,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Isaac Shelby",
+      "historyId": "isaac-shelby"
+    },
+    "lexington-ohio-railroad": {
+      "slug": "lexington-ohio-railroad",
+      "lat": 38.1884,
+      "lon": -84.81528333333333,
+      "mapConfidence": "exact",
+      "matchedPlace": "Lexington & Ohio Railroad",
+      "historyId": "lexington-ohio-railroad"
+    },
     "james-crow-on-glenns-creek": {
       "slug": "james-crow-on-glenns-creek",
       "lat": 38.08491,
@@ -605,6 +573,22 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null,
+      "historyId": null
+    },
+    "ashlands-adena-mounds": {
+      "slug": "ashlands-adena-mounds",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "wright-mounds-montgomery-county": {
+      "slug": "wright-mounds-montgomery-county",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "county",
+      "matchedPlace": "Montgomery County (centroid)",
       "historyId": null
     },
     "hardin-village-15gp22": {
@@ -622,6 +606,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "robbins-mounds-boone-county": {
+      "slug": "robbins-mounds-boone-county",
+      "lat": 39.0933727,
+      "lon": -84.7133552,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Robbins Mounds (Boone County Adena)",
+      "historyId": "robbins-mounds"
     },
     "indian-fort-mountain": {
       "slug": "indian-fort-mountain",
@@ -646,6 +638,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Big Bone Lick",
       "historyId": "big-bone-lick"
+    },
+    "cleek-mccabe-fort-ancient-village": {
+      "slug": "cleek-mccabe-fort-ancient-village",
+      "lat": 38.772860422898226,
+      "lon": -84.00880725804063,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Cleek-McCabe Fort Ancient village Boone County",
+      "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
     },
     "indian-knoll-on-the-green-river": {
       "slug": "indian-knoll-on-the-green-river",
