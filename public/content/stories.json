@@ -1,0 +1,1440 @@
+{
+  "generatedAt": "2026-09-12T13:23:25.609Z",
+  "count": 85,
+  "briefDateRange": {
+    "start": "2026-08-27",
+    "end": "2026-09-12"
+  },
+  "eras": [
+    "early-commonwealth",
+    "frontier",
+    "native",
+    "other",
+    "prehistoric"
+  ],
+  "stories": [
+    {
+      "slug": "carlston-annis-shell-mound",
+      "title": "Carlston Annis Shell Mound",
+      "publishedDate": "2026-09-03",
+      "summary": "On the Green River floodplain in Butler County, Carlston Annis (15Bt5) is a Late Archaic shell midden about 300 by 350 feet and more than six feet thick, piled up beside a…",
+      "yearStart": -1000,
+      "yearEnd": 1940,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-03"
+    },
+    {
+      "slug": "gaitskill-mounds-engraved-tablets",
+      "title": "Gaitskill Mound's engraved tablets",
+      "publishedDate": "2026-09-05",
+      "summary": "On Mount Sterling's northern bypass, Gaitskill Mound is an Adena earthwork (roughly 800 B.C.–A.D. 700) listed on the National Register in 1975. Unlike many looted mounds, it…",
+      "yearStart": -800,
+      "yearEnd": 1975,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-05"
+    },
+    {
+      "slug": "peter-village-enclosure-15fa166",
+      "title": "Peter Village enclosure (15Fa166)",
+      "publishedDate": "2026-09-11",
+      "summary": "Just north of Lexington along the Mount Horeb complex, Peter Village is a huge, non-geometric ditch-and-embankment earthwork Rafinesque paced as a roughly twenty-sided polygon…",
+      "yearStart": -200,
+      "yearEnd": 800,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-11"
+    },
+    {
+      "slug": "cleek-mccabe-fort-ancient-village",
+      "title": "Cleek-McCabe Fort Ancient village",
+      "publishedDate": "2026-09-10",
+      "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
+      "yearStart": 100,
+      "yearEnd": 200,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-10"
+    },
+    {
+      "slug": "versailles-takes-shape",
+      "title": "Versailles Takes Shape",
+      "publishedDate": "2026-09-06",
+      "summary": "On June 23, 1792—weeks after Kentucky’s statehood—the legislature seated Woodford County’s courts on about 80–100 acres owned by the infant Hezekiah Briscoe. His guardian,…",
+      "yearStart": 100,
+      "yearEnd": 1792,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-06"
+    },
+    {
+      "slug": "evan-williams-on-the-louisville-wharf",
+      "title": "Evan Williams on the Louisville wharf",
+      "publishedDate": "2026-09-09",
+      "summary": "Welsh immigrant Evan Williams (1755–1810) distilled corn whiskey on Louisville’s Ohio bank and by 1801 held a federal license for three stills (141, 130, and 93 gallons),…",
+      "yearStart": 130,
+      "yearEnd": 1892,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "robbins-mounds-boone-county",
+      "title": "Robbins Mounds, Boone County",
+      "publishedDate": "2026-09-06",
+      "summary": "Two Middle Woodland Adena burial mounds (15Be3 and 15Be14) once crowned an upland ridge near the Ohio. University of Kentucky crews excavated them in 1939: the larger stood…",
+      "yearStart": 131,
+      "yearEnd": 1939,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-06"
+    },
+    {
+      "slug": "benjamin-logan",
+      "title": "Benjamin Logan",
+      "publishedDate": "2026-08-28",
+      "summary": "In 1775 Benjamin Logan left Boone's party and built Logan's Station (St. Asaph) near present-day Stanford — a stockade by Buffalo Spring that held through a roughly…",
+      "yearStart": 150,
+      "yearEnd": 1802,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-28"
+    },
+    {
+      "slug": "cynthiana-cynthia-anna-on-the-licking",
+      "title": "Cynthiana — Cynthia & Anna on the Licking",
+      "publishedDate": "2026-09-09",
+      "summary": "Harrison County was carved from Bourbon and Scott in 1793 and named for Col. Benjamin Harrison, a Ruddle’s Station settler and early Kentucky convention man. The same December…",
+      "yearStart": 150,
+      "yearEnd": 2023,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "frontier-war",
+        "town-founding",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "col-john-bowman-at-old-chillicothe",
+      "title": "Col. John Bowman at Old Chillicothe",
+      "publishedDate": "2026-09-08",
+      "summary": "In late May 1779, Col. John Bowman—Kentucky County’s first county-lieutenant—led roughly 160–300 mounted militia (with Benjamin Logan and Levi Todd) against the Shawnee town of…",
+      "yearStart": 160,
+      "yearEnd": 1779,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-08"
+    },
+    {
+      "slug": "bland-w-ballard-of-tick-creek",
+      "title": "Bland W. Ballard of Tick Creek",
+      "publishedDate": "2026-09-05",
+      "summary": "Born Spotsylvania County, Va., October 16, 1761, Bland Williams Ballard came to Kentucky in 1779 and scouted for George Rogers Clark on the 1780 Ohio campaign and the 1786…",
+      "yearStart": 173,
+      "yearEnd": 1853,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-05"
+    },
+    {
+      "slug": "wright-mounds-montgomery-county",
+      "title": "Wright Mounds, Montgomery County",
+      "publishedDate": "2026-09-07",
+      "summary": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop. University of Kentucky crews excavated two in 1937: the larger stood about 30 feet high and 180 feet…",
+      "yearStart": 180,
+      "yearEnd": 1937,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-07"
+    },
+    {
+      "slug": "battle-of-blue-licks",
+      "title": "Battle of Blue Licks",
+      "publishedDate": "2026-08-30",
+      "summary": "On August 19, 1782, about 182 Kentucky militia chasing Captain William Caldwell’s raiders walked into an ambush on a Licking River ridge in today’s Robertson County. Roughly 50…",
+      "yearStart": 182,
+      "yearEnd": 1782,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-30"
+    },
+    {
+      "slug": "lower-shawneetown-at-the-scioto-mouth",
+      "title": "Lower Shawneetown at the Scioto mouth",
+      "publishedDate": "2026-08-29",
+      "summary": "Long before stations dotted the Bluegrass, a major Shawnee town straddled the Ohio at the Scioto's mouth (near today's South Portsmouth, KY). English maps called it Lower…",
+      "yearStart": 200,
+      "yearEnd": 1758,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-29"
+    },
+    {
+      "slug": "paris-from-hopewell",
+      "title": "Paris from Hopewell",
+      "publishedDate": "2026-09-02",
+      "summary": "Joseph Houston's 1776 station sat near Doyle Spring. Lawrence Protzman later platted 250 acres and in 1789 got Virginia to charter the town as Hopewell (for his New Jersey…",
+      "yearStart": 250,
+      "yearEnd": 1790,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-02"
+    },
+    {
+      "slug": "shelbyville",
+      "title": "Shelbyville",
+      "publishedDate": "2026-08-28",
+      "summary": "Shelby County was carved from Jefferson County in 1792 and named for first governor Isaac Shelby. That October, at the first county court, Revolutionary veteran William Shannon…",
+      "yearStart": 262,
+      "yearEnd": 1800,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-28"
+    },
+    {
+      "slug": "chickasaw-hunting-grounds",
+      "title": "Chickasaw hunting grounds",
+      "publishedDate": "2026-08-28",
+      "summary": "West of the Tennessee River, Chickasaw hunting grounds stayed off Kentucky's settled map until October 19, 1818. Andrew Jackson and Isaac Shelby negotiated what became the…",
+      "yearStart": 300,
+      "yearEnd": 1818,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-28"
+    },
+    {
+      "slug": "frankfort-franks-ford-becomes-the-capital",
+      "title": "Frankfort: Frank's Ford becomes the capital",
+      "publishedDate": "2026-08-29",
+      "summary": "Before it was the capital, the site was a buffalo-trail ford on the Kentucky River. In 1780 pioneer Stephen Frank was killed in a skirmish there; settlers called the crossing…",
+      "yearStart": 323,
+      "yearEnd": 1830,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "frontier-war",
+        "town-founding",
+        "transport"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-29"
+    },
+    {
+      "slug": "falls-of-the-ohio",
+      "title": "Falls of the Ohio",
+      "publishedDate": "2026-08-28",
+      "summary": "About 390 million years ago a shallow Devonian sea laid down the Jeffersonville Limestone — coral banks and stromatoporoid sponges now exposed at the Falls of the Ohio. Those…",
+      "yearStart": 390,
+      "yearEnd": 1966,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "geology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-28"
+    },
+    {
+      "slug": "jacob-spears-early-bourbon-whiskey",
+      "title": "Jacob Spears & early \"Bourbon\" whiskey",
+      "publishedDate": "2026-09-03",
+      "summary": "Pennsylvania-born Revolutionary veteran Jacob Spears settled near Paris in Bourbon County and was distilling by the 1790s. Thomas Metcalfe built his stone house (\"Stone…",
+      "yearStart": 418,
+      "yearEnd": 1790,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-03"
+    },
+    {
+      "slug": "lexington-ohio-railroad",
+      "title": "Lexington & Ohio Railroad",
+      "publishedDate": "2026-09-04",
+      "summary": "On January 27, 1830, Kentucky chartered the Lexington & Ohio—the commonwealth's first railroad, and among the first west of the Alleghenies—to tie Lexington to the Ohio River.…",
+      "yearStart": 509,
+      "yearEnd": 1835,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "frontier-war",
+        "town-founding",
+        "geology",
+        "transport"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-04"
+    },
+    {
+      "slug": "delaware-lenape-in-the-1780-kentucky-raids",
+      "title": "Delaware (Lenape) in the 1780 Kentucky raids",
+      "publishedDate": "2026-09-10",
+      "summary": "Pushed west from the Delaware Valley, Lenape bands hunted and wintered south of the Ohio alongside Shawnee and others even after summer towns sat north of the river. The 1778…",
+      "yearStart": 591,
+      "yearEnd": 1795,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-10"
+    },
+    {
+      "slug": "ashlands-adena-mounds",
+      "title": "Ashland's Adena mounds",
+      "publishedDate": "2026-09-02",
+      "summary": "Six conical Adena burial mounds still sit in Ashland's Central Park, roughly 15–20 feet across and 4–6 feet high in a slight curve. UK archaeologists Webb and Funkhouser…",
+      "yearStart": 595,
+      "yearEnd": 1974,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-02"
+    },
+    {
+      "slug": "odawa-raid-at-eskippakithiki-1753",
+      "title": "Odawa raid at Eskippakithiki, 1753",
+      "publishedDate": "2026-09-12",
+      "summary": "At the Shawnee town of Eskippakithiki (Indian Old Fields, Clark County)—Kentucky’s last major Native town of the 1700s—Pennsylvania trader John Finley kept a store and stockade…",
+      "yearStart": 596,
+      "yearEnd": 1754,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-12"
+    },
+    {
+      "slug": "mount-sterling-little-mountain-town",
+      "title": "Mount Sterling / Little Mountain Town",
+      "publishedDate": "2026-09-03",
+      "summary": "Explorers out of Boonesborough called a tree-covered Adena burial mound \"the Little Mountain.\" Scotsman Hugh Forbes began selling lots beside it around 1790; in 1792 the…",
+      "yearStart": 640,
+      "yearEnd": 1845,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-03"
+    },
+    {
+      "slug": "michael-stoner-german-long-hunter",
+      "title": "Michael Stoner, German long hunter",
+      "publishedDate": "2026-09-10",
+      "summary": "Born Michael Holsteiner near Philadelphia in 1748, Stoner grew up speaking German and drifted to Virginia’s New River frontier as a teen. In June 1774, Capt. William Russell…",
+      "yearStart": 800,
+      "yearEnd": 2020,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-10"
+    },
+    {
+      "slug": "bullitts-lick-kentuckys-first-industry",
+      "title": "Bullitt's Lick: Kentucky's first industry",
+      "publishedDate": "2026-08-29",
+      "summary": "Salt was frontier \"white gold,\" and the only large commercial saltworks west of the Alleghenies during the Revolution sat about three miles west of present-day Shepherdsville.…",
+      "yearStart": 888,
+      "yearEnd": 1830,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "frontier-war",
+        "town-founding",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-29"
+    },
+    {
+      "slug": "page-site-lost-city-15lo1",
+      "title": "Page Site / “Lost City” (15LO1)",
+      "publishedDate": "2026-09-12",
+      "summary": "Above the Mud River east of Lewisburg in Logan County sits the Page Site, a major Mississippian mound-and-ossuary complex (roughly A.D. 1000–1600) excavated by William S. Webb…",
+      "yearStart": 1000,
+      "yearEnd": 1985,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-12"
+    },
+    {
+      "slug": "jonathan-creek-mississippian-center",
+      "title": "Jonathan Creek Mississippian center",
+      "publishedDate": "2026-09-08",
+      "summary": "On the west bank of the Tennessee River in Marshall County (site 15Ml4), Jonathan Creek was a fortified Mississippian town occupied roughly A.D. 1200–1300. CCC crews working…",
+      "yearStart": 1200,
+      "yearEnd": 1940,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-08"
+    },
+    {
+      "slug": "fox-farm-mason-county",
+      "title": "Fox Farm (Mason County)",
+      "publishedDate": "2026-08-31",
+      "summary": "On a broad ridgetop near Mays Lick, Fort Ancient farmers lived at Fox Farm (15Ms1) from about 1300 into the mid-1600s—one of the longest-lived villages of its kind in the Ohio…",
+      "yearStart": 1300,
+      "yearEnd": 1300,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-31"
+    },
+    {
+      "slug": "howard-site-late-fort-ancient-above-harts-fork",
+      "title": "Howard Site — Late Fort Ancient above Harts Fork",
+      "publishedDate": "2026-09-09",
+      "summary": "In Madison County, the Howard site (15Ma427 / 15Ma127) holds a Late Fort Ancient farming village (roughly A.D. 1400–1750) on a low ridge above Harts Fork: house clusters,…",
+      "yearStart": 1400,
+      "yearEnd": 1750,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "erie-the-cat-nation",
+      "title": "Erie, the Cat Nation",
+      "publishedDate": "2026-09-11",
+      "summary": "South of Lake Erie, the Eriehronon—“People of the Long Tail,” called La Nation du Chat by the French—farmed and traded until Haudenosaunee armies smashed their confederacy in…",
+      "yearStart": 1654,
+      "yearEnd": 1654,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-11"
+    },
+    {
+      "slug": "mosopelea-ofo-the-ohio-valley",
+      "title": "Mosopelea (Ofo) & the Ohio Valley",
+      "publishedDate": "2026-09-04",
+      "summary": "Before the Shawnee dominated the Ohio hunting grounds, Siouan-speaking Mosopelea (later called Ofo) held eight villages north of the Ohio between the Muskingum and Scioto.…",
+      "yearStart": 1673,
+      "yearEnd": 1684,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-04"
+    },
+    {
+      "slug": "col-richard-callaway-of-boonesborough",
+      "title": "Col. Richard Callaway of Boonesborough",
+      "publishedDate": "2026-09-09",
+      "summary": "Virginia-born Richard Callaway (1717–1780) helped blaze the path into central Kentucky with Boone in 1775 and co-founded Boonesborough for Henderson’s Transylvania venture. He…",
+      "yearStart": 1717,
+      "yearEnd": 1780,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "henry-skaggs-green-river-long-hunter",
+      "title": "Henry Skaggs, Green River long hunter",
+      "publishedDate": "2026-09-12",
+      "summary": "Maryland-born Henry Skaggs (1724–1810) was among the earliest long hunters through Cumberland Gap—out by 1761 with Elisha Walden, then deeper into the Cumberland and, by 1764,…",
+      "yearStart": 1724,
+      "yearEnd": 1810,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-12"
+    },
+    {
+      "slug": "capt-abraham-lincoln-on-long-run",
+      "title": "Capt. Abraham Lincoln on Long Run",
+      "publishedDate": "2026-09-11",
+      "summary": "The president’s grandfather—Capt. Abraham Lincoln (1744–1786), Augusta/Rockingham militia officer and tanner—bought rich Jefferson County land near Hughes’ Station on Floyd’s…",
+      "yearStart": 1744,
+      "yearEnd": 1786,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-11"
+    },
+    {
+      "slug": "hugh-mcgary-the-hothead-major",
+      "title": "Hugh McGary, the hothead major",
+      "publishedDate": "2026-09-11",
+      "summary": "Irish-born Hugh McGary (1744–1806) came through the Gap with early Kentucky families, settled near Harrodsburg, and built McGary’s Station at Shawnee Springs in Mercer County…",
+      "yearStart": 1744,
+      "yearEnd": 1806,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-11"
+    },
+    {
+      "slug": "christopher-gist-1750-51",
+      "title": "Christopher Gist, 1750–51",
+      "publishedDate": "2026-09-02",
+      "summary": "Fifteen-plus years before Boone's fame, the Ohio Company hired surveyor Christopher Gist to probe the Ohio Valley down toward the Falls. Crossing into Kentucky from the Scioto…",
+      "yearStart": 1750,
+      "yearEnd": 1750,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-02"
+    },
+    {
+      "slug": "thomas-walker-and-cumberland-gap",
+      "title": "Thomas Walker and Cumberland Gap",
+      "publishedDate": "2026-08-31",
+      "summary": "In March 1750 Dr. Thomas Walker led a Loyal Land Company party through the Appalachians and on April 13 recorded Cave Gap: a plain Indian road, a spring pouring from a cave,…",
+      "yearStart": 1750,
+      "yearEnd": 1750,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "geology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-31"
+    },
+    {
+      "slug": "treaty-of-fort-stanwix-1768",
+      "title": "Treaty of Fort Stanwix (1768)",
+      "publishedDate": "2026-08-31",
+      "summary": "At Fort Stanwix (Rome, New York), Sir William Johnson and the Haudenosaunee Six Nations drew a new Line of Property that pushed the Proclamation of 1763 boundary west to the…",
+      "yearStart": 1763,
+      "yearEnd": 1768,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "bourbon",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-31"
+    },
+    {
+      "slug": "treaties-of-hard-labour-and-lochaber",
+      "title": "Treaties of Hard Labour and Lochaber",
+      "publishedDate": "2026-09-01",
+      "summary": "A month before Fort Stanwix, British superintendent John Stuart met Cherokee headmen at Hard Labour Creek, South Carolina. In mid-October 1768 they drew a line from Chiswell's…",
+      "yearStart": 1768,
+      "yearEnd": 1771,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-01"
+    },
+    {
+      "slug": "capt-will-the-hunting-ground",
+      "title": "Capt. Will & the hunting ground",
+      "publishedDate": "2026-09-02",
+      "summary": "Shawnee held the larger northern and central Kentucky hunting grounds; Cherokee worked closer to Cumberland Gap. When long hunters stacked pelts for eastern markets, Native…",
+      "yearStart": 1769,
+      "yearEnd": 1769,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-02"
+    },
+    {
+      "slug": "leestown",
+      "title": "Leestown",
+      "publishedDate": "2026-09-01",
+      "summary": "In 1773 the McAfee company and Hancock Taylor surveyed a buffalo crossing on the Kentucky River about a mile north of today's Frankfort. Hancock and Willis Lee planted a…",
+      "yearStart": 1773,
+      "yearEnd": 1827,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "bourbon",
+        "frontier-war",
+        "town-founding",
+        "geology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-01"
+    },
+    {
+      "slug": "georgetown-and-royal-spring",
+      "title": "Georgetown and Royal Spring",
+      "publishedDate": "2026-09-01",
+      "summary": "In July 1774 Floyd claimed a thousand acres around a big Bluegrass spring. John McClelland of Westmoreland County, Pennsylvania, built a cabin above it in 1775 and threw up a…",
+      "yearStart": 1774,
+      "yearEnd": 1790,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding",
+        "geology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-01"
+    },
+    {
+      "slug": "john-floyd",
+      "title": "John Floyd",
+      "publishedDate": "2026-09-01",
+      "summary": "Virginia surveyor John Floyd led a 1774 Fincastle party into Kentucky, staked 2,000 acres on Beargrass Creek, and came back in 1779 to stockade Floyd's Station near today's St.…",
+      "yearStart": 1774,
+      "yearEnd": 1783,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-01"
+    },
+    {
+      "slug": "treaty-of-camp-charlotte-1774",
+      "title": "Treaty of Camp Charlotte (1774)",
+      "publishedDate": "2026-09-03",
+      "summary": "After the Battle of Point Pleasant on October 10, 1774, Shawnee leaders under Cornstalk met Virginia's Lord Dunmore at Camp Charlotte on the Scioto. In the treaty that closed…",
+      "yearStart": 1774,
+      "yearEnd": 1775,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-03"
+    },
+    {
+      "slug": "richard-henderson",
+      "title": "Richard Henderson",
+      "publishedDate": "2026-08-31",
+      "summary": "North Carolina judge and land speculator Richard Henderson reorganized his investors as the Transylvania Company in early 1775, then bargained at Sycamore Shoals (today’s…",
+      "yearStart": 1775,
+      "yearEnd": 1775,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-31"
+    },
+    {
+      "slug": "william-calk-s-1775-journal",
+      "title": "William Calk’s 1775 journal",
+      "publishedDate": "2026-09-08",
+      "summary": "From March 13 to May 2, 1775, William Calk kept a plainspoken daybook of his trek from Prince William County, Virginia, to Boone’s Fort on the Kentucky River. The…",
+      "yearStart": 1775,
+      "yearEnd": 1874,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-08"
+    },
+    {
+      "slug": "capt-john-strode-of-strodes-station",
+      "title": "Capt. John Strode of Strode's Station",
+      "publishedDate": "2026-09-07",
+      "summary": "Virginia militia veteran John Strode reached Boonesborough in 1776 and by 1779 had raised Strode's Station on Strode's Creek—the largest fortified settlement in what became…",
+      "yearStart": 1776,
+      "yearEnd": 1965,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-07"
+    },
+    {
+      "slug": "springfield-first-county-seat-after-statehood",
+      "title": "Springfield, first county seat after statehood",
+      "publishedDate": "2026-09-12",
+      "summary": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton—Virginia…",
+      "yearStart": 1776,
+      "yearEnd": 1816,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-12"
+    },
+    {
+      "slug": "george-rogers-clark",
+      "title": "George Rogers Clark",
+      "publishedDate": "2026-08-30",
+      "summary": "Virginia surveyor-turned-militia leader George Rogers Clark staged at Corn Island in the Falls of the Ohio in 1778, then launched the Illinois Campaign that took Kaskaskia and…",
+      "yearStart": 1778,
+      "yearEnd": 1780,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-30"
+    },
+    {
+      "slug": "col-robert-patterson-builds-lexington",
+      "title": "Col. Robert Patterson builds Lexington",
+      "publishedDate": "2026-09-12",
+      "summary": "In April 1779 Ensign Robert Patterson led about twenty-five men north from Harrodsburg and began a fort on the site that became Lexington, naming the place for the…",
+      "yearStart": 1779,
+      "yearEnd": 1790,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-12"
+    },
+    {
+      "slug": "william-christian-of-beargrass",
+      "title": "William Christian of Beargrass",
+      "publishedDate": "2026-09-06",
+      "summary": "Virginia militia colonel, Patrick Henry’s brother-in-law, and signer of the Fincastle Resolutions, Christian moved his family to Jefferson County in 1785 and directed defense…",
+      "yearStart": 1779,
+      "yearEnd": 1786,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-06"
+    },
+    {
+      "slug": "bardstown",
+      "title": "Bardstown",
+      "publishedDate": "2026-08-31",
+      "summary": "The Bardstown area was explored in the mid-1770s and briefly called Salem. In 1780 William Bard arrived as agent for his brother David and John Cockey Owings, surveyed a town…",
+      "yearStart": 1780,
+      "yearEnd": 1788,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-31"
+    },
+    {
+      "slug": "elizabethtown-from-severns-valley",
+      "title": "Elizabethtown from Severns Valley",
+      "publishedDate": "2026-09-08",
+      "summary": "Severns Valley took its name from early explorer John Severns. Permanent settlement began in spring 1780 when Capt. Thomas Helm, Col. Andrew Hynes, and Samuel Haycraft built…",
+      "yearStart": 1780,
+      "yearEnd": 1797,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-08"
+    },
+    {
+      "slug": "isaac-shelby-old-kings-mountain",
+      "title": "Isaac Shelby, \"Old Kings Mountain\"",
+      "publishedDate": "2026-08-29",
+      "summary": "Shelby County's namesake was already a frontier celebrity before Kentucky was a state. Maryland-born Isaac Shelby fought at Point Pleasant in Lord Dunmore's War, then helped…",
+      "yearStart": 1780,
+      "yearEnd": 1812,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-29"
+    },
+    {
+      "slug": "squire-boones-painted-stone",
+      "title": "Squire Boone's Painted Stone",
+      "publishedDate": "2026-09-02",
+      "summary": "Daniel's younger brother Squire Maugridge Boone Jr. carved his name into a Clear Creek rock, painted the letters red, and by spring 1780 planted Shelby County's first large…",
+      "yearStart": 1780,
+      "yearEnd": 1781,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-02"
+    },
+    {
+      "slug": "capt-james-estill-estills-defeat",
+      "title": "Capt. James Estill / Estill's Defeat",
+      "publishedDate": "2026-09-03",
+      "summary": "On March 22, 1782, Capt. James Estill and about 25 Lincoln County militiamen overtook a Wyandot raiding party at Little Mountain Creek, near today's Mount Sterling. After…",
+      "yearStart": 1782,
+      "yearEnd": 1782,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-03"
+    },
+    {
+      "slug": "john-filson-kentucke-1784",
+      "title": "John Filson / Kentucke 1784",
+      "publishedDate": "2026-09-04",
+      "summary": "Pennsylvania schoolteacher and surveyor John Filson reached Lexington around 1783 with land warrants for more than 12,000 acres. In 1784 he published The Discovery, Settlement…",
+      "yearStart": 1783,
+      "yearEnd": 1788,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-04"
+    },
+    {
+      "slug": "danville-and-constitution-square",
+      "title": "Danville and Constitution Square",
+      "publishedDate": "2026-08-30",
+      "summary": "After the Kentucky District court moved from Harrodsburg to Crow’s Station, Danville’s public square (laid out 1785) hosted ten conventions from 1784 to 1792. Delegates there…",
+      "yearStart": 1784,
+      "yearEnd": 1792,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "bourbon",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-30"
+    },
+    {
+      "slug": "basil-hayden-s-high-rye-trail",
+      "title": "Basil Hayden’s High-Rye Trail",
+      "publishedDate": "2026-09-06",
+      "summary": "In 1785 Maryland Catholic Basil Hayden Sr. led about twenty-five families to Pottinger’s Creek in what became Nelson County. He distilled with a heavier rye share than many…",
+      "yearStart": 1785,
+      "yearEnd": 1785,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "bourbon",
+        "transport"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-06"
+    },
+    {
+      "slug": "william-whitley-sportsmans-hill",
+      "title": "William Whitley / Sportsman's Hill",
+      "publishedDate": "2026-08-28",
+      "summary": "Near Crab Orchard, William Whitley finished Sportsman's Hill (1787–1794), often called Kentucky's first brick house — thick walls, elevated windows, and hiding places against…",
+      "yearStart": 1787,
+      "yearEnd": 1794,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-28"
+    },
+    {
+      "slug": "jacob-beam-on-hardin-creek",
+      "title": "Jacob Beam on Hardin Creek",
+      "publishedDate": "2026-09-10",
+      "summary": "After 1790, Johannes Jacob Beam (Boehm) settled a farm and grist mill on Hardins Creek in Washington County (Outer Bluegrass / Knobs, feeding the Rolling Fork). Around 1795 he…",
+      "yearStart": 1789,
+      "yearEnd": 1795,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-10"
+    },
+    {
+      "slug": "mascouten-fire-nation-on-the-wabash",
+      "title": "Mascouten — “Fire Nation” on the Wabash",
+      "publishedDate": "2026-09-09",
+      "summary": "French Jesuits called the Algonquian Mascouten the Fire Nation (a name-play on prairie/fire roots); after losses in the upper lakes they regrouped with Kickapoo and Fox peoples…",
+      "yearStart": 1791,
+      "yearEnd": 1791,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "kickapoo-on-the-kentucky-frontier",
+      "title": "Kickapoo on the Kentucky frontier",
+      "publishedDate": "2026-09-08",
+      "summary": "Algonquian Kickapoo bands, pushed west by Beaver Wars and colonial pressure, allied with the British in the Revolution and joined raids on American settlements in Kentucky from…",
+      "yearStart": 1792,
+      "yearEnd": 1792,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-08"
+    },
+    {
+      "slug": "nicholasville-takes-shape",
+      "title": "Nicholasville Takes Shape",
+      "publishedDate": "2026-09-07",
+      "summary": "After Jessamine County split from Fayette in December 1798, Methodist minister Rev. John Metcalf surveyed a town site on September 16 around four never-failing springs and the…",
+      "yearStart": 1792,
+      "yearEnd": 1799,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-07"
+    },
+    {
+      "slug": "winchester-clark-county-seat",
+      "title": "Winchester / Clark County seat",
+      "publishedDate": "2026-09-04",
+      "summary": "Clark County was carved from Fayette and Bourbon on December 6, 1792, and named for George Rogers Clark. Justices first met at John Strode's station, then voted to put the…",
+      "yearStart": 1792,
+      "yearEnd": 2023,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "bourbon",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-04"
+    },
+    {
+      "slug": "lancaster-at-wallace-s-crossroads",
+      "title": "Lancaster at Wallace’s Crossroads",
+      "publishedDate": "2026-09-11",
+      "summary": "When Garrard County was carved in December 1796 (Kentucky’s 25th county, named for Gov. James Garrard), commissioners needed a seat where water and roads already met. Capt.…",
+      "yearStart": 1796,
+      "yearEnd": 1799,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-11"
+    },
+    {
+      "slug": "richmond-from-millers-barn",
+      "title": "Richmond from Miller's Barn",
+      "publishedDate": "2026-09-05",
+      "summary": "Madison County's first seat sat at hillside Milford with thin water. In 1798 the legislature let the court move onto Revolutionary War veteran Col. John Miller's land along…",
+      "yearStart": 1798,
+      "yearEnd": 1809,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-05"
+    },
+    {
+      "slug": "taylorsville-on-brashears-creek",
+      "title": "Taylorsville on Brashears Creek",
+      "publishedDate": "2026-09-10",
+      "summary": "In 1799, while the forks of Brashears Creek and the Salt River still sat in Shelby County, miller Richard Taylor asked the Shelby County Court to carve about sixty acres from…",
+      "yearStart": 1799,
+      "yearEnd": 1829,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-10"
+    },
+    {
+      "slug": "piankashaw-claims-on-the-ohio-wabash",
+      "title": "Piankashaw Claims on the Ohio–Wabash",
+      "publishedDate": "2026-09-07",
+      "summary": "The Piankashaw (Peeyankihšiaki), a Miami-Illinois people of the lower Wabash, were among the nations that still asserted hunting and occupancy rights along the Ohio when…",
+      "yearStart": 1804,
+      "yearEnd": 1804,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "native-history",
+        "treaty"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-07"
+    },
+    {
+      "slug": "great-saltpetre-cave",
+      "title": "Great Saltpetre Cave",
+      "publishedDate": "2026-08-30",
+      "summary": "South of Mount Vernon in Rockcastle County, Great Saltpetre Cave was mined hard for calcium nitrate during the War of 1812, when British blockades cut off imported saltpeter…",
+      "yearStart": 1812,
+      "yearEnd": 1815,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "geology",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-30"
+    },
+    {
+      "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
+      "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
+      "publishedDate": "2026-08-27",
+      "summary": "Stub topic from the Aug 27 brief rotation: Catherine Spears Carpenter’s 1818 Casey County sweet-mash and sour-mash recipes — among the earliest written whiskey formulas in…",
+      "yearStart": 1818,
+      "yearEnd": 1818,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-27"
+    },
+    {
+      "slug": "james-crow-on-glenns-creek",
+      "title": "James Crow on Glenn's Creek",
+      "publishedDate": "2026-09-05",
+      "summary": "Scottish physician-chemist James C. Crow began advising Oscar Pepper's Woodford County farm still on Glenn's Creek by 1833. After Pepper rebuilt in stone (1837–38), Crow…",
+      "yearStart": 1833,
+      "yearEnd": 1840,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon",
+        "geology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-05"
+    },
+    {
+      "slug": "diamond-caverns-decorated-limestone",
+      "title": "Diamond Caverns' Decorated Limestone",
+      "publishedDate": "2026-09-07",
+      "summary": "Discovered July 14, 1859, near Park City and opened as a show cave within a month, Diamond Caverns cuts Mississippian Ste. Genevieve limestone in the same karst country as…",
+      "yearStart": 1859,
+      "yearEnd": 1859,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "geology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-07"
+    },
+    {
+      "slug": "hardin-village-15gp22",
+      "title": "Hardin Village (15Gp22)",
+      "publishedDate": "2026-09-04",
+      "summary": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s into the early 1600s and covering more than…",
+      "yearStart": 1939,
+      "yearEnd": 1939,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-04"
+    },
+    {
+      "slug": "mount-horeb-earthworks",
+      "title": "Mount Horeb Earthworks",
+      "publishedDate": "2026-08-30",
+      "summary": "Above Elkhorn Creek near Lexington, Adena people built a circular ditch-and-embankment enclosure more than 2,000 years ago for periodic ritual gatherings. WPA digs under…",
+      "yearStart": 1939,
+      "yearEnd": 1939,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-30"
+    },
+    {
+      "slug": "indian-fort-mountain",
+      "title": "Indian Fort Mountain",
+      "publishedDate": "2026-09-01",
+      "summary": "On a knobby ridge south of Berea, dry-laid stone walls ring Indian Fort Mountain (15Ma25) in the Berea College Forest. Hopewell-era Middle Woodland people built them about…",
+      "yearStart": 1980,
+      "yearEnd": 1983,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-01"
+    },
+    {
+      "slug": "miami-hunters-return-north-of-the-ohio",
+      "title": "Miami Hunters Return North of the Ohio",
+      "publishedDate": "2026-09-06",
+      "summary": "Iroquois pressure in the Beaver Wars emptied much of the Ohio Valley by the late 1600s. By the mid-1700s the Miami—and Shawnee and other Wabash–Maumee peoples—had pushed…",
+      "yearStart": 2020,
+      "yearEnd": 2020,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "native-history",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-06"
+    },
+    {
+      "slug": "big-bone-lick-older-cycle",
+      "title": "Big Bone Lick (older cycle)",
+      "publishedDate": "2026-08-27",
+      "summary": "Stub topic: Big Bone Lick in Boone County — Pleistocene fossils and a long Native and colonial salt-and-curiosity site (older brief cycle).",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "salt"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-27"
+    },
+    {
+      "slug": "indian-knoll-on-the-green-river",
+      "title": "Indian Knoll on the Green River",
+      "publishedDate": "2026-08-29",
+      "summary": "Five thousand years before the first stations, Late Archaic hunter-gatherers kept returning to a shell midden on the Green River in Ohio County. Indian Knoll (15OH2) yielded…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-29"
+    },
+    {
+      "slug": "iroquois-beaver-wars",
+      "title": "Iroquois Beaver Wars",
+      "publishedDate": "2026-08-27",
+      "summary": "Stub topic: Iroquois Beaver Wars pressure, Shawnee hunting ground use, and the “middle ground” depopulation story that reshaped the Ohio Valley before Anglo stations.",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-27"
+    },
+    {
+      "slug": "lexington-named",
+      "title": "Lexington named",
+      "publishedDate": "2026-08-27",
+      "summary": "Stub topic: Lexington named / Harrod’s Town pairing (cross-reference briefs 08-13 and 08-15).",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-27"
+    },
+    {
+      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+      "title": "Wickliffe Mounds Mississippian village Ballard County",
+      "publishedDate": "2026-08-27",
+      "summary": "Stub topic: Wickliffe Mounds, a Mississippian village and mound center in Ballard County near the Mississippi–Ohio confluence.",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-08-27"
+    },
+    {
+      "slug": "yuchi-on-the-green-river-maps",
+      "title": "Yuchi on the Green River maps",
+      "publishedDate": "2026-09-05",
+      "summary": "John R. Swanton's federal tribal handbook notes that early colonial maps place a Yuchi (Euchee) town on a Kentucky river matching the Green. The Yuchi were a language-isolate…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "daily-brief",
+      "briefDate": "2026-09-05"
+    }
+  ]
+}

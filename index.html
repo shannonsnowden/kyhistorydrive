@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KY History Drive — Kentucky Historical Markers</title>
-    <meta name="description" content="Explore Kentucky Historical Society markers on an open-source map. Companion to the KY Markers Drive iPhone app." />
+    <meta name="description" content="Explore Kentucky Historical Society markers on an open-source map, plus daily history stories and a filterable timeline. Companion to the KY Markers Drive iPhone app." />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
@@ -13,21 +13,23 @@
         <h1>KY History Drive</h1>
         <p class="tag">Kentucky historical markers on the road</p>
       </div>
-      <nav>
-        <a href="#map">Map</a>
-        <a href="#about">About</a>
-        <a href="#app">App</a>
+      <nav id="mainNav">
+        <a href="#map" data-route="map">Map</a>
+        <a href="#timeline" data-route="timeline">Timeline</a>
+        <a href="#stories" data-route="stories">Stories</a>
+        <a href="#about" data-route="about">About</a>
+        <a href="#app" data-route="app">App</a>
       </nav>
     </header>
 
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" data-view="map">
       <p>
         Find official Kentucky Historical Society markers while you drive — map, pins, and the story at the roadside.
-        OpenStreetMap basemap via MapLibre (no Google Maps).
+        OpenStreetMap basemap via MapLibre (no Google Maps). Browse daily history briefs as Stories, or filter them on the Timeline.
       </p>
     </section>
 
-    <section id="map" class="map-section">
+    <section id="map" class="map-section view" data-view="map">
       <aside class="controls">
         <label class="ctrl">
           <input type="checkbox" id="phase1Only" checked />
@@ -43,11 +45,48 @@
       <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
     </section>
 
-    <section id="about" class="panel">
+    <section id="timeline" class="view panel-wide" data-view="timeline" hidden>
+      <div class="panel-head">
+        <h2>Timeline</h2>
+        <p class="muted">Stories from daily Kentucky History morning briefs, sorted by start year.</p>
+      </div>
+      <div class="filters">
+        <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
+        <div class="filter-row year-presets" id="yearPresets" aria-label="Year range presets"></div>
+        <div class="filter-row year-inputs">
+          <label>Min year <input type="number" id="yearMin" placeholder="e.g. -3000" /></label>
+          <label>Max year <input type="number" id="yearMax" placeholder="e.g. 1860" /></label>
+          <button type="button" id="yearApply" class="btn">Apply</button>
+          <button type="button" id="yearClear" class="btn ghost">Clear</button>
+        </div>
+        <p id="timelineStats" class="stats"></p>
+      </div>
+      <ol id="timelineList" class="timeline-list"></ol>
+    </section>
+
+    <section id="stories" class="view panel-wide" data-view="stories" hidden>
+      <div class="panel-head">
+        <h2>Stories</h2>
+        <p class="muted">One story per section from the Kentucky History Morning Update briefs.</p>
+      </div>
+      <div id="storiesList" class="stories-list"></div>
+    </section>
+
+    <section id="story" class="view panel" data-view="story" hidden>
+      <p><a href="#stories" class="back-link">← All stories</a></p>
+      <article id="storyDetail" class="story-detail"></article>
+    </section>
+
+    <section id="about" class="view panel" data-view="about" hidden>
       <h2>About</h2>
       <p>
         Marker text and locations come from public Kentucky Historical Society / history.ky.gov sources
         (geocoded for the KY Markers Drive project). This site is a web companion to the iOS app.
+      </p>
+      <p>
+        <strong>Stories &amp; Timeline:</strong> daily Kentucky History morning briefs are split into
+        individual stories (people, towns, Native history, archaeology, and more), tagged by era, and
+        filterable by year range.
       </p>
       <p>
         <strong>Maps:</strong> MapLibre GL JS + OpenStreetMap raster tiles (CARTO Voyager). Optional
@@ -56,7 +95,7 @@
       </p>
     </section>
 
-    <section id="app" class="panel">
+    <section id="app" class="view panel" data-view="app" hidden>
       <h2>iPhone app</h2>
       <p>
         KY Markers Drive (iOS) is in App Review. App Store link will go here when live.

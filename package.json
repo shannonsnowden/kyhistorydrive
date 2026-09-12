@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "node scripts/build-stories.mjs && vite build",
+    "preview": "vite preview",
+    "build-stories": "node scripts/build-stories.mjs",
+    "parse-briefs": "node scripts/parse-briefs-to-stories.mjs"
   },
   "dependencies": {
-    "maplibre-gl": "^4.7.1"
+    "maplibre-gl": "^4.7.1",
+    "marked": "^15.0.12"
   },
   "devDependencies": {
     "vite": "^5.4.11"
