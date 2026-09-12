@@ -1487,7 +1487,7 @@ function setupStoriesSortControl() {
   })
 }
 
-async function showStoryInReader(meta) {
+async function showStoryInReader(meta, { scroll = true } = {}) {
   const reader = document.getElementById('timelineStoryReader')
   if (!reader || !meta) return
   reader.classList.remove('is-empty')
@@ -1568,7 +1568,7 @@ async function showStoryInReader(meta) {
       <p class="muted popup-hint">Tip: tap the highlighted pin on the map for the place popup (full text, maps, photos, Grokipedia).</p>
       <p class="story-source muted">Kentucky History Drive</p>
     `
-    reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    if (scroll) reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   } catch {
     reader.innerHTML = `<p class="muted">Could not load this story.</p>`
   }
@@ -1807,12 +1807,31 @@ async function renderTimelineList(preferredSlug) {
     null
 
   if (pick) {
-    await showStoryInReader(pick)
+    await showStoryInReader(pick, { scroll: false })
   } else if (reader && !selectedStorySlug) {
     reader.classList.add('is-empty')
     reader.innerHTML = ''
     const jumpBar = document.getElementById('timelineReaderJump')
     if (jumpBar) jumpBar.hidden = true
+  }
+}
+
+
+function scrollTimelineToFilters() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  const filters = document.getElementById('timelineFilters')
+  const section = document.getElementById('timeline')
+  const target = filters || section
+  if (target) {
+    // Keep site header visible; land on Timeline filters
+    target.scrollIntoView({ block: 'start', behavior: 'auto' })
+  }
+  // Sticky header offset: nudge so nav + filters aren't under the top bar
+  const header = document.querySelector('header.top')
+  const offset = header ? header.getBoundingClientRect().height + 8 : 0
+  if (offset && (filters || section)) {
+    const y = window.scrollY - offset
+    if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
   }
 }
 
@@ -1853,12 +1872,22 @@ async function applyRoute() {
     setupTimelineFilters()
     await initTimelineMap()
     await renderTimelineList(slug)
+    // Always open Timeline at the top (nav + filters), not mid-story scroll
+    requestAnimationFrame(() => scrollTimelineToFilters())
   }
 }
 
 window.addEventListener('hashchange', () => {
   applyRoute().catch(console.error)
 })
+
+document.querySelector('#mainNav a[data-route="timeline"]')?.addEventListener('click', () => {
+  // Same-hash navigations skip hashchange; still reset to filters
+  requestAnimationFrame(() => {
+    if (parseHash().view === 'timeline') scrollTimelineToFilters()
+  })
+})
+
 
 ensureHomeHash()
 applyRoute().catch(console.error)
