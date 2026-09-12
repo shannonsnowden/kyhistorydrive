@@ -73,28 +73,27 @@
 
     <section id="stories" class="view stories-section" data-view="stories" hidden>
       <div class="stories-layout">
-        <div class="stories-list-pane">
-          <div class="panel-head">
-            <h2>Stories</h2>
-            <p class="muted">One story per section from the Kentucky History Morning Update briefs. Select a story to see it on the map.</p>
+        <div class="stories-main">
+          <div class="stories-toolbar">
+            <label class="stories-select-label">
+              <span class="muted">Story</span>
+              <select id="storiesSelect" aria-label="Choose a story"></select>
+            </label>
+            <p class="muted stories-toolbar-hint">Daily KY History briefs — pick a story to read it here and see where it happened.</p>
           </div>
-          <div id="storiesList" class="stories-list"></div>
+          <article id="storyReader" class="story-reader">
+            <p class="muted">Loading stories…</p>
+          </article>
         </div>
         <aside class="stories-map-pane" aria-label="Story location map">
           <div class="stories-map-head">
-            <h3 id="storiesMapTitle">Story location</h3>
-            <p id="storiesMapMeta" class="muted">Select a story to fly to its place on the map.</p>
-            <a id="storiesMapExpand" class="btn ghost small" href="#map" hidden>Open full map</a>
+            <h3 id="storiesMapTitle">Location</h3>
+            <p id="storiesMapMeta" class="muted">Choose a story to see its place on the map.</p>
           </div>
           <div id="storiesMapCanvas"></div>
           <p id="storiesNoLoc" class="stories-no-loc muted" hidden>No map location yet for this story.</p>
         </aside>
       </div>
-    </section>
-
-    <section id="story" class="view panel" data-view="story" hidden>
-      <p><a href="#stories" class="back-link">← All stories</a></p>
-      <article id="storyDetail" class="story-detail"></article>
     </section>
 
     <section id="about" class="view panel" data-view="about" hidden>

@@ -194,7 +194,9 @@ function formatYearRange(start, end) {
 function parseHash() {
   const raw = (location.hash || '#map').replace(/^#/, '')
   const [path, ...rest] = raw.split('/')
-  if (path === 'story' && rest[0]) return { view: 'story', slug: decodeURIComponent(rest[0]) }
+  if ((path === 'story' || path === 'stories') && rest[0]) {
+    return { view: 'stories', slug: decodeURIComponent(rest[0]) }
+  }
   if (['map', 'timeline', 'stories', 'about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
@@ -620,7 +622,7 @@ function initStoriesMap() {
     container: 'storiesMapCanvas',
     style: OSM_STYLE,
     center: CENTER,
-    zoom: 7.2,
+    zoom: START_ZOOM,
   })
   storiesMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
   storiesMap.on('load', async () => {
@@ -631,7 +633,7 @@ function initStoriesMap() {
         id: 'kentucky-fill',
         type: 'fill',
         source: 'kentucky',
-        paint: { 'fill-color': '#2d5a3d', 'fill-opacity': 0.12 },
+        paint: { 'fill-color': '#2d5a3d', 'fill-opacity': 0.1 },
       })
       storiesMap.addLayer({
         id: 'kentucky-outline',
@@ -639,27 +641,13 @@ function initStoriesMap() {
         source: 'kentucky',
         paint: { 'line-color': '#c9893a', 'line-width': 2, 'line-opacity': 0.9 },
       })
+      if (!pendingFocus) {
+        storiesMap.fitBounds(KY_BOUNDS, { padding: 36, maxZoom: 7.2, duration: 0 })
+      }
     } catch {
       /* ignore */
     }
-    try {
-      const data = await (await fetch('/data/layers/stories.geojson')).json()
-      storiesMap.addSource('stories', { type: 'geojson', data })
-      storiesMap.addLayer({
-        id: 'stories-pts',
-        type: 'circle',
-        source: 'stories',
-        paint: {
-          'circle-radius': 5,
-          'circle-color': '#6b8f71',
-          'circle-stroke-width': 1,
-          'circle-stroke-color': '#101812',
-          'circle-opacity': 0.75,
-        },
-      })
-    } catch {
-      /* ignore */
-    }
+    // Location map shows only the selected story pin (via highlight), not home layers or all stories.
     ensureHighlightSource(storiesMap, null)
     storiesMapReady = true
     if (pendingFocus) {
@@ -673,20 +661,20 @@ function focusStoryOnMaps(story) {
   const titleEl = document.getElementById('storiesMapTitle')
   const metaEl = document.getElementById('storiesMapMeta')
   const noLoc = document.getElementById('storiesNoLoc')
-  const expand = document.getElementById('storiesMapExpand')
+  const select = document.getElementById('storiesSelect')
 
   selectedStorySlug = story.slug
-  document.querySelectorAll('.story-card').forEach((c) => {
-    c.classList.toggle('selected', c.dataset.slug === story.slug)
-  })
+  if (select && select.value !== story.slug) select.value = story.slug
 
   if (story.lat == null || story.lon == null) {
     pendingFocus = null
     titleEl.textContent = story.title
     metaEl.textContent = 'No map location yet'
     noLoc.hidden = false
-    expand.hidden = true
-    if (storiesMapReady) ensureHighlightSource(storiesMap, null)
+    if (storiesMapReady) {
+      ensureHighlightSource(storiesMap, null)
+      storiesMap.fitBounds(KY_BOUNDS, { padding: 36, maxZoom: 7.2, duration: 600 })
+    }
     return
   }
 
@@ -708,8 +696,6 @@ function focusStoryOnMaps(story) {
           ? 'County centroid'
           : 'Located'
   metaEl.textContent = `${conf}${story.matchedPlace ? ` · ${story.matchedPlace}` : ''}`
-  expand.hidden = false
-  expand.href = '#map'
 
   initStoriesMap()
   if (storiesMapReady) {
@@ -720,11 +706,6 @@ function focusStoryOnMaps(story) {
       ensureHighlightSource(storiesMap, focus)
       flyToFocus(storiesMap, focus, 11)
     })
-  }
-
-  // Also prime main map highlight for when user opens full map
-  if (mapReady) {
-    ensureHighlightSource(map, focus)
   }
 }
 
@@ -738,119 +719,82 @@ async function loadStories() {
   return storiesIndex
 }
 
-function storyCard(s) {
-  const hasLoc = s.lat != null && s.lon != null
-  const locBadge = hasLoc
-    ? `<span class="loc-badge" title="${escapeHtml(s.matchedPlace || 'Mapped')}">📍</span>`
-    : `<span class="loc-badge muted" title="No map location yet">∅</span>`
-  return `
-    <article class="story-card" data-slug="${escapeHtml(s.slug)}" tabindex="0" role="button">
-      <div class="story-card-icon" aria-hidden="true">📖</div>
-      <div class="story-card-body">
-        <div class="story-card-meta">
-          <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
-          <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
-          <span>${escapeHtml(s.briefDate || s.publishedDate || '')}</span>
-          ${locBadge}
-        </div>
-        <h3>${escapeHtml(s.title)}</h3>
-        <p>${escapeHtml(s.summary || '')}</p>
-        <div class="story-card-actions">
-          <a class="story-read-link" href="#story/${encodeURIComponent(s.slug)}">Read story →</a>
-          ${
-            hasLoc
-              ? `<button type="button" class="btn ghost small story-map-btn" data-map-slug="${escapeHtml(s.slug)}">Show on map</button>`
-              : `<span class="muted small">No map location yet</span>`
-          }
-        </div>
-      </div>
-    </article>
-  `
+async function loadStoryBody(slug) {
+  const res = await fetch(`/content/stories/${encodeURIComponent(slug)}.json`)
+  if (!res.ok) throw new Error('not found')
+  return res.json()
 }
 
-async function renderStoriesList() {
-  const idx = await loadStories()
-  const list = document.getElementById('storiesList')
-  const sorted = [...idx.stories].sort(
-    (a, b) =>
-      String(b.briefDate || '').localeCompare(String(a.briefDate || '')) ||
-      String(a.title).localeCompare(String(b.title))
-  )
-  list.innerHTML = sorted.map(storyCard).join('') || '<p class="muted">No stories yet.</p>'
-
-  const bySlug = Object.fromEntries(idx.stories.map((s) => [s.slug, s]))
-
-  list.onclick = (e) => {
-    const read = e.target.closest('.story-read-link')
-    if (read) return // let hash navigation work
-    const mapBtn = e.target.closest('[data-map-slug]')
-    const card = e.target.closest('.story-card')
-    const slug = mapBtn?.dataset.mapSlug || card?.dataset.slug
-    if (!slug || !bySlug[slug]) return
-    focusStoryOnMaps(bySlug[slug])
-    // Mobile: if map pane is stacked/hidden-ish, also offer full map
-    if (mapBtn || (window.matchMedia('(max-width: 900px)').matches && bySlug[slug].lat != null)) {
-      if (mapBtn) {
-        pendingFocus = { lon: bySlug[slug].lon, lat: bySlug[slug].lat, title: bySlug[slug].title, slug }
-        // keep on stories on desktop; on small screens jump to map
-        if (window.matchMedia('(max-width: 900px)').matches) {
-          location.hash = '#map'
-        }
-      }
-    }
-  }
-
-  list.onkeydown = (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return
-    const card = e.target.closest('.story-card')
-    if (!card) return
-    e.preventDefault()
-    const s = bySlug[card.dataset.slug]
-    if (s) focusStoryOnMaps(s)
-  }
-
-  initStoriesMap()
-  if (selectedStorySlug && bySlug[selectedStorySlug]) {
-    focusStoryOnMaps(bySlug[selectedStorySlug])
-  }
-}
-
-async function renderStoryDetail(slug) {
-  const el = document.getElementById('storyDetail')
-  el.innerHTML = '<p class="muted">Loading…</p>'
+async function showStoryInReader(meta) {
+  const reader = document.getElementById('storyReader')
+  if (!reader || !meta) return
+  reader.innerHTML = '<p class="muted">Loading…</p>'
+  focusStoryOnMaps(meta)
   try {
-    const res = await fetch(`/content/stories/${encodeURIComponent(slug)}.json`)
-    if (!res.ok) throw new Error('not found')
-    const s = await res.json()
-    const idx = await loadStories()
-    const meta = idx.stories.find((x) => x.slug === slug) || {}
+    const s = await loadStoryBody(meta.slug)
     const tags = (s.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join(' ')
-    const loc =
-      meta.lat != null
-        ? `<p><button type="button" class="btn" id="storyDetailMapBtn">Show on map</button>
-           <span class="muted"> ${escapeHtml(meta.matchedPlace || '')}</span></p>`
-        : `<p class="muted">No map location yet</p>`
-    el.innerHTML = `
+    reader.innerHTML = `
       <header class="story-head">
         <div class="story-card-meta">
+          <span class="story-card-icon inline" aria-hidden="true">📖</span>
           <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
           <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
           <span>Brief ${escapeHtml(s.briefDate || '')}</span>
         </div>
         <h2>${escapeHtml(s.title)}</h2>
+        <p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>
         <div class="tags">${tags}</div>
       </header>
-      ${loc}
       <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
       <p class="story-source muted">Source: ${escapeHtml(s.source || 'daily-brief')}</p>
     `
-    document.getElementById('storyDetailMapBtn')?.addEventListener('click', () => {
-      pendingFocus = { lon: meta.lon, lat: meta.lat, title: s.title, slug }
-      location.hash = '#map'
-    })
+    reader.scrollTop = 0
   } catch {
-    el.innerHTML = `<p>Story not found. <a href="#stories">Back to stories</a></p>`
+    reader.innerHTML = `<p class="muted">Could not load this story.</p>`
   }
+}
+
+async function renderStoriesPage(preferredSlug) {
+  const idx = await loadStories()
+  const select = document.getElementById('storiesSelect')
+  const sorted = [...idx.stories].sort(
+    (a, b) =>
+      String(b.briefDate || '').localeCompare(String(a.briefDate || '')) ||
+      String(a.title).localeCompare(String(b.title))
+  )
+  const bySlug = Object.fromEntries(sorted.map((s) => [s.slug, s]))
+
+  select.innerHTML = sorted
+    .map((s) => {
+      const mark = s.lat != null ? '' : ' · no map'
+      return `<option value="${escapeHtml(s.slug)}">${escapeHtml(s.title)}${mark}</option>`
+    })
+    .join('')
+
+  select.onchange = () => {
+    const s = bySlug[select.value]
+    if (s) {
+      history.replaceState(null, '', `#stories/${encodeURIComponent(s.slug)}`)
+      showStoryInReader(s)
+    }
+  }
+
+  initStoriesMap()
+
+  const pick =
+    (preferredSlug && bySlug[preferredSlug]) ||
+    (selectedStorySlug && bySlug[selectedStorySlug]) ||
+    sorted.find((s) => s.lat != null) ||
+    sorted[0]
+
+  if (pick) {
+    select.value = pick.slug
+    await showStoryInReader(pick)
+  } else {
+    document.getElementById('storyReader').innerHTML = '<p class="muted">No stories yet.</p>'
+  }
+
+  requestAnimationFrame(() => storiesMap?.resize())
 }
 
 function setupTimelineFilters() {
@@ -970,7 +914,7 @@ async function renderTimelineList() {
 function setActiveNav(view) {
   document.querySelectorAll('#mainNav a').forEach((a) => {
     const r = a.dataset.route
-    a.classList.toggle('active', r === view || (view === 'story' && r === 'stories'))
+    a.classList.toggle('active', r === view)
   })
 }
 
@@ -978,7 +922,8 @@ async function applyRoute() {
   const { view, slug } = parseHash()
   document.querySelectorAll('.view').forEach((el) => {
     const v = el.dataset.view
-    const show = v === view || (view === 'map' && v === 'map')
+    // Home map/layers only on Map; Stories page is its own split (article + location map)
+    const show = v === view || (view === 'stories' && v === 'stories')
     el.hidden = !show
   })
   const hero = document.getElementById('hero')
@@ -1004,12 +949,9 @@ async function applyRoute() {
       }
     })
   } else if (view === 'stories') {
-    await renderStoriesList()
-    requestAnimationFrame(() => storiesMap?.resize())
+    await renderStoriesPage(slug)
   } else if (view === 'timeline') {
     await renderTimelineList()
-  } else if (view === 'story') {
-    await renderStoryDetail(slug)
   }
 }
 
