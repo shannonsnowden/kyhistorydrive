@@ -291,3 +291,49 @@ nav a:hover, nav a.active { color: var(--accent); }
   .story-card h3 { font-size: 1.15rem; }
   .story-card-icon { width: 36px; height: 36px; font-size: 24px; }
 }
+
+.map-click-hint { font-size: 0.8rem; margin: 0.35rem 0 0; }
+
+/* MapLibre popup next to pin */
+.ky-popup .maplibregl-popup-content {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  padding: 0.75rem 0.85rem 0.85rem;
+  max-width: 320px;
+}
+.ky-popup .maplibregl-popup-close-button {
+  color: var(--muted);
+  font-size: 1.15rem;
+  padding: 0.15rem 0.45rem;
+}
+.ky-popup .maplibregl-popup-close-button:hover { color: var(--accent); }
+.ky-popup .maplibregl-popup-tip {
+  border-top-color: var(--panel);
+  border-bottom-color: var(--panel);
+}
+.map-popup h3 {
+  margin: 0.2rem 0 0.35rem;
+  font-size: 1.05rem;
+  color: #e8d5a8;
+  line-height: 1.25;
+}
+.map-popup .meta {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-bottom: 0.45rem;
+}
+.map-popup p {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.map-popup .popup-link { margin-top: 0.55rem; }
+.map-popup .detail-layer {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
