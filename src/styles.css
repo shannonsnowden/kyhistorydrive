@@ -26,10 +26,23 @@ a { color: var(--accent); }
   backdrop-filter: blur(8px);
 }
 .brand-home {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  min-width: 0;
+}
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f7f4ea;
+  border: 1px solid var(--accent);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
 .brand-home:hover h1,
 .brand-home:focus-visible h1 {
@@ -37,12 +50,22 @@ a { color: var(--accent); }
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
+.brand-home:hover .brand-logo,
+.brand-home:focus-visible .brand-logo {
+  border-color: #e8d5a8;
+}
 .brand-home:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
-.brand h1 { margin: 0; font-size: 1.25rem; letter-spacing: 0.02em; color: #e8d5a8; }
+.brand h1 {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  letter-spacing: 0.02em;
+  color: #e8d5a8;
+  line-height: 1.15;
+}
 .tag { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.85rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.85rem 1rem; }
 nav a { text-decoration: none; color: var(--text); font-size: 0.95rem; }
