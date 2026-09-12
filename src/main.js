@@ -1817,6 +1817,40 @@ async function renderTimelineList(preferredSlug) {
 }
 
 
+
+function resetTimelineFiltersOff() {
+  // Year / era → default (no year range, all eras); layers → all off
+  timelineState.yearMin = null
+  timelineState.yearMax = null
+  timelineState.preset = 'all'
+  timelineState.eras = new Set(ERAS.map((e) => e.id))
+
+  const yearMin = document.getElementById('yearMin')
+  const yearMax = document.getElementById('yearMax')
+  if (yearMin) yearMin.value = ''
+  if (yearMax) yearMax.value = ''
+
+  document.querySelectorAll('#eraChips .chip').forEach((c) => c.classList.add('active'))
+  document.querySelectorAll('#yearPresets .chip').forEach((c) =>
+    c.classList.toggle('active', c.dataset.preset === 'all'),
+  )
+
+  for (const id of Object.keys(timelineLayerVisibility)) {
+    timelineLayerVisibility[id] = false
+    if (timelineMap && timelineMapReady) setTimelineLayerVisible(id, false)
+  }
+  document.querySelectorAll('input[data-timeline-layer]').forEach((input) => {
+    input.checked = false
+  })
+
+  applyMapFilters()
+  updateTimelineMapCounts()
+  if (timelineMapReady) {
+    ensureHighlightSource(timelineMap, null)
+    fitMapToKentucky(timelineMap, { duration: 0 })
+  }
+}
+
 function scrollTimelineToFilters() {
   window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   const filters = document.getElementById('timelineFilters')
@@ -1870,7 +1904,10 @@ async function applyRoute() {
     })
   } else if (view === 'timeline') {
     setupTimelineFilters()
+    resetTimelineFiltersOff()
     await initTimelineMap()
+    // Fresh visit: bare #timeline (no story slug), clear prior selection
+    if (!slug) selectedStorySlug = null
     await renderTimelineList(slug)
     // Always open Timeline at the top (nav + filters), not mid-story scroll
     requestAnimationFrame(() => scrollTimelineToFilters())
@@ -1882,9 +1919,13 @@ window.addEventListener('hashchange', () => {
 })
 
 document.querySelector('#mainNav a[data-route="timeline"]')?.addEventListener('click', () => {
-  // Same-hash navigations skip hashchange; still reset to filters
+  // Same-hash navigations skip hashchange; still reset filters + scroll
   requestAnimationFrame(() => {
-    if (parseHash().view === 'timeline') scrollTimelineToFilters()
+    if (parseHash().view !== 'timeline') return
+    resetTimelineFiltersOff()
+    selectedStorySlug = null
+    renderTimelineList(null).catch(console.error)
+    scrollTimelineToFilters()
   })
 })
 
