@@ -56,15 +56,15 @@ const DATA_LAYERS = [
   {
     id: 'markers',
     label: 'Markers',
-    icon: { type: 'img', src: '/icons/highway-marker.png' },
+    icon: { type: 'img', src: '/icons/highway-marker-orange.png' },
     color: '#e87722',
     defaultOn: true,
     geojson: '/data/markers.geojson',
     yearFilter: false,
-    // Dense statewide set — keep dots small
-    circleRadius: ['interpolate', ['linear'], ['zoom'], 6, 2, 9, 3, 12, 4.5, 16, 7],
-    iconSize: ['interpolate', ['linear'], ['zoom'], 6, 0.28, 9, 0.38, 12, 0.5, 16, 0.65],
-    hitRadius: 11,
+    // Dense statewide set — small orange icons
+    circleRadius: ['interpolate', ['linear'], ['zoom'], 6, 1.5, 9, 2.2, 12, 3.2, 16, 5],
+    iconSize: ['interpolate', ['linear'], ['zoom'], 6, 0.16, 9, 0.22, 12, 0.3, 16, 0.4],
+    hitRadius: 10,
   },
   {
     id: 'history',
@@ -471,7 +471,7 @@ async function addDataLayer(def) {
           },
         })
         // Prefer icons: fade underlay circles when a symbol is present
-        map.setPaintProperty(layerCircleId(def.id), 'circle-opacity', def.id === 'markers' ? 0.55 : 0.35)
+        map.setPaintProperty(layerCircleId(def.id), 'circle-opacity', def.id === 'markers' ? 0.85 : 0.35)
         if (!def.circleRadius) {
           map.setPaintProperty(layerCircleId(def.id), 'circle-radius', [
             'interpolate',
