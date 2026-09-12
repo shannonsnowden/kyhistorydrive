@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T13:23:25.609Z",
+  "generatedAt": "2026-09-12T13:57:16.266Z",
   "count": 85,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -27,7 +27,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-03"
+      "briefDate": "2026-09-03",
+      "lat": 37.2849569,
+      "lon": -86.7683398,
+      "mapConfidence": "exact",
+      "matchedPlace": "Carlston Annis Shell Mound"
     },
     {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -43,7 +47,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-05"
+      "briefDate": "2026-09-05",
+      "lat": 38.0733,
+      "lon": -83.9511,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Gaitskill Mound"
     },
     {
       "slug": "peter-village-enclosure-15fa166",
@@ -59,7 +67,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-11"
+      "briefDate": "2026-09-11",
+      "lat": 38.0459102,
+      "lon": -84.4960297,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County"
     },
     {
       "slug": "cleek-mccabe-fort-ancient-village",
@@ -77,7 +89,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-10"
+      "briefDate": "2026-09-10",
+      "lat": 38.772860422898226,
+      "lon": -84.00880725804063,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Cleek-McCabe Fort Ancient village Boone County"
     },
     {
       "slug": "versailles-takes-shape",
@@ -93,7 +109,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-06"
+      "briefDate": "2026-09-06",
+      "lat": 38.08491,
+      "lon": -84.71149,
+      "mapConfidence": "county",
+      "matchedPlace": "Woodford County (centroid)"
     },
     {
       "slug": "evan-williams-on-the-louisville-wharf",
@@ -109,7 +129,11 @@
         "bourbon"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-09"
+      "briefDate": "2026-09-09",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "robbins-mounds-boone-county",
@@ -126,7 +150,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-06"
+      "briefDate": "2026-09-06",
+      "lat": 39.0933727,
+      "lon": -84.7133552,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Robbins Mounds (Boone County Adena)"
     },
     {
       "slug": "benjamin-logan",
@@ -142,7 +170,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-28"
+      "briefDate": "2026-08-28",
+      "lat": 37.5302888,
+      "lon": -84.6676739,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Benjamin Logan / Logan's Station"
     },
     {
       "slug": "cynthiana-cynthia-anna-on-the-licking",
@@ -161,7 +193,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-09"
+      "briefDate": "2026-09-09",
+      "lat": 38.34127,
+      "lon": -84.09811,
+      "mapConfidence": "county",
+      "matchedPlace": "Harrison County (centroid)"
     },
     {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -178,7 +214,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-08"
+      "briefDate": "2026-09-08",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "bland-w-ballard-of-tick-creek",
@@ -195,7 +235,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-05"
+      "briefDate": "2026-09-05",
+      "lat": 38.20919,
+      "lon": -85.25251,
+      "mapConfidence": "county",
+      "matchedPlace": "Shelby County (centroid)"
     },
     {
       "slug": "wright-mounds-montgomery-county",
@@ -212,7 +256,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-07"
+      "briefDate": "2026-09-07",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "county",
+      "matchedPlace": "Montgomery County (centroid)"
     },
     {
       "slug": "battle-of-blue-licks",
@@ -230,7 +278,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-30"
+      "briefDate": "2026-08-30",
+      "lat": 38.43443333333333,
+      "lon": -83.99151666666667,
+      "mapConfidence": "exact",
+      "matchedPlace": "Battle of Blue Licks"
     },
     {
       "slug": "lower-shawneetown-at-the-scioto-mouth",
@@ -248,7 +300,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-29"
+      "briefDate": "2026-08-29",
+      "lat": 38.7250509,
+      "lon": -83.0141361,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lower Shawneetown"
     },
     {
       "slug": "paris-from-hopewell",
@@ -266,7 +322,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-02"
+      "briefDate": "2026-09-02",
+      "lat": 38.21439,
+      "lon": -84.25175,
+      "mapConfidence": "county",
+      "matchedPlace": "Bourbon County (centroid)"
     },
     {
       "slug": "shelbyville",
@@ -282,7 +342,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-28"
+      "briefDate": "2026-08-28",
+      "lat": 38.211083333333335,
+      "lon": -85.21585,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Shelbyville Founding"
     },
     {
       "slug": "chickasaw-hunting-grounds",
@@ -299,7 +363,11 @@
         "treaty"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-28"
+      "briefDate": "2026-08-28",
+      "lat": 37.5753439,
+      "lon": -84.7919732,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Isaac Shelby"
     },
     {
       "slug": "frankfort-franks-ford-becomes-the-capital",
@@ -317,7 +385,11 @@
         "transport"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-29"
+      "briefDate": "2026-08-29",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "falls-of-the-ohio",
@@ -333,7 +405,11 @@
         "geology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-28"
+      "briefDate": "2026-08-28",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "exact",
+      "matchedPlace": "Falls of the Ohio"
     },
     {
       "slug": "jacob-spears-early-bourbon-whiskey",
@@ -350,7 +426,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-03"
+      "briefDate": "2026-09-03",
+      "lat": 38.27406666666667,
+      "lon": -84.29951666666666,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Jacob Spears"
     },
     {
       "slug": "lexington-ohio-railroad",
@@ -369,7 +449,11 @@
         "transport"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-04"
+      "briefDate": "2026-09-04",
+      "lat": 38.1884,
+      "lon": -84.81528333333333,
+      "mapConfidence": "exact",
+      "matchedPlace": "Lexington & Ohio Railroad"
     },
     {
       "slug": "delaware-lenape-in-the-1780-kentucky-raids",
@@ -388,7 +472,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-10"
+      "briefDate": "2026-09-10",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "ashlands-adena-mounds",
@@ -404,7 +492,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-02"
+      "briefDate": "2026-09-02",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "odawa-raid-at-eskippakithiki-1753",
@@ -421,7 +513,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-12"
+      "briefDate": "2026-09-12",
+      "lat": 37.98859,
+      "lon": -84.25209,
+      "mapConfidence": "county",
+      "matchedPlace": "Clark County (centroid)"
     },
     {
       "slug": "mount-sterling-little-mountain-town",
@@ -438,7 +534,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-03"
+      "briefDate": "2026-09-03",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "county",
+      "matchedPlace": "Montgomery County (centroid)"
     },
     {
       "slug": "michael-stoner-german-long-hunter",
@@ -454,7 +554,11 @@
         "native-history"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-10"
+      "briefDate": "2026-09-10",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio"
     },
     {
       "slug": "bullitts-lick-kentuckys-first-industry",
@@ -472,7 +576,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-29"
+      "briefDate": "2026-08-29",
+      "lat": 38.000782,
+      "lon": -85.7640065,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Bullitt's Lick"
     },
     {
       "slug": "page-site-lost-city-15lo1",
@@ -488,7 +596,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-12"
+      "briefDate": "2026-09-12",
+      "lat": 36.82461,
+      "lon": -86.84895,
+      "mapConfidence": "county",
+      "matchedPlace": "Logan County (centroid)"
     },
     {
       "slug": "jonathan-creek-mississippian-center",
@@ -504,7 +616,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-08"
+      "briefDate": "2026-09-08",
+      "lat": 36.86767,
+      "lon": -88.32188,
+      "mapConfidence": "county",
+      "matchedPlace": "Marshall County (centroid)"
     },
     {
       "slug": "fox-farm-mason-county",
@@ -522,7 +638,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-31"
+      "briefDate": "2026-08-31",
+      "lat": 38.62111,
+      "lon": -83.79953,
+      "mapConfidence": "county",
+      "matchedPlace": "Mason County (centroid)"
     },
     {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
@@ -540,7 +660,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-09"
+      "briefDate": "2026-09-09",
+      "lat": 37.7346,
+      "lon": -84.29079,
+      "mapConfidence": "county",
+      "matchedPlace": "Madison County (centroid)"
     },
     {
       "slug": "erie-the-cat-nation",
@@ -555,7 +679,11 @@
         "kentucky"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-11"
+      "briefDate": "2026-09-11",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "mosopelea-ofo-the-ohio-valley",
@@ -572,7 +700,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-04"
+      "briefDate": "2026-09-04",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "col-richard-callaway-of-boonesborough",
@@ -589,7 +721,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-09"
+      "briefDate": "2026-09-09",
+      "lat": 36.61867,
+      "lon": -88.28586,
+      "mapConfidence": "county",
+      "matchedPlace": "Calloway County (centroid)"
     },
     {
       "slug": "henry-skaggs-green-river-long-hunter",
@@ -604,7 +740,11 @@
         "kentucky"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-12"
+      "briefDate": "2026-09-12",
+      "lat": 37.03703,
+      "lon": -85.92479,
+      "mapConfidence": "county",
+      "matchedPlace": "Barren County (centroid)"
     },
     {
       "slug": "capt-abraham-lincoln-on-long-run",
@@ -620,7 +760,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-11"
+      "briefDate": "2026-09-11",
+      "lat": 38.23133,
+      "lon": -85.72027,
+      "mapConfidence": "county",
+      "matchedPlace": "Jefferson County (centroid)"
     },
     {
       "slug": "hugh-mcgary-the-hothead-major",
@@ -638,7 +782,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-11"
+      "briefDate": "2026-09-11",
+      "lat": 37.778,
+      "lon": -84.83079,
+      "mapConfidence": "county",
+      "matchedPlace": "Mercer County (centroid)"
     },
     {
       "slug": "christopher-gist-1750-51",
@@ -654,7 +802,11 @@
         "native-history"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-02"
+      "briefDate": "2026-09-02",
+      "lat": 38.7250509,
+      "lon": -83.0141361,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lower Shawneetown"
     },
     {
       "slug": "thomas-walker-and-cumberland-gap",
@@ -670,7 +822,11 @@
         "geology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-31"
+      "briefDate": "2026-08-31",
+      "lat": 36.60686666666667,
+      "lon": -83.70171666666667,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Cumberland Gap / Thomas Walker"
     },
     {
       "slug": "treaty-of-fort-stanwix-1768",
@@ -689,7 +845,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-31"
+      "briefDate": "2026-08-31",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "treaties-of-hard-labour-and-lochaber",
@@ -707,7 +867,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-01"
+      "briefDate": "2026-09-01",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "capt-will-the-hunting-ground",
@@ -723,7 +887,11 @@
         "native-history"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-02"
+      "briefDate": "2026-09-02",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "leestown",
@@ -742,7 +910,11 @@
         "geology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-01"
+      "briefDate": "2026-09-01",
+      "lat": 38.2137751,
+      "lon": -84.8677266,
+      "mapConfidence": "exact",
+      "matchedPlace": "Leestown"
     },
     {
       "slug": "georgetown-and-royal-spring",
@@ -760,7 +932,11 @@
         "geology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-01"
+      "briefDate": "2026-09-01",
+      "lat": 38.2100364,
+      "lon": -84.5614948,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Georgetown / Royal Spring"
     },
     {
       "slug": "john-floyd",
@@ -777,7 +953,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-01"
+      "briefDate": "2026-09-01",
+      "lat": 38.24001666666667,
+      "lon": -85.64503333333333,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Floyd / Floyd's Station"
     },
     {
       "slug": "treaty-of-camp-charlotte-1774",
@@ -795,7 +975,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-03"
+      "briefDate": "2026-09-03",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "richard-henderson",
@@ -811,7 +995,11 @@
         "native-history"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-31"
+      "briefDate": "2026-08-31",
+      "lat": 37.8310805,
+      "lon": -87.5691084,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Richard Henderson / Transylvania"
     },
     {
       "slug": "william-calk-s-1775-journal",
@@ -827,7 +1015,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-08"
+      "briefDate": "2026-09-08",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "capt-john-strode-of-strodes-station",
@@ -843,7 +1035,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-07"
+      "briefDate": "2026-09-07",
+      "lat": 37.98859,
+      "lon": -84.25209,
+      "mapConfidence": "county",
+      "matchedPlace": "Clark County (centroid)"
     },
     {
       "slug": "springfield-first-county-seat-after-statehood",
@@ -860,7 +1056,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-12"
+      "briefDate": "2026-09-12",
+      "lat": 37.70957,
+      "lon": -85.24169,
+      "mapConfidence": "county",
+      "matchedPlace": "Washington County (centroid)"
     },
     {
       "slug": "george-rogers-clark",
@@ -877,7 +1077,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-30"
+      "briefDate": "2026-08-30",
+      "lat": 38.2434,
+      "lon": -85.7173,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "George Rogers Clark / Corn Island"
     },
     {
       "slug": "col-robert-patterson-builds-lexington",
@@ -894,7 +1098,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-12"
+      "briefDate": "2026-09-12",
+      "lat": 38.2323905798604,
+      "lon": -85.75941874666854,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Filson"
     },
     {
       "slug": "william-christian-of-beargrass",
@@ -910,7 +1118,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-06"
+      "briefDate": "2026-09-06",
+      "lat": 38.23133,
+      "lon": -85.72027,
+      "mapConfidence": "county",
+      "matchedPlace": "Jefferson County (centroid)"
     },
     {
       "slug": "bardstown",
@@ -926,7 +1138,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-31"
+      "briefDate": "2026-08-31",
+      "lat": 37.8089,
+      "lon": -85.4665,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Bardstown Founding"
     },
     {
       "slug": "elizabethtown-from-severns-valley",
@@ -942,7 +1158,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-08"
+      "briefDate": "2026-09-08",
+      "lat": 37.73542,
+      "lon": -85.9548,
+      "mapConfidence": "county",
+      "matchedPlace": "Hardin County (centroid)"
     },
     {
       "slug": "isaac-shelby-old-kings-mountain",
@@ -958,7 +1178,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-29"
+      "briefDate": "2026-08-29",
+      "lat": 37.5753439,
+      "lon": -84.7919732,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Isaac Shelby"
     },
     {
       "slug": "squire-boones-painted-stone",
@@ -974,7 +1198,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-02"
+      "briefDate": "2026-09-02",
+      "lat": 38.20919,
+      "lon": -85.25251,
+      "mapConfidence": "county",
+      "matchedPlace": "Shelby County (centroid)"
     },
     {
       "slug": "capt-james-estill-estills-defeat",
@@ -990,7 +1218,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-03"
+      "briefDate": "2026-09-03",
+      "lat": 38.0561079,
+      "lon": -83.9431961,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Estill's Defeat"
     },
     {
       "slug": "john-filson-kentucke-1784",
@@ -1006,7 +1238,11 @@
         "native-history"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-04"
+      "briefDate": "2026-09-04",
+      "lat": 38.2323905798604,
+      "lon": -85.75941874666854,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Filson"
     },
     {
       "slug": "danville-and-constitution-square",
@@ -1023,7 +1259,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-30"
+      "briefDate": "2026-08-30",
+      "lat": 37.6456488,
+      "lon": -84.7721823,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Danville Constitution Square"
     },
     {
       "slug": "basil-hayden-s-high-rye-trail",
@@ -1040,7 +1280,11 @@
         "transport"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-06"
+      "briefDate": "2026-09-06",
+      "lat": 37.8199,
+      "lon": -85.47756,
+      "mapConfidence": "county",
+      "matchedPlace": "Nelson County (centroid)"
     },
     {
       "slug": "william-whitley-sportsmans-hill",
@@ -1056,7 +1300,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-28"
+      "briefDate": "2026-08-28",
+      "lat": 37.4761695,
+      "lon": -84.54252,
+      "mapConfidence": "exact",
+      "matchedPlace": "William Whitley / Sportsman's Hill"
     },
     {
       "slug": "jacob-beam-on-hardin-creek",
@@ -1072,7 +1320,11 @@
         "bourbon"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-10"
+      "briefDate": "2026-09-10",
+      "lat": 37.70957,
+      "lon": -85.24169,
+      "mapConfidence": "county",
+      "matchedPlace": "Washington County (centroid)"
     },
     {
       "slug": "mascouten-fire-nation-on-the-wabash",
@@ -1088,7 +1340,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-09"
+      "briefDate": "2026-09-09",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "kickapoo-on-the-kentucky-frontier",
@@ -1104,7 +1360,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-08"
+      "briefDate": "2026-09-08",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "nicholasville-takes-shape",
@@ -1120,7 +1380,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-07"
+      "briefDate": "2026-09-07",
+      "lat": 37.85014,
+      "lon": -84.62265,
+      "mapConfidence": "county",
+      "matchedPlace": "Jessamine County (centroid)"
     },
     {
       "slug": "winchester-clark-county-seat",
@@ -1138,7 +1402,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-04"
+      "briefDate": "2026-09-04",
+      "lat": 37.98859,
+      "lon": -84.25209,
+      "mapConfidence": "county",
+      "matchedPlace": "Clark County (centroid)"
     },
     {
       "slug": "lancaster-at-wallace-s-crossroads",
@@ -1153,7 +1421,11 @@
         "kentucky"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-11"
+      "briefDate": "2026-09-11",
+      "lat": 37.62829,
+      "lon": -84.56799,
+      "mapConfidence": "county",
+      "matchedPlace": "Garrard County (centroid)"
     },
     {
       "slug": "richmond-from-millers-barn",
@@ -1169,7 +1441,11 @@
         "town-founding"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-05"
+      "briefDate": "2026-09-05",
+      "lat": 37.7346,
+      "lon": -84.29079,
+      "mapConfidence": "county",
+      "matchedPlace": "Madison County (centroid)"
     },
     {
       "slug": "taylorsville-on-brashears-creek",
@@ -1185,7 +1461,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-10"
+      "briefDate": "2026-09-10",
+      "lat": 38.20919,
+      "lon": -85.25251,
+      "mapConfidence": "county",
+      "matchedPlace": "Shelby County (centroid)"
     },
     {
       "slug": "piankashaw-claims-on-the-ohio-wabash",
@@ -1202,7 +1482,11 @@
         "treaty"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-07"
+      "briefDate": "2026-09-07",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio"
     },
     {
       "slug": "great-saltpetre-cave",
@@ -1219,7 +1503,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-30"
+      "briefDate": "2026-08-30",
+      "lat": 37.3677334,
+      "lon": -84.2036474,
+      "mapConfidence": "exact",
+      "matchedPlace": "Great Saltpetre Cave"
     },
     {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
@@ -1235,7 +1523,11 @@
         "bourbon"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-27"
+      "briefDate": "2026-08-27",
+      "lat": 37.3184064,
+      "lon": -84.9393979,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Catherine Spears Carpenter"
     },
     {
       "slug": "james-crow-on-glenns-creek",
@@ -1252,7 +1544,11 @@
         "geology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-05"
+      "briefDate": "2026-09-05",
+      "lat": 38.08491,
+      "lon": -84.71149,
+      "mapConfidence": "county",
+      "matchedPlace": "Woodford County (centroid)"
     },
     {
       "slug": "diamond-caverns-decorated-limestone",
@@ -1269,7 +1565,11 @@
         "geology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-07"
+      "briefDate": "2026-09-07",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "hardin-village-15gp22",
@@ -1286,7 +1586,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-04"
+      "briefDate": "2026-09-04",
+      "lat": 38.54013,
+      "lon": -82.83268,
+      "mapConfidence": "county",
+      "matchedPlace": "Greenup County (centroid)"
     },
     {
       "slug": "mount-horeb-earthworks",
@@ -1302,7 +1606,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-30"
+      "briefDate": "2026-08-30",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "indian-fort-mountain",
@@ -1319,7 +1627,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-01"
+      "briefDate": "2026-09-01",
+      "lat": 37.5675476,
+      "lon": -84.2328837,
+      "mapConfidence": "exact",
+      "matchedPlace": "Indian Fort Mountain"
     },
     {
       "slug": "miami-hunters-return-north-of-the-ohio",
@@ -1336,7 +1648,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-06"
+      "briefDate": "2026-09-06",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "big-bone-lick-older-cycle",
@@ -1353,7 +1669,11 @@
         "salt"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-27"
+      "briefDate": "2026-08-27",
+      "lat": 38.8580137,
+      "lon": -84.775606,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Big Bone Lick"
     },
     {
       "slug": "indian-knoll-on-the-green-river",
@@ -1370,7 +1690,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-29"
+      "briefDate": "2026-08-29",
+      "lat": 37.303551,
+      "lon": -86.890631,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Indian Knoll"
     },
     {
       "slug": "iroquois-beaver-wars",
@@ -1387,7 +1711,11 @@
         "frontier-war"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-27"
+      "briefDate": "2026-08-27",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "lexington-named",
@@ -1402,7 +1730,11 @@
         "kentucky"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-27"
+      "briefDate": "2026-08-27",
+      "lat": 38.057833333333335,
+      "lon": -84.52875,
+      "mapConfidence": "exact",
+      "matchedPlace": "Lexington Named"
     },
     {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",
@@ -1418,7 +1750,11 @@
         "archaeology"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-08-27"
+      "briefDate": "2026-08-27",
+      "lat": 36.9712176,
+      "lon": -89.0917492,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wickliffe Mounds"
     },
     {
       "slug": "yuchi-on-the-green-river-maps",
@@ -1434,7 +1770,11 @@
         "native-history"
       ],
       "source": "daily-brief",
-      "briefDate": "2026-09-05"
+      "briefDate": "2026-09-05",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     }
   ]
 }
