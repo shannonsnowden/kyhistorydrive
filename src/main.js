@@ -1026,8 +1026,8 @@ async function applyRoute() {
 }
 
 window.addEventListener('hashchange', () => {
-  ensureHomeHash()
-applyRoute().catch(console.error)
+  applyRoute().catch(console.error)
 })
 
+ensureHomeHash()
 applyRoute().catch(console.error)
