@@ -1,9 +1,9 @@
 {
   "slug": "lancaster-at-wallace-s-crossroads",
-  "title": "Lancaster at Wallace’s Crossroads",
+  "title": "Lancaster at Wallace\u2019s Crossroads",
   "publishedDate": "2026-09-11",
-  "summary": "When Garrard County was carved in December 1796 (Kentucky’s 25th county, named for Gov. James Garrard), commissioners needed a seat where water and roads already met. Capt.…",
-  "bodyMarkdown": "When Garrard County was carved in December 1796 (Kentucky’s 25th county, named for Gov. James Garrard), commissioners needed a seat where water and roads already met. Capt. William Buford donated about 57 acres at Wallace’s Crossroads—where the Harrodsburg–Boonesborough road crossed the Hickman–Crab Orchard route—and Joseph Bledsoe Jr. platted a grid around a public square in 1797–98. First court sat June 6, 1797; a brick courthouse rose by 1799. The name “Lancaster” came from Pennsylvania (via settler Henry Paulding or the plan itself). The town stuck as Garrard’s only incorporated seat, still anchored on that pioneer crossroads.\nSource: [https://en.wikipedia.org/wiki/Lancaster,_Kentucky](https://en.wikipedia.org/wiki/Lancaster,_Kentucky)",
+  "summary": "When Garrard County was carved in December 1796 (Kentucky\u2019s 25th county, named for Gov. James Garrard), commissioners needed a seat where water and roads already met. Capt.\u2026",
+  "bodyMarkdown": "When Garrard County was carved in December 1796 (Kentucky\u2019s 25th county, named for Gov. James Garrard), commissioners needed a seat where water and roads already met. Capt. William Buford donated about 57 acres at Wallace\u2019s Crossroads\u2014where the Harrodsburg\u2013Boonesborough road crossed the Hickman\u2013Crab Orchard route\u2014and Joseph Bledsoe Jr. platted a grid around a public square in 1797\u201398. First court sat June 6, 1797; a brick courthouse rose by 1799. The name \u201cLancaster\u201d came from Pennsylvania (via settler Henry Paulding or the plan itself). The town stuck as Garrard\u2019s only incorporated seat, still anchored on that pioneer crossroads.\nSource: [https://en.wikipedia.org/wiki/Lancaster,_Kentucky](https://en.wikipedia.org/wiki/Lancaster,_Kentucky)",
   "yearStart": 1796,
   "yearEnd": 1799,
   "era": "early-commonwealth",
@@ -11,6 +11,6 @@
     "early-commonwealth",
     "kentucky"
   ],
-  "source": "daily-brief",
+  "source": "ky-history",
   "briefDate": "2026-09-11"
 }

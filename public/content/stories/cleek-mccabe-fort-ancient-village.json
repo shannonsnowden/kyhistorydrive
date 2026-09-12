@@ -2,8 +2,8 @@
   "slug": "cleek-mccabe-fort-ancient-village",
   "title": "Cleek-McCabe Fort Ancient village",
   "publishedDate": "2026-09-10",
-  "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
-  "bodyMarkdown": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza, with burial mounds on the east and west. University of Kentucky crews in the late 1930s dug the western mound and found three successive roofless public structures stacked on the same spot—first a 43-foot circle, then rectangles up to 56 by 95 feet—plus a central ceremonial pole, rock “pavements,” and guilloche-incised jars that tie the site to neighbors in SW Ohio and SE Indiana. The eastern mound still stands.\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx)",
+  "summary": "On Mud Lick Creek\u2019s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,\u2026",
+  "bodyMarkdown": "On Mud Lick Creek\u2019s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza, with burial mounds on the east and west. University of Kentucky crews in the late 1930s dug the western mound and found three successive roofless public structures stacked on the same spot\u2014first a 43-foot circle, then rectangles up to 56 by 95 feet\u2014plus a central ceremonial pole, rock \u201cpavements,\u201d and guilloche-incised jars that tie the site to neighbors in SW Ohio and SE Indiana. The eastern mound still stands.\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx)",
   "yearStart": 100,
   "yearEnd": 200,
   "era": "prehistoric",
@@ -14,6 +14,6 @@
     "frontier-war",
     "salt"
   ],
-  "source": "daily-brief",
+  "source": "ky-history",
   "briefDate": "2026-09-10"
 }

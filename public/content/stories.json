@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T13:57:16.266Z",
+  "generatedAt": "2026-09-12T15:13:15.400Z",
   "count": 85,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -26,7 +26,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-03",
       "lat": 37.2849569,
       "lon": -86.7683398,
@@ -46,7 +46,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-05",
       "lat": 38.0733,
       "lon": -83.9511,
@@ -66,7 +66,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-11",
       "lat": 38.0459102,
       "lon": -84.4960297,
@@ -88,7 +88,7 @@
         "frontier-war",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-10",
       "lat": 38.772860422898226,
       "lon": -84.00880725804063,
@@ -108,7 +108,7 @@
         "kentucky",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-06",
       "lat": 38.08491,
       "lon": -84.71149,
@@ -128,7 +128,7 @@
         "kentucky",
         "bourbon"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-09",
       "lat": null,
       "lon": null,
@@ -149,7 +149,7 @@
         "bourbon",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-06",
       "lat": 39.0933727,
       "lon": -84.7133552,
@@ -169,7 +169,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-28",
       "lat": 37.5302888,
       "lon": -84.6676739,
@@ -192,7 +192,7 @@
         "town-founding",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-09",
       "lat": 38.34127,
       "lon": -84.09811,
@@ -213,7 +213,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-08",
       "lat": null,
       "lon": null,
@@ -234,7 +234,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-05",
       "lat": 38.20919,
       "lon": -85.25251,
@@ -255,7 +255,7 @@
         "bourbon",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-07",
       "lat": 38.05699,
       "lon": -83.94437,
@@ -277,7 +277,7 @@
         "frontier-war",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-30",
       "lat": 38.43443333333333,
       "lon": -83.99151666666667,
@@ -299,7 +299,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-29",
       "lat": 38.7250509,
       "lon": -83.0141361,
@@ -321,7 +321,7 @@
         "frontier-war",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-02",
       "lat": 38.21439,
       "lon": -84.25175,
@@ -341,7 +341,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-28",
       "lat": 38.211083333333335,
       "lon": -85.21585,
@@ -362,7 +362,7 @@
         "native-history",
         "treaty"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-28",
       "lat": 37.5753439,
       "lon": -84.7919732,
@@ -384,7 +384,7 @@
         "town-founding",
         "transport"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-29",
       "lat": null,
       "lon": null,
@@ -404,7 +404,7 @@
         "kentucky",
         "geology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-28",
       "lat": 38.2753405,
       "lon": -85.7628814,
@@ -425,7 +425,7 @@
         "bourbon",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-03",
       "lat": 38.27406666666667,
       "lon": -84.29951666666666,
@@ -448,7 +448,7 @@
         "geology",
         "transport"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-04",
       "lat": 38.1884,
       "lon": -84.81528333333333,
@@ -471,7 +471,7 @@
         "frontier-war",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-10",
       "lat": null,
       "lon": null,
@@ -491,7 +491,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-02",
       "lat": null,
       "lon": null,
@@ -512,7 +512,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-12",
       "lat": 37.98859,
       "lon": -84.25209,
@@ -533,7 +533,7 @@
         "archaeology",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-03",
       "lat": 38.05699,
       "lon": -83.94437,
@@ -553,7 +553,7 @@
         "kentucky",
         "native-history"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-10",
       "lat": 38.2753405,
       "lon": -85.7628814,
@@ -575,7 +575,7 @@
         "town-founding",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-29",
       "lat": 38.000782,
       "lon": -85.7640065,
@@ -595,7 +595,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-12",
       "lat": 36.82461,
       "lon": -86.84895,
@@ -615,7 +615,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-08",
       "lat": 36.86767,
       "lon": -88.32188,
@@ -637,7 +637,7 @@
         "frontier-war",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-31",
       "lat": 38.62111,
       "lon": -83.79953,
@@ -659,7 +659,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-09",
       "lat": 37.7346,
       "lon": -84.29079,
@@ -678,7 +678,7 @@
         "native",
         "kentucky"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-11",
       "lat": null,
       "lon": null,
@@ -699,7 +699,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-04",
       "lat": null,
       "lon": null,
@@ -720,7 +720,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-09",
       "lat": 36.61867,
       "lon": -88.28586,
@@ -739,7 +739,7 @@
         "native",
         "kentucky"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-12",
       "lat": 37.03703,
       "lon": -85.92479,
@@ -759,7 +759,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-11",
       "lat": 38.23133,
       "lon": -85.72027,
@@ -781,7 +781,7 @@
         "frontier-war",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-11",
       "lat": 37.778,
       "lon": -84.83079,
@@ -801,7 +801,7 @@
         "kentucky",
         "native-history"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-02",
       "lat": 38.7250509,
       "lon": -83.0141361,
@@ -821,7 +821,7 @@
         "kentucky",
         "geology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-31",
       "lat": 36.60686666666667,
       "lon": -83.70171666666667,
@@ -844,7 +844,7 @@
         "treaty",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-31",
       "lat": null,
       "lon": null,
@@ -866,7 +866,7 @@
         "treaty",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-01",
       "lat": null,
       "lon": null,
@@ -886,7 +886,7 @@
         "kentucky",
         "native-history"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-02",
       "lat": null,
       "lon": null,
@@ -909,7 +909,7 @@
         "town-founding",
         "geology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-01",
       "lat": 38.2137751,
       "lon": -84.8677266,
@@ -931,7 +931,7 @@
         "town-founding",
         "geology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-01",
       "lat": 38.2100364,
       "lon": -84.5614948,
@@ -952,7 +952,7 @@
         "frontier-war",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-01",
       "lat": 38.24001666666667,
       "lon": -85.64503333333333,
@@ -974,7 +974,7 @@
         "treaty",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-03",
       "lat": null,
       "lon": null,
@@ -994,7 +994,7 @@
         "kentucky",
         "native-history"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-31",
       "lat": 37.8310805,
       "lon": -87.5691084,
@@ -1014,7 +1014,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-08",
       "lat": null,
       "lon": null,
@@ -1034,7 +1034,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-07",
       "lat": 37.98859,
       "lon": -84.25209,
@@ -1055,7 +1055,7 @@
         "frontier-war",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-12",
       "lat": 37.70957,
       "lon": -85.24169,
@@ -1076,7 +1076,7 @@
         "frontier-war",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-30",
       "lat": 38.2434,
       "lon": -85.7173,
@@ -1097,7 +1097,7 @@
         "frontier-war",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-12",
       "lat": 38.2323905798604,
       "lon": -85.75941874666854,
@@ -1117,7 +1117,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-06",
       "lat": 38.23133,
       "lon": -85.72027,
@@ -1137,7 +1137,7 @@
         "kentucky",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-31",
       "lat": 37.8089,
       "lon": -85.4665,
@@ -1157,7 +1157,7 @@
         "kentucky",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-08",
       "lat": 37.73542,
       "lon": -85.9548,
@@ -1177,7 +1177,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-29",
       "lat": 37.5753439,
       "lon": -84.7919732,
@@ -1197,7 +1197,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-02",
       "lat": 38.20919,
       "lon": -85.25251,
@@ -1217,7 +1217,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-03",
       "lat": 38.0561079,
       "lon": -83.9431961,
@@ -1237,7 +1237,7 @@
         "kentucky",
         "native-history"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-04",
       "lat": 38.2323905798604,
       "lon": -85.75941874666854,
@@ -1258,7 +1258,7 @@
         "bourbon",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-30",
       "lat": 37.6456488,
       "lon": -84.7721823,
@@ -1279,7 +1279,7 @@
         "bourbon",
         "transport"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-06",
       "lat": 37.8199,
       "lon": -85.47756,
@@ -1299,7 +1299,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-28",
       "lat": 37.4761695,
       "lon": -84.54252,
@@ -1319,7 +1319,7 @@
         "kentucky",
         "bourbon"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-10",
       "lat": 37.70957,
       "lon": -85.24169,
@@ -1339,7 +1339,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-09",
       "lat": null,
       "lon": null,
@@ -1359,7 +1359,7 @@
         "kentucky",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-08",
       "lat": null,
       "lon": null,
@@ -1379,7 +1379,7 @@
         "kentucky",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-07",
       "lat": 37.85014,
       "lon": -84.62265,
@@ -1401,7 +1401,7 @@
         "frontier-war",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-04",
       "lat": 37.98859,
       "lon": -84.25209,
@@ -1420,7 +1420,7 @@
         "early-commonwealth",
         "kentucky"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-11",
       "lat": 37.62829,
       "lon": -84.56799,
@@ -1440,7 +1440,7 @@
         "kentucky",
         "town-founding"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-05",
       "lat": 37.7346,
       "lon": -84.29079,
@@ -1460,7 +1460,7 @@
         "kentucky",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-10",
       "lat": 38.20919,
       "lon": -85.25251,
@@ -1481,7 +1481,7 @@
         "native-history",
         "treaty"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-07",
       "lat": 38.2753405,
       "lon": -85.7628814,
@@ -1502,7 +1502,7 @@
         "geology",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-30",
       "lat": 37.3677334,
       "lon": -84.2036474,
@@ -1522,7 +1522,7 @@
         "kentucky",
         "bourbon"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-27",
       "lat": 37.3184064,
       "lon": -84.9393979,
@@ -1543,7 +1543,7 @@
         "bourbon",
         "geology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-05",
       "lat": 38.08491,
       "lon": -84.71149,
@@ -1564,7 +1564,7 @@
         "archaeology",
         "geology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-07",
       "lat": null,
       "lon": null,
@@ -1585,7 +1585,7 @@
         "archaeology",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-04",
       "lat": 38.54013,
       "lon": -82.83268,
@@ -1605,7 +1605,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-30",
       "lat": null,
       "lon": null,
@@ -1626,7 +1626,7 @@
         "archaeology",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-01",
       "lat": 37.5675476,
       "lon": -84.2328837,
@@ -1647,7 +1647,7 @@
         "native-history",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-06",
       "lat": null,
       "lon": null,
@@ -1668,7 +1668,7 @@
         "native-history",
         "salt"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-27",
       "lat": 38.8580137,
       "lon": -84.775606,
@@ -1689,7 +1689,7 @@
         "archaeology",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-29",
       "lat": 37.303551,
       "lon": -86.890631,
@@ -1710,7 +1710,7 @@
         "native-history",
         "frontier-war"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-27",
       "lat": null,
       "lon": null,
@@ -1729,7 +1729,7 @@
         "other",
         "kentucky"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-27",
       "lat": 38.057833333333335,
       "lon": -84.52875,
@@ -1749,7 +1749,7 @@
         "kentucky",
         "archaeology"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-08-27",
       "lat": 36.9712176,
       "lon": -89.0917492,
@@ -1769,7 +1769,7 @@
         "kentucky",
         "native-history"
       ],
-      "source": "daily-brief",
+      "source": "ky-history",
       "briefDate": "2026-09-05",
       "lat": null,
       "lon": null,
