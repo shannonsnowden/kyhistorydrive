@@ -1742,7 +1742,6 @@ function storyCardHtml(s) {
             ${county}
             <span class="era-pill era-${escapeHtml(s.era || 'unknown')}">${escapeHtml(s.era || '')}</span>
             <span>${escapeHtml(years)}</span>
-            <span>${escapeHtml(s.briefDate || '')}</span>
             ${tagHtml}${loc}
           </span>
           <h3>${escapeHtml(s.title)}</h3>
@@ -1880,7 +1879,6 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
               ${countyLine}
               <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
               <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
-              <span>${escapeHtml(s.briefDate || '')}</span>
             </div>
             <h2>${escapeHtml(s.title)}</h2>
             <p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>
@@ -2109,7 +2107,6 @@ async function renderTimelineList(preferredSlug) {
           <div class="story-card-meta">
             ${county}
             <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
-            <span>${escapeHtml(s.briefDate || '')}</span>
             ${tagHtml}
           </div>
           <p>${escapeHtml(s.summary || '')}</p>
