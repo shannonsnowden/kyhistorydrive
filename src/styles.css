@@ -121,6 +121,12 @@ nav a:hover, nav a.active { color: var(--accent); }
 }
 #mapCanvas { min-height: 60vh; width: 100%; }
 .panel { padding: 1.5rem 1.25rem; max-width: 52rem; }
+#about, #app {
+  scroll-margin-top: 0;
+}
+.about-logo-block {
+  scroll-margin-top: 0;
+}
 .panel-wide { padding: 1.5rem 1.25rem; max-width: 64rem; margin: 0 auto; }
 .panel-head h2 { margin: 0 0 0.35rem; color: #e8d5a8; }
 .muted { color: var(--muted); }
@@ -828,7 +834,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   flex-direction: column;
   align-items: center;
   gap: 0.65rem;
-  margin: 1.25rem 0 1.75rem;
+  margin: 0.5rem 0 1.5rem;
   padding: 1.25rem 1rem;
   background: #0a0a0a;
   border: 1px solid var(--line);

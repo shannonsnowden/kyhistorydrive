@@ -2306,6 +2306,12 @@ function resetTimelineShowAllStories() {
   scrollTimelineToFilters()
 }
 
+function scrollPageToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  document.documentElement.scrollTop = 0
+  document.body.scrollTop = 0
+}
+
 function scrollTimelineToFilters() {
   window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   const filters = document.getElementById('timelineFilters')
@@ -2348,6 +2354,7 @@ async function applyRoute() {
     pendingFocus = null
     initMap()
     requestAnimationFrame(() => {
+      scrollPageToTop()
       map?.resize()
       if (!mapReady) return
       setLayerVisible('markers', true)
@@ -2366,6 +2373,16 @@ async function applyRoute() {
     await renderTimelineList(slug)
     // Always open Timeline at the top (nav + filters), not mid-story scroll
     requestAnimationFrame(() => scrollTimelineToFilters())
+  } else if (view === 'about' || view === 'app') {
+    // Hash #about can land mid-page after Timeline; force true top so logo shows
+    // (native hash scrolling races us — retry a couple frames + short timeout)
+    const pinTop = () => scrollPageToTop()
+    requestAnimationFrame(() => {
+      pinTop()
+      requestAnimationFrame(pinTop)
+    })
+    setTimeout(pinTop, 50)
+    setTimeout(pinTop, 150)
   }
 }
 
@@ -2384,6 +2401,17 @@ document.querySelector('#mainNav a[data-route="timeline"]')?.addEventListener('c
   })
 })
 
+
+document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('click', () => {
+  requestAnimationFrame(() => {
+    if (parseHash().view !== 'about') return
+    scrollPageToTop()
+  })
+})
+
+
+
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
 ensureHomeHash()
 applyRoute().catch(console.error)
