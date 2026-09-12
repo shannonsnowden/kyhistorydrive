@@ -501,3 +501,14 @@ nav a:hover, nav a.active { color: var(--accent); }
 .popup-maps a { color: var(--accent); text-decoration: none; }
 .popup-maps a:hover { text-decoration: underline; }
 .popup-maps-sep { color: var(--muted); font-weight: 400; }
+
+
+.timeline-stories-toolbar {
+  margin: 0.75rem 0 0.35rem;
+}
+.timeline-item .story-county {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-right: 0.35rem;
+}
