@@ -191,6 +191,14 @@ function formatYearRange(start, end) {
   return formatYear(start ?? end)
 }
 
+function ensureHomeHash() {
+  // Empty or unknown hash → home map
+  const raw = (location.hash || '').replace(/^#/, '')
+  if (!raw) {
+    history.replaceState(null, '', '#map')
+  }
+}
+
 function parseHash() {
   const raw = (location.hash || '#map').replace(/^#/, '')
   const [path, ...rest] = raw.split('/')
@@ -618,6 +626,16 @@ function initMap() {
       await addDataLayer(def)
     }
 
+    // Home defaults: Markers on + whole-state view
+    setLayerVisible('markers', true)
+    const markersToggle = document.querySelector('input[data-layer="markers"]')
+    if (markersToggle) markersToggle.checked = true
+    syncAllLayersCheckbox()
+    if (!pendingFocus) {
+      map.resize()
+      fitMapToKentucky(map, { duration: 0 })
+    }
+
     // Optional stories points on main map (for timeline year filter visibility)
     try {
       const sRes = await fetch('/data/layers/stories.geojson')
@@ -985,7 +1003,6 @@ async function applyRoute() {
       if (pendingFocus && mapReady) {
         ensureHighlightSource(map, pendingFocus)
         flyToFocus(map, pendingFocus)
-        // Turn on History so related pins are visible when coming from a story
         if (pendingFocus.slug) {
           const hist = document.querySelector('input[data-layer="history"]')
           if (hist && !hist.checked) {
@@ -993,6 +1010,12 @@ async function applyRoute() {
             setLayerVisible('history', true)
           }
         }
+      } else if (mapReady && !pendingFocus) {
+        setLayerVisible('markers', true)
+        const markersToggle = document.querySelector('input[data-layer="markers"]')
+        if (markersToggle) markersToggle.checked = true
+        syncAllLayersCheckbox()
+        fitMapToKentucky(map, { duration: 0 })
       }
     })
   } else if (view === 'stories') {
