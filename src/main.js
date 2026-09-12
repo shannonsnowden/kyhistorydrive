@@ -571,6 +571,138 @@ function grokipediaHtml(links, title) {
   </div>`
 }
 
+
+function googleImagesSearchUrl(name, placeHint) {
+  const bits = [name]
+  if (placeHint) bits.push(placeHint)
+  if (!/kentucky/i.test(bits.join(' '))) bits.push('Kentucky')
+  return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(bits.filter(Boolean).join(' '))}`
+}
+
+function wikipediaSearchUrl(title) {
+  return `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(title || '')}`
+}
+
+function extractWikipediaUrl(markdown) {
+  if (!markdown) return null
+  const m = String(markdown).match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s)"'\]]+/i)
+  return m ? m[0].replace(/[.,;:]+$/, '') : null
+}
+
+function wikipediaTitleFromUrl(url) {
+  try {
+    const u = new URL(url)
+    const parts = u.pathname.split('/').filter(Boolean)
+    const i = parts.indexOf('wiki')
+    if (i >= 0 && parts[i + 1]) return decodeURIComponent(parts[i + 1].replace(/_/g, ' '))
+  } catch {
+    /* ignore */
+  }
+  return null
+}
+
+async function fetchWikipediaThumbnail(titleOrUrl) {
+  if (!titleOrUrl) return null
+  let title = titleOrUrl
+  if (/^https?:\/\//i.test(titleOrUrl)) {
+    title = wikipediaTitleFromUrl(titleOrUrl) || titleOrUrl
+  }
+  title = String(title).trim()
+  if (!title) return null
+  // Try exact title, then with ", Kentucky"
+  const candidates = [title]
+  if (!/,?\s*kentucky$/i.test(title)) candidates.push(`${title}, Kentucky`)
+  for (const cand of candidates) {
+    try {
+      const api = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(cand.replace(/ /g, '_'))}`
+      const res = await fetch(api, { headers: { Accept: 'application/json' } })
+      if (!res.ok) continue
+      const data = await res.json()
+      const src = data?.thumbnail?.source || data?.originalimage?.source
+      if (!src) continue
+      return {
+        image_url: src,
+        title: data.title || cand,
+        source_url: data.content_urls?.desktop?.page || `https://en.wikipedia.org/wiki/${encodeURIComponent(cand.replace(/ /g, '_'))}`,
+        credit: 'Wikipedia',
+        year: null,
+      }
+    } catch {
+      /* try next */
+    }
+  }
+  return null
+}
+
+async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown }) {
+  await loadHistoricPhotoData()
+  const local = photosForPlace({
+    lat,
+    lon,
+    name: title,
+    historyId,
+    layer: 'history',
+  })
+  if (local[0]?.image_url) {
+    return {
+      ...local[0],
+      credit: local[0].source || local[0].collection || 'Historic photo',
+    }
+  }
+
+  const wikiFromBody = extractWikipediaUrl(bodyMarkdown)
+  const wikiPhoto = await fetchWikipediaThumbnail(wikiFromBody || title)
+  if (wikiPhoto) return wikiPhoto
+
+  // Soft fallback: no embeddable image — still return link targets for the card
+  return {
+    image_url: null,
+    title,
+    credit: null,
+    source_url: null,
+    google_url: googleImagesSearchUrl(title, placeHint),
+    wikipedia_url: wikiFromBody || wikipediaSearchUrl(title),
+    grokipedia_url: grokipediaSearchUrl(title),
+  }
+}
+
+function storySidebarPhotoHtml(photo, title) {
+  if (!photo) return ''
+  const caption = escapeHtml(photo.title || title || 'Related photo')
+  const credit = photo.credit ? escapeHtml(String(photo.credit)) : ''
+  const year = photo.year ? escapeHtml(String(photo.year)) : ''
+  const meta = [credit, year].filter(Boolean).join(' · ')
+
+  if (photo.image_url) {
+    const href = escapeHtml(photo.source_url || photo.image_url)
+    const img = escapeHtml(photo.image_url)
+    return `<aside class="story-sidebar-photo" aria-label="Story photo">
+      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer">
+        <img src="${img}" alt="${caption}" loading="lazy" />
+      </a>
+      <p class="story-sidebar-photo-cap">${caption}${meta ? `<span class="muted"> · ${meta}</span>` : ''}</p>
+      <p class="story-sidebar-photo-links">
+        <a href="${escapeHtml(photo.google_url || googleImagesSearchUrl(title))}" target="_blank" rel="noopener noreferrer">Google Photos</a>
+        <span aria-hidden="true">·</span>
+        <a href="${escapeHtml(photo.wikipedia_url || wikipediaSearchUrl(title))}" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+        <span aria-hidden="true">·</span>
+        <a href="${escapeHtml(photo.grokipedia_url || grokipediaSearchUrl(title) || '#')}" target="_blank" rel="noopener noreferrer">Grokipedia</a>
+      </p>
+    </aside>`
+  }
+
+  return `<aside class="story-sidebar-photo story-sidebar-photo--empty" aria-label="Find a photo">
+    <p class="story-sidebar-photo-cap">Find a photo</p>
+    <p class="story-sidebar-photo-links">
+      <a href="${escapeHtml(photo.google_url)}" target="_blank" rel="noopener noreferrer">Google Photos</a>
+      <span aria-hidden="true">·</span>
+      <a href="${escapeHtml(photo.wikipedia_url)}" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+      <span aria-hidden="true">·</span>
+      <a href="${escapeHtml(photo.grokipedia_url || '#')}" target="_blank" rel="noopener noreferrer">Grokipedia</a>
+    </p>
+  </aside>`
+}
+
 function placeDetailExtrasHtml({ lat, lon, name, placeHint, bodyMarkdown, historyId, layer }) {
   const links = extractGrokipediaLinks(bodyMarkdown)
   const photos = photosForPlace({ lat, lon, name, historyId, layer })
@@ -1586,23 +1718,45 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
       historyId,
       layer: 'history',
     })
+    const sidebarPhoto = await resolveStorySidebarPhoto({
+      title: s.title,
+      lat: meta.lat ?? s.lat,
+      lon: meta.lon ?? s.lon,
+      placeHint: meta.matchedPlace || meta.county,
+      historyId,
+      bodyMarkdown: s.bodyMarkdown || '',
+    })
+    // Attach search links even when we have an embed
+    if (sidebarPhoto) {
+      sidebarPhoto.google_url = sidebarPhoto.google_url || googleImagesSearchUrl(s.title, meta.matchedPlace || meta.county)
+      sidebarPhoto.wikipedia_url =
+        sidebarPhoto.wikipedia_url ||
+        extractWikipediaUrl(s.bodyMarkdown) ||
+        wikipediaSearchUrl(s.title)
+      sidebarPhoto.grokipedia_url = sidebarPhoto.grokipedia_url || grokipediaSearchUrl(s.title)
+    }
     reader.innerHTML = `
-      <header class="story-head">
-        <div class="story-card-meta">
-          <span class="story-card-icon inline" aria-hidden="true">📖</span>
-          ${countyLine}
-          <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
-          <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
-          <span>${escapeHtml(s.briefDate || '')}</span>
+      <div class="story-reader-layout">
+        <div class="story-reader-main">
+          <header class="story-head">
+            <div class="story-card-meta">
+              <span class="story-card-icon inline" aria-hidden="true">📖</span>
+              ${countyLine}
+              <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
+              <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
+              <span>${escapeHtml(s.briefDate || '')}</span>
+            </div>
+            <h2>${escapeHtml(s.title)}</h2>
+            <p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>
+            <div class="tags">${tags}</div>
+          </header>
+          <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
+          ${extras}
+          <p class="muted popup-hint">Tip: tap the highlighted pin on the map for the place popup (full text, maps, photos, Grokipedia).</p>
+          <p class="story-source muted">Kentucky History Drive</p>
         </div>
-        <h2>${escapeHtml(s.title)}</h2>
-        <p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>
-        <div class="tags">${tags}</div>
-      </header>
-      <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
-      ${extras}
-      <p class="muted popup-hint">Tip: tap the highlighted pin on the map for the place popup (full text, maps, photos, Grokipedia).</p>
-      <p class="story-source muted">Kentucky History Drive</p>
+        ${storySidebarPhotoHtml(sidebarPhoto, s.title)}
+      </div>
     `
     if (scroll) reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   } catch {
