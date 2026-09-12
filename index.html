@@ -31,6 +31,18 @@
 
     <section id="map" class="map-section view" data-view="map">
       <aside class="controls">
+        <div class="layers-panel">
+          <h2 class="layers-heading">Layers</h2>
+          <label class="ctrl layer-row master">
+            <input type="checkbox" id="allLayers" />
+            <span class="layer-icon emoji" aria-hidden="true">🗂</span>
+            <span>All Layers</span>
+          </label>
+          <div id="layerToggles" class="layer-toggles"></div>
+          <p class="filter-note muted">
+            Year/era filters apply to History (and Stories) pins; highway Markers stay as layer toggles.
+          </p>
+        </div>
         <label class="ctrl">
           <input type="checkbox" id="phase1Only" checked />
           Phase 1 counties only (~1 hr from Bagdad)
@@ -59,17 +71,33 @@
           <button type="button" id="yearApply" class="btn">Apply</button>
           <button type="button" id="yearClear" class="btn ghost">Clear</button>
         </div>
+        <p class="filter-note muted">
+          Year/era filters also update History (and Stories) pins on the Map.
+        </p>
         <p id="timelineStats" class="stats"></p>
       </div>
       <ol id="timelineList" class="timeline-list"></ol>
     </section>
 
-    <section id="stories" class="view panel-wide" data-view="stories" hidden>
-      <div class="panel-head">
-        <h2>Stories</h2>
-        <p class="muted">One story per section from the Kentucky History Morning Update briefs.</p>
+    <section id="stories" class="view stories-section" data-view="stories" hidden>
+      <div class="stories-layout">
+        <div class="stories-list-pane">
+          <div class="panel-head">
+            <h2>Stories</h2>
+            <p class="muted">One story per section from the Kentucky History Morning Update briefs. Select a story to see it on the map.</p>
+          </div>
+          <div id="storiesList" class="stories-list"></div>
+        </div>
+        <aside class="stories-map-pane" aria-label="Story location map">
+          <div class="stories-map-head">
+            <h3 id="storiesMapTitle">Story location</h3>
+            <p id="storiesMapMeta" class="muted">Select a story to fly to its place on the map.</p>
+            <a id="storiesMapExpand" class="btn ghost small" href="#map" hidden>Open full map</a>
+          </div>
+          <div id="storiesMapCanvas"></div>
+          <p id="storiesNoLoc" class="stories-no-loc muted" hidden>No map location yet for this story.</p>
+        </aside>
       </div>
-      <div id="storiesList" class="stories-list"></div>
     </section>
 
     <section id="story" class="view panel" data-view="story" hidden>
@@ -90,8 +118,7 @@
       </p>
       <p>
         <strong>Maps:</strong> MapLibre GL JS + OpenStreetMap raster tiles (CARTO Voyager). Optional
-        OpenHistoricalMap raster overlay. Production tile providers (MapTiler, Stadia, etc.) can replace
-        the default style via env — see README.
+        OpenHistoricalMap raster overlay. Map layers match the KY Markers Drive iPhone app.
       </p>
     </section>
 

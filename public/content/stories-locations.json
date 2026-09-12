@@ -1,0 +1,691 @@
+{
+  "generatedAt": "2026-09-12T13:57:16.386Z",
+  "stats": {
+    "exact": 9,
+    "fuzzy": 28,
+    "county": 29,
+    "none": 19
+  },
+  "locations": {
+    "carlston-annis-shell-mound": {
+      "slug": "carlston-annis-shell-mound",
+      "lat": 37.2849569,
+      "lon": -86.7683398,
+      "mapConfidence": "exact",
+      "matchedPlace": "Carlston Annis Shell Mound",
+      "historyId": "carlston-annis-shell-mound"
+    },
+    "gaitskill-mounds-engraved-tablets": {
+      "slug": "gaitskill-mounds-engraved-tablets",
+      "lat": 38.0733,
+      "lon": -83.9511,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Gaitskill Mound",
+      "historyId": "gaitskill-mound"
+    },
+    "peter-village-enclosure-15fa166": {
+      "slug": "peter-village-enclosure-15fa166",
+      "lat": 38.0459102,
+      "lon": -84.4960297,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county"
+    },
+    "cleek-mccabe-fort-ancient-village": {
+      "slug": "cleek-mccabe-fort-ancient-village",
+      "lat": 38.772860422898226,
+      "lon": -84.00880725804063,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Cleek-McCabe Fort Ancient village Boone County",
+      "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
+    },
+    "versailles-takes-shape": {
+      "slug": "versailles-takes-shape",
+      "lat": 38.08491,
+      "lon": -84.71149,
+      "mapConfidence": "county",
+      "matchedPlace": "Woodford County (centroid)",
+      "historyId": null
+    },
+    "evan-williams-on-the-louisville-wharf": {
+      "slug": "evan-williams-on-the-louisville-wharf",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "robbins-mounds-boone-county": {
+      "slug": "robbins-mounds-boone-county",
+      "lat": 39.0933727,
+      "lon": -84.7133552,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Robbins Mounds (Boone County Adena)",
+      "historyId": "robbins-mounds"
+    },
+    "benjamin-logan": {
+      "slug": "benjamin-logan",
+      "lat": 37.5302888,
+      "lon": -84.6676739,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Benjamin Logan / Logan's Station",
+      "historyId": "logans-station"
+    },
+    "cynthiana-cynthia-anna-on-the-licking": {
+      "slug": "cynthiana-cynthia-anna-on-the-licking",
+      "lat": 38.34127,
+      "lon": -84.09811,
+      "mapConfidence": "county",
+      "matchedPlace": "Harrison County (centroid)",
+      "historyId": null
+    },
+    "col-john-bowman-at-old-chillicothe": {
+      "slug": "col-john-bowman-at-old-chillicothe",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "bland-w-ballard-of-tick-creek": {
+      "slug": "bland-w-ballard-of-tick-creek",
+      "lat": 38.20919,
+      "lon": -85.25251,
+      "mapConfidence": "county",
+      "matchedPlace": "Shelby County (centroid)",
+      "historyId": null
+    },
+    "wright-mounds-montgomery-county": {
+      "slug": "wright-mounds-montgomery-county",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "county",
+      "matchedPlace": "Montgomery County (centroid)",
+      "historyId": null
+    },
+    "battle-of-blue-licks": {
+      "slug": "battle-of-blue-licks",
+      "lat": 38.43443333333333,
+      "lon": -83.99151666666667,
+      "mapConfidence": "exact",
+      "matchedPlace": "Battle of Blue Licks",
+      "historyId": "battle-of-blue-licks"
+    },
+    "lower-shawneetown-at-the-scioto-mouth": {
+      "slug": "lower-shawneetown-at-the-scioto-mouth",
+      "lat": 38.7250509,
+      "lon": -83.0141361,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lower Shawneetown",
+      "historyId": "lower-shawneetown"
+    },
+    "paris-from-hopewell": {
+      "slug": "paris-from-hopewell",
+      "lat": 38.21439,
+      "lon": -84.25175,
+      "mapConfidence": "county",
+      "matchedPlace": "Bourbon County (centroid)",
+      "historyId": null
+    },
+    "shelbyville": {
+      "slug": "shelbyville",
+      "lat": 38.211083333333335,
+      "lon": -85.21585,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Shelbyville Founding",
+      "historyId": "shelbyville-founding"
+    },
+    "chickasaw-hunting-grounds": {
+      "slug": "chickasaw-hunting-grounds",
+      "lat": 37.5753439,
+      "lon": -84.7919732,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Isaac Shelby",
+      "historyId": "isaac-shelby"
+    },
+    "frankfort-franks-ford-becomes-the-capital": {
+      "slug": "frankfort-franks-ford-becomes-the-capital",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "falls-of-the-ohio": {
+      "slug": "falls-of-the-ohio",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "exact",
+      "matchedPlace": "Falls of the Ohio",
+      "historyId": "falls-of-the-ohio"
+    },
+    "jacob-spears-early-bourbon-whiskey": {
+      "slug": "jacob-spears-early-bourbon-whiskey",
+      "lat": 38.27406666666667,
+      "lon": -84.29951666666666,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Jacob Spears",
+      "historyId": "jacob-spears"
+    },
+    "lexington-ohio-railroad": {
+      "slug": "lexington-ohio-railroad",
+      "lat": 38.1884,
+      "lon": -84.81528333333333,
+      "mapConfidence": "exact",
+      "matchedPlace": "Lexington & Ohio Railroad",
+      "historyId": "lexington-ohio-railroad"
+    },
+    "delaware-lenape-in-the-1780-kentucky-raids": {
+      "slug": "delaware-lenape-in-the-1780-kentucky-raids",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "ashlands-adena-mounds": {
+      "slug": "ashlands-adena-mounds",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "odawa-raid-at-eskippakithiki-1753": {
+      "slug": "odawa-raid-at-eskippakithiki-1753",
+      "lat": 37.98859,
+      "lon": -84.25209,
+      "mapConfidence": "county",
+      "matchedPlace": "Clark County (centroid)",
+      "historyId": null
+    },
+    "mount-sterling-little-mountain-town": {
+      "slug": "mount-sterling-little-mountain-town",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "county",
+      "matchedPlace": "Montgomery County (centroid)",
+      "historyId": null
+    },
+    "michael-stoner-german-long-hunter": {
+      "slug": "michael-stoner-german-long-hunter",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio",
+      "historyId": "falls-of-the-ohio"
+    },
+    "bullitts-lick-kentuckys-first-industry": {
+      "slug": "bullitts-lick-kentuckys-first-industry",
+      "lat": 38.000782,
+      "lon": -85.7640065,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Bullitt's Lick",
+      "historyId": "bullitts-lick"
+    },
+    "page-site-lost-city-15lo1": {
+      "slug": "page-site-lost-city-15lo1",
+      "lat": 36.82461,
+      "lon": -86.84895,
+      "mapConfidence": "county",
+      "matchedPlace": "Logan County (centroid)",
+      "historyId": null
+    },
+    "jonathan-creek-mississippian-center": {
+      "slug": "jonathan-creek-mississippian-center",
+      "lat": 36.86767,
+      "lon": -88.32188,
+      "mapConfidence": "county",
+      "matchedPlace": "Marshall County (centroid)",
+      "historyId": null
+    },
+    "fox-farm-mason-county": {
+      "slug": "fox-farm-mason-county",
+      "lat": 38.62111,
+      "lon": -83.79953,
+      "mapConfidence": "county",
+      "matchedPlace": "Mason County (centroid)",
+      "historyId": null
+    },
+    "howard-site-late-fort-ancient-above-harts-fork": {
+      "slug": "howard-site-late-fort-ancient-above-harts-fork",
+      "lat": 37.7346,
+      "lon": -84.29079,
+      "mapConfidence": "county",
+      "matchedPlace": "Madison County (centroid)",
+      "historyId": null
+    },
+    "erie-the-cat-nation": {
+      "slug": "erie-the-cat-nation",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "mosopelea-ofo-the-ohio-valley": {
+      "slug": "mosopelea-ofo-the-ohio-valley",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "col-richard-callaway-of-boonesborough": {
+      "slug": "col-richard-callaway-of-boonesborough",
+      "lat": 36.61867,
+      "lon": -88.28586,
+      "mapConfidence": "county",
+      "matchedPlace": "Calloway County (centroid)",
+      "historyId": null
+    },
+    "henry-skaggs-green-river-long-hunter": {
+      "slug": "henry-skaggs-green-river-long-hunter",
+      "lat": 37.03703,
+      "lon": -85.92479,
+      "mapConfidence": "county",
+      "matchedPlace": "Barren County (centroid)",
+      "historyId": null
+    },
+    "capt-abraham-lincoln-on-long-run": {
+      "slug": "capt-abraham-lincoln-on-long-run",
+      "lat": 38.23133,
+      "lon": -85.72027,
+      "mapConfidence": "county",
+      "matchedPlace": "Jefferson County (centroid)",
+      "historyId": null
+    },
+    "hugh-mcgary-the-hothead-major": {
+      "slug": "hugh-mcgary-the-hothead-major",
+      "lat": 37.778,
+      "lon": -84.83079,
+      "mapConfidence": "county",
+      "matchedPlace": "Mercer County (centroid)",
+      "historyId": null
+    },
+    "christopher-gist-1750-51": {
+      "slug": "christopher-gist-1750-51",
+      "lat": 38.7250509,
+      "lon": -83.0141361,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lower Shawneetown",
+      "historyId": "lower-shawneetown"
+    },
+    "thomas-walker-and-cumberland-gap": {
+      "slug": "thomas-walker-and-cumberland-gap",
+      "lat": 36.60686666666667,
+      "lon": -83.70171666666667,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Cumberland Gap / Thomas Walker",
+      "historyId": "cumberland-gap-thomas-walker"
+    },
+    "treaty-of-fort-stanwix-1768": {
+      "slug": "treaty-of-fort-stanwix-1768",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "treaties-of-hard-labour-and-lochaber": {
+      "slug": "treaties-of-hard-labour-and-lochaber",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "capt-will-the-hunting-ground": {
+      "slug": "capt-will-the-hunting-ground",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "leestown": {
+      "slug": "leestown",
+      "lat": 38.2137751,
+      "lon": -84.8677266,
+      "mapConfidence": "exact",
+      "matchedPlace": "Leestown",
+      "historyId": "leestown"
+    },
+    "georgetown-and-royal-spring": {
+      "slug": "georgetown-and-royal-spring",
+      "lat": 38.2100364,
+      "lon": -84.5614948,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Georgetown / Royal Spring",
+      "historyId": "georgetown-royal-spring"
+    },
+    "john-floyd": {
+      "slug": "john-floyd",
+      "lat": 38.24001666666667,
+      "lon": -85.64503333333333,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Floyd / Floyd's Station",
+      "historyId": "floyds-station"
+    },
+    "treaty-of-camp-charlotte-1774": {
+      "slug": "treaty-of-camp-charlotte-1774",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "richard-henderson": {
+      "slug": "richard-henderson",
+      "lat": 37.8310805,
+      "lon": -87.5691084,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Richard Henderson / Transylvania",
+      "historyId": "richard-henderson-transylvania"
+    },
+    "william-calk-s-1775-journal": {
+      "slug": "william-calk-s-1775-journal",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "capt-john-strode-of-strodes-station": {
+      "slug": "capt-john-strode-of-strodes-station",
+      "lat": 37.98859,
+      "lon": -84.25209,
+      "mapConfidence": "county",
+      "matchedPlace": "Clark County (centroid)",
+      "historyId": null
+    },
+    "springfield-first-county-seat-after-statehood": {
+      "slug": "springfield-first-county-seat-after-statehood",
+      "lat": 37.70957,
+      "lon": -85.24169,
+      "mapConfidence": "county",
+      "matchedPlace": "Washington County (centroid)",
+      "historyId": null
+    },
+    "george-rogers-clark": {
+      "slug": "george-rogers-clark",
+      "lat": 38.2434,
+      "lon": -85.7173,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "George Rogers Clark / Corn Island",
+      "historyId": "george-rogers-clark-corn-island"
+    },
+    "col-robert-patterson-builds-lexington": {
+      "slug": "col-robert-patterson-builds-lexington",
+      "lat": 38.2323905798604,
+      "lon": -85.75941874666854,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Filson",
+      "historyId": "john-filson"
+    },
+    "william-christian-of-beargrass": {
+      "slug": "william-christian-of-beargrass",
+      "lat": 38.23133,
+      "lon": -85.72027,
+      "mapConfidence": "county",
+      "matchedPlace": "Jefferson County (centroid)",
+      "historyId": null
+    },
+    "bardstown": {
+      "slug": "bardstown",
+      "lat": 37.8089,
+      "lon": -85.4665,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Bardstown Founding",
+      "historyId": "bardstown-founding"
+    },
+    "elizabethtown-from-severns-valley": {
+      "slug": "elizabethtown-from-severns-valley",
+      "lat": 37.73542,
+      "lon": -85.9548,
+      "mapConfidence": "county",
+      "matchedPlace": "Hardin County (centroid)",
+      "historyId": null
+    },
+    "isaac-shelby-old-kings-mountain": {
+      "slug": "isaac-shelby-old-kings-mountain",
+      "lat": 37.5753439,
+      "lon": -84.7919732,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Isaac Shelby",
+      "historyId": "isaac-shelby"
+    },
+    "squire-boones-painted-stone": {
+      "slug": "squire-boones-painted-stone",
+      "lat": 38.20919,
+      "lon": -85.25251,
+      "mapConfidence": "county",
+      "matchedPlace": "Shelby County (centroid)",
+      "historyId": null
+    },
+    "capt-james-estill-estills-defeat": {
+      "slug": "capt-james-estill-estills-defeat",
+      "lat": 38.0561079,
+      "lon": -83.9431961,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Estill's Defeat",
+      "historyId": "estills-defeat"
+    },
+    "john-filson-kentucke-1784": {
+      "slug": "john-filson-kentucke-1784",
+      "lat": 38.2323905798604,
+      "lon": -85.75941874666854,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Filson",
+      "historyId": "john-filson"
+    },
+    "danville-and-constitution-square": {
+      "slug": "danville-and-constitution-square",
+      "lat": 37.6456488,
+      "lon": -84.7721823,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Danville Constitution Square",
+      "historyId": "danville-constitution-square"
+    },
+    "basil-hayden-s-high-rye-trail": {
+      "slug": "basil-hayden-s-high-rye-trail",
+      "lat": 37.8199,
+      "lon": -85.47756,
+      "mapConfidence": "county",
+      "matchedPlace": "Nelson County (centroid)",
+      "historyId": null
+    },
+    "william-whitley-sportsmans-hill": {
+      "slug": "william-whitley-sportsmans-hill",
+      "lat": 37.4761695,
+      "lon": -84.54252,
+      "mapConfidence": "exact",
+      "matchedPlace": "William Whitley / Sportsman's Hill",
+      "historyId": "william-whitley-sportsmans-hill"
+    },
+    "jacob-beam-on-hardin-creek": {
+      "slug": "jacob-beam-on-hardin-creek",
+      "lat": 37.70957,
+      "lon": -85.24169,
+      "mapConfidence": "county",
+      "matchedPlace": "Washington County (centroid)",
+      "historyId": null
+    },
+    "mascouten-fire-nation-on-the-wabash": {
+      "slug": "mascouten-fire-nation-on-the-wabash",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "kickapoo-on-the-kentucky-frontier": {
+      "slug": "kickapoo-on-the-kentucky-frontier",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "nicholasville-takes-shape": {
+      "slug": "nicholasville-takes-shape",
+      "lat": 37.85014,
+      "lon": -84.62265,
+      "mapConfidence": "county",
+      "matchedPlace": "Jessamine County (centroid)",
+      "historyId": null
+    },
+    "winchester-clark-county-seat": {
+      "slug": "winchester-clark-county-seat",
+      "lat": 37.98859,
+      "lon": -84.25209,
+      "mapConfidence": "county",
+      "matchedPlace": "Clark County (centroid)",
+      "historyId": null
+    },
+    "lancaster-at-wallace-s-crossroads": {
+      "slug": "lancaster-at-wallace-s-crossroads",
+      "lat": 37.62829,
+      "lon": -84.56799,
+      "mapConfidence": "county",
+      "matchedPlace": "Garrard County (centroid)",
+      "historyId": null
+    },
+    "richmond-from-millers-barn": {
+      "slug": "richmond-from-millers-barn",
+      "lat": 37.7346,
+      "lon": -84.29079,
+      "mapConfidence": "county",
+      "matchedPlace": "Madison County (centroid)",
+      "historyId": null
+    },
+    "taylorsville-on-brashears-creek": {
+      "slug": "taylorsville-on-brashears-creek",
+      "lat": 38.20919,
+      "lon": -85.25251,
+      "mapConfidence": "county",
+      "matchedPlace": "Shelby County (centroid)",
+      "historyId": null
+    },
+    "piankashaw-claims-on-the-ohio-wabash": {
+      "slug": "piankashaw-claims-on-the-ohio-wabash",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio",
+      "historyId": "falls-of-the-ohio"
+    },
+    "great-saltpetre-cave": {
+      "slug": "great-saltpetre-cave",
+      "lat": 37.3677334,
+      "lon": -84.2036474,
+      "mapConfidence": "exact",
+      "matchedPlace": "Great Saltpetre Cave",
+      "historyId": "great-saltpetre-cave"
+    },
+    "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": {
+      "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
+      "lat": 37.3184064,
+      "lon": -84.9393979,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Catherine Spears Carpenter",
+      "historyId": "catherine-spears-carpenter"
+    },
+    "james-crow-on-glenns-creek": {
+      "slug": "james-crow-on-glenns-creek",
+      "lat": 38.08491,
+      "lon": -84.71149,
+      "mapConfidence": "county",
+      "matchedPlace": "Woodford County (centroid)",
+      "historyId": null
+    },
+    "diamond-caverns-decorated-limestone": {
+      "slug": "diamond-caverns-decorated-limestone",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "hardin-village-15gp22": {
+      "slug": "hardin-village-15gp22",
+      "lat": 38.54013,
+      "lon": -82.83268,
+      "mapConfidence": "county",
+      "matchedPlace": "Greenup County (centroid)",
+      "historyId": null
+    },
+    "mount-horeb-earthworks": {
+      "slug": "mount-horeb-earthworks",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "indian-fort-mountain": {
+      "slug": "indian-fort-mountain",
+      "lat": 37.5675476,
+      "lon": -84.2328837,
+      "mapConfidence": "exact",
+      "matchedPlace": "Indian Fort Mountain",
+      "historyId": "indian-fort-mountain"
+    },
+    "miami-hunters-return-north-of-the-ohio": {
+      "slug": "miami-hunters-return-north-of-the-ohio",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "big-bone-lick-older-cycle": {
+      "slug": "big-bone-lick-older-cycle",
+      "lat": 38.8580137,
+      "lon": -84.775606,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Big Bone Lick",
+      "historyId": "big-bone-lick"
+    },
+    "indian-knoll-on-the-green-river": {
+      "slug": "indian-knoll-on-the-green-river",
+      "lat": 37.303551,
+      "lon": -86.890631,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Indian Knoll",
+      "historyId": "indian-knoll"
+    },
+    "iroquois-beaver-wars": {
+      "slug": "iroquois-beaver-wars",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "lexington-named": {
+      "slug": "lexington-named",
+      "lat": 38.057833333333335,
+      "lon": -84.52875,
+      "mapConfidence": "exact",
+      "matchedPlace": "Lexington Named",
+      "historyId": "lexington-named"
+    },
+    "wickliffe-mounds-mississippian-village-ballard-county": {
+      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+      "lat": 36.9712176,
+      "lon": -89.0917492,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wickliffe Mounds",
+      "historyId": "wickliffe-mounds"
+    },
+    "yuchi-on-the-green-river-maps": {
+      "slug": "yuchi-on-the-green-river-maps",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    }
+  }
+}
