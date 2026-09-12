@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-09-12T15:52:01.424Z",
+  "generatedAt": "2026-09-12T17:01:16.619Z",
   "stats": {
     "exact": 9,
-    "fuzzy": 28,
+    "fuzzy": 26,
     "county": 29,
+    "override": 2,
     "none": 19
   },
   "locations": {
@@ -113,11 +114,11 @@
     },
     "michael-stoner-german-long-hunter": {
       "slug": "michael-stoner-german-long-hunter",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio",
-      "historyId": "falls-of-the-ohio"
+      "lat": 37.8909,
+      "lon": -84.2666,
+      "mapConfidence": "override",
+      "matchedPlace": "Boonesborough",
+      "historyId": null
     },
     "christopher-gist-1750-51": {
       "slug": "christopher-gist-1750-51",
@@ -313,11 +314,11 @@
     },
     "col-robert-patterson-builds-lexington": {
       "slug": "col-robert-patterson-builds-lexington",
-      "lat": 38.2323905798604,
-      "lon": -85.75941874666854,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "John Filson",
-      "historyId": "john-filson"
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Lexington",
+      "historyId": null
     },
     "william-christian-of-beargrass": {
       "slug": "william-christian-of-beargrass",

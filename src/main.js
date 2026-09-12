@@ -496,12 +496,67 @@ function grokipediaSearchUrl(title) {
   return `https://grokipedia.com/page/${encodeURIComponent(slug)}`
 }
 
-function photosForPlace({ lat, lon, name, historyId, layer }) {
+function topicTokens(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter(
+      (w) =>
+        w.length > 2 &&
+        !/^(the|and|for|from|with|near|county|kentucky|history|historic|photo|image|german|long|hunter|capt|col|builds|claims|ohio|run)$/.test(
+          w,
+        ),
+    )
+}
+
+/** Prefer distinctive name tokens (e.g. stoner, abraham) over generic words. */
+function strongTopicTokens(text) {
+  return topicTokens(text).filter((w) => w.length >= 5 || /^[a-z]{4,}$/.test(w))
+}
+
+function photoHaystack(photo) {
+  return [
+    photo?.title,
+    photo?.attribution,
+    photo?.credit,
+    photo?.source_label,
+    photo?.source,
+    photo?.collection,
+    photo?.description,
+    photo?.city,
+    photo?.county,
+    (photo?.related_place_names || []).join(' '),
+    (photo?.tags || []).join(' '),
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()
+}
+
+/** Require title/topic overlap so geo-nearby Louisville street photos don't attach to people stories. */
+function photoTopicHits(photo, topicText) {
+  const tokens = topicTokens(topicText)
+  if (!tokens.length) return 0
+  const hay = photoHaystack(photo)
+  let hits = 0
+  for (const tok of tokens) if (hay.includes(tok)) hits += 1
+  const strong = strongTopicTokens(topicText)
+  if (strong.length) {
+    const strongHits = strong.filter((tok) => hay.includes(tok)).length
+    // Zero strong hits → treat as irrelevant even if a weak leftover matched
+    if (strongHits === 0) return 0
+  }
+  return hits
+}
+
+function photosForPlace({ lat, lon, name, historyId, layer, requireTopic = false }) {
   const out = []
   const seen = new Set()
   const push = (p) => {
     const id = p.photo_id || p.id || p.image_url
     if (!id || seen.has(id) || !p.image_url) return
+    if (requireTopic && name && photoTopicHits(p, name) < 1) return
     seen.add(id)
     out.push(p)
   }
@@ -524,10 +579,17 @@ function photosForPlace({ lat, lon, name, historyId, layer }) {
     for (const ph of historicPhotosCache) {
       if (ph.latitude == null || ph.longitude == null || !ph.image_url) continue
       const d = haversineM(lat, lon, ph.latitude, ph.longitude)
-      if (d <= 2500) nearby.push({ ...ph, distance_m: Math.round(d), photo_id: ph.id })
-      const related = (ph.related_place_names || []).join(' ').toLowerCase()
-      if (name && related.includes(String(name).toLowerCase().slice(0, 12))) {
-        nearby.push({ ...ph, distance_m: Math.round(d), photo_id: ph.id })
+      // Geo proximity alone is not enough for story sidebars (requireTopic).
+      if (d <= 2500) {
+        const related = (ph.related_place_names || []).join(' ').toLowerCase()
+        const nameHit = name && related.includes(String(name).toLowerCase().slice(0, 12))
+        const topicOk = !requireTopic || photoTopicHits(ph, name) >= 1 || nameHit
+        if (topicOk) nearby.push({ ...ph, distance_m: Math.round(d), photo_id: ph.id })
+      } else if (name) {
+        const related = (ph.related_place_names || []).join(' ').toLowerCase()
+        if (related.includes(String(name).toLowerCase().slice(0, 12))) {
+          nearby.push({ ...ph, distance_m: Math.round(d), photo_id: ph.id })
+        }
       }
     }
     nearby.sort((a, b) => (a.distance_m || 0) - (b.distance_m || 0))
@@ -727,17 +789,16 @@ async function fetchCommonsImage(title, placeHint) {
       const pages = Object.values(data?.query?.pages || {})
       if (!pages.length) continue
 
-      const topicTokens = String(title || '')
-        .toLowerCase()
-        .replace(/[^a-z0-9\s]/g, ' ')
-        .split(/\s+/)
-        .filter((w) => w.length > 2 && !/^(the|and|for|from|with|near|county|kentucky)$/.test(w))
+      const toks = topicTokens(title)
+      const strongToks = strongTopicTokens(title)
       const scored = []
       for (const page of pages) {
         const info = page.imageinfo?.[0]
         if (!info) continue
         const mime = info.mime || ''
-        if (!/^image\//.test(mime) || /svg\+xml|gif|tiff/i.test(mime)) continue
+        // Skip non-photos (pdf/djvu/svg) and huge document scans
+        if (!/^image\//.test(mime) || /svg\+xml|gif|tiff|pdf/i.test(mime)) continue
+        if (/\.djvu|\.pdf/i.test(page.title || '')) continue
         const meta = info.extmetadata || {}
         const artist = stripHtmlCredits(meta.Artist?.value)
         const credit = stripHtmlCredits(meta.Credit?.value)
@@ -758,13 +819,15 @@ async function fetchCommonsImage(title, placeHint) {
         // Topic relevance beats institution alone
         const hay = blob.toLowerCase()
         let hits = 0
-        for (const tok of topicTokens) {
+        for (const tok of toks) {
           if (hay.includes(tok)) {
             hits += 1
             score += 14
           }
         }
-        if (hits === 0 && topicTokens.length) score -= 25
+        const strongHits = strongToks.filter((tok) => hay.includes(tok)).length
+        if (strongToks.length && strongHits === 0) score -= 40
+        if (hits === 0 && toks.length) score -= 25
         if (/kentucky/i.test(blob) || /kentucky/i.test(page.title || '')) score += 10
         if (placeHint && new RegExp(String(placeHint).slice(0, 12), 'i').test(blob)) score += 8
         // Prefer photographic / historic looks over diagrams
@@ -787,7 +850,8 @@ async function fetchCommonsImage(title, placeHint) {
         })
       }
       scored.sort((a, b) => b.score - a.score)
-      const pick = scored.find((s) => s.score >= 10) || scored[0]
+      // Need real topic overlap — institution fame alone is not enough
+      const pick = scored.find((s) => s.score >= 20) || null
       if (pick) return pick
     } catch {
       /* try next query */
@@ -798,18 +862,24 @@ async function fetchCommonsImage(title, placeHint) {
 
 function topicPhotoScore(photo, title, placeHint) {
   if (!photo?.image_url) return -1
-  const tokens = String(title || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .split(/\s+/)
-    .filter((w) => w.length > 2 && !/^(the|and|for|from|with|near|county|kentucky)$/.test(w))
-  const hay = `${photo.title || ''} ${photo.attribution || ''} ${photo.credit || ''} ${photo.source_label || ''}`.toLowerCase()
+  const tokens = topicTokens(title)
+  const hay = photoHaystack(photo)
   let score = typeof photo.score === 'number' ? photo.score : 0
-  for (const tok of tokens) if (hay.includes(tok)) score += 12
+  let hits = 0
+  for (const tok of tokens) {
+    if (hay.includes(tok)) {
+      hits += 1
+      score += 12
+    }
+  }
   if (placeHint && hay.includes(String(placeHint).toLowerCase().slice(0, 10))) score += 6
   if (/wikipedia/i.test(photo.source_label || '')) score += 4
+  // Hard penalty: no topic overlap → never preferred over an empty state
+  if (tokens.length && hits === 0) score -= 80
   return score
 }
+
+const MIN_STORY_PHOTO_SCORE = 8
 
 async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown }) {
   await loadHistoricPhotoData()
@@ -819,19 +889,22 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
 
   const candidates = []
 
+  // Story sidebars require topic overlap — nearby city photos alone are not enough
   const local = photosForPlace({
     lat,
     lon,
     name: title,
     historyId,
     layer: 'history',
+    requireTopic: true,
   })
   if (local[0]?.image_url) {
     const rawCredit = local[0].source || local[0].collection || 'Historic photo'
     const institution = inferPhotoInstitution(rawCredit) || rawCredit
+    const hits = photoTopicHits(local[0], title)
     candidates.push({
       ...local[0],
-      score: 30,
+      score: 20 + hits * 10,
       source_label: institution,
       attribution: [institution, local[0].collection, local[0].year].filter(Boolean).join(' · '),
       credit: institution,
@@ -839,6 +912,7 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
   }
 
   const wikiFromBody = extractWikipediaUrl(bodyMarkdown)
+  // Prefer Wikipedia page for the person/topic; do not fall back to placeHint-only pages
   const [wikiPhoto, commonsPhoto] = await Promise.all([
     fetchWikipediaThumbnail(wikiFromBody || title),
     fetchCommonsImage(title, placeHint),
@@ -848,7 +922,9 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
 
   candidates.sort((a, b) => topicPhotoScore(b, title, placeHint) - topicPhotoScore(a, title, placeHint))
   const best = candidates[0]
-  if (best?.image_url) {
+  const bestScore = best ? topicPhotoScore(best, title, placeHint) : -1
+  // Prefer no photo over an off-topic Louisville street scene
+  if (best?.image_url && bestScore >= MIN_STORY_PHOTO_SCORE) {
     return {
       ...best,
       ...links,
@@ -913,7 +989,7 @@ function storySidebarPhotoHtml(photo, title) {
 
 function placeDetailExtrasHtml({ lat, lon, name, placeHint, bodyMarkdown, historyId, layer }) {
   const links = extractGrokipediaLinks(bodyMarkdown)
-  const photos = photosForPlace({ lat, lon, name, historyId, layer })
+  const photos = photosForPlace({ lat, lon, name, historyId, layer, requireTopic: true })
   return `${mapsLinksHtml(lat, lon, name, placeHint)}${photosHtml(photos)}${grokipediaHtml(links, name)}`
 }
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T15:52:01.296Z",
+  "generatedAt": "2026-09-12T17:00:51.294Z",
   "count": 85,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -294,10 +294,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-10",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio"
+      "lat": 37.8909,
+      "lon": -84.2666,
+      "mapConfidence": "override",
+      "matchedPlace": "Boonesborough"
     },
     {
       "slug": "christopher-gist-1750-51",
@@ -822,10 +822,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
-      "lat": 38.2323905798604,
-      "lon": -85.75941874666854,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "John Filson"
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Lexington"
     },
     {
       "slug": "william-christian-of-beargrass",

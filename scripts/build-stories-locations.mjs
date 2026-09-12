@@ -50,6 +50,26 @@ for (const f of history) {
   bySlug.set(p.id, f)
 }
 
+
+/** Manual pin overrides when fuzzy body matching picks the wrong place (photos/map). */
+const MANUAL_OVERRIDES = {
+  // Long hunter biography — brief Falls visit shouldn't pin the whole story to Louisville
+  'michael-stoner-german-long-hunter': {
+    matchName: 'Boonesborough',
+    // fallback coords if history layer missing that name
+    lat: 37.8909,
+    lon: -84.2666,
+    confidence: 'override',
+  },
+  // Lexington founding — not John Filson / Louisville
+  'col-robert-patterson-builds-lexington': {
+    matchName: 'Lexington',
+    lat: 38.0406,
+    lon: -84.5037,
+    confidence: 'override',
+  },
+}
+
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
 const countyRe = countyNames.length
   ? new RegExp(`\\b(${countyNames.map((c) => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\s+County\\b`, 'i')
@@ -99,7 +119,7 @@ function countyFallback(text) {
 }
 
 const locations = {}
-const stats = { exact: 0, fuzzy: 0, county: 0, none: 0 }
+const stats = { exact: 0, fuzzy: 0, county: 0, override: 0, none: 0 }
 
 for (const story of idx.stories) {
   let body = ''
@@ -111,7 +131,26 @@ for (const story of idx.stories) {
       body = ''
     }
   }
-  const found = findHistory(story, body)
+  const override = MANUAL_OVERRIDES[story.slug]
+  let found = override ? null : findHistory(story, body)
+  if (override) {
+    let feature = null
+    if (override.matchName) {
+      feature = byName.get(norm(override.matchName)) || bySlug.get(slugify(override.matchName))
+    }
+    if (feature) {
+      found = { feature, confidence: override.confidence || 'override', match: feature.properties.name }
+    } else if (override.lat != null && override.lon != null) {
+      found = {
+        feature: {
+          geometry: { coordinates: [override.lon, override.lat] },
+          properties: { name: override.matchName || story.title, id: null },
+        },
+        confidence: override.confidence || 'override',
+        match: override.matchName || 'manual override',
+      }
+    }
+  }
   let loc = null
   if (found) {
     const [lon, lat] = found.feature.geometry.coordinates
@@ -123,7 +162,7 @@ for (const story of idx.stories) {
       matchedPlace: found.match,
       historyId: found.feature.properties.id || null,
     }
-    stats[found.confidence]++
+    stats[found.confidence] = (stats[found.confidence] || 0) + 1
   } else {
     const text = [story.title, story.summary, body, ...(story.tags || [])].join(' ')
     const fb = countyFallback(text)
