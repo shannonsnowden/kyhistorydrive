@@ -726,10 +726,8 @@ function focusStoryOnMaps(story) {
   const titleEl = document.getElementById('storiesMapTitle')
   const metaEl = document.getElementById('storiesMapMeta')
   const noLoc = document.getElementById('storiesNoLoc')
-  const select = document.getElementById('storiesSelect')
 
   selectedStorySlug = story.slug
-  if (select && select.value !== story.slug) select.value = story.slug
 
   if (story.lat == null || story.lon == null) {
     pendingFocus = null
@@ -793,8 +791,12 @@ async function loadStoryBody(slug) {
 async function showStoryInReader(meta) {
   const reader = document.getElementById('storyReader')
   if (!reader || !meta) return
+  reader.classList.remove('is-empty')
   reader.innerHTML = '<p class="muted">Loading…</p>'
   focusStoryOnMaps(meta)
+  document.querySelectorAll('#storiesList .story-card').forEach((el) => {
+    el.classList.toggle('selected', el.dataset.slug === meta.slug)
+  })
   try {
     const s = await loadStoryBody(meta.slug)
     const tags = (s.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join(' ')
@@ -813,7 +815,7 @@ async function showStoryInReader(meta) {
       <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
       <p class="story-source muted">Source: ${escapeHtml(s.source || 'daily-brief')}</p>
     `
-    reader.scrollTop = 0
+    reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   } catch {
     reader.innerHTML = `<p class="muted">Could not load this story.</p>`
   }
@@ -821,7 +823,8 @@ async function showStoryInReader(meta) {
 
 async function renderStoriesPage(preferredSlug) {
   const idx = await loadStories()
-  const select = document.getElementById('storiesSelect')
+  const list = document.getElementById('storiesList')
+  const reader = document.getElementById('storyReader')
   const sorted = [...idx.stories].sort(
     (a, b) =>
       String(b.briefDate || '').localeCompare(String(a.briefDate || '')) ||
@@ -829,19 +832,33 @@ async function renderStoriesPage(preferredSlug) {
   )
   const bySlug = Object.fromEntries(sorted.map((s) => [s.slug, s]))
 
-  select.innerHTML = sorted
+  list.innerHTML = sorted
     .map((s) => {
-      const mark = s.lat != null ? '' : ' · no map'
-      return `<option value="${escapeHtml(s.slug)}">${escapeHtml(s.title)}${mark}</option>`
+      const years = formatYearRange(s.yearStart, s.yearEnd)
+      const loc = s.lat != null ? '' : '<span class="muted"> · no map yet</span>'
+      return `<button type="button" class="story-card" data-slug="${escapeHtml(s.slug)}">
+        <span class="story-card-icon" aria-hidden="true">📖</span>
+        <span class="story-card-body">
+          <span class="story-card-meta">
+            <span class="era-pill era-${escapeHtml(s.era || 'unknown')}">${escapeHtml(s.era || '')}</span>
+            <span>${escapeHtml(years)}</span>
+            <span>Brief ${escapeHtml(s.briefDate || '')}</span>${loc}
+          </span>
+          <h3>${escapeHtml(s.title)}</h3>
+          <p>${escapeHtml(s.summary || '')}</p>
+        </span>
+      </button>`
     })
-    .join('')
+    .join('') || '<p class="muted">No stories yet.</p>'
 
-  select.onchange = () => {
-    const s = bySlug[select.value]
-    if (s) {
-      history.replaceState(null, '', `#stories/${encodeURIComponent(s.slug)}`)
-      showStoryInReader(s)
-    }
+  list.onclick = (e) => {
+    const card = e.target.closest('.story-card')
+    if (!card) return
+    const s = bySlug[card.dataset.slug]
+    if (!s) return
+    selectedStorySlug = s.slug
+    history.replaceState(null, '', `#stories/${encodeURIComponent(s.slug)}`)
+    showStoryInReader(s)
   }
 
   initStoriesMap()
@@ -853,10 +870,10 @@ async function renderStoriesPage(preferredSlug) {
     sorted[0]
 
   if (pick) {
-    select.value = pick.slug
     await showStoryInReader(pick)
-  } else {
-    document.getElementById('storyReader').innerHTML = '<p class="muted">No stories yet.</p>'
+  } else if (reader) {
+    reader.classList.add('is-empty')
+    reader.innerHTML = ''
   }
 
   requestAnimationFrame(() => storiesMap?.resize())
