@@ -889,7 +889,7 @@ function storySidebarPhotoHtml(photo, title) {
     ? `<nav class="story-sidebar-photo-links" aria-label="Photo sources">${bits.join(
         '<span aria-hidden="true"> · </span>',
       )}</nav>`
-    : 
+    : ''
 
   let thumb = ''
   if (photo.image_url) {
