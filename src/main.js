@@ -714,32 +714,55 @@ async function fetchCommonsImage(title, placeHint) {
       const pages = Object.values(data?.query?.pages || {})
       if (!pages.length) continue
 
+      const topicTokens = String(title || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .split(/\s+/)
+        .filter((w) => w.length > 2 && !/^(the|and|for|from|with|near|county|kentucky)$/.test(w))
       const scored = []
       for (const page of pages) {
         const info = page.imageinfo?.[0]
         if (!info) continue
         const mime = info.mime || ''
-        if (!/^image\//.test(mime) || /svg|gif|tiff/i.test(mime)) continue
+        if (!/^image\//.test(mime) || /svg\+xml|gif|tiff/i.test(mime)) continue
         const meta = info.extmetadata || {}
         const artist = stripHtmlCredits(meta.Artist?.value)
         const credit = stripHtmlCredits(meta.Credit?.value)
         const license = stripHtmlCredits(meta.LicenseShortName?.value)
         const desc = stripHtmlCredits(meta.ImageDescription?.value)
-        const blob = [artist, credit, license, desc, page.title].join(' | ')
+        const objectName = stripHtmlCredits(meta.ObjectName?.value) || String(page.title || '').replace(/^File:/, '')
+        const blob = [artist, credit, license, desc, objectName, page.title].join(' | ')
+        // Skip logos, icons, maps-as-diagrams, coats of arms unless topic asks for them
+        if (/\b(logo|icon|coat of arms|seal of|flag icon|pictogram|spacer|placeholder)\b/i.test(blob)) {
+          continue
+        }
         const institution = inferPhotoInstitution(blob)
         let score = 0
-        if (institution === 'Library of Congress') score += 50
-        else if (institution === 'National Archives') score += 48
-        else if (institution === 'Kentucky Historical Society') score += 46
-        else if (institution) score += 20
-        if (/kentucky/i.test(blob) || /kentucky/i.test(page.title || '')) score += 8
-        if (placeHint && new RegExp(String(placeHint).slice(0, 12), 'i').test(blob)) score += 5
+        if (institution === 'Library of Congress') score += 40
+        else if (institution === 'National Archives') score += 38
+        else if (institution === 'Kentucky Historical Society') score += 36
+        else if (institution) score += 12
+        // Topic relevance beats institution alone
+        const hay = blob.toLowerCase()
+        let hits = 0
+        for (const tok of topicTokens) {
+          if (hay.includes(tok)) {
+            hits += 1
+            score += 14
+          }
+        }
+        if (hits === 0 && topicTokens.length) score -= 25
+        if (/kentucky/i.test(blob) || /kentucky/i.test(page.title || '')) score += 10
+        if (placeHint && new RegExp(String(placeHint).slice(0, 12), 'i').test(blob)) score += 8
+        // Prefer photographic / historic looks over diagrams
+        if (/\b(photograph|photo|historic|monument|battlefield|mound|fort|station)\b/i.test(blob)) score += 6
+        if (/\b(map of|locator|diagram|schematic)\b/i.test(blob)) score -= 12
         const img = info.thumburl || info.url
         if (!img) continue
         scored.push({
           score,
           image_url: img,
-          title: stripHtmlCredits(meta.ObjectName?.value) || String(page.title || '').replace(/^File:/, ''),
+          title: objectName,
           source_url: info.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(page.title)}`,
           source_label: institution || 'Wikimedia Commons',
           attribution: [institution || 'Wikimedia Commons', artist || credit, license]
@@ -751,11 +774,7 @@ async function fetchCommonsImage(title, placeHint) {
         })
       }
       scored.sort((a, b) => b.score - a.score)
-      // Prefer a government/source hit when this query asked for one
-      const preferGov = /library of congress|national archives|kentucky historical/i.test(q)
-      const pick = preferGov
-        ? scored.find((s) => /Library of Congress|National Archives|Kentucky Historical/.test(s.source_label)) || scored[0]
-        : scored[0]
+      const pick = scored.find((s) => s.score >= 10) || scored[0]
       if (pick) return pick
     } catch {
       /* try next query */
@@ -764,11 +783,28 @@ async function fetchCommonsImage(title, placeHint) {
   return null
 }
 
+function topicPhotoScore(photo, title, placeHint) {
+  if (!photo?.image_url) return -1
+  const tokens = String(title || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length > 2 && !/^(the|and|for|from|with|near|county|kentucky)$/.test(w))
+  const hay = `${photo.title || ''} ${photo.attribution || ''} ${photo.credit || ''} ${photo.source_label || ''}`.toLowerCase()
+  let score = typeof photo.score === 'number' ? photo.score : 0
+  for (const tok of tokens) if (hay.includes(tok)) score += 12
+  if (placeHint && hay.includes(String(placeHint).toLowerCase().slice(0, 10))) score += 6
+  if (/wikipedia/i.test(photo.source_label || '')) score += 4
+  return score
+}
+
 async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown }) {
   await loadHistoricPhotoData()
   const links = photoSearchLinks(title, placeHint, {
     wikipedia_url: extractWikipediaUrl(bodyMarkdown) || wikipediaSearchUrl(title),
   })
+
+  const candidates = []
 
   const local = photosForPlace({
     lat,
@@ -780,21 +816,26 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
   if (local[0]?.image_url) {
     const rawCredit = local[0].source || local[0].collection || 'Historic photo'
     const institution = inferPhotoInstitution(rawCredit) || rawCredit
-    return {
+    candidates.push({
       ...local[0],
-      ...links,
+      score: 30,
       source_label: institution,
       attribution: [institution, local[0].collection, local[0].year].filter(Boolean).join(' · '),
       credit: institution,
-    }
+    })
   }
 
   const wikiFromBody = extractWikipediaUrl(bodyMarkdown)
-  const wikiPhoto = await fetchWikipediaThumbnail(wikiFromBody || title)
-  if (wikiPhoto) return { ...wikiPhoto, ...links }
+  const [wikiPhoto, commonsPhoto] = await Promise.all([
+    fetchWikipediaThumbnail(wikiFromBody || title),
+    fetchCommonsImage(title, placeHint),
+  ])
+  if (wikiPhoto) candidates.push({ ...wikiPhoto, score: wikiPhoto.score ?? 18 })
+  if (commonsPhoto) candidates.push(commonsPhoto)
 
-  const commonsPhoto = await fetchCommonsImage(title, placeHint)
-  if (commonsPhoto) return { ...commonsPhoto, ...links }
+  candidates.sort((a, b) => topicPhotoScore(b, title, placeHint) - topicPhotoScore(a, title, placeHint))
+  const best = candidates[0]
+  if (best?.image_url) return { ...best, ...links }
 
   return {
     image_url: null,
@@ -814,7 +855,7 @@ function storySidebarPhotoHtml(photo, title) {
   const attribution = escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
   const year = photo.year ? escapeHtml(String(photo.year)) : ''
 
-  const linkRow = `<p class="story-sidebar-photo-links">
+  const linkRow = `<nav class="story-sidebar-photo-links" aria-label="Photo sources">
       <a href="${escapeHtml(photo.google_url || '#')}" target="_blank" rel="noopener noreferrer">Google</a>
       <span aria-hidden="true">·</span>
       <a href="${escapeHtml(photo.wikipedia_url || '#')}" target="_blank" rel="noopener noreferrer">Wikipedia</a>
@@ -826,26 +867,26 @@ function storySidebarPhotoHtml(photo, title) {
       <a href="${escapeHtml(photo.loc_url || '#')}" target="_blank" rel="noopener noreferrer">Library of Congress</a>
       <span aria-hidden="true">·</span>
       <a href="${escapeHtml(photo.nara_url || '#')}" target="_blank" rel="noopener noreferrer">National Archives</a>
-    </p>`
+    </nav>`
 
+  let thumb = ''
   if (photo.image_url) {
     const href = escapeHtml(photo.source_url || photo.image_url)
     const img = escapeHtml(photo.image_url)
-    return `<aside class="story-sidebar-photo" aria-label="Story photo">
-      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer">
+    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer">
         <img src="${img}" alt="${caption}" loading="lazy" />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
-      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>
-      ${linkRow}
-    </aside>`
+      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>`
+  } else {
+    thumb = `<p class="story-sidebar-photo-attr muted">No matching thumbnail yet — use a source link above.</p>`
   }
 
-  return `<aside class="story-sidebar-photo story-sidebar-photo--empty" aria-label="Find a photo">
-    <p class="story-sidebar-photo-cap">Find a photo</p>
-    <p class="story-sidebar-photo-attr muted">Try KY Historical Society, Library of Congress, National Archives, Wikipedia, or Google.</p>
-    ${linkRow}
-  </aside>`
+  return `<aside class="story-sidebar-photo" aria-label="Story photo">
+      <p class="story-sidebar-photo-heading">Photos</p>
+      ${linkRow}
+      ${thumb}
+    </aside>`
 }
 
 function placeDetailExtrasHtml({ lat, lon, name, placeHint, bodyMarkdown, historyId, layer }) {
