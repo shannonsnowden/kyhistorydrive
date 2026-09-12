@@ -24,13 +24,6 @@ const OSM_STYLE = {
   layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
 }
 
-const OHM_SOURCE = {
-  type: 'raster',
-  tiles: ['https://tiles.openhistoricalmap.org/map/ohm/{z}/{x}/{y}.png'],
-  tileSize: 256,
-  attribution: '&copy; <a href="https://www.openhistoricalmap.org/">OpenHistoricalMap</a>',
-  maxzoom: 19,
-}
 
 const CENTER = [-85.058, 38.258]
 const START_ZOOM = 9
@@ -257,24 +250,12 @@ function buildYearEraFilter(layerDef) {
   return parts.length === 1 ? parts[0] : ['all', ...parts]
 }
 
-function markersPhaseFilter() {
-  const phase1Only = document.getElementById('phase1Only')
-  return phase1Only?.checked ? ['==', ['get', 'phase1'], true] : null
-}
 
-function combineFilters(...filters) {
-  const active = filters.filter(Boolean)
-  if (!active.length) return null
-  if (active.length === 1) return active[0]
-  return ['all', ...active]
-}
 
 function applyMapFilters() {
   if (!map || !mapReady) return
   for (const def of DATA_LAYERS) {
-    const yearEra = buildYearEraFilter(def)
-    const phase = def.id === 'markers' ? markersPhaseFilter() : null
-    const filter = combineFilters(yearEra, phase)
+    const filter = buildYearEraFilter(def)
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
       if (map.getLayer(lid)) map.setFilter(lid, filter)
     }
@@ -346,9 +327,6 @@ function updateStats() {
     const src = map.getSource(def.id)
     if (!src?._data?.features) continue
     let n = src._data.features.length
-    if (def.id === 'markers' && document.getElementById('phase1Only')?.checked) {
-      n = src._data.features.filter((f) => f.properties.phase1).length
-    }
     bits.push(`${n.toLocaleString()} ${def.label}`)
   }
   statsEl.textContent = bits.length ? `Showing ${bits.join(' · ')}` : 'No layers enabled'
@@ -532,9 +510,6 @@ function initMap() {
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
 
-  const phase1Only = document.getElementById('phase1Only')
-  const layerOhm = document.getElementById('layerOhm')
-
   map.on('load', async () => {
     try {
       const kyRes = await fetch('/data/kentucky-outline.geojson')
@@ -588,29 +563,6 @@ function initMap() {
     }
 
     applyMapFilters()
-    phase1Only?.addEventListener('change', () => {
-      applyMapFilters()
-    })
-    layerOhm?.addEventListener('change', () => {
-      if (layerOhm.checked) {
-        if (!map.getSource('ohm')) {
-          map.addSource('ohm', OHM_SOURCE)
-          map.addLayer(
-            {
-              id: 'ohm',
-              type: 'raster',
-              source: 'ohm',
-              paint: { 'raster-opacity': 0.55 },
-            },
-            layerCircleId('markers')
-          )
-        } else {
-          map.setLayoutProperty('ohm', 'visibility', 'visible')
-        }
-      } else if (map.getLayer('ohm')) {
-        map.setLayoutProperty('ohm', 'visibility', 'none')
-      }
-    })
 
     mapReady = true
     syncAllLayersCheckbox()
