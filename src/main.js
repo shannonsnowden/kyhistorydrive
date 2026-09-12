@@ -138,6 +138,34 @@ function initMap() {
   }
 
   map.on('load', async () => {
+    // Kentucky state outline (fill under markers, line on top of fill)
+    try {
+      const kyRes = await fetch('/data/kentucky-outline.geojson')
+      const ky = await kyRes.json()
+      map.addSource('kentucky', { type: 'geojson', data: ky })
+      map.addLayer({
+        id: 'kentucky-fill',
+        type: 'fill',
+        source: 'kentucky',
+        paint: {
+          'fill-color': '#2d5a3d',
+          'fill-opacity': 0.12,
+        },
+      })
+      map.addLayer({
+        id: 'kentucky-outline',
+        type: 'line',
+        source: 'kentucky',
+        paint: {
+          'line-color': '#c9893a',
+          'line-width': 2.25,
+          'line-opacity': 0.95,
+        },
+      })
+    } catch (err) {
+      console.warn('Kentucky outline failed to load', err)
+    }
+
     const res = await fetch('/data/markers.geojson')
     const data = await res.json()
     map.addSource('markers', { type: 'geojson', data })
