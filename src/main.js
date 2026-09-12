@@ -253,6 +253,7 @@ let map = null
 let mapReady = false
 let activePopup = null
 let pendingFocus = null // { lon, lat, title, slug? }
+let highlightDetailProps = null // rich props for highlight pin popup
 
 function layerCircleId(id) {
   return `${id}-circle`
@@ -373,21 +374,176 @@ function syncAllLayersCheckbox() {
   el.checked = DATA_LAYERS.every((l) => layerVisibility[l.id])
 }
 
-function mapsLinksHtml(lat, lon, label) {
+function mapsLinksHtml(lat, lon, label, placeHint) {
   if (lat == null || lon == null || Number.isNaN(Number(lat)) || Number.isNaN(Number(lon))) {
     return ''
   }
   const la = Number(lat)
   const lo = Number(lon)
-  const q = encodeURIComponent(label || `${la},${lo}`)
+  const name = label || `${la},${lo}`
+  const q = encodeURIComponent(name)
+  const searchBits = [name]
+  if (placeHint) searchBits.push(placeHint)
+  if (!/kentucky/i.test(searchBits.join(' '))) searchBits.push('Kentucky')
+  const searchQ = encodeURIComponent(searchBits.join(' '))
   const apple = `https://maps.apple.com/?ll=${la},${lo}&q=${q}`
-  const google = `https://www.google.com/maps/search/?api=1&query=${la}%2C${lo}`
-  return `<p class="popup-maps">
-    <a href="${apple}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
-    <span class="popup-maps-sep" aria-hidden="true">·</span>
-    <a href="${google}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-  </p>`
+  const google = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} @${la},${lo}`)}`
+  const photos = `https://www.google.com/search?tbm=isch&q=${searchQ}`
+  return `<div class="popup-links-block">
+    <p class="popup-maps">
+      <a href="${apple}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+      <span class="popup-maps-sep" aria-hidden="true">·</span>
+      <a href="${google}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+    </p>
+    <p class="popup-maps">
+      <a href="${photos}" target="_blank" rel="noopener noreferrer">Photos on Google</a>
+    </p>
+  </div>`
 }
+
+let historicPhotosCache = null
+let siteHistoricPhotosCache = null
+
+async function loadHistoricPhotoData() {
+  if (historicPhotosCache && siteHistoricPhotosCache) {
+    return { photos: historicPhotosCache, siteLinks: siteHistoricPhotosCache }
+  }
+  try {
+    const [pRes, sRes] = await Promise.all([
+      fetch('/data/historic-photos.json'),
+      fetch('/data/site-historic-photos.json'),
+    ])
+    historicPhotosCache = pRes.ok ? await pRes.json() : []
+    siteHistoricPhotosCache = sRes.ok ? await sRes.json() : []
+  } catch {
+    historicPhotosCache = []
+    siteHistoricPhotosCache = []
+  }
+  return { photos: historicPhotosCache, siteLinks: siteHistoricPhotosCache }
+}
+
+function haversineM(lat1, lon1, lat2, lon2) {
+  const R = 6371000
+  const toRad = (d) => (d * Math.PI) / 180
+  const dLat = toRad(lat2 - lat1)
+  const dLon = toRad(lon2 - lon1)
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2
+  return 2 * R * Math.asin(Math.sqrt(a))
+}
+
+function extractGrokipediaLinks(markdown) {
+  const links = []
+  const seen = new Set()
+  const re = /\[([^\]]*)\]\((https?:\/\/grokipedia\.com\/[^)\s]+)\)/gi
+  let m
+  while ((m = re.exec(String(markdown || '')))) {
+    const url = m[2]
+    if (seen.has(url)) continue
+    seen.add(url)
+    links.push({ label: m[1] || 'Grokipedia', url })
+  }
+  // bare URLs
+  const bare = /https?:\/\/grokipedia\.com\/[^\s)"']+/gi
+  while ((m = bare.exec(String(markdown || '')))) {
+    const url = m[0]
+    if (seen.has(url)) continue
+    seen.add(url)
+    links.push({ label: 'Grokipedia', url })
+  }
+  return links
+}
+
+function grokipediaSearchUrl(title) {
+  const slug = String(title || '')
+    .trim()
+    .replace(/\s+/g, '_')
+  if (!slug) return null
+  return `https://grokipedia.com/page/${encodeURIComponent(slug)}`
+}
+
+function photosForPlace({ lat, lon, name, historyId, layer }) {
+  const out = []
+  const seen = new Set()
+  const push = (p) => {
+    const id = p.photo_id || p.id || p.image_url
+    if (!id || seen.has(id) || !p.image_url) return
+    seen.add(id)
+    out.push(p)
+  }
+  if (siteHistoricPhotosCache?.length) {
+    for (const link of siteHistoricPhotosCache) {
+      if (historyId && link.site_id === historyId) {
+        for (const ph of link.photos || []) push(ph)
+      }
+      if (layer && link.layer === layer && link.site_id === historyId) {
+        for (const ph of link.photos || []) push(ph)
+      }
+      const siteName = String(link.site_name || '').toLowerCase()
+      if (name && siteName && siteName.includes(String(name).toLowerCase().slice(0, 18))) {
+        for (const ph of link.photos || []) push(ph)
+      }
+    }
+  }
+  if (historicPhotosCache?.length && lat != null && lon != null) {
+    const nearby = []
+    for (const ph of historicPhotosCache) {
+      if (ph.latitude == null || ph.longitude == null || !ph.image_url) continue
+      const d = haversineM(lat, lon, ph.latitude, ph.longitude)
+      if (d <= 2500) nearby.push({ ...ph, distance_m: Math.round(d), photo_id: ph.id })
+      const related = (ph.related_place_names || []).join(' ').toLowerCase()
+      if (name && related.includes(String(name).toLowerCase().slice(0, 12))) {
+        nearby.push({ ...ph, distance_m: Math.round(d), photo_id: ph.id })
+      }
+    }
+    nearby.sort((a, b) => (a.distance_m || 0) - (b.distance_m || 0))
+    for (const ph of nearby.slice(0, 6)) push(ph)
+  }
+  return out.slice(0, 6)
+}
+
+function photosHtml(photos) {
+  if (!photos?.length) return ''
+  const cards = photos
+    .map((p) => {
+      const title = escapeHtml(p.title || 'Historic photo')
+      const year = p.year ? escapeHtml(String(p.year)) : ''
+      const href = escapeHtml(p.source_url || p.image_url)
+      const img = escapeHtml(p.image_url)
+      return `<a class="historic-photo-card" href="${href}" target="_blank" rel="noopener noreferrer">
+        <img src="${img}" alt="${title}" loading="lazy" />
+        <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
+      </a>`
+    })
+    .join('')
+  return `<div class="historic-photos"><div class="historic-photos-label">Historic photos</div><div class="historic-photos-grid">${cards}</div></div>`
+}
+
+function grokipediaHtml(links, title) {
+  const items = [...(links || [])]
+  if (!items.length && title) {
+    const url = grokipediaSearchUrl(title)
+    if (url) items.push({ label: `Grokipedia: ${title}`, url })
+  }
+  if (!items.length) return ''
+  return `<div class="popup-research">
+    <div class="historic-photos-label">Grokipedia</div>
+    <ul class="grokipedia-list">${items
+      .map(
+        (l) =>
+          `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a></li>`,
+      )
+      .join('')}</ul>
+  </div>`
+}
+
+function placeDetailExtrasHtml({ lat, lon, name, placeHint, bodyMarkdown, historyId, layer }) {
+  const links = extractGrokipediaLinks(bodyMarkdown)
+  const photos = photosForPlace({ lat, lon, name, historyId, layer })
+  return `${mapsLinksHtml(lat, lon, name, placeHint)}${photosHtml(photos)}${grokipediaHtml(links, name)}`
+}
+
 
 function detailHtmlFromProps(p, layerId, coords) {
   const name = p.name || p.title || 'Untitled'
@@ -404,8 +560,6 @@ function detailHtmlFromProps(p, layerId, coords) {
   if (p.category) metaBits.push(p.category)
   if (p.war) metaBits.push(p.war)
   const desc = p.inscription || p.history || p.description || p.location_text || ''
-  const short =
-    desc.length > 420 ? `${desc.slice(0, 400).trim()}…` : desc
   const href = p.source_url || p.website || null
   const linkLabel = p.source_url ? 'history.ky.gov' : 'Website'
   const link = href
@@ -420,22 +574,34 @@ function detailHtmlFromProps(p, layerId, coords) {
   } else if (p.lat != null && p.lon != null) {
     lat = p.lat
     lon = p.lon
+  } else if (p.latitude != null && p.longitude != null) {
+    lat = p.latitude
+    lon = p.longitude
   }
-  const maps = mapsLinksHtml(lat, lon, name)
+  const hint = [p.city, p.county ? `${p.county} County` : '', p.subtitle].filter(Boolean).join(', ')
+  const extras = placeDetailExtrasHtml({
+    lat,
+    lon,
+    name,
+    placeHint: hint || null,
+    bodyMarkdown: p.bodyMarkdown || '',
+    historyId: p.id || p.historyId || null,
+    layer: layerId === 'markers' ? 'marker' : layerId,
+  })
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
   return `
     <div class="map-popup">
       <div class="detail-layer">${escapeHtml(layerLabel)}</div>
       <h3>${escapeHtml(name)}</h3>
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
-      ${short ? `<p>${escapeHtml(short)}</p>` : ''}
+      ${desc ? `<div class="popup-full-text">${escapeHtml(desc)}</div>` : ''}
       ${link}
-      ${maps}
+      ${extras}
     </div>
   `
 }
 
-function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
+async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (!targetMap || !feature) return
   if (activePopup) {
     activePopup.remove()
@@ -447,10 +613,11 @@ function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
       ? feature.geometry.coordinates
       : null)
   if (!coords) return
+  await loadHistoricPhotoData()
   activePopup = new maplibregl.Popup({
     closeButton: true,
     closeOnClick: true,
-    maxWidth: '320px',
+    maxWidth: '420px',
     offset: 14,
     className: 'ky-popup',
   })
@@ -666,6 +833,35 @@ function ensureHighlightSource(targetMap, focus) {
         'circle-stroke-width': 2,
         'circle-stroke-color': '#101812',
       },
+    })
+    targetMap.addLayer({
+      id: 'highlight-hit',
+      type: 'circle',
+      source: 'highlight',
+      paint: { 'circle-radius': 22, 'circle-opacity': 0 },
+    })
+    targetMap.on('mouseenter', 'highlight-hit', () => {
+      targetMap.getCanvas().style.cursor = 'pointer'
+    })
+    targetMap.on('mouseleave', 'highlight-hit', () => {
+      targetMap.getCanvas().style.cursor = ''
+    })
+    targetMap.on('click', 'highlight-hit', (e) => {
+      const f = e.features?.[0]
+      if (!f) return
+      e.originalEvent?.stopPropagation?.()
+      const props = {
+        ...(highlightDetailProps || {}),
+        ...(f.properties || {}),
+        title: (highlightDetailProps || f.properties || {}).title || f.properties?.title,
+        name: (highlightDetailProps || f.properties || {}).name || f.properties?.name,
+      }
+      showDetailPopup(
+        { type: 'Feature', geometry: f.geometry, properties: props },
+        highlightDetailProps?.layerId || 'history',
+        e.lngLat,
+        targetMap,
+      )
     })
   }
 }
@@ -918,6 +1114,7 @@ async function initTimelineMap() {
     } catch {
       /* ignore */
     }
+    await loadHistoricPhotoData()
     for (const def of DATA_LAYERS) {
       await addDataLayerOn(timelineMap, def, timelineLayerVisibility)
     }
@@ -985,6 +1182,7 @@ function focusStoryOnMaps(story) {
 
   if (story.lat == null || story.lon == null) {
     pendingFocus = null
+    highlightDetailProps = null
     if (metaEl) metaEl.textContent = `${story.title} — no map location yet`
     if (timelineMapReady) {
       ensureHighlightSource(timelineMap, null)
@@ -999,6 +1197,23 @@ function focusStoryOnMaps(story) {
     slug: story.slug,
   }
   pendingFocus = focus
+  highlightDetailProps = {
+    layerId: 'history',
+    id: story.historyId || story.matchedPlace || story.slug,
+    historyId: story.historyId || null,
+    name: story.title,
+    title: story.title,
+    history: story.summary || '',
+    description: story.summary || '',
+    bodyMarkdown: story.bodyMarkdown || '',
+    county: story.county,
+    era: story.era,
+    yearStart: story.yearStart,
+    yearEnd: story.yearEnd,
+    matchedPlace: story.matchedPlace,
+    lat: story.lat,
+    lon: story.lon,
+  }
   const conf =
     story.mapConfidence === 'exact'
       ? 'Matched History place'
@@ -1278,11 +1493,56 @@ async function showStoryInReader(meta) {
     el.classList.toggle('selected', el.dataset.slug === meta.slug)
   })
   try {
+    await loadHistoricPhotoData()
     const s = await loadStoryBody(meta.slug)
+    let historyId = meta.historyId || null
+    try {
+      const locIdx = await (await fetch('/content/stories-locations.json')).json()
+      const loc = locIdx.locations?.[meta.slug]
+      if (loc?.historyId) historyId = loc.historyId
+      if (meta.lat == null && loc?.lat != null) {
+        meta.lat = loc.lat
+        meta.lon = loc.lon
+        meta.mapConfidence = loc.mapConfidence
+        meta.matchedPlace = loc.matchedPlace
+      }
+    } catch {
+      /* ignore */
+    }
+    // Enrich highlight popup with full story text for map pin clicks
+    if (meta.lat != null && meta.lon != null) {
+      highlightDetailProps = {
+        layerId: 'history',
+        id: historyId || meta.slug,
+        historyId,
+        name: s.title,
+        title: s.title,
+        history: s.bodyMarkdown ? s.bodyMarkdown.replace(/[#>*_`\[\]()]/g, ' ').slice(0, 4000) : s.summary || '',
+        description: s.summary || '',
+        bodyMarkdown: s.bodyMarkdown || '',
+        county: meta.county || s.county,
+        era: s.era,
+        yearStart: s.yearStart,
+        yearEnd: s.yearEnd,
+        matchedPlace: meta.matchedPlace,
+        lat: meta.lat,
+        lon: meta.lon,
+      }
+      focusStoryOnMaps({ ...meta, ...highlightDetailProps, slug: meta.slug, title: s.title })
+    }
     const tags = (s.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join(' ')
     const countyLine = meta.county
       ? `<span class="story-county">${escapeHtml(meta.county)} County</span>`
       : ''
+    const extras = placeDetailExtrasHtml({
+      lat: meta.lat ?? s.lat,
+      lon: meta.lon ?? s.lon,
+      name: s.title,
+      placeHint: meta.matchedPlace || meta.county,
+      bodyMarkdown: s.bodyMarkdown || '',
+      historyId,
+      layer: 'history',
+    })
     reader.innerHTML = `
       <header class="story-head">
         <div class="story-card-meta">
@@ -1297,7 +1557,8 @@ async function showStoryInReader(meta) {
         <div class="tags">${tags}</div>
       </header>
       <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
-      ${mapsLinksHtml(meta.lat ?? s.lat, meta.lon ?? s.lon, s.title)}
+      ${extras}
+      <p class="muted popup-hint">Tip: tap the highlighted pin on the map for the place popup (full text, maps, photos, Grokipedia).</p>
       <p class="story-source muted">Kentucky History Drive</p>
     `
     reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
