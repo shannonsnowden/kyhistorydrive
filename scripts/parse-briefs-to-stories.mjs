@@ -45,20 +45,64 @@ function cleanUrls(text) {
 }
 
 function extractYears(text) {
+  // Historical years only — ignore quantities ("100 acres", "160–300 militia").
   const years = []
-  const re = /\b((?:1[0-9]{3}|20[0-2][0-9]|[1-9]\d{2}|[3-9]\d{3})\s*(?:B\.?C\.?|BCE)?|(?:A\.?D\.?\s*)?\d{3,4})\b/gi
-  // simpler: collect 3-4 digit years and BC
-  const bc = [...text.matchAll(/\b(\d{1,4})\s*(?:B\.?C\.?|BCE)\b/gi)]
-  for (const m of bc) years.push(-parseInt(m[1], 10))
-  const adRange = [...text.matchAll(/\b(?:A\.?D\.?\s*)?(\d{3,4})\b/gi)]
-  for (const m of adRange) {
-    const y = parseInt(m[1], 10)
-    if (y >= 100 && y <= 2026) years.push(y)
+  const push = (y) => {
+    if (!Number.isFinite(y)) return
+    if (y < -12000 || y > 2025) return
+    if (y === 2026) return
+    years.push(y)
   }
-  // also "800 B.C.–A.D. 700" style already handled partly
+
+  const qtyAfter =
+    /^(?:\s*[–—-]\s*\d+)?\s*(?:acres?|feet|ft\b|miles?|meters?|people|persons|soldiers|militia|warriors?|men|women|children|horses|cabins?|houses?|mounds?|bushels|gallons|barrels|pounds|tons|degrees|percent|%|mounted)/i
+
+  // BC / BCE, including ranges "300–200 BCE"
+  for (const m of text.matchAll(/\b(\d{1,5})(?:\s*[–—-]\s*(\d{1,5}))?\s*(?:B\.?C\.?E?|BCE)\b/gi)) {
+    push(-parseInt(m[1], 10))
+    if (m[2]) push(-parseInt(m[2], 10))
+  }
+
+  // Explicit A.D. / AD (including ranges "A.D. 1200–1300")
+  for (const m of text.matchAll(/\bA\.?D\.?\s*(\d{3,4})(?:\s*[–—-]\s*(\d{3,4}))?/gi)) {
+    push(parseInt(m[1], 10))
+    if (m[2]) push(parseInt(m[2], 10))
+  }
+
+  // 4-digit calendar years 1000–2025
+  for (const m of text.matchAll(/\b((?:1[0-9]{3})|(?:20[0-2]\d))\b/g)) {
+    const after = text.slice(m.index + m[0].length, m.index + m[0].length + 28)
+    if (qtyAfter.test(after)) continue
+    push(parseInt(m[1], 10))
+  }
+
+  // 4-digit–4-digit ranges only (1750–1792). Never treat 160–300 troop counts as years.
+  for (const m of text.matchAll(/\b(1[0-9]{3}|20[0-2]\d)\s*[–—-]\s*(1[0-9]{3}|20[0-2]\d)\b/g)) {
+    const after = text.slice(m.index + m[0].length, m.index + m[0].length + 28)
+    if (qtyAfter.test(after)) continue
+    push(parseInt(m[1], 10))
+    push(parseInt(m[2], 10))
+  }
+
   if (!years.length) return { yearStart: null, yearEnd: null }
-  years.sort((a, b) => a - b)
-  return { yearStart: years[0], yearEnd: years[years.length - 1] }
+
+  const uniq = [...new Set(years)].sort((a, b) => a - b)
+  let yearStart = uniq[0]
+  let yearEnd = uniq[uniq.length - 1]
+
+  const bcOrEarly = uniq.filter((y) => y < 1000)
+  const preColonial = uniq.filter((y) => y >= 1000 && y < 1600)
+  const colonial = uniq.filter((y) => y >= 1600 && y <= 1865)
+  const modern = uniq.filter((y) => y > 1865)
+
+  // Drop modern excavation/publication years when a historical cluster exists
+  if ((bcOrEarly.length || preColonial.length || colonial.length) && modern.length) {
+    const hist = [...bcOrEarly, ...preColonial, ...colonial]
+    yearStart = hist[0]
+    yearEnd = hist[hist.length - 1]
+  }
+
+  return { yearStart, yearEnd }
 }
 
 function inferEra(title, body, yearStart, yearEnd) {
