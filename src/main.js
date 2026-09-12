@@ -193,20 +193,34 @@ function formatYearRange(start, end) {
 }
 
 function ensureHomeHash() {
-  // Empty or unknown hash → home map
+  // Empty hash → home map; legacy #stories → #timeline
   const raw = (location.hash || '').replace(/^#/, '')
   if (!raw) {
     history.replaceState(null, '', '#map')
+    return
+  }
+  if (raw === 'stories' || raw === 'story') {
+    history.replaceState(null, '', '#timeline')
+    return
+  }
+  if (raw.startsWith('stories/') || raw.startsWith('story/')) {
+    const slug = raw.split('/').slice(1).join('/')
+    history.replaceState(null, '', `#timeline/${slug}`)
   }
 }
 
 function parseHash() {
   const raw = (location.hash || '#map').replace(/^#/, '')
   const [path, ...rest] = raw.split('/')
-  if ((path === 'story' || path === 'stories') && rest[0]) {
-    return { view: 'stories', slug: decodeURIComponent(rest[0]) }
+  // Old #stories / #story links redirect into Timeline
+  if (path === 'story' || path === 'stories') {
+    const slug = rest[0] ? decodeURIComponent(rest[0]) : null
+    return { view: 'timeline', slug }
   }
-  if (['map', 'timeline', 'stories', 'about', 'app'].includes(path)) return { view: path }
+  if (path === 'timeline') {
+    return { view: 'timeline', slug: rest[0] ? decodeURIComponent(rest[0]) : null }
+  }
+  if (['map', 'about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
 
@@ -966,20 +980,14 @@ function initStoriesMap() {
 }
 
 function focusStoryOnMaps(story) {
-  const titleEl = document.getElementById('storiesMapTitle')
-  const metaEl = document.getElementById('storiesMapMeta')
-  const noLoc = document.getElementById('storiesNoLoc')
-
   selectedStorySlug = story.slug
+  const metaEl = document.getElementById('timelineMapMeta')
 
   if (story.lat == null || story.lon == null) {
     pendingFocus = null
-    titleEl.textContent = story.title
-    metaEl.textContent = 'No map location yet'
-    noLoc.hidden = false
-    if (storiesMapReady) {
-      ensureHighlightSource(storiesMap, null)
-      storiesMap.fitBounds(KY_BOUNDS, { padding: 36, maxZoom: 7.2, duration: 600 })
+    if (metaEl) metaEl.textContent = `${story.title} — no map location yet`
+    if (timelineMapReady) {
+      ensureHighlightSource(timelineMap, null)
     }
     return
   }
@@ -991,8 +999,6 @@ function focusStoryOnMaps(story) {
     slug: story.slug,
   }
   pendingFocus = focus
-  noLoc.hidden = true
-  titleEl.textContent = story.title
   const conf =
     story.mapConfidence === 'exact'
       ? 'Matched History place'
@@ -1001,16 +1007,18 @@ function focusStoryOnMaps(story) {
         : story.mapConfidence === 'county'
           ? 'County centroid'
           : 'Located'
-  metaEl.textContent = `${conf}${story.matchedPlace ? ` · ${story.matchedPlace}` : ''}`
+  if (metaEl) {
+    metaEl.textContent = `${story.title} · ${conf}${story.matchedPlace ? ` · ${story.matchedPlace}` : ''}`
+  }
 
-  initStoriesMap()
-  if (storiesMapReady) {
-    ensureHighlightSource(storiesMap, focus)
-    flyToFocus(storiesMap, focus, 11)
-  } else if (storiesMap) {
-    storiesMap.once('load', () => {
-      ensureHighlightSource(storiesMap, focus)
-      flyToFocus(storiesMap, focus, 11)
+  initTimelineMap()
+  if (timelineMapReady) {
+    ensureHighlightSource(timelineMap, focus)
+    flyToFocus(timelineMap, focus, 11)
+  } else if (timelineMap) {
+    timelineMap.once('load', () => {
+      ensureHighlightSource(timelineMap, focus)
+      flyToFocus(timelineMap, focus, 11)
     })
   }
 }
@@ -1261,12 +1269,12 @@ function setupStoriesSortControl() {
 }
 
 async function showStoryInReader(meta) {
-  const reader = document.getElementById('storyReader')
+  const reader = document.getElementById('timelineStoryReader')
   if (!reader || !meta) return
   reader.classList.remove('is-empty')
   reader.innerHTML = '<p class="muted">Loading…</p>'
   focusStoryOnMaps(meta)
-  document.querySelectorAll('#storiesList .story-card').forEach((el) => {
+  document.querySelectorAll('#timelineList .timeline-item').forEach((el) => {
     el.classList.toggle('selected', el.dataset.slug === meta.slug)
   })
   try {
@@ -1429,7 +1437,7 @@ function setupTimelineStoriesSort() {
   })
 }
 
-async function renderTimelineList() {
+async function renderTimelineList(preferredSlug) {
   setupTimelineFilters()
   setupTimelineStoriesSort()
   const idx = await loadStories()
@@ -1437,12 +1445,18 @@ async function renderTimelineList() {
   const stats = document.getElementById('timelineStats')
   const sortMeta = document.getElementById('timelineStoriesSortMeta')
   const sortEl = document.getElementById('timelineStoriesSort')
+  const reader = document.getElementById('timelineStoryReader')
   if (sortEl) sortEl.value = timelineStoriesSortMode
 
   const filtered = sortStoriesList(
     idx.stories.filter(storyMatchesFilters),
     timelineStoriesSortMode,
   )
+  const bySlug = Object.fromEntries(filtered.map((s) => [s.slug, s]))
+  // Prefer full index for deep links that are filtered out of the current list
+  const allBySlug = Object.fromEntries(idx.stories.map((s) => [s.slug, s]))
+  storiesBySlug = allBySlug
+
   stats.textContent = `Showing ${filtered.length} of ${idx.stories.length} stories`
   if (sortMeta) {
     const withCounty = filtered.filter((s) => s.county).length
@@ -1456,11 +1470,12 @@ async function renderTimelineList() {
           : ''
         const tag = primaryStoryTag(s)
         const tagHtml = tag ? `<span class="muted">#${escapeHtml(tag)}</span>` : ''
+        const selected = selectedStorySlug === s.slug ? ' selected' : ''
         return `
-      <li class="timeline-item">
+      <li class="timeline-item${selected}" data-slug="${escapeHtml(s.slug)}" role="button" tabindex="0">
         <div class="timeline-year">${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</div>
         <div class="timeline-body">
-          <a href="#stories/${encodeURIComponent(s.slug)}"><strong>${escapeHtml(s.title)}</strong></a>
+          <strong>${escapeHtml(s.title)}</strong>
           <div class="story-card-meta">
             ${county}
             <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
@@ -1472,6 +1487,39 @@ async function renderTimelineList() {
       </li>`
       })
       .join('') || '<li class="muted">No stories match these filters.</li>'
+
+  const openStory = (slug) => {
+    const s = allBySlug[slug]
+    if (!s) return
+    selectedStorySlug = s.slug
+    history.replaceState(null, '', `#timeline/${encodeURIComponent(s.slug)}`)
+    showStoryInReader(s)
+  }
+
+  list.onclick = (e) => {
+    const item = e.target.closest('.timeline-item[data-slug]')
+    if (!item) return
+    openStory(item.dataset.slug)
+  }
+  list.onkeydown = (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return
+    const item = e.target.closest('.timeline-item[data-slug]')
+    if (!item) return
+    e.preventDefault()
+    openStory(item.dataset.slug)
+  }
+
+  const pick =
+    (preferredSlug && allBySlug[preferredSlug]) ||
+    (selectedStorySlug && (bySlug[selectedStorySlug] || allBySlug[selectedStorySlug])) ||
+    null
+
+  if (pick) {
+    await showStoryInReader(pick)
+  } else if (reader && !selectedStorySlug) {
+    reader.classList.add('is-empty')
+    reader.innerHTML = ''
+  }
 }
 
 /* -------------------- Router -------------------- */
@@ -1486,9 +1534,7 @@ async function applyRoute() {
   const { view, slug } = parseHash()
   document.querySelectorAll('.view').forEach((el) => {
     const v = el.dataset.view
-    // Home map/layers only on Map; Stories page is its own split (article + location map)
-    const show = v === view || (view === 'stories' && v === 'stories')
-    el.hidden = !show
+    el.hidden = v !== view
   })
   const hero = document.getElementById('hero')
   if (hero) hero.hidden = view !== 'map'
@@ -1517,12 +1563,10 @@ async function applyRoute() {
         fitMapToKentucky(map, { duration: 0 })
       }
     })
-  } else if (view === 'stories') {
-    await renderStoriesPage(slug)
   } else if (view === 'timeline') {
     setupTimelineFilters()
     await initTimelineMap()
-    await renderTimelineList()
+    await renderTimelineList(slug)
   }
 }
 

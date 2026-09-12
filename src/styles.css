@@ -512,3 +512,16 @@ nav a:hover, nav a.active { color: var(--accent); }
   color: var(--accent);
   margin-right: 0.35rem;
 }
+
+
+.timeline-item {
+  cursor: pointer;
+}
+.timeline-item.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201, 137, 58, 0.35);
+  background: #1f2c22;
+}
+.timeline-main .story-reader {
+  margin-top: 1rem;
+}
