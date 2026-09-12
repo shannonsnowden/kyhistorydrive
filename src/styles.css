@@ -436,3 +436,54 @@ nav a:hover, nav a.active { color: var(--accent); }
   color: var(--muted);
 }
 .hero-welcome strong { color: #e8d5a8; font-weight: 600; }
+
+
+/* Timeline: story list + filtered places map */
+.timeline-section { padding: 0; max-width: none; }
+.timeline-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.05fr) minmax(300px, 0.95fr);
+  align-items: start;
+  border-top: 1px solid var(--line);
+}
+.timeline-main {
+  padding: 1rem 1.15rem 2rem;
+  border-right: 1px solid var(--line);
+  background: var(--bg);
+}
+.timeline-main .panel-head h2 { margin: 0 0 0.25rem; color: #e8d5a8; }
+.timeline-layer-toggles {
+  margin: 0.75rem 0 0.35rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.15rem 0.5rem;
+}
+.timeline-map-pane {
+  position: sticky;
+  top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  min-height: 55vh;
+  max-height: calc(100vh - 3.5rem);
+  align-self: stretch;
+}
+.timeline-map-head {
+  padding: 0.85rem 1rem 0.65rem;
+  border-bottom: 1px solid var(--line);
+}
+.timeline-map-head h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  color: #e8d5a8;
+}
+.timeline-map-head .muted { margin: 0 0 0.5rem; font-size: 0.82rem; }
+#timelineMapCanvas { flex: 1; min-height: 420px; width: 100%; }
+@media (max-width: 900px) {
+  .timeline-layout { grid-template-columns: 1fr; }
+  .timeline-main { border-right: none; border-bottom: 1px solid var(--line); }
+  .timeline-map-pane {
+    position: relative; top: auto; max-height: none; min-height: 50vh;
+  }
+  #timelineMapCanvas { min-height: 320px; }
+}

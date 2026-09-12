@@ -54,26 +54,40 @@
       </div>
     </section>
 
-    <section id="timeline" class="view panel-wide" data-view="timeline" hidden>
-      <div class="panel-head">
-        <h2>Timeline</h2>
-        <p class="muted">Stories from daily Kentucky History morning briefs, sorted by start year.</p>
-      </div>
-      <div class="filters">
-        <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
-        <div class="filter-row year-presets" id="yearPresets" aria-label="Year range presets"></div>
-        <div class="filter-row year-inputs">
-          <label>Min year <input type="number" id="yearMin" placeholder="e.g. -3000" /></label>
-          <label>Max year <input type="number" id="yearMax" placeholder="e.g. 1860" /></label>
-          <button type="button" id="yearApply" class="btn">Apply</button>
-          <button type="button" id="yearClear" class="btn ghost">Clear</button>
+    <section id="timeline" class="view timeline-section" data-view="timeline" hidden>
+      <div class="timeline-layout">
+        <div class="timeline-main">
+          <div class="panel-head">
+            <h2>Timeline</h2>
+            <p class="muted">Filter by era or year — the map shows Markers, History, and other places in that range. Stories for the same filter are listed below.</p>
+          </div>
+          <div class="filters">
+            <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
+            <div class="filter-row year-presets" id="yearPresets" aria-label="Year range presets"></div>
+            <div class="filter-row year-inputs">
+              <label>Min year <input type="number" id="yearMin" placeholder="e.g. -3000" /></label>
+              <label>Max year <input type="number" id="yearMax" placeholder="e.g. 1860" /></label>
+              <button type="button" id="yearApply" class="btn">Apply</button>
+              <button type="button" id="yearClear" class="btn ghost">Clear</button>
+            </div>
+            <p class="filter-note muted">
+              Only places with years in range appear on the Timeline map. The same filter applies on the Map page for year-aware layers.
+            </p>
+            <div id="timelineLayerToggles" class="timeline-layer-toggles layer-toggles" aria-label="Timeline map layers"></div>
+            <p id="timelineStats" class="stats"></p>
+            <p id="timelineMapCounts" class="stats"></p>
+          </div>
+          <ol id="timelineList" class="timeline-list"></ol>
         </div>
-        <p class="filter-note muted">
-          Year/era filters also update History (and Stories) pins on the Map.
-        </p>
-        <p id="timelineStats" class="stats"></p>
+        <aside class="timeline-map-pane" aria-label="Timeline places map">
+          <div class="timeline-map-head">
+            <h3>Places in this timeframe</h3>
+            <p id="timelineMapMeta" class="muted">Adjust era or year filters to focus the map.</p>
+            <button type="button" id="timelineZoomFullState" class="btn ghost small">Full state</button>
+          </div>
+          <div id="timelineMapCanvas"></div>
+        </aside>
       </div>
-      <ol id="timelineList" class="timeline-list"></ol>
     </section>
 
     <section id="stories" class="view stories-section" data-view="stories" hidden>
