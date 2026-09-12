@@ -228,6 +228,7 @@ const layerVisibility = Object.fromEntries(DATA_LAYERS.map((l) => [l.id, l.defau
 /* -------------------- Map -------------------- */
 let map = null
 let mapReady = false
+let activePopup = null
 let pendingFocus = null // { lon, lat, title, slug? }
 
 function layerCircleId(id) {
@@ -297,9 +298,7 @@ function syncAllLayersCheckbox() {
   el.checked = DATA_LAYERS.every((l) => layerVisibility[l.id])
 }
 
-function showDetailFromProps(p, layerId) {
-  const detailEl = document.getElementById('detail')
-  detailEl.classList.remove('empty')
+function detailHtmlFromProps(p, layerId) {
   const name = p.name || p.title || 'Untitled'
   const metaBits = []
   if (layerId === 'markers' || p.marker_number) {
@@ -314,19 +313,47 @@ function showDetailFromProps(p, layerId) {
   if (p.category) metaBits.push(p.category)
   if (p.war) metaBits.push(p.war)
   const desc = p.inscription || p.history || p.description || p.location_text || ''
+  const short =
+    desc.length > 420 ? `${desc.slice(0, 400).trim()}…` : desc
   const href = p.source_url || p.website || null
   const linkLabel = p.source_url ? 'history.ky.gov' : 'Website'
   const link = href
-    ? `<p><a href="${escapeHtml(href)}" target="_blank" rel="noopener">${linkLabel}</a></p>`
+    ? `<p class="popup-link"><a href="${escapeHtml(href)}" target="_blank" rel="noopener">${linkLabel}</a></p>`
     : ''
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
-  detailEl.innerHTML = `
-    <div class="detail-layer">${escapeHtml(layerLabel)}</div>
-    <h3>${escapeHtml(name)}</h3>
-    <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
-    <p>${escapeHtml(desc)}</p>
-    ${link}
+  return `
+    <div class="map-popup">
+      <div class="detail-layer">${escapeHtml(layerLabel)}</div>
+      <h3>${escapeHtml(name)}</h3>
+      <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
+      ${short ? `<p>${escapeHtml(short)}</p>` : ''}
+      ${link}
+    </div>
   `
+}
+
+function showDetailPopup(feature, layerId, lngLat) {
+  if (!map) return
+  if (activePopup) {
+    activePopup.remove()
+    activePopup = null
+  }
+  const coords =
+    lngLat ||
+    (feature.geometry?.type === 'Point'
+      ? feature.geometry.coordinates
+      : null)
+  if (!coords) return
+  activePopup = new maplibregl.Popup({
+    closeButton: true,
+    closeOnClick: true,
+    maxWidth: '320px',
+    offset: 14,
+    className: 'ky-popup',
+  })
+    .setLngLat(coords)
+    .setHTML(detailHtmlFromProps(feature.properties || {}, layerId))
+    .addTo(map)
 }
 
 function updateStats() {
@@ -461,7 +488,9 @@ async function addDataLayer(def) {
     })
     map.on('click', layerHitId(def.id), (e) => {
       const f = e.features?.[0]
-      if (f) showDetailFromProps(f.properties, def.id)
+      if (!f) return
+      e.originalEvent?.stopPropagation?.()
+      showDetailPopup(f, def.id, e.lngLat)
     })
   } catch (err) {
     console.warn('layer failed', def.id, err)
