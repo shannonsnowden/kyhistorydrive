@@ -283,17 +283,54 @@ function buildYearEraFilter(layerDef) {
 
 
 
+function timelineHasActivePlaceFilter() {
+  const hasYear = timelineState.yearMin != null || timelineState.yearMax != null
+  const erasNarrowed = timelineState.eras.size > 0 && timelineState.eras.size !== ERAS.length
+  return hasYear || erasNarrowed
+}
+
+function buildTimelineMapFilter(layerDef) {
+  // Timeline map: never show a full unfiltered layer — wait for year/era filter
+  if (!timelineHasActivePlaceFilter()) {
+    return ['==', ['get', 'id'], '__none__']
+  }
+  const filter = buildYearEraFilter({ ...layerDef, yearFilter: true })
+  // Year range selected but this layer has no yearFilter logic / no match → still require year overlap
+  if (filter) return filter
+  const { yearMin, yearMax } = timelineState
+  if (yearMin != null || yearMax != null) {
+    const parts = [['has', 'yearStart']]
+    if (yearMax != null) parts.push(['<=', ['to-number', ['get', 'yearStart']], yearMax])
+    if (yearMin != null) {
+      parts.push([
+        '>=',
+        ['to-number', ['coalesce', ['get', 'yearEnd'], ['get', 'yearStart']]],
+        yearMin,
+      ])
+    }
+    return parts.length === 1 ? parts[0] : ['all', ...parts]
+  }
+  // Era-only and layer isn't era-aware → show nothing (don't dump whole layer)
+  if (!layerDef.filterByEra) {
+    return ['==', ['get', 'id'], '__none__']
+  }
+  return ['==', ['get', 'id'], '__none__']
+}
+
 function applyFiltersToMapInstance(targetMap) {
   if (!targetMap) return
+  const onTimeline = targetMap === timelineMap
   for (const def of DATA_LAYERS) {
-    const filter = buildYearEraFilter(def)
+    const filter = onTimeline ? buildTimelineMapFilter(def) : buildYearEraFilter(def)
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
       if (targetMap.getLayer(lid)) targetMap.setFilter(lid, filter)
     }
   }
   for (const lid of ['stories-circle', 'stories-hit', 'stories-highlight']) {
     if (!targetMap.getLayer(lid)) continue
-    const f = buildYearEraFilter({ yearFilter: true, filterByEra: true })
+    const f = onTimeline
+      ? buildTimelineMapFilter({ yearFilter: true, filterByEra: true })
+      : buildYearEraFilter({ yearFilter: true, filterByEra: true })
     targetMap.setFilter(lid, f)
   }
 }
@@ -726,13 +763,8 @@ function initMap() {
 let timelineMap = null
 let timelineMapReady = false
 const timelineLayerVisibility = Object.fromEntries(
-  DATA_LAYERS.map((l) => [
-    l.id,
-    // Timeline defaults: Markers + History + other year-bearing cultural layers on
-    ['markers', 'history', 'museums', 'war', 'bridges', 'industry', 'newspapers', 'cemeteries', 'distilleries'].includes(
-      l.id,
-    ),
-  ]),
+  // Start with every layer off — user picks a year/era filter, then enables layers
+  DATA_LAYERS.map((l) => [l.id, false]),
 )
 
 function setTimelineLayerVisible(id, on) {
@@ -771,6 +803,7 @@ function renderTimelineLayerToggles() {
 
 function featureMatchesTimelineFilter(props, layerDef) {
   if (!props) return false
+  if (!timelineHasActivePlaceFilter()) return false
   if (layerDef.filterByEra) {
     const eras = timelineState.eras
     if (eras.size !== ERAS.length) {
@@ -779,7 +812,10 @@ function featureMatchesTimelineFilter(props, layerDef) {
     }
   }
   const { yearMin, yearMax } = timelineState
-  if (yearMin == null && yearMax == null) return true
+  if (yearMin == null && yearMax == null) {
+    // Era-only: non-era layers don't match
+    return Boolean(layerDef.filterByEra && props.era)
+  }
   if (props.yearStart == null) return false
   const start = Number(props.yearStart)
   const end = Number(props.yearEnd != null ? props.yearEnd : props.yearStart)
@@ -815,11 +851,15 @@ function updateTimelineMapCounts() {
     : 'Map: no places in this filter (try widening years or enabling layers)'
   if (meta) {
     const { yearMin, yearMax } = timelineState
-    const range =
-      yearMin != null || yearMax != null
-        ? `${formatYear(yearMin ?? '…')} – ${formatYear(yearMax ?? '…')}`
-        : 'all years'
-    meta.textContent = `Filtered to ${range}. Toggle layers above the story list.`
+    if (!timelineHasActivePlaceFilter()) {
+      meta.textContent = 'Pick a year range or era filter first, then turn layers on.'
+    } else {
+      const range =
+        yearMin != null || yearMax != null
+          ? `${formatYear(yearMin ?? '…')} – ${formatYear(yearMax ?? '…')}`
+          : 'selected eras'
+      meta.textContent = `Showing only places in ${range}. Toggle layers above the story list.`
+    }
   }
 }
 
