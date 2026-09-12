@@ -1488,6 +1488,9 @@ async function showStoryInReader(meta) {
   if (!reader || !meta) return
   reader.classList.remove('is-empty')
   reader.innerHTML = '<p class="muted">Loading…</p>'
+  const jumpBar = document.getElementById('timelineReaderJump')
+  if (jumpBar) jumpBar.hidden = false
+  setupTimelineJumpControls()
   focusStoryOnMaps(meta)
   document.querySelectorAll('#timelineList .timeline-item').forEach((el) => {
     el.classList.toggle('selected', el.dataset.slug === meta.slug)
@@ -1687,6 +1690,29 @@ function storyMatchesFilters(s) {
   return true
 }
 
+function setupTimelineJumpControls() {
+  const wire = (id, target) => {
+    const btn = document.getElementById(id)
+    if (!btn || btn.dataset.ready) return
+    btn.dataset.ready = '1'
+    btn.addEventListener('click', () => {
+      const el =
+        target === 'top'
+          ? document.getElementById('timeline')
+          : target === 'filters'
+            ? document.getElementById('timelineFilters')
+            : document.getElementById('timelineList')
+      if (!el) return
+      el.scrollIntoView({ block: 'start', behavior: 'smooth' })
+    })
+  }
+  wire('timelineJumpFilters', 'filters')
+  wire('timelineJumpStories', 'stories')
+  wire('timelineJumpFiltersBottom', 'filters')
+  wire('timelineJumpStoriesBottom', 'stories')
+  wire('timelineJumpTop', 'top')
+}
+
 function setupTimelineStoriesSort() {
   const select = document.getElementById('timelineStoriesSort')
   if (!select || select.dataset.ready) return
@@ -1701,6 +1727,7 @@ function setupTimelineStoriesSort() {
 async function renderTimelineList(preferredSlug) {
   setupTimelineFilters()
   setupTimelineStoriesSort()
+  setupTimelineJumpControls()
   const idx = await loadStories()
   const list = document.getElementById('timelineList')
   const stats = document.getElementById('timelineStats')
@@ -1780,6 +1807,8 @@ async function renderTimelineList(preferredSlug) {
   } else if (reader && !selectedStorySlug) {
     reader.classList.add('is-empty')
     reader.innerHTML = ''
+    const jumpBar = document.getElementById('timelineReaderJump')
+    if (jumpBar) jumpBar.hidden = true
   }
 }
 

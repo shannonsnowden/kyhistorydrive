@@ -582,3 +582,26 @@ nav a:hover, nav a.active { color: var(--accent); }
 .popup-hint { font-size: 0.8rem; margin-top: 0.75rem; }
 .popup-links-block { margin-top: 0.5rem; }
 .popup-research { margin-top: 0.65rem; }
+
+
+.timeline-jump-controls {
+  margin-left: auto;
+}
+.timeline-reader-jump {
+  position: sticky;
+  bottom: 0.85rem;
+  z-index: 9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+  margin: 0.75rem 0 0;
+  padding: 0.35rem 0;
+  pointer-events: none;
+}
+.timeline-reader-jump .scroll-fab {
+  pointer-events: auto;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  background: rgba(26, 36, 28, 0.96);
+  backdrop-filter: blur(8px);
+}
