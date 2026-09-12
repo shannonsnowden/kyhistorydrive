@@ -176,7 +176,23 @@ function escapeHtml(s) {
 
 function absoluteShareUrl(hashPath) {
   const path = String(hashPath || '').replace(/^#/, '')
-  return `${location.origin}${location.pathname}${location.search}#${path}`
+  // Include ?d= as well — some apps strip the #hash when sharing
+  const url = new URL(location.origin + location.pathname)
+  url.searchParams.set('d', path)
+  url.hash = path
+  return url.toString()
+}
+
+/** Recover deep link from ?d= when the hash was stripped by a share target. */
+function syncDeepLinkFromQuery() {
+  const params = new URLSearchParams(location.search)
+  const d = params.get('d')
+  if (!d) return
+  const want = d.replace(/^#/, '')
+  const raw = (location.hash || '').replace(/^#/, '')
+  if (!raw || raw === 'map' || raw === 'timeline') {
+    history.replaceState(null, '', `${location.pathname}?d=${encodeURIComponent(want)}#${want}`)
+  }
 }
 
 function featureShareId(props, layerId) {
@@ -205,8 +221,9 @@ function storyShareHash(slug) {
 }
 
 function shareControlHtml(url, title) {
+  const hashPath = String(url || '').includes('#') ? String(url).split('#').slice(1).join('#') : String(url || '').replace(/^#/, '')
   return `<div class="share-row">
-    <button type="button" class="share-btn" data-share-url="${escapeHtml(url)}" data-share-title="${escapeHtml(title || 'Kentucky History Drive')}" aria-label="Share link">
+    <button type="button" class="share-btn" data-share-hash="${escapeHtml(hashPath)}" data-share-title="${escapeHtml(title || 'Kentucky History Drive')}" aria-label="Share link">
       Share
     </button>
     <span class="share-status muted" aria-live="polite"></span>
@@ -248,7 +265,8 @@ function wireShareButtons(root = document) {
     btn.addEventListener('click', (e) => {
       e.preventDefault()
       e.stopPropagation()
-      const url = btn.dataset.shareUrl
+      const hashPath = btn.dataset.shareHash || ''
+      const url = absoluteShareUrl(hashPath)
       const title = btn.dataset.shareTitle
       const statusEl = btn.parentElement?.querySelector('.share-status')
       shareDetailUrl(url, title, statusEl).catch(console.error)
@@ -335,6 +353,7 @@ const layerVisibility = Object.fromEntries(DATA_LAYERS.map((l) => [l.id, l.defau
 
 /* Full GeoJSON props — MapLibre truncates long strings on queryRenderedFeatures */
 const layerFeatureCache = Object.create(null)
+const layerGeojsonCache = Object.create(null)
 
 function featureLookupKey(props) {
   if (!props) return null
@@ -353,6 +372,7 @@ function cacheLayerFeatures(layerId, collection) {
     if (k) map[k] = f.properties
   }
   layerFeatureCache[layerId] = map
+  layerGeojsonCache[layerId] = collection
 }
 
 function enrichFeatureProps(layerId, props) {
@@ -1388,12 +1408,15 @@ function initMap() {
   if (map) {
     requestAnimationFrame(() => {
       map.resize()
-      // Returning to Map always shows the whole state
       pendingFocus = null
-      if (mapReady) {
-        ensureHighlightSource(map, null)
-        fitMapToKentucky(map, { duration: 0 })
+      if (!mapReady) return
+      const place = parseHash()
+      if (place.view === 'map' && place.placeLayer && place.placeId) {
+        openPlaceFromHash({ placeLayer: place.placeLayer, placeId: place.placeId }).catch(console.error)
+        return
       }
+      ensureHighlightSource(map, null)
+      fitMapToKentucky(map, { duration: 0 })
     })
     return
   }
@@ -1488,7 +1511,16 @@ function initMap() {
     ensureHighlightSource(map, null)
     const place = parseHash()
     if (place.view === 'map' && place.placeLayer && place.placeId) {
-      openPlaceFromHash({ placeLayer: place.placeLayer, placeId: place.placeId }).catch(console.error)
+      const tryOpen = async (attempt = 0) => {
+        const ok = await openPlaceFromHash({
+          placeLayer: place.placeLayer,
+          placeId: place.placeId,
+        })
+        if (!ok && attempt < 5) {
+          window.setTimeout(() => tryOpen(attempt + 1), 200)
+        }
+      }
+      tryOpen().catch(console.error)
     } else {
       fitMapToKentucky(map, { duration: 0 })
     }
@@ -2445,21 +2477,40 @@ function featureMatchesShareId(props, layerId, placeId) {
   return featureShareId(props, layerId) === want || String(props?.id || '') === want || String(props?.marker_number || '') === want
 }
 
+async function loadLayerFeatures(layerId) {
+  if (layerGeojsonCache[layerId]?.features?.length) return layerGeojsonCache[layerId].features
+  const def = DATA_LAYERS.find((l) => l.id === layerId)
+  if (!def?.geojson) return []
+  try {
+    const res = await fetch(def.geojson)
+    if (!res.ok) return []
+    const data = await res.json()
+    cacheLayerFeatures(layerId, data)
+    return data.features || []
+  } catch {
+    return []
+  }
+}
+
 async function openPlaceFromHash({ placeLayer, placeId }) {
-  if (!placeLayer || !placeId || !map || !mapReady) return
+  if (!placeLayer || !placeId || !map || !mapReady) return false
   const def = DATA_LAYERS.find((l) => l.id === placeLayer)
-  if (!def) return
+  if (!def) return false
   setLayerVisible(placeLayer, true)
   const input = document.querySelector(`input[data-layer="${placeLayer}"]`)
   if (input) input.checked = true
   syncAllLayersCheckbox()
-  const src = map.getSource(placeLayer)
-  const features = src?._data?.features || []
+
+  const features = await loadLayerFeatures(placeLayer)
   const feature = features.find((f) => featureMatchesShareId(f.properties || {}, placeLayer, placeId))
-  if (!feature || feature.geometry?.type !== 'Point') return
+  if (!feature || feature.geometry?.type !== 'Point') {
+    console.warn('Share link place not found', placeLayer, placeId)
+    return false
+  }
   const [lon, lat] = feature.geometry.coordinates
-  map.flyTo({ center: [lon, lat], zoom: Math.max(map.getZoom(), 11), essential: true })
+  map.easeTo({ center: [lon, lat], zoom: Math.max(map.getZoom(), 12), duration: 600 })
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
+  return true
 }
 
 /* -------------------- Router -------------------- */
@@ -2508,9 +2559,30 @@ async function applyRoute() {
     await initTimelineMap()
     // Fresh visit: bare #timeline (no story slug), clear prior selection
     if (!slug) selectedStorySlug = null
+    else selectedStorySlug = slug
     await renderTimelineList(slug)
-    // Always open Timeline at the top (nav + filters), not mid-story scroll
-    requestAnimationFrame(() => scrollTimelineToFilters())
+    const scrollToStoryDetail = () => {
+      const reader = document.getElementById('timelineStoryReader')
+      if (!reader || reader.classList.contains('is-empty')) return false
+      reader.scrollIntoView({ block: 'start', behavior: 'auto' })
+      const header = document.querySelector('header.top')
+      const offset = header ? header.getBoundingClientRect().height + 8 : 0
+      if (offset) {
+        const y = window.scrollY - offset
+        if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
+      }
+      return true
+    }
+    requestAnimationFrame(() => {
+      if (slug) {
+        if (scrollToStoryDetail()) return
+        window.setTimeout(() => {
+          if (!scrollToStoryDetail()) scrollTimelineToFilters()
+        }, 100)
+        return
+      }
+      scrollTimelineToFilters()
+    })
   } else if (view === 'about' || view === 'app') {
     // Hash #about can land mid-page after Timeline; force true top so logo shows
     // (native hash scrolling races us — retry a couple frames + short timeout)
@@ -2551,5 +2623,6 @@ document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('clic
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
+syncDeepLinkFromQuery()
 ensureHomeHash()
 applyRoute().catch(console.error)
