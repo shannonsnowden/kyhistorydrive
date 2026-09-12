@@ -60,7 +60,7 @@ const DATA_LAYERS = [
     color: '#e87722',
     defaultOn: true,
     geojson: '/data/markers.geojson',
-    yearFilter: false,
+    yearFilter: true,
     // Dense statewide set — small orange icons
     circleRadius: ['interpolate', ['linear'], ['zoom'], 6, 1.5, 9, 2.2, 12, 3.2, 16, 5],
     iconSize: ['interpolate', ['linear'], ['zoom'], 6, 0.16, 9, 0.22, 12, 0.3, 16, 0.4],
@@ -74,6 +74,7 @@ const DATA_LAYERS = [
     defaultOn: false,
     geojson: '/data/layers/history.geojson',
     yearFilter: true,
+    filterByEra: true,
   },
   {
     id: 'museums',
@@ -82,7 +83,7 @@ const DATA_LAYERS = [
     color: '#8b6b4a',
     defaultOn: false,
     geojson: '/data/layers/museums.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'national',
@@ -91,7 +92,7 @@ const DATA_LAYERS = [
     color: '#d4a017',
     defaultOn: false,
     geojson: '/data/layers/national.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'war',
@@ -100,7 +101,7 @@ const DATA_LAYERS = [
     color: '#8b3a3a',
     defaultOn: false,
     geojson: '/data/layers/war.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'locals',
@@ -109,7 +110,7 @@ const DATA_LAYERS = [
     color: '#c45c26',
     defaultOn: false,
     geojson: '/data/layers/locals.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'bridges',
@@ -118,7 +119,7 @@ const DATA_LAYERS = [
     color: '#5c7a4a',
     defaultOn: false,
     geojson: '/data/layers/bridges.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'industry',
@@ -127,7 +128,7 @@ const DATA_LAYERS = [
     color: '#6a5acd',
     defaultOn: false,
     geojson: '/data/layers/industry.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'newspapers',
@@ -136,7 +137,7 @@ const DATA_LAYERS = [
     color: '#4a6fa5',
     defaultOn: false,
     geojson: '/data/layers/newspapers.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'parks',
@@ -145,7 +146,7 @@ const DATA_LAYERS = [
     color: '#2d5a3d',
     defaultOn: false,
     geojson: '/data/layers/parks.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'cemeteries',
@@ -154,7 +155,7 @@ const DATA_LAYERS = [
     color: '#5a5a5a',
     defaultOn: false,
     geojson: '/data/layers/cemeteries.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
   {
     id: 'distilleries',
@@ -163,7 +164,7 @@ const DATA_LAYERS = [
     color: '#a65d2e',
     defaultOn: false,
     geojson: '/data/layers/distilleries.geojson',
-    yearFilter: false,
+    yearFilter: true,
   },
 ]
 
@@ -254,17 +255,27 @@ function buildYearEraFilter(layerDef) {
   const parts = []
   const eras = [...timelineState.eras]
   const allEras = eras.length === ERAS.length
-  if (!allEras && eras.length) {
-    parts.push(['in', ['get', 'era'], ['literal', eras]])
-  } else if (!allEras && eras.length === 0) {
-    return ['==', ['get', 'id'], '__none__']
+  if (layerDef.filterByEra) {
+    if (!allEras && eras.length) {
+      parts.push(['in', ['get', 'era'], ['literal', eras]])
+    } else if (!allEras && eras.length === 0) {
+      return ['==', ['get', 'id'], '__none__']
+    }
   }
   const { yearMin, yearMax } = timelineState
   if (yearMin != null || yearMax != null) {
-    // Require yearStart; features without it are omitted from filtered views
+    // Overlap: feature [yearStart, yearEnd||yearStart] intersects [yearMin, yearMax]
     parts.push(['has', 'yearStart'])
-    if (yearMin != null) parts.push(['>=', ['to-number', ['get', 'yearStart']], yearMin])
-    if (yearMax != null) parts.push(['<=', ['to-number', ['get', 'yearStart']], yearMax])
+    if (yearMax != null) {
+      parts.push(['<=', ['to-number', ['get', 'yearStart']], yearMax])
+    }
+    if (yearMin != null) {
+      parts.push([
+        '>=',
+        ['to-number', ['coalesce', ['get', 'yearEnd'], ['get', 'yearStart']]],
+        yearMin,
+      ])
+    }
   }
   if (!parts.length) return null
   return parts.length === 1 ? parts[0] : ['all', ...parts]
@@ -272,21 +283,26 @@ function buildYearEraFilter(layerDef) {
 
 
 
-function applyMapFilters() {
-  if (!map || !mapReady) return
+function applyFiltersToMapInstance(targetMap) {
+  if (!targetMap) return
   for (const def of DATA_LAYERS) {
     const filter = buildYearEraFilter(def)
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
-      if (map.getLayer(lid)) map.setFilter(lid, filter)
+      if (targetMap.getLayer(lid)) targetMap.setFilter(lid, filter)
     }
   }
-  // stories overlay on main map (always year-filterable when present)
   for (const lid of ['stories-circle', 'stories-hit', 'stories-highlight']) {
-    if (!map.getLayer(lid)) continue
-    const f = buildYearEraFilter({ yearFilter: true })
-    map.setFilter(lid, f)
+    if (!targetMap.getLayer(lid)) continue
+    const f = buildYearEraFilter({ yearFilter: true, filterByEra: true })
+    targetMap.setFilter(lid, f)
   }
+}
+
+function applyMapFilters() {
+  if (map && mapReady) applyFiltersToMapInstance(map)
+  if (timelineMap && timelineMapReady) applyFiltersToMapInstance(timelineMap)
   updateStats()
+  updateTimelineMapCounts()
 }
 
 function setLayerVisible(id, on) {
@@ -411,19 +427,19 @@ function renderLayerToggles() {
   })
 }
 
-async function addDataLayer(def) {
+async function addDataLayerOn(targetMap, def, visMap) {
   try {
     const res = await fetch(def.geojson)
     if (!res.ok) throw new Error(String(res.status))
     const data = await res.json()
-    if (map.getSource(def.id)) return
-    map.addSource(def.id, { type: 'geojson', data })
+    if (targetMap.getSource(def.id)) return
+    targetMap.addSource(def.id, { type: 'geojson', data })
 
-    const vis = layerVisibility[def.id] ? 'visible' : 'none'
+    const vis = visMap[def.id] ? 'visible' : 'none'
     const circleRadius =
       def.circleRadius || ['interpolate', ['linear'], ['zoom'], 7, 3.5, 12, 7, 16, 11]
     const hitRadius = def.hitRadius ?? 14
-    map.addLayer({
+    targetMap.addLayer({
       id: layerCircleId(def.id),
       type: 'circle',
       source: def.id,
@@ -436,7 +452,7 @@ async function addDataLayer(def) {
         'circle-opacity': 0.9,
       },
     })
-    map.addLayer({
+    targetMap.addLayer({
       id: layerHitId(def.id),
       type: 'circle',
       source: def.id,
@@ -446,9 +462,9 @@ async function addDataLayer(def) {
 
     if (def.icon.type === 'img') {
       const imgId = `icon-${def.id}`
-      const ok = await loadImage(map, imgId, def.icon.src)
+      const ok = await loadImage(targetMap, imgId, def.icon.src)
       if (ok) {
-        map.addLayer({
+        targetMap.addLayer({
           id: layerSymbolId(def.id),
           type: 'symbol',
           source: def.id,
@@ -470,10 +486,13 @@ async function addDataLayer(def) {
             'icon-ignore-placement': true,
           },
         })
-        // Prefer icons: fade underlay circles when a symbol is present
-        map.setPaintProperty(layerCircleId(def.id), 'circle-opacity', def.id === 'markers' ? 0.85 : 0.35)
+        targetMap.setPaintProperty(
+          layerCircleId(def.id),
+          'circle-opacity',
+          def.id === 'markers' ? 0.85 : 0.35,
+        )
         if (!def.circleRadius) {
-          map.setPaintProperty(layerCircleId(def.id), 'circle-radius', [
+          targetMap.setPaintProperty(layerCircleId(def.id), 'circle-radius', [
             'interpolate',
             ['linear'],
             ['zoom'],
@@ -488,21 +507,25 @@ async function addDataLayer(def) {
       }
     }
 
-    map.on('mouseenter', layerHitId(def.id), () => {
-      map.getCanvas().style.cursor = 'pointer'
+    targetMap.on('mouseenter', layerHitId(def.id), () => {
+      targetMap.getCanvas().style.cursor = 'pointer'
     })
-    map.on('mouseleave', layerHitId(def.id), () => {
-      map.getCanvas().style.cursor = ''
+    targetMap.on('mouseleave', layerHitId(def.id), () => {
+      targetMap.getCanvas().style.cursor = ''
     })
-    map.on('click', layerHitId(def.id), (e) => {
+    targetMap.on('click', layerHitId(def.id), (e) => {
       const f = e.features?.[0]
       if (!f) return
       e.originalEvent?.stopPropagation?.()
-      showDetailPopup(f, def.id, e.lngLat)
+      showDetailPopup(f, def.id, e.lngLat, targetMap)
     })
   } catch (err) {
     console.warn('layer failed', def.id, err)
   }
+}
+
+async function addDataLayer(def) {
+  return addDataLayerOn(map, def, layerVisibility)
 }
 
 function fitMapToKentucky(targetMap = map, opts = {}) {
@@ -668,6 +691,158 @@ function initMap() {
       ensureHighlightSource(map, pendingFocus)
       flyToFocus(map, pendingFocus)
     }
+  })
+}
+
+/* -------------------- Timeline map (filtered layers) -------------------- */
+let timelineMap = null
+let timelineMapReady = false
+const timelineLayerVisibility = Object.fromEntries(
+  DATA_LAYERS.map((l) => [
+    l.id,
+    // Timeline defaults: Markers + History + other year-bearing cultural layers on
+    ['markers', 'history', 'museums', 'war', 'bridges', 'industry', 'newspapers', 'cemeteries', 'distilleries'].includes(
+      l.id,
+    ),
+  ]),
+)
+
+function setTimelineLayerVisible(id, on) {
+  timelineLayerVisibility[id] = on
+  if (!timelineMap || !timelineMapReady) return
+  const vis = on ? 'visible' : 'none'
+  for (const lid of [layerCircleId(id), layerHitId(id), layerSymbolId(id)]) {
+    if (timelineMap.getLayer(lid)) timelineMap.setLayoutProperty(lid, 'visibility', vis)
+  }
+  updateTimelineMapCounts()
+}
+
+function renderTimelineLayerToggles() {
+  const box = document.getElementById('timelineLayerToggles')
+  if (!box || box.dataset.ready) return
+  box.dataset.ready = '1'
+  box.innerHTML = DATA_LAYERS.map((l) => {
+    const icon =
+      l.icon.type === 'img'
+        ? `<img class="layer-icon" src="${l.icon.src}" alt="" width="18" height="18" />`
+        : `<span class="layer-icon emoji" aria-hidden="true">${l.icon.glyph}</span>`
+    const on = timelineLayerVisibility[l.id]
+    return `<label class="ctrl layer-row">
+      <input type="checkbox" data-timeline-layer="${l.id}" ${on ? 'checked' : ''} />
+      ${icon}
+      <span>${escapeHtml(l.label)}</span>
+      <span class="swatch" style="background:${l.color}"></span>
+    </label>`
+  }).join('')
+  box.addEventListener('change', (e) => {
+    const input = e.target.closest('input[data-timeline-layer]')
+    if (!input) return
+    setTimelineLayerVisible(input.dataset.timelineLayer, input.checked)
+  })
+}
+
+function featureMatchesTimelineFilter(props, layerDef) {
+  if (!props) return false
+  if (layerDef.filterByEra) {
+    const eras = timelineState.eras
+    if (eras.size !== ERAS.length) {
+      if (!eras.size) return false
+      if (!eras.has(props.era)) return false
+    }
+  }
+  const { yearMin, yearMax } = timelineState
+  if (yearMin == null && yearMax == null) return true
+  if (props.yearStart == null) return false
+  const start = Number(props.yearStart)
+  const end = Number(props.yearEnd != null ? props.yearEnd : props.yearStart)
+  if (Number.isNaN(start)) return false
+  if (yearMax != null && start > yearMax) return false
+  if (yearMin != null && end < yearMin) return false
+  return true
+}
+
+function updateTimelineMapCounts() {
+  const el = document.getElementById('timelineMapCounts')
+  const meta = document.getElementById('timelineMapMeta')
+  if (!el) return
+  if (!timelineMap || !timelineMapReady) {
+    el.textContent = ''
+    return
+  }
+  const bits = []
+  let total = 0
+  for (const def of DATA_LAYERS) {
+    if (!timelineLayerVisibility[def.id]) continue
+    const src = timelineMap.getSource(def.id)
+    const feats = src?._data?.features
+    if (!feats) continue
+    const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
+    if (n) {
+      bits.push(`${n.toLocaleString()} ${def.label}`)
+      total += n
+    }
+  }
+  el.textContent = bits.length
+    ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
+    : 'Map: no places in this filter (try widening years or enabling layers)'
+  if (meta) {
+    const { yearMin, yearMax } = timelineState
+    const range =
+      yearMin != null || yearMax != null
+        ? `${formatYear(yearMin ?? '…')} – ${formatYear(yearMax ?? '…')}`
+        : 'all years'
+    meta.textContent = `Filtered to ${range}. Toggle layers above the story list.`
+  }
+}
+
+async function initTimelineMap() {
+  const el = document.getElementById('timelineMapCanvas')
+  if (!el) return
+  renderTimelineLayerToggles()
+  if (timelineMap) {
+    requestAnimationFrame(() => {
+      timelineMap.resize()
+      applyFiltersToMapInstance(timelineMap)
+      updateTimelineMapCounts()
+    })
+    return
+  }
+  timelineMap = new maplibregl.Map({
+    container: 'timelineMapCanvas',
+    style: OSM_STYLE,
+    center: CENTER,
+    zoom: START_ZOOM,
+  })
+  timelineMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
+  document.getElementById('timelineZoomFullState')?.addEventListener('click', () => {
+    fitMapToKentucky(timelineMap, { duration: 600 })
+  })
+  timelineMap.on('load', async () => {
+    try {
+      const ky = await (await fetch('/data/kentucky-outline.geojson')).json()
+      timelineMap.addSource('kentucky', { type: 'geojson', data: ky })
+      timelineMap.addLayer({
+        id: 'kentucky-fill',
+        type: 'fill',
+        source: 'kentucky',
+        paint: { 'fill-color': '#2d5a3d', 'fill-opacity': 0.1 },
+      })
+      timelineMap.addLayer({
+        id: 'kentucky-outline',
+        type: 'line',
+        source: 'kentucky',
+        paint: { 'line-color': '#c9893a', 'line-width': 2, 'line-opacity': 0.9 },
+      })
+    } catch {
+      /* ignore */
+    }
+    for (const def of DATA_LAYERS) {
+      await addDataLayerOn(timelineMap, def, timelineLayerVisibility)
+    }
+    timelineMapReady = true
+    applyFiltersToMapInstance(timelineMap)
+    fitMapToKentucky(timelineMap, { duration: 0 })
+    updateTimelineMapCounts()
   })
 }
 
@@ -1252,6 +1427,8 @@ async function applyRoute() {
   } else if (view === 'stories') {
     await renderStoriesPage(slug)
   } else if (view === 'timeline') {
+    setupTimelineFilters()
+    await initTimelineMap()
     await renderTimelineList()
   }
 }
