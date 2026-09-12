@@ -25,8 +25,13 @@ const OSM_STYLE = {
 }
 
 
-const CENTER = [-85.058, 38.258]
-const START_ZOOM = 9
+// Statewide Kentucky (not Bagdad close-up)
+const CENTER = [-85.76, 37.84]
+const START_ZOOM = 6.4
+const KY_BOUNDS = [
+  [-89.58, 36.5], // SW
+  [-81.97, 39.15], // NE
+]
 
 const ERAS = [
   { id: 'prehistoric', label: 'Prehistoric' },
@@ -531,8 +536,14 @@ function initMap() {
           'line-opacity': 0.95,
         },
       })
+      if (!pendingFocus) {
+        map.fitBounds(KY_BOUNDS, { padding: 48, maxZoom: 7.5, duration: 0 })
+      }
     } catch (err) {
       console.warn('Kentucky outline failed to load', err)
+      if (!pendingFocus) {
+        map.fitBounds(KY_BOUNDS, { padding: 48, maxZoom: 7.5, duration: 0 })
+      }
     }
 
     for (const def of DATA_LAYERS) {
