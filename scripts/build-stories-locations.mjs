@@ -56,7 +56,6 @@ const MANUAL_OVERRIDES = {
   // Long hunter biography — brief Falls visit shouldn't pin the whole story to Louisville
   'michael-stoner-german-long-hunter': {
     matchName: 'Boonesborough',
-    // fallback coords if history layer missing that name
     lat: 37.8909,
     lon: -84.2666,
     confidence: 'override',
@@ -66,6 +65,125 @@ const MANUAL_OVERRIDES = {
     matchName: 'Lexington',
     lat: 38.0406,
     lon: -84.5037,
+    confidence: 'override',
+  },
+  // Title doesn't fuzzy-match long history name
+  'diamond-caverns-decorated-limestone': {
+    matchName: 'Diamond Caverns Park City / Ste. Genevieve limestone',
+    lat: 37.1161,
+    lon: -86.0626,
+    confidence: 'override',
+  },
+  // "Callaway" was matching Calloway County centroid
+  'col-richard-callaway-of-boonesborough': {
+    matchName: 'Boonesborough',
+    lat: 37.8909,
+    lon: -84.2666,
+    confidence: 'override',
+  },
+  // Was wrongly fuzzy-matched to Isaac Shelby
+  'chickasaw-hunting-grounds': {
+    matchName: 'Chickasaw / Jackson Purchase',
+    lat: 37.10445,
+    lon: -88.63255,
+    confidence: 'override',
+  },
+  'frankfort-franks-ford-becomes-the-capital': {
+    matchName: 'Frankfort Founding',
+    lat: 38.1980678,
+    lon: -84.8655544,
+    confidence: 'override',
+  },
+  'ashlands-adena-mounds': {
+    matchName: 'Ashland Central Park Adena Mounds',
+    lat: 38.4730716,
+    lon: -82.63752,
+    confidence: 'override',
+  },
+  'paris-from-hopewell': {
+    matchName: 'Paris Founding',
+    lat: 38.21273333333333,
+    lon: -84.24981666666666,
+    confidence: 'override',
+  },
+  'elizabethtown-from-severns-valley': {
+    matchName: 'Elizabethtown founding / Severns Valley',
+    lat: 37.6828019,
+    lon: -85.9118928,
+    confidence: 'override',
+  },
+  'nicholasville-takes-shape': {
+    matchName: 'Nicholasville founding / Rev. John Metcalf 1798',
+    lat: 37.88055,
+    lon: -84.57311666666666,
+    confidence: 'override',
+  },
+  'versailles-takes-shape': {
+    matchName: 'Versailles founding / Hezekiah Briscoe',
+    lat: 38.052276,
+    lon: -84.7139251,
+    confidence: 'override',
+  },
+  'winchester-clark-county-seat': {
+    matchName: 'Winchester Founding',
+    lat: 37.9929112,
+    lon: -84.1776735,
+    confidence: 'override',
+  },
+  'richmond-from-millers-barn': {
+    matchName: 'Richmond Founding',
+    lat: 37.747975,
+    lon: -84.2943662,
+    confidence: 'override',
+  },
+  'lancaster-at-wallace-s-crossroads': {
+    matchName: "Lancaster founding / Wallace's Crossroads",
+    lat: 37.3238322,
+    lon: -84.9223154,
+    confidence: 'override',
+  },
+  'cynthiana-cynthia-anna-on-the-licking': {
+    matchName: 'Cynthiana founding / Robert Harrison',
+    // History layer point was misplaced (~Murray); use Cynthiana city center
+    lat: 38.3903,
+    lon: -84.2941,
+    confidence: 'override',
+  },
+  'taylorsville-on-brashears-creek': {
+    matchName: 'Taylorsville',
+    lat: 38.0317,
+    lon: -85.3441,
+    confidence: 'override',
+  },
+  'springfield-first-county-seat-after-statehood': {
+    matchName: 'Springfield',
+    lat: 37.6853,
+    lon: -85.2222,
+    confidence: 'override',
+  },
+  'bland-w-ballard-of-tick-creek': {
+    matchName: 'Bland W. Ballard / Tyler Station',
+    lat: 38.2143528,
+    lon: -85.2361795,
+    confidence: 'override',
+  },
+  'james-crow-on-glenns-creek': {
+    matchName: 'James C. Crow / Oscar Pepper',
+    lat: 38.13698933835563,
+    lon: -84.78761913468118,
+    confidence: 'override',
+  },
+  'capt-abraham-lincoln-on-long-run': {
+    matchName: 'Squire Boone / Painted Stone / Long Run',
+    lat: 38.2363772,
+    lon: -85.4313603,
+    confidence: 'override',
+  },
+  // Louisville wharf — Falls of the Ohio / Louisville area
+  'evan-williams-on-the-louisville-wharf': {
+    matchName: 'Falls of the Ohio',
+    lat: 38.2753405,
+    lon: -85.7628814,
     confidence: 'override',
   },
 }
@@ -80,12 +198,37 @@ function findHistory(story, bodyText) {
   const slug = story.slug
   let hit = byName.get(titleN) || byId.get(slug) || bySlug.get(slug)
   if (hit) return { feature: hit, confidence: 'exact', match: hit.properties.name }
+  // Story slug is a prefix of a history id (ashlands-adena-mounds ↔ ashland-adena-mounds)
+  for (const [id, f] of byId) {
+    if (!id || typeof id !== 'string') continue
+    if (id.startsWith(slug) || slug.startsWith(id) || id.includes(slug) || slug.includes(id.replace(/-/g, ' '))) {
+      // require meaningful overlap length
+      const a = slug.split('-').filter(Boolean)
+      const b = id.split('-').filter(Boolean)
+      const shared = a.filter((t) => b.includes(t) && t.length > 3)
+      if (shared.length >= 2) {
+        return { feature: f, confidence: 'fuzzy', match: f.properties.name }
+      }
+    }
+  }
 
   // fuzzy: history name contained in title or title contained in name (min length)
   for (const [n, f] of byName) {
     if (n.length >= 6 && (titleN.includes(n) || n.includes(titleN))) {
       return { feature: f, confidence: 'fuzzy', match: f.properties.name }
     }
+  }
+  // Shared leading place name (e.g. "diamond caverns …" vs long history title)
+  const titleToks = titleN.split(' ').filter((t) => t.length > 2)
+  if (titleToks.length >= 2) {
+    const lead = titleToks.slice(0, 2).join(' ')
+    let best = null
+    for (const [n, f] of byName) {
+      if (n.startsWith(lead) || n.includes(lead)) {
+        if (!best || n.length < best.n.length) best = { n, f }
+      }
+    }
+    if (best) return { feature: best.f, confidence: 'fuzzy', match: best.f.properties.name }
   }
   // all significant tokens of history name appear in title
   for (const [n, f] of byName) {
@@ -135,19 +278,28 @@ for (const story of idx.stories) {
   let found = override ? null : findHistory(story, body)
   if (override) {
     let feature = null
-    if (override.matchName) {
-      feature = byName.get(norm(override.matchName)) || bySlug.get(slugify(override.matchName))
-    }
-    if (feature) {
-      found = { feature, confidence: override.confidence || 'override', match: feature.properties.name }
-    } else if (override.lat != null && override.lon != null) {
+    // Explicit lat/lon always wins (history layer can be misplaced)
+    if (override.lat != null && override.lon != null) {
+      let historyId = null
+      if (override.matchName) {
+        feature = byName.get(norm(override.matchName)) || bySlug.get(slugify(override.matchName))
+        historyId = feature?.properties?.id || null
+      }
       found = {
         feature: {
           geometry: { coordinates: [override.lon, override.lat] },
-          properties: { name: override.matchName || story.title, id: null },
+          properties: {
+            name: override.matchName || feature?.properties?.name || story.title,
+            id: historyId,
+          },
         },
         confidence: override.confidence || 'override',
-        match: override.matchName || 'manual override',
+        match: override.matchName || feature?.properties?.name || 'manual override',
+      }
+    } else if (override.matchName) {
+      feature = byName.get(norm(override.matchName)) || bySlug.get(slugify(override.matchName))
+      if (feature) {
+        found = { feature, confidence: override.confidence || 'override', match: feature.properties.name }
       }
     }
   }
