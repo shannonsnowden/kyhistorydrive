@@ -60,7 +60,7 @@
             <h2>Timeline</h2>
             <p class="muted">Filter by year or era, turn on layers for matching places, then open a story to read it. The map highlights the story’s location when it has one.</p>
           </div>
-          <div class="filters">
+          <div id="timelineFilters" class="filters">
             <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
             <div class="filter-row year-presets" id="yearPresets" aria-label="Year range presets"></div>
             <div class="filter-row year-inputs">
@@ -89,10 +89,19 @@
                 </select>
               </label>
               <p id="timelineStoriesSortMeta" class="muted stories-sort-meta"></p>
+              <div class="stories-scroll-controls timeline-jump-controls" aria-label="Jump on Timeline">
+                <button type="button" id="timelineJumpFilters" class="scroll-fab" title="Jump to filters">↑ Filters</button>
+                <button type="button" id="timelineJumpStories" class="scroll-fab" title="Jump to story list">↑ Stories</button>
+              </div>
             </div>
           </div>
           <ol id="timelineList" class="timeline-list"></ol>
           <article id="timelineStoryReader" class="story-reader is-empty" aria-live="polite"></article>
+          <div class="timeline-reader-jump" id="timelineReaderJump" hidden>
+            <button type="button" id="timelineJumpFiltersBottom" class="scroll-fab" title="Jump to filters">↑ Filters</button>
+            <button type="button" id="timelineJumpStoriesBottom" class="scroll-fab" title="Jump to story list">↑ Stories</button>
+            <button type="button" id="timelineJumpTop" class="scroll-fab" title="Back to top">↑ Top</button>
+          </div>
         </div>
         <aside class="timeline-map-pane" aria-label="Timeline places map">
           <div class="timeline-map-head">
