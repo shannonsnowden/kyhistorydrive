@@ -57,10 +57,14 @@ const DATA_LAYERS = [
     id: 'markers',
     label: 'Markers',
     icon: { type: 'img', src: '/icons/highway-marker.png' },
-    color: '#c9893a',
+    color: '#e87722',
     defaultOn: true,
     geojson: '/data/markers.geojson',
     yearFilter: false,
+    // Dense statewide set — keep dots small
+    circleRadius: ['interpolate', ['linear'], ['zoom'], 6, 2, 9, 3, 12, 4.5, 16, 7],
+    iconSize: ['interpolate', ['linear'], ['zoom'], 6, 0.28, 9, 0.38, 12, 0.5, 16, 0.65],
+    hitRadius: 11,
   },
   {
     id: 'history',
@@ -379,15 +383,18 @@ async function addDataLayer(def) {
     map.addSource(def.id, { type: 'geojson', data })
 
     const vis = layerVisibility[def.id] ? 'visible' : 'none'
+    const circleRadius =
+      def.circleRadius || ['interpolate', ['linear'], ['zoom'], 7, 3.5, 12, 7, 16, 11]
+    const hitRadius = def.hitRadius ?? 14
     map.addLayer({
       id: layerCircleId(def.id),
       type: 'circle',
       source: def.id,
       layout: { visibility: vis },
       paint: {
-        'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 3.5, 12, 7, 16, 11],
+        'circle-radius': circleRadius,
         'circle-color': def.color,
-        'circle-stroke-width': 1.25,
+        'circle-stroke-width': def.id === 'markers' ? 0.75 : 1.25,
         'circle-stroke-color': '#101812',
         'circle-opacity': 0.9,
       },
@@ -397,7 +404,7 @@ async function addDataLayer(def) {
       type: 'circle',
       source: def.id,
       layout: { visibility: vis },
-      paint: { 'circle-radius': 14, 'circle-opacity': 0 },
+      paint: { 'circle-radius': hitRadius, 'circle-opacity': 0 },
     })
 
     if (def.icon.type === 'img') {
@@ -411,24 +418,36 @@ async function addDataLayer(def) {
           layout: {
             visibility: vis,
             'icon-image': imgId,
-            'icon-size': ['interpolate', ['linear'], ['zoom'], 7, 0.45, 12, 0.7, 16, 0.95],
+            'icon-size': def.iconSize || [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              7,
+              0.45,
+              12,
+              0.7,
+              16,
+              0.95,
+            ],
             'icon-allow-overlap': true,
             'icon-ignore-placement': true,
           },
         })
-        // Prefer icons: fade circles a bit when symbol present
-        map.setPaintProperty(layerCircleId(def.id), 'circle-opacity', 0.35)
-        map.setPaintProperty(layerCircleId(def.id), 'circle-radius', [
-          'interpolate',
-          ['linear'],
-          ['zoom'],
-          7,
-          5,
-          12,
-          9,
-          16,
-          12,
-        ])
+        // Prefer icons: fade underlay circles when a symbol is present
+        map.setPaintProperty(layerCircleId(def.id), 'circle-opacity', def.id === 'markers' ? 0.55 : 0.35)
+        if (!def.circleRadius) {
+          map.setPaintProperty(layerCircleId(def.id), 'circle-radius', [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            7,
+            5,
+            12,
+            9,
+            16,
+            12,
+          ])
+        }
       }
     }
 
