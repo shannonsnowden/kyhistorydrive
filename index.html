@@ -45,8 +45,12 @@
         </div>
         <p id="stats" class="stats"></p>
         <p class="muted map-click-hint">Tap a pin on the map for details.</p>
+        <button type="button" id="zoomFullState" class="btn ghost full-state-btn">Full state</button>
       </aside>
-      <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
+      <div class="map-canvas-wrap">
+        <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
+        <button type="button" id="zoomFullStateMap" class="full-state-fab" title="Reset zoom to all of Kentucky" aria-label="Reset zoom to all of Kentucky">Full state</button>
+      </div>
     </section>
 
     <section id="timeline" class="view panel-wide" data-view="timeline" hidden>

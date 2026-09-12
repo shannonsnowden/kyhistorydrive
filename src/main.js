@@ -497,6 +497,20 @@ async function addDataLayer(def) {
   }
 }
 
+function fitMapToKentucky(targetMap = map, opts = {}) {
+  if (!targetMap) return
+  targetMap.fitBounds(KY_BOUNDS, {
+    padding: opts.padding ?? 48,
+    maxZoom: opts.maxZoom ?? 7.5,
+    duration: opts.duration ?? 700,
+    essential: true,
+  })
+  if (activePopup && targetMap === map) {
+    activePopup.remove()
+    activePopup = null
+  }
+}
+
 function flyToFocus(targetMap, focus, zoom = 12) {
   if (!targetMap || !focus || focus.lon == null || focus.lat == null) return
   targetMap.flyTo({ center: [focus.lon, focus.lat], zoom, essential: true })
@@ -565,6 +579,10 @@ function initMap() {
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
 
+  const zoomFull = () => fitMapToKentucky(map)
+  document.getElementById('zoomFullState')?.addEventListener('click', zoomFull)
+  document.getElementById('zoomFullStateMap')?.addEventListener('click', zoomFull)
+
   map.on('load', async () => {
     try {
       const kyRes = await fetch('/data/kentucky-outline.geojson')
@@ -587,12 +605,12 @@ function initMap() {
         },
       })
       if (!pendingFocus) {
-        map.fitBounds(KY_BOUNDS, { padding: 48, maxZoom: 7.5, duration: 0 })
+        fitMapToKentucky(map, { duration: 0 })
       }
     } catch (err) {
       console.warn('Kentucky outline failed to load', err)
       if (!pendingFocus) {
-        map.fitBounds(KY_BOUNDS, { padding: 48, maxZoom: 7.5, duration: 0 })
+        fitMapToKentucky(map, { duration: 0 })
       }
     }
 
