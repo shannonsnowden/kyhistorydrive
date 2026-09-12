@@ -361,3 +361,17 @@ nav a:hover, nav a.active { color: var(--accent); }
   border-color: var(--accent);
   color: #e8d5a8;
 }
+
+.about-credits-heading {
+  margin: 1.5rem 0 0.65rem;
+  font-size: 1.1rem;
+  color: #e8d5a8;
+}
+.about-credits {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.about-credits li { margin: 0.35rem 0; }
+.about-credits a { color: var(--accent); }
