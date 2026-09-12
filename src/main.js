@@ -147,9 +147,9 @@ function initMap() {
       source: 'markers',
       paint: {
         'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 3, 12, 7, 16, 10],
-        'circle-color': '#e87722',
+        'circle-color': '#c9893a',
         'circle-stroke-width': 1.5,
-        'circle-stroke-color': '#1a1208',
+        'circle-stroke-color': '#101812',
         'circle-opacity': 0.9,
       },
     })
