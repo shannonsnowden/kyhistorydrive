@@ -115,25 +115,63 @@ nav a:hover, nav a.active { color: var(--accent); }
 .btn.ghost { background: transparent; color: var(--text); border: 1px solid #3d5344; }
 .btn.small { padding: 0.28rem 0.65rem; font-size: 0.8rem; }
 
-/* Stories split layout */
+/* Stories page: article left, location map right (no home layers) */
 .stories-section { padding: 0; max-width: none; }
 .stories-layout {
   display: grid;
-  grid-template-columns: minmax(320px, 1.1fr) minmax(280px, 0.9fr);
-  min-height: 70vh;
+  grid-template-columns: minmax(340px, 1.15fr) minmax(300px, 0.85fr);
+  min-height: calc(100vh - 4.5rem);
   border-top: 1px solid var(--line);
 }
-.stories-list-pane {
-  padding: 1.25rem 1.35rem 2rem;
-  overflow: auto;
-  max-height: calc(100vh - 5rem);
+.stories-main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 4.5rem);
+  max-height: calc(100vh - 4.5rem);
   border-right: 1px solid var(--line);
+  background: var(--bg);
 }
+.stories-toolbar {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+.stories-select-label {
+  display: flex; flex-direction: column; gap: 0.35rem;
+  font-size: 0.85rem;
+}
+.stories-select-label select {
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid #3d5344;
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  font-size: 1rem;
+}
+.stories-toolbar-hint { margin: 0.5rem 0 0; font-size: 0.82rem; }
+.story-reader {
+  flex: 1;
+  overflow: auto;
+  padding: 1.25rem 1.4rem 2rem;
+}
+.story-reader .story-head h2 {
+  margin: 0.45rem 0 0.5rem;
+  font-size: 1.65rem;
+  color: #e8d5a8;
+}
+.story-reader .story-summary {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.45;
+  margin: 0 0 0.75rem;
+}
+.story-card-icon.inline { font-size: 1.25rem; margin-right: 0.15rem; }
 .stories-map-pane {
   position: sticky; top: 3.5rem;
   display: flex; flex-direction: column;
   background: var(--panel);
-  min-height: 60vh;
+  min-height: calc(100vh - 4.5rem);
   max-height: calc(100vh - 3.5rem);
 }
 .stories-map-head {
