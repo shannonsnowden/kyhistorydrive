@@ -25,6 +25,23 @@ a { color: var(--accent); }
   position: sticky; top: 0; background: rgba(16, 24, 18, 0.94); z-index: 20;
   backdrop-filter: blur(8px);
 }
+.brand-home {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.brand-home:hover h1,
+.brand-home:focus-visible h1 {
+  color: #f5e6c8;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.brand-home:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 .brand h1 { margin: 0; font-size: 1.25rem; letter-spacing: 0.02em; color: #e8d5a8; }
 .tag { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.85rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.85rem 1rem; }
