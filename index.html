@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KY History Drive — Kentucky Historical Markers</title>
+    <meta name="description" content="Explore Kentucky Historical Society markers on an open-source map. Companion to the KY Markers Drive iPhone app." />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <h1>KY History Drive</h1>
+        <p class="tag">Kentucky historical markers on the road</p>
+      </div>
+      <nav>
+        <a href="#map">Map</a>
+        <a href="#about">About</a>
+        <a href="#app">App</a>
+      </nav>
+    </header>
+
+    <section id="hero" class="hero">
+      <p>
+        Find official Kentucky Historical Society markers while you drive — map, pins, and the story at the roadside.
+        OpenStreetMap basemap via MapLibre (no Google Maps).
+      </p>
+    </section>
+
+    <section id="map" class="map-section">
+      <aside class="controls">
+        <label class="ctrl">
+          <input type="checkbox" id="phase1Only" checked />
+          Phase 1 counties only (~1 hr from Bagdad)
+        </label>
+        <label class="ctrl">
+          <input type="checkbox" id="layerOhm" />
+          OpenHistoricalMap overlay (experimental)
+        </label>
+        <p id="stats" class="stats"></p>
+        <div id="detail" class="detail empty">Tap a marker for details.</div>
+      </aside>
+      <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
+    </section>
+
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <p>
+        Marker text and locations come from public Kentucky Historical Society / history.ky.gov sources
+        (geocoded for the KY Markers Drive project). This site is a web companion to the iOS app.
+      </p>
+      <p>
+        <strong>Maps:</strong> MapLibre GL JS + OpenStreetMap raster tiles (CARTO Voyager). Optional
+        OpenHistoricalMap raster overlay. Production tile providers (MapTiler, Stadia, etc.) can replace
+        the default style via env — see README.
+      </p>
+    </section>
+
+    <section id="app" class="panel">
+      <h2>iPhone app</h2>
+      <p>
+        KY Markers Drive (iOS) is in App Review. App Store link will go here when live.
+      </p>
+    </section>
+
+    <footer class="foot">
+      <span>kyhistorydrive.com</span>
+      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

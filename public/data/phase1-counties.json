@@ -1,0 +1,211 @@
+{
+  "home": "Bagdad, Shelby County, KY",
+  "radius_note": "About 1 hour drive from Bagdad",
+  "counties": [
+    {
+      "name": "Shelby",
+      "history_ky_gov_id": 21,
+      "secure2_county_index": 106,
+      "role": "core"
+    },
+    {
+      "name": "Henry",
+      "history_ky_gov_id": 90,
+      "secure2_county_index": 52,
+      "role": "core"
+    },
+    {
+      "name": "Franklin",
+      "history_ky_gov_id": 99,
+      "secure2_county_index": 37,
+      "role": "core"
+    },
+    {
+      "name": "Anderson",
+      "history_ky_gov_id": 38,
+      "secure2_county_index": 3,
+      "role": "ring"
+    },
+    {
+      "name": "Spencer",
+      "history_ky_gov_id": 22,
+      "secure2_county_index": 108,
+      "role": "ring"
+    },
+    {
+      "name": "Oldham",
+      "history_ky_gov_id": 2,
+      "secure2_county_index": 93,
+      "role": "ring"
+    },
+    {
+      "name": "Owen",
+      "history_ky_gov_id": 3,
+      "secure2_county_index": 94,
+      "role": "ring"
+    },
+    {
+      "name": "Trimble",
+      "history_ky_gov_id": 25,
+      "secure2_county_index": 112,
+      "role": "ring"
+    },
+    {
+      "name": "Woodford",
+      "history_ky_gov_id": 19,
+      "secure2_county_index": 119,
+      "role": "ring"
+    },
+    {
+      "name": "Scott",
+      "history_ky_gov_id": 13,
+      "secure2_county_index": 105,
+      "role": "ring"
+    },
+    {
+      "name": "Jefferson",
+      "history_ky_gov_id": 92,
+      "secure2_county_index": 56,
+      "role": "ring"
+    },
+    {
+      "name": "Fayette",
+      "history_ky_gov_id": 52,
+      "secure2_county_index": 34,
+      "role": "ring"
+    },
+    {
+      "name": "Clark",
+      "secure2_county_index": 25,
+      "role": "east",
+      "phase": 1
+    },
+    {
+      "name": "Estill",
+      "secure2_county_index": 33,
+      "role": "east",
+      "phase": 1
+    },
+    {
+      "name": "Powell",
+      "secure2_county_index": 99,
+      "role": "east",
+      "phase": 1
+    },
+    {
+      "name": "Nelson",
+      "secure2_county_index": 90,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Larue",
+      "secure2_county_index": 62,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Bullitt",
+      "secure2_county_index": 15,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Boyle",
+      "secure2_county_index": 11,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Marion",
+      "secure2_county_index": 78,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Bourbon",
+      "secure2_county_index": 9,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Daviess",
+      "secure2_county_index": 30,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Campbell",
+      "secure2_county_index": 19,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Kenton",
+      "secure2_county_index": 59,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Boone",
+      "secure2_county_index": 8,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Bracken",
+      "secure2_county_index": 12,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Mason",
+      "secure2_county_index": 81,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Gallatin",
+      "secure2_county_index": 39,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Hardin",
+      "secure2_county_index": 47,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Muhlenberg",
+      "secure2_county_index": 89,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Christian",
+      "secure2_county_index": 24,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Simpson",
+      "secure2_county_index": 107,
+      "role": "bourbon-trail",
+      "phase": 2
+    },
+    {
+      "name": "Pike",
+      "secure2_county_index": 98,
+      "role": "bourbon-trail",
+      "phase": 2
+    }
+  ],
+  "bourbon_trail_note": "Phase 2 counties host Kentucky Bourbon Trail / Craft Tour stops (KDA member cities as of Wikipedia 2024 list). Phase 1 already includes Jefferson, Shelby, Anderson, Woodford, Fayette, Franklin, Oldham trail hosts. Clark/Estill/Powell added as east ring at Shannon's request.",
+  "bourbon_trail_source": "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+  "sources": {
+    "markers_index": "https://history.ky.gov/markers",
+    "marker_search": "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx",
+    "program": "https://history.ky.gov/explore/historical-marker-program"
+  }
+}
