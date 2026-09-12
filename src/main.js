@@ -642,14 +642,27 @@ function inferPhotoInstitution(text) {
 }
 
 function photoSearchLinks(title, placeHint, extra = {}) {
+  // LOC / NARA only when verified against the selected photo (see resolveStorySidebarPhoto)
   return {
     google_url: extra.google_url || googleImagesSearchUrl(title, placeHint),
     wikipedia_url: extra.wikipedia_url || wikipediaSearchUrl(title),
     grokipedia_url: extra.grokipedia_url || grokipediaSearchUrl(title),
-    loc_url: extra.loc_url || locSearchUrl(title, placeHint),
-    nara_url: extra.nara_url || naraSearchUrl(title, placeHint),
+    loc_url: extra.loc_url || null,
+    nara_url: extra.nara_url || null,
     kyhs_url: extra.kyhs_url || kyhsSearchUrl(title, placeHint),
   }
+}
+
+function verifiedGovPhotoLinks(photo, title, placeHint) {
+  const label = String(photo?.source_label || photo?.attribution || photo?.credit || '')
+  const out = { loc_url: null, nara_url: null }
+  if (/Library of Congress/i.test(label)) {
+    out.loc_url = photo.source_url || locSearchUrl(title, placeHint)
+  }
+  if (/National Archives/i.test(label)) {
+    out.nara_url = photo.source_url || naraSearchUrl(title, placeHint)
+  }
+  return out
 }
 
 async function fetchWikipediaThumbnail(titleOrUrl) {
@@ -835,7 +848,13 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
 
   candidates.sort((a, b) => topicPhotoScore(b, title, placeHint) - topicPhotoScore(a, title, placeHint))
   const best = candidates[0]
-  if (best?.image_url) return { ...best, ...links }
+  if (best?.image_url) {
+    return {
+      ...best,
+      ...links,
+      ...verifiedGovPhotoLinks(best, title, placeHint),
+    }
+  }
 
   return {
     image_url: null,
@@ -845,6 +864,8 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
     credit: null,
     source_url: null,
     ...links,
+    loc_url: null,
+    nara_url: null,
   }
 }
 
@@ -855,19 +876,20 @@ function storySidebarPhotoHtml(photo, title) {
   const attribution = escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
   const year = photo.year ? escapeHtml(String(photo.year)) : ''
 
-  const linkRow = `<nav class="story-sidebar-photo-links" aria-label="Photo sources">
-      <a href="${escapeHtml(photo.google_url || '#')}" target="_blank" rel="noopener noreferrer">Google</a>
-      <span aria-hidden="true">·</span>
-      <a href="${escapeHtml(photo.wikipedia_url || '#')}" target="_blank" rel="noopener noreferrer">Wikipedia</a>
-      <span aria-hidden="true">·</span>
-      <a href="${escapeHtml(photo.grokipedia_url || '#')}" target="_blank" rel="noopener noreferrer">Grokipedia</a>
-      <span aria-hidden="true">·</span>
-      <a href="${escapeHtml(photo.kyhs_url || '#')}" target="_blank" rel="noopener noreferrer">KYHS</a>
-      <span aria-hidden="true">·</span>
-      <a href="${escapeHtml(photo.loc_url || '#')}" target="_blank" rel="noopener noreferrer">Library of Congress</a>
-      <span aria-hidden="true">·</span>
-      <a href="${escapeHtml(photo.nara_url || '#')}" target="_blank" rel="noopener noreferrer">National Archives</a>
-    </nav>`
+  const bits = [
+    photo.google_url && `<a href="${escapeHtml(photo.google_url)}" target="_blank" rel="noopener noreferrer">Google</a>`,
+    photo.wikipedia_url && `<a href="${escapeHtml(photo.wikipedia_url)}" target="_blank" rel="noopener noreferrer">Wikipedia</a>`,
+    photo.grokipedia_url && `<a href="${escapeHtml(photo.grokipedia_url)}" target="_blank" rel="noopener noreferrer">Grokipedia</a>`,
+    photo.kyhs_url && `<a href="${escapeHtml(photo.kyhs_url)}" target="_blank" rel="noopener noreferrer">KYHS</a>`,
+    // Only when the chosen photo is verified from that institution
+    photo.loc_url && `<a href="${escapeHtml(photo.loc_url)}" target="_blank" rel="noopener noreferrer">Library of Congress</a>`,
+    photo.nara_url && `<a href="${escapeHtml(photo.nara_url)}" target="_blank" rel="noopener noreferrer">National Archives</a>`,
+  ].filter(Boolean)
+  const linkRow = bits.length
+    ? `<nav class="story-sidebar-photo-links" aria-label="Photo sources">${bits.join(
+        '<span aria-hidden="true"> · </span>',
+      )}</nav>`
+    : 
 
   let thumb = ''
   if (photo.image_url) {
