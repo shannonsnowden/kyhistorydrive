@@ -774,11 +774,15 @@ function focusStoryOnMaps(story) {
 
 /* -------------------- Stories / Timeline -------------------- */
 let storiesIndex = null
+let storiesCountyReady = false
+let storiesSortMode = 'brief-desc'
+let storiesBySlug = {}
 
 async function loadStories() {
   if (storiesIndex) return storiesIndex
   const res = await fetch('/content/stories.json')
   storiesIndex = await res.json()
+  await enrichStoriesCounties(storiesIndex.stories)
   return storiesIndex
 }
 
@@ -786,6 +790,230 @@ async function loadStoryBody(slug) {
   const res = await fetch(`/content/stories/${encodeURIComponent(slug)}.json`)
   if (!res.ok) throw new Error('not found')
   return res.json()
+}
+
+function primaryStoryTag(story) {
+  const tags = story.tags || []
+  const skip = new Set(['kentucky', 'ky'])
+  return tags.find((t) => !skip.has(String(t).toLowerCase())) || tags[0] || ''
+}
+
+async function enrichStoriesCounties(stories) {
+  if (storiesCountyReady) return
+  let centroids = {}
+  let historyFeatures = []
+  let locations = {}
+  try {
+    centroids = await (await fetch('/data/county-centroids.json')).json()
+  } catch {
+    /* ignore */
+  }
+  try {
+    const hist = await (await fetch('/data/layers/history.geojson')).json()
+    historyFeatures = hist.features || []
+  } catch {
+    /* ignore */
+  }
+  try {
+    const loc = await (await fetch('/content/stories-locations.json')).json()
+    locations = loc.locations || {}
+  } catch {
+    /* ignore */
+  }
+
+  const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
+  const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const countyRe = countyNames.length
+    ? new RegExp('\\b(' + countyNames.map(escapeRe).join('|') + ')(?:\\s+County)?\\b', 'i')
+    : null
+
+  const historyById = new Map()
+  const historyByName = new Map()
+  for (const f of historyFeatures) {
+    const p = f.properties || {}
+    if (p.id) historyById.set(p.id, p)
+    if (p.name) historyByName.set(String(p.name).toLowerCase(), p)
+    if (p.county && f.geometry && f.geometry.coordinates) {
+      /* keep for nearest */
+    }
+  }
+
+  function countyFromText(blob) {
+    if (!countyRe || !blob) return ''
+    const m = String(blob).match(countyRe)
+    return m ? m[1].replace(/\b\w/g, (ch) => ch.toUpperCase()) : ''
+  }
+
+  function nearestHistoryCounty(lat, lon) {
+    if (lat == null || lon == null || !historyFeatures.length) return ''
+    let best = null
+    let bestD = Infinity
+    for (const f of historyFeatures) {
+      const p = f.properties || {}
+      if (!p.county || !f.geometry || f.geometry.type !== 'Point') continue
+      const [x, y] = f.geometry.coordinates
+      const d = (x - lon) ** 2 + (y - lat) ** 2
+      if (d < bestD) {
+        bestD = d
+        best = p.county
+      }
+    }
+    // ~0.35 deg^2 ≈ rough local match; still use nearest if nothing closer needed
+    return best || ''
+  }
+
+  for (const s of stories) {
+    if (s.county) continue
+    const loc = locations[s.slug] || {}
+    let county = ''
+    const histId = loc.historyId || s.historyId
+    if (histId && historyById.get(histId)?.county) {
+      county = historyById.get(histId).county
+    }
+    if (!county && s.matchedPlace && historyByName.get(String(s.matchedPlace).toLowerCase())?.county) {
+      county = historyByName.get(String(s.matchedPlace).toLowerCase()).county
+    }
+    if (!county) {
+      county = countyFromText(
+        [s.matchedPlace, s.title, s.summary, s.slug?.replace(/-/g, ' '), loc.matchedPlace]
+          .filter(Boolean)
+          .join(' '),
+      )
+    }
+    if (!county && (s.mapConfidence === 'county' || loc.mapConfidence === 'county')) {
+      // matchedPlace often is the county name for centroid pins
+      const guess = countyFromText(`${s.matchedPlace || loc.matchedPlace || ''} County`)
+      county = guess || countyFromText(s.matchedPlace || loc.matchedPlace || '')
+    }
+    if (!county) county = nearestHistoryCounty(s.lat, s.lon)
+    s.county = county || ''
+  }
+  storiesCountyReady = true
+}
+
+function sortStoriesList(stories, mode) {
+  const list = [...stories]
+  const titleCmp = (a, b) => String(a.title || '').localeCompare(String(b.title || ''))
+  const missingLast = (val) => (val ? 0 : 1)
+  switch (mode) {
+    case 'brief-asc':
+      list.sort(
+        (a, b) =>
+          String(a.briefDate || '').localeCompare(String(b.briefDate || '')) || titleCmp(a, b),
+      )
+      break
+    case 'year-asc':
+      list.sort(
+        (a, b) =>
+          (Number(a.yearStart) || 0) - (Number(b.yearStart) || 0) || titleCmp(a, b),
+      )
+      break
+    case 'year-desc':
+      list.sort(
+        (a, b) =>
+          (Number(b.yearStart) || 0) - (Number(a.yearStart) || 0) || titleCmp(a, b),
+      )
+      break
+    case 'county':
+      list.sort(
+        (a, b) =>
+          missingLast(a.county) - missingLast(b.county) ||
+          String(a.county || '').localeCompare(String(b.county || '')) ||
+          titleCmp(a, b),
+      )
+      break
+    case 'tag':
+      list.sort(
+        (a, b) =>
+          missingLast(primaryStoryTag(a)) - missingLast(primaryStoryTag(b)) ||
+          String(primaryStoryTag(a)).localeCompare(String(primaryStoryTag(b))) ||
+          titleCmp(a, b),
+      )
+      break
+    case 'title':
+      list.sort(titleCmp)
+      break
+    case 'brief-desc':
+    default:
+      list.sort(
+        (a, b) =>
+          String(b.briefDate || '').localeCompare(String(a.briefDate || '')) || titleCmp(a, b),
+      )
+  }
+  return list
+}
+
+function storyCardHtml(s) {
+  const years = formatYearRange(s.yearStart, s.yearEnd)
+  const loc = s.lat != null ? '' : '<span class="muted"> · no map yet</span>'
+  const county = s.county
+    ? `<span class="story-county">${escapeHtml(s.county)} Co.</span>`
+    : ''
+  const tag = primaryStoryTag(s)
+  const tagHtml = tag ? `<span class="muted">#${escapeHtml(tag)}</span>` : ''
+  return `<button type="button" class="story-card" data-slug="${escapeHtml(s.slug)}">
+        <span class="story-card-icon" aria-hidden="true">📖</span>
+        <span class="story-card-body">
+          <span class="story-card-meta">
+            ${county}
+            <span class="era-pill era-${escapeHtml(s.era || 'unknown')}">${escapeHtml(s.era || '')}</span>
+            <span>${escapeHtml(years)}</span>
+            <span>Brief ${escapeHtml(s.briefDate || '')}</span>
+            ${tagHtml}${loc}
+          </span>
+          <h3>${escapeHtml(s.title)}</h3>
+          <p>${escapeHtml(s.summary || '')}</p>
+        </span>
+      </button>`
+}
+
+function paintStoriesList(sorted) {
+  const list = document.getElementById('storiesList')
+  const meta = document.getElementById('storiesSortMeta')
+  storiesBySlug = Object.fromEntries(sorted.map((s) => [s.slug, s]))
+  list.innerHTML =
+    sorted.map(storyCardHtml).join('') || '<p class="muted">No stories yet.</p>'
+  if (meta) {
+    const withCounty = sorted.filter((s) => s.county).length
+    meta.textContent = `${sorted.length} stories · ${withCounty} with county`
+  }
+  if (selectedStorySlug) {
+    list.querySelectorAll('.story-card').forEach((el) => {
+      el.classList.toggle('selected', el.dataset.slug === selectedStorySlug)
+    })
+  }
+}
+
+function setupStoriesScrollControls() {
+  const topBtn = document.getElementById('storiesScrollTop')
+  const upBtn = document.getElementById('storiesScrollUp')
+  const downBtn = document.getElementById('storiesScrollDown')
+  if (!topBtn || topBtn.dataset.ready) return
+  topBtn.dataset.ready = '1'
+  const pane = document.querySelector('.stories-list-pane')
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    pane?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  })
+  upBtn.addEventListener('click', () => {
+    window.scrollBy({ top: -Math.max(280, window.innerHeight * 0.7), behavior: 'smooth' })
+  })
+  downBtn.addEventListener('click', () => {
+    window.scrollBy({ top: Math.max(280, window.innerHeight * 0.7), behavior: 'smooth' })
+  })
+}
+
+function setupStoriesSortControl() {
+  const select = document.getElementById('storiesSort')
+  if (!select || select.dataset.ready) return
+  select.dataset.ready = '1'
+  select.value = storiesSortMode
+  select.addEventListener('change', () => {
+    storiesSortMode = select.value
+    if (!storiesIndex) return
+    const sorted = sortStoriesList(storiesIndex.stories, storiesSortMode)
+    paintStoriesList(sorted)
+  })
 }
 
 async function showStoryInReader(meta) {
@@ -800,10 +1028,14 @@ async function showStoryInReader(meta) {
   try {
     const s = await loadStoryBody(meta.slug)
     const tags = (s.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join(' ')
+    const countyLine = meta.county
+      ? `<span class="story-county">${escapeHtml(meta.county)} County</span>`
+      : ''
     reader.innerHTML = `
       <header class="story-head">
         <div class="story-card-meta">
           <span class="story-card-icon inline" aria-hidden="true">📖</span>
+          ${countyLine}
           <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
           <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
           <span>Brief ${escapeHtml(s.briefDate || '')}</span>
@@ -825,36 +1057,18 @@ async function renderStoriesPage(preferredSlug) {
   const idx = await loadStories()
   const list = document.getElementById('storiesList')
   const reader = document.getElementById('storyReader')
-  const sorted = [...idx.stories].sort(
-    (a, b) =>
-      String(b.briefDate || '').localeCompare(String(a.briefDate || '')) ||
-      String(a.title).localeCompare(String(b.title))
-  )
-  const bySlug = Object.fromEntries(sorted.map((s) => [s.slug, s]))
+  setupStoriesSortControl()
+  setupStoriesScrollControls()
+  const sortEl = document.getElementById('storiesSort')
+  if (sortEl) sortEl.value = storiesSortMode
 
-  list.innerHTML = sorted
-    .map((s) => {
-      const years = formatYearRange(s.yearStart, s.yearEnd)
-      const loc = s.lat != null ? '' : '<span class="muted"> · no map yet</span>'
-      return `<button type="button" class="story-card" data-slug="${escapeHtml(s.slug)}">
-        <span class="story-card-icon" aria-hidden="true">📖</span>
-        <span class="story-card-body">
-          <span class="story-card-meta">
-            <span class="era-pill era-${escapeHtml(s.era || 'unknown')}">${escapeHtml(s.era || '')}</span>
-            <span>${escapeHtml(years)}</span>
-            <span>Brief ${escapeHtml(s.briefDate || '')}</span>${loc}
-          </span>
-          <h3>${escapeHtml(s.title)}</h3>
-          <p>${escapeHtml(s.summary || '')}</p>
-        </span>
-      </button>`
-    })
-    .join('') || '<p class="muted">No stories yet.</p>'
+  const sorted = sortStoriesList(idx.stories, storiesSortMode)
+  paintStoriesList(sorted)
 
   list.onclick = (e) => {
     const card = e.target.closest('.story-card')
     if (!card) return
-    const s = bySlug[card.dataset.slug]
+    const s = storiesBySlug[card.dataset.slug]
     if (!s) return
     selectedStorySlug = s.slug
     history.replaceState(null, '', `#stories/${encodeURIComponent(s.slug)}`)
@@ -864,8 +1078,8 @@ async function renderStoriesPage(preferredSlug) {
   initStoriesMap()
 
   const pick =
-    (preferredSlug && bySlug[preferredSlug]) ||
-    (selectedStorySlug && bySlug[selectedStorySlug]) ||
+    (preferredSlug && storiesBySlug[preferredSlug]) ||
+    (selectedStorySlug && storiesBySlug[selectedStorySlug]) ||
     sorted.find((s) => s.lat != null) ||
     sorted[0]
 
