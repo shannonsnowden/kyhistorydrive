@@ -188,13 +188,67 @@ function storyDocs() {
   return docs
 }
 
-const { docs: places, counts } = placeDocs()
+const LAYER_RANK = {
+  national: 10,
+  war: 9,
+  parks: 8,
+  museums: 7,
+  history: 6,
+  cemeteries: 5,
+  industry: 4,
+  bridges: 3,
+  newspapers: 2,
+  locals: 1,
+  distilleries: 1,
+  markers: 0,
+}
+
+const LAYER_LABEL = Object.fromEntries(PLACE_LAYERS.map((l) => [l.id, l.label]))
+
+/** One search hit per place id across layers (White Hall on War+Museums, etc.). */
+function dedupePlaceDocs(docs) {
+  const byKey = new Map()
+  for (const doc of docs) {
+    // Markers keep per-number identity; other layers merge on shareId
+    const key = doc.layerId === 'markers' ? doc.id : `place:${doc.shareId}`
+    const prev = byKey.get(key)
+    if (!prev) {
+      byKey.set(key, {
+        ...doc,
+        id: key,
+        layerIds: [doc.layerId],
+      })
+      continue
+    }
+    if (!prev.layerIds.includes(doc.layerId)) prev.layerIds.push(doc.layerId)
+    const prevRank = LAYER_RANK[prev.layerId] ?? 0
+    const nextRank = LAYER_RANK[doc.layerId] ?? 0
+    if (nextRank > prevRank) {
+      prev.layerId = doc.layerId
+      prev.lat = doc.lat
+      prev.lon = doc.lon
+    }
+    if ((doc.snippet || '').length > (prev.snippet || '').length) prev.snippet = doc.snippet
+    if ((doc.title || '').length > (prev.title || '').length) prev.title = doc.title
+    // Prefer longer searchable text
+    if ((doc.text || '').length > (prev.text || '').length) prev.text = doc.text
+    prev.layerLabel = prev.layerIds
+      .slice()
+      .sort((a, b) => (LAYER_RANK[b] ?? 0) - (LAYER_RANK[a] ?? 0))
+      .map((id) => LAYER_LABEL[id] || id)
+      .join(' · ')
+  }
+  return [...byKey.values()]
+}
+
+const { docs: rawPlaces, counts } = placeDocs()
+const places = dedupePlaceDocs(rawPlaces)
 const stories = storyDocs()
 const documents = [...places, ...stories]
 
 const payload = {
   generatedAt: new Date().toISOString(),
-  version: 1,
+  version: 2,
   counts: {
     places: places.length,
     stories: stories.length,
