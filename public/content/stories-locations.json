@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-12T18:03:41.963Z",
+  "generatedAt": "2026-09-13T09:25:54.811Z",
   "stats": {
     "exact": 9,
-    "fuzzy": 38,
-    "county": 5,
+    "fuzzy": 39,
+    "county": 7,
     "override": 21,
-    "none": 12
+    "none": 14
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -88,6 +88,14 @@
       "matchedPlace": "Boonesborough",
       "historyId": null
     },
+    "wea-waayaahtanwa-on-the-wabash": {
+      "slug": "wea-waayaahtanwa-on-the-wabash",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "henry-skaggs-green-river-long-hunter": {
       "slug": "henry-skaggs-green-river-long-hunter",
       "lat": 37.03703,
@@ -103,6 +111,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Squire Boone / Painted Stone / Long Run",
       "historyId": "squire-boone-painted-stone"
+    },
+    "col-stephen-trigg-of-viney-grove": {
+      "slug": "col-stephen-trigg-of-viney-grove",
+      "lat": 37.52019,
+      "lon": -84.67985,
+      "mapConfidence": "county",
+      "matchedPlace": "Lincoln County (centroid)",
+      "historyId": null
     },
     "hugh-mcgary-the-hothead-major": {
       "slug": "hugh-mcgary-the-hothead-major",
@@ -432,6 +448,14 @@
       "matchedPlace": "Jacob Beam / Hardins Creek Washington County",
       "historyId": "jacob-beam-hardins-creek-washington-county"
     },
+    "covington-at-the-point": {
+      "slug": "covington-at-the-point",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "jacob-spears-early-bourbon-whiskey": {
       "slug": "jacob-spears-early-bourbon-whiskey",
       "lat": 38.27406666666667,
@@ -592,6 +616,14 @@
       "matchedPlace": "Wright Mounds (15Mm6-8) Montgomery County Adena",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
+    "ward-site-15mcl11-mclean-county": {
+      "slug": "ward-site-15mcl11-mclean-county",
+      "lat": 37.6661229,
+      "lon": -84.2876618,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient Madison County",
+      "historyId": "howard-site-15ma427-late-fort-ancient-madison-county"
+    },
     "hardin-village-15gp22": {
       "slug": "hardin-village-15gp22",
       "lat": 38.7194548,
@@ -615,6 +647,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Robbins Mounds (Boone County Adena)",
       "historyId": "robbins-mounds"
+    },
+    "carter-caves-cascade-falls": {
+      "slug": "carter-caves-cascade-falls",
+      "lat": 38.31235,
+      "lon": -82.99096,
+      "mapConfidence": "county",
+      "matchedPlace": "Carter County (centroid)",
+      "historyId": null
     },
     "indian-fort-mountain": {
       "slug": "indian-fort-mountain",

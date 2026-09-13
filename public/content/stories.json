@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-12T17:38:38.539Z",
-  "count": 85,
+  "generatedAt": "2026-09-13T09:25:54.674Z",
+  "count": 90,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-12"
+    "end": "2026-09-13"
   },
   "eras": [
     "early-commonwealth",
@@ -219,6 +219,27 @@
       "matchedPlace": "Boonesborough"
     },
     {
+      "slug": "wea-waayaahtanwa-on-the-wabash",
+      "title": "Wea (Waayaahtanwa) on the Wabash",
+      "publishedDate": "2026-09-13",
+      "summary": "The Wea—“people of the whirlpool”—were a Miami–Illinois-speaking people whose main towns clustered on the middle Wabash (Ouiatenon near today’s Lafayette, and villages toward…",
+      "yearStart": 1717,
+      "yearEnd": 1818,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-13",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "henry-skaggs-green-river-long-hunter",
       "title": "Henry Skaggs, Green River long hunter",
       "publishedDate": "2026-09-12",
@@ -256,6 +277,27 @@
       "lon": -85.4313603,
       "mapConfidence": "override",
       "matchedPlace": "Squire Boone / Painted Stone / Long Run"
+    },
+    {
+      "slug": "col-stephen-trigg-of-viney-grove",
+      "title": "Col. Stephen Trigg of Viney Grove",
+      "publishedDate": "2026-09-13",
+      "summary": "Virginia-born Stephen Trigg (c. 1744–1782) signed the Fincastle Resolutions, sat on Virginia’s land court that sorted Kentucky claims in 1779–80, then settled Trigg’s Station…",
+      "yearStart": 1744,
+      "yearEnd": 1820,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-13",
+      "lat": 37.52019,
+      "lon": -84.67985,
+      "mapConfidence": "county",
+      "matchedPlace": "Lincoln County (centroid)"
     },
     {
       "slug": "hugh-mcgary-the-hothead-major",
@@ -1114,6 +1156,27 @@
       "matchedPlace": "Jacob Beam / Hardins Creek Washington County"
     },
     {
+      "slug": "covington-at-the-point",
+      "title": "Covington at the Point",
+      "publishedDate": "2026-09-13",
+      "summary": "At the Ohio–Licking confluence—“the Point”—Thomas Kennedy ran a farm, stone tavern, and ferry (Kennedy’s Ferry) from about 1790. In 1814 John and Richard Gano with Thomas…",
+      "yearStart": 1790,
+      "yearEnd": 1830,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-13",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "jacob-spears-early-bourbon-whiskey",
       "title": "Jacob Spears & early \"Bourbon\" whiskey",
       "publishedDate": "2026-09-03",
@@ -1529,6 +1592,26 @@
       "matchedPlace": "Wright Mounds (15Mm6-8) Montgomery County Adena"
     },
     {
+      "slug": "ward-site-15mcl11-mclean-county",
+      "title": "Ward Site (15McL11), McLean County",
+      "publishedDate": "2026-09-13",
+      "summary": "On the Godfrey Ward farm along the Green River, WPA crews under John B. Elliott dug about 16,000 square feet in 1938 and catalogued 433 human burials plus dog burials and…",
+      "yearStart": 1938,
+      "yearEnd": 1938,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-13",
+      "lat": 37.6661229,
+      "lon": -84.2876618,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient Madison County"
+    },
+    {
       "slug": "hardin-village-15gp22",
       "title": "Hardin Village (15Gp22)",
       "publishedDate": "2026-09-04",
@@ -1589,6 +1672,27 @@
       "lon": -84.7133552,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Robbins Mounds (Boone County Adena)"
+    },
+    {
+      "slug": "carter-caves-cascade-falls",
+      "title": "Carter Caves & Cascade Falls",
+      "publishedDate": "2026-09-13",
+      "summary": "In north-central Carter County, more than twenty caverns honeycomb Mississippian limestone along Tygarts Creek. Cascade Cave—added to the state park in 1959 after private tours…",
+      "yearStart": 1946,
+      "yearEnd": 1959,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-13",
+      "lat": 38.31235,
+      "lon": -82.99096,
+      "mapConfidence": "county",
+      "matchedPlace": "Carter County (centroid)"
     },
     {
       "slug": "indian-fort-mountain",
