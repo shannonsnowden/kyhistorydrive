@@ -1531,8 +1531,8 @@ function initMap() {
 let timelineMap = null
 let timelineMapReady = false
 const timelineLayerVisibility = Object.fromEntries(
-  // Start with every layer off — user picks a year/era filter, then enables layers
-  DATA_LAYERS.map((l) => [l.id, false]),
+  // Always on — year/era filters decide what shows; no layer toggles in the UI
+  DATA_LAYERS.map((l) => [l.id, true]),
 )
 
 function setTimelineLayerVisible(id, on) {
@@ -1616,17 +1616,17 @@ function updateTimelineMapCounts() {
   }
   el.textContent = bits.length
     ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
-    : 'Map: no places in this filter (try widening years or enabling layers)'
+    : 'Map: no places in this filter (try another timeframe or era)'
   if (meta) {
     const { yearMin, yearMax } = timelineState
     if (!timelineHasActivePlaceFilter()) {
-      meta.textContent = 'Pick a year range or era filter first, then turn layers on.'
+      meta.textContent = 'Pick an era or timeframe to see matching places.'
     } else {
       const range =
         yearMin != null || yearMax != null
           ? `${formatYear(yearMin ?? '…')} – ${formatYear(yearMax ?? '…')}`
           : 'selected eras'
-      meta.textContent = `Showing only places in ${range}. Toggle layers above the story list.`
+      meta.textContent = `Showing places in ${range}.`
     }
   }
 }
@@ -1634,7 +1634,6 @@ function updateTimelineMapCounts() {
 async function initTimelineMap() {
   const el = document.getElementById('timelineMapCanvas')
   if (!el) return
-  renderTimelineLayerToggles()
   if (timelineMap) {
     requestAnimationFrame(() => {
       timelineMap.resize()
@@ -2237,31 +2236,16 @@ function setupTimelineFilters() {
     timelineState.preset = preset.id
     timelineState.yearMin = preset.min
     timelineState.yearMax = preset.max
-    document.getElementById('yearMin').value = preset.min ?? ''
-    document.getElementById('yearMax').value = preset.max ?? ''
     presetBox.querySelectorAll('.chip').forEach((c) => c.classList.toggle('active', c === btn))
     renderTimelineList()
     applyMapFilters()
   })
 
-  document.getElementById('yearApply').addEventListener('click', () => {
-    const minV = document.getElementById('yearMin').value
-    const maxV = document.getElementById('yearMax').value
-    timelineState.yearMin = minV === '' ? null : Number(minV)
-    timelineState.yearMax = maxV === '' ? null : Number(maxV)
-    timelineState.preset = 'custom'
-    presetBox.querySelectorAll('.chip').forEach((c) => c.classList.remove('active'))
-    renderTimelineList()
-    applyMapFilters()
-  })
-
-  document.getElementById('yearClear').addEventListener('click', () => {
+  document.getElementById('yearClear')?.addEventListener('click', () => {
     timelineState.yearMin = null
     timelineState.yearMax = null
     timelineState.preset = 'all'
     timelineState.eras = new Set(ERAS.map((e) => e.id))
-    document.getElementById('yearMin').value = ''
-    document.getElementById('yearMax').value = ''
     eraBox.querySelectorAll('.chip').forEach((c) => c.classList.add('active'))
     presetBox.querySelectorAll('.chip').forEach((c) =>
       c.classList.toggle('active', c.dataset.preset === 'all')
@@ -2418,16 +2402,11 @@ async function renderTimelineList(preferredSlug) {
 
 
 function resetTimelineFiltersOff() {
-  // Year / era → default (no year range, all eras); layers → all off
+  // Year / era → default; map layers stay on (filtered by timeframe)
   timelineState.yearMin = null
   timelineState.yearMax = null
   timelineState.preset = 'all'
   timelineState.eras = new Set(ERAS.map((e) => e.id))
-
-  const yearMin = document.getElementById('yearMin')
-  const yearMax = document.getElementById('yearMax')
-  if (yearMin) yearMin.value = ''
-  if (yearMax) yearMax.value = ''
 
   document.querySelectorAll('#eraChips .chip').forEach((c) => c.classList.add('active'))
   document.querySelectorAll('#yearPresets .chip').forEach((c) =>
@@ -2435,12 +2414,9 @@ function resetTimelineFiltersOff() {
   )
 
   for (const id of Object.keys(timelineLayerVisibility)) {
-    timelineLayerVisibility[id] = false
-    if (timelineMap && timelineMapReady) setTimelineLayerVisible(id, false)
+    timelineLayerVisibility[id] = true
+    if (timelineMap && timelineMapReady) setTimelineLayerVisible(id, true)
   }
-  document.querySelectorAll('input[data-timeline-layer]').forEach((input) => {
-    input.checked = false
-  })
 
   applyMapFilters()
   updateTimelineMapCounts()

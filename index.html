@@ -63,21 +63,14 @@
         <div class="timeline-main">
           <div class="panel-head">
             <h2>Timeline</h2>
-            <p class="muted">Filter by year or era, turn on layers for matching places, then open a story to read it. The map highlights the story’s location when it has one.</p>
+            <p class="muted">Filter by era or timeframe, then open a story to read it. The map highlights the story’s location when it has one.</p>
           </div>
           <div id="timelineFilters" class="filters">
             <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
             <div class="filter-row year-presets" id="yearPresets" aria-label="Year range presets"></div>
-            <div class="filter-row year-inputs">
-              <label>Min year <input type="number" id="yearMin" placeholder="e.g. -3000" /></label>
-              <label>Max year <input type="number" id="yearMax" placeholder="e.g. 1860" /></label>
-              <button type="button" id="yearApply" class="btn">Apply</button>
-              <button type="button" id="yearClear" class="btn ghost">Clear</button>
+            <div class="filter-row year-clear-row">
+              <button type="button" id="yearClear" class="btn ghost">Clear filters</button>
             </div>
-            <p class="filter-note muted">
-              Layers start off. After you set a year/era filter, enable layers to see only matching places. The same year filter also applies on the Map page for year-aware layers.
-            </p>
-            <div id="timelineLayerToggles" class="timeline-layer-toggles layer-toggles" aria-label="Timeline map layers"></div>
             <p id="timelineStats" class="stats"></p>
             <p id="timelineMapCounts" class="stats"></p>
             <div class="stories-toolbar timeline-stories-toolbar" role="region" aria-label="Timeline story list controls">
@@ -113,7 +106,7 @@
         <aside class="timeline-map-pane" aria-label="Timeline places map">
           <div class="timeline-map-head">
             <h3>Places in this timeframe</h3>
-            <p id="timelineMapMeta" class="muted">Pick a year/era filter, then turn layers on.</p>
+            <p id="timelineMapMeta" class="muted">Pick an era or timeframe to see matching places.</p>
             <button type="button" id="timelineZoomFullState" class="btn ghost small">Full state</button>
           </div>
           <div id="timelineMapCanvas"></div>
