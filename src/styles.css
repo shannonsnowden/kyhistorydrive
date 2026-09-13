@@ -176,6 +176,8 @@ nav a:hover, nav a.active { color: var(--accent); }
 .chip {
   border: 1px solid #3d5344; background: var(--chip); color: var(--text);
   border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.85rem; cursor: pointer;
+  /* Avoid iOS Safari double-tap page zoom on filter chips */
+  touch-action: manipulation;
 }
 .chip:hover { border-color: var(--accent); }
 .chip.active { background: var(--accent); border-color: var(--accent); color: var(--ink-on-gold); font-weight: 600; }
