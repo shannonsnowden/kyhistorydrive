@@ -166,6 +166,24 @@ const DATA_LAYERS = [
 ]
 
 marked.setOptions({ breaks: true })
+marked.use({
+  renderer: {
+    link({ href, title, tokens }) {
+      const text = this.parser.parseInline(tokens)
+      const t = title ? ` title="${title}"` : ''
+      const safeHref = String(href || '').replace(/"/g, '&quot;')
+      return `<a href="${safeHref}"${t} target="_blank" rel="noopener noreferrer">${text}</a>`
+    },
+  },
+})
+
+/** Turn plain http(s) URLs in already-escaped text into new-tab links. */
+function linkifyPlainUrls(escapedText) {
+  return String(escapedText || '').replace(
+    /(https?:\/\/[^\s<]+[^.,;:!?)\]\s])/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
+  )
+}
 
 function escapeHtml(s) {
   return String(s)
@@ -1160,7 +1178,7 @@ function detailHtmlFromProps(p, layerId, coords) {
       <h3>${escapeHtml(name)}</h3>
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
-      ${desc ? `<div class="popup-full-text">${escapeHtml(desc)}</div>` : ''}
+      ${desc ? `<div class="popup-full-text">${linkifyPlainUrls(escapeHtml(desc))}</div>` : ''}
       ${link}
       ${extras}
     </div>
