@@ -2714,9 +2714,16 @@ function runSiteSearch(rawQuery) {
       const hits = []
       const seen = new Set()
       for (const r of results) {
-        if (seen.has(r.id)) continue
-        seen.add(r.id)
         const doc = searchDocsById.get(r.id) || r
+        // Collapse same place across layers (War + Museums White Hall, etc.)
+        const dedupeKey =
+          doc.type === 'place' && doc.shareId
+            ? `place:${doc.shareId}`
+            : doc.type === 'story' && doc.slug
+              ? `story:${doc.slug}`
+              : r.id
+        if (seen.has(dedupeKey)) continue
+        seen.add(dedupeKey)
         hits.push(doc)
         if (hits.length >= SEARCH_LIMIT) break
       }
