@@ -1157,6 +1157,43 @@ function detailHtmlFromProps(p, layerId, coords) {
   `
 }
 
+
+/** Pick popup anchor + max height so content stays inside the map canvas. */
+function popupPlacement(targetMap, lngLat) {
+  const el = targetMap?.getContainer?.()
+  if (!el || !lngLat) {
+    return { anchor: 'bottom', maxHeightPx: 420, maxWidth: 'min(92vw, 480px)' }
+  }
+  const pt = Array.isArray(lngLat)
+    ? targetMap.project(lngLat)
+    : targetMap.project([lngLat.lng ?? lngLat.lon, lngLat.lat])
+  const w = el.clientWidth
+  const h = el.clientHeight
+  const pad = 12
+  const spaceAbove = Math.max(0, pt.y - pad)
+  const spaceBelow = Math.max(0, h - pt.y - pad)
+  const spaceLeft = Math.max(0, pt.x - pad)
+  const spaceRight = Math.max(0, w - pt.x - pad)
+
+  // Prefer the vertical side with more room (lower pins → open upward)
+  const openUp = spaceAbove >= spaceBelow
+  let anchor = openUp ? 'bottom' : 'top'
+  let avail = openUp ? spaceAbove : spaceBelow
+
+  // Nudge horizontally when near left/right edges
+  const nearLeft = spaceLeft < 140
+  const nearRight = spaceRight < 140
+  if (nearLeft && !nearRight) {
+    anchor = openUp ? 'bottom-left' : 'top-left'
+  } else if (nearRight && !nearLeft) {
+    anchor = openUp ? 'bottom-right' : 'top-right'
+  }
+
+  // Leave room for tip + close control; keep a usable scroll area
+  const maxHeightPx = Math.max(140, Math.min(Math.floor(avail - 28), Math.floor(h * 0.72), 560))
+  return { anchor, maxHeightPx, maxWidth: 'min(92vw, 480px)' }
+}
+
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (!targetMap || !feature) return
   if (activePopup) {
@@ -1176,17 +1213,26 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (targetMap === map && shareHash.startsWith('#map/')) {
     history.replaceState(null, '', shareHash)
   }
+  const place = popupPlacement(targetMap, coords)
   activePopup = new maplibregl.Popup({
     closeButton: true,
     closeOnClick: true,
-    maxWidth: '480px',
+    maxWidth: place.maxWidth,
     offset: 14,
+    anchor: place.anchor,
     className: 'ky-popup',
   })
     .setLngLat(coords)
     .setHTML(detailHtmlFromProps(props, layerId, coords))
     .addTo(targetMap)
-  wireShareButtons(activePopup.getElement())
+  const popupEl = activePopup.getElement()
+  const content = popupEl?.querySelector('.maplibregl-popup-content')
+  if (content) {
+    content.style.maxHeight = `${place.maxHeightPx}px`
+    content.style.overflowY = 'auto'
+    content.style.webkitOverflowScrolling = 'touch'
+  }
+  wireShareButtons(popupEl)
   activePopup.on('close', () => {
     if (activePopup) activePopup = null
     // Clear place deep link when popup closes on home map
