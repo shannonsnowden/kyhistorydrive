@@ -1328,6 +1328,20 @@ function fitMapToKentucky(targetMap = map, opts = {}) {
 
 function flyToFocus(targetMap, focus, zoom = 12) {
   if (!targetMap || !focus || focus.lon == null || focus.lat == null) return
+  // Skip no-op flies (filter re-renders used to re-call this and race on iPad Safari)
+  try {
+    const curZoom = targetMap.getZoom()
+    const c = targetMap.getCenter()
+    if (
+      Math.abs(curZoom - zoom) < 0.08 &&
+      Math.abs(c.lng - Number(focus.lon)) < 1e-5 &&
+      Math.abs(c.lat - Number(focus.lat)) < 1e-5
+    ) {
+      return
+    }
+  } catch {
+    /* map not ready */
+  }
   targetMap.flyTo({ center: [focus.lon, focus.lat], zoom, essential: true })
 }
 
@@ -2390,7 +2404,15 @@ async function renderTimelineList(preferredSlug) {
     null
 
   if (pick) {
-    await showStoryInReader(pick, { scroll: false })
+    // Filter/sort re-renders must not re-open the same story (re-fly + map.resize races on iPad Safari)
+    const alreadyShowing =
+      !preferredSlug &&
+      selectedStorySlug === pick.slug &&
+      reader &&
+      !reader.classList.contains('is-empty')
+    if (!alreadyShowing) {
+      await showStoryInReader(pick, { scroll: false })
+    }
   } else if (reader && !selectedStorySlug) {
     reader.classList.add('is-empty')
     reader.innerHTML = ''
