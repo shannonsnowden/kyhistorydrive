@@ -627,8 +627,19 @@ nav a:hover, nav a.active { color: var(--accent); }
 
 
 .ky-popup .maplibregl-popup-content {
-  max-height: min(78vh, 720px);
-  overflow: auto;
+  /* JS sets a tighter max-height from free space above/below the pin */
+  max-height: min(70vh, 560px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.ky-popup.maplibregl-popup {
+  z-index: 5;
+}
+/* Keep popup scroll gestures from stealing the map */
+.ky-popup .maplibregl-popup-content {
+  touch-action: pan-y;
 }
 .map-popup .popup-full-text {
   white-space: pre-wrap;
