@@ -191,9 +191,17 @@ function syncDeepLinkFromQuery() {
   if (!d) return
   const want = d.replace(/^#/, '')
   const raw = (location.hash || '').replace(/^#/, '')
-  if (!raw || raw === 'map' || raw === 'timeline') {
+  // Only restore when the hash is missing. Do NOT override an explicit #map / #timeline
+  // home (stale ?d= from a prior share was sending people back to Timeline on refresh).
+  if (!raw) {
     history.replaceState(null, '', `${location.pathname}?d=${encodeURIComponent(want)}#${want}`)
   }
+}
+
+/** Map is the site home until a dedicated homepage exists. Clear stale ?d= share params. */
+function goHomeMap() {
+  history.replaceState(null, '', `${location.pathname}#map`)
+  applyRoute().catch(console.error)
 }
 
 function featureShareId(props, layerId) {
@@ -292,18 +300,19 @@ function formatYearRange(start, end) {
 
 function ensureHomeHash() {
   // Empty hash → home map; legacy #stories → #timeline
+  // Map remains the homepage until Shannon ships a dedicated home page.
   const raw = (location.hash || '').replace(/^#/, '')
   if (!raw) {
-    history.replaceState(null, '', '#map')
+    history.replaceState(null, '', `${location.pathname}#map`)
     return
   }
   if (raw === 'stories' || raw === 'story') {
-    history.replaceState(null, '', '#timeline')
+    history.replaceState(null, '', `${location.pathname}#timeline`)
     return
   }
   if (raw.startsWith('stories/') || raw.startsWith('story/')) {
     const slug = raw.split('/').slice(1).join('/')
-    history.replaceState(null, '', `#timeline/${slug}`)
+    history.replaceState(null, '', `${location.pathname}#timeline/${slug}`)
   }
 }
 
@@ -2897,6 +2906,16 @@ document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('clic
 
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+
+document.querySelector('a.brand-home')?.addEventListener('click', (e) => {
+  e.preventDefault()
+  goHomeMap()
+})
+document.querySelector('#mainNav a[data-route="map"]')?.addEventListener('click', (e) => {
+  // Always land on clean map home (drop stale ?d= from shares)
+  e.preventDefault()
+  goHomeMap()
+})
 
 syncDeepLinkFromQuery()
 ensureHomeHash()
