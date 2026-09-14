@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T09:18:51.184Z",
+  "generatedAt": "2026-09-14T09:30:03.867Z",
   "count": 95,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -18,8 +18,8 @@
       "title": "Carlston Annis Shell Mound",
       "publishedDate": "2026-09-03",
       "summary": "On the Green River floodplain in Butler County, Carlston Annis (15Bt5) is a Late Archaic shell midden about 300 by 350 feet and more than six feet thick, piled up beside a…",
-      "yearStart": -1000,
-      "yearEnd": 1000,
+      "yearStart": -3000,
+      "yearEnd": -1000,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -27,11 +27,72 @@
         "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-03",
-      "lat": 37.2849569,
-      "lon": -86.7683398,
-      "mapConfidence": "exact",
-      "matchedPlace": "Carlston Annis Shell Mound"
+      "briefDate": "2026-09-03"
+    },
+    {
+      "slug": "indian-knoll-on-the-green-river",
+      "title": "Indian Knoll on the Green River",
+      "publishedDate": "2026-08-29",
+      "summary": "Five thousand years before the first stations, Late Archaic hunter-gatherers kept returning to a shell midden on the Green River in Ohio County. Indian Knoll (15OH2) yielded…",
+      "yearStart": -3000,
+      "yearEnd": -1000,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-08-29"
+    },
+    {
+      "slug": "read-shell-midden-15bt10-butler-county",
+      "title": "Read Shell Midden (15Bt10), Butler County",
+      "publishedDate": "2026-09-14",
+      "summary": "On the Green River west of Morgantown, the Read Shell Midden is another Late Archaic camp-and-cemetery in the same mussel-shoal world as Indian Knoll, Carlston Annis, and Ward.…",
+      "yearStart": -3000,
+      "yearEnd": -1000,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-14"
+    },
+    {
+      "slug": "ward-site-15mcl11-mclean-county",
+      "title": "Ward Site (15McL11), McLean County",
+      "publishedDate": "2026-09-13",
+      "summary": "On the Godfrey Ward farm along the Green River, WPA crews under John B. Elliott dug about 16,000 square feet in 1938 and catalogued 433 human burials plus dog burials and…",
+      "yearStart": -3000,
+      "yearEnd": -1000,
+      "era": "prehistoric",
+      "tags": [
+        "native",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-13"
+    },
+    {
+      "slug": "ashlands-adena-mounds",
+      "title": "Ashland's Adena mounds",
+      "publishedDate": "2026-09-02",
+      "summary": "Six conical Adena burial mounds still sit in Ashland's Central Park, roughly 15–20 feet across and 4–6 feet high in a slight curve. UK archaeologists Webb and Funkhouser…",
+      "yearStart": -800,
+      "yearEnd": 700,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-02"
     },
     {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -47,11 +108,57 @@
         "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-05",
-      "lat": 38.0733,
-      "lon": -83.9511,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Gaitskill Mound"
+      "briefDate": "2026-09-05"
+    },
+    {
+      "slug": "mount-horeb-earthworks",
+      "title": "Mount Horeb Earthworks",
+      "publishedDate": "2026-08-30",
+      "summary": "Above Elkhorn Creek near Lexington, Adena people built a circular ditch-and-embankment enclosure more than 2,000 years ago for periodic ritual gatherings. WPA digs under…",
+      "yearStart": -800,
+      "yearEnd": 200,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-08-30"
+    },
+    {
+      "slug": "robbins-mounds-boone-county",
+      "title": "Robbins Mounds, Boone County",
+      "publishedDate": "2026-09-06",
+      "summary": "Two Middle Woodland Adena burial mounds (15Be3 and 15Be14) once crowned an upland ridge near the Ohio. University of Kentucky crews excavated them in 1939: the larger stood…",
+      "yearStart": -800,
+      "yearEnd": 700,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-06"
+    },
+    {
+      "slug": "wright-mounds-montgomery-county",
+      "title": "Wright Mounds, Montgomery County",
+      "publishedDate": "2026-09-07",
+      "summary": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop. University of Kentucky crews excavated two in 1937: the larger stood about 30 feet high and 180 feet…",
+      "yearStart": -800,
+      "yearEnd": 200,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-07"
     },
     {
       "slug": "peter-village-enclosure-15fa166",
@@ -67,11 +174,24 @@
         "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": 38.0459102,
-      "lon": -84.4960297,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County"
+      "briefDate": "2026-09-11"
+    },
+    {
+      "slug": "indian-fort-mountain",
+      "title": "Indian Fort Mountain",
+      "publishedDate": "2026-09-01",
+      "summary": "On a knobby ridge south of Berea, dry-laid stone walls ring Indian Fort Mountain (15Ma25) in the Berea College Forest. Hopewell-era Middle Woodland people built them about…",
+      "yearStart": -100,
+      "yearEnd": 500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-01"
     },
     {
       "slug": "page-site-lost-city-15lo1",
@@ -87,11 +207,23 @@
         "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 36.82461,
-      "lon": -86.84895,
-      "mapConfidence": "county",
-      "matchedPlace": "Logan County (centroid)"
+      "briefDate": "2026-09-12"
+    },
+    {
+      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+      "title": "Wickliffe Mounds Mississippian village Ballard County",
+      "publishedDate": "2026-08-27",
+      "summary": "Stub topic: Wickliffe Mounds, a Mississippian village and mound center in Ballard County near the Mississippi–Ohio confluence.",
+      "yearStart": 1100,
+      "yearEnd": 1350,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-08-27"
     },
     {
       "slug": "jonathan-creek-mississippian-center",
@@ -107,11 +239,7 @@
         "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-08",
-      "lat": 36.86767,
-      "lon": -88.32188,
-      "mapConfidence": "county",
-      "matchedPlace": "Marshall County (centroid)"
+      "briefDate": "2026-09-08"
     },
     {
       "slug": "fox-farm-mason-county",
@@ -129,11 +257,24 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-31",
-      "lat": 38.5175801,
-      "lon": -83.8418974,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Fox Farm Fort Ancient"
+      "briefDate": "2026-08-31"
+    },
+    {
+      "slug": "hardin-village-15gp22",
+      "title": "Hardin Village (15Gp22)",
+      "publishedDate": "2026-09-04",
+      "summary": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s into the early 1600s and covering more than…",
+      "yearStart": 1400,
+      "yearEnd": 1700,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-04"
     },
     {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
@@ -151,11 +292,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-09",
-      "lat": 37.6661229,
-      "lon": -84.2876618,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient Madison County"
+      "briefDate": "2026-09-09"
     },
     {
       "slug": "erie-the-cat-nation",
@@ -170,11 +307,7 @@
         "kentucky"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-11"
     },
     {
       "slug": "mosopelea-ofo-the-ohio-valley",
@@ -191,11 +324,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-04",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-04"
     },
     {
       "slug": "hancock-taylor-fincastle-surveyor",
@@ -211,11 +340,7 @@
         "native-history"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio"
+      "briefDate": "2026-09-14"
     },
     {
       "slug": "col-richard-callaway-of-boonesborough",
@@ -232,11 +357,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-09",
-      "lat": 37.8909,
-      "lon": -84.2666,
-      "mapConfidence": "override",
-      "matchedPlace": "Boonesborough"
+      "briefDate": "2026-09-09"
     },
     {
       "slug": "wea-waayaahtanwa-on-the-wabash",
@@ -253,11 +374,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-13",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-13"
     },
     {
       "slug": "henry-skaggs-green-river-long-hunter",
@@ -272,11 +389,7 @@
         "kentucky"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 37.03703,
-      "lon": -85.92479,
-      "mapConfidence": "county",
-      "matchedPlace": "Barren County (centroid)"
+      "briefDate": "2026-09-12"
     },
     {
       "slug": "capt-abraham-lincoln-on-long-run",
@@ -292,11 +405,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": 38.2363772,
-      "lon": -85.4313603,
-      "mapConfidence": "override",
-      "matchedPlace": "Squire Boone / Painted Stone / Long Run"
+      "briefDate": "2026-09-11"
     },
     {
       "slug": "col-stephen-trigg-of-viney-grove",
@@ -313,11 +422,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-13",
-      "lat": 37.52019,
-      "lon": -84.67985,
-      "mapConfidence": "county",
-      "matchedPlace": "Lincoln County (centroid)"
+      "briefDate": "2026-09-13"
     },
     {
       "slug": "hugh-mcgary-the-hothead-major",
@@ -335,11 +440,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": 37.778,
-      "lon": -84.83079,
-      "mapConfidence": "county",
-      "matchedPlace": "Mercer County (centroid)"
+      "briefDate": "2026-09-11"
     },
     {
       "slug": "michael-stoner-german-long-hunter",
@@ -355,11 +456,7 @@
         "native-history"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "lat": 37.8909,
-      "lon": -84.2666,
-      "mapConfidence": "override",
-      "matchedPlace": "Boonesborough"
+      "briefDate": "2026-09-10"
     },
     {
       "slug": "christopher-gist-1750-51",
@@ -375,11 +472,7 @@
         "native-history"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-02",
-      "lat": 38.0464087,
-      "lon": -84.4906036,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Christopher Gist / Ohio Company"
+      "briefDate": "2026-09-02"
     },
     {
       "slug": "thomas-walker-and-cumberland-gap",
@@ -395,11 +488,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-31",
-      "lat": 36.60686666666667,
-      "lon": -83.70171666666667,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Cumberland Gap / Thomas Walker"
+      "briefDate": "2026-08-31"
     },
     {
       "slug": "lower-shawneetown-at-the-scioto-mouth",
@@ -417,11 +506,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-29",
-      "lat": 38.7250509,
-      "lon": -83.0141361,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Lower Shawneetown"
+      "briefDate": "2026-08-29"
     },
     {
       "slug": "odawa-raid-at-eskippakithiki-1753",
@@ -438,11 +523,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 37.98859,
-      "lon": -84.25209,
-      "mapConfidence": "county",
-      "matchedPlace": "Clark County (centroid)"
+      "briefDate": "2026-09-12"
     },
     {
       "slug": "evan-williams-on-the-louisville-wharf",
@@ -458,11 +539,7 @@
         "bourbon"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-09",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "override",
-      "matchedPlace": "Falls of the Ohio"
+      "briefDate": "2026-09-09"
     },
     {
       "slug": "bland-w-ballard-of-tick-creek",
@@ -479,11 +556,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-05",
-      "lat": 38.2143528,
-      "lon": -85.2361795,
-      "mapConfidence": "override",
-      "matchedPlace": "Bland W. Ballard / Tyler Station"
+      "briefDate": "2026-09-05"
     },
     {
       "slug": "treaty-of-fort-stanwix-1768",
@@ -502,11 +575,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-31",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-08-31"
     },
     {
       "slug": "treaties-of-hard-labour-and-lochaber",
@@ -524,11 +593,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-01",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-01"
     },
     {
       "slug": "capt-will-the-hunting-ground",
@@ -544,11 +609,7 @@
         "native-history"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-02",
-      "lat": 36.992466666666665,
-      "lon": -86.4425,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. Will Emery / Long Hunters"
+      "briefDate": "2026-09-02"
     },
     {
       "slug": "bullitts-lick-kentuckys-first-industry",
@@ -566,11 +627,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-29",
-      "lat": 38.000782,
-      "lon": -85.7640065,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Bullitt's Lick"
+      "briefDate": "2026-08-29"
     },
     {
       "slug": "leestown",
@@ -589,11 +646,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-01",
-      "lat": 38.2137751,
-      "lon": -84.8677266,
-      "mapConfidence": "exact",
-      "matchedPlace": "Leestown"
+      "briefDate": "2026-09-01"
     },
     {
       "slug": "georgetown-and-royal-spring",
@@ -611,11 +664,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-01",
-      "lat": 38.2100364,
-      "lon": -84.5614948,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Georgetown / Royal Spring"
+      "briefDate": "2026-09-01"
     },
     {
       "slug": "john-floyd",
@@ -632,11 +681,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-01",
-      "lat": 38.24001666666667,
-      "lon": -85.64503333333333,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "John Floyd / Floyd's Station"
+      "briefDate": "2026-09-01"
     },
     {
       "slug": "treaty-of-camp-charlotte-1774",
@@ -654,11 +699,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-03",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-03"
     },
     {
       "slug": "benjamin-logan",
@@ -674,11 +715,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-28",
-      "lat": 37.5302888,
-      "lon": -84.6676739,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Benjamin Logan / Logan's Station"
+      "briefDate": "2026-08-28"
     },
     {
       "slug": "richard-henderson",
@@ -694,11 +731,7 @@
         "native-history"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-31",
-      "lat": 37.8310805,
-      "lon": -87.5691084,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Richard Henderson / Transylvania"
+      "briefDate": "2026-08-31"
     },
     {
       "slug": "william-calk-s-1775-journal",
@@ -714,11 +747,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-08",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-08"
     },
     {
       "slug": "capt-john-strode-of-strodes-station",
@@ -734,11 +763,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-07",
-      "lat": 38.0089,
-      "lon": -84.2147,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County"
+      "briefDate": "2026-09-07"
     },
     {
       "slug": "paris-from-hopewell",
@@ -756,11 +781,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-02",
-      "lat": 38.21273333333333,
-      "lon": -84.24981666666666,
-      "mapConfidence": "override",
-      "matchedPlace": "Paris Founding"
+      "briefDate": "2026-09-02"
     },
     {
       "slug": "springfield-first-county-seat-after-statehood",
@@ -777,11 +798,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 37.6853,
-      "lon": -85.2222,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield"
+      "briefDate": "2026-09-12"
     },
     {
       "slug": "delaware-lenape-in-the-1780-kentucky-raids",
@@ -800,11 +817,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-10"
     },
     {
       "slug": "falls-of-the-ohio",
@@ -820,11 +833,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-28",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "exact",
-      "matchedPlace": "Falls of the Ohio"
+      "briefDate": "2026-08-28"
     },
     {
       "slug": "george-rogers-clark",
@@ -841,11 +850,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-30",
-      "lat": 38.2434,
-      "lon": -85.7173,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "George Rogers Clark / Corn Island"
+      "briefDate": "2026-08-30"
     },
     {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -862,11 +867,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-08",
-      "lat": 37.4816,
-      "lon": -82.51596666666667,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Col. John Bowman / Battle of Chillicothe"
+      "briefDate": "2026-09-08"
     },
     {
       "slug": "col-robert-patterson-builds-lexington",
@@ -883,11 +884,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 38.0406,
-      "lon": -84.5037,
-      "mapConfidence": "override",
-      "matchedPlace": "Lexington"
+      "briefDate": "2026-09-12"
     },
     {
       "slug": "william-christian-of-beargrass",
@@ -903,11 +900,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-06",
-      "lat": 38.24890948935559,
-      "lon": -85.60747586447548,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "William Christian / Fort William"
+      "briefDate": "2026-09-06"
     },
     {
       "slug": "bardstown",
@@ -923,11 +916,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-31",
-      "lat": 37.8089,
-      "lon": -85.4665,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Bardstown Founding"
+      "briefDate": "2026-08-31"
     },
     {
       "slug": "elizabethtown-from-severns-valley",
@@ -943,11 +932,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-08",
-      "lat": 37.6828019,
-      "lon": -85.9118928,
-      "mapConfidence": "override",
-      "matchedPlace": "Elizabethtown founding / Severns Valley"
+      "briefDate": "2026-09-08"
     },
     {
       "slug": "frankfort-franks-ford-becomes-the-capital",
@@ -965,11 +950,7 @@
         "transport"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-29",
-      "lat": 38.1980678,
-      "lon": -84.8655544,
-      "mapConfidence": "override",
-      "matchedPlace": "Frankfort Founding"
+      "briefDate": "2026-08-29"
     },
     {
       "slug": "isaac-shelby-old-kings-mountain",
@@ -985,11 +966,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-29",
-      "lat": 37.5753439,
-      "lon": -84.7919732,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Isaac Shelby"
+      "briefDate": "2026-08-29"
     },
     {
       "slug": "lawrenceburg-from-kaufman-s-station",
@@ -1007,11 +984,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": 38.02186,
-      "lon": -84.89316,
-      "mapConfidence": "county",
-      "matchedPlace": "Anderson County (centroid)"
+      "briefDate": "2026-09-14"
     },
     {
       "slug": "shelbyville",
@@ -1027,11 +1000,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-28",
-      "lat": 38.211083333333335,
-      "lon": -85.21585,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Shelbyville Founding"
+      "briefDate": "2026-08-28"
     },
     {
       "slug": "squire-boones-painted-stone",
@@ -1047,11 +1016,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-02",
-      "lat": 38.2363772,
-      "lon": -85.4313603,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Squire Boone / Painted Stone / Long Run"
+      "briefDate": "2026-09-02"
     },
     {
       "slug": "battle-of-blue-licks",
@@ -1069,11 +1034,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-30",
-      "lat": 38.43443333333333,
-      "lon": -83.99151666666667,
-      "mapConfidence": "exact",
-      "matchedPlace": "Battle of Blue Licks"
+      "briefDate": "2026-08-30"
     },
     {
       "slug": "capt-james-estill-estills-defeat",
@@ -1089,11 +1050,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-03",
-      "lat": 38.0561079,
-      "lon": -83.9431961,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Estill's Defeat"
+      "briefDate": "2026-09-03"
     },
     {
       "slug": "wyandot-on-kentucky-s-northern-frontier",
@@ -1111,11 +1068,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-14"
     },
     {
       "slug": "john-filson-kentucke-1784",
@@ -1131,11 +1084,7 @@
         "native-history"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-04",
-      "lat": 38.2323905798604,
-      "lon": -85.75941874666854,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "John Filson"
+      "briefDate": "2026-09-04"
     },
     {
       "slug": "danville-and-constitution-square",
@@ -1152,11 +1101,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-30",
-      "lat": 37.6456488,
-      "lon": -84.7721823,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Danville Constitution Square"
+      "briefDate": "2026-08-30"
     },
     {
       "slug": "basil-hayden-s-high-rye-trail",
@@ -1173,11 +1118,7 @@
         "transport"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-06",
-      "lat": 37.6730101,
-      "lon": -85.4480029,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Basil Hayden Sr. / Holy Cross (Pottinger's Creek)"
+      "briefDate": "2026-09-06"
     },
     {
       "slug": "william-whitley-sportsmans-hill",
@@ -1193,11 +1134,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-28",
-      "lat": 37.4761695,
-      "lon": -84.54252,
-      "mapConfidence": "exact",
-      "matchedPlace": "William Whitley / Sportsman's Hill"
+      "briefDate": "2026-08-28"
     },
     {
       "slug": "jacob-beam-on-hardin-creek",
@@ -1213,11 +1150,7 @@
         "bourbon"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "lat": 37.76176666666667,
-      "lon": -85.3364,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Jacob Beam / Hardins Creek Washington County"
+      "briefDate": "2026-09-10"
     },
     {
       "slug": "covington-at-the-point",
@@ -1234,11 +1167,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-13",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-13"
     },
     {
       "slug": "jacob-spears-early-bourbon-whiskey",
@@ -1255,11 +1184,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-03",
-      "lat": 38.27406666666667,
-      "lon": -84.29951666666666,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Jacob Spears"
+      "briefDate": "2026-09-03"
     },
     {
       "slug": "mount-sterling-little-mountain-town",
@@ -1276,11 +1201,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-03",
-      "lat": 38.0561079,
-      "lon": -83.9431961,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Sterling Founding"
+      "briefDate": "2026-09-03"
     },
     {
       "slug": "mascouten-fire-nation-on-the-wabash",
@@ -1296,11 +1217,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-09",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-09"
     },
     {
       "slug": "kickapoo-on-the-kentucky-frontier",
@@ -1316,11 +1233,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-08",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-08"
     },
     {
       "slug": "nicholasville-takes-shape",
@@ -1336,11 +1249,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-07",
-      "lat": 37.88055,
-      "lon": -84.57311666666666,
-      "mapConfidence": "override",
-      "matchedPlace": "Nicholasville founding / Rev. John Metcalf 1798"
+      "briefDate": "2026-09-07"
     },
     {
       "slug": "versailles-takes-shape",
@@ -1356,11 +1265,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-06",
-      "lat": 38.052276,
-      "lon": -84.7139251,
-      "mapConfidence": "override",
-      "matchedPlace": "Versailles founding / Hezekiah Briscoe"
+      "briefDate": "2026-09-06"
     },
     {
       "slug": "winchester-clark-county-seat",
@@ -1378,11 +1283,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-04",
-      "lat": 37.9929112,
-      "lon": -84.1776735,
-      "mapConfidence": "override",
-      "matchedPlace": "Winchester Founding"
+      "briefDate": "2026-09-04"
     },
     {
       "slug": "cynthiana-cynthia-anna-on-the-licking",
@@ -1401,11 +1302,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-09",
-      "lat": 38.3903,
-      "lon": -84.2941,
-      "mapConfidence": "override",
-      "matchedPlace": "Cynthiana founding / Robert Harrison"
+      "briefDate": "2026-09-09"
     },
     {
       "slug": "lancaster-at-wallace-s-crossroads",
@@ -1420,11 +1317,7 @@
         "kentucky"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": 37.3238322,
-      "lon": -84.9223154,
-      "mapConfidence": "override",
-      "matchedPlace": "Lancaster founding / Wallace's Crossroads"
+      "briefDate": "2026-09-11"
     },
     {
       "slug": "richmond-from-millers-barn",
@@ -1440,11 +1333,7 @@
         "town-founding"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-05",
-      "lat": 37.747975,
-      "lon": -84.2943662,
-      "mapConfidence": "override",
-      "matchedPlace": "Richmond Founding"
+      "briefDate": "2026-09-05"
     },
     {
       "slug": "taylorsville-on-brashears-creek",
@@ -1460,11 +1349,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "lat": 38.0317,
-      "lon": -85.3441,
-      "mapConfidence": "override",
-      "matchedPlace": "Taylorsville"
+      "briefDate": "2026-09-10"
     },
     {
       "slug": "piankashaw-claims-on-the-ohio-wabash",
@@ -1481,11 +1366,7 @@
         "treaty"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-07",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio"
+      "briefDate": "2026-09-07"
     },
     {
       "slug": "great-saltpetre-cave",
@@ -1502,11 +1383,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-30",
-      "lat": 37.3677334,
-      "lon": -84.2036474,
-      "mapConfidence": "exact",
-      "matchedPlace": "Great Saltpetre Cave"
+      "briefDate": "2026-08-30"
     },
     {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
@@ -1522,11 +1399,7 @@
         "bourbon"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "lat": 37.3184064,
-      "lon": -84.9393979,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Catherine Spears Carpenter"
+      "briefDate": "2026-08-27"
     },
     {
       "slug": "chickasaw-hunting-grounds",
@@ -1543,11 +1416,7 @@
         "treaty"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-28",
-      "lat": 37.10445,
-      "lon": -88.63255,
-      "mapConfidence": "override",
-      "matchedPlace": "Chickasaw / Jackson Purchase"
+      "briefDate": "2026-08-28"
     },
     {
       "slug": "lexington-ohio-railroad",
@@ -1566,11 +1435,7 @@
         "transport"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-04",
-      "lat": 38.1884,
-      "lon": -84.81528333333333,
-      "mapConfidence": "exact",
-      "matchedPlace": "Lexington & Ohio Railroad"
+      "briefDate": "2026-09-04"
     },
     {
       "slug": "james-crow-on-glenns-creek",
@@ -1587,11 +1452,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-05",
-      "lat": 38.13698933835563,
-      "lon": -84.78761913468118,
-      "mapConfidence": "override",
-      "matchedPlace": "James C. Crow / Oscar Pepper"
+      "briefDate": "2026-09-05"
     },
     {
       "slug": "diamond-caverns-decorated-limestone",
@@ -1600,7 +1461,7 @@
       "summary": "Discovered July 14, 1859, near Park City and opened as a show cave within a month, Diamond Caverns cuts Mississippian Ste. Genevieve limestone in the same karst country as…",
       "yearStart": 1859,
       "yearEnd": 1859,
-      "era": "prehistoric",
+      "era": "early-commonwealth",
       "tags": [
         "prehistoric",
         "kentucky",
@@ -1608,154 +1469,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-07",
-      "lat": 37.1161,
-      "lon": -86.0626,
-      "mapConfidence": "override",
-      "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
-    },
-    {
-      "slug": "ashlands-adena-mounds",
-      "title": "Ashland's Adena mounds",
-      "publishedDate": "2026-09-02",
-      "summary": "Six conical Adena burial mounds still sit in Ashland's Central Park, roughly 15–20 feet across and 4–6 feet high in a slight curve. UK archaeologists Webb and Funkhouser…",
-      "yearStart": 1932,
-      "yearEnd": 1974,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-02",
-      "lat": 38.4730716,
-      "lon": -82.63752,
-      "mapConfidence": "override",
-      "matchedPlace": "Ashland Central Park Adena Mounds"
-    },
-    {
-      "slug": "read-shell-midden-15bt10-butler-county",
-      "title": "Read Shell Midden (15Bt10), Butler County",
-      "publishedDate": "2026-09-14",
-      "summary": "On the Green River west of Morgantown, the Read Shell Midden is another Late Archaic camp-and-cemetery in the same mussel-shoal world as Indian Knoll, Carlston Annis, and Ward.…",
-      "yearStart": 1937,
-      "yearEnd": 1986,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": 37.303551,
-      "lon": -86.890631,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Indian Knoll"
-    },
-    {
-      "slug": "wright-mounds-montgomery-county",
-      "title": "Wright Mounds, Montgomery County",
-      "publishedDate": "2026-09-07",
-      "summary": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop. University of Kentucky crews excavated two in 1937: the larger stood about 30 feet high and 180 feet…",
-      "yearStart": 1937,
-      "yearEnd": 1937,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "bourbon",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-07",
-      "lat": 38.0284225,
-      "lon": -84.5029855,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Wright Mounds (15Mm6-8) Montgomery County Adena"
-    },
-    {
-      "slug": "ward-site-15mcl11-mclean-county",
-      "title": "Ward Site (15McL11), McLean County",
-      "publishedDate": "2026-09-13",
-      "summary": "On the Godfrey Ward farm along the Green River, WPA crews under John B. Elliott dug about 16,000 square feet in 1938 and catalogued 433 human burials plus dog burials and…",
-      "yearStart": 1938,
-      "yearEnd": 1938,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-13",
-      "lat": 37.6661229,
-      "lon": -84.2876618,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient Madison County"
-    },
-    {
-      "slug": "hardin-village-15gp22",
-      "title": "Hardin Village (15Gp22)",
-      "publishedDate": "2026-09-04",
-      "summary": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s into the early 1600s and covering more than…",
-      "yearStart": 1939,
-      "yearEnd": 1939,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-04",
-      "lat": 38.7194548,
-      "lon": -82.9633675,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Hardin Village Fort Ancient"
-    },
-    {
-      "slug": "mount-horeb-earthworks",
-      "title": "Mount Horeb Earthworks",
-      "publishedDate": "2026-08-30",
-      "summary": "Above Elkhorn Creek near Lexington, Adena people built a circular ditch-and-embankment enclosure more than 2,000 years ago for periodic ritual gatherings. WPA digs under…",
-      "yearStart": 1939,
-      "yearEnd": 1939,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-30",
-      "lat": 38.1588727,
-      "lon": -84.4652044,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Horeb Adena / Adena Park"
-    },
-    {
-      "slug": "robbins-mounds-boone-county",
-      "title": "Robbins Mounds, Boone County",
-      "publishedDate": "2026-09-06",
-      "summary": "Two Middle Woodland Adena burial mounds (15Be3 and 15Be14) once crowned an upland ridge near the Ohio. University of Kentucky crews excavated them in 1939: the larger stood…",
-      "yearStart": 1939,
-      "yearEnd": 1939,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "bourbon",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-06",
-      "lat": 39.0933727,
-      "lon": -84.7133552,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Robbins Mounds (Boone County Adena)"
+      "briefDate": "2026-09-07"
     },
     {
       "slug": "carter-caves-cascade-falls",
@@ -1764,7 +1478,7 @@
       "summary": "In north-central Carter County, more than twenty caverns honeycomb Mississippian limestone along Tygarts Creek. Cascade Cave—added to the state park in 1959 after private tours…",
       "yearStart": 1946,
       "yearEnd": 1959,
-      "era": "prehistoric",
+      "era": "other",
       "tags": [
         "prehistoric",
         "kentucky",
@@ -1772,32 +1486,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-13",
-      "lat": 38.31235,
-      "lon": -82.99096,
-      "mapConfidence": "county",
-      "matchedPlace": "Carter County (centroid)"
-    },
-    {
-      "slug": "indian-fort-mountain",
-      "title": "Indian Fort Mountain",
-      "publishedDate": "2026-09-01",
-      "summary": "On a knobby ridge south of Berea, dry-laid stone walls ring Indian Fort Mountain (15Ma25) in the Berea College Forest. Hopewell-era Middle Woodland people built them about…",
-      "yearStart": 1980,
-      "yearEnd": 1983,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-01",
-      "lat": 37.5675476,
-      "lon": -84.2328837,
-      "mapConfidence": "exact",
-      "matchedPlace": "Indian Fort Mountain"
+      "briefDate": "2026-09-13"
     },
     {
       "slug": "miami-hunters-return-north-of-the-ohio",
@@ -1814,11 +1503,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-06",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-06"
     },
     {
       "slug": "big-bone-lick-older-cycle",
@@ -1835,11 +1520,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "lat": 38.8580137,
-      "lon": -84.775606,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Big Bone Lick"
+      "briefDate": "2026-08-27"
     },
     {
       "slug": "cleek-mccabe-fort-ancient-village",
@@ -1857,32 +1538,7 @@
         "salt"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "lat": 38.772860422898226,
-      "lon": -84.00880725804063,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Cleek-McCabe Fort Ancient village Boone County"
-    },
-    {
-      "slug": "indian-knoll-on-the-green-river",
-      "title": "Indian Knoll on the Green River",
-      "publishedDate": "2026-08-29",
-      "summary": "Five thousand years before the first stations, Late Archaic hunter-gatherers kept returning to a shell midden on the Green River in Ohio County. Indian Knoll (15OH2) yielded…",
-      "yearStart": null,
-      "yearEnd": null,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-29",
-      "lat": 37.303551,
-      "lon": -86.890631,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Indian Knoll"
+      "briefDate": "2026-09-10"
     },
     {
       "slug": "iroquois-beaver-wars",
@@ -1899,11 +1555,7 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-08-27"
     },
     {
       "slug": "kentucky-river-palisades",
@@ -1920,11 +1572,7 @@
         "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-14"
     },
     {
       "slug": "lexington-named",
@@ -1939,31 +1587,7 @@
         "kentucky"
       ],
       "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "lat": 38.057833333333335,
-      "lon": -84.52875,
-      "mapConfidence": "exact",
-      "matchedPlace": "Lexington Named"
-    },
-    {
-      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
-      "title": "Wickliffe Mounds Mississippian village Ballard County",
-      "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Wickliffe Mounds, a Mississippian village and mound center in Ballard County near the Mississippi–Ohio confluence.",
-      "yearStart": null,
-      "yearEnd": null,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "lat": 36.9712176,
-      "lon": -89.0917492,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Wickliffe Mounds"
+      "briefDate": "2026-08-27"
     },
     {
       "slug": "yuchi-on-the-green-river-maps",
@@ -1979,11 +1603,7 @@
         "native-history"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-05",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "briefDate": "2026-09-05"
     }
   ]
 }
