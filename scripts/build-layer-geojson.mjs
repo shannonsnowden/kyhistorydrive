@@ -29,6 +29,8 @@ const LAYERS = [
       marker_number: p.marker_number ?? null,
       marker_title: p.marker_title || null,
       source_date: p.source_date || null,
+      year_start: p.year_start ?? null,
+      year_end: p.year_end ?? null,
       ...inferHistoryYearsAndEra(p),
     }),
   },
@@ -237,7 +239,26 @@ function countyFromSubtitle(sub) {
 }
 
 function inferHistoryYearsAndEra(p) {
+  // Prefer explicit occupation/event years from source JSON (never dig/NRHP dates).
+  if (p.year_start != null || p.year_end != null) {
+    const yearStart = p.year_start != null ? Number(p.year_start) : Number(p.year_end)
+    const yearEnd = p.year_end != null ? Number(p.year_end) : yearStart
+    let era = null
+    if (yearStart < 1000) era = 'prehistoric'
+    else if (yearStart < 1600) era = 'native'
+    else if (yearStart < 1792) era = 'frontier'
+    else if (yearStart <= 1860) era = 'early-commonwealth'
+    else era = 'other'
+    return { yearStart, yearEnd, era }
+  }
+
   const text = [p.history, p.subtitle, p.name].filter(Boolean).join(' ')
+  const cultural =
+    p.category === 'archaeology' ||
+    /pleistocene|mastodon|mammoth|paleo|archaic|woodland|adena|hopewell|mississippian|fort\s*ancient|shell\s*midden/i.test(
+      text,
+    )
+
   let yearStart = null
   let yearEnd = null
 
@@ -248,31 +269,53 @@ function inferHistoryYearsAndEra(p) {
     yearEnd = Math.max(...years)
   }
 
-  const ce = [...text.matchAll(/\b((?:1[5-9]|20)\d{2})\b/g)].map((m) => Number(m[1]))
-  if (ce.length) {
-    const min = Math.min(...ce)
-    const max = Math.max(...ce)
+  // CE years: for cultural/archaeology sites ignore 1800+ study/excavation dates
+  const ce = [...text.matchAll(/\b((?:1[0-9]|20)\d{2})\b/g)].map((m) => Number(m[1]))
+  const ceUse = cultural ? ce.filter((y) => y < 1800) : ce
+  if (ceUse.length) {
+    const min = Math.min(...ceUse)
+    const max = Math.max(...ceUse)
     if (yearStart == null) yearStart = min
     else yearStart = Math.min(yearStart, min)
     if (yearEnd == null) yearEnd = max
     else yearEnd = Math.max(yearEnd, max)
   }
 
-  // Pleistocene / mastodon etc. without explicit year → deep prehistoric
-  if (yearStart == null && /pleistocene|mastodon|mammoth|paleo|archaic|woodland|adena|fort\s*ancient/i.test(text)) {
-    yearStart = -10000
-    yearEnd = yearEnd ?? -1000
+  if (yearStart == null && cultural) {
+    if (/late\s*archaic|shell\s*midden|indian\s*knoll|carlston|annis|ward\s*site/i.test(text)) {
+      yearStart = -3000
+      yearEnd = -1000
+    } else if (/adena/i.test(text)) {
+      yearStart = -800
+      yearEnd = 700
+    } else if (/fort\s*ancient/i.test(text)) {
+      yearStart = 1000
+      yearEnd = 1750
+    } else if (/mississippian|wickliffe/i.test(text)) {
+      yearStart = 1000
+      yearEnd = 1500
+    } else if (/hopewell|middle\s*woodland/i.test(text)) {
+      yearStart = -100
+      yearEnd = 500
+    } else if (/pleistocene|mastodon|mammoth|paleo/i.test(text)) {
+      yearStart = -10000
+      yearEnd = -8000
+    } else {
+      yearStart = -10000
+      yearEnd = -1000
+    }
   }
 
-  let era = CATEGORY_ERA[p.category] || null
-  if (!era && yearStart != null) {
+  let era = null
+  if (yearStart != null) {
     if (yearStart < 1000) era = 'prehistoric'
     else if (yearStart < 1600) era = 'native'
     else if (yearStart < 1792) era = 'frontier'
     else if (yearStart <= 1860) era = 'early-commonwealth'
     else era = 'other'
+  } else {
+    era = p.era || CATEGORY_ERA[p.category] || 'other'
   }
-  if (!era) era = 'other'
 
   return { yearStart, yearEnd, era }
 }
