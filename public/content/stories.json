@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-13T09:25:54.674Z",
-  "count": 90,
+  "generatedAt": "2026-09-14T09:18:51.184Z",
+  "count": 95,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-13"
+    "end": "2026-09-14"
   },
   "eras": [
     "early-commonwealth",
@@ -196,6 +196,26 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "hancock-taylor-fincastle-surveyor",
+      "title": "Hancock Taylor, Fincastle surveyor",
+      "publishedDate": "2026-09-14",
+      "summary": "Virginia deputy surveyor Hancock Taylor worked under Col. William Preston mapping Kentucky bounty land in the early 1770s. He had already been at the Falls of the Ohio in 1769…",
+      "yearStart": 1685,
+      "yearEnd": 1774,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-14",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio"
     },
     {
       "slug": "col-richard-callaway-of-boonesborough",
@@ -972,6 +992,28 @@
       "matchedPlace": "Isaac Shelby"
     },
     {
+      "slug": "lawrenceburg-from-kaufman-s-station",
+      "title": "Lawrenceburg from Kaufman’s Station",
+      "publishedDate": "2026-09-14",
+      "summary": "German immigrant Jacob Kaufman planted a frontier outpost about 1780 that locals called Kaufman’s or Coffman’s Station, a few miles west of the Kentucky River in what is now…",
+      "yearStart": 1780,
+      "yearEnd": 1827,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "bourbon",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-14",
+      "lat": 38.02186,
+      "lon": -84.89316,
+      "mapConfidence": "county",
+      "matchedPlace": "Anderson County (centroid)"
+    },
+    {
       "slug": "shelbyville",
       "title": "Shelbyville",
       "publishedDate": "2026-08-28",
@@ -1052,6 +1094,28 @@
       "lon": -83.9431961,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Estill's Defeat"
+    },
+    {
+      "slug": "wyandot-on-kentucky-s-northern-frontier",
+      "title": "Wyandot on Kentucky’s northern frontier",
+      "publishedDate": "2026-09-14",
+      "summary": "The Wyandot (Wendat/Huron descendants), an Iroquoian people whose towns clustered north of the Ohio after Beaver Wars upheaval, still used Kentucky for winter camps and hunts…",
+      "yearStart": 1782,
+      "yearEnd": 1782,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-14",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "john-filson-kentucke-1784",
@@ -1571,6 +1635,26 @@
       "matchedPlace": "Ashland Central Park Adena Mounds"
     },
     {
+      "slug": "read-shell-midden-15bt10-butler-county",
+      "title": "Read Shell Midden (15Bt10), Butler County",
+      "publishedDate": "2026-09-14",
+      "summary": "On the Green River west of Morgantown, the Read Shell Midden is another Late Archaic camp-and-cemetery in the same mussel-shoal world as Indian Knoll, Carlston Annis, and Ward.…",
+      "yearStart": 1937,
+      "yearEnd": 1986,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-14",
+      "lat": 37.303551,
+      "lon": -86.890631,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Indian Knoll"
+    },
+    {
       "slug": "wright-mounds-montgomery-county",
       "title": "Wright Mounds, Montgomery County",
       "publishedDate": "2026-09-07",
@@ -1816,6 +1900,27 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-27",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "kentucky-river-palisades",
+      "title": "Kentucky River Palisades",
+      "publishedDate": "2026-09-14",
+      "summary": "For roughly a hundred miles through the Inner Bluegrass, the Kentucky River cuts entrenched meanders into Middle Ordovician High Bridge Group limestone and dolostone—Camp…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-14",
       "lat": null,
       "lon": null,
       "mapConfidence": null,

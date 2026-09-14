@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-13T09:25:54.811Z",
+  "generatedAt": "2026-09-14T09:18:51.305Z",
   "stats": {
     "exact": 9,
-    "fuzzy": 39,
-    "county": 7,
+    "fuzzy": 41,
+    "county": 8,
     "override": 21,
-    "none": 14
+    "none": 16
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -79,6 +79,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "hancock-taylor-fincastle-surveyor": {
+      "slug": "hancock-taylor-fincastle-surveyor",
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio",
+      "historyId": "falls-of-the-ohio"
     },
     "col-richard-callaway-of-boonesborough": {
       "slug": "col-richard-callaway-of-boonesborough",
@@ -376,6 +384,14 @@
       "matchedPlace": "Isaac Shelby",
       "historyId": "isaac-shelby"
     },
+    "lawrenceburg-from-kaufman-s-station": {
+      "slug": "lawrenceburg-from-kaufman-s-station",
+      "lat": 38.02186,
+      "lon": -84.89316,
+      "mapConfidence": "county",
+      "matchedPlace": "Anderson County (centroid)",
+      "historyId": null
+    },
     "shelbyville": {
       "slug": "shelbyville",
       "lat": 38.211083333333335,
@@ -407,6 +423,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Estill's Defeat",
       "historyId": "estills-defeat"
+    },
+    "wyandot-on-kentucky-s-northern-frontier": {
+      "slug": "wyandot-on-kentucky-s-northern-frontier",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "john-filson-kentucke-1784": {
       "slug": "john-filson-kentucke-1784",
@@ -608,6 +632,14 @@
       "matchedPlace": "Ashland Central Park Adena Mounds",
       "historyId": "ashland-adena-mounds"
     },
+    "read-shell-midden-15bt10-butler-county": {
+      "slug": "read-shell-midden-15bt10-butler-county",
+      "lat": 37.303551,
+      "lon": -86.890631,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Indian Knoll",
+      "historyId": "indian-knoll"
+    },
     "wright-mounds-montgomery-county": {
       "slug": "wright-mounds-montgomery-county",
       "lat": 38.0284225,
@@ -698,6 +730,14 @@
     },
     "iroquois-beaver-wars": {
       "slug": "iroquois-beaver-wars",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "kentucky-river-palisades": {
+      "slug": "kentucky-river-palisades",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
