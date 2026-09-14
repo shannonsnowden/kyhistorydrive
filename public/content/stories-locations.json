@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-14T09:18:51.305Z",
+  "generatedAt": "2026-09-14T09:39:59.674Z",
   "stats": {
-    "exact": 9,
-    "fuzzy": 41,
-    "county": 8,
+    "exact": 10,
+    "fuzzy": 43,
+    "county": 7,
     "override": 21,
-    "none": 16
+    "none": 14
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -16,6 +16,38 @@
       "matchedPlace": "Carlston Annis Shell Mound",
       "historyId": "carlston-annis-shell-mound"
     },
+    "indian-knoll-on-the-green-river": {
+      "slug": "indian-knoll-on-the-green-river",
+      "lat": 37.303551,
+      "lon": -86.890631,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Indian Knoll",
+      "historyId": "indian-knoll"
+    },
+    "read-shell-midden-15bt10-butler-county": {
+      "slug": "read-shell-midden-15bt10-butler-county",
+      "lat": 37.303551,
+      "lon": -86.890631,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Indian Knoll",
+      "historyId": "indian-knoll"
+    },
+    "ward-site-15mcl11-mclean-county": {
+      "slug": "ward-site-15mcl11-mclean-county",
+      "lat": 36.6621891,
+      "lon": -88.3096434,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Ward Site (15McL11) Late Archaic",
+      "historyId": "ward-site-15mcl11-mclean-county-late-archaic"
+    },
+    "ashlands-adena-mounds": {
+      "slug": "ashlands-adena-mounds",
+      "lat": 38.4730716,
+      "lon": -82.63752,
+      "mapConfidence": "override",
+      "matchedPlace": "Ashland Central Park Adena Mounds",
+      "historyId": "ashland-adena-mounds"
+    },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
       "lat": 38.0733,
@@ -23,6 +55,30 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Gaitskill Mound",
       "historyId": "gaitskill-mound"
+    },
+    "mount-horeb-earthworks": {
+      "slug": "mount-horeb-earthworks",
+      "lat": 38.1588727,
+      "lon": -84.4652044,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Mount Horeb Adena / Adena Park",
+      "historyId": "mount-horeb-adena-park"
+    },
+    "robbins-mounds-boone-county": {
+      "slug": "robbins-mounds-boone-county",
+      "lat": 39.0933727,
+      "lon": -84.7133552,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Robbins Mounds (Boone County Adena)",
+      "historyId": "robbins-mounds"
+    },
+    "wright-mounds-montgomery-county": {
+      "slug": "wright-mounds-montgomery-county",
+      "lat": 38.0284225,
+      "lon": -84.5029855,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wright Mounds (Montgomery County Adena)",
+      "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
     "peter-village-enclosure-15fa166": {
       "slug": "peter-village-enclosure-15fa166",
@@ -32,6 +88,14 @@
       "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
     },
+    "indian-fort-mountain": {
+      "slug": "indian-fort-mountain",
+      "lat": 37.5675476,
+      "lon": -84.2328837,
+      "mapConfidence": "exact",
+      "matchedPlace": "Indian Fort Mountain",
+      "historyId": "indian-fort-mountain"
+    },
     "page-site-lost-city-15lo1": {
       "slug": "page-site-lost-city-15lo1",
       "lat": 36.82461,
@@ -39,6 +103,14 @@
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)",
       "historyId": null
+    },
+    "wickliffe-mounds-mississippian-village-ballard-county": {
+      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+      "lat": 36.9712176,
+      "lon": -89.0917492,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wickliffe Mounds",
+      "historyId": "wickliffe-mounds"
     },
     "jonathan-creek-mississippian-center": {
       "slug": "jonathan-creek-mississippian-center",
@@ -56,12 +128,20 @@
       "matchedPlace": "Fox Farm Fort Ancient",
       "historyId": "fox-farm-fort-ancient"
     },
+    "hardin-village-15gp22": {
+      "slug": "hardin-village-15gp22",
+      "lat": 38.7194548,
+      "lon": -82.9633675,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Hardin Village Fort Ancient",
+      "historyId": "hardin-village-fort-ancient"
+    },
     "howard-site-late-fort-ancient-above-harts-fork": {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
       "lat": 37.6661229,
       "lon": -84.2876618,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient Madison County",
+      "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient",
       "historyId": "howard-site-15ma427-late-fort-ancient-madison-county"
     },
     "erie-the-cat-nation": {
@@ -80,14 +160,6 @@
       "matchedPlace": null,
       "historyId": null
     },
-    "hancock-taylor-fincastle-surveyor": {
-      "slug": "hancock-taylor-fincastle-surveyor",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio",
-      "historyId": "falls-of-the-ohio"
-    },
     "col-richard-callaway-of-boonesborough": {
       "slug": "col-richard-callaway-of-boonesborough",
       "lat": 37.8909,
@@ -98,11 +170,11 @@
     },
     "wea-waayaahtanwa-on-the-wabash": {
       "slug": "wea-waayaahtanwa-on-the-wabash",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
+      "lat": 37.8303086,
+      "lon": -85.4724533,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon",
+      "historyId": "wea-waayaahtanwa-ouiatenon"
     },
     "henry-skaggs-green-river-long-hunter": {
       "slug": "henry-skaggs-green-river-long-hunter",
@@ -223,6 +295,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bullitt's Lick",
       "historyId": "bullitts-lick"
+    },
+    "hancock-taylor-fincastle-surveyor": {
+      "slug": "hancock-taylor-fincastle-surveyor",
+      "lat": 37.72168,
+      "lon": -84.314117,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Hancock Taylor / Fincastle deputy surveyor",
+      "historyId": "richmond-founding-2"
     },
     "leestown": {
       "slug": "leestown",
@@ -624,77 +704,13 @@
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
     },
-    "ashlands-adena-mounds": {
-      "slug": "ashlands-adena-mounds",
-      "lat": 38.4730716,
-      "lon": -82.63752,
-      "mapConfidence": "override",
-      "matchedPlace": "Ashland Central Park Adena Mounds",
-      "historyId": "ashland-adena-mounds"
-    },
-    "read-shell-midden-15bt10-butler-county": {
-      "slug": "read-shell-midden-15bt10-butler-county",
-      "lat": 37.303551,
-      "lon": -86.890631,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Indian Knoll",
-      "historyId": "indian-knoll"
-    },
-    "wright-mounds-montgomery-county": {
-      "slug": "wright-mounds-montgomery-county",
-      "lat": 38.0284225,
-      "lon": -84.5029855,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Wright Mounds (15Mm6-8) Montgomery County Adena",
-      "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
-    },
-    "ward-site-15mcl11-mclean-county": {
-      "slug": "ward-site-15mcl11-mclean-county",
-      "lat": 37.6661229,
-      "lon": -84.2876618,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient Madison County",
-      "historyId": "howard-site-15ma427-late-fort-ancient-madison-county"
-    },
-    "hardin-village-15gp22": {
-      "slug": "hardin-village-15gp22",
-      "lat": 38.7194548,
-      "lon": -82.9633675,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Hardin Village Fort Ancient",
-      "historyId": "hardin-village-fort-ancient"
-    },
-    "mount-horeb-earthworks": {
-      "slug": "mount-horeb-earthworks",
-      "lat": 38.1588727,
-      "lon": -84.4652044,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Horeb Adena / Adena Park",
-      "historyId": "mount-horeb-adena-park"
-    },
-    "robbins-mounds-boone-county": {
-      "slug": "robbins-mounds-boone-county",
-      "lat": 39.0933727,
-      "lon": -84.7133552,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Robbins Mounds (Boone County Adena)",
-      "historyId": "robbins-mounds"
-    },
     "carter-caves-cascade-falls": {
       "slug": "carter-caves-cascade-falls",
-      "lat": 38.31235,
-      "lon": -82.99096,
-      "mapConfidence": "county",
-      "matchedPlace": "Carter County (centroid)",
-      "historyId": null
-    },
-    "indian-fort-mountain": {
-      "slug": "indian-fort-mountain",
-      "lat": 37.5675476,
-      "lon": -84.2328837,
-      "mapConfidence": "exact",
-      "matchedPlace": "Indian Fort Mountain",
-      "historyId": "indian-fort-mountain"
+      "lat": 38.3561484,
+      "lon": -83.112554,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Carter Caves / Cascade Cave & Falls",
+      "historyId": "carter-caves-cascade-cave-and-falls"
     },
     "miami-hunters-return-north-of-the-ohio": {
       "slug": "miami-hunters-return-north-of-the-ohio",
@@ -716,17 +732,9 @@
       "slug": "cleek-mccabe-fort-ancient-village",
       "lat": 38.772860422898226,
       "lon": -84.00880725804063,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Cleek-McCabe Fort Ancient village Boone County",
+      "mapConfidence": "exact",
+      "matchedPlace": "Cleek-McCabe Fort Ancient Village",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
-    },
-    "indian-knoll-on-the-green-river": {
-      "slug": "indian-knoll-on-the-green-river",
-      "lat": 37.303551,
-      "lon": -86.890631,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Indian Knoll",
-      "historyId": "indian-knoll"
     },
     "iroquois-beaver-wars": {
       "slug": "iroquois-beaver-wars",
@@ -738,11 +746,11 @@
     },
     "kentucky-river-palisades": {
       "slug": "kentucky-river-palisades",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
+      "lat": 37.81891666666667,
+      "lon": -84.71933333333334,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Kentucky River Palisades / High Bridge Group Ordovician",
+      "historyId": "kentucky-river-palisades-high-bridge-group-ordovician"
     },
     "lexington-named": {
       "slug": "lexington-named",
@@ -751,14 +759,6 @@
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named",
       "historyId": "lexington-named"
-    },
-    "wickliffe-mounds-mississippian-village-ballard-county": {
-      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
-      "lat": 36.9712176,
-      "lon": -89.0917492,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Wickliffe Mounds",
-      "historyId": "wickliffe-mounds"
     },
     "yuchi-on-the-green-river-maps": {
       "slug": "yuchi-on-the-green-river-maps",

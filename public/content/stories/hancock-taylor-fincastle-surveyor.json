@@ -3,14 +3,15 @@
   "title": "Hancock Taylor, Fincastle surveyor",
   "publishedDate": "2026-09-14",
   "summary": "Virginia deputy surveyor Hancock Taylor worked under Col. William Preston mapping Kentucky bounty land in the early 1770s. He had already been at the Falls of the Ohio in 1769…",
-  "bodyMarkdown": "Virginia deputy surveyor Hancock Taylor worked under Col. William Preston mapping Kentucky bounty land in the early 1770s. He had already been at the Falls of the Ohio in 1769 en route to New Orleans and was surveying in Kentucky by 1773, helping lay out tracts that later underpinned Louisville and Bluegrass claims. Near the mouth of the Kentucky River in July 1774—as Lord Dunmore’s War flared—he was shot by Native warriors; companions brought him toward the settlements until he died just south of present-day Richmond and was buried on Taylor’s Fork of Silver Creek (KY marker 1685).\nSource: [https://history.ky.gov/markers/grave-of-hancock-taylor](https://history.ky.gov/markers/grave-of-hancock-taylor)",
-  "yearStart": 1685,
+  "bodyMarkdown": "Virginia deputy surveyor Hancock Taylor worked under Col. William Preston mapping Kentucky bounty land in the early 1770s. He had already been at the Falls of the Ohio in 1769 en route to New Orleans and was surveying in Kentucky by 1773, helping lay out tracts that later underpinned Louisville and Bluegrass claims. Near the mouth of the Kentucky River in July 1774—as Lord Dunmore’s War flared—he was shot by Native warriors; companions brought him toward the settlements until he died just south of present-day Richmond and was buried on Taylor’s Fork of Silver Creek (Kentucky Historical Society roadside marker).\nSource: [https://history.ky.gov/markers/grave-of-hancock-taylor](https://history.ky.gov/markers/grave-of-hancock-taylor)",
+  "yearStart": 1773,
   "yearEnd": 1774,
-  "era": "native",
+  "era": "frontier",
   "tags": [
-    "native",
+    "frontier",
     "kentucky",
-    "native-history"
+    "survey",
+    "frontier-war"
   ],
   "source": "ky-history",
   "briefDate": "2026-09-14"
