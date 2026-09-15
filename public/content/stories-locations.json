@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-16T09:38:49.270Z",
+  "generatedAt": "2026-09-16T09:59:52.530Z",
   "stats": {
     "exact": 11,
-    "fuzzy": 42,
+    "fuzzy": 41,
     "county": 7,
-    "override": 29,
+    "override": 30,
     "none": 16
   },
   "locations": {
@@ -23,6 +23,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "Carlston Annis Shell Mound",
       "historyId": "carlston-annis-shell-mound"
+    },
+    "newt-kash-hollow-15mf1": {
+      "slug": "newt-kash-hollow-15mf1",
+      "lat": 37.9510333,
+      "lon": -83.6258167,
+      "mapConfidence": "override",
+      "matchedPlace": "Newt Kash Hollow (15Mf1)",
+      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
     },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -104,6 +112,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "mingo-camps-south-of-the-ohio": {
+      "slug": "mingo-camps-south-of-the-ohio",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "col-richard-callaway-of-boonesborough": {
       "slug": "col-richard-callaway-of-boonesborough",
       "lat": 37.8909,
@@ -168,14 +184,6 @@
       "matchedPlace": "Christopher Gist / Ohio Company",
       "historyId": "christopher-gist-ohio-company"
     },
-    "col-john-todd-of-lexington": {
-      "slug": "col-john-todd-of-lexington",
-      "lat": 38.0406,
-      "lon": -84.5037,
-      "mapConfidence": "override",
-      "matchedPlace": "Col. John Todd of Lexington",
-      "historyId": "col-john-todd-lexington-blue-licks"
-    },
     "thomas-walker-and-cumberland-gap": {
       "slug": "thomas-walker-and-cumberland-gap",
       "lat": 36.60686666666667,
@@ -218,14 +226,6 @@
     },
     "treaty-of-fort-stanwix-1768": {
       "slug": "treaty-of-fort-stanwix-1768",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "mingo-camps-south-of-the-ohio": {
-      "slug": "mingo-camps-south-of-the-ohio",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -311,6 +311,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
+    },
+    "col-john-todd-of-lexington": {
+      "slug": "col-john-todd-of-lexington",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Todd of Lexington",
+      "historyId": "col-john-todd-lexington-blue-licks"
     },
     "maj-joseph-bowman": {
       "slug": "maj-joseph-bowman",
@@ -714,9 +722,9 @@
     },
     "wright-mounds-montgomery-county": {
       "slug": "wright-mounds-montgomery-county",
-      "lat": 38.0284225,
-      "lon": -84.5029855,
-      "mapConfidence": "fuzzy",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "override",
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
@@ -823,14 +831,6 @@
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named",
       "historyId": "lexington-named"
-    },
-    "newt-kash-hollow-15mf1": {
-      "slug": "newt-kash-hollow-15mf1",
-      "lat": 37.9510333,
-      "lon": -83.6258167,
-      "mapConfidence": "override",
-      "matchedPlace": "Newt Kash Hollow (15Mf1)",
-      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
     },
     "wickliffe-mounds-mississippian-village-ballard-county": {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",
