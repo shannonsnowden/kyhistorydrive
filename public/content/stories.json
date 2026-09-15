@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-15T09:19:47.178Z",
-  "count": 99,
+  "generatedAt": "2026-09-15T09:20:36.502Z",
+  "count": 100,
   "briefDateRange": {
     "start": "2026-08-27",
     "end": "2026-09-15"
@@ -783,6 +783,26 @@
       "lon": -87.5691084,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Richard Henderson / Transylvania"
+    },
+    {
+      "slug": "stanford-from-st-asaph",
+      "title": "Stanford from St. Asaph",
+      "publishedDate": "2026-09-15",
+      "summary": "In spring 1775 Benjamin Logan and John Floyd’s survey party camped at Buffalo Spring and planted St. Asaph; Logan’s stockade (Logan’s Fort) rose there by early 1777 and never…",
+      "yearStart": 1775,
+      "yearEnd": 1786,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "lat": 37.52019,
+      "lon": -84.67985,
+      "mapConfidence": "county",
+      "matchedPlace": "Lincoln County (centroid)"
     },
     {
       "slug": "william-calk-s-1775-journal",

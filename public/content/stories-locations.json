@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-15T09:19:47.328Z",
+  "generatedAt": "2026-09-15T09:20:36.645Z",
   "stats": {
     "exact": 10,
     "fuzzy": 44,
-    "county": 9,
+    "county": 10,
     "override": 21,
     "none": 15
   },
@@ -303,6 +303,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Richard Henderson / Transylvania",
       "historyId": "richard-henderson-transylvania"
+    },
+    "stanford-from-st-asaph": {
+      "slug": "stanford-from-st-asaph",
+      "lat": 37.52019,
+      "lon": -84.67985,
+      "mapConfidence": "county",
+      "matchedPlace": "Lincoln County (centroid)",
+      "historyId": null
     },
     "william-calk-s-1775-journal": {
       "slug": "william-calk-s-1775-journal",
