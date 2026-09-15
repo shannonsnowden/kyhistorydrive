@@ -1773,9 +1773,9 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-07",
-      "lat": 38.0284225,
-      "lon": -84.5029855,
-      "mapConfidence": "fuzzy",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "override",
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
     {

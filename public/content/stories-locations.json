@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-15T12:02:50.096Z",
+  "generatedAt": "2026-09-15T20:14:48.272Z",
   "stats": {
     "exact": 11,
-    "fuzzy": 42,
+    "fuzzy": 41,
     "county": 7,
-    "override": 25,
+    "override": 26,
     "none": 15
   },
   "locations": {
@@ -682,9 +682,9 @@
     },
     "wright-mounds-montgomery-county": {
       "slug": "wright-mounds-montgomery-county",
-      "lat": 38.0284225,
-      "lon": -84.5029855,
-      "mapConfidence": "fuzzy",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "override",
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
