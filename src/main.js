@@ -643,8 +643,17 @@ function isWikipediaSearchUrl(url) {
   return /wikipedia\.org\/wiki\/Special:Search/i.test(String(url || ''))
 }
 
+function hostnameOf(url) {
+  try {
+    return new URL(String(url || '')).hostname.toLowerCase()
+  } catch {
+    return ''
+  }
+}
+
 function isKyhsUrl(url) {
-  return /history\.ky\.gov/i.test(String(url || ''))
+  const h = hostnameOf(url)
+  return h === 'history.ky.gov' || h.endsWith('.history.ky.gov')
 }
 
 function isResearchUrl(url) {
@@ -653,14 +662,46 @@ function isResearchUrl(url) {
   )
 }
 
+function researchUrlFamily(url) {
+  const u = String(url || '')
+  if (isWikipediaUrl(u)) return 'wikipedia'
+  if (/explorekyhistory\.ky\.gov/i.test(u)) return 'exploreky'
+  if (isKyhsUrl(u)) return 'kyhs'
+  if (/archaeology\.ky\.gov/i.test(u)) return 'archaeology'
+  if (/nps\.gov/i.test(u)) return 'nps'
+  if (/parks\.ky\.gov/i.test(u)) return 'kyparks'
+  return ''
+}
+
+/** Daily-brief `Source:` lines are extracted into Learn more — don't also render them in the body. */
+function stripSourceAttribution(markdown) {
+  return String(markdown || '')
+    .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+}
+
+/** Drop markdown-wrapper parens so `](https://example.com/Foo_(bar))` keeps one trailing `)`. */
+function trimUnbalancedTrailingParens(url) {
+  let u = String(url || '')
+  while (u.endsWith(')')) {
+    const open = (u.match(/\(/g) || []).length
+    const close = (u.match(/\)/g) || []).length
+    if (close <= open) break
+    u = u.slice(0, -1)
+  }
+  return u
+}
+
 /** Decode, strip junk, and close truncated Wikipedia titles like John_Todd_(Virginia */
 function normalizeResearchUrl(url) {
-  let u = String(url || '').trim().replace(/[.,;:]+$/g, '')
+  let u = trimUnbalancedTrailingParens(String(url || '').trim().replace(/[.,;:]+$/g, ''))
   try {
     u = decodeURI(u)
   } catch {
     /* keep raw */
   }
+  u = trimUnbalancedTrailingParens(u)
   if (isWikipediaUrl(u)) {
     const open = (u.match(/\(/g) || []).length
     const close = (u.match(/\)/g) || []).length
@@ -682,12 +723,22 @@ function normalizeResearchUrl(url) {
 function extractBareHttpUrls(text) {
   const s = String(text || '')
   const out = []
-  const re = /https?:\/\/[^\s"'<>\]]+/gi
+  // Allow apostrophes (Basil_Hayden's); stop at quotes, brackets, whitespace.
+  const re = /https?:\/\/[^\s"<>\]]+/gi
   let m
   while ((m = re.exec(s))) {
-    out.push(m[0].replace(/[.,;:]+$/g, ''))
+    out.push(trimUnbalancedTrailingParens(m[0].replace(/[.,;:]+$/g, '')))
   }
   return out
+}
+
+function urlsInText(text) {
+  return [
+    ...extractBareHttpUrls(text || ''),
+    ...extractMarkdownLinks(text || '').map((l) => l.url),
+  ]
+    .map(normalizeResearchUrl)
+    .filter(Boolean)
 }
 
 function collectResearchItems(linkList, extra = {}) {
@@ -864,17 +915,15 @@ function photosHtml(photos) {
 }
 
 function researchLinksHtml(links, title, extra = {}) {
-  const alreadyInBody = new Set(
-    [
-      ...extractBareHttpUrls(extra.bodyMarkdown || ''),
-      ...extractMarkdownLinks(extra.bodyMarkdown || '').map((l) => l.url),
-    ]
-      .map(normalizeResearchUrl)
-      .filter(Boolean),
-  )
-  const items = collectResearchItems(links, { ...extra, title }).filter(
-    (i) => !alreadyInBody.has(normalizeResearchUrl(i.url)),
-  )
+  const displayed = extra.displayMarkdown ?? extra.bodyMarkdown ?? ''
+  const alreadyInBody = new Set(urlsInText(displayed))
+  const alreadyFamilies = new Set([...alreadyInBody].map(researchUrlFamily).filter(Boolean))
+  const items = collectResearchItems(links, { ...extra, title }).filter((i) => {
+    const normalized = normalizeResearchUrl(i.url)
+    if (alreadyInBody.has(normalized)) return false
+    const fam = researchUrlFamily(normalized)
+    return !(fam && alreadyFamilies.has(fam))
+  })
   if (!items.length) return ''
   return `<div class="popup-research">
     <div class="historic-photos-label">Learn more</div>
@@ -1209,8 +1258,7 @@ function storySidebarPhotoHtml(photo, title) {
 
   const bits = [
     photo.google_url && `<a href="${escapeHtml(photo.google_url)}" target="_blank" rel="noopener noreferrer">Google</a>`,
-    photo.wikipedia_url && `<a href="${escapeHtml(photo.wikipedia_url)}" target="_blank" rel="noopener noreferrer">Wikipedia</a>`,
-    photo.kyhs_url && `<a href="${escapeHtml(photo.kyhs_url)}" target="_blank" rel="noopener noreferrer">KYHS</a>`,
+    // Wikipedia / KYHS already appear once under Learn more
     // Only when the chosen photo is verified from that institution
     photo.loc_url && `<a href="${escapeHtml(photo.loc_url)}" target="_blank" rel="noopener noreferrer">Library of Congress</a>`,
     photo.nara_url && `<a href="${escapeHtml(photo.nara_url)}" target="_blank" rel="noopener noreferrer">National Archives</a>`,
@@ -1252,13 +1300,15 @@ function placeDetailExtrasHtml({
   source_url,
   website,
 }) {
+  const displayMarkdown = stripSourceAttribution(bodyMarkdown)
   const links = extractResearchLinks(bodyMarkdown)
   const photos = photosForPlace({ lat, lon, name, historyId, layer, requireTopic: true })
   return `${mapsLinksHtml(lat, lon, name, placeHint)}${photosHtml(photos)}${researchLinksHtml(links, name, {
     placeHint,
     source_url,
     website,
-    bodyMarkdown,
+    bodyMarkdown: displayMarkdown,
+    displayMarkdown,
   })}`
 }
 
@@ -1277,7 +1327,7 @@ function detailHtmlFromProps(p, layerId, coords) {
   }
   if (p.category) metaBits.push(p.category)
   if (p.war) metaBits.push(p.war)
-  const desc = p.inscription || p.history || p.description || p.location_text || ''
+  const desc = stripSourceAttribution(p.inscription || p.history || p.description || p.location_text || '')
   const href = p.source_url || p.website || null
   const linkLabel = p.source_url ? 'history.ky.gov' : isWikipediaUrl(href) ? 'Wikipedia' : 'Website'
   // Research URLs also appear under Learn more — don't show the same link twice.
@@ -2322,7 +2372,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
         historyId,
         name: s.title,
         title: s.title,
-        history: s.bodyMarkdown ? s.bodyMarkdown.replace(/[#>*_`\[\]()]/g, ' ') : s.summary || '',
+        history: stripSourceAttribution(s.bodyMarkdown) || s.summary || '',
         description: s.summary || '',
         bodyMarkdown: s.bodyMarkdown || '',
         county: meta.county || s.county,
@@ -2375,7 +2425,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
             }
             <div class="tags">${tags}</div>
           </header>
-          <div class="story-body">${marked.parse(s.bodyMarkdown || '')}</div>
+          <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${extras}
           <p class="muted popup-hint">Tip: tap the highlighted pin on the map for the place popup (full text, maps, photos, and source links).</p>
           <p class="story-source muted">Kentucky History Drive</p>
