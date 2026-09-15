@@ -1,0 +1,14 @@
+{
+  "name": "kyhistorydrive",
+  "install": "npm ci",
+  "terminals": [
+    {
+      "name": "vite-dev",
+      "command": "npm run dev -- --host",
+      "description": "Vite dev server for the KY History Drive site on port 5173. Runs the source-restore step first (fetches full src/main.js and history.geojson from GitHub raw), then serves at http://localhost:5173/."
+    }
+  ],
+  "ports": [
+    { "port": 5173 }
+  ]
+}
