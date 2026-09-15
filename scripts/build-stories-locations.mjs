@@ -211,6 +211,13 @@ const MANUAL_OVERRIDES = {
     lon: -84.6228,
     confidence: 'override',
   },
+  // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
+  'wright-mounds-montgomery-county': {
+    matchName: 'Wright Mounds (Montgomery County Adena)',
+    lat: 38.05699,
+    lon: -83.94437,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
