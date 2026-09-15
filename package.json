@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && vite build",
+    "build": "node scripts/restore-truncated-sources.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && vite build",
     "preview": "vite preview",
     "build-stories": "node scripts/build-stories.mjs",
     "parse-briefs": "node scripts/parse-briefs-to-stories.mjs",
