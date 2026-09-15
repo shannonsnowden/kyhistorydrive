@@ -3,13 +3,6 @@ frontend:
   phases:
     preBuild:
       commands:
-        - git fetch --unshallow || true
-        - git fetch origin 63fb231fbd50fe2549c11fd41b071201006fa775 cffd0b25ad252efbb1bb0f4117bee5f69e273f43 || true
-        - git show 63fb231fbd50fe2549c11fd41b071201006fa775:public/data/layers/history.geojson > public/data/layers/history.geojson
-        - python3 -c "from pathlib import Path; p=Path('public/data/layers/history.geojson'); t=p.read_text(); t=t.replace('https://grokipedia.com/page/Todd_County,_Kentucky','https://en.wikipedia.org/wiki/John_Todd_(Virginia)'); p.write_text(t)"
-        - git show cffd0b25ad252efbb1bb0f4117bee5f69e273f43:src/main.js > src/main.js
-        - patch -p1 --forward -i _restore/main.js.diff
-        - python3 -c "from pathlib import Path; g=Path('public/data/layers/history.geojson').read_text(); j=Path('src/main.js').read_text(); assert g.count(chr(34)+'type'+chr(34)+':'+chr(34)+'Feature'+chr(34))==72; assert 'extractResearchLinks' in j"
         - npm ci
     build:
       commands:
