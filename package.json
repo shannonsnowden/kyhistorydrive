@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/restore-truncated-sources.mjs && vite",
     "build": "node scripts/restore-truncated-sources.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && vite build",
     "preview": "vite preview",
     "build-stories": "node scripts/build-stories.mjs",
