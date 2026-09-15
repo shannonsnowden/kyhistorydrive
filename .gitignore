@@ -1,5 +1,7 @@
 node_modules
 dist
+src/main.full.js
+src/main-parts/
 .DS_Store
 .env
 .env.*
