@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-15T09:20:47.857Z",
+  "generatedAt": "2026-09-15T09:36:49.377Z",
   "stats": {
-    "exact": 10,
-    "fuzzy": 44,
-    "county": 10,
-    "override": 21,
+    "exact": 11,
+    "fuzzy": 42,
+    "county": 7,
+    "override": 25,
     "none": 15
   },
   "locations": {
     "read-shell-midden-15bt10-butler-county": {
       "slug": "read-shell-midden-15bt10-butler-county",
-      "lat": 37.303551,
-      "lon": -86.890631,
+      "lat": 37.2425,
+      "lon": -86.79083,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Indian Knoll",
-      "historyId": "indian-knoll"
+      "matchedPlace": "Read Shell Midden (15Bt10)",
+      "historyId": "read-shell-midden-15bt10"
     },
     "carlston-annis-shell-mound": {
       "slug": "carlston-annis-shell-mound",
@@ -23,6 +23,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "Carlston Annis Shell Mound",
       "historyId": "carlston-annis-shell-mound"
+    },
+    "newt-kash-hollow-15mf1": {
+      "slug": "newt-kash-hollow-15mf1",
+      "lat": 37.9510333,
+      "lon": -83.6258167,
+      "mapConfidence": "override",
+      "matchedPlace": "Newt Kash Hollow (15Mf1)",
+      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
     },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -42,11 +50,11 @@
     },
     "muir-site-15js86": {
       "slug": "muir-site-15js86",
-      "lat": 37.85014,
-      "lon": -84.62265,
-      "mapConfidence": "county",
-      "matchedPlace": "Jessamine County (centroid)",
-      "historyId": null
+      "lat": 37.8967,
+      "lon": -84.6228,
+      "mapConfidence": "override",
+      "matchedPlace": "Muir Site (15Js86)",
+      "historyId": "muir-site-15js86-jessamine-county"
     },
     "page-site-lost-city-15lo1": {
       "slug": "page-site-lost-city-15lo1",
@@ -90,6 +98,14 @@
     },
     "mosopelea-ofo-the-ohio-valley": {
       "slug": "mosopelea-ofo-the-ohio-valley",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "mingo-camps-south-of-the-ohio": {
+      "slug": "mingo-camps-south-of-the-ohio",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -160,14 +176,6 @@
       "matchedPlace": "Christopher Gist / Ohio Company",
       "historyId": "christopher-gist-ohio-company"
     },
-    "col-john-todd-of-lexington": {
-      "slug": "col-john-todd-of-lexington",
-      "lat": 37.4816,
-      "lon": -82.51596666666667,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Col. John Bowman / Battle of Chillicothe",
-      "historyId": "col-john-bowman-battle-of-chillicothe"
-    },
     "thomas-walker-and-cumberland-gap": {
       "slug": "thomas-walker-and-cumberland-gap",
       "lat": 36.60686666666667,
@@ -216,14 +224,6 @@
       "matchedPlace": null,
       "historyId": null
     },
-    "mingo-camps-south-of-the-ohio": {
-      "slug": "mingo-camps-south-of-the-ohio",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
     "treaties-of-hard-labour-and-lochaber": {
       "slug": "treaties-of-hard-labour-and-lochaber",
       "lat": null,
@@ -245,7 +245,7 @@
       "lat": 37.72168,
       "lon": -84.314117,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Hancock Taylor / Fincastle deputy surveyor",
+      "matchedPlace": "Hancock Taylor / Taylor's Fork burial",
       "historyId": "richmond-founding-2"
     },
     "bullitts-lick-kentuckys-first-industry": {
@@ -296,6 +296,14 @@
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
     },
+    "col-john-todd-of-lexington": {
+      "slug": "col-john-todd-of-lexington",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Todd of Lexington",
+      "historyId": "col-john-todd-lexington-blue-licks"
+    },
     "richard-henderson": {
       "slug": "richard-henderson",
       "lat": 37.8310805,
@@ -306,11 +314,11 @@
     },
     "stanford-from-st-asaph": {
       "slug": "stanford-from-st-asaph",
-      "lat": 37.52019,
-      "lon": -84.67985,
-      "mapConfidence": "county",
-      "matchedPlace": "Lincoln County (centroid)",
-      "historyId": null
+      "lat": 37.529666666666664,
+      "lon": -84.66123333333333,
+      "mapConfidence": "override",
+      "matchedPlace": "Stanford / St. Asaph (Logan's Fort)",
+      "historyId": "stanford-founding-st-asaph"
     },
     "william-calk-s-1775-journal": {
       "slug": "william-calk-s-1775-journal",
@@ -370,11 +378,11 @@
     },
     "col-john-bowman-at-old-chillicothe": {
       "slug": "col-john-bowman-at-old-chillicothe",
-      "lat": 37.4816,
-      "lon": -82.51596666666667,
+      "lat": 38.0406,
+      "lon": -84.5037,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Col. John Bowman / Battle of Chillicothe",
-      "historyId": "col-john-bowman-battle-of-chillicothe"
+      "matchedPlace": "Col. John Todd of Lexington",
+      "historyId": "col-john-todd-lexington-blue-licks"
     },
     "col-robert-patterson-builds-lexington": {
       "slug": "col-robert-patterson-builds-lexington",
@@ -772,8 +780,8 @@
       "slug": "kentucky-river-palisades",
       "lat": 37.81891666666667,
       "lon": -84.71933333333334,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Kentucky River Palisades / High Bridge Group Ordovician",
+      "mapConfidence": "exact",
+      "matchedPlace": "Kentucky River Palisades",
       "historyId": "kentucky-river-palisades-high-bridge-group-ordovician"
     },
     "lexington-named": {
@@ -783,14 +791,6 @@
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named",
       "historyId": "lexington-named"
-    },
-    "newt-kash-hollow-15mf1": {
-      "slug": "newt-kash-hollow-15mf1",
-      "lat": 37.96767,
-      "lon": -83.57442,
-      "mapConfidence": "county",
-      "matchedPlace": "Menifee County (centroid)",
-      "historyId": null
     },
     "wickliffe-mounds-mississippian-village-ballard-county": {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

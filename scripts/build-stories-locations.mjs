@@ -186,6 +186,31 @@ const MANUAL_OVERRIDES = {
     lon: -85.7628814,
     confidence: 'override',
   },
+  // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
+  'col-john-todd-of-lexington': {
+    matchName: 'Col. John Todd of Lexington',
+    lat: 38.0406,
+    lon: -84.5037,
+    confidence: 'override',
+  },
+  'stanford-from-st-asaph': {
+    matchName: "Stanford / St. Asaph (Logan's Fort)",
+    lat: 37.529666666666664,
+    lon: -84.66123333333333,
+    confidence: 'override',
+  },
+  'newt-kash-hollow-15mf1': {
+    matchName: 'Newt Kash Hollow (15Mf1)',
+    lat: 37.9510333,
+    lon: -83.6258167,
+    confidence: 'override',
+  },
+  'muir-site-15js86': {
+    matchName: 'Muir Site (15Js86)',
+    lat: 37.8967,
+    lon: -84.6228,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
