@@ -635,26 +635,111 @@ function isGrokipediaUrl(url) {
   return /grokipedia\.com/i.test(String(url || ''))
 }
 
+function isWikipediaUrl(url) {
+  return /wikipedia\.org/i.test(String(url || ''))
+}
+
+function isWikipediaSearchUrl(url) {
+  return /wikipedia\.org\/wiki\/Special:Search/i.test(String(url || ''))
+}
+
+function isKyhsUrl(url) {
+  return /history\.ky\.gov/i.test(String(url || ''))
+}
+
+function isResearchUrl(url) {
+  return /wikipedia\.org|history\.ky\.gov|explorekyhistory\.ky\.gov|archaeology\.ky\.gov|nps\.gov|parks\.ky\.gov/i.test(
+    String(url || ''),
+  )
+}
+
+/** Decode, strip junk, and close truncated Wikipedia titles like John_Todd_(Virginia */
+function normalizeResearchUrl(url) {
+  let u = String(url || '').trim().replace(/[.,;:]+$/g, '')
+  try {
+    u = decodeURI(u)
+  } catch {
+    /* keep raw */
+  }
+  if (isWikipediaUrl(u)) {
+    const open = (u.match(/\(/g) || []).length
+    const close = (u.match(/\)/g) || []).length
+    if (open > close) u += ')'.repeat(open - close)
+  }
+  try {
+    const parsed = new URL(u)
+    parsed.hash = ''
+    parsed.hostname = parsed.hostname.toLowerCase()
+    if (parsed.pathname.length > 1 && parsed.pathname.endsWith('/')) {
+      parsed.pathname = parsed.pathname.slice(0, -1)
+    }
+    return parsed.toString()
+  } catch {
+    return u
+  }
+}
+
+function extractBareHttpUrls(text) {
+  const s = String(text || '')
+  const out = []
+  const re = /https?:\/\/[^\s"'<>\]]+/gi
+  let m
+  while ((m = re.exec(s))) {
+    out.push(m[0].replace(/[.,;:]+$/g, ''))
+  }
+  return out
+}
+
+function collectResearchItems(linkList, extra = {}) {
+  const items = []
+  const seenUrl = new Set()
+  const add = (label, url) => {
+    const normalized = normalizeResearchUrl(url)
+    if (!normalized || isGrokipediaUrl(normalized) || seenUrl.has(normalized)) return
+    seenUrl.add(normalized)
+    items.push({ label: labelForResearchUrl(normalized, label), url: normalized })
+  }
+  for (const l of linkList || []) add(l.label, l.url)
+  add('Kentucky Historical Society', extra.source_url)
+  add('Website', extra.website)
+
+  const wikiArticles = items.filter((i) => isWikipediaUrl(i.url) && !isWikipediaSearchUrl(i.url))
+  const wikiSearch = items.filter((i) => isWikipediaSearchUrl(i.url))
+  let wikiKeep = wikiArticles[0] || wikiSearch[0] || null
+  let kyhsKeep = items.find((i) => isKyhsUrl(i.url)) || null
+
+  const rest = items.filter((i) => !isWikipediaUrl(i.url) && !isKyhsUrl(i.url))
+  const out = [...rest]
+
+  if (!wikiKeep && extra.allowSearchFallbacks !== false && extra.title) {
+    wikiKeep = {
+      label: 'Wikipedia',
+      url: normalizeResearchUrl(wikipediaSearchUrl(`${extra.title} Kentucky`)),
+    }
+  }
+  if (!kyhsKeep && extra.allowSearchFallbacks !== false && extra.title) {
+    kyhsKeep = {
+      label: 'Kentucky Historical Society',
+      url: normalizeResearchUrl(kyhsSearchUrl(extra.title, extra.placeHint)),
+    }
+  }
+  if (wikiKeep?.url) out.push(wikiKeep)
+  if (kyhsKeep?.url) out.push(kyhsKeep)
+  return out
+}
+
 function extractResearchLinks(markdown) {
   const links = []
   const seen = new Set()
   const add = (label, url) => {
-    if (!url || isGrokipediaUrl(url) || seen.has(url)) return
-    seen.add(url)
-    links.push({ label: labelForResearchUrl(url, label), url })
+    const normalized = normalizeResearchUrl(url)
+    if (!normalized || isGrokipediaUrl(normalized) || seen.has(normalized)) return
+    seen.add(normalized)
+    links.push({ label: labelForResearchUrl(normalized, label), url: normalized })
   }
   for (const link of extractMarkdownLinks(markdown)) add(link.label, link.url)
-  const bare = /https?:\/\/[^\s)"']+/gi
-  let m
-  while ((m = bare.exec(String(markdown || '')))) {
-    const url = m[0].replace(/[.,;:]+$/, '')
-    if (
-      /wikipedia\.org|history\.ky\.gov|explorekyhistory\.ky\.gov|archaeology\.ky\.gov|nps\.gov|parks\.ky\.gov/i.test(
-        url,
-      )
-    ) {
-      add('', url)
-    }
+  for (const url of extractBareHttpUrls(markdown)) {
+    if (isResearchUrl(url)) add('', url)
   }
   return links
 }
@@ -779,22 +864,17 @@ function photosHtml(photos) {
 }
 
 function researchLinksHtml(links, title, extra = {}) {
-  const items = []
-  const seen = new Set()
-  const add = (label, url) => {
-    if (!url || isGrokipediaUrl(url) || seen.has(url)) return
-    seen.add(url)
-    items.push({ label: labelForResearchUrl(url, label), url })
-  }
-  for (const l of links || []) add(l.label, l.url)
-  if (!items.length) {
-    if (extra.source_url) add('Kentucky Historical Society', extra.source_url)
-    else if (extra.website) add('Website', extra.website)
-    if (title) {
-      add('Wikipedia', wikipediaSearchUrl(`${title} Kentucky`))
-      add('Kentucky Historical Society', kyhsSearchUrl(title, extra.placeHint))
-    }
-  }
+  const alreadyInBody = new Set(
+    [
+      ...extractBareHttpUrls(extra.bodyMarkdown || ''),
+      ...extractMarkdownLinks(extra.bodyMarkdown || '').map((l) => l.url),
+    ]
+      .map(normalizeResearchUrl)
+      .filter(Boolean),
+  )
+  const items = collectResearchItems(links, { ...extra, title }).filter(
+    (i) => !alreadyInBody.has(normalizeResearchUrl(i.url)),
+  )
   if (!items.length) return ''
   return `<div class="popup-research">
     <div class="historic-photos-label">Learn more</div>
@@ -836,8 +916,10 @@ function kyhsSearchUrl(title, placeHint) {
 
 function extractWikipediaUrl(markdown) {
   if (!markdown) return null
-  const m = String(markdown).match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s)"'\]]+/i)
-  return m ? m[0].replace(/[.,;:]+$/, '') : null
+  const fromBare = extractBareHttpUrls(markdown).find((u) => isWikipediaUrl(u) && !isWikipediaSearchUrl(u))
+  if (fromBare) return normalizeResearchUrl(fromBare)
+  const m = String(markdown).match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s"'<>]+/i)
+  return m ? normalizeResearchUrl(m[0]) : null
 }
 
 function wikipediaTitleFromUrl(url) {
@@ -1176,6 +1258,7 @@ function placeDetailExtrasHtml({
     placeHint,
     source_url,
     website,
+    bodyMarkdown,
   })}`
 }
 
@@ -1196,10 +1279,12 @@ function detailHtmlFromProps(p, layerId, coords) {
   if (p.war) metaBits.push(p.war)
   const desc = p.inscription || p.history || p.description || p.location_text || ''
   const href = p.source_url || p.website || null
-  const linkLabel = p.source_url ? 'history.ky.gov' : 'Website'
-  const link = href
-    ? `<p class="popup-link"><a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${linkLabel}</a></p>`
-    : ''
+  const linkLabel = p.source_url ? 'history.ky.gov' : isWikipediaUrl(href) ? 'Wikipedia' : 'Website'
+  // Research URLs also appear under Learn more — don't show the same link twice.
+  const link =
+    href && !isResearchUrl(href)
+      ? `<p class="popup-link"><a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${linkLabel}</a></p>`
+      : ''
   let lat = null
   let lon = null
   if (coords) {
@@ -1214,12 +1299,13 @@ function detailHtmlFromProps(p, layerId, coords) {
     lon = p.longitude
   }
   const hint = [p.city, p.county ? `${p.county} County` : '', p.subtitle].filter(Boolean).join(', ')
+  const bodyMarkdown = p.bodyMarkdown || p.history || p.description || p.inscription || ''
   const extras = placeDetailExtrasHtml({
     lat,
     lon,
     name,
     placeHint: hint || null,
-    bodyMarkdown: p.bodyMarkdown || p.history || p.description || p.inscription || '',
+    bodyMarkdown,
     historyId: p.id || p.historyId || null,
     layer: layerId === 'markers' ? 'marker' : layerId,
     source_url: p.source_url || null,
