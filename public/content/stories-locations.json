@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-15T12:02:50.096Z",
+  "generatedAt": "2026-09-16T09:38:49.270Z",
   "stats": {
     "exact": 11,
     "fuzzy": 42,
     "county": 7,
-    "override": 25,
-    "none": 15
+    "override": 29,
+    "none": 16
   },
   "locations": {
     "read-shell-midden-15bt10-butler-county": {
@@ -23,14 +23,6 @@
       "mapConfidence": "exact",
       "matchedPlace": "Carlston Annis Shell Mound",
       "historyId": "carlston-annis-shell-mound"
-    },
-    "newt-kash-hollow-15mf1": {
-      "slug": "newt-kash-hollow-15mf1",
-      "lat": 37.9510333,
-      "lon": -83.6258167,
-      "mapConfidence": "override",
-      "matchedPlace": "Newt Kash Hollow (15Mf1)",
-      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
     },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -62,6 +54,14 @@
       "lon": -86.84895,
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)",
+      "historyId": null
+    },
+    "adams-site-15fu4": {
+      "slug": "adams-site-15fu4",
+      "lat": 36.552,
+      "lon": -89.186,
+      "mapConfidence": "override",
+      "matchedPlace": "Adams Site (15Fu4)",
       "historyId": null
     },
     "jonathan-creek-mississippian-center": {
@@ -98,14 +98,6 @@
     },
     "mosopelea-ofo-the-ohio-valley": {
       "slug": "mosopelea-ofo-the-ohio-valley",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "mingo-camps-south-of-the-ohio": {
-      "slug": "mingo-camps-south-of-the-ohio",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -176,6 +168,14 @@
       "matchedPlace": "Christopher Gist / Ohio Company",
       "historyId": "christopher-gist-ohio-company"
     },
+    "col-john-todd-of-lexington": {
+      "slug": "col-john-todd-of-lexington",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Todd of Lexington",
+      "historyId": "col-john-todd-lexington-blue-licks"
+    },
     "thomas-walker-and-cumberland-gap": {
       "slug": "thomas-walker-and-cumberland-gap",
       "lat": 36.60686666666667,
@@ -224,6 +224,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "mingo-camps-south-of-the-ohio": {
+      "slug": "mingo-camps-south-of-the-ohio",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "treaties-of-hard-labour-and-lochaber": {
       "slug": "treaties-of-hard-labour-and-lochaber",
       "lat": null,
@@ -255,6 +263,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bullitt's Lick",
       "historyId": "bullitts-lick"
+    },
+    "drennon-springs-salt-works": {
+      "slug": "drennon-springs-salt-works",
+      "lat": 38.4400769,
+      "lon": -85.1692443,
+      "mapConfidence": "override",
+      "matchedPlace": "Drennon Springs",
+      "historyId": null
     },
     "leestown": {
       "slug": "leestown",
@@ -296,13 +312,13 @@
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
     },
-    "col-john-todd-of-lexington": {
-      "slug": "col-john-todd-of-lexington",
-      "lat": 38.0406,
-      "lon": -84.5037,
+    "maj-joseph-bowman": {
+      "slug": "maj-joseph-bowman",
+      "lat": 37.7623,
+      "lon": -84.8433,
       "mapConfidence": "override",
-      "matchedPlace": "Col. John Todd of Lexington",
-      "historyId": "col-john-todd-lexington-blue-licks"
+      "matchedPlace": "Maj. Joseph Bowman",
+      "historyId": null
     },
     "richard-henderson": {
       "slug": "richard-henderson",
@@ -375,6 +391,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "George Rogers Clark / Corn Island",
       "historyId": "george-rogers-clark-corn-island"
+    },
+    "illinois-confederation-at-cahokia": {
+      "slug": "illinois-confederation-at-cahokia",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "col-john-bowman-at-old-chillicothe": {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -592,6 +616,14 @@
       "matchedPlace": "Cynthiana founding / Robert Harrison",
       "historyId": "cynthiana-founding-robert-harrison"
     },
+    "newport-at-the-licking-mouth": {
+      "slug": "newport-at-the-licking-mouth",
+      "lat": 39.09213333333334,
+      "lon": -84.50191666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Newport Barracks",
+      "historyId": null
+    },
     "lancaster-at-wallace-s-crossroads": {
       "slug": "lancaster-at-wallace-s-crossroads",
       "lat": 37.3238322,
@@ -791,6 +823,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named",
       "historyId": "lexington-named"
+    },
+    "newt-kash-hollow-15mf1": {
+      "slug": "newt-kash-hollow-15mf1",
+      "lat": 37.9510333,
+      "lon": -83.6258167,
+      "mapConfidence": "override",
+      "matchedPlace": "Newt Kash Hollow (15Mf1)",
+      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
     },
     "wickliffe-mounds-mississippian-village-ballard-county": {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

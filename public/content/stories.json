@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-15T09:36:49.254Z",
-  "count": 100,
+  "generatedAt": "2026-09-16T09:37:40.008Z",
+  "count": 105,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-15"
+    "end": "2026-09-16"
   },
   "eras": [
     "early-commonwealth",
@@ -52,25 +52,6 @@
       "lon": -86.7683398,
       "mapConfidence": "exact",
       "matchedPlace": "Carlston Annis Shell Mound"
-    },
-    {
-      "slug": "newt-kash-hollow-15mf1",
-      "title": "Newt Kash Hollow (15Mf1)",
-      "publishedDate": "2026-09-15",
-      "summary": "In Menifee County’s Red River country, Newt Kash rockshelter preserved Early Woodland plant beds that reshaped how archaeologists talk about eastern agriculture. Webb and…",
-      "yearStart": -1000,
-      "yearEnd": 200,
-      "era": "prehistoric",
-      "tags": [
-        "other",
-        "kentucky"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-15",
-      "lat": 37.9510333,
-      "lon": -83.6258167,
-      "mapConfidence": "override",
-      "matchedPlace": "Newt Kash Hollow (15Mf1)"
     },
     {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -153,6 +134,26 @@
       "lon": -86.84895,
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)"
+    },
+    {
+      "slug": "adams-site-15fu4",
+      "title": "Adams Site (15Fu4)",
+      "publishedDate": "2026-09-16",
+      "summary": "Near Hickman in Fulton County, on Bayou de Chien toward the Mississippi, the Adams Site is a Mississippian town built over an earlier Late Woodland village. Platform mounds…",
+      "yearStart": 1100,
+      "yearEnd": 1500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-16",
+      "lat": 36.552,
+      "lon": -89.186,
+      "mapConfidence": "override",
+      "matchedPlace": "Adams Site (15Fu4)"
     },
     {
       "slug": "jonathan-creek-mississippian-center",
@@ -253,27 +254,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-04",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
-      "slug": "mingo-camps-south-of-the-ohio",
-      "title": "Mingo camps south of the Ohio",
-      "publishedDate": "2026-09-15",
-      "summary": "“Mingo” was the settlers’ label for Haudenosaunee (especially Seneca and Cayuga) families who had drifted into the Ohio Country and acted apart from the Onondaga council. With…",
-      "yearStart": 1700,
-      "yearEnd": 1782,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-15",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -444,6 +424,27 @@
       "matchedPlace": "Christopher Gist / Ohio Company"
     },
     {
+      "slug": "col-john-todd-of-lexington",
+      "title": "Col. John Todd of Lexington",
+      "publishedDate": "2026-09-15",
+      "summary": "Pennsylvania-born lawyer John Todd (1750–1782) reached Kentucky around 1775, sat in Virginia’s legislature for Kentucky County, rode with George Rogers Clark to Kaskaskia and…",
+      "yearStart": 1775,
+      "yearEnd": 1782,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Todd of Lexington"
+    },
+    {
       "slug": "thomas-walker-and-cumberland-gap",
       "title": "Thomas Walker and Cumberland Gap",
       "publishedDate": "2026-08-31",
@@ -571,6 +572,27 @@
       "matchedPlace": null
     },
     {
+      "slug": "mingo-camps-south-of-the-ohio",
+      "title": "Mingo camps south of the Ohio",
+      "publishedDate": "2026-09-15",
+      "summary": "“Mingo” was the settlers’ label for Haudenosaunee (especially Seneca and Cayuga) families who had drifted into the Ohio Country and acted apart from the Onondaga council. With…",
+      "yearStart": 1700,
+      "yearEnd": 1782,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "treaties-of-hard-labour-and-lochaber",
       "title": "Treaties of Hard Labour and Lochaber",
       "publishedDate": "2026-09-01",
@@ -653,6 +675,26 @@
       "lon": -85.7640065,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bullitt's Lick"
+    },
+    {
+      "slug": "drennon-springs-salt-works",
+      "title": "Drennon Springs Salt Works",
+      "publishedDate": "2026-09-16",
+      "summary": "In Henry County — a short drive from Shelby/Bagdad — Jacob Drennon and Matthew Bracken claimed the big salt lick on July 26, 1773; Nicholas Cresswell in 1775 described some…",
+      "yearStart": 1773,
+      "yearEnd": 1785,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-16",
+      "lat": 38.4400769,
+      "lon": -85.1692443,
+      "mapConfidence": "override",
+      "matchedPlace": "Drennon Springs"
     },
     {
       "slug": "leestown",
@@ -763,25 +805,24 @@
       "matchedPlace": "Benjamin Logan / Logan's Station"
     },
     {
-      "slug": "col-john-todd-of-lexington",
-      "title": "Col. John Todd of Lexington",
-      "publishedDate": "2026-09-15",
-      "summary": "Pennsylvania-born lawyer John Todd (1750–1782) reached Kentucky around 1775, sat in Virginia’s legislature for Kentucky County, rode with George Rogers Clark to Kaskaskia and…",
+      "slug": "maj-joseph-bowman",
+      "title": "Maj. Joseph Bowman",
+      "publishedDate": "2026-09-16",
+      "summary": "Virginia-born Joseph Bowman came to Kentucky by 1775, signed the 1776 Harrodsburg county petition, and in 1778 raised a company for George Rogers Clark. As Clark’s…",
       "yearStart": 1775,
-      "yearEnd": 1782,
+      "yearEnd": 1779,
       "era": "frontier",
       "tags": [
         "frontier",
         "kentucky",
-        "frontier-war",
-        "salt"
+        "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-15",
-      "lat": 38.0406,
-      "lon": -84.5037,
+      "briefDate": "2026-09-16",
+      "lat": 37.7623,
+      "lon": -84.8433,
       "mapConfidence": "override",
-      "matchedPlace": "Col. John Todd of Lexington"
+      "matchedPlace": "Maj. Joseph Bowman"
     },
     {
       "slug": "richard-henderson",
@@ -969,6 +1010,26 @@
       "lon": -85.7173,
       "mapConfidence": "fuzzy",
       "matchedPlace": "George Rogers Clark / Corn Island"
+    },
+    {
+      "slug": "illinois-confederation-at-cahokia",
+      "title": "Illinois Confederation at Cahokia",
+      "publishedDate": "2026-09-16",
+      "summary": "After Clark seized the Illinois Country posts in July 1778, he called tribal leaders to Cahokia and offered peace or war. Bands of the Illinois Confederation (Illiniwek) —…",
+      "yearStart": 1778,
+      "yearEnd": 1778,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-16",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -1531,6 +1592,27 @@
       "matchedPlace": "Cynthiana founding / Robert Harrison"
     },
     {
+      "slug": "newport-at-the-licking-mouth",
+      "title": "Newport at the Licking Mouth",
+      "publishedDate": "2026-09-16",
+      "summary": "Hubbard Taylor platted the Ohio–Licking point for the family; James Taylor Jr. settled in 1793, pushed Campbell County through in 1794, and on December 14, 1795 the General…",
+      "yearStart": 1793,
+      "yearEnd": 1803,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-16",
+      "lat": 39.09213333333334,
+      "lon": -84.50191666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Newport Barracks"
+    },
+    {
       "slug": "lancaster-at-wallace-s-crossroads",
       "title": "Lancaster at Wallace’s Crossroads",
       "publishedDate": "2026-09-11",
@@ -2047,6 +2129,26 @@
       "lon": -84.52875,
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named"
+    },
+    {
+      "slug": "newt-kash-hollow-15mf1",
+      "title": "Newt Kash Hollow (15Mf1)",
+      "publishedDate": "2026-09-15",
+      "summary": "In Menifee County’s Red River country, Newt Kash rockshelter preserved Early Woodland plant beds that reshaped how archaeologists talk about eastern agriculture. Webb and…",
+      "yearStart": -1000,
+      "yearEnd": 200,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "lat": 37.9510333,
+      "lon": -83.6258167,
+      "mapConfidence": "override",
+      "matchedPlace": "Newt Kash Hollow (15Mf1)"
     },
     {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

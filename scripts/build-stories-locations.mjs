@@ -211,6 +211,31 @@ const MANUAL_OVERRIDES = {
     lon: -84.6228,
     confidence: 'override',
   },
+  // Sep 16 — use iOS pin coords; leave Illinois Confederation unpinned (Cahokia)
+  'maj-joseph-bowman': {
+    matchName: 'Maj. Joseph Bowman',
+    lat: 37.7623,
+    lon: -84.8433,
+    confidence: 'override',
+  },
+  'newport-at-the-licking-mouth': {
+    matchName: 'Newport Barracks',
+    lat: 39.09213333333334,
+    lon: -84.50191666666667,
+    confidence: 'override',
+  },
+  'adams-site-15fu4': {
+    matchName: 'Adams Site (15Fu4)',
+    lat: 36.5520,
+    lon: -89.1860,
+    confidence: 'override',
+  },
+  'drennon-springs-salt-works': {
+    matchName: 'Drennon Springs',
+    lat: 38.4400769,
+    lon: -85.1692443,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
