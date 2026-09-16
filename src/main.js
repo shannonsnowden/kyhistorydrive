@@ -959,8 +959,15 @@ function naraSearchUrl(title, placeHint) {
 }
 
 function kyhsSearchUrl(title, placeHint) {
-  const q = [title, placeHint].filter(Boolean).join(' ')
-  return `https://history.ky.gov/?s=${encodeURIComponent(q)}`
+  const titleText = String(title || '').replace(/\s+/g, ' ').trim()
+  const hint = String(placeHint || '').replace(/\s+/g, ' ').trim()
+  const bits = [titleText]
+  if (hint && titleText && !titleText.toLowerCase().includes(hint.toLowerCase())) {
+    bits.push(hint)
+  }
+  const q = bits.filter(Boolean).join(' ').trim()
+  // history.ky.gov is not WordPress — `/?s=` dumps the homepage. Site search is /search?search=
+  return `https://history.ky.gov/search?search=${encodeURIComponent(q)}`
 }
 
 function extractWikipediaUrl(markdown) {
