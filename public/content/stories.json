@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T09:37:40.008Z",
+  "generatedAt": "2026-09-16T09:59:52.495Z",
   "count": 105,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -52,6 +52,26 @@
       "lon": -86.7683398,
       "mapConfidence": "exact",
       "matchedPlace": "Carlston Annis Shell Mound"
+    },
+    {
+      "slug": "newt-kash-hollow-15mf1",
+      "title": "Newt Kash Hollow (15Mf1)",
+      "publishedDate": "2026-09-15",
+      "summary": "In Menifee County’s Red River country, Newt Kash rockshelter preserved Early Woodland plant beds that reshaped how archaeologists talk about eastern agriculture. Webb and…",
+      "yearStart": -1000,
+      "yearEnd": 200,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "lat": 37.9510333,
+      "lon": -83.6258167,
+      "mapConfidence": "override",
+      "matchedPlace": "Newt Kash Hollow (15Mf1)"
     },
     {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -260,6 +280,27 @@
       "matchedPlace": null
     },
     {
+      "slug": "mingo-camps-south-of-the-ohio",
+      "title": "Mingo camps south of the Ohio",
+      "publishedDate": "2026-09-15",
+      "summary": "“Mingo” was the settlers’ label for Haudenosaunee (especially Seneca and Cayuga) families who had drifted into the Ohio Country and acted apart from the Onondaga council. With…",
+      "yearStart": 1700,
+      "yearEnd": 1782,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "col-richard-callaway-of-boonesborough",
       "title": "Col. Richard Callaway of Boonesborough",
       "publishedDate": "2026-09-09",
@@ -424,27 +465,6 @@
       "matchedPlace": "Christopher Gist / Ohio Company"
     },
     {
-      "slug": "col-john-todd-of-lexington",
-      "title": "Col. John Todd of Lexington",
-      "publishedDate": "2026-09-15",
-      "summary": "Pennsylvania-born lawyer John Todd (1750–1782) reached Kentucky around 1775, sat in Virginia’s legislature for Kentucky County, rode with George Rogers Clark to Kaskaskia and…",
-      "yearStart": 1775,
-      "yearEnd": 1782,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-15",
-      "lat": 38.0406,
-      "lon": -84.5037,
-      "mapConfidence": "override",
-      "matchedPlace": "Col. John Todd of Lexington"
-    },
-    {
       "slug": "thomas-walker-and-cumberland-gap",
       "title": "Thomas Walker and Cumberland Gap",
       "publishedDate": "2026-08-31",
@@ -566,27 +586,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-31",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
-      "slug": "mingo-camps-south-of-the-ohio",
-      "title": "Mingo camps south of the Ohio",
-      "publishedDate": "2026-09-15",
-      "summary": "“Mingo” was the settlers’ label for Haudenosaunee (especially Seneca and Cayuga) families who had drifted into the Ohio Country and acted apart from the Onondaga council. With…",
-      "yearStart": 1700,
-      "yearEnd": 1782,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-15",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -803,6 +802,27 @@
       "lon": -84.6676739,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station"
+    },
+    {
+      "slug": "col-john-todd-of-lexington",
+      "title": "Col. John Todd of Lexington",
+      "publishedDate": "2026-09-15",
+      "summary": "Pennsylvania-born lawyer John Todd (1750–1782) reached Kentucky around 1775, sat in Virginia’s legislature for Kentucky County, rode with George Rogers Clark to Kaskaskia and…",
+      "yearStart": 1775,
+      "yearEnd": 1782,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Todd of Lexington"
     },
     {
       "slug": "maj-joseph-bowman",
@@ -1855,9 +1875,9 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-07",
-      "lat": 38.0284225,
-      "lon": -84.5029855,
-      "mapConfidence": "fuzzy",
+      "lat": 38.05699,
+      "lon": -83.94437,
+      "mapConfidence": "override",
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
     {
@@ -2129,26 +2149,6 @@
       "lon": -84.52875,
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named"
-    },
-    {
-      "slug": "newt-kash-hollow-15mf1",
-      "title": "Newt Kash Hollow (15Mf1)",
-      "publishedDate": "2026-09-15",
-      "summary": "In Menifee County’s Red River country, Newt Kash rockshelter preserved Early Woodland plant beds that reshaped how archaeologists talk about eastern agriculture. Webb and…",
-      "yearStart": -1000,
-      "yearEnd": 200,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-15",
-      "lat": 37.9510333,
-      "lon": -83.6258167,
-      "mapConfidence": "override",
-      "matchedPlace": "Newt Kash Hollow (15Mf1)"
     },
     {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",
