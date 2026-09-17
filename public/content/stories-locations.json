@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-16T09:59:52.530Z",
+  "generatedAt": "2026-09-17T09:46:40.573Z",
   "stats": {
     "exact": 11,
     "fuzzy": 41,
     "county": 7,
-    "override": 30,
-    "none": 16
+    "override": 34,
+    "none": 17
   },
   "locations": {
     "read-shell-midden-15bt10-butler-county": {
@@ -24,14 +24,6 @@
       "matchedPlace": "Carlston Annis Shell Mound",
       "historyId": "carlston-annis-shell-mound"
     },
-    "newt-kash-hollow-15mf1": {
-      "slug": "newt-kash-hollow-15mf1",
-      "lat": 37.9510333,
-      "lon": -83.6258167,
-      "mapConfidence": "override",
-      "matchedPlace": "Newt Kash Hollow (15Mf1)",
-      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
-    },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
       "lat": 38.0733,
@@ -47,6 +39,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
+    },
+    "annis-mound-village": {
+      "slug": "annis-mound-village",
+      "lat": 37.2898389,
+      "lon": -86.752889,
+      "mapConfidence": "override",
+      "matchedPlace": "Annis Mound & Village (15Bt2)",
+      "historyId": null
     },
     "muir-site-15js86": {
       "slug": "muir-site-15js86",
@@ -104,16 +104,16 @@
       "matchedPlace": null,
       "historyId": null
     },
-    "mosopelea-ofo-the-ohio-valley": {
-      "slug": "mosopelea-ofo-the-ohio-valley",
+    "tutelo-the-totteroy": {
+      "slug": "tutelo-the-totteroy",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
     },
-    "mingo-camps-south-of-the-ohio": {
-      "slug": "mingo-camps-south-of-the-ohio",
+    "mosopelea-ofo-the-ohio-valley": {
+      "slug": "mosopelea-ofo-the-ohio-valley",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -184,6 +184,14 @@
       "matchedPlace": "Christopher Gist / Ohio Company",
       "historyId": "christopher-gist-ohio-company"
     },
+    "col-john-todd-of-lexington": {
+      "slug": "col-john-todd-of-lexington",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Todd of Lexington",
+      "historyId": "col-john-todd-lexington-blue-licks"
+    },
     "thomas-walker-and-cumberland-gap": {
       "slug": "thomas-walker-and-cumberland-gap",
       "lat": 36.60686666666667,
@@ -226,6 +234,14 @@
     },
     "treaty-of-fort-stanwix-1768": {
       "slug": "treaty-of-fort-stanwix-1768",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "mingo-camps-south-of-the-ohio": {
+      "slug": "mingo-camps-south-of-the-ohio",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -311,14 +327,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
-    },
-    "col-john-todd-of-lexington": {
-      "slug": "col-john-todd-of-lexington",
-      "lat": 38.0406,
-      "lon": -84.5037,
-      "mapConfidence": "override",
-      "matchedPlace": "Col. John Todd of Lexington",
-      "historyId": "col-john-todd-lexington-blue-licks"
     },
     "maj-joseph-bowman": {
       "slug": "maj-joseph-bowman",
@@ -439,6 +447,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bardstown Founding",
       "historyId": "bardstown-founding"
+    },
+    "col-william-russell-iii": {
+      "slug": "col-william-russell-iii",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. William Russell III / Fayette",
+      "historyId": null
     },
     "elizabethtown-from-severns-valley": {
       "slug": "elizabethtown-from-severns-valley",
@@ -640,6 +656,14 @@
       "matchedPlace": "Lancaster founding / Wallace's Crossroads",
       "historyId": "lancaster-founding-wallace-s-crossroads"
     },
+    "owensboro-yellow-banks": {
+      "slug": "owensboro-yellow-banks",
+      "lat": 37.7549958,
+      "lon": -87.0614257,
+      "mapConfidence": "override",
+      "matchedPlace": "Owensboro / Yellow Banks",
+      "historyId": null
+    },
     "richmond-from-millers-barn": {
       "slug": "richmond-from-millers-barn",
       "lat": 37.747975,
@@ -800,6 +824,14 @@
       "matchedPlace": "Cleek-McCabe Fort Ancient Village",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
     },
+    "cumberland-falls": {
+      "slug": "cumberland-falls",
+      "lat": 36.84008333333333,
+      "lon": -84.33956666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Cumberland Falls",
+      "historyId": null
+    },
     "indian-knoll-on-the-green-river": {
       "slug": "indian-knoll-on-the-green-river",
       "lat": 37.303551,
@@ -831,6 +863,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named",
       "historyId": "lexington-named"
+    },
+    "newt-kash-hollow-15mf1": {
+      "slug": "newt-kash-hollow-15mf1",
+      "lat": 37.9510333,
+      "lon": -83.6258167,
+      "mapConfidence": "override",
+      "matchedPlace": "Newt Kash Hollow (15Mf1)",
+      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
     },
     "wickliffe-mounds-mississippian-village-ballard-county": {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

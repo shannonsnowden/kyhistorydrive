@@ -236,6 +236,31 @@ const MANUAL_OVERRIDES = {
     lon: -85.1692443,
     confidence: 'override',
   },
+  // Sep 17 — align with iOS pins; leave Tutelo unpinned (theme / Totteroy corridor)
+  'col-william-russell-iii': {
+    matchName: 'Col. William Russell III / Fayette',
+    lat: 38.0406,
+    lon: -84.5037,
+    confidence: 'override',
+  },
+  'owensboro-yellow-banks': {
+    matchName: 'Owensboro / Yellow Banks',
+    lat: 37.7549958,
+    lon: -87.0614257,
+    confidence: 'override',
+  },
+  'annis-mound-village': {
+    matchName: 'Annis Mound & Village (15Bt2)',
+    lat: 37.2898389,
+    lon: -86.752889,
+    confidence: 'override',
+  },
+  'cumberland-falls': {
+    matchName: 'Cumberland Falls',
+    lat: 36.84008333333333,
+    lon: -84.33956666666667,
+    confidence: 'override',
+  },
   // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
   'wright-mounds-montgomery-county': {
     matchName: 'Wright Mounds (Montgomery County Adena)',
