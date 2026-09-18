@@ -261,6 +261,31 @@ const MANUAL_OVERRIDES = {
     lon: -84.33956666666667,
     confidence: 'override',
   },
+  // Sep 18 — align with iOS pins; leave Chickamauga unpinned (TN towns / raid theme)
+  'maj-silas-harlan': {
+    matchName: "Maj. Silas Harlan / Harlan's Station",
+    lat: 37.66,
+    lon: -84.83,
+    confidence: 'override',
+  },
+  'glasgow-the-barrens': {
+    matchName: 'Glasgow / Barren County seat',
+    lat: 36.9818833,
+    lon: -85.9145954,
+    confidence: 'override',
+  },
+  'chiggerville-15oh1': {
+    matchName: 'Chiggerville (15Oh1)',
+    lat: 37.4,
+    lon: -86.9,
+    confidence: 'override',
+  },
+  'salts-cave-15ht4': {
+    matchName: 'Salts Cave (15Ht4)',
+    lat: 37.187,
+    lon: -86.101,
+    confidence: 'override',
+  },
   // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
   'wright-mounds-montgomery-county': {
     matchName: 'Wright Mounds (Montgomery County Adena)',

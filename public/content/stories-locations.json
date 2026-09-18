@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-18T09:16:22.264Z",
+  "generatedAt": "2026-09-18T09:42:05.925Z",
   "stats": {
     "exact": 11,
     "fuzzy": 41,
-    "county": 10,
-    "override": 34,
-    "none": 19
+    "county": 7,
+    "override": 38,
+    "none": 18
   },
   "locations": {
     "chiggerville-15oh1": {
       "slug": "chiggerville-15oh1",
-      "lat": 37.43415,
-      "lon": -86.88355,
-      "mapConfidence": "county",
-      "matchedPlace": "Ohio County (centroid)",
-      "historyId": null
+      "lat": 37.4,
+      "lon": -86.9,
+      "mapConfidence": "override",
+      "matchedPlace": "Chiggerville (15Oh1)",
+      "historyId": "chiggerville-15oh1-ohio-county"
     },
     "read-shell-midden-15bt10-butler-county": {
       "slug": "read-shell-midden-15bt10-butler-county",
@@ -34,11 +34,11 @@
     },
     "salts-cave-15ht4": {
       "slug": "salts-cave-15ht4",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
+      "lat": 37.187,
+      "lon": -86.101,
+      "mapConfidence": "override",
+      "matchedPlace": "Salts Cave (15Ht4)",
+      "historyId": "salts-cave-15ht4-mammoth-cave"
     },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -78,7 +78,7 @@
       "lon": -89.186,
       "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)",
-      "historyId": null
+      "historyId": "adams-site-15fu4-mississippian-fulton-county"
     },
     "jonathan-creek-mississippian-center": {
       "slug": "jonathan-creek-mississippian-center",
@@ -216,14 +216,6 @@
       "matchedPlace": "Lower Shawneetown",
       "historyId": "lower-shawneetown"
     },
-    "maj-silas-harlan": {
-      "slug": "maj-silas-harlan",
-      "lat": 36.90495,
-      "lon": -83.15217,
-      "mapConfidence": "county",
-      "matchedPlace": "Harlan County (centroid)",
-      "historyId": null
-    },
     "odawa-raid-at-eskippakithiki-1753": {
       "slug": "odawa-raid-at-eskippakithiki-1753",
       "lat": 37.98859,
@@ -246,7 +238,7 @@
       "lon": -84.5037,
       "mapConfidence": "override",
       "matchedPlace": "Col. William Russell III / Fayette",
-      "historyId": null
+      "historyId": "col-william-russell-iii-fayette"
     },
     "bland-w-ballard-of-tick-creek": {
       "slug": "bland-w-ballard-of-tick-creek",
@@ -310,7 +302,7 @@
       "lon": -85.1692443,
       "mapConfidence": "override",
       "matchedPlace": "Drennon Springs",
-      "historyId": null
+      "historyId": "drennon-springs-henry-county-drennon-bracken-1773"
     },
     "leestown": {
       "slug": "leestown",
@@ -336,6 +328,14 @@
       "matchedPlace": "John Floyd / Floyd's Station",
       "historyId": "floyds-station"
     },
+    "maj-silas-harlan": {
+      "slug": "maj-silas-harlan",
+      "lat": 37.66,
+      "lon": -84.83,
+      "mapConfidence": "override",
+      "matchedPlace": "Maj. Silas Harlan / Harlan's Station",
+      "historyId": "maj-silas-harlan-harlans-station"
+    },
     "treaty-of-camp-charlotte-1774": {
       "slug": "treaty-of-camp-charlotte-1774",
       "lat": null,
@@ -352,21 +352,13 @@
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
     },
-    "chickamauga-cherokee": {
-      "slug": "chickamauga-cherokee",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
     "maj-joseph-bowman": {
       "slug": "maj-joseph-bowman",
       "lat": 37.7623,
       "lon": -84.8433,
       "mapConfidence": "override",
       "matchedPlace": "Maj. Joseph Bowman",
-      "historyId": null
+      "historyId": "maj-joseph-bowman-harrodsburg"
     },
     "richard-henderson": {
       "slug": "richard-henderson",
@@ -399,6 +391,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County",
       "historyId": "capt-john-strode-strode-s-station-1779-clark-county"
+    },
+    "chickamauga-cherokee": {
+      "slug": "chickamauga-cherokee",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "paris-from-hopewell": {
       "slug": "paris-from-hopewell",
@@ -678,7 +678,7 @@
       "lon": -87.0614257,
       "mapConfidence": "override",
       "matchedPlace": "Owensboro / Yellow Banks",
-      "historyId": null
+      "historyId": "owensboro-founding-yellow-banks"
     },
     "lancaster-at-wallace-s-crossroads": {
       "slug": "lancaster-at-wallace-s-crossroads",
@@ -690,11 +690,11 @@
     },
     "glasgow-the-barrens": {
       "slug": "glasgow-the-barrens",
-      "lat": 37.03703,
-      "lon": -85.92479,
-      "mapConfidence": "county",
-      "matchedPlace": "Barren County (centroid)",
-      "historyId": null
+      "lat": 36.9818833,
+      "lon": -85.9145954,
+      "mapConfidence": "override",
+      "matchedPlace": "Glasgow / Barren County seat",
+      "historyId": "glasgow-founding-john-gorin-big-spring"
     },
     "richmond-from-millers-barn": {
       "slug": "richmond-from-millers-barn",
@@ -774,7 +774,7 @@
       "lon": -84.33956666666667,
       "mapConfidence": "override",
       "matchedPlace": "Cumberland Falls",
-      "historyId": null
+      "historyId": "cumberland-falls"
     },
     "ashlands-adena-mounds": {
       "slug": "ashlands-adena-mounds",
@@ -806,7 +806,7 @@
       "lon": -86.752889,
       "mapConfidence": "override",
       "matchedPlace": "Annis Mound & Village (15Bt2)",
-      "historyId": null
+      "historyId": "annis-mound-village-15bt2-butler-county"
     },
     "hardin-village-15gp22": {
       "slug": "hardin-village-15gp22",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T09:16:22.102Z",
+  "generatedAt": "2026-09-18T09:42:05.679Z",
   "count": 115,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -19,7 +19,7 @@
       "publishedDate": "2026-09-18",
       "summary": "On the Green River floodplain in Ohio County, the Late Archaic Chiggerville shell midden (roughly 3000–1000 BC) sits beside an old mussel shoal and runs more than four feet…",
       "yearStart": -3000,
-      "yearEnd": 1000,
+      "yearEnd": -1000,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -28,10 +28,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-18",
-      "lat": 37.43415,
-      "lon": -86.88355,
-      "mapConfidence": "county",
-      "matchedPlace": "Ohio County (centroid)"
+      "lat": 37.4,
+      "lon": -86.9,
+      "mapConfidence": "override",
+      "matchedPlace": "Chiggerville (15Oh1)"
     },
     {
       "slug": "read-shell-midden-15bt10-butler-county",
@@ -79,7 +79,7 @@
       "publishedDate": "2026-09-18",
       "summary": "Inside Mammoth Cave National Park, Salts Cave was one of several passages Early Woodland people used most intensively about 1000–200 BC. They mined wall sulfates—gypsum for…",
       "yearStart": -1000,
-      "yearEnd": 1000,
+      "yearEnd": -200,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -89,10 +89,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-18",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "lat": 37.187,
+      "lon": -86.101,
+      "mapConfidence": "override",
+      "matchedPlace": "Salts Cave (15Ht4)"
     },
     {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -547,27 +547,6 @@
       "matchedPlace": "Lower Shawneetown"
     },
     {
-      "slug": "maj-silas-harlan",
-      "title": "Maj. Silas Harlan",
-      "publishedDate": "2026-09-18",
-      "summary": "Virginia-born Major Silas Harlan (c. 1752–1782) came to Kentucky in 1774, built Harlan's Station on the Salt River about seven miles south of Harrodsburg in 1778, and commanded…",
-      "yearStart": 1752,
-      "yearEnd": 1819,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-18",
-      "lat": 36.90495,
-      "lon": -83.15217,
-      "mapConfidence": "county",
-      "matchedPlace": "Harlan County (centroid)"
-    },
-    {
       "slug": "odawa-raid-at-eskippakithiki-1753",
       "title": "Odawa raid at Eskippakithiki, 1753",
       "publishedDate": "2026-09-12",
@@ -864,6 +843,27 @@
       "matchedPlace": "John Floyd / Floyd's Station"
     },
     {
+      "slug": "maj-silas-harlan",
+      "title": "Maj. Silas Harlan",
+      "publishedDate": "2026-09-18",
+      "summary": "Virginia-born Major Silas Harlan (c. 1752–1782) came to Kentucky in 1774, built Harlan's Station on the Salt River about seven miles south of Harrodsburg in 1778, and commanded…",
+      "yearStart": 1774,
+      "yearEnd": 1782,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-18",
+      "lat": 37.66,
+      "lon": -84.83,
+      "mapConfidence": "override",
+      "matchedPlace": "Maj. Silas Harlan / Harlan's Station"
+    },
+    {
       "slug": "treaty-of-camp-charlotte-1774",
       "title": "Treaty of Camp Charlotte (1774)",
       "publishedDate": "2026-09-03",
@@ -904,28 +904,6 @@
       "lon": -84.6676739,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station"
-    },
-    {
-      "slug": "chickamauga-cherokee",
-      "title": "Chickamauga Cherokee",
-      "publishedDate": "2026-09-18",
-      "summary": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new…",
-      "yearStart": 1775,
-      "yearEnd": 1794,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "treaty",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-18",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
     },
     {
       "slug": "maj-joseph-bowman",
@@ -1026,6 +1004,28 @@
       "lon": -84.2147,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County"
+    },
+    {
+      "slug": "chickamauga-cherokee",
+      "title": "Chickamauga Cherokee",
+      "publishedDate": "2026-09-18",
+      "summary": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new…",
+      "yearStart": 1776,
+      "yearEnd": 1794,
+      "era": "frontier",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-18",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "paris-from-hopewell",
@@ -1781,7 +1781,7 @@
       "summary": "Barren County was authorized December 20, 1798, from Green and Warren, named for the open \"barrens\" prairie. In 1799 settlers chose John Gorin's Big Spring site over Richard…",
       "yearStart": 1798,
       "yearEnd": 1809,
-      "era": "early-commonwealth",
+      "era": "frontier",
       "tags": [
         "early-commonwealth",
         "kentucky",
@@ -1789,10 +1789,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-18",
-      "lat": 37.03703,
-      "lon": -85.92479,
-      "mapConfidence": "county",
-      "matchedPlace": "Barren County (centroid)"
+      "lat": 36.9818833,
+      "lon": -85.9145954,
+      "mapConfidence": "override",
+      "matchedPlace": "Glasgow / Barren County seat"
     },
     {
       "slug": "richmond-from-millers-barn",
