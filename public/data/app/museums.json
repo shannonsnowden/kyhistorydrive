@@ -1,0 +1,1644 @@
+[
+  {
+    "id": "shelby-county-historical-society-museum",
+    "name": "Shelby County Historical Society Museum",
+    "city": "Shelbyville",
+    "county": "Shelby",
+    "address": "627 Main St, Shelbyville, KY 40065",
+    "latitude": 38.2113681,
+    "longitude": -85.218408,
+    "founded_year": null,
+    "history": "Local history museum in an 1872 downtown Shelbyville building operated by the Shelby County Historical Society. Exhibits cover county settlement, farming, and community life near the Frankfort-to-Falls road that made Shelbyville a county seat. Free admission for drop-in visitors exploring Bluegrass county heritage.",
+    "website": "https://shelbykyhistory.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://shelbykyhistory.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "anderson-county-history-museum",
+    "name": "Anderson County History Museum",
+    "city": "Lawrenceburg",
+    "county": "Anderson",
+    "address": "108 E Woodford St, Lawrenceburg, KY 40342",
+    "latitude": 38.0386487,
+    "longitude": -84.8912,
+    "founded_year": null,
+    "history": "Housed in Lawrenceburg's 1908 Carnegie Library, this free museum displays artifacts that tell Anderson County's story from pioneer settlement through bourbon-country commerce. Regular Tuesday open hours plus appointment visits make it a practical stop near Wild Turkey and Four Roses country.",
+    "website": "https://visitlawrenceburgky.com/listing/anderson-county-history-museum/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://visitlawrenceburgky.com/listing/anderson-county-history-museum/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "thomas-d-clark-center",
+    "name": "Thomas D. Clark Center for Kentucky History",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "100 W Broadway, Frankfort, KY 40601",
+    "latitude": 38.1990486,
+    "longitude": -84.8747609,
+    "founded_year": 1999,
+    "history": "Flagship museum of the Kentucky Historical Society covering more than 12,000 years of Kentucky history, with permanent and rotating exhibits plus a major research library. Anchors the Frankfort history campus a short walk from the Old Capitol and Military History Museum. Smithsonian Affiliate and a natural first stop for statewide context.",
+    "website": "https://history.ky.gov/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://history.ky.gov/",
+      "https://en.wikipedia.org/wiki/Kentucky_Historical_Society"
+    ]
+  },
+  {
+    "id": "old-state-capitol",
+    "name": "Old State Capitol",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "300 W Broadway, Frankfort, KY 40601",
+    "latitude": 38.2001455,
+    "longitude": -84.8762516,
+    "founded_year": 1830,
+    "history": "Gideon Shryock's Greek Revival capitol (completed 1830) served as Kentucky's seat of government until 1910 and is now interpreted by the Kentucky Historical Society. The building and public grounds tell the story of antebellum politics, Civil War-era Frankfort, and statehouse architecture. Pair with the Clark Center across Broadway.",
+    "website": "https://history.ky.gov/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://history.ky.gov/",
+      "https://en.wikipedia.org/wiki/Old_State_Capitol_(Frankfort,_Kentucky)"
+    ]
+  },
+  {
+    "id": "kentucky-military-history-museum",
+    "name": "Kentucky Military History Museum",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "125 E Main St, Frankfort, KY 40601",
+    "latitude": 38.1975511,
+    "longitude": -84.876342,
+    "founded_year": 1974,
+    "history": "Located in the fortress-like 1850 State Arsenal overlooking downtown Frankfort, this KHS museum interprets Kentucky military service through personal stories and artifacts. The Arsenal supplied arms through the Civil War and National Guard eras before becoming a museum in 1974. Part of the Army Museum System.",
+    "website": "https://history.ky.gov/",
+    "museum_type": "military",
+    "geocode_source": "photon",
+    "sources": [
+      "https://history.ky.gov/",
+      "https://en.wikipedia.org/wiki/Kentucky_Historical_Society"
+    ]
+  },
+  {
+    "id": "capital-city-museum",
+    "name": "Capital City Museum",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "325 Ann St, Frankfort, KY 40601",
+    "latitude": 38.1985258,
+    "longitude": -84.8757431,
+    "founded_year": null,
+    "history": "Downtown Frankfort museum focused on the everyday life of the capital city—politics, industry, neighborhoods, and river commerce. Complements the statewide story at the Clark Center with a tighter local lens. Easy walking distance from Liberty Hall and the history campus.",
+    "website": "https://www.capitalcitymuseum.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.capitalcitymuseum.com/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "liberty-hall-historic-site",
+    "name": "Liberty Hall Historic Site",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "202 Wilkinson St, Frankfort, KY 40601",
+    "latitude": 38.1990715,
+    "longitude": -84.8817923,
+    "founded_year": 1796,
+    "history": "Two historic houses on the Kentucky River: Liberty Hall (1796) and the Orlando Brown House (1835), set in gardens in downtown Frankfort. Interprets early Kentucky political and family life tied to the Brown family and the young capital. Guided tours and grounds visits from spring through fall.",
+    "website": "https://libertyhall.org/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://libertyhall.org/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "oldham-county-history-center",
+    "name": "Oldham County History Center",
+    "city": "La Grange",
+    "county": "Oldham",
+    "address": "106 N 2nd Ave, La Grange, KY 40031",
+    "latitude": 38.4047172,
+    "longitude": -85.3768252,
+    "founded_year": null,
+    "history": "Campus of the Oldham County Historical Society west of the courthouse square, including the Peyton Samuel Head Family Museum, archives, and Rob Morris Chapel. Strong Underground Railroad interpretation (NPS Passport site) plus exhibits on D.W. Griffith, WWII veterans, and the Kentucky State Reformatory. Hands-on discovery museum for all ages.",
+    "website": "https://www.oldhamkyhistory.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.oldhamkyhistory.com/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "woodford-county-historical-society-museum",
+    "name": "Woodford County Historical Society Museum",
+    "city": "Versailles",
+    "county": "Woodford",
+    "address": "121 Rose Hill, Versailles, KY 40383",
+    "latitude": 38.0523,
+    "longitude": -84.7301,
+    "founded_year": null,
+    "history": "Free museum of Woodford County artifacts including Civil War memorabilia, everyday textiles and tools, and photographs of 1890s county schools. Displays also highlight Woodford's six Kentucky governors and Versailles streetscape history. Compact downtown stop near horse-farm country.",
+    "website": "https://www.woodfordcountykyhistoricalsociety.com/museum",
+    "museum_type": "history",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.woodfordcountykyhistoricalsociety.com/museum"
+    ]
+  },
+  {
+    "id": "bluegrass-railroad-museum",
+    "name": "Bluegrass Railroad and Museum",
+    "city": "Versailles",
+    "county": "Woodford",
+    "address": "175 Beasley Rd, Versailles, KY 40383",
+    "latitude": 38.0459293,
+    "longitude": -84.7597962,
+    "founded_year": 1976,
+    "history": "Heritage railroad and museum in Woodford County Park offering scenic excursions through Bluegrass farmland plus rolling-stock and railroad history exhibits. A family-friendly outdoor stop that pairs well with Versailles and Midway bourbon-and-horse country drives.",
+    "website": "https://www.bluegrassrailroad.com/",
+    "museum_type": "other",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.bluegrassrailroad.com/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "jack-jouett-house",
+    "name": "Jack Jouett House Historic Site",
+    "city": "Versailles",
+    "county": "Woodford",
+    "address": "255 Craigs Creek Rd, Versailles, KY 40383",
+    "latitude": 38.0106,
+    "longitude": -84.7717,
+    "founded_year": 1797,
+    "history": "Late-18th-century home of Revolutionary War hero Jack Jouett—the 'Paul Revere of the South' who rode to warn Jefferson and the Virginia legislature in 1781. Interprets frontier architecture and Jouett's later Kentucky years. Rural Woodford County setting southwest of Versailles.",
+    "website": "https://jouetthouse.org/",
+    "museum_type": "house",
+    "geocode_source": "manual",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "georgetown-scott-county-museum",
+    "name": "Georgetown & Scott County Museum",
+    "city": "Georgetown",
+    "county": "Scott",
+    "address": "229 E Main St, Georgetown, KY 40324",
+    "latitude": 38.2100849,
+    "longitude": -84.5570677,
+    "founded_year": null,
+    "history": "Public museum in the former Georgetown Post Office collecting and interpreting Scott County history, culture, and artifacts. Exhibits and a gift shop of local art sit on Main Street in a growing Toyota-era college town. Strong local-history stop between Lexington and Cincinnati.",
+    "website": "https://www.georgetownscottcountymuseum.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.georgetownscottcountymuseum.com/"
+    ]
+  },
+  {
+    "id": "ward-hall",
+    "name": "Ward Hall",
+    "city": "Georgetown",
+    "county": "Scott",
+    "address": "1782 S Elkhorn Rd, Georgetown, KY 40324",
+    "latitude": 38.1986,
+    "longitude": -84.5625,
+    "founded_year": 1857,
+    "history": "Monumental Greek Revival mansion built in the 1850s for Junius Ward—one of Kentucky's grandest antebellum houses. Tours interpret plantation-era architecture, Scott County society, and the building's later preservation. Landmark drive-to stop on the edge of Georgetown.",
+    "website": "https://www.wardhall.net/",
+    "museum_type": "house",
+    "geocode_source": "manual",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "frazier-history-museum",
+    "name": "Frazier History Museum",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "829 W Main St, Louisville, KY 40202",
+    "latitude": 38.2557269,
+    "longitude": -85.751821,
+    "founded_year": 2004,
+    "history": "Museum Row flagship telling Kentucky history, culture, and people—including the official Kentucky Bourbon Trail Welcome Center. Combines arms-and-armor roots with rotating exhibits on Commonwealth stories. Ideal downtown starting point for Louisville history days.",
+    "website": "https://www.fraziermuseum.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.fraziermuseum.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "kentucky-derby-museum",
+    "name": "Kentucky Derby Museum",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "704 Central Ave, Louisville, KY 40208",
+    "latitude": 38.2052895,
+    "longitude": -85.7713408,
+    "founded_year": 1985,
+    "history": "Thoroughbred racing museum at Churchill Downs covering Derby history, jockeys, trainers, and race-day culture. Immersive exhibits and track tours connect Louisville's most famous tradition to the wider horse industry. Essential sports-and-culture stop in Jefferson County.",
+    "website": "https://www.derbymuseum.org/",
+    "museum_type": "other",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.derbymuseum.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "louisville-slugger-museum",
+    "name": "Louisville Slugger Museum & Factory",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "800 W Main St, Louisville, KY 40202",
+    "latitude": 38.2566765,
+    "longitude": -85.7639061,
+    "founded_year": 1996,
+    "history": "Museum and working bat factory on Main Street celebrating baseball and the iconic Louisville Slugger brand. Factory tours, player exhibits, and the giant bat outside make it one of Louisville's most recognizable visitor stops. Anchors Museum Row beside the Frazier.",
+    "website": "https://www.sluggermuseum.com/",
+    "museum_type": "other",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.sluggermuseum.com/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "muhammad-ali-center",
+    "name": "Muhammad Ali Center",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "144 N 6th St, Louisville, KY 40202",
+    "latitude": 38.2581433,
+    "longitude": -85.7599941,
+    "founded_year": 2005,
+    "history": "Cultural center and museum on the Louisville waterfront dedicated to Muhammad Ali's life, boxing career, and core values of respect, confidence, conviction, dedication, giving, and spirituality. Interactive galleries connect sports history to civil rights and global humanitarian work.",
+    "website": "https://alicenter.org/",
+    "museum_type": "other",
+    "geocode_source": "photon",
+    "sources": [
+      "https://alicenter.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "speed-art-museum",
+    "name": "Speed Art Museum",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "2035 S 3rd St, Louisville, KY 40208",
+    "latitude": 38.2178538,
+    "longitude": -85.7607957,
+    "founded_year": 1927,
+    "history": "Kentucky's oldest and largest art museum, beside the University of Louisville, with European, American, and contemporary collections plus major special exhibitions. Expanded campus galleries make it the state's primary fine-art destination. Strong complement to Louisville's history museums.",
+    "website": "https://www.speedmuseum.org/",
+    "museum_type": "art",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.speedmuseum.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "kentucky-science-center",
+    "name": "Kentucky Science Center",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "727 W Main St, Louisville, KY 40202",
+    "latitude": 38.2577103,
+    "longitude": -85.7625883,
+    "founded_year": 1871,
+    "history": "Hands-on science museum on Museum Row (formerly Louisville Science Center) with interactive STEM galleries, natural-history displays, and family programming. One of the oldest science museums in the country in continuous operation. Ideal rainy-day or kids stop downtown.",
+    "website": "https://kysciencecenter.org/",
+    "museum_type": "science",
+    "geocode_source": "photon",
+    "sources": [
+      "https://kysciencecenter.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "historic-locust-grove",
+    "name": "Historic Locust Grove",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "561 Blankenbaker Ln, Louisville, KY 40207",
+    "latitude": 38.2876381,
+    "longitude": -85.6626759,
+    "founded_year": 1790,
+    "history": "National Historic Landmark 55-acre farm homestead associated with the Croghan family and George Rogers Clark's later years. Interprets early Louisville, the Ohio River frontier, and enslaved labor on an early Kentucky plantation. House museum, grounds, and programs east of downtown.",
+    "website": "https://locustgrove.org/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://locustgrove.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "farmington-historic-home",
+    "name": "Farmington Historic Home",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "3033 Bardstown Rd, Louisville, KY 40205",
+    "latitude": 38.2145832,
+    "longitude": -85.6681401,
+    "founded_year": 1816,
+    "history": "Federal-style plantation home of the Speed family, with Jeffersonian architectural ties and a documented visit by Abraham Lincoln in 1841. Tours address enslavement, hemp farming, and antebellum Louisville. Major house museum on Bardstown Road.",
+    "website": "https://farmingtonhistoricplantation.org/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://farmingtonhistoricplantation.org/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "museum-american-printing-house-blind",
+    "name": "Museum of the American Printing House for the Blind",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "1839 Frankfort Ave, Louisville, KY 40206",
+    "latitude": 38.2568795,
+    "longitude": -85.7145659,
+    "founded_year": 1994,
+    "history": "Museum interpreting the history of education for people who are blind and the work of the American Printing House for the Blind, the world's largest nonprofit creating accessible educational materials. Unique Louisville institution with deep national impact. Tours connect manufacturing history to accessibility.",
+    "website": "https://www.aph.org/museum/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.aph.org/museum/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "filson-historical-society",
+    "name": "The Filson Historical Society",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "1310 S 3rd St, Louisville, KY 40208",
+    "latitude": 38.2322303,
+    "longitude": -85.7595943,
+    "founded_year": 1884,
+    "history": "Kentucky's oldest privately supported historical society, with museum galleries, research library, and special collections on Ohio Valley and Kentucky history. Named for explorer-historian John Filson. Old Louisville campus for deeper documentary and exhibit work.",
+    "website": "https://filsonhistorical.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://filsonhistorical.org/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "ashland-henry-clay-estate",
+    "name": "Ashland, The Henry Clay Estate",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "120 Sycamore Rd, Lexington, KY 40502",
+    "latitude": 38.0293209,
+    "longitude": -84.4799493,
+    "founded_year": 1804,
+    "history": "Plantation home and estate of statesman Henry Clay—the Great Compromiser—interpreting 19th-century politics, family life, and enslaved labor at Ashland. House museum, grounds, and outbuildings sit in a historic Lexington neighborhood. Essential Bluegrass political-history stop.",
+    "website": "https://henryclay.org/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://henryclay.org/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "mary-todd-lincoln-house",
+    "name": "Mary Todd Lincoln House",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "578 W Main St, Lexington, KY 40508",
+    "latitude": 38.050524,
+    "longitude": -84.501557,
+    "founded_year": 1977,
+    "history": "First historic-house museum in America to honor a First Lady—Mary Todd Lincoln's girlhood home on West Main Street. Period rooms and interpretation cover the Todd family, Lexington society, and Mary's later White House years. Compact downtown Lexington stop.",
+    "website": "https://www.mtlhouse.org/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.mtlhouse.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "waveland-state-historic-site",
+    "name": "Waveland State Historic Site",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "225 Waveland Museum Ln, Lexington, KY 40514",
+    "latitude": 37.9711891,
+    "longitude": -84.5374395,
+    "founded_year": 1848,
+    "history": "Greek Revival plantation house interpreting 19th-century Bluegrass plantation life, including the experiences of enslaved people who worked the land. Kentucky State Historic Site south of downtown Lexington. House and grounds tours year-round.",
+    "website": "https://parks.ky.gov/lexington/parks/historic/waveland-state-historic-site",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/lexington/parks/historic/waveland-state-historic-site",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "uk-art-museum",
+    "name": "University of Kentucky Art Museum",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "405 Rose St, Lexington, KY 40506",
+    "latitude": 38.0399316,
+    "longitude": -84.4974616,
+    "founded_year": 1976,
+    "history": "University art museum in the Singletary Center presenting European, American, and contemporary works plus non-Western objects and changing exhibitions. Free campus destination connecting Lexington visitors to fine art beyond the horse parks. Strong complement to downtown house museums.",
+    "website": "https://finearts.uky.edu/art-museum",
+    "museum_type": "art",
+    "geocode_source": "photon",
+    "sources": [
+      "https://finearts.uky.edu/art-museum",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "aviation-museum-of-kentucky",
+    "name": "Aviation Museum of Kentucky",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "4029 Airport Rd, Lexington, KY 40510",
+    "latitude": 38.0326441,
+    "longitude": -84.5989808,
+    "founded_year": 1995,
+    "history": "Aviation museum at Blue Grass Airport with historic aircraft, flight artifacts, and aerospace education exhibits. Celebrates Kentucky's aviation industry and military flying heritage. Easy drive-to stop on the west side of Lexington.",
+    "website": "https://www.aviationky.org/",
+    "museum_type": "military",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.aviationky.org/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "bluegrass-heritage-museum",
+    "name": "Bluegrass Heritage Museum",
+    "city": "Winchester",
+    "county": "Clark",
+    "address": "217 S Main St, Winchester, KY 40391",
+    "latitude": 37.98984,
+    "longitude": -84.178475,
+    "founded_year": 2004,
+    "history": "Three-floor local history museum in Winchester's former Guerrant Clinic (Romanesque Revival, 1887). Covers Eskippakithiki, Boonesborough-era settlement, agriculture, military history, quilts, and the Pioneer Telephone Museum collection. Signature Clark County stop on the east ring toward the Red River Gorge.",
+    "website": "https://www.bgheritage.com/",
+    "museum_type": "heritage",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.bgheritage.com/",
+      "https://en.wikipedia.org/wiki/Bluegrass_Heritage_Museum"
+    ]
+  },
+  {
+    "id": "red-river-museum",
+    "name": "Red River Museum",
+    "city": "Clay City",
+    "county": "Powell",
+    "address": "4541 Main St, Clay City, KY 40312",
+    "latitude": 37.8659781,
+    "longitude": -83.9452869,
+    "founded_year": null,
+    "history": "Local history museum operated by the Red River Historical Society interpreting mining, logging, and railroad industries of the Red River valley. Gateway stop for travelers heading into the Red River Gorge and Powell County. Small community museum with strong regional industry focus.",
+    "website": null,
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "oscar-getz-museum",
+    "name": "Oscar Getz Museum of Bourbon History",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "114 N 5th St, Bardstown, KY 40004",
+    "latitude": 37.8154459,
+    "longitude": -85.4702316,
+    "founded_year": 1984,
+    "history": "Bourbon and whiskey history museum in Spalding Hall covering American whiskey from Colonial days through the 1960s—advertising, bottles, Prohibition, and distilling culture. Shares the landmark 1826 building with the Bardstown Historical Museum. Must-stop in the Bourbon Capital of the World.",
+    "website": "https://www.oscargetzwhiskeymuseum.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.oscargetzwhiskeymuseum.com/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "civil-war-museum-bardstown",
+    "name": "Civil War Museum of the Western Theater",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "310 E Broadway, Bardstown, KY 40004",
+    "latitude": 37.8110802,
+    "longitude": -85.4623237,
+    "founded_year": 1996,
+    "history": "One of the largest collections focused on the Civil War's Western Theater, now part of Bardstown's multi-site National Civil War Museum campus on Museum Row. Exhibits cover campaigns, Kentucky's divided loyalties, and soldier life; related sites include Old Bardstown Village and the Hal Moore Military Museum.",
+    "website": "https://civilwarmuseumbardstown.com/",
+    "museum_type": "military",
+    "geocode_source": "photon",
+    "sources": [
+      "https://civilwarmuseumbardstown.com/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "kentucky-railway-museum",
+    "name": "Kentucky Railway Museum",
+    "city": "New Haven",
+    "county": "Nelson",
+    "address": "136 S Main St, New Haven, KY 40051",
+    "latitude": 37.6654662,
+    "longitude": -85.5873706,
+    "founded_year": 1954,
+    "history": "Heritage railroad and museum interpreting Kentucky railroading with excursions, locomotives, and exhibits on the people who built the lines. Located in New Haven south of Bardstown on the Bourbon Trail map. Family-friendly transport-history day trip.",
+    "website": "https://kyrail.org/",
+    "museum_type": "other",
+    "geocode_source": "photon",
+    "sources": [
+      "https://kyrail.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "my-old-kentucky-home",
+    "name": "My Old Kentucky Home State Park (Federal Hill)",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "501 E Stephen Foster Ave, Bardstown, KY 40004",
+    "latitude": 37.806836,
+    "longitude": -85.4566708,
+    "founded_year": 1818,
+    "history": "Federal Hill mansion—better known as My Old Kentucky Home—interprets the Rowan family plantation and the song tradition linked to Stephen Foster. Kentucky State Park house museum with grounds and seasonal programs in Bardstown. Iconic Nelson County heritage stop.",
+    "website": "https://parks.ky.gov/bardstown/parks/historic/my-old-kentucky-home-state-park",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/bardstown/parks/historic/my-old-kentucky-home-state-park",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "bardstown-african-american-heritage-museum",
+    "name": "Bardstown African American Heritage Museum",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "315 N 2nd St, Bardstown, KY 40004",
+    "latitude": 37.8126561,
+    "longitude": -85.4634062,
+    "founded_year": 2016,
+    "history": "Heritage museum in the restored 1812 Union Church in Bardstown's Historic East End—among the earliest two-story brick churches west of the Appalachians. Interprets African American community history in the Bourbon Capital. Important complement to Bardstown's better-known whiskey and Civil War sites.",
+    "website": "https://www.bardstownaahm.com/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.bardstownaahm.com/"
+    ]
+  },
+  {
+    "id": "abraham-lincoln-birthplace",
+    "name": "Abraham Lincoln Birthplace National Historical Park",
+    "city": "Hodgenville",
+    "county": "Larue",
+    "address": "2995 Lincoln Farm Rd, Hodgenville, KY 42748",
+    "latitude": 37.5312,
+    "longitude": -85.7369,
+    "founded_year": 1916,
+    "history": "National Park Service site preserving the Sinking Spring Farm where Abraham Lincoln was born in 1809, plus the Knob Creek boyhood farm unit. Memorial building, boundary oak landscape, and visitor-center exhibits anchor Kentucky's Lincoln Trail. Essential Larue County pilgrimage stop.",
+    "website": "https://www.nps.gov/abli/",
+    "museum_type": "heritage",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.nps.gov/abli/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "lincoln-museum-hodgenville",
+    "name": "The Lincoln Museum",
+    "city": "Hodgenville",
+    "county": "Larue",
+    "address": "66 Lincoln Square, Hodgenville, KY 42748",
+    "latitude": 37.5739177,
+    "longitude": -85.7401653,
+    "founded_year": 1989,
+    "history": "Downtown Hodgenville museum with life-size dioramas of key Lincoln life events plus Lincoln art and memorabilia. Complements the Birthplace NHP a few miles south with a town-square visitor experience. Core stop on the Kentucky Lincoln Trail.",
+    "website": "https://www.lincolnmuseum-ky.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "bullitt-county-history-museum",
+    "name": "Bullitt County History Museum",
+    "city": "Shepherdsville",
+    "county": "Bullitt",
+    "address": "300 S Buckman St, Shepherdsville, KY 40165",
+    "latitude": 37.9880632,
+    "longitude": -85.7160752,
+    "founded_year": null,
+    "history": "Free museum and research room of the Bullitt County Genealogical Society inside the county courthouse. Local artifacts and archives cover Shepherdsville, salt works, and I-65 corridor community history. Practical weekday stop south of Louisville.",
+    "website": "https://bullittcountyhistory.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://bullittcountyhistory.org/",
+      "https://travelbullitt.org/listing/bullitt-county-history-museum/"
+    ]
+  },
+  {
+    "id": "ephraim-mcdowell-house",
+    "name": "Ephraim McDowell House",
+    "city": "Danville",
+    "county": "Boyle",
+    "address": "125 S 2nd St, Danville, KY 40422",
+    "latitude": 37.6570043,
+    "longitude": -84.7704879,
+    "founded_year": null,
+    "history": "House museum of Dr. Ephraim McDowell, who performed the first successful ovariotomy in 1809—an early milestone in abdominal surgery. Includes period doctor's office, house, and apothecary interpretation in downtown Danville. Medical-history landmark on Constitution Square's doorstep.",
+    "website": "https://www.mcdowellhouse.com/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "perryville-battlefield",
+    "name": "Perryville Battlefield State Historic Site",
+    "city": "Perryville",
+    "county": "Boyle",
+    "address": "1825 Battlefield Rd, Perryville, KY 40468",
+    "latitude": 37.6751,
+    "longitude": -84.9705,
+    "founded_year": 1936,
+    "history": "Preserved battlefield and museum interpreting the October 8, 1862 Battle of Perryville—the largest Civil War battle fought in Kentucky. Visitor center exhibits, monuments, and walking trails explain the Western Theater turning point. Major military-history drive south of Danville.",
+    "website": "https://parks.ky.gov/perryville/parks/historic/perryville-battlefield-state-historic-site",
+    "museum_type": "military",
+    "geocode_source": "manual",
+    "sources": [
+      "https://parks.ky.gov/perryville/parks/historic/perryville-battlefield-state-historic-site",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "hopewell-museum",
+    "name": "Hopewell Museum",
+    "city": "Paris",
+    "county": "Bourbon",
+    "address": "800 Pleasant St, Paris, KY 40361",
+    "latitude": 38.2095862,
+    "longitude": -84.2511345,
+    "founded_year": 1994,
+    "history": "Art and history museum interpreting Bourbon County and Central Kentucky culture in a historic Paris building. Permanent and changing exhibits cover local life, decorative arts, and regional identity. Anchor stop in the county that gave bourbon whiskey its name.",
+    "website": "https://www.hopewellmuseum.org/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.hopewellmuseum.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "cane-ridge-meeting-house",
+    "name": "Cane Ridge Meeting House & Barton W. Stone Museum",
+    "city": "Paris",
+    "county": "Bourbon",
+    "address": "1655 Cane Ridge Rd, Paris, KY 40361",
+    "latitude": 38.2156,
+    "longitude": -84.1161,
+    "founded_year": 1791,
+    "history": "Preserved 1791 log meeting house that hosted the famous 1801 Cane Ridge Revival—central to the Stone-Campbell Restoration Movement. On-site museum interprets Barton W. Stone and frontier religious history. Rural Bourbon County pilgrimage site east of Paris.",
+    "website": "https://www.caneridge.org/",
+    "museum_type": "heritage",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.caneridge.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "bluegrass-music-hall-of-fame",
+    "name": "Bluegrass Music Hall of Fame & Museum",
+    "city": "Owensboro",
+    "county": "Daviess",
+    "address": "311 W 2nd St, Owensboro, KY 42301",
+    "latitude": 37.7751538,
+    "longitude": -87.1140697,
+    "founded_year": 1991,
+    "history": "National museum and hall of fame dedicated to bluegrass music history, instruments, artists, and the genre's Kentucky roots (formerly the International Bluegrass Music Museum). Concert venue and exhibits on Owensboro's riverfront cultural district. Flagship Daviess County stop.",
+    "website": "https://www.bluegrasshall.org/",
+    "museum_type": "other",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.bluegrasshall.org/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "owensboro-museum-science-history",
+    "name": "Owensboro Museum of Science & History",
+    "city": "Owensboro",
+    "county": "Daviess",
+    "address": "122 E 2nd St, Owensboro, KY 42303",
+    "latitude": 37.7746413,
+    "longitude": -87.1102319,
+    "founded_year": null,
+    "history": "Family museum with natural history, science, local history, coal-mine, Native American, motorsports, and children's galleries downtown. Hands-on programming makes it Owensboro's go-to indoor learning stop. Complements the Bluegrass Music Hall of Fame nearby.",
+    "website": "https://owensboromuseum.org/",
+    "museum_type": "science",
+    "geocode_source": "photon",
+    "sources": [
+      "https://owensboromuseum.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "owensboro-museum-fine-art",
+    "name": "Owensboro Museum of Fine Art",
+    "city": "Owensboro",
+    "county": "Daviess",
+    "address": "901 Frederica St, Owensboro, KY 42301",
+    "latitude": 37.7753106,
+    "longitude": -87.1135988,
+    "founded_year": 1977,
+    "history": "Regional fine-art museum with American, European, and Asian collections from the 15th century to contemporary work, plus decorative arts. Anchors Owensboro's cultural corridor beyond music and science museums. Strong western-Kentucky art destination.",
+    "website": "https://www.omfa.us/",
+    "museum_type": "art",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "behringer-crawford-museum",
+    "name": "Behringer-Crawford Museum",
+    "city": "Covington",
+    "county": "Kenton",
+    "address": "1600 Montague Rd, Covington, KY 41011",
+    "latitude": 39.081216,
+    "longitude": -84.5388686,
+    "founded_year": 1950,
+    "history": "Regional history museum in Devou Park interpreting Northern Kentucky's natural and cultural history—from Ice Age fossils to river-city industry. Signature Covington destination with sweeping Cincinnati views from the park. Best single-stop overview of the NKY story.",
+    "website": "https://www.bcmuseum.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.bcmuseum.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "big-bone-lick-museum",
+    "name": "Big Bone Lick State Historic Site Museum",
+    "city": "Union",
+    "county": "Boone",
+    "address": "3380 Beaver Rd, Union, KY 41091",
+    "latitude": 38.8867,
+    "longitude": -84.7519,
+    "founded_year": null,
+    "history": "Visitor-center museum at Big Bone Lick State Historic Site interpreting Pleistocene fossils, salt-lick science, and early exploration of Kentucky's deep-time landscape. Outdoor museum elements recreate Ice Age fauna at the lick. Signature Boone County natural-history stop.",
+    "website": "https://parks.ky.gov/union/parks/historic/big-bone-lick-state-historic-site",
+    "museum_type": "science",
+    "geocode_source": "manual",
+    "sources": [
+      "https://parks.ky.gov/union/parks/historic/big-bone-lick-state-historic-site",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "dinsmore-homestead",
+    "name": "Dinsmore Homestead",
+    "city": "Burlington",
+    "county": "Boone",
+    "address": "5656 Burlington Pike, Burlington, KY 41005",
+    "latitude": 39.0009694,
+    "longitude": -84.6456245,
+    "founded_year": 1842,
+    "history": "1840s homestead museum on 30 acres interpreting Northern Kentucky farm life, the Dinsmore family, and free/enslaved labor through unusually rich archival collections. House and landscape tours near Burlington. Strong Boone County house-museum counterpart to Big Bone Lick.",
+    "website": "https://www.dinsmorefarm.org/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.dinsmorefarm.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "kentucky-gateway-museum-center",
+    "name": "Kentucky Gateway Museum Center",
+    "city": "Maysville",
+    "county": "Mason",
+    "address": "215 Sutton St, Maysville, KY 41056",
+    "latitude": 38.6482142,
+    "longitude": -83.7670714,
+    "founded_year": 1878,
+    "history": "Major regional museum complex with Kentucky history dioramas, an art gallery, and the Kathleen Savage Browning Miniatures Collection. Anchors Maysville's Ohio River heritage tourism. Best single indoor overview of Mason County and the limestones-to-bluegrass corridor.",
+    "website": "https://www.kygmc.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.kygmc.org/",
+      "https://kymuseums.org/directory/"
+    ]
+  },
+  {
+    "id": "national-underground-railroad-museum",
+    "name": "National Underground Railroad Museum",
+    "city": "Maysville",
+    "county": "Mason",
+    "address": "38 W 4th St, Maysville, KY 41056",
+    "latitude": 38.6123317,
+    "longitude": -83.8135395,
+    "founded_year": null,
+    "history": "Museum in the Bierbower House, a documented Underground Railroad safe house, interpreting escape routes across the Ohio River at Maysville. Personal stories and period rooms connect Mason County to the national freedom struggle. Pair with Old Washington and the Gateway Museum Center.",
+    "website": null,
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "harriet-beecher-stowe-museum",
+    "name": "Harriet Beecher Stowe Slavery to Freedom Museum",
+    "city": "Maysville",
+    "county": "Mason",
+    "address": "2124 Old Main St, Washington, KY 41056",
+    "latitude": 38.6146669,
+    "longitude": -83.8085628,
+    "founded_year": null,
+    "history": "Located in the Marshall Key House in Old Washington, associated with Harriet Beecher Stowe's observations that informed Uncle Tom's Cabin. Interprets slavery, freedom seeking, and antebellum river-town life. Part of the Old Washington historic village experience.",
+    "website": null,
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "hardin-county-history-museum",
+    "name": "Hardin County History Museum",
+    "city": "Elizabethtown",
+    "county": "Hardin",
+    "address": "201 W Dixie Ave, Elizabethtown, KY 42701",
+    "latitude": 37.6941947,
+    "longitude": -85.859492,
+    "founded_year": null,
+    "history": "Regional history museum on the Lincoln Trail covering Hardin County from pioneer settlement to the present, with rotating exhibits and famous-resident stories. Downtown Elizabethtown stop for travelers between Louisville and Hodgenville. Strong local-history counterpart to Fort Knox military sites.",
+    "website": "http://hardinkyhistory.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "http://hardinkyhistory.com/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "patton-museum-of-leadership",
+    "name": "General George Patton Museum of Leadership",
+    "city": "Fort Knox",
+    "county": "Hardin",
+    "address": "4554 Fayette Ave, Fort Knox, KY 40121",
+    "latitude": 37.897,
+    "longitude": -85.974,
+    "founded_year": 1972,
+    "history": "Museum of leadership and armor heritage associated with General George S. Patton Jr. and Fort Knox training traditions (evolved from the earlier Patton Museum of Cavalry and Armor). Public visitor access focuses on leadership exhibits and military history. Major Hardin County destination beside the Gold Vault area.",
+    "website": "https://www.generalpatton.org/",
+    "museum_type": "military",
+    "geocode_source": "manual",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "pennyroyal-area-museum",
+    "name": "Pennyroyal Area Museum",
+    "city": "Hopkinsville",
+    "county": "Christian",
+    "address": "217 E 9th St, Hopkinsville, KY 42240",
+    "latitude": 36.8483865,
+    "longitude": -87.4675963,
+    "founded_year": 1975,
+    "history": "Regional museum covering Christian County and the Pennyroyal—Edgar Cayce, Black Patch Tobacco Wars and Night Riders, African American history, pioneer life, and military exhibits. Downtown Hopkinsville flagship of Museums of Historic Hopkinsville-Christian County. Essential western Bourbon Trail-county history stop.",
+    "website": "https://www.museumsofhopkinsville.org/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.museumsofhopkinsville.org/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "octagon-hall-museum",
+    "name": "Octagon Hall Museum",
+    "city": "Franklin",
+    "county": "Simpson",
+    "address": "6040 Bowling Green Rd, Franklin, KY 42134",
+    "latitude": 36.7873867,
+    "longitude": -86.5666914,
+    "founded_year": 1859,
+    "history": "Rare octagonal antebellum house museum interpreting Civil War-era southern Kentucky life and architecture. Period rooms and grounds tours south of Franklin. Distinctive house-museum stop for travelers between Bowling Green and Nashville.",
+    "website": "https://www.octagonhall.com/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.octagonhall.com/",
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "big-sandy-heritage-center",
+    "name": "Big Sandy Heritage Center Museum",
+    "city": "Pikeville",
+    "county": "Pike",
+    "address": "172 Division St, Pikeville, KY 41501",
+    "latitude": 37.47915,
+    "longitude": -82.51976,
+    "founded_year": null,
+    "history": "Regional heritage museum with major exhibits on fossils, Native and pioneer settlement, Civil War in the Big Sandy, industrialization, and especially the Hatfield-McCoy feud. Largest historical-artifact repository in the Upper Big Sandy Valley. Flagship eastern Kentucky stop in Pikeville.",
+    "website": "https://bigsandyheritage.com/",
+    "museum_type": "heritage",
+    "geocode_source": "manual",
+    "sources": [
+      "https://bigsandyheritage.com/",
+      "https://en.wikipedia.org/wiki/Big_Sandy_Heritage_Center"
+    ]
+  },
+  {
+    "id": "rosemary-clooney-museum",
+    "name": "Rosemary Clooney Museum",
+    "city": "Augusta",
+    "county": "Bracken",
+    "address": "106 E Riverside Dr, Augusta, KY 41002",
+    "latitude": 38.7740469,
+    "longitude": -84.0115302,
+    "founded_year": null,
+    "history": "House museum celebrating singer and actress Rosemary Clooney in her riverside hometown of Augusta on the Ohio. Memorabilia and period rooms interpret mid-century entertainment history with Kentucky roots. Scenic Bracken County drive-to stop.",
+    "website": "https://www.rosemaryclooney.org/",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "kentucky-museum",
+    "name": "Kentucky Museum",
+    "city": "Bowling Green",
+    "county": "Warren",
+    "address": "1444 Kentucky St, Bowling Green, KY 42101",
+    "latitude": 36.984529,
+    "longitude": -86.457647,
+    "founded_year": 1939,
+    "history": "Western Kentucky University's flagship museum of Kentucky cultural history, decorative arts, and Duncan Hines collections. Major south-central public museum on the WKU campus.",
+    "website": "https://www.wku.edu/kentuckymuseum/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.wku.edu/kentuckymuseum/"
+    ]
+  },
+  {
+    "id": "national-corvette-museum",
+    "name": "National Corvette Museum",
+    "city": "Bowling Green",
+    "county": "Warren",
+    "address": "350 Corvette Dr, Bowling Green, KY 42101",
+    "latitude": 37.0042236,
+    "longitude": -86.3744523,
+    "founded_year": 1994,
+    "history": "Automotive museum celebrating the Chevrolet Corvette beside the Bowling Green Assembly Plant. Iconic Kentucky tourism stop with exhibits, Skydome, and plant-tour pairing.",
+    "website": "https://www.corvettemuseum.org/",
+    "museum_type": "other",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.corvettemuseum.org/"
+    ]
+  },
+  {
+    "id": "historic-railpark-bowling-green",
+    "name": "Historic Railpark and Train Museum",
+    "city": "Bowling Green",
+    "county": "Warren",
+    "address": "401 Kentucky St, Bowling Green, KY 42101",
+    "latitude": 37.0001899,
+    "longitude": -86.4382531,
+    "founded_year": 2007,
+    "history": "Restored L&N depot museum with historic locomotives and rolling stock interpreting Bowling Green's railroad heritage on the Louisville & Nashville corridor.",
+    "website": "https://www.historicrailpark.com/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.historicrailpark.com/"
+    ]
+  },
+  {
+    "id": "riverview-hobson-grove",
+    "name": "Riverview at Hobson Grove",
+    "city": "Bowling Green",
+    "county": "Warren",
+    "address": "1100 W Main Ave, Bowling Green, KY 42101",
+    "latitude": 37.0056323,
+    "longitude": -86.4537157,
+    "founded_year": 1972,
+    "history": "Italianate Civil War–era mansion museum overlooking the Barren River, interpreting Bowling Green life when the city briefly served as Confederate Kentucky's capital.",
+    "website": "https://www.bgky.org/riverview",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.bgky.org/riverview"
+    ]
+  },
+  {
+    "id": "national-quilt-museum",
+    "name": "National Quilt Museum",
+    "city": "Paducah",
+    "county": "McCracken",
+    "address": "215 Jefferson St, Paducah, KY 42001",
+    "latitude": 37.089332,
+    "longitude": -88.5971645,
+    "founded_year": 1991,
+    "history": "Paducah's nationally known museum of contemporary quilts and fiber art, anchoring the city's UNESCO Creative City reputation and QuiltWeek tourism.",
+    "website": "https://quiltmuseum.org/",
+    "museum_type": "art",
+    "geocode_source": "photon",
+    "sources": [
+      "https://quiltmuseum.org/"
+    ]
+  },
+  {
+    "id": "river-discovery-center",
+    "name": "River Discovery Center",
+    "city": "Paducah",
+    "county": "McCracken",
+    "address": "117 S Water St, Paducah, KY 42001",
+    "latitude": 37.0853784,
+    "longitude": -88.6258072,
+    "founded_year": 1988,
+    "history": "Ohio River museum on Paducah's waterfront covering steamboats, commerce, locks and dams, and river ecology in the Jackson Purchase.",
+    "website": "https://www.riverdiscoverycenter.org/",
+    "museum_type": "science",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.riverdiscoverycenter.org/"
+    ]
+  },
+  {
+    "id": "william-clark-market-house",
+    "name": "William Clark Market House Museum",
+    "city": "Paducah",
+    "county": "McCracken",
+    "address": "121 S 2nd St, Paducah, KY 42001",
+    "latitude": 37.0828138,
+    "longitude": -88.6256886,
+    "founded_year": 1968,
+    "history": "Paducah city history museum in the historic Market House, covering William Clark's town founding, river trade, and local culture.",
+    "website": "https://www.markethousemuseum.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.markethousemuseum.com/"
+    ]
+  },
+  {
+    "id": "lloyd-tilghman-house",
+    "name": "Lloyd Tilghman House & Civil War Museum",
+    "city": "Paducah",
+    "county": "McCracken",
+    "address": "631 Kentucky Ave, Paducah, KY 42001",
+    "latitude": 37.0722435,
+    "longitude": -88.6307446,
+    "founded_year": 2006,
+    "history": "House museum interpreting Confederate General Lloyd Tilghman and the 1864 Battle of Paducah in the western theater of the Civil War.",
+    "website": "https://www.tilghmancivilwarmuseum.com/",
+    "museum_type": "military",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.tilghmancivilwarmuseum.com/"
+    ]
+  },
+  {
+    "id": "john-james-audubon-museum",
+    "name": "John James Audubon Museum",
+    "city": "Henderson",
+    "county": "Henderson",
+    "address": "3100 US-41 N, Henderson, KY 42420",
+    "latitude": 37.8404295,
+    "longitude": -87.5921536,
+    "founded_year": 1938,
+    "history": "State park museum holding significant Audubon art and natural-history exhibits at the site associated with the artist's Kentucky years along the Ohio River.",
+    "website": "https://parks.ky.gov/henderson/parks/resort/john-james-audubon-state-park",
+    "museum_type": "art",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/henderson/parks/resort/john-james-audubon-state-park"
+    ]
+  },
+  {
+    "id": "jefferson-davis-monument",
+    "name": "Jefferson Davis State Historic Site",
+    "city": "Fairview",
+    "county": "Todd",
+    "address": "258 Pembroke-Fairview Rd, Fairview, KY 42221",
+    "latitude": 36.8435,
+    "longitude": -87.1195,
+    "founded_year": 1924,
+    "history": "351-foot obelisk and museum commemorating Jefferson Davis's birthplace in Todd County—Kentucky's major Confederate memorial state historic site.",
+    "website": "https://parks.ky.gov/fairview/parks/historic/jefferson-davis-state-historic-site",
+    "museum_type": "heritage",
+    "geocode_source": "manual",
+    "sources": [
+      "https://parks.ky.gov/fairview/parks/historic/jefferson-davis-state-historic-site"
+    ]
+  },
+  {
+    "id": "kentucky-coal-mining-museum",
+    "name": "Kentucky Coal Mining Museum",
+    "city": "Benham",
+    "county": "Harlan",
+    "address": "231 Main St, Benham, KY 40807",
+    "latitude": 36.965306,
+    "longitude": -82.9562693,
+    "founded_year": 1994,
+    "history": "Museum of coal-camp life and mining technology in a former International Harvester company store in Benham—central to Harlan County's coal heritage story.",
+    "website": "https://www.kentuckycoalmuseum.org/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.kentuckycoalmuseum.org/"
+    ]
+  },
+  {
+    "id": "highlands-museum-ashland",
+    "name": "Highlands Museum and Discovery Center",
+    "city": "Ashland",
+    "county": "Boyd",
+    "address": "1620 Winchester Ave, Ashland, KY 41101",
+    "latitude": 38.4780382,
+    "longitude": -82.6392226,
+    "founded_year": 1984,
+    "history": "Ashland's regional history and children's discovery museum covering eastern Kentucky industry, culture, and community life along the Ohio River.",
+    "website": "https://www.highlandsmuseum.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.highlandsmuseum.com/"
+    ]
+  },
+  {
+    "id": "kentucky-folk-art-center",
+    "name": "Kentucky Folk Art Center",
+    "city": "Morehead",
+    "county": "Rowan",
+    "address": "102 W 1st St, Morehead, KY 40351",
+    "latitude": 38.1745861,
+    "longitude": -83.4381528,
+    "founded_year": 1985,
+    "history": "Morehead State University museum dedicated to self-taught and folk artists of Kentucky and Appalachia, with rotating exhibitions and a permanent collection.",
+    "website": "https://www.moreheadstate.edu/kfac/",
+    "museum_type": "art",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.moreheadstate.edu/kfac/"
+    ]
+  },
+  {
+    "id": "white-hall-state-historic-site",
+    "name": "White Hall State Historic Site",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "500 White Hall Shrine Rd, Richmond, KY 40475",
+    "latitude": 37.8330208,
+    "longitude": -84.3523272,
+    "founded_year": 1971,
+    "history": "Restored Italianate mansion of emancipationist Cassius Marcellus Clay, interpreting 19th-century politics, slavery debates, and Clay family life near Richmond.",
+    "website": "https://parks.ky.gov/richmond/parks/historic/white-hall-state-historic-site",
+    "museum_type": "house",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/richmond/parks/historic/white-hall-state-historic-site"
+    ]
+  },
+  {
+    "id": "irvinton-house-museum",
+    "name": "Irvinton House Museum",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "341 Lancaster Ave, Richmond, KY 40475",
+    "latitude": 37.7460574,
+    "longitude": -84.2995708,
+    "founded_year": null,
+    "history": "Madison County local-history museum in Irvine-McDowell Park interpreting Richmond and county settlement, Civil War context, and community life.",
+    "website": null,
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "american-cave-museum",
+    "name": "American Cave Museum",
+    "city": "Horse Cave",
+    "county": "Hart",
+    "address": "119 E Main St, Horse Cave, KY 42749",
+    "latitude": 37.1792847,
+    "longitude": -85.9057251,
+    "founded_year": 1993,
+    "history": "Cave and groundwater museum paired with Hidden River Cave tours, interpreting karst geology and conservation along Kentucky's cave country corridor.",
+    "website": "https://hiddenrivercave.com/",
+    "museum_type": "science",
+    "geocode_source": "photon",
+    "sources": [
+      "https://hiddenrivercave.com/"
+    ]
+  },
+  {
+    "id": "museum-of-the-barrens",
+    "name": "South Central Kentucky Cultural Center (Museum of the Barrens)",
+    "city": "Glasgow",
+    "county": "Barren",
+    "address": "200 W Water St, Glasgow, KY 42141",
+    "latitude": 37.0302261,
+    "longitude": -85.9092075,
+    "founded_year": 1980,
+    "history": "Regional history museum for the Barrens of south-central Kentucky, covering settlement, agriculture, and community heritage in Glasgow.",
+    "website": null,
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "bill-monroe-museum",
+    "name": "Bill Monroe Museum",
+    "city": "Rosine",
+    "county": "Ohio",
+    "address": "Rosine, KY 42370",
+    "latitude": 37.3345,
+    "longitude": -86.7415,
+    "founded_year": 2001,
+    "history": "Museum dedicated to bluegrass founder Bill Monroe in his Ohio County hometown of Rosine—core of western Kentucky's music heritage trail.",
+    "website": "https://www.billmonroemuseum.com/",
+    "museum_type": "heritage",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.billmonroemuseum.com/"
+    ]
+  },
+  {
+    "id": "owen-county-historical-museum",
+    "name": "Owen County Historical Society Museum",
+    "city": "Owenton",
+    "county": "Owen",
+    "address": "100 N Thomas St, Owenton, KY 40359",
+    "latitude": 38.5366872,
+    "longitude": -84.8368434,
+    "founded_year": null,
+    "history": "County historical society museum interpreting Owen County settlement and rural life north of Frankfort along the Kentucky River hills.",
+    "website": "https://owencohistory.com/",
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://owencohistory.com/"
+    ]
+  },
+  {
+    "id": "william-whitley-house",
+    "name": "William Whitley House State Historic Site",
+    "city": "Stanford",
+    "county": "Lincoln",
+    "address": "625 William Whitley Rd, Stanford, KY 40484",
+    "latitude": 37.5315,
+    "longitude": -84.5865,
+    "founded_year": 1938,
+    "history": "Brick frontier house of Revolutionary War pioneer William Whitley, interpreting early Kentucky settlement and the Sportsman's Hill racetrack tradition.",
+    "website": "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site",
+    "museum_type": "house",
+    "geocode_source": "manual",
+    "sources": [
+      "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site"
+    ]
+  },
+  {
+    "id": "old-fort-harrod-museum",
+    "name": "Old Fort Harrod State Park",
+    "city": "Harrodsburg",
+    "county": "Mercer",
+    "address": "100 S College St, Harrodsburg, KY 40330",
+    "latitude": 37.7619646,
+    "longitude": -84.8485383,
+    "founded_year": 1927,
+    "history": "Reconstructed 1774 fort and Mansion Museum interpreting Kentucky's first permanent English settlement and frontier life at Harrodsburg.",
+    "website": "https://parks.ky.gov/harrodsburg/parks/historic/old-fort-harrod-state-park",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/harrodsburg/parks/historic/old-fort-harrod-state-park"
+    ]
+  },
+  {
+    "id": "shaker-village-pleasant-hill",
+    "name": "Shaker Village of Pleasant Hill",
+    "city": "Harrodsburg",
+    "county": "Mercer",
+    "address": "3501 Lexington Rd, Harrodsburg, KY 40330",
+    "latitude": 37.8188327,
+    "longitude": -84.7384129,
+    "founded_year": 1961,
+    "history": "Largest restored Shaker community in the United States—living-history village, museum buildings, and National Historic Landmark district on the Kentucky River.",
+    "website": "https://shakervillageky.org/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://shakervillageky.org/"
+    ]
+  },
+  {
+    "id": "fort-boonesborough-museum",
+    "name": "Fort Boonesborough State Park",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "4375 Boonesborough Rd, Richmond, KY 40475",
+    "latitude": 37.8974165,
+    "longitude": -84.266814,
+    "founded_year": 1963,
+    "history": "Reconstructed frontier fort museum at the NHL Fort Boonesborough Site, with living-history interpreters and exhibits on Daniel Boone's Kentucky River settlement.",
+    "website": "https://parks.ky.gov/richmond/parks/historic/fort-boonesborough-state-park",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/richmond/parks/historic/fort-boonesborough-state-park"
+    ]
+  },
+  {
+    "id": "camp-nelson-heritage",
+    "name": "Camp Nelson National Monument / Heritage Park",
+    "city": "Nicholasville",
+    "county": "Jessamine",
+    "address": "6614 Danville Rd North, Nicholasville, KY 40356",
+    "latitude": 37.7878,
+    "longitude": -84.5981,
+    "founded_year": 2018,
+    "history": "NPS national monument and heritage park interpreting the Union depot and major USCT recruitment center—Kentucky's foremost Civil War emancipation landscape.",
+    "website": "https://www.nps.gov/cane/",
+    "museum_type": "military",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.nps.gov/cane/"
+    ]
+  },
+  {
+    "id": "harland-sanders-cafe-museum",
+    "name": "Harland Sanders Café and Museum",
+    "city": "Corbin",
+    "county": "Laurel",
+    "address": "688 US-25 W, Corbin, KY 40701",
+    "latitude": 36.9598343,
+    "longitude": -84.0938415,
+    "founded_year": 1940,
+    "history": "Preserved café where Colonel Harland Sanders perfected his fried-chicken recipe and launched the Kentucky Fried Chicken franchise story—museum and restored dining rooms.",
+    "website": "https://www.sanderscafe.com/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.sanderscafe.com/"
+    ]
+  },
+  {
+    "id": "wickliffe-mounds",
+    "name": "Wickliffe Mounds State Historic Site",
+    "city": "Wickliffe",
+    "county": "Ballard",
+    "address": "94 Green St, Wickliffe, KY 42087",
+    "latitude": 36.9686574,
+    "longitude": -89.0882319,
+    "founded_year": 1983,
+    "history": "Mississippian mound complex and museum interpreting Native American life at the confluence of the Mississippi and Ohio rivers in the Jackson Purchase.",
+    "website": "https://parks.ky.gov/wickliffe/parks/historic/wickliffe-mounds-state-historic-site",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/wickliffe/parks/historic/wickliffe-mounds-state-historic-site"
+    ]
+  },
+  {
+    "id": "wrather-west-kentucky-museum",
+    "name": "Wrather West Kentucky Museum",
+    "city": "Murray",
+    "county": "Calloway",
+    "address": "Murray State University, Murray, KY 42071",
+    "latitude": 36.6105,
+    "longitude": -88.3225,
+    "founded_year": 1978,
+    "history": "Murray State University museum of West Kentucky and Jackson Purchase history, culture, and regional heritage.",
+    "website": "https://www.murraystate.edu/wrather/",
+    "museum_type": "history",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.murraystate.edu/wrather/"
+    ]
+  },
+  {
+    "id": "mountain-homeplace",
+    "name": "Mountain Homeplace",
+    "city": "Staffordsville",
+    "county": "Johnson",
+    "address": "Highway 40, Staffordsville, KY 41256",
+    "latitude": 37.8505,
+    "longitude": -82.8555,
+    "founded_year": 1995,
+    "history": "Living-history farm and Museum of Appalachian History interpreting mid-19th-century eastern Kentucky mountain life near Paintsville Lake.",
+    "website": "https://www.mountainhomeplace.com/",
+    "museum_type": "heritage",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.mountainhomeplace.com/"
+    ]
+  },
+  {
+    "id": "kentucky-music-hall-of-fame",
+    "name": "Kentucky Music Hall of Fame & Museum",
+    "city": "Renfro Valley",
+    "county": "Rockcastle",
+    "address": "2590 Richmond St, Mt Vernon, KY 40456",
+    "latitude": 37.3939293,
+    "longitude": -84.333477,
+    "founded_year": 2002,
+    "history": "Museum and hall of fame celebrating Kentucky musicians from Renfro Valley barn-dance roots through country, bluegrass, and popular music.",
+    "website": "https://www.kentuckymusichalloffame.com/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.kentuckymusichalloffame.com/"
+    ]
+  },
+  {
+    "id": "american-saddlebred-museum",
+    "name": "American Saddlebred Museum",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "4083 Iron Works Pkwy, Lexington, KY 40511",
+    "latitude": 38.1483831,
+    "longitude": -84.5415542,
+    "founded_year": 1962,
+    "history": "Kentucky Horse Park museum dedicated to the American Saddlebred horse—art, trophies, tack, and breed history in the Bluegrass.",
+    "website": "https://www.asbmuseum.org/",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.asbmuseum.org/"
+    ]
+  },
+  {
+    "id": "james-ramage-civil-war-museum",
+    "name": "James A. Ramage Civil War Museum",
+    "city": "Fort Wright",
+    "county": "Kenton",
+    "address": "1402 Highland Pike, Fort Wright, KY 41011",
+    "latitude": 39.0337788,
+    "longitude": -84.5290688,
+    "founded_year": 2005,
+    "history": "Museum interpreting Northern Kentucky and Cincinnati Civil War defenses on Battery Hooper, including earthworks and regional home-front stories.",
+    "website": "https://www.fortwright.com/civilwarmuseum",
+    "museum_type": "military",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.fortwright.com/civilwarmuseum"
+    ]
+  },
+  {
+    "id": "mill-springs-battlefield-museum",
+    "name": "Mill Springs Battlefield Visitor Center & Museum",
+    "city": "Nancy",
+    "county": "Pulaski",
+    "address": "2020 West Hwy 90, Nancy, KY 42544",
+    "latitude": 37.0053,
+    "longitude": -84.7578,
+    "founded_year": 1992,
+    "history": "Visitor center museum for Mill Springs Battlefield National Monument interpreting the January 1862 Union victory that broke the Confederate defensive line in Kentucky.",
+    "website": "https://www.nps.gov/misp/",
+    "museum_type": "military",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.nps.gov/misp/"
+    ]
+  },
+  {
+    "id": "headley-whitney-museum",
+    "name": "Headley-Whitney Museum",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "4435 Old Frankfort Pike, Lexington, KY 40510",
+    "latitude": 38.0965756,
+    "longitude": -84.6104762,
+    "founded_year": 1968,
+    "history": "Decorative-arts museum founded by jeweler George Headley, known for bibelots, jewelry, and the Shell Grotto on Old Frankfort Pike.",
+    "website": "https://www.headley-whitney.org/",
+    "museum_type": "art",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.headley-whitney.org/"
+    ]
+  },
+  {
+    "id": "portland-museum",
+    "name": "Portland Museum",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "2308 Portland Ave, Louisville, KY 40212",
+    "latitude": 38.2693378,
+    "longitude": -85.7864732,
+    "founded_year": 1978,
+    "history": "Neighborhood museum interpreting Portland, Louisville's historic Ohio River community, immigration, and industrial waterfront life.",
+    "website": null,
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  },
+  {
+    "id": "explorium-lexington",
+    "name": "Explorium of Lexington",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "440 W Short St, Lexington, KY 40507",
+    "latitude": 38.0500707,
+    "longitude": -84.4999962,
+    "founded_year": 1990,
+    "history": "Hands-on children's museum in downtown Lexington (formerly Lexington Children's Museum) with interactive STEM and culture exhibits for families.",
+    "website": "https://explorium.com/",
+    "museum_type": "children",
+    "geocode_source": "photon",
+    "sources": [
+      "https://explorium.com/"
+    ]
+  },
+  {
+    "id": "lincoln-homestead-springfield",
+    "name": "Lincoln Homestead State Park",
+    "city": "Springfield",
+    "county": "Washington",
+    "address": "5073 Lincoln Park Rd, Springfield, KY 40069",
+    "latitude": 37.7310712,
+    "longitude": -85.216922,
+    "founded_year": 1936,
+    "history": "State historic site with reconstructed and restored buildings tied to Abraham Lincoln's Kentucky family roots, including Mordecai Lincoln's home near Springfield.",
+    "website": "https://parks.ky.gov/springfield/parks/historic/lincoln-homestead-state-park",
+    "museum_type": "heritage",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/springfield/parks/historic/lincoln-homestead-state-park"
+    ]
+  },
+  {
+    "id": "cynthiana-museum",
+    "name": "Cynthiana Museum",
+    "city": "Cynthiana",
+    "county": "Harrison",
+    "address": "112 S Main St, Cynthiana, KY 41031",
+    "latitude": 38.3904564,
+    "longitude": -84.296384,
+    "founded_year": null,
+    "history": "Local history museum covering Harrison County settlement and the Civil War Battles of Cynthiana during Morgan's Raids.",
+    "website": null,
+    "museum_type": "history",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
+    ]
+  }
+]

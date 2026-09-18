@@ -1,0 +1,865 @@
+[
+  {
+    "id": "blue-licks-battlefield",
+    "name": "Blue Licks Battlefield State Resort Park",
+    "city": "Carlisle",
+    "county": "Robertson",
+    "address": "10299 Maysville Rd, Carlisle, KY 40311",
+    "latitude": 38.4293225,
+    "longitude": -83.993922,
+    "war": "revolutionary",
+    "site_type": "battlefield",
+    "history": "Last major Revolutionary War battle in Kentucky (August 19, 1782): Kentucky militia pursuing British-allied Native forces from Bryan’s Station were ambushed at the Licking River; Daniel Boone’s son Israel was among the dead. Pioneer Museum and monument interpret the battle and earlier salt-lick history.",
+    "website": "https://parks.ky.gov/explore/blue-licks-battlefield-state-resort-park-7782",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/",
+      "https://www.battlefields.org/"
+    ]
+  },
+  {
+    "id": "fort-boonesborough",
+    "name": "Fort Boonesborough State Park",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "4375 Boonesborough Rd, Richmond, KY 40475",
+    "latitude": 37.8974165,
+    "longitude": -84.266814,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "Daniel Boone’s 1775 Transylvania settlement; withstood the September 1778 Shawnee/British-allied siege—the longest sustained fight of the war in Kentucky. Reconstructed fort and museum; NHL archaeological site nearby.",
+    "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7786",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/",
+      "https://www.battlefields.org/"
+    ]
+  },
+  {
+    "id": "bryans-station",
+    "name": "Bryan's Station Memorial",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "Bryan Station Rd memorial park, Lexington, KY 40516",
+    "latitude": 38.0767439,
+    "longitude": -84.4113249,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "August 15–16, 1782: women of the fort famously carried water under fire during a British-allied siege; the attackers withdrew toward Blue Licks. Memorial and battlefield landscape with limited on-site museum.",
+    "website": "https://www.battlefields.org/visit/battlefields/bryans-station",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.battlefields.org/visit/battlefields/bryans-station"
+    ]
+  },
+  {
+    "id": "ruddles-station",
+    "name": "Ruddle's Station Site",
+    "city": "Cynthiana",
+    "county": "Harrison",
+    "address": "US 27 / New Lair Rd area, Cynthiana, KY 41031",
+    "latitude": 38.3973778,
+    "longitude": -84.2784419,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "June 1780: British Capt. Bird’s force with artillery forced surrender of Ruddle’s Fort; captives marched north—panic rippled across the Kentucky frontier. Interpretive markers and American Battlefield Trust battlefield page.",
+    "website": "https://www.battlefields.org/visit/battlefields/ruddells-station",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.battlefields.org/visit/battlefields/ruddells-station"
+    ]
+  },
+  {
+    "id": "martins-station",
+    "name": "Martin's Station Site",
+    "city": "Cynthiana",
+    "county": "Harrison",
+    "address": "Licking River corridor near Cynthiana, Harrison County, KY",
+    "latitude": 38.33,
+    "longitude": -84.26,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "Days after Ruddle’s fell in 1780, nearby Martin’s Station also capitulated to Bird’s British-allied expedition, accelerating militia mobilization across central Kentucky. Pin to documented marker/preserve coordinates.",
+    "website": "https://www.battlefields.org/",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.battlefields.org/",
+      "https://en.wikipedia.org/wiki/Ruddle%27s_and_Martin%27s_Stations"
+    ]
+  },
+  {
+    "id": "old-fort-harrod",
+    "name": "Old Fort Harrod State Park",
+    "city": "Harrodsburg",
+    "county": "Mercer",
+    "address": "100 S College St, Harrodsburg, KY 40330",
+    "latitude": 37.7619646,
+    "longitude": -84.8485383,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "Commemorates James Harrod’s 1774 settlement—among the first permanent Anglo-American towns west of the Alleghenies—and the frontier-war context of the Revolution. Reconstructed fort, Mansion Museum, and pioneer cemetery.",
+    "website": "https://parks.ky.gov/explore/old-fort-harrod-state-park-7823",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/"
+    ]
+  },
+  {
+    "id": "logans-station",
+    "name": "Logan's Station / St. Asaph",
+    "city": "Stanford",
+    "county": "Lincoln",
+    "address": "St. Asaph historic area, Stanford, KY 40484",
+    "latitude": 37.5427356,
+    "longitude": -84.6527882,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "Benjamin Logan’s station was a key militia hub; Boone’s 1778 court-martial after Boonesborough was held at Logan’s Fort. Public markers and local interpretation in Stanford.",
+    "website": "https://history.ky.gov/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://history.ky.gov/",
+      "https://en.wikipedia.org/wiki/Logan%27s_Fort"
+    ]
+  },
+  {
+    "id": "painted-stone-long-run",
+    "name": "Painted Stone Station / Long Run Massacre Area",
+    "city": "Eastwood",
+    "county": "Jefferson",
+    "address": "Long Run Baptist Church & US 60 corridor, Eastwood, KY 40025",
+    "latitude": 38.2549325,
+    "longitude": -85.4131172,
+    "war": "revolutionary",
+    "site_type": "other",
+    "history": "September 1781: settlers fleeing Squire Boone’s Painted Stone Station were attacked on Long Run Creek—one of the bloodiest frontier-war incidents near today’s Louisville suburbs. Markers and cemetery landscape.",
+    "website": "https://history.ky.gov/",
+    "geocode_source": "nominatim",
+    "sources": [
+      "https://history.ky.gov/",
+      "https://en.wikipedia.org/wiki/Long_Run_Massacre"
+    ]
+  },
+  {
+    "id": "floyds-station",
+    "name": "Floyd's Station",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "Floyd's Station historic marker area, St. Matthews / Beargrass, Louisville, KY",
+    "latitude": 38.252,
+    "longitude": -85.65,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "John Floyd’s Beargrass station anchored early Jefferson County defense during Revolutionary-era raids. Marker and landscape pin interpreting settlement defense on the Falls approaches.",
+    "website": "https://history.ky.gov/",
+    "geocode_source": "manual",
+    "sources": [
+      "https://history.ky.gov/"
+    ]
+  },
+  {
+    "id": "mcconnell-springs",
+    "name": "McConnell Springs",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "416 Rebmann Ln, Lexington, KY 40504",
+    "latitude": 38.0549267,
+    "longitude": -84.5277229,
+    "war": "revolutionary",
+    "site_type": "other",
+    "history": "Spring where Lexington was named in 1775 amid Revolutionary fervor; later a protected natural and historic park interpreting settlement-era Bluegrass. Frontier context more than a battle site.",
+    "website": "https://www.lexingtonky.gov/mcconnell-springs",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.lexingtonky.gov/"
+    ]
+  },
+  {
+    "id": "constitution-square",
+    "name": "Constitution Square Historic Site",
+    "city": "Danville",
+    "county": "Boyle",
+    "address": "134 S 2nd St, Danville, KY 40422",
+    "latitude": 37.6452965,
+    "longitude": -84.7702544,
+    "war": "revolutionary",
+    "site_type": "other",
+    "history": "Seat of Kentucky’s late-Revolution and early-statehood conventions (1784–1792) as the district separated from Virginia. Open historic site with period buildings in downtown Danville.",
+    "website": "https://parks.ky.gov/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/",
+      "https://en.wikipedia.org/wiki/Constitution_Square_Historic_Site"
+    ]
+  },
+  {
+    "id": "locust-grove-war",
+    "name": "Historic Locust Grove (Clark / frontier war context)",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "561 Blankenbaker Ln, Louisville, KY 40207",
+    "latitude": 38.2876381,
+    "longitude": -85.6626759,
+    "war": "revolutionary",
+    "site_type": "museum",
+    "history": "Home associated with George Rogers Clark after his Illinois campaigns that secured the Old Northwest during the Revolution. National Historic Landmark house museum; war layer deep-links the frontier-war story.",
+    "website": "https://locustgrove.org/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://locustgrove.org/"
+    ]
+  },
+  {
+    "id": "perryville-battlefield",
+    "name": "Perryville Battlefield State Historic Site",
+    "city": "Perryville",
+    "county": "Boyle",
+    "address": "1825 Battlefield Rd, Perryville, KY 40468",
+    "latitude": 37.6751,
+    "longitude": -84.9705,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "October 8, 1862: largest Civil War battle in Kentucky (~7,600 casualties); Bragg’s Confederate invasion peaked then withdrew. NHL landscape with museum and trails; already in museums.json.",
+    "website": "https://perryvillebattlefield.org/",
+    "geocode_source": "manual",
+    "sources": [
+      "https://perryvillebattlefield.org/"
+    ]
+  },
+  {
+    "id": "camp-nelson-nm",
+    "name": "Camp Nelson National Monument",
+    "city": "Nicholasville",
+    "county": "Jessamine",
+    "address": "6614 Old Danville Loop 2 Rd, Nicholasville, KY 40356",
+    "latitude": 37.7903557,
+    "longitude": -84.5985048,
+    "war": "civil",
+    "site_type": "camp",
+    "history": "Union supply depot (from 1863) that became a major USCT recruitment center and refugee camp for freedom-seeking families. NPS unit and NHL district with visitor center and museum.",
+    "website": "https://www.nps.gov/cane/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.nps.gov/cane/"
+    ]
+  },
+  {
+    "id": "camp-nelson-national-cemetery",
+    "name": "Camp Nelson National Cemetery",
+    "city": "Nicholasville",
+    "county": "Jessamine",
+    "address": "6980 Danville Rd, Nicholasville, KY 40356",
+    "latitude": 37.7870481,
+    "longitude": -84.6018808,
+    "war": "civil",
+    "site_type": "cemetery",
+    "history": "National cemetery tied to Camp Nelson’s wartime hospital and USCT story; solemn interpretive companion to the National Monument. Rows of headstones mark Union dead and later burials.",
+    "website": "https://www.cem.va.gov/cems/nchp/campnelson.asp",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.cem.va.gov/"
+    ]
+  },
+  {
+    "id": "richmond-battlefield-park",
+    "name": "Battle of Richmond / Richmond Battlefield Park",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "Richmond Battlefield Park visitor center (Rogers House), Richmond, KY 40475",
+    "latitude": 37.6847,
+    "longitude": -84.2581,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "August 29–30, 1862: Confederate victory early in the Kentucky Campaign routed Union forces under William “Bull” Nelson. Preserved park, walking trail, and historic houses interpret the fight.",
+    "website": "https://www.battlefields.org/visit/battlefields/richmond-battlefield",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.battlefields.org/visit/battlefields/richmond-battlefield"
+    ]
+  },
+  {
+    "id": "battle-for-the-bridge",
+    "name": "Battle for the Bridge Historic Preserve",
+    "city": "Munfordville",
+    "county": "Hart",
+    "address": "Battle for the Bridge Historic Preserve, Munfordville, KY 42765",
+    "latitude": 37.2572965,
+    "longitude": -85.8878255,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "Siege of Munfordville (September 14–17, 1862) plus Rowlett’s Station and Woodsonville actions controlling the L&N railroad bridge. Preserve trails interpret a strategic Western Theater choke point.",
+    "website": "https://www.visitmunfordville.com/battle-for-the-bridge",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.visitmunfordville.com/battle-for-the-bridge"
+    ]
+  },
+  {
+    "id": "tebbs-bend",
+    "name": "Tebbs Bend Battlefield",
+    "city": "Campbellsville",
+    "county": "Taylor",
+    "address": "Tebbs Bend Battlefield driving loop, Campbellsville, KY 42718",
+    "latitude": 37.2377878,
+    "longitude": -85.3536312,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "July 4, 1863: outnumbered Union force under Col. Orlando Moore repulsed John Hunt Morgan at a Green River bend. Twelve-stop driving loop and Atkinson-Griffin Confederate hospital museum.",
+    "website": "https://www.battlefields.org/visit/battlefields/tebbs-bend",
+    "geocode_source": "nominatim",
+    "sources": [
+      "https://www.battlefields.org/visit/battlefields/tebbs-bend"
+    ]
+  },
+  {
+    "id": "cynthiana-battles",
+    "name": "Battles of Cynthiana / Morgan's Raids Sites",
+    "city": "Cynthiana",
+    "county": "Harrison",
+    "address": "Downtown Cynthiana battle markers, Cynthiana, KY 41031",
+    "latitude": 38.3903,
+    "longitude": -84.2944,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "1862 and especially June 1864 engagements where Morgan’s cavalry fought Union forces in and around Cynthiana. Town retains markers and local museum interpretation of the raids.",
+    "website": "https://www.battlefields.org/",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.battlefields.org/",
+      "https://en.wikipedia.org/wiki/Battle_of_Cynthiana"
+    ]
+  },
+  {
+    "id": "fort-hill-frankfort",
+    "name": "Leslie Morris Park at Fort Hill",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "400 Clifton Ave, Frankfort, KY 40601",
+    "latitude": 38.2081277,
+    "longitude": -84.8688391,
+    "war": "civil",
+    "site_type": "fort",
+    "history": "Union earthworks (Fort Boone and New Redoubt) overlooking the capital; local militia helped repulse an 1864 Confederate cavalry threat. Sullivan House interpretive center and trails.",
+    "website": "https://www.frankfort.ky.gov/facilities/facility/details/Leslie-Morris-Fort-Hill-Park-18",
+    "geocode_source": "nominatim",
+    "sources": [
+      "https://www.frankfort.ky.gov/"
+    ]
+  },
+  {
+    "id": "fort-duffield",
+    "name": "Fort Duffield Park & Historic Site",
+    "city": "West Point",
+    "county": "Hardin",
+    "address": "US 31W at Salt River Dr, West Point, KY 40177",
+    "latitude": 37.9943165,
+    "longitude": -85.9427099,
+    "war": "civil",
+    "site_type": "fort",
+    "history": "1861 Union fort ordered under Sherman’s sphere to guard Louisville approaches and the L&N corridor. Earthworks, memorial cemetery, and self-guided tour on the hill above West Point.",
+    "website": "https://westpoint.ky.gov/pages/tourism.aspx",
+    "geocode_source": "photon",
+    "sources": [
+      "https://westpoint.ky.gov/pages/tourism.aspx",
+      "https://en.wikipedia.org/wiki/Fort_Duffield"
+    ]
+  },
+  {
+    "id": "cave-hill-national-cemetery",
+    "name": "Cave Hill National Cemetery",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "701 Baxter Ave, Louisville, KY 40204",
+    "latitude": 38.244856,
+    "longitude": -85.7150154,
+    "war": "civil",
+    "site_type": "cemetery",
+    "history": "Civil War national cemetery inside Cave Hill; Union dead from Louisville hospitals and camps, later concentrated burials including USCT and some Confederates. Monuments and waysides guide visitors.",
+    "website": "https://www.cem.va.gov/cems/nchp/cavehill.asp",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.cem.va.gov/cems/nchp/cavehill.asp"
+    ]
+  },
+  {
+    "id": "civil-war-museum-bardstown",
+    "name": "Civil War Museum of the Western Theater",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "310 E Broadway, Bardstown, KY 40004",
+    "latitude": 37.8110802,
+    "longitude": -85.4623237,
+    "war": "civil",
+    "site_type": "museum",
+    "history": "Large museum complex interpreting Western Theater campaigns from Bardstown. Already in museums.json—war layer links rather than clones content.",
+    "website": "https://www.visitbardstown.com/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.visitbardstown.com/"
+    ]
+  },
+  {
+    "id": "hunt-morgan-house",
+    "name": "Hunt-Morgan House (Hopemont)",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "201 N Mill St, Lexington, KY 40507",
+    "latitude": 38.0501234,
+    "longitude": -84.4961086,
+    "war": "civil",
+    "site_type": "museum",
+    "history": "Family home of Confederate Gen. John Hunt Morgan; Alexander T. Hunt Civil War Museum rooms interpret raids and divided Bluegrass loyalties. Bluegrass Trust historic house museum.",
+    "website": "https://www.bluegrasstrust.org/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.bluegrasstrust.org/"
+    ]
+  },
+  {
+    "id": "lexington-cemetery-civil-war",
+    "name": "Lexington Cemetery (Civil War sections)",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "833 W Main St, Lexington, KY 40508",
+    "latitude": 38.0577677,
+    "longitude": -84.5109543,
+    "war": "civil",
+    "site_type": "cemetery",
+    "history": "Major Victorian cemetery with prominent Civil War burials including John Hunt Morgan. Walking tours and markers interpret Bluegrass wartime memory.",
+    "website": "https://www.lexcem.org/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.lexcem.org/"
+    ]
+  },
+  {
+    "id": "pewee-valley-confederate-cemetery",
+    "name": "Pewee Valley Confederate Cemetery",
+    "city": "Pewee Valley",
+    "county": "Oldham",
+    "address": "Maple Ave, Pewee Valley, KY 40056",
+    "latitude": 38.3029647,
+    "longitude": -85.476587,
+    "war": "civil",
+    "site_type": "cemetery",
+    "history": "Cemetery associated with the Kentucky Confederate Home; hundreds of veterans interred—a rare public Confederate veterans landscape in the ring counties.",
+    "website": "https://www.oldhamcountyky.gov/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.oldhamcountyky.gov/",
+      "https://en.wikipedia.org/wiki/Pewee_Valley_Confederate_Cemetery"
+    ]
+  },
+  {
+    "id": "mill-springs-battlefield-nm",
+    "name": "Mill Springs Battlefield National Monument",
+    "city": "Nancy",
+    "county": "Pulaski",
+    "address": "9020 W Highway 80, Nancy, KY 42544",
+    "latitude": 37.0577113,
+    "longitude": -84.7387473,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "January 19, 1862: early major Union victory in Kentucky; Zollicoffer killed. NPS visitor center, driving tour, and Zollicoffer Park trail. NHL and National Monument.",
+    "website": "https://www.nps.gov/misp/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.nps.gov/misp/"
+    ]
+  },
+  {
+    "id": "middle-creek-battlefield",
+    "name": "Middle Creek Battlefield",
+    "city": "Prestonsburg",
+    "county": "Floyd",
+    "address": "Middle Creek National Battlefield, Prestonsburg, KY 41653",
+    "latitude": 37.6509083,
+    "longitude": -82.8135374,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "January 10, 1862: Union victory under James A. Garfield in eastern Kentucky. National Historic Landmark with interpretive park elements near Prestonsburg.",
+    "website": "https://www.battlefields.org/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.battlefields.org/",
+      "https://en.wikipedia.org/wiki/Battle_of_Middle_Creek"
+    ]
+  },
+  {
+    "id": "lebanon-civil-war",
+    "name": "Lebanon Civil War / Morgan Trail Stops",
+    "city": "Lebanon",
+    "county": "Marion",
+    "address": "Historic downtown Lebanon, Lebanon, KY 40033",
+    "latitude": 37.5697,
+    "longitude": -85.2528,
+    "war": "civil",
+    "site_type": "other",
+    "history": "Repeated Morgan raid targets and occupation sites along the central Kentucky rail and road net. Local self-guided landmark tour interprets wartime Lebanon.",
+    "website": "https://www.battlefields.org/",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.battlefields.org/"
+    ]
+  },
+  {
+    "id": "augusta-river-fight",
+    "name": "Augusta Riverfront Civil War Site",
+    "city": "Augusta",
+    "county": "Bracken",
+    "address": "Augusta riverfront, Augusta, KY 41002",
+    "latitude": 38.7728858,
+    "longitude": -84.0074735,
+    "war": "civil",
+    "site_type": "other",
+    "history": "September 1862 river-town fight during the Kentucky Campaign as Confederates moved along the Ohio. Small but pinable riverfront interpretation in Bracken County.",
+    "website": "https://www.visitbrackencounty.com/",
+    "geocode_source": "nominatim",
+    "sources": [
+      "https://www.visitbrackencounty.com/"
+    ]
+  },
+  {
+    "id": "white-hall-state-historic-site",
+    "name": "White Hall State Historic Site",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "500 White Hall Shrine Rd, Richmond, KY 40475",
+    "latitude": 37.8330208,
+    "longitude": -84.3523272,
+    "war": "civil",
+    "site_type": "museum",
+    "history": "Home of Cassius M. Clay, emancipationist and Lincoln’s minister to Russia; interprets divided Kentucky politics around the war. Kentucky State Historic Site mansion and grounds.",
+    "website": "https://parks.ky.gov/explore/white-hall-state-historic-site-7855",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/"
+    ]
+  },
+  {
+    "id": "pleasant-hill-civil-war",
+    "name": "Shaker Village of Pleasant Hill (wartime hospital context)",
+    "city": "Harrodsburg",
+    "county": "Mercer",
+    "address": "3501 Lexington Rd, Harrodsburg, KY 40330",
+    "latitude": 37.8188327,
+    "longitude": -84.7384129,
+    "war": "civil",
+    "site_type": "other",
+    "history": "Shaker community that experienced wartime foraging, hospital use, and divided traffic of armies in 1862. Living-history village on an NHL district interprets civilian wartime encounters.",
+    "website": "https://shakervillageky.org/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://shakervillageky.org/"
+    ]
+  },
+  {
+    "id": "frankfort-cemetery-civil-war",
+    "name": "Frankfort Cemetery (state & war burials)",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "215 E Main St, Frankfort, KY 40601",
+    "latitude": 38.1939546,
+    "longitude": -84.8651027,
+    "war": "civil",
+    "site_type": "cemetery",
+    "history": "Hilltop cemetery with Confederate monument traditions and graves of political and military figures. Overlooks the capital once defended from Fort Hill earthworks.",
+    "website": "https://frankfort.ky.gov/",
+    "geocode_source": "nominatim",
+    "sources": [
+      "https://frankfort.ky.gov/",
+      "https://en.wikipedia.org/wiki/Frankfort_Cemetery"
+    ]
+  },
+  {
+    "id": "louisville-farmington-war",
+    "name": "Farmington Historic Home (Lincoln / wartime context)",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "3033 Bardstown Rd, Louisville, KY 40205",
+    "latitude": 38.2145832,
+    "longitude": -85.6681401,
+    "war": "civil",
+    "site_type": "museum",
+    "history": "Speed family plantation where Lincoln visited in 1841; interprets slavery and wartime friendships (James Speed as Attorney General). Already in museums.json—link from the war layer.",
+    "website": "https://farmingtonhistorichome.org/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://farmingtonhistorichome.org/"
+    ]
+  },
+  {
+    "id": "kentucky-military-history-museum",
+    "name": "Kentucky Military History Museum",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "125 E Main St, Frankfort, KY 40601",
+    "latitude": 38.1975511,
+    "longitude": -84.876342,
+    "war": "civil",
+    "site_type": "museum",
+    "history": "State military collections spanning militia to modern service, with strong Civil War exhibits in the old State Arsenal. Already in museums.json.",
+    "website": "https://history.ky.gov/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://history.ky.gov/"
+    ]
+  },
+  {
+    "id": "bardstown-womens-civil-war-museum",
+    "name": "Women's Civil War Museum (Bardstown complex)",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "310 E Broadway, Bardstown, KY 40004",
+    "latitude": 37.8110802,
+    "longitude": -85.4623237,
+    "war": "civil",
+    "site_type": "museum",
+    "history": "Companion museum in the Bardstown Civil War campus focusing on women’s wartime roles. Pair with the Western Theater museum on the same complex.",
+    "website": "https://www.visitbardstown.com/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.visitbardstown.com/"
+    ]
+  },
+  {
+    "id": "covington-batteries",
+    "name": "Covington / Newport Civil War Defenses",
+    "city": "Covington",
+    "county": "Kenton",
+    "address": "Battery Hooper Park area, Fort Wright / Covington, KY 41011",
+    "latitude": 39.0833,
+    "longitude": -84.508,
+    "war": "civil",
+    "site_type": "fort",
+    "history": "Union fortifications guarded Cincinnati–Covington; surviving interpretation and overlooks tell the Ohio River defense story. Public battery park and river-bluff markers.",
+    "website": "https://www.nkyov.org/",
+    "geocode_source": "manual",
+    "sources": [
+      "https://www.nkyov.org/",
+      "https://en.wikipedia.org/wiki/Battery_Hooper"
+    ]
+  },
+  {
+    "id": "munfordville-hart-museum",
+    "name": "Hart County Historical Society Museum",
+    "city": "Munfordville",
+    "county": "Hart",
+    "address": "109 Main St, Munfordville, KY 42765",
+    "latitude": 37.2709787,
+    "longitude": -85.8896713,
+    "war": "civil",
+    "site_type": "museum",
+    "history": "Local museum supporting Battle for the Bridge interpretation and artifacts from the Green River campaigns. Downtown Munfordville stop paired with the preserve trails.",
+    "website": "https://www.hartcountyhistoricalsociety.com/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.hartcountyhistoricalsociety.com/"
+    ]
+  },
+  {
+    "id": "columbus-belmont",
+    "name": "Columbus-Belmont State Park",
+    "city": "Columbus",
+    "county": "Hickman",
+    "address": "350 Park Rd, Columbus, KY 42032",
+    "latitude": 36.7672266,
+    "longitude": -89.1105878,
+    "war": "civil",
+    "site_type": "fort",
+    "history": "Confederate Mississippi River stronghold ('Gibraltar of the West') and site linked to Grant's 1861 Battle of Belmont. State park with earthworks, giant chain anchor, and Civil War museum.",
+    "website": "https://parks.ky.gov/columbus/parks/recreation/columbus-belmont-state-park",
+    "geocode_source": "photon",
+    "sources": [
+      "https://parks.ky.gov/columbus/parks/recreation/columbus-belmont-state-park",
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "camp-wildcat",
+    "name": "Camp Wildcat Battlefield",
+    "city": "London",
+    "county": "Laurel",
+    "address": "Camp Wildcat Battlefield, London, KY 40741",
+    "latitude": 37.2635,
+    "longitude": -84.2045,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "October 1861 battle in the Rockcastle Hills—one of Kentucky's earliest Civil War engagements. Preserved by the Camp Wildcat Preservation Foundation with trails and interpretive markers in Laurel County.",
+    "website": "https://www.campwildcatpreservationfoundation.org/",
+    "geocode_source": "manual",
+    "sources": [
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "ivy-mountain",
+    "name": "Ivy Mountain Battlefield / Monument",
+    "city": "Prestonsburg",
+    "county": "Floyd",
+    "address": "Ivy Mountain Monument, Prestonsburg, KY 41653",
+    "latitude": 37.6655,
+    "longitude": -82.7555,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "November 1861 engagement in the Big Sandy valley where Union forces under William 'Bull' Nelson pushed Confederates under John S. Williams. Monument and interpretive presence near Prestonsburg.",
+    "website": null,
+    "geocode_source": "manual",
+    "sources": [
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "sacramento-battlefield",
+    "name": "Battle of Sacramento Site",
+    "city": "Sacramento",
+    "county": "McLean",
+    "address": "Sacramento, KY 42372",
+    "latitude": 37.4158261,
+    "longitude": -87.2662063,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "December 1861 cavalry fight often called Nathan Bedford Forrest's 'first battle'—preserved and interpreted by the City of Sacramento with annual reenactments in western Kentucky.",
+    "website": "https://www.battleofsacramento.com/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "fort-williams-glasgow",
+    "name": "Fort Williams",
+    "city": "Glasgow",
+    "county": "Barren",
+    "address": "Fort Williams, Glasgow, KY 42141",
+    "latitude": 36.9977373,
+    "longitude": -85.9256043,
+    "war": "civil",
+    "site_type": "fort",
+    "history": "Union fortification in Glasgow interpreting Barren County's Civil War occupation and the defense of south-central Kentucky approaches.",
+    "website": null,
+    "geocode_source": "photon",
+    "sources": [
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "paducah-battle-tilghman",
+    "name": "Battle of Paducah / Tilghman House Area",
+    "city": "Paducah",
+    "county": "McCracken",
+    "address": "631 Kentucky Ave, Paducah, KY 42001",
+    "latitude": 37.0722435,
+    "longitude": -88.6307446,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "March 1864 Confederate raid on Paducah led by Nathan Bedford Forrest against Union-held river city defenses. Interpreted at the Lloyd Tilghman House & Civil War Museum.",
+    "website": "https://www.tilghmancivilwarmuseum.com/",
+    "geocode_source": "photon",
+    "sources": [
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "camp-dick-robinson",
+    "name": "Camp Dick Robinson",
+    "city": "Lancaster",
+    "county": "Garrard",
+    "address": "Camp Dick Robinson area, Lancaster, KY 40444",
+    "latitude": 37.6455,
+    "longitude": -84.7125,
+    "war": "civil",
+    "site_type": "camp",
+    "history": "First large Union recruiting camp established south of the Ohio River (1861), key to organizing Kentucky and East Tennessee Union volunteers. Interpretive markers in Garrard County.",
+    "website": null,
+    "geocode_source": "manual",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Camp_Dick_Robinson"
+    ]
+  },
+  {
+    "id": "barbourville-battle",
+    "name": "Battle of Barbourville Site",
+    "city": "Barbourville",
+    "county": "Knox",
+    "address": "Barbourville, KY 40906",
+    "latitude": 36.8654085,
+    "longitude": -83.8892888,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "September 1861 Confederate attack on a Union recruiting camp—one of the Civil War Sites Advisory Commission’s 11 principal Kentucky battlefields in the Cumberland Gap approaches.",
+    "website": null,
+    "geocode_source": "photon",
+    "sources": [
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "rowletts-station",
+    "name": "Rowlett's Station Battlefield",
+    "city": "Munfordville",
+    "county": "Hart",
+    "address": "Rowlett's Station area, Munfordville, KY 42765",
+    "latitude": 37.2703827,
+    "longitude": -85.8991285,
+    "war": "civil",
+    "site_type": "battlefield",
+    "history": "December 1861 railroad bridge fight on the L&N near Munfordville, part of the Green River corridor battles that include the later Battle for the Bridge campaign.",
+    "website": null,
+    "geocode_source": "photon",
+    "sources": [
+      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+    ]
+  },
+  {
+    "id": "jefferson-davis-monument-war",
+    "name": "Jefferson Davis State Historic Site (Civil War memorial)",
+    "city": "Fairview",
+    "county": "Todd",
+    "address": "258 Pembroke-Fairview Rd, Fairview, KY 42221",
+    "latitude": 36.8435,
+    "longitude": -87.1195,
+    "war": "civil",
+    "site_type": "other",
+    "history": "Birthplace memorial to Confederate President Jefferson Davis—Kentucky's major Civil War commemorative landscape in Todd County with museum exhibits.",
+    "website": "https://parks.ky.gov/fairview/parks/historic/jefferson-davis-state-historic-site",
+    "geocode_source": "manual",
+    "sources": [
+      "https://parks.ky.gov/fairview/parks/historic/jefferson-davis-state-historic-site"
+    ]
+  },
+  {
+    "id": "william-whitley-house-war",
+    "name": "William Whitley House (Revolutionary / frontier war)",
+    "city": "Stanford",
+    "county": "Lincoln",
+    "address": "625 William Whitley Rd, Stanford, KY 40484",
+    "latitude": 37.5315,
+    "longitude": -84.5865,
+    "war": "revolutionary",
+    "site_type": "other",
+    "history": "Home of militia leader William Whitley, who fought in Kentucky's Revolutionary-era Indian wars and later fell at the Battle of the Thames (1813). State historic site interpreting frontier defense.",
+    "website": "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site",
+    "geocode_source": "manual",
+    "sources": [
+      "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site"
+    ]
+  },
+  {
+    "id": "fort-boonesborough-war",
+    "name": "Fort Boonesborough (Siege of 1778)",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "4375 Boonesborough Rd, Richmond, KY 40475",
+    "latitude": 37.9005,
+    "longitude": -84.2685,
+    "war": "revolutionary",
+    "site_type": "fort",
+    "history": "Frontier fort that withstood the 1778 siege by British-allied Shawnee forces during the Revolutionary War. NHL site with reconstructed fort interpretive park.",
+    "website": "https://parks.ky.gov/richmond/parks/historic/fort-boonesborough-state-park",
+    "geocode_source": "manual",
+    "sources": [
+      "https://parks.ky.gov/richmond/parks/historic/fort-boonesborough-state-park"
+    ]
+  }
+]

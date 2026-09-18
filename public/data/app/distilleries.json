@@ -1,0 +1,1035 @@
+[
+  {
+    "id": "angels-envy",
+    "name": "Angel's Envy Distillery",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "500 E Main St, Louisville, KY",
+    "latitude": 38.2548063,
+    "longitude": -85.7437291,
+    "founded_year": 2011,
+    "history": "Urban distillery on Whiskey Row founded by Lincoln Henderson; finished bourbon in port wine casks helped define modern craft-adjacent Louisville bourbon tourism.",
+    "website": "https://www.angelsenvy.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.angelsenvy.com"
+    ]
+  },
+  {
+    "id": "evan-williams",
+    "name": "Evan Williams Bourbon Experience",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "528 W Main St, Louisville, KY",
+    "latitude": 38.2566584,
+    "longitude": -85.7594787,
+    "founded_year": 2013,
+    "history": "Heaven Hill's Whiskey Row experience named for Evan Williams, often cited as Kentucky's first commercial distiller (1783 on the Ohio). Interpretive distilling and Louisville whiskey history.",
+    "website": "https://evanwilliams.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://evanwilliams.com"
+    ]
+  },
+  {
+    "id": "old-forester",
+    "name": "Old Forester Distilling Co.",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "119 W Main St, Louisville, KY",
+    "latitude": 38.2565774,
+    "longitude": -85.7524478,
+    "founded_year": 1870,
+    "history": "Brown-Forman's flagship brand, marketed since 1870 as the first bourbon sold exclusively in sealed bottles. Downtown Louisville distillery reopened on Whiskey Row in 2018.",
+    "website": "https://www.oldforester.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.oldforester.com"
+    ]
+  },
+  {
+    "id": "michters",
+    "name": "Michter's Fort Nelson Distillery",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "435 W Main St, Louisville, KY",
+    "latitude": 38.2575362,
+    "longitude": -85.7632828,
+    "founded_year": 2019,
+    "history": "Modern Michter's revival inside the restored Fort Nelson Building on Whiskey Row; brand traces advertising lineage to 18th-century Pennsylvania whiskey lore.",
+    "website": "https://michters.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://michters.com"
+    ]
+  },
+  {
+    "id": "rabbit-hole",
+    "name": "Rabbit Hole Distillery",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "711 E Jefferson St, Louisville, KY",
+    "latitude": 38.2523145,
+    "longitude": -85.739522,
+    "founded_year": 2018,
+    "history": "Kaveh Zamanian's Louisville distillery opened to visitors in 2018 with a striking modern facility east of downtown.",
+    "website": "https://www.rabbitholedistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.rabbitholedistillery.com"
+    ]
+  },
+  {
+    "id": "stitzel-weller",
+    "name": "Stitzel-Weller Distillery (Bulleit Frontier Experience)",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "3860 Fitzgerald Rd, Louisville, KY",
+    "latitude": 38.207406,
+    "longitude": -85.8076951,
+    "founded_year": 1935,
+    "history": "Built after Prohibition by Julian 'Pappy' Van Winkle and partners; later home to brands like Weller and Rebel Yell. Now hosts the Bulleit Frontier Experience.",
+    "website": "https://www.bulleit.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.bulleit.com"
+    ]
+  },
+  {
+    "id": "peerless",
+    "name": "Kentucky Peerless Distilling Co.",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "120 N 10th St, Louisville, KY",
+    "latitude": 38.2586159,
+    "longitude": -85.76686,
+    "founded_year": 1889,
+    "history": "Original Peerless operated 1889–1917 in Henderson; family revived the name in Louisville after Prohibition's long pause, opening the modern plant in 2015.",
+    "website": "https://www.kentuckypeerless.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.kentuckypeerless.com"
+    ]
+  },
+  {
+    "id": "copper-kings",
+    "name": "Copper & Kings",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "1121 E Washington St, Louisville, KY",
+    "latitude": 38.1952191,
+    "longitude": -85.7473516,
+    "founded_year": 2014,
+    "history": "Butcher town brandy and absinthe house that also joined Bourbon Trail craft programming; American brandy pioneer in Louisville's east end.",
+    "website": "https://www.copperandkings.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.copperandkings.com"
+    ]
+  },
+  {
+    "id": "bulleit-shelbyville",
+    "name": "Bulleit Distilling Co.",
+    "city": "Shelbyville",
+    "county": "Shelby",
+    "address": "15389 Shelbyville Rd, Shelbyville, KY",
+    "latitude": 38.2228353,
+    "longitude": -85.137089,
+    "founded_year": 2019,
+    "history": "Diageo's large Shelbyville production campus for Bulleit; opened tours as a Kentucky Bourbon Trail stop near Shannon's home county.",
+    "website": "https://www.bulleit.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.bulleit.com"
+    ]
+  },
+  {
+    "id": "jeptha-creed",
+    "name": "Jeptha Creed Distillery",
+    "city": "Shelbyville",
+    "county": "Shelby",
+    "address": "500 Gordon Ln, Shelbyville, KY",
+    "latitude": 38.1893064,
+    "longitude": -85.2644824,
+    "founded_year": 2016,
+    "history": "Corky and Autumn Taylor's farm distillery near Shelbyville, named for local Jeptha Knob lore; known for bourbon, vodka, and a family-farm visitor experience.",
+    "website": "https://jepthacreed.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://jepthacreed.com"
+    ]
+  },
+  {
+    "id": "buffalo-trace",
+    "name": "Buffalo Trace Distillery",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "113 Great Buffalo Trace, Frankfort, KY",
+    "latitude": 38.2157433,
+    "longitude": -84.8690507,
+    "founded_year": 1787,
+    "history": "Continuous distilling site on the Kentucky River often dated to the late 1700s; home of Buffalo Trace, Eagle Rare, Blanton's, and Pappy Van Winkle. Left the KDA in 2010 but remains central to bourbon history.",
+    "website": "https://www.buffalotracedistillery.com",
+    "trail_status": "independent",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.buffalotracedistillery.com"
+    ]
+  },
+  {
+    "id": "castle-key",
+    "name": "Castle & Key Distillery",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "4445 McCracken Pike, Frankfort, KY",
+    "latitude": 38.1466899,
+    "longitude": -84.832567,
+    "founded_year": 1887,
+    "history": "Built as Col. E.H. Taylor's Old Taylor Distillery with a castle-like limestone facade; sat abandoned for decades before Castle & Key restored the grounds and restarted production.",
+    "website": "https://castleandkey.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://castleandkey.com"
+    ]
+  },
+  {
+    "id": "whiskey-thief",
+    "name": "Whiskey Thief Distilling Co.",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "301 Redwood Dr, Frankfort, KY",
+    "latitude": 38.2120067,
+    "longitude": -84.8264923,
+    "founded_year": 2018,
+    "history": "Frankfort craft distillery on the Bourbon Trail Craft Tour near the capital.",
+    "website": "https://www.whiskeythief.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.whiskeythief.com"
+    ]
+  },
+  {
+    "id": "woodford-reserve",
+    "name": "Woodford Reserve Distillery",
+    "city": "Versailles",
+    "county": "Woodford",
+    "address": "7855 McCracken Pike, Versailles, KY",
+    "latitude": 38.1132808,
+    "longitude": -84.8135359,
+    "founded_year": 1812,
+    "history": "Labrot & Graham site with deep 19th-century roots; Brown-Forman revived it as Woodford Reserve, a National Historic Landmark along Glenn's Creek.",
+    "website": "https://www.woodfordreserve.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.woodfordreserve.com"
+    ]
+  },
+  {
+    "id": "four-roses",
+    "name": "Four Roses Distillery",
+    "city": "Lawrenceburg",
+    "county": "Anderson",
+    "address": "1224 Bonds Mill Rd, Lawrenceburg, KY",
+    "latitude": 37.9731697,
+    "longitude": -84.8981012,
+    "founded_year": 1888,
+    "history": "Spanish Mission-style distillery on the Salt River; known for 10 bourbon recipes and a long Seagram/Kirin ownership story after Prohibition-era survival.",
+    "website": "https://fourrosesbourbon.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://fourrosesbourbon.com"
+    ]
+  },
+  {
+    "id": "wild-turkey",
+    "name": "Wild Turkey Distillery",
+    "city": "Lawrenceburg",
+    "county": "Anderson",
+    "address": "1417 Versailles Rd, Lawrenceburg, KY",
+    "latitude": 38.0422958,
+    "longitude": -84.8505486,
+    "founded_year": 1869,
+    "history": "Cliffside Anderson County distillery long associated with the Russell family master distillers; Austin Nichols / Campari ownership.",
+    "website": "https://wildturkeybourbon.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://wildturkeybourbon.com"
+    ]
+  },
+  {
+    "id": "town-branch",
+    "name": "Town Branch Distillery",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "401 W Main St, Lexington, KY",
+    "latitude": 38.0494022,
+    "longitude": -84.5092455,
+    "founded_year": 2012,
+    "history": "Alltech's Lexington distillery named for the buried Town Branch creek; among the first new full-scale Lexington distilleries of the 21st century.",
+    "website": "https://www.townbranch.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.townbranch.com"
+    ]
+  },
+  {
+    "id": "james-e-pepper",
+    "name": "James E. Pepper Distillery",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "1228 Manchester St, Lexington, KY",
+    "latitude": 38.0565558,
+    "longitude": -84.5197434,
+    "founded_year": 1780,
+    "history": "Revived Pepper family brand on Manchester Street in Lexington's Distillery District; historic Pepper claims reach to the late 18th century.",
+    "website": "https://jameseppepper.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://jameseppepper.com"
+    ]
+  },
+  {
+    "id": "barrel-house",
+    "name": "Barrel House Distilling Co.",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "1200 Manchester St, Lexington, KY",
+    "latitude": 38.0563662,
+    "longitude": -84.5190769,
+    "founded_year": 2008,
+    "history": "Early Lexington Distillery District craft producer in a renovated barrel house.",
+    "website": "https://barrelhousedistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://barrelhousedistillery.com"
+    ]
+  },
+  {
+    "id": "bluegrass-distillers",
+    "name": "Bluegrass Distillers",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "426 N Main St, Lexington, KY",
+    "latitude": 38.0599039,
+    "longitude": -84.4920454,
+    "founded_year": 2012,
+    "history": "Lexington craft distillery later expanding farm operations; Bluegrass Craft Tour stop.",
+    "website": "https://bluegrassdistillers.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://bluegrassdistillers.com"
+    ]
+  },
+  {
+    "id": "rd1",
+    "name": "RD1 Spirits",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "300 W Short St, Lexington, KY",
+    "latitude": 38.0446402,
+    "longitude": -84.5074286,
+    "founded_year": 2021,
+    "history": "Lexington tasting-room brand tied to whiskey history storytelling on Short Street.",
+    "website": "https://rd1spirits.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://rd1spirits.com"
+    ]
+  },
+  {
+    "id": "fresh-bourbon",
+    "name": "Fresh Bourbon Distillery",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "377 E Main St, Lexington, KY",
+    "latitude": 38.0475747,
+    "longitude": -84.4990663,
+    "founded_year": 2018,
+    "history": "Black-owned Lexington distillery founded by Sean and Teri Edwards; Craft Tour member.",
+    "website": "https://freshbourbon.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://freshbourbon.com"
+    ]
+  },
+  {
+    "id": "heaven-hill",
+    "name": "Heaven Hill Bourbon Experience",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "1311 Gilkey Run Rd, Bardstown, KY",
+    "latitude": 37.7932033,
+    "longitude": -85.4656564,
+    "founded_year": 1935,
+    "history": "Family-owned Heaven Hill began after Prohibition in Bardstown; one of the largest bourbon inventories in the world. Visitor center anchors Bourbon Capital tourism.",
+    "website": "https://www.heavenhilldistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.heavenhilldistillery.com"
+    ]
+  },
+  {
+    "id": "lux-row",
+    "name": "Lux Row Distillers",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "3050 E John Rowan Blvd, Bardstown, KY",
+    "latitude": 37.808135,
+    "longitude": -85.4240683,
+    "founded_year": 2018,
+    "history": "Luxco's Bardstown distillery producing Rebel, Blood Oath, and related brands on the Bourbon Trail.",
+    "website": "https://www.luxrowdistillers.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.luxrowdistillers.com"
+    ]
+  },
+  {
+    "id": "bardstown-bourbon",
+    "name": "Bardstown Bourbon Company",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "1500 Parkway Dr, Bardstown, KY",
+    "latitude": 37.8114574,
+    "longitude": -85.4099733,
+    "founded_year": 2016,
+    "history": "Large collaborative contract and branded distillery opened in 2016 south of Bardstown.",
+    "website": "https://www.bardstownbourbon.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.bardstownbourbon.com"
+    ]
+  },
+  {
+    "id": "willett",
+    "name": "Willett Distillery",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "1869 Loretto Rd, Bardstown, KY",
+    "latitude": 37.785531,
+    "longitude": -85.4618219,
+    "founded_year": 1936,
+    "history": "Family Willett/Kulsveen operation famous for Willett pot-still and family estate releases; longtime Bardstown craft destination.",
+    "website": "https://kentuckybourbonwhiskey.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://kentuckybourbonwhiskey.com"
+    ]
+  },
+  {
+    "id": "preservation",
+    "name": "Preservation Distillery",
+    "city": "Bardstown",
+    "county": "Nelson",
+    "address": "100 Distillery Dr, Bardstown, KY",
+    "latitude": 37.7868806,
+    "longitude": -85.4930898,
+    "founded_year": 2018,
+    "history": "Bardstown craft distillery emphasizing historic recipes and small-batch production.",
+    "website": "https://www.preservationdistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.preservationdistillery.com"
+    ]
+  },
+  {
+    "id": "makers-mark",
+    "name": "Maker's Mark Distillery",
+    "city": "Loretto",
+    "county": "Larue",
+    "address": "3350 Burks Spring Rd, Loretto, KY",
+    "latitude": 37.6468276,
+    "longitude": -85.3489926,
+    "founded_year": 1953,
+    "history": "Bill Samuels Sr. bought the Burks' Distillery site and launched Maker's Mark with a wheat recipe and red-wax seal; National Historic Landmark campus.",
+    "website": "https://www.makersmark.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.makersmark.com"
+    ]
+  },
+  {
+    "id": "jim-beam",
+    "name": "Jim Beam American Stillhouse",
+    "city": "Clermont",
+    "county": "Bullitt",
+    "address": "526 Happy Hollow Rd, Clermont, KY",
+    "latitude": 37.9297858,
+    "longitude": -85.6527355,
+    "founded_year": 1795,
+    "history": "Beam family distilling tradition usually dated to Jacob Beam's late-18th-century start; Clermont plant is the flagship of today's Jim Beam / Suntory empire.",
+    "website": "https://www.jimbeam.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.jimbeam.com"
+    ]
+  },
+  {
+    "id": "log-still",
+    "name": "Log Still Distillery",
+    "city": "New Haven",
+    "county": "Nelson",
+    "address": "1270 New Haven Rd, New Haven, KY",
+    "latitude": 37.6578397,
+    "longitude": -85.5910728,
+    "founded_year": 2021,
+    "history": "Revival project tied to the historic Waterfill & Frazier name near New Haven on the Craft Tour.",
+    "website": "https://www.logstilldistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.logstilldistillery.com"
+    ]
+  },
+  {
+    "id": "wilderness-trail",
+    "name": "Wilderness Trail Distillery",
+    "city": "Danville",
+    "county": "Boyle",
+    "address": "4095 West Main Cross St, Danville, KY",
+    "latitude": 37.621527,
+    "longitude": -84.8273892,
+    "founded_year": 2012,
+    "history": "Danville distillery founded by Dr. Pat Heist and Shane Baker; known for sweet-mash fermentation science on the trail.",
+    "website": "https://www.wildernesstrailbourbon.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.wildernesstrailbourbon.com"
+    ]
+  },
+  {
+    "id": "limestone-branch",
+    "name": "Limestone Branch Distillery",
+    "city": "Lebanon",
+    "county": "Marion",
+    "address": "1280 W Main St, Lebanon, KY",
+    "latitude": 37.5819153,
+    "longitude": -85.2717956,
+    "founded_year": 2011,
+    "history": "Steve and Paul Beam's Marion County craft distillery; family lineage connects to early Beam history.",
+    "website": "https://www.limestonebranch.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.limestonebranch.com"
+    ]
+  },
+  {
+    "id": "hartfield",
+    "name": "Hartfield & Co.",
+    "city": "Paris",
+    "county": "Bourbon",
+    "address": "108 E 5th St, Paris, KY",
+    "latitude": 38.2118555,
+    "longitude": -84.2488501,
+    "founded_year": 2014,
+    "history": "Paris, Bourbon County craft distillery on the Bluegrass Craft Tour.",
+    "website": "https://hartfieldandco.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://hartfieldandco.com"
+    ]
+  },
+  {
+    "id": "new-riff",
+    "name": "New Riff Distillery",
+    "city": "Newport",
+    "county": "Campbell",
+    "address": "24 Distillery Way, Newport, KY",
+    "latitude": 39.1006718,
+    "longitude": -84.4888444,
+    "founded_year": 2014,
+    "history": "Newport distillery on the Licking River founded by the Jay and Brenda Preston / Ken Lewis circle; early Northern Kentucky craft flagship.",
+    "website": "https://www.newriffdistilling.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.newriffdistilling.com"
+    ]
+  },
+  {
+    "id": "pensive",
+    "name": "Pensive Distilling Co.",
+    "city": "Newport",
+    "county": "Campbell",
+    "address": "13 E 6th St, Newport, KY",
+    "latitude": 39.0897216,
+    "longitude": -84.4921247,
+    "founded_year": 2021,
+    "history": "Newport craft distillery named for the 1950s racehorse Pensive; Northern Craft Tour stop.",
+    "website": "https://pensivedistilling.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://pensivedistilling.com"
+    ]
+  },
+  {
+    "id": "second-sight",
+    "name": "Second Sight Spirits",
+    "city": "Ludlow",
+    "county": "Kenton",
+    "address": "251 Elm St, Ludlow, KY",
+    "latitude": 39.0934864,
+    "longitude": -84.5484586,
+    "founded_year": 2015,
+    "history": "Ludlow craft distillery on the Ohio River corridor of Northern Kentucky.",
+    "website": "https://www.secondsightspirits.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.secondsightspirits.com"
+    ]
+  },
+  {
+    "id": "boone-county",
+    "name": "Boone County Distilling Co.",
+    "city": "Boone County",
+    "county": "Boone",
+    "address": "1800 Wampum Way, Walton, KY",
+    "latitude": 38.9467629,
+    "longitude": -84.6137473,
+    "founded_year": 2015,
+    "history": "Boone County craft distillery playing on frontier Boone mythology for Northern Craft Tour visitors.",
+    "website": "https://boonedistilling.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://boonedistilling.com"
+    ]
+  },
+  {
+    "id": "augusta",
+    "name": "Augusta Distillery",
+    "city": "Augusta",
+    "county": "Bracken",
+    "address": "107 W Riverside Dr, Augusta, KY",
+    "latitude": 38.7737422,
+    "longitude": -84.0075416,
+    "founded_year": 2019,
+    "history": "River-town Bracken County craft stop on the Ohio River.",
+    "website": "https://www.augustadistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.augustadistillery.com"
+    ]
+  },
+  {
+    "id": "old-pogue",
+    "name": "Old Pogue Distillery",
+    "city": "Maysville",
+    "county": "Mason",
+    "address": "716 W 2nd St, Maysville, KY",
+    "latitude": 38.6823766,
+    "longitude": -83.7854335,
+    "founded_year": 1876,
+    "history": "Pogue family Maysville brand with 19th-century roots; modern revival overlooking the Ohio River.",
+    "website": "https://oldpogue.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://oldpogue.com"
+    ]
+  },
+  {
+    "id": "neeley",
+    "name": "Neeley Family Distillery",
+    "city": "Sparta",
+    "county": "Gallatin",
+    "address": "2995 Highway 467, Sparta, KY",
+    "latitude": 38.7069442,
+    "longitude": -84.9452672,
+    "founded_year": 2016,
+    "history": "Gallatin County family craft distillery near Sparta on the Northern Craft Tour.",
+    "website": "https://www.neeleyfamilydistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.neeleyfamilydistillery.com"
+    ]
+  },
+  {
+    "id": "green-river",
+    "name": "Green River Distilling Co.",
+    "city": "Owensboro",
+    "county": "Daviess",
+    "address": "10 Distillery Rd, Owensboro, KY",
+    "latitude": 37.7788485,
+    "longitude": -87.1381263,
+    "founded_year": 1885,
+    "history": "Historic Owensboro plant (formerly Medley / O.Z. Tyler) revived as Green River; Western Kentucky Bourbon Trail stop.",
+    "website": "https://www.greenriverdistilling.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.greenriverdistilling.com"
+    ]
+  },
+  {
+    "id": "boundary-oak",
+    "name": "Boundary Oak Distillery",
+    "city": "Radcliff",
+    "county": "Hardin",
+    "address": "2000 Boundary Oak Dr, Radcliff, KY",
+    "latitude": 37.7974654,
+    "longitude": -85.9112292,
+    "founded_year": 2013,
+    "history": "Hardin County craft distillery near Fort Knox on the Western Craft Tour.",
+    "website": "https://www.boundaryoakdistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.boundaryoakdistillery.com"
+    ]
+  },
+  {
+    "id": "the-bard",
+    "name": "The Bard Distillery",
+    "city": "Graham",
+    "county": "Muhlenberg",
+    "address": "20 Distillery Rd, Graham, KY",
+    "latitude": 37.2442761,
+    "longitude": -87.2765522,
+    "founded_year": 2018,
+    "history": "Muhlenberg County craft destination on the Western Craft Tour.",
+    "website": "https://www.thebarddistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://www.thebarddistillery.com"
+    ]
+  },
+  {
+    "id": "casey-jones",
+    "name": "Casey Jones Distillery",
+    "city": "Hopkinsville",
+    "county": "Christian",
+    "address": "401 Kentucky 91, Hopkinsville, KY",
+    "latitude": 36.9127683,
+    "longitude": -87.5545333,
+    "founded_year": 2014,
+    "history": "Christian County craft distillery known for a copper 'Little Man' still story on the Western Craft Tour.",
+    "website": "https://caseyjonesdistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://caseyjonesdistillery.com"
+    ]
+  },
+  {
+    "id": "mb-roland",
+    "name": "MB Roland Distillery",
+    "city": "Pembroke",
+    "county": "Christian",
+    "address": "3300 Ashberry Rd, Pembroke, KY",
+    "latitude": 36.698254,
+    "longitude": -87.3916269,
+    "founded_year": 2009,
+    "history": "Early Western Kentucky craft distillery in Christian County using local grains.",
+    "website": "https://mbrdistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://mbrdistillery.com"
+    ]
+  },
+  {
+    "id": "dueling-grounds",
+    "name": "Dueling Grounds Distillery",
+    "city": "Franklin",
+    "county": "Simpson",
+    "address": "450 N Main St, Franklin, KY",
+    "latitude": 36.7063153,
+    "longitude": -86.5723814,
+    "founded_year": 2018,
+    "history": "Simpson County craft stop near the Tennessee line; named for historic dueling lore.",
+    "website": "https://duelinggroundsdistillery.com",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
+      "https://kybourbontrail.com/distillery/",
+      "https://duelinggroundsdistillery.com"
+    ]
+  },
+  {
+    "id": "kentucky-artisan",
+    "name": "Kentucky Artisan Distillery",
+    "city": "Crestwood",
+    "county": "Oldham",
+    "address": "6230 Old LaGrange Rd, Crestwood, KY 40014",
+    "latitude": 38.3275041,
+    "longitude": -85.4634507,
+    "founded_year": 2009,
+    "history": "Farm-to-bottle craft distillery on Oldham County farmland and longtime home of Jefferson's Bourbon contract production. A Kentucky Bourbon Trail stop with tours, tastings, and the KAD Clubhouse barrel experience beside Waldeck Farm grain.",
+    "website": "https://kentuckyartisandistillery.com/",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://kentuckyartisandistillery.com/",
+      "https://kybourbontrail.com/distillery/"
+    ]
+  },
+  {
+    "id": "pursuit-spirits",
+    "name": "Pursuit Spirits",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "111 W Main St, Louisville, KY 40202",
+    "latitude": 38.2562879,
+    "longitude": -85.7521895,
+    "founded_year": 2024,
+    "history": "Downtown Louisville / Whiskey Row Kentucky Bourbon Trail newcomer (joined July 2026) emphasizing small-batch bourbon experiences in the urban tourism corridor.",
+    "website": "https://pursuitspirits.com/",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://kybourbon.com/industry-news/kybourbon-kentucky-bourbon-trail-experience-welcomes-four-new-destinations/",
+      "https://kybourbontrail.com/distillery/"
+    ]
+  },
+  {
+    "id": "uncle-boojies",
+    "name": "Uncle Boojie's Distilling Co.",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "Whiskey Row, Louisville, KY 40202",
+    "latitude": 38.2548082,
+    "longitude": -85.7482846,
+    "founded_year": 2025,
+    "history": "Louisville Kentucky Bourbon Trail addition welcomed in July 2026, expanding downtown Whiskey Row visitor options with a family-branded craft distilling experience.",
+    "website": "https://uncleboojies.com/",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://kybourbon.com/industry-news/kybourbon-kentucky-bourbon-trail-experience-welcomes-four-new-destinations/"
+    ]
+  },
+  {
+    "id": "cave-city-distilling",
+    "name": "Cave City Distilling Company",
+    "city": "Cave City",
+    "county": "Barren",
+    "address": "Cave City, KY 42127",
+    "latitude": 37.1425949,
+    "longitude": -85.966345,
+    "founded_year": 2010,
+    "history": "South-central Kentucky Bourbon Trail stop on the I-65 corridor near Mammoth Cave (rebranded from Balance Distillery). Adds a visitor pin for Barren County bourbon tourism between Louisville and Nashville.",
+    "website": "https://www.cavecitydistilling.com/",
+    "trail_status": "kbt",
+    "geocode_source": "photon",
+    "sources": [
+      "https://kybourbon.com/industry-news/kybourbon-kentucky-bourbon-trail-experience-welcomes-four-new-destinations/"
+    ]
+  },
+  {
+    "id": "purple-toad",
+    "name": "Purple Toad Winery & Distillery",
+    "city": "Bowling Green",
+    "county": "Warren",
+    "address": "1516 Westen St, Bowling Green, KY 42101",
+    "latitude": 36.992,
+    "longitude": -86.4435,
+    "founded_year": 2012,
+    "history": "Bowling Green winery that expanded into spirits and joined the Kentucky Bourbon Trail in 2026, giving Warren County an official trail tasting-room destination alongside Corvette and WKU tourism.",
+    "website": "https://purpletoadwinery.com/",
+    "trail_status": "kbt",
+    "geocode_source": "manual",
+    "sources": [
+      "https://purpletoadwinery.com/",
+      "https://kybourbon.com/industry-news/kybourbon-kentucky-bourbon-trail-experience-welcomes-four-new-destinations/"
+    ]
+  },
+  {
+    "id": "four-roses-warehouse",
+    "name": "Four Roses Warehouse & Bottling Facility",
+    "city": "Cox's Creek",
+    "county": "Nelson",
+    "address": "624 Lotus Rd, Coxs Creek, KY 40013",
+    "latitude": 37.901,
+    "longitude": -85.5965,
+    "founded_year": 1910,
+    "history": "Four Roses' historic Cox's Creek campus for warehousing and bottling—paired with the Lawrenceburg distillery as a dual Kentucky Bourbon Trail experience focused on maturation and packaging.",
+    "website": "https://fourrosesbourbon.com/",
+    "trail_status": "kbt",
+    "geocode_source": "manual",
+    "sources": [
+      "https://fourrosesbourbon.com/",
+      "https://kybourbontrail.com/distillery/"
+    ]
+  },
+  {
+    "id": "glenns-creek",
+    "name": "Glenns Creek Distilling",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "3501 McCracken Pike, Frankfort, KY 40601",
+    "latitude": 38.146348,
+    "longitude": -84.8458183,
+    "founded_year": 2015,
+    "history": "Independent craft operation on the historic Old Crow Distillery grounds along Glenn's Creek. Distiller-led tastings and grounds walks emphasize the 1870s campus legacy rather than a scripted mega-tour.",
+    "website": "https://glennscreekdistillery.com/",
+    "trail_status": "independent",
+    "geocode_source": "photon",
+    "sources": [
+      "https://glennscreekdistillery.com/",
+      "https://en.wikipedia.org/wiki/Old_Crow"
+    ]
+  },
+  {
+    "id": "j-mattingly-1845",
+    "name": "J. Mattingly 1845 Distillery",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "20 Reilly Rd, Frankfort, KY 40601",
+    "latitude": 38.2137389,
+    "longitude": -84.8646259,
+    "founded_year": 2019,
+    "history": "Seventh-generation Mattingly family craft distillery near Buffalo Trace offering hands-on barrel thieving and custom bottle blending—a distinctive Frankfort independent experience.",
+    "website": "https://www.jmattingly1845.com/",
+    "trail_status": "independent",
+    "geocode_source": "photon",
+    "sources": [
+      "https://www.jmattingly1845.com/"
+    ]
+  },
+  {
+    "id": "heaven-hill-bernheim",
+    "name": "Heaven Hill Bernheim Distillery",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "1701 West Breckinridge St, Louisville, KY 40210",
+    "latitude": 38.235,
+    "longitude": -85.778,
+    "founded_year": 1999,
+    "history": "Heaven Hill's primary Louisville production campus (Bernheim), complementing the Bardstown Bourbon Experience visitor center. Historic stillhouse campus producing many Heaven Hill labels after the 1996 Bardstown fire.",
+    "website": "https://heavenhilldistillery.com/",
+    "trail_status": "independent",
+    "geocode_source": "manual",
+    "sources": [
+      "https://heavenhilldistillery.com/",
+      "https://en.wikipedia.org/wiki/Heaven_Hill"
+    ]
+  }
+]

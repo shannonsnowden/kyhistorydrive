@@ -1,0 +1,14 @@
+# Amplify custom headers (repo root). Overrides the default 1-year CloudFront
+# cache so iOS data_version bumps are visible soon after deploy.
+# https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
+customHeaders:
+  - pattern: '/data/app/*.json'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=0, s-maxage=60, must-revalidate'
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
+      - key: 'Access-Control-Allow-Methods'
+        value: 'GET, HEAD, OPTIONS'
+      - key: 'Content-Type'
+        value: 'application/json; charset=utf-8'

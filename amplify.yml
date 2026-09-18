@@ -4,6 +4,9 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        # Refresh iOS JSON from ky-markers-drive when a token is set; otherwise
+        # publish the committed copies in public/data/app/.
+        - npm run sync-app-data
     build:
       commands:
         - npm run build

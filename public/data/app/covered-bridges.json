@@ -1,0 +1,213 @@
+[
+  {
+    "id": "bennetts-mill",
+    "name": "Bennett's Mill Covered Bridge",
+    "city": "Greenup",
+    "county": "Greenup",
+    "latitude": 38.63056,
+    "longitude": -82.92694,
+    "built_year": 1855,
+    "length_ft": 145,
+    "crosses": "Tygarts Creek",
+    "truss": "Modified Wheeler or Warren",
+    "status": "extant",
+    "history": "Authentic covered bridge over Tygarts Creek in Greenup County, built about 1855 and heavily restored in 2004. One of Kentucky's remaining historic timber-truss covered bridges.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+      "World Guide to Covered Bridges"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.63056,-82.92694&q=Bennett%27s%20Mill%20Covered%20Bridge"
+  },
+  {
+    "id": "cabin-creek",
+    "name": "Cabin Creek Covered Bridge",
+    "city": "Tollesboro",
+    "county": "Lewis",
+    "latitude": 38.62028,
+    "longitude": -83.62111,
+    "built_year": 1867,
+    "length_ft": 114,
+    "crosses": "Cabin Creek",
+    "truss": "Multiple king",
+    "status": "extant",
+    "history": "Also known as Mackey or Hughes Farm Covered Bridge. Spans Cabin Creek near Tollesboro; multiple kingpost truss from about 1867, now state-owned.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.62028,-83.62111&q=Cabin%20Creek%20Covered%20Bridge"
+  },
+  {
+    "id": "colville",
+    "name": "Colville Covered Bridge",
+    "city": "Millersburg",
+    "county": "Bourbon",
+    "latitude": 38.32472,
+    "longitude": -84.20333,
+    "built_year": 1877,
+    "length_ft": 120,
+    "crosses": "Hinkston Creek",
+    "truss": "Multiple king",
+    "status": "extant",
+    "history": "Bourbon County's covered bridge over Hinkston Creek near Millersburg, built 1877 and restored in 2002.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.32472,-84.20333&q=Colville%20Covered%20Bridge"
+  },
+  {
+    "id": "goddard",
+    "name": "Goddard Covered Bridge",
+    "city": "Goddard",
+    "county": "Fleming",
+    "latitude": 38.36222,
+    "longitude": -83.61556,
+    "built_year": 1864,
+    "length_ft": 60,
+    "crosses": "Sand Lick Creek",
+    "truss": "Town",
+    "status": "extant",
+    "history": "Also called White Bridge. Compact Town-lattice covered bridge over Sand Lick Creek at Goddard; rebuilt elements date to 1933.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.36222,-83.61556&q=Goddard%20Covered%20Bridge"
+  },
+  {
+    "id": "hillsboro",
+    "name": "Hillsboro Covered Bridge",
+    "city": "Hillsboro",
+    "county": "Fleming",
+    "latitude": 38.25472,
+    "longitude": -83.65306,
+    "built_year": 1865,
+    "length_ft": 80,
+    "crosses": "Fox Creek",
+    "truss": "Multiple king",
+    "status": "extant",
+    "history": "Also known as Grange City Covered Bridge. Spans Fox Creek in Fleming County; multiple kingpost from about 1865.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.25472,-83.65306&q=Hillsboro%20Covered%20Bridge"
+  },
+  {
+    "id": "johnson-creek",
+    "name": "Johnson Creek Covered Bridge",
+    "city": "Mount Olivet",
+    "county": "Robertson",
+    "latitude": 38.48111,
+    "longitude": -83.97694,
+    "built_year": 1874,
+    "length_ft": 110,
+    "crosses": "Blue Lick Springs",
+    "truss": "Smith",
+    "status": "extant",
+    "history": "Robertson County Smith-truss covered bridge near Mount Olivet, built 1874 over Blue Lick Springs / Johnson Creek.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.48111,-83.97694&q=Johnson%20Creek%20Covered%20Bridge"
+  },
+  {
+    "id": "lees-creek",
+    "name": "Lee's Creek Covered Bridge",
+    "city": "Dover",
+    "county": "Mason",
+    "latitude": 38.74972,
+    "longitude": -83.87889,
+    "built_year": 1835,
+    "length_ft": 60,
+    "crosses": "Lee's Creek",
+    "truss": "Queen",
+    "status": "extant",
+    "history": "Also called Dover Covered Bridge. One of Kentucky's oldest surviving covered bridges (1835), queenpost over Lee's Creek at Dover.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.74972,-83.87889&q=Lee%27s%20Creek%20Covered%20Bridge"
+  },
+  {
+    "id": "oldtown",
+    "name": "Oldtown Covered Bridge",
+    "city": "Oldtown",
+    "county": "Greenup",
+    "latitude": 38.43139,
+    "longitude": -82.895,
+    "built_year": 1850,
+    "length_ft": 190,
+    "crosses": "Frazer Branch / Little Sandy Creek",
+    "truss": "Warren or Multiple king",
+    "status": "extant",
+    "history": "Long Greenup County covered bridge at Oldtown; mid-19th century origins with major restoration in 1999.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.43139,-82.895&q=Oldtown%20Covered%20Bridge"
+  },
+  {
+    "id": "ringos-mill",
+    "name": "Ringos Mill Covered Bridge",
+    "city": "Flemingsburg",
+    "county": "Fleming",
+    "latitude": 38.26833,
+    "longitude": -83.61056,
+    "built_year": 1867,
+    "length_ft": 86,
+    "crosses": "Fox Creek",
+    "truss": "Multiple king",
+    "status": "extant",
+    "history": "Fleming County covered bridge on Fox Creek near Flemingsburg, multiple kingpost, built 1867.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.26833,-83.61056&q=Ringos%20Mill%20Covered%20Bridge"
+  },
+  {
+    "id": "switzer",
+    "name": "Switzer Covered Bridge",
+    "city": "Switzer",
+    "county": "Franklin",
+    "latitude": 38.25389,
+    "longitude": -84.75222,
+    "built_year": 1855,
+    "length_ft": 120,
+    "crosses": "North Fork Elkhorn Creek",
+    "truss": "Howe",
+    "status": "extant",
+    "history": "Franklin County's Howe-truss covered bridge at Switzer (c. 1855), restored 1998. Closest historic covered bridge to Frankfort / Shelby drives.",
+    "website": "https://en.wikipedia.org/wiki/Switzer_Covered_Bridge",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+      "https://www.hmdb.org/m.asp?m=11614"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.25389,-84.75222&q=Switzer%20Covered%20Bridge"
+  },
+  {
+    "id": "walcott",
+    "name": "Walcott Covered Bridge",
+    "city": "Brooksville",
+    "county": "Bracken",
+    "latitude": 38.73333,
+    "longitude": -84.10056,
+    "built_year": 1880,
+    "length_ft": 76,
+    "crosses": "Locust Creek",
+    "truss": "Queen and multiple king",
+    "status": "extant",
+    "history": "Privately owned Bracken County covered bridge over Locust Creek near Brooksville; rebuilt 2001 after earlier damage.",
+    "website": "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky",
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_covered_bridges_in_Kentucky"
+    ],
+    "map_url": "https://maps.apple.com/?ll=38.73333,-84.10056&q=Walcott%20Covered%20Bridge"
+  }
+]
