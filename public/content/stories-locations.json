@@ -1,13 +1,21 @@
 {
-  "generatedAt": "2026-09-17T09:46:40.573Z",
+  "generatedAt": "2026-09-18T09:16:22.264Z",
   "stats": {
     "exact": 11,
     "fuzzy": 41,
-    "county": 7,
+    "county": 10,
     "override": 34,
-    "none": 17
+    "none": 19
   },
   "locations": {
+    "chiggerville-15oh1": {
+      "slug": "chiggerville-15oh1",
+      "lat": 37.43415,
+      "lon": -86.88355,
+      "mapConfidence": "county",
+      "matchedPlace": "Ohio County (centroid)",
+      "historyId": null
+    },
     "read-shell-midden-15bt10-butler-county": {
       "slug": "read-shell-midden-15bt10-butler-county",
       "lat": 37.2425,
@@ -24,6 +32,14 @@
       "matchedPlace": "Carlston Annis Shell Mound",
       "historyId": "carlston-annis-shell-mound"
     },
+    "salts-cave-15ht4": {
+      "slug": "salts-cave-15ht4",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
       "lat": 38.0733,
@@ -39,14 +55,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
-    },
-    "annis-mound-village": {
-      "slug": "annis-mound-village",
-      "lat": 37.2898389,
-      "lon": -86.752889,
-      "mapConfidence": "override",
-      "matchedPlace": "Annis Mound & Village (15Bt2)",
-      "historyId": null
     },
     "muir-site-15js86": {
       "slug": "muir-site-15js86",
@@ -208,6 +216,14 @@
       "matchedPlace": "Lower Shawneetown",
       "historyId": "lower-shawneetown"
     },
+    "maj-silas-harlan": {
+      "slug": "maj-silas-harlan",
+      "lat": 36.90495,
+      "lon": -83.15217,
+      "mapConfidence": "county",
+      "matchedPlace": "Harlan County (centroid)",
+      "historyId": null
+    },
     "odawa-raid-at-eskippakithiki-1753": {
       "slug": "odawa-raid-at-eskippakithiki-1753",
       "lat": 37.98859,
@@ -223,6 +239,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Falls of the Ohio",
       "historyId": "falls-of-the-ohio"
+    },
+    "col-william-russell-iii": {
+      "slug": "col-william-russell-iii",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. William Russell III / Fayette",
+      "historyId": null
     },
     "bland-w-ballard-of-tick-creek": {
       "slug": "bland-w-ballard-of-tick-creek",
@@ -327,6 +351,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
+    },
+    "chickamauga-cherokee": {
+      "slug": "chickamauga-cherokee",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "maj-joseph-bowman": {
       "slug": "maj-joseph-bowman",
@@ -447,14 +479,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bardstown Founding",
       "historyId": "bardstown-founding"
-    },
-    "col-william-russell-iii": {
-      "slug": "col-william-russell-iii",
-      "lat": 38.0406,
-      "lon": -84.5037,
-      "mapConfidence": "override",
-      "matchedPlace": "Col. William Russell III / Fayette",
-      "historyId": null
     },
     "elizabethtown-from-severns-valley": {
       "slug": "elizabethtown-from-severns-valley",
@@ -648,6 +672,14 @@
       "matchedPlace": "Newport Barracks",
       "historyId": null
     },
+    "owensboro-yellow-banks": {
+      "slug": "owensboro-yellow-banks",
+      "lat": 37.7549958,
+      "lon": -87.0614257,
+      "mapConfidence": "override",
+      "matchedPlace": "Owensboro / Yellow Banks",
+      "historyId": null
+    },
     "lancaster-at-wallace-s-crossroads": {
       "slug": "lancaster-at-wallace-s-crossroads",
       "lat": 37.3238322,
@@ -656,12 +688,12 @@
       "matchedPlace": "Lancaster founding / Wallace's Crossroads",
       "historyId": "lancaster-founding-wallace-s-crossroads"
     },
-    "owensboro-yellow-banks": {
-      "slug": "owensboro-yellow-banks",
-      "lat": 37.7549958,
-      "lon": -87.0614257,
-      "mapConfidence": "override",
-      "matchedPlace": "Owensboro / Yellow Banks",
+    "glasgow-the-barrens": {
+      "slug": "glasgow-the-barrens",
+      "lat": 37.03703,
+      "lon": -85.92479,
+      "mapConfidence": "county",
+      "matchedPlace": "Barren County (centroid)",
       "historyId": null
     },
     "richmond-from-millers-barn": {
@@ -736,6 +768,14 @@
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
     },
+    "cumberland-falls": {
+      "slug": "cumberland-falls",
+      "lat": 36.84008333333333,
+      "lon": -84.33956666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Cumberland Falls",
+      "historyId": null
+    },
     "ashlands-adena-mounds": {
       "slug": "ashlands-adena-mounds",
       "lat": 38.4730716,
@@ -759,6 +799,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Ward Site (15McL11) Late Archaic",
       "historyId": "ward-site-15mcl11-mclean-county-late-archaic"
+    },
+    "annis-mound-village": {
+      "slug": "annis-mound-village",
+      "lat": 37.2898389,
+      "lon": -86.752889,
+      "mapConfidence": "override",
+      "matchedPlace": "Annis Mound & Village (15Bt2)",
+      "historyId": null
     },
     "hardin-village-15gp22": {
       "slug": "hardin-village-15gp22",
@@ -823,14 +871,6 @@
       "mapConfidence": "exact",
       "matchedPlace": "Cleek-McCabe Fort Ancient Village",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
-    },
-    "cumberland-falls": {
-      "slug": "cumberland-falls",
-      "lat": 36.84008333333333,
-      "lon": -84.33956666666667,
-      "mapConfidence": "override",
-      "matchedPlace": "Cumberland Falls",
-      "historyId": null
     },
     "indian-knoll-on-the-green-river": {
       "slug": "indian-knoll-on-the-green-river",

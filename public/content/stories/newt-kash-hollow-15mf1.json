@@ -4,13 +4,12 @@
   "publishedDate": "2026-09-15",
   "summary": "In Menifee County’s Red River country, Newt Kash rockshelter preserved Early Woodland plant beds that reshaped how archaeologists talk about eastern agriculture. Webb and…",
   "bodyMarkdown": "In Menifee County’s Red River country, Newt Kash rockshelter preserved Early Woodland plant beds that reshaped how archaeologists talk about eastern agriculture. Webb and Funkhouser’s 1930s digs, then Volney Jones’s ethnobotany, recovered matting, grass bedding, squash, sunflower, goosefoot, and sumpweed—some of the earliest clear domesticates from a Kentucky shelter, occupied intensively around 3,000 years ago. Later readings treat the fiber, cradleboard, mortar, and medicinal plants as a possible women’s retreat and medicine place, not just a hunter’s overnight stop.\nSource: [https://doi.org/10.7183/0002-7316.76.4.628](https://doi.org/10.7183/0002-7316.76.4.628)",
-  "yearStart": -1000,
-  "yearEnd": 200,
-  "era": "prehistoric",
+  "yearStart": null,
+  "yearEnd": null,
+  "era": "other",
   "tags": [
-    "prehistoric",
-    "kentucky",
-    "archaeology"
+    "other",
+    "kentucky"
   ],
   "source": "ky-history",
   "briefDate": "2026-09-15"
