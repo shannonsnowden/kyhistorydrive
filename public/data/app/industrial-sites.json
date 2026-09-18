@@ -1,0 +1,1342 @@
+[
+  {
+    "id": "airdrie-furnace",
+    "name": "Airdrie Furnace Site",
+    "city": "Drakesboro",
+    "county": "Muhlenberg",
+    "address": "Drakesboro, US 431",
+    "latitude": 37.2197333,
+    "longitude": -87.0460833,
+    "industry_type": "furnace",
+    "built_year": 1855,
+    "history": "Robert Alexander built a 55-foot furnace and stone machinery house in 1855 and brought Scottish workers unfamiliar with American ores; the works never produced salable iron. The failed industrial town of Airdrie later became home to Union Gen. Don Carlos Buell after the Civil War.",
+    "website": "https://history.ky.gov/markers/airdrie-furnace-site",
+    "sources": [
+      "https://history.ky.gov/markers/airdrie-furnace-site"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1086"
+  },
+  {
+    "id": "amanda-furnace-greenup",
+    "name": "Amanda Furnace",
+    "city": "Raceland",
+    "county": "Greenup",
+    "address": "Approx. 1 mi. W. of Boyd Co. line, US 23",
+    "latitude": 38.5154833,
+    "longitude": -82.68305,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Hanging Rock iron furnace site along US 23 near the Boyd County line, interpreted by KHS. Part of the dense Greenup–Boyd furnace corridor that made the Ohio River shore a nineteenth-century iron landscape.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1142"
+  },
+  {
+    "id": "beaver-dam-furnace",
+    "name": "Beaver Dam Furnace",
+    "city": "Scranton",
+    "county": "Menifee",
+    "address": "Scranton, KY 1274",
+    "latitude": 37.9843167,
+    "longitude": -83.5230333,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Menifee County iron furnace site near Scranton on KY 1274. Extends the Red River / eastern Kentucky iron story into the hills of Menifee County with a mappable KHS-marked POI.",
+    "website": "https://history.ky.gov/markers/beaver-dam-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/beaver-dam-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1120"
+  },
+  {
+    "id": "bellefonte-furnace",
+    "name": "Bellefonte Furnace",
+    "city": "Bellefonte",
+    "county": "Greenup",
+    "address": "Greenup-Boyd Co. line, KY 5",
+    "latitude": 38.49195,
+    "longitude": -82.6880167,
+    "industry_type": "furnace",
+    "built_year": 1826,
+    "history": "Among the most successful pioneer Kentucky charcoal furnaces in the Hanging Rock Iron Region. Built 1826 by Archibald Paull, George Poague and partners; it produced thousands of tons annually into the 1870s and operated until 1893, leaving a massive slag heap.",
+    "website": "https://history.ky.gov/markers/bellefonte-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/bellefonte-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1020"
+  },
+  {
+    "id": "belmont-furnace",
+    "name": "Belmont Furnace",
+    "city": "Belmont",
+    "county": "Bullitt",
+    "address": "KY 61 & Pioneer Dr., Belmont",
+    "latitude": 37.8927167,
+    "longitude": -85.69895,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Bullitt County iron furnace site at Belmont along KY 61. Part of the Salt River / Bullitt iron cluster that served central Kentucky markets in the nineteenth century.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1136"
+  },
+  {
+    "id": "bourbon-iron-works",
+    "name": "Bourbon Iron Works (Slate Furnace)",
+    "city": "Owingsville",
+    "county": "Bath",
+    "address": "3 mi. S. of Owingsville, KY 36, 965",
+    "latitude": 38.1144,
+    "longitude": -83.7475,
+    "industry_type": "furnace",
+    "built_year": 1791,
+    "history": "Jacob Myers took land on Slate Creek in 1782 and built Kentucky’s first iron blast furnace here in 1791; John Cockey Owings and partners later operated it. The works supplied settlers and later munitions, including shot for the U.S. Navy and the War of 1812–New Orleans campaigns, with last blast about 1838.",
+    "website": "https://history.ky.gov/markers/bourbon-iron-works",
+    "sources": [
+      "https://history.ky.gov/markers/bourbon-iron-works"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "993"
+  },
+  {
+    "id": "buena-vista-furnace",
+    "name": "Buena Vista Furnace",
+    "city": "Ashland",
+    "county": "Boyd",
+    "address": "KY 5 at Straight Creek Rd., near Ashland",
+    "latitude": 38.4008667,
+    "longitude": -82.7606,
+    "industry_type": "furnace",
+    "built_year": 1847,
+    "history": "Charcoal furnace built 1847 by William Foster & Co. and named for the Mexican War battle that year. A major Hanging Rock iron producer until dismantled in 1876, it made over 4,000 tons in 1874 from a 40-foot stone stack.",
+    "website": "https://history.ky.gov/markers/buena-vista-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/buena-vista-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1010"
+  },
+  {
+    "id": "buffalo-furnace",
+    "name": "Buffalo Furnace",
+    "city": "Greenup",
+    "county": "Greenup",
+    "address": "Entrance to Greenbo Lake Park, KY 1",
+    "latitude": 38.4797,
+    "longitude": -82.8878,
+    "industry_type": "furnace",
+    "built_year": 1851,
+    "history": "Major Hanging Rock charcoal furnace (1851–75) and an important Union Army iron supplier in the Civil War. Built by H. Hollister and Ross with a steam air blast, it employed about 150 men and shipped pig iron by Ohio River steamboat; ruins stand near Greenbo Lake State Resort Park.",
+    "website": "https://history.ky.gov/markers/buffalo-furnance",
+    "sources": [
+      "https://history.ky.gov/markers/buffalo-furnance",
+      "https://parks.ky.gov/"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "976"
+  },
+  {
+    "id": "caney-furnace",
+    "name": "Caney Furnace",
+    "city": "Midland",
+    "county": "Bath",
+    "address": "Midland, Old River Rd., US 60",
+    "latitude": 38.1330167,
+    "longitude": -83.5774833,
+    "industry_type": "furnace",
+    "built_year": 1837,
+    "history": "Stone stack built 1837–38 by Harrison Connor and Joshua Ewing Sr., among the first iron furnaces west of the Alleghenies fitted with a hot-blast oven to preheat air. Charcoal-fueled and steam-powered, it ran into the late 1840s and briefly again in 1857–58.",
+    "website": "https://history.ky.gov/markers/caney-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/caney-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1226"
+  },
+  {
+    "id": "caroline-furnace",
+    "name": "Caroline Furnace",
+    "city": "Raceland",
+    "county": "Greenup",
+    "address": "4 mi. W. of Raceland city limits, US 23 at Caroline Furnace Rd.",
+    "latitude": 38.5416833,
+    "longitude": -82.74675,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Greenup County Hanging Rock furnace site on US 23 west of Raceland. The KHS marker preserves the place-name of another charcoal-era stack along the Ohio River iron corridor.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1132"
+  },
+  {
+    "id": "center-furnace-trigg",
+    "name": "Center Furnace",
+    "city": "Cadiz",
+    "county": "Trigg",
+    "address": "71/2 mi. NW of Cadiz, KY 274",
+    "latitude": 36.8976333,
+    "longitude": -87.9388833,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Western Kentucky iron furnace on KY 274 northwest of Cadiz in the Land Between the Lakes iron district. KHS marks Center Furnace among Trigg County stacks that used Tennessee River–area ore and charcoal.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1366"
+  },
+  {
+    "id": "clear-creek-furnace",
+    "name": "Clear Creek / Bath Furnace",
+    "city": "Salt Lick",
+    "county": "Bath",
+    "address": "Salt Lick, US 60 at KY 211",
+    "latitude": 38.1177333,
+    "longitude": -83.6157833,
+    "industry_type": "furnace",
+    "built_year": 1839,
+    "history": "Charcoal stone stack built 1839 by W. A. Lane and W. S. Allen with steam air blast; iron went mainly into railway car wheels. Rebuilt as Bath Furnace in the early 1870s, it produced over 1,300 tons in 1874 before its last blast in 1875.",
+    "website": "https://history.ky.gov/markers/clear-creek-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/clear-creek-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1050"
+  },
+  {
+    "id": "clinton-furnace",
+    "name": "Clinton Furnace",
+    "city": "Ashland",
+    "county": "Boyd",
+    "address": "US 60 at KY 538",
+    "latitude": 38.4174667,
+    "longitude": -82.7044333,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Hanging Rock Region charcoal/iron furnace interpreted by KHS marker along US 60 near KY 538. Part of the dense Boyd County furnace landscape that fed Ashland’s nineteenth-century iron trade along the Ohio River.",
+    "website": "https://history.ky.gov/markers",
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1155"
+  },
+  {
+    "id": "cottage-furnace",
+    "name": "Cottage Furnace",
+    "city": "Irvine",
+    "county": "Estill",
+    "address": "Cottage Furnace Ruins Rd (FS 231), Daniel Boone National Forest, Estill County, KY",
+    "latitude": 37.757394,
+    "longitude": -83.914322,
+    "industry_type": "furnace",
+    "built_year": 1856,
+    "history": "Charcoal blast furnace built in 1856 in the Red River iron district; it operated into the early 1870s and shipped iron to the Clay City forge and rolling mill. The stone stack remains are a Daniel Boone National Forest interpretive stop on Kentucky’s Historic Ironworks auto tour. KHS marker 1056 interprets the site from KY 52/213.",
+    "website": "https://www.fs.usda.gov/r08/danielboone/recreation/cottage-furnace-interpretive-site",
+    "sources": [
+      "https://www.fs.usda.gov/r08/danielboone/recreation/cottage-furnace-interpretive-site",
+      "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=1056"
+    ],
+    "geocode_source": "manual",
+    "nrhp": null,
+    "marker_number": "1056"
+  },
+  {
+    "id": "early-iron-works-clay-city",
+    "name": "Early Iron Works / Red River Iron Works (Clay City)",
+    "city": "Clay City",
+    "county": "Powell",
+    "address": "4541 Main St. at Red River Museum, Clay City",
+    "latitude": 37.8606488,
+    "longitude": -83.9211425,
+    "industry_type": "furnace",
+    "built_year": 1805,
+    "history": "Land bought for iron production in 1805 by Robert Clark Jr. and William Smith became Clark & Smith’s works, then the Red River Iron Works blast furnace (1808–1830). Later rebuilt as Estill Steam Furnace on another site; Clay City’s forge and rolling mill finished pig iron from the Estill furnaces.",
+    "website": "https://history.ky.gov/markers/early-iron-works",
+    "sources": [
+      "https://history.ky.gov/markers/early-iron-works"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2015"
+  },
+  {
+    "id": "estill-steam-furnace",
+    "name": "Estill Steam Furnace",
+    "city": "Irvine",
+    "county": "Estill",
+    "address": "Estill Steam Furnace site vicinity, Estill County, KY (marker at KY 52 & 213)",
+    "latitude": 37.70933,
+    "longitude": -83.88412,
+    "industry_type": "furnace",
+    "built_year": 1830,
+    "history": "Stone charcoal furnace built about 1830 by Thomas Deye Owings, a leader of the Red River iron industry, with a steam-powered air blast unusual for its era. It produced nearly 2,000 tons of iron in 1872 and last blasted in 1874; pig iron went to Clay City forge and rolling mills. KHS marker 1055 and nearby ruins mark this key Red River district furnace.",
+    "website": null,
+    "sources": [
+      "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=1055",
+      "https://history.ky.gov/markers/early-iron-works"
+    ],
+    "geocode_source": "manual",
+    "nrhp": null,
+    "marker_number": "1055"
+  },
+  {
+    "id": "fitchburg-red-river-furnace",
+    "name": "Fitchburg / Red River Iron Furnace",
+    "city": "Ravenna",
+    "county": "Estill",
+    "address": "1875 Fitchburg Rd (KY 975), Ravenna, KY 40472",
+    "latitude": 37.73271,
+    "longitude": -83.85246,
+    "industry_type": "furnace",
+    "built_year": 1868,
+    "history": "Dual-stack charcoal blast furnace designed by Fred Fitch and built 1868–69 by mason Sam Worthley for the Red River Iron Manufacturing Company. At about 81 feet it is among the largest charcoal iron furnaces ever built; it produced thousands of tons of pig iron around 1870 before closing in the mid-1870s. The standing stone ruins are an interpretive site in Daniel Boone National Forest and are listed on the National Register as the Red River Iron Furnace.",
+    "website": "https://www.fs.usda.gov/r08/danielboone/recreation/fitchburg-furnace-interpretive-site",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Fitchburg_Furnace",
+      "https://www.fs.usda.gov/r08/danielboone/recreation/fitchburg-furnace-interpretive-site",
+      "https://history.ky.gov/markers/red-river-iron-works"
+    ],
+    "geocode_source": "manual",
+    "nrhp": "74000860",
+    "marker_number": "1054"
+  },
+  {
+    "id": "hopewell-furnace-greenup",
+    "name": "Hopewell Furnace (Greenup)",
+    "city": "Hopewell",
+    "county": "Greenup",
+    "address": "Hopewell, KY 1",
+    "latitude": 38.4146333,
+    "longitude": -82.8999,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Charcoal iron furnace site at Hopewell on KY 1 in Greenup County’s Hanging Rock district. KHS interprets the stack among the cluster of Greenup furnaces that shipped pig iron to the Ohio River.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1143"
+  },
+  {
+    "id": "laura-furnace",
+    "name": "Laura Furnace",
+    "city": "Golden Pond",
+    "county": "Trigg",
+    "address": "6 mi. S. of Golden Pond, US 68",
+    "latitude": 36.7309333,
+    "longitude": -87.99795,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Trigg County charcoal furnace site south of Golden Pond on US 68. One of the Land Between the Lakes–area iron works that illustrate western Kentucky’s nineteenth-century furnace belt.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "998"
+  },
+  {
+    "id": "laurel-furnace",
+    "name": "Laurel Furnace",
+    "city": "Oldtown",
+    "county": "Greenup",
+    "address": "Oldtown, KY 1 & Laurel Creek Rd.",
+    "latitude": 38.4406,
+    "longitude": -82.8982333,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Historic iron furnace at Oldtown in Greenup County, marked near KY 1 and Laurel Creek Road. Another Hanging Rock stack that reflects the county’s charcoal-iron boom of the mid-1800s.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1019"
+  },
+  {
+    "id": "mount-savage-furnace",
+    "name": "Mount Savage Furnace",
+    "city": "Grayson",
+    "county": "Carter",
+    "address": "E. of Grayson, Jct. US 60 & KY 1",
+    "latitude": 38.32835,
+    "longitude": -82.9311833,
+    "industry_type": "furnace",
+    "built_year": 1848,
+    "history": "Famous Carter County iron furnace erected 1848 by R. M. Biggs and others; it operated about 37 years and averaged roughly 15 tons of pig iron daily, hauled by ox teams to the Ohio River. Iron went into rails, plows, cannon, and machinery until the last blast in 1885.",
+    "website": "https://history.ky.gov/markers/mount-savage-furnance",
+    "sources": [
+      "https://history.ky.gov/markers/mount-savage-furnance"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "914"
+  },
+  {
+    "id": "nelson-furnace",
+    "name": "Nelson Furnace",
+    "city": "Nelsonville",
+    "county": "Nelson",
+    "address": "At mile marker 5.28 on KY 52, Nelsonville, KY (37.728800°N, 85.639361°W)",
+    "latitude": 37.7288,
+    "longitude": -85.639361,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Stone iron furnace site at Nelsonville on KY 52 in Nelson County. A tangible remnant of central Kentucky’s charcoal iron industry outside the better-known Hanging Rock and Red River districts.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1113"
+  },
+  {
+    "id": "norton-furnace",
+    "name": "Norton Furnace",
+    "city": "Ashland",
+    "county": "Boyd",
+    "address": "Winchester Ave. at 23rd St., Ashland, US 23, 60",
+    "latitude": 38.4742667,
+    "longitude": -82.6305833,
+    "industry_type": "furnace",
+    "built_year": 1873,
+    "history": "Iron-shell blast furnace built by Norton Iron Works in 1873, burning coal rather than charcoal, with a stack about 67 feet high. It produced more than 10,000 tons in 1874 and later operated under Armco, becoming one of the longest-lived Ashland-area furnaces.",
+    "website": "https://history.ky.gov/markers/norton-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/norton-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1023"
+  },
+  {
+    "id": "pennsylvania-furnace",
+    "name": "Pennsylvania Furnace",
+    "city": "Argillite",
+    "county": "Greenup",
+    "address": "8148 Eastern Kentucky Road, Argillite, KY (N 38° 29.409 W 082° 49.728)",
+    "latitude": 38.49015,
+    "longitude": -82.8288,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Hanging Rock Region furnace site near Argillite on the Eastern Kentucky Road corridor. KHS marker coordinates place visitors near the historic stack associated with Greenup County’s iron era.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1016"
+  },
+  {
+    "id": "pioneer-furnace-lawrence",
+    "name": "Pioneer Furnace",
+    "city": "Louisa",
+    "county": "Lawrence",
+    "address": "US 23, S. of Louisa at Jct. of KY 644",
+    "latitude": 38.09275,
+    "longitude": -82.6104667,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Lawrence County iron furnace site on US 23 south of Louisa. Extends the eastern Kentucky / Hanging Rock iron story into the Big Sandy valley with a clear roadside marker POI.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1354"
+  },
+  {
+    "id": "princess-furnace",
+    "name": "Princess Furnace",
+    "city": "Princess",
+    "county": "Boyd",
+    "address": "Princess, KY 5",
+    "latitude": 38.3877167,
+    "longitude": -82.74565,
+    "industry_type": "furnace",
+    "built_year": 1876,
+    "history": "Iron-jacketed stack built 1876–77 for Thomas W. Means, a dominant Hanging Rock ironmaster for half a century. It burned coal after nearby Buena Vista exhausted charcoal timber on thousands of acres; last blast was 1878.",
+    "website": "https://history.ky.gov/markers/princess-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/princess-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1135"
+  },
+  {
+    "id": "raccoon-furnace",
+    "name": "Raccoon Furnace",
+    "city": "Greenup",
+    "county": "Greenup",
+    "address": "Greenup, US 23 at KY 2",
+    "latitude": 38.5751667,
+    "longitude": -82.8402167,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Iron furnace site interpreted at Greenup along US 23 / KY 2. One of several Greenup County Hanging Rock furnaces that turned local ore and charcoal into pig iron for river shipment.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1009"
+  },
+  {
+    "id": "salt-river-furnace",
+    "name": "Salt River Furnace",
+    "city": "Bardstown Junction",
+    "county": "Bullitt",
+    "address": "Beech Grove Rd. & KY 61, Bardstown Junction",
+    "latitude": 37.9277,
+    "longitude": -85.7021,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Historic blast furnace site near Bardstown Junction in Bullitt County. KHS interprets the furnace among the Salt River iron works that leveraged local ore and woodland charcoal.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1162"
+  },
+  {
+    "id": "sandy-furnace",
+    "name": "Sandy Furnace",
+    "city": "Catlettsburg",
+    "county": "Boyd",
+    "address": "KY 3 at KY 773",
+    "latitude": 38.26275,
+    "longitude": -82.6996,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Historic iron furnace site in Boyd County’s Hanging Rock district, marked at the KY 3 / KY 773 junction. One of several Boyd County stacks that supplied the Ohio River iron trade in the mid-to-late 1800s.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1131"
+  },
+  {
+    "id": "star-furnace",
+    "name": "Star Furnace",
+    "city": "Rush",
+    "county": "Carter",
+    "address": "2 mi. W. of Boyd Co. line, US 60",
+    "latitude": 38.35315,
+    "longitude": -82.7998333,
+    "industry_type": "furnace",
+    "built_year": 1848,
+    "history": "Built 1848 by A. McCullough and the Lampton Brothers; its stone stack burned coal rather than charcoal and had its own railroad spur. Production included 2,600 tons in 1866; last blast was 1874.",
+    "website": "https://history.ky.gov/markers/star-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/star-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1018"
+  },
+  {
+    "id": "steam-furnace-greenup",
+    "name": "Steam Furnace (Wurtland)",
+    "city": "Wurtland",
+    "county": "Greenup",
+    "address": "Wurtland, US 23 at KY 503 (N 38° 33.015 W 082° 47.024)",
+    "latitude": 38.55025,
+    "longitude": -82.7837333,
+    "industry_type": "furnace",
+    "built_year": 1824,
+    "history": "Built by the Shreve Brothers in 1824, this was the first Hanging Rock Region blast furnace to drive blowing engines by steam instead of water power. The charcoal stack produced about three tons a day, mostly cast into utensils on site, and was abandoned after 1860.",
+    "website": "https://history.ky.gov/markers/steam-furnace",
+    "sources": [
+      "https://history.ky.gov/markers/steam-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1008"
+  },
+  {
+    "id": "suwanee-furnace",
+    "name": "Suwanee Furnace",
+    "city": "Kuttawa",
+    "county": "Lyon",
+    "address": "11/2 mi. W. of Kuttawa, US 62, 641, at Jct. with Suwanee Road",
+    "latitude": 37.0492,
+    "longitude": -88.167,
+    "industry_type": "furnace",
+    "built_year": null,
+    "history": "Lyon County iron furnace near Kuttawa in the western Kentucky furnace district. KHS places the Suwanee stack among the cluster of Lyon–Trigg–Livingston furnaces tied to Cumberland/Tennessee River trade.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1327"
+  },
+  {
+    "id": "audubon-mill-site",
+    "name": "Audubon Saw and Grist Mill Site",
+    "city": "Henderson",
+    "county": "Henderson",
+    "address": "Second & Water Sts., Henderson",
+    "latitude": 37.8408667,
+    "longitude": -87.5936833,
+    "industry_type": "mill",
+    "built_year": 1816,
+    "history": "In 1816 John James Audubon and Thomas Bakewell built a steam-powered saw and grist mill on the Ohio River here; defective machinery and poor crops doomed it by 1819, after which Audubon turned fully to art. The mill later served as a tobacco warehouse before burning in 1913; the riverfront site is marked by KHS.",
+    "website": "https://history.ky.gov/markers/audubon-saw-and-grist-mill",
+    "sources": [
+      "https://history.ky.gov/markers/audubon-saw-and-grist-mill"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1645"
+  },
+  {
+    "id": "bagdad-roller-mill",
+    "name": "Bagdad Roller Mills",
+    "city": "Bagdad",
+    "county": "Shelby",
+    "address": "5740 Elmburg Rd, Bagdad, KY 40003",
+    "latitude": 38.2588756,
+    "longitude": -85.0589967,
+    "industry_type": "mill",
+    "built_year": 1884,
+    "history": "Independent grain and feed mill in continuous commercial operation in Bagdad since 1884, originally milling cornmeal and flour before shifting to livestock and equine feeds in the mid-twentieth century. Still a working elevator and feed manufacturer on Elmburg Road—an uncommon living example of a nineteenth-century Kentucky roller-mill business.",
+    "website": "https://www.bagdadrollermillsfeed.com/",
+    "sources": [
+      "https://www.bagdadrollermillsfeed.com/",
+      "http://towns-and-nature.blogspot.com/2026/06/bagdad-ky-1884-bagdad-roller-mills-feed.html"
+    ],
+    "geocode_source": "photon",
+    "nrhp": false,
+    "marker_number": null
+  },
+  {
+    "id": "baughman-mill",
+    "name": "Baughman Mill (Lincoln Mills)",
+    "city": "Stanford",
+    "county": "Lincoln",
+    "address": "201 Mill St., Stanford",
+    "latitude": 37.5304167,
+    "longitude": -84.6636167,
+    "industry_type": "mill",
+    "built_year": 1881,
+    "history": "Completed in 1881 as Lincoln Mills and later operated by the Baughman family as J. H. Baughman & Co., grinding flour, meal, and livestock feed until 1969. The standing mill building is a landmark of Stanford’s industrial Main/Mill Street corridor and is interpreted by KHS marker 2492.",
+    "website": "https://history.ky.gov/markers/baughman-mill",
+    "sources": [
+      "https://history.ky.gov/markers/baughman-mill"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2492"
+  },
+  {
+    "id": "mchargues-mill",
+    "name": "McHargue's Mill",
+    "city": "London",
+    "county": "Laurel",
+    "address": "Levi Jackson Wilderness Road State Park, London, KY",
+    "latitude": 37.0881612,
+    "longitude": -84.0416394,
+    "industry_type": "mill",
+    "built_year": null,
+    "history": "Reconstructed water-powered gristmill at Levi Jackson Wilderness Road State Park interpreting frontier milling along the Wilderness Road corridor. A visitor-facing mill stop that pairs milling technology with Laurel County settlement history.",
+    "website": "https://parks.ky.gov/",
+    "sources": [
+      "https://parks.ky.gov/"
+    ],
+    "geocode_source": "photon",
+    "nrhp": null,
+    "marker_number": null
+  },
+  {
+    "id": "mill-springs-mill",
+    "name": "Mill Springs Mill",
+    "city": "Monticello",
+    "county": "Wayne",
+    "address": "9135 Highway 1275 N, Monticello, KY 42633",
+    "latitude": 36.934077,
+    "longitude": -84.7787438,
+    "industry_type": "mill",
+    "built_year": 1817,
+    "history": "Historic gristmill on Lake Cumberland dating to about 1817, later fitted with a famous ~40-foot overshot waterwheel (1908) and French burr stones still used for demonstration grindings. Operated seasonally by the U.S. Army Corps of Engineers with the Monticello Women’s Club gift shop—one of Kentucky’s best-preserved working historic mills.",
+    "website": "https://www.lrd.usace.army.mil/",
+    "sources": [
+      "https://www.dvidshub.net/news/442134/experience-stone-sharpening-historic-mill-springs-mill"
+    ],
+    "geocode_source": "photon",
+    "nrhp": true,
+    "marker_number": null
+  },
+  {
+    "id": "old-grist-mill-loretto",
+    "name": "Old Grist Mill–Distillery Site (Loretto)",
+    "city": "Loretto",
+    "county": "Marion",
+    "address": "At Distillery, approx. 10 mi. NW of Lebanon, KY 52",
+    "latitude": 37.6475,
+    "longitude": -85.3497167,
+    "industry_type": "mill",
+    "built_year": null,
+    "history": "Historic grist-mill site in Marion County interpreted by KHS as an early mill (later associated with distilling). Included as a milling POI rather than a bourbon-trail stop—the Distilleries layer covers active visitor distilleries.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1509"
+  },
+  {
+    "id": "weisenberger-mill",
+    "name": "Weisenberger Mill",
+    "city": "Midway",
+    "county": "Scott",
+    "address": "2545 Weisenberger Mill Rd, Midway, KY 40347",
+    "latitude": 38.12611,
+    "longitude": -84.63694,
+    "industry_type": "mill",
+    "built_year": 1913,
+    "history": "Oldest continuously operating grain mill in Kentucky: a mill has stood on South Elkhorn Creek since 1818, and the Weisenberger family has run it since 1865. Philip Weisenberger built the present poured-concrete mill in 1913 using crushed stone from the earlier mill; the NRHP district includes the mill, dam, elevator, and related buildings.",
+    "website": "https://weisenberger.com/",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Weisenberger_Mills_and_Related_Buildings",
+      "https://weisenberger.com/"
+    ],
+    "geocode_source": "manual",
+    "nrhp": "84001987",
+    "marker_number": null
+  },
+  {
+    "id": "bowling-green-ln-depot",
+    "name": "Bowling Green L&N Depot (Historic RailPark)",
+    "city": "Bowling Green",
+    "county": "Warren",
+    "address": "401 Kentucky St, Bowling Green, KY 42101",
+    "latitude": 37.0,
+    "longitude": -86.43806,
+    "industry_type": "railroad_depot",
+    "built_year": 1925,
+    "history": "Third L&N passenger station for Bowling Green, opened 1925 and later serving Amtrak’s Floridian. Now the Historic RailPark & Train Museum with restored cars and exhibits in the historic depot (NRHP 1979)—one of Kentucky’s best visitor railroad depot experiences.",
+    "website": "https://www.historicrailpark.com/",
+    "sources": [
+      "https://www.historicrailpark.com/",
+      "https://en.wikipedia.org/wiki/Bowling_Green_station_(Louisville_and_Nashville_Railroad)"
+    ],
+    "geocode_source": "manual",
+    "nrhp": "79003519",
+    "marker_number": null
+  },
+  {
+    "id": "carlisle-passenger-depot",
+    "name": "Carlisle Passenger Depot",
+    "city": "Carlisle",
+    "county": "Nicholas",
+    "address": "101 Market St., Carlisle",
+    "latitude": 38.3115167,
+    "longitude": -84.029,
+    "industry_type": "railroad_depot",
+    "built_year": 1912,
+    "history": "L&N brick passenger depot built in 1912 after the original frame station burned. The Lexington & Maysville Railroad reached Carlisle by 1871; the depot was later acquired by the Nicholas County Historical Society, listed on the NRHP in 1979, and renovated as a local heritage site.",
+    "website": "https://history.ky.gov/markers/carlisle-passenger-depot",
+    "sources": [
+      "https://history.ky.gov/markers/carlisle-passenger-depot"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": true,
+    "marker_number": "1764"
+  },
+  {
+    "id": "erlanger-depot",
+    "name": "Erlanger Depot",
+    "city": "Erlanger",
+    "county": "Kenton",
+    "address": "3319 Crescent Avenue, Erlanger",
+    "latitude": 39.0182333,
+    "longitude": -84.5987167,
+    "industry_type": "railroad_depot",
+    "built_year": 1877,
+    "history": "Cincinnati Southern Railroad wooden depot opened in 1877—said to be the last wooden depot between Cincinnati and Chattanooga. After more than a century of service, the Erlanger Historical Society saved it from demolition; it has served as a museum since 1990.",
+    "website": "https://history.ky.gov/markers/erlanger-depoterlanger-proper-subdivision",
+    "sources": [
+      "https://history.ky.gov/markers/erlanger-depoterlanger-proper-subdivision"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2154"
+  },
+  {
+    "id": "frankfort-union-station",
+    "name": "Frankfort Union Station",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "Broadway & High St., Frankfort",
+    "latitude": 38.19855,
+    "longitude": -84.8749,
+    "industry_type": "railroad_depot",
+    "built_year": 1908,
+    "history": "L&N-built union passenger station of 1908 that replaced an 1850s Lexington & Frankfort depot on the same site. Served C&O, L&N, Frankfort & Cincinnati, and other roads; the last scheduled passenger train was C&O’s George Washington on April 30, 1971. Still a landmark at Broadway and High in the capital.",
+    "website": "https://history.ky.gov/markers/frankfort-union-station",
+    "sources": [
+      "https://history.ky.gov/markers/frankfort-union-station"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1955"
+  },
+  {
+    "id": "hawesville-railroad-station",
+    "name": "Hawesville Railroad Station",
+    "city": "Hawesville",
+    "county": "Hancock",
+    "address": "Hancock Co. Mus., Water St., Hawesville",
+    "latitude": 37.90175,
+    "longitude": -86.7471333,
+    "industry_type": "railroad_depot",
+    "built_year": 1888,
+    "history": "Louisville, St. Louis & Texas rails reached Hawesville in 1888; passenger service between Owensboro and Stephensport began that October and Evansville–Louisville service in 1889. The line later became part of the L&N; the station site is interpreted with the Hancock County Museum on Water Street.",
+    "website": "https://history.ky.gov/markers/hawesville-railroad-station",
+    "sources": [
+      "https://history.ky.gov/markers/hawesville-railroad-station"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1856"
+  },
+  {
+    "id": "lexington-union-station-site",
+    "name": "Lexington Union Station (site)",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "Main St near Martin Luther King Blvd, Lexington, KY",
+    "latitude": 38.0465,
+    "longitude": -84.4955,
+    "industry_type": "railroad_depot",
+    "built_year": 1907,
+    "history": "Union passenger station opened August 4, 1907 for C&O and L&N (Southern kept its Broadway depot). The brick rotunda station served Lexington travelers until the late 1950s and was demolished in 1960; the downtown Main Street site remains a key map pin for the city’s rail passenger era.",
+    "website": "https://en.wikipedia.org/wiki/Lexington_Union_Station",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lexington_Union_Station"
+    ],
+    "geocode_source": "manual",
+    "nrhp": false,
+    "marker_number": null
+  },
+  {
+    "id": "louisville-union-station",
+    "name": "Louisville Union Station",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "1000 W Broadway, Louisville, KY 40203",
+    "latitude": 38.24611,
+    "longitude": -85.76889,
+    "industry_type": "railroad_depot",
+    "built_year": 1891,
+    "history": "Monumental Romanesque Revival L&N union station opened in 1891 and long claimed as one of the South’s largest railroad stations. Passenger service ended in the late 1970s; after restoration it houses TARC offices and remains a major Louisville railroad landmark on West Broadway (NRHP).",
+    "website": "https://en.wikipedia.org/wiki/Union_Station_(Louisville,_Kentucky)",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Union_Station_(Louisville,_Kentucky)"
+    ],
+    "geocode_source": "manual",
+    "nrhp": true,
+    "marker_number": null
+  },
+  {
+    "id": "munfordville-depot-area",
+    "name": "Munfordville Railroad / Depot Area",
+    "city": "Munfordville",
+    "county": "Hart",
+    "address": "Downtown Munfordville near L&N / Green River crossing, KY",
+    "latitude": 37.2722751,
+    "longitude": -85.8910819,
+    "industry_type": "railroad_depot",
+    "built_year": null,
+    "history": "Munfordville’s railroad presence centered on the strategic L&N Green River crossing—critical in the Civil War and long a mainline Kentucky stop. Pair with the L&N Railroad Bridge pin for a Hart County rail stop.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "photon",
+    "nrhp": null,
+    "marker_number": null
+  },
+  {
+    "id": "new-haven-depot-ky-railway-museum",
+    "name": "New Haven Depot / Kentucky Railway Museum",
+    "city": "New Haven",
+    "county": "Nelson",
+    "address": "Ormsby Station, on Dorsey Lane at LaGrange Rd., Louisville",
+    "latitude": 37.6572144,
+    "longitude": -85.593486,
+    "industry_type": "railroad_depot",
+    "built_year": null,
+    "history": "Home of the Kentucky Railway Museum and L&N Steam Engine 152 (Kentucky’s official state locomotive), with historic station/track setting for excursions and exhibits. The museum began in 1954, moved here in 1977, and anchors one of the state’s premier railroad heritage POIs.",
+    "website": "https://www.kyrail.org/",
+    "sources": [
+      "https://history.ky.gov/markers/kentucky-railway-museum",
+      "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=2200"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": true,
+    "marker_number": "1720"
+  },
+  {
+    "id": "owensboro-union-station",
+    "name": "Owensboro Union Station",
+    "city": "Owensboro",
+    "county": "Daviess",
+    "address": "1035 Frederica, US 431, Owensboro",
+    "latitude": 37.7659333,
+    "longitude": -87.1126,
+    "industry_type": "railroad_depot",
+    "built_year": 1906,
+    "history": "Union passenger station built 1905–06 on the site of an earlier Louisville, Henderson & St. Louis depot by agreement of LH&StL, L&N, and Illinois Central. Designed by Hutchings and Hawes, it remains a major Frederica Street landmark of Owensboro’s railroad age.",
+    "website": "https://history.ky.gov/markers/union-station",
+    "sources": [
+      "https://history.ky.gov/markers/union-station"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1746"
+  },
+  {
+    "id": "paducah-railroad-museum",
+    "name": "Paducah Railroad Museum",
+    "city": "Paducah",
+    "county": "McCracken",
+    "address": "200 Washington St, Paducah, KY 42001",
+    "latitude": 37.0703913,
+    "longitude": -88.6321696,
+    "industry_type": "railroad_depot",
+    "built_year": null,
+    "history": "Downtown museum dedicated to Paducah’s railroad heritage as a major Illinois Central and river-rail transfer city. A visitor-facing stop for western Kentucky rail history with exhibits on local lines, shops, and river-rail commerce.",
+    "website": "https://www.paducahrr.org/",
+    "sources": [
+      "https://www.paducahrr.org/"
+    ],
+    "geocode_source": "photon",
+    "nrhp": null,
+    "marker_number": null
+  },
+  {
+    "id": "paris-railroad-depot",
+    "name": "Paris Railroad Depot District",
+    "city": "Paris",
+    "county": "Bourbon",
+    "address": "Downtown Paris railroad corridor near 10th St, Paris, KY 40361",
+    "latitude": 38.2136,
+    "longitude": -84.2502,
+    "industry_type": "railroad_depot",
+    "built_year": null,
+    "history": "Paris was a key Bluegrass railroad town on routes linking Lexington, Maysville, and Cincinnati. The historic depot/rail corridor near downtown remains a clear visitor POI for Bourbon County’s freight and passenger rail era.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "manual",
+    "nrhp": null,
+    "marker_number": null
+  },
+  {
+    "id": "winchester-railroad-depot",
+    "name": "Winchester Depot District",
+    "city": "Winchester",
+    "county": "Clark",
+    "address": "Depot St / railroad corridor, Winchester, KY 40391",
+    "latitude": 37.9961211,
+    "longitude": -84.1746416,
+    "industry_type": "railroad_depot",
+    "built_year": null,
+    "history": "Winchester was an L&N/C&O junction for Bluegrass and mountain trains, including connections noted in historic Lexington–eastern Kentucky schedules. The downtown depot corridor is a mappable Clark County railroad heritage stop.",
+    "website": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lexington_Union_Station"
+    ],
+    "geocode_source": "photon",
+    "nrhp": null,
+    "marker_number": null
+  },
+  {
+    "id": "covington-railway-station-area",
+    "name": "Covington / Latonia Railroad Corridor",
+    "city": "Covington",
+    "county": "Kenton",
+    "address": "Madison Ave / railroad corridor, Covington, KY 41011",
+    "latitude": 39.0837,
+    "longitude": -84.5086,
+    "industry_type": "historic_railroad",
+    "built_year": null,
+    "history": "Covington’s river-city rail corridor linked Cincinnati terminals with L&N and other Kentucky lines; nearby Latonia was a major rail and racing suburb. A northern Kentucky historic railroad POI complementary to Erlanger Depot.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "manual",
+    "nrhp": null,
+    "marker_number": null
+  },
+  {
+    "id": "ek-railway-argillite",
+    "name": "E.K. Railway – Argillite",
+    "city": "Argillite",
+    "county": "Greenup",
+    "address": "KY 1 & 207, Argillite",
+    "latitude": 38.4913333,
+    "longitude": -82.8298833,
+    "industry_type": "historic_railroad",
+    "built_year": null,
+    "history": "Greenup County stop on the Eastern Kentucky Railway corridor linking Ohio River towns to inland coal and furnace country. KHS marker at KY 1 & 207 interprets the line’s Argillite presence.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1978"
+  },
+  {
+    "id": "eastern-kentucky-railway-grayson",
+    "name": "Eastern Kentucky Railway – Grayson",
+    "city": "Grayson",
+    "county": "Carter",
+    "address": "Carol Malone Boulevard at city park, Grayson",
+    "latitude": 38.33305,
+    "longitude": -82.9451333,
+    "industry_type": "historic_railroad",
+    "built_year": 1871,
+    "history": "After the Civil War the E.K. Railway assembled large Little Sandy Valley landholdings; tracks reached Grayson by June 1871 with depot and repair shops here. Service ended in January 1933; the Grayson park marker interprets the line’s headquarters town.",
+    "website": "https://history.ky.gov/markers/eastern-kentucky-railway-2",
+    "sources": [
+      "https://history.ky.gov/markers/eastern-kentucky-railway-2"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2096"
+  },
+  {
+    "id": "eastern-kentucky-railway-willard",
+    "name": "Eastern Kentucky Railway – Willard",
+    "city": "Willard",
+    "county": "Carter",
+    "address": "Junction of KY 1 & 1496, Willard",
+    "latitude": 38.2090333,
+    "longitude": -82.8947333,
+    "industry_type": "historic_railroad",
+    "built_year": null,
+    "history": "Willard junction marker for the Eastern Kentucky Railway in Carter County’s Little Sandy coal and timber country. Complements the Grayson shops/depot story with a clear rural junction POI on KY 1.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2301"
+  },
+  {
+    "id": "frankfort-cincinnati-railroad",
+    "name": "Frankfort and Cincinnati Railroad",
+    "city": "Georgetown",
+    "county": "Scott",
+    "address": "206 Russell Cave Rd., Georgetown",
+    "latitude": 38.2153833,
+    "longitude": -84.3907333,
+    "industry_type": "historic_railroad",
+    "built_year": null,
+    "history": "Short-line railroad that linked Frankfort and Cincinnati-region connections through the Bluegrass; KHS marker in Georgetown interprets the F&C. Complements Frankfort Union Station as a capital-region rail story.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2408"
+  },
+  {
+    "id": "georgetown-railroad-area",
+    "name": "Georgetown Railroad Heritage Area",
+    "city": "Georgetown",
+    "county": "Scott",
+    "address": "Downtown Georgetown railroad corridor, Georgetown, KY",
+    "latitude": 38.2191505,
+    "longitude": -84.5653244,
+    "industry_type": "historic_railroad",
+    "built_year": null,
+    "history": "Georgetown sits on historic Bluegrass rail routes and is tied to the Frankfort & Cincinnati Railroad marker corridor. A Scott County rail POI near Weisenberger Mill for car-trip layering.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "photon",
+    "nrhp": null,
+    "marker_number": "2408"
+  },
+  {
+    "id": "ln-railroad-bridge-munfordville",
+    "name": "L&N Railroad Bridge (Green River)",
+    "city": "Munfordville",
+    "county": "Hart",
+    "address": "KY 31W at Green River Bridge",
+    "latitude": 37.2698833,
+    "longitude": -85.8872333,
+    "industry_type": "historic_railroad",
+    "built_year": null,
+    "history": "Historic L&N crossing of the Green River at Munfordville—strategically vital in the Civil War and a lasting landmark of Kentucky’s main north–south rail corridor. KHS interprets the bridge as a Hart County railroad POI.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2160"
+  },
+  {
+    "id": "lexington-ohio-rr",
+    "name": "Lexington & Ohio Railroad (first RR west of Alleghenies)",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "Near Industrial Park, US 421, Frankfort",
+    "latitude": 38.1884,
+    "longitude": -84.8152833,
+    "industry_type": "historic_railroad",
+    "built_year": 1833,
+    "history": "Site associated with the first railroad west of the Alleghenies, built 1833–34 with flat iron rails pinned to limestone blocks. The 23-mile Lexington–Frankfort run took about four hours and launched Kentucky’s railroad age.",
+    "website": "https://history.ky.gov/markers/lexington-ohio-rr",
+    "sources": [
+      "https://history.ky.gov/markers/lexington-ohio-rr"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "69"
+  },
+  {
+    "id": "shelby-streetcar-barn",
+    "name": "Shelby Street Streetcar Barn",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "1303 South Shelby St., Louisville",
+    "latitude": 38.2303167,
+    "longitude": -85.7419333,
+    "industry_type": "historic_railroad",
+    "built_year": 1895,
+    "history": "By 1895 this site was a Louisville City Railway car barn as electric cars replaced mule cars. Streetcars were Louisville’s main mass transit from 1864 into the late 1920s; the last streetcar ran on Derby Day 1948. The barn marks the Shelby Street line’s industrial footprint.",
+    "website": "https://history.ky.gov/markers/shelby-st-streetcar-barn",
+    "sources": [
+      "https://history.ky.gov/markers/shelby-st-streetcar-barn"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2482"
+  },
+  {
+    "id": "ashland-works-armco",
+    "name": "Ashland Iron & Steel / Armco Works Area",
+    "city": "Ashland",
+    "county": "Boyd",
+    "address": "Winchester Ave. at 23rd St., Ashland, US 23, 60",
+    "latitude": 38.4742667,
+    "longitude": -82.6305833,
+    "industry_type": "manufacturing",
+    "built_year": 1920,
+    "history": "Ashland’s riverfront iron and steel works grew from Hanging Rock charcoal furnaces into modern steelmaking under Norton Iron Works and later Armco. The Winchester Avenue industrial corridor—marked by furnace markers such as Norton—anchors northeastern Kentucky’s steel manufacturing heritage.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers/norton-furnace"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1023"
+  },
+  {
+    "id": "churchill-weavers-berea",
+    "name": "Churchill Weavers (historic)",
+    "city": "Berea",
+    "county": "Madison",
+    "address": "100 Churchill Dr / North Broadway craft district, Berea, KY 40403",
+    "latitude": 37.5784502,
+    "longitude": -84.2810979,
+    "industry_type": "manufacturing",
+    "built_year": 1922,
+    "history": "Founded in 1922 by David Carroll and Eleanor Churchill, Churchill Weavers became one of America’s best-known handweaving manufactories and a cornerstone of Berea’s craft industry. The historic weaving operation helped define Berea as a national craft center; related buildings remain part of the town’s manufacturing heritage.",
+    "website": "https://www.berea.edu/",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Churchill_Weavers"
+    ],
+    "geocode_source": "photon",
+    "nrhp": null,
+    "marker_number": null
+  },
+  {
+    "id": "ford-louisville-assembly",
+    "name": "Ford Louisville Assembly Plant",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "3001 Fern Valley Rd, Louisville, KY 40213",
+    "latitude": 38.1548,
+    "longitude": -85.7255,
+    "industry_type": "manufacturing",
+    "built_year": 1955,
+    "history": "Ford’s Louisville Assembly Plant on Fern Valley Road has been a cornerstone of Kentucky automotive manufacturing since the mid-twentieth century. Together with the nearby Kentucky Truck Plant, it represents Louisville’s rise as a mass auto-production center after the brief 1909–10 Lexington Motor Car Company experiment.",
+    "website": "https://corporate.ford.com/",
+    "sources": [
+      "https://corporate.ford.com/"
+    ],
+    "geocode_source": "manual",
+    "nrhp": false,
+    "marker_number": null
+  },
+  {
+    "id": "lexington-motor-car-company",
+    "name": "Lexington Motor Car Company (plant site)",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "1020 W Main St (Leestown Pike), Lexington, KY 40508",
+    "latitude": 38.0599,
+    "longitude": -84.5149,
+    "industry_type": "manufacturing",
+    "built_year": 1909,
+    "history": "Lexington Motor Car Company (also called Lexington Motor Company) assembled automobiles here beginning March 1909 under promoter Kinzea Stone, on a rail-served lot west of Calvary Cemetery across from Lexington Cemetery. The firm relocated to Connersville, Indiana in 1910; the Kentucky plant site is now occupied by Palumbo Lumber—correct historic Lexington auto works (not LexTran).",
+    "website": "https://wiki.lexhistory.org/wikilex/lexington-motor-car-company",
+    "sources": [
+      "https://wiki.lexhistory.org/wikilex/lexington-motor-car-company",
+      "https://en.wikipedia.org/wiki/Lexington_(automobile)"
+    ],
+    "geocode_source": "manual",
+    "nrhp": false,
+    "marker_number": null
+  },
+  {
+    "id": "louisville-cotton-mill",
+    "name": "Louisville Cotton Mill",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "946 Goss Ave., Louisvville",
+    "latitude": 38.2292833,
+    "longitude": -85.74025,
+    "industry_type": "manufacturing",
+    "built_year": 1889,
+    "history": "First cotton mill in Louisville (1889), a major Victorian industrial complex that first made cotton warp for “Kentucky Jeans.” Later Louisville Textile Co. / Fincastle Fabrics sold worldwide; by 1948 Louisville Textiles was Kentucky’s largest textile employer. The Goss Avenue plant is interpreted by KHS marker 2516.",
+    "website": "https://history.ky.gov/markers/louisville-cotton-mill",
+    "sources": [
+      "https://history.ky.gov/markers/louisville-cotton-mill"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "2516"
+  },
+  {
+    "id": "boone-salt-springs",
+    "name": "Boone Salt Springs",
+    "city": "David",
+    "county": "Floyd",
+    "address": "David, KY 404",
+    "latitude": 37.5996085,
+    "longitude": -82.8880425,
+    "industry_type": "other_industry",
+    "built_year": null,
+    "history": "Historic salt spring associated with early exploration and settlement in the Big Sandy country. Salt springs were among Kentucky’s first extractive industries; this Floyd County site is interpreted by KHS as a pioneer industrial resource.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "151"
+  },
+  {
+    "id": "bullitts-lick",
+    "name": "Bullitt's Lick Salt Works",
+    "city": "Shepherdsville",
+    "county": "Bullitt",
+    "address": "KY 44, 3 mi. NW of Shepherdsville",
+    "latitude": 38.000782,
+    "longitude": -85.7640065,
+    "industry_type": "other_industry",
+    "built_year": 1779,
+    "history": "Located by Capt. Thomas Bullitt in 1773 and developed as one of Kentucky’s earliest commercial salt works. Bullitt’s Lick supplied salt to Kentucky settlements and the Illinois country and helped establish Bullitt County’s industrial identity long before railroads.",
+    "website": "https://history.ky.gov/markers/bullitts-lick",
+    "sources": [
+      "https://history.ky.gov/markers/bullitts-lick"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "133"
+  },
+  {
+    "id": "goose-creek-salt-works",
+    "name": "Goose Creek Salt Works",
+    "city": "Manchester",
+    "county": "Clay",
+    "address": "KY 11, 21/2 mi. S. of Manchester",
+    "latitude": 37.1222,
+    "longitude": -83.7539,
+    "industry_type": "other_industry",
+    "built_year": null,
+    "history": "Strategic Civil War–era salt works on Goose Creek. In October 1862 Union troops destroyed works used by Confederates while allowing loyal citizens limited salt under oath—highlighting salt’s industrial and military value in eastern Kentucky.",
+    "website": "https://history.ky.gov/markers/goose-creek-salt-works",
+    "sources": [
+      "https://history.ky.gov/markers/goose-creek-salt-works"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "531"
+  },
+  {
+    "id": "grants-lick",
+    "name": "Grant's Lick",
+    "city": "Grant's Lick",
+    "county": "Campbell",
+    "address": "Grant's Lick, at Grant's Lick Funeral Home, Old US 27",
+    "latitude": 38.8642833,
+    "longitude": -84.39285,
+    "industry_type": "other_industry",
+    "built_year": null,
+    "history": "Named salt lick and early industrial/settlement node in northern Kentucky. Like Bullitt’s Lick, Grant’s Lick marks the salt-boiling industry that preceded large-scale manufacturing along the Ohio River approaches to Cincinnati.",
+    "website": null,
+    "sources": [
+      "https://history.ky.gov/markers"
+    ],
+    "geocode_source": "khs-marker",
+    "nrhp": null,
+    "marker_number": "1642"
+  }
+]

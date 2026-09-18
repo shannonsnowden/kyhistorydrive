@@ -1,0 +1,643 @@
+[
+  {
+    "id": "abraham-lincoln-birthplace-nhp",
+    "name": "Abraham Lincoln Birthplace National Historical Park",
+    "city": "Hodgenville",
+    "county": "Larue",
+    "address": "2995 Lincoln Farm Rd, Hodgenville, KY 42748",
+    "latitude": 37.5312,
+    "longitude": -85.7369,
+    "designation": "nps",
+    "history": "Preserves the symbolic birth cabin site and Sinking Spring farm where Abraham Lincoln was born in 1809. The Memorial Building and Knob Creek unit interpret his early Kentucky years. National Historical Park and a cornerstone of Kentucky’s national story.",
+    "website": "https://www.nps.gov/abli/",
+    "geocode_source": "manual",
+    "overlap": "museums",
+    "sources": [
+      "https://www.nps.gov/abli/",
+      "https://en.wikipedia.org/wiki/Abraham_Lincoln_Birthplace_National_Historical_Park"
+    ]
+  },
+  {
+    "id": "camp-nelson-national-monument",
+    "name": "Camp Nelson National Monument",
+    "city": "Nicholasville",
+    "county": "Jessamine",
+    "address": "6614 Old Danville Loop 2 Rd, Nicholasville, KY 40356",
+    "latitude": 37.7903557,
+    "longitude": -84.5985048,
+    "designation": "nhl+nps",
+    "history": "Union supply depot that became a major U.S. Colored Troops recruitment center and refugee camp for freedom-seeking families during the Civil War. National Monument and NHL archaeological district with visitor center interpretation. One of Kentucky’s most important Civil War freedom stories.",
+    "website": "https://www.nps.gov/cane/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://www.nps.gov/cane/",
+      "https://en.wikipedia.org/wiki/Camp_Nelson_National_Monument"
+    ]
+  },
+  {
+    "id": "perryville-battlefield",
+    "name": "Perryville Battlefield",
+    "city": "Perryville",
+    "county": "Boyle",
+    "address": "1825 Battlefield Rd, Perryville, KY 40468",
+    "latitude": 37.6751,
+    "longitude": -84.9705,
+    "designation": "nhl",
+    "history": "Site of Kentucky’s largest Civil War battle (October 8, 1862), with roughly 7,600 casualties as Bragg’s Confederate invasion peaked then withdrew. National Historic Landmark landscape with museum, trails, and monument row. Anchors Boyle County’s Civil War tourism.",
+    "website": "https://perryvillebattlefield.org/",
+    "geocode_source": "manual",
+    "overlap": "museums",
+    "sources": [
+      "https://perryvillebattlefield.org/",
+      "https://en.wikipedia.org/wiki/Perryville_Battlefield_State_Historic_Site"
+    ]
+  },
+  {
+    "id": "big-bone-lick-site",
+    "name": "Big Bone Lick Site",
+    "city": "Union",
+    "county": "Boone",
+    "address": "3380 Beaver Rd, Union, KY 41091",
+    "latitude": 38.8867,
+    "longitude": -84.7519,
+    "designation": "nhl",
+    "history": "World-famous Ice Age fossil beds that drew Jefferson-era scientists and shaped early American paleontology. Designated a National Historic Landmark in 2024 for its archaeological significance. The state park museum interprets megafauna finds and salt-lick history.",
+    "website": "https://parks.ky.gov/explore/big-bone-lick-state-historic-site-7774",
+    "geocode_source": "manual",
+    "overlap": "museums",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park",
+      "https://parks.ky.gov/"
+    ]
+  },
+  {
+    "id": "ashland-henry-clay",
+    "name": "Ashland, The Henry Clay Estate",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "120 Sycamore Rd, Lexington, KY 40502",
+    "latitude": 38.0293209,
+    "longitude": -84.4799493,
+    "designation": "nhl",
+    "history": "Home and estate of statesman Henry Clay, the “Great Compromiser,” who shaped antebellum politics from this Lexington mansion. National Historic Landmark house museum with gardens and outbuildings. Interprets slavery, politics, and Bluegrass plantation life.",
+    "website": "https://henryclay.org/",
+    "geocode_source": "photon",
+    "overlap": "museums",
+    "sources": [
+      "https://henryclay.org/",
+      "https://en.wikipedia.org/wiki/Ashland_(Henry_Clay_estate)"
+    ]
+  },
+  {
+    "id": "locust-grove",
+    "name": "Historic Locust Grove",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "561 Blankenbaker Ln, Louisville, KY 40207",
+    "latitude": 38.2876381,
+    "longitude": -85.6626759,
+    "designation": "nhl",
+    "history": "1780s Georgian plantation associated with the Croghan family and George Rogers Clark after his Revolutionary campaigns. National Historic Landmark house museum interpreting frontier Louisville, slavery, and early republic life. Public grounds and programs year-round.",
+    "website": "https://locustgrove.org/",
+    "geocode_source": "photon",
+    "overlap": "museums",
+    "sources": [
+      "https://locustgrove.org/",
+      "https://en.wikipedia.org/wiki/Historic_Locust_Grove"
+    ]
+  },
+  {
+    "id": "liberty-hall",
+    "name": "Liberty Hall",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "202 Wilkinson St, Frankfort, KY 40601",
+    "latitude": 38.1990715,
+    "longitude": -84.8817923,
+    "designation": "nhl",
+    "history": "Federal-period home associated with Senator John Brown and early Kentucky political society in the capital. National Historic Landmark interpreted with the Orlando Brown House as Liberty Hall Historic Site. Anchors Frankfort’s riverside historic core.",
+    "website": "https://www.libertyhall.org/",
+    "geocode_source": "photon",
+    "overlap": "museums",
+    "sources": [
+      "https://www.libertyhall.org/",
+      "https://en.wikipedia.org/wiki/Liberty_Hall_(Frankfort,_Kentucky)"
+    ]
+  },
+  {
+    "id": "old-state-house",
+    "name": "Old State House (Old State Capitol)",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "300 W Broadway, Frankfort, KY 40601",
+    "latitude": 38.2001455,
+    "longitude": -84.8762516,
+    "designation": "nhl",
+    "history": "Gideon Shryock’s Greek Revival capitol (completed 1830) served as Kentucky’s seat of government until 1910. National Historic Landmark now interpreted by the Kentucky Historical Society. Public grounds and interiors tell antebellum politics and Civil War-era Frankfort.",
+    "website": "https://history.ky.gov/",
+    "geocode_source": "photon",
+    "overlap": "museums",
+    "sources": [
+      "https://history.ky.gov/",
+      "https://en.wikipedia.org/wiki/Old_State_Capitol_(Frankfort,_Kentucky)"
+    ]
+  },
+  {
+    "id": "ephraim-mcdowell-house",
+    "name": "Dr. Ephraim McDowell House",
+    "city": "Danville",
+    "county": "Boyle",
+    "address": "125 S 2nd St, Danville, KY 40422",
+    "latitude": 37.6570043,
+    "longitude": -84.7704879,
+    "designation": "nhl",
+    "history": "House where Dr. Ephraim McDowell performed the first successful ovariotomy in 1809, a landmark in surgical history. National Historic Landmark museum in downtown Danville. Interprets early American medicine and Boyle County’s intellectual heritage.",
+    "website": "https://www.mcdowellhouse.com/",
+    "geocode_source": "photon",
+    "overlap": "museums",
+    "sources": [
+      "https://www.mcdowellhouse.com/",
+      "https://en.wikipedia.org/wiki/Dr._Ephraim_McDowell_House"
+    ]
+  },
+  {
+    "id": "whitney-m-young-birthplace",
+    "name": "Whitney M. Young Birthplace and Boyhood Home",
+    "city": "Simpsonville",
+    "county": "Shelby",
+    "address": "US 60 / Whitney Young Birthplace area, Simpsonville, KY 40067",
+    "latitude": 38.2227218,
+    "longitude": -85.3719949,
+    "designation": "nhl",
+    "history": "Birthplace and boyhood home of civil rights leader Whitney M. Young Jr., longtime executive director of the National Urban League. National Historic Landmark in Shelby County near Simpsonville. Interprets education, leadership, and twentieth-century civil rights roots in Kentucky.",
+    "website": "https://www.nps.gov/subjects/nationalhistoriclandmarks/list-of-nhls-by-state.htm",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Whitney_Young",
+      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
+    ]
+  },
+  {
+    "id": "churchill-downs",
+    "name": "Churchill Downs",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "700 Central Ave, Louisville, KY 40208",
+    "latitude": 38.2022666,
+    "longitude": -85.7707589,
+    "designation": "nhl",
+    "history": "Home of the Kentucky Derby since 1875 and an iconic American Thoroughbred racetrack. National Historic Landmark twin spires skyline defines Louisville’s racing heritage. Pair with the adjacent Kentucky Derby Museum for visitor interpretation.",
+    "website": "https://www.churchilldowns.com/",
+    "geocode_source": "photon",
+    "overlap": "museums",
+    "sources": [
+      "https://www.churchilldowns.com/",
+      "https://en.wikipedia.org/wiki/Churchill_Downs"
+    ]
+  },
+  {
+    "id": "buffalo-trace-stagg",
+    "name": "George T. Stagg Distillery (Buffalo Trace)",
+    "city": "Frankfort",
+    "county": "Franklin",
+    "address": "113 Great Buffalo Trace, Frankfort, KY",
+    "latitude": 38.2157433,
+    "longitude": -84.8690507,
+    "designation": "nhl",
+    "history": "Historic Frankfort distillery complex continuous through Prohibition under various names, now Buffalo Trace. National Historic Landmark industrial landscape along the Kentucky River. Tours interpret whiskey making and two centuries of whiskey heritage.",
+    "website": "https://www.buffalotracedistillery.com/",
+    "geocode_source": "photon",
+    "overlap": "distilleries",
+    "sources": [
+      "https://www.buffalotracedistillery.com/",
+      "https://en.wikipedia.org/wiki/Buffalo_Trace_Distillery"
+    ]
+  },
+  {
+    "id": "woodford-reserve-labrot-graham",
+    "name": "Labrot & Graham's Old Oscar Pepper Distillery (Woodford Reserve)",
+    "city": "Versailles",
+    "county": "Woodford",
+    "address": "7855 McCracken Pike, Versailles, KY",
+    "latitude": 38.1132808,
+    "longitude": -84.8135359,
+    "designation": "nhl",
+    "history": "Stone stillhouses on Glenn’s Creek where Elijah Pepper and later Labrot & Graham made whiskey; now Woodford Reserve. National Historic Landmark distillery campus. Interprets nineteenth-century bourbon craft and the Pepper–Crow lineage.",
+    "website": "https://www.woodfordreserve.com/",
+    "geocode_source": "photon",
+    "overlap": "distilleries",
+    "sources": [
+      "https://www.woodfordreserve.com/",
+      "https://en.wikipedia.org/wiki/Woodford_Reserve"
+    ]
+  },
+  {
+    "id": "burks-makers-mark",
+    "name": "Burks' Distillery (Maker's Mark)",
+    "city": "Loretto",
+    "county": "Marion",
+    "address": "3350 Burks Spring Rd, Loretto, KY",
+    "latitude": 37.6468276,
+    "longitude": -85.3489926,
+    "designation": "nhl",
+    "history": "Quaint Loretto distillery where Bill Samuels Sr. launched Maker’s Mark, preserving Burks’ Distillery fabric. National Historic Landmark campus with red-wax dipping and visitor center. Anchors Marion County’s bourbon tourism.",
+    "website": "https://www.makersmark.com/",
+    "geocode_source": "photon",
+    "overlap": "distilleries",
+    "sources": [
+      "https://www.makersmark.com/",
+      "https://en.wikipedia.org/wiki/Maker%27s_Mark"
+    ]
+  },
+  {
+    "id": "fort-boonesborough-site",
+    "name": "Fort Boonesborough Site",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "4375 Boonesborough Rd, Richmond, KY 40475",
+    "latitude": 37.8974165,
+    "longitude": -84.266814,
+    "designation": "nhl",
+    "history": "Site of Daniel Boone’s 1775 Transylvania settlement and the long 1778 Shawnee/British-allied siege. National Historic Landmark archaeological district beside the Kentucky River. Reconstructed fort and museum at Fort Boonesborough State Park interpret frontier Kentucky.",
+    "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7786",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://parks.ky.gov/",
+      "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park"
+    ]
+  },
+  {
+    "id": "shaker-village-pleasant-hill",
+    "name": "Shaker Village of Pleasant Hill",
+    "city": "Harrodsburg",
+    "county": "Mercer",
+    "address": "3501 Lexington Rd, Harrodsburg, KY 40330",
+    "latitude": 37.8188327,
+    "longitude": -84.7384129,
+    "designation": "nhl",
+    "history": "Largest restored Shaker community in America, an NHL historic district of stone and brick buildings. Living-history village interpreting Shaker faith, crafts, and Civil War-era encounters with armies. Major overnight and day-visit destination near Harrodsburg.",
+    "website": "https://shakervillageky.org/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://shakervillageky.org/",
+      "https://en.wikipedia.org/wiki/Pleasant_Hill,_Kentucky"
+    ]
+  },
+  {
+    "id": "roebling-suspension-bridge",
+    "name": "John A. Roebling Suspension Bridge",
+    "city": "Covington",
+    "county": "Kenton",
+    "address": "Roebling Suspension Bridge, Covington, KY / Cincinnati, OH",
+    "latitude": 39.0928803,
+    "longitude": -84.50986,
+    "designation": "nhl",
+    "history": "John A. Roebling’s pioneering Ohio River suspension bridge (opened 1866) linking Covington and Cincinnati. National Historic Landmark engineering landmark and pedestrian/vehicle crossing. Prototype lessons later applied to the Brooklyn Bridge.",
+    "website": "https://www.roeblingbridge.org/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/John_A._Roebling_Suspension_Bridge",
+      "https://www.roeblingbridge.org/"
+    ]
+  },
+  {
+    "id": "belle-of-louisville",
+    "name": "Belle of Louisville",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "401 W River Rd / 4th Street Wharf, Louisville, KY 40202",
+    "latitude": 38.2591463,
+    "longitude": -85.7556952,
+    "designation": "nhl",
+    "history": "Steam-powered excursion boat (built 1914 as Idlewild) and the oldest operating Mississippi-style steamboat. National Historic Landmark vessel when docked at Louisville’s waterfront. Ticketed cruises keep working steamboat culture alive on the Ohio.",
+    "website": "https://www.belleoflouisville.org/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://www.belleoflouisville.org/",
+      "https://en.wikipedia.org/wiki/Belle_of_Louisville"
+    ]
+  },
+  {
+    "id": "louisville-water-tower",
+    "name": "Louisville Water Company Pumping Station (Water Tower)",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "3005 River Rd, Louisville, KY 40207",
+    "latitude": 38.2803709,
+    "longitude": -85.7020609,
+    "designation": "nhl",
+    "history": "1860 classical water tower and pumping station that pioneered municipal water treatment recognition in Louisville. National Historic Landmark industrial architecture on River Road. Public grounds and museum interpretation celebrate clean-water history.",
+    "website": "https://www.louisvillewatertower.com/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://www.louisvillewatertower.com/",
+      "https://en.wikipedia.org/wiki/Louisville_Water_Tower"
+    ]
+  },
+  {
+    "id": "keeneland-race-course",
+    "name": "Keeneland Race Course",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "4201 Versailles Rd, Lexington, KY 40510",
+    "latitude": 38.0481881,
+    "longitude": -84.60476,
+    "designation": "nhl",
+    "history": "National Historic Landmark Thoroughbred race course and sales pavilion opened in 1936 in the Bluegrass. Known for spring and fall meets and elite yearling auctions. Public race days and tours showcase Kentucky horse culture.",
+    "website": "https://www.keeneland.com/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://www.keeneland.com/",
+      "https://en.wikipedia.org/wiki/Keeneland"
+    ]
+  },
+  {
+    "id": "old-morrison-transylvania",
+    "name": "Old Morrison, Transylvania University",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "300 N Broadway, Lexington, KY 40508",
+    "latitude": 38.0516621,
+    "longitude": -84.4937854,
+    "designation": "nhl",
+    "history": "Greek Revival administration building (1833) designed by Gideon Shryock for Transylvania University, the oldest college west of the Alleghenies. National Historic Landmark campus landmark. Exterior architecture pin on historic Broadway.",
+    "website": "https://www.transy.edu/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Old_Morrison",
+      "https://www.transy.edu/"
+    ]
+  },
+  {
+    "id": "jacobs-hall",
+    "name": "Jacobs Hall, Kentucky School for the Deaf",
+    "city": "Danville",
+    "county": "Boyle",
+    "address": "Kentucky School for the Deaf campus, Danville, KY 40422",
+    "latitude": 37.6456,
+    "longitude": -84.7714,
+    "designation": "nhl",
+    "history": "Landmark building at the Kentucky School for the Deaf (founded 1823), the first state-supported school of its kind in the United States. National Historic Landmark campus architecture in Danville. Interprets deaf education history; confirm visitor access.",
+    "website": "https://www.ksd.kyschools.us/",
+    "geocode_source": "manual",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Jacobs_Hall,_Kentucky_School_for_the_Deaf",
+      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
+    ]
+  },
+  {
+    "id": "daniel-c-beard-boyhood-home",
+    "name": "Daniel C. Beard Boyhood Home",
+    "city": "Covington",
+    "county": "Kenton",
+    "address": "322 E 3rd St, Covington, KY 41011",
+    "latitude": 39.0883843,
+    "longitude": -84.5105339,
+    "designation": "nhl",
+    "history": "Boyhood home of Daniel Carter Beard, illustrator and a founder of the Boy Scouts of America. National Historic Landmark house in Covington’s riverside historic fabric. Exterior landmark with Scouting heritage interpretation nearby.",
+    "website": "https://en.wikipedia.org/wiki/Daniel_Carter_Beard_Boyhood_Home",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Daniel_Carter_Beard_Boyhood_Home",
+      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
+    ]
+  },
+  {
+    "id": "us-marine-hospital-louisville",
+    "name": "United States Marine Hospital",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "2215 Portland Ave, Louisville, KY 40212",
+    "latitude": 38.2703661,
+    "longitude": -85.7843422,
+    "designation": "nhl",
+    "history": "Antebellum U.S. Marine Hospital serving inland-waterways boatmen, a rare surviving example of the federal marine hospital system. National Historic Landmark in Louisville’s Portland neighborhood. Exterior architecture and periodic interpretation.",
+    "website": "https://en.wikipedia.org/wiki/United_States_Marine_Hospital_(Louisville,_Kentucky)",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/United_States_Marine_Hospital_(Louisville,_Kentucky)"
+    ]
+  },
+  {
+    "id": "old-bank-of-louisville",
+    "name": "Old Bank of Louisville",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "322 W Main St, Louisville, KY 40202",
+    "latitude": 38.2563952,
+    "longitude": -85.7558911,
+    "designation": "nhl",
+    "history": "1830s Greek Revival bank building by Gideon Shryock (or attributed circle) on Louisville’s Main Street. National Historic Landmark exterior architecture pin on Whiskey Row’s historic corridor. Celebrates early commercial architecture of the Falls City.",
+    "website": "https://en.wikipedia.org/wiki/Bank_of_Louisville",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Bank_of_Louisville"
+    ]
+  },
+  {
+    "id": "mayor-andrew-broaddus",
+    "name": "Mayor Andrew Broaddus (Lifesaving Station)",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "4th Street Wharf / riverfront, Louisville, KY 40202",
+    "latitude": 38.2592607,
+    "longitude": -85.7551429,
+    "designation": "nhl",
+    "history": "Floating lifesaving station vessel associated with Ohio River rescue service, named for a Louisville mayor. National Historic Landmark vessel/station interpreted at the Louisville waterfront. Reminds visitors of river commerce hazards and federal lifesaving work.",
+    "website": "https://en.wikipedia.org/wiki/Mayor_Andrew_Broaddus",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mayor_Andrew_Broaddus"
+    ]
+  },
+  {
+    "id": "lincoln-hall-berea",
+    "name": "Lincoln Hall, Berea College",
+    "city": "Berea",
+    "county": "Madison",
+    "address": "Berea College campus, Berea, KY 40403",
+    "latitude": 37.57203,
+    "longitude": -84.2905803,
+    "designation": "nhl",
+    "history": "Campus landmark at Berea College, founded on interracial education ideals in Appalachian Kentucky. National Historic Landmark building tied to the college’s abolitionist and educational mission. Public campus architecture near Madison County’s eastern edge.",
+    "website": "https://www.berea.edu/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lincoln_Hall_(Berea_College)",
+      "https://www.berea.edu/"
+    ]
+  },
+  {
+    "id": "mammoth-cave-np",
+    "name": "Mammoth Cave National Park",
+    "city": "Mammoth Cave",
+    "county": "Edmonson",
+    "address": "1 Mammoth Cave Pkwy, Mammoth Cave, KY 42259",
+    "latitude": 37.1868964,
+    "longitude": -86.1012576,
+    "designation": "nps",
+    "history": "World’s longest known cave system and a UNESCO World Heritage Site managed as a National Park. Surface trails, cave tours, and Green River scenery make it Kentucky’s premier NPS day trip from the Hardin/Larue corridor. Interprets geology, cave life, and early tourism.",
+    "website": "https://www.nps.gov/maca/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://www.nps.gov/maca/",
+      "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park"
+    ]
+  },
+  {
+    "id": "mill-springs-battlefield-nm",
+    "name": "Mill Springs Battlefield National Monument",
+    "city": "Nancy",
+    "county": "Pulaski",
+    "address": "9020 W Highway 80, Nancy, KY 42544",
+    "latitude": 37.0577113,
+    "longitude": -84.7387473,
+    "designation": "nhl+nps",
+    "history": "January 19, 1862 Union victory where Confederate Gen. Felix Zollicoffer was killed—an early major Civil War clash in Kentucky. National Monument and NHL with visitor center, driving tour, and Zollicoffer Park trail. Stretch pin south of the Bagdad ring.",
+    "website": "https://www.nps.gov/misp/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://www.nps.gov/misp/",
+      "https://en.wikipedia.org/wiki/Mill_Springs_Battlefield"
+    ]
+  },
+  {
+    "id": "cumberland-gap-nhp",
+    "name": "Cumberland Gap National Historical Park",
+    "city": "Middlesboro",
+    "county": "Bell",
+    "address": "91 Bartlett Park Rd, Middlesboro, KY 40965",
+    "latitude": 36.6027474,
+    "longitude": -83.6953389,
+    "designation": "nps",
+    "history": "Mountain pass used by Native peoples and Daniel Boone’s Wilderness Road settlers entering Kentucky. National Historical Park spanning Kentucky, Tennessee, and Virginia with Pinnacle Overlook and Gap Cave. Far southeastern stretch pin for iconic frontier geography.",
+    "website": "https://www.nps.gov/cuga/",
+    "geocode_source": "photon",
+    "overlap": "ky-history",
+    "sources": [
+      "https://www.nps.gov/cuga/",
+      "https://en.wikipedia.org/wiki/Cumberland_Gap_National_Historical_Park"
+    ]
+  },
+  {
+    "id": "middle-creek-battlefield-nhl",
+    "name": "Middle Creek Battlefield",
+    "city": "Prestonsburg",
+    "county": "Floyd",
+    "address": "Middle Creek National Battlefield, Prestonsburg, KY 41653",
+    "latitude": 37.6509083,
+    "longitude": -82.8135374,
+    "designation": "nhl",
+    "history": "National Historic Landmark battlefield of the January 1862 Union victory led by future President James A. Garfield in the Big Sandy valley—eastern Kentucky's premier Civil War NHL.",
+    "website": "https://www.middlecreek.org/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky",
+      "https://www.middlecreek.org/"
+    ]
+  },
+  {
+    "id": "pine-mountain-settlement-school",
+    "name": "Pine Mountain Settlement School",
+    "city": "Bledsoe",
+    "county": "Harlan",
+    "address": "36 Highway 510, Bledsoe, KY 40810",
+    "latitude": 36.9483096,
+    "longitude": -83.183432,
+    "designation": "nhl",
+    "history": "National Historic Landmark district—Appalachian settlement school that brought urban settlement-house ideals to rural Harlan County education, health, and culture.",
+    "website": "https://www.pinemountainsettlementschool.com/",
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
+    ]
+  },
+  {
+    "id": "wendover-frontier-nursing",
+    "name": "Wendover (Frontier Nursing Service Headquarters)",
+    "city": "Hyden",
+    "county": "Leslie",
+    "address": "Wendover, Hyden, KY 41749",
+    "latitude": 37.1275,
+    "longitude": -83.3653,
+    "designation": "nhl",
+    "history": "National Historic Landmark headquarters of Mary Breckinridge's Frontier Nursing Service—the pioneering American effort to professionalize midwifery and rural nurse care in Appalachia.",
+    "website": "https://frontiernursing.org/",
+    "geocode_source": "manual",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
+    ]
+  },
+  {
+    "id": "zachary-taylor-house",
+    "name": "Zachary Taylor House",
+    "city": "Louisville",
+    "county": "Jefferson",
+    "address": "5608 Apache Rd, Louisville, KY 40207",
+    "latitude": 38.2792244,
+    "longitude": -85.6471599,
+    "designation": "nhl",
+    "history": "National Historic Landmark boyhood home of President Zachary Taylor on Louisville's former Springfield farm. Private residence with limited public access—included for national designation completeness.",
+    "website": null,
+    "geocode_source": "photon",
+    "overlap": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
+    ]
+  },
+  {
+    "id": "big-south-fork-nrra",
+    "name": "Big South Fork National River and Recreation Area",
+    "city": "Stearns",
+    "county": "McCreary",
+    "address": "Big South Fork NRRA, Stearns, KY 42647",
+    "latitude": 36.695,
+    "longitude": -84.65,
+    "designation": "nps",
+    "history": "National Park Service river and recreation area protecting the Big South Fork of the Cumberland River across Kentucky and Tennessee—gorges, trails, and historic coal-camp landscapes.",
+    "website": "https://www.nps.gov/biso/",
+    "geocode_source": "manual",
+    "overlap": null,
+    "sources": [
+      "https://www.nps.gov/biso/",
+      "https://www.nps.gov/state/ky/index.htm"
+    ]
+  },
+  {
+    "id": "fort-heiman",
+    "name": "Fort Heiman (Fort Donelson National Battlefield)",
+    "city": "New Concord",
+    "county": "Calloway",
+    "address": "Fort Heiman unit, New Concord, KY 42076",
+    "latitude": 36.5485,
+    "longitude": -88.0555,
+    "designation": "nps",
+    "history": "Kentucky unit of Fort Donelson National Battlefield interpreting the Confederate fort that guarded the Tennessee River approach—Grant's 1862 western campaign context on the KY side.",
+    "website": "https://www.nps.gov/fodo/",
+    "geocode_source": "manual",
+    "overlap": null,
+    "sources": [
+      "https://www.nps.gov/fodo/"
+    ]
+  }
+]

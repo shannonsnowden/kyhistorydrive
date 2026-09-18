@@ -629,6 +629,11 @@ nav a:hover, nav a.active { color: var(--accent); }
 }
 .about-credits li { margin: 0.35rem 0; }
 .about-credits a { color: var(--accent); }
+.about-app-data {
+  font-size: 0.75rem;
+  margin-top: 2.25rem;
+  opacity: 0.65;
+}
 
 .hero-welcome {
   margin: 0 auto;

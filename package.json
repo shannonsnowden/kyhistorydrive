@@ -11,7 +11,8 @@
     "parse-briefs": "node scripts/parse-briefs-to-stories.mjs",
     "build-layers": "node scripts/build-layer-geojson.mjs",
     "build-story-locs": "node scripts/build-stories-locations.mjs",
-    "build-search": "node scripts/build-search-index.mjs"
+    "build-search": "node scripts/build-search-index.mjs",
+    "sync-app-data": "node scripts/sync-ios-app-data.mjs"
   },
   "dependencies": {
     "maplibre-gl": "^4.7.1",
