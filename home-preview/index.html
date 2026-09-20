@@ -1,133 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" data-hp-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kentucky History Drive — Homepage preview</title>
-    <meta
-      name="description"
-      content="Preview of a draft Kentucky History Drive homepage. The live site home is still the map at kyhistorydrive.com."
-    />
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/src/styles.css" />
+    <title>Kentucky History Drive</title>
+    <meta http-equiv="refresh" content="0; url=/" />
+    <link rel="canonical" href="/" />
     <script>
-      (function () {
-        try {
-          var stored = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme')
-          if (stored === 'light' || stored === 'dark') {
-            document.documentElement.setAttribute('data-hp-theme', stored)
-            return
-          }
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            document.documentElement.setAttribute('data-hp-theme', 'light')
-          }
-        } catch (e) {}
-      })()
+      location.replace('/' + (location.search || '') + (location.hash || ''))
     </script>
   </head>
-  <body class="hp-page">
-    <p class="hp-preview-banner" role="status">
-      Preview — not linked in nav yet. The live home is still the
-      <a href="/#map">map</a>.
-    </p>
-
-    <header class="top">
-      <div class="brand">
-        <a href="/home-preview/" class="brand-home" title="Homepage preview">
-          <img
-            class="brand-logo"
-            src="/brand/khd-logo-512.png"
-            width="136"
-            height="136"
-            alt="Kentucky History Drive logo"
-          />
-          <h1>Kentucky History Drive</h1>
-        </a>
-        <p class="tagline">History is all around us.</p>
-      </div>
-      <nav aria-label="Preview page">
-        <div class="nav-search" id="navSearch">
-          <form id="siteSearchForm" role="search" action="#" autocomplete="off">
-            <label class="visually-hidden" for="siteSearchInput">Search places and stories</label>
-            <input
-              type="search"
-              id="siteSearchInput"
-              name="q"
-              placeholder="Search places &amp; stories…"
-              enterkeyhint="search"
-              autocomplete="off"
-              autocorrect="off"
-              spellcheck="false"
-              aria-autocomplete="list"
-              aria-controls="siteSearchResults"
-              aria-expanded="false"
-            />
-          </form>
-          <div id="siteSearchResults" class="nav-search-results" role="listbox" hidden></div>
-        </div>
-        <a href="/#map">Map</a>
-        <a href="/#timeline">Timeline</a>
-        <button
-          type="button"
-          id="hpThemeToggle"
-          class="hp-theme-toggle"
-          data-theme-toggle
-          aria-label="Switch to light theme"
-          aria-pressed="false"
-        >
-          <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
-          <span class="hp-theme-toggle-label">Light</span>
-        </button>
-      </nav>
-    </header>
-
-    <main>
-      <section id="hpHero" class="hp-mag-hero" aria-labelledby="hp-hero-title">
-        <p class="hp-hero-loading muted">Loading this morning’s stories…</p>
-      </section>
-
-      <section class="hp-section hp-features-section" aria-labelledby="hp-features-title">
-        <div class="hp-section-head">
-          <p class="hp-kicker">Morning update</p>
-          <h2 id="hp-features-title">More from today’s brief</h2>
-          <p class="muted" id="hpFeaturesMeta"></p>
-        </div>
-        <div id="hpFeatureCards" class="hp-mag-features"></div>
-      </section>
-
-      <section id="hpQuote" class="hp-mag-quote" hidden></section>
-
-      <section class="hp-section" aria-labelledby="hp-layers-title">
-        <div class="hp-section-head">
-          <p class="hp-kicker">On the map</p>
-          <h2 id="hp-layers-title">Explore a layer</h2>
-          <p class="muted">
-            One stop from each map layer. Opens the live map — same deep-link as Share.
-          </p>
-        </div>
-        <div id="hpLayerCards" class="hp-layer-rail"></div>
-      </section>
-
-      <section class="hp-section hp-section-alt" aria-labelledby="hp-related-title">
-        <div class="hp-section-head">
-          <p class="hp-kicker">Resource hub</p>
-          <h2 id="hp-related-title">Related Kentucky history sites</h2>
-          <p class="muted">
-            Official programs, archaeology orgs, and documented place pages. Topic articles when they exist.
-          </p>
-        </div>
-        <div id="hpRelatedCards" class="hp-related"></div>
-      </section>
-    </main>
-
-    <footer class="foot">
-      <span>kyhistorydrive.com · homepage preview</span>
-      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
-    </footer>
-
-    <script type="module" src="/src/home-preview.js"></script>
+  <body>
+    <p><a href="/">Continue to Kentucky History Drive</a></p>
   </body>
 </html>

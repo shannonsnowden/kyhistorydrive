@@ -1,5 +1,5 @@
 /**
- * Header search shared by the map home (`/`) and `/home-preview/`.
+ * Header search shared by the magazine homepage (`/`) and hash views (`/#map`, `/#timeline`).
  * Indexes places + stories via /data/search-index.json (MiniSearch).
  */
 import MiniSearch from 'minisearch'
@@ -195,7 +195,7 @@ function setSearchActive(delta) {
  * Wire the header search control.
  * @param {{ navigate?: (hash: string) => void }} [options]
  *   `navigate` receives a hash like `#timeline/slug` or `#map/layer/id`.
- *   Default sets `location.hash` (map home). Preview pages should assign `/${hash}`.
+ *   Default sets `location.hash` on the same document (`#map`, `#timeline/<slug>`).
  */
 export function initSiteSearch(options = {}) {
   const form = document.getElementById('siteSearchForm')

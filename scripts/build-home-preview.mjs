@@ -10,8 +10,9 @@
  *      attaches attributed photos (Wikipedia / Wikimedia Commons / historic-photos.json),
  *      and writes the magazine homepage pack.
  *
- * The /home-preview page reads this pack, then re-checks stories.json in the
- * browser so a newer brief still surfaces if this step was skipped.
+ * The magazine homepage at `/` reads this pack, then re-checks stories.json
+ * in the browser so a newer brief still surfaces if this step was skipped.
+ * Presentation is evergreen (no this-morning / calendar-date kickers).
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -411,7 +412,7 @@ async function main() {
     briefDate,
     displayDate: formatDisplayDate(briefDate),
     howToRefresh:
-      'Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The preview page also re-reads stories.json in the browser.',
+      'Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.',
     stories: cards,
     hero,
     features,

@@ -18,12 +18,16 @@ frontend:
     paths:
       - node_modules/**/*
 
-# Serve the draft marketing homepage without replacing `/` (the map).
-# Do not add a catch-all SPA rewrite — hash routes on `/` stay as they are.
+# Magazine homepage is `/`. Keep hash routes (#map, #timeline, #about, #app)
+# on the same document. Do not add a catch-all SPA rewrite.
+# Old /home-preview links redirect to the live home.
 customRules:
   - source: '/home-preview'
-    target: '/home-preview/index.html'
-    status: '200'
+    target: '/'
+    status: '301'
   - source: '/home-preview/'
-    target: '/home-preview/index.html'
-    status: '200'
+    target: '/'
+    status: '301'
+  - source: '/home-preview/<*>'
+    target: '/'
+    status: '301'

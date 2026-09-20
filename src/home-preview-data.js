@@ -1,5 +1,5 @@
 /**
- * Shared curated content for /home-preview (layers + related sites).
+ * Shared curated content for the magazine homepage (layers + related sites).
  * Daily story highlights are NOT here — they come from the morning-brief pipeline.
  *
  * Layer cards always carry a curated, attributed photo (Commons / Wikipedia /

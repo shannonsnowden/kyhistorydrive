@@ -1,18 +1,17 @@
 /**
- * Magazine homepage for /home-preview/.
+ * Magazine homepage for `/` (empty hash / #home).
  *
  * Daily refresh:
  *   1. Load /content/home-preview.json (built from the newest briefDate).
  *   2. Also load /content/stories.json. If its latest briefDate is newer,
  *      fetch those story files and Wikipedia thumbnails so the page updates
  *      on the same deploy as the morning ingest.
- *   3. If today’s feed is empty, keep the baked pack (curated fallback).
+ *   3. If the latest feed is empty, keep the baked pack (curated fallback).
  *
- * Live `/` stays the map. This page is noindex and not in main nav.
+ * Presentation is evergreen: no “this morning” / calendar-date kickers.
+ * Map, Timeline, About, and App stay on the existing hash routes.
  */
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
-import { initSiteSearch } from './site-search.js'
-import { initThemeToggle } from './theme.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -209,7 +208,7 @@ function prefersReducedMotion() {
   return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
 }
 
-function renderHeroSlide(story, pack, index) {
+function renderHeroSlide(story, index) {
   const titleId = index === 0 ? 'hp-hero-title' : `hp-hero-title-${index}`
   const img = story.photo?.image_url
     ? `<img class="hp-mag-hero-img" src="${escapeHtml(story.photo.image_url)}" alt="${escapeHtml(story.photo.title || story.title)}" ${index === 0 ? '' : 'loading="lazy"'} />`
@@ -224,7 +223,7 @@ function renderHeroSlide(story, pack, index) {
     >
       <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade"></div></div>
       <div class="hp-mag-hero-copy">
-        <p class="hp-kicker">This morning · ${escapeHtml(pack.displayDate || '')}</p>
+        <p class="hp-kicker">Featured story</p>
         <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(String(story.yearStart))}` : ''}</p>
         <h2 id="${titleId}">${escapeHtml(story.title)}</h2>
         <p class="hp-hero-deck">${escapeHtml(story.summary)}</p>
@@ -251,7 +250,7 @@ function renderHeroControls(slides) {
     .join('')
   return `<div class="hp-hero-controls">
       <button type="button" class="hp-hero-nav" data-hero-dir="-1" aria-label="Previous story">‹</button>
-      <div class="hp-hero-dots" role="group" aria-label="Today’s brief stories">${dots}</div>
+      <div class="hp-hero-dots" role="group" aria-label="Featured stories">${dots}</div>
       <button type="button" class="hp-hero-nav" data-hero-dir="1" aria-label="Next story">›</button>
     </div>
     <p class="visually-hidden" id="hpHeroStatus" aria-live="polite"></p>`
@@ -354,9 +353,9 @@ function renderHero(pack) {
   const slides = heroSlides(pack)
   if (!slides.length) {
     root.innerHTML = `<div class="hp-mag-hero-copy">
-      <p class="hp-kicker">Draft homepage</p>
-      <h2 id="hp-hero-title">Kentucky history, this morning.</h2>
-      <p>No daily brief is loaded yet. Open the map or timeline while the next ingest lands.</p>
+      <p class="hp-kicker">Kentucky History Drive</p>
+      <h2 id="hp-hero-title">Kentucky history is all around us.</h2>
+      <p>Stories will appear here as they’re published. Open the map or timeline to explore.</p>
       <div class="hp-cta-row">
         <a class="btn hp-cta" href="/#map">Open the map</a>
         <a class="btn hp-cta" href="/#timeline">Timeline</a>
@@ -367,7 +366,7 @@ function renderHero(pack) {
   }
   root.innerHTML = `
     <div class="hp-hero-viewport">
-      ${slides.map((story, i) => renderHeroSlide(story, pack, i)).join('')}
+      ${slides.map((story, i) => renderHeroSlide(story, i)).join('')}
     </div>
     ${renderHeroControls(slides)}`
   renderQuote(slides[0])
@@ -376,16 +375,10 @@ function renderHero(pack) {
 
 function renderFeatures(pack) {
   const root = document.getElementById('hpFeatureCards')
-  const meta = document.getElementById('hpFeaturesMeta')
-  if (meta) {
-    meta.textContent = pack.briefDate
-      ? `From the Kentucky History morning update · ${pack.displayDate}. Same stories as the daily email.`
-      : ''
-  }
   if (!root) return
   const items = pack.features || []
   if (!items.length) {
-    root.innerHTML = `<p class="muted">Today’s brief is a single feature — see the hero above, or open the timeline.</p>`
+    root.innerHTML = `<p class="muted">This set is a single highlight — see the story above, or open the timeline.</p>`
     return
   }
   root.innerHTML = items
@@ -574,22 +567,21 @@ async function loadPack() {
   return pack || { hero: null, features: [], layers: [] }
 }
 
-initThemeToggle()
-initSiteSearch({
-  navigate(hash) {
-    const path = String(hash || '#map').replace(/^#/, '')
-    window.location.assign(`/#${path}`)
-  },
-})
-renderRelatedCards()
+let homePageStarted = false
 
-loadPack()
-  .then((pack) => {
-    renderHero(pack)
-    renderFeatures(pack)
-    renderLayerCards(pack.layers)
-  })
-  .catch((err) => {
-    console.error(err)
-    renderLayerCards([])
-  })
+export function initHomePage() {
+  if (homePageStarted) return
+  if (!document.getElementById('hpHero')) return
+  homePageStarted = true
+  renderRelatedCards()
+  loadPack()
+    .then((pack) => {
+      renderHero(pack)
+      renderFeatures(pack)
+      renderLayerCards(pack.layers)
+    })
+    .catch((err) => {
+      console.error(err)
+      renderLayerCards([])
+    })
+}
