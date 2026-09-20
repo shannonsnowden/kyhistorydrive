@@ -540,20 +540,25 @@ function syncAllLayersCheckbox() {
   el.checked = DATA_LAYERS.every((l) => layerVisibility[l.id])
 }
 
-function mapsLinksHtml(lat, lon, label, placeHint) {
-  if (lat == null || lon == null || Number.isNaN(Number(lat)) || Number.isNaN(Number(lon))) {
-    return ''
-  }
+/** Compact "lat,lon" for map URLs — no spaces, degree symbols, or N/W letters. */
+function compactLatLonQuery(lat, lon) {
   const la = Number(lat)
   const lo = Number(lon)
-  const name = label || `${la},${lo}`
+  if (Number.isNaN(la) || Number.isNaN(lo)) return null
+  return `${la},${lo}`
+}
+
+function mapsLinksHtml(lat, lon, label, placeHint) {
+  const coords = compactLatLonQuery(lat, lon)
+  if (!coords) return ''
+  const name = label || coords
   const q = encodeURIComponent(name)
   const searchBits = [name]
   if (placeHint) searchBits.push(placeHint)
   if (!/kentucky/i.test(searchBits.join(' '))) searchBits.push('Kentucky')
   const searchQ = encodeURIComponent(searchBits.join(' '))
-  const apple = `https://maps.apple.com/?ll=${la},${lo}&q=${q}`
-  const google = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} @${la},${lo}`)}`
+  const apple = `https://maps.apple.com/?ll=${coords}&q=${q}`
+  const google = `https://www.google.com/maps?q=${coords}`
   const photos = `https://www.google.com/search?tbm=isch&q=${searchQ}`
   return `<div class="popup-links-block">
     <p class="popup-maps">
