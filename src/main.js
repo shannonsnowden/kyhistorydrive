@@ -762,20 +762,11 @@ function collectResearchItems(linkList, extra = {}) {
   const rest = items.filter((i) => !isWikipediaUrl(i.url) && !isKyhsUrl(i.url))
   const out = [...rest]
 
-  if (!wikiKeep && extra.allowSearchFallbacks !== false && extra.title) {
-    wikiKeep = {
-      label: 'Wikipedia',
-      url: normalizeResearchUrl(wikipediaSearchUrl(`${extra.title} Kentucky`)),
-    }
-  }
-  if (!kyhsKeep && extra.allowSearchFallbacks !== false && extra.title) {
-    kyhsKeep = {
-      label: 'Kentucky Historical Society',
-      url: normalizeResearchUrl(kyhsSearchUrl(extra.title, extra.placeHint)),
-    }
-  }
-  if (wikiKeep?.url) out.push(wikiKeep)
-  if (kyhsKeep?.url) out.push(kyhsKeep)
+  // Standing QA: never invent Wikipedia Special:Search or history.ky.gov/?s=
+  // fallbacks — only keep topic-specific article/marker URLs already present.
+  // Search-root links dump users on site homes or empty result shells.
+  if (wikiKeep?.url && !isWikipediaSearchUrl(wikiKeep.url)) out.push(wikiKeep)
+  if (kyhsKeep?.url && !isKyhsSearchUrl(kyhsKeep.url)) out.push(kyhsKeep)
   return out
 }
 
@@ -956,6 +947,19 @@ function locSearchUrl(title, placeHint) {
 function naraSearchUrl(title, placeHint) {
   const q = [title, placeHint, 'Kentucky'].filter(Boolean).join(' ')
   return `https://catalog.archives.gov/search?q=${encodeURIComponent(q)}`
+}
+
+function isKyhsSearchUrl(url) {
+  try {
+    const u = new URL(String(url || ''))
+    if (!(u.hostname === 'history.ky.gov' || u.hostname.endsWith('.history.ky.gov'))) return false
+    // homepage or bare ?s= site search — not a topic page
+    if (u.pathname === '/' || u.pathname === '') return true
+    if (u.searchParams.has('s')) return true
+    return false
+  } catch {
+    return false
+  }
 }
 
 function kyhsSearchUrl(title, placeHint) {
