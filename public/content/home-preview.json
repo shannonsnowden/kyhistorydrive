@@ -1,0 +1,369 @@
+{
+  "generatedAt": "2026-09-20T13:56:38.793Z",
+  "briefDate": "2026-09-20",
+  "displayDate": "Sunday, September 20, 2026",
+  "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The preview page also re-reads stories.json in the browser.",
+  "hero": {
+    "slug": "capt-jack-jouett",
+    "title": "Capt. Jack Jouett",
+    "summary": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of…",
+    "era": "frontier",
+    "yearStart": 1781,
+    "briefDate": "2026-09-20",
+    "href": "/#timeline/capt-jack-jouett",
+    "place": "Capt. Jack Jouett / Craig’s Creek",
+    "lat": 37.9827487,
+    "lon": -84.7708839,
+    "quote": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of backwoods trails to warn Thomas Jefferson at…",
+    "photo": {
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Jack_Jouett_House.jpg/1920px-Jack_Jouett_House.jpg",
+      "title": "Jack Jouett House.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jack_Jouett_House.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Wikimedia Commons"
+    }
+  },
+  "features": [
+    {
+      "slug": "shepherdsville-on-salt-river",
+      "title": "Shepherdsville on Salt River",
+      "summary": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the…",
+      "era": "frontier",
+      "yearStart": 1793,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/shepherdsville-on-salt-river",
+      "place": "Shepherdsville / Salt River falls",
+      "lat": 37.98791666666666,
+      "lon": -85.71646666666666,
+      "quote": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the great road to Bullitt's Lick crossed.",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
+        "title": "Shepherdsville, Kentucky",
+        "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "slug": "shawnee-chillicothe-divisions",
+      "title": "Shawnee Chillicothe divisions",
+      "summary": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe…",
+      "era": "native",
+      "yearStart": 1778,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/shawnee-chillicothe-divisions",
+      "place": null,
+      "lat": null,
+      "lon": null,
+      "quote": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe customarily supplied political leadership.",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Old_Chillicothe_Site.jpg/1920px-Old_Chillicothe_Site.jpg",
+        "title": "Old Chillicothe Site.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
+    },
+    {
+      "slug": "hansen-site-15gp14",
+      "title": "Hansen Site (15GP14)",
+      "summary": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth. Excavations…",
+      "era": "prehistoric",
+      "yearStart": -2000,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/hansen-site-15gp14",
+      "place": "Hansen Site (15GP14)",
+      "lat": 38.72371944,
+      "lon": -83.01908889,
+      "quote": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth.",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
+        "title": "Portsmouth Earthworks, Group A, wall remnant.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
+    },
+    {
+      "slug": "natural-bridge-sandstone-arch",
+      "title": "Natural Bridge sandstone arch",
+      "summary": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red…",
+      "era": "prehistoric",
+      "yearStart": null,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/natural-bridge-sandstone-arch",
+      "place": "Natural Bridge",
+      "lat": 37.776836,
+      "lon": -83.6833147,
+      "quote": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red River.",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",
+        "title": "Natural Bridge State Resort Park",
+        "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    }
+  ],
+  "layers": [
+    {
+      "layerId": "markers",
+      "layerLabel": "Markers",
+      "icon": {
+        "type": "img",
+        "src": "/icons/highway-marker-orange.png"
+      },
+      "placeId": "1520",
+      "name": "Fort Boonesborough",
+      "place": "Madison County",
+      "wiki": "Fort Boonesborough State Park",
+      "blurb": "Daniel Boone’s 1775 settlement on the Kentucky River — Capital of the Colony of Transylvania.",
+      "href": "/#map/markers/1520",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg/3840px-Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg",
+        "title": "Fort Boonesborough State Park",
+        "source_url": "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "history",
+      "layerLabel": "History",
+      "icon": {
+        "type": "emoji",
+        "glyph": "📖"
+      },
+      "placeId": "big-bone-lick",
+      "name": "Big Bone Lick",
+      "place": "Boone County",
+      "wiki": "Big Bone Lick State Park",
+      "blurb": "A Pleistocene salt lick where mastodons left bones in the mud — Kentucky’s window on deep time.",
+      "href": "/#map/history/big-bone-lick",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Bigbonelick.jpg",
+        "title": "Big Bone Lick State Park",
+        "source_url": "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "museums",
+      "layerLabel": "Museums",
+      "icon": {
+        "type": "emoji",
+        "glyph": "🏛"
+      },
+      "placeId": "thomas-d-clark-center",
+      "name": "Thomas D. Clark Center for Kentucky History",
+      "place": "Frankfort",
+      "wiki": "Kentucky Historical Society",
+      "blurb": "Flagship Kentucky Historical Society museum, covering more than 12,000 years of the Commonwealth.",
+      "href": "/#map/museums/thomas-d-clark-center",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg/3840px-The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg",
+        "title": "Kentucky Historical Society",
+        "source_url": "https://en.wikipedia.org/wiki/Kentucky_Historical_Society",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "national",
+      "layerLabel": "National",
+      "icon": {
+        "type": "emoji",
+        "glyph": "⭐"
+      },
+      "placeId": "abraham-lincoln-birthplace-nhp",
+      "name": "Abraham Lincoln Birthplace",
+      "place": "Hodgenville",
+      "wiki": "Abraham Lincoln Birthplace National Historical Park",
+      "blurb": "The Sinking Spring farm where Lincoln was born in 1809, plus the Knob Creek boyhood unit.",
+      "href": "/#map/national/abraham-lincoln-birthplace-nhp",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg/3840px-Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
+        "title": "Abraham Lincoln Birthplace National Historical Park",
+        "source_url": "https://en.wikipedia.org/wiki/Abraham_Lincoln_Birthplace_National_Historical_Park",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "war",
+      "layerLabel": "War Sites",
+      "icon": {
+        "type": "img",
+        "src": "/icons/musket-sword.png"
+      },
+      "placeId": "blue-licks-battlefield",
+      "name": "Blue Licks Battlefield",
+      "place": "Robertson County",
+      "wiki": "Battle of Blue Licks",
+      "blurb": "August 19, 1782: the last major Revolutionary War battle in Kentucky.",
+      "href": "/#map/war/blue-licks-battlefield",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Daniel_Boone_At_Battle_of_Blue_Licks_Indian_History_For_Young_Folks_By_Francis_S_Drake.jpg",
+        "title": "Battle of Blue Licks",
+        "source_url": "https://en.wikipedia.org/wiki/Battle_of_Blue_Licks",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "locals",
+      "layerLabel": "Good Eats",
+      "icon": {
+        "type": "img",
+        "src": "/icons/locals.png"
+      },
+      "placeId": "moonlite-bar-b-q",
+      "name": "Moonlite Bar-B-Q Inn",
+      "place": "Owensboro",
+      "wiki": "Owensboro, Kentucky",
+      "blurb": "Western Kentucky mutton barbecue — the regional style unique to this Ohio River city.",
+      "href": "/#map/locals/moonlite-bar-b-q",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Owensboro2ndStAnn.JPG",
+        "title": "Owensboro, Kentucky",
+        "source_url": "https://en.wikipedia.org/wiki/Owensboro%2C_Kentucky",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "bridges",
+      "layerLabel": "Covered Bridges",
+      "icon": {
+        "type": "img",
+        "src": "/icons/covered-bridge.png"
+      },
+      "placeId": "goddard",
+      "name": "Goddard Covered Bridge",
+      "place": "Fleming County",
+      "wiki": "Goddard Bridge",
+      "blurb": "White Bridge: a Town-lattice span over Sand Lick Creek, among Kentucky’s surviving covered bridges.",
+      "href": "/#map/bridges/goddard",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/GoddardBridge.jpg",
+        "title": "Goddard Bridge",
+        "source_url": "https://en.wikipedia.org/wiki/Goddard_Bridge",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "industry",
+      "layerLabel": "Industry",
+      "icon": {
+        "type": "img",
+        "src": "/icons/industry.png"
+      },
+      "placeId": "bourbon-iron-works",
+      "name": "Bourbon Iron Works",
+      "place": "Owingsville",
+      "wiki": "Owingsville, Kentucky",
+      "commons": "Slate Furnace Kentucky",
+      "blurb": "Jacob Myers blew in a charcoal blast furnace here in 1791 — munitions for the early Commonwealth.",
+      "href": "/#map/industry/bourbon-iron-works",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Owingsville%2C_Kentucky.jpg",
+        "title": "Owingsville, Kentucky",
+        "source_url": "https://en.wikipedia.org/wiki/Owingsville%2C_Kentucky",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "newspapers",
+      "layerLabel": "Newspapers",
+      "icon": {
+        "type": "img",
+        "src": "/icons/newspaper.png"
+      },
+      "placeId": "lccn-sn82014784",
+      "name": "The Kentucke Gazette",
+      "place": "Lexington",
+      "wiki": "Kentucky Gazette",
+      "commons": "Kentucky Gazette newspaper Lexington",
+      "blurb": "Kentucky’s first newspaper, begun August 11, 1787 by John and Fielding Bradford.",
+      "href": "/#map/newspapers/lccn-sn82014784",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/The_Kentucky_Gazette_masthead.png/1920px-The_Kentucky_Gazette_masthead.png",
+        "title": "The Kentucky Gazette masthead.png",
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_Kentucky_Gazette_masthead.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
+    },
+    {
+      "layerId": "parks",
+      "layerLabel": "Parks",
+      "icon": {
+        "type": "img",
+        "src": "/icons/statepark.png"
+      },
+      "placeId": "cumberland-falls-state-resort-park",
+      "name": "Cumberland Falls",
+      "place": "Whitley County",
+      "wiki": "Cumberland Falls",
+      "blurb": "The “Niagara of the South,” and one of the few Western Hemisphere places a moonbow can appear.",
+      "href": "/#map/parks/cumberland-falls-state-resort-park",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cumberland_falls_2015_1.jpg",
+        "title": "Cumberland Falls",
+        "source_url": "https://en.wikipedia.org/wiki/Cumberland_Falls",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "cemeteries",
+      "layerLabel": "Cemeteries",
+      "icon": {
+        "type": "img",
+        "src": "/icons/cemetery.png"
+      },
+      "placeId": "frankfort-cemetery",
+      "name": "Frankfort Cemetery",
+      "place": "Frankfort",
+      "wiki": "Frankfort Cemetery",
+      "blurb": "Hilltop rural cemetery (1844) overlooking the capital — Daniel and Rebecca Boone were reinterred here.",
+      "href": "/#map/cemeteries/frankfort-cemetery",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG",
+        "title": "Frankfort Cemetery",
+        "source_url": "https://en.wikipedia.org/wiki/Frankfort_Cemetery",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "layerId": "distilleries",
+      "layerLabel": "Distilleries",
+      "icon": {
+        "type": "img",
+        "src": "/icons/bourbon-glass.png"
+      },
+      "placeId": "buffalo-trace",
+      "name": "Buffalo Trace Distillery",
+      "place": "Frankfort",
+      "wiki": "Buffalo Trace Distillery",
+      "blurb": "A Kentucky River distilling campus with late-1700s roots, continuous through Prohibition.",
+      "href": "/#map/distilleries/buffalo-trace",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Buffalo_Trace_Tower.jpg",
+        "title": "Buffalo Trace Distillery",
+        "source_url": "https://en.wikipedia.org/wiki/Buffalo_Trace_Distillery",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    }
+  ],
+  "quote": {
+    "text": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of backwoods trails to warn Thomas Jefferson at…",
+    "source": "Capt. Jack Jouett",
+    "href": "/#timeline/capt-jack-jouett"
+  }
+}

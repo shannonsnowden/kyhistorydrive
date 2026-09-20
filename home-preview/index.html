@@ -65,47 +65,38 @@
     </header>
 
     <main>
-      <section class="hp-hero" aria-labelledby="hp-hero-title">
-        <img
-          class="hp-hero-seal"
-          src="/brand/khd-logo-512.png"
-          width="220"
-          height="220"
-          alt="Kentucky History Drive seal — muskets, historical marker, and road to kyhistorydrive.com"
-        />
-        <div class="hp-hero-copy">
-          <p class="hp-kicker">Draft homepage</p>
-          <h2 id="hp-hero-title">Drive Kentucky’s history, one layer at a time.</h2>
-          <p>
-            Kentucky History Drive is the web companion to the KY Markers Drive iPhone app.
-            Open highway markers, stories, parks, distilleries, and more on an open-source
-            map — then read the same places on the timeline by era and year.
-          </p>
-          <div class="hp-cta-row">
-            <a class="btn hp-cta" href="/#map">Open the map</a>
-            <a class="btn ghost hp-cta" href="/#timeline">Timeline</a>
-          </div>
-        </div>
+      <section id="hpHero" class="hp-mag-hero" aria-labelledby="hp-hero-title">
+        <p class="hp-hero-loading muted">Loading this morning’s stories…</p>
       </section>
+
+      <section class="hp-section hp-features-section" aria-labelledby="hp-features-title">
+        <div class="hp-section-head">
+          <p class="hp-kicker">Morning update</p>
+          <h2 id="hp-features-title">More from today’s brief</h2>
+          <p class="muted" id="hpFeaturesMeta"></p>
+        </div>
+        <div id="hpFeatureCards" class="hp-mag-features"></div>
+      </section>
+
+      <section id="hpQuote" class="hp-mag-quote" hidden></section>
 
       <section class="hp-section" aria-labelledby="hp-layers-title">
         <div class="hp-section-head">
-          <h2 id="hp-layers-title">Layer highlights</h2>
+          <p class="hp-kicker">On the map</p>
+          <h2 id="hp-layers-title">Explore a layer</h2>
           <p class="muted">
-            One featured stop from each map layer. Links open the place on the live map
-            (same deep-link pattern as Share). Featured picks are curated for this draft.
+            One stop from each map layer. Opens the live map — same deep-link as Share.
           </p>
         </div>
-        <div id="hpLayerCards" class="hp-card-grid"></div>
+        <div id="hpLayerCards" class="hp-layer-rail"></div>
       </section>
 
       <section class="hp-section hp-section-alt" aria-labelledby="hp-related-title">
         <div class="hp-section-head">
+          <p class="hp-kicker">Resource hub</p>
           <h2 id="hp-related-title">Related Kentucky history sites</h2>
           <p class="muted">
-            A resource hub of official programs, archaeology orgs, history blogs, and
-            documented place pages. Topic articles when they exist; outbound links open
-            in a new tab.
+            Official programs, archaeology orgs, and documented place pages. Topic articles when they exist.
           </p>
         </div>
         <div id="hpRelatedCards" class="hp-related"></div>

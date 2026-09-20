@@ -100,6 +100,20 @@ npm run preview
 
 Set `VITE_CARTO_API_KEY` in Amplify Hosting → Environment variables (and locally in a gitignored `.env`), then redeploy. Without it, CARTO serves an “API key required” watermark. If you later switch to MapTiler/Stadia vector styles, also set `VITE_MAP_STYLE_URL`.
 
+## Homepage preview (`/home-preview`)
+
+Hidden magazine homepage for review. **`/` stays the map.** It is not in main nav, and the page is `noindex`.
+
+Daily story highlights come from the same KY History morning brief that feeds Timeline / the morning email:
+
+1. Save the email as `public/content/raw-briefs/YYYY-MM-DD.md`
+2. `npm run parse-briefs` writes `public/content/stories/<slug>.json` and rebuilds `stories.json`
+3. `npm run build-home-preview` (also part of `npm run build` / Amplify) reads the newest `briefDate`, keeps morning-email order, attaches attributed photos (Wikipedia, Wikimedia Commons, or `historic-photos.json`), and writes `public/content/home-preview.json`
+
+The preview page loads that pack, then re-checks `stories.json` in the browser. If a newer `briefDate` is already live, it fetches those story files and Wikipedia thumbnails so the homepage can update on the same deploy even if the pack step was skipped. If today’s feed is empty, the last baked pack is the fallback.
+
+Photos are credited on the page (Wikipedia / Commons / ULPA / Historypin, etc.).
+
 ## Data attribution
 
 Marker inscriptions and locations: Kentucky Historical Society / [history.ky.gov](https://history.ky.gov/markers). Map data: © OpenStreetMap contributors; CARTO; OpenHistoricalMap when enabled. Morning-brief stories are authored for the KY History Drive project.
