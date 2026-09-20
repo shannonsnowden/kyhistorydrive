@@ -15,5 +15,12 @@
     "transport"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20"
+  "briefDate": "2026-09-20",
+  "photo": {
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",
+    "title": "Natural Bridge State Resort Park",
+    "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
+    "source_label": "Wikipedia",
+    "attribution": "Wikipedia"
+  }
 }

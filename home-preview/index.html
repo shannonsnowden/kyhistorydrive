@@ -16,7 +16,7 @@
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem('khd-home-preview-theme')
+          var stored = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme')
           if (stored === 'light' || stored === 'dark') {
             document.documentElement.setAttribute('data-hp-theme', stored)
             return
@@ -39,9 +39,9 @@
         <a href="/home-preview/" class="brand-home" title="Homepage preview">
           <img
             class="brand-logo"
-            src="/brand/khd-logo.png"
-            width="88"
-            height="88"
+            src="/brand/khd-logo-512.png"
+            width="136"
+            height="136"
             alt="Kentucky History Drive logo"
           />
           <h1>Kentucky History Drive</h1>
@@ -49,12 +49,32 @@
         <p class="tagline">History is all around us.</p>
       </div>
       <nav aria-label="Preview page">
+        <div class="nav-search" id="navSearch">
+          <form id="siteSearchForm" role="search" action="#" autocomplete="off">
+            <label class="visually-hidden" for="siteSearchInput">Search places and stories</label>
+            <input
+              type="search"
+              id="siteSearchInput"
+              name="q"
+              placeholder="Search places &amp; stories…"
+              enterkeyhint="search"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+              aria-autocomplete="list"
+              aria-controls="siteSearchResults"
+              aria-expanded="false"
+            />
+          </form>
+          <div id="siteSearchResults" class="nav-search-results" role="listbox" hidden></div>
+        </div>
         <a href="/#map">Map</a>
         <a href="/#timeline">Timeline</a>
         <button
           type="button"
           id="hpThemeToggle"
           class="hp-theme-toggle"
+          data-theme-toggle
           aria-label="Switch to light theme"
           aria-pressed="false"
         >

@@ -254,6 +254,60 @@ function loadStory(slug) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
 }
 
+function writeStoryPhoto(slug, photo) {
+  const next = publicPhoto(photo)
+  if (!next?.image_url) return false
+  const file = path.join(ROOT, 'public/content/stories', `${slug}.json`)
+  if (!fs.existsSync(file)) return false
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'))
+  if (JSON.stringify(raw.photo || null) === JSON.stringify(next)) return false
+  raw.photo = next
+  fs.writeFileSync(file, `${JSON.stringify(raw, null, 2)}\n`)
+  return true
+}
+
+function writeStoryPhotoIndex(locations) {
+  const dir = path.join(ROOT, 'public/content/stories')
+  const bySlug = {}
+  const byHistoryId = {}
+  if (!fs.existsSync(dir)) return
+  for (const name of fs.readdirSync(dir)) {
+    if (!name.endsWith('.json')) continue
+    const raw = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'))
+    if (!raw.photo?.image_url || !raw.slug) continue
+    const loc = locations?.locations?.[raw.slug] || {}
+    const row = {
+      slug: raw.slug,
+      historyId: loc.historyId || null,
+      photo: raw.photo,
+    }
+    bySlug[raw.slug] = row
+    if (loc.historyId) byHistoryId[loc.historyId] = row
+  }
+  const out = path.join(ROOT, 'public/content/story-photos.json')
+  fs.writeFileSync(
+    out,
+    `${JSON.stringify({ generatedAt: new Date().toISOString(), bySlug, byHistoryId }, null, 2)}\n`,
+  )
+  return { slugCount: Object.keys(bySlug).length, historyCount: Object.keys(byHistoryId).length }
+}
+
+function patchStoriesIndexPhotos() {
+  const indexPath = path.join(ROOT, 'public/content/stories.json')
+  if (!fs.existsSync(indexPath)) return 0
+  const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'))
+  let n = 0
+  for (const row of index.stories || []) {
+    const full = loadStory(row.slug)
+    if (!full?.photo?.image_url) continue
+    if (JSON.stringify(row.photo || null) === JSON.stringify(full.photo)) continue
+    row.photo = full.photo
+    n += 1
+  }
+  if (n) fs.writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`)
+  return n
+}
+
 async function main() {
   const { LAYER_HIGHLIGHTS } = await import(
     pathToFileURL(path.join(ROOT, 'src/home-preview-data.js')).href
@@ -311,6 +365,13 @@ async function main() {
   const hero = withPhotos[0] || cards[0] || null
   const features = cards.filter((c) => c !== hero)
 
+  let persisted = 0
+  for (const card of cards) {
+    if (writeStoryPhoto(card.slug, card.photo)) persisted += 1
+  }
+  const photoIndex = writeStoryPhotoIndex(locations)
+  const indexPatched = patchStoriesIndexPhotos()
+
   const layers = []
   for (const item of LAYER_HIGHLIGHTS) {
     const photo = item.photo?.image_url
@@ -334,6 +395,7 @@ async function main() {
     displayDate: formatDisplayDate(briefDate),
     howToRefresh:
       'Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The preview page also re-reads stories.json in the browser.',
+    stories: cards,
     hero,
     features,
     layers,
@@ -345,7 +407,9 @@ async function main() {
   const out = path.join(ROOT, 'public/content/home-preview.json')
   fs.writeFileSync(out, `${JSON.stringify(pack, null, 2)}\n`)
   const photoCount = [hero, ...features, ...layers].filter((x) => x?.photo?.image_url).length
-  console.log(`Wrote ${out} (${briefDate}, ${cards.length} stories, ${photoCount} photos)`)
+  console.log(
+    `Wrote ${out} (${briefDate}, ${cards.length} stories, ${photoCount} photos; persisted ${persisted} story photos, index ${photoIndex?.slugCount || 0}, stories.json +${indexPatched})`,
+  )
 }
 
 main().catch((err) => {

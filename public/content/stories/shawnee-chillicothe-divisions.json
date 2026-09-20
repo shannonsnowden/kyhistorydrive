@@ -14,5 +14,12 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20"
+  "briefDate": "2026-09-20",
+  "photo": {
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Old_Chillicothe_Site.jpg/1920px-Old_Chillicothe_Site.jpg",
+    "title": "Old Chillicothe Site.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons"
+  }
 }
