@@ -6268,5 +6268,28 @@
     "rating_note": "unverified",
     "review_count_approx": null,
     "geocode_source": "manual"
+  },
+  {
+    "id": "wilders-corner-smithfield",
+    "name": "Wilder's Corner",
+    "city": "Smithfield",
+    "county": "Henry",
+    "address": "5573 Main St, Smithfield, KY 40068",
+    "latitude": 38.3858307,
+    "longitude": -85.2566115,
+    "category": "grocery",
+    "cuisine_or_type": "country store & deli",
+    "history": "Historic Main Street general store in Smithfield (deed trail to 1869), dark since the mid-1980s until Kelly and John Dockter renovated and reopened it in November 2025 as a hometown grocery, deli, and coffee stop. Local farm goods, sandwiches (including the Corner Club), and jalape\u00f1o sourdough keep the old Wilder's Corner name and sign style alive as a Henry County gathering place.",
+    "website": "https://www.pmg-ky1.com/henry_county_local/news/wilder-s-corner-officially-reopens-in-heart-of-smithfield/article_b1bb0e33-e4b8-5565-a98e-0ea59dd9017c.html",
+    "sources": [
+      "https://www.pmg-ky1.com/henry_county_local/news/wilder-s-corner-officially-reopens-in-heart-of-smithfield/article_b1bb0e33-e4b8-5565-a98e-0ea59dd9017c.html",
+      "https://www.pmg-ky1.com/henry_county_local/preserving-the-legacy/article_8746f8e9-a3fb-5d73-8afb-98dd88569b02.html"
+    ],
+    "geocode_source": "nominatim-5573-main-st",
+    "google_rating": null,
+    "yelp_rating": null,
+    "combined_rating": null,
+    "review_count_approx": null,
+    "rating_note": "New Nov 2025 reopen \u2014 ratings not yet seeded"
   }
 ]
