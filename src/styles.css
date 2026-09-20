@@ -1282,8 +1282,19 @@ nav a:hover, nav a.active { color: var(--accent); }
   max-width: 38rem;
 }
 .hp-mag-hero-copy .hp-cta.ghost {
-  color: #f3ead8;
-  border-color: rgba(243, 234, 216, 0.45);
+  /* Solid fill — outline ghost is unreadable on the photo hero */
+  background: var(--accent);
+  color: var(--ink-on-gold);
+  border-color: var(--accent);
+}
+.hp-page .hp-cta:hover {
+  background: #d9a04a;
+  border-color: #d9a04a;
+  color: var(--ink-on-gold);
+}
+.hp-page .hp-cta:focus-visible {
+  outline: 2px solid #f6edd8;
+  outline-offset: 3px;
 }
 .hp-mag-hero-copy .hp-photo-credit {
   color: #c4b89a;
@@ -1477,6 +1488,13 @@ html[data-hp-theme="light"] .brand-home:focus-visible h1 {
 html[data-hp-theme="light"] .btn.ghost {
   border-color: var(--line);
   color: var(--text);
+}
+html[data-hp-theme="light"] .hp-mag-hero-copy .hp-cta.ghost,
+html[data-hp-theme="light"] .hp-page .hp-cta:hover {
+  color: var(--ink-on-gold);
+}
+html[data-hp-theme="light"] .hp-page .hp-cta:focus-visible {
+  outline-color: var(--accent-deep);
 }
 html[data-hp-theme="light"] .brand-logo {
   box-shadow: 0 6px 20px rgba(40, 28, 12, 0.18);

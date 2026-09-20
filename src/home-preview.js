@@ -175,7 +175,7 @@ function renderHero(pack) {
       <p class="hp-hero-deck">${escapeHtml(hero.summary)}</p>
       <div class="hp-cta-row">
         <a class="btn hp-cta" href="${escapeHtml(hero.href)}">Read the story</a>
-        <a class="btn ghost hp-cta" href="/#timeline">All stories</a>
+        <a class="btn hp-cta" href="/#timeline">All stories</a>
       </div>
       ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
     </div>`
