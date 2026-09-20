@@ -1061,6 +1061,8 @@ nav a:hover, nav a.active { color: var(--accent); }
 
 /* Draft marketing homepage (/home-preview/) — does not change map home at / */
 .hp-page {
+  --hp-logo: 136px;
+  --hp-logo-gap: 0.8rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -1069,8 +1071,34 @@ nav a:hover, nav a.active { color: var(--accent); }
 .hp-page main { flex: 1; width: 100%; }
 .hp-page .top {
   background: var(--header-bg);
-  padding-left: clamp(1.25rem, 5vw, 4rem);
-  padding-right: clamp(1.25rem, 5vw, 4rem);
+  padding: 0.9rem clamp(1.25rem, 5vw, 4rem);
+  gap: 1rem 1.5rem;
+}
+.hp-page .brand-home {
+  gap: var(--hp-logo-gap);
+}
+.hp-page .brand-logo {
+  width: var(--hp-logo);
+  height: var(--hp-logo);
+  border-width: 2px;
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.5),
+    0 0 0 3px rgba(201, 137, 58, 0.28);
+}
+.hp-page .brand h1 {
+  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+}
+.hp-page .tagline {
+  margin-left: calc(var(--hp-logo) + var(--hp-logo-gap));
+  font-size: 0.92rem;
+}
+.hp-page nav {
+  flex: 1 1 16rem;
+  justify-content: flex-end;
+  min-width: 0;
+}
+.hp-page .nav-search {
+  max-width: 22rem;
 }
 .hp-page .foot {
   padding-left: clamp(1.25rem, 5vw, 4rem);
@@ -1453,6 +1481,14 @@ html[data-hp-theme="light"] .btn.ghost {
 html[data-hp-theme="light"] .brand-logo {
   box-shadow: 0 6px 20px rgba(40, 28, 12, 0.18);
 }
+html[data-hp-theme="light"] .hp-page .brand-logo {
+  box-shadow:
+    0 6px 22px rgba(40, 28, 12, 0.2),
+    0 0 0 3px rgba(154, 95, 28, 0.22);
+}
+html[data-hp-theme="light"] .nav-search-hit-title {
+  color: var(--heading);
+}
 html[data-hp-theme="light"] .hp-related-card:hover,
 html[data-hp-theme="light"] .hp-feature:hover,
 html[data-hp-theme="light"] .hp-layer-card:hover {
@@ -1466,6 +1502,12 @@ html[data-hp-theme="light"] .hp-mag-hero {
 }
 
 @media (max-width: 700px) {
+  .hp-page {
+    --hp-logo: 96px;
+  }
+  .hp-page .nav-search {
+    max-width: none;
+  }
   .hp-mag-hero { min-height: 78vh; }
   .hp-cta-row { justify-content: flex-start; }
   .hp-mag-features,

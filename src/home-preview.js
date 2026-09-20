@@ -11,6 +11,7 @@
  * Live `/` stays the map. This page is noindex and not in main nav.
  */
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
+import { initSiteSearch } from './site-search.js'
 
 const THEME_KEY = 'khd-home-preview-theme'
 
@@ -382,6 +383,12 @@ function initThemeToggle() {
 }
 
 initThemeToggle()
+initSiteSearch({
+  navigate(hash) {
+    const path = String(hash || '#map').replace(/^#/, '')
+    window.location.assign(`/#${path}`)
+  },
+})
 renderRelatedCards()
 
 loadPack()
