@@ -16,7 +16,7 @@
   --header-bg: rgba(16, 24, 18, 0.94);
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
-/* Site-wide light theme (map, timeline, about, stories, /home-preview). */
+/* Site-wide light theme (home, map, timeline, about, stories). */
 html[data-hp-theme="light"] {
   color-scheme: light;
   --bg: #f3ead8;
@@ -1096,7 +1096,10 @@ html[data-hp-theme="light"] .era-other {
 .ky-popup .share-row { margin-top: 0.4rem; }
 .story-head .share-row { margin: 0.65rem 0 0.25rem; }
 
-/* Draft marketing homepage (/home-preview/) — does not change map home at / */
+/* Magazine homepage (`/` empty hash). Map / Timeline / About / App stay hash routes. */
+.hp-home {
+  width: 100%;
+}
 .hp-page {
   --hp-logo: 136px;
   --hp-logo-gap: 0.8rem;
@@ -1140,22 +1143,6 @@ html[data-hp-theme="light"] .era-other {
 .hp-page .foot {
   padding-left: clamp(1.25rem, 5vw, 4rem);
   padding-right: clamp(1.25rem, 5vw, 4rem);
-}
-.hp-preview-banner {
-  margin: 0;
-  padding: 0.55rem clamp(1.25rem, 5vw, 4rem);
-  text-align: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--ink-on-gold);
-  background: var(--accent);
-  border-bottom: 1px solid var(--accent-deep);
-}
-.hp-preview-banner a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
 }
 .hp-theme-toggle {
   display: inline-flex;
@@ -1406,12 +1393,12 @@ html[data-hp-theme="light"] .era-other {
   color: var(--ink-on-gold);
   border-color: var(--accent);
 }
-.hp-page .hp-cta:hover {
+.hp-cta:hover {
   background: #d9a04a;
   border-color: #d9a04a;
   color: var(--ink-on-gold);
 }
-.hp-page .hp-cta:focus-visible {
+.hp-cta:focus-visible {
   outline: 2px solid #f6edd8;
   outline-offset: 3px;
 }
@@ -1619,10 +1606,10 @@ html[data-hp-theme="light"] .btn.ghost {
   color: var(--text);
 }
 html[data-hp-theme="light"] .hp-mag-hero-copy .hp-cta.ghost,
-html[data-hp-theme="light"] .hp-page .hp-cta:hover {
+html[data-hp-theme="light"] .hp-cta:hover {
   color: var(--ink-on-gold);
 }
-html[data-hp-theme="light"] .hp-page .hp-cta:focus-visible {
+html[data-hp-theme="light"] .hp-cta:focus-visible {
   outline-color: var(--accent-deep);
 }
 html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
@@ -1644,9 +1631,6 @@ html[data-hp-theme="light"] .hp-feature:hover,
 html[data-hp-theme="light"] .hp-layer-card:hover {
   box-shadow: 0 8px 22px rgba(40, 28, 12, 0.08);
 }
-html[data-hp-theme="light"] .hp-preview-banner {
-  color: #1a140c;
-}
 html[data-hp-theme="light"] .hp-mag-hero {
   background: #2a2216;
 }
@@ -1654,6 +1638,8 @@ html[data-hp-theme="light"] .hp-hero-nav,
 html[data-hp-theme="light"] .hp-hero-dot {
   background: rgba(26, 20, 12, 0.45);
 }
+html[data-hp-theme="light"] .hp-home .hp-hero-nav:focus-visible,
+html[data-hp-theme="light"] .hp-home .hp-hero-dot:focus-visible,
 html[data-hp-theme="light"] .hp-page .hp-hero-nav:focus-visible,
 html[data-hp-theme="light"] .hp-page .hp-hero-dot:focus-visible {
   outline-color: #f6edd8;

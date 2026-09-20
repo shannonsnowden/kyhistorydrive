@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kentucky History Drive — Historical Markers & Timeline</title>
-    <meta name="description" content="Explore Kentucky Historical Society markers on an open-source map, plus a filterable Kentucky history timeline with stories and places. Companion to the KY Markers Drive iPhone app." />
+    <title>Kentucky History Drive</title>
+    <meta name="description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. Companion to the KY Markers Drive iPhone app." />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -27,7 +27,7 @@
   <body>
     <header class="top">
       <div class="brand">
-        <a href="#map" class="brand-home" title="Home — map">
+        <a href="/" class="brand-home" title="Home">
           <img class="brand-logo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
           <h1>Kentucky History Drive</h1>
         </a>
@@ -53,6 +53,7 @@
           </form>
           <div id="siteSearchResults" class="nav-search-results" role="listbox" hidden></div>
         </div>
+        <a href="/" data-route="home">Home</a>
         <a href="#map" data-route="map">Map</a>
         <a href="#timeline" data-route="timeline">Timeline</a>
         <a href="#about" data-route="about">About</a>
@@ -71,14 +72,53 @@
       </nav>
     </header>
 
-    <section id="hero" class="hero" data-view="map">
+    <section id="home" class="view hp-home" data-view="home">
+      <section id="hpHero" class="hp-mag-hero" aria-labelledby="hp-hero-title">
+        <p class="hp-hero-loading muted">Loading stories…</p>
+      </section>
+
+      <section class="hp-section hp-features-section" aria-labelledby="hp-features-title">
+        <div class="hp-section-head">
+          <p class="hp-kicker">Highlights</p>
+          <h2 id="hp-features-title">More Kentucky history</h2>
+          <p class="muted" id="hpFeaturesMeta">Kentucky history highlights, drawn from the same stories as Timeline.</p>
+        </div>
+        <div id="hpFeatureCards" class="hp-mag-features"></div>
+      </section>
+
+      <section id="hpQuote" class="hp-mag-quote" hidden></section>
+
+      <section class="hp-section" aria-labelledby="hp-layers-title">
+        <div class="hp-section-head">
+          <p class="hp-kicker">On the map</p>
+          <h2 id="hp-layers-title">Explore a layer</h2>
+          <p class="muted">
+            One stop from each map layer. Opens the live map — same deep-link as Share.
+          </p>
+        </div>
+        <div id="hpLayerCards" class="hp-layer-rail"></div>
+      </section>
+
+      <section class="hp-section hp-section-alt" aria-labelledby="hp-related-title">
+        <div class="hp-section-head">
+          <p class="hp-kicker">Resource hub</p>
+          <h2 id="hp-related-title">Related Kentucky history sites</h2>
+          <p class="muted">
+            Official programs, archaeology orgs, and documented place pages. Topic articles when they exist.
+          </p>
+        </div>
+        <div id="hpRelatedCards" class="hp-related"></div>
+      </section>
+    </section>
+
+    <section id="hero" class="hero" data-view="map" hidden>
       <p class="hero-welcome">
         Explore Kentucky’s historical markers on the map, then open <a href="#timeline" data-route="timeline" class="hero-inline-link">Timeline</a> for stories by era and year.
         Tap a pin for details; use <button type="button" id="heroZoomFullState" class="hero-inline-action" title="Reset zoom to all of Kentucky" aria-label="Reset zoom to all of Kentucky">Full state</button> to zoom back out.
       </p>
     </section>
 
-    <section id="map" class="map-section view" data-view="map">
+    <section id="map" class="map-section view" data-view="map" hidden>
       <aside class="controls">
         <div class="layers-panel">
           <h2 class="layers-heading">Layers</h2>

@@ -14,16 +14,17 @@ Web companion to the **KY Markers Drive** iOS app — Kentucky Historical Societ
 
 ## Routes (hash)
 
-| Hash | View |
+| Path | View |
 |------|------|
-| `#map` | Marker map (default) |
-| `#timeline` | Era + year-range filtered timeline |
-| `#stories` | Story list |
-| `#story/<slug>` | Story detail |
-| `#about` | About |
-| `#app` | iOS app |
+| `/` | Magazine homepage (Kentucky history highlights) |
+| `/#map` | Marker map |
+| `/#timeline` | Era + year-range filtered timeline |
+| `/#timeline/<slug>` | Story detail on Timeline |
+| `/#about` | About |
+| `/#app` | iOS app |
+| `/home-preview` | Redirects to `/` |
 
-Nav: **Map | Timeline | Stories | About | App**
+Nav: **Home | Map | Timeline | About | App** (logo also goes Home)
 
 ## Develop
 
@@ -100,17 +101,19 @@ npm run preview
 
 Set `VITE_CARTO_API_KEY` in Amplify Hosting → Environment variables (and locally in a gitignored `.env`), then redeploy. Without it, CARTO serves an “API key required” watermark. If you later switch to MapTiler/Stadia vector styles, also set `VITE_MAP_STYLE_URL`.
 
-## Homepage preview (`/home-preview`)
+## Magazine homepage (`/`)
 
-Hidden magazine homepage for review. **`/` stays the map.** It is not in main nav, and the page is `noindex`.
+`/` is the magazine homepage: evergreen Kentucky history highlights (no “this morning” / calendar-date kickers). Map stays one click away at `/#map`. Old `/home-preview` URLs redirect or alias to `/`.
 
-Daily story highlights come from the same KY History morning brief that feeds Timeline / the morning email:
+Daily story highlights come from the same KY History morning brief that feeds Timeline:
 
 1. Save the email as `public/content/raw-briefs/YYYY-MM-DD.md`
 2. `npm run parse-briefs` writes `public/content/stories/<slug>.json` and rebuilds `stories.json`
 3. `npm run build-home-preview` (also part of `npm run build` / Amplify) reads the newest `briefDate`, keeps morning-email order, attaches attributed photos (Wikipedia, Wikimedia Commons, or `historic-photos.json`), and writes `public/content/home-preview.json`
 
-The preview page loads that pack, then re-checks `stories.json` in the browser. If a newer `briefDate` is already live, it fetches those story files and Wikipedia thumbnails so the homepage can update on the same deploy even if the pack step was skipped. If today’s feed is empty, the last baked pack is the fallback.
+The homepage loads that pack, then re-checks `stories.json` in the browser. If a newer `briefDate` is already live, it fetches those story files and Wikipedia thumbnails so the homepage can update on the same deploy even if the pack step was skipped. If the latest feed is empty, the last baked pack is the fallback.
+
+Stories are presented as evergreen highlights. The feed still refreshes from the newest `briefDate`; the UI does not label them as “this morning’s email” or show the ingest calendar date.
 
 Photos are credited on the page (Wikipedia / Commons / ULPA / Historypin, etc.). Layer highlight cards use curated Commons / HABS-LOC photos baked into `src/home-preview-data.js` so every “Explore a layer” card has a real thumbnail plus a map deep-link — not a text-only fallback.
 

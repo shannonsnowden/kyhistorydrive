@@ -1,6 +1,7 @@
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { marked } from 'marked'
+import { initHomePage } from './home-preview.js'
 import { initSiteSearch } from './site-search.js'
 import { initThemeToggle } from './theme.js'
 
@@ -217,7 +218,13 @@ function syncDeepLinkFromQuery() {
   }
 }
 
-/** Map is the site home until a dedicated homepage exists. Clear stale ?d= share params. */
+/** Magazine homepage at `/` (empty hash). Clear stale ?d= share params. */
+function goHome() {
+  history.replaceState(null, '', location.pathname)
+  applyRoute().catch(console.error)
+}
+
+/** Clean map view at `/#map`. Clear stale ?d= share params. */
 function goHomeMap() {
   history.replaceState(null, '', `${location.pathname}#map`)
   applyRoute().catch(console.error)
@@ -379,11 +386,10 @@ function formatYearRange(start, end) {
 }
 
 function ensureHomeHash() {
-  // Empty hash → home map; legacy #stories → #timeline
-  // Map remains the homepage until Shannon ships a dedicated home page.
+  // Empty hash → magazine homepage; #home is an alias. Legacy #stories → #timeline.
   const raw = (location.hash || '').replace(/^#/, '')
-  if (!raw) {
-    history.replaceState(null, '', `${location.pathname}#map`)
+  if (!raw || raw === 'home') {
+    if (raw === 'home') history.replaceState(null, '', location.pathname)
     return
   }
   if (raw === 'stories' || raw === 'story') {
@@ -397,7 +403,8 @@ function ensureHomeHash() {
 }
 
 function parseHash() {
-  const raw = (location.hash || '#map').replace(/^#/, '')
+  const raw = (location.hash || '').replace(/^#/, '')
+  if (!raw || raw === 'home') return { view: 'home' }
   const [path, ...rest] = raw.split('/')
   // Old #stories / #story links redirect into Timeline
   if (path === 'story' || path === 'stories') {
@@ -3113,7 +3120,7 @@ async function applyRoute() {
       }
       scrollTimelineToFilters()
     })
-  } else if (view === 'about' || view === 'app') {
+  } else if (view === 'home' || view === 'about' || view === 'app') {
     // Hash #about can land mid-page after Timeline; force true top so logo shows
     // (native hash scrolling races us — retry a couple frames + short timeout)
     const pinTop = () => scrollPageToTop()
@@ -3155,10 +3162,14 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
 document.querySelector('a.brand-home')?.addEventListener('click', (e) => {
   e.preventDefault()
-  goHomeMap()
+  goHome()
+})
+document.querySelector('#mainNav a[data-route="home"]')?.addEventListener('click', (e) => {
+  e.preventDefault()
+  goHome()
 })
 document.querySelector('#mainNav a[data-route="map"]')?.addEventListener('click', (e) => {
-  // Always land on clean map home (drop stale ?d= from shares)
+  // Always land on clean map (drop stale ?d= from shares)
   e.preventDefault()
   goHomeMap()
 })
@@ -3167,4 +3178,5 @@ syncDeepLinkFromQuery()
 ensureHomeHash()
 initThemeToggle()
 initSiteSearch()
+initHomePage()
 applyRoute().catch(console.error)

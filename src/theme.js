@@ -1,7 +1,7 @@
 /**
- * Shared light/dark theme for `/` (map, timeline, about, app, stories)
- * and `/home-preview/`. Preference is stored in `khd-theme` and mirrored
- * to the legacy `khd-home-preview-theme` key so existing preview visits stay in sync.
+ * Shared light/dark theme for `/` (home, map, timeline, about, app).
+ * Preference is stored in `khd-theme` and mirrored to the legacy
+ * `khd-home-preview-theme` key so earlier visits stay in sync.
  */
 export const THEME_KEY = 'khd-theme'
 export const THEME_KEY_LEGACY = 'khd-home-preview-theme'

@@ -2,7 +2,7 @@
   "generatedAt": "2026-09-20T16:25:56.641Z",
   "briefDate": "2026-09-20",
   "displayDate": "Sunday, September 20, 2026",
-  "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The preview page also re-reads stories.json in the browser.",
+  "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
   "stories": [
     {
       "slug": "capt-jack-jouett",
