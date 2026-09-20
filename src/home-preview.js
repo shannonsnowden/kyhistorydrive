@@ -396,6 +396,7 @@ function renderQuote(story) {
       <footer>— <a href="${escapeHtml(q.href || '#')}">${escapeHtml(q.source || '')}</a></footer>
     </blockquote>`
   root.hidden = false
+  root.setAttribute('aria-live', 'polite')
   if (root.innerHTML === next) return
   const apply = () => {
     root.innerHTML = next
