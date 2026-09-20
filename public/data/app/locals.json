@@ -9,7 +9,7 @@
     "longitude": -85.0582855,
     "category": "grocery",
     "cuisine_or_type": "country store & BBQ",
-    "history": "Bagdad's cult-favorite country store and lunch counter, founded in 1970 and still family-run (third-generation Warrens). Famous for the Newt Burger, smoked brisket, and homemade sweets—user shorthand 'B&N' points here (not a Louisville chain); one-of-a-kind Shelby County institution at the app's home crossroads.",
+    "history": "Bagdad's cult-favorite country store and lunch counter, founded in 1970 and still family-run (third-generation Warrens). Famous for the Newt Burger, smoked brisket, and homemade sweets\u2014user shorthand 'B&N' points here (not a Louisville chain); one-of-a-kind Shelby County institution at the app's home crossroads.",
     "website": "https://bnfoodmarket.business.site/",
     "sources": [
       "https://bnfoodmarket.business.site/",
@@ -34,7 +34,7 @@
     "longitude": -85.7653954,
     "category": "restaurant",
     "cuisine_or_type": "tasting-menu destination",
-    "history": "Edward Lee's intimate Old Louisville tasting-menu restaurant elevating Southern ingredients. Nationally known yet still a single Magnolia Avenue room—not a chain.",
+    "history": "Edward Lee's intimate Old Louisville tasting-menu restaurant elevating Southern ingredients. Nationally known yet still a single Magnolia Avenue room\u2014not a chain.",
     "website": "https://www.610magnolia.com/",
     "sources": [
       "https://www.610magnolia.com/",
@@ -57,7 +57,7 @@
     "longitude": -84.8765674,
     "category": "specialty",
     "cuisine_or_type": "bourbon bar & bottle shop cafe",
-    "history": "Bourbon Trail bottle shop and cafe on Broadway with deep Kentucky spirits, wine, and casual plates. A Frankfort-only hangout for locals and Trail travelers—not a chain concept.",
+    "history": "Bourbon Trail bottle shop and cafe on Broadway with deep Kentucky spirits, wine, and casual plates. A Frankfort-only hangout for locals and Trail travelers\u2014not a chain concept.",
     "website": "https://capitalcellars.com/",
     "sources": [
       "https://capitalcellars.com/",
@@ -80,7 +80,7 @@
     "longitude": -84.6798567,
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table prix fixe",
-    "history": "James Beard–recognized prix-fixe dining in an 1839 Midway farmhouse led by Ouita Michel's team. Seasonal Kentucky produce, country ham, and Weisenberger grits define a destination meal unique to this Woodford County inn—not a chain concept.",
+    "history": "James Beard\u2013recognized prix-fixe dining in an 1839 Midway farmhouse led by Ouita Michel's team. Seasonal Kentucky produce, country ham, and Weisenberger grits define a destination meal unique to this Woodford County inn\u2014not a chain concept.",
     "website": "https://www.hollyhillandco.com/",
     "sources": [
       "https://www.hollyhillandco.com/",
@@ -104,7 +104,7 @@
     "longitude": -85.7075461,
     "category": "restaurant",
     "cuisine_or_type": "Latin-inspired fine dining",
-    "history": "Chef Anthony Lamas's Highlands destination for Latin-inspired fine dining and ceviche. James Beard–recognized Louisville original at one Bardstown Road address.",
+    "history": "Chef Anthony Lamas's Highlands destination for Latin-inspired fine dining and ceviche. James Beard\u2013recognized Louisville original at one Bardstown Road address.",
     "website": "https://www.sevicherestaurant.com/",
     "sources": [
       "https://www.sevicherestaurant.com/",
@@ -127,7 +127,7 @@
     "longitude": -85.6874327,
     "category": "bakery",
     "cuisine_or_type": "European bakery cafe",
-    "history": "Clifton destination bakery-cafe since 1998 known for European-style breads, pastries, and scratch breakfast/lunch. Single Frankfort Avenue flagship with a regional reputation—not a national bakery chain.",
+    "history": "Clifton destination bakery-cafe since 1998 known for European-style breads, pastries, and scratch breakfast/lunch. Single Frankfort Avenue flagship with a regional reputation\u2014not a national bakery chain.",
     "website": "https://bluedogbakeryandcafe.com/",
     "sources": [
       "https://bluedogbakeryandcafe.com/",
@@ -151,7 +151,7 @@
     "longitude": -85.7365543,
     "category": "restaurant",
     "cuisine_or_type": "gastropub sandwiches",
-    "history": "Germantown gastropub celebrated for creative sandwiches (including goat) and local beer culture. Single-site Louisville favorite born from food-truck roots—not a chain.",
+    "history": "Germantown gastropub celebrated for creative sandwiches (including goat) and local beer culture. Single-site Louisville favorite born from food-truck roots\u2014not a chain.",
     "website": "https://www.hammerheadsky.com/",
     "sources": [
       "https://www.hammerheadsky.com/",
@@ -174,7 +174,7 @@
     "longitude": -85.723733,
     "category": "restaurant",
     "cuisine_or_type": "American bistro",
-    "history": "Highlands classic opened in 1933 by bookmaker Jack Fry; walls lined with historic sports photos. Elevated American-Southern bistro fare at one Bardstown Road address—Louisville original, not a franchise.",
+    "history": "Highlands classic opened in 1933 by bookmaker Jack Fry; walls lined with historic sports photos. Elevated American-Southern bistro fare at one Bardstown Road address\u2014Louisville original, not a franchise.",
     "website": "https://www.jackfrys.com/",
     "sources": [
       "https://www.jackfrys.com/",
@@ -198,7 +198,7 @@
     "longitude": -88.5953467,
     "category": "bakery",
     "cuisine_or_type": "historic bakery & deli",
-    "history": "Paducah institution baking since the 1870s in the Market House district—family bakery/deli unique to downtown Paducah, not a franchise.",
+    "history": "Paducah institution baking since the 1870s in the Market House district\u2014family bakery/deli unique to downtown Paducah, not a franchise.",
     "website": "https://www.kirchhoffsbakery.com/",
     "sources": [
       "https://www.kirchhoffsbakery.com/"
@@ -244,7 +244,7 @@
     "longitude": -84.8790452,
     "category": "restaurant",
     "cuisine_or_type": "diner / Cajun-Kentucky",
-    "history": "Tiny independent Bridge Street diner beloved for creative plates and capital-city character—one-of-a-kind Frankfort counter, not a chain.",
+    "history": "Tiny independent Bridge Street diner beloved for creative plates and capital-city character\u2014one-of-a-kind Frankfort counter, not a chain.",
     "website": null,
     "sources": [],
     "yelp_rating": 4.5,
@@ -264,7 +264,7 @@
     "longitude": -87.1487629,
     "category": "restaurant",
     "cuisine_or_type": "Western Kentucky mutton BBQ",
-    "history": "Owensboro's legendary buffet BBQ temple specializing in Western Kentucky mutton—the regional style unique to this Ohio River city. Family institution since 1963; one iconic Parrish Avenue complex.",
+    "history": "Owensboro's legendary buffet BBQ temple specializing in Western Kentucky mutton\u2014the regional style unique to this Ohio River city. Family institution since 1963; one iconic Parrish Avenue complex.",
     "website": "https://www.moonlite.com/",
     "sources": [
       "https://www.moonlite.com/",
@@ -288,7 +288,7 @@
     "longitude": -84.501953,
     "category": "restaurant",
     "cuisine_or_type": "Kentucky deli",
-    "history": "Scratch Kentucky deli known for Benedictine, hot browns, and local meats/cheeses in downtown Lexington. Independent pride-of-place cooking unique to Stella's—not a franchise deli.",
+    "history": "Scratch Kentucky deli known for Benedictine, hot browns, and local meats/cheeses in downtown Lexington. Independent pride-of-place cooking unique to Stella's\u2014not a franchise deli.",
     "website": "https://www.stellaskentuckydeli.com/",
     "sources": [
       "https://www.stellaskentuckydeli.com/",
@@ -311,7 +311,7 @@
     "longitude": -88.5955,
     "category": "restaurant",
     "cuisine_or_type": "American in historic depot",
-    "history": "Independent restaurant in Paducah's restored railroad freight house—one-of-a-kind adaptive-reuse dining destination in the creative district.",
+    "history": "Independent restaurant in Paducah's restored railroad freight house\u2014one-of-a-kind adaptive-reuse dining destination in the creative district.",
     "website": "https://www.thefreighthousepaducah.com/",
     "sources": [
       "https://www.thefreighthousepaducah.com/"
@@ -333,7 +333,7 @@
     "longitude": -85.9050927,
     "category": "restaurant",
     "cuisine_or_type": "small-town American",
-    "history": "Independent restaurant anchoring the historic railroad village of Glendale—destination dining unique to Hardin County's antique-town Main Street.",
+    "history": "Independent restaurant anchoring the historic railroad village of Glendale\u2014destination dining unique to Hardin County's antique-town Main Street.",
     "website": null,
     "sources": [],
     "yelp_rating": null,
@@ -353,7 +353,7 @@
     "longitude": -87.5905,
     "category": "restaurant",
     "cuisine_or_type": "western Kentucky BBQ",
-    "history": "Henderson independent barbecue stand known for western Kentucky-style smoked meats—local-only pit, not a multi-city chain.",
+    "history": "Henderson independent barbecue stand known for western Kentucky-style smoked meats\u2014local-only pit, not a multi-city chain.",
     "website": null,
     "sources": [],
     "yelp_rating": null,
@@ -373,7 +373,7 @@
     "longitude": -84.7384129,
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table historic village",
-    "history": "Restaurant inside the NHL Shaker Village of Pleasant Hill serving seasonal Kentucky fare—unique to the living-history village, not a chain concept.",
+    "history": "Restaurant inside the NHL Shaker Village of Pleasant Hill serving seasonal Kentucky fare\u2014unique to the living-history village, not a chain concept.",
     "website": "https://shakervillageky.org/dining/",
     "sources": [
       "https://shakervillageky.org/dining/"
@@ -395,7 +395,7 @@
     "longitude": -85.546679,
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table at Hermitage Farm",
-    "history": "Seasonal restaurant inside a restored barn at Hermitage Farm in Oldham County. Pasture views and Kentucky farm ingredients—destination dining unique to this Highway 42 farm site.",
+    "history": "Seasonal restaurant inside a restored barn at Hermitage Farm in Oldham County. Pasture views and Kentucky farm ingredients\u2014destination dining unique to this Highway 42 farm site.",
     "website": "https://www.barn8restaurant.com/",
     "sources": [
       "https://www.barn8restaurant.com/",
@@ -419,7 +419,7 @@
     "longitude": -86.1665,
     "category": "restaurant",
     "cuisine_or_type": "historic mill inn",
-    "history": "Dining at a 19th-century limestone mill inn on Doe Run Creek—unique Meade County destination restaurant with deep local history.",
+    "history": "Dining at a 19th-century limestone mill inn on Doe Run Creek\u2014unique Meade County destination restaurant with deep local history.",
     "website": "https://www.doeruninn.com/",
     "sources": [
       "https://www.doeruninn.com/"
@@ -441,7 +441,7 @@
     "longitude": -84.8427836,
     "category": "restaurant",
     "cuisine_or_type": "historic Kentucky inn dining",
-    "history": "Dining room of Kentucky's oldest continuously operated inn (family-run since 1917) serving classic Kentucky dishes—unique to Harrodsburg, not a chain.",
+    "history": "Dining room of Kentucky's oldest continuously operated inn (family-run since 1917) serving classic Kentucky dishes\u2014unique to Harrodsburg, not a chain.",
     "website": "https://www.beaumontinn.com/",
     "sources": [
       "https://www.beaumontinn.com/"
@@ -463,7 +463,7 @@
     "longitude": -84.498959,
     "category": "restaurant",
     "cuisine_or_type": "Kentucky steakhouse",
-    "history": "Lexington's oldest restaurant (since 1948), home of the Nighthawk Special tenderloin with Diego salad and garlic butter. Local-only Bluegrass specialties like Hot Browns, fried banana peppers, and lamb fries—an institution unique to Central Kentucky.",
+    "history": "Lexington's oldest restaurant (since 1948), home of the Nighthawk Special tenderloin with Diego salad and garlic butter. Local-only Bluegrass specialties like Hot Browns, fried banana peppers, and lamb fries\u2014an institution unique to Central Kentucky.",
     "website": "https://www.columbiassteakhouse.com/",
     "sources": [
       "https://www.columbiassteakhouse.com/",
@@ -509,7 +509,7 @@
     "longitude": -84.5616272,
     "category": "restaurant",
     "cuisine_or_type": "classic American tavern",
-    "history": "Northern Kentucky institution since 1921—independent Fort Mitchell tavern known for steaks and fried chicken, single iconic location.",
+    "history": "Northern Kentucky institution since 1921\u2014independent Fort Mitchell tavern known for steaks and fried chicken, single iconic location.",
     "website": "https://www.greyhoundtavern.com/",
     "sources": [
       "https://www.greyhoundtavern.com/"
@@ -523,7 +523,7 @@
   },
   {
     "id": "mayan-cafe",
-    "name": "Mayan Café",
+    "name": "Mayan Caf\u00e9",
     "city": "Louisville",
     "county": "Jefferson",
     "address": "451 S 4th St, Louisville, KY 40202",
@@ -531,7 +531,7 @@
     "longitude": -85.7572381,
     "category": "restaurant",
     "cuisine_or_type": "Yucatecan",
-    "history": "Chef Bruce Ucán's independent Yucatecan restaurant downtown—Louisville original known for sikil pak and regional Mexican cooking, not a franchise.",
+    "history": "Chef Bruce Uc\u00e1n's independent Yucatecan restaurant downtown\u2014Louisville original known for sikil pak and regional Mexican cooking, not a franchise.",
     "website": "https://www.mayancafelouisville.com/",
     "sources": [
       "https://www.mayancafelouisville.com/"
@@ -553,7 +553,7 @@
     "longitude": -85.4672475,
     "category": "restaurant",
     "cuisine_or_type": "historic tavern & bourbon bar",
-    "history": "Continuously operating since the late 1700s on Bardstown's Court Square—among America's oldest taverns and billed as home to the world's oldest bourbon bar. Southern classics and deep bourbon lists at a single irreplaceable site.",
+    "history": "Continuously operating since the late 1700s on Bardstown's Court Square\u2014among America's oldest taverns and billed as home to the world's oldest bourbon bar. Southern classics and deep bourbon lists at a single irreplaceable site.",
     "website": "https://talbotttavern.com/",
     "sources": [
       "https://talbotttavern.com/",
@@ -576,7 +576,7 @@
     "longitude": -85.7617433,
     "category": "restaurant",
     "cuisine_or_type": "contemporary Kentucky",
-    "history": "Flagship independent restaurant of 21c Museum Hotel Louisville—contemporary Kentucky cuisine and art-filled dining unique to this Main Street address.",
+    "history": "Flagship independent restaurant of 21c Museum Hotel Louisville\u2014contemporary Kentucky cuisine and art-filled dining unique to this Main Street address.",
     "website": "https://www.proofonmain.com/",
     "sources": [
       "https://www.proofonmain.com/"
@@ -598,7 +598,7 @@
     "longitude": -84.6939602,
     "category": "restaurant",
     "cuisine_or_type": "country deli & bakery",
-    "history": "Ouita Michel's converted general-store deli on scenic Old Frankfort Pike between Midway and Lexington. Featured on Diners, Drive-Ins and Dives for oversized sandwiches on Midway Bakery bread—picnic tables overlooking horse farms make it a one-site Bluegrass destination.",
+    "history": "Ouita Michel's converted general-store deli on scenic Old Frankfort Pike between Midway and Lexington. Featured on Diners, Drive-Ins and Dives for oversized sandwiches on Midway Bakery bread\u2014picnic tables overlooking horse farms make it a one-site Bluegrass destination.",
     "website": "https://www.wallacestation.com/",
     "sources": [
       "https://www.wallacestation.com/",
@@ -622,7 +622,7 @@
     "longitude": -84.5191345,
     "category": "restaurant",
     "cuisine_or_type": "24-hour diner",
-    "history": "Covington's legendary round-the-clock diner with neon and late-night lore—independent single location unique to the Licking River flats.",
+    "history": "Covington's legendary round-the-clock diner with neon and late-night lore\u2014independent single location unique to the Licking River flats.",
     "website": null,
     "sources": [],
     "yelp_rating": 4.0,
@@ -642,7 +642,7 @@
     "longitude": -86.4302691,
     "category": "restaurant",
     "cuisine_or_type": "American fine casual",
-    "history": "Longtime independent Bowling Green restaurant in a historic mansion setting—local fine-casual landmark, not a regional chain.",
+    "history": "Longtime independent Bowling Green restaurant in a historic mansion setting\u2014local fine-casual landmark, not a regional chain.",
     "website": "https://www.mariahs.com/",
     "sources": [
       "https://www.mariahs.com/"
@@ -687,7 +687,7 @@
     "longitude": -85.46418,
     "category": "dinner-train",
     "cuisine_or_type": "dinner train",
-    "history": "Scenic lunch and dinner excursions on restored 1940s dining cars departing the historic Bardstown depot. R.J. Corman launched the dinner train in 1988 on the old Bardstown branch past Bernheim Forest and bourbon country—Kentucky's signature rail dining experience unique to this site.",
+    "history": "Scenic lunch and dinner excursions on restored 1940s dining cars departing the historic Bardstown depot. R.J. Corman launched the dinner train in 1988 on the old Bardstown branch past Bernheim Forest and bourbon country\u2014Kentucky's signature rail dining experience unique to this site.",
     "website": "https://www.kydinnertrain.com/",
     "sources": [
       "https://www.kydinnertrain.com/",
@@ -710,7 +710,7 @@
     "longitude": -87.1215002,
     "category": "restaurant",
     "cuisine_or_type": "western Kentucky BBQ",
-    "history": "Owensboro mutton-and-burgoo BBQ institution independent of the Moonlite—another unique western Kentucky pit tradition, single local brand.",
+    "history": "Owensboro mutton-and-burgoo BBQ institution independent of the Moonlite\u2014another unique western Kentucky pit tradition, single local brand.",
     "website": "https://www.oldhickorybar-b-que.com/",
     "sources": [
       "https://www.oldhickorybar-b-que.com/"
@@ -732,7 +732,7 @@
     "longitude": -84.470932,
     "category": "restaurant",
     "cuisine_or_type": "classic drive-in",
-    "history": "Lexington's iconic single-location drive-in famous for the Hungry Brother burger—independent Bluegrass landmark since mid-century, not a franchise.",
+    "history": "Lexington's iconic single-location drive-in famous for the Hungry Brother burger\u2014independent Bluegrass landmark since mid-century, not a franchise.",
     "website": "https://www.theparkette.com/",
     "sources": [
       "https://www.theparkette.com/"
@@ -754,7 +754,7 @@
     "longitude": -84.4978608,
     "category": "restaurant",
     "cuisine_or_type": "contemporary Southern",
-    "history": "Downtown Lexington culinary trailblazer since 1981, repeatedly named among Southern Living's Best of the South. Local ingredients and Bluegrass hospitality in a single Short Street dining room—not a multi-state brand.",
+    "history": "Downtown Lexington culinary trailblazer since 1981, repeatedly named among Southern Living's Best of the South. Local ingredients and Bluegrass hospitality in a single Short Street dining room\u2014not a multi-state brand.",
     "website": "http://dudleysonshort.com/",
     "sources": [
       "http://dudleysonshort.com/",
@@ -777,7 +777,7 @@
     "longitude": -84.5022263,
     "category": "restaurant",
     "cuisine_or_type": "Italian pizza & pasta",
-    "history": "Lexington Italian landmark in a former synagogue near campus, famous for garlic breadsticks and hearty Sicilian-style pies. Local institution with a distinctive Maxwell Street home—not a national pizza chain.",
+    "history": "Lexington Italian landmark in a former synagogue near campus, famous for garlic breadsticks and hearty Sicilian-style pies. Local institution with a distinctive Maxwell Street home\u2014not a national pizza chain.",
     "website": "https://www.joebolognas.com/",
     "sources": [
       "https://www.joebolognas.com/",
@@ -801,7 +801,7 @@
     "longitude": -84.8770596,
     "category": "restaurant",
     "cuisine_or_type": "Italian-Southern bistro",
-    "history": "Downtown Frankfort fine-dining bistro overlooking Old State Capitol grounds. Italian and Southern plates with a serious bourbon list—capital-city destination unique to this Broadway address.",
+    "history": "Downtown Frankfort fine-dining bistro overlooking Old State Capitol grounds. Italian and Southern plates with a serious bourbon list\u2014capital-city destination unique to this Broadway address.",
     "website": "http://serafinikentucky.com/",
     "sources": [
       "http://serafinikentucky.com/",
@@ -824,7 +824,7 @@
     "longitude": -84.3758628,
     "category": "specialty",
     "cuisine_or_type": "market cafe & artisan shop",
-    "history": "Ouita Michel market-cafe on Lexington's northern edge amid horse farms. Po-boys, vegetable baskets, and a Kentucky artisan shop make it a destination stop rather than a franchise—only at this Bryan Station Road site.",
+    "history": "Ouita Michel market-cafe on Lexington's northern edge amid horse farms. Po-boys, vegetable baskets, and a Kentucky artisan shop make it a destination stop rather than a franchise\u2014only at this Bryan Station Road site.",
     "website": "https://www.windycornermarket.com/",
     "sources": [
       "https://www.windycornermarket.com/",
@@ -847,7 +847,7 @@
     "longitude": -84.2886074,
     "category": "restaurant",
     "cuisine_or_type": "historic college inn",
-    "history": "Historic Berea College inn restaurant famous for spoonbread and Appalachian hospitality—unique campus-town dining experience, not a franchise.",
+    "history": "Historic Berea College inn restaurant famous for spoonbread and Appalachian hospitality\u2014unique campus-town dining experience, not a franchise.",
     "website": "https://www.boonetavernhotel.com/",
     "sources": [
       "https://www.boonetavernhotel.com/"
@@ -869,7 +869,7 @@
     "longitude": -85.4522239,
     "category": "restaurant",
     "cuisine_or_type": "classic Kentucky dining",
-    "history": "Family-run Bardstown restaurant serving traditional Kentucky fare for generations—independent Bourbon Capital dining room, not a franchise.",
+    "history": "Family-run Bardstown restaurant serving traditional Kentucky fare for generations\u2014independent Bourbon Capital dining room, not a franchise.",
     "website": "https://www.kurtzrestaurant.com/",
     "sources": [
       "https://www.kurtzrestaurant.com/"
@@ -891,7 +891,7 @@
     "longitude": -85.8972682,
     "category": "roadhouse",
     "cuisine_or_type": "Ohio River fish camp",
-    "history": "Family-run South Louisville fish camp founded in 1925, now spanning three generations of Linnigs. Known for sprawling outdoor seating, fried fish and frog legs, turtle soup, and seasonal car shows—an only-at-this-site Ohio River roadhouse open roughly January through early November.",
+    "history": "Family-run South Louisville fish camp founded in 1925, now spanning three generations of Linnigs. Known for sprawling outdoor seating, fried fish and frog legs, turtle soup, and seasonal car shows\u2014an only-at-this-site Ohio River roadhouse open roughly January through early November.",
     "website": "https://www.mikelinnigsrestaurant.com/",
     "sources": [
       "https://www.mikelinnigsrestaurant.com/",
@@ -915,7 +915,7 @@
     "longitude": -85.2786377,
     "category": "restaurant",
     "cuisine_or_type": "Southern dinner house",
-    "history": "Opened in 1968 by Colonel Harland Sanders and wife Claudia after he sold KFC—serving their own Southern recipes beside the couple's former home. Distinct from any franchise; fried chicken, Hot Browns, and family-style sides make this Shelbyville dinner house a unique Kentucky landmark.",
+    "history": "Opened in 1968 by Colonel Harland Sanders and wife Claudia after he sold KFC\u2014serving their own Southern recipes beside the couple's former home. Distinct from any franchise; fried chicken, Hot Browns, and family-style sides make this Shelbyville dinner house a unique Kentucky landmark.",
     "website": "https://www.claudiasandersshelbyville.com/",
     "sources": [
       "https://www.claudiasandersshelbyville.com/",
@@ -940,7 +940,7 @@
     "longitude": -84.27338,
     "category": "restaurant",
     "cuisine_or_type": "river fish camp",
-    "history": "Riverside destination on the Kentucky River near Fort Boonesborough with roots traced to Captain John Holder's 1781 tavern and boatyard. Famous for Hall's Snappy Beer Cheese, fried banana peppers, and Southern plates served with flood-story atmosphere—the dining room has been rebuilt after repeated river inundations and remains a one-of-a-kind Clark County landmark.",
+    "history": "Riverside destination on the Kentucky River near Fort Boonesborough with roots traced to Captain John Holder's 1781 tavern and boatyard. Famous for Hall's Snappy Beer Cheese, fried banana peppers, and Southern plates served with flood-story atmosphere\u2014the dining room has been rebuilt after repeated river inundations and remains a one-of-a-kind Clark County landmark.",
     "website": "https://hallsontheriver.com/",
     "sources": [
       "https://hallsontheriver.com/",
@@ -964,7 +964,7 @@
     "longitude": -85.76531,
     "category": "restaurant",
     "cuisine_or_type": "trackside soda fountain",
-    "history": "Churchill Downs–adjacent pharmacy lunch counter where trainers, jockeys, and Derby crowds still gather for breakfast and counter fare. A one-site Louisville racing-culture landmark dating to the early 20th century.",
+    "history": "Churchill Downs\u2013adjacent pharmacy lunch counter where trainers, jockeys, and Derby crowds still gather for breakfast and counter fare. A one-site Louisville racing-culture landmark dating to the early 20th century.",
     "website": null,
     "sources": [
       "https://www.yelp.com/biz/wagners-pharmacy-louisville"
@@ -1098,7 +1098,7 @@
     "longitude": -84.7738751,
     "category": "bakery",
     "cuisine_or_type": "small-town bakery",
-    "history": "Downtown Danville bakery institution known for doughnuts, yeast rolls, and Bluegrass sweet traditions. Destination bake shop for Boyle County and Centre College visitors—not a chain.",
+    "history": "Downtown Danville bakery institution known for doughnuts, yeast rolls, and Bluegrass sweet traditions. Destination bake shop for Boyle County and Centre College visitors\u2014not a chain.",
     "website": null,
     "sources": [],
     "yelp_rating": null,
@@ -1118,7 +1118,7 @@
     "longitude": -85.7325309,
     "category": "restaurant",
     "cuisine_or_type": "neighborhood bistro",
-    "history": "Butchertown neighborhood restaurant (despite the name, a dining room) showcasing Kentucky ingredients in a historic corner building. Independent Louisville fine-casual—not a grocery chain.",
+    "history": "Butchertown neighborhood restaurant (despite the name, a dining room) showcasing Kentucky ingredients in a historic corner building. Independent Louisville fine-casual\u2014not a grocery chain.",
     "website": "https://www.butchertowngrocery.com/",
     "sources": [
       "https://www.butchertowngrocery.com/"
@@ -1162,7 +1162,7 @@
     "longitude": -84.4910377,
     "category": "restaurant",
     "cuisine_or_type": "Chevy Chase tavern",
-    "history": "Chevy Chase neighborhood tavern classic for generations of Lexingtonians—burgers, beers, and a local-only vibe. Single Euclid Avenue institution.",
+    "history": "Chevy Chase neighborhood tavern classic for generations of Lexingtonians\u2014burgers, beers, and a local-only vibe. Single Euclid Avenue institution.",
     "website": "https://www.charliebrownsky.com/",
     "sources": [
       "https://www.charliebrownsky.com/"
@@ -1204,7 +1204,7 @@
     "longitude": -84.8719503,
     "category": "restaurant",
     "cuisine_or_type": "Diner",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Diner; $$; Closed Now; 8:30 AM – 3:00 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. Diner; $$; Closed Now; 8:30 AM \u2013 3:00 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1249,7 +1249,7 @@
     "longitude": -84.9224335,
     "category": "restaurant",
     "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM – 9:00 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM \u2013 9:00 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1293,7 +1293,7 @@
     "longitude": -84.60476,
     "category": "restaurant",
     "cuisine_or_type": "racetrack cafeteria",
-    "history": "Open-to-the-public cafeteria inside Keeneland where trainers, hotwalkers, and race fans share early breakfast before workouts. A singular Bluegrass ritual—no other kitchen sits in this legendary Lexington track.",
+    "history": "Open-to-the-public cafeteria inside Keeneland where trainers, hotwalkers, and race fans share early breakfast before workouts. A singular Bluegrass ritual\u2014no other kitchen sits in this legendary Lexington track.",
     "website": "https://www.keeneland.com/",
     "sources": [
       "https://www.keeneland.com/"
@@ -1315,7 +1315,7 @@
     "longitude": -85.2168113,
     "category": "restaurant",
     "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM – 8:30 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM \u2013 8:30 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1337,7 +1337,7 @@
     "longitude": -85.2099678,
     "category": "restaurant",
     "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; Closed Now; 10:30 AM – 9:30 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; Closed Now; 10:30 AM \u2013 9:30 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1381,7 +1381,7 @@
     "longitude": -85.37913,
     "category": "restaurant",
     "cuisine_or_type": "chef-driven small plates",
-    "history": "Intimate historic-district La Grange dining room with a curated seasonal menu and wine focus. Local gem rather than a franchise—quality over volume for Oldham County evenings.",
+    "history": "Intimate historic-district La Grange dining room with a curated seasonal menu and wine focus. Local gem rather than a franchise\u2014quality over volume for Oldham County evenings.",
     "website": null,
     "sources": [],
     "yelp_rating": null,
@@ -1421,7 +1421,7 @@
     "longitude": -85.7339771,
     "category": "restaurant",
     "cuisine_or_type": "Creole-Kentucky",
-    "history": "Butchertown Creole-inspired restaurant from the Mayan Cafe team, blending Gulf flavors with Kentucky hospitality. Unique Liberty Street concept—not a franchise.",
+    "history": "Butchertown Creole-inspired restaurant from the Mayan Cafe team, blending Gulf flavors with Kentucky hospitality. Unique Liberty Street concept\u2014not a franchise.",
     "website": "https://www.northofbourbon.com/",
     "sources": [
       "https://www.northofbourbon.com/"
@@ -1443,7 +1443,7 @@
     "longitude": -85.379024,
     "category": "restaurant",
     "cuisine_or_type": "New Southern beside the trains",
-    "history": "Historic-district La Grange restaurant where CSX freights roll past picture windows dozens of times a day. American and New-Southern plates including a Kentucky 'Haute' Brown—unique Oldham County spot.",
+    "history": "Historic-district La Grange restaurant where CSX freights roll past picture windows dozens of times a day. American and New-Southern plates including a Kentucky 'Haute' Brown\u2014unique Oldham County spot.",
     "website": "https://onenineteenwestmain.com/",
     "sources": [
       "https://onenineteenwestmain.com/"
@@ -1465,7 +1465,7 @@
     "longitude": -85.2589587,
     "category": "restaurant",
     "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Open; 7:00 AM – 10:30 AM; 11:00 AM – 8:00 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Open; 7:00 AM \u2013 10:30 AM; 11:00 AM \u2013 8:00 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1487,7 +1487,7 @@
     "longitude": -85.65358,
     "category": "grocery",
     "cuisine_or_type": "local produce market & butcher",
-    "history": "Louisville-family produce market dating to open-air tents in the 1960s; St. Matthews Chenoweth Square is the historic heart. Local butcher, deli, and gourmet goods—Kentucky institution, not a national grocer.",
+    "history": "Louisville-family produce market dating to open-air tents in the 1960s; St. Matthews Chenoweth Square is the historic heart. Local butcher, deli, and gourmet goods\u2014Kentucky institution, not a national grocer.",
     "website": "https://store.paulsfruit.com/",
     "sources": [
       "https://store.paulsfruit.com/"
@@ -1509,7 +1509,7 @@
     "longitude": -84.5276646,
     "category": "restaurant",
     "cuisine_or_type": "Texas-style BBQ",
-    "history": "Lexington smokehouse known for Texas-style brisket and local BBQ culture. Independent Central Kentucky pit stop—not a national BBQ franchise.",
+    "history": "Lexington smokehouse known for Texas-style brisket and local BBQ culture. Independent Central Kentucky pit stop\u2014not a national BBQ franchise.",
     "website": "https://www.redstatebbq.com/",
     "sources": [
       "https://www.redstatebbq.com/"
@@ -1523,7 +1523,7 @@
   },
   {
     "id": "rowlett-s-milkhouse-creamery",
-    "name": "Rowlett’s Milkhouse Creamery",
+    "name": "Rowlett\u2019s Milkhouse Creamery",
     "city": "Campbellsburg",
     "county": "Henry",
     "address": "63 Commerce Drive, Campbellsburg, KY 40011, United States",
@@ -1531,7 +1531,7 @@
     "longitude": -85.1906973,
     "category": "specialty",
     "cuisine_or_type": "Cheese Shop",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Cheese Shop; Closed Now; 1:00 PM – 9:00 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. Cheese Shop; Closed Now; 1:00 PM \u2013 9:00 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1573,7 +1573,7 @@
     "longitude": -84.8936988,
     "category": "restaurant",
     "cuisine_or_type": "BBQ Restaurant",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. BBQ Restaurant; $; Closed Now; 11:00 AM – 8:00 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. BBQ Restaurant; $; Closed Now; 11:00 AM \u2013 8:00 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1639,7 +1639,7 @@
     "longitude": -84.6821558,
     "category": "restaurant",
     "cuisine_or_type": "Seafood Restaurant",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Seafood Restaurant; $$; Closed Now; 11:00 AM – 9:00 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. Seafood Restaurant; $$; Closed Now; 11:00 AM \u2013 9:00 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1683,7 +1683,7 @@
     "longitude": -84.6830893,
     "category": "restaurant",
     "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Now; 11:30 AM – 8:30 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Now; 11:30 AM \u2013 8:30 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1749,7 +1749,7 @@
     "longitude": -84.8238938,
     "category": "restaurant",
     "cuisine_or_type": "South American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. South American Cuisine; $$; Closed Now; 11:00 AM – 8:00 PM",
+    "history": "From Shannon's Apple Maps Local Restaurants guide. South American Cuisine; $$; Closed Now; 11:00 AM \u2013 8:00 PM",
     "website": null,
     "sources": [
       "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
@@ -1793,7 +1793,7 @@
     "longitude": -84.63637,
     "category": "specialty",
     "cuisine_or_type": "historic water mill & grits",
-    "history": "Kentucky's oldest continuously operating commercial water mill (family-run since 1865) producing stone-ground grits, meal, and flour prized by Bluegrass chefs. Retail and mill site on South Elkhorn Creek—unique to this Scott/Woodford border landmark.",
+    "history": "Kentucky's oldest continuously operating commercial water mill (family-run since 1865) producing stone-ground grits, meal, and flour prized by Bluegrass chefs. Retail and mill site on South Elkhorn Creek\u2014unique to this Scott/Woodford border landmark.",
     "website": "https://www.weisenberger.com/",
     "sources": [
       "https://www.weisenberger.com/"
@@ -1815,7 +1815,7 @@
     "longitude": -83.6969797,
     "category": "restaurant",
     "cuisine_or_type": "pizza & climber hub",
-    "history": "World-famous Red River Gorge climbers' pizza cafe—Ventura family institution unique to Slade, not a chain.",
+    "history": "World-famous Red River Gorge climbers' pizza cafe\u2014Ventura family institution unique to Slade, not a chain.",
     "website": "https://miguelspizza.com/",
     "sources": [
       "https://miguelspizza.com/",
@@ -1838,7 +1838,7 @@
     "longitude": -83.6561562,
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table cafe",
-    "history": "Farm-to-table Red River Gorge cafe known for local produce—unique Gorge destination.",
+    "history": "Farm-to-table Red River Gorge cafe known for local produce\u2014unique Gorge destination.",
     "website": "https://www.redriverrockhouse.com/",
     "sources": [
       "https://www.redriverrockhouse.com/"
@@ -1860,7 +1860,7 @@
     "longitude": -83.6125683,
     "category": "restaurant",
     "cuisine_or_type": "cafe & outfitter food",
-    "history": "Gorge trailhead cafe/outfitter kitchen—independent Pine Ridge stop for climbers and hikers.",
+    "history": "Gorge trailhead cafe/outfitter kitchen\u2014independent Pine Ridge stop for climbers and hikers.",
     "website": "https://www.skybridgestation.com/",
     "sources": [
       "https://www.skybridgestation.com/"
@@ -1882,7 +1882,7 @@
     "longitude": -84.0959774,
     "category": "restaurant",
     "cuisine_or_type": "craft American & bourbon",
-    "history": "Locally owned Corbin kitchen featured in Time/Food & Wine—scratch cooking unique to Corbin.",
+    "history": "Locally owned Corbin kitchen featured in Time/Food & Wine\u2014scratch cooking unique to Corbin.",
     "website": "https://thewrigley.com/",
     "sources": [
       "https://thewrigley.com/"
@@ -1904,7 +1904,7 @@
     "longitude": -84.0938415,
     "category": "restaurant",
     "cuisine_or_type": "historic cafe",
-    "history": "Original Harland Sanders Cafe restored as museum dining—historic Corbin site (not a modern KFC franchise).",
+    "history": "Original Harland Sanders Cafe restored as museum dining\u2014historic Corbin site (not a modern KFC franchise).",
     "website": "https://www.sanderscafe.com/",
     "sources": [
       "https://www.sanderscafe.com/",
@@ -1927,7 +1927,7 @@
     "longitude": -82.5162518,
     "category": "restaurant",
     "cuisine_or_type": "contemporary Southern",
-    "history": "Upscale contemporary Southern in downtown Pikeville—independent mountain-town kitchen.",
+    "history": "Upscale contemporary Southern in downtown Pikeville\u2014independent mountain-town kitchen.",
     "website": "https://www.theblueraven.net/",
     "sources": [
       "https://www.theblueraven.net/"
@@ -1949,10 +1949,10 @@
     "longitude": -82.5156535,
     "category": "restaurant",
     "cuisine_or_type": "Italian",
-    "history": "Family Italian on Pikeville Main Street—scratch classics unique to the area.",
-    "website": "https://www.facebook.com/",
+    "history": "Family Italian on Pikeville Main Street\u2014scratch classics unique to the area.",
+    "website": null,
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.tripadvisor.com/Restaurant_Review-g39748-d2510332-Reviews-Chirico_s_Ristorante-Pikeville_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -1971,7 +1971,7 @@
     "longitude": -82.5429402,
     "category": "restaurant",
     "cuisine_or_type": "country diner",
-    "history": "Scratch biscuits-and-gravy diner unique to Pikeville—owner-chef comfort food.",
+    "history": "Scratch biscuits-and-gravy diner unique to Pikeville\u2014owner-chef comfort food.",
     "website": "https://www.restaurantji.com/ky/pikeville/happy-days-diner-/",
     "sources": [
       "https://www.restaurantji.com/ky/pikeville/happy-days-diner-/"
@@ -1993,7 +1993,7 @@
     "longitude": -83.492,
     "category": "restaurant",
     "cuisine_or_type": "pizza & Italian",
-    "history": "Family pizzeria in a longtime US 60 building—Morehead independent.",
+    "history": "Family pizzeria in a longtime US 60 building\u2014Morehead independent.",
     "website": "https://elliottspizzeria.com/",
     "sources": [
       "https://elliottspizzeria.com/"
@@ -2015,7 +2015,7 @@
     "longitude": -83.4325,
     "category": "restaurant",
     "cuisine_or_type": "brewery kitchen",
-    "history": "Independent Morehead brewery kitchen named for the Sheltowee Trace—local craft food.",
+    "history": "Independent Morehead brewery kitchen named for the Sheltowee Trace\u2014local craft food.",
     "website": "https://sheltoweetracebrewing.com/",
     "sources": [
       "https://sheltoweetracebrewing.com/"
@@ -2037,7 +2037,7 @@
     "longitude": -84.2883874,
     "category": "restaurant",
     "cuisine_or_type": "pizza",
-    "history": "Longtime downtown Berea independent pizzeria—college-town staple.",
+    "history": "Longtime downtown Berea independent pizzeria\u2014college-town staple.",
     "website": "https://www.papalenos.com/",
     "sources": [
       "https://www.papalenos.com/"
@@ -2059,7 +2059,7 @@
     "longitude": -82.6407293,
     "category": "restaurant",
     "cuisine_or_type": "Italian steakhouse",
-    "history": "Independent Italian chophouse in Ashland—elevated Boyd County dining.",
+    "history": "Independent Italian chophouse in Ashland\u2014elevated Boyd County dining.",
     "website": "https://www.tuscanprime.com/",
     "sources": [
       "https://www.tuscanprime.com/"
@@ -2081,7 +2081,7 @@
     "longitude": -84.6056281,
     "category": "restaurant",
     "cuisine_or_type": "American & bourbon",
-    "history": "Downtown Somerset grill with deep bourbon library—Lake Cumberland independent destination.",
+    "history": "Downtown Somerset grill with deep bourbon library\u2014Lake Cumberland independent destination.",
     "website": "https://charredoakgrill.com/",
     "sources": [
       "https://charredoakgrill.com/"
@@ -2103,11 +2103,9 @@
     "longitude": -83.1920881,
     "category": "restaurant",
     "cuisine_or_type": "American fine dining",
-    "history": "Historic hilltop dining overlooking Hazard—longtime Perry County independent destination. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.kentuckytourism.com/"
-    ],
+    "history": "Historic hilltop dining overlooking Hazard\u2014longtime Perry County independent destination. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -2125,7 +2123,7 @@
     "longitude": -83.1570941,
     "category": "restaurant",
     "cuisine_or_type": "park cafe",
-    "history": "Visitor cafe near Carter Caves State Resort Park—Carter County unique stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Visitor cafe near Carter Caves State Resort Park\u2014Carter County unique stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": "https://parks.ky.gov/",
     "sources": [
       "https://parks.ky.gov/"
@@ -2147,7 +2145,7 @@
     "longitude": -88.5953467,
     "category": "restaurant",
     "cuisine_or_type": "California Tuscan",
-    "history": "Award-winning from-scratch California-Tuscan on Market House Square—Paducah icon.",
+    "history": "Award-winning from-scratch California-Tuscan on Market House Square\u2014Paducah icon.",
     "website": "http://www.cynthiasristorante.com/",
     "sources": [
       "http://www.cynthiasristorante.com/"
@@ -2169,7 +2167,7 @@
     "longitude": -88.5953698,
     "category": "restaurant",
     "cuisine_or_type": "steaks & tamales",
-    "history": "Paducah steak-and-tamale house in the historic district—independent Delta-style classic.",
+    "history": "Paducah steak-and-tamale house in the historic district\u2014independent Delta-style classic.",
     "website": "https://doespaducah.com/",
     "sources": [
       "https://doespaducah.com/"
@@ -2191,7 +2189,7 @@
     "longitude": -88.63,
     "category": "restaurant",
     "cuisine_or_type": "Caribbean American",
-    "history": "Locally owned Paducah restaurant with Caribbean flair—family-friendly independent.",
+    "history": "Locally owned Paducah restaurant with Caribbean flair\u2014family-friendly independent.",
     "website": "https://flamingorow.com/",
     "sources": [
       "https://flamingorow.com/"
@@ -2213,7 +2211,7 @@
     "longitude": -88.5952196,
     "category": "restaurant",
     "cuisine_or_type": "Italian & pizza",
-    "history": "Market House Square brick-oven independent—Paducah creative-district staple.",
+    "history": "Market House Square brick-oven independent\u2014Paducah creative-district staple.",
     "website": "https://www.maxsbrickoven.com/",
     "sources": [
       "https://www.maxsbrickoven.com/"
@@ -2235,7 +2233,7 @@
     "longitude": -88.5997591,
     "category": "restaurant",
     "cuisine_or_type": "seafood",
-    "history": "River-town seafood independent in downtown Paducah—Purchase region classic.",
+    "history": "River-town seafood independent in downtown Paducah\u2014Purchase region classic.",
     "website": "https://www.whalerscatch.com/",
     "sources": [
       "https://www.whalerscatch.com/"
@@ -2257,10 +2255,10 @@
     "longitude": -88.5975,
     "category": "specialty",
     "cuisine_or_type": "coffeehouse",
-    "history": "Independent downtown Paducah coffeehouse—creative-district local hangout. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
+    "history": "Independent downtown Paducah coffeehouse\u2014creative-district local hangout. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": "https://www.etccoffeehouse.com/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.tripadvisor.com/Restaurant_Review-g39725-d798786-Reviews-Etcetera_Coffeehouse-Paducah_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -2279,7 +2277,7 @@
     "longitude": -88.2247764,
     "category": "restaurant",
     "cuisine_or_type": "Southern destination",
-    "history": "Kentucky Lake landmark famous for 2-inch pork chops and flower-pot bread—destination independent.",
+    "history": "Kentucky Lake landmark famous for 2-inch pork chops and flower-pot bread\u2014destination independent.",
     "website": "https://www.pattis1880s.com/",
     "sources": [
       "https://www.pattis1880s.com/",
@@ -2302,10 +2300,11 @@
     "longitude": -87.4895024,
     "category": "restaurant",
     "cuisine_or_type": "historic burger diner",
-    "history": "Tiny historic Hopkinsville burger-and-chili diner—decades-old independent counter.",
-    "website": "https://www.facebook.com/",
+    "history": "Tiny historic Hopkinsville burger-and-chili diner\u2014decades-old independent counter.",
+    "website": "https://www.facebook.com/FerrellsSnappyService",
     "sources": [
-      "https://www.restaurantji.com/ky/hopkinsville/ferrells-snappy-services-/"
+      "https://www.restaurantji.com/ky/hopkinsville/ferrells-snappy-services-/",
+      "https://visithopkinsville.com/listing/ferrells-snappy-service-2/"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -2324,7 +2323,7 @@
     "longitude": -87.111,
     "category": "restaurant",
     "cuisine_or_type": "Southern & bourbon",
-    "history": "Chef-driven Southern in a restored 1905 home with deep bourbon bar—Owensboro destination.",
+    "history": "Chef-driven Southern in a restored 1905 home with deep bourbon bar\u2014Owensboro destination.",
     "website": "https://themillerhouserestaurant.com/",
     "sources": [
       "https://themillerhouserestaurant.com/"
@@ -2346,7 +2345,7 @@
     "longitude": -87.1019519,
     "category": "restaurant",
     "cuisine_or_type": "steaks & American",
-    "history": "Owensboro independent since the early 1970s—steaks and salads unique to Daviess County.",
+    "history": "Owensboro independent since the early 1970s\u2014steaks and salads unique to Daviess County.",
     "website": "https://www.briarpatchrestaurant.com/",
     "sources": [
       "https://www.briarpatchrestaurant.com/"
@@ -2368,10 +2367,10 @@
     "longitude": -87.054075,
     "category": "restaurant",
     "cuisine_or_type": "Western KY BBQ",
-    "history": "Owensboro-style barbecue independent—mutton-and-pit tradition of the BBQ capital.",
-    "website": "https://www.facebook.com/",
+    "history": "Owensboro-style barbecue independent\u2014mutton-and-pit tradition of the BBQ capital.",
+    "website": "https://olesouthbbq.com/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.tripadvisor.com/Restaurant_Review-g39722-d4621131-Reviews-Ole_South_Barbeque-Owensboro_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -2390,7 +2389,7 @@
     "longitude": -87.1135,
     "category": "restaurant",
     "cuisine_or_type": "American & spirits",
-    "history": "Downtown Owensboro independent fine-casual—local ownership.",
+    "history": "Downtown Owensboro independent fine-casual\u2014local ownership.",
     "website": "https://www.colbysowensboro.com/",
     "sources": [
       "https://www.colbysowensboro.com/"
@@ -2412,7 +2411,7 @@
     "longitude": -86.47,
     "category": "specialty",
     "cuisine_or_type": "ice cream & farm dairy",
-    "history": "Farmstead dairy barn famous for homemade ice cream—Bowling Green KY Proud destination.",
+    "history": "Farmstead dairy barn famous for homemade ice cream\u2014Bowling Green KY Proud destination.",
     "website": "https://www.chaneysdairybarn.com/",
     "sources": [
       "https://www.chaneysdairybarn.com/"
@@ -2434,7 +2433,7 @@
     "longitude": -86.4436327,
     "category": "restaurant",
     "cuisine_or_type": "American fine dining",
-    "history": "Downtown Bowling Green independent in a historic building—elevated American.",
+    "history": "Downtown Bowling Green independent in a historic building\u2014elevated American.",
     "website": "https://www.440main.com/",
     "sources": [
       "https://www.440main.com/"
@@ -2456,7 +2455,7 @@
     "longitude": -86.4436327,
     "category": "restaurant",
     "cuisine_or_type": "New American",
-    "history": "Chef-driven New American tavern downtown BG—local sourcing unique to Warren County.",
+    "history": "Chef-driven New American tavern downtown BG\u2014local sourcing unique to Warren County.",
     "website": "https://www.gerards1907.com/",
     "sources": [
       "https://www.gerards1907.com/"
@@ -2478,7 +2477,7 @@
     "longitude": -86.4467218,
     "category": "restaurant",
     "cuisine_or_type": "brewery kitchen",
-    "history": "Bowling Green independent brewery kitchen—campus-district local.",
+    "history": "Bowling Green independent brewery kitchen\u2014campus-district local.",
     "website": "https://www.whitesquirrelbrewery.com/",
     "sources": [
       "https://www.whitesquirrelbrewery.com/"
@@ -2500,7 +2499,7 @@
     "longitude": -86.475,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Cafe at the Lost River Cave attraction—Bowling Green visitor-facing independent kitchen.",
+    "history": "Cafe at the Lost River Cave attraction\u2014Bowling Green visitor-facing independent kitchen.",
     "website": "https://lostrivercave.org/",
     "sources": [
       "https://lostrivercave.org/"
@@ -2522,11 +2521,9 @@
     "longitude": -88.3029846,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Murray State-area downtown independent—Calloway County local kitchen. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Murray State-area downtown independent\u2014Calloway County local kitchen. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -2544,11 +2541,9 @@
     "longitude": -88.3156868,
     "category": "restaurant",
     "cuisine_or_type": "pizza",
-    "history": "Murray independent pizzeria—Purchase region local dough shop. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Murray independent pizzeria\u2014Purchase region local dough shop. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -2566,7 +2561,7 @@
     "longitude": -87.5048168,
     "category": "specialty",
     "cuisine_or_type": "farm meats & lunch counter",
-    "history": "Family farm butcher and lunch counter—bourbon-fed beef unique to Madisonville.",
+    "history": "Family farm butcher and lunch counter\u2014bourbon-fed beef unique to Madisonville.",
     "website": "https://calhounscustommeats.com/",
     "sources": [
       "https://calhounscustommeats.com/"
@@ -2588,7 +2583,7 @@
     "longitude": -87.45,
     "category": "specialty",
     "cuisine_or_type": "farm market & pickles",
-    "history": "Family farm market known for pickle varieties and baked goods—Hopkins County KY Proud.",
+    "history": "Family farm market known for pickle varieties and baked goods\u2014Hopkins County KY Proud.",
     "website": "https://pondriverfarm.com/",
     "sources": [
       "https://pondriverfarm.com/"
@@ -2610,11 +2605,9 @@
     "longitude": -87.4955925,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Downtown Madisonville independent in a historic warehouse—Hopkins County dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Downtown Madisonville independent in a historic warehouse\u2014Hopkins County dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -2632,11 +2625,9 @@
     "longitude": -87.592222,
     "category": "restaurant",
     "cuisine_or_type": "American bar & grill",
-    "history": "Downtown Henderson independent—Ohio River city unique kitchen (alongside Thomason's BBQ). Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Downtown Henderson independent\u2014Ohio River city unique kitchen (alongside Thomason's BBQ). Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -2654,7 +2645,7 @@
     "longitude": -84.5177474,
     "category": "restaurant",
     "cuisine_or_type": "American Southern",
-    "history": "Mainstrasse independent since 2003—American/Southern fare unique to Covington.",
+    "history": "Mainstrasse independent since 2003\u2014American/Southern fare unique to Covington.",
     "website": "http://www.ottosonmain.com/",
     "sources": [
       "http://www.ottosonmain.com/"
@@ -2676,7 +2667,7 @@
     "longitude": -84.5172973,
     "category": "restaurant",
     "cuisine_or_type": "Latin street food",
-    "history": "Tequila/mezcal bar with Latin street cuisine in Mainstrasse—Covington independent.",
+    "history": "Tequila/mezcal bar with Latin street cuisine in Mainstrasse\u2014Covington independent.",
     "website": "https://www.fridaonmain.com/",
     "sources": [
       "https://www.fridaonmain.com/"
@@ -2698,7 +2689,7 @@
     "longitude": -84.5175916,
     "category": "restaurant",
     "cuisine_or_type": "Creole Cajun",
-    "history": "Live-music Creole/Cajun independent on Mainstrasse—Covington nightlife classic.",
+    "history": "Live-music Creole/Cajun independent on Mainstrasse\u2014Covington nightlife classic.",
     "website": "https://deefelicecafe.com/",
     "sources": [
       "https://deefelicecafe.com/"
@@ -2720,7 +2711,7 @@
     "longitude": -84.5259323,
     "category": "restaurant",
     "cuisine_or_type": "ribs & American",
-    "history": "NKY rib legend since WWII—outdoor smokehouse ribs and secret sauce unique to Kenton County.",
+    "history": "NKY rib legend since WWII\u2014outdoor smokehouse ribs and secret sauce unique to Kenton County.",
     "website": "https://www.waltshitchingpost.com/",
     "sources": [
       "https://nkytribune.com/2024/09/our-rich-history-walts-hitching-post-a-nky-favorite-from-world-war-ii-to-present/"
@@ -2742,7 +2733,7 @@
     "longitude": -84.493202,
     "category": "restaurant",
     "cuisine_or_type": "American steaks",
-    "history": "Scratch American in Newport's York Historic District—25+ year independent with patio garden.",
+    "history": "Scratch American in Newport's York Historic District\u201425+ year independent with patio garden.",
     "website": "http://www.yorkstreetrestaurant.com/",
     "sources": [
       "http://www.yorkstreetrestaurant.com/"
@@ -2764,10 +2755,11 @@
     "longitude": -84.4806061,
     "category": "restaurant",
     "cuisine_or_type": "classic diner",
-    "history": "Classic Newport diner with jukebox booths and goetta—independent Monmouth Street institution.",
-    "website": "https://www.facebook.com/",
+    "history": "Classic Newport diner with jukebox booths and goetta\u2014independent Monmouth Street institution.",
+    "website": "https://www.facebook.com/ThePepperPod",
     "sources": [
-      "https://www.restaurantji.com/ky/newport/pepper-pod-restaurant-/"
+      "https://www.restaurantji.com/ky/newport/pepper-pod-restaurant-/",
+      "https://www.tripadvisor.com/Restaurant_Review-g39707-d605167-Reviews-Pepper_Pod_Restaurant-Newport_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": 4.3,
@@ -2786,7 +2778,7 @@
     "longitude": -84.4999147,
     "category": "restaurant",
     "cuisine_or_type": "pizza",
-    "history": "Newport independent pizzeria—local dough shop unique to Campbell County.",
+    "history": "Newport independent pizzeria\u2014local dough shop unique to Campbell County.",
     "website": "https://www.wiseguypizzapie.com/",
     "sources": [
       "https://www.wiseguypizzapie.com/"
@@ -2808,7 +2800,7 @@
     "longitude": -84.4881134,
     "category": "restaurant",
     "cuisine_or_type": "American eclectic",
-    "history": "Bellevue independent known for creative plates—Campbell County river-city unique.",
+    "history": "Bellevue independent known for creative plates\u2014Campbell County river-city unique.",
     "website": "https://www.tubacasting.com/",
     "sources": [
       "https://www.tubacasting.com/"
@@ -2830,7 +2822,7 @@
     "longitude": -84.5172495,
     "category": "restaurant",
     "cuisine_or_type": "American rooftop",
-    "history": "Mainstrasse independent with rooftop dining—Covington local classic.",
+    "history": "Mainstrasse independent with rooftop dining\u2014Covington local classic.",
     "website": "https://www.cheznora.com/",
     "sources": [
       "https://www.cheznora.com/"
@@ -2852,7 +2844,7 @@
     "longitude": -83.7593382,
     "category": "restaurant",
     "cuisine_or_type": "Italian river dining",
-    "history": "Historic Maysville Italian riverfront independent—Mason County Ohio River classic.",
+    "history": "Historic Maysville Italian riverfront independent\u2014Mason County Ohio River classic.",
     "website": "https://www.capronis.com/",
     "sources": [
       "https://www.capronis.com/"
@@ -2874,7 +2866,7 @@
     "longitude": -85.7155415,
     "category": "restaurant",
     "cuisine_or_type": "global eclectic",
-    "history": "Highlands institution of global/Egyptian-Italian eclectic dining—Louisville independent icon.",
+    "history": "Highlands institution of global/Egyptian-Italian eclectic dining\u2014Louisville independent icon.",
     "website": "https://www.ramsiscafe.com/",
     "sources": [
       "https://www.ramsiscafe.com/"
@@ -2896,7 +2888,7 @@
     "longitude": -85.7619327,
     "category": "restaurant",
     "cuisine_or_type": "fine dining",
-    "history": "Fine dining in Old Louisville's Mayflower—independent classic.",
+    "history": "Fine dining in Old Louisville's Mayflower\u2014independent classic.",
     "website": "https://www.buckslou.com/",
     "sources": [
       "https://www.buckslou.com/"
@@ -2918,7 +2910,7 @@
     "longitude": -85.7374629,
     "category": "restaurant",
     "cuisine_or_type": "Mediterranean American",
-    "history": "NuLu independent with seasonal Mediterranean-inspired plates—Louisville chef-driven.",
+    "history": "NuLu independent with seasonal Mediterranean-inspired plates\u2014Louisville chef-driven.",
     "website": "https://deccarestaurant.com/",
     "sources": [
       "https://deccarestaurant.com/"
@@ -2940,7 +2932,7 @@
     "longitude": -85.7404353,
     "category": "restaurant",
     "cuisine_or_type": "New American",
-    "history": "NuLu sibling to Wiltshire Pantry—chef-driven New American independent.",
+    "history": "NuLu sibling to Wiltshire Pantry\u2014chef-driven New American independent.",
     "website": "https://www.wiltshirepantry.com/",
     "sources": [
       "https://www.wiltshirepantry.com/"
@@ -2962,7 +2954,7 @@
     "longitude": -85.7231425,
     "category": "restaurant",
     "cuisine_or_type": "breakfast & gastropub",
-    "history": "Baxter Avenue guesthouse cafe famous for elevated breakfast—Highlands independent.",
+    "history": "Baxter Avenue guesthouse cafe famous for elevated breakfast\u2014Highlands independent.",
     "website": "https://www.gralehaus.com/",
     "sources": [
       "https://www.gralehaus.com/"
@@ -2984,7 +2976,7 @@
     "longitude": -85.7409077,
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table",
-    "history": "NuLu farm-to-table independent emphasizing Kentucky producers—Jefferson County icon.",
+    "history": "NuLu farm-to-table independent emphasizing Kentucky producers\u2014Jefferson County icon.",
     "website": "https://www.harvestlouisville.com/",
     "sources": [
       "https://www.harvestlouisville.com/"
@@ -3006,7 +2998,7 @@
     "longitude": -85.7083889,
     "category": "restaurant",
     "cuisine_or_type": "New American",
-    "history": "Clifton independent with patio and seasonal New American—Louisville local favorite.",
+    "history": "Clifton independent with patio and seasonal New American\u2014Louisville local favorite.",
     "website": "https://www.varanese.com/",
     "sources": [
       "https://www.varanese.com/"
@@ -3028,7 +3020,7 @@
     "longitude": -85.7379033,
     "category": "specialty",
     "cuisine_or_type": "coffee & biscuit shop",
-    "history": "NuLu coffee-and-biscuit independent—Louisville specialty cafe unique to the block.",
+    "history": "NuLu coffee-and-biscuit independent\u2014Louisville specialty cafe unique to the block.",
     "website": "https://www.pleaseandthankyoucafe.com/",
     "sources": [
       "https://www.pleaseandthankyoucafe.com/"
@@ -3050,7 +3042,7 @@
     "longitude": -85.7167244,
     "category": "restaurant",
     "cuisine_or_type": "Southern & whiskey",
-    "history": "Clifton Southern/whiskey bar independent—Louisville cult favorite.",
+    "history": "Clifton Southern/whiskey bar independent\u2014Louisville cult favorite.",
     "website": "https://www.whiskeybythedrink.com/",
     "sources": [
       "https://www.whiskeybythedrink.com/"
@@ -3072,7 +3064,7 @@
     "longitude": -85.7354515,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "NuLu/Louisville independent barbecue (local brand)—Jefferson County pit.",
+    "history": "NuLu/Louisville independent barbecue (local brand)\u2014Jefferson County pit.",
     "website": "https://www.feastbbq.com/",
     "sources": [
       "https://www.feastbbq.com/"
@@ -3094,7 +3086,7 @@
     "longitude": -85.6662293,
     "category": "restaurant",
     "cuisine_or_type": "French",
-    "history": "French fine dining at Bowman Field—Louisville independent classic.",
+    "history": "French fine dining at Bowman Field\u2014Louisville independent classic.",
     "website": "https://www.lerelaisrestaurant.com/",
     "sources": [
       "https://www.lerelaisrestaurant.com/"
@@ -3116,7 +3108,7 @@
     "longitude": -85.6367131,
     "category": "restaurant",
     "cuisine_or_type": "New American",
-    "history": "East End chef-owned bistro—Louisville independent fine dining.",
+    "history": "East End chef-owned bistro\u2014Louisville independent fine dining.",
     "website": "https://www.anooshbistro.com/",
     "sources": [
       "https://www.anooshbistro.com/"
@@ -3138,7 +3130,7 @@
     "longitude": -85.7228163,
     "category": "restaurant",
     "cuisine_or_type": "Belgian gastropub",
-    "history": "Highlands Belgian beer and gastropub in a former church—Louisville unique independent.",
+    "history": "Highlands Belgian beer and gastropub in a former church\u2014Louisville unique independent.",
     "website": "https://www.holygralelouisville.com/",
     "sources": [
       "https://www.holygralelouisville.com/"
@@ -3160,7 +3152,7 @@
     "longitude": -85.7014896,
     "category": "restaurant",
     "cuisine_or_type": "Mexican breakfast",
-    "history": "Louisville Mexican breakfast independent (local multi-site within metro)—unique-to-Louisville brand.",
+    "history": "Louisville Mexican breakfast independent (local multi-site within metro)\u2014unique-to-Louisville brand.",
     "website": "https://www.conhuevos.com/",
     "sources": [
       "https://www.conhuevos.com/"
@@ -3182,7 +3174,7 @@
     "longitude": -85.7410817,
     "category": "restaurant",
     "cuisine_or_type": "brunch cafe",
-    "history": "NuLu brunch independent—Louisville breakfast destination.",
+    "history": "NuLu brunch independent\u2014Louisville breakfast destination.",
     "website": "https://www.toastonmarket.com/",
     "sources": [
       "https://www.toastonmarket.com/"
@@ -3204,7 +3196,7 @@
     "longitude": -85.6934308,
     "category": "restaurant",
     "cuisine_or_type": "Cuban",
-    "history": "Louisville Cuban independent (local brand)—Highlands Latin classic.",
+    "history": "Louisville Cuban independent (local brand)\u2014Highlands Latin classic.",
     "website": "https://www.havanarumba.com/",
     "sources": [
       "https://www.havanarumba.com/"
@@ -3226,7 +3218,7 @@
     "longitude": -85.719,
     "category": "restaurant",
     "cuisine_or_type": "Asian fusion",
-    "history": "Highlands Asian-fusion independent—Louisville unique kitchen.",
+    "history": "Highlands Asian-fusion independent\u2014Louisville unique kitchen.",
     "website": "https://www.dragonkingsdaughter.com/",
     "sources": [
       "https://www.dragonkingsdaughter.com/"
@@ -3248,7 +3240,7 @@
     "longitude": -85.7557613,
     "category": "restaurant",
     "cuisine_or_type": "Appalachian Southern",
-    "history": "Edward Lee's downtown Appalachian-Southern independent—Louisville chef destination.",
+    "history": "Edward Lee's downtown Appalachian-Southern independent\u2014Louisville chef destination.",
     "website": "https://www.milkwoodrestaurant.com/",
     "sources": [
       "https://www.milkwoodrestaurant.com/"
@@ -3270,7 +3262,7 @@
     "longitude": -85.7207443,
     "category": "restaurant",
     "cuisine_or_type": "Mediterranean",
-    "history": "Highlands Mediterranean independent—Louisville neighborhood gem.",
+    "history": "Highlands Mediterranean independent\u2014Louisville neighborhood gem.",
     "website": "https://www.thefatlamb.com/",
     "sources": [
       "https://www.thefatlamb.com/"
@@ -3292,7 +3284,7 @@
     "longitude": -85.7085,
     "category": "restaurant",
     "cuisine_or_type": "pasta",
-    "history": "Clifton pasta independent—Louisville scratch-noodle kitchen.",
+    "history": "Clifton pasta independent\u2014Louisville scratch-noodle kitchen.",
     "website": "https://www.grassagramma.com/",
     "sources": [
       "https://www.grassagramma.com/"
@@ -3314,7 +3306,7 @@
     "longitude": -84.525,
     "category": "restaurant",
     "cuisine_or_type": "New American",
-    "history": "Fritz Farm independent from the Ramsey's family lineage—Lexington New American.",
+    "history": "Fritz Farm independent from the Ramsey's family lineage\u2014Lexington New American.",
     "website": "https://www.honeywoodrestaurant.com/",
     "sources": [
       "https://www.honeywoodrestaurant.com/"
@@ -3336,7 +3328,7 @@
     "longitude": -84.493018,
     "category": "restaurant",
     "cuisine_or_type": "Southern",
-    "history": "Jefferson Street Southern independent—Lexington chef-driven neighborhood spot.",
+    "history": "Jefferson Street Southern independent\u2014Lexington chef-driven neighborhood spot.",
     "website": "https://www.countyclubrestaurant.com/",
     "sources": [
       "https://www.countyclubrestaurant.com/"
@@ -3358,7 +3350,7 @@
     "longitude": -84.4982772,
     "category": "restaurant",
     "cuisine_or_type": "gastropub",
-    "history": "Downtown Lexington gastropub independent—local beer-and-plates classic.",
+    "history": "Downtown Lexington gastropub independent\u2014local beer-and-plates classic.",
     "website": "https://www.villageidiotlexington.com/",
     "sources": [
       "https://www.villageidiotlexington.com/"
@@ -3380,7 +3372,7 @@
     "longitude": -84.53,
     "category": "restaurant",
     "cuisine_or_type": "Southern diner",
-    "history": "Lexington-only Southern diner brand (local multi within Fayette)—unique-to-Lexington comfort food.",
+    "history": "Lexington-only Southern diner brand (local multi within Fayette)\u2014unique-to-Lexington comfort food.",
     "website": "https://www.ramseysdiner.com/",
     "sources": [
       "https://www.ramseysdiner.com/"
@@ -3402,7 +3394,7 @@
     "longitude": -84.4985389,
     "category": "restaurant",
     "cuisine_or_type": "New American",
-    "history": "Downtown Lexington New American independent—chef-driven Short Street dining.",
+    "history": "Downtown Lexington New American independent\u2014chef-driven Short Street dining.",
     "website": "https://www.tablethreeten.com/",
     "sources": [
       "https://www.tablethreeten.com/"
@@ -3424,7 +3416,7 @@
     "longitude": -84.5200035,
     "category": "restaurant",
     "cuisine_or_type": "New American",
-    "history": "Manchester/distillery district independent—Lexington chef destination.",
+    "history": "Manchester/distillery district independent\u2014Lexington chef destination.",
     "website": "https://www.middleforkkb.com/",
     "sources": [
       "https://www.middleforkkb.com/"
@@ -3446,7 +3438,7 @@
     "longitude": -84.4940825,
     "category": "restaurant",
     "cuisine_or_type": "eclectic American",
-    "history": "Downtown Lexington arts-district bistro with live music—independent local.",
+    "history": "Downtown Lexington arts-district bistro with live music\u2014independent local.",
     "website": "https://www.beetnik.com/",
     "sources": [
       "https://www.beetnik.com/"
@@ -3468,7 +3460,7 @@
     "longitude": -84.4169487,
     "category": "restaurant",
     "cuisine_or_type": "winery bistro",
-    "history": "Winery bistro on Lexington's southeast side—Fayette independent wine-country dining.",
+    "history": "Winery bistro on Lexington's southeast side\u2014Fayette independent wine-country dining.",
     "website": "https://www.jeanfarris.com/",
     "sources": [
       "https://www.jeanfarris.com/"
@@ -3490,7 +3482,7 @@
     "longitude": -84.594249,
     "category": "specialty",
     "cuisine_or_type": "farm butcher & market",
-    "history": "KY Proud farm market and butcher—Garrard County farm-to-table specialty unique to Lancaster area.",
+    "history": "KY Proud farm market and butcher\u2014Garrard County farm-to-table specialty unique to Lancaster area.",
     "website": "https://www.marksburyfarm.com/",
     "sources": [
       "https://www.marksburyfarm.com/"
@@ -3512,7 +3504,7 @@
     "longitude": -84.2925713,
     "category": "restaurant",
     "cuisine_or_type": "American bar & grill",
-    "history": "Richmond independent near EKU—Madison County college-town classic.",
+    "history": "Richmond independent near EKU\u2014Madison County college-town classic.",
     "website": "https://www.madisongarden.com/",
     "sources": [
       "https://www.madisongarden.com/"
@@ -3534,7 +3526,7 @@
     "longitude": -84.2091904,
     "category": "specialty",
     "cuisine_or_type": "KY soft drink fountain",
-    "history": "Home of Ale-8-One with soda fountain/store—Clark County Kentucky specialty unique to Winchester.",
+    "history": "Home of Ale-8-One with soda fountain/store\u2014Clark County Kentucky specialty unique to Winchester.",
     "website": "https://www.ale-8-one.com/",
     "sources": [
       "https://www.ale-8-one.com/"
@@ -3556,10 +3548,10 @@
     "longitude": -84.55826,
     "category": "restaurant",
     "cuisine_or_type": "American diner",
-    "history": "Historic Georgetown lunch counter/diner independent—Scott County Main Street classic.",
-    "website": "https://www.facebook.com/",
+    "history": "Historic Georgetown lunch counter/diner independent\u2014Scott County Main Street classic.",
+    "website": "https://www.favasofgeorgetown.com/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.tripadvisor.com/Restaurant_Review-g39440-d449564-Reviews-Fava_s_Restaurant-Georgetown_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -3578,7 +3570,7 @@
     "longitude": -84.8725439,
     "category": "restaurant",
     "cuisine_or_type": "pizza & local market",
-    "history": "Pizza pub with Kentucky Proud market inside—Frankfort independent food-hub concept.",
+    "history": "Pizza pub with Kentucky Proud market inside\u2014Frankfort independent food-hub concept.",
     "website": "https://www.localsfoodhub.com/",
     "sources": [
       "https://www.localsfoodhub.com/",
@@ -3601,7 +3593,7 @@
     "longitude": -84.8816658,
     "category": "specialty",
     "cuisine_or_type": "bourbon candy",
-    "history": "Historic bourbon-ball candy kitchen—Frankfort specialty unique to Kentucky's capital.",
+    "history": "Historic bourbon-ball candy kitchen\u2014Frankfort specialty unique to Kentucky's capital.",
     "website": "https://www.rebeccaruth.com/",
     "sources": [
       "https://www.rebeccaruth.com/"
@@ -3623,7 +3615,7 @@
     "longitude": -85.8626448,
     "category": "restaurant",
     "cuisine_or_type": "Southern comfort",
-    "history": "Historic-home Southern kitchen in downtown E-town—Hardin County independent.",
+    "history": "Historic-home Southern kitchen in downtown E-town\u2014Hardin County independent.",
     "website": "https://www.backhomerestaurant.com/",
     "sources": [
       "https://www.restaurantji.com/ky/elizabethtown/back-home-restaurant-/"
@@ -3645,7 +3637,7 @@
     "longitude": -85.8574886,
     "category": "restaurant",
     "cuisine_or_type": "burgers & bourbon",
-    "history": "Downtown E-town independent on the Public Square—gourmet burgers and bourbon.",
+    "history": "Downtown E-town independent on the Public Square\u2014gourmet burgers and bourbon.",
     "website": "https://jrneighbors.com/",
     "sources": [
       "https://jrneighbors.com/"
@@ -3667,11 +3659,9 @@
     "longitude": -85.87,
     "category": "restaurant",
     "cuisine_or_type": "Greek",
-    "history": "Family Greek independent in Elizabethtown—Hardin County unique. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Family Greek independent in Elizabethtown\u2014Hardin County unique. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -3689,7 +3679,7 @@
     "longitude": -85.3490425,
     "category": "restaurant",
     "cuisine_or_type": "fusion BBQ",
-    "history": "Award-winning experimental BBQ in historic Main Street building—Campbellsville independent.",
+    "history": "Award-winning experimental BBQ in historic Main Street building\u2014Campbellsville independent.",
     "website": "https://www.brotherskentucky.com/",
     "sources": [
       "https://www.brotherskentucky.com/"
@@ -3711,8 +3701,8 @@
     "longitude": -85.9303046,
     "category": "restaurant",
     "cuisine_or_type": "Italian",
-    "history": "Scratch family-recipe Italian in Glasgow—Cave Country unique to Barren County.",
-    "website": "https://www.facebook.com/",
+    "history": "Scratch family-recipe Italian in Glasgow\u2014Cave Country unique to Barren County.",
+    "website": "https://www.napolisglasgow.com/",
     "sources": [
       "https://www.restaurantji.com/ky/glasgow/napolis-italian-restaurant-/"
     ],
@@ -3733,10 +3723,10 @@
     "longitude": -85.9147755,
     "category": "restaurant",
     "cuisine_or_type": "American cafe",
-    "history": "Horse Cave independent cafe—Hart County Cave Country local.",
-    "website": "https://www.facebook.com/",
+    "history": "Horse Cave independent cafe\u2014Hart County Cave Country local.",
+    "website": "https://www.restaurantji.com/ky/horse-cave/5-broke-girls-/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.restaurantji.com/ky/horse-cave/5-broke-girls-/"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -3755,7 +3745,7 @@
     "longitude": -85.968257,
     "category": "restaurant",
     "cuisine_or_type": "steakhouse",
-    "history": "Longtime Cave City destination steakhouse for Mammoth Cave travelers—independent landmark.",
+    "history": "Longtime Cave City destination steakhouse for Mammoth Cave travelers\u2014independent landmark.",
     "website": "https://www.saharasteakhouse.com/",
     "sources": [
       "https://www.saharasteakhouse.com/"
@@ -3777,11 +3767,9 @@
     "longitude": -85.94,
     "category": "roadhouse",
     "cuisine_or_type": "roadhouse American",
-    "history": "Independent Glasgow roadhouse—Cave Country steaks unique to Barren County. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Independent Glasgow roadhouse\u2014Cave Country steaks unique to Barren County. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -3799,11 +3787,9 @@
     "longitude": -85.26,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Lebanon independent popular with Maker's Mark visitors—Marion County dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Lebanon independent popular with Maker's Mark visitors\u2014Marion County dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -3821,7 +3807,7 @@
     "longitude": -88.3085974,
     "category": "restaurant",
     "cuisine_or_type": "Italian & pizza",
-    "history": "Murray institution since 1979—Pagliai family brick-oven Italian unique to Calloway County.",
+    "history": "Murray institution since 1979\u2014Pagliai family brick-oven Italian unique to Calloway County.",
     "website": "https://pagliaispizzaofmurray.com/",
     "sources": [
       "https://pagliaispizzaofmurray.com/"
@@ -3843,7 +3829,7 @@
     "longitude": -88.3085427,
     "category": "restaurant",
     "cuisine_or_type": "lunch cafe & bakery",
-    "history": "Murray lunch-and-dessert independent since 1989—voted best lunch spot for decades.",
+    "history": "Murray lunch-and-dessert independent since 1989\u2014voted best lunch spot for decades.",
     "website": "https://dumplinsofmurray.com/",
     "sources": [
       "https://dumplinsofmurray.com/"
@@ -3865,7 +3851,7 @@
     "longitude": -88.3032359,
     "category": "restaurant",
     "cuisine_or_type": "historic diner",
-    "history": "Murray's oldest diner lineage (est. 1940)—Southern homestyle independent on the square.",
+    "history": "Murray's oldest diner lineage (est. 1940)\u2014Southern homestyle independent on the square.",
     "website": "https://rudysonthesquare.com/",
     "sources": [
       "https://rudysonthesquare.com/"
@@ -3887,7 +3873,7 @@
     "longitude": -87.4845289,
     "category": "restaurant",
     "cuisine_or_type": "bakery bistro & bar",
-    "history": "Locally owned restaurant/bakery/bar in historic Young Hardware—Hopkinsville Courier-Journal road-trip pick.",
+    "history": "Locally owned restaurant/bakery/bar in historic Young Hardware\u2014Hopkinsville Courier-Journal road-trip pick.",
     "website": "https://www.themixerky.com/",
     "sources": [
       "https://www.themixerky.com/",
@@ -3910,7 +3896,7 @@
     "longitude": -84.7745931,
     "category": "restaurant",
     "cuisine_or_type": "burgers & bourbon",
-    "history": "Downtown Danville independent known for burgers, bourbon, and hospitality—Boyle County gem.",
+    "history": "Downtown Danville independent known for burgers, bourbon, and hospitality\u2014Boyle County gem.",
     "website": "https://www.copperandoak.com/",
     "sources": [
       "https://www.restaurantji.com/ky/danville/copper-and-oak-/"
@@ -3932,7 +3918,7 @@
     "longitude": -84.7670366,
     "category": "restaurant",
     "cuisine_or_type": "Southern comfort",
-    "history": "Family-owned Southern comfort in downtown Danville—brisket and hometown bar atmosphere.",
+    "history": "Family-owned Southern comfort in downtown Danville\u2014brisket and hometown bar atmosphere.",
     "website": "https://www.harveysky.com/",
     "sources": [
       "https://www.harveysky.com/"
@@ -3954,8 +3940,8 @@
     "longitude": -84.7939656,
     "category": "restaurant",
     "cuisine_or_type": "cocktails & American",
-    "history": "Danville independent cocktail bar and kitchen at AmbraBev—creative drinks and plates.",
-    "website": "https://www.facebook.com/",
+    "history": "Danville independent cocktail bar and kitchen at AmbraBev\u2014creative drinks and plates.",
+    "website": "https://thestillky.com/",
     "sources": [
       "https://www.restaurantji.com/ky/danville/the-still-at-ambrabev-distillery-restaurant-and-cocktail-bar-/"
     ],
@@ -3976,10 +3962,10 @@
     "longitude": -84.2973436,
     "category": "restaurant",
     "cuisine_or_type": "homestyle Southern",
-    "history": "Richmond homestyle independent famous for fried cornbread and plate lunches—Madison County classic.",
-    "website": "https://www.facebook.com/",
+    "history": "Richmond homestyle independent famous for fried cornbread and plate lunches\u2014Madison County classic.",
+    "website": "https://jacksonsrichmond.com/",
     "sources": [
-      "https://www.gateshonda.net/best-restaurants-in-richmond-ky.html"
+      "https://www.facebook.com/jacksonsresturant"
     ],
     "yelp_rating": null,
     "google_rating": 4.4,
@@ -3998,10 +3984,11 @@
     "longitude": -84.3277717,
     "category": "restaurant",
     "cuisine_or_type": "Japanese",
-    "history": "Independent Japanese bistro in Richmond—Madison County unique (not a franchise).",
-    "website": "https://www.facebook.com/",
+    "history": "Independent Japanese bistro in Richmond\u2014Madison County unique (not a franchise).",
+    "website": "https://www.kotorichmond.com/",
     "sources": [
-      "https://restaurantjump.com/koto-japanese-bistro-40475/"
+      "https://www.facebook.com/kotorichmond",
+      "https://visitrichmondky.com/listing/koto-japanese-bistro/"
     ],
     "yelp_rating": null,
     "google_rating": 4.6,
@@ -4020,10 +4007,10 @@
     "longitude": -84.3229624,
     "category": "restaurant",
     "cuisine_or_type": "Texas-style BBQ",
-    "history": "Wood-smoked BBQ independent in Richmond—hand-rolled tortillas unique to Madison County.",
-    "website": "https://www.facebook.com/",
+    "history": "Wood-smoked BBQ independent in Richmond\u2014hand-rolled tortillas unique to Madison County.",
+    "website": "https://straightfromtexasbarbque.net/",
     "sources": [
-      "https://www.gateshonda.net/best-restaurants-in-richmond-ky.html"
+      "https://www.facebook.com/straightfromtexasbarbue"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -4042,7 +4029,7 @@
     "longitude": -87.51,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "Third-generation Hopkinsville barbecue independent since 1984—Courier-Journal road-trip pick unique to Christian County.",
+    "history": "Third-generation Hopkinsville barbecue independent since 1984\u2014Courier-Journal road-trip pick unique to Christian County.",
     "website": "https://www.woodshedbbq.com/",
     "sources": [
       "https://www.woodshedbbq.com/",
@@ -4065,11 +4052,9 @@
     "longitude": -85.9285052,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Downtown Glasgow square cafe—Barren County Cave Country local. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Downtown Glasgow square cafe\u2014Barren County Cave Country local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4087,7 +4072,7 @@
     "longitude": -85.6207161,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Prospect/East End independent—Jefferson County suburban unique kitchen.",
+    "history": "Prospect/East End independent\u2014Jefferson County suburban unique kitchen.",
     "website": "https://www.theporchky.com/",
     "sources": [
       "https://www.theporchky.com/"
@@ -4109,7 +4094,7 @@
     "longitude": -84.7244082,
     "category": "restaurant",
     "cuisine_or_type": "tavern American",
-    "history": "Historic Burlington tavern independent—Boone County NKY classic.",
+    "history": "Historic Burlington tavern independent\u2014Boone County NKY classic.",
     "website": "https://www.touseyhouse.com/",
     "sources": [
       "https://www.touseyhouse.com/"
@@ -4131,7 +4116,7 @@
     "longitude": -86.4227389,
     "category": "restaurant",
     "cuisine_or_type": "steakhouse",
-    "history": "Bowling Green independent steakhouse—Warren County local (not a national franchise brand).",
+    "history": "Bowling Green independent steakhouse\u2014Warren County local (not a national franchise brand).",
     "website": "https://www.montanagrille.com/",
     "sources": [
       "https://www.montanagrille.com/"
@@ -4153,11 +4138,9 @@
     "longitude": -88.6497365,
     "category": "restaurant",
     "cuisine_or_type": "breakfast",
-    "history": "Paducah independent pancake house—Purchase breakfast classic unique to McCracken.",
-    "website": "https://www.facebook.com/",
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Paducah independent pancake house\u2014Purchase breakfast classic unique to McCracken.",
+    "website": null,
+    "sources": [],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -4175,7 +4158,7 @@
     "longitude": -83.9421324,
     "category": "restaurant",
     "cuisine_or_type": "chef-driven American",
-    "history": "Family-owned Mount Sterling independent with revolving chef menu—Courier-Journal road-trip pick.",
+    "history": "Family-owned Mount Sterling independent with revolving chef menu\u2014Courier-Journal road-trip pick.",
     "website": "https://www.romerosmtsterling.com/",
     "sources": [
       "https://www.courier-journal.com/story/life/food/2024/03/08/kentucky-restaurant-guide/72855114007/"
@@ -4197,8 +4180,8 @@
     "longitude": -82.5282207,
     "category": "restaurant",
     "cuisine_or_type": "Eastern KY BBQ",
-    "history": "Pikeville family BBQ known as some of the best in east Kentucky—Courier-Journal road-trip pick.",
-    "website": "https://www.facebook.com/",
+    "history": "Pikeville family BBQ known as some of the best in east Kentucky\u2014Courier-Journal road-trip pick.",
+    "website": null,
     "sources": [
       "https://www.courier-journal.com/story/life/food/2024/03/08/kentucky-restaurant-guide/72855114007/"
     ],
@@ -4219,7 +4202,7 @@
     "longitude": -84.7301289,
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table nonprofit cafe",
-    "history": "Pay-it-forward farm-to-table cafe; James Beard semifinalist chef—Woodford County unique mission restaurant.",
+    "history": "Pay-it-forward farm-to-table cafe; James Beard semifinalist chef\u2014Woodford County unique mission restaurant.",
     "website": "https://www.sparkcommunitycafe.com/",
     "sources": [
       "https://www.sparkcommunitycafe.com/",
@@ -4242,7 +4225,7 @@
     "longitude": -84.4694165,
     "category": "specialty",
     "cuisine_or_type": "pies & ice cream",
-    "history": "Ramsey family pie shop near downtown Lexington—Lexington-only specialty sweets.",
+    "history": "Ramsey family pie shop near downtown Lexington\u2014Lexington-only specialty sweets.",
     "website": "https://www.ramseysdiner.com/",
     "sources": [
       "https://www.ramseysdiner.com/",
@@ -4265,11 +4248,9 @@
     "longitude": -87.49,
     "category": "restaurant",
     "cuisine_or_type": "Southwest American",
-    "history": "Madisonville independent Southwest grill—scratch plates unique to Hopkins County. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Madisonville independent Southwest grill\u2014scratch plates unique to Hopkins County. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4287,11 +4268,9 @@
     "longitude": -82.772,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Prestonsburg independent casual dining—Floyd County mountain-town local. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "history": "Prestonsburg independent casual dining\u2014Floyd County mountain-town local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": "https://www.brickhouseky.com/",
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4309,11 +4288,9 @@
     "longitude": -84.6045,
     "category": "restaurant",
     "cuisine_or_type": "Italian",
-    "history": "Downtown Somerset Italian independent—scratch pasta unique to Pulaski County. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Downtown Somerset Italian independent\u2014scratch pasta unique to Pulaski County. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4331,11 +4308,9 @@
     "longitude": -84.09,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "London independent barbecue—Laurel County local pit near I-75. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "London independent barbecue\u2014Laurel County local pit near I-75. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4353,10 +4328,10 @@
     "longitude": -84.1795,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Downtown Winchester cafe independent—Clark County local near Ale-8 and Hall's on the River. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": null,
+    "history": "Downtown Winchester cafe independent\u2014Clark County local near Ale-8 and Hall's on the River. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": "http://www.gaunces.com/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.restaurantji.com/ky/winchester/gaunces-deli-and-cafe-/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -4375,11 +4350,9 @@
     "longitude": -85.22,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "Shelbyville independent barbecue—Shelby County local pit. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Shelbyville independent barbecue\u2014Shelby County local pit. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4397,10 +4370,10 @@
     "longitude": -84.8785,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Frankfort independent on Broadway—capital-city local. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": null,
+    "history": "Frankfort independent on Broadway\u2014capital-city local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": "https://gibbys2.netwaiter.com/frankfort/about/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.tripadvisor.com/Restaurant_Review-g39426-d397502-Reviews-Gibby_s-Frankfort_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -4419,11 +4392,9 @@
     "longitude": -84.661,
     "category": "restaurant",
     "cuisine_or_type": "coffeehouse cafe",
-    "history": "Wilmore independent coffeehouse near Asbury University—Jessamine County college-town cafe. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Wilmore independent coffeehouse near Asbury University\u2014Jessamine County college-town cafe. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4441,11 +4412,9 @@
     "longitude": -84.73,
     "category": "bakery",
     "cuisine_or_type": "bakery & sweets",
-    "history": "Versailles bakery independent—Woodford County downtown sweets. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Versailles bakery independent\u2014Woodford County downtown sweets. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4463,11 +4432,9 @@
     "longitude": -84.295,
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table",
-    "history": "Richmond farm-to-table independent—Madison County local kitchen. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Richmond farm-to-table independent\u2014Madison County local kitchen. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4485,10 +4452,10 @@
     "longitude": -84.772,
     "category": "restaurant",
     "cuisine_or_type": "coffeehouse cafe",
-    "history": "Downtown Danville independent coffeehouse—Boyle County companion to Burke's/Copper and Oak. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": null,
+    "history": "Downtown Danville independent coffeehouse\u2014Boyle County companion to Burke's/Copper and Oak. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": "https://www.thehubcoffeehouseandcafe.com/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.tripadvisor.com/Restaurant_Review-g39320-d875859-Reviews-The_Hub_Coffee_House_Cafe-Danville_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -4507,11 +4474,9 @@
     "longitude": -84.252,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Paris independent in a historic depot setting—Bourbon County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Paris independent in a historic depot setting\u2014Bourbon County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4529,11 +4494,9 @@
     "longitude": -84.294,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Downtown Cynthiana independent—Harrison County Bluegrass local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Downtown Cynthiana independent\u2014Harrison County Bluegrass local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4551,11 +4514,9 @@
     "longitude": -84.006,
     "category": "restaurant",
     "cuisine_or_type": "river American",
-    "history": "Augusta river-town independent—Bracken County Ohio River ferry-town dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Augusta river-town independent\u2014Bracken County Ohio River ferry-town dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4573,11 +4534,9 @@
     "longitude": -84.447,
     "category": "restaurant",
     "cuisine_or_type": "global American",
-    "history": "Fort Thomas independent—Campbell County NKY beyond Newport. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Fort Thomas independent\u2014Campbell County NKY beyond Newport. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4595,11 +4554,9 @@
     "longitude": -84.64,
     "category": "restaurant",
     "cuisine_or_type": "American wine bar",
-    "history": "Florence independent wine-bar kitchen—Boone County NKY local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Florence independent wine-bar kitchen\u2014Boone County NKY local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4617,11 +4574,9 @@
     "longitude": -88.35,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "Benton independent smokehouse—Marshall County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Benton independent smokehouse\u2014Marshall County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4639,11 +4594,9 @@
     "longitude": -88.35,
     "category": "restaurant",
     "cuisine_or_type": "seafood",
-    "history": "Calvert City fish house near Kentucky Lake—Marshall County lake dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Calvert City fish house near Kentucky Lake\u2014Marshall County lake dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4661,11 +4614,9 @@
     "longitude": -87.882,
     "category": "restaurant",
     "cuisine_or_type": "coffeehouse cafe",
-    "history": "Downtown Princeton independent coffeehouse—Caldwell County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Downtown Princeton independent coffeehouse\u2014Caldwell County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4683,11 +4634,9 @@
     "longitude": -87.835,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Cadiz independent near Land Between the Lakes—Trigg County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Cadiz independent near Land Between the Lakes\u2014Trigg County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4705,7 +4654,7 @@
     "longitude": -88.636,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Mayfield downtown independent cafe in the rebuild era—Graves County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Mayfield downtown independent cafe in the rebuild era\u2014Graves County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -4727,11 +4676,9 @@
     "longitude": -87.123,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "Central City independent barbecue—Muhlenberg County local pit. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Central City independent barbecue\u2014Muhlenberg County local pit. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4749,11 +4696,9 @@
     "longitude": -86.887,
     "category": "restaurant",
     "cuisine_or_type": "dinner house",
-    "history": "Russellville independent dinner house—Logan County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Russellville independent dinner house\u2014Logan County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4771,11 +4716,9 @@
     "longitude": -86.577,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Downtown Franklin independent near the TN border—Simpson County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Downtown Franklin independent near the TN border\u2014Simpson County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4793,11 +4736,9 @@
     "longitude": -86.19,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Scottsville square cafe—Allen County independent near Barren River Lake. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Scottsville square cafe\u2014Allen County independent near Barren River Lake. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4815,11 +4756,9 @@
     "longitude": -85.306,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Columbia independent cafe—Adair County south-central local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Columbia independent cafe\u2014Adair County south-central local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4837,11 +4776,9 @@
     "longitude": -86.294,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Grayson County seat cafe on the square—independent Leitchfield lunch stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Grayson County seat cafe on the square\u2014independent Leitchfield lunch stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4859,11 +4796,9 @@
     "longitude": -86.46,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Hardinsburg independent cafe—Breckinridge County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Hardinsburg independent cafe\u2014Breckinridge County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4881,11 +4816,9 @@
     "longitude": -85.716,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Shepherdsville independent grill—Bullitt County local south of Louisville. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Shepherdsville independent grill\u2014Bullitt County local south of Louisville. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4903,11 +4836,9 @@
     "longitude": -85.343,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Taylorsville independent on Main—Spencer County local near Shelby. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Taylorsville independent on Main\u2014Spencer County local near Shelby. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4925,11 +4856,9 @@
     "longitude": -85.179,
     "category": "restaurant",
     "cuisine_or_type": "river cafe",
-    "history": "Carrollton independent near the Kentucky/Ohio confluence—Carroll County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Carrollton independent near the Kentucky/Ohio confluence\u2014Carroll County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4947,11 +4876,9 @@
     "longitude": -84.837,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Owenton independent cafe—Owen County local north of Frankfort. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Owenton independent cafe\u2014Owen County local north of Frankfort. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4969,11 +4896,9 @@
     "longitude": -83.433,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Downtown Morehead independent cafe popular with MSU students—Rowan County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Downtown Morehead independent cafe popular with MSU students\u2014Rowan County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -4991,11 +4916,9 @@
     "longitude": -83.3215,
     "category": "restaurant",
     "cuisine_or_type": "country diner",
-    "history": "Classic Harlan downtown diner—coal-country home cooking unique to Harlan County. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Classic Harlan downtown diner\u2014coal-country home cooking unique to Harlan County. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5013,11 +4936,9 @@
     "longitude": -83.716,
     "category": "bakery",
     "cuisine_or_type": "bakery & cafe",
-    "history": "Independent Middlesboro bakery/cafe near Cumberland Gap—Bell County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Independent Middlesboro bakery/cafe near Cumberland Gap\u2014Bell County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5035,7 +4956,7 @@
     "longitude": -82.821,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Downtown Whitesburg independent—Letcher County mountain arts-town local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Downtown Whitesburg independent\u2014Letcher County mountain arts-town local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -5057,11 +4978,9 @@
     "longitude": -82.81,
     "category": "restaurant",
     "cuisine_or_type": "country American",
-    "history": "Longtime Paintsville independent—Johnson County comfort food. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Longtime Paintsville independent\u2014Johnson County comfort food. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5079,11 +4998,9 @@
     "longitude": -82.603,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Louisa independent on Main—Lawrence County Big Sandy local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Louisa independent on Main\u2014Lawrence County Big Sandy local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5101,11 +5018,9 @@
     "longitude": -83.261,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "West Liberty independent after town rebuild—Morgan County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "West Liberty independent after town rebuild\u2014Morgan County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5123,11 +5038,9 @@
     "longitude": -83.974,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "Irvine independent barbecue—Estill County local pit. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Irvine independent barbecue\u2014Estill County local pit. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5145,11 +5058,9 @@
     "longitude": -83.858,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Stanton seat cafe near Natural Bridge—Powell County companion to Miguel's. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Stanton seat cafe near Natural Bridge\u2014Powell County companion to Miguel's. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5167,11 +5078,9 @@
     "longitude": -84.337,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Mount Vernon independent off I-75—Rockcastle County traveler and local stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Mount Vernon independent off I-75\u2014Rockcastle County traveler and local stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5189,11 +5098,9 @@
     "longitude": -84.16,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Williamsburg independent near University of the Cumberlands—Whitley County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Williamsburg independent near University of the Cumberlands\u2014Whitley County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5211,11 +5118,9 @@
     "longitude": -83.889,
     "category": "restaurant",
     "cuisine_or_type": "dinner house",
-    "history": "Barbourville independent dinner house—Knox County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Barbourville independent dinner house\u2014Knox County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5233,11 +5138,9 @@
     "longitude": -83.762,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Manchester independent—Clay County mountain local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Manchester independent\u2014Clay County mountain local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5255,11 +5158,9 @@
     "longitude": -83.373,
     "category": "restaurant",
     "cuisine_or_type": "country kitchen",
-    "history": "Hyden independent—Leslie County coalfields local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Hyden independent\u2014Leslie County coalfields local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5277,11 +5178,9 @@
     "longitude": -83.383,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Jackson independent—Breathitt County mountain seat local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Jackson independent\u2014Breathitt County mountain seat local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5299,11 +5198,9 @@
     "longitude": -83.707,
     "category": "restaurant",
     "cuisine_or_type": "country kitchen",
-    "history": "Beattyville independent at the Three Forks—Lee County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Beattyville independent at the Three Forks\u2014Lee County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5321,11 +5218,9 @@
     "longitude": -82.83,
     "category": "restaurant",
     "cuisine_or_type": "grill",
-    "history": "Greenup county-seat independent grill—northeastern Kentucky Ohio River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Greenup county-seat independent grill\u2014northeastern Kentucky Ohio River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5343,11 +5238,9 @@
     "longitude": -84.33,
     "category": "restaurant",
     "cuisine_or_type": "country kitchen",
-    "history": "Falmouth independent on Main—Pendleton County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Falmouth independent on Main\u2014Pendleton County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5365,11 +5258,9 @@
     "longitude": -84.56,
     "category": "restaurant",
     "cuisine_or_type": "diner",
-    "history": "Williamstown independent diner off I-75—Grant County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Williamstown independent diner off I-75\u2014Grant County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5387,11 +5278,9 @@
     "longitude": -85.317,
     "category": "restaurant",
     "cuisine_or_type": "country kitchen",
-    "history": "Bedford independent—Trimble County local between Louisville and Cincinnati. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Bedford independent\u2014Trimble County local between Louisville and Cincinnati. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5409,11 +5298,9 @@
     "longitude": -84.901,
     "category": "restaurant",
     "cuisine_or_type": "grill",
-    "history": "Warsaw independent grill—Gallatin County Ohio River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Warsaw independent grill\u2014Gallatin County Ohio River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5431,11 +5318,9 @@
     "longitude": -85.169,
     "category": "restaurant",
     "cuisine_or_type": "dinner house",
-    "history": "New Castle county-seat dining—Henry County companion to Our Best/Rowlett's. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "New Castle county-seat dining\u2014Henry County companion to Our Best/Rowlett's. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5453,11 +5338,9 @@
     "longitude": -85.222,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Springfield independent on Main—Washington County Bourbon Trail local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Springfield independent on Main\u2014Washington County Bourbon Trail local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5475,11 +5358,9 @@
     "longitude": -85.343,
     "category": "restaurant",
     "cuisine_or_type": "pub grill",
-    "history": "Campbellsville independent pub-grill—Taylor County companion to Brothers BBQ. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Campbellsville independent pub-grill\u2014Taylor County companion to Brothers BBQ. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5497,11 +5378,9 @@
     "longitude": -85.498,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Downtown Greensburg independent—Green County plate lunches. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Downtown Greensburg independent\u2014Green County plate lunches. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5519,11 +5398,9 @@
     "longitude": -85.612,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Edmonton independent on the square—Metcalfe County plate-lunch stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Edmonton independent on the square\u2014Metcalfe County plate-lunch stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5541,11 +5418,9 @@
     "longitude": -85.692,
     "category": "restaurant",
     "cuisine_or_type": "country kitchen",
-    "history": "Tompkinsville independent—Monroe County south-central local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Tompkinsville independent\u2014Monroe County south-central local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5563,11 +5438,9 @@
     "longitude": -86.683,
     "category": "restaurant",
     "cuisine_or_type": "family diner",
-    "history": "Butler County seat family cafe—independent Morgantown plate lunches. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Butler County seat family cafe\u2014independent Morgantown plate lunches. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5585,11 +5458,9 @@
     "longitude": -86.877,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Ohio County independent cafe in Beaver Dam—western-central Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Ohio County independent cafe in Beaver Dam\u2014western-central Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5607,11 +5478,9 @@
     "longitude": -86.909,
     "category": "restaurant",
     "cuisine_or_type": "dinner house",
-    "history": "Hartford county-seat dinner house—Ohio County independent. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Hartford county-seat dinner house\u2014Ohio County independent. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5629,11 +5498,9 @@
     "longitude": -87.917,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Morganfield independent cafe—Union County western Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Morganfield independent cafe\u2014Union County western Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5651,11 +5518,9 @@
     "longitude": -88.081,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Marion independent cafe—Crittenden County western Kentucky stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Marion independent cafe\u2014Crittenden County western Kentucky stop. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5673,11 +5538,9 @@
     "longitude": -87.758,
     "category": "restaurant",
     "cuisine_or_type": "family diner",
-    "history": "Providence independent family cafe—Webster County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Providence independent family cafe\u2014Webster County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5695,11 +5558,9 @@
     "longitude": -87.154,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Elkton square cafe—Todd County independent near Jefferson Davis birthplace. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Elkton square cafe\u2014Todd County independent near Jefferson Davis birthplace. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5717,11 +5578,9 @@
     "longitude": -87.692,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Historic spa-town cafe in Dawson Springs—Hopkins County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Historic spa-town cafe in Dawson Springs\u2014Hopkins County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5739,11 +5598,9 @@
     "longitude": -88.08,
     "category": "restaurant",
     "cuisine_or_type": "lake American",
-    "history": "Lake Barkley independent near Eddyville—Lyon County marina dining (Patti's covers Grand Rivers). Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Lake Barkley independent near Eddyville\u2014Lyon County marina dining (Patti's covers Grand Rivers). Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5761,11 +5618,9 @@
     "longitude": -89.186,
     "category": "restaurant",
     "cuisine_or_type": "river cafe",
-    "history": "Hickman river-town cafe on the Mississippi—far-western Kentucky independent. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Hickman river-town cafe on the Mississippi\u2014far-western Kentucky independent. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5783,11 +5638,9 @@
     "longitude": -88.994,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Clinton county-seat cafe—Hickman County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Clinton county-seat cafe\u2014Hickman County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5807,9 +5660,7 @@
     "cuisine_or_type": "seafood & Southern",
     "history": "Wayne County independent fish house serving Lake Cumberland travelers. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5827,11 +5678,9 @@
     "longitude": -85.135,
     "category": "restaurant",
     "cuisine_or_type": "country diner",
-    "history": "Clinton County seat diner—south-central Kentucky independent. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Clinton County seat diner\u2014south-central Kentucky independent. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5849,11 +5698,9 @@
     "longitude": -85.088,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Russell County independent near Lake Cumberland—local grill. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Russell County independent near Lake Cumberland\u2014local grill. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5871,11 +5718,9 @@
     "longitude": -85.063,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Jamestown independent—Russell County seat local near Lake Cumberland. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Jamestown independent\u2014Russell County seat local near Lake Cumberland. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5893,11 +5738,9 @@
     "longitude": -85.37,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Burkesville independent—Cumberland County river-town local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Burkesville independent\u2014Cumberland County river-town local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5915,11 +5758,9 @@
     "longitude": -83.627,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Frenchburg independent cafe—Menifee County near the Gorge. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Frenchburg independent cafe\u2014Menifee County near the Gorge. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5937,11 +5778,9 @@
     "longitude": -83.764,
     "category": "restaurant",
     "cuisine_or_type": "dinner house",
-    "history": "Owingsville independent on Main—Bath County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Owingsville independent on Main\u2014Bath County local dining. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5959,11 +5798,9 @@
     "longitude": -83.734,
     "category": "restaurant",
     "cuisine_or_type": "dinner house",
-    "history": "Flemingsburg independent—Fleming County northeastern Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Flemingsburg independent\u2014Fleming County northeastern Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -5981,11 +5818,9 @@
     "longitude": -83.319,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Vanceburg independent—Lewis County Ohio River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Vanceburg independent\u2014Lewis County Ohio River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6003,11 +5838,9 @@
     "longitude": -83.126,
     "category": "restaurant",
     "cuisine_or_type": "country kitchen",
-    "history": "Sandy Hook independent—Elliott County mountain local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Sandy Hook independent\u2014Elliott County mountain local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6025,11 +5858,9 @@
     "longitude": -83.069,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Salyersville independent—Magoffin County Mountain Parkway local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Salyersville independent\u2014Magoffin County Mountain Parkway local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6047,11 +5878,9 @@
     "longitude": -82.539,
     "category": "restaurant",
     "cuisine_or_type": "grill",
-    "history": "Inez independent grill—Martin County eastern Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Inez independent grill\u2014Martin County eastern Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6069,11 +5898,9 @@
     "longitude": -83.998,
     "category": "restaurant",
     "cuisine_or_type": "grill",
-    "history": "McKee independent—Jackson County near Daniel Boone National Forest. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "McKee independent\u2014Jackson County near Daniel Boone National Forest. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6091,11 +5918,9 @@
     "longitude": -83.678,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Booneville independent—Owsley County mountain seat local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Booneville independent\u2014Owsley County mountain seat local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6113,11 +5938,9 @@
     "longitude": -84.896,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Lawrenceburg independent cafe near Wild Turkey/Four Roses—Anderson County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Lawrenceburg independent cafe near Wild Turkey/Four Roses\u2014Anderson County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6135,11 +5958,9 @@
     "longitude": -84.573,
     "category": "restaurant",
     "cuisine_or_type": "cafe",
-    "history": "Nicholasville independent cafe—Jessamine County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Nicholasville independent cafe\u2014Jessamine County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6157,10 +5978,10 @@
     "longitude": -85.49,
     "category": "restaurant",
     "cuisine_or_type": "American",
-    "history": "Oldham County independent dining—unique-to-area companion to Barn8/Madeline's. Curated local independent pin for statewide coverage; ratings not independently verified.",
-    "website": null,
+    "history": "Oldham County independent dining\u2014unique-to-area companion to Barn8/Madeline's. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "website": "https://thepineroomky.com/",
     "sources": [
-      "https://www.tripadvisor.com/"
+      "https://www.tripadvisor.com/Restaurant_Review-g39488-d15057209-Reviews-The_Pine_Room-Harrods_Creek_Kentucky.html"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -6179,11 +6000,9 @@
     "longitude": -86.17,
     "category": "restaurant",
     "cuisine_or_type": "BBQ",
-    "history": "Brandenburg independent barbecue—Meade County companion to Doe Run Inn. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Brandenburg independent barbecue\u2014Meade County companion to Doe Run Inn. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
-    "sources": [
-      "https://www.tripadvisor.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -6201,7 +6020,7 @@
     "longitude": -85.74,
     "category": "restaurant",
     "cuisine_or_type": "small-town American",
-    "history": "Hodgenville independent dining near Abraham Lincoln Birthplace NHS—Larue County seat local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Hodgenville independent dining near Abraham Lincoln Birthplace NHS\u2014Larue County seat local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.nps.gov/abli/"
@@ -6223,7 +6042,7 @@
     "longitude": -84.939,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Liberty county-seat cafe—Casey County south-central local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Liberty county-seat cafe\u2014Casey County south-central local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6245,7 +6064,7 @@
     "longitude": -84.662,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Stanford independent cafe—Lincoln County Bluegrass local near Wilderness Road heritage. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Stanford independent cafe\u2014Lincoln County Bluegrass local near Wilderness Road heritage. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6267,7 +6086,7 @@
     "longitude": -86.268,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Brownsville independent near Mammoth Cave National Park—Edmonson County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Brownsville independent near Mammoth Cave National Park\u2014Edmonson County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.nps.gov/maca/"
@@ -6289,7 +6108,7 @@
     "longitude": -86.748,
     "category": "restaurant",
     "cuisine_or_type": "river cafe",
-    "history": "Hawesville Ohio River independent—Hancock County western Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Hawesville Ohio River independent\u2014Hancock County western Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6311,7 +6130,7 @@
     "longitude": -87.259,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Calhoun independent—McLean County Green River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Calhoun independent\u2014McLean County Green River local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6333,7 +6152,7 @@
     "longitude": -88.403,
     "category": "restaurant",
     "cuisine_or_type": "river cafe",
-    "history": "Smithland independent at the Ohio/Cumberland confluence—Livingston County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Smithland independent at the Ohio/Cumberland confluence\u2014Livingston County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6355,7 +6174,7 @@
     "longitude": -89.088,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Wickliffe independent near the Mississippi—Ballard County far-western Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Wickliffe independent near the Mississippi\u2014Ballard County far-western Kentucky local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6377,7 +6196,7 @@
     "longitude": -89.01,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Bardwell independent—Carlisle County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Bardwell independent\u2014Carlisle County Purchase local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6399,7 +6218,7 @@
     "longitude": -84.471,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Whitley City independent near Big South Fork—McCreary County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Whitley City independent near Big South Fork\u2014McCreary County local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6421,7 +6240,7 @@
     "longitude": -82.98,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Hindman independent—Knott County mountain seat local near Settlement School heritage. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Hindman independent\u2014Knott County mountain seat local near Settlement School heritage. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6443,7 +6262,7 @@
     "longitude": -84.027,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Carlisle independent—Nicholas County Bluegrass local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Carlisle independent\u2014Nicholas County Bluegrass local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
@@ -6465,7 +6284,7 @@
     "longitude": -84.037,
     "category": "restaurant",
     "cuisine_or_type": "country cafe",
-    "history": "Mount Olivet independent—Robertson County (KY's smallest) local. Curated local independent pin for statewide coverage; ratings not independently verified.",
+    "history": "Mount Olivet independent\u2014Robertson County (KY's smallest) local. Curated local independent pin for statewide coverage; ratings not independently verified.",
     "website": null,
     "sources": [
       "https://www.kentuckytourism.com/"
