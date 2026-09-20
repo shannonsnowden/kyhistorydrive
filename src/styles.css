@@ -349,7 +349,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   gap: 0.65rem 1rem;
   margin: 0 0 0.85rem;
   padding: 0.65rem 0.75rem;
-  background: rgba(26, 36, 28, 0.96);
+  background: var(--header-bg);
   border: 1px solid var(--line);
   border-radius: 10px;
   backdrop-filter: blur(8px);
@@ -473,7 +473,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 }
 .story-card.selected {
   border-color: var(--accent);
-  background: #1f2c22;
+  background: var(--chip);
   box-shadow: 0 0 0 1px rgba(201, 137, 58, 0.4);
 }
 .story-card:focus-visible {
@@ -783,7 +783,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 .timeline-item.selected {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px rgba(201, 137, 58, 0.35);
-  background: #1f2c22;
+  background: var(--chip);
 }
 .timeline-main .story-reader {
   margin-top: 1rem;
