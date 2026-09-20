@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kentucky History Drive — Homepage preview</title>
+    <meta
+      name="description"
+      content="Preview of a draft Kentucky History Drive homepage. The live site home is still the map at kyhistorydrive.com."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body class="hp-page">
+    <p class="hp-preview-banner" role="status">
+      Preview — not linked in nav yet. The live home is still the
+      <a href="/#map">map</a>.
+    </p>
+
+    <header class="top">
+      <div class="brand">
+        <a href="/home-preview/" class="brand-home" title="Homepage preview">
+          <img
+            class="brand-logo"
+            src="/brand/khd-logo.png"
+            width="88"
+            height="88"
+            alt="Kentucky History Drive logo"
+          />
+          <h1>Kentucky History Drive</h1>
+        </a>
+        <p class="tagline">History is all around us.</p>
+      </div>
+      <nav aria-label="Preview page">
+        <a href="/#map">Map</a>
+        <a href="/#timeline">Timeline</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hp-hero" aria-labelledby="hp-hero-title">
+        <img
+          class="hp-hero-seal"
+          src="/brand/khd-logo-512.png"
+          width="220"
+          height="220"
+          alt="Kentucky History Drive seal — muskets, historical marker, and road to kyhistorydrive.com"
+        />
+        <div class="hp-hero-copy">
+          <p class="hp-kicker">Draft homepage</p>
+          <h2 id="hp-hero-title">Drive Kentucky’s history, one layer at a time.</h2>
+          <p>
+            Kentucky History Drive is the web companion to the KY Markers Drive iPhone app.
+            Open highway markers, stories, parks, distilleries, and more on an open-source
+            map — then read the same places on the timeline by era and year.
+          </p>
+          <div class="hp-cta-row">
+            <a class="btn hp-cta" href="/#map">Open the map</a>
+            <a class="btn ghost hp-cta" href="/#timeline">Timeline</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="hp-section" aria-labelledby="hp-layers-title">
+        <div class="hp-section-head">
+          <h2 id="hp-layers-title">Layer highlights</h2>
+          <p class="muted">
+            One featured stop from each map layer. Links open the place on the live map
+            (same deep-link pattern as Share). Featured picks are curated for this draft.
+          </p>
+        </div>
+        <div id="hpLayerCards" class="hp-card-grid"></div>
+      </section>
+
+      <section class="hp-section hp-section-alt" aria-labelledby="hp-related-title">
+        <div class="hp-section-head">
+          <h2 id="hp-related-title">Related Kentucky history sites</h2>
+          <p class="muted">
+            Outbound sources the project already cites — marker programs, place essays,
+            archaeology, newspapers, and partner museums. Topic pages where we have them.
+          </p>
+        </div>
+        <div id="hpRelatedCards" class="hp-related-grid"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>kyhistorydrive.com · homepage preview</span>
+      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+    </footer>
+
+    <script type="module" src="/src/home-preview.js"></script>
+  </body>
+</html>
