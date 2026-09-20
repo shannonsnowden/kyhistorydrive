@@ -9,7 +9,7 @@
     "longitude": -83.993922,
     "war": "revolutionary",
     "site_type": "battlefield",
-    "history": "Last major Revolutionary War battle in Kentucky (August 19, 1782): Kentucky militia pursuing British-allied Native forces from Bryan’s Station were ambushed at the Licking River; Daniel Boone’s son Israel was among the dead. Pioneer Museum and monument interpret the battle and earlier salt-lick history.",
+    "history": "Last major Revolutionary War battle in Kentucky (August 19, 1782): Kentucky militia pursuing British-allied Native forces from Bryan\u2019s Station were ambushed at the Licking River; Daniel Boone\u2019s son Israel was among the dead. Pioneer Museum and monument interpret the battle and earlier salt-lick history.",
     "website": "https://parks.ky.gov/explore/blue-licks-battlefield-state-resort-park-7782",
     "geocode_source": "photon",
     "sources": [
@@ -27,7 +27,7 @@
     "longitude": -84.266814,
     "war": "revolutionary",
     "site_type": "fort",
-    "history": "Daniel Boone’s 1775 Transylvania settlement; withstood the September 1778 Shawnee/British-allied siege—the longest sustained fight of the war in Kentucky. Reconstructed fort and museum; NHL archaeological site nearby.",
+    "history": "Daniel Boone\u2019s 1775 Transylvania settlement; withstood the September 1778 Shawnee/British-allied siege\u2014the longest sustained fight of the war in Kentucky. Reconstructed fort and museum; NHL archaeological site nearby.",
     "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7786",
     "geocode_source": "photon",
     "sources": [
@@ -45,7 +45,7 @@
     "longitude": -84.4113249,
     "war": "revolutionary",
     "site_type": "fort",
-    "history": "August 15–16, 1782: women of the fort famously carried water under fire during a British-allied siege; the attackers withdrew toward Blue Licks. Memorial and battlefield landscape with limited on-site museum.",
+    "history": "August 15\u201316, 1782: women of the fort famously carried water under fire during a British-allied siege; the attackers withdrew toward Blue Licks. Memorial and battlefield landscape with limited on-site museum.",
     "website": "https://www.battlefields.org/visit/battlefields/bryans-station",
     "geocode_source": "photon",
     "sources": [
@@ -62,7 +62,7 @@
     "longitude": -84.2784419,
     "war": "revolutionary",
     "site_type": "fort",
-    "history": "June 1780: British Capt. Bird’s force with artillery forced surrender of Ruddle’s Fort; captives marched north—panic rippled across the Kentucky frontier. Interpretive markers and American Battlefield Trust battlefield page.",
+    "history": "June 1780: British Capt. Bird\u2019s force with artillery forced surrender of Ruddle\u2019s Fort; captives marched north\u2014panic rippled across the Kentucky frontier. Interpretive markers and American Battlefield Trust battlefield page.",
     "website": "https://www.battlefields.org/visit/battlefields/ruddells-station",
     "geocode_source": "photon",
     "sources": [
@@ -79,7 +79,7 @@
     "longitude": -84.26,
     "war": "revolutionary",
     "site_type": "fort",
-    "history": "Days after Ruddle’s fell in 1780, nearby Martin’s Station also capitulated to Bird’s British-allied expedition, accelerating militia mobilization across central Kentucky. Pin to documented marker/preserve coordinates.",
+    "history": "Days after Ruddle\u2019s fell in 1780, nearby Martin\u2019s Station also capitulated to Bird\u2019s British-allied expedition, accelerating militia mobilization across central Kentucky. Pin to documented marker/preserve coordinates.",
     "website": "https://www.battlefields.org/",
     "geocode_source": "manual",
     "sources": [
@@ -97,7 +97,7 @@
     "longitude": -84.8485383,
     "war": "revolutionary",
     "site_type": "fort",
-    "history": "Commemorates James Harrod’s 1774 settlement—among the first permanent Anglo-American towns west of the Alleghenies—and the frontier-war context of the Revolution. Reconstructed fort, Mansion Museum, and pioneer cemetery.",
+    "history": "Commemorates James Harrod\u2019s 1774 settlement\u2014among the first permanent Anglo-American towns west of the Alleghenies\u2014and the frontier-war context of the Revolution. Reconstructed fort, Mansion Museum, and pioneer cemetery.",
     "website": "https://parks.ky.gov/explore/old-fort-harrod-state-park-7823",
     "geocode_source": "photon",
     "sources": [
@@ -114,11 +114,11 @@
     "longitude": -84.6527882,
     "war": "revolutionary",
     "site_type": "fort",
-    "history": "Benjamin Logan’s station was a key militia hub; Boone’s 1778 court-martial after Boonesborough was held at Logan’s Fort. Public markers and local interpretation in Stanford.",
-    "website": "https://history.ky.gov/",
+    "history": "Benjamin Logan\u2019s station was a key militia hub; Boone\u2019s 1778 court-martial after Boonesborough was held at Logan\u2019s Fort. Public markers and local interpretation in Stanford.",
+    "website": "https://history.ky.gov/markers/logans-station",
     "geocode_source": "photon",
     "sources": [
-      "https://history.ky.gov/",
+      "https://history.ky.gov/markers/logans-station",
       "https://en.wikipedia.org/wiki/Logan%27s_Fort"
     ]
   },
@@ -132,11 +132,11 @@
     "longitude": -85.4131172,
     "war": "revolutionary",
     "site_type": "other",
-    "history": "September 1781: settlers fleeing Squire Boone’s Painted Stone Station were attacked on Long Run Creek—one of the bloodiest frontier-war incidents near today’s Louisville suburbs. Markers and cemetery landscape.",
-    "website": "https://history.ky.gov/",
+    "history": "September 1781: settlers fleeing Squire Boone\u2019s Painted Stone Station were attacked on Long Run Creek\u2014one of the bloodiest frontier-war incidents near today\u2019s Louisville suburbs. Markers and cemetery landscape.",
+    "website": "https://history.ky.gov/markers/long-run-massacre",
     "geocode_source": "nominatim",
     "sources": [
-      "https://history.ky.gov/",
+      "https://history.ky.gov/markers/long-run-massacre",
       "https://en.wikipedia.org/wiki/Long_Run_Massacre"
     ]
   },
@@ -150,11 +150,11 @@
     "longitude": -85.65,
     "war": "revolutionary",
     "site_type": "fort",
-    "history": "John Floyd’s Beargrass station anchored early Jefferson County defense during Revolutionary-era raids. Marker and landscape pin interpreting settlement defense on the Falls approaches.",
-    "website": "https://history.ky.gov/",
+    "history": "John Floyd\u2019s Beargrass station anchored early Jefferson County defense during Revolutionary-era raids. Marker and landscape pin interpreting settlement defense on the Falls approaches.",
+    "website": "https://history.ky.gov/markers/floyds-station",
     "geocode_source": "manual",
     "sources": [
-      "https://history.ky.gov/"
+      "https://history.ky.gov/markers/floyds-station"
     ]
   },
   {
@@ -184,7 +184,7 @@
     "longitude": -84.7702544,
     "war": "revolutionary",
     "site_type": "other",
-    "history": "Seat of Kentucky’s late-Revolution and early-statehood conventions (1784–1792) as the district separated from Virginia. Open historic site with period buildings in downtown Danville.",
+    "history": "Seat of Kentucky\u2019s late-Revolution and early-statehood conventions (1784\u20131792) as the district separated from Virginia. Open historic site with period buildings in downtown Danville.",
     "website": "https://parks.ky.gov/",
     "geocode_source": "photon",
     "sources": [
@@ -219,7 +219,7 @@
     "longitude": -84.9705,
     "war": "civil",
     "site_type": "battlefield",
-    "history": "October 8, 1862: largest Civil War battle in Kentucky (~7,600 casualties); Bragg’s Confederate invasion peaked then withdrew. NHL landscape with museum and trails; already in museums.json.",
+    "history": "October 8, 1862: largest Civil War battle in Kentucky (~7,600 casualties); Bragg\u2019s Confederate invasion peaked then withdrew. NHL landscape with museum and trails; already in museums.json.",
     "website": "https://perryvillebattlefield.org/",
     "geocode_source": "manual",
     "sources": [
@@ -253,7 +253,7 @@
     "longitude": -84.6018808,
     "war": "civil",
     "site_type": "cemetery",
-    "history": "National cemetery tied to Camp Nelson’s wartime hospital and USCT story; solemn interpretive companion to the National Monument. Rows of headstones mark Union dead and later burials.",
+    "history": "National cemetery tied to Camp Nelson\u2019s wartime hospital and USCT story; solemn interpretive companion to the National Monument. Rows of headstones mark Union dead and later burials.",
     "website": "https://www.cem.va.gov/cems/nchp/campnelson.asp",
     "geocode_source": "photon",
     "sources": [
@@ -270,7 +270,7 @@
     "longitude": -84.2581,
     "war": "civil",
     "site_type": "battlefield",
-    "history": "August 29–30, 1862: Confederate victory early in the Kentucky Campaign routed Union forces under William “Bull” Nelson. Preserved park, walking trail, and historic houses interpret the fight.",
+    "history": "August 29\u201330, 1862: Confederate victory early in the Kentucky Campaign routed Union forces under William \u201cBull\u201d Nelson. Preserved park, walking trail, and historic houses interpret the fight.",
     "website": "https://www.battlefields.org/visit/battlefields/richmond-battlefield",
     "geocode_source": "manual",
     "sources": [
@@ -287,7 +287,7 @@
     "longitude": -85.8878255,
     "war": "civil",
     "site_type": "battlefield",
-    "history": "Siege of Munfordville (September 14–17, 1862) plus Rowlett’s Station and Woodsonville actions controlling the L&N railroad bridge. Preserve trails interpret a strategic Western Theater choke point.",
+    "history": "Siege of Munfordville (September 14\u201317, 1862) plus Rowlett\u2019s Station and Woodsonville actions controlling the L&N railroad bridge. Preserve trails interpret a strategic Western Theater choke point.",
     "website": "https://www.visitmunfordville.com/battle-for-the-bridge",
     "geocode_source": "photon",
     "sources": [
@@ -321,7 +321,7 @@
     "longitude": -84.2944,
     "war": "civil",
     "site_type": "battlefield",
-    "history": "1862 and especially June 1864 engagements where Morgan’s cavalry fought Union forces in and around Cynthiana. Town retains markers and local museum interpretation of the raids.",
+    "history": "1862 and especially June 1864 engagements where Morgan\u2019s cavalry fought Union forces in and around Cynthiana. Town retains markers and local museum interpretation of the raids.",
     "website": "https://www.battlefields.org/",
     "geocode_source": "manual",
     "sources": [
@@ -356,7 +356,7 @@
     "longitude": -85.9427099,
     "war": "civil",
     "site_type": "fort",
-    "history": "1861 Union fort ordered under Sherman’s sphere to guard Louisville approaches and the L&N corridor. Earthworks, memorial cemetery, and self-guided tour on the hill above West Point.",
+    "history": "1861 Union fort ordered under Sherman\u2019s sphere to guard Louisville approaches and the L&N corridor. Earthworks, memorial cemetery, and self-guided tour on the hill above West Point.",
     "website": "https://westpoint.ky.gov/pages/tourism.aspx",
     "geocode_source": "photon",
     "sources": [
@@ -391,7 +391,7 @@
     "longitude": -85.4623237,
     "war": "civil",
     "site_type": "museum",
-    "history": "Large museum complex interpreting Western Theater campaigns from Bardstown. Already in museums.json—war layer links rather than clones content.",
+    "history": "Large museum complex interpreting Western Theater campaigns from Bardstown. Already in museums.json\u2014war layer links rather than clones content.",
     "website": "https://www.visitbardstown.com/",
     "geocode_source": "photon",
     "sources": [
@@ -442,7 +442,7 @@
     "longitude": -85.476587,
     "war": "civil",
     "site_type": "cemetery",
-    "history": "Cemetery associated with the Kentucky Confederate Home; hundreds of veterans interred—a rare public Confederate veterans landscape in the ring counties.",
+    "history": "Cemetery associated with the Kentucky Confederate Home; hundreds of veterans interred\u2014a rare public Confederate veterans landscape in the ring counties.",
     "website": "https://www.oldhamcountyky.gov/",
     "geocode_source": "photon",
     "sources": [
@@ -529,7 +529,7 @@
     "longitude": -84.3523272,
     "war": "civil",
     "site_type": "museum",
-    "history": "Home of Cassius M. Clay, emancipationist and Lincoln’s minister to Russia; interprets divided Kentucky politics around the war. Kentucky State Historic Site mansion and grounds.",
+    "history": "Home of Cassius M. Clay, emancipationist and Lincoln\u2019s minister to Russia; interprets divided Kentucky politics around the war. Kentucky State Historic Site mansion and grounds.",
     "website": "https://parks.ky.gov/explore/white-hall-state-historic-site-7855",
     "geocode_source": "photon",
     "sources": [
@@ -581,7 +581,7 @@
     "longitude": -85.6681401,
     "war": "civil",
     "site_type": "museum",
-    "history": "Speed family plantation where Lincoln visited in 1841; interprets slavery and wartime friendships (James Speed as Attorney General). Already in museums.json—link from the war layer.",
+    "history": "Speed family plantation where Lincoln visited in 1841; interprets slavery and wartime friendships (James Speed as Attorney General). Already in museums.json\u2014link from the war layer.",
     "website": "https://farmingtonhistorichome.org/",
     "geocode_source": "photon",
     "sources": [
@@ -599,10 +599,11 @@
     "war": "civil",
     "site_type": "museum",
     "history": "State military collections spanning militia to modern service, with strong Civil War exhibits in the old State Arsenal. Already in museums.json.",
-    "website": "https://history.ky.gov/",
+    "website": "https://history.ky.gov/visit/kentucky-military-history-museum",
     "geocode_source": "photon",
     "sources": [
-      "https://history.ky.gov/"
+      "https://history.ky.gov/visit/kentucky-military-history-museum",
+      "https://history.ky.gov/markers/state-arsenal"
     ]
   },
   {
@@ -615,7 +616,7 @@
     "longitude": -85.4623237,
     "war": "civil",
     "site_type": "museum",
-    "history": "Companion museum in the Bardstown Civil War campus focusing on women’s wartime roles. Pair with the Western Theater museum on the same complex.",
+    "history": "Companion museum in the Bardstown Civil War campus focusing on women\u2019s wartime roles. Pair with the Western Theater museum on the same complex.",
     "website": "https://www.visitbardstown.com/",
     "geocode_source": "photon",
     "sources": [
@@ -632,7 +633,7 @@
     "longitude": -84.508,
     "war": "civil",
     "site_type": "fort",
-    "history": "Union fortifications guarded Cincinnati–Covington; surviving interpretation and overlooks tell the Ohio River defense story. Public battery park and river-bluff markers.",
+    "history": "Union fortifications guarded Cincinnati\u2013Covington; surviving interpretation and overlooks tell the Ohio River defense story. Public battery park and river-bluff markers.",
     "website": "https://www.nkyov.org/",
     "geocode_source": "manual",
     "sources": [
@@ -685,7 +686,7 @@
     "longitude": -84.2045,
     "war": "civil",
     "site_type": "battlefield",
-    "history": "October 1861 battle in the Rockcastle Hills—one of Kentucky's earliest Civil War engagements. Preserved by the Camp Wildcat Preservation Foundation with trails and interpretive markers in Laurel County.",
+    "history": "October 1861 battle in the Rockcastle Hills\u2014one of Kentucky's earliest Civil War engagements. Preserved by the Camp Wildcat Preservation Foundation with trails and interpretive markers in Laurel County.",
     "website": "https://www.campwildcatpreservationfoundation.org/",
     "geocode_source": "manual",
     "sources": [
@@ -719,7 +720,7 @@
     "longitude": -87.2662063,
     "war": "civil",
     "site_type": "battlefield",
-    "history": "December 1861 cavalry fight often called Nathan Bedford Forrest's 'first battle'—preserved and interpreted by the City of Sacramento with annual reenactments in western Kentucky.",
+    "history": "December 1861 cavalry fight often called Nathan Bedford Forrest's 'first battle'\u2014preserved and interpreted by the City of Sacramento with annual reenactments in western Kentucky.",
     "website": "https://www.battleofsacramento.com/",
     "geocode_source": "photon",
     "sources": [
@@ -787,7 +788,7 @@
     "longitude": -83.8892888,
     "war": "civil",
     "site_type": "battlefield",
-    "history": "September 1861 Confederate attack on a Union recruiting camp—one of the Civil War Sites Advisory Commission’s 11 principal Kentucky battlefields in the Cumberland Gap approaches.",
+    "history": "September 1861 Confederate attack on a Union recruiting camp\u2014one of the Civil War Sites Advisory Commission\u2019s 11 principal Kentucky battlefields in the Cumberland Gap approaches.",
     "website": null,
     "geocode_source": "photon",
     "sources": [
@@ -821,7 +822,7 @@
     "longitude": -87.1195,
     "war": "civil",
     "site_type": "other",
-    "history": "Birthplace memorial to Confederate President Jefferson Davis—Kentucky's major Civil War commemorative landscape in Todd County with museum exhibits.",
+    "history": "Birthplace memorial to Confederate President Jefferson Davis\u2014Kentucky's major Civil War commemorative landscape in Todd County with museum exhibits.",
     "website": "https://parks.ky.gov/fairview/parks/historic/jefferson-davis-state-historic-site",
     "geocode_source": "manual",
     "sources": [
