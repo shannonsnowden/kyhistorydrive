@@ -92,6 +92,17 @@ function quoteFromStory(story) {
   }
 }
 
+/** Home-map deep link for a pin-backed story. Does not invent coordinates. */
+function storyMapHref(item) {
+  if (!item) return null
+  if (item.mapHref) return item.mapHref
+  if (item.historyId) return `/#map/history/${encodeURIComponent(item.historyId)}`
+  if (item.lat != null && item.lon != null && item.slug) {
+    return `/#map/stories/${encodeURIComponent(item.slug)}`
+  }
+  return null
+}
+
 function isPhotoUrl(url) {
   const u = String(url || '').toLowerCase()
   return !!u && !/\.svg/i.test(u) && !/silhouette|locator_map|coat_of_arms|flag_of/i.test(u)
@@ -121,7 +132,7 @@ async function fetchWikipediaPhoto(titleOrUrl) {
   }
 }
 
-async function liveStoriesForDate(briefDate, index) {
+async function liveStoriesForDate(briefDate, index, locations = {}) {
   const metas = index.stories.filter((s) => s.briefDate === briefDate)
   const cards = []
   for (const meta of metas) {
@@ -135,17 +146,28 @@ async function liveStoriesForDate(briefDate, index) {
     const wiki = extractWikipediaUrl(full.bodyMarkdown)
     const stored = full.photo?.image_url ? full.photo : meta.photo?.image_url ? meta.photo : null
     const photo = stored || (await fetchWikipediaPhoto(wiki || full.title))
-    cards.push({
-      slug: full.slug || meta.slug,
+    const slug = full.slug || meta.slug
+    const loc = locations[slug] || {}
+    const lat = loc.lat ?? meta.lat ?? null
+    const lon = loc.lon ?? meta.lon ?? null
+    const historyId = loc.historyId || meta.historyId || null
+    const card = {
+      slug,
       title: full.title || meta.title,
       summary: full.summary || meta.summary || '',
       era: full.era || meta.era || '',
       yearStart: full.yearStart ?? meta.yearStart ?? null,
       briefDate,
-      href: `/#timeline/${encodeURIComponent(full.slug || meta.slug)}`,
+      href: `/#timeline/${encodeURIComponent(slug)}`,
+      place: loc.matchedPlace || null,
+      lat,
+      lon,
+      historyId,
       quote: firstSentence(full.bodyMarkdown || full.summary || ''),
       photo,
-    })
+    }
+    card.mapHref = storyMapHref(card)
+    cards.push(card)
   }
   const withPhotos = cards.filter((c) => c.photo?.image_url)
   const hero = withPhotos[0] || cards[0] || null
@@ -208,7 +230,11 @@ function renderHeroSlide(story, pack, index) {
         <p class="hp-hero-deck">${escapeHtml(story.summary)}</p>
         <div class="hp-cta-row">
           <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
-          <a class="btn hp-cta" href="/#timeline">All stories</a>
+          ${
+            storyMapHref(story)
+              ? `<a class="btn hp-cta" href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
+              : `<a class="btn hp-cta" href="/#timeline">All stories</a>`
+          }
         </div>
         ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
       </div>
@@ -374,6 +400,11 @@ function renderFeatures(pack) {
           <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(String(item.yearStart))}` : ''}</p>
           <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
           <p class="hp-feature-deck">${escapeHtml(item.summary)}</p>
+          ${
+            storyMapHref(item)
+              ? `<a class="hp-layer-cta" href="${escapeHtml(storyMapHref(item))}">Open on the map</a>`
+              : ''
+          }
           ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
         </div>
       </article>`
@@ -483,6 +514,7 @@ function renderRelatedCards() {
 async function loadPack() {
   let pack = null
   let index = null
+  let locations = {}
   try {
     const res = await fetch('/content/home-preview.json')
     if (res.ok) pack = await res.json()
@@ -495,9 +527,18 @@ async function loadPack() {
   } catch {
     /* pack only */
   }
+  try {
+    const res = await fetch('/content/stories-locations.json')
+    if (res.ok) {
+      const loc = await res.json()
+      locations = loc.locations || {}
+    }
+  } catch {
+    /* optional */
+  }
   const latest = index?.briefDateRange?.end
   if (latest && pack?.briefDate && latest > pack.briefDate) {
-    const live = await liveStoriesForDate(latest, index)
+    const live = await liveStoriesForDate(latest, index, locations)
     if (live.hero) {
       return {
         ...pack,
@@ -506,9 +547,28 @@ async function loadPack() {
       }
     }
   }
-  if (pack?.hero) return pack
+  if (pack?.hero) {
+    const decorate = (item) => {
+      if (!item) return item
+      const loc = locations[item.slug] || {}
+      const next = {
+        ...item,
+        historyId: item.historyId || loc.historyId || null,
+        lat: item.lat ?? loc.lat ?? null,
+        lon: item.lon ?? loc.lon ?? null,
+      }
+      next.mapHref = storyMapHref(next)
+      return next
+    }
+    return {
+      ...pack,
+      hero: decorate(pack.hero),
+      features: (pack.features || []).map(decorate),
+      stories: (pack.stories || []).map(decorate),
+    }
+  }
   if (latest && index) {
-    const live = await liveStoriesForDate(latest, index)
+    const live = await liveStoriesForDate(latest, index, locations)
     return { ...live, layers: pack?.layers || [] }
   }
   return pack || { hero: null, features: [], layers: [] }

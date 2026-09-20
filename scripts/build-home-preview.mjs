@@ -352,6 +352,14 @@ async function main() {
       commons: extraCommons[slug],
       historicPhotos,
     })
+    const lat = loc.lat ?? meta.lat ?? null
+    const lon = loc.lon ?? meta.lon ?? null
+    const historyId = loc.historyId || meta.historyId || null
+    const mapHref = historyId
+      ? `/#map/history/${encodeURIComponent(historyId)}`
+      : lat != null && lon != null
+        ? `/#map/stories/${encodeURIComponent(slug)}`
+        : null
     cards.push({
       slug,
       title: full.title || meta.title,
@@ -361,8 +369,10 @@ async function main() {
       briefDate: full.briefDate || meta.briefDate || briefDate,
       href: `/#timeline/${encodeURIComponent(slug)}`,
       place: loc.matchedPlace || null,
-      lat: loc.lat ?? meta.lat ?? null,
-      lon: loc.lon ?? meta.lon ?? null,
+      lat,
+      lon,
+      historyId,
+      mapHref,
       quote: firstSentence(full.bodyMarkdown || full.summary || ''),
       photo: publicPhoto(photo),
     })

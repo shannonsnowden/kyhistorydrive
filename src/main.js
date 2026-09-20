@@ -248,6 +248,67 @@ function storyShareHash(slug) {
   return `#timeline/${encodeURIComponent(slug)}`
 }
 
+const STORY_MAP_LAYERS = new Set(['stories', 'story', 'timeline'])
+
+/** Home-map deep link for a story that already has a pin. Never invents coordinates. */
+function storyPlaceHash({ historyId, slug, lat, lon } = {}) {
+  if (historyId) return `#map/history/${encodeURIComponent(historyId)}`
+  if (lat != null && lon != null && slug) return `#map/stories/${encodeURIComponent(slug)}`
+  return null
+}
+
+let storiesLocationsCache = null
+async function loadStoriesLocations() {
+  if (storiesLocationsCache) return storiesLocationsCache
+  try {
+    const loc = await (await fetch('/content/stories-locations.json')).json()
+    storiesLocationsCache = loc.locations || {}
+  } catch {
+    storiesLocationsCache = {}
+  }
+  return storiesLocationsCache
+}
+
+function locationForSlug(locations, slug) {
+  return (locations && slug && locations[slug]) || {}
+}
+
+async function resolveStoryPlace(slugOrId) {
+  if (!slugOrId) return null
+  const [idx, locations] = await Promise.all([loadStories(), loadStoriesLocations()])
+  let loc = locationForSlug(locations, slugOrId)
+  let meta = idx?.stories?.find((s) => s.slug === slugOrId) || null
+  if (!loc.historyId && loc.lat == null) {
+    const byHistory = Object.values(locations).find((row) => row.historyId === slugOrId)
+    if (byHistory) {
+      loc = byHistory
+      meta = idx?.stories?.find((s) => s.slug === byHistory.slug) || meta
+    }
+  }
+  const slug = meta?.slug || loc.slug || slugOrId
+  const historyId = loc.historyId || meta?.historyId || null
+  const lat = loc.lat ?? meta?.lat ?? null
+  const lon = loc.lon ?? meta?.lon ?? null
+  if (historyId == null && (lat == null || lon == null)) return null
+  return {
+    slug,
+    meta,
+    loc,
+    historyId,
+    lat,
+    lon,
+    title: meta?.title || loc.matchedPlace || slug,
+    matchedPlace: loc.matchedPlace || meta?.matchedPlace || null,
+    mapConfidence: loc.mapConfidence || meta?.mapConfidence || null,
+    county: meta?.county || null,
+    era: meta?.era || null,
+    yearStart: meta?.yearStart ?? null,
+    yearEnd: meta?.yearEnd ?? null,
+    summary: meta?.summary || '',
+    photo: meta?.photo || null,
+  }
+}
+
 function shareControlHtml(url, title) {
   const hashPath = String(url || '').includes('#') ? String(url).split('#').slice(1).join('#') : String(url || '').replace(/^#/, '')
   return `<div class="share-row">
@@ -1753,7 +1814,7 @@ function initMap() {
       if (!mapReady) return
       const place = parseHash()
       if (place.view === 'map' && place.placeLayer && place.placeId) {
-        openPlaceFromHash({ placeLayer: place.placeLayer, placeId: place.placeId }).catch(console.error)
+        revealPlaceFromHash({ placeLayer: place.placeLayer, placeId: place.placeId }).catch(console.error)
         return
       }
       ensureHighlightSource(map, null)
@@ -1853,16 +1914,10 @@ function initMap() {
     ensureHighlightSource(map, null)
     const place = parseHash()
     if (place.view === 'map' && place.placeLayer && place.placeId) {
-      const tryOpen = async (attempt = 0) => {
-        const ok = await openPlaceFromHash({
-          placeLayer: place.placeLayer,
-          placeId: place.placeId,
-        })
-        if (!ok && attempt < 5) {
-          window.setTimeout(() => tryOpen(attempt + 1), 200)
-        }
-      }
-      tryOpen().catch(console.error)
+      revealPlaceFromHash({
+        placeLayer: place.placeLayer,
+        placeId: place.placeId,
+      }).catch(console.error)
     } else {
       fitMapToKentucky(map, { duration: 0 })
     }
@@ -1959,7 +2014,7 @@ function updateTimelineMapCounts() {
   el.textContent = bits.length
     ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
     : 'Map: no places in this filter (try another timeframe or era)'
-  if (meta) {
+  if (meta && !pendingFocus) {
     const { yearMin, yearMax } = timelineState
     if (!timelineHasActivePlaceFilter()) {
       meta.textContent = 'Pick an era or timeframe to see matching places.'
@@ -2019,7 +2074,12 @@ async function initTimelineMap() {
     }
     timelineMapReady = true
     applyFiltersToMapInstance(timelineMap)
-    fitMapToKentucky(timelineMap, { duration: 0 })
+    if (pendingFocus) {
+      ensureHighlightSource(timelineMap, pendingFocus)
+      flyToFocus(timelineMap, pendingFocus, 11)
+    } else {
+      fitMapToKentucky(timelineMap, { duration: 0 })
+    }
     updateTimelineMapCounts()
   })
 }
@@ -2127,14 +2187,22 @@ function focusStoryOnMaps(story) {
     metaEl.textContent = `${story.title} · ${conf}${story.matchedPlace ? ` · ${story.matchedPlace}` : ''}`
   }
 
+  applyPendingStoryFocus()
+}
+
+function applyPendingStoryFocus() {
+  if (!pendingFocus) return
   initTimelineMap()
   if (timelineMapReady) {
-    ensureHighlightSource(timelineMap, focus)
-    flyToFocus(timelineMap, focus, 11)
-  } else if (timelineMap) {
+    ensureHighlightSource(timelineMap, pendingFocus)
+    flyToFocus(timelineMap, pendingFocus, 11)
+    return
+  }
+  if (timelineMap) {
     timelineMap.once('load', () => {
-      ensureHighlightSource(timelineMap, focus)
-      flyToFocus(timelineMap, focus, 11)
+      if (!pendingFocus) return
+      ensureHighlightSource(timelineMap, pendingFocus)
+      flyToFocus(timelineMap, pendingFocus, 11)
     })
   }
 }
@@ -2417,8 +2485,8 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
     const s = await loadStoryBody(meta.slug)
     let historyId = meta.historyId || null
     try {
-      const locIdx = await (await fetch('/content/stories-locations.json')).json()
-      const loc = locIdx.locations?.[meta.slug]
+      const locations = await loadStoriesLocations()
+      const loc = locationForSlug(locations, meta.slug)
       if (loc?.historyId) historyId = loc.historyId
       if (meta.lat == null && loc?.lat != null) {
         meta.lat = loc.lat
@@ -2426,6 +2494,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
         meta.mapConfidence = loc.mapConfidence
         meta.matchedPlace = loc.matchedPlace
       }
+      if (!historyId && loc?.historyId) historyId = loc.historyId
     } catch {
       /* ignore */
     }
@@ -2456,6 +2525,12 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
     const countyLine = meta.county
       ? `<span class="story-county">${escapeHtml(meta.county)} County</span>`
       : ''
+    const mapHash = storyPlaceHash({
+      historyId,
+      slug: meta.slug,
+      lat: meta.lat ?? s.lat,
+      lon: meta.lon ?? s.lon,
+    })
     const extras = placeDetailExtrasHtml({
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
@@ -2493,10 +2568,21 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
                 : `<p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>`
             }
             <div class="tags">${tags}</div>
+            ${
+              mapHash
+                ? `<div class="story-card-actions">
+              <a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>
+            </div>`
+                : ''
+            }
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${extras}
-          <p class="muted popup-hint">Tip: tap the highlighted pin on the map for the place popup (full text, maps, photos, and source links).</p>
+          ${
+            mapHash
+              ? `<p class="muted popup-hint">The Timeline map highlights this place. Open on the map to fly to the pin and see the full popup.</p>`
+              : ''
+          }
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
         ${storySidebarPhotoHtml(sidebarPhoto, s.title)}
@@ -2757,7 +2843,7 @@ async function renderTimelineList(preferredSlug) {
 
 
 
-function resetTimelineFiltersOff() {
+function resetTimelineFiltersOff({ keepFocus = false } = {}) {
   // Year / era → default; map layers stay on (filtered by timeframe)
   timelineState.yearMin = null
   timelineState.yearMax = null
@@ -2776,7 +2862,7 @@ function resetTimelineFiltersOff() {
 
   applyMapFilters()
   updateTimelineMapCounts()
-  if (timelineMapReady) {
+  if (timelineMapReady && !keepFocus) {
     ensureHighlightSource(timelineMap, null)
     fitMapToKentucky(timelineMap, { duration: 0 })
   }
@@ -2845,8 +2931,67 @@ async function loadLayerFeatures(layerId) {
   }
 }
 
+async function openStoryHighlightOnHomeMap(place) {
+  if (!place || place.lat == null || place.lon == null || !map || !mapReady) return false
+  const focus = {
+    lon: place.lon,
+    lat: place.lat,
+    title: place.title || place.matchedPlace || place.slug,
+    slug: place.slug,
+  }
+  pendingFocus = focus
+  highlightDetailProps = {
+    layerId: place.historyId ? 'history' : 'stories',
+    id: place.historyId || place.slug,
+    historyId: place.historyId || null,
+    name: place.title,
+    title: place.title,
+    history: place.summary || '',
+    description: place.summary || '',
+    county: place.county,
+    era: place.era,
+    yearStart: place.yearStart,
+    yearEnd: place.yearEnd,
+    matchedPlace: place.matchedPlace,
+    lat: place.lat,
+    lon: place.lon,
+    photo: place.photo || null,
+    slug: place.slug,
+  }
+  ensureHighlightSource(map, focus)
+  flyToFocus(map, focus, 12)
+  await showDetailPopup(
+    {
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [place.lon, place.lat] },
+      properties: highlightDetailProps,
+    },
+    highlightDetailProps.layerId,
+    [place.lon, place.lat],
+    map,
+  )
+  return true
+}
+
 async function openPlaceFromHash({ placeLayer, placeId }) {
   if (!placeLayer || !placeId || !map || !mapReady) return false
+
+  if (STORY_MAP_LAYERS.has(placeLayer)) {
+    const resolved = await resolveStoryPlace(placeId)
+    if (!resolved) {
+      console.warn('Share link story place not found', placeLayer, placeId)
+      return false
+    }
+    if (resolved.historyId) {
+      const fromHistory = await openPlaceFromHash({
+        placeLayer: 'history',
+        placeId: resolved.historyId,
+      })
+      if (fromHistory) return true
+    }
+    return openStoryHighlightOnHomeMap(resolved)
+  }
+
   const def = DATA_LAYERS.find((l) => l.id === placeLayer)
   if (!def) return false
   setLayerVisible(placeLayer, true)
@@ -2855,7 +3000,21 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
   syncAllLayersCheckbox()
 
   const features = await loadLayerFeatures(placeLayer)
-  const feature = features.find((f) => featureMatchesShareId(f.properties || {}, placeLayer, placeId))
+  let feature = features.find((f) => featureMatchesShareId(f.properties || {}, placeLayer, placeId))
+  if ((!feature || feature.geometry?.type !== 'Point') && placeLayer === 'history') {
+    const resolved = await resolveStoryPlace(placeId)
+    if (resolved?.historyId && resolved.historyId !== placeId) {
+      const retry = features.find((f) =>
+        featureMatchesShareId(f.properties || {}, placeLayer, resolved.historyId),
+      )
+      if (retry) feature = retry
+    }
+    if (!feature || feature.geometry?.type !== 'Point') {
+      if (resolved) return openStoryHighlightOnHomeMap(resolved)
+      console.warn('Share link place not found', placeLayer, placeId)
+      return false
+    }
+  }
   if (!feature || feature.geometry?.type !== 'Point') {
     console.warn('Share link place not found', placeLayer, placeId)
     return false
@@ -2864,6 +3023,22 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
   map.easeTo({ center: [lon, lat], zoom: Math.max(map.getZoom(), 12), duration: 600 })
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
   return true
+}
+
+/** Open a map deep-link after the home map canvas is visible (hidden→shown race). */
+async function revealPlaceFromHash({ placeLayer, placeId }, attempt = 0) {
+  if (!placeLayer || !placeId) return false
+  if (!map || !mapReady) return false
+  try {
+    map.resize()
+  } catch {
+    /* ignore */
+  }
+  const ok = await openPlaceFromHash({ placeLayer, placeId })
+  if (ok && activePopup) return true
+  if (attempt >= 6) return ok
+  await new Promise((resolve) => window.setTimeout(resolve, 120 + attempt * 80))
+  return revealPlaceFromHash({ placeLayer, placeId }, attempt + 1)
 }
 
 
@@ -2897,7 +3072,7 @@ async function applyRoute() {
       map?.resize()
       if (!mapReady) return
       if (placeLayer && placeId) {
-        openPlaceFromHash({ placeLayer, placeId }).catch(console.error)
+        revealPlaceFromHash({ placeLayer, placeId }).catch(console.error)
         return
       }
       setLayerVisible('markers', true)
@@ -2909,12 +3084,13 @@ async function applyRoute() {
     })
   } else if (view === 'timeline') {
     setupTimelineFilters()
-    resetTimelineFiltersOff()
+    resetTimelineFiltersOff({ keepFocus: Boolean(slug) })
     await initTimelineMap()
     // Fresh visit: bare #timeline (no story slug), clear prior selection
     if (!slug) selectedStorySlug = null
     else selectedStorySlug = slug
     await renderTimelineList(slug)
+    applyPendingStoryFocus()
     const scrollToStoryDetail = () => {
       const reader = document.getElementById('timelineStoryReader')
       if (!reader || reader.classList.contains('is-empty')) return false

@@ -1,8 +1,120 @@
 {
-  "generatedAt": "2026-09-20T14:44:06.596Z",
+  "generatedAt": "2026-09-20T16:25:56.641Z",
   "briefDate": "2026-09-20",
   "displayDate": "Sunday, September 20, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The preview page also re-reads stories.json in the browser.",
+  "stories": [
+    {
+      "slug": "capt-jack-jouett",
+      "title": "Capt. Jack Jouett",
+      "summary": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of…",
+      "era": "frontier",
+      "yearStart": 1781,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/capt-jack-jouett",
+      "place": "Capt. Jack Jouett / Craig’s Creek",
+      "lat": 37.9827487,
+      "lon": -84.7708839,
+      "historyId": "capt-jack-jouett-midnight-ride-1781",
+      "mapHref": "/#map/history/capt-jack-jouett-midnight-ride-1781",
+      "quote": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of backwoods trails to warn Thomas Jefferson at Monticello and the Virginia Assembly at Charlottesville.",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Jack_Jouett_House.jpg/1920px-Jack_Jouett_House.jpg",
+        "title": "Jack Jouett House.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_Jouett_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
+    },
+    {
+      "slug": "shepherdsville-on-salt-river",
+      "title": "Shepherdsville on Salt River",
+      "summary": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the…",
+      "era": "frontier",
+      "yearStart": 1793,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/shepherdsville-on-salt-river",
+      "place": "Shepherdsville / Salt River falls",
+      "lat": 37.98791666666666,
+      "lon": -85.71646666666666,
+      "historyId": "shepherdsville-founding-adam-shepherd",
+      "mapHref": "/#map/history/shepherdsville-founding-adam-shepherd",
+      "quote": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the great road to Bullitt's Lick crossed.",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
+        "title": "Shepherdsville, Kentucky",
+        "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
+    {
+      "slug": "shawnee-chillicothe-divisions",
+      "title": "Shawnee Chillicothe divisions",
+      "summary": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe…",
+      "era": "native",
+      "yearStart": 1778,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/shawnee-chillicothe-divisions",
+      "place": null,
+      "lat": null,
+      "lon": null,
+      "historyId": null,
+      "mapHref": null,
+      "quote": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe customarily supplied political leadership.",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Old_Chillicothe_Site.jpg/1920px-Old_Chillicothe_Site.jpg",
+        "title": "Old Chillicothe Site.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
+    },
+    {
+      "slug": "hansen-site-15gp14",
+      "title": "Hansen Site (15GP14)",
+      "summary": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth. Excavations…",
+      "era": "prehistoric",
+      "yearStart": -2000,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/hansen-site-15gp14",
+      "place": "Hansen Site (15GP14)",
+      "lat": 38.72371944,
+      "lon": -83.01908889,
+      "historyId": "hansen-site-15gp14-greenup-county",
+      "mapHref": "/#map/history/hansen-site-15gp14-greenup-county",
+      "quote": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth.",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
+        "title": "Portsmouth Earthworks, Group A, wall remnant.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
+    },
+    {
+      "slug": "natural-bridge-sandstone-arch",
+      "title": "Natural Bridge sandstone arch",
+      "summary": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red…",
+      "era": "prehistoric",
+      "yearStart": null,
+      "briefDate": "2026-09-20",
+      "href": "/#timeline/natural-bridge-sandstone-arch",
+      "place": "Natural Bridge",
+      "lat": 37.776836,
+      "lon": -83.6833147,
+      "historyId": "natural-bridge-corbin-sandstone",
+      "mapHref": "/#map/history/natural-bridge-corbin-sandstone",
+      "quote": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red River.",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",
+        "title": "Natural Bridge State Resort Park",
+        "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    }
+  ],
   "hero": {
     "slug": "capt-jack-jouett",
     "title": "Capt. Jack Jouett",
@@ -14,6 +126,8 @@
     "place": "Capt. Jack Jouett / Craig’s Creek",
     "lat": 37.9827487,
     "lon": -84.7708839,
+    "historyId": "capt-jack-jouett-midnight-ride-1781",
+    "mapHref": "/#map/history/capt-jack-jouett-midnight-ride-1781",
     "quote": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of backwoods trails to warn Thomas Jefferson at Monticello and the Virginia Assembly at Charlottesville.",
     "photo": {
       "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Jack_Jouett_House.jpg/1920px-Jack_Jouett_House.jpg",
@@ -35,6 +149,8 @@
       "place": "Shepherdsville / Salt River falls",
       "lat": 37.98791666666666,
       "lon": -85.71646666666666,
+      "historyId": "shepherdsville-founding-adam-shepherd",
+      "mapHref": "/#map/history/shepherdsville-founding-adam-shepherd",
       "quote": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the great road to Bullitt's Lick crossed.",
       "photo": {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
@@ -55,6 +171,8 @@
       "place": null,
       "lat": null,
       "lon": null,
+      "historyId": null,
+      "mapHref": null,
       "quote": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe customarily supplied political leadership.",
       "photo": {
         "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Old_Chillicothe_Site.jpg/1920px-Old_Chillicothe_Site.jpg",
@@ -75,6 +193,8 @@
       "place": "Hansen Site (15GP14)",
       "lat": 38.72371944,
       "lon": -83.01908889,
+      "historyId": "hansen-site-15gp14-greenup-county",
+      "mapHref": "/#map/history/hansen-site-15gp14-greenup-county",
       "quote": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth.",
       "photo": {
         "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
@@ -95,6 +215,8 @@
       "place": "Natural Bridge",
       "lat": 37.776836,
       "lon": -83.6833147,
+      "historyId": "natural-bridge-corbin-sandstone",
+      "mapHref": "/#map/history/natural-bridge-corbin-sandstone",
       "quote": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red River.",
       "photo": {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",

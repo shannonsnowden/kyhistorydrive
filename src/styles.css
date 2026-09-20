@@ -320,6 +320,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   background: var(--accent); color: var(--ink-on-gold); border: none; border-radius: 6px;
   padding: 0.4rem 0.85rem; font-weight: 600; cursor: pointer;
 }
+a.btn { text-decoration: none; display: inline-block; }
 .btn:hover { background: #d9a04a; }
 .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
 .btn.small { padding: 0.28rem 0.65rem; font-size: 0.8rem; }
@@ -519,15 +520,42 @@ nav a:hover, nav a.active { color: var(--accent); }
 .era-pill {
   display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px;
   background: var(--chip); text-transform: capitalize; color: var(--text);
+  border: 1px solid var(--line);
 }
-.era-prehistoric { background: #3d3420; }
-.era-native { background: #1e3b2f; }
-.era-frontier { background: #3b281c; }
-.era-early-commonwealth { background: #2a3a28; }
-.era-other { background: #2a322c; }
+/* Dark-theme era tints keep cream ink (--text on :root) for contrast. */
+.era-prehistoric { background: #3d3420; color: #f3ead8; border-color: #5a4c30; }
+.era-native { background: #1e3b2f; color: #f3ead8; border-color: #2f5a48; }
+.era-frontier { background: #3b281c; color: #f3ead8; border-color: #5c4030; }
+.era-early-commonwealth { background: #2a3a28; color: #f3ead8; border-color: #3d5340; }
+.era-other { background: #2a322c; color: #f3ead8; border-color: #3d4840; }
+/* Light theme: reuse the same era hues mixed into --chip so labels stay readable. */
+html[data-hp-theme="light"] .era-pill {
+  color: var(--text);
+}
+html[data-hp-theme="light"] .era-prehistoric {
+  background: color-mix(in srgb, #3d3420 16%, var(--chip));
+  border-color: color-mix(in srgb, #3d3420 28%, var(--line));
+}
+html[data-hp-theme="light"] .era-native {
+  background: color-mix(in srgb, #1e3b2f 16%, var(--chip));
+  border-color: color-mix(in srgb, #1e3b2f 28%, var(--line));
+}
+html[data-hp-theme="light"] .era-frontier {
+  background: color-mix(in srgb, #3b281c 16%, var(--chip));
+  border-color: color-mix(in srgb, #3b281c 28%, var(--line));
+}
+html[data-hp-theme="light"] .era-early-commonwealth {
+  background: color-mix(in srgb, #2a3a28 16%, var(--chip));
+  border-color: color-mix(in srgb, #2a3a28 28%, var(--line));
+}
+html[data-hp-theme="light"] .era-other {
+  background: color-mix(in srgb, #2a322c 16%, var(--chip));
+  border-color: color-mix(in srgb, #2a322c 28%, var(--line));
+}
 .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
 .tag {
-  font-size: 0.75rem; color: var(--muted); border: 1px solid var(--line);
+  font-size: 0.75rem; color: var(--muted); background: var(--chip);
+  border: 1px solid var(--line);
   border-radius: 999px; padding: 0.1rem 0.5rem;
 }
 .back-link { font-size: 0.9rem; text-decoration: none; }
@@ -1479,6 +1507,9 @@ nav a:hover, nav a.active { color: var(--accent); }
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
+}
+.hp-feature-copy .hp-layer-cta {
+  margin-top: 0.75rem;
 }
 .hp-layer-cta:hover {
   text-decoration: underline;
