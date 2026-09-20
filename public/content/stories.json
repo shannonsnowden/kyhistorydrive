@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-18T09:42:05.679Z",
-  "count": 115,
+  "generatedAt": "2026-09-20T09:45:33.220Z",
+  "count": 125,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-18"
+    "end": "2026-09-20"
   },
   "eras": [
     "early-commonwealth",
@@ -52,6 +52,29 @@
       "lon": -86.79083,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Read Shell Midden (15Bt10)"
+    },
+    {
+      "slug": "hansen-site-15gp14",
+      "title": "Hansen Site (15GP14)",
+      "publishedDate": "2026-09-20",
+      "summary": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth. Excavations…",
+      "yearStart": -2000,
+      "yearEnd": 1500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "native-history",
+        "frontier-war",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "lat": 38.72371944,
+      "lon": -83.01908889,
+      "mapConfidence": "override",
+      "matchedPlace": "Hansen Site (15GP14)"
     },
     {
       "slug": "carlston-annis-shell-mound",
@@ -195,6 +218,26 @@
       "lon": -89.186,
       "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)"
+    },
+    {
+      "slug": "turk-site-carlisle-county",
+      "title": "Turk Site, Carlisle County",
+      "publishedDate": "2026-09-19",
+      "summary": "On a bluff spur near Bardwell overlooking the Mississippi floodplain, the Turk Site (15Ce6) was a small Mississippian regional center of about 2.5 hectares. Occupied mainly in…",
+      "yearStart": 1100,
+      "yearEnd": 1300,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-19",
+      "lat": 36.89476944,
+      "lon": -89.08521944,
+      "mapConfidence": "override",
+      "matchedPlace": "Turk Site (15Ce6)"
     },
     {
       "slug": "jonathan-creek-mississippian-center",
@@ -1155,6 +1198,48 @@
       "matchedPlace": null
     },
     {
+      "slug": "shawnee-chillicothe-divisions",
+      "title": "Shawnee Chillicothe divisions",
+      "publishedDate": "2026-09-20",
+      "summary": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe…",
+      "yearStart": 1778,
+      "yearEnd": 1780,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "capt-nathaniel-hart",
+      "title": "Capt. Nathaniel Hart",
+      "publishedDate": "2026-09-19",
+      "summary": "Capt. Nathaniel Hart (1734–1782), a Transylvania Company proprietor and chief negotiator with the Cherokee, came to Boonesborough in 1775 and in 1779 settled White Oak Springs…",
+      "yearStart": 1779,
+      "yearEnd": 1782,
+      "era": "frontier",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-19",
+      "lat": 37.895633333333336,
+      "lon": -84.26686666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Capt. Nathaniel Hart / White Oak Springs"
+    },
+    {
       "slug": "col-john-bowman-at-old-chillicothe",
       "title": "Col. John Bowman at Old Chillicothe",
       "publishedDate": "2026-09-08",
@@ -1321,6 +1406,28 @@
       "matchedPlace": "Anderson County (centroid)"
     },
     {
+      "slug": "ojibwe-on-birds-war-road",
+      "title": "Ojibwe on Bird's War Road",
+      "publishedDate": "2026-09-19",
+      "summary": "In Capt. Henry Bird's British invasion of Kentucky in June 1780, roughly a hundred Odawa and Ojibwe (Chippewa) warriors left Detroit with Bird's guns before hundreds of Shawnee…",
+      "yearStart": 1780,
+      "yearEnd": 1780,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-19",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "shelbyville",
       "title": "Shelbyville",
       "publishedDate": "2026-08-28",
@@ -1359,6 +1466,28 @@
       "lon": -85.4313603,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Squire Boone / Painted Stone / Long Run"
+    },
+    {
+      "slug": "capt-jack-jouett",
+      "title": "Capt. Jack Jouett",
+      "publishedDate": "2026-09-20",
+      "summary": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of…",
+      "yearStart": 1781,
+      "yearEnd": 1797,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "bourbon",
+        "frontier-war",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "lat": 37.9827487,
+      "lon": -84.7708839,
+      "mapConfidence": "override",
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
     },
     {
       "slug": "battle-of-blue-licks",
@@ -1569,6 +1698,27 @@
       "matchedPlace": "Jacob Spears"
     },
     {
+      "slug": "lost-river-cave",
+      "title": "Lost River Cave",
+      "publishedDate": "2026-09-19",
+      "summary": "Under Bowling Green, Lost River Cave is a Pennyroyal karst system cut in Mississippian St. Louis and Ste. Genevieve limestones: a surface stream sinks into roughly seven miles…",
+      "yearStart": 1790,
+      "yearEnd": 1800,
+      "era": "frontier",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-19",
+      "lat": 36.95283333,
+      "lon": -86.47166389,
+      "mapConfidence": "override",
+      "matchedPlace": "Lost River Cave"
+    },
+    {
       "slug": "mount-sterling-little-mountain-town",
       "title": "Mount Sterling / Little Mountain Town",
       "publishedDate": "2026-09-03",
@@ -1736,6 +1886,26 @@
       "matchedPlace": "Newport Barracks"
     },
     {
+      "slug": "shepherdsville-on-salt-river",
+      "title": "Shepherdsville on Salt River",
+      "publishedDate": "2026-09-20",
+      "summary": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the…",
+      "yearStart": 1793,
+      "yearEnd": 1797,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "lat": 37.98791666666666,
+      "lon": -85.71646666666666,
+      "mapConfidence": "override",
+      "matchedPlace": "Shepherdsville / Salt River falls"
+    },
+    {
       "slug": "owensboro-yellow-banks",
       "title": "Owensboro / Yellow Banks",
       "publishedDate": "2026-09-17",
@@ -1773,6 +1943,25 @@
       "lon": -84.9223154,
       "mapConfidence": "override",
       "matchedPlace": "Lancaster founding / Wallace's Crossroads"
+    },
+    {
+      "slug": "henderson-at-red-banks",
+      "title": "Henderson at Red Banks",
+      "publishedDate": "2026-09-19",
+      "summary": "The Ohio River bluff known as Red Banks sat on the Virginia grant later confirmed to Richard Henderson & Company. On April 6, 1797, Gen. Samuel Hopkins and surveyor Thomas…",
+      "yearStart": 1797,
+      "yearEnd": 1799,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-19",
+      "lat": 37.8479021,
+      "lon": -87.5898562,
+      "mapConfidence": "override",
+      "matchedPlace": "Henderson / Red Banks"
     },
     {
       "slug": "glasgow-the-barrens",
@@ -2331,6 +2520,28 @@
       "lon": -84.52875,
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named"
+    },
+    {
+      "slug": "natural-bridge-sandstone-arch",
+      "title": "Natural Bridge sandstone arch",
+      "publishedDate": "2026-09-20",
+      "summary": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "geology",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "lat": 37.776836,
+      "lon": -83.6833147,
+      "mapConfidence": "override",
+      "matchedPlace": "Natural Bridge"
     },
     {
       "slug": "newt-kash-hollow-15mf1",

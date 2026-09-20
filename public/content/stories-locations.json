@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-18T09:42:05.925Z",
+  "generatedAt": "2026-09-20T09:45:33.352Z",
   "stats": {
     "exact": 11,
     "fuzzy": 41,
     "county": 7,
-    "override": 38,
-    "none": 18
+    "override": 46,
+    "none": 20
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -23,6 +23,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Read Shell Midden (15Bt10)",
       "historyId": "read-shell-midden-15bt10"
+    },
+    "hansen-site-15gp14": {
+      "slug": "hansen-site-15gp14",
+      "lat": 38.72371944,
+      "lon": -83.01908889,
+      "mapConfidence": "override",
+      "matchedPlace": "Hansen Site (15GP14)",
+      "historyId": "hansen-site-15gp14-greenup-county"
     },
     "carlston-annis-shell-mound": {
       "slug": "carlston-annis-shell-mound",
@@ -79,6 +87,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
+    },
+    "turk-site-carlisle-county": {
+      "slug": "turk-site-carlisle-county",
+      "lat": 36.89476944,
+      "lon": -89.08521944,
+      "mapConfidence": "override",
+      "matchedPlace": "Turk Site (15Ce6)",
+      "historyId": "turk-site-15ce6-carlisle-county"
     },
     "jonathan-creek-mississippian-center": {
       "slug": "jonathan-creek-mississippian-center",
@@ -448,6 +464,22 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "shawnee-chillicothe-divisions": {
+      "slug": "shawnee-chillicothe-divisions",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "capt-nathaniel-hart": {
+      "slug": "capt-nathaniel-hart",
+      "lat": 37.895633333333336,
+      "lon": -84.26686666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Capt. Nathaniel Hart / White Oak Springs",
+      "historyId": "capt-nathaniel-hart-white-oak-springs"
+    },
     "col-john-bowman-at-old-chillicothe": {
       "slug": "col-john-bowman-at-old-chillicothe",
       "lat": 38.0406,
@@ -512,6 +544,14 @@
       "matchedPlace": "Anderson County (centroid)",
       "historyId": null
     },
+    "ojibwe-on-birds-war-road": {
+      "slug": "ojibwe-on-birds-war-road",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "shelbyville": {
       "slug": "shelbyville",
       "lat": 38.211083333333335,
@@ -527,6 +567,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Squire Boone / Painted Stone / Long Run",
       "historyId": "squire-boone-painted-stone"
+    },
+    "capt-jack-jouett": {
+      "slug": "capt-jack-jouett",
+      "lat": 37.9827487,
+      "lon": -84.7708839,
+      "mapConfidence": "override",
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
+      "historyId": "capt-jack-jouett-midnight-ride-1781"
     },
     "battle-of-blue-licks": {
       "slug": "battle-of-blue-licks",
@@ -608,6 +656,14 @@
       "matchedPlace": "Jacob Spears",
       "historyId": "jacob-spears"
     },
+    "lost-river-cave": {
+      "slug": "lost-river-cave",
+      "lat": 36.95283333,
+      "lon": -86.47166389,
+      "mapConfidence": "override",
+      "matchedPlace": "Lost River Cave",
+      "historyId": "lost-river-cave-bowling-green"
+    },
     "mount-sterling-little-mountain-town": {
       "slug": "mount-sterling-little-mountain-town",
       "lat": 38.0561079,
@@ -672,6 +728,14 @@
       "matchedPlace": "Newport Barracks",
       "historyId": null
     },
+    "shepherdsville-on-salt-river": {
+      "slug": "shepherdsville-on-salt-river",
+      "lat": 37.98791666666666,
+      "lon": -85.71646666666666,
+      "mapConfidence": "override",
+      "matchedPlace": "Shepherdsville / Salt River falls",
+      "historyId": "shepherdsville-founding-adam-shepherd"
+    },
     "owensboro-yellow-banks": {
       "slug": "owensboro-yellow-banks",
       "lat": 37.7549958,
@@ -687,6 +751,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Lancaster founding / Wallace's Crossroads",
       "historyId": "lancaster-founding-wallace-s-crossroads"
+    },
+    "henderson-at-red-banks": {
+      "slug": "henderson-at-red-banks",
+      "lat": 37.8479021,
+      "lon": -87.5898562,
+      "mapConfidence": "override",
+      "matchedPlace": "Henderson / Red Banks",
+      "historyId": "henderson-founding-red-banks"
     },
     "glasgow-the-barrens": {
       "slug": "glasgow-the-barrens",
@@ -903,6 +975,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "Lexington Named",
       "historyId": "lexington-named"
+    },
+    "natural-bridge-sandstone-arch": {
+      "slug": "natural-bridge-sandstone-arch",
+      "lat": 37.776836,
+      "lon": -83.6833147,
+      "mapConfidence": "override",
+      "matchedPlace": "Natural Bridge",
+      "historyId": "natural-bridge-corbin-sandstone"
     },
     "newt-kash-hollow-15mf1": {
       "slug": "newt-kash-hollow-15mf1",

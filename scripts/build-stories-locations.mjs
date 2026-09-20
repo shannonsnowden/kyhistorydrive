@@ -286,6 +286,56 @@ const MANUAL_OVERRIDES = {
     lon: -86.101,
     confidence: 'override',
   },
+  // Sep 19 — align with iOS pins; leave Ojibwe unpinned (theme / Bird's War Road)
+  'capt-nathaniel-hart': {
+    matchName: 'Capt. Nathaniel Hart / White Oak Springs',
+    lat: 37.895633333333336,
+    lon: -84.26686666666667,
+    confidence: 'override',
+  },
+  'henderson-at-red-banks': {
+    matchName: 'Henderson / Red Banks',
+    lat: 37.8479021,
+    lon: -87.5898562,
+    confidence: 'override',
+  },
+  'turk-site-carlisle-county': {
+    matchName: 'Turk Site (15Ce6)',
+    lat: 36.89476944,
+    lon: -89.08521944,
+    confidence: 'override',
+  },
+  'lost-river-cave': {
+    matchName: 'Lost River Cave',
+    lat: 36.95283333,
+    lon: -86.47166389,
+    confidence: 'override',
+  },
+  // Sep 20 — align with iOS pins; leave Shawnee Chillicothe unpinned (Old Chillicothe OH)
+  'capt-jack-jouett': {
+    matchName: 'Capt. Jack Jouett / Craig’s Creek',
+    lat: 37.9827487,
+    lon: -84.7708839,
+    confidence: 'override',
+  },
+  'shepherdsville-on-salt-river': {
+    matchName: 'Shepherdsville / Salt River falls',
+    lat: 37.98791666666666,
+    lon: -85.71646666666666,
+    confidence: 'override',
+  },
+  'hansen-site-15gp14': {
+    matchName: 'Hansen Site (15GP14)',
+    lat: 38.72371944,
+    lon: -83.01908889,
+    confidence: 'override',
+  },
+  'natural-bridge-sandstone-arch': {
+    matchName: 'Natural Bridge',
+    lat: 37.776836,
+    lon: -83.6833147,
+    confidence: 'override',
+  },
   // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
   'wright-mounds-montgomery-county': {
     matchName: 'Wright Mounds (Montgomery County Adena)',
