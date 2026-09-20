@@ -258,7 +258,7 @@ function renderLayerCards(layers) {
       const blurb = item.blurb || curated?.blurb || ''
       const href = layerHref(item)
       const img = photo?.image_url
-        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" loading="lazy" />`
+        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" />`
         : `<div class="hp-feature-fallback" aria-hidden="true"></div>`
       const credit = photoCredit(photo)
       return `<article class="hp-layer-card">

@@ -142,7 +142,8 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Goddard Bridge',
     blurb: 'White Bridge: a Town-lattice span over Sand Lick Creek, among Kentucky’s surviving covered bridges.',
     photo: commonsPhoto({
-      image_url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/GoddardBridge.jpg',
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/GoddardBridge.jpg/1280px-GoddardBridge.jpg',
       title: 'Goddard Covered Bridge',
       file: 'GoddardBridge.jpg',
       attribution: 'Greg Hume · Wikimedia Commons · CC BY-SA 3.0',
@@ -177,14 +178,15 @@ export const LAYER_HIGHLIGHTS = [
     name: 'The Kentucke Gazette',
     place: 'Lexington',
     wiki: 'Kentucky Gazette',
-    commons: 'The Kentucky Gazette masthead',
+    commons: 'Kentucke Gazette Printing House',
     blurb: 'Kentucky’s first newspaper, begun August 11, 1787 by John and Fielding Bradford.',
     photo: commonsPhoto({
       image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/The_Kentucky_Gazette_masthead.png/1280px-The_Kentucky_Gazette_masthead.png',
-      title: 'The Kentucky Gazette masthead',
-      file: 'The_Kentucky_Gazette_masthead.png',
-      attribution: 'The Kentucky Gazette · Wikimedia Commons · Public domain',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kentucke_Gazette_Printing_House.png/960px-Kentucke_Gazette_Printing_House.png',
+      title: 'Kentucke Gazette printing house',
+      file: 'Kentucke_Gazette_Printing_House.png',
+      attribution: 'William Henry Perrin / Filson Club · Wikimedia Commons · Public domain',
+      year: 1887,
     }),
   },
   {
@@ -214,7 +216,8 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Frankfort Cemetery',
     blurb: 'Hilltop rural cemetery (1844) overlooking the capital — Daniel and Rebecca Boone were reinterred here.',
     photo: commonsPhoto({
-      image_url: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG',
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG/1280px-Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG',
       title: 'Frankfort Cemetery',
       file: 'Frankfort_Cemetery;_Frankfort,_Kentucky.JPG',
       attribution: 'Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0',

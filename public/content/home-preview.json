@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T14:40:26.309Z",
+  "generatedAt": "2026-09-20T14:44:06.596Z",
   "briefDate": "2026-09-20",
   "displayDate": "Sunday, September 20, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The preview page also re-reads stories.json in the browser.",
@@ -252,7 +252,7 @@
       "wiki": "Goddard Bridge",
       "blurb": "White Bridge: a Town-lattice span over Sand Lick Creek, among Kentucky’s surviving covered bridges.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/GoddardBridge.jpg",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/GoddardBridge.jpg/1280px-GoddardBridge.jpg",
         "title": "Goddard Covered Bridge",
         "source_url": "https://commons.wikimedia.org/wiki/File:GoddardBridge.jpg",
         "source_label": "Wikimedia Commons",
@@ -295,15 +295,15 @@
       "name": "The Kentucke Gazette",
       "place": "Lexington",
       "wiki": "Kentucky Gazette",
-      "commons": "The Kentucky Gazette masthead",
+      "commons": "Kentucke Gazette Printing House",
       "blurb": "Kentucky’s first newspaper, begun August 11, 1787 by John and Fielding Bradford.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/The_Kentucky_Gazette_masthead.png/1280px-The_Kentucky_Gazette_masthead.png",
-        "title": "The Kentucky Gazette masthead",
-        "source_url": "https://commons.wikimedia.org/wiki/File:The_Kentucky_Gazette_masthead.png",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kentucke_Gazette_Printing_House.png/960px-Kentucke_Gazette_Printing_House.png",
+        "title": "Kentucke Gazette printing house",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "The Kentucky Gazette · Wikimedia Commons · Public domain",
-        "year": null
+        "attribution": "William Henry Perrin / Filson Club · Wikimedia Commons · Public domain",
+        "year": 1887
       },
       "href": "/#map/newspapers/lccn-sn82014784"
     },
@@ -342,7 +342,7 @@
       "wiki": "Frankfort Cemetery",
       "blurb": "Hilltop rural cemetery (1844) overlooking the capital — Daniel and Rebecca Boone were reinterred here.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG/1280px-Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG",
         "title": "Frankfort Cemetery",
         "source_url": "https://commons.wikimedia.org/wiki/File:Frankfort_Cemetery;_Frankfort,_Kentucky.JPG",
         "source_label": "Wikimedia Commons",
