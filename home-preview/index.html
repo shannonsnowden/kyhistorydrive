@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-hp-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/src/styles.css" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('khd-home-preview-theme')
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.setAttribute('data-hp-theme', stored)
+            return
+          }
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.setAttribute('data-hp-theme', 'light')
+          }
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body class="hp-page">
     <p class="hp-preview-banner" role="status">
@@ -37,6 +51,16 @@
       <nav aria-label="Preview page">
         <a href="/#map">Map</a>
         <a href="/#timeline">Timeline</a>
+        <button
+          type="button"
+          id="hpThemeToggle"
+          class="hp-theme-toggle"
+          aria-label="Switch to light theme"
+          aria-pressed="false"
+        >
+          <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
+          <span class="hp-theme-toggle-label">Light</span>
+        </button>
       </nav>
     </header>
 
@@ -79,11 +103,12 @@
         <div class="hp-section-head">
           <h2 id="hp-related-title">Related Kentucky history sites</h2>
           <p class="muted">
-            Outbound sources the project already cites — marker programs, place essays,
-            archaeology, newspapers, and partner museums. Topic pages where we have them.
+            A resource hub of official programs, archaeology orgs, history blogs, and
+            documented place pages. Topic articles when they exist; outbound links open
+            in a new tab.
           </p>
         </div>
-        <div id="hpRelatedCards" class="hp-related-grid"></div>
+        <div id="hpRelatedCards" class="hp-related"></div>
       </section>
     </main>
 
