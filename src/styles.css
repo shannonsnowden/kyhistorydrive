@@ -645,6 +645,35 @@ nav a:hover, nav a.active { color: var(--accent); }
   text-wrap: pretty;
 }
 .hero-welcome strong { color: #e8d5a8; font-weight: 600; }
+.hero-welcome a.hero-inline-link,
+.hero-welcome .hero-inline-action {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+.hero-welcome .hero-inline-action {
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.hero-welcome a.hero-inline-link:hover,
+.hero-welcome .hero-inline-action:hover {
+  color: #e8d5a8;
+}
+.hero-welcome a.hero-inline-link:focus-visible,
+.hero-welcome .hero-inline-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
 
 
 /* Timeline: story list + filtered places map */
