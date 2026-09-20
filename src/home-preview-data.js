@@ -236,8 +236,14 @@ export const RELATED_GROUPS = [
       {
         name: 'Kentucky Organization of Professional Archaeologists',
         kind: 'Org',
-        blurb: 'Official KyOPA site (often shortened to KOA): statewide professional archaeologists, ethics, grants, and public education.',
-        href: 'https://kyopa.org/about-kyopa/',
+        blurb: 'Official KyOPA site: statewide professional archaeologists, ethics, grants, and public education.',
+        href: 'https://kyopa.org/',
+      },
+      {
+        name: 'KyOPA — Archaeology Resources',
+        kind: 'Resources',
+        blurb: 'KyOPA’s live resource list for Kentucky archaeology publications, surveys, and regional journals (their path is spelled “resoures”).',
+        href: 'https://kyopa.org/kentucky-archaeology-resoures/',
       },
       {
         name: 'KyOPA — Kentucky Archaeology Month',
@@ -248,8 +254,14 @@ export const RELATED_GROUPS = [
       {
         name: '30 Days of Kentucky Archaeology',
         kind: 'Blog',
-        blurb: 'September blog series from the Kentucky Heritage Council, KyOPA, and colleagues — one public archaeology post a day.',
+        blurb: 'Kentucky Archaeology Month blog — one public archaeology post a day from KHC, KyOPA, and colleagues.',
         href: 'https://30daysofkentuckyarchaeology.wordpress.com/',
+      },
+      {
+        name: 'Kentucky Heritage Council — Archaeology overview',
+        kind: 'Official',
+        blurb: 'State Historic Preservation Office archaeology desk: site protection, education, and more than 12,000 years of Kentucky’s archaeological record.',
+        href: 'https://heritage.ky.gov/archaeology/Pages/overview.aspx',
       },
       {
         name: 'Kentucky Office of State Archaeology — Find a Site',
