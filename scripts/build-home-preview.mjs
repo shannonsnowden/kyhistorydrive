@@ -76,13 +76,20 @@ function firstSentence(text) {
     .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
     .replace(/\s+/g, ' ')
     .trim()
+  if (!t) return ''
   const parts = t.split(/(?<=[.!?])\s+/)
   let out = ''
   for (const p of parts) {
     out = out ? `${out} ${p}` : p
-    if (out.length >= 70 && !/\b(Jr|Sr|Dr|Capt|Col|Gen|Mr|Mrs|Ms|St|Ave)\.$/.test(out)) break
+    if (
+      out.length >= 40 &&
+      /[.!?]$/.test(out) &&
+      !/\b(Jr|Sr|Dr|Capt|Col|Gen|Mr|Mrs|Ms|St|Ave)\.$/.test(out)
+    ) {
+      break
+    }
   }
-  return out.length > 220 ? `${out.slice(0, 217).trim()}…` : out
+  return out
 }
 
 function commonsQueries(title, extra) {

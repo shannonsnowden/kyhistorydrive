@@ -1323,6 +1323,9 @@ nav a:hover, nav a.active { color: var(--accent); }
   .hp-hero-slide {
     transition: none;
   }
+  .hp-mag-quote blockquote {
+    transition: none;
+  }
 }
 .hp-mag-hero-media {
   position: absolute;
@@ -1495,13 +1498,20 @@ nav a:hover, nav a.active { color: var(--accent); }
 .hp-mag-quote blockquote {
   margin: 0 auto;
   max-width: 46rem;
+  transition: opacity 0.22s ease;
+}
+.hp-mag-quote.is-changing blockquote {
+  opacity: 0;
 }
 .hp-mag-quote p {
   margin: 0 0 0.85rem;
   font-size: clamp(1.25rem, 2.4vw, 1.7rem);
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--heading);
   font-style: italic;
+  overflow: visible;
+  display: block;
+  -webkit-line-clamp: unset;
 }
 .hp-mag-quote footer {
   color: var(--muted);

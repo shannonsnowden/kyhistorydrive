@@ -64,13 +64,32 @@ function firstSentence(text) {
     .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
     .replace(/\s+/g, ' ')
     .trim()
+  if (!t) return ''
   const parts = t.split(/(?<=[.!?])\s+/)
   let out = ''
   for (const p of parts) {
     out = out ? `${out} ${p}` : p
-    if (out.length >= 70 && !/\b(Jr|Sr|Dr|Capt|Col|Gen|Mr|Mrs|Ms|St|Ave)\.$/.test(out)) break
+    if (
+      out.length >= 40 &&
+      /[.!?]$/.test(out) &&
+      !/\b(Jr|Sr|Dr|Capt|Col|Gen|Mr|Mrs|Ms|St|Ave)\.$/.test(out)
+    ) {
+      break
+    }
   }
-  return out.length > 220 ? `${out.slice(0, 217).trim()}…` : out
+  return out
+}
+
+function quoteFromStory(story) {
+  if (!story) return null
+  const text = String(story.quote || story.summary || '').trim()
+  if (!text) return null
+  const href = story.href || (story.slug ? `/#timeline/${encodeURIComponent(story.slug)}` : '')
+  return {
+    text,
+    source: story.title || '',
+    href,
+  }
 }
 
 function isPhotoUrl(url) {
@@ -244,6 +263,7 @@ function initHeroRotator(root, slides) {
     })
     const title = slideEls[index]?.querySelector('h2')
     if (title) root.setAttribute('aria-labelledby', title.id)
+    renderQuote(slides[index])
     if (announceChange) announce(index)
   }
 
@@ -316,6 +336,7 @@ function renderHero(pack) {
         <a class="btn hp-cta" href="/#timeline">Timeline</a>
       </div>
     </div>`
+    renderQuote(null)
     return
   }
   root.innerHTML = `
@@ -323,6 +344,7 @@ function renderHero(pack) {
       ${slides.map((story, i) => renderHeroSlide(story, pack, i)).join('')}
     </div>
     ${renderHeroControls(slides)}`
+  renderQuote(slides[0])
   initHeroRotator(root, slides)
 }
 
@@ -359,20 +381,32 @@ function renderFeatures(pack) {
     .join('')
 }
 
-function renderQuote(pack) {
+function renderQuote(story) {
   const root = document.getElementById('hpQuote')
   if (!root) return
-  const q = pack.quote
+  const q = quoteFromStory(story)
   if (!q?.text) {
     root.hidden = true
     root.innerHTML = ''
+    root.removeAttribute('aria-busy')
     return
   }
-  root.hidden = false
-  root.innerHTML = `<blockquote>
+  const next = `<blockquote>
       <p>${escapeHtml(q.text)}</p>
       <footer>— <a href="${escapeHtml(q.href || '#')}">${escapeHtml(q.source || '')}</a></footer>
     </blockquote>`
+  root.hidden = false
+  if (root.innerHTML === next) return
+  const apply = () => {
+    root.innerHTML = next
+    root.classList.remove('is-changing')
+  }
+  if (prefersReducedMotion() || !root.querySelector('blockquote')) {
+    apply()
+    return
+  }
+  root.classList.add('is-changing')
+  window.setTimeout(apply, 180)
 }
 
 function curatedLayer(item) {
@@ -492,7 +526,6 @@ loadPack()
   .then((pack) => {
     renderHero(pack)
     renderFeatures(pack)
-    renderQuote(pack)
     renderLayerCards(pack.layers)
   })
   .catch((err) => {
