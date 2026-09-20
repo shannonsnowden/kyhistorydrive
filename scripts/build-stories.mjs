@@ -24,6 +24,7 @@ for (const f of files) {
     tags: raw.tags || [],
     source: raw.source,
     briefDate: raw.briefDate,
+    ...(raw.photo?.image_url ? { photo: raw.photo } : {}),
   })
 }
 

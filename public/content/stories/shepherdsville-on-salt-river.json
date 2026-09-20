@@ -13,5 +13,12 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20"
+  "briefDate": "2026-09-20",
+  "photo": {
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
+    "title": "Shepherdsville, Kentucky",
+    "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
+    "source_label": "Wikipedia",
+    "attribution": "Wikipedia"
+  }
 }

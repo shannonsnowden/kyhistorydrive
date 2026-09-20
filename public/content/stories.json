@@ -74,7 +74,14 @@
       "lat": 38.72371944,
       "lon": -83.01908889,
       "mapConfidence": "override",
-      "matchedPlace": "Hansen Site (15GP14)"
+      "matchedPlace": "Hansen Site (15GP14)",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
+        "title": "Portsmouth Earthworks, Group A, wall remnant.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
     },
     {
       "slug": "carlston-annis-shell-mound",
@@ -1216,7 +1223,14 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Old_Chillicothe_Site.jpg/1920px-Old_Chillicothe_Site.jpg",
+        "title": "Old Chillicothe Site.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
     },
     {
       "slug": "capt-nathaniel-hart",
@@ -1487,7 +1501,14 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "override",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
+      "photo": {
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Jack_Jouett_House.jpg/1920px-Jack_Jouett_House.jpg",
+        "title": "Jack Jouett House.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_Jouett_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons"
+      }
     },
     {
       "slug": "battle-of-blue-licks",
@@ -1903,7 +1924,14 @@
       "lat": 37.98791666666666,
       "lon": -85.71646666666666,
       "mapConfidence": "override",
-      "matchedPlace": "Shepherdsville / Salt River falls"
+      "matchedPlace": "Shepherdsville / Salt River falls",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
+        "title": "Shepherdsville, Kentucky",
+        "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
     },
     {
       "slug": "owensboro-yellow-banks",
@@ -2541,7 +2569,14 @@
       "lat": 37.776836,
       "lon": -83.6833147,
       "mapConfidence": "override",
-      "matchedPlace": "Natural Bridge"
+      "matchedPlace": "Natural Bridge",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",
+        "title": "Natural Bridge State Resort Park",
+        "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
     },
     {
       "slug": "newt-kash-hollow-15mf1",

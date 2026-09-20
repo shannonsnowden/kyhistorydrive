@@ -2,6 +2,7 @@ import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { marked } from 'marked'
 import { initSiteSearch } from './site-search.js'
+import { initThemeToggle } from './theme.js'
 
 /** CARTO Voyager raster (OSM data). Requires VITE_CARTO_API_KEY at build time. */
 const CARTO_KEY = (import.meta.env.VITE_CARTO_API_KEY || '').trim()
@@ -419,6 +420,41 @@ let mapReady = false
 let activePopup = null
 let pendingFocus = null // { lon, lat, title, slug? }
 let highlightDetailProps = null // rich props for highlight pin popup
+let storyPhotoIndex = null
+let storyPhotoIndexPromise = null
+
+async function loadStoryPhotoIndex() {
+  if (storyPhotoIndex) return storyPhotoIndex
+  if (storyPhotoIndexPromise) return storyPhotoIndexPromise
+  storyPhotoIndexPromise = (async () => {
+    try {
+      const res = await fetch('/content/story-photos.json')
+      if (res.ok) {
+        storyPhotoIndex = await res.json()
+        return storyPhotoIndex
+      }
+    } catch {
+      /* empty index */
+    }
+    storyPhotoIndex = { bySlug: {}, byHistoryId: {} }
+    return storyPhotoIndex
+  })()
+  return storyPhotoIndexPromise
+}
+
+async function storyPhotoForProps(p = {}) {
+  const idx = await loadStoryPhotoIndex()
+  if (p.photo?.image_url) return p.photo
+  if (p.storyPhoto?.image_url) return p.storyPhoto
+  const historyId = p.historyId || p.id
+  if (historyId && idx.byHistoryId?.[historyId]?.photo?.image_url) {
+    return idx.byHistoryId[historyId].photo
+  }
+  if (p.slug && idx.bySlug?.[p.slug]?.photo?.image_url) {
+    return idx.bySlug[p.slug].photo
+  }
+  return null
+}
 
 function layerCircleId(id) {
   return `${id}-circle`
@@ -899,11 +935,13 @@ function photosHtml(photos) {
     .map((p) => {
       const title = escapeHtml(p.title || 'Historic photo')
       const year = p.year ? escapeHtml(String(p.year)) : ''
+      const credit = escapeHtml(p.attribution || p.source_label || p.credit || '')
       const href = escapeHtml(p.source_url || p.image_url)
       const img = escapeHtml(p.image_url)
       return `<a class="historic-photo-card" href="${href}" target="_blank" rel="noopener noreferrer">
         <img src="${img}" alt="${title}" loading="lazy" />
         <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
+        ${credit ? `<span class="historic-photo-attr">Source: ${credit}</span>` : ''}
       </a>`
     })
     .join('')
@@ -1194,11 +1232,19 @@ function topicPhotoScore(photo, title, placeHint) {
 
 const MIN_STORY_PHOTO_SCORE = 8
 
-async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown }) {
+async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown, existingPhoto }) {
   await loadHistoricPhotoData()
   const links = photoSearchLinks(title, placeHint, {
     wikipedia_url: extractWikipediaUrl(bodyMarkdown) || wikipediaSearchUrl(title),
   })
+
+  if (existingPhoto?.image_url) {
+    return {
+      ...existingPhoto,
+      ...links,
+      ...verifiedGovPhotoLinks(existingPhoto, title, placeHint),
+    }
+  }
 
   const candidates = []
 
@@ -1308,10 +1354,14 @@ function placeDetailExtrasHtml({
   layer,
   source_url,
   website,
+  storyPhoto,
 }) {
   const displayMarkdown = stripSourceAttribution(bodyMarkdown)
   const links = extractResearchLinks(bodyMarkdown)
   const photos = photosForPlace({ lat, lon, name, historyId, layer, requireTopic: true })
+  if (storyPhoto?.image_url && !photos.some((p) => p.image_url === storyPhoto.image_url)) {
+    photos.unshift(storyPhoto)
+  }
   return `${mapsLinksHtml(lat, lon, name, placeHint)}${photosHtml(photos)}${researchLinksHtml(links, name, {
     placeHint,
     source_url,
@@ -1369,6 +1419,7 @@ function detailHtmlFromProps(p, layerId, coords) {
     layer: layerId === 'markers' ? 'marker' : layerId,
     source_url: p.source_url || null,
     website: p.website || null,
+    storyPhoto: p.photo || p.storyPhoto || null,
   })
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
   const shareUrl = absoluteShareUrl(placeShareHash(layerId, p))
@@ -1436,6 +1487,8 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (!coords) return
   await loadHistoricPhotoData()
   const props = enrichFeatureProps(layerId, feature.properties || {})
+  const storyPhoto = await storyPhotoForProps(props)
+  if (storyPhoto) props.photo = storyPhoto
   const shareHash = placeShareHash(layerId, props)
   // Keep a shareable deep link in the address bar (home map only)
   if (targetMap === map && shareHash.startsWith('#map/')) {
@@ -2059,6 +2112,8 @@ function focusStoryOnMaps(story) {
     matchedPlace: story.matchedPlace,
     lat: story.lat,
     lon: story.lon,
+    photo: story.photo || null,
+    slug: story.slug,
   }
   const conf =
     story.mapConfidence === 'exact'
@@ -2392,6 +2447,8 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
         matchedPlace: meta.matchedPlace,
         lat: meta.lat,
         lon: meta.lon,
+        photo: s.photo || null,
+        slug: meta.slug,
       }
       focusStoryOnMaps({ ...meta, ...highlightDetailProps, slug: meta.slug, title: s.title })
     }
@@ -2407,6 +2464,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
       bodyMarkdown: s.bodyMarkdown || '',
       historyId,
       layer: 'history',
+      storyPhoto: s.photo || null,
     })
     const sidebarPhoto = await resolveStorySidebarPhoto({
       title: s.title,
@@ -2415,6 +2473,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
       placeHint: meta.matchedPlace || meta.county,
       historyId,
       bodyMarkdown: s.bodyMarkdown || '',
+      existingPhoto: s.photo || null,
     })
     reader.innerHTML = `
       <div class="story-reader-layout">
@@ -2930,5 +2989,6 @@ document.querySelector('#mainNav a[data-route="map"]')?.addEventListener('click'
 
 syncDeepLinkFromQuery()
 ensureHomeHash()
+initThemeToggle()
 initSiteSearch()
 applyRoute().catch(console.error)

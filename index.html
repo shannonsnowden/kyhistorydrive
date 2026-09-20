@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-hp-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/src/styles.css" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme')
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.setAttribute('data-hp-theme', stored)
+            return
+          }
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.setAttribute('data-hp-theme', 'light')
+          }
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <header class="top">
@@ -43,6 +57,17 @@
         <a href="#timeline" data-route="timeline">Timeline</a>
         <a href="#about" data-route="about">About</a>
         <a href="#app" data-route="app">App</a>
+        <button
+          type="button"
+          id="hpThemeToggle"
+          class="hp-theme-toggle"
+          data-theme-toggle
+          aria-label="Switch to light theme"
+          aria-pressed="false"
+        >
+          <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
+          <span class="hp-theme-toggle-label">Light</span>
+        </button>
       </nav>
     </header>
 

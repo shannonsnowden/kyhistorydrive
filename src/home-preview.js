@@ -12,8 +12,7 @@
  */
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initSiteSearch } from './site-search.js'
-
-const THEME_KEY = 'khd-home-preview-theme'
+import { initThemeToggle } from './theme.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -115,7 +114,8 @@ async function liveStoriesForDate(briefDate, index) {
       /* use index row */
     }
     const wiki = extractWikipediaUrl(full.bodyMarkdown)
-    const photo = await fetchWikipediaPhoto(wiki || full.title)
+    const stored = full.photo?.image_url ? full.photo : meta.photo?.image_url ? meta.photo : null
+    const photo = stored || (await fetchWikipediaPhoto(wiki || full.title))
     cards.push({
       slug: full.slug || meta.slug,
       title: full.title || meta.title,
@@ -133,6 +133,7 @@ async function liveStoriesForDate(briefDate, index) {
   return {
     briefDate,
     displayDate: formatDisplayDate(briefDate),
+    stories: cards,
     hero,
     features: cards.filter((c) => c !== hero),
     quote: hero?.quote ? { text: hero.quote, source: hero.title, href: hero.href } : null,
@@ -146,39 +147,183 @@ function photoCredit(photo) {
   return label ? `${label}${year}` : ''
 }
 
+function briefStories(pack) {
+  if (Array.isArray(pack?.stories) && pack.stories.length) return pack.stories
+  const list = []
+  if (pack?.hero) list.push(pack.hero)
+  for (const item of pack?.features || []) {
+    if (item && item.slug !== pack.hero?.slug) list.push(item)
+  }
+  return list
+}
+
+function heroSlides(pack) {
+  const all = briefStories(pack)
+  const withPhotos = all.filter((s) => s?.photo?.image_url)
+  if (withPhotos.length) return withPhotos
+  return all[0] ? [all[0]] : []
+}
+
+function prefersReducedMotion() {
+  return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
+}
+
+function renderHeroSlide(story, pack, index) {
+  const titleId = index === 0 ? 'hp-hero-title' : `hp-hero-title-${index}`
+  const img = story.photo?.image_url
+    ? `<img class="hp-mag-hero-img" src="${escapeHtml(story.photo.image_url)}" alt="${escapeHtml(story.photo.title || story.title)}" ${index === 0 ? '' : 'loading="lazy"'} />`
+    : ''
+  const credit = photoCredit(story.photo)
+  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
+  return `<article
+      class="hp-hero-slide${index === 0 ? ' is-active' : ''}"
+      data-hero-index="${index}"
+      aria-hidden="${index === 0 ? 'false' : 'true'}"
+      ${index === 0 ? '' : 'inert'}
+    >
+      <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade"></div></div>
+      <div class="hp-mag-hero-copy">
+        <p class="hp-kicker">This morning · ${escapeHtml(pack.displayDate || '')}</p>
+        <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(String(story.yearStart))}` : ''}</p>
+        <h2 id="${titleId}">${escapeHtml(story.title)}</h2>
+        <p class="hp-hero-deck">${escapeHtml(story.summary)}</p>
+        <div class="hp-cta-row">
+          <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
+          <a class="btn hp-cta" href="/#timeline">All stories</a>
+        </div>
+        ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
+      </div>
+    </article>`
+}
+
+function renderHeroControls(slides) {
+  if (slides.length < 2) return ''
+  const dots = slides
+    .map((story, i) => {
+      const label = `Show story ${i + 1} of ${slides.length}: ${story.title}`
+      return `<button type="button" class="hp-hero-dot${i === 0 ? ' is-active' : ''}" data-hero-to="${i}" aria-label="${escapeHtml(label)}" aria-current="${i === 0 ? 'true' : 'false'}"></button>`
+    })
+    .join('')
+  return `<div class="hp-hero-controls">
+      <button type="button" class="hp-hero-nav" data-hero-dir="-1" aria-label="Previous story">‹</button>
+      <div class="hp-hero-dots" role="group" aria-label="Today’s brief stories">${dots}</div>
+      <button type="button" class="hp-hero-nav" data-hero-dir="1" aria-label="Next story">›</button>
+    </div>
+    <p class="visually-hidden" id="hpHeroStatus" aria-live="polite"></p>`
+}
+
+function initHeroRotator(root, slides) {
+  if (!root || slides.length < 2) return
+  const slideEls = [...root.querySelectorAll('.hp-hero-slide')]
+  const dots = [...root.querySelectorAll('.hp-hero-dot')]
+  const status = document.getElementById('hpHeroStatus')
+  const intervalMs = 7000
+  let index = 0
+  let timer = null
+  let paused = false
+
+  function announce(i) {
+    if (!status) return
+    const story = slides[i]
+    status.textContent = `Story ${i + 1} of ${slides.length}: ${story.title}`
+  }
+
+  function show(next, { announceChange = true } = {}) {
+    index = (next + slideEls.length) % slideEls.length
+    slideEls.forEach((el, i) => {
+      const on = i === index
+      el.classList.toggle('is-active', on)
+      el.setAttribute('aria-hidden', on ? 'false' : 'true')
+      if (on) el.removeAttribute('inert')
+      else el.setAttribute('inert', '')
+    })
+    dots.forEach((dot, i) => {
+      const on = i === index
+      dot.classList.toggle('is-active', on)
+      dot.setAttribute('aria-current', on ? 'true' : 'false')
+    })
+    const title = slideEls[index]?.querySelector('h2')
+    if (title) root.setAttribute('aria-labelledby', title.id)
+    if (announceChange) announce(index)
+  }
+
+  function stop() {
+    if (timer) {
+      clearInterval(timer)
+      timer = null
+    }
+  }
+
+  function play() {
+    stop()
+    if (prefersReducedMotion() || paused) return
+    timer = setInterval(() => show(index + 1), intervalMs)
+  }
+
+  function pause() {
+    paused = true
+    stop()
+  }
+
+  function resume() {
+    paused = false
+    play()
+  }
+
+  root.querySelectorAll('[data-hero-dir]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      show(index + Number(btn.dataset.heroDir || 0))
+      play()
+    })
+  })
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      show(Number(dot.dataset.heroTo || 0))
+      play()
+    })
+  })
+  root.addEventListener('mouseenter', pause)
+  root.addEventListener('mouseleave', resume)
+  root.addEventListener('focusin', pause)
+  root.addEventListener('focusout', (e) => {
+    if (!root.contains(e.relatedTarget)) resume()
+  })
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop()
+    else if (!paused) play()
+  })
+  window.matchMedia?.('(prefers-reduced-motion: reduce)')?.addEventListener?.('change', () => {
+    if (prefersReducedMotion()) stop()
+    else play()
+  })
+
+  root.setAttribute('aria-roledescription', 'carousel')
+  announce(0)
+  play()
+}
+
 function renderHero(pack) {
   const root = document.getElementById('hpHero')
   if (!root) return
-  const hero = pack.hero
-  if (!hero) {
+  const slides = heroSlides(pack)
+  if (!slides.length) {
     root.innerHTML = `<div class="hp-mag-hero-copy">
       <p class="hp-kicker">Draft homepage</p>
       <h2 id="hp-hero-title">Kentucky history, this morning.</h2>
       <p>No daily brief is loaded yet. Open the map or timeline while the next ingest lands.</p>
       <div class="hp-cta-row">
         <a class="btn hp-cta" href="/#map">Open the map</a>
-        <a class="btn ghost hp-cta" href="/#timeline">Timeline</a>
+        <a class="btn hp-cta" href="/#timeline">Timeline</a>
       </div>
     </div>`
     return
   }
-  const img = hero.photo?.image_url
-    ? `<img class="hp-mag-hero-img" src="${escapeHtml(hero.photo.image_url)}" alt="${escapeHtml(hero.photo.title || hero.title)}" />`
-    : ''
-  const credit = photoCredit(hero.photo)
   root.innerHTML = `
-    <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade"></div></div>
-    <div class="hp-mag-hero-copy">
-      <p class="hp-kicker">This morning · ${escapeHtml(pack.displayDate || '')}</p>
-      <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(hero.era))}${hero.yearStart ? ` · ${escapeHtml(String(hero.yearStart))}` : ''}</p>
-      <h2 id="hp-hero-title">${escapeHtml(hero.title)}</h2>
-      <p class="hp-hero-deck">${escapeHtml(hero.summary)}</p>
-      <div class="hp-cta-row">
-        <a class="btn hp-cta" href="${escapeHtml(hero.href)}">Read the story</a>
-        <a class="btn hp-cta" href="/#timeline">All stories</a>
-      </div>
-      ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
-    </div>`
+    <div class="hp-hero-viewport">
+      ${slides.map((story, i) => renderHeroSlide(story, pack, i)).join('')}
+    </div>
+    ${renderHeroControls(slides)}`
+  initHeroRotator(root, slides)
 }
 
 function renderFeatures(pack) {
@@ -332,54 +477,6 @@ async function loadPack() {
     return { ...live, layers: pack?.layers || [] }
   }
   return pack || { hero: null, features: [], layers: [] }
-}
-
-function readStoredTheme() {
-  try {
-    const stored = localStorage.getItem(THEME_KEY)
-    if (stored === 'light' || stored === 'dark') return stored
-  } catch {
-    /* ignore */
-  }
-  return null
-}
-
-function preferredTheme() {
-  const stored = readStoredTheme()
-  if (stored) return stored
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-    return 'light'
-  }
-  return 'dark'
-}
-
-function applyTheme(theme) {
-  const next = theme === 'light' ? 'light' : 'dark'
-  document.documentElement.setAttribute('data-hp-theme', next)
-  try {
-    localStorage.setItem(THEME_KEY, next)
-  } catch {
-    /* ignore */
-  }
-  const btn = document.getElementById('hpThemeToggle')
-  if (!btn) return
-  const isLight = next === 'light'
-  btn.setAttribute('aria-pressed', isLight ? 'true' : 'false')
-  btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme')
-  const label = btn.querySelector('.hp-theme-toggle-label')
-  const icon = btn.querySelector('.hp-theme-toggle-icon')
-  if (label) label.textContent = isLight ? 'Dark' : 'Light'
-  if (icon) icon.textContent = isLight ? '☾' : '☀'
-}
-
-function initThemeToggle() {
-  applyTheme(preferredTheme())
-  const btn = document.getElementById('hpThemeToggle')
-  if (!btn) return
-  btn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-hp-theme')
-    applyTheme(current === 'light' ? 'dark' : 'light')
-  })
 }
 
 initThemeToggle()
