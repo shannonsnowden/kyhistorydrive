@@ -2577,7 +2577,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
             ${
               mapHash
                 ? `<div class="story-card-actions">
-              <a class="btn" href="${escapeHtml(mapHash)}">Open on the map</a>
+              <a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>
             </div>`
                 : ''
             }
