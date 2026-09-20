@@ -1814,7 +1814,7 @@ function initMap() {
       if (!mapReady) return
       const place = parseHash()
       if (place.view === 'map' && place.placeLayer && place.placeId) {
-        openPlaceFromHash({ placeLayer: place.placeLayer, placeId: place.placeId }).catch(console.error)
+        revealPlaceFromHash({ placeLayer: place.placeLayer, placeId: place.placeId }).catch(console.error)
         return
       }
       ensureHighlightSource(map, null)
@@ -1914,16 +1914,10 @@ function initMap() {
     ensureHighlightSource(map, null)
     const place = parseHash()
     if (place.view === 'map' && place.placeLayer && place.placeId) {
-      const tryOpen = async (attempt = 0) => {
-        const ok = await openPlaceFromHash({
-          placeLayer: place.placeLayer,
-          placeId: place.placeId,
-        })
-        if (!ok && attempt < 5) {
-          window.setTimeout(() => tryOpen(attempt + 1), 200)
-        }
-      }
-      tryOpen().catch(console.error)
+      revealPlaceFromHash({
+        placeLayer: place.placeLayer,
+        placeId: place.placeId,
+      }).catch(console.error)
     } else {
       fitMapToKentucky(map, { duration: 0 })
     }
@@ -3031,6 +3025,22 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
   return true
 }
 
+/** Open a map deep-link after the home map canvas is visible (hidden→shown race). */
+async function revealPlaceFromHash({ placeLayer, placeId }, attempt = 0) {
+  if (!placeLayer || !placeId) return false
+  if (!map || !mapReady) return false
+  try {
+    map.resize()
+  } catch {
+    /* ignore */
+  }
+  const ok = await openPlaceFromHash({ placeLayer, placeId })
+  if (ok && activePopup) return true
+  if (attempt >= 6) return ok
+  await new Promise((resolve) => window.setTimeout(resolve, 120 + attempt * 80))
+  return revealPlaceFromHash({ placeLayer, placeId }, attempt + 1)
+}
+
 
 /* -------------------- Router -------------------- */
 function setActiveNav(view) {
@@ -3062,7 +3072,7 @@ async function applyRoute() {
       map?.resize()
       if (!mapReady) return
       if (placeLayer && placeId) {
-        openPlaceFromHash({ placeLayer, placeId }).catch(console.error)
+        revealPlaceFromHash({ placeLayer, placeId }).catch(console.error)
         return
       }
       setLayerVisible('markers', true)
