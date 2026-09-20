@@ -1716,6 +1716,7 @@ function initMap() {
   const zoomFull = () => fitMapToKentucky(map)
   document.getElementById('zoomFullState')?.addEventListener('click', zoomFull)
   document.getElementById('zoomFullStateMap')?.addEventListener('click', zoomFull)
+  document.getElementById('heroZoomFullState')?.addEventListener('click', zoomFull)
 
   map.on('load', async () => {
     try {
