@@ -229,25 +229,46 @@ function renderQuote(pack) {
     </blockquote>`
 }
 
+function curatedLayer(item) {
+  return (
+    LAYER_HIGHLIGHTS.find((h) => h.placeId === item.placeId) ||
+    LAYER_HIGHLIGHTS.find((h) => h.layerId === item.layerId) ||
+    null
+  )
+}
+
+function layerHref(item) {
+  if (item.href) return item.href
+  return `/#map/${encodeURIComponent(item.layerId)}/${encodeURIComponent(item.placeId)}`
+}
+
 function renderLayerCards(layers) {
   const root = document.getElementById('hpLayerCards')
   if (!root) return
-  const items = layers?.length ? layers : LAYER_HIGHLIGHTS.map((item) => ({
-    ...item,
-    href: `/#map/${encodeURIComponent(item.layerId)}/${encodeURIComponent(item.placeId)}`,
-  }))
+  const items = layers?.length ? layers : LAYER_HIGHLIGHTS
   root.innerHTML = items
     .map((item) => {
-      const img = item.photo?.image_url
-        ? `<img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.name)}" loading="lazy" />`
+      const curated = curatedLayer(item)
+      const photo =
+        curated?.photo?.image_url && curated.placeId === item.placeId
+          ? curated.photo
+          : item.photo?.image_url
+            ? item.photo
+            : curated?.photo
+      const blurb = item.blurb || curated?.blurb || ''
+      const href = layerHref(item)
+      const img = photo?.image_url
+        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" loading="lazy" />`
         : `<div class="hp-feature-fallback" aria-hidden="true"></div>`
-      const credit = photoCredit(item.photo)
+      const credit = photoCredit(photo)
       return `<article class="hp-layer-card">
-        <a class="hp-layer-media" href="${escapeHtml(item.href)}">${img}</a>
+        <a class="hp-layer-media" href="${escapeHtml(href)}">${img}</a>
         <div class="hp-layer-copy">
           <p class="hp-card-layer">${escapeHtml(item.layerLabel)}</p>
-          <h3 class="hp-layer-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.name)}</a></h3>
+          <h3 class="hp-layer-title"><a href="${escapeHtml(href)}">${escapeHtml(item.name)}</a></h3>
           <p class="hp-layer-place">${escapeHtml(item.place || '')}</p>
+          ${blurb ? `<p class="hp-card-blurb">${escapeHtml(blurb)}</p>` : ''}
+          <a class="hp-layer-cta" href="${escapeHtml(href)}">Open on the map</a>
           ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
         </div>
       </article>`

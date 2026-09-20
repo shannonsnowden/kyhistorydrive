@@ -1,7 +1,30 @@
 /**
  * Shared curated content for /home-preview (layers + related sites).
  * Daily story highlights are NOT here — they come from the morning-brief pipeline.
+ *
+ * Layer cards always carry a curated, attributed photo (Commons / Wikipedia /
+ * HABS-LOC). Do not hotlink restaurant blogs. Moonlite Bar-B-Q has no
+ * licensed building photo on Commons/Openverse, so Good Eats uses Old Talbott
+ * Tavern (already on the locals layer) instead of a generic Owensboro street.
  */
+
+function commonsPhoto({
+  image_url,
+  title,
+  file,
+  attribution,
+  source_label = 'Wikimedia Commons',
+  year = null,
+}) {
+  return {
+    image_url,
+    title,
+    source_url: `https://commons.wikimedia.org/wiki/File:${file}`,
+    source_label,
+    attribution,
+    year,
+  }
+}
 
 export const LAYER_HIGHLIGHTS = [
   {
@@ -13,6 +36,14 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Madison County',
     wiki: 'Fort Boonesborough State Park',
     blurb: 'Daniel Boone’s 1775 settlement on the Kentucky River — Capital of the Colony of Transylvania.',
+    photo: commonsPhoto({
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg/1280px-Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg',
+      title: 'Fort Boonesborough reconstruction',
+      file: 'Fort_Boonesborough_reproduction,_KY,_US_(03).jpg',
+      attribution: 'Bubba73 · Wikimedia Commons · CC BY-SA 3.0',
+      year: 2017,
+    }),
   },
   {
     layerId: 'history',
@@ -23,6 +54,12 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Boone County',
     wiki: 'Big Bone Lick State Park',
     blurb: 'A Pleistocene salt lick where mastodons left bones in the mud — Kentucky’s window on deep time.',
+    photo: commonsPhoto({
+      image_url: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Bigbonelick.jpg',
+      title: 'Big Bone Lick State Park',
+      file: 'Bigbonelick.jpg',
+      attribution: 'Mattguyver · Wikimedia Commons · CC BY 3.0',
+    }),
   },
   {
     layerId: 'museums',
@@ -33,6 +70,13 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Frankfort',
     wiki: 'Kentucky Historical Society',
     blurb: 'Flagship Kentucky Historical Society museum, covering more than 12,000 years of the Commonwealth.',
+    photo: commonsPhoto({
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg/1280px-The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg',
+      title: 'Thomas D. Clark Center for Kentucky History',
+      file: 'The_façade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort,_Kentucky.jpg',
+      attribution: 'Lee Wright · Wikimedia Commons · CC BY-SA 2.0',
+    }),
   },
   {
     layerId: 'national',
@@ -43,6 +87,13 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Hodgenville',
     wiki: 'Abraham Lincoln Birthplace National Historical Park',
     blurb: 'The Sinking Spring farm where Lincoln was born in 1809, plus the Knob Creek boyhood unit.',
+    photo: commonsPhoto({
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg/1280px-Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg',
+      title: 'Abraham Lincoln Birthplace memorial',
+      file: 'Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg',
+      attribution: 'Jon698 · Wikimedia Commons · CC BY 4.0',
+    }),
   },
   {
     layerId: 'war',
@@ -51,18 +102,35 @@ export const LAYER_HIGHLIGHTS = [
     placeId: 'blue-licks-battlefield',
     name: 'Blue Licks Battlefield',
     place: 'Robertson County',
-    wiki: 'Battle of Blue Licks',
+    wiki: 'Blue Licks Battlefield State Resort Park',
+    commons: 'Blue Licks Battlefield monument',
     blurb: 'August 19, 1782: the last major Revolutionary War battle in Kentucky.',
+    photo: commonsPhoto({
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Blue_Licks_Battlefield_monument.jpg/1280px-Blue_Licks_Battlefield_monument.jpg',
+      title: 'Blue Licks Battlefield monument',
+      file: 'Blue_Licks_Battlefield_monument.jpg',
+      attribution: 'Nyttend · Wikimedia Commons · Public domain',
+      year: 2014,
+    }),
   },
   {
     layerId: 'locals',
     layerLabel: 'Good Eats',
     icon: { type: 'img', src: '/icons/locals.png' },
-    placeId: 'moonlite-bar-b-q',
-    name: 'Moonlite Bar-B-Q Inn',
-    place: 'Owensboro',
-    wiki: 'Owensboro, Kentucky',
-    blurb: 'Western Kentucky mutton barbecue — the regional style unique to this Ohio River city.',
+    placeId: 'old-talbott-tavern',
+    name: 'Old Talbott Tavern',
+    place: 'Bardstown',
+    wiki: 'Old Talbott Tavern',
+    blurb: 'Court Square tavern since the late 1700s — among America’s oldest inns, still a working bourbon bar.',
+    photo: commonsPhoto({
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg/1280px-Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg',
+      title: 'Old Talbott Tavern, Bardstown',
+      file: 'Old_Talbott_Tavern_—_Bardstown,_Kentucky.jpg',
+      attribution: 'Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0',
+      year: 2020,
+    }),
   },
   {
     layerId: 'bridges',
@@ -73,6 +141,13 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Fleming County',
     wiki: 'Goddard Bridge',
     blurb: 'White Bridge: a Town-lattice span over Sand Lick Creek, among Kentucky’s surviving covered bridges.',
+    photo: commonsPhoto({
+      image_url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/GoddardBridge.jpg',
+      title: 'Goddard Covered Bridge',
+      file: 'GoddardBridge.jpg',
+      attribution: 'Greg Hume · Wikimedia Commons · CC BY-SA 3.0',
+      year: 2007,
+    }),
   },
   {
     layerId: 'industry',
@@ -81,9 +156,18 @@ export const LAYER_HIGHLIGHTS = [
     placeId: 'bourbon-iron-works',
     name: 'Bourbon Iron Works',
     place: 'Owingsville',
-    wiki: 'Owingsville, Kentucky',
-    commons: 'Slate Furnace Kentucky',
+    wiki: 'Bourbon Iron Works',
+    commons: 'Bourbon Iron Works front',
     blurb: 'Jacob Myers blew in a charcoal blast furnace here in 1791 — munitions for the early Commonwealth.',
+    photo: commonsPhoto({
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Bourbon_Iron_Works_front.jpg/1280px-Bourbon_Iron_Works_front.jpg',
+      title: 'Bourbon Iron Works (Slate Furnace)',
+      file: 'Bourbon_Iron_Works_front.jpg',
+      attribution: 'Jeff Bates · HABS / Library of Congress · Public domain',
+      source_label: 'HABS / Library of Congress',
+      year: 1987,
+    }),
   },
   {
     layerId: 'newspapers',
@@ -93,8 +177,15 @@ export const LAYER_HIGHLIGHTS = [
     name: 'The Kentucke Gazette',
     place: 'Lexington',
     wiki: 'Kentucky Gazette',
-    commons: 'Kentucky Gazette newspaper Lexington',
+    commons: 'The Kentucky Gazette masthead',
     blurb: 'Kentucky’s first newspaper, begun August 11, 1787 by John and Fielding Bradford.',
+    photo: commonsPhoto({
+      image_url:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/The_Kentucky_Gazette_masthead.png/1280px-The_Kentucky_Gazette_masthead.png',
+      title: 'The Kentucky Gazette masthead',
+      file: 'The_Kentucky_Gazette_masthead.png',
+      attribution: 'The Kentucky Gazette · Wikimedia Commons · Public domain',
+    }),
   },
   {
     layerId: 'parks',
@@ -105,6 +196,13 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Whitley County',
     wiki: 'Cumberland Falls',
     blurb: 'The “Niagara of the South,” and one of the few Western Hemisphere places a moonbow can appear.',
+    photo: commonsPhoto({
+      image_url: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Cumberland_falls_2015_1.jpg',
+      title: 'Cumberland Falls',
+      file: 'Cumberland_falls_2015_1.jpg',
+      attribution: 'Aaron Vowels · Wikimedia Commons · CC BY 2.0',
+      year: 2015,
+    }),
   },
   {
     layerId: 'cemeteries',
@@ -115,6 +213,12 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Frankfort',
     wiki: 'Frankfort Cemetery',
     blurb: 'Hilltop rural cemetery (1844) overlooking the capital — Daniel and Rebecca Boone were reinterred here.',
+    photo: commonsPhoto({
+      image_url: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG',
+      title: 'Frankfort Cemetery',
+      file: 'Frankfort_Cemetery;_Frankfort,_Kentucky.JPG',
+      attribution: 'Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0',
+    }),
   },
   {
     layerId: 'distilleries',
@@ -125,6 +229,12 @@ export const LAYER_HIGHLIGHTS = [
     place: 'Frankfort',
     wiki: 'Buffalo Trace Distillery',
     blurb: 'A Kentucky River distilling campus with late-1700s roots, continuous through Prohibition.',
+    photo: commonsPhoto({
+      image_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Buffalo_Trace_Tower.jpg',
+      title: 'Buffalo Trace Distillery',
+      file: 'Buffalo_Trace_Tower.jpg',
+      attribution: 'Kittugwiki · Wikimedia Commons · CC BY-SA 3.0',
+    }),
   },
 ]
 

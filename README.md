@@ -112,7 +112,7 @@ Daily story highlights come from the same KY History morning brief that feeds Ti
 
 The preview page loads that pack, then re-checks `stories.json` in the browser. If a newer `briefDate` is already live, it fetches those story files and Wikipedia thumbnails so the homepage can update on the same deploy even if the pack step was skipped. If today’s feed is empty, the last baked pack is the fallback.
 
-Photos are credited on the page (Wikipedia / Commons / ULPA / Historypin, etc.).
+Photos are credited on the page (Wikipedia / Commons / ULPA / Historypin, etc.). Layer highlight cards use curated Commons / HABS-LOC photos baked into `src/home-preview-data.js` so every “Explore a layer” card has a real thumbnail plus a map deep-link — not a text-only fallback.
 
 ## Data attribution
 

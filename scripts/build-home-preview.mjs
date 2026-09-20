@@ -313,12 +313,14 @@ async function main() {
 
   const layers = []
   for (const item of LAYER_HIGHLIGHTS) {
-    const photo = await resolvePhoto({
-      title: item.name,
-      wiki: item.wiki,
-      commons: item.commons,
-      historicPhotos,
-    })
+    const photo = item.photo?.image_url
+      ? item.photo
+      : await resolvePhoto({
+          title: item.name,
+          wiki: item.wiki,
+          commons: item.commons,
+          historicPhotos,
+        })
     layers.push({
       ...item,
       href: `/#map/${encodeURIComponent(item.layerId)}/${encodeURIComponent(item.placeId)}`,

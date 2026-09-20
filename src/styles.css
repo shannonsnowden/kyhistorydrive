@@ -1334,9 +1334,27 @@ nav a:hover, nav a.active { color: var(--accent); }
   overflow: hidden;
 }
 .hp-layer-place {
-  margin: 0;
+  margin: 0 0 0.4rem;
   color: var(--muted);
   font-size: 0.8rem;
+}
+.hp-layer-copy .hp-card-blurb {
+  margin: 0 0 0.75rem;
+  -webkit-line-clamp: 3;
+}
+.hp-layer-cta {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.hp-layer-cta:hover {
+  text-decoration: underline;
+}
+.hp-layer-copy .hp-photo-credit {
+  margin: 0.55rem 0 0;
 }
 
 .hp-mag-quote {
@@ -1366,11 +1384,13 @@ nav a:hover, nav a.active { color: var(--accent); }
 
 .hp-layer-rail {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: 1rem;
   width: 100%;
 }
 .hp-layer-card {
+  display: flex;
+  flex-direction: column;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 12px;

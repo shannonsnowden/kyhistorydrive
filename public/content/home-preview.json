@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T13:56:38.793Z",
+  "generatedAt": "2026-09-20T14:40:26.309Z",
   "briefDate": "2026-09-20",
   "displayDate": "Sunday, September 20, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The preview page also re-reads stories.json in the browser.",
@@ -118,14 +118,15 @@
       "place": "Madison County",
       "wiki": "Fort Boonesborough State Park",
       "blurb": "Daniel Boone’s 1775 settlement on the Kentucky River — Capital of the Colony of Transylvania.",
-      "href": "/#map/markers/1520",
       "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg/3840px-Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg",
-        "title": "Fort Boonesborough State Park",
-        "source_url": "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg/1280px-Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg",
+        "title": "Fort Boonesborough reconstruction",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2017
+      },
+      "href": "/#map/markers/1520"
     },
     {
       "layerId": "history",
@@ -139,14 +140,15 @@
       "place": "Boone County",
       "wiki": "Big Bone Lick State Park",
       "blurb": "A Pleistocene salt lick where mastodons left bones in the mud — Kentucky’s window on deep time.",
-      "href": "/#map/history/big-bone-lick",
       "photo": {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Bigbonelick.jpg",
         "title": "Big Bone Lick State Park",
-        "source_url": "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
+        "year": null
+      },
+      "href": "/#map/history/big-bone-lick"
     },
     {
       "layerId": "museums",
@@ -160,14 +162,15 @@
       "place": "Frankfort",
       "wiki": "Kentucky Historical Society",
       "blurb": "Flagship Kentucky Historical Society museum, covering more than 12,000 years of the Commonwealth.",
-      "href": "/#map/museums/thomas-d-clark-center",
       "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg/3840px-The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg",
-        "title": "Kentucky Historical Society",
-        "source_url": "https://en.wikipedia.org/wiki/Kentucky_Historical_Society",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg/1280px-The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg",
+        "title": "Thomas D. Clark Center for Kentucky History",
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_façade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Lee Wright · Wikimedia Commons · CC BY-SA 2.0",
+        "year": null
+      },
+      "href": "/#map/museums/thomas-d-clark-center"
     },
     {
       "layerId": "national",
@@ -181,14 +184,15 @@
       "place": "Hodgenville",
       "wiki": "Abraham Lincoln Birthplace National Historical Park",
       "blurb": "The Sinking Spring farm where Lincoln was born in 1809, plus the Knob Creek boyhood unit.",
-      "href": "/#map/national/abraham-lincoln-birthplace-nhp",
       "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg/3840px-Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
-        "title": "Abraham Lincoln Birthplace National Historical Park",
-        "source_url": "https://en.wikipedia.org/wiki/Abraham_Lincoln_Birthplace_National_Historical_Park",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg/1280px-Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
+        "title": "Abraham Lincoln Birthplace memorial",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jon698 · Wikimedia Commons · CC BY 4.0",
+        "year": null
+      },
+      "href": "/#map/national/abraham-lincoln-birthplace-nhp"
     },
     {
       "layerId": "war",
@@ -200,16 +204,18 @@
       "placeId": "blue-licks-battlefield",
       "name": "Blue Licks Battlefield",
       "place": "Robertson County",
-      "wiki": "Battle of Blue Licks",
+      "wiki": "Blue Licks Battlefield State Resort Park",
+      "commons": "Blue Licks Battlefield monument",
       "blurb": "August 19, 1782: the last major Revolutionary War battle in Kentucky.",
-      "href": "/#map/war/blue-licks-battlefield",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Daniel_Boone_At_Battle_of_Blue_Licks_Indian_History_For_Young_Folks_By_Francis_S_Drake.jpg",
-        "title": "Battle of Blue Licks",
-        "source_url": "https://en.wikipedia.org/wiki/Battle_of_Blue_Licks",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Blue_Licks_Battlefield_monument.jpg/1280px-Blue_Licks_Battlefield_monument.jpg",
+        "title": "Blue Licks Battlefield monument",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2014
+      },
+      "href": "/#map/war/blue-licks-battlefield"
     },
     {
       "layerId": "locals",
@@ -218,19 +224,20 @@
         "type": "img",
         "src": "/icons/locals.png"
       },
-      "placeId": "moonlite-bar-b-q",
-      "name": "Moonlite Bar-B-Q Inn",
-      "place": "Owensboro",
-      "wiki": "Owensboro, Kentucky",
-      "blurb": "Western Kentucky mutton barbecue — the regional style unique to this Ohio River city.",
-      "href": "/#map/locals/moonlite-bar-b-q",
+      "placeId": "old-talbott-tavern",
+      "name": "Old Talbott Tavern",
+      "place": "Bardstown",
+      "wiki": "Old Talbott Tavern",
+      "blurb": "Court Square tavern since the late 1700s — among America’s oldest inns, still a working bourbon bar.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Owensboro2ndStAnn.JPG",
-        "title": "Owensboro, Kentucky",
-        "source_url": "https://en.wikipedia.org/wiki/Owensboro%2C_Kentucky",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg/1280px-Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg",
+        "title": "Old Talbott Tavern, Bardstown",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Talbott_Tavern_—_Bardstown,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2020
+      },
+      "href": "/#map/locals/old-talbott-tavern"
     },
     {
       "layerId": "bridges",
@@ -244,14 +251,15 @@
       "place": "Fleming County",
       "wiki": "Goddard Bridge",
       "blurb": "White Bridge: a Town-lattice span over Sand Lick Creek, among Kentucky’s surviving covered bridges.",
-      "href": "/#map/bridges/goddard",
       "photo": {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/GoddardBridge.jpg",
-        "title": "Goddard Bridge",
-        "source_url": "https://en.wikipedia.org/wiki/Goddard_Bridge",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "title": "Goddard Covered Bridge",
+        "source_url": "https://commons.wikimedia.org/wiki/File:GoddardBridge.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "href": "/#map/bridges/goddard"
     },
     {
       "layerId": "industry",
@@ -263,17 +271,18 @@
       "placeId": "bourbon-iron-works",
       "name": "Bourbon Iron Works",
       "place": "Owingsville",
-      "wiki": "Owingsville, Kentucky",
-      "commons": "Slate Furnace Kentucky",
+      "wiki": "Bourbon Iron Works",
+      "commons": "Bourbon Iron Works front",
       "blurb": "Jacob Myers blew in a charcoal blast furnace here in 1791 — munitions for the early Commonwealth.",
-      "href": "/#map/industry/bourbon-iron-works",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Owingsville%2C_Kentucky.jpg",
-        "title": "Owingsville, Kentucky",
-        "source_url": "https://en.wikipedia.org/wiki/Owingsville%2C_Kentucky",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Bourbon_Iron_Works_front.jpg/1280px-Bourbon_Iron_Works_front.jpg",
+        "title": "Bourbon Iron Works (Slate Furnace)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bourbon_Iron_Works_front.jpg",
+        "source_label": "HABS / Library of Congress",
+        "attribution": "Jeff Bates · HABS / Library of Congress · Public domain",
+        "year": 1987
+      },
+      "href": "/#map/industry/bourbon-iron-works"
     },
     {
       "layerId": "newspapers",
@@ -286,16 +295,17 @@
       "name": "The Kentucke Gazette",
       "place": "Lexington",
       "wiki": "Kentucky Gazette",
-      "commons": "Kentucky Gazette newspaper Lexington",
+      "commons": "The Kentucky Gazette masthead",
       "blurb": "Kentucky’s first newspaper, begun August 11, 1787 by John and Fielding Bradford.",
-      "href": "/#map/newspapers/lccn-sn82014784",
       "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/The_Kentucky_Gazette_masthead.png/1920px-The_Kentucky_Gazette_masthead.png",
-        "title": "The Kentucky Gazette masthead.png",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/The_Kentucky_Gazette_masthead.png/1280px-The_Kentucky_Gazette_masthead.png",
+        "title": "The Kentucky Gazette masthead",
         "source_url": "https://commons.wikimedia.org/wiki/File:The_Kentucky_Gazette_masthead.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
+        "attribution": "The Kentucky Gazette · Wikimedia Commons · Public domain",
+        "year": null
+      },
+      "href": "/#map/newspapers/lccn-sn82014784"
     },
     {
       "layerId": "parks",
@@ -309,14 +319,15 @@
       "place": "Whitley County",
       "wiki": "Cumberland Falls",
       "blurb": "The “Niagara of the South,” and one of the few Western Hemisphere places a moonbow can appear.",
-      "href": "/#map/parks/cumberland-falls-state-resort-park",
       "photo": {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cumberland_falls_2015_1.jpg",
         "title": "Cumberland Falls",
-        "source_url": "https://en.wikipedia.org/wiki/Cumberland_Falls",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_falls_2015_1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Aaron Vowels · Wikimedia Commons · CC BY 2.0",
+        "year": 2015
+      },
+      "href": "/#map/parks/cumberland-falls-state-resort-park"
     },
     {
       "layerId": "cemeteries",
@@ -330,14 +341,15 @@
       "place": "Frankfort",
       "wiki": "Frankfort Cemetery",
       "blurb": "Hilltop rural cemetery (1844) overlooking the capital — Daniel and Rebecca Boone were reinterred here.",
-      "href": "/#map/cemeteries/frankfort-cemetery",
       "photo": {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG",
         "title": "Frankfort Cemetery",
-        "source_url": "https://en.wikipedia.org/wiki/Frankfort_Cemetery",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "source_url": "https://commons.wikimedia.org/wiki/File:Frankfort_Cemetery;_Frankfort,_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+        "year": null
+      },
+      "href": "/#map/cemeteries/frankfort-cemetery"
     },
     {
       "layerId": "distilleries",
@@ -351,14 +363,15 @@
       "place": "Frankfort",
       "wiki": "Buffalo Trace Distillery",
       "blurb": "A Kentucky River distilling campus with late-1700s roots, continuous through Prohibition.",
-      "href": "/#map/distilleries/buffalo-trace",
       "photo": {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Buffalo_Trace_Tower.jpg",
         "title": "Buffalo Trace Distillery",
-        "source_url": "https://en.wikipedia.org/wiki/Buffalo_Trace_Distillery",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buffalo_Trace_Tower.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kittugwiki · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      },
+      "href": "/#map/distilleries/buffalo-trace"
     }
   ],
   "quote": {
