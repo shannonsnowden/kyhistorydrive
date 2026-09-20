@@ -21,7 +21,9 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Jack_Jouett_House.jpg",
       "source_label": "Wikimedia Commons",
       "attribution": "Wikimedia Commons"
-    }
+    },
+    "historyId": "capt-jack-jouett-midnight-ride-1781",
+    "mapHref": "/#map/history/capt-jack-jouett-midnight-ride-1781"
   },
   "features": [
     {
@@ -42,7 +44,9 @@
         "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
         "source_label": "Wikipedia",
         "attribution": "Wikipedia"
-      }
+      },
+      "historyId": "shepherdsville-founding-adam-shepherd",
+      "mapHref": "/#map/history/shepherdsville-founding-adam-shepherd"
     },
     {
       "slug": "shawnee-chillicothe-divisions",
@@ -62,7 +66,9 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons"
-      }
+      },
+      "historyId": null,
+      "mapHref": null
     },
     {
       "slug": "hansen-site-15gp14",
@@ -82,7 +88,9 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons"
-      }
+      },
+      "historyId": "hansen-site-15gp14-greenup-county",
+      "mapHref": "/#map/history/hansen-site-15gp14-greenup-county"
     },
     {
       "slug": "natural-bridge-sandstone-arch",
@@ -102,7 +110,9 @@
         "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
         "source_label": "Wikipedia",
         "attribution": "Wikipedia"
-      }
+      },
+      "historyId": "natural-bridge-corbin-sandstone",
+      "mapHref": "/#map/history/natural-bridge-corbin-sandstone"
     }
   ],
   "layers": [
@@ -378,5 +388,6 @@
     "text": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of backwoods trails to warn Thomas Jefferson at Monticello and the Virginia Assembly at Charlottesville.",
     "source": "Capt. Jack Jouett",
     "href": "/#timeline/capt-jack-jouett"
-  }
+  },
+  "stories": []
 }
