@@ -17,3 +17,13 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+
+# Serve the draft marketing homepage without replacing `/` (the map).
+# Do not add a catch-all SPA rewrite — hash routes on `/` stay as they are.
+customRules:
+  - source: '/home-preview'
+    target: '/home-preview/index.html'
+    status: '200'
+  - source: '/home-preview/'
+    target: '/home-preview/index.html'
+    status: '200'
