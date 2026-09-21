@@ -510,17 +510,34 @@ async function loadStoryPhotoIndex() {
   return storyPhotoIndexPromise
 }
 
+function isSameOriginPhotoUrl(url) {
+  const u = String(url || '')
+  return u.startsWith('/') && !u.startsWith('//')
+}
+
+/** Prefer vendored `/content/photos/...` over ScholarWorks / Commons hotlinks. */
+function preferVendoredPhoto(photo) {
+  if (!photo) return null
+  if (isSameOriginPhotoUrl(photo.local_image_path)) {
+    return { ...photo, image_url: photo.local_image_path }
+  }
+  if (isSameOriginPhotoUrl(photo.image_url)) return photo
+  return null
+}
+
 async function storyPhotoForProps(p = {}) {
   const idx = await loadStoryPhotoIndex()
+  const historyId = p.historyId || p.id
+  const indexed =
+    (historyId && idx.byHistoryId?.[historyId]?.photo) ||
+    (p.slug && idx.bySlug?.[p.slug]?.photo) ||
+    null
+  const vendored =
+    preferVendoredPhoto(p.photo) || preferVendoredPhoto(p.storyPhoto) || preferVendoredPhoto(indexed)
+  if (vendored) return vendored
   if (p.photo?.image_url) return p.photo
   if (p.storyPhoto?.image_url) return p.storyPhoto
-  const historyId = p.historyId || p.id
-  if (historyId && idx.byHistoryId?.[historyId]?.photo?.image_url) {
-    return idx.byHistoryId[historyId].photo
-  }
-  if (p.slug && idx.bySlug?.[p.slug]?.photo?.image_url) {
-    return idx.bySlug[p.slug].photo
-  }
+  if (indexed?.image_url) return indexed
   return null
 }
 

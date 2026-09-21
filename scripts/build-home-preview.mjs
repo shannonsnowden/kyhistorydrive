@@ -405,6 +405,15 @@ function writeStoryPhotoIndex(locations) {
     if (loc.historyId) byHistoryId[loc.historyId] = row
   }
   const out = path.join(ROOT, 'public/content/story-photos.json')
+  // Keep History-pin photos that are not attached to a story (e.g. Sprague Estill Springs).
+  try {
+    const existing = JSON.parse(fs.readFileSync(out, 'utf8'))
+    for (const [id, row] of Object.entries(existing?.byHistoryId || {})) {
+      if (!byHistoryId[id] && row?.photo?.image_url) byHistoryId[id] = row
+    }
+  } catch {
+    /* no previous index */
+  }
   fs.writeFileSync(
     out,
     `${JSON.stringify({ generatedAt: new Date().toISOString(), bySlug, byHistoryId }, null, 2)}\n`,

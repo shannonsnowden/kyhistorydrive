@@ -31,7 +31,7 @@ const LAYERS = [
       source_date: p.source_date || null,
       year_start: p.year_start ?? null,
       year_end: p.year_end ?? null,
-      photo: p.photo || null,
+      photo: vendorHistoryPhoto(p.photo),
       ...inferHistoryYearsAndEra(p),
     }),
   },
@@ -230,6 +230,15 @@ const CATEGORY_ERA = {
   person: 'other',
   bourbon: 'other',
   industry: 'other',
+}
+
+function vendorHistoryPhoto(photo) {
+  if (!photo) return null
+  const local = photo.local_image_path
+  if (typeof local === 'string' && local.startsWith('/') && !local.startsWith('//')) {
+    return { ...photo, image_url: local }
+  }
+  return photo
 }
 
 function countyFromSubtitle(sub) {
