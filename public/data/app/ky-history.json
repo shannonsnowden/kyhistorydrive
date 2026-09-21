@@ -1543,5 +1543,34 @@
       "https://www.hmdb.org/m.asp?m=136947",
       "https://scholarworks.moreheadstate.edu/sprague_photo_collection/117/"
     ]
+  },
+  {
+    "id": "m-robison-sawmill-irvine",
+    "name": "M. Robison Sawmill (Irvine)",
+    "subtitle": "Estill County \u00b7 Irvine \u00b7 c. 1908 (town-center pin)",
+    "latitude": 37.700638,
+    "longitude": -83.973813,
+    "history": "The M. Robison Sawmill at Irvine, Estill County, Kentucky, circa 1908 \u2014 captured in the Stuart S. Sprague photograph collection. Map pin uses Irvine town center (Nominatim) because the exact mill footprint is not documented in the catalog record; treat as a place-level pin for the historic sawmill operation, not a surveyed building outline. Photo: https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/",
+    "source_date": "2026-09-21",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "manual-irvine-town-center",
+    "geocode_note": "Exact mill site unknown; pinned to Irvine city centroid 37.700638,-83.973813",
+    "category": "other",
+    "website": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/",
+    "year_start": 1908,
+    "year_end": 1908,
+    "photo": {
+      "image_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/1107/preview.jpg",
+      "title": "Estill County \u2014 M. Robison Sawmill",
+      "source_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/",
+      "source_label": "Stuart S. Sprague Photograph Collection \u00b7 ScholarWorks @ Morehead State",
+      "attribution": "Stuart S. Sprague \u00b7 Kentucky Historical Society \u00b7 ScholarWorks @ Morehead State",
+      "year": 1908,
+      "local_image_path": "/content/photos/stories/m-robison-sawmill-irvine-c1908.jpg"
+    },
+    "sources": [
+      "https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/"
+    ]
   }
 ]

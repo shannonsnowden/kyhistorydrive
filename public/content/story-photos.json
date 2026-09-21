@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T12:18:39Z",
+  "generatedAt": "2026-09-21T12:19:55Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -97,6 +97,18 @@
         "source_label": "Stuart S. Sprague Photograph Collection \u00b7 ScholarWorks @ Morehead State",
         "attribution": "Stuart S. Sprague \u00b7 University of Kentucky Photographic Archives \u00b7 ScholarWorks @ Morehead State",
         "year": 1910
+      }
+    },
+    "m-robison-sawmill-irvine": {
+      "slug": null,
+      "historyId": "m-robison-sawmill-irvine",
+      "photo": {
+        "image_url": "/content/photos/stories/m-robison-sawmill-irvine-c1908.jpg",
+        "title": "Estill County \u2014 M. Robison Sawmill",
+        "source_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/",
+        "source_label": "Stuart S. Sprague Photograph Collection \u00b7 ScholarWorks @ Morehead State",
+        "attribution": "Stuart S. Sprague \u00b7 Kentucky Historical Society \u00b7 ScholarWorks @ Morehead State",
+        "year": 1908
       }
     }
   }
