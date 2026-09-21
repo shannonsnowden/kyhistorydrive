@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T10:15:35.834Z",
+  "generatedAt": "2026-09-21T10:45:22.142Z",
   "briefDate": "2026-09-21",
   "displayDate": "Monday, September 21, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -251,7 +251,7 @@
       "wiki": "Fort Boonesborough State Park",
       "blurb": "Daniel Boone’s 1775 settlement on the Kentucky River — Capital of the Colony of Transylvania.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg/1280px-Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg",
+        "image_url": "/content/photos/layers/1520.jpg",
         "title": "Fort Boonesborough reconstruction",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
         "source_label": "Wikimedia Commons",
@@ -273,7 +273,7 @@
       "wiki": "Big Bone Lick State Park",
       "blurb": "A Pleistocene salt lick where mastodons left bones in the mud — Kentucky’s window on deep time.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Bigbonelick.jpg",
+        "image_url": "/content/photos/layers/big-bone-lick.jpg",
         "title": "Big Bone Lick State Park",
         "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
         "source_label": "Wikimedia Commons",
@@ -295,7 +295,7 @@
       "wiki": "Kentucky Historical Society",
       "blurb": "Flagship Kentucky Historical Society museum, covering more than 12,000 years of the Commonwealth.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg/1280px-The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg",
+        "image_url": "/content/photos/layers/thomas-d-clark-center.jpg",
         "title": "Thomas D. Clark Center for Kentucky History",
         "source_url": "https://commons.wikimedia.org/wiki/File:The_façade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -317,7 +317,7 @@
       "wiki": "Abraham Lincoln Birthplace National Historical Park",
       "blurb": "The Sinking Spring farm where Lincoln was born in 1809, plus the Knob Creek boyhood unit.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg/1280px-Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
+        "image_url": "/content/photos/layers/abraham-lincoln-birthplace-nhp.jpg",
         "title": "Abraham Lincoln Birthplace memorial",
         "source_url": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
         "source_label": "Wikimedia Commons",
@@ -340,7 +340,7 @@
       "commons": "Blue Licks Battlefield monument",
       "blurb": "August 19, 1782: the last major Revolutionary War battle in Kentucky.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Blue_Licks_Battlefield_monument.jpg/1280px-Blue_Licks_Battlefield_monument.jpg",
+        "image_url": "/content/photos/layers/blue-licks-battlefield.jpg",
         "title": "Blue Licks Battlefield monument",
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
@@ -362,7 +362,7 @@
       "wiki": "Old Talbott Tavern",
       "blurb": "Court Square tavern since the late 1700s — among America’s oldest inns, still a working bourbon bar.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg/1280px-Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg",
+        "image_url": "/content/photos/layers/old-talbott-tavern.jpg",
         "title": "Old Talbott Tavern, Bardstown",
         "source_url": "https://commons.wikimedia.org/wiki/File:Old_Talbott_Tavern_—_Bardstown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -384,7 +384,7 @@
       "wiki": "Goddard Bridge",
       "blurb": "White Bridge: a Town-lattice span over Sand Lick Creek, among Kentucky’s surviving covered bridges.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/GoddardBridge.jpg/1280px-GoddardBridge.jpg",
+        "image_url": "/content/photos/layers/goddard.jpg",
         "title": "Goddard Covered Bridge",
         "source_url": "https://commons.wikimedia.org/wiki/File:GoddardBridge.jpg",
         "source_label": "Wikimedia Commons",
@@ -407,7 +407,7 @@
       "commons": "Bourbon Iron Works front",
       "blurb": "Jacob Myers blew in a charcoal blast furnace here in 1791 — munitions for the early Commonwealth.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Bourbon_Iron_Works_front.jpg/1280px-Bourbon_Iron_Works_front.jpg",
+        "image_url": "/content/photos/layers/bourbon-iron-works.jpg",
         "title": "Bourbon Iron Works (Slate Furnace)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Bourbon_Iron_Works_front.jpg",
         "source_label": "HABS / Library of Congress",
@@ -430,7 +430,7 @@
       "commons": "Kentucke Gazette Printing House",
       "blurb": "Kentucky’s first newspaper, begun August 11, 1787 by John and Fielding Bradford.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kentucke_Gazette_Printing_House.png/960px-Kentucke_Gazette_Printing_House.png",
+        "image_url": "/content/photos/layers/lccn-sn82014784.png",
         "title": "Kentucke Gazette printing house",
         "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
@@ -452,7 +452,7 @@
       "wiki": "Cumberland Falls",
       "blurb": "The “Niagara of the South,” and one of the few Western Hemisphere places a moonbow can appear.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cumberland_falls_2015_1.jpg",
+        "image_url": "/content/photos/layers/cumberland-falls-state-resort-park.jpg",
         "title": "Cumberland Falls",
         "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_falls_2015_1.jpg",
         "source_label": "Wikimedia Commons",
@@ -474,7 +474,7 @@
       "wiki": "Frankfort Cemetery",
       "blurb": "Hilltop rural cemetery (1844) overlooking the capital — Daniel and Rebecca Boone were reinterred here.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG/1280px-Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG",
+        "image_url": "/content/photos/layers/frankfort-cemetery.jpg",
         "title": "Frankfort Cemetery",
         "source_url": "https://commons.wikimedia.org/wiki/File:Frankfort_Cemetery;_Frankfort,_Kentucky.JPG",
         "source_label": "Wikimedia Commons",
@@ -496,7 +496,7 @@
       "wiki": "Buffalo Trace Distillery",
       "blurb": "A Kentucky River distilling campus with late-1700s roots, continuous through Prohibition.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Buffalo_Trace_Tower.jpg",
+        "image_url": "/content/photos/layers/buffalo-trace.jpg",
         "title": "Buffalo Trace Distillery",
         "source_url": "https://commons.wikimedia.org/wiki/File:Buffalo_Trace_Tower.jpg",
         "source_label": "Wikimedia Commons",

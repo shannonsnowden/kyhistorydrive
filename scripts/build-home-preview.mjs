@@ -222,8 +222,8 @@ function publicPhoto(photo) {
   return rest
 }
 
-function loadCuratedPhotos() {
-  const file = path.join(ROOT, 'scripts/story-photo-curated.json')
+function loadCuratedPhotos(rel = 'scripts/story-photo-curated.json') {
+  const file = path.join(ROOT, rel)
   if (!fs.existsSync(file)) return {}
   const raw = JSON.parse(fs.readFileSync(file, 'utf8'))
   const out = {}
@@ -234,10 +234,10 @@ function loadCuratedPhotos() {
   return out
 }
 
-function curatedPublicPhoto(slug, row) {
+function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
   const ext = row.ext || 'jpg'
   return {
-    image_url: `/content/photos/stories/${slug}.${ext}`,
+    image_url: `${publicDir}/${id}.${ext}`,
     title: row.title,
     source_url: row.source_url,
     source_label: row.source_label || 'Wikimedia Commons',
@@ -246,32 +246,62 @@ function curatedPublicPhoto(slug, row) {
   }
 }
 
-async function vendorCuratedPhoto(slug, row) {
+function vendorCandidateUrls(row) {
+  const urls = []
+  if (row.thumb_url) urls.push(row.thumb_url)
+  if (row.commonsFile) {
+    urls.push(
+      `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(row.commonsFile)}?width=1280`,
+    )
+  }
+  return [...new Set(urls)]
+}
+
+async function downloadVendorBytes(urls) {
+  let lastErr = null
+  for (const url of urls) {
+    try {
+      const res = await fetch(url, {
+        headers: { Accept: 'image/*', 'User-Agent': UA },
+        redirect: 'follow',
+      })
+      if (!res.ok) {
+        lastErr = new Error(`HTTP ${res.status} for ${url}`)
+        continue
+      }
+      const buf = Buffer.from(await res.arrayBuffer())
+      if (buf.length < 1000) {
+        lastErr = new Error(`tiny download (${buf.length}b) for ${url}`)
+        continue
+      }
+      return buf
+    } catch (err) {
+      lastErr = err
+    }
+  }
+  throw lastErr || new Error('no vendor URLs')
+}
+
+async function vendorCuratedPhoto(
+  id,
+  row,
+  { destDir = 'public/content/photos/stories', publicDir = '/content/photos/stories' } = {},
+) {
   const ext = row.ext || 'jpg'
-  const rel = path.join('public/content/photos/stories', `${slug}.${ext}`)
+  const rel = path.join(destDir, `${id}.${ext}`)
   const abs = path.join(ROOT, rel)
   fs.mkdirSync(path.dirname(abs), { recursive: true })
-  const photo = curatedPublicPhoto(slug, row)
+  const photo = curatedPublicPhoto(id, row, publicDir)
   const exists = fs.existsSync(abs) && fs.statSync(abs).size > 1000
   if (exists) return photo
-  if (!row.thumb_url) return photo
+  const urls = vendorCandidateUrls(row)
+  if (!urls.length) return photo
   try {
-    const res = await fetch(row.thumb_url, {
-      headers: { Accept: 'image/*', 'User-Agent': UA },
-    })
-    if (!res.ok) {
-      console.warn(`vendor ${slug}: HTTP ${res.status} — using remote thumb`)
-      return { ...photo, image_url: cleanUrl(row.thumb_url) }
-    }
-    const buf = Buffer.from(await res.arrayBuffer())
-    if (buf.length < 1000) {
-      console.warn(`vendor ${slug}: tiny download — using remote thumb`)
-      return { ...photo, image_url: cleanUrl(row.thumb_url) }
-    }
+    const buf = await downloadVendorBytes(urls)
     fs.writeFileSync(abs, buf)
   } catch (err) {
-    console.warn(`vendor ${slug}: ${err.message} — using remote thumb`)
-    return { ...photo, image_url: cleanUrl(row.thumb_url) }
+    console.warn(`vendor ${id}: ${err.message} — using remote thumb`)
+    return { ...photo, image_url: cleanUrl(row.thumb_url || photo.image_url) }
   }
   return photo
 }
@@ -406,6 +436,7 @@ async function main() {
   const locations = readJson('public/content/stories-locations.json')
   const historicPhotos = readJson('public/data/historic-photos.json')
   const curatedPhotos = loadCuratedPhotos()
+  const curatedLayerPhotos = loadCuratedPhotos('scripts/layer-photo-curated.json')
 
   const briefDate = index.briefDateRange?.end
   if (!briefDate) throw new Error('stories.json has no briefDateRange.end')
@@ -484,19 +515,33 @@ async function main() {
 
   const layers = []
   for (const item of LAYER_HIGHLIGHTS) {
-    const photo = item.photo?.image_url
-      ? item.photo
-      : await resolvePhoto({
-          title: item.name,
-          wiki: item.wiki,
-          commons: item.commons,
-          historicPhotos,
+    const curated = curatedLayerPhotos[item.placeId]
+    const photo = curated
+      ? await vendorCuratedPhoto(item.placeId, curated, {
+          destDir: 'public/content/photos/layers',
+          publicDir: '/content/photos/layers',
         })
+      : item.photo?.image_url
+        ? item.photo
+        : await resolvePhoto({
+            title: item.name,
+            wiki: item.wiki,
+            commons: item.commons,
+            historicPhotos,
+          })
     layers.push({
       ...item,
       href: `/#map/${encodeURIComponent(item.layerId)}/${encodeURIComponent(item.placeId)}`,
       photo: publicPhoto(photo),
     })
+  }
+  const remoteLayers = layers.filter((l) => !isLocalPhoto(l.photo))
+  if (remoteLayers.length) {
+    throw new Error(
+      `Layer photos must be vendored under /content/photos/layers/; still remote: ${remoteLayers
+        .map((l) => l.placeId)
+        .join(', ')}`,
+    )
   }
 
   const pack = {
