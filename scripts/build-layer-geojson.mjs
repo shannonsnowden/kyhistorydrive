@@ -31,6 +31,7 @@ const LAYERS = [
       source_date: p.source_date || null,
       year_start: p.year_start ?? null,
       year_end: p.year_end ?? null,
+      photo: p.photo || null,
       ...inferHistoryYearsAndEra(p),
     }),
   },

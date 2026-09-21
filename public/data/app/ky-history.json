@@ -1513,5 +1513,35 @@
     "website": "https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/",
     "year_start": 1855,
     "year_end": 1883
+  },
+  {
+    "id": "estill-springs",
+    "name": "Estill Springs",
+    "subtitle": "Estill County \u00b7 Irvine \u00b7 KY 89 (marker 555)",
+    "latitude": 37.70965,
+    "longitude": -83.97567,
+    "history": "Mineral springs about half a mile north of Irvine on today\u2019s KY 89, long known to Shawnee camps and early Kentucky explorers (Boone, Boyle, McAfee, and others). Operated as a resort from 1814 until the hotel burned in 1924; white sulphur water, Sweet Lick Knob views, and a popular ballroom drew visitors from across the state. In 1861 owner Col. Sidney M. Barnes organized the 8th Kentucky Infantry (USA) here; the grounds later hosted Confederate reunions of Morgan\u2019s men, including the last. Kentucky Historical Society marker #555 stands on Main Street across from Estill Springs Elementary. Historic photo (c. 1910): https://scholarworks.moreheadstate.edu/sprague_photo_collection/117/",
+    "source_date": "2026-09-21",
+    "marker_number": 555,
+    "marker_title": "Estill Springs",
+    "geocode_source": "manual-hmdb-555",
+    "category": "other",
+    "website": "https://history.ky.gov/markers/estill-springs",
+    "year_start": 1814,
+    "year_end": 1924,
+    "photo": {
+      "image_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/1109/preview.jpg",
+      "title": "Estill County \u2014 Estill Springs",
+      "source_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/117/",
+      "source_label": "Stuart S. Sprague Photograph Collection \u00b7 ScholarWorks @ Morehead State",
+      "attribution": "Stuart S. Sprague \u00b7 University of Kentucky Photographic Archives \u00b7 ScholarWorks @ Morehead State",
+      "year": 1910,
+      "local_image_path": "/content/photos/stories/estill-springs-sprague-c1910.jpg"
+    },
+    "sources": [
+      "https://history.ky.gov/markers/estill-springs",
+      "https://www.hmdb.org/m.asp?m=136947",
+      "https://scholarworks.moreheadstate.edu/sprague_photo_collection/117/"
+    ]
   }
 ]

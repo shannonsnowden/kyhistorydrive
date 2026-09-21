@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T10:52:56.130Z",
+  "generatedAt": "2026-09-21T12:18:39Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -9,7 +9,7 @@
         "title": "Hickman Carnegie Library, Fulton County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "attribution": "Nyttend \u00b7 Wikimedia Commons \u00b7 Public domain",
         "year": 2013
       }
     },
@@ -21,7 +21,7 @@
         "title": "Old Fort Harrod reconstruction, Harrodsburg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore \u00b7 Wikimedia Commons \u00b7 CC BY-SA 3.0",
         "year": 2007
       }
     },
@@ -33,7 +33,7 @@
         "title": "Main Street (KY 48), Fairfield, Nelson County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "attribution": "Brian Stansberry \u00b7 Wikimedia Commons \u00b7 CC BY 4.0",
         "year": 2017
       }
     },
@@ -45,7 +45,7 @@
         "title": "Anderson County Courthouse, Lawrenceburg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
+        "attribution": "Michael Howard \u00b7 Wikimedia Commons \u00b7 Free Art License",
         "year": 2007
       }
     },
@@ -57,7 +57,7 @@
         "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
+        "attribution": "Hammer51012 \u00b7 Wikimedia Commons \u00b7 CC BY-SA 2.0",
         "year": 2008
       }
     }
@@ -71,7 +71,7 @@
         "title": "Hickman Carnegie Library, Fulton County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "attribution": "Nyttend \u00b7 Wikimedia Commons \u00b7 Public domain",
         "year": 2013
       }
     },
@@ -83,8 +83,20 @@
         "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
+        "attribution": "Hammer51012 \u00b7 Wikimedia Commons \u00b7 CC BY-SA 2.0",
         "year": 2008
+      }
+    },
+    "estill-springs": {
+      "slug": null,
+      "historyId": "estill-springs",
+      "photo": {
+        "image_url": "/content/photos/stories/estill-springs-sprague-c1910.jpg",
+        "title": "Estill County \u2014 Estill Springs",
+        "source_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/117/",
+        "source_label": "Stuart S. Sprague Photograph Collection \u00b7 ScholarWorks @ Morehead State",
+        "attribution": "Stuart S. Sprague \u00b7 University of Kentucky Photographic Archives \u00b7 ScholarWorks @ Morehead State",
+        "year": 1910
       }
     }
   }
