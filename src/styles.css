@@ -219,6 +219,106 @@ nav a:hover, nav a.active { color: var(--accent); }
     min-width: 0;
     width: 100%;
   }
+  .nav-today {
+    flex: 1 1 auto;
+  }
+  .nav-today-menu {
+    left: 0;
+    right: auto;
+    min-width: min(22rem, 92vw);
+  }
+}
+
+.nav-today {
+  position: relative;
+}
+.nav-today-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--heading);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav-today-btn:hover,
+.nav-today-btn:focus-visible,
+.nav-today-btn[aria-expanded="true"] {
+  border-color: var(--accent);
+  color: var(--heading);
+}
+.nav-today-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.nav-today-caret {
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--muted);
+}
+.nav-today-menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  min-width: min(22rem, 92vw);
+  max-width: 28rem;
+  max-height: min(70vh, 26rem);
+  overflow: auto;
+  z-index: 45;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  padding: 0.45rem;
+}
+.nav-today-heading {
+  margin: 0.15rem 0.55rem 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nav-today-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-today-link {
+  display: block;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+}
+.nav-today-link:hover,
+.nav-today-link:focus-visible {
+  background: var(--chip);
+  outline: none;
+}
+.nav-today-kicker {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.nav-today-title {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.92rem;
+  color: var(--heading);
+  line-height: 1.3;
 }
 .hero {
   padding: 0.85rem 1.25rem 1rem;
@@ -1496,7 +1596,8 @@ html[data-hp-theme="light"] .era-other {
   text-decoration: none;
 }
 .hp-feature-copy .hp-layer-cta {
-  margin-top: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
 }
 .hp-layer-cta:hover {
   text-decoration: underline;

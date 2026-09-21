@@ -2,8 +2,8 @@
   "slug": "henry-mckennas-fairfield-sour-mash",
   "title": "Henry McKenna's Fairfield sour mash",
   "publishedDate": "2026-09-21",
-  "summary": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick\u2026",
-  "bodyMarkdown": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick distillery by 1883. He sold only \"H. McKenna Old Line\" sour mash\u2014never green whisky under three years\u2014and stamped barrels with an Irish harp. The brand survived Prohibition as medicinal whisky; Heaven Hill later revived it.\nSource: [https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/](https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/)",
+  "summary": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick…",
+  "bodyMarkdown": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick distillery by 1883. He sold only \"H. McKenna Old Line\" sour mash—never green whisky under three years—and stamped barrels with an Irish harp. The brand survived Prohibition as medicinal whisky; Heaven Hill later revived it.\nSource: [https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/](https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/)",
   "yearStart": 1855,
   "yearEnd": 1883,
   "era": "other",
@@ -13,5 +13,13 @@
     "bourbon"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-21"
+  "briefDate": "2026-09-21",
+  "photo": {
+    "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
+    "title": "Main Street (KY 48), Fairfield, Nelson County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+    "year": 2017
+  }
 }

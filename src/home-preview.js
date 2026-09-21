@@ -104,7 +104,21 @@ function storyMapHref(item) {
 
 function isPhotoUrl(url) {
   const u = String(url || '').toLowerCase()
-  return !!u && !/\.svg/i.test(u) && !/silhouette|locator_map|coat_of_arms|flag_of/i.test(u)
+  if (!u) return false
+  if (/\.svg(\?|$)/i.test(u)) return false
+  if (
+    /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
+      u,
+    )
+  ) {
+    return false
+  }
+  if (/\/[^/?#]*\bmap\b[^/?#]*\.(jpe?g|png|gif|webp)/i.test(u)) return false
+  return true
+}
+
+function usablePhoto(photo) {
+  return photo?.image_url && isPhotoUrl(photo.image_url) ? photo : null
 }
 
 async function fetchWikipediaPhoto(titleOrUrl) {
@@ -143,7 +157,7 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
       /* use index row */
     }
     const wiki = extractWikipediaUrl(full.bodyMarkdown)
-    const stored = full.photo?.image_url ? full.photo : meta.photo?.image_url ? meta.photo : null
+    const stored = usablePhoto(full.photo) || usablePhoto(meta.photo)
     const photo = stored || (await fetchWikipediaPhoto(wiki || full.title))
     const slug = full.slug || meta.slug
     const loc = locations[slug] || {}
@@ -168,7 +182,7 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
     card.mapHref = storyMapHref(card)
     cards.push(card)
   }
-  const withPhotos = cards.filter((c) => c.photo?.image_url)
+  const withPhotos = cards.filter((c) => usablePhoto(c.photo))
   const hero = withPhotos[0] || cards[0] || null
   return {
     briefDate,
@@ -199,7 +213,7 @@ function briefStories(pack) {
 
 function heroSlides(pack) {
   const all = briefStories(pack)
-  const withPhotos = all.filter((s) => s?.photo?.image_url)
+  const withPhotos = all.filter((s) => usablePhoto(s?.photo))
   if (withPhotos.length) return withPhotos
   return all[0] ? [all[0]] : []
 }
@@ -210,8 +224,8 @@ function prefersReducedMotion() {
 
 function renderHeroSlide(story, index) {
   const titleId = index === 0 ? 'hp-hero-title' : `hp-hero-title-${index}`
-  const img = story.photo?.image_url
-    ? `<img class="hp-mag-hero-img" src="${escapeHtml(story.photo.image_url)}" alt="${escapeHtml(story.photo.title || story.title)}" ${index === 0 ? '' : 'loading="lazy"'} />`
+  const img = usablePhoto(story.photo)
+    ? `<img class="hp-mag-hero-img" src="${escapeHtml(story.photo.image_url)}" alt="${escapeHtml(story.photo.title || story.title)}" ${index === 0 ? '' : 'loading="lazy"'} referrerpolicy="no-referrer" decoding="async" />`
     : ''
   const credit = photoCredit(story.photo)
   const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
@@ -383,21 +397,21 @@ function renderFeatures(pack) {
   }
   root.innerHTML = items
     .map((item) => {
-      const img = item.photo?.image_url
-        ? `<img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.title)}" loading="lazy" />`
+      const img = usablePhoto(item.photo)
+        ? `<img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.title)}" loading="lazy" referrerpolicy="no-referrer" decoding="async" />`
         : `<div class="hp-feature-fallback" aria-hidden="true"></div>`
       const credit = photoCredit(item.photo)
+      const mapHref = storyMapHref(item)
+      const cta = mapHref
+        ? `<a class="hp-layer-cta" href="${escapeHtml(mapHref)}">Open on the map</a>`
+        : `<a class="hp-layer-cta" href="${escapeHtml(item.href)}">Read the story</a>`
       return `<article class="hp-feature">
         <a class="hp-feature-media" href="${escapeHtml(item.href)}">${img}</a>
         <div class="hp-feature-copy">
           <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(String(item.yearStart))}` : ''}</p>
           <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
           <p class="hp-feature-deck">${escapeHtml(item.summary)}</p>
-          ${
-            storyMapHref(item)
-              ? `<a class="hp-layer-cta" href="${escapeHtml(storyMapHref(item))}">Open on the map</a>`
-              : ''
-          }
+          ${cta}
           ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
         </div>
       </article>`
@@ -462,8 +476,8 @@ function renderLayerCards(layers) {
             : curated?.photo
       const blurb = item.blurb || curated?.blurb || ''
       const href = layerHref(item)
-      const img = photo?.image_url
-        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" />`
+      const img = usablePhoto(photo)
+        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" referrerpolicy="no-referrer" decoding="async" />`
         : `<div class="hp-feature-fallback" aria-hidden="true"></div>`
       const credit = photoCredit(photo)
       return `<article class="hp-layer-card">
@@ -489,6 +503,81 @@ function relatedCardHtml(item) {
       </h3>
       <p class="hp-card-blurb">${escapeHtml(item.blurb)}</p>
     </article>`
+}
+
+function storyNavHref(item) {
+  if (item?.href) return item.href
+  if (item?.slug) return `/#timeline/${encodeURIComponent(item.slug)}`
+  return '/#timeline'
+}
+
+function closeTodayNav() {
+  const btn = document.getElementById('navTodayBtn')
+  const menu = document.getElementById('navTodayMenu')
+  if (!btn || !menu) return
+  btn.setAttribute('aria-expanded', 'false')
+  menu.hidden = true
+}
+
+function toggleTodayNav(force) {
+  const btn = document.getElementById('navTodayBtn')
+  const menu = document.getElementById('navTodayMenu')
+  if (!btn || !menu) return
+  const open = force ?? btn.getAttribute('aria-expanded') !== 'true'
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false')
+  menu.hidden = !open
+}
+
+let todayNavBound = false
+
+function bindTodayNav() {
+  if (todayNavBound) return
+  const wrap = document.getElementById('navToday')
+  const btn = document.getElementById('navTodayBtn')
+  if (!wrap || !btn) return
+  todayNavBound = true
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation()
+    toggleTodayNav()
+  })
+  wrap.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeTodayNav()
+      btn.focus()
+    }
+  })
+  document.addEventListener('click', (e) => {
+    if (!wrap.contains(e.target)) closeTodayNav()
+  })
+}
+
+function renderTodayNav(pack) {
+  const list = document.getElementById('navTodayList')
+  const wrap = document.getElementById('navToday')
+  if (!list || !wrap) return
+  bindTodayNav()
+  const stories = briefStories(pack)
+  if (!stories.length) {
+    wrap.hidden = true
+    list.innerHTML = ''
+    return
+  }
+  wrap.hidden = false
+  list.innerHTML = stories
+    .map((item, i) => {
+      const href = storyNavHref(item)
+      const kicker = i === 0 ? 'Featured' : `Story ${i + 1}`
+      return `<li>
+        <a class="nav-today-link" role="menuitem" href="${escapeHtml(href)}">
+          <span class="nav-today-kicker">${escapeHtml(kicker)}</span>
+          <span class="nav-today-title">${escapeHtml(item.title)}</span>
+        </a>
+      </li>`
+    })
+    .join('')
+  list.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => closeTodayNav())
+  })
 }
 
 function renderRelatedCards() {
@@ -576,12 +665,14 @@ export function initHomePage() {
   renderRelatedCards()
   loadPack()
     .then((pack) => {
+      renderTodayNav(pack)
       renderHero(pack)
       renderFeatures(pack)
       renderLayerCards(pack.layers)
     })
     .catch((err) => {
       console.error(err)
+      renderTodayNav({ stories: [] })
       renderLayerCards([])
     })
 }

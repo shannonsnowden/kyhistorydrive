@@ -15,10 +15,11 @@
   "source": "ky-history",
   "briefDate": "2026-09-21",
   "photo": {
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
-    "title": "Adams site",
-    "source_url": "https://en.wikipedia.org/wiki/Adams_site",
-    "source_label": "Wikipedia",
-    "attribution": "Wikipedia"
+    "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
+    "title": "Hickman Carnegie Library, Fulton County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2013
   }
 }

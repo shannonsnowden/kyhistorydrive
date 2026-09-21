@@ -52,8 +52,21 @@ function cleanUrl(url) {
 function isPhotoUrl(url) {
   const u = String(url || '').toLowerCase()
   if (!u) return false
-  if (/\.svg/i.test(u) || /silhouette|locator_map|coat_of_arms|flag_of/i.test(u)) return false
+  if (/\.svg(\?|$)/i.test(u)) return false
+  // Wikipedia often leads with schematic maps / locator diagrams — not card photos.
+  if (
+    /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
+      u,
+    )
+  ) {
+    return false
+  }
+  if (/\/[^/?#]*\bmap\b[^/?#]*\.(jpe?g|png|gif|webp)/i.test(u)) return false
   return true
+}
+
+function isLocalPhoto(photo) {
+  return String(photo?.image_url || '').startsWith('/content/photos/')
 }
 
 function extractWikipediaUrl(markdown) {
@@ -209,6 +222,60 @@ function publicPhoto(photo) {
   return rest
 }
 
+function loadCuratedPhotos() {
+  const file = path.join(ROOT, 'scripts/story-photo-curated.json')
+  if (!fs.existsSync(file)) return {}
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'))
+  const out = {}
+  for (const [slug, row] of Object.entries(raw)) {
+    if (slug.startsWith('_') || !row || typeof row !== 'object') continue
+    out[slug] = row
+  }
+  return out
+}
+
+function curatedPublicPhoto(slug, row) {
+  const ext = row.ext || 'jpg'
+  return {
+    image_url: `/content/photos/stories/${slug}.${ext}`,
+    title: row.title,
+    source_url: row.source_url,
+    source_label: row.source_label || 'Wikimedia Commons',
+    attribution: row.attribution,
+    year: row.year || null,
+  }
+}
+
+async function vendorCuratedPhoto(slug, row) {
+  const ext = row.ext || 'jpg'
+  const rel = path.join('public/content/photos/stories', `${slug}.${ext}`)
+  const abs = path.join(ROOT, rel)
+  fs.mkdirSync(path.dirname(abs), { recursive: true })
+  const photo = curatedPublicPhoto(slug, row)
+  const exists = fs.existsSync(abs) && fs.statSync(abs).size > 1000
+  if (exists) return photo
+  if (!row.thumb_url) return photo
+  try {
+    const res = await fetch(row.thumb_url, {
+      headers: { Accept: 'image/*', 'User-Agent': UA },
+    })
+    if (!res.ok) {
+      console.warn(`vendor ${slug}: HTTP ${res.status} — using remote thumb`)
+      return { ...photo, image_url: cleanUrl(row.thumb_url) }
+    }
+    const buf = Buffer.from(await res.arrayBuffer())
+    if (buf.length < 1000) {
+      console.warn(`vendor ${slug}: tiny download — using remote thumb`)
+      return { ...photo, image_url: cleanUrl(row.thumb_url) }
+    }
+    fs.writeFileSync(abs, buf)
+  } catch (err) {
+    console.warn(`vendor ${slug}: ${err.message} — using remote thumb`)
+    return { ...photo, image_url: cleanUrl(row.thumb_url) }
+  }
+  return photo
+}
+
 function matchHistoricPhoto(story, historicPhotos) {
   const tokens = String(story.title || '')
     .toLowerCase()
@@ -237,7 +304,22 @@ function matchHistoricPhoto(story, historicPhotos) {
   return best
 }
 
-async function resolvePhoto({ title, bodyMarkdown, wiki, commons, historicPhotos }) {
+async function resolvePhoto({
+  slug,
+  title,
+  bodyMarkdown,
+  wiki,
+  commons,
+  historicPhotos,
+  existing,
+  curated,
+}) {
+  if (curated?.thumb_url || curated?.ext) {
+    return vendorCuratedPhoto(slug, curated)
+  }
+  if (isLocalPhoto(existing) || (existing?.image_url && isPhotoUrl(existing.image_url))) {
+    return existing
+  }
   const wikiUrl = extractWikipediaUrl(bodyMarkdown)
   const tries = [
     () => fetchWikipediaPhoto(wikiUrl),
@@ -323,6 +405,7 @@ async function main() {
   const index = readJson('public/content/stories.json')
   const locations = readJson('public/content/stories-locations.json')
   const historicPhotos = readJson('public/data/historic-photos.json')
+  const curatedPhotos = loadCuratedPhotos()
 
   const briefDate = index.briefDateRange?.end
   if (!briefDate) throw new Error('stories.json has no briefDateRange.end')
@@ -346,12 +429,21 @@ async function main() {
       'shawnee-chillicothe-divisions': 'Old Chillicothe Shawnee Ohio',
       'hansen-site-15gp14': 'Portsmouth Earthworks Ohio',
       'capt-jack-jouett': 'Jack Jouett House',
+      'ann-mcginty-and-kentuckys-first-spinning-wheel': 'Old Fort Harrod State Park',
+      'lawrenceburg-from-kaufmans-station-to-anderson-county-seat':
+        'Anderson County courthouse Lawrenceburg Kentucky',
+      'wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid': 'Fort Ouiatenon blockhouse',
+      'adams-site-mississippian-town-near-hickman': 'Hickman Carnegie Library Kentucky',
+      'henry-mckennas-fairfield-sour-mash': 'Fairfield Kentucky Route 48',
     }
     const photo = await resolvePhoto({
+      slug,
       title: full.title || meta.title,
       bodyMarkdown: full.bodyMarkdown || full.summary,
       commons: extraCommons[slug],
       historicPhotos,
+      existing: full.photo,
+      curated: curatedPhotos[slug],
     })
     const lat = loc.lat ?? meta.lat ?? null
     const lon = loc.lon ?? meta.lon ?? null

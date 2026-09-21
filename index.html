@@ -71,6 +71,23 @@
           </form>
           <div id="siteSearchResults" class="nav-search-results" role="listbox" hidden></div>
         </div>
+        <div class="nav-today" id="navToday" hidden>
+          <button
+            type="button"
+            class="nav-today-btn"
+            id="navTodayBtn"
+            aria-expanded="false"
+            aria-controls="navTodayMenu"
+            aria-haspopup="true"
+          >
+            Today’s stories
+            <span class="nav-today-caret" aria-hidden="true">▾</span>
+          </button>
+          <div id="navTodayMenu" class="nav-today-menu" hidden role="menu" aria-label="Today’s stories">
+            <p class="nav-today-heading">Jump to a story</p>
+            <ul class="nav-today-list" id="navTodayList"></ul>
+          </div>
+        </div>
         <a href="/" data-route="home">Home</a>
         <a href="#map" data-route="map">Map</a>
         <a href="#timeline" data-route="timeline">Timeline</a>
