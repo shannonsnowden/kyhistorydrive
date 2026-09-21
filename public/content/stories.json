@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-20T09:45:33.220Z",
-  "count": 125,
+  "generatedAt": "2026-09-21T09:45:31.143Z",
+  "count": 130,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-20"
+    "end": "2026-09-21"
   },
   "eras": [
     "early-commonwealth",
@@ -19,7 +19,7 @@
       "publishedDate": "2026-09-18",
       "summary": "On the Green River floodplain in Ohio County, the Late Archaic Chiggerville shell midden (roughly 3000–1000 BC) sits beside an old mussel shoal and runs more than four feet…",
       "yearStart": -3000,
-      "yearEnd": -1000,
+      "yearEnd": 1000,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -59,7 +59,7 @@
       "publishedDate": "2026-09-20",
       "summary": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth. Excavations…",
       "yearStart": -2000,
-      "yearEnd": 1500,
+      "yearEnd": -2000,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -74,14 +74,7 @@
       "lat": 38.72371944,
       "lon": -83.01908889,
       "mapConfidence": "override",
-      "matchedPlace": "Hansen Site (15GP14)",
-      "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
-        "title": "Portsmouth Earthworks, Group A, wall remnant.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
+      "matchedPlace": "Hansen Site (15GP14)"
     },
     {
       "slug": "carlston-annis-shell-mound",
@@ -109,7 +102,7 @@
       "publishedDate": "2026-09-18",
       "summary": "Inside Mammoth Cave National Park, Salts Cave was one of several passages Early Woodland people used most intensively about 1000–200 BC. They mined wall sulfates—gypsum for…",
       "yearStart": -1000,
-      "yearEnd": -200,
+      "yearEnd": 1000,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -225,6 +218,33 @@
       "lon": -89.186,
       "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)"
+    },
+    {
+      "slug": "adams-site-mississippian-town-near-hickman",
+      "title": "Adams Site Mississippian town near Hickman",
+      "publishedDate": "2026-09-21",
+      "summary": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.…",
+      "yearStart": 1100,
+      "yearEnd": 1500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-21",
+      "lat": 36.552,
+      "lon": -89.186,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Adams Site (15Fu4)",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
+        "title": "Adams site",
+        "source_url": "https://en.wikipedia.org/wiki/Adams_site",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
     },
     {
       "slug": "turk-site-carlisle-county",
@@ -431,6 +451,27 @@
       "matchedPlace": "Barren County (centroid)"
     },
     {
+      "slug": "capt-nathaniel-hart",
+      "title": "Capt. Nathaniel Hart",
+      "publishedDate": "2026-09-19",
+      "summary": "Capt. Nathaniel Hart (1734–1782), a Transylvania Company proprietor and chief negotiator with the Cherokee, came to Boonesborough in 1775 and in 1779 settled White Oak Springs…",
+      "yearStart": 1734,
+      "yearEnd": 1782,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-19",
+      "lat": 37.895633333333336,
+      "lon": -84.26686666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Capt. Nathaniel Hart / White Oak Springs"
+    },
+    {
       "slug": "capt-abraham-lincoln-on-long-run",
       "title": "Capt. Abraham Lincoln on Long Run",
       "publishedDate": "2026-09-11",
@@ -597,6 +638,27 @@
       "matchedPlace": "Lower Shawneetown"
     },
     {
+      "slug": "maj-silas-harlan",
+      "title": "Maj. Silas Harlan",
+      "publishedDate": "2026-09-18",
+      "summary": "Virginia-born Major Silas Harlan (c. 1752–1782) came to Kentucky in 1774, built Harlan's Station on the Salt River about seven miles south of Harrodsburg in 1778, and commanded…",
+      "yearStart": 1752,
+      "yearEnd": 1819,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-18",
+      "lat": 37.66,
+      "lon": -84.83,
+      "mapConfidence": "override",
+      "matchedPlace": "Maj. Silas Harlan / Harlan's Station"
+    },
+    {
       "slug": "odawa-raid-at-eskippakithiki-1753",
       "title": "Odawa raid at Eskippakithiki, 1753",
       "publishedDate": "2026-09-12",
@@ -636,6 +698,26 @@
       "lon": -85.7628814,
       "mapConfidence": "override",
       "matchedPlace": "Falls of the Ohio"
+    },
+    {
+      "slug": "shepherdsville-on-salt-river",
+      "title": "Shepherdsville on Salt River",
+      "publishedDate": "2026-09-20",
+      "summary": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the…",
+      "yearStart": 1757,
+      "yearEnd": 1796,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "lat": 37.98791666666666,
+      "lon": -85.71646666666666,
+      "mapConfidence": "override",
+      "matchedPlace": "Shepherdsville / Salt River falls"
     },
     {
       "slug": "col-william-russell-iii",
@@ -893,27 +975,6 @@
       "matchedPlace": "John Floyd / Floyd's Station"
     },
     {
-      "slug": "maj-silas-harlan",
-      "title": "Maj. Silas Harlan",
-      "publishedDate": "2026-09-18",
-      "summary": "Virginia-born Major Silas Harlan (c. 1752–1782) came to Kentucky in 1774, built Harlan's Station on the Salt River about seven miles south of Harrodsburg in 1778, and commanded…",
-      "yearStart": 1774,
-      "yearEnd": 1782,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-18",
-      "lat": 37.66,
-      "lon": -84.83,
-      "mapConfidence": "override",
-      "matchedPlace": "Maj. Silas Harlan / Harlan's Station"
-    },
-    {
       "slug": "treaty-of-camp-charlotte-1774",
       "title": "Treaty of Camp Charlotte (1774)",
       "publishedDate": "2026-09-03",
@@ -936,6 +997,26 @@
       "matchedPlace": null
     },
     {
+      "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
+      "title": "Ann McGinty and Kentucky's first spinning wheel",
+      "publishedDate": "2026-09-21",
+      "summary": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel—the first brought over Cumberland Gap—and soon helped her husband…",
+      "yearStart": 1775,
+      "yearEnd": 1815,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-21",
+      "lat": 37.7619646,
+      "lon": -84.8485383,
+      "mapConfidence": "override",
+      "matchedPlace": "Ann McGinty / Fort Harrod"
+    },
+    {
       "slug": "benjamin-logan",
       "title": "Benjamin Logan",
       "publishedDate": "2026-08-28",
@@ -954,6 +1035,28 @@
       "lon": -84.6676739,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station"
+    },
+    {
+      "slug": "chickamauga-cherokee",
+      "title": "Chickamauga Cherokee",
+      "publishedDate": "2026-09-18",
+      "summary": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new…",
+      "yearStart": 1775,
+      "yearEnd": 1794,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-18",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "maj-joseph-bowman",
@@ -1054,28 +1157,6 @@
       "lon": -84.2147,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County"
-    },
-    {
-      "slug": "chickamauga-cherokee",
-      "title": "Chickamauga Cherokee",
-      "publishedDate": "2026-09-18",
-      "summary": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new…",
-      "yearStart": 1776,
-      "yearEnd": 1794,
-      "era": "frontier",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "treaty",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-18",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
     },
     {
       "slug": "paris-from-hopewell",
@@ -1223,35 +1304,7 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null,
-      "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Old_Chillicothe_Site.jpg/1920px-Old_Chillicothe_Site.jpg",
-        "title": "Old Chillicothe Site.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
-    },
-    {
-      "slug": "capt-nathaniel-hart",
-      "title": "Capt. Nathaniel Hart",
-      "publishedDate": "2026-09-19",
-      "summary": "Capt. Nathaniel Hart (1734–1782), a Transylvania Company proprietor and chief negotiator with the Cherokee, came to Boonesborough in 1775 and in 1779 settled White Oak Springs…",
-      "yearStart": 1779,
-      "yearEnd": 1782,
-      "era": "frontier",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-19",
-      "lat": 37.895633333333336,
-      "lon": -84.26686666666667,
-      "mapConfidence": "override",
-      "matchedPlace": "Capt. Nathaniel Hart / White Oak Springs"
+      "matchedPlace": null
     },
     {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -1420,6 +1473,27 @@
       "matchedPlace": "Anderson County (centroid)"
     },
     {
+      "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
+      "title": "Lawrenceburg: from Kaufman's Station to Anderson County seat",
+      "publishedDate": "2026-09-21",
+      "summary": "German immigrant Jacob Kaufman settled the site about 1780 as Kaufman's (Coffman's) Station. A post office opened in 1817 for tavern-keeper William Lawrence; Franklin County…",
+      "yearStart": 1780,
+      "yearEnd": 1827,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-21",
+      "lat": 38.1741739,
+      "lon": -84.8769101,
+      "mapConfidence": "override",
+      "matchedPlace": "Lawrenceburg / Kaufman's Station"
+    },
+    {
       "slug": "ojibwe-on-birds-war-road",
       "title": "Ojibwe on Bird's War Road",
       "publishedDate": "2026-09-19",
@@ -1487,7 +1561,7 @@
       "publishedDate": "2026-09-20",
       "summary": "On the night of June 3–4, 1781, Virginia militia captain John \"Jack\" Jouett Jr. spotted Banastre Tarleton's British cavalry near Cuckoo Tavern and rode about forty miles of…",
       "yearStart": 1781,
-      "yearEnd": 1797,
+      "yearEnd": 1822,
       "era": "frontier",
       "tags": [
         "frontier",
@@ -1501,14 +1575,7 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "override",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
-      "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Jack_Jouett_House.jpg/1920px-Jack_Jouett_House.jpg",
-        "title": "Jack Jouett House.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_Jouett_House.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
     },
     {
       "slug": "battle-of-blue-licks",
@@ -1637,6 +1704,25 @@
       "matchedPlace": "Basil Hayden Sr. / Holy Cross (Pottinger's Creek)"
     },
     {
+      "slug": "henderson-at-red-banks",
+      "title": "Henderson at Red Banks",
+      "publishedDate": "2026-09-19",
+      "summary": "The Ohio River bluff known as Red Banks sat on the Virginia grant later confirmed to Richard Henderson & Company. On April 6, 1797, Gen. Samuel Hopkins and surveyor Thomas…",
+      "yearStart": 1785,
+      "yearEnd": 1798,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-19",
+      "lat": 37.8479021,
+      "lon": -87.5898562,
+      "mapConfidence": "override",
+      "matchedPlace": "Henderson / Red Banks"
+    },
+    {
       "slug": "william-whitley-sportsmans-hill",
       "title": "William Whitley / Sportsman's Hill",
       "publishedDate": "2026-08-28",
@@ -1719,27 +1805,6 @@
       "matchedPlace": "Jacob Spears"
     },
     {
-      "slug": "lost-river-cave",
-      "title": "Lost River Cave",
-      "publishedDate": "2026-09-19",
-      "summary": "Under Bowling Green, Lost River Cave is a Pennyroyal karst system cut in Mississippian St. Louis and Ste. Genevieve limestones: a surface stream sinks into roughly seven miles…",
-      "yearStart": 1790,
-      "yearEnd": 1800,
-      "era": "frontier",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "geology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-19",
-      "lat": 36.95283333,
-      "lon": -86.47166389,
-      "mapConfidence": "override",
-      "matchedPlace": "Lost River Cave"
-    },
-    {
       "slug": "mount-sterling-little-mountain-town",
       "title": "Mount Sterling / Little Mountain Town",
       "publishedDate": "2026-09-03",
@@ -1775,6 +1840,28 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-09",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+      "title": "Wea towns at Ouiatenon and Scott's 1791 Kentucky raid",
+      "publishedDate": "2026-09-21",
+      "summary": "The Wea (Waayaahtanwa), Miami–Illinois speakers, made Ouiatenon on the Wabash their principal town and a French fur-trade hub after Beaver Wars displacements. In June 1791,…",
+      "yearStart": 1791,
+      "yearEnd": 1791,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-21",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -1907,33 +1994,6 @@
       "matchedPlace": "Newport Barracks"
     },
     {
-      "slug": "shepherdsville-on-salt-river",
-      "title": "Shepherdsville on Salt River",
-      "publishedDate": "2026-09-20",
-      "summary": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the…",
-      "yearStart": 1793,
-      "yearEnd": 1797,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-20",
-      "lat": 37.98791666666666,
-      "lon": -85.71646666666666,
-      "mapConfidence": "override",
-      "matchedPlace": "Shepherdsville / Salt River falls",
-      "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
-        "title": "Shepherdsville, Kentucky",
-        "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
-    },
-    {
       "slug": "owensboro-yellow-banks",
       "title": "Owensboro / Yellow Banks",
       "publishedDate": "2026-09-17",
@@ -1973,32 +2033,13 @@
       "matchedPlace": "Lancaster founding / Wallace's Crossroads"
     },
     {
-      "slug": "henderson-at-red-banks",
-      "title": "Henderson at Red Banks",
-      "publishedDate": "2026-09-19",
-      "summary": "The Ohio River bluff known as Red Banks sat on the Virginia grant later confirmed to Richard Henderson & Company. On April 6, 1797, Gen. Samuel Hopkins and surveyor Thomas…",
-      "yearStart": 1797,
-      "yearEnd": 1799,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-19",
-      "lat": 37.8479021,
-      "lon": -87.5898562,
-      "mapConfidence": "override",
-      "matchedPlace": "Henderson / Red Banks"
-    },
-    {
       "slug": "glasgow-the-barrens",
       "title": "Glasgow & the Barrens",
       "publishedDate": "2026-09-18",
       "summary": "Barren County was authorized December 20, 1798, from Green and Warren, named for the open \"barrens\" prairie. In 1799 settlers chose John Gorin's Big Spring site over Richard…",
       "yearStart": 1798,
       "yearEnd": 1809,
-      "era": "frontier",
+      "era": "early-commonwealth",
       "tags": [
         "early-commonwealth",
         "kentucky",
@@ -2179,6 +2220,26 @@
       "matchedPlace": "James C. Crow / Oscar Pepper"
     },
     {
+      "slug": "henry-mckennas-fairfield-sour-mash",
+      "title": "Henry McKenna's Fairfield sour mash",
+      "publishedDate": "2026-09-21",
+      "summary": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick…",
+      "yearStart": 1855,
+      "yearEnd": 1883,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-21",
+      "lat": 37.932222,
+      "lon": -85.3838837,
+      "mapConfidence": "override",
+      "matchedPlace": "Henry McKenna / Fairfield"
+    },
+    {
       "slug": "diamond-caverns-decorated-limestone",
       "title": "Diamond Caverns' Decorated Limestone",
       "publishedDate": "2026-09-07",
@@ -2198,6 +2259,28 @@
       "lon": -86.0626,
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
+    },
+    {
+      "slug": "natural-bridge-sandstone-arch",
+      "title": "Natural Bridge sandstone arch",
+      "publishedDate": "2026-09-20",
+      "summary": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red…",
+      "yearStart": 1926,
+      "yearEnd": 1926,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "geology",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "lat": 37.776836,
+      "lon": -83.6833147,
+      "mapConfidence": "override",
+      "matchedPlace": "Natural Bridge"
     },
     {
       "slug": "cumberland-falls",
@@ -2550,10 +2633,10 @@
       "matchedPlace": "Lexington Named"
     },
     {
-      "slug": "natural-bridge-sandstone-arch",
-      "title": "Natural Bridge sandstone arch",
-      "publishedDate": "2026-09-20",
-      "summary": "In Powell and Wolfe counties, a 78-foot-long, 65-foot-high arch of Corbin Sandstone (Breathitt Formation, Middle Pennsylvanian) spans a gorge on the Middle Fork of the Red…",
+      "slug": "lost-river-cave",
+      "title": "Lost River Cave",
+      "publishedDate": "2026-09-19",
+      "summary": "Under Bowling Green, Lost River Cave is a Pennyroyal karst system cut in Mississippian St. Louis and Ste. Genevieve limestones: a surface stream sinks into roughly seven miles…",
       "yearStart": null,
       "yearEnd": null,
       "era": "prehistoric",
@@ -2561,22 +2644,14 @@
         "prehistoric",
         "kentucky",
         "archaeology",
-        "geology",
-        "transport"
+        "geology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-20",
-      "lat": 37.776836,
-      "lon": -83.6833147,
+      "briefDate": "2026-09-19",
+      "lat": 36.95283333,
+      "lon": -86.47166389,
       "mapConfidence": "override",
-      "matchedPlace": "Natural Bridge",
-      "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",
-        "title": "Natural Bridge State Resort Park",
-        "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+      "matchedPlace": "Lost River Cave"
     },
     {
       "slug": "newt-kash-hollow-15mf1",

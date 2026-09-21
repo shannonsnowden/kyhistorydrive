@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-20T09:45:33.352Z",
+  "generatedAt": "2026-09-21T09:45:31.930Z",
   "stats": {
     "exact": 11,
-    "fuzzy": 41,
+    "fuzzy": 42,
     "county": 7,
-    "override": 46,
-    "none": 20
+    "override": 49,
+    "none": 21
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -85,6 +85,14 @@
       "lat": 36.552,
       "lon": -89.186,
       "mapConfidence": "override",
+      "matchedPlace": "Adams Site (15Fu4)",
+      "historyId": "adams-site-15fu4-mississippian-fulton-county"
+    },
+    "adams-site-mississippian-town-near-hickman": {
+      "slug": "adams-site-mississippian-town-near-hickman",
+      "lat": 36.552,
+      "lon": -89.186,
+      "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
     },
@@ -168,6 +176,14 @@
       "matchedPlace": "Barren County (centroid)",
       "historyId": null
     },
+    "capt-nathaniel-hart": {
+      "slug": "capt-nathaniel-hart",
+      "lat": 37.895633333333336,
+      "lon": -84.26686666666667,
+      "mapConfidence": "override",
+      "matchedPlace": "Capt. Nathaniel Hart / White Oak Springs",
+      "historyId": "capt-nathaniel-hart-white-oak-springs"
+    },
     "capt-abraham-lincoln-on-long-run": {
       "slug": "capt-abraham-lincoln-on-long-run",
       "lat": 38.2363772,
@@ -232,6 +248,14 @@
       "matchedPlace": "Lower Shawneetown",
       "historyId": "lower-shawneetown"
     },
+    "maj-silas-harlan": {
+      "slug": "maj-silas-harlan",
+      "lat": 37.66,
+      "lon": -84.83,
+      "mapConfidence": "override",
+      "matchedPlace": "Maj. Silas Harlan / Harlan's Station",
+      "historyId": "maj-silas-harlan-harlans-station"
+    },
     "odawa-raid-at-eskippakithiki-1753": {
       "slug": "odawa-raid-at-eskippakithiki-1753",
       "lat": 37.98859,
@@ -247,6 +271,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Falls of the Ohio",
       "historyId": "falls-of-the-ohio"
+    },
+    "shepherdsville-on-salt-river": {
+      "slug": "shepherdsville-on-salt-river",
+      "lat": 37.98791666666666,
+      "lon": -85.71646666666666,
+      "mapConfidence": "override",
+      "matchedPlace": "Shepherdsville / Salt River falls",
+      "historyId": "shepherdsville-founding-adam-shepherd"
     },
     "col-william-russell-iii": {
       "slug": "col-william-russell-iii",
@@ -344,20 +376,20 @@
       "matchedPlace": "John Floyd / Floyd's Station",
       "historyId": "floyds-station"
     },
-    "maj-silas-harlan": {
-      "slug": "maj-silas-harlan",
-      "lat": 37.66,
-      "lon": -84.83,
-      "mapConfidence": "override",
-      "matchedPlace": "Maj. Silas Harlan / Harlan's Station",
-      "historyId": "maj-silas-harlan-harlans-station"
-    },
     "treaty-of-camp-charlotte-1774": {
       "slug": "treaty-of-camp-charlotte-1774",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null,
+      "historyId": null
+    },
+    "ann-mcginty-and-kentuckys-first-spinning-wheel": {
+      "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
+      "lat": 37.7619646,
+      "lon": -84.8485383,
+      "mapConfidence": "override",
+      "matchedPlace": "Ann McGinty / Fort Harrod",
       "historyId": null
     },
     "benjamin-logan": {
@@ -367,6 +399,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
+    },
+    "chickamauga-cherokee": {
+      "slug": "chickamauga-cherokee",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "maj-joseph-bowman": {
       "slug": "maj-joseph-bowman",
@@ -407,14 +447,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County",
       "historyId": "capt-john-strode-strode-s-station-1779-clark-county"
-    },
-    "chickamauga-cherokee": {
-      "slug": "chickamauga-cherokee",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
     },
     "paris-from-hopewell": {
       "slug": "paris-from-hopewell",
@@ -471,14 +503,6 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
-    },
-    "capt-nathaniel-hart": {
-      "slug": "capt-nathaniel-hart",
-      "lat": 37.895633333333336,
-      "lon": -84.26686666666667,
-      "mapConfidence": "override",
-      "matchedPlace": "Capt. Nathaniel Hart / White Oak Springs",
-      "historyId": "capt-nathaniel-hart-white-oak-springs"
     },
     "col-john-bowman-at-old-chillicothe": {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -542,6 +566,14 @@
       "lon": -84.89316,
       "mapConfidence": "county",
       "matchedPlace": "Anderson County (centroid)",
+      "historyId": null
+    },
+    "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
+      "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
+      "lat": 38.1741739,
+      "lon": -84.8769101,
+      "mapConfidence": "override",
+      "matchedPlace": "Lawrenceburg / Kaufman's Station",
       "historyId": null
     },
     "ojibwe-on-birds-war-road": {
@@ -624,6 +656,14 @@
       "matchedPlace": "Basil Hayden Sr. / Holy Cross (Pottinger's Creek)",
       "historyId": "basil-hayden-holy-cross"
     },
+    "henderson-at-red-banks": {
+      "slug": "henderson-at-red-banks",
+      "lat": 37.8479021,
+      "lon": -87.5898562,
+      "mapConfidence": "override",
+      "matchedPlace": "Henderson / Red Banks",
+      "historyId": "henderson-founding-red-banks"
+    },
     "william-whitley-sportsmans-hill": {
       "slug": "william-whitley-sportsmans-hill",
       "lat": 37.4761695,
@@ -656,14 +696,6 @@
       "matchedPlace": "Jacob Spears",
       "historyId": "jacob-spears"
     },
-    "lost-river-cave": {
-      "slug": "lost-river-cave",
-      "lat": 36.95283333,
-      "lon": -86.47166389,
-      "mapConfidence": "override",
-      "matchedPlace": "Lost River Cave",
-      "historyId": "lost-river-cave-bowling-green"
-    },
     "mount-sterling-little-mountain-town": {
       "slug": "mount-sterling-little-mountain-town",
       "lat": 38.0561079,
@@ -674,6 +706,14 @@
     },
     "mascouten-fire-nation-on-the-wabash": {
       "slug": "mascouten-fire-nation-on-the-wabash",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
+      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -728,14 +768,6 @@
       "matchedPlace": "Newport Barracks",
       "historyId": null
     },
-    "shepherdsville-on-salt-river": {
-      "slug": "shepherdsville-on-salt-river",
-      "lat": 37.98791666666666,
-      "lon": -85.71646666666666,
-      "mapConfidence": "override",
-      "matchedPlace": "Shepherdsville / Salt River falls",
-      "historyId": "shepherdsville-founding-adam-shepherd"
-    },
     "owensboro-yellow-banks": {
       "slug": "owensboro-yellow-banks",
       "lat": 37.7549958,
@@ -751,14 +783,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Lancaster founding / Wallace's Crossroads",
       "historyId": "lancaster-founding-wallace-s-crossroads"
-    },
-    "henderson-at-red-banks": {
-      "slug": "henderson-at-red-banks",
-      "lat": 37.8479021,
-      "lon": -87.5898562,
-      "mapConfidence": "override",
-      "matchedPlace": "Henderson / Red Banks",
-      "historyId": "henderson-founding-red-banks"
     },
     "glasgow-the-barrens": {
       "slug": "glasgow-the-barrens",
@@ -832,6 +856,14 @@
       "matchedPlace": "James C. Crow / Oscar Pepper",
       "historyId": "james-crow-oscar-pepper"
     },
+    "henry-mckennas-fairfield-sour-mash": {
+      "slug": "henry-mckennas-fairfield-sour-mash",
+      "lat": 37.932222,
+      "lon": -85.3838837,
+      "mapConfidence": "override",
+      "matchedPlace": "Henry McKenna / Fairfield",
+      "historyId": null
+    },
     "diamond-caverns-decorated-limestone": {
       "slug": "diamond-caverns-decorated-limestone",
       "lat": 37.1161,
@@ -839,6 +871,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
+    },
+    "natural-bridge-sandstone-arch": {
+      "slug": "natural-bridge-sandstone-arch",
+      "lat": 37.776836,
+      "lon": -83.6833147,
+      "mapConfidence": "override",
+      "matchedPlace": "Natural Bridge",
+      "historyId": "natural-bridge-corbin-sandstone"
     },
     "cumberland-falls": {
       "slug": "cumberland-falls",
@@ -976,13 +1016,13 @@
       "matchedPlace": "Lexington Named",
       "historyId": "lexington-named"
     },
-    "natural-bridge-sandstone-arch": {
-      "slug": "natural-bridge-sandstone-arch",
-      "lat": 37.776836,
-      "lon": -83.6833147,
+    "lost-river-cave": {
+      "slug": "lost-river-cave",
+      "lat": 36.95283333,
+      "lon": -86.47166389,
       "mapConfidence": "override",
-      "matchedPlace": "Natural Bridge",
-      "historyId": "natural-bridge-corbin-sandstone"
+      "matchedPlace": "Lost River Cave",
+      "historyId": "lost-river-cave-bowling-green"
     },
     "newt-kash-hollow-15mf1": {
       "slug": "newt-kash-hollow-15mf1",

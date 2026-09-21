@@ -4,8 +4,8 @@
   "publishedDate": "2026-09-20",
   "summary": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the…",
   "bodyMarkdown": "On December 11, 1793, the young Kentucky General Assembly established a town on fifty acres of Adam Shepherd's land on the north side of Salt River, at the falls where the great road to Bullitt's Lick crossed. Shepherd—born Adam Schaeffer in Pennsylvania in 1757, a surveyor who came west about 1781—laid out the lots; trustees sold them for money or country produce. When Bullitt County was organized in 1796–97, Shepherdsville became the seat, anchoring settlement between the Wilderness Road corridor and the Falls of the Ohio salt trade.\nSource: [https://en.wikipedia.org/wiki/Shepherdsville,_Kentucky](https://en.wikipedia.org/wiki/Shepherdsville,_Kentucky)",
-  "yearStart": 1793,
-  "yearEnd": 1797,
+  "yearStart": 1757,
+  "yearEnd": 1796,
   "era": "frontier",
   "tags": [
     "frontier",
@@ -13,12 +13,5 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20",
-  "photo": {
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
-    "title": "Shepherdsville, Kentucky",
-    "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
-    "source_label": "Wikipedia",
-    "attribution": "Wikipedia"
-  }
+  "briefDate": "2026-09-20"
 }

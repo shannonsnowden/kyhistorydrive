@@ -1,103 +1,26 @@
 {
-  "generatedAt": "2026-09-20T15:25:03.547Z",
+  "generatedAt": "2026-09-21T09:45:49.614Z",
   "bySlug": {
-    "capt-jack-jouett": {
-      "slug": "capt-jack-jouett",
-      "historyId": "capt-jack-jouett-midnight-ride-1781",
+    "adams-site-mississippian-town-near-hickman": {
+      "slug": "adams-site-mississippian-town-near-hickman",
+      "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Jack_Jouett_House.jpg/1920px-Jack_Jouett_House.jpg",
-        "title": "Jack Jouett House.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_Jouett_House.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
-    },
-    "hansen-site-15gp14": {
-      "slug": "hansen-site-15gp14",
-      "historyId": "hansen-site-15gp14-greenup-county",
-      "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
-        "title": "Portsmouth Earthworks, Group A, wall remnant.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
-    },
-    "natural-bridge-sandstone-arch": {
-      "slug": "natural-bridge-sandstone-arch",
-      "historyId": "natural-bridge-corbin-sandstone",
-      "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",
-        "title": "Natural Bridge State Resort Park",
-        "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
-    },
-    "shawnee-chillicothe-divisions": {
-      "slug": "shawnee-chillicothe-divisions",
-      "historyId": null,
-      "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Old_Chillicothe_Site.jpg/1920px-Old_Chillicothe_Site.jpg",
-        "title": "Old Chillicothe Site.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
-    },
-    "shepherdsville-on-salt-river": {
-      "slug": "shepherdsville-on-salt-river",
-      "historyId": "shepherdsville-founding-adam-shepherd",
-      "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
-        "title": "Shepherdsville, Kentucky",
-        "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
+        "title": "Adams site",
+        "source_url": "https://en.wikipedia.org/wiki/Adams_site",
         "source_label": "Wikipedia",
         "attribution": "Wikipedia"
       }
     }
   },
   "byHistoryId": {
-    "capt-jack-jouett-midnight-ride-1781": {
-      "slug": "capt-jack-jouett",
-      "historyId": "capt-jack-jouett-midnight-ride-1781",
+    "adams-site-15fu4-mississippian-fulton-county": {
+      "slug": "adams-site-mississippian-town-near-hickman",
+      "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Jack_Jouett_House.jpg/1920px-Jack_Jouett_House.jpg",
-        "title": "Jack Jouett House.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_Jouett_House.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
-    },
-    "hansen-site-15gp14-greenup-county": {
-      "slug": "hansen-site-15gp14",
-      "historyId": "hansen-site-15gp14-greenup-county",
-      "photo": {
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
-        "title": "Portsmouth Earthworks, Group A, wall remnant.jpg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons"
-      }
-    },
-    "natural-bridge-corbin-sandstone": {
-      "slug": "natural-bridge-sandstone-arch",
-      "historyId": "natural-bridge-corbin-sandstone",
-      "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Natural_Bridge_KY-27527-3.jpg",
-        "title": "Natural Bridge State Resort Park",
-        "source_url": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
-    },
-    "shepherdsville-founding-adam-shepherd": {
-      "slug": "shepherdsville-on-salt-river",
-      "historyId": "shepherdsville-founding-adam-shepherd",
-      "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Downtown_shepherdsville.jpg",
-        "title": "Shepherdsville, Kentucky",
-        "source_url": "https://en.wikipedia.org/wiki/Shepherdsville%2C_Kentucky",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
+        "title": "Adams site",
+        "source_url": "https://en.wikipedia.org/wiki/Adams_site",
         "source_label": "Wikipedia",
         "attribution": "Wikipedia"
       }

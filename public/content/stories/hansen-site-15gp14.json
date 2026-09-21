@@ -5,7 +5,7 @@
   "summary": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth. Excavations…",
   "bodyMarkdown": "Near South Portsmouth in Greenup County, the Hansen Site sits on an Ohio River terrace just upstream from Lower Shawneetown and across from the Scioto mouth. Excavations document Late Archaic summer camps around 2000 BCE (Cave Run, Merom, and Rowlette points), then denser Middle–Late Woodland communities (about 300–600 CE) with circular post structures, tool workshops, and storage. Fort Ancient people used the terrace later. The spot ties northeastern Kentucky archaeology to the same river mouth that later hosted Shawnee towns and the Portsmouth Earthworks complex.\nSource: [https://en.wikipedia.org/wiki/Hansen_site](https://en.wikipedia.org/wiki/Hansen_site)",
   "yearStart": -2000,
-  "yearEnd": 1500,
+  "yearEnd": -2000,
   "era": "prehistoric",
   "tags": [
     "prehistoric",
@@ -16,12 +16,5 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20",
-  "photo": {
-    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg/1920px-Portsmouth_Earthworks%2C_Group_A%2C_wall_remnant.jpg",
-    "title": "Portsmouth Earthworks, Group A, wall remnant.jpg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons"
-  }
+  "briefDate": "2026-09-20"
 }

@@ -1480,5 +1480,37 @@
     "website": "https://abandonedonline.net/location/david-snowden-house/",
     "year_start": 1825,
     "year_end": 1914
+  },
+  {
+    "id": "ann-mcginty-first-spinning-wheel-harrodstown",
+    "name": "Ann McGinty",
+    "subtitle": "First spinning wheel over Cumberland Gap \u00b7 Harrodstown \u00b7 d. 1815",
+    "latitude": 37.7619646,
+    "longitude": -84.8485383,
+    "history": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel\u2014the first brought over Cumberland Gap\u2014and soon helped her husband William Poage build looms at Harrodstown. Their linsey-woolsey cloth became a frontier staple; she later ran an ordinary (tavern-inn) and is buried in the Fort Harrod Pioneer Cemetery (d. 1815).",
+    "source_date": "2026-09-21",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "manual-old-fort-harrod-nominatim",
+    "category": "person",
+    "website": "https://explorekyhistory.ky.gov/items/show/983",
+    "year_start": 1775,
+    "year_end": 1815
+  },
+  {
+    "id": "henry-mckenna-fairfield-old-line",
+    "name": "Henry McKenna",
+    "subtitle": "Fairfield \u00b7 Nelson County \u00b7 Old Line sour mash 1855\u20131883",
+    "latitude": 37.932222,
+    "longitude": -85.3838837,
+    "history": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick distillery by 1883. He sold only \"H. McKenna Old Line\" sour mash\u2014never green whisky under three years\u2014and stamped barrels with an Irish harp. The brand later survived Prohibition as medicinal whisky; Heaven Hill revived it in the modern era.",
+    "source_date": "2026-09-21",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "manual-fairfield-nelson-nominatim",
+    "category": "bourbon",
+    "website": "https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/",
+    "year_start": 1855,
+    "year_end": 1883
   }
 ]

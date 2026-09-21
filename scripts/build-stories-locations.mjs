@@ -336,6 +336,25 @@ const MANUAL_OVERRIDES = {
     lon: -83.6833147,
     confidence: 'override',
   },
+  // Sep 21 — McGinty + McKenna; Lawrenceburg/Adams already pinned; leave Wea/Ouiatenon without KY override (IN)
+  'ann-mcginty-and-kentuckys-first-spinning-wheel': {
+    matchName: 'Ann McGinty / Fort Harrod',
+    lat: 37.7619646,
+    lon: -84.8485383,
+    confidence: 'override',
+  },
+  'henry-mckennas-fairfield-sour-mash': {
+    matchName: 'Henry McKenna / Fairfield',
+    lat: 37.932222,
+    lon: -85.3838837,
+    confidence: 'override',
+  },
+  'lawrenceburg-from-kaufmans-station-to-anderson-county-seat': {
+    matchName: "Lawrenceburg / Kaufman's Station",
+    lat: 38.1741739,
+    lon: -84.8769101,
+    confidence: 'override',
+  },
   // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
   'wright-mounds-montgomery-county': {
     matchName: 'Wright Mounds (Montgomery County Adena)',

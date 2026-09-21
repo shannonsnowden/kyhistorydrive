@@ -1,0 +1,24 @@
+{
+  "slug": "adams-site-mississippian-town-near-hickman",
+  "title": "Adams Site Mississippian town near Hickman",
+  "publishedDate": "2026-09-21",
+  "summary": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.…",
+  "bodyMarkdown": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village. Occupied about 1100–1500 CE (Medley and Jackson phases), it left deep village middens up to 1.5 meters thick and was listed on the National Register in 1984.\nSource: [https://en.wikipedia.org/wiki/Adams_site](https://en.wikipedia.org/wiki/Adams_site)",
+  "yearStart": 1100,
+  "yearEnd": 1500,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-09-21",
+  "photo": {
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
+    "title": "Adams site",
+    "source_url": "https://en.wikipedia.org/wiki/Adams_site",
+    "source_label": "Wikipedia",
+    "attribution": "Wikipedia"
+  }
+}
