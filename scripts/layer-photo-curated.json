@@ -1,0 +1,123 @@
+{
+  "_comment": "Curated Explore-a-Layer card photos. Vendored under public/content/photos/layers/ so Wikimedia hotlink 403s and oversized originals cannot blank the magazine cards. build-home-preview.mjs prefers these over live Commons URLs.",
+  "1520": {
+    "ext": "jpg",
+    "commonsFile": "Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg/1280px-Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg",
+    "title": "Fort Boonesborough reconstruction",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2017
+  },
+  "big-bone-lick": {
+    "ext": "jpg",
+    "commonsFile": "Bigbonelick.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Bigbonelick.jpg/1280px-Bigbonelick.jpg",
+    "title": "Big Bone Lick State Park",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
+    "year": null
+  },
+  "thomas-d-clark-center": {
+    "ext": "jpg",
+    "commonsFile": "The_façade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort,_Kentucky.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg/1280px-The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg",
+    "title": "Thomas D. Clark Center for Kentucky History",
+    "source_url": "https://commons.wikimedia.org/wiki/File:The_façade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Lee Wright · Wikimedia Commons · CC BY-SA 2.0",
+    "year": null
+  },
+  "abraham-lincoln-birthplace-nhp": {
+    "ext": "jpg",
+    "commonsFile": "Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg/1280px-Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
+    "title": "Abraham Lincoln Birthplace memorial",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Jon698 · Wikimedia Commons · CC BY 4.0",
+    "year": null
+  },
+  "blue-licks-battlefield": {
+    "ext": "jpg",
+    "commonsFile": "Blue_Licks_Battlefield_monument.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Blue_Licks_Battlefield_monument.jpg/1280px-Blue_Licks_Battlefield_monument.jpg",
+    "title": "Blue Licks Battlefield monument",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2014
+  },
+  "old-talbott-tavern": {
+    "ext": "jpg",
+    "commonsFile": "Old_Talbott_Tavern_—_Bardstown,_Kentucky.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg/1280px-Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg",
+    "title": "Old Talbott Tavern, Bardstown",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Old_Talbott_Tavern_—_Bardstown,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2020
+  },
+  "goddard": {
+    "ext": "jpg",
+    "commonsFile": "GoddardBridge.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/GoddardBridge.jpg/1280px-GoddardBridge.jpg",
+    "title": "Goddard Covered Bridge",
+    "source_url": "https://commons.wikimedia.org/wiki/File:GoddardBridge.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
+  },
+  "bourbon-iron-works": {
+    "ext": "jpg",
+    "commonsFile": "Bourbon_Iron_Works_front.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Bourbon_Iron_Works_front.jpg/1280px-Bourbon_Iron_Works_front.jpg",
+    "title": "Bourbon Iron Works (Slate Furnace)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bourbon_Iron_Works_front.jpg",
+    "source_label": "HABS / Library of Congress",
+    "attribution": "Jeff Bates · HABS / Library of Congress · Public domain",
+    "year": 1987
+  },
+  "lccn-sn82014784": {
+    "ext": "png",
+    "commonsFile": "Kentucke_Gazette_Printing_House.png",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Kentucke_Gazette_Printing_House.png/1280px-Kentucke_Gazette_Printing_House.png",
+    "title": "Kentucke Gazette printing house",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "William Henry Perrin / Filson Club · Wikimedia Commons · Public domain",
+    "year": 1887
+  },
+  "cumberland-falls-state-resort-park": {
+    "ext": "jpg",
+    "commonsFile": "Cumberland_falls_2015_1.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Cumberland_falls_2015_1.jpg/1280px-Cumberland_falls_2015_1.jpg",
+    "title": "Cumberland Falls",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_falls_2015_1.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Aaron Vowels · Wikimedia Commons · CC BY 2.0",
+    "year": 2015
+  },
+  "frankfort-cemetery": {
+    "ext": "jpg",
+    "commonsFile": "Frankfort_Cemetery;_Frankfort,_Kentucky.JPG",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG/1280px-Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG",
+    "title": "Frankfort Cemetery",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Frankfort_Cemetery;_Frankfort,_Kentucky.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+    "year": null
+  },
+  "buffalo-trace": {
+    "ext": "jpg",
+    "commonsFile": "Buffalo_Trace_Tower.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Buffalo_Trace_Tower.jpg/1280px-Buffalo_Trace_Tower.jpg",
+    "title": "Buffalo Trace Distillery",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Buffalo_Trace_Tower.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Kittugwiki · Wikimedia Commons · CC BY-SA 3.0",
+    "year": null
+  }
+}

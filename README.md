@@ -115,7 +115,7 @@ The homepage loads that pack, then re-checks `stories.json` in the browser. If a
 
 Stories are presented as evergreen highlights. The feed still refreshes from the newest `briefDate`; the UI does not label them as “this morning’s email” or show the ingest calendar date.
 
-Photos are credited on the page (Wikipedia / Commons / ULPA / Historypin, etc.). Layer highlight cards use curated Commons / HABS-LOC photos baked into `src/home-preview-data.js` so every “Explore a layer” card has a real thumbnail plus a map deep-link — not a text-only fallback.
+Photos are credited on the page (Wikipedia / Commons / ULPA / Historypin, etc.). Layer highlight cards use curated Commons / HABS-LOC thumbs vendored under `public/content/photos/layers/` (catalog: `scripts/layer-photo-curated.json`) so every “Explore a layer” card has a same-origin thumbnail plus a map deep-link — not a Wikimedia hotlink or a text-only fallback. Daily highlights use the same pattern under `public/content/photos/stories/` (`scripts/story-photo-curated.json`).
 
 ## Data attribution
 

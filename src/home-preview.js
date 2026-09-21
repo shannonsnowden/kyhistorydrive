@@ -477,7 +477,7 @@ function renderLayerCards(layers) {
       const blurb = item.blurb || curated?.blurb || ''
       const href = layerHref(item)
       const img = usablePhoto(photo)
-        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" referrerpolicy="no-referrer" decoding="async" />`
+        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" width="640" height="480" loading="eager" referrerpolicy="no-referrer" decoding="async" />`
         : `<div class="hp-feature-fallback" aria-hidden="true"></div>`
       const credit = photoCredit(photo)
       return `<article class="hp-layer-card">

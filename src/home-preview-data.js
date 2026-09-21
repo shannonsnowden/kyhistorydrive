@@ -3,7 +3,8 @@
  * Daily story highlights are NOT here — they come from the morning-brief pipeline.
  *
  * Layer cards always carry a curated, attributed photo (Commons / Wikipedia /
- * HABS-LOC). Do not hotlink restaurant blogs. Moonlite Bar-B-Q has no
+ * HABS-LOC), vendored under /content/photos/layers/ so clients never hotlink
+ * upload.wikimedia.org. Do not hotlink restaurant blogs. Moonlite Bar-B-Q has no
  * licensed building photo on Commons/Openverse, so Good Eats uses Old Talbott
  * Tavern (already on the locals layer) instead of a generic Owensboro street.
  */
@@ -37,8 +38,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Fort Boonesborough State Park',
     blurb: 'Daniel Boone’s 1775 settlement on the Kentucky River — Capital of the Colony of Transylvania.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg/1280px-Fort_Boonesborough_reproduction%2C_KY%2C_US_%2803%29.jpg',
+      image_url: '/content/photos/layers/1520.jpg',
       title: 'Fort Boonesborough reconstruction',
       file: 'Fort_Boonesborough_reproduction,_KY,_US_(03).jpg',
       attribution: 'Bubba73 · Wikimedia Commons · CC BY-SA 3.0',
@@ -55,7 +55,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Big Bone Lick State Park',
     blurb: 'A Pleistocene salt lick where mastodons left bones in the mud — Kentucky’s window on deep time.',
     photo: commonsPhoto({
-      image_url: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Bigbonelick.jpg',
+      image_url: '/content/photos/layers/big-bone-lick.jpg',
       title: 'Big Bone Lick State Park',
       file: 'Bigbonelick.jpg',
       attribution: 'Mattguyver · Wikimedia Commons · CC BY 3.0',
@@ -71,8 +71,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Kentucky Historical Society',
     blurb: 'Flagship Kentucky Historical Society museum, covering more than 12,000 years of the Commonwealth.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg/1280px-The_fa%C3%A7ade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort%2C_Kentucky.jpg',
+      image_url: '/content/photos/layers/thomas-d-clark-center.jpg',
       title: 'Thomas D. Clark Center for Kentucky History',
       file: 'The_façade_of_the_Thomas_D._Clark_Center_for_Kentucky_History_in_Frankfort,_Kentucky.jpg',
       attribution: 'Lee Wright · Wikimedia Commons · CC BY-SA 2.0',
@@ -88,8 +87,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Abraham Lincoln Birthplace National Historical Park',
     blurb: 'The Sinking Spring farm where Lincoln was born in 1809, plus the Knob Creek boyhood unit.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg/1280px-Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg',
+      image_url: '/content/photos/layers/abraham-lincoln-birthplace-nhp.jpg',
       title: 'Abraham Lincoln Birthplace memorial',
       file: 'Abraham_Lincoln_Birthplace_National_Historical_Park_side.jpg',
       attribution: 'Jon698 · Wikimedia Commons · CC BY 4.0',
@@ -106,8 +104,7 @@ export const LAYER_HIGHLIGHTS = [
     commons: 'Blue Licks Battlefield monument',
     blurb: 'August 19, 1782: the last major Revolutionary War battle in Kentucky.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Blue_Licks_Battlefield_monument.jpg/1280px-Blue_Licks_Battlefield_monument.jpg',
+      image_url: '/content/photos/layers/blue-licks-battlefield.jpg',
       title: 'Blue Licks Battlefield monument',
       file: 'Blue_Licks_Battlefield_monument.jpg',
       attribution: 'Nyttend · Wikimedia Commons · Public domain',
@@ -124,8 +121,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Old Talbott Tavern',
     blurb: 'Court Square tavern since the late 1700s — among America’s oldest inns, still a working bourbon bar.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg/1280px-Old_Talbott_Tavern_%E2%80%94_Bardstown%2C_Kentucky.jpg',
+      image_url: '/content/photos/layers/old-talbott-tavern.jpg',
       title: 'Old Talbott Tavern, Bardstown',
       file: 'Old_Talbott_Tavern_—_Bardstown,_Kentucky.jpg',
       attribution: 'Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0',
@@ -142,8 +138,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Goddard Bridge',
     blurb: 'White Bridge: a Town-lattice span over Sand Lick Creek, among Kentucky’s surviving covered bridges.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/GoddardBridge.jpg/1280px-GoddardBridge.jpg',
+      image_url: '/content/photos/layers/goddard.jpg',
       title: 'Goddard Covered Bridge',
       file: 'GoddardBridge.jpg',
       attribution: 'Greg Hume · Wikimedia Commons · CC BY-SA 3.0',
@@ -161,8 +156,7 @@ export const LAYER_HIGHLIGHTS = [
     commons: 'Bourbon Iron Works front',
     blurb: 'Jacob Myers blew in a charcoal blast furnace here in 1791 — munitions for the early Commonwealth.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Bourbon_Iron_Works_front.jpg/1280px-Bourbon_Iron_Works_front.jpg',
+      image_url: '/content/photos/layers/bourbon-iron-works.jpg',
       title: 'Bourbon Iron Works (Slate Furnace)',
       file: 'Bourbon_Iron_Works_front.jpg',
       attribution: 'Jeff Bates · HABS / Library of Congress · Public domain',
@@ -181,8 +175,7 @@ export const LAYER_HIGHLIGHTS = [
     commons: 'Kentucke Gazette Printing House',
     blurb: 'Kentucky’s first newspaper, begun August 11, 1787 by John and Fielding Bradford.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kentucke_Gazette_Printing_House.png/960px-Kentucke_Gazette_Printing_House.png',
+      image_url: '/content/photos/layers/lccn-sn82014784.png',
       title: 'Kentucke Gazette printing house',
       file: 'Kentucke_Gazette_Printing_House.png',
       attribution: 'William Henry Perrin / Filson Club · Wikimedia Commons · Public domain',
@@ -199,7 +192,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Cumberland Falls',
     blurb: 'The “Niagara of the South,” and one of the few Western Hemisphere places a moonbow can appear.',
     photo: commonsPhoto({
-      image_url: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Cumberland_falls_2015_1.jpg',
+      image_url: '/content/photos/layers/cumberland-falls-state-resort-park.jpg',
       title: 'Cumberland Falls',
       file: 'Cumberland_falls_2015_1.jpg',
       attribution: 'Aaron Vowels · Wikimedia Commons · CC BY 2.0',
@@ -216,8 +209,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Frankfort Cemetery',
     blurb: 'Hilltop rural cemetery (1844) overlooking the capital — Daniel and Rebecca Boone were reinterred here.',
     photo: commonsPhoto({
-      image_url:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG/1280px-Frankfort_Cemetery%3B_Frankfort%2C_Kentucky.JPG',
+      image_url: '/content/photos/layers/frankfort-cemetery.jpg',
       title: 'Frankfort Cemetery',
       file: 'Frankfort_Cemetery;_Frankfort,_Kentucky.JPG',
       attribution: 'Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0',
@@ -233,7 +225,7 @@ export const LAYER_HIGHLIGHTS = [
     wiki: 'Buffalo Trace Distillery',
     blurb: 'A Kentucky River distilling campus with late-1700s roots, continuous through Prohibition.',
     photo: commonsPhoto({
-      image_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Buffalo_Trace_Tower.jpg',
+      image_url: '/content/photos/layers/buffalo-trace.jpg',
       title: 'Buffalo Trace Distillery',
       file: 'Buffalo_Trace_Tower.jpg',
       attribution: 'Kittugwiki · Wikimedia Commons · CC BY-SA 3.0',
