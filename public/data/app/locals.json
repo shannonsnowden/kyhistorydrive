@@ -1140,17 +1140,18 @@
     "longitude": -85.1832241,
     "category": "grocery",
     "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Today",
-    "website": null,
+    "history": "Carriss's Grocery is a family-owned grocery and eatery at 7 Southville Pike in Shelbyville; Sentinel News reported in 2022 that the family had owned it for more than 70 years. The store serves carryout and sit-down meals, including hamburgers, and stocks staples such as bread and milk. The article also describes its holiday country-ham business and Tuesday-Saturday schedule.",
+    "website": "https://www.facebook.com/CarrissGrocery/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.pmg-ky1.com/sentinel_news/family-tradition-continues/article_1cbf2b58-d0dd-5f28-bc28-8c2187ba8fa0.html",
+      "https://www.facebook.com/CarrissGrocery/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "charlie-browns",
@@ -1204,17 +1205,18 @@
     "longitude": -84.8719503,
     "category": "restaurant",
     "cuisine_or_type": "Diner",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Diner; $$; Closed Now; 8:30 AM \u2013 3:00 PM",
-    "website": null,
+    "history": "Cliffside Diner is an old-time diner at 175 Old Lawrenceburg Road in Frankfort. Kentucky tourism describes it as serving breakfast, lunch, and dinner, while Visit Frankfort lists booth and counter seating, cakes and pies, ice cream, burgers, and sandwiches. The official tourism listings identify it as a local favorite and provide the phone number.",
+    "website": "https://www.facebook.com/pages/Cliffside/104023089944761",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.kentuckytourism.com/explore/cliffside-diner-68",
+      "https://visitfrankfort.com/listing/cliffside/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "convenient-food-mart",
@@ -1226,18 +1228,18 @@
     "longitude": -85.209698,
     "category": "grocery",
     "cuisine_or_type": "Food Mart",
-    "history": "From Shannon's Apple Maps place pin. Downtown Shelbyville food mart.",
-    "website": null,
+    "history": "Convenient Food Mart is a family-owned and operated food mart at 38 Main Street in Shelbyville. Its venue Facebook page says it has served Shelbyville for more than 50 years and identifies the store's phone number. A current business listing describes breakfast sandwiches, burgers, fried cod, and weekday lunch specials alongside convenience-store goods.",
+    "website": "https://www.facebook.com/convenientfoodmart",
     "sources": [
-      "https://maps.apple/p/R9_rfZyoQMaPiu",
-      "https://maps.apple.com/place?address=38%20Main%20St,%20Shelbyville,%20KY%2040065,%20United%20States&coordinate=38.210179,-85.209698&name=Convenient%20Food%20Mart&place-id=I6A569B1D95F3C67E&map=explore"
+      "https://www.facebook.com/convenientfoodmart",
+      "https://www.loc8nearme.com/kentucky/shelbyville/convenient-food-mart/425351/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-place"
+    "geocode_source": "manual"
   },
   {
     "id": "don-pedro-s-mexican-restaurant",
@@ -1249,17 +1251,18 @@
     "longitude": -84.9224335,
     "category": "restaurant",
     "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM \u2013 9:00 PM",
-    "website": null,
+    "history": "Don Pedro's Mexican Grill is at 1002 Eagle Lake Drive in Lawrenceburg. Its official site lists Mexican menu categories including fajitas, steaks, seafood, burritos, lunch, drinks, and desserts, plus online ordering. Visit Lawrenceburg says the restaurant has outdoor patio seating and a party room for large groups.",
+    "website": "http://www.donpedrosmexgrill.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "http://www.donpedrosmexgrill.com/",
+      "https://visitlawrenceburgky.com/listing/don-pedros-mexican-restaurant/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "guist-creek-marina-campground",
@@ -1271,17 +1274,18 @@
     "longitude": -85.14489820951344,
     "category": "specialty",
     "cuisine_or_type": "from Apple Maps guide (address pin)",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. from Apple Maps guide (address pin)",
-    "website": null,
+    "history": "Guist Creek Marina & Campground is a marina and campground at 11990 Boat Dock Road near Shelbyville. Its official site provides directions and contact information for the lake facility. A 2020 local report described efforts to attract a restaurant to the marina, so the available sources support the marina/campground identity but do not establish a current restaurant operation.",
+    "website": "https://guistcreek.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://guistcreek.com/",
+      "https://spotonkentucky.com/ky-derby-region/595408/guist-creek-marina-hopes-to-expand-with.html"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "keeneland-track-kitchen",
@@ -1315,17 +1319,19 @@
     "longitude": -85.2168113,
     "category": "restaurant",
     "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM \u2013 8:30 PM",
-    "website": null,
+    "history": "La Cocina de Mam\u00e1 opened its Shelbyville location at 535 Main Street on September 25, 2013, after its owners brought more than 20 years of restaurant experience. The family-owned Mexican restaurant says its chefs combine traditional and modern flavors and prepare dishes such as mole poblano, fish tacos, enmoladas, and deviled shrimp. Its contact page confirms the Shelbyville address and phone.",
+    "website": "https://lacocinademamaky.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://lacocinademamaky.com/about-us/",
+      "https://lacocinademamaky.com/contact/",
+      "https://www.louisvillehotbytes.com/enchiladas-cocina-mama"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "la-fogata",
@@ -1337,17 +1343,17 @@
     "longitude": -85.2099678,
     "category": "restaurant",
     "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; Closed Now; 10:30 AM \u2013 9:30 PM",
+    "history": "La Fogata is a Mexican restaurant at 51 Main Street in Shelbyville. Its current listing identifies enchiladas verdes, tacos al pastor, carnitas, chorizo, and birria tacos among the menu offerings. The listing gives daily 10:30 a.m.-9:30 p.m. hours and the restaurant phone number.",
     "website": null,
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.restaurantji.com/ky/shelbyville/la-fogata-/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "limewater",
@@ -1359,17 +1365,18 @@
     "longitude": -84.8717765,
     "category": "restaurant",
     "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Today",
-    "website": null,
+    "history": "Limewater is a family-owned and operated bistro and bar at 900 Wilkinson Boulevard in Frankfort. It opened in late August 2022 in the historic Glen Willis House, built in 1815 on the Kentucky River. The restaurant says it makes most items in-house and sources as many ingredients locally as possible.",
+    "website": "https://www.limewaterbistro.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.limewaterbistro.com/about/",
+      "https://www.limewaterbistro.com/location/limewater-bistro/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "madelines-nibbles-and-wine",
@@ -1465,17 +1472,19 @@
     "longitude": -85.2589587,
     "category": "restaurant",
     "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Open; 7:00 AM \u2013 10:30 AM; 11:00 AM \u2013 8:00 PM",
-    "website": null,
+    "history": "Founded by Kenneth and Kay Way in 1990, Our Best Restaurant is a family-run country-cooking restaurant at 5728 Smithfield Road in Smithfield. Its official history says Kay's family recipes anchor the menu, and the restaurant also offers catering. Kentucky Living reported in 2025 that Aric Way runs the restaurant with his wife Brittney and father Kenny.",
+    "website": "https://www.ourbestrestaurant.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.ourbestrestaurant.com/about/",
+      "https://www.ourbestrestaurant.com/location/our-best-restaurant/",
+      "https://www.kentuckyliving.com/explore/our-best"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "pauls-fruit-market-st-matthews",
@@ -1531,17 +1540,19 @@
     "longitude": -85.1906973,
     "category": "specialty",
     "cuisine_or_type": "Cheese Shop",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Cheese Shop; Closed Now; 1:00 PM \u2013 9:00 PM",
-    "website": null,
+    "history": "Rowlett's Milkhouse Creamery is a sibling-owned dairy business at 63 Commerce Drive in Campbellsburg; KCARD reports that Sharon and Terry Rowlett opened it in 2019. The creamery makes ice cream, cheese, and butter using milk from the family dairy farm, and local reporting says it holds Kentucky Proud and Kentucky Farm Bureau Roadside Market status. KCARD's 2025 profile says the business also serves farmers markets and community events.",
+    "website": "https://www.facebook.com/p/Rowletts-Milkhouse-Creamery-LLC-100057251087250/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.kcard.info/news2/rowletts-milkhouse-creamery-spotlight",
+      "https://www.pmg-ky1.com/henry_county_local/the-cream-is-rising-to-the-top-at-rowletts-milkhouse-creamery/article_fde9396a-5dc4-51d9-981d-a01feb57f6f7.html",
+      "https://www.facebook.com/p/Rowletts-Milkhouse-Creamery-LLC-100057251087250/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "shirley-maes-cafe",
@@ -1573,17 +1584,18 @@
     "longitude": -84.8936988,
     "category": "restaurant",
     "cuisine_or_type": "BBQ Restaurant",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. BBQ Restaurant; $; Closed Now; 11:00 AM \u2013 8:00 PM",
-    "website": null,
+    "history": "Staxx BBQ opened in May 2011 at 11 Carson Place in Frankfort through a partnership between Dan Liebman and chef Tommy Walters. The State Journal reported that it smokes pulled pork, brisket, turkey, chicken, and ribs, and offers dine-in, carryout, drive-through, and catering. The restaurant's current site still lists the same address and promotes those service options.",
+    "website": "https://staxxbbq.com/homepage.html",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://staxxbbq.com/homepage.html",
+      "https://state-journal.com/2011/08/01/new-barbecue-joint-is-booming/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "tammy-s-country-diner",
@@ -1595,17 +1607,18 @@
     "longitude": -84.8030452,
     "category": "restaurant",
     "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; $; Closed Today",
-    "website": null,
+    "history": "Tammy's Diner is a locally owned family business at 3624 Georgetown Road in Frankfort. Visit Frankfort says it serves breakfast all day, and the diner's Facebook page describes daily lunch and dinner specials. The tourism listing identifies the address and phone and lists its regular service schedule.",
+    "website": "https://www.facebook.com/tammysdinerky/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://visitfrankfort.com/listing/tammys-diner/",
+      "https://www.facebook.com/tammysdinerky/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "thai-smile",
@@ -1617,17 +1630,18 @@
     "longitude": -84.8961102,
     "category": "restaurant",
     "cuisine_or_type": "Thai Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Thai Cuisine; $; Closed Today",
-    "website": null,
+    "history": "Thai Smile is a Thai restaurant at 1193 Century Plaza on US-127 South in Frankfort. Its official site identifies Frankfort as one of its Kentucky locations, while the current directory listing names Pad Thai, curries, and other Thai dishes and provides the address and phone. The listing shows weekday lunch and dinner service and weekend closure.",
+    "website": "https://www.thaismileky.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.thaismileky.com/",
+      "https://www.restaurantji.com/ky/frankfort/thai-smile-/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "the-brown-barrel",
@@ -1639,17 +1653,18 @@
     "longitude": -84.6821558,
     "category": "restaurant",
     "cuisine_or_type": "Seafood Restaurant",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Seafood Restaurant; $$; Closed Now; 11:00 AM \u2013 9:00 PM",
-    "website": null,
+    "history": "The Brown Barrel & Blind Harry's is a Midway restaurant and bar at 204 North Gratz Street, the larger location it moved into in 2022. Its official site describes seafood, steaks, daily specials, bourbon, wine, cocktails, packaged goods, and grab-and-go food. The business's story page says the Brown Barrel name honors Winston Eugene Peace, a cooper who worked for Brown-Forman's Bluegrass Cooperage for more than 25 years.",
+    "website": "https://thebrownbarrel.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://thebrownbarrel.com/our-story/",
+      "https://thebrownbarrel.com/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "the-farm-kitchen",
@@ -1661,17 +1676,18 @@
     "longitude": -85.0910693,
     "category": "specialty",
     "cuisine_or_type": "Meat Shop",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Meat Shop; Closed Today",
-    "website": null,
+    "history": "The Farm Kitchen opened in March 2022 at 6562 Frankfort Road in Shelbyville. Kentucky Living reports that Daisy and Paul Hamilton built the restaurant around farm-raised meats, made-from-scratch recipes, and a family-run operation; the beef, pork, and chicken are also sold for purchase. Local reporting describes the Hamilton family's farm and the restaurant's breakfast and lunch service.",
+    "website": "https://thefarmkitchen.us/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.kentuckyliving.com/explore/eat-fresh-at-the-farm-kitchen",
+      "https://www.pmg-ky1.com/townnews/gastronomy/farm-kitchen-family-create-a-place-to-come-together/article_b12a8e96-dd5d-50f4-a215-b7c4049e168e.html"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "the-goose-gander",
@@ -1683,17 +1699,19 @@
     "longitude": -84.6830893,
     "category": "restaurant",
     "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Now; 11:30 AM \u2013 8:30 PM",
-    "website": null,
+    "history": "The Goose & Gander is a family restaurant and bar at 133 East Main Street in Midway. Its official site says the menu includes salads, sandwiches, pizza, and hearty entrees and lists daily service. Visit Woodford confirms the address, phone, and menu description.",
+    "website": "https://gooseandgandermidway.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://gooseandgandermidway.com/about/",
+      "https://gooseandgandermidway.com/contact/",
+      "https://visitwoodford.com/listing/the-goose-gander/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "harrison-smith-house",
@@ -1749,17 +1767,19 @@
     "longitude": -84.8238938,
     "category": "restaurant",
     "cuisine_or_type": "South American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. South American Cuisine; $$; Closed Now; 11:00 AM \u2013 8:00 PM",
-    "website": null,
+    "history": "The Stave is a Kentucky bourbon-trail restaurant and bourbon bar at 5711 McCracken Pike in Frankfort. Its official About page says it opened in summer 2018 beside Glenn's Creek and serves Kentucky-inspired cuisine with a full bar and covered patio. The venue's Facebook page identifies it as a modern Southern restaurant and lists the same address.",
+    "website": "https://kentuckyprojects.wixsite.com/thestaveky",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://kentuckyprojects.wixsite.com/thestaveky/about",
+      "https://www.facebook.com/TheStaveKentucky/",
+      "https://www.restaurantji.com/ky/frankfort/the-stave-/"
     ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
     "rating_note": "unverified",
     "review_count_approx": null,
-    "geocode_source": "apple-maps-guide"
+    "geocode_source": "manual"
   },
   {
     "id": "village-anchor",
