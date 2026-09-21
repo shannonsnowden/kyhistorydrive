@@ -14,5 +14,13 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-21"
+  "briefDate": "2026-09-21",
+  "photo": {
+    "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
+    "title": "Anderson County Courthouse, Lawrenceburg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
+    "year": 2007
+  }
 }

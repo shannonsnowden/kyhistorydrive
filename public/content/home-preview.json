@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T09:45:49.619Z",
+  "generatedAt": "2026-09-21T10:15:35.834Z",
   "briefDate": "2026-09-21",
   "displayDate": "Monday, September 21, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -18,7 +18,14 @@
       "historyId": null,
       "mapHref": "/#map/stories/ann-mcginty-and-kentuckys-first-spinning-wheel",
       "quote": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel—the first brought over Cumberland Gap—and soon helped her husband William Poage build looms at Harrodstown.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
+        "title": "Old Fort Harrod reconstruction, Harrodsburg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      }
     },
     {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
@@ -34,7 +41,14 @@
       "historyId": null,
       "mapHref": "/#map/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
       "quote": "German immigrant Jacob Kaufman settled the site about 1780 as Kaufman's (Coffman's) Station.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
+        "title": "Anderson County Courthouse, Lawrenceburg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
+        "year": 2007
+      }
     },
     {
       "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
@@ -50,7 +64,14 @@
       "historyId": null,
       "mapHref": null,
       "quote": "The Wea (Waayaahtanwa), Miami–Illinois speakers, made Ouiatenon on the Wabash their principal town and a French fur-trade hub after Beaver Wars displacements.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
+        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2008
+      }
     },
     {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -67,11 +88,12 @@
       "mapHref": "/#map/history/adams-site-15fu4-mississippian-fulton-county",
       "quote": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
-        "title": "Adams site",
-        "source_url": "https://en.wikipedia.org/wiki/Adams_site",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
+        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
+        "title": "Hickman Carnegie Library, Fulton County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2013
       }
     },
     {
@@ -88,48 +110,40 @@
       "historyId": null,
       "mapHref": "/#map/stories/henry-mckennas-fairfield-sour-mash",
       "quote": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick distillery by 1883.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
+        "title": "Main Street (KY 48), Fairfield, Nelson County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2017
+      }
     }
   ],
   "hero": {
-    "slug": "adams-site-mississippian-town-near-hickman",
-    "title": "Adams Site Mississippian town near Hickman",
-    "summary": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.…",
-    "era": "prehistoric",
-    "yearStart": 1100,
+    "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
+    "title": "Ann McGinty and Kentucky's first spinning wheel",
+    "summary": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel—the first brought over Cumberland Gap—and soon helped her husband…",
+    "era": "frontier",
+    "yearStart": 1775,
     "briefDate": "2026-09-21",
-    "href": "/#timeline/adams-site-mississippian-town-near-hickman",
-    "place": "Adams Site (15Fu4)",
-    "lat": 36.552,
-    "lon": -89.186,
-    "historyId": "adams-site-15fu4-mississippian-fulton-county",
-    "mapHref": "/#map/history/adams-site-15fu4-mississippian-fulton-county",
-    "quote": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.",
+    "href": "/#timeline/ann-mcginty-and-kentuckys-first-spinning-wheel",
+    "place": "Ann McGinty / Fort Harrod",
+    "lat": 37.7619646,
+    "lon": -84.8485383,
+    "historyId": null,
+    "mapHref": "/#map/stories/ann-mcginty-and-kentuckys-first-spinning-wheel",
+    "quote": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel—the first brought over Cumberland Gap—and soon helped her husband William Poage build looms at Harrodstown.",
     "photo": {
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
-      "title": "Adams site",
-      "source_url": "https://en.wikipedia.org/wiki/Adams_site",
-      "source_label": "Wikipedia",
-      "attribution": "Wikipedia"
+      "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
+      "title": "Old Fort Harrod reconstruction, Harrodsburg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2007
     }
   },
   "features": [
-    {
-      "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
-      "title": "Ann McGinty and Kentucky's first spinning wheel",
-      "summary": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel—the first brought over Cumberland Gap—and soon helped her husband…",
-      "era": "frontier",
-      "yearStart": 1775,
-      "briefDate": "2026-09-21",
-      "href": "/#timeline/ann-mcginty-and-kentuckys-first-spinning-wheel",
-      "place": "Ann McGinty / Fort Harrod",
-      "lat": 37.7619646,
-      "lon": -84.8485383,
-      "historyId": null,
-      "mapHref": "/#map/stories/ann-mcginty-and-kentuckys-first-spinning-wheel",
-      "quote": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel—the first brought over Cumberland Gap—and soon helped her husband William Poage build looms at Harrodstown.",
-      "photo": null
-    },
     {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
       "title": "Lawrenceburg: from Kaufman's Station to Anderson County seat",
@@ -144,7 +158,14 @@
       "historyId": null,
       "mapHref": "/#map/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
       "quote": "German immigrant Jacob Kaufman settled the site about 1780 as Kaufman's (Coffman's) Station.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
+        "title": "Anderson County Courthouse, Lawrenceburg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
+        "year": 2007
+      }
     },
     {
       "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
@@ -160,7 +181,37 @@
       "historyId": null,
       "mapHref": null,
       "quote": "The Wea (Waayaahtanwa), Miami–Illinois speakers, made Ouiatenon on the Wabash their principal town and a French fur-trade hub after Beaver Wars displacements.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
+        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2008
+      }
+    },
+    {
+      "slug": "adams-site-mississippian-town-near-hickman",
+      "title": "Adams Site Mississippian town near Hickman",
+      "summary": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.…",
+      "era": "prehistoric",
+      "yearStart": 1100,
+      "briefDate": "2026-09-21",
+      "href": "/#timeline/adams-site-mississippian-town-near-hickman",
+      "place": "Adams Site (15Fu4)",
+      "lat": 36.552,
+      "lon": -89.186,
+      "historyId": "adams-site-15fu4-mississippian-fulton-county",
+      "mapHref": "/#map/history/adams-site-15fu4-mississippian-fulton-county",
+      "quote": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.",
+      "photo": {
+        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
+        "title": "Hickman Carnegie Library, Fulton County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2013
+      }
     },
     {
       "slug": "henry-mckennas-fairfield-sour-mash",
@@ -176,7 +227,14 @@
       "historyId": null,
       "mapHref": "/#map/stories/henry-mckennas-fairfield-sour-mash",
       "quote": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick distillery by 1883.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
+        "title": "Main Street (KY 48), Fairfield, Nelson County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2017
+      }
     }
   ],
   "layers": [
@@ -449,8 +507,8 @@
     }
   ],
   "quote": {
-    "text": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.",
-    "source": "Adams Site Mississippian town near Hickman",
-    "href": "/#timeline/adams-site-mississippian-town-near-hickman"
+    "text": "Anne Kennedy (later Poage, Lindsay, and McGinty) crossed into Kentucky in September 1775 with a spinning wheel—the first brought over Cumberland Gap—and soon helped her husband William Poage build looms at Harrodstown.",
+    "source": "Ann McGinty and Kentucky's first spinning wheel",
+    "href": "/#timeline/ann-mcginty-and-kentuckys-first-spinning-wheel"
   }
 }

@@ -1,0 +1,53 @@
+{
+  "_comment": "Curated, attributed homepage photos. Vendored under public/content/photos/stories/ so Wikimedia hotlink 403s cannot blank the magazine cards. build-home-preview.mjs prefers these over Wikipedia lead images (which are often maps).",
+  "ann-mcginty-and-kentuckys-first-spinning-wheel": {
+    "ext": "jpg",
+    "commonsFile": "Old_Fort_Harrod_State_Park.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Old_Fort_Harrod_State_Park.jpg/1280px-Old_Fort_Harrod_State_Park.jpg",
+    "title": "Old Fort Harrod reconstruction, Harrodsburg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
+  },
+  "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Anderson_County_courthouse.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Anderson_County_courthouse.jpg/1280px-Anderson_County_courthouse.jpg",
+    "title": "Anderson County Courthouse, Lawrenceburg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
+    "year": 2007
+  },
+  "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
+    "ext": "jpg",
+    "commonsFile": "Fort_Ouiatenon_blockhouse_front.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Fort_Ouiatenon_blockhouse_front.jpg/1280px-Fort_Ouiatenon_blockhouse_front.jpg",
+    "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
+    "year": 2008
+  },
+  "adams-site-mississippian-town-near-hickman": {
+    "ext": "jpg",
+    "commonsFile": "Hickman_Carnegie_Library.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Hickman_Carnegie_Library.jpg/1280px-Hickman_Carnegie_Library.jpg",
+    "title": "Hickman Carnegie Library, Fulton County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2013
+  },
+  "henry-mckennas-fairfield-sour-mash": {
+    "ext": "jpg",
+    "commonsFile": "Fairfield-KY48-ky.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Fairfield-KY48-ky.jpg/1280px-Fairfield-KY48-ky.jpg",
+    "title": "Main Street (KY 48), Fairfield, Nelson County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+    "year": 2017
+  }
+}
