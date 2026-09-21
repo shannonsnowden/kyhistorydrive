@@ -336,7 +336,16 @@ const MANUAL_OVERRIDES = {
     lon: -83.6833147,
     confidence: 'override',
   },
-  // Sep 21 — McGinty + McKenna; Lawrenceburg/Adams already pinned; leave Wea/Ouiatenon without KY override (IN)
+  // Sep 21 — McGinty + McKenna; Lawrenceburg/Adams already pinned.
+  // Wea towns / Scott 1791 raid: pin to real Ouiatenon (Tippecanoe County, IN),
+  // not Limestone/Maysville and not the old Photon drop in Nelson County, KY.
+  // Wikipedia Ouiatenon 40°24′3″N 86°57′36″W (story source). Map has no maxBounds.
+  'wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid': {
+    matchName: 'Wea (Waayaahtanwa) / Ouiatenon',
+    lat: 40.40083,
+    lon: -86.96,
+    confidence: 'override',
+  },
   'ann-mcginty-and-kentuckys-first-spinning-wheel': {
     matchName: 'Ann McGinty / Fort Harrod',
     lat: 37.7619646,

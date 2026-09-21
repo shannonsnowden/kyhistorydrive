@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T10:15:35.832Z",
+  "generatedAt": "2026-09-21T10:52:56.130Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -51,7 +51,7 @@
     },
     "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
       "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "historyId": null,
+      "historyId": "wea-waayaahtanwa-ouiatenon",
       "photo": {
         "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
         "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
@@ -73,6 +73,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": 2013
+      }
+    },
+    "wea-waayaahtanwa-ouiatenon": {
+      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+      "historyId": "wea-waayaahtanwa-ouiatenon",
+      "photo": {
+        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
+        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2008
       }
     }
   }
