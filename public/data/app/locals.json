@@ -1139,11 +1139,11 @@
     "latitude": 38.1099945,
     "longitude": -85.1832241,
     "category": "grocery",
-    "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Today",
-    "website": null,
+    "cuisine_or_type": "country grocery & lunch counter",
+    "history": "Country grocery and lunch counter on Southville Pike in rural Shelby County. Saturday is Carriss Burger Day\u2014quarter- and half-pound burgers advertised on their Facebook page.",
+    "website": "https://www.facebook.com/CarrissGrocery/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.facebook.com/CarrissGrocery/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1203,11 +1203,11 @@
     "latitude": 38.1879824,
     "longitude": -84.8719503,
     "category": "restaurant",
-    "cuisine_or_type": "Diner",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Diner; $$; Closed Now; 8:30 AM \u2013 3:00 PM",
+    "cuisine_or_type": "old-time diner",
+    "history": "Old-time diner on Old Lawrenceburg Road in Frankfort, serving breakfast, lunch, and dinner.",
     "website": null,
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.kentuckytourism.com/explore/cliffside-diner-68"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1225,12 +1225,12 @@
     "latitude": 38.210179,
     "longitude": -85.209698,
     "category": "grocery",
-    "cuisine_or_type": "Food Mart",
-    "history": "From Shannon's Apple Maps place pin. Downtown Shelbyville food mart.",
-    "website": null,
+    "cuisine_or_type": "downtown food mart",
+    "history": "Downtown Shelbyville food mart at 38 Main Street, serving the town for over 50 years. Breakfast sandwiches, hand-pattied burgers, weekday lunch specials, fried-cod sandwich, and banana-flavored soft-serve ice cream.",
+    "website": "https://www.facebook.com/convenientfoodmart",
     "sources": [
-      "https://maps.apple/p/R9_rfZyoQMaPiu",
-      "https://maps.apple.com/place?address=38%20Main%20St,%20Shelbyville,%20KY%2040065,%20United%20States&coordinate=38.210179,-85.209698&name=Convenient%20Food%20Mart&place-id=I6A569B1D95F3C67E&map=explore"
+      "https://www.facebook.com/convenientfoodmart",
+      "https://business.shelbycountykychamber.com/list/member/its-convenient-food-mart-2775"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1248,11 +1248,12 @@
     "latitude": 38.0675885,
     "longitude": -84.9224335,
     "category": "restaurant",
-    "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM \u2013 9:00 PM",
-    "website": null,
+    "cuisine_or_type": "Mexican grill",
+    "history": "Don Pedro's Mexican Grill on Eagle Lake Drive in Lawrenceburg, with dine-in, online ordering, and a party room for private events.",
+    "website": "https://donpedrosmexicangrillky.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://donpedrosmexicangrillky.com/",
+      "http://www.donpedrosmexgrill.com/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1270,11 +1271,12 @@
     "latitude": 38.20924859061859,
     "longitude": -85.14489820951344,
     "category": "specialty",
-    "cuisine_or_type": "from Apple Maps guide (address pin)",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. from Apple Maps guide (address pin)",
-    "website": null,
+    "cuisine_or_type": "marina & campground",
+    "history": "Guist Creek Lake is Shelby County's largest lake. The marina has a boat ramp and supply shop; the campground (March through November) offers primitive and pull-through RV sites.",
+    "website": "https://guistcreek.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://guistcreek.com/",
+      "https://guistcreek.com/camping/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1314,11 +1316,12 @@
     "latitude": 38.2111837,
     "longitude": -85.2168113,
     "category": "restaurant",
-    "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; $$; Closed Now; 11:00 AM \u2013 8:30 PM",
-    "website": null,
+    "cuisine_or_type": "Mexican cuisine",
+    "history": "Mexican restaurant at 535 Main Street in Shelbyville, opened September 25, 2013 after two decades in the business. Family-owned kitchen using generational recipes; mole poblano, fish tacos, enmoladas, and other dishes made fresh daily.",
+    "website": "https://lacocinademamaky.com/about-us/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://lacocinademamaky.com/about-us/",
+      "https://lacocinademamaky.com/contact/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1336,11 +1339,11 @@
     "latitude": 38.2107847,
     "longitude": -85.2099678,
     "category": "restaurant",
-    "cuisine_or_type": "Mexican Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Mexican Cuisine; Closed Now; 10:30 AM \u2013 9:30 PM",
-    "website": null,
+    "cuisine_or_type": "taqueria",
+    "history": "Downtown Shelbyville taqueria at 51 Main Street. Handmade corn tortillas and everyday Mexican plates\u2014tacos, sopes, huaraches, and caldos.",
+    "website": "https://www.facebook.com/p/La-Fogata-100063486517495/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.facebook.com/p/La-Fogata-100063486517495/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1358,11 +1361,12 @@
     "latitude": 38.2102234,
     "longitude": -84.8717765,
     "category": "restaurant",
-    "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Today",
-    "website": null,
+    "cuisine_or_type": "bistro & bar",
+    "history": "Family-owned bistro and bar in Frankfort's historic Glen Willis house (built 1815) on the Kentucky River, opened August 2022 by chef Axl and Isabelle Wheeler. Kentucky Proud cooking from homemade ingredients; the name honors the river and Bluegrass limestone.",
+    "website": "https://www.limewaterbistro.com/about/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.limewaterbistro.com/about/",
+      "https://www.limewaterbistro.com/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1464,11 +1468,13 @@
     "latitude": 38.3854127,
     "longitude": -85.2589587,
     "category": "restaurant",
-    "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Open; 7:00 AM \u2013 10:30 AM; 11:00 AM \u2013 8:00 PM",
-    "website": null,
+    "cuisine_or_type": "country-style cooking",
+    "history": "Kay and Kenneth Way opened Our Best in Smithfield in the fall of 1990, cooking country-style meals from family recipes. They also run a full-service catering division for Country Cookin' and Southern Hospitality.",
+    "website": "https://www.ourbestrestaurant.com/about/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.ourbestrestaurant.com/about/",
+      "https://www.ourbestrestaurant.com/",
+      "https://www.facebook.com/ourbestrest/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1530,11 +1536,11 @@
     "latitude": 38.5294933,
     "longitude": -85.1906973,
     "category": "specialty",
-    "cuisine_or_type": "Cheese Shop",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Cheese Shop; Closed Now; 1:00 PM \u2013 9:00 PM",
-    "website": null,
+    "cuisine_or_type": "ice cream & dairy creamery",
+    "history": "Family-owned Campbellsburg creamery making ice cream, cheese, and butter as a wholesome, affordable product for local restaurants and consumers. Kentucky Proud.",
+    "website": "https://www.facebook.com/p/Rowletts-Milkhouse-Creamery-LLC-100057251087250/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.facebook.com/p/Rowletts-Milkhouse-Creamery-LLC-100057251087250/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1572,11 +1578,12 @@
     "latitude": 38.179856,
     "longitude": -84.8936988,
     "category": "restaurant",
-    "cuisine_or_type": "BBQ Restaurant",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. BBQ Restaurant; $; Closed Now; 11:00 AM \u2013 8:00 PM",
-    "website": null,
+    "cuisine_or_type": "BBQ",
+    "history": "Frankfort's favorite stop for hot, fresh BBQ at 11 Carson Place\u2014dine-in, carry-out, drive-thru, and catering.",
+    "website": "https://staxxbbq.com/homepage.html",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://staxxbbq.com/homepage.html",
+      "https://visitfrankfort.com/listing/staxx-bbq/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1594,11 +1601,12 @@
     "latitude": 38.2132862,
     "longitude": -84.8030452,
     "category": "restaurant",
-    "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; $; Closed Today",
-    "website": null,
+    "cuisine_or_type": "country diner",
+    "history": "Local family diner on Georgetown Road in Frankfort. Breakfast all day, plus daily lunch and dinner specials.",
+    "website": "https://www.facebook.com/tammysdinerky/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.facebook.com/tammysdinerky/",
+      "https://visitfrankfort.com/listing/tammys-diner/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1616,11 +1624,12 @@
     "latitude": 38.1743038,
     "longitude": -84.8961102,
     "category": "restaurant",
-    "cuisine_or_type": "Thai Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Thai Cuisine; $; Closed Today",
-    "website": null,
+    "cuisine_or_type": "Thai cuisine",
+    "history": "Frankfort Thai restaurant (also Richmond) bringing fresh, authentic food from Thailand to Kentucky. The kitchen emphasizes a balance of flavors, textures, and seasonings rather than a carbon-copy Thai menu.",
+    "website": "https://www.thaismileky.com/frankfort.html",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.thaismileky.com/frankfort.html",
+      "https://www.thaismileky.com/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1638,11 +1647,12 @@
     "latitude": 38.1501163,
     "longitude": -84.6821558,
     "category": "restaurant",
-    "cuisine_or_type": "Seafood Restaurant",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Seafood Restaurant; $$; Closed Now; 11:00 AM \u2013 9:00 PM",
-    "website": null,
+    "cuisine_or_type": "steaks & seafood",
+    "history": "The Brown Barrel & Blind Harry's in historic Midway: steaks, seafood, and daily specials, with Kentucky bourbon, wine, mixed drinks, and packaged goods. Named for grandfather Winston Eugene Peace, a cooper at Bluegrass Cooperage (Brown-Forman).",
+    "website": "https://thebrownbarrel.com/our-story/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://thebrownbarrel.com/our-story/",
+      "https://thebrownbarrel.com/contact-midway/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1660,11 +1670,11 @@
     "latitude": 38.1901941,
     "longitude": -85.0910693,
     "category": "specialty",
-    "cuisine_or_type": "Meat Shop",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. Meat Shop; Closed Today",
-    "website": null,
+    "cuisine_or_type": "breakfast/lunch diner & meat market",
+    "history": "Breakfast-and-lunch diner and meat market on Frankfort Road in Shelbyville. Daily specials often use homegrown beef; meats are also sold to take home.",
+    "website": "https://www.facebook.com/friendsofTheFarmKitchen/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.facebook.com/friendsofTheFarmKitchen/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1682,11 +1692,12 @@
     "latitude": 38.1499138,
     "longitude": -84.6830893,
     "category": "restaurant",
-    "cuisine_or_type": "American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. American Cuisine; Closed Now; 11:30 AM \u2013 8:30 PM",
-    "website": null,
+    "cuisine_or_type": "American family restaurant",
+    "history": "Family restaurant at 133 East Main Street in Midway. The menu includes salads, sandwiches, pizza, and hearty entrees.",
+    "website": "https://gooseandgandermidway.com/about/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://gooseandgandermidway.com/about/",
+      "https://gooseandgandermidway.com/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -1748,11 +1759,13 @@
     "latitude": 38.1326948,
     "longitude": -84.8238938,
     "category": "restaurant",
-    "cuisine_or_type": "South American Cuisine",
-    "history": "From Shannon's Apple Maps Local Restaurants guide. South American Cuisine; $$; Closed Now; 11:00 AM \u2013 8:00 PM",
-    "website": null,
+    "cuisine_or_type": "modern Southern / bourbon bar",
+    "history": "Modern Southern restaurant on Kentucky's Bourbon Trail with a covered patio overlooking Glenn's Creek. Kentucky-inspired cuisine and a full bar, on McCracken Pike between Woodford Reserve, Glenn's Creek Distillery, and Castle & Key.",
+    "website": "https://www.thestavekentucky.com/",
     "sources": [
-      "https://maps.apple/ug/r~_n8D5TZ0pA-zGGYr--4C"
+      "https://www.facebook.com/TheStaveKentucky/",
+      "https://www.thestavekentucky.com/",
+      "https://visitwoodford.com/listing/the-stave/"
     ],
     "yelp_rating": null,
     "google_rating": null,
