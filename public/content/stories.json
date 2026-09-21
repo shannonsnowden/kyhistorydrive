@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T10:15:35.571Z",
+  "generatedAt": "2026-09-21T10:52:55.916Z",
   "count": 130,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -427,8 +427,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-13",
-      "lat": 37.8303086,
-      "lon": -85.4724533,
+      "lat": 40.40083,
+      "lon": -86.96,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon"
     },
@@ -1887,10 +1887,10 @@
         "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2008
       },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
+      "lat": 40.40083,
+      "lon": -86.96,
+      "mapConfidence": "override",
+      "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon"
     },
     {
       "slug": "kickapoo-on-the-kentucky-frontier",

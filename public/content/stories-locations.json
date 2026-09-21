@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-21T09:45:31.930Z",
+  "generatedAt": "2026-09-21T10:52:55.955Z",
   "stats": {
     "exact": 11,
     "fuzzy": 42,
     "county": 7,
-    "override": 49,
-    "none": 21
+    "override": 50,
+    "none": 20
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -162,8 +162,8 @@
     },
     "wea-waayaahtanwa-on-the-wabash": {
       "slug": "wea-waayaahtanwa-on-the-wabash",
-      "lat": 37.8303086,
-      "lon": -85.4724533,
+      "lat": 40.40083,
+      "lon": -86.96,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon",
       "historyId": "wea-waayaahtanwa-ouiatenon"
@@ -714,11 +714,11 @@
     },
     "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
       "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
+      "lat": 40.40083,
+      "lon": -86.96,
+      "mapConfidence": "override",
+      "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon",
+      "historyId": "wea-waayaahtanwa-ouiatenon"
     },
     "kickapoo-on-the-kentucky-frontier": {
       "slug": "kickapoo-on-the-kentucky-frontier",
