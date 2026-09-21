@@ -978,18 +978,19 @@
   {
     "id": "wea-waayaahtanwa-ouiatenon",
     "name": "Wea (Waayaahtanwa) / Ouiatenon",
-    "subtitle": "Tippecanoe County / Ouiatenon, Indiana",
+    "subtitle": "Ouiatenon \u00b7 Wabash River \u00b7 Indiana (Wea towns)",
     "latitude": 40.40083,
     "longitude": -86.96,
-    "history": "Wea (Waayaahtanwa) principal towns at Ouiatenon on the Wabash in present-day Tippecanoe County, Indiana. French Fort Ouiatenon (1717) was a fur-trade hub; in June 1791 Gen. Charles Scott’s Kentucky mounted volunteers burned Wea and Kickapoo villages there. Later Greenville (1795) and Wabash cessions.",
+    "history": "Wea (Waayaahtanwa) / Ouiatenon / Greenville & Wabash cessions / opposite western KY. Pinned from the daily KY History Morning Update; expand with site context on the next editorial pass.",
     "source_date": "2026-09-13",
     "marker_number": null,
     "marker_title": null,
-    "geocode_source": "manual",
+    "geocode_source": "manual-ouiatenon-in",
     "category": "person",
-    "website": "https://en.wikipedia.org/wiki/Ouiatenon",
-    "year_start": 1717,
-    "year_end": 1818
+    "website": null,
+    "year_start": 1795,
+    "year_end": 1818,
+    "geocode_note": "Corrected from bad Nelson County Photon hit; Ouiatenon is near West Lafayette, IN"
   },
   {
     "id": "ward-site-15mcl11-mclean-county-late-archaic",
