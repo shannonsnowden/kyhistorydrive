@@ -119,6 +119,8 @@ function isPhotoUrl(url) {
   const u = String(url || '').toLowerCase()
   if (!u) return false
   if (/\.svg(\?|$)/i.test(u)) return false
+  // Same-origin curated story heroes — skip Wikipedia schematic-map heuristics.
+  if (u.startsWith('/content/photos/stories/')) return true
   if (
     /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
       u,

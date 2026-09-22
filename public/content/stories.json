@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T09:26:31.432Z",
+  "generatedAt": "2026-09-22T10:05:47.067Z",
   "count": 135,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -153,10 +153,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
-      "lat": 38.0459102,
-      "lon": -84.4960297,
-      "mapConfidence": "override",
-      "matchedPlace": "Peter Village enclosure (15Fa166)",
       "photo": {
         "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
         "title": "Peter Village enclosure (Squier & Davis 1848)",
@@ -164,7 +160,11 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
         "year": 1848
-      }
+      },
+      "lat": 38.0459102,
+      "lon": -84.4960297,
+      "mapConfidence": "override",
+      "matchedPlace": "Peter Village enclosure (15Fa166)"
     },
     {
       "slug": "peter-village-enclosure-15fa166",
@@ -695,18 +695,18 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
-      "lat": 37.93955,
-      "lon": -83.9975333,
-      "mapConfidence": "override",
-      "matchedPlace": "John Finley",
       "photo": {
-        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boone-s-map.jpg",
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
         "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
         "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
         "year": 1851
-      }
+      },
+      "lat": 37.93955,
+      "lon": -83.9975333,
+      "mapConfidence": "override",
+      "matchedPlace": "John Finley"
     },
     {
       "slug": "maj-silas-harlan",
@@ -1436,10 +1436,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
-      "lat": 38.3351,
-      "lon": -84.2749,
-      "mapConfidence": "override",
-      "matchedPlace": "Ruddell's Station",
       "photo": {
         "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
         "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
@@ -1447,7 +1443,11 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2012
-      }
+      },
+      "lat": 38.3351,
+      "lon": -84.2749,
+      "mapConfidence": "override",
+      "matchedPlace": "Ruddell's Station"
     },
     {
       "slug": "william-christian-of-beargrass",
@@ -2024,10 +2024,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
-      "lat": 37.6853413,
-      "lon": -85.2221819,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield / Washington County seat",
       "photo": {
         "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
         "title": "Washington County Courthouse, Springfield",
@@ -2035,7 +2031,11 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2008
-      }
+      },
+      "lat": 37.6853413,
+      "lon": -85.2221819,
+      "mapConfidence": "override",
+      "matchedPlace": "Springfield / Washington County seat"
     },
     {
       "slug": "versailles-takes-shape",

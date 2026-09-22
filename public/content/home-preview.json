@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T09:37:17.035Z",
+  "generatedAt": "2026-09-22T10:05:48.313Z",
   "briefDate": "2026-09-22",
   "displayDate": "Tuesday, September 22, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -19,7 +19,7 @@
       "mapHref": "/#map/history/john-finley-eskippakithiki-trader",
       "quote": "Long before Wilderness Road fame, Pennsylvania-born trader John Finley (also Findley) was crossing the Alleghenies for furs.",
       "photo": {
-        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boone-s-map.jpg",
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
         "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
         "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
         "source_label": "Wikimedia Commons",
@@ -128,7 +128,7 @@
     "mapHref": "/#map/history/john-finley-eskippakithiki-trader",
     "quote": "Long before Wilderness Road fame, Pennsylvania-born trader John Finley (also Findley) was crossing the Alleghenies for furs.",
     "photo": {
-      "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boone-s-map.jpg",
+      "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
       "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
       "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
       "source_label": "Wikimedia Commons",
