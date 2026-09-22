@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T10:05:47.067Z",
+  "generatedAt": "2026-09-22T10:56:21.525Z",
   "count": 135,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -427,6 +427,14 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
+      "photo": {
+        "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
+        "title": "Three Delaware Indians (George Catlin)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
+        "year": 1861
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
