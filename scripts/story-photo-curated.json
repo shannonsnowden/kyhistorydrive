@@ -90,5 +90,15 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2008
+  },
+  "delaware-winter-camps-on-kentucky-ground": {
+    "ext": "jpg",
+    "commonsFile": "George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/George_Catlin%2C_Three_Delaware_Indians%2C_1861-1869%2C_NGA_50422.jpg/1280px-George_Catlin%2C_Three_Delaware_Indians%2C_1861-1869%2C_NGA_50422.jpg",
+    "title": "Three Delaware Indians (George Catlin)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
+    "year": 1861
   }
 }

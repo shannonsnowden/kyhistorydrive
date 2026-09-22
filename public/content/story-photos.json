@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-09-22T10:05:48.310Z",
+  "generatedAt": "2026-09-22T10:55:56.727Z",
   "bySlug": {
+    "delaware-winter-camps-on-kentucky-ground": {
+      "slug": "delaware-winter-camps-on-kentucky-ground",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
+        "title": "Three Delaware Indians (George Catlin)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
+        "year": 1861
+      }
+    },
     "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
       "historyId": "ruddells-station-harrison-county",
