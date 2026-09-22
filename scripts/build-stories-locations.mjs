@@ -373,7 +373,7 @@ const MANUAL_OVERRIDES = {
   },
   // 2026-09-22 morning brief
   'john-finley-the-trader-who-put-kentucky-on-boone-s-map': {
-    matchName: 'John Finley / Eskippakithiki',
+    matchName: 'John Finley',
     lat: 37.93955,
     lon: -83.9975333,
     confidence: 'override',

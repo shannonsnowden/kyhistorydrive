@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T09:26:35.404Z",
+  "generatedAt": "2026-09-22T09:37:15.301Z",
   "stats": {
     "exact": 12,
     "fuzzy": 42,
@@ -269,8 +269,8 @@
       "lat": 37.93955,
       "lon": -83.9975333,
       "mapConfidence": "override",
-      "matchedPlace": "John Finley / Eskippakithiki",
-      "historyId": null
+      "matchedPlace": "John Finley",
+      "historyId": "john-finley-eskippakithiki-trader"
     },
     "maj-silas-harlan": {
       "slug": "maj-silas-harlan",

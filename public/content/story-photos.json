@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T09:26:38.997Z",
+  "generatedAt": "2026-09-22T09:37:17.030Z",
   "bySlug": {
     "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
@@ -15,7 +15,7 @@
     },
     "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
-      "historyId": null,
+      "historyId": "john-finley-eskippakithiki-trader",
       "photo": {
         "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boone-s-map.jpg",
         "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
@@ -61,6 +61,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2012
+      }
+    },
+    "john-finley-eskippakithiki-trader": {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
+      "historyId": "john-finley-eskippakithiki-trader",
+      "photo": {
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boone-s-map.jpg",
+        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+        "year": 1851
       }
     },
     "peter-village-enclosure-15fa166-fayette-county": {
