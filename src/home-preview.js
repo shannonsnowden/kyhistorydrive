@@ -91,6 +91,19 @@ function quoteFromStory(story) {
   }
 }
 
+/** Hero overlay: full first-sentence quote — never mid-sentence summary ellipsis. */
+function heroDeckText(story) {
+  const quote = String(story?.quote || '').trim()
+  if (quote) return quote
+  const summary = String(story?.summary || '').trim()
+  if (!summary) return ''
+  // Strip trailing ellipsis / … then take a complete sentence if possible.
+  const stripped = summary.replace(/\u2026\s*$/, '').replace(/\.\.\.\s*$/, '').trim()
+  const sentence = firstSentence(stripped)
+  if (sentence && /[.!?]$/.test(sentence)) return sentence
+  return stripped
+}
+
 /** Home-map deep link for a pin-backed story. Does not invent coordinates. */
 function storyMapHref(item) {
   if (!item) return null
@@ -158,7 +171,8 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
     }
     const wiki = extractWikipediaUrl(full.bodyMarkdown)
     const stored = usablePhoto(full.photo) || usablePhoto(meta.photo)
-    const photo = stored || (await fetchWikipediaPhoto(wiki || full.title))
+    // Only try Wikipedia when the story cites a wiki URL — title fallback 404s (e.g. theme-only briefs).
+    const photo = stored || (wiki ? await fetchWikipediaPhoto(wiki) : null)
     const slug = full.slug || meta.slug
     const loc = locations[slug] || {}
     const lat = loc.lat ?? meta.lat ?? null
@@ -240,7 +254,7 @@ function renderHeroSlide(story, index) {
         <p class="hp-kicker">Featured story</p>
         <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(String(story.yearStart))}` : ''}</p>
         <h2 id="${titleId}">${escapeHtml(story.title)}</h2>
-        <p class="hp-hero-deck">${escapeHtml(story.summary)}</p>
+        <p class="hp-hero-deck">${escapeHtml(heroDeckText(story))}</p>
         <div class="hp-cta-row">
           <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
           ${
@@ -397,16 +411,17 @@ function renderFeatures(pack) {
   }
   root.innerHTML = items
     .map((item) => {
-      const img = usablePhoto(item.photo)
-        ? `<img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.title)}" loading="lazy" referrerpolicy="no-referrer" decoding="async" />`
-        : `<div class="hp-feature-fallback" aria-hidden="true"></div>`
+      const hasPhoto = Boolean(usablePhoto(item.photo))
+      const media = hasPhoto
+        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}"><img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.title)}" loading="lazy" referrerpolicy="no-referrer" decoding="async" /></a>`
+        : ''
       const credit = photoCredit(item.photo)
       const mapHref = storyMapHref(item)
       const cta = mapHref
         ? `<a class="hp-layer-cta" href="${escapeHtml(mapHref)}">Open on the map</a>`
         : `<a class="hp-layer-cta" href="${escapeHtml(item.href)}">Read the story</a>`
-      return `<article class="hp-feature">
-        <a class="hp-feature-media" href="${escapeHtml(item.href)}">${img}</a>
+      return `<article class="hp-feature${hasPhoto ? '' : ' hp-feature--no-photo'}">
+        ${media}
         <div class="hp-feature-copy">
           <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(String(item.yearStart))}` : ''}</p>
           <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
