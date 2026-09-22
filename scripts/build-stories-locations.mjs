@@ -371,6 +371,31 @@ const MANUAL_OVERRIDES = {
     lon: -83.94437,
     confidence: 'override',
   },
+  // 2026-09-22 morning brief
+  'john-finley-the-trader-who-put-kentucky-on-boone-s-map': {
+    matchName: 'John Finley / Eskippakithiki',
+    lat: 37.93955,
+    lon: -83.9975333,
+    confidence: 'override',
+  },
+  'springfield-founding-and-washington-county-seat': {
+    matchName: 'Springfield / Washington County seat',
+    lat: 37.6853413,
+    lon: -85.2221819,
+    confidence: 'override',
+  },
+  'peter-village-early-woodland-enclosure-near-lexington': {
+    matchName: 'Peter Village enclosure (15Fa166)',
+    lat: 38.0459102,
+    lon: -84.4960297,
+    confidence: 'override',
+  },
+  'isaac-ruddell-and-the-guns-at-ruddell-s-station': {
+    matchName: "Ruddell's Station",
+    lat: 38.3351,
+    lon: -84.2749,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)

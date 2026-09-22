@@ -1,114 +1,90 @@
 {
-  "generatedAt": "2026-09-21T12:19:55Z",
+  "generatedAt": "2026-09-22T09:26:38.997Z",
   "bySlug": {
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county",
+    "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
+      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+      "historyId": "ruddells-station-harrison-county",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend \u00b7 Wikimedia Commons \u00b7 Public domain",
-        "year": 2013
+        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2012
       }
     },
-    "ann-mcginty-and-kentuckys-first-spinning-wheel": {
-      "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
+    "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
-        "title": "Old Fort Harrod reconstruction, Harrodsburg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boone-s-map.jpg",
+        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "FloNight (Sydney Poore) and Russell Poore \u00b7 Wikimedia Commons \u00b7 CC BY-SA 3.0",
-        "year": 2007
+        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+        "year": 1851
       }
     },
-    "henry-mckennas-fairfield-sour-mash": {
-      "slug": "henry-mckennas-fairfield-sour-mash",
-      "historyId": null,
+    "peter-village-early-woodland-enclosure-near-lexington": {
+      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county",
       "photo": {
-        "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
-        "title": "Main Street (KY 48), Fairfield, Nelson County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
+        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
+        "title": "Peter Village enclosure (Squier & Davis 1848)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Brian Stansberry \u00b7 Wikimedia Commons \u00b7 CC BY 4.0",
-        "year": 2017
+        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+        "year": 1848
       }
     },
-    "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
-      "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
-      "historyId": null,
+    "springfield-founding-and-washington-county-seat": {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "historyId": "springfield-washington-county-seat",
       "photo": {
-        "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
-        "title": "Anderson County Courthouse, Lawrenceburg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
+        "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
+        "title": "Washington County Courthouse, Springfield",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Michael Howard \u00b7 Wikimedia Commons \u00b7 Free Art License",
-        "year": 2007
-      }
-    },
-    "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
-      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "historyId": "wea-waayaahtanwa-ouiatenon",
-      "photo": {
-        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
-        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 \u00b7 Wikimedia Commons \u00b7 CC BY-SA 2.0",
+        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2008
       }
     }
   },
   "byHistoryId": {
-    "adams-site-15fu4-mississippian-fulton-county": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county",
+    "ruddells-station-harrison-county": {
+      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+      "historyId": "ruddells-station-harrison-county",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend \u00b7 Wikimedia Commons \u00b7 Public domain",
-        "year": 2013
+        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2012
       }
     },
-    "wea-waayaahtanwa-ouiatenon": {
-      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "historyId": "wea-waayaahtanwa-ouiatenon",
+    "peter-village-enclosure-15fa166-fayette-county": {
+      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county",
       "photo": {
-        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
-        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
+        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
+        "title": "Peter Village enclosure (Squier & Davis 1848)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 \u00b7 Wikimedia Commons \u00b7 CC BY-SA 2.0",
+        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+        "year": 1848
+      }
+    },
+    "springfield-washington-county-seat": {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "historyId": "springfield-washington-county-seat",
+      "photo": {
+        "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
+        "title": "Washington County Courthouse, Springfield",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2008
-      }
-    },
-    "estill-springs": {
-      "slug": null,
-      "historyId": "estill-springs",
-      "photo": {
-        "image_url": "/content/photos/stories/estill-springs-sprague-c1910.jpg",
-        "title": "Estill County \u2014 Estill Springs",
-        "source_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/117/",
-        "source_label": "Stuart S. Sprague Photograph Collection \u00b7 ScholarWorks @ Morehead State",
-        "attribution": "Stuart S. Sprague \u00b7 University of Kentucky Photographic Archives \u00b7 ScholarWorks @ Morehead State",
-        "year": 1910
-      }
-    },
-    "m-robison-sawmill-irvine": {
-      "slug": null,
-      "historyId": "m-robison-sawmill-irvine",
-      "photo": {
-        "image_url": "/content/photos/stories/m-robison-sawmill-irvine-c1908.jpg",
-        "title": "Estill County \u2014 M. Robison Sawmill",
-        "source_url": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/",
-        "source_label": "Stuart S. Sprague Photograph Collection \u00b7 ScholarWorks @ Morehead State",
-        "attribution": "Stuart S. Sprague \u00b7 Kentucky Historical Society \u00b7 ScholarWorks @ Morehead State",
-        "year": 1908
       }
     }
   }

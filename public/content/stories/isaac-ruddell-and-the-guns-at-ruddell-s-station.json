@@ -1,0 +1,27 @@
+{
+  "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+  "title": "Isaac Ruddell and the Guns at Ruddell’s Station",
+  "publishedDate": "2026-09-22",
+  "summary": "In spring 1779 Capt. Isaac Ruddell rebuilt a fort on the South Fork of Licking (Harrison County) on the old Hinkson site—Ruddell’s Station, or Fort Liberty—soon joined by many…",
+  "bodyMarkdown": "In spring 1779 Capt. Isaac Ruddell rebuilt a fort on the South Fork of Licking (Harrison County) on the old Hinkson site—Ruddell’s Station, or Fort Liberty—soon joined by many Pennsylvania German families. In June 1780 British Capt. Henry Bird marched south with cannon, Canadian volunteers, and hundreds of Native allies. Artillery cracked the log walls; Ruddell surrendered under a promise of protection, then watched the agreement collapse as roughly four hundred captives were marched toward Detroit. Two of his sons were adopted by Shawnee; Stephen later lived as Tecumseh’s companion. The British never again brought that scale of artillery into Kentucky.\nSource: [https://www.battlefields.org/learn/revolutionary-war/battles/ruddells-station](https://www.battlefields.org/learn/revolutionary-war/battles/ruddells-station)",
+  "yearStart": 1779,
+  "yearEnd": 1780,
+  "era": "native",
+  "tags": [
+    "native",
+    "kentucky",
+    "native-history",
+    "frontier-war",
+    "salt"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-09-22",
+  "photo": {
+    "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+    "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2012
+  }
+}

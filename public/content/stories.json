@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-21T10:52:55.916Z",
-  "count": 130,
+  "generatedAt": "2026-09-22T09:26:31.432Z",
+  "count": 135,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-21"
+    "end": "2026-09-22"
   },
   "eras": [
     "early-commonwealth",
@@ -138,6 +138,35 @@
       "matchedPlace": "Gaitskill Mound"
     },
     {
+      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "title": "Peter Village: Early Woodland Enclosure Near Lexington",
+      "publishedDate": "2026-09-22",
+      "summary": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric…",
+      "yearStart": -500,
+      "yearEnd": 0,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "lat": 38.0459102,
+      "lon": -84.4960297,
+      "mapConfidence": "override",
+      "matchedPlace": "Peter Village enclosure (15Fa166)",
+      "photo": {
+        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
+        "title": "Peter Village enclosure (Squier & Davis 1848)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+        "year": 1848
+      }
+    },
+    {
       "slug": "peter-village-enclosure-15fa166",
       "title": "Peter Village enclosure (15Fa166)",
       "publishedDate": "2026-09-11",
@@ -154,8 +183,8 @@
       "briefDate": "2026-09-11",
       "lat": 38.0459102,
       "lon": -84.4960297,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County"
+      "mapConfidence": "exact",
+      "matchedPlace": "Peter Village enclosure (15Fa166)"
     },
     {
       "slug": "muir-site-15js86",
@@ -234,14 +263,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
-      "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": 2013
-      },
       "lat": 36.552,
       "lon": -89.186,
       "mapConfidence": "fuzzy",
@@ -385,6 +406,27 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-04",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "delaware-winter-camps-on-kentucky-ground",
+      "title": "Delaware Winter Camps on Kentucky Ground",
+      "publishedDate": "2026-09-22",
+      "summary": "After the Beaver Wars scattered Algonquian peoples across the Ohio Valley, Lenape (Delaware) bands—often alongside Shawnee, Mingo, Miami, and Wyandot—used Kentucky as seasonal…",
+      "yearStart": 1700,
+      "yearEnd": 1779,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -639,6 +681,34 @@
       "matchedPlace": "Lower Shawneetown"
     },
     {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
+      "title": "John Finley, the Trader Who Put Kentucky on Boone’s Map",
+      "publishedDate": "2026-09-22",
+      "summary": "Long before Wilderness Road fame, Pennsylvania-born trader John Finley (also Findley) was crossing the Alleghenies for furs. Around 1752 he reached Eskippakithiki, the Shawnee…",
+      "yearStart": 1752,
+      "yearEnd": 1769,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "lat": 37.93955,
+      "lon": -83.9975333,
+      "mapConfidence": "override",
+      "matchedPlace": "John Finley / Eskippakithiki",
+      "photo": {
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boone-s-map.jpg",
+        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+        "year": 1851
+      }
+    },
+    {
       "slug": "maj-silas-harlan",
       "title": "Maj. Silas Harlan",
       "publishedDate": "2026-09-18",
@@ -675,10 +745,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
-      "lat": 37.98859,
-      "lon": -84.25209,
-      "mapConfidence": "county",
-      "matchedPlace": "Clark County (centroid)"
+      "lat": 37.93955,
+      "lon": -83.9975333,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Finley"
     },
     {
       "slug": "evan-williams-on-the-louisville-wharf",
@@ -1012,14 +1082,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
-      "photo": {
-        "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
-        "title": "Old Fort Harrod reconstruction, Harrodsburg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
-      },
       "lat": 37.7619646,
       "lon": -84.8485383,
       "mapConfidence": "override",
@@ -1358,6 +1420,36 @@
       "matchedPlace": "Lexington"
     },
     {
+      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+      "title": "Isaac Ruddell and the Guns at Ruddell’s Station",
+      "publishedDate": "2026-09-22",
+      "summary": "In spring 1779 Capt. Isaac Ruddell rebuilt a fort on the South Fork of Licking (Harrison County) on the old Hinkson site—Ruddell’s Station, or Fort Liberty—soon joined by many…",
+      "yearStart": 1779,
+      "yearEnd": 1780,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "lat": 38.3351,
+      "lon": -84.2749,
+      "mapConfidence": "override",
+      "matchedPlace": "Ruddell's Station",
+      "photo": {
+        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2012
+      }
+    },
+    {
       "slug": "william-christian-of-beargrass",
       "title": "William Christian of Beargrass",
       "publishedDate": "2026-09-06",
@@ -1497,14 +1589,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
-      "photo": {
-        "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
-        "title": "Anderson County Courthouse, Lawrenceburg",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
-        "year": 2007
-      },
       "lat": 38.1741739,
       "lon": -84.8769101,
       "mapConfidence": "override",
@@ -1879,14 +1963,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
-      "photo": {
-        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
-        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
-        "year": 2008
-      },
       "lat": 40.40083,
       "lon": -86.96,
       "mapConfidence": "override",
@@ -1931,6 +2007,35 @@
       "lon": -84.57311666666666,
       "mapConfidence": "override",
       "matchedPlace": "Nicholasville founding / Rev. John Metcalf 1798"
+    },
+    {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "title": "Springfield Founding and Washington County Seat",
+      "publishedDate": "2026-09-22",
+      "summary": "Washington County was the first county the new Kentucky legislature created after 1792 statehood, named for George Washington. In 1793 a site near the old Wilderness Trace was…",
+      "yearStart": 1792,
+      "yearEnd": 1793,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "lat": 37.6853413,
+      "lon": -85.2221819,
+      "mapConfidence": "override",
+      "matchedPlace": "Springfield / Washington County seat",
+      "photo": {
+        "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
+        "title": "Washington County Courthouse, Springfield",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      }
     },
     {
       "slug": "versailles-takes-shape",
@@ -2250,7 +2355,7 @@
       "publishedDate": "2026-09-21",
       "summary": "Irish immigrant Henry McKenna of County Derry settled at Fairfield in Nelson County, began distilling in a mill shed by 1855 (under a barrel a day), and built a brick…",
       "yearStart": 1855,
-      "yearEnd": 1883,
+      "yearEnd": 1855,
       "era": "other",
       "tags": [
         "other",
@@ -2259,14 +2364,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
-      "photo": {
-        "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
-        "title": "Main Street (KY 48), Fairfield, Nelson County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
-        "year": 2017
-      },
       "lat": 37.932222,
       "lon": -85.3838837,
       "mapConfidence": "override",

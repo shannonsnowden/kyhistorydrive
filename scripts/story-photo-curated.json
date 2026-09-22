@@ -49,5 +49,45 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
     "year": 2017
+  },
+  "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
+    "ext": "jpg",
+    "commonsFile": "George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg/1280px-George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+    "year": 1851
+  },
+  "peter-village-early-woodland-enclosure-near-lexington": {
+    "ext": "jpg",
+    "commonsFile": "Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "title": "Peter Village enclosure (Squier & Davis 1848)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+    "year": 1848
+  },
+  "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
+    "ext": "jpg",
+    "commonsFile": "Downtown_Cynthiana_on_Main_Street.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Downtown_Cynthiana_on_Main_Street.jpg/1280px-Downtown_Cynthiana_on_Main_Street.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2012
+  },
+  "springfield-founding-and-washington-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Washington_county_courthouse.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Washington_county_courthouse.jpg/1280px-Washington_county_courthouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "title": "Washington County Courthouse, Springfield",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2008
   }
 }

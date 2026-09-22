@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-21T10:52:55.955Z",
+  "generatedAt": "2026-09-22T09:26:35.404Z",
   "stats": {
-    "exact": 11,
+    "exact": 12,
     "fuzzy": 42,
-    "county": 7,
-    "override": 50,
-    "none": 20
+    "county": 6,
+    "override": 54,
+    "none": 21
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -56,12 +56,20 @@
       "matchedPlace": "Gaitskill Mound",
       "historyId": "gaitskill-mound"
     },
+    "peter-village-early-woodland-enclosure-near-lexington": {
+      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "lat": 38.0459102,
+      "lon": -84.4960297,
+      "mapConfidence": "override",
+      "matchedPlace": "Peter Village enclosure (15Fa166)",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county"
+    },
     "peter-village-enclosure-15fa166": {
       "slug": "peter-village-enclosure-15fa166",
       "lat": 38.0459102,
       "lon": -84.4960297,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Peter Village enclosure (15Fa166) Fayette County",
+      "mapConfidence": "exact",
+      "matchedPlace": "Peter Village enclosure (15Fa166)",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
     },
     "muir-site-15js86": {
@@ -146,6 +154,14 @@
     },
     "mosopelea-ofo-the-ohio-valley": {
       "slug": "mosopelea-ofo-the-ohio-valley",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "delaware-winter-camps-on-kentucky-ground": {
+      "slug": "delaware-winter-camps-on-kentucky-ground",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -248,6 +264,14 @@
       "matchedPlace": "Lower Shawneetown",
       "historyId": "lower-shawneetown"
     },
+    "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
+      "lat": 37.93955,
+      "lon": -83.9975333,
+      "mapConfidence": "override",
+      "matchedPlace": "John Finley / Eskippakithiki",
+      "historyId": null
+    },
     "maj-silas-harlan": {
       "slug": "maj-silas-harlan",
       "lat": 37.66,
@@ -258,11 +282,11 @@
     },
     "odawa-raid-at-eskippakithiki-1753": {
       "slug": "odawa-raid-at-eskippakithiki-1753",
-      "lat": 37.98859,
-      "lon": -84.25209,
-      "mapConfidence": "county",
-      "matchedPlace": "Clark County (centroid)",
-      "historyId": null
+      "lat": 37.93955,
+      "lon": -83.9975333,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "John Finley",
+      "historyId": "john-finley-eskippakithiki-trader"
     },
     "evan-williams-on-the-louisville-wharf": {
       "slug": "evan-williams-on-the-louisville-wharf",
@@ -520,6 +544,14 @@
       "matchedPlace": "Lexington",
       "historyId": null
     },
+    "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
+      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+      "lat": 38.3351,
+      "lon": -84.2749,
+      "mapConfidence": "override",
+      "matchedPlace": "Ruddell's Station",
+      "historyId": "ruddells-station-harrison-county"
+    },
     "william-christian-of-beargrass": {
       "slug": "william-christian-of-beargrass",
       "lat": 38.24890948935559,
@@ -735,6 +767,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Nicholasville founding / Rev. John Metcalf 1798",
       "historyId": "nicholasville-founding-rev-john-metcalf-1798"
+    },
+    "springfield-founding-and-washington-county-seat": {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "lat": 37.6853413,
+      "lon": -85.2221819,
+      "mapConfidence": "override",
+      "matchedPlace": "Springfield / Washington County seat",
+      "historyId": "springfield-washington-county-seat"
     },
     "versailles-takes-shape": {
       "slug": "versailles-takes-shape",
