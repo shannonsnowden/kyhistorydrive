@@ -53,6 +53,8 @@ function isPhotoUrl(url) {
   const u = String(url || '').toLowerCase()
   if (!u) return false
   if (/\.svg(\?|$)/i.test(u)) return false
+  // Same-origin curated story heroes — skip Wikipedia schematic-map heuristics.
+  if (u.startsWith('/content/photos/stories/')) return true
   // Wikipedia often leads with schematic maps / locator diagrams — not card photos.
   if (
     /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
@@ -234,10 +236,18 @@ function loadCuratedPhotos(rel = 'scripts/story-photo-curated.json') {
   return out
 }
 
+function curatedFileBase(id, row) {
+  const base = String(row?.fileBase || id || '')
+    .replace(/[/\\?&#]/g, '')
+    .trim()
+  return base || id
+}
+
 function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
   const ext = row.ext || 'jpg'
+  const base = curatedFileBase(id, row)
   return {
-    image_url: `${publicDir}/${id}.${ext}`,
+    image_url: `${publicDir}/${base}.${ext}`,
     title: row.title,
     source_url: row.source_url,
     source_label: row.source_label || 'Wikimedia Commons',
@@ -288,10 +298,28 @@ async function vendorCuratedPhoto(
   { destDir = 'public/content/photos/stories', publicDir = '/content/photos/stories' } = {},
 ) {
   const ext = row.ext || 'jpg'
-  const rel = path.join(destDir, `${id}.${ext}`)
+  const base = curatedFileBase(id, row)
+  const rel = path.join(destDir, `${base}.${ext}`)
   const abs = path.join(ROOT, rel)
   fs.mkdirSync(path.dirname(abs), { recursive: true })
   const photo = curatedPublicPhoto(id, row, publicDir)
+  // Drop a stale slug-named file when fileBase remaps the basename.
+  if (base !== id) {
+    const stale = path.join(ROOT, destDir, `${id}.${ext}`)
+    if (stale !== abs && fs.existsSync(stale) && !fs.existsSync(abs)) {
+      try {
+        fs.renameSync(stale, abs)
+      } catch {
+        /* fall through to download */
+      }
+    } else if (stale !== abs && fs.existsSync(stale) && fs.existsSync(abs)) {
+      try {
+        fs.unlinkSync(stale)
+      } catch {
+        /* ignore */
+      }
+    }
+  }
   const exists = fs.existsSync(abs) && fs.statSync(abs).size > 1000
   if (exists) return photo
   const urls = vendorCandidateUrls(row)
