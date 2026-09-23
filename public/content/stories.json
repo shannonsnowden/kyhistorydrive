@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T09:31:11.364Z",
+  "generatedAt": "2026-09-23T09:37:01.054Z",
   "count": 140,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -323,6 +323,14 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-23",
+      "photo": {
+        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
+        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": null
+      },
       "lat": 37.43722222,
       "lon": -88.25166667,
       "mapConfidence": "fuzzy",
