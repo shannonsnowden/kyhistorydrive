@@ -326,7 +326,15 @@
       "lat": 37.43722222,
       "lon": -88.25166667,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Tolu Site (15Cn1)"
+      "matchedPlace": "Tolu Site (15Cn1)",
+      "photo": {
+        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
+        "title": "Wickliffe Mounds panorama, Ballard County (sister Angel-phase site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Panorama.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wickliffe Mounds, Ballard County (sister Angel-phase site, not the Tolu Site) · Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2023
+      }
     },
     {
       "slug": "fox-farm-mason-county",

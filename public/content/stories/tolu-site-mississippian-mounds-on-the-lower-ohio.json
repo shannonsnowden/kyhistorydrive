@@ -13,5 +13,13 @@
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-23"
+  "briefDate": "2026-09-23",
+  "photo": {
+    "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
+    "title": "Wickliffe Mounds panorama, Ballard County (sister Angel-phase site)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Panorama.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wickliffe Mounds, Ballard County (sister Angel-phase site, not the Tolu Site) · Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2023
+  }
 }

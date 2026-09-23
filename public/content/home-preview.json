@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T09:31:14.198Z",
+  "generatedAt": "2026-09-23T09:36:00.139Z",
   "briefDate": "2026-09-23",
   "displayDate": "Wednesday, September 23, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -87,7 +87,14 @@
       "historyId": "tolu-site-15cn1-crittenden-county",
       "mapHref": "/#map/history/tolu-site-15cn1-crittenden-county",
       "quote": "Near Tolu in Crittenden County, the Tolu Site (15Cn1) was a Mississippian town occupied mainly about 1200–1300 CE (pottery styles; occupation into the 1400s).",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
+        "title": "Wickliffe Mounds panorama, Ballard County (sister Angel-phase site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Panorama.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wickliffe Mounds, Ballard County (sister Angel-phase site, not the Tolu Site) · Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2023
+      }
     },
     {
       "slug": "saltpeter-cave-at-carter-caves",
@@ -197,7 +204,14 @@
       "historyId": "tolu-site-15cn1-crittenden-county",
       "mapHref": "/#map/history/tolu-site-15cn1-crittenden-county",
       "quote": "Near Tolu in Crittenden County, the Tolu Site (15Cn1) was a Mississippian town occupied mainly about 1200–1300 CE (pottery styles; occupation into the 1400s).",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
+        "title": "Wickliffe Mounds panorama, Ballard County (sister Angel-phase site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Panorama.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wickliffe Mounds, Ballard County (sister Angel-phase site, not the Tolu Site) · Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2023
+      }
     },
     {
       "slug": "saltpeter-cave-at-carter-caves",
