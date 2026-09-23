@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-22T10:56:21.525Z",
-  "count": 135,
+  "generatedAt": "2026-09-23T09:31:11.364Z",
+  "count": 140,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-22"
+    "end": "2026-09-23"
   },
   "eras": [
     "early-commonwealth",
@@ -307,6 +307,26 @@
       "lon": -88.32188,
       "mapConfidence": "county",
       "matchedPlace": "Marshall County (centroid)"
+    },
+    {
+      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
+      "title": "Tolu Site — Mississippian mounds on the lower Ohio",
+      "publishedDate": "2026-09-23",
+      "summary": "Near Tolu in Crittenden County, the Tolu Site (15Cn1) was a Mississippian town occupied mainly about 1200–1300 CE (pottery styles; occupation into the 1400s). It once held…",
+      "yearStart": 1200,
+      "yearEnd": 1300,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-23",
+      "lat": 37.43722222,
+      "lon": -88.25166667,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Tolu Site (15Cn1)"
     },
     {
       "slug": "fox-farm-mason-county",
@@ -1238,6 +1258,36 @@
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County"
     },
     {
+      "slug": "chickamauga-cherokee-hold-the-southern-flank",
+      "title": "Chickamauga Cherokee hold the southern flank",
+      "publishedDate": "2026-09-23",
+      "summary": "After the 1775 Treaty of Sycamore Shoals sold Cherokee claims to Kentucky hunting ground, Dragging Canoe (Tsiyu Gansini) broke with the accommodationist chiefs, warning of a…",
+      "yearStart": 1776,
+      "yearEnd": 1794,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-23",
+      "photo": {
+        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
+        "title": "Chickamauga Towns (map)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "paris-from-hopewell",
       "title": "Paris from Hopewell",
       "publishedDate": "2026-09-02",
@@ -1684,6 +1734,33 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "override",
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
+    },
+    {
+      "slug": "jack-jouett-kentuckys-midnight-rider",
+      "title": "Jack Jouett, Kentucky’s midnight rider",
+      "publishedDate": "2026-09-23",
+      "summary": "On the night of June 3–4, 1781, Capt. John “Jack” Jouett spotted Banastre Tarleton’s British cavalry near Cuckoo Tavern in Virginia and rode roughly forty miles over back roads…",
+      "yearStart": 1781,
+      "yearEnd": 1797,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-23",
+      "photo": {
+        "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
+        "title": "Jack Jouett House Historic Site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Day tripper · Wikimedia Commons · Public domain",
+        "year": null
+      },
+      "lat": 37.9827487,
+      "lon": -84.7708839,
+      "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
     },
     {
@@ -2273,6 +2350,64 @@
       "matchedPlace": "Great Saltpetre Cave"
     },
     {
+      "slug": "saltpeter-cave-at-carter-caves",
+      "title": "Saltpeter Cave at Carter Caves",
+      "publishedDate": "2026-09-23",
+      "summary": "In Carter County’s Carter Caves State Resort Park, Saltpeter Cave (15Cr99) was mined for potassium nitrate during the War of 1812, when British blockades forced Americans to…",
+      "yearStart": 1812,
+      "yearEnd": 1815,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "geology",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-23",
+      "photo": {
+        "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
+        "title": "Saltpeter Cave, Carter Caves State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      },
+      "lat": 38.3767,
+      "lon": -83.1233,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Saltpeter Cave (Carter Caves)"
+    },
+    {
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "title": "Simpsonville takes shape on the Louisville road",
+      "publishedDate": "2026-09-23",
+      "summary": "In Shelby County, Isaac Watkins petitioned to lay out Simpsonville in 1816 as a waystation on the Louisville–Shelbyville road. A post office opened in 1821; the town…",
+      "yearStart": 1816,
+      "yearEnd": 1816,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "frontier-war",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-23",
+      "photo": {
+        "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
+        "title": "Bank of Simpsonville Building (1902)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 1902
+      },
+      "lat": 38.2219833,
+      "lon": -85.3464,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Simpsonville"
+    },
+    {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
       "publishedDate": "2026-08-27",
@@ -2598,10 +2733,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-13",
-      "lat": 38.3561484,
-      "lon": -83.112554,
+      "lat": 38.3767,
+      "lon": -83.1233,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Carter Caves / Cascade Cave & Falls"
+      "matchedPlace": "Saltpeter Cave (Carter Caves)"
     },
     {
       "slug": "indian-fort-mountain",

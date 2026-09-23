@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-09-22T10:56:21.760Z",
+  "generatedAt": "2026-09-23T09:31:14.193Z",
   "bySlug": {
+    "chickamauga-cherokee-hold-the-southern-flank": {
+      "slug": "chickamauga-cherokee-hold-the-southern-flank",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
+        "title": "Chickamauga Towns (map)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      }
+    },
     "delaware-winter-camps-on-kentucky-ground": {
       "slug": "delaware-winter-camps-on-kentucky-ground",
       "historyId": null,
@@ -25,6 +37,18 @@
         "year": 2012
       }
     },
+    "jack-jouett-kentuckys-midnight-rider": {
+      "slug": "jack-jouett-kentuckys-midnight-rider",
+      "historyId": "capt-jack-jouett-midnight-ride-1781",
+      "photo": {
+        "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
+        "title": "Jack Jouett House Historic Site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Day tripper · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
     "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
       "historyId": "john-finley-eskippakithiki-trader",
@@ -47,6 +71,30 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
         "year": 1848
+      }
+    },
+    "saltpeter-cave-at-carter-caves": {
+      "slug": "saltpeter-cave-at-carter-caves",
+      "historyId": "saltpeter-cave-carter-caves-15cr99",
+      "photo": {
+        "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
+        "title": "Saltpeter Cave, Carter Caves State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      }
+    },
+    "simpsonville-takes-shape-on-the-louisville-road": {
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "historyId": "simpsonville-laid-out-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
+        "title": "Bank of Simpsonville Building (1902)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 1902
       }
     },
     "springfield-founding-and-washington-county-seat": {
@@ -75,6 +123,18 @@
         "year": 2012
       }
     },
+    "capt-jack-jouett-midnight-ride-1781": {
+      "slug": "jack-jouett-kentuckys-midnight-rider",
+      "historyId": "capt-jack-jouett-midnight-ride-1781",
+      "photo": {
+        "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
+        "title": "Jack Jouett House Historic Site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Day tripper · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
     "john-finley-eskippakithiki-trader": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
       "historyId": "john-finley-eskippakithiki-trader",
@@ -97,6 +157,30 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
         "year": 1848
+      }
+    },
+    "saltpeter-cave-carter-caves-15cr99": {
+      "slug": "saltpeter-cave-at-carter-caves",
+      "historyId": "saltpeter-cave-carter-caves-15cr99",
+      "photo": {
+        "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
+        "title": "Saltpeter Cave, Carter Caves State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      }
+    },
+    "simpsonville-laid-out-1816": {
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "historyId": "simpsonville-laid-out-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
+        "title": "Bank of Simpsonville Building (1902)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 1902
       }
     },
     "springfield-washington-county-seat": {

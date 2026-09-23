@@ -16,7 +16,7 @@ const STORIES = path.join(ROOT, 'public/content/stories')
 fs.mkdirSync(STORIES, { recursive: true })
 
 const EMOJI_HEADER =
-  /^(?:[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]|[\u{1F1E0}-\u{1F1FF}])\s+(.+)$/u
+  /^(?:[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]|[\u{1F1E0}-\u{1F1FF}])\uFE0F?\s+(.+)$/u
 
 const SKIP_LINE = /^(this morning'?s kentucky history brief|kentucky history morning (brief|update)|kentucky morning brief)[:\s]/i
 const DATE_LINE = /^(?:\*?kentucky history morning update[^*]*\*?\s*[—–-]?\s*)?(monday|tuesday|wednesday|thursday|friday|saturday|sunday)?[,\s]*(january|february|march|april|may|june|july|august|september|october|november|december)?\s*\d{1,2},?\s*2026\*?\s*$/i
@@ -26,7 +26,7 @@ function slugify(s) {
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
-    .replace(/['']/g, '')
+    .replace(/['\u2019]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 80)

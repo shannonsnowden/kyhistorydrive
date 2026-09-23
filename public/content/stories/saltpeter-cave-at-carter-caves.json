@@ -1,0 +1,26 @@
+{
+  "slug": "saltpeter-cave-at-carter-caves",
+  "title": "Saltpeter Cave at Carter Caves",
+  "publishedDate": "2026-09-23",
+  "summary": "In Carter County’s Carter Caves State Resort Park, Saltpeter Cave (15Cr99) was mined for potassium nitrate during the War of 1812, when British blockades forced Americans to…",
+  "bodyMarkdown": "In Carter County’s Carter Caves State Resort Park, Saltpeter Cave (15Cr99) was mined for potassium nitrate during the War of 1812, when British blockades forced Americans to scrape gunpowder ingredients from their own caves. University of Kentucky archaeologists in the early 1990s documented impressions and remnants of 26 wooden leaching vats — a hybrid of big-box and small V-shaped cottage setups with wooden piping. Kentucky caves yielded more than 300,000 pounds of saltpeter statewide; this one is on the National Register and open for summer tours.\nSource: [https://en.wikipedia.org/wiki/Saltpeter_Cave](https://en.wikipedia.org/wiki/Saltpeter_Cave)",
+  "yearStart": 1812,
+  "yearEnd": 1815,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "geology",
+    "salt"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-09-23",
+  "photo": {
+    "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
+    "title": "Saltpeter Cave, Carter Caves State Resort Park",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
+  }
+}

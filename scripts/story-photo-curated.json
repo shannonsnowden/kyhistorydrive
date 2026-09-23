@@ -100,5 +100,45 @@
     "source_label": "Wikimedia Commons",
     "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
     "year": 1861
+  },
+  "simpsonville-takes-shape-on-the-louisville-road": {
+    "ext": "jpg",
+    "commonsFile": "Bank_of_Simpsonville,_KY_1902.JPG",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Bank_of_Simpsonville%2C_KY_1902.JPG/1280px-Bank_of_Simpsonville%2C_KY_1902.JPG",
+    "title": "Bank of Simpsonville Building (1902)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 1902
+  },
+  "saltpeter-cave-at-carter-caves": {
+    "ext": "jpg",
+    "commonsFile": "Carter_Caves_Saltpeter_Cave.JPG",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Carter_Caves_Saltpeter_Cave.JPG/1280px-Carter_Caves_Saltpeter_Cave.JPG",
+    "title": "Saltpeter Cave, Carter Caves State Resort Park",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
+  },
+  "chickamauga-cherokee-hold-the-southern-flank": {
+    "ext": "jpg",
+    "commonsFile": "Chickamauga_Towns.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Chickamauga_Towns.jpg/1280px-Chickamauga_Towns.jpg",
+    "title": "Chickamauga Towns (map)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
+  },
+  "jack-jouett-kentuckys-midnight-rider": {
+    "ext": "jpg",
+    "commonsFile": "Jack_J_002.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Jack_J_002.jpg",
+    "title": "Jack Jouett House Historic Site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Day tripper · Wikimedia Commons · Public domain",
+    "year": null
   }
 }

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-22T10:56:21.564Z",
+  "generatedAt": "2026-09-23T09:31:11.731Z",
   "stats": {
     "exact": 12,
-    "fuzzy": 42,
+    "fuzzy": 46,
     "county": 6,
     "override": 54,
-    "none": 21
+    "none": 22
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -119,6 +119,14 @@
       "mapConfidence": "county",
       "matchedPlace": "Marshall County (centroid)",
       "historyId": null
+    },
+    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
+      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
+      "lat": 37.43722222,
+      "lon": -88.25166667,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Tolu Site (15Cn1)",
+      "historyId": "tolu-site-15cn1-crittenden-county"
     },
     "fox-farm-mason-county": {
       "slug": "fox-farm-mason-county",
@@ -472,6 +480,14 @@
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County",
       "historyId": "capt-john-strode-strode-s-station-1779-clark-county"
     },
+    "chickamauga-cherokee-hold-the-southern-flank": {
+      "slug": "chickamauga-cherokee-hold-the-southern-flank",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "paris-from-hopewell": {
       "slug": "paris-from-hopewell",
       "lat": 38.21273333333333,
@@ -637,6 +653,14 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "override",
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
+      "historyId": "capt-jack-jouett-midnight-ride-1781"
+    },
+    "jack-jouett-kentuckys-midnight-rider": {
+      "slug": "jack-jouett-kentuckys-midnight-rider",
+      "lat": 37.9827487,
+      "lon": -84.7708839,
+      "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
       "historyId": "capt-jack-jouett-midnight-ride-1781"
     },
@@ -864,6 +888,22 @@
       "matchedPlace": "Great Saltpetre Cave",
       "historyId": "great-saltpetre-cave"
     },
+    "saltpeter-cave-at-carter-caves": {
+      "slug": "saltpeter-cave-at-carter-caves",
+      "lat": 38.3767,
+      "lon": -83.1233,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Saltpeter Cave (Carter Caves)",
+      "historyId": "saltpeter-cave-carter-caves-15cr99"
+    },
+    "simpsonville-takes-shape-on-the-louisville-road": {
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "lat": 38.2219833,
+      "lon": -85.3464,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Simpsonville",
+      "historyId": "simpsonville-laid-out-1816"
+    },
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "lat": 37.3184064,
@@ -986,11 +1026,11 @@
     },
     "carter-caves-cascade-falls": {
       "slug": "carter-caves-cascade-falls",
-      "lat": 38.3561484,
-      "lon": -83.112554,
+      "lat": 38.3767,
+      "lon": -83.1233,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Carter Caves / Cascade Cave & Falls",
-      "historyId": "carter-caves-cascade-cave-and-falls"
+      "matchedPlace": "Saltpeter Cave (Carter Caves)",
+      "historyId": "saltpeter-cave-carter-caves-15cr99"
     },
     "indian-fort-mountain": {
       "slug": "indian-fort-mountain",

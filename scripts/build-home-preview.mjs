@@ -22,14 +22,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const UA = 'kyhistorydrive-home-preview/1.0 (https://github.com/shannonsnowden/kyhistorydrive)'
 const EMOJI_HEADER =
-  /^(?:[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]|[\u{1F1E0}-\u{1F1FF}])\s+(.+)$/u
+  /^(?:[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]|[\u{1F1E0}-\u{1F1FF}])\uFE0F?\s+(.+)$/u
 
 function slugify(s) {
   return String(s)
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
-    .replace(/['']/g, '')
+    .replace(/['\u2019]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 80)
@@ -472,9 +472,6 @@ async function main() {
   const bySlug = new Map(index.stories.map((s) => [s.slug, s]))
   const order = briefOrder(briefDate)
   let slugs = order.filter((slug) => bySlug.has(slug))
-  if (!slugs.length) {
-    slugs = index.stories.filter((s) => s.briefDate === briefDate).map((s) => s.slug)
-  }
   if (!slugs.length) {
     slugs = index.stories.slice(-5).map((s) => s.slug)
   }
