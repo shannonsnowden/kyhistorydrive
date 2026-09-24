@@ -59,27 +59,34 @@ The iPhone app checks `data_version` and downloads layer JSON from a path that i
 - https://kyhistorydrive.com/data/app/ky-history.json
 - plus the other bundled layer files (`museums.json`, `markers.phase1.json`, `search-index.json`, …) under `/data/app/`
 
-Source of truth is `shannonsnowden/ky-markers-drive` `data/` (especially `ky-history.json` + `ky-history-manifest.json`, which bump `data_version` on daily ingest). This site copies those files into `public/data/app/` (separate from the web map GeoJSON under `public/data/layers/`).
+**Source of truth for content days is this site’s OTA packs** under `public/data/app/` (live at the URLs above). Bump `data_version` in `ky-history-manifest.json` here when History pins change. Do **not** commit daily History JSON into `shannonsnowden/ky-markers-drive` — that repo’s `data/` is the Xcode **offline fallback**, refreshed only when cutting an App Store / TestFlight build. Web map GeoJSON under `public/data/layers/` stays separate.
 
-### Refresh after daily ingest
+### Daily content (OTA only)
 
-After ingest in **ky-markers-drive** (`python3 scripts/ingest_daily_ky_history.py`, which bumps `data_version`):
+On a morning pack / History pin update:
+
+1. Edit `public/data/app/ky-history.json` + `ky-history-manifest.json` (and deltas if you keep them on the site side of the workflow).
+2. Commit on this repo and let Amplify deploy — installed apps pick up the new `data_version` over HTTPS.
+3. Leave `ky-markers-drive` alone.
+
+`npm run sync-app-data` (Amplify `preBuild`) **defaults to the committed `public/data/app/` files**. It will **not** pull from the iOS repo unless you explicitly set `SYNC_IOS_BUNDLE=1` (legacy / rare rebuild only).
+
+### App Store / TestFlight cut (`SYNC_IOS_BUNDLE`)
+
+When intentionally shipping an iOS build, copy live OTA packs into a local markers checkout so the offline bundle matches:
 
 ```bash
-# from this repo, with GitHub auth that can read ky-markers-drive
-npm run sync-app-data
-git add public/data/app
-git commit -m "Sync iOS app data (data_version N)"
-# PR or push to main — Amplify deploys from main
+SYNC_IOS_BUNDLE=1 KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run bundle-ios-from-ota
+# then review + commit in ky-markers-drive (no daily History commits otherwise)
 ```
 
-Or copy from a local clone:
+Optional legacy pull the other way (overwrite this site’s OTA from markers) — also gated:
 
 ```bash
-KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run sync-app-data
+SYNC_IOS_BUNDLE=1 KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run sync-app-data
 ```
 
-Amplify `preBuild` also runs `sync-app-data`. If Amplify Hosting has env var `KY_MARKERS_DRIVE_GITHUB_TOKEN` (a PAT/fine-grained token with **read** access to `ky-markers-drive`), each site deploy pulls the latest `main` even if git copies are a commit behind. Without that token, the committed `public/data/app/` files are what go live — so the copy+commit step above is the reliable daily path.
+Do **not** set `SYNC_IOS_BUNDLE` or `KY_MARKERS_DRIVE_GITHUB_TOKEN` for routine Amplify content deploys.
 
 `customHttp.yml` sets short CloudFront cache (`max-age=0`, `s-maxage=60`) and CORS (`Access-Control-Allow-Origin: *`) on `/data/app/*.json` so version bumps are not stuck behind Amplify’s default 1-year CDN cache. Native iOS URLSession does not need CORS; it is there for completeness.
 
@@ -95,7 +102,7 @@ npm run preview
 ## AWS Amplify + Route53
 
 1. Amplify Hosting → **Host web app** → connect GitHub repo `shannonsnowden/kyhistorydrive`
-2. Build settings use root `amplify.yml` (`npm ci` → `npm run sync-app-data` → `npm run build`, artifact `dist`). Optional env: `KY_MARKERS_DRIVE_GITHUB_TOKEN` to pull iOS JSON at deploy time. Cache/CORS for `/data/app/*.json` is in `customHttp.yml`.
+2. Build settings use root `amplify.yml` (`npm ci` → `npm run sync-app-data` → `npm run build`, artifact `dist`). `sync-app-data` publishes committed `public/data/app/` unless Amplify env `SYNC_IOS_BUNDLE=1` (do not set for daily content). Cache/CORS for `/data/app/*.json` is in `customHttp.yml`.
 3. When **kyhistorydrive.com** is live in Route53, Amplify → Domain management → add `kyhistorydrive.com` (+ `www` if desired)
 4. Amplify will ask for Route53 DNS records (or provide CNAME/ALIAS to paste into the hosted zone)
 

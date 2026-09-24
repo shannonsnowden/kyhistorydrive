@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 /**
- * Copy iOS app JSON from shannonsnowden/ky-markers-drive `data/` into
- * `public/data/app/` so Amplify serves them at:
- *   https://kyhistorydrive.com/data/app/<file>
+ * OTA pack helper for https://kyhistorydrive.com/data/app/<file>
  *
- * These filenames match the iOS bundle (see ky-markers-drive ios/KYMarkersDrive/project.yml)
- * plus ky-history-manifest.json, which the app uses to check `data_version`.
+ * Shannon rule (2026-09-24): content-only days update this site’s committed
+ * `public/data/app/` only. The iOS repo (ky-markers-drive) is NOT the daily
+ * source of truth — bundled JSON there is an offline fallback refreshed only
+ * when cutting an App Store / TestFlight build (see bundle-ios-from-ota.mjs).
  *
- * Source (first match wins):
- *   1. KY_MARKERS_DRIVE_DIR — local clone of ky-markers-drive
- *   2. GitHub API `main` using KY_MARKERS_DRIVE_GITHUB_TOKEN, GH_TOKEN, or GITHUB_TOKEN
+ * Default (Amplify preBuild + daily packs):
+ *   Leave committed `public/data/app/` in place. Do NOT pull from markers.
  *
- * If remote fetch is unavailable, already-seeded files in public/data/app/ are
- * left in place (so Amplify still publishes them). Missing required files fail.
+ * Opt-in pull FROM ky-markers-drive (legacy / rare rebuild):
+ *   SYNC_IOS_BUNDLE=1   (or SYNC_FROM_MARKERS=1)
+ *   plus KY_MARKERS_DRIVE_DIR or KY_MARKERS_DRIVE_GITHUB_TOKEN / GH_TOKEN / GITHUB_TOKEN
  *
  * Usage:
  *   npm run sync-app-data
- *   KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run sync-app-data
+ *   SYNC_IOS_BUNDLE=1 KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run sync-app-data
  */
 import fs from 'node:fs'
 import os from 'node:os'
@@ -30,6 +30,12 @@ const OUT_DIR = path.join(ROOT, 'public/data/app')
 const OWNER = 'shannonsnowden'
 const REPO = 'ky-markers-drive'
 const REF = process.env.KY_MARKERS_DRIVE_REF || 'main'
+
+/** Truthy opt-in to overwrite OTA packs from the iOS repo (not for daily content). */
+function syncFromMarkersOptIn() {
+  const v = (process.env.SYNC_IOS_BUNDLE || process.env.SYNC_FROM_MARKERS || '').trim().toLowerCase()
+  return v === '1' || v === 'true' || v === 'yes'
+}
 
 /** iOS-bundled layer JSON + manifest the app polls for data_version. */
 const FILES = [
@@ -111,19 +117,18 @@ function moveFile(src, dest) {
   }
 }
 
-function useSeeded() {
+function useSeeded(reason) {
   const missing = FILES.filter((f) => !fs.existsSync(path.join(OUT_DIR, f)))
   if (missing.length) {
     throw new Error(
       'public/data/app/ is missing:\n  ' +
         missing.join('\n  ') +
-        '\nSet KY_MARKERS_DRIVE_DIR or KY_MARKERS_DRIVE_GITHUB_TOKEN (read access to ky-markers-drive).',
+        '\nCommit OTA packs under public/data/app/ (daily content path), or set SYNC_IOS_BUNDLE=1 with KY_MARKERS_DRIVE_DIR / token for a rare pull from markers.',
     )
   }
   const manifest = JSON.parse(fs.readFileSync(path.join(OUT_DIR, 'ky-history-manifest.json'), 'utf8'))
   console.log(
-    `Using committed public/data/app/ files (data_version ${manifest.data_version}). ` +
-      'To refresh from ky-markers-drive, set KY_MARKERS_DRIVE_DIR or KY_MARKERS_DRIVE_GITHUB_TOKEN.',
+    `Using committed public/data/app/ (OTA SoT, data_version ${manifest.data_version}). ${reason}`,
   )
 }
 
@@ -153,24 +158,30 @@ async function fetchAll(localDir, token) {
 async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true })
 
+  const optIn = syncFromMarkersOptIn()
   const localDir = localDataDir()
   const token = githubToken()
-  const mode = localDir ? `local:${localDir}` : token ? `github:${OWNER}/${REPO}@${REF}` : 'seeded-files-only'
 
-  console.log(`sync-ios-app-data: ${mode}`)
+  if (!optIn) {
+    useSeeded(
+      'Set SYNC_IOS_BUNDLE=1 to overwrite from ky-markers-drive (release/legacy only — not daily content).',
+    )
+    return
+  }
+
+  const mode = localDir ? `local:${localDir}` : token ? `github:${OWNER}/${REPO}@${REF}` : 'opt-in-but-no-source'
+  console.log(`sync-ios-app-data: SYNC_IOS_BUNDLE opt-in → ${mode}`)
 
   if (!localDir && !token) {
-    useSeeded()
+    useSeeded('SYNC_IOS_BUNDLE=1 set but no KY_MARKERS_DRIVE_DIR or GitHub token — keeping committed OTA files.')
     return
   }
 
   try {
     await fetchAll(localDir, token)
   } catch (err) {
-    // Amplify may have a GITHUB_TOKEN that cannot read the private iOS repo.
-    // Fall back to the committed seed so the site still deploys.
-    console.warn(`Fetch failed (${err.message || err}). Falling back to committed public/data/app/.`)
-    useSeeded()
+    console.warn(`Fetch from markers failed (${err.message || err}). Falling back to committed public/data/app/.`)
+    useSeeded('Markers fetch failed.')
   }
 }
 

@@ -4,8 +4,8 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        # Refresh iOS JSON from ky-markers-drive when a token is set; otherwise
-        # publish the committed copies in public/data/app/.
+        # OTA SoT is committed public/data/app/. sync-app-data is a no-op unless
+        # SYNC_IOS_BUNDLE=1 is set in Amplify (do not set for daily content deploys).
         - npm run sync-app-data
     build:
       commands:
