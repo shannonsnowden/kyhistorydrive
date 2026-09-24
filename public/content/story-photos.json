@@ -1,221 +1,149 @@
 {
-  "generatedAt": "2026-09-23T09:37:01.525Z",
+  "generatedAt": "2026-09-24T09:25:17.639Z",
   "bySlug": {
-    "chickamauga-cherokee-hold-the-southern-flank": {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "historyId": null,
+    "buckner-site-fort-ancient-villages-on-strodes-creek": {
+      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
+      "historyId": "buckner-site-15bb12-bourbon-county",
       "photo": {
-        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Chickamauga Towns (map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
+        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
+        "title": "Paris, Bourbon County (nearest city to Buckner Site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
       }
     },
-    "delaware-winter-camps-on-kentucky-ground": {
-      "slug": "delaware-winter-camps-on-kentucky-ground",
+    "erie-the-cat-nation-cleared-from-the-lake-shore": {
+      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
-        "title": "Three Delaware Indians (George Catlin)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
-        "year": 1861
-      }
-    },
-    "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
-      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
-      "historyId": "ruddells-station-harrison-county",
-      "photo": {
-        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
-        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2012
-      }
-    },
-    "jack-jouett-kentuckys-midnight-rider": {
-      "slug": "jack-jouett-kentuckys-midnight-rider",
-      "historyId": "capt-jack-jouett-midnight-ride-1781",
-      "photo": {
-        "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
-        "title": "Jack Jouett House Historic Site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Day tripper · Wikimedia Commons · Public domain",
-        "year": null
-      }
-    },
-    "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
-      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
-      "historyId": "john-finley-eskippakithiki-trader",
-      "photo": {
-        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
-        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
-        "year": 1851
-      }
-    },
-    "peter-village-early-woodland-enclosure-near-lexington": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848
-      }
-    },
-    "saltpeter-cave-at-carter-caves": {
-      "slug": "saltpeter-cave-at-carter-caves",
-      "historyId": "saltpeter-cave-carter-caves-15cr99",
-      "photo": {
-        "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
-        "title": "Saltpeter Cave, Carter Caves State Resort Park",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
+        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
+        "title": "Erie / Cat Nation territory (historical map)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
       }
     },
-    "simpsonville-takes-shape-on-the-louisville-road": {
-      "slug": "simpsonville-takes-shape-on-the-louisville-road",
-      "historyId": "simpsonville-laid-out-1816",
+    "erie-the-cat-nation": {
+      "slug": "erie-the-cat-nation",
+      "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
-        "title": "Bank of Simpsonville Building (1902)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
+        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
+        "title": "Erie / Cat Nation territory (historical map)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "attribution": "Wikimedia Commons",
+        "year": null
       }
     },
-    "springfield-founding-and-washington-county-seat": {
-      "slug": "springfield-founding-and-washington-county-seat",
-      "historyId": "springfield-washington-county-seat",
+    "jacob-beam-on-hardin-creek": {
+      "slug": "jacob-beam-on-hardin-creek",
+      "historyId": "jacob-beam-hardins-creek-washington-county",
       "photo": {
-        "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
-        "title": "Washington County Courthouse, Springfield",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
+        "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
+        "title": "Jim Beam White Label",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2008
+        "attribution": "Wikimedia Commons",
+        "year": null
       }
     },
-    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
+    "jacob-beam-sells-old-jakes-first-barrel": {
+      "slug": "jacob-beam-sells-old-jakes-first-barrel",
+      "historyId": "jacob-beam-hardins-creek-washington-county",
       "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
+        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
+        "title": "Jim Beam White Label",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      }
+    },
+    "jenny-wileys-captivity-and-escape": {
+      "slug": "jenny-wileys-captivity-and-escape",
+      "historyId": "jenny-wiley-state-resort-park",
+      "photo": {
+        "image_url": "/content/photos/stories/jenny-wileys-captivity-and-escape.jpg",
+        "title": "Dewey Lake at Jenny Wiley State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    "owensboro-yellow-banks": {
+      "slug": "owensboro-yellow-banks",
+      "historyId": "owensboro-founding-yellow-banks",
+      "photo": {
+        "image_url": "/content/photos/stories/owensboro-yellow-banks.jpg",
+        "title": "Second Street, Owensboro",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Smallbones · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    "yellow-banks-becomes-owensboro": {
+      "slug": "yellow-banks-becomes-owensboro",
+      "historyId": "owensboro-founding-yellow-banks",
+      "photo": {
+        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
+        "title": "Second Street, Owensboro",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Smallbones · Wikimedia Commons · Public domain",
         "year": null
       }
     }
   },
   "byHistoryId": {
-    "ruddells-station-harrison-county": {
-      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
-      "historyId": "ruddells-station-harrison-county",
+    "buckner-site-15bb12-bourbon-county": {
+      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
+      "historyId": "buckner-site-15bb12-bourbon-county",
       "photo": {
-        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
-        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2012
-      }
-    },
-    "capt-jack-jouett-midnight-ride-1781": {
-      "slug": "jack-jouett-kentuckys-midnight-rider",
-      "historyId": "capt-jack-jouett-midnight-ride-1781",
-      "photo": {
-        "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
-        "title": "Jack Jouett House Historic Site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Day tripper · Wikimedia Commons · Public domain",
-        "year": null
-      }
-    },
-    "john-finley-eskippakithiki-trader": {
-      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
-      "historyId": "john-finley-eskippakithiki-trader",
-      "photo": {
-        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
-        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
-        "year": 1851
-      }
-    },
-    "peter-village-enclosure-15fa166-fayette-county": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848
-      }
-    },
-    "saltpeter-cave-carter-caves-15cr99": {
-      "slug": "saltpeter-cave-at-carter-caves",
-      "historyId": "saltpeter-cave-carter-caves-15cr99",
-      "photo": {
-        "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
-        "title": "Saltpeter Cave, Carter Caves State Resort Park",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
+        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
+        "title": "Paris, Bourbon County (nearest city to Buckner Site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
       }
     },
-    "simpsonville-laid-out-1816": {
-      "slug": "simpsonville-takes-shape-on-the-louisville-road",
-      "historyId": "simpsonville-laid-out-1816",
+    "jacob-beam-hardins-creek-washington-county": {
+      "slug": "jacob-beam-sells-old-jakes-first-barrel",
+      "historyId": "jacob-beam-hardins-creek-washington-county",
       "photo": {
-        "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
-        "title": "Bank of Simpsonville Building (1902)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
+        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
+        "title": "Jim Beam White Label",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "attribution": "Wikimedia Commons",
+        "year": null
       }
     },
-    "springfield-washington-county-seat": {
-      "slug": "springfield-founding-and-washington-county-seat",
-      "historyId": "springfield-washington-county-seat",
+    "jenny-wiley-state-resort-park": {
+      "slug": "jenny-wileys-captivity-and-escape",
+      "historyId": "jenny-wiley-state-resort-park",
       "photo": {
-        "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
-        "title": "Washington County Courthouse, Springfield",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
+        "image_url": "/content/photos/stories/jenny-wileys-captivity-and-escape.jpg",
+        "title": "Dewey Lake at Jenny Wiley State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2008
+        "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
+        "year": null
       }
     },
-    "tolu-site-15cn1-crittenden-county": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
+    "owensboro-founding-yellow-banks": {
+      "slug": "yellow-banks-becomes-owensboro",
+      "historyId": "owensboro-founding-yellow-banks",
       "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
+        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
+        "title": "Second Street, Owensboro",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
         "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "attribution": "Smallbones · Wikimedia Commons · Public domain",
         "year": null
       }
     }

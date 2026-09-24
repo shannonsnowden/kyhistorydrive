@@ -4,8 +4,8 @@
   "publishedDate": "2026-09-22",
   "summary": "After the Beaver Wars scattered Algonquian peoples across the Ohio Valley, Lenape (Delaware) bands—often alongside Shawnee, Mingo, Miami, and Wyandot—used Kentucky as seasonal…",
   "bodyMarkdown": "After the Beaver Wars scattered Algonquian peoples across the Ohio Valley, Lenape (Delaware) bands—often alongside Shawnee, Mingo, Miami, and Wyandot—used Kentucky as seasonal hunting country rather than a place of large permanent towns. From villages north of the Ohio they slipped south in fall and winter for deer and bear, leaving small camps that Anglo hunters mistook for emptiness. By the 1770s those same parties faced settler pressure and increasingly turned from hunts into raids. The “dark and bloody ground” myth grew from that pattern: real Native use, but not the empty wilderness Filson’s readers imagined.\nSource: [https://preservationkentucky.org/wp-content/uploads/2018/10/Dispelling-the-Myth-17th-18th-Century-Indian-Life-in-KY.pdf](https://preservationkentucky.org/wp-content/uploads/2018/10/Dispelling-the-Myth-17th-18th-Century-Indian-Life-in-KY.pdf)",
-  "yearStart": 1700,
-  "yearEnd": 1779,
+  "yearStart": 2018,
+  "yearEnd": 2018,
   "era": "other",
   "tags": [
     "other",
@@ -14,13 +14,5 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-22",
-  "photo": {
-    "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
-    "title": "Three Delaware Indians (George Catlin)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
-    "year": 1861
-  }
+  "briefDate": "2026-09-22"
 }

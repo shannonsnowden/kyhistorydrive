@@ -396,6 +396,32 @@ const MANUAL_OVERRIDES = {
     lon: -84.2749,
     confidence: 'override',
   },
+  // 2026-09-24 morning brief
+  'jenny-wileys-captivity-and-escape': {
+    matchName: 'Jenny Wiley / Big Sandy',
+    lat: 37.7033685,
+    lon: -82.7466926,
+    confidence: 'override',
+  },
+  'yellow-banks-becomes-owensboro': {
+    matchName: 'Owensboro / Yellow Banks',
+    lat: 37.7759614,
+    lon: -87.1152649,
+    confidence: 'override',
+  },
+  // Erie / Cat Nation — theme-only, no KY place pin
+  'buckner-site-fort-ancient-villages-on-strodes-creek': {
+    matchName: 'Buckner Site (15Bb12)',
+    lat: 38.2132087,
+    lon: -84.2492072,
+    confidence: 'override',
+  },
+  'jacob-beam-sells-old-jakes-first-barrel': {
+    matchName: "Jacob Beam / Hardin's Creek",
+    lat: 37.76176666666667,
+    lon: -85.3364,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)

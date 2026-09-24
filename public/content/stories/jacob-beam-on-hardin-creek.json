@@ -3,8 +3,8 @@
   "title": "Jacob Beam on Hardin Creek",
   "publishedDate": "2026-09-10",
   "summary": "After 1790, Johannes Jacob Beam (Boehm) settled a farm and grist mill on Hardins Creek in Washington County (Outer Bluegrass / Knobs, feeding the Rolling Fork). Around 1795 he…",
-  "bodyMarkdown": "After 1790, Johannes Jacob Beam (Boehm) settled a farm and grist mill on Hardins Creek in Washington County (Outer Bluegrass / Knobs, feeding the Rolling Fork). Around 1795 he began selling corn whiskey from surplus grain—the start of the Beam line that later became Jim Beam. The creek itself is named for settler Martin Hardin; a 1789 Presbyterian meeting house nearby seeded Lebanon, and Maryland Catholics later planted St. Charles Church along the same waters.\nSource: [https://en.wikipedia.org/wiki/Jacob_Beam](https://en.wikipedia.org/wiki/Jacob_Beam)",
-  "yearStart": 1789,
+  "bodyMarkdown": "After 1790, Johannes Jacob Beam (Boehm) settled a farm and grist mill on Hardins Creek in Washington County (Outer Bluegrass / Knobs, feeding the Rolling Fork). Around 1795 he began selling corn whiskey from surplus grain—the start of the Beam line that later became Jim Beam. The creek itself is named for settler Martin Hardin; a 1789 Presbyterian meeting house nearby seeded Lebanon, and Maryland Catholics later planted St. Charles Church along the same waters.\nSource: [https://www.jimbeam.com/en-us/our-story/beam-history](https://www.jimbeam.com/en-us/our-story/beam-history)",
+  "yearStart": 1795,
   "yearEnd": 1795,
   "era": "frontier",
   "tags": [
@@ -13,5 +13,13 @@
     "bourbon"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-10"
+  "briefDate": "2026-09-10",
+  "photo": {
+    "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
+    "title": "Jim Beam White Label",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
+  }
 }

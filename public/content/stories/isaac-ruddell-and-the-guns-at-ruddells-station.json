@@ -1,5 +1,5 @@
 {
-  "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+  "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
   "title": "Isaac Ruddell and the Guns at Ruddell’s Station",
   "publishedDate": "2026-09-22",
   "summary": "In spring 1779 Capt. Isaac Ruddell rebuilt a fort on the South Fork of Licking (Harrison County) on the old Hinkson site—Ruddell’s Station, or Fort Liberty—soon joined by many…",
@@ -15,13 +15,5 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-22",
-  "photo": {
-    "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
-    "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2012
-  }
+  "briefDate": "2026-09-22"
 }

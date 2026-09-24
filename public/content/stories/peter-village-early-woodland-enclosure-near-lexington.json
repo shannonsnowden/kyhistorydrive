@@ -4,8 +4,8 @@
   "publishedDate": "2026-09-22",
   "summary": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric…",
   "bodyMarkdown": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric circle. Long mislabeled an Adena “village,” it is better read as a specialized gathering and craft place; archaeologist Berle Clay tied it to barite and galena working, and newer geoarchaeology (Henry and others) points to dual embankments and construction as early as the 5th century BCE—among the earliest monumental enclosures in the Middle Ohio Valley. It sits near the better-known Mount Horeb circle, marking Bluegrass ritual landscapes centuries before forts and stations.\nSource: [https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex](https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex)",
-  "yearStart": -500,
-  "yearEnd": 0,
+  "yearStart": null,
+  "yearEnd": null,
   "era": "prehistoric",
   "tags": [
     "prehistoric",
@@ -14,13 +14,5 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-22",
-  "photo": {
-    "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-    "title": "Peter Village enclosure (Squier & Davis 1848)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-    "year": 1848
-  }
+  "briefDate": "2026-09-22"
 }

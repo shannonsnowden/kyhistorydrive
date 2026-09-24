@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-23T09:37:01.054Z",
-  "count": 140,
+  "generatedAt": "2026-09-24T09:24:55.128Z",
+  "count": 145,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-23"
+    "end": "2026-09-24"
   },
   "eras": [
     "early-commonwealth",
@@ -138,35 +138,6 @@
       "matchedPlace": "Gaitskill Mound"
     },
     {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "title": "Peter Village: Early Woodland Enclosure Near Lexington",
-      "publishedDate": "2026-09-22",
-      "summary": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric…",
-      "yearStart": -500,
-      "yearEnd": 0,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-22",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848
-      },
-      "lat": 38.0459102,
-      "lon": -84.4960297,
-      "mapConfidence": "override",
-      "matchedPlace": "Peter Village enclosure (15Fa166)"
-    },
-    {
       "slug": "peter-village-enclosure-15fa166",
       "title": "Peter Village enclosure (15Fa166)",
       "publishedDate": "2026-09-11",
@@ -289,6 +260,37 @@
       "matchedPlace": "Turk Site (15Ce6)"
     },
     {
+      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
+      "title": "Buckner Site — Fort Ancient villages on Strodes Creek",
+      "publishedDate": "2026-09-24",
+      "summary": "Near Paris in Bourbon County, the Buckner Site (15Bb12) holds two circular Fort Ancient villages around central plazas, occupied mainly about A.D. 1200–1400 and into the early…",
+      "yearStart": 1200,
+      "yearEnd": 1550,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "archaeology",
+        "frontier-war",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-24",
+      "photo": {
+        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
+        "title": "Paris, Bourbon County (nearest city to Buckner Site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      },
+      "lat": 38.2132087,
+      "lon": -84.2492072,
+      "mapConfidence": "override",
+      "matchedPlace": "Buckner Site (15Bb12)"
+    },
+    {
       "slug": "jonathan-creek-mississippian-center",
       "title": "Jonathan Creek Mississippian center",
       "publishedDate": "2026-09-08",
@@ -323,14 +325,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-23",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-        "year": null
-      },
       "lat": 37.43722222,
       "lon": -88.25166667,
       "mapConfidence": "fuzzy",
@@ -381,12 +375,41 @@
       "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient"
     },
     {
+      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
+      "title": "Erie — the Cat Nation cleared from the lake shore",
+      "publishedDate": "2026-09-24",
+      "summary": "The Erie (Erielhénon, “people of the long tail”), called la Nation du Chat by the French, were an Iroquoian people of fortified maize villages along southern Lake Erie. In the…",
+      "yearStart": 1654,
+      "yearEnd": 1656,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-24",
+      "photo": {
+        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
+        "title": "Erie / Cat Nation territory (historical map)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "erie-the-cat-nation",
       "title": "Erie, the Cat Nation",
       "publishedDate": "2026-09-11",
       "summary": "South of Lake Erie, the Eriehronon—“People of the Long Tail,” called La Nation du Chat by the French—farmed and traded until Haudenosaunee armies smashed their confederacy in…",
       "yearStart": 1654,
-      "yearEnd": 1654,
+      "yearEnd": 1656,
       "era": "native",
       "tags": [
         "native",
@@ -394,6 +417,14 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-11",
+      "photo": {
+        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
+        "title": "Erie / Cat Nation territory (historical map)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -434,35 +465,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-04",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
-      "slug": "delaware-winter-camps-on-kentucky-ground",
-      "title": "Delaware Winter Camps on Kentucky Ground",
-      "publishedDate": "2026-09-22",
-      "summary": "After the Beaver Wars scattered Algonquian peoples across the Ohio Valley, Lenape (Delaware) bands—often alongside Shawnee, Mingo, Miami, and Wyandot—used Kentucky as seasonal…",
-      "yearStart": 1700,
-      "yearEnd": 1779,
-      "era": "other",
-      "tags": [
-        "other",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-22",
-      "photo": {
-        "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
-        "title": "Three Delaware Indians (George Catlin)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
-        "year": 1861
-      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -717,7 +719,7 @@
       "matchedPlace": "Lower Shawneetown"
     },
     {
-      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
       "title": "John Finley, the Trader Who Put Kentucky on Boone’s Map",
       "publishedDate": "2026-09-22",
       "summary": "Long before Wilderness Road fame, Pennsylvania-born trader John Finley (also Findley) was crossing the Alleghenies for furs. Around 1752 he reached Eskippakithiki, the Shawnee…",
@@ -731,17 +733,9 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
-      "photo": {
-        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
-        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
-        "year": 1851
-      },
       "lat": 37.93955,
       "lon": -83.9975333,
-      "mapConfidence": "override",
+      "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
     {
@@ -1166,6 +1160,28 @@
       "matchedPlace": null
     },
     {
+      "slug": "chickamauga-cherokee-hold-the-southern-flank",
+      "title": "Chickamauga Cherokee hold the southern flank",
+      "publishedDate": "2026-09-23",
+      "summary": "After the 1775 Treaty of Sycamore Shoals sold Cherokee claims to Kentucky hunting ground, Dragging Canoe (Tsiyu Gansini) broke with the accommodationist chiefs, warning of a…",
+      "yearStart": 1775,
+      "yearEnd": 1794,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-23",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "maj-joseph-bowman",
       "title": "Maj. Joseph Bowman",
       "publishedDate": "2026-09-16",
@@ -1226,7 +1242,7 @@
       "matchedPlace": "Stanford / St. Asaph (Logan's Fort)"
     },
     {
-      "slug": "william-calk-s-1775-journal",
+      "slug": "william-calks-1775-journal",
       "title": "William Calk’s 1775 journal",
       "publishedDate": "2026-09-08",
       "summary": "From March 13 to May 2, 1775, William Calk kept a plainspoken daybook of his trek from Prince William County, Virginia, to Boone’s Fort on the Kentucky River. The…",
@@ -1266,36 +1282,6 @@
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County"
     },
     {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "title": "Chickamauga Cherokee hold the southern flank",
-      "publishedDate": "2026-09-23",
-      "summary": "After the 1775 Treaty of Sycamore Shoals sold Cherokee claims to Kentucky hunting ground, Dragging Canoe (Tsiyu Gansini) broke with the accommodationist chiefs, warning of a…",
-      "yearStart": 1776,
-      "yearEnd": 1794,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "treaty",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-23",
-      "photo": {
-        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Chickamauga Towns (map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
       "slug": "paris-from-hopewell",
       "title": "Paris from Hopewell",
       "publishedDate": "2026-09-02",
@@ -1316,6 +1302,27 @@
       "lon": -84.24981666666666,
       "mapConfidence": "override",
       "matchedPlace": "Paris Founding"
+    },
+    {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "title": "Springfield Founding and Washington County Seat",
+      "publishedDate": "2026-09-22",
+      "summary": "Washington County was the first county the new Kentucky legislature created after 1792 statehood, named for George Washington. In 1793 a site near the old Wilderness Trace was…",
+      "yearStart": 1776,
+      "yearEnd": 1793,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "lat": 37.6853413,
+      "lon": -85.2221819,
+      "mapConfidence": "override",
+      "matchedPlace": "Springfield / Washington County seat"
     },
     {
       "slug": "springfield-first-county-seat-after-statehood",
@@ -1486,7 +1493,7 @@
       "matchedPlace": "Lexington"
     },
     {
-      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+      "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "title": "Isaac Ruddell and the Guns at Ruddell’s Station",
       "publishedDate": "2026-09-22",
       "summary": "In spring 1779 Capt. Isaac Ruddell rebuilt a fort on the South Fork of Licking (Harrison County) on the old Hinkson site—Ruddell’s Station, or Fort Liberty—soon joined by many…",
@@ -1502,17 +1509,9 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
-      "photo": {
-        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
-        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2012
-      },
       "lat": 38.3351,
       "lon": -84.2749,
-      "mapConfidence": "override",
+      "mapConfidence": "fuzzy",
       "matchedPlace": "Ruddell's Station"
     },
     {
@@ -1618,7 +1617,7 @@
       "matchedPlace": "Isaac Shelby"
     },
     {
-      "slug": "lawrenceburg-from-kaufman-s-station",
+      "slug": "lawrenceburg-from-kaufmans-station",
       "title": "Lawrenceburg from Kaufman’s Station",
       "publishedDate": "2026-09-14",
       "summary": "German immigrant Jacob Kaufman planted a frontier outpost about 1780 that locals called Kaufman’s or Coffman’s Station, a few miles west of the Kentucky River in what is now…",
@@ -1758,14 +1757,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-23",
-      "photo": {
-        "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
-        "title": "Jack Jouett House Historic Site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Day tripper · Wikimedia Commons · Public domain",
-        "year": null
-      },
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "fuzzy",
@@ -1814,7 +1805,7 @@
       "matchedPlace": "Estill's Defeat"
     },
     {
-      "slug": "wyandot-on-kentucky-s-northern-frontier",
+      "slug": "wyandot-on-kentuckys-northern-frontier",
       "title": "Wyandot on Kentucky’s northern frontier",
       "publishedDate": "2026-09-14",
       "summary": "The Wyandot (Wendat/Huron descendants), an Iroquoian people whose towns clustered north of the Ohio after Beaver Wars upheaval, still used Kentucky for winter camps and hunts…",
@@ -1877,7 +1868,7 @@
       "matchedPlace": "Danville Constitution Square"
     },
     {
-      "slug": "basil-hayden-s-high-rye-trail",
+      "slug": "basil-haydens-high-rye-trail",
       "title": "Basil Hayden’s High-Rye Trail",
       "publishedDate": "2026-09-06",
       "summary": "In 1785 Maryland Catholic Basil Hayden Sr. led about twenty-five families to Pottinger’s Creek in what became Nelson County. He distilled with a heavier rye share than many…",
@@ -1937,24 +1928,33 @@
       "matchedPlace": "William Whitley / Sportsman's Hill"
     },
     {
-      "slug": "jacob-beam-on-hardin-creek",
-      "title": "Jacob Beam on Hardin Creek",
-      "publishedDate": "2026-09-10",
-      "summary": "After 1790, Johannes Jacob Beam (Boehm) settled a farm and grist mill on Hardins Creek in Washington County (Outer Bluegrass / Knobs, feeding the Rolling Fork). Around 1795 he…",
+      "slug": "jenny-wileys-captivity-and-escape",
+      "title": "Jenny Wiley’s captivity and escape",
+      "publishedDate": "2026-09-24",
+      "summary": "On October 1, 1789, at Walker’s Creek in present-day Bland County, Virginia, a Cherokee–Shawnee party seeking revenge on Matthias Harman mistakenly hit Thomas Wiley’s cabin.…",
       "yearStart": 1789,
-      "yearEnd": 1795,
-      "era": "frontier",
+      "yearEnd": 1800,
+      "era": "native",
       "tags": [
-        "frontier",
+        "native",
         "kentucky",
-        "bourbon"
+        "native-history",
+        "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "lat": 37.76176666666667,
-      "lon": -85.3364,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Jacob Beam / Hardins Creek Washington County"
+      "briefDate": "2026-09-24",
+      "photo": {
+        "image_url": "/content/photos/stories/jenny-wileys-captivity-and-escape.jpg",
+        "title": "Dewey Lake at Jenny Wiley State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
+        "year": null
+      },
+      "lat": 37.7033685,
+      "lon": -82.7466926,
+      "mapConfidence": "override",
+      "matchedPlace": "Jenny Wiley / Big Sandy"
     },
     {
       "slug": "covington-at-the-point",
@@ -2102,35 +2102,6 @@
       "matchedPlace": "Nicholasville founding / Rev. John Metcalf 1798"
     },
     {
-      "slug": "springfield-founding-and-washington-county-seat",
-      "title": "Springfield Founding and Washington County Seat",
-      "publishedDate": "2026-09-22",
-      "summary": "Washington County was the first county the new Kentucky legislature created after 1792 statehood, named for George Washington. In 1793 a site near the old Wilderness Trace was…",
-      "yearStart": 1792,
-      "yearEnd": 1793,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "frontier-war",
-        "town-founding"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-22",
-      "photo": {
-        "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
-        "title": "Washington County Courthouse, Springfield",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2008
-      },
-      "lat": 37.6853413,
-      "lon": -85.2221819,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield / Washington County seat"
-    },
-    {
       "slug": "versailles-takes-shape",
       "title": "Versailles Takes Shape",
       "publishedDate": "2026-09-06",
@@ -2217,27 +2188,84 @@
       "matchedPlace": "Newport Barracks"
     },
     {
-      "slug": "owensboro-yellow-banks",
-      "title": "Owensboro / Yellow Banks",
-      "publishedDate": "2026-09-17",
-      "summary": "Frontiersman William Smeathers (Bill Smothers) built a cabin on the Ohio’s yellow clay banks about 1797–98, and travelers already called the landing Yellow Banks. Van Cleve’s…",
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "title": "Simpsonville takes shape on the Louisville road",
+      "publishedDate": "2026-09-23",
+      "summary": "In Shelby County, Isaac Watkins petitioned to lay out Simpsonville in 1816 as a waystation on the Louisville–Shelbyville road. A post office opened in 1821; the town…",
       "yearStart": 1794,
-      "yearEnd": 1817,
+      "yearEnd": 1833,
       "era": "early-commonwealth",
       "tags": [
         "early-commonwealth",
         "kentucky",
-        "town-founding"
+        "frontier-war",
+        "transport"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-17",
-      "lat": 37.7549958,
-      "lon": -87.0614257,
-      "mapConfidence": "override",
-      "matchedPlace": "Owensboro / Yellow Banks"
+      "briefDate": "2026-09-23",
+      "lat": 38.2219833,
+      "lon": -85.3464,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Simpsonville"
     },
     {
-      "slug": "lancaster-at-wallace-s-crossroads",
+      "slug": "jacob-beam-on-hardin-creek",
+      "title": "Jacob Beam on Hardin Creek",
+      "publishedDate": "2026-09-10",
+      "summary": "After 1790, Johannes Jacob Beam (Boehm) settled a farm and grist mill on Hardins Creek in Washington County (Outer Bluegrass / Knobs, feeding the Rolling Fork). Around 1795 he…",
+      "yearStart": 1795,
+      "yearEnd": 1795,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-10",
+      "photo": {
+        "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
+        "title": "Jim Beam White Label",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      },
+      "lat": 37.76176666666667,
+      "lon": -85.3364,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Jacob Beam / Hardin's Creek"
+    },
+    {
+      "slug": "jacob-beam-sells-old-jakes-first-barrel",
+      "title": "Jacob Beam sells Old Jake’s first barrel",
+      "publishedDate": "2026-09-24",
+      "summary": "In 1795 Jacob Beam (born Johannes Jacob Boehm) sold his first barrel of “Old Jake Beam” sour-mash whiskey from a corn farm and mill on Hardin’s Creek in what was then…",
+      "yearStart": 1795,
+      "yearEnd": 1795,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-24",
+      "photo": {
+        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
+        "title": "Jim Beam White Label",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons",
+        "year": null
+      },
+      "lat": 37.76176666666667,
+      "lon": -85.3364,
+      "mapConfidence": "override",
+      "matchedPlace": "Jacob Beam / Hardin's Creek"
+    },
+    {
+      "slug": "lancaster-at-wallaces-crossroads",
       "title": "Lancaster at Wallace’s Crossroads",
       "publishedDate": "2026-09-11",
       "summary": "When Garrard County was carved in December 1796 (Kentucky’s 25th county, named for Gov. James Garrard), commissioners needed a seat where water and roads already met. Capt.…",
@@ -2250,10 +2278,65 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-11",
-      "lat": 37.3238322,
-      "lon": -84.9223154,
+      "lat": 37.62829,
+      "lon": -84.56799,
+      "mapConfidence": "county",
+      "matchedPlace": "Garrard County (centroid)"
+    },
+    {
+      "slug": "owensboro-yellow-banks",
+      "title": "Owensboro / Yellow Banks",
+      "publishedDate": "2026-09-17",
+      "summary": "Frontiersman William Smeathers (Bill Smothers) built a cabin on the Ohio’s yellow clay banks about 1797–98, and travelers already called the landing Yellow Banks. Van Cleve’s…",
+      "yearStart": 1797,
+      "yearEnd": 1817,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-17",
+      "photo": {
+        "image_url": "/content/photos/stories/owensboro-yellow-banks.jpg",
+        "title": "Second Street, Owensboro",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Smallbones · Wikimedia Commons · Public domain",
+        "year": null
+      },
+      "lat": 37.7549958,
+      "lon": -87.0614257,
       "mapConfidence": "override",
-      "matchedPlace": "Lancaster founding / Wallace's Crossroads"
+      "matchedPlace": "Owensboro / Yellow Banks"
+    },
+    {
+      "slug": "yellow-banks-becomes-owensboro",
+      "title": "Yellow Banks becomes Owensboro",
+      "publishedDate": "2026-09-24",
+      "summary": "Frontiersman William Smeathers (Bill Smothers) built a cabin on the south bank of the Ohio in 1797 at a landing flatboat men already called Yellow Banks for its clay bluffs.…",
+      "yearStart": 1797,
+      "yearEnd": 1817,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-24",
+      "photo": {
+        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
+        "title": "Second Street, Owensboro",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Smallbones · Wikimedia Commons · Public domain",
+        "year": null
+      },
+      "lat": 37.7759614,
+      "lon": -87.1152649,
+      "mapConfidence": "override",
+      "matchedPlace": "Owensboro / Yellow Banks"
     },
     {
       "slug": "glasgow-the-barrens",
@@ -2363,7 +2446,7 @@
       "publishedDate": "2026-09-23",
       "summary": "In Carter County’s Carter Caves State Resort Park, Saltpeter Cave (15Cr99) was mined for potassium nitrate during the War of 1812, when British blockades forced Americans to…",
       "yearStart": 1812,
-      "yearEnd": 1815,
+      "yearEnd": 1812,
       "era": "early-commonwealth",
       "tags": [
         "early-commonwealth",
@@ -2373,47 +2456,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-23",
-      "photo": {
-        "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
-        "title": "Saltpeter Cave, Carter Caves State Resort Park",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
-      },
       "lat": 38.3767,
       "lon": -83.1233,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)"
-    },
-    {
-      "slug": "simpsonville-takes-shape-on-the-louisville-road",
-      "title": "Simpsonville takes shape on the Louisville road",
-      "publishedDate": "2026-09-23",
-      "summary": "In Shelby County, Isaac Watkins petitioned to lay out Simpsonville in 1816 as a waystation on the Louisville–Shelbyville road. A post office opened in 1821; the town…",
-      "yearStart": 1816,
-      "yearEnd": 1816,
-      "era": "early-commonwealth",
-      "tags": [
-        "early-commonwealth",
-        "kentucky",
-        "frontier-war",
-        "transport"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-23",
-      "photo": {
-        "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
-        "title": "Bank of Simpsonville Building (1902)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
-      },
-      "lat": 38.2219833,
-      "lon": -85.3464,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Simpsonville"
     },
     {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
@@ -2768,6 +2814,27 @@
       "matchedPlace": "Indian Fort Mountain"
     },
     {
+      "slug": "delaware-winter-camps-on-kentucky-ground",
+      "title": "Delaware Winter Camps on Kentucky Ground",
+      "publishedDate": "2026-09-22",
+      "summary": "After the Beaver Wars scattered Algonquian peoples across the Ohio Valley, Lenape (Delaware) bands—often alongside Shawnee, Mingo, Miami, and Wyandot—used Kentucky as seasonal…",
+      "yearStart": 2018,
+      "yearEnd": 2018,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "miami-hunters-return-north-of-the-ohio",
       "title": "Miami Hunters Return North of the Ohio",
       "publishedDate": "2026-09-06",
@@ -2952,6 +3019,27 @@
       "lon": -83.6258167,
       "mapConfidence": "override",
       "matchedPlace": "Newt Kash Hollow (15Mf1)"
+    },
+    {
+      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "title": "Peter Village: Early Woodland Enclosure Near Lexington",
+      "publishedDate": "2026-09-22",
+      "summary": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "lat": 38.0459102,
+      "lon": -84.4960297,
+      "mapConfidence": "override",
+      "matchedPlace": "Peter Village enclosure (15Fa166)"
     },
     {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

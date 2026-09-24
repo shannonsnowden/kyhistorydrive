@@ -3,8 +3,8 @@
   "title": "Owensboro / Yellow Banks",
   "publishedDate": "2026-09-17",
   "summary": "Frontiersman William Smeathers (Bill Smothers) built a cabin on the Ohio’s yellow clay banks about 1797–98, and travelers already called the landing Yellow Banks. Van Cleve’s…",
-  "bodyMarkdown": "Frontiersman William Smeathers (Bill Smothers) built a cabin on the Ohio’s yellow clay banks about 1797–98, and travelers already called the landing Yellow Banks. Van Cleve’s 1794 journal noted three families there; French spy Victor Collot counted eight or ten by 1796. After Daviess County formed in 1815, the town was laid out in 1816 and chartered Owensborough in 1817 for Col. Abraham Owen, killed at Tippecanoe; the spelling shortened to Owensboro in 1893. Smothers Park still marks the pioneer riverfront.\nSource: [https://grokipedia.com/page/Owensboro,_Kentucky](https://grokipedia.com/page/Owensboro,_Kentucky)",
-  "yearStart": 1794,
+  "bodyMarkdown": "Frontiersman William Smeathers (Bill Smothers) built a cabin on the Ohio’s yellow clay banks about 1797–98, and travelers already called the landing Yellow Banks. Van Cleve’s 1794 journal noted three families there; French spy Victor Collot counted eight or ten by 1796. After Daviess County formed in 1815, the town was laid out in 1816 and chartered Owensborough in 1817 for Col. Abraham Owen, killed at Tippecanoe; the spelling shortened to Owensboro in 1893. Smothers Park still marks the pioneer riverfront.\nSource: [https://en.wikipedia.org/wiki/Owensboro,_Kentucky](https://en.wikipedia.org/wiki/Owensboro,_Kentucky)",
+  "yearStart": 1797,
   "yearEnd": 1817,
   "era": "early-commonwealth",
   "tags": [
@@ -13,5 +13,13 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-17"
+  "briefDate": "2026-09-17",
+  "photo": {
+    "image_url": "/content/photos/stories/owensboro-yellow-banks.jpg",
+    "title": "Second Street, Owensboro",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Smallbones · Wikimedia Commons · Public domain",
+    "year": null
+  }
 }

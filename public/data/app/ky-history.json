@@ -929,19 +929,27 @@
   },
   {
     "id": "jacob-beam-hardins-creek-washington-county",
-    "name": "Jacob Beam / Hardins Creek Washington County",
-    "subtitle": "Hardins Creek Washington County",
+    "name": "Jacob Beam / Hardin's Creek",
+    "subtitle": "First barrel sale 1795 · Washington County (then)",
     "latitude": 37.76176666666667,
     "longitude": -85.3364,
-    "history": "Jacob Beam / Hardins Creek Washington County / corn whiskey ~1795. Pinned from the daily KY History Morning Update; expand with site context on the next editorial pass.",
-    "source_date": "2026-09-10",
+    "history": "In 1795 Jacob Beam (born Johannes Jacob Boehm) sold his first barrel of \"Old Jake Beam\" sour-mash whiskey from a corn farm and mill on Hardin's Creek in what was then Washington County, Kentucky. The family later grew the Old Tub brand; after Prohibition Jim Beam reopened the line, and seven generations still distill from that pioneer start.",
+    "source_date": "2026-09-24",
     "marker_number": 853,
     "marker_title": "Washington County",
     "geocode_source": "khs-marker",
     "category": "bourbon",
-    "website": null,
+    "website": "https://www.jimbeam.com/en-us/our-story/beam-history",
     "year_start": 1795,
-    "year_end": 1795
+    "year_end": 1795,
+    "photo": {
+      "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
+      "title": "Jim Beam White Label",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Wikimedia Commons",
+      "local_image_path": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg"
+    }
   },
   {
     "id": "lancaster-founding-wallace-s-crossroads",
@@ -1217,18 +1225,26 @@
   {
     "id": "owensboro-founding-yellow-banks",
     "name": "Owensboro / Yellow Banks",
-    "subtitle": "William Smeathers cabin ~1797 · Owensborough 1817",
-    "latitude": 37.7549958,
-    "longitude": -87.0614257,
-    "history": "Frontiersman William Smeathers built a cabin on the Ohio’s yellow clay banks about 1797–98; the landing was already called Yellow Banks. After Daviess County formed in 1815, the town was laid out in 1816 and chartered Owensborough in 1817 for Col. Abraham Owen.",
-    "source_date": "2026-09-17",
+    "subtitle": "Smeathers cabin 1797 · town 1816–1817",
+    "latitude": 37.7759614,
+    "longitude": -87.1152649,
+    "history": "Frontiersman William Smeathers (Bill Smothers) built a cabin on the south bank of the Ohio in 1797 at a landing flatboat men already called Yellow Banks for its clay bluffs. Daviess County was created in 1815; the town was laid out in 1816 and incorporated in 1817 as Owensborough for Col. Abraham Owen, killed at Tippecanoe in 1811 (the spelling shortened later). Smothers later scouted for Stephen F. Austin's Old Three Hundred in Texas. Downtown Smothers Park marks the home site — western Kentucky's river gate still sitting on that yellow bank.",
+    "source_date": "2026-09-24",
     "marker_number": null,
     "marker_title": null,
-    "geocode_source": "photon",
+    "geocode_source": "nominatim-smothers-park-owensboro",
     "category": "town",
-    "website": null,
+    "website": "https://en.wikipedia.org/wiki/Owensboro,_Kentucky",
     "year_start": 1797,
-    "year_end": 1817
+    "year_end": 1817,
+    "photo": {
+      "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
+      "title": "Second Street, Owensboro",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Smallbones · Wikimedia Commons · Public domain",
+      "local_image_path": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg"
+    }
   },
   {
     "id": "col-william-russell-iii-fayette",
@@ -1692,6 +1708,55 @@
       "source_label": "Wikimedia Commons",
       "attribution": "Wikimedia Commons",
       "local_image_path": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg"
+    }
+  },
+  {
+    "id": "jenny-wiley-state-resort-park",
+    "name": "Jenny Wiley / Big Sandy",
+    "subtitle": "Captivity & escape 1789–1790 · Johnson Co. settlement 1800",
+    "latitude": 37.7033685,
+    "longitude": -82.7466926,
+    "history": "On October 1, 1789, at Walker's Creek in present-day Bland County, Virginia, a Cherokee–Shawnee party seeking revenge on Matthias Harman mistakenly hit Thomas Wiley's cabin. Jenny (Virginia Sellards) Wiley saw her brother and three children killed; she and an infant were taken captive. Over nearly eleven months in the Big Sandy country the infant died and another child born in captivity was killed. She escaped by following a dream-path of creeks to Harman's Station near present-day Paintsville, where men built a log raft and pulled her across. Reunited with Thomas in Virginia, the couple settled on Tom's Creek in what became Johnson County in 1800; she died there in 1831. Jenny Wiley State Resort Park on Dewey Lake near Prestonsburg carries her name.",
+    "source_date": "2026-09-24",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "nominatim-jenny-wiley-state-resort-park",
+    "category": "person",
+    "website": "https://explorekyhistory.ky.gov/items/show/359",
+    "year_start": 1789,
+    "year_end": 1800,
+    "photo": {
+      "image_url": "/content/photos/stories/jenny-wileys-captivity-and-escape.jpg",
+      "title": "Dewey Lake (Jenny Wiley State Resort Park)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
+      "local_image_path": "/content/photos/stories/jenny-wileys-captivity-and-escape.jpg"
+    }
+  },
+  {
+    "id": "buckner-site-15bb12-bourbon-county",
+    "name": "Buckner Site (15Bb12)",
+    "subtitle": "Bourbon County · Fort Ancient occupation ~1200–1550 CE",
+    "latitude": 38.2132087,
+    "longitude": -84.2492072,
+    "history": "Near Paris in Bourbon County, the Buckner Site (15Bb12) holds two circular Fort Ancient villages around central plazas, occupied mainly about A.D. 1200–1400 and into the early 1500s. Wall-trench houses, shell- and limestone-tempered pottery, triangular points, and a stone-paved McCray Mound mortuary area show maize farmers tied into Ohio Valley exchange. University of Kentucky WPA crews dug there in 1939; later work mapped the rings. It was listed on the National Register in 1983 (address restricted) — Bluegrass country that was already a settled farming landscape centuries before Paris or Bourbon whiskey.",
+    "source_date": "2026-09-24",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "nominatim-paris-bourbon-nearest-city-nrhp-restricted",
+    "geocode_note": "NRHP address restricted; pinned to nearest city Paris, KY (Strodes Creek / Bourbon County).",
+    "category": "archaeology",
+    "website": "https://en.wikipedia.org/wiki/Buckner_site",
+    "year_start": 1200,
+    "year_end": 1550,
+    "photo": {
+      "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
+      "title": "Paris, Bourbon County (nearest city to Buckner Site)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Wikimedia Commons",
+      "local_image_path": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg"
     }
   }
 ]

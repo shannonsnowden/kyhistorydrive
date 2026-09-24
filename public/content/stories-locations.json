@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-23T09:37:01.156Z",
+  "generatedAt": "2026-09-24T09:25:17.273Z",
   "stats": {
     "exact": 12,
-    "fuzzy": 46,
-    "county": 6,
-    "override": 54,
-    "none": 22
+    "fuzzy": 48,
+    "county": 7,
+    "override": 55,
+    "none": 23
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -56,14 +56,6 @@
       "matchedPlace": "Gaitskill Mound",
       "historyId": "gaitskill-mound"
     },
-    "peter-village-early-woodland-enclosure-near-lexington": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "lat": 38.0459102,
-      "lon": -84.4960297,
-      "mapConfidence": "override",
-      "matchedPlace": "Peter Village enclosure (15Fa166)",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county"
-    },
     "peter-village-enclosure-15fa166": {
       "slug": "peter-village-enclosure-15fa166",
       "lat": 38.0459102,
@@ -112,6 +104,14 @@
       "matchedPlace": "Turk Site (15Ce6)",
       "historyId": "turk-site-15ce6-carlisle-county"
     },
+    "buckner-site-fort-ancient-villages-on-strodes-creek": {
+      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
+      "lat": 38.2132087,
+      "lon": -84.2492072,
+      "mapConfidence": "override",
+      "matchedPlace": "Buckner Site (15Bb12)",
+      "historyId": "buckner-site-15bb12-bourbon-county"
+    },
     "jonathan-creek-mississippian-center": {
       "slug": "jonathan-creek-mississippian-center",
       "lat": 36.86767,
@@ -144,6 +144,14 @@
       "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient",
       "historyId": "howard-site-15ma427-late-fort-ancient-madison-county"
     },
+    "erie-the-cat-nation-cleared-from-the-lake-shore": {
+      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "erie-the-cat-nation": {
       "slug": "erie-the-cat-nation",
       "lat": null,
@@ -162,14 +170,6 @@
     },
     "mosopelea-ofo-the-ohio-valley": {
       "slug": "mosopelea-ofo-the-ohio-valley",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "delaware-winter-camps-on-kentucky-ground": {
-      "slug": "delaware-winter-camps-on-kentucky-ground",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -272,11 +272,11 @@
       "matchedPlace": "Lower Shawneetown",
       "historyId": "lower-shawneetown"
     },
-    "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
-      "slug": "john-finley-the-trader-who-put-kentucky-on-boone-s-map",
+    "john-finley-the-trader-who-put-kentucky-on-boones-map": {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
       "lat": 37.93955,
       "lon": -83.9975333,
-      "mapConfidence": "override",
+      "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
     },
@@ -440,6 +440,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "chickamauga-cherokee-hold-the-southern-flank": {
+      "slug": "chickamauga-cherokee-hold-the-southern-flank",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "maj-joseph-bowman": {
       "slug": "maj-joseph-bowman",
       "lat": 37.7623,
@@ -464,8 +472,8 @@
       "matchedPlace": "Stanford / St. Asaph (Logan's Fort)",
       "historyId": "stanford-founding-st-asaph"
     },
-    "william-calk-s-1775-journal": {
-      "slug": "william-calk-s-1775-journal",
+    "william-calks-1775-journal": {
+      "slug": "william-calks-1775-journal",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -480,14 +488,6 @@
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County",
       "historyId": "capt-john-strode-strode-s-station-1779-clark-county"
     },
-    "chickamauga-cherokee-hold-the-southern-flank": {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
     "paris-from-hopewell": {
       "slug": "paris-from-hopewell",
       "lat": 38.21273333333333,
@@ -495,6 +495,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Paris Founding",
       "historyId": "paris-founding"
+    },
+    "springfield-founding-and-washington-county-seat": {
+      "slug": "springfield-founding-and-washington-county-seat",
+      "lat": 37.6853413,
+      "lon": -85.2221819,
+      "mapConfidence": "override",
+      "matchedPlace": "Springfield / Washington County seat",
+      "historyId": "springfield-washington-county-seat"
     },
     "springfield-first-county-seat-after-statehood": {
       "slug": "springfield-first-county-seat-after-statehood",
@@ -560,11 +568,11 @@
       "matchedPlace": "Lexington",
       "historyId": null
     },
-    "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
-      "slug": "isaac-ruddell-and-the-guns-at-ruddell-s-station",
+    "isaac-ruddell-and-the-guns-at-ruddells-station": {
+      "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "lat": 38.3351,
       "lon": -84.2749,
-      "mapConfidence": "override",
+      "mapConfidence": "fuzzy",
       "matchedPlace": "Ruddell's Station",
       "historyId": "ruddells-station-harrison-county"
     },
@@ -608,8 +616,8 @@
       "matchedPlace": "Isaac Shelby",
       "historyId": "isaac-shelby"
     },
-    "lawrenceburg-from-kaufman-s-station": {
-      "slug": "lawrenceburg-from-kaufman-s-station",
+    "lawrenceburg-from-kaufmans-station": {
+      "slug": "lawrenceburg-from-kaufmans-station",
       "lat": 38.02186,
       "lon": -84.89316,
       "mapConfidence": "county",
@@ -680,8 +688,8 @@
       "matchedPlace": "Estill's Defeat",
       "historyId": "estills-defeat"
     },
-    "wyandot-on-kentucky-s-northern-frontier": {
-      "slug": "wyandot-on-kentucky-s-northern-frontier",
+    "wyandot-on-kentuckys-northern-frontier": {
+      "slug": "wyandot-on-kentuckys-northern-frontier",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -704,8 +712,8 @@
       "matchedPlace": "Danville Constitution Square",
       "historyId": "danville-constitution-square"
     },
-    "basil-hayden-s-high-rye-trail": {
-      "slug": "basil-hayden-s-high-rye-trail",
+    "basil-haydens-high-rye-trail": {
+      "slug": "basil-haydens-high-rye-trail",
       "lat": 37.6730101,
       "lon": -85.4480029,
       "mapConfidence": "fuzzy",
@@ -728,13 +736,13 @@
       "matchedPlace": "William Whitley / Sportsman's Hill",
       "historyId": "william-whitley-sportsmans-hill"
     },
-    "jacob-beam-on-hardin-creek": {
-      "slug": "jacob-beam-on-hardin-creek",
-      "lat": 37.76176666666667,
-      "lon": -85.3364,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Jacob Beam / Hardins Creek Washington County",
-      "historyId": "jacob-beam-hardins-creek-washington-county"
+    "jenny-wileys-captivity-and-escape": {
+      "slug": "jenny-wileys-captivity-and-escape",
+      "lat": 37.7033685,
+      "lon": -82.7466926,
+      "mapConfidence": "override",
+      "matchedPlace": "Jenny Wiley / Big Sandy",
+      "historyId": "jenny-wiley-state-resort-park"
     },
     "covington-at-the-point": {
       "slug": "covington-at-the-point",
@@ -792,14 +800,6 @@
       "matchedPlace": "Nicholasville founding / Rev. John Metcalf 1798",
       "historyId": "nicholasville-founding-rev-john-metcalf-1798"
     },
-    "springfield-founding-and-washington-county-seat": {
-      "slug": "springfield-founding-and-washington-county-seat",
-      "lat": 37.6853413,
-      "lon": -85.2221819,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield / Washington County seat",
-      "historyId": "springfield-washington-county-seat"
-    },
     "versailles-takes-shape": {
       "slug": "versailles-takes-shape",
       "lat": 38.052276,
@@ -832,6 +832,38 @@
       "matchedPlace": "Newport Barracks",
       "historyId": null
     },
+    "simpsonville-takes-shape-on-the-louisville-road": {
+      "slug": "simpsonville-takes-shape-on-the-louisville-road",
+      "lat": 38.2219833,
+      "lon": -85.3464,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Simpsonville",
+      "historyId": "simpsonville-laid-out-1816"
+    },
+    "jacob-beam-on-hardin-creek": {
+      "slug": "jacob-beam-on-hardin-creek",
+      "lat": 37.76176666666667,
+      "lon": -85.3364,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Jacob Beam / Hardin's Creek",
+      "historyId": "jacob-beam-hardins-creek-washington-county"
+    },
+    "jacob-beam-sells-old-jakes-first-barrel": {
+      "slug": "jacob-beam-sells-old-jakes-first-barrel",
+      "lat": 37.76176666666667,
+      "lon": -85.3364,
+      "mapConfidence": "override",
+      "matchedPlace": "Jacob Beam / Hardin's Creek",
+      "historyId": "jacob-beam-hardins-creek-washington-county"
+    },
+    "lancaster-at-wallaces-crossroads": {
+      "slug": "lancaster-at-wallaces-crossroads",
+      "lat": 37.62829,
+      "lon": -84.56799,
+      "mapConfidence": "county",
+      "matchedPlace": "Garrard County (centroid)",
+      "historyId": null
+    },
     "owensboro-yellow-banks": {
       "slug": "owensboro-yellow-banks",
       "lat": 37.7549958,
@@ -840,13 +872,13 @@
       "matchedPlace": "Owensboro / Yellow Banks",
       "historyId": "owensboro-founding-yellow-banks"
     },
-    "lancaster-at-wallace-s-crossroads": {
-      "slug": "lancaster-at-wallace-s-crossroads",
-      "lat": 37.3238322,
-      "lon": -84.9223154,
+    "yellow-banks-becomes-owensboro": {
+      "slug": "yellow-banks-becomes-owensboro",
+      "lat": 37.7759614,
+      "lon": -87.1152649,
       "mapConfidence": "override",
-      "matchedPlace": "Lancaster founding / Wallace's Crossroads",
-      "historyId": "lancaster-founding-wallace-s-crossroads"
+      "matchedPlace": "Owensboro / Yellow Banks",
+      "historyId": "owensboro-founding-yellow-banks"
     },
     "glasgow-the-barrens": {
       "slug": "glasgow-the-barrens",
@@ -895,14 +927,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)",
       "historyId": "saltpeter-cave-carter-caves-15cr99"
-    },
-    "simpsonville-takes-shape-on-the-louisville-road": {
-      "slug": "simpsonville-takes-shape-on-the-louisville-road",
-      "lat": 38.2219833,
-      "lon": -85.3464,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Simpsonville",
-      "historyId": "simpsonville-laid-out-1816"
     },
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
@@ -1040,6 +1064,14 @@
       "matchedPlace": "Indian Fort Mountain",
       "historyId": "indian-fort-mountain"
     },
+    "delaware-winter-camps-on-kentucky-ground": {
+      "slug": "delaware-winter-camps-on-kentucky-ground",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "miami-hunters-return-north-of-the-ohio": {
       "slug": "miami-hunters-return-north-of-the-ohio",
       "lat": null,
@@ -1111,6 +1143,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Newt Kash Hollow (15Mf1)",
       "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
+    },
+    "peter-village-early-woodland-enclosure-near-lexington": {
+      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "lat": 38.0459102,
+      "lon": -84.4960297,
+      "mapConfidence": "override",
+      "matchedPlace": "Peter Village enclosure (15Fa166)",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county"
     },
     "wickliffe-mounds-mississippian-village-ballard-county": {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

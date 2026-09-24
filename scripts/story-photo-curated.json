@@ -150,5 +150,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
     "year": null
+  },
+  "jenny-wileys-captivity-and-escape": {
+    "ext": "jpg",
+    "commonsFile": "Dewey_Lake_fall.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Dewey_Lake_fall.jpg",
+    "title": "Dewey Lake at Jenny Wiley State Resort Park",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "yellow-banks-becomes-owensboro": {
+    "ext": "jpg",
+    "commonsFile": "Owensboro2ndStAnn.JPG",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Owensboro2ndStAnn.JPG/1280px-Owensboro2ndStAnn.JPG",
+    "title": "Second Street, Owensboro",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Smallbones · Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "erie-the-cat-nation-cleared-from-the-lake-shore": {
+    "ext": "jpg",
+    "commonsFile": "Cat-Nation.png",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Cat-Nation.png",
+    "title": "Erie / Cat Nation territory (historical map)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
+  },
+  "buckner-site-fort-ancient-villages-on-strodes-creek": {
+    "ext": "jpg",
+    "commonsFile": "Paris_Kentucky.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Paris_Kentucky.jpg",
+    "title": "Paris, Bourbon County (nearest city to Buckner Site)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
+  },
+  "jacob-beam-sells-old-jakes-first-barrel": {
+    "ext": "jpg",
+    "commonsFile": "Jim_Beam_White_Label.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jim_Beam_White_Label.jpg?width=1280",
+    "title": "Jim Beam White Label",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
   }
 }
