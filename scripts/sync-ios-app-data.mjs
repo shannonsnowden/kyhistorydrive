@@ -1,22 +1,32 @@
 #!/usr/bin/env node
 /**
- * Copy iOS app JSON from shannonsnowden/ky-markers-drive `data/` into
- * `public/data/app/` so Amplify serves them at:
- *   https://kyhistorydrive.com/data/app/<file>
+ * Publish the iOS OTA JSON pack from committed `public/data/app/`.
  *
- * These filenames match the iOS bundle (see ky-markers-drive ios/KYMarkersDrive/project.yml)
- * plus ky-history-manifest.json, which the app uses to check `data_version`.
+ * Daily OTA source of truth is this repo’s committed `public/data/app/`
+ * (served at https://kyhistorydrive.com/data/app/). Content-only History
+ * bumps edit and bump `data_version` here. Do not pull ky-markers-drive on
+ * daily Amplify deploys — that overwrites fresher site OTA with stale
+ * iOS-bundle JSON.
  *
- * Source (first match wins):
- *   1. KY_MARKERS_DRIVE_DIR — local clone of ky-markers-drive
- *   2. GitHub API `main` using KY_MARKERS_DRIVE_GITHUB_TOKEN, GH_TOKEN, or GITHUB_TOKEN
+ * Default (Amplify and `npm run sync-app-data`):
+ *   Validate required files + `data_version` in public/data/app/, log the
+ *   version, and exit 0. Nothing is fetched or overwritten.
  *
- * If remote fetch is unavailable, already-seeded files in public/data/app/ are
- * left in place (so Amplify still publishes them). Missing required files fail.
+ * Legacy / migration / rare — NOT for daily deploys:
+ *   SYNC_FROM_MARKERS=1 fetches and overwrites public/data/app/ from
+ *   ky-markers-drive. Source (first match):
+ *     1. KY_MARKERS_DRIVE_DIR — local clone
+ *     2. GitHub API `main` using KY_MARKERS_DRIVE_GITHUB_TOKEN, GH_TOKEN, or GITHUB_TOKEN
+ *   Amplify must NOT set SYNC_FROM_MARKERS.
+ *
+ * App Store / TestFlight cuts (Shannon/CoS): copy `public/data/app/*` into
+ * ky-markers-drive `data/` as the offline fallback, then bump the iOS build.
+ * There is no push script. Do that copy only on a store cut, not for a
+ * data_version bump alone.
  *
  * Usage:
  *   npm run sync-app-data
- *   KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run sync-app-data
+ *   SYNC_FROM_MARKERS=1 KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run sync-app-data
  */
 import fs from 'node:fs'
 import os from 'node:os'
@@ -111,19 +121,22 @@ function moveFile(src, dest) {
   }
 }
 
-function useSeeded() {
+function useCommitted() {
   const missing = FILES.filter((f) => !fs.existsSync(path.join(OUT_DIR, f)))
   if (missing.length) {
     throw new Error(
       'public/data/app/ is missing:\n  ' +
         missing.join('\n  ') +
-        '\nSet KY_MARKERS_DRIVE_DIR or KY_MARKERS_DRIVE_GITHUB_TOKEN (read access to ky-markers-drive).',
+        '\nCommitted public/data/app/ is the OTA source of truth. Add the files in this repo.',
     )
   }
-  const manifest = JSON.parse(fs.readFileSync(path.join(OUT_DIR, 'ky-history-manifest.json'), 'utf8'))
+  let manifest
+  for (const file of FILES) {
+    const parsed = assertJson(file, fs.readFileSync(path.join(OUT_DIR, file)))
+    if (file === 'ky-history-manifest.json') manifest = parsed
+  }
   console.log(
-    `Using committed public/data/app/ files (data_version ${manifest.data_version}). ` +
-      'To refresh from ky-markers-drive, set KY_MARKERS_DRIVE_DIR or KY_MARKERS_DRIVE_GITHUB_TOKEN.',
+    `Validated ${FILES.length} files in public/data/app/ (data_version ${manifest.data_version}).`,
   )
 }
 
@@ -153,24 +166,34 @@ async function fetchAll(localDir, token) {
 async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true })
 
-  const localDir = localDataDir()
-  const token = githubToken()
-  const mode = localDir ? `local:${localDir}` : token ? `github:${OWNER}/${REPO}@${REF}` : 'seeded-files-only'
-
-  console.log(`sync-ios-app-data: ${mode}`)
-
-  if (!localDir && !token) {
-    useSeeded()
+  // Daily deploys always publish the committed pack. A GitHub token alone
+  // must not pull ky-markers-drive (Amplify often has GITHUB_TOKEN).
+  if (process.env.SYNC_FROM_MARKERS !== '1') {
+    console.log('sync-ios-app-data: committed public/data/app/ (OTA source of truth)')
+    useCommitted()
     return
   }
+
+  const localDir = localDataDir()
+  const token = githubToken()
+  if (!localDir && !token) {
+    throw new Error(
+      'SYNC_FROM_MARKERS=1 but neither KY_MARKERS_DRIVE_DIR nor KY_MARKERS_DRIVE_GITHUB_TOKEN (or GH_TOKEN / GITHUB_TOKEN) is set. ' +
+        'This path is legacy/migration only and must not be used for daily deploys.',
+    )
+  }
+
+  const mode = localDir ? `local:${localDir}` : `github:${OWNER}/${REPO}@${REF}`
+  console.log(`sync-ios-app-data: SYNC_FROM_MARKERS=1 ${mode}`)
+  console.warn(
+    'Pulling from ky-markers-drive is legacy/migration only. Daily OTA deploys must not set SYNC_FROM_MARKERS.',
+  )
 
   try {
     await fetchAll(localDir, token)
   } catch (err) {
-    // Amplify may have a GITHUB_TOKEN that cannot read the private iOS repo.
-    // Fall back to the committed seed so the site still deploys.
     console.warn(`Fetch failed (${err.message || err}). Falling back to committed public/data/app/.`)
-    useSeeded()
+    useCommitted()
   }
 }
 
