@@ -59,29 +59,26 @@ The iPhone app checks `data_version` and downloads layer JSON from a path that i
 - https://kyhistorydrive.com/data/app/ky-history.json
 - plus the other bundled layer files (`museums.json`, `markers.phase1.json`, `search-index.json`, …) under `/data/app/`
 
-Source of truth is `shannonsnowden/ky-markers-drive` `data/` (especially `ky-history.json` + `ky-history-manifest.json`, which bump `data_version` on daily ingest). This site copies those files into `public/data/app/` (separate from the web map GeoJSON under `public/data/layers/`).
+**Source of truth** is this repo’s committed `public/data/app/`, served at https://kyhistorydrive.com/data/app/. That pack is separate from the web map GeoJSON under `public/data/layers/`.
 
-### Refresh after daily ingest
+### Daily content-only History bump
 
-After ingest in **ky-markers-drive** (`python3 scripts/ingest_daily_ky_history.py`, which bumps `data_version`):
-
-```bash
-# from this repo, with GitHub auth that can read ky-markers-drive
-npm run sync-app-data
-git add public/data/app
-git commit -m "Sync iOS app data (data_version N)"
-# PR or push to main — Amplify deploys from main
-```
-
-Or copy from a local clone:
+Edit History and the manifest **in this repo only** (`public/data/app/ky-history.json` and `public/data/app/ky-history-manifest.json`, including `data_version`). Commit and deploy here. Do not commit `ky-markers-drive` for a `data_version` bump alone.
 
 ```bash
-KY_MARKERS_DRIVE_DIR=../ky-markers-drive npm run sync-app-data
+npm run sync-app-data   # validates committed public/data/app/; does not fetch
+# PR or push to main — Amplify deploys the committed files
 ```
 
-Amplify `preBuild` also runs `sync-app-data`. If Amplify Hosting has env var `KY_MARKERS_DRIVE_GITHUB_TOKEN` (a PAT/fine-grained token with **read** access to `ky-markers-drive`), each site deploy pulls the latest `main` even if git copies are a commit behind. Without that token, the committed `public/data/app/` files are what go live — so the copy+commit step above is the reliable daily path.
+Amplify `preBuild` runs `sync-app-data`, which validates and publishes the committed pack. It does **not** pull `ky-markers-drive`. Do not set `SYNC_FROM_MARKERS` on Amplify (a GitHub token on the build is not enough to pull, and must not be treated as a daily refresh).
+
+`SYNC_FROM_MARKERS=1` is a legacy/migration override only. With that opt-in, `KY_MARKERS_DRIVE_DIR` or `KY_MARKERS_DRIVE_GITHUB_TOKEN` (also `GH_TOKEN` / `GITHUB_TOKEN`) can overwrite `public/data/app/` from the iOS repo. Leave it unset for daily deploys.
 
 `customHttp.yml` sets short CloudFront cache (`max-age=0`, `s-maxage=60`) and CORS (`Access-Control-Allow-Origin: *`) on `/data/app/*.json` so version bumps are not stuck behind Amplify’s default 1-year CDN cache. Native iOS URLSession does not need CORS; it is there for completeness.
+
+### iOS App Store / TestFlight cut
+
+When cutting an App Store or TestFlight build (Shannon/CoS-driven), copy the current OTA pack from this repo’s `public/data/app/` into `ky-markers-drive` `data/` as the offline fallback, then bump the iOS build. There is no push script. Do that copy only on a store cut, not for a daily `data_version` bump.
 
 ## Build
 
@@ -95,7 +92,7 @@ npm run preview
 ## AWS Amplify + Route53
 
 1. Amplify Hosting → **Host web app** → connect GitHub repo `shannonsnowden/kyhistorydrive`
-2. Build settings use root `amplify.yml` (`npm ci` → `npm run sync-app-data` → `npm run build`, artifact `dist`). Optional env: `KY_MARKERS_DRIVE_GITHUB_TOKEN` to pull iOS JSON at deploy time. Cache/CORS for `/data/app/*.json` is in `customHttp.yml`.
+2. Build settings use root `amplify.yml` (`npm ci` → `npm run sync-app-data` → `npm run build`, artifact `dist`). `sync-app-data` publishes committed `public/data/app/`. Do not set `SYNC_FROM_MARKERS` on Amplify. Cache/CORS for `/data/app/*.json` is in `customHttp.yml`.
 3. When **kyhistorydrive.com** is live in Route53, Amplify → Domain management → add `kyhistorydrive.com` (+ `www` if desired)
 4. Amplify will ask for Route53 DNS records (or provide CNAME/ALIAS to paste into the hosted zone)
 

@@ -4,8 +4,9 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        # Refresh iOS JSON from ky-markers-drive when a token is set; otherwise
-        # publish the committed copies in public/data/app/.
+        # Validate and publish committed public/data/app/ (OTA source of truth).
+        # Does not pull ky-markers-drive unless SYNC_FROM_MARKERS=1.
+        # Amplify must NOT set SYNC_FROM_MARKERS.
         - npm run sync-app-data
     build:
       commands:
