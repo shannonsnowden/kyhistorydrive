@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-24T09:25:17.273Z",
+  "generatedAt": "2026-09-25T09:21:17.396Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
     "county": 7,
-    "override": 55,
-    "none": 23
+    "override": 59,
+    "none": 24
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -80,6 +80,14 @@
       "matchedPlace": "Logan County (centroid)",
       "historyId": null
     },
+    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
+      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+      "lat": 37.8840694,
+      "lon": -84.593,
+      "mapConfidence": "override",
+      "matchedPlace": "Muir Site (15Js86)",
+      "historyId": "muir-site-15js86-jessamine-county"
+    },
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
       "lat": 36.552,
@@ -111,6 +119,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)",
       "historyId": "buckner-site-15bb12-bourbon-county"
+    },
+    "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
+      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
+      "lat": 38.772860422898226,
+      "lon": -84.00880725804063,
+      "mapConfidence": "override",
+      "matchedPlace": "Cleek-McCabe Fort Ancient Village",
+      "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
     },
     "jonathan-creek-mississippian-center": {
       "slug": "jonathan-creek-mississippian-center",
@@ -568,6 +584,14 @@
       "matchedPlace": "Lexington",
       "historyId": null
     },
+    "hugh-mcgary-the-blue-licks-hothead": {
+      "slug": "hugh-mcgary-the-blue-licks-hothead",
+      "lat": 37.805,
+      "lon": -84.831,
+      "mapConfidence": "override",
+      "matchedPlace": "McGary's Station / Shawnee Springs",
+      "historyId": "mcgarys-station-shawnee-springs-mercer"
+    },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "lat": 38.3351,
@@ -960,6 +984,14 @@
       "matchedPlace": "James C. Crow / Oscar Pepper",
       "historyId": "james-crow-oscar-pepper"
     },
+    "bagdad-how-a-shelby-county-rail-stop-took-over-consolation": {
+      "slug": "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",
+      "lat": 38.2622928,
+      "lon": -85.0577313,
+      "mapConfidence": "override",
+      "matchedPlace": "Bagdad / Consolation rail stop",
+      "historyId": "bagdad-shelby-county"
+    },
     "henry-mckennas-fairfield-sour-mash": {
       "slug": "henry-mckennas-fairfield-sour-mash",
       "lat": 37.932222,
@@ -1159,6 +1191,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Wickliffe Mounds",
       "historyId": "wickliffe-mounds"
+    },
+    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {
+      "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "yuchi-on-the-green-river-maps": {
       "slug": "yuchi-on-the-green-river-maps",

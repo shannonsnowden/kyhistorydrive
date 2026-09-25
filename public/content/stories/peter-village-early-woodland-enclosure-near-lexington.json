@@ -14,5 +14,13 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-22"
+  "briefDate": "2026-09-22",
+  "photo": {
+    "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
+    "title": "Peter Village enclosure (Squier & Davis 1848)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+    "year": 1848
+  }
 }

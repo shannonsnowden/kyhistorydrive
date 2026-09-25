@@ -130,18 +130,26 @@
   {
     "id": "battle-of-blue-licks",
     "name": "Battle of Blue Licks",
-    "subtitle": "Robertson County / 1782 battlefield",
+    "subtitle": "Robertson County · Aug 19, 1782 · McGary’s charge",
     "latitude": 38.43443333333333,
     "longitude": -83.99151666666667,
-    "history": "On August 19, 1782, about 182 Kentucky militia chasing Captain William Caldwell’s raiders walked into an ambush on a Licking River ridge in today’s Robertson County. Roughly 50 Butler’s Rangers and 200–300 Shawnee, Delaware, and Wyandot warriors fired from ravines and bluffs; Todd, Trigg, and Boone’s son Israel were among the dead. It was the settlers’ bloodiest Revolutionary defeat in Kentucky, months after Yorktown.",
-    "source_date": "2026-08-30",
+    "history": "On August 19, 1782, about 182 Kentucky militia chasing Captain William Caldwell’s raiders walked into an ambush on a Licking River ridge in today’s Robertson County. Major Hugh McGary commanded the center under Col. John Todd; when Boone warned of an ambush at the Licking Ford, McGary rode across daring anyone who wasn’t a coward to follow. Roughly seventy Kentuckians fell in minutes, including Todd, Trigg, and Boone’s son Israel. It was the settlers’ bloodiest Revolutionary defeat in Kentucky, months after Yorktown.",
+    "source_date": "2026-09-25",
     "marker_number": 18,
     "marker_title": "Blue Licks Battlefield",
     "geocode_source": "khs-marker",
     "category": "battle",
-    "website": null,
+    "website": "https://en.wikipedia.org/wiki/Battle_of_Blue_Licks",
     "year_start": 1782,
-    "year_end": 1782
+    "year_end": 1782,
+    "photo": {
+      "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+      "title": "Blue Licks Battlefield monument",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · Public domain",
+      "year": null
+    }
   },
   {
     "id": "great-saltpetre-cave",
@@ -914,18 +922,26 @@
   {
     "id": "cleek-mccabe-fort-ancient-village-boone-county",
     "name": "Cleek-McCabe Fort Ancient Village",
-    "subtitle": "Boone County · Fort Ancient village",
+    "subtitle": "Boone County · circular village · occupation ~1200–1300 CE",
     "latitude": 38.772860422898226,
     "longitude": -84.00880725804063,
-    "history": "Cleek-McCabe Fort Ancient village Boone County / Mud Lick Creek / UK 1930s. Pinned from the daily KY History Morning Update; expand with site context on the next editorial pass.",
-    "source_date": "2026-09-10",
+    "history": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a ~100-foot-wide midden ring around a ~200-foot plaza, with low burial mounds east and west. UK crews in the late 1930s sampled the ring and dug the western mound; the eastern mound still stands. Under that western mound they found three successive roofless public buildings—first a 43-foot circle, then rectangles up to about 56 by 95 feet—sharing a central pole pit that links Fort Ancient ritual architecture to earlier Adena and Hopewell submound screens. Cordmarked jars with guilloche necks and triangular strap handles tie the pottery to Boone County and neighboring Ohio–Indiana Fort Ancient communities.",
+    "source_date": "2026-09-25",
     "marker_number": 2583,
     "marker_title": "Fort Ancient Village",
     "geocode_source": "khs-marker",
     "category": "archaeology",
-    "website": null,
+    "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx",
     "year_start": 1200,
-    "year_end": 1700
+    "year_end": 1300,
+    "photo": {
+      "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
+      "title": "Boone County Courthouse, Burlington",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "w_lemay · Wikimedia Commons · CC0",
+      "year": null
+    }
   },
   {
     "id": "jacob-beam-hardins-creek-washington-county",
@@ -1145,18 +1161,27 @@
   {
     "id": "muir-site-15js86-jessamine-county",
     "name": "Muir Site (15Js86)",
-    "subtitle": "Jessamine County · early Fort Ancient (Osborne phase)",
-    "latitude": 37.8967,
-    "longitude": -84.6228,
-    "history": "West of Nicholasville on a Jessamine County ridge, Muir is an early Fort Ancient (Osborne phase) hamlet dated roughly A.D. 1000–1200. UK crews dug it in 1985 ahead of the Nicholasville Bypass and found only one to three small square-to-rectangular basin houses in use at a time—dispersed households rather than a later plaza village. Muir shows Bluegrass Fort Ancient life before the big nucleated towns.",
-    "source_date": "2026-09-15",
+    "subtitle": "Jessamine County · Early Fort Ancient Osborne Phase ~1010–1255 CE",
+    "latitude": 37.8840694,
+    "longitude": -84.593,
+    "history": "Before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site (15Js86) on a broad upland ridge west of Nicholasville. Radiocarbon and ceramics place it in the early Fort Ancient Osborne Phase, roughly 1010–1255 CE. Unlike later crowded plaza villages, Muir held only one to three rectangular single-set-post houses at a time, each with a shallow floor basin and central hearth—more a dispersed farmstead cluster than a stockaded town. Residents ate mostly deer, elk, and bear, grew corn, beans, knotweed, and sunflower, and made limestone-tempered jars with rare guilloche designs.",
+    "source_date": "2026-09-25",
     "marker_number": null,
     "marker_title": null,
-    "geocode_source": "manual-nicholasville-west",
+    "geocode_source": "wikipedia-muir-site",
+    "geocode_note": "Wikipedia approximate location west of Nicholasville / Jessamine Creek ridge (site address not published).",
     "category": "archaeology",
     "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Muir.aspx",
-    "year_start": 1000,
-    "year_end": 1200
+    "year_start": 1010,
+    "year_end": 1255,
+    "photo": {
+      "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
+      "title": "Main Street, Nicholasville",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · Public domain",
+      "year": null
+    }
   },
   {
     "id": "newport-founding-hubbard-and-james-taylor",
@@ -1757,6 +1782,55 @@
       "source_label": "Wikimedia Commons",
       "attribution": "Wikimedia Commons",
       "local_image_path": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg"
+    }
+  },
+  {
+    "id": "mcgarys-station-shawnee-springs-mercer",
+    "name": "McGary's Station / Shawnee Springs",
+    "subtitle": "Mercer County · station ~1779 · McGary at Blue Licks 1782",
+    "latitude": 37.805,
+    "longitude": -84.831,
+    "history": "Irish-born Hugh McGary (1744–1806) came into Kentucky in 1775 with Boone's party, settled near Fort Harrod, and built McGary's Station around 1779 at Shawnee Springs in today's Mercer County. On August 19, 1782, as a major under Col. John Todd, he commanded the center at Blue Licks. When Boone warned of an ambush at the Licking Ford, McGary rode across shouting for anyone who wasn't a coward to follow. The militia plunged into the trap; roughly seventy Kentuckians fell in minutes, including Todd and Israel Boone. McGary survived—and later killed the surrendered Shawnee chief Moluntha on Logan's 1786 Ohio raid, earning a court-martial suspension.",
+    "source_date": "2026-09-25",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "gnis-mcgary-station-historical",
+    "geocode_note": "GNIS McGary Station (historical) near Shawnee Springs / Warwick Road, NE of Harrodsburg.",
+    "category": "frontier",
+    "website": "https://en.wikipedia.org/wiki/Hugh_McGary",
+    "year_start": 1779,
+    "year_end": 1782,
+    "photo": {
+      "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+      "title": "Blue Licks Battlefield monument",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · Public domain",
+      "year": null
+    }
+  },
+  {
+    "id": "bagdad-shelby-county",
+    "name": "Bagdad / Consolation rail stop",
+    "subtitle": "Shelby County · L&F Railroad ~1850 · post office 1861",
+    "latitude": 38.2622928,
+    "longitude": -85.0577313,
+    "history": "Northeastern Shelby County's Bagdad grew because the Louisville and Frankfort Railroad reached the area about 1850. Earlier settlers clustered at Consolation, roughly a mile east, with a post office from 1849; once the depot and mill sat on the line, people drifted west and Consolation faded. On October 12, 1861, the Christiansburg post office moved to the station and took the name Bagdad, with Richard Radford as first postmaster. The place became a shipping point for flour, meal, livestock, and tobacco. Bagdad still sits at KY 12 and 395, about eleven miles northeast of Shelbyville.",
+    "source_date": "2026-09-25",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "nominatim-bagdad-ky",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Bagdad,_Kentucky",
+    "year_start": 1850,
+    "year_end": 1861,
+    "photo": {
+      "image_url": "/content/photos/stories/bagdad-how-a-shelby-county-rail-stop-took-over-consolation.jpg",
+      "title": "Shelby County Courthouse, Shelbyville",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Shelby_County_Courthouse_%E2%80%94_Shelbyville%2C_Kentucky.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+      "year": null
     }
   }
 ]

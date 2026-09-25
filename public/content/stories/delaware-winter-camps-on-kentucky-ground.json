@@ -14,5 +14,13 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-22"
+  "briefDate": "2026-09-22",
+  "photo": {
+    "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
+    "title": "Three Delaware Indians (George Catlin)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
+    "year": 1861
+  }
 }

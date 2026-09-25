@@ -14,5 +14,13 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-22"
+  "briefDate": "2026-09-22",
+  "photo": {
+    "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
+    "title": "Washington County Courthouse, Springfield",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2008
+  }
 }

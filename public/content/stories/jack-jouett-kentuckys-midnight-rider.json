@@ -12,5 +12,13 @@
     "kentucky"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-23"
+  "briefDate": "2026-09-23",
+  "photo": {
+    "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
+    "title": "Jack Jouett House Historic Site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Day tripper · Wikimedia Commons · Public domain",
+    "year": null
+  }
 }

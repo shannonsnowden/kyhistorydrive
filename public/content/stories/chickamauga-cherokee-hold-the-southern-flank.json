@@ -15,5 +15,13 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-23"
+  "briefDate": "2026-09-23",
+  "photo": {
+    "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
+    "title": "Chickamauga Towns (map)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons",
+    "year": null
+  }
 }

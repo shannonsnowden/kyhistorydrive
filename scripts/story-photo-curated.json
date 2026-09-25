@@ -200,5 +200,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Wikimedia Commons",
     "year": null
+  },
+  "hugh-mcgary-the-blue-licks-hothead": {
+    "ext": "jpg",
+    "commonsFile": "Blue_Licks_Battlefield_monument.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Blue_Licks_Battlefield_monument.jpg/1280px-Blue_Licks_Battlefield_monument.jpg",
+    "title": "Blue Licks Battlefield monument",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "bagdad-how-a-shelby-county-rail-stop-took-over-consolation": {
+    "ext": "jpg",
+    "commonsFile": "Shelby_County_Courthouse_—_Shelbyville,_Kentucky.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Shelby_County_Courthouse_%E2%80%94_Shelbyville%2C_Kentucky.jpg/1280px-Shelby_County_Courthouse_%E2%80%94_Shelbyville%2C_Kentucky.jpg",
+    "title": "Shelby County Courthouse, Shelbyville",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Shelby_County_Courthouse_%E2%80%94_Shelbyville%2C_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+    "year": null
+  },
+  "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {
+    "ext": "jpg",
+    "commonsFile": "Wilderness_Road_in_Richmond_-_October_2023_-_Sarah_Stierch.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Wilderness_Road_in_Richmond_-_October_2023_-_Sarah_Stierch.jpg/1280px-Wilderness_Road_in_Richmond_-_October_2023_-_Sarah_Stierch.jpg",
+    "title": "Wilderness Road, Richmond, Kentucky",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wilderness_Road_in_Richmond_-_October_2023_-_Sarah_Stierch.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
+    "year": null
+  },
+  "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
+    "ext": "jpg",
+    "commonsFile": "Main_Street_in_Nicholasville.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Main_Street_in_Nicholasville.jpg/1280px-Main_Street_in_Nicholasville.jpg",
+    "title": "Main Street, Nicholasville",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
+    "ext": "jpg",
+    "commonsFile": "Boone_County_Courthouse,_Burlington,_KY.jpg",
+    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Boone_County_Courthouse%2C_Burlington%2C_KY.jpg/1280px-Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
+    "title": "Boone County Courthouse, Burlington",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "w_lemay · Wikimedia Commons · CC0",
+    "year": null
   }
 }

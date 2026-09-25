@@ -422,6 +422,32 @@ const MANUAL_OVERRIDES = {
     lon: -85.3364,
     confidence: 'override',
   },
+  // 2026-09-25 morning brief
+  'hugh-mcgary-the-blue-licks-hothead': {
+    matchName: "McGary's Station / Shawnee Springs",
+    lat: 37.805,
+    lon: -84.831,
+    confidence: 'override',
+  },
+  'bagdad-how-a-shelby-county-rail-stop-took-over-consolation': {
+    matchName: 'Bagdad / Consolation rail stop',
+    lat: 38.2622928,
+    lon: -85.0577313,
+    confidence: 'override',
+  },
+  'muir-site-early-fort-ancient-on-a-jessamine-ridge': {
+    matchName: 'Muir Site (15Js86)',
+    lat: 37.8840694,
+    lon: -84.593,
+    confidence: 'override',
+  },
+  'cleek-mccabe-a-circular-fort-ancient-village-in-boone-county': {
+    matchName: 'Cleek-McCabe Fort Ancient Village',
+    lat: 38.772860422898226,
+    lon: -84.00880725804063,
+    confidence: 'override',
+  },
+  // Wyandot Kah-ten-tah-teh — theme-only, no KY place pin
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)

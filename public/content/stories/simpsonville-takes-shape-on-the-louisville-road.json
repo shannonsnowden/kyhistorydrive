@@ -14,5 +14,13 @@
     "transport"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-23"
+  "briefDate": "2026-09-23",
+  "photo": {
+    "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
+    "title": "Bank of Simpsonville Building (1902)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 1902
+  }
 }

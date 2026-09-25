@@ -13,5 +13,13 @@
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-21"
+  "briefDate": "2026-09-21",
+  "photo": {
+    "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
+    "title": "Hickman Carnegie Library, Fulton County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2013
+  }
 }
