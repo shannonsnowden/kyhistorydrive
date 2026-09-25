@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T09:21:23.895Z",
+  "generatedAt": "2026-09-25T11:07:14.673Z",
   "briefDate": "2026-09-25",
   "displayDate": "Friday, September 25, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -43,10 +43,10 @@
       "quote": "Northeastern Shelby County's Bagdad grew because the Louisville and Frankfort Railroad reached the area about 1850.",
       "photo": {
         "image_url": "/content/photos/stories/bagdad-how-a-shelby-county-rail-stop-took-over-consolation.jpg",
-        "title": "Shelby County Courthouse, Shelbyville",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Shelby_County_Courthouse_%E2%80%94_Shelbyville%2C_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "title": "Bagdad Roller Mills",
+        "source_url": "https://www.bagdadrollermillsfeed.com/about-bagdad-feeds/our-history/",
+        "source_label": "Bagdad Roller Mills Inc.",
+        "attribution": "Bagdad Roller Mills Inc. · company historic photo (early–mid 20th c., undated archival B&W)",
         "year": null
       }
     },
@@ -160,10 +160,10 @@
       "quote": "Northeastern Shelby County's Bagdad grew because the Louisville and Frankfort Railroad reached the area about 1850.",
       "photo": {
         "image_url": "/content/photos/stories/bagdad-how-a-shelby-county-rail-stop-took-over-consolation.jpg",
-        "title": "Shelby County Courthouse, Shelbyville",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Shelby_County_Courthouse_%E2%80%94_Shelbyville%2C_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "title": "Bagdad Roller Mills",
+        "source_url": "https://www.bagdadrollermillsfeed.com/about-bagdad-feeds/our-history/",
+        "source_label": "Bagdad Roller Mills Inc.",
+        "attribution": "Bagdad Roller Mills Inc. · company historic photo (early–mid 20th c., undated archival B&W)",
         "year": null
       }
     },
