@@ -1832,5 +1832,103 @@
       "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
       "year": null
     }
+  },
+  {
+    "id": "holders-station-lower-howards-creek",
+    "name": "Holder's Station / Lower Howard's Creek",
+    "subtitle": "Clark County · station ~1782 · KY River flatboat hub",
+    "latitude": 37.918134,
+    "longitude": -84.272709,
+    "history": "John Holder (1753–1799) came to Kentucky in 1777, fought under George Rogers Clark, and commanded Fort Boonesborough in 1779. In 1782 he planted Holder's Station about a mile downstream from Boonesborough on the north bank of the Kentucky River, near the mouth of Lower Howard's Creek in what became Clark County. The stockade grew into a store, tavern, ferry, warehouse, mill, and boatyard—a Kentucky River flatboat hub for New Orleans-bound produce and one of the Bluegrass's earliest industrial corridors. He married Fanny Callaway (one of the girls captured with Jemima Boone in 1776), sat as a Clark County justice under Governor Isaac Shelby, and is remembered on Kentucky Historical Marker 1048 and the John Holder Trail at Lower Howard's Creek Nature & Heritage Preserve.",
+    "source_date": "2026-09-26",
+    "marker_number": 1048,
+    "marker_title": "Colonel John Holder",
+    "geocode_source": "gnis-lower-howard-creek-mouth",
+    "geocode_note": "GNIS Lower Howard Creek mouth (N37.918134 W84.272709); aligns with HMDB marker 1048 at Hall's on the River / Athens-Boonesboro Rd.",
+    "category": "frontier",
+    "website": "https://explorekyhistory.ky.gov/items/show/905",
+    "year_start": 1782,
+    "year_end": 1799,
+    "photo": {
+      "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
+      "title": "Fort Boonesborough State Park",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
+      "year": 2023
+    }
+  },
+  {
+    "id": "lebanon-marion-county-seat",
+    "name": "Lebanon / Hardin's Creek Meeting House",
+    "subtitle": "Marion County · meeting house 1789 · town 1814–15 · seat 1834",
+    "latitude": 37.5697869,
+    "longitude": -85.2527381,
+    "history": "Lebanon grew around Hardin's Creek Meeting House, a Presbyterian congregation Virginia settlers planted in 1789. The town was formally established in 1814, incorporated in 1815, and named for the biblical Lebanon because of the cedar timber on nearby hills. It sat first in Nelson County, then Washington after 1792; when Marion County was cut from Washington in 1834, Lebanon became the seat—named for South Carolina's Revolutionary \"Swamp Fox,\" Francis Marion. The early church nucleus still marks the center of Marion County's map.",
+    "source_date": "2026-09-26",
+    "marker_number": 867,
+    "marker_title": "Lebanon",
+    "geocode_source": "nominatim-lebanon-marion-ky",
+    "category": "town",
+    "website": "https://explorekyhistory.ky.gov/items/show/259",
+    "year_start": 1789,
+    "year_end": 1834,
+    "photo": {
+      "image_url": "/content/photos/stories/lebanon-cedars-meeting-house-county-seat.jpg",
+      "title": "Marion County Courthouse, Lebanon",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+      "year": null
+    }
+  },
+  {
+    "id": "sweet-lick-knob-fort-ancient-estill",
+    "name": "Sweet Lick Knob Fort Ancient public building",
+    "subtitle": "Estill County · Fort Ancient public building ~1400–1450 CE",
+    "latitude": 37.7072,
+    "longitude": -83.984,
+    "history": "On the Kentucky River floodplain below Sweet Lick Knob near Irvine in Estill County, Fort Ancient people used a large rectangular public building from about 1400 to 1450 CE. University of Kentucky excavations documented a structure about 42 by 28 feet (roughly 1,176 square feet) with three deep sacred-pole pits and two rectangular hearths down the center—likely a place for periodic social or ritual meetings. Floor finds include every stage of sandstone disk production and ornaments of eastern Kentucky cannel coal. The site sits where mountain rockshelters to the east meet lowland villages to the west; the knob itself may have served as a landmark drawing dispersed Fort Ancient groups together. (Distinct from the Estill Springs resort pin, which notes Sweet Lick Knob views.)",
+    "source_date": "2026-09-26",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "gnis-sweet-lick-knob-floodplain-offset",
+    "geocode_note": "Floodplain below GNIS Sweet Lick Knob summit (37.7086, -83.9830), offset south toward Kentucky River; intentionally distinct from estill-springs resort pin at 37.70965, -83.97567.",
+    "category": "archaeology",
+    "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Sweet-Lick-Knob.aspx",
+    "year_start": 1400,
+    "year_end": 1450,
+    "photo": {
+      "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
+      "title": "Estill County Courthouse, Irvine",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Wikimedia Commons · Public domain",
+      "year": null
+    }
+  },
+  {
+    "id": "falmouth-licking-forks-pendleton",
+    "name": "Falmouth at the Licking Forks",
+    "subtitle": "Pendleton County · town 1793 · county seat from 1799",
+    "latitude": 38.6767366,
+    "longitude": -84.3304592,
+    "history": "Falmouth was established in 1793 at the confluence of the Main Licking and South Licking in what became Pendleton County. Virginians who settled there named it for Falmouth in Stafford County, Virginia. Pendleton County was formed in 1798 from parts of Bracken and Campbell (organized 1799) and named for Virginia statesman Edmund Pendleton; Falmouth has been the county seat ever since. The forks made the spot a natural river landing—Colonel Henry Bird's 1780 British–Indian expedition passed this way toward Ruddell's and Martin's Stations—and the town still sits where those two Licking branches meet, about thirty-nine miles south of Cincinnati.",
+    "source_date": "2026-09-26",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "nominatim-falmouth-pendleton-ky",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Falmouth,_Kentucky",
+    "year_start": 1793,
+    "year_end": 1799,
+    "photo": {
+      "image_url": "/content/photos/stories/falmouth-at-the-licking-forks.jpg",
+      "title": "Pendleton County Courthouse, Falmouth",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
+      "year": null
+    }
   }
 ]

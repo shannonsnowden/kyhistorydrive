@@ -249,5 +249,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "w_lemay · Wikimedia Commons · CC0",
     "year": null
+  },
+  "col-john-holder-at-lower-howards-creek": {
+    "ext": "jpg",
+    "commonsFile": "Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg/1280px-Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
+    "title": "Fort Boonesborough State Park",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
+    "year": 2023
+  },
+  "lebanon-cedars-meeting-house-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Marion_County_Kentucky_courthouse.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Marion_County_Kentucky_courthouse.jpg/1280px-Marion_County_Kentucky_courthouse.jpg",
+    "title": "Marion County Courthouse, Lebanon",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": null
+  },
+  "osage-memory-of-the-ohio-valley": {
+    "ext": "jpg",
+    "commonsFile": "Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
+    "title": "Osage delegation to Washington, D.C.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown · Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "sweet-lick-knob-fort-ancient-gathering-place": {
+    "ext": "jpg",
+    "commonsFile": "Estill_County,_Kentucky_courthouse.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Estill_County%2C_Kentucky_courthouse.jpg/1280px-Estill_County%2C_Kentucky_courthouse.jpg",
+    "title": "Estill County Courthouse, Irvine",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "falmouth-at-the-licking-forks": {
+    "ext": "jpg",
+    "commonsFile": "Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pendleton_County_Courthouse%2C_Main_Street_and_Shelby_Street%2C_Falmouth%2C_KY.jpg/1280px-Pendleton_County_Courthouse%2C_Main_Street_and_Shelby_Street%2C_Falmouth%2C_KY.jpg",
+    "title": "Pendleton County Courthouse, Falmouth",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
+    "year": null
   }
 }

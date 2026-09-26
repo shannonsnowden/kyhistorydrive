@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-25T09:21:17.396Z",
+  "generatedAt": "2026-09-26T09:16:54.376Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
     "county": 7,
-    "override": 59,
-    "none": 24
+    "override": 63,
+    "none": 25
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -159,6 +159,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient",
       "historyId": "howard-site-15ma427-late-fort-ancient-madison-county"
+    },
+    "sweet-lick-knob-fort-ancient-gathering-place": {
+      "slug": "sweet-lick-knob-fort-ancient-gathering-place",
+      "lat": 37.7072,
+      "lon": -83.984,
+      "mapConfidence": "override",
+      "matchedPlace": "Sweet Lick Knob Fort Ancient public building",
+      "historyId": "sweet-lick-knob-fort-ancient-estill"
     },
     "erie-the-cat-nation-cleared-from-the-lake-shore": {
       "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
@@ -712,6 +720,14 @@
       "matchedPlace": "Estill's Defeat",
       "historyId": "estills-defeat"
     },
+    "col-john-holder-at-lower-howards-creek": {
+      "slug": "col-john-holder-at-lower-howards-creek",
+      "lat": 37.918134,
+      "lon": -84.272709,
+      "mapConfidence": "override",
+      "matchedPlace": "Holder's Station / Lower Howard's Creek",
+      "historyId": "holders-station-lower-howards-creek"
+    },
     "wyandot-on-kentuckys-northern-frontier": {
       "slug": "wyandot-on-kentuckys-northern-frontier",
       "lat": null,
@@ -767,6 +783,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Jenny Wiley / Big Sandy",
       "historyId": "jenny-wiley-state-resort-park"
+    },
+    "lebanon-cedars-meeting-house-county-seat": {
+      "slug": "lebanon-cedars-meeting-house-county-seat",
+      "lat": 37.5697869,
+      "lon": -85.2527381,
+      "mapConfidence": "override",
+      "matchedPlace": "Lebanon / Hardin's Creek Meeting House",
+      "historyId": "lebanon-marion-county-seat"
     },
     "covington-at-the-point": {
       "slug": "covington-at-the-point",
@@ -847,6 +871,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Cynthiana founding / Robert Harrison",
       "historyId": "cynthiana-founding-robert-harrison"
+    },
+    "falmouth-at-the-licking-forks": {
+      "slug": "falmouth-at-the-licking-forks",
+      "lat": 38.6767366,
+      "lon": -84.3304592,
+      "mapConfidence": "override",
+      "matchedPlace": "Falmouth at the Licking Forks",
+      "historyId": "falmouth-licking-forks-pendleton"
     },
     "newport-at-the-licking-mouth": {
       "slug": "newport-at-the-licking-mouth",
@@ -1175,6 +1207,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Newt Kash Hollow (15Mf1)",
       "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county"
+    },
+    "osage-memory-of-the-ohio-valley": {
+      "slug": "osage-memory-of-the-ohio-valley",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "peter-village-early-woodland-enclosure-near-lexington": {
       "slug": "peter-village-early-woodland-enclosure-near-lexington",

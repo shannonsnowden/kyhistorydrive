@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-25T11:07:14.187Z",
-  "count": 150,
+  "generatedAt": "2026-09-26T09:17:14.911Z",
+  "count": 155,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-25"
+    "end": "2026-09-26"
   },
   "eras": [
     "early-commonwealth",
@@ -374,6 +374,30 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "sweet-lick-knob-fort-ancient-gathering-place",
+      "title": "Sweet Lick Knob: Fort Ancient Gathering Place",
+      "publishedDate": "2026-09-26",
+      "summary": "On the Kentucky River floodplain below Sweet Lick Knob near Irvine in Estill County, Fort Ancient people used a large rectangular public building from about 1400 to 1450 CE.…",
+      "yearStart": 1400,
+      "yearEnd": 1450,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-26",
+      "photo": {
+        "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
+        "title": "Estill County Courthouse, Irvine",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons · Public domain",
+        "year": null
+      }
     },
     {
       "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
@@ -1599,6 +1623,31 @@
       "briefDate": "2026-09-03"
     },
     {
+      "slug": "col-john-holder-at-lower-howards-creek",
+      "title": "Col. John Holder at Lower Howard's Creek",
+      "publishedDate": "2026-09-26",
+      "summary": "John Holder (1753–1799) came to Kentucky in 1777, fought under George Rogers Clark, and commanded Fort Boonesborough in 1779. In 1782 he planted Holder's Station about a mile…",
+      "yearStart": 1782,
+      "yearEnd": 1799,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-26",
+      "photo": {
+        "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
+        "title": "Fort Boonesborough State Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
+        "year": 2023
+      }
+    },
+    {
       "slug": "wyandot-on-kentuckys-northern-frontier",
       "title": "Wyandot on Kentucky’s northern frontier",
       "publishedDate": "2026-09-14",
@@ -1719,6 +1768,30 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    {
+      "slug": "lebanon-cedars-meeting-house-county-seat",
+      "title": "Lebanon: Cedars, Meeting House, County Seat",
+      "publishedDate": "2026-09-26",
+      "summary": "Lebanon grew around Hardin's Creek Meeting House, a Presbyterian congregation Virginia settlers planted in 1789. The town was formally established in 1814, incorporated in…",
+      "yearStart": 1789,
+      "yearEnd": 1834,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-26",
+      "photo": {
+        "image_url": "/content/photos/stories/lebanon-cedars-meeting-house-county-seat.jpg",
+        "title": "Marion County Courthouse, Lebanon",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null
       }
     },
@@ -1899,6 +1972,30 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "falmouth-at-the-licking-forks",
+      "title": "Falmouth at the Licking Forks",
+      "publishedDate": "2026-09-26",
+      "summary": "Falmouth was established in 1793 at the confluence of the Main Licking and South Licking in what became Pendleton County. Virginians who settled there named it for Falmouth in…",
+      "yearStart": 1793,
+      "yearEnd": 1799,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-26",
+      "photo": {
+        "image_url": "/content/photos/stories/falmouth-at-the-licking-forks.jpg",
+        "title": "Pendleton County Courthouse, Falmouth",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
+        "year": null
+      }
     },
     {
       "slug": "newport-at-the-licking-mouth",
@@ -2650,6 +2747,30 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-15"
+    },
+    {
+      "slug": "osage-memory-of-the-ohio-valley",
+      "title": "Osage Memory of the Ohio Valley",
+      "publishedDate": "2026-09-26",
+      "summary": "The Osage (Wah-zha-zhe; Ni-U-Ko'n-Ska, \"Children of the Middle Waters\") are a Dhegiha Siouan people whose oral tradition and Nation Historic Preservation scholarship place…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-26",
+      "photo": {
+        "image_url": "/content/photos/stories/osage-memory-of-the-ohio-valley.jpg",
+        "title": "Osage delegation to Washington, D.C.",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown · Wikimedia Commons · Public domain",
+        "year": null
+      }
     },
     {
       "slug": "peter-village-early-woodland-enclosure-near-lexington",

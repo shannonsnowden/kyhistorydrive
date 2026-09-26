@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T11:07:14.667Z",
+  "generatedAt": "2026-09-26T09:17:15.513Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -73,6 +73,18 @@
         "year": null
       }
     },
+    "col-john-holder-at-lower-howards-creek": {
+      "slug": "col-john-holder-at-lower-howards-creek",
+      "historyId": "holders-station-lower-howards-creek",
+      "photo": {
+        "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
+        "title": "Fort Boonesborough State Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
+        "year": 2023
+      }
+    },
     "delaware-winter-camps-on-kentucky-ground": {
       "slug": "delaware-winter-camps-on-kentucky-ground",
       "historyId": null,
@@ -106,6 +118,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
+        "year": null
+      }
+    },
+    "falmouth-at-the-licking-forks": {
+      "slug": "falmouth-at-the-licking-forks",
+      "historyId": "falmouth-licking-forks-pendleton",
+      "photo": {
+        "image_url": "/content/photos/stories/falmouth-at-the-licking-forks.jpg",
+        "title": "Pendleton County Courthouse, Falmouth",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
         "year": null
       }
     },
@@ -193,6 +217,18 @@
         "year": 2007
       }
     },
+    "lebanon-cedars-meeting-house-county-seat": {
+      "slug": "lebanon-cedars-meeting-house-county-seat",
+      "historyId": "lebanon-marion-county-seat",
+      "photo": {
+        "image_url": "/content/photos/stories/lebanon-cedars-meeting-house-county-seat.jpg",
+        "title": "Marion County Courthouse, Lebanon",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      }
+    },
     "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
       "historyId": "muir-site-15js86-jessamine-county",
@@ -202,6 +238,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    "osage-memory-of-the-ohio-valley": {
+      "slug": "osage-memory-of-the-ohio-valley",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/osage-memory-of-the-ohio-valley.jpg",
+        "title": "Osage delegation to Washington, D.C.",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown · Wikimedia Commons · Public domain",
         "year": null
       }
     },
@@ -263,6 +311,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2008
+      }
+    },
+    "sweet-lick-knob-fort-ancient-gathering-place": {
+      "slug": "sweet-lick-knob-fort-ancient-gathering-place",
+      "historyId": "sweet-lick-knob-fort-ancient-estill",
+      "photo": {
+        "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
+        "title": "Estill County Courthouse, Irvine",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons · Public domain",
+        "year": null
       }
     },
     "tolu-site-mississippian-mounds-on-the-lower-ohio": {
@@ -363,6 +423,30 @@
         "year": null
       }
     },
+    "holders-station-lower-howards-creek": {
+      "slug": "col-john-holder-at-lower-howards-creek",
+      "historyId": "holders-station-lower-howards-creek",
+      "photo": {
+        "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
+        "title": "Fort Boonesborough State Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
+        "year": 2023
+      }
+    },
+    "falmouth-licking-forks-pendleton": {
+      "slug": "falmouth-at-the-licking-forks",
+      "historyId": "falmouth-licking-forks-pendleton",
+      "photo": {
+        "image_url": "/content/photos/stories/falmouth-at-the-licking-forks.jpg",
+        "title": "Pendleton County Courthouse, Falmouth",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
+        "year": null
+      }
+    },
     "mcgarys-station-shawnee-springs-mercer": {
       "slug": "hugh-mcgary-the-blue-licks-hothead",
       "historyId": "mcgarys-station-shawnee-springs-mercer",
@@ -408,6 +492,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    "lebanon-marion-county-seat": {
+      "slug": "lebanon-cedars-meeting-house-county-seat",
+      "historyId": "lebanon-marion-county-seat",
+      "photo": {
+        "image_url": "/content/photos/stories/lebanon-cedars-meeting-house-county-seat.jpg",
+        "title": "Marion County Courthouse, Lebanon",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null
       }
     },
@@ -481,6 +577,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2008
+      }
+    },
+    "sweet-lick-knob-fort-ancient-estill": {
+      "slug": "sweet-lick-knob-fort-ancient-gathering-place",
+      "historyId": "sweet-lick-knob-fort-ancient-estill",
+      "photo": {
+        "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
+        "title": "Estill County Courthouse, Irvine",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons · Public domain",
+        "year": null
       }
     },
     "tolu-site-15cn1-crittenden-county": {

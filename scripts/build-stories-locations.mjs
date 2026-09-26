@@ -448,6 +448,32 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   // Wyandot Kah-ten-tah-teh — theme-only, no KY place pin
+  // 2026-09-26 morning brief
+  'col-john-holder-at-lower-howards-creek': {
+    matchName: "Holder's Station / Lower Howard's Creek",
+    lat: 37.918134,
+    lon: -84.272709,
+    confidence: 'override',
+  },
+  'lebanon-cedars-meeting-house-county-seat': {
+    matchName: "Lebanon / Hardin's Creek Meeting House",
+    lat: 37.5697869,
+    lon: -85.2527381,
+    confidence: 'override',
+  },
+  // Osage Memory of the Ohio Valley — theme-only, no KY place pin
+  'sweet-lick-knob-fort-ancient-gathering-place': {
+    matchName: 'Sweet Lick Knob Fort Ancient public building',
+    lat: 37.7072,
+    lon: -83.9840,
+    confidence: 'override',
+  },
+  'falmouth-at-the-licking-forks': {
+    matchName: 'Falmouth at the Licking Forks',
+    lat: 38.6767366,
+    lon: -84.3304592,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
