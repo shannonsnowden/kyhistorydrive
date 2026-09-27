@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T09:17:25.872Z",
+  "generatedAt": "2026-09-27T09:29:18.741Z",
   "briefDate": "2026-09-27",
   "displayDate": "Sunday, September 27, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -89,11 +89,11 @@
       "quote": "On the Ohio River floodplain in Union County, Slack Farm was a large Caborn-Welborn Mississippian village occupied about 1400–1700 CE.",
       "photo": {
         "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
-        "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+        "title": "Ohio River at Uniontown, Union County — the floodplain setting of Slack Farm",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Uniontown-Ohio-River-ky.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2020
       }
     },
     {
@@ -206,11 +206,11 @@
       "quote": "On the Ohio River floodplain in Union County, Slack Farm was a large Caborn-Welborn Mississippian village occupied about 1400–1700 CE.",
       "photo": {
         "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
-        "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+        "title": "Ohio River at Uniontown, Union County — the floodplain setting of Slack Farm",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Uniontown-Ohio-River-ky.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2020
       }
     },
     {

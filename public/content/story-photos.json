@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T09:17:25.866Z",
+  "generatedAt": "2026-09-27T09:29:18.732Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -342,11 +342,11 @@
       "historyId": "slack-farm-15un28-union-county",
       "photo": {
         "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
-        "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+        "title": "Ohio River at Uniontown, Union County — the floodplain setting of Slack Farm",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Uniontown-Ohio-River-ky.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2020
       }
     },
     "springfield-founding-and-washington-county-seat": {
@@ -656,11 +656,11 @@
       "historyId": "slack-farm-15un28-union-county",
       "photo": {
         "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
-        "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+        "title": "Ohio River at Uniontown, Union County — the floodplain setting of Slack Farm",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Uniontown-Ohio-River-ky.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2020
       }
     },
     "springfield-washington-county-seat": {
