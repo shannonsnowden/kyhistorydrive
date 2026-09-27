@@ -136,10 +136,12 @@ const MANUAL_OVERRIDES = {
     lon: -84.2943662,
     confidence: 'override',
   },
-  'lancaster-at-wallace-s-crossroads': {
-    matchName: "Lancaster founding / Wallace's Crossroads",
-    lat: 37.3238322,
-    lon: -84.9223154,
+  // Story slug is lancaster-at-wallaces-crossroads (key previously mismatched → county centroid,
+  // no pin link). Coords: Nominatim / OSM relation 130781 Lancaster, Garrard County (2026-09-27 fix).
+  'lancaster-at-wallaces-crossroads': {
+    matchName: 'Lancaster founding / Wallace’s Crossroads',
+    lat: 37.6195246,
+    lon: -84.5779957,
     confidence: 'override',
   },
   'cynthiana-cynthia-anna-on-the-licking': {
