@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-26T09:16:54.376Z",
+  "generatedAt": "2026-09-27T09:17:25.277Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
     "county": 7,
-    "override": 63,
-    "none": 25
+    "override": 67,
+    "none": 26
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -159,6 +159,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient",
       "historyId": "howard-site-15ma427-late-fort-ancient-madison-county"
+    },
+    "slack-farm-15un28-union-county": {
+      "slug": "slack-farm-15un28-union-county",
+      "lat": 37.775,
+      "lon": -87.925,
+      "mapConfidence": "override",
+      "matchedPlace": "Slack Farm (15Un28) Caborn-Welborn village",
+      "historyId": "slack-farm-15un28-union-county"
     },
     "sweet-lick-knob-fort-ancient-gathering-place": {
       "slug": "sweet-lick-knob-fort-ancient-gathering-place",
@@ -592,6 +600,14 @@
       "matchedPlace": "Lexington",
       "historyId": null
     },
+    "edward-worthington-at-worthingtons-fort": {
+      "slug": "edward-worthington-at-worthingtons-fort",
+      "lat": 37.6048,
+      "lon": -84.7208,
+      "mapConfidence": "override",
+      "matchedPlace": "Worthington's Fort (Edward Worthington)",
+      "historyId": "worthingtons-fort-danville"
+    },
     "hugh-mcgary-the-blue-licks-hothead": {
       "slug": "hugh-mcgary-the-blue-licks-hothead",
       "lat": 37.805,
@@ -703,6 +719,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
       "historyId": "capt-jack-jouett-midnight-ride-1781"
+    },
+    "the-travelling-church-1781": {
+      "slug": "the-travelling-church-1781",
+      "lat": 37.577915,
+      "lon": -84.558316,
+      "mapConfidence": "override",
+      "matchedPlace": "Craig's Station / Travelling Church (Gilbert's Creek)",
+      "historyId": "craigs-station-travelling-church-gilberts-creek"
     },
     "battle-of-blue-licks": {
       "slug": "battle-of-blue-licks",
@@ -1000,6 +1024,14 @@
       "matchedPlace": "Chickasaw / Jackson Purchase",
       "historyId": "jackson-purchase"
     },
+    "paducah-at-the-tennessee-mouth": {
+      "slug": "paducah-at-the-tennessee-mouth",
+      "lat": 37.0864667,
+      "lon": -88.5988667,
+      "mapConfidence": "override",
+      "matchedPlace": "Paducah — 1827 William Clark plat",
+      "historyId": "paducah-1827-clark-plat"
+    },
     "lexington-ohio-railroad": {
       "slug": "lexington-ohio-railroad",
       "lat": 38.1884,
@@ -1223,6 +1255,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Peter Village enclosure (15Fa166)",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
+    },
+    "potawatomi-fire-keepers-and-the-ohio-valley-wars": {
+      "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "wickliffe-mounds-mississippian-village-ballard-county": {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

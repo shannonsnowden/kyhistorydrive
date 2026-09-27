@@ -299,5 +299,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
     "year": null
+  },
+  "edward-worthington-at-worthingtons-fort": {
+    "ext": "jpg",
+    "commonsFile": "Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg/1280px-Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg",
+    "title": "Fort Jefferson Hill above the Ohio–Mississippi confluence, Wickliffe",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+    "year": 2018
+  },
+  "paducah-at-the-tennessee-mouth": {
+    "ext": "jpg",
+    "commonsFile": "Broadway_-_Paducah,_Kentucky.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Broadway_-_Paducah%2C_Kentucky.jpg/1280px-Broadway_-_Paducah%2C_Kentucky.jpg",
+    "title": "Broadway, downtown Paducah",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Broadway_-_Paducah,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2018
+  },
+  "potawatomi-fire-keepers-and-the-ohio-valley-wars": {
+    "ext": "gif",
+    "commonsFile": "Potawatomi_1920.gif",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Potawatomi_1920.gif",
+    "title": "Potawatomi group, c. 1920",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown · Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "slack-farm-15un28-union-county": {
+    "ext": "jpg",
+    "commonsFile": "Caborn_Welborn_Map_HRoe_2010_01.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Caborn_Welborn_Map_HRoe_2010_01.jpg",
+    "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": null
+  },
+  "the-travelling-church-1781": {
+    "ext": "jpg",
+    "commonsFile": "Roadside_marker_with_hilltop_church_site_behind.JPG",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Roadside_marker_with_hilltop_church_site_behind.JPG/1280px-Roadside_marker_with_hilltop_church_site_behind.JPG",
+    "title": "Travelling Church, 1781 memorial below the Gilbert's Creek hilltop church site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Roadside_marker_with_hilltop_church_site_behind.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2011
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T09:17:15.513Z",
+  "generatedAt": "2026-09-27T09:17:25.866Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -95,6 +95,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
         "year": 1861
+      }
+    },
+    "edward-worthington-at-worthingtons-fort": {
+      "slug": "edward-worthington-at-worthingtons-fort",
+      "historyId": "worthingtons-fort-danville",
+      "photo": {
+        "image_url": "/content/photos/stories/edward-worthington-at-worthingtons-fort.jpg",
+        "title": "Fort Jefferson Hill above the Ohio–Mississippi confluence, Wickliffe",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2018
       }
     },
     "erie-the-cat-nation-cleared-from-the-lake-shore": {
@@ -265,6 +277,18 @@
         "year": null
       }
     },
+    "paducah-at-the-tennessee-mouth": {
+      "slug": "paducah-at-the-tennessee-mouth",
+      "historyId": "paducah-1827-clark-plat",
+      "photo": {
+        "image_url": "/content/photos/stories/paducah-at-the-tennessee-mouth.jpg",
+        "title": "Broadway, downtown Paducah",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Broadway_-_Paducah,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2018
+      }
+    },
     "peter-village-early-woodland-enclosure-near-lexington": {
       "slug": "peter-village-early-woodland-enclosure-near-lexington",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
@@ -275,6 +299,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
         "year": 1848
+      }
+    },
+    "potawatomi-fire-keepers-and-the-ohio-valley-wars": {
+      "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/potawatomi-fire-keepers-and-the-ohio-valley-wars.gif",
+        "title": "Potawatomi group, c. 1920",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown · Wikimedia Commons · Public domain",
+        "year": null
       }
     },
     "saltpeter-cave-at-carter-caves": {
@@ -301,6 +337,18 @@
         "year": 1902
       }
     },
+    "slack-farm-15un28-union-county": {
+      "slug": "slack-farm-15un28-union-county",
+      "historyId": "slack-farm-15un28-union-county",
+      "photo": {
+        "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
+        "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      }
+    },
     "springfield-founding-and-washington-county-seat": {
       "slug": "springfield-founding-and-washington-county-seat",
       "historyId": "springfield-washington-county-seat",
@@ -323,6 +371,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    "the-travelling-church-1781": {
+      "slug": "the-travelling-church-1781",
+      "historyId": "craigs-station-travelling-church-gilberts-creek",
+      "photo": {
+        "image_url": "/content/photos/stories/the-travelling-church-1781.jpg",
+        "title": "Travelling Church, 1781 memorial below the Gilbert's Creek hilltop church site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Roadside_marker_with_hilltop_church_site_behind.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2011
       }
     },
     "tolu-site-mississippian-mounds-on-the-lower-ohio": {
@@ -435,6 +495,18 @@
         "year": 2023
       }
     },
+    "worthingtons-fort-danville": {
+      "slug": "edward-worthington-at-worthingtons-fort",
+      "historyId": "worthingtons-fort-danville",
+      "photo": {
+        "image_url": "/content/photos/stories/edward-worthington-at-worthingtons-fort.jpg",
+        "title": "Fort Jefferson Hill above the Ohio–Mississippi confluence, Wickliffe",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2018
+      }
+    },
     "falmouth-licking-forks-pendleton": {
       "slug": "falmouth-at-the-licking-forks",
       "historyId": "falmouth-licking-forks-pendleton",
@@ -531,6 +603,18 @@
         "year": null
       }
     },
+    "paducah-1827-clark-plat": {
+      "slug": "paducah-at-the-tennessee-mouth",
+      "historyId": "paducah-1827-clark-plat",
+      "photo": {
+        "image_url": "/content/photos/stories/paducah-at-the-tennessee-mouth.jpg",
+        "title": "Broadway, downtown Paducah",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Broadway_-_Paducah,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2018
+      }
+    },
     "peter-village-enclosure-15fa166-fayette-county": {
       "slug": "peter-village-early-woodland-enclosure-near-lexington",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
@@ -567,6 +651,18 @@
         "year": 1902
       }
     },
+    "slack-farm-15un28-union-county": {
+      "slug": "slack-farm-15un28-union-county",
+      "historyId": "slack-farm-15un28-union-county",
+      "photo": {
+        "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
+        "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      }
+    },
     "springfield-washington-county-seat": {
       "slug": "springfield-founding-and-washington-county-seat",
       "historyId": "springfield-washington-county-seat",
@@ -589,6 +685,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    "craigs-station-travelling-church-gilberts-creek": {
+      "slug": "the-travelling-church-1781",
+      "historyId": "craigs-station-travelling-church-gilberts-creek",
+      "photo": {
+        "image_url": "/content/photos/stories/the-travelling-church-1781.jpg",
+        "title": "Travelling Church, 1781 memorial below the Gilbert's Creek hilltop church site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Roadside_marker_with_hilltop_church_site_behind.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2011
       }
     },
     "tolu-site-15cn1-crittenden-county": {

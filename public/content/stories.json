@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-26T09:17:14.911Z",
-  "count": 155,
+  "generatedAt": "2026-09-27T09:17:25.394Z",
+  "count": 160,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-26"
+    "end": "2026-09-27"
   },
   "eras": [
     "early-commonwealth",
@@ -374,6 +374,30 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-09"
+    },
+    {
+      "slug": "slack-farm-15un28-union-county",
+      "title": "Slack Farm (15Un28), Union County",
+      "publishedDate": "2026-09-27",
+      "summary": "On the Ohio River floodplain in Union County, Slack Farm was a large Caborn-Welborn Mississippian village occupied about 1400–1700 CE. Across roughly 75 acres, residents built…",
+      "yearStart": 1400,
+      "yearEnd": 1700,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-27",
+      "photo": {
+        "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
+        "title": "Caborn-Welborn culture sites map (incl. Slack Farm)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Caborn_Welborn_Map_HRoe_2010_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Heironymous Rowe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      }
     },
     {
       "slug": "sweet-lick-knob-fort-ancient-gathering-place",
@@ -1330,6 +1354,30 @@
       "briefDate": "2026-09-12"
     },
     {
+      "slug": "edward-worthington-at-worthingtons-fort",
+      "title": "Edward Worthington at Worthington's Fort",
+      "publishedDate": "2026-09-27",
+      "summary": "Irish-born Edward Worthington (c. 1754–1804) reached the Kentucky country as a surveyor on Beargrass Creek by 1775, fought in Lord Dunmore's War, and was wounded defending…",
+      "yearStart": 1779,
+      "yearEnd": 1781,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-27",
+      "photo": {
+        "image_url": "/content/photos/stories/edward-worthington-at-worthingtons-fort.jpg",
+        "title": "Fort Jefferson Hill above the Ohio–Mississippi confluence, Wickliffe",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2018
+      }
+    },
+    {
       "slug": "hugh-mcgary-the-blue-licks-hothead",
       "title": "Hugh McGary, the Blue Licks Hothead",
       "publishedDate": "2026-09-25",
@@ -1586,6 +1634,30 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Day tripper · Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    {
+      "slug": "the-travelling-church-1781",
+      "title": "The Travelling Church, 1781",
+      "publishedDate": "2026-09-27",
+      "summary": "In fall–winter 1781, Rev. Lewis Craig led roughly 200 Baptists and about 400 other settlers from Spotsylvania County, Virginia—the largest single pioneer party yet to enter the…",
+      "yearStart": 1781,
+      "yearEnd": 1781,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-27",
+      "photo": {
+        "image_url": "/content/photos/stories/the-travelling-church-1781.jpg",
+        "title": "Travelling Church, 1781 memorial below the Gilbert's Creek hilltop church site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Roadside_marker_with_hilltop_church_site_behind.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2011
       }
     },
     {
@@ -2290,6 +2362,31 @@
       "briefDate": "2026-08-28"
     },
     {
+      "slug": "paducah-at-the-tennessee-mouth",
+      "title": "Paducah at the Tennessee mouth",
+      "publishedDate": "2026-09-27",
+      "summary": "After the 1818 Jackson Purchase opened Chickasaw land west of the Tennessee River, a small landing called Pekin grew at the Ohio–Tennessee confluence. In 1827 William Clark (of…",
+      "yearStart": 1827,
+      "yearEnd": 1832,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-27",
+      "photo": {
+        "image_url": "/content/photos/stories/paducah-at-the-tennessee-mouth.jpg",
+        "title": "Broadway, downtown Paducah",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Broadway_-_Paducah,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2018
+      }
+    },
+    {
       "slug": "lexington-ohio-railroad",
       "title": "Lexington & Ohio Railroad",
       "publishedDate": "2026-09-04",
@@ -2795,6 +2892,31 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
         "year": 1848
+      }
+    },
+    {
+      "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
+      "title": "Potawatomi fire-keepers and the Ohio Valley wars",
+      "publishedDate": "2026-09-27",
+      "summary": "The Potawatomi (Bodéwadmi, \"keepers of the fire\") were the youngest sibling of the Anishinaabe Council of Three Fires. In the Beaver Wars they fought as French-allied…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-27",
+      "photo": {
+        "image_url": "/content/photos/stories/potawatomi-fire-keepers-and-the-ohio-valley-wars.gif",
+        "title": "Potawatomi group, c. 1920",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown · Wikimedia Commons · Public domain",
+        "year": null
       }
     },
     {

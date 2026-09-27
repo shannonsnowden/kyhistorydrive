@@ -474,6 +474,32 @@ const MANUAL_OVERRIDES = {
     lon: -84.3304592,
     confidence: 'override',
   },
+  // 2026-09-27 morning brief
+  'edward-worthington-at-worthingtons-fort': {
+    matchName: "Worthington's Fort (Edward Worthington)",
+    lat: 37.6048,
+    lon: -84.7208,
+    confidence: 'override',
+  },
+  'paducah-at-the-tennessee-mouth': {
+    matchName: 'Paducah — 1827 William Clark plat',
+    lat: 37.0864667,
+    lon: -88.5988667,
+    confidence: 'override',
+  },
+  // Potawatomi fire-keepers — theme-only, no KY place pin
+  'slack-farm-15un28-union-county': {
+    matchName: 'Slack Farm (15Un28) Caborn-Welborn village',
+    lat: 37.775,
+    lon: -87.925,
+    confidence: 'override',
+  },
+  'the-travelling-church-1781': {
+    matchName: "Craig's Station / Travelling Church (Gilbert's Creek)",
+    lat: 37.577915,
+    lon: -84.558316,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
