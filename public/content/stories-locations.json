@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-27T09:17:25.277Z",
+  "generatedAt": "2026-09-27T09:31:18.785Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
-    "county": 7,
-    "override": 67,
+    "county": 6,
+    "override": 68,
     "none": 26
   },
   "locations": {
@@ -938,11 +938,11 @@
     },
     "lancaster-at-wallaces-crossroads": {
       "slug": "lancaster-at-wallaces-crossroads",
-      "lat": 37.62829,
-      "lon": -84.56799,
-      "mapConfidence": "county",
-      "matchedPlace": "Garrard County (centroid)",
-      "historyId": null
+      "lat": 37.6195246,
+      "lon": -84.5779957,
+      "mapConfidence": "override",
+      "matchedPlace": "Lancaster founding / Wallace’s Crossroads",
+      "historyId": "lancaster-founding-wallace-s-crossroads"
     },
     "owensboro-yellow-banks": {
       "slug": "owensboro-yellow-banks",
