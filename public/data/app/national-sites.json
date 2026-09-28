@@ -63,12 +63,11 @@
     "longitude": -84.7519,
     "designation": "nhl",
     "history": "World-famous Ice Age fossil beds that drew Jefferson-era scientists and shaped early American paleontology. Designated a National Historic Landmark in 2024 for its archaeological significance. The state park museum interprets megafauna finds and salt-lick history.",
-    "website": "https://parks.ky.gov/explore/big-bone-lick-state-historic-site-7774",
+    "website": "https://parks.ky.gov/explore/big-bone-lick-state-historic-site-7807",
     "geocode_source": "manual",
     "overlap": "museums",
     "sources": [
-      "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park",
-      "https://parks.ky.gov/"
+      "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park"
     ]
   },
   {
@@ -158,7 +157,7 @@
     "overlap": "museums",
     "sources": [
       "https://www.mcdowellhouse.com/",
-      "https://en.wikipedia.org/wiki/Dr._Ephraim_McDowell_House"
+      "https://en.wikipedia.org/wiki/Ephraim_McDowell_House"
     ]
   },
   {
@@ -171,7 +170,7 @@
     "longitude": -85.3719949,
     "designation": "nhl",
     "history": "Birthplace and boyhood home of civil rights leader Whitney M. Young Jr., longtime executive director of the National Urban League. National Historic Landmark in Shelby County near Simpsonville. Interprets education, leadership, and twentieth-century civil rights roots in Kentucky.",
-    "website": "https://www.nps.gov/subjects/nationalhistoriclandmarks/list-of-nhls-by-state.htm",
+    "website": "https://www.nps.gov/places/kentucky-whitney-m-young-jr-birthplace.htm",
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
@@ -261,11 +260,10 @@
     "longitude": -84.266814,
     "designation": "nhl",
     "history": "Site of Daniel Boone\u2019s 1775 Transylvania settlement and the long 1778 Shawnee/British-allied siege. National Historic Landmark archaeological district beside the Kentucky River. Reconstructed fort and museum at Fort Boonesborough State Park interpret frontier Kentucky.",
-    "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7786",
+    "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7811",
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://parks.ky.gov/",
       "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park"
     ]
   },
@@ -369,12 +367,11 @@
     "longitude": -84.4937854,
     "designation": "nhl",
     "history": "Greek Revival administration building (1833) designed by Gideon Shryock for Transylvania University, the oldest college west of the Alleghenies. National Historic Landmark campus landmark. Exterior architecture pin on historic Broadway.",
-    "website": "https://www.transy.edu/",
+    "website": "https://history.ky.gov/markers/old-morrison",
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/Old_Morrison",
-      "https://www.transy.edu/"
+      "https://en.wikipedia.org/wiki/Old_Morrison"
     ]
   },
   {
@@ -387,7 +384,7 @@
     "longitude": -84.7714,
     "designation": "nhl",
     "history": "Landmark building at the Kentucky School for the Deaf (founded 1823), the first state-supported school of its kind in the United States. National Historic Landmark campus architecture in Danville. Interprets deaf education history; confirm visitor access.",
-    "website": "https://www.ksd.kyschools.us/",
+    "website": "https://en.wikipedia.org/wiki/Kentucky_School_for_the_Deaf",
     "geocode_source": "manual",
     "overlap": null,
     "sources": [
@@ -440,11 +437,11 @@
     "longitude": -85.7558911,
     "designation": "nhl",
     "history": "1830s Greek Revival bank building by Gideon Shryock (or attributed circle) on Louisville\u2019s Main Street. National Historic Landmark exterior architecture pin on Whiskey Row\u2019s historic corridor. Celebrates early commercial architecture of the Falls City.",
-    "website": "https://en.wikipedia.org/wiki/Bank_of_Louisville",
+    "website": "https://en.wikipedia.org/wiki/Old_Bank_of_Louisville",
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/Bank_of_Louisville"
+      "https://en.wikipedia.org/wiki/Old_Bank_of_Louisville"
     ]
   },
   {
@@ -474,12 +471,11 @@
     "longitude": -84.2905803,
     "designation": "nhl",
     "history": "Campus landmark at Berea College, founded on interracial education ideals in Appalachian Kentucky. National Historic Landmark building tied to the college\u2019s abolitionist and educational mission. Public campus architecture near Madison County\u2019s eastern edge.",
-    "website": "https://www.berea.edu/",
+    "website": "https://www.nps.gov/places/kentucky-lincoln-hall-berea-college.htm",
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/Lincoln_Hall_(Berea_College)",
-      "https://www.berea.edu/"
+      "https://en.wikipedia.org/wiki/Lincoln_Hall,_Berea_College"
     ]
   },
   {
@@ -581,7 +577,7 @@
     "longitude": -83.3653,
     "designation": "nhl",
     "history": "National Historic Landmark headquarters of Mary Breckinridge's Frontier Nursing Service\u2014the pioneering American effort to professionalize midwifery and rural nurse care in Appalachia.",
-    "website": "https://frontiernursing.org/",
+    "website": "https://en.wikipedia.org/wiki/Wendover_(Hyden,_Kentucky)",
     "geocode_source": "manual",
     "overlap": null,
     "sources": [
@@ -602,7 +598,7 @@
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_Kentucky"
+      "https://en.wikipedia.org/wiki/Zachary_Taylor_House"
     ]
   },
   {
@@ -619,8 +615,7 @@
     "geocode_source": "manual",
     "overlap": null,
     "sources": [
-      "https://www.nps.gov/biso/",
-      "https://www.nps.gov/state/ky/index.htm"
+      "https://www.nps.gov/biso/"
     ]
   },
   {

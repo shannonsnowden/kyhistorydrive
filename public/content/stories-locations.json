@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:43:32.080Z",
+  "generatedAt": "2026-09-28T13:51:04.769Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
@@ -654,7 +654,7 @@
       "lon": -84.293761,
       "mapConfidence": "override",
       "matchedPlace": "Egushawa's Odawa at Martin's Station",
-      "historyId": null
+      "historyId": "martins-station-egushawa-odawa-1780"
     },
     "elizabethtown-from-severns-valley": {
       "slug": "elizabethtown-from-severns-valley",

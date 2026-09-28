@@ -145,8 +145,7 @@
     "history": "Major Hanging Rock charcoal furnace (1851–75) and an important Union Army iron supplier in the Civil War. Built by H. Hollister and Ross with a steam air blast, it employed about 150 men and shipped pig iron by Ohio River steamboat; ruins stand near Greenbo Lake State Resort Park.",
     "website": "https://history.ky.gov/markers/buffalo-furnance",
     "sources": [
-      "https://history.ky.gov/markers/buffalo-furnance",
-      "https://parks.ky.gov/"
+      "https://history.ky.gov/markers/buffalo-furnance"
     ],
     "geocode_source": "khs-marker",
     "nrhp": null,
@@ -261,7 +260,7 @@
     "website": "https://www.fs.usda.gov/r08/danielboone/recreation/cottage-furnace-interpretive-site",
     "sources": [
       "https://www.fs.usda.gov/r08/danielboone/recreation/cottage-furnace-interpretive-site",
-      "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=1056"
+      "https://history.ky.gov/markers/cottage-furnace"
     ],
     "geocode_source": "manual",
     "nrhp": null,
@@ -299,7 +298,7 @@
     "history": "Stone charcoal furnace built about 1830 by Thomas Deye Owings, a leader of the Red River iron industry, with a steam-powered air blast unusual for its era. It produced nearly 2,000 tons of iron in 1872 and last blasted in 1874; pig iron went to Clay City forge and rolling mills. KHS marker 1055 and nearby ruins mark this key Red River district furnace.",
     "website": null,
     "sources": [
-      "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=1055",
+      "https://history.ky.gov/markers/estill-steam-furnace",
       "https://history.ky.gov/markers/early-iron-works"
     ],
     "geocode_source": "manual",
@@ -681,9 +680,9 @@
     "industry_type": "mill",
     "built_year": null,
     "history": "Reconstructed water-powered gristmill at Levi Jackson Wilderness Road State Park interpreting frontier milling along the Wilderness Road corridor. A visitor-facing mill stop that pairs milling technology with Laurel County settlement history.",
-    "website": "https://parks.ky.gov/",
+    "website": "https://en.wikipedia.org/wiki/Levi_Jackson_Wilderness_Road_Park",
     "sources": [
-      "https://parks.ky.gov/"
+      "https://en.wikipedia.org/wiki/Levi_Jackson_Wilderness_Road_Park"
     ],
     "geocode_source": "photon",
     "nrhp": null,
@@ -700,7 +699,7 @@
     "industry_type": "mill",
     "built_year": 1817,
     "history": "Historic gristmill on Lake Cumberland dating to about 1817, later fitted with a famous ~40-foot overshot waterwheel (1908) and French burr stones still used for demonstration grindings. Operated seasonally by the U.S. Army Corps of Engineers with the Monticello Women’s Club gift shop—one of Kentucky’s best-preserved working historic mills.",
-    "website": "https://www.lrd.usace.army.mil/",
+    "website": "https://en.wikipedia.org/wiki/Mill_Springs_Mill",
     "sources": [
       "https://www.dvidshub.net/news/442134/experience-stone-sharpening-historic-mill-springs-mill"
     ],
@@ -913,8 +912,7 @@
     "history": "Home of the Kentucky Railway Museum and L&N Steam Engine 152 (Kentucky’s official state locomotive), with historic station/track setting for excursions and exhibits. The museum began in 1954, moved here in 1977, and anchors one of the state’s premier railroad heritage POIs.",
     "website": "https://www.kyrail.org/",
     "sources": [
-      "https://history.ky.gov/markers/kentucky-railway-museum",
-      "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=2200"
+      "https://history.ky.gov/markers/kentucky-railway-museum"
     ],
     "geocode_source": "khs-marker",
     "nrhp": true,
@@ -1197,7 +1195,7 @@
     "industry_type": "manufacturing",
     "built_year": 1922,
     "history": "Founded in 1922 by David Carroll and Eleanor Churchill, Churchill Weavers became one of America’s best-known handweaving manufactories and a cornerstone of Berea’s craft industry. The historic weaving operation helped define Berea as a national craft center; related buildings remain part of the town’s manufacturing heritage.",
-    "website": "https://www.berea.edu/",
+    "website": "https://en.wikipedia.org/wiki/Churchill_Weavers",
     "sources": [
       "https://en.wikipedia.org/wiki/Churchill_Weavers"
     ],
@@ -1216,9 +1214,9 @@
     "industry_type": "manufacturing",
     "built_year": 1955,
     "history": "Ford’s Louisville Assembly Plant on Fern Valley Road has been a cornerstone of Kentucky automotive manufacturing since the mid-twentieth century. Together with the nearby Kentucky Truck Plant, it represents Louisville’s rise as a mass auto-production center after the brief 1909–10 Lexington Motor Car Company experiment.",
-    "website": "https://corporate.ford.com/",
+    "website": "https://en.wikipedia.org/wiki/Louisville_Assembly_Plant",
     "sources": [
-      "https://corporate.ford.com/"
+      "https://en.wikipedia.org/wiki/Louisville_Assembly_Plant"
     ],
     "geocode_source": "manual",
     "nrhp": false,

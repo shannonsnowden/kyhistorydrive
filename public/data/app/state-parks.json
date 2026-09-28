@@ -17,9 +17,7 @@
     "history": "Resort park on the north shore of Barren River Lake in south-central Kentucky. The lodge, cottages, and marina anchor boating, fishing, and golf on one of the region’s major Corps lakes. Visitors use it as a base for lake recreation and nearby Mammoth Cave country drives.",
     "website": "https://parks.ky.gov/lucas/parks/resort/barren-river-lake-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Barren_River_Lake_State_Resort_Park",
-      "https://parks.ky.gov/parks/dining",
       "https://www.yelp.com/biz/driftwood-restaurant-lucas-2"
     ],
     "geocode_source": "manual"
@@ -42,7 +40,6 @@
     "history": "Called the birthplace of American vertebrate paleontology for Ice Age bones found at its salt lick. Trails, a museum, and outdoor bison herd interpret prehistoric and frontier natural history. Northern Kentucky visitors reach it about 30–40 minutes south of Cincinnati.",
     "website": "https://parks.ky.gov/union/parks/historic/big-bone-lick-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
       "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park"
     ],
     "geocode_source": "manual"
@@ -65,9 +62,7 @@
     "history": "Marks the August 1782 Battle of Blue Licks, often called the last major Revolutionary War battle in Kentucky. Salt springs once drew bison, Native hunters, and pioneers; today a museum, battlefield trail, and lodge interpret that frontier story. The park pairs history with camping and short nature walks.",
     "website": "https://parks.ky.gov/parks/find-a-park/blue-licks-battlefield-state-resort-park-7782",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Blue_Licks_Battlefield_State_Resort_Park",
-      "https://parks.ky.gov/contact-us",
       "https://foodeist.com/place/hidden-waters-restaurant",
       "https://yably.com/reviews/carlisle/hidden-waters-restaurant-10299-maysville-rd"
     ],
@@ -92,7 +87,6 @@
     "website": "https://www.breakspark.com/",
     "sources": [
       "https://en.wikipedia.org/wiki/Breaks_Interstate_Park",
-      "https://parks.ky.gov/parks/resorts",
       "https://www.breakspark.com/",
       "https://foodeist.com/place/rhododendron-restaurant-and-conference-center",
       "https://www.sluurpy.us/breaks/restaurant/4299108/rhododendron-restaurant-and-conference-center"
@@ -117,7 +111,6 @@
     "history": "Quiet mountain resort on Buckhorn Lake in the eastern Kentucky coalfields. Lodge rooms and cottages overlook a forested Corps reservoir popular for fishing and pontoon boating. The park is a low-key base for exploring Perry County and nearby Daniel Boone National Forest roads.",
     "website": "https://parks.ky.gov/buckhorn/parks/resort/buckhorn-lake-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Buckhorn_Lake_State_Resort_Park"
     ],
     "geocode_source": "manual"
@@ -140,7 +133,6 @@
     "history": "Recreation park on Carr Creek Lake in Knott County. Camping, a beach, and boat ramps serve eastern Kentucky lake weekends. The setting is classic Appalachian ridge-and-hollow country around a Corps reservoir.",
     "website": "https://parks.ky.gov/sassafras/parks/recreation/carr-creek-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Carr_Creek_State_Park"
     ],
     "geocode_source": "manual"
@@ -163,7 +155,6 @@
     "history": "Cave-and-ridge park in northeastern Kentucky with guided tours of Cascade and X Cave and miles of surface trails. Lodge and cottages sit among wooded karst country near the Ohio River hills. Equestrian camping and a small lake round out a classic Kentucky resort-park stay.",
     "website": "https://parks.ky.gov/olive-hill/parks/resort/carter-caves-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Carter_Caves_State_Resort_Park",
       "https://foodeist.com/place/tierney-s-cavern-restaurant",
       "https://www.sluurpy.us/olive-hill/restaurant/4267591/tierney-s-cavern-restaurant"
@@ -188,7 +179,6 @@
     "history": "Civil War bluff park overlooking the Mississippi River at Columbus. Confederate fortifications, a massive anchor-and-chain display, and museum exhibits interpret the 1861–62 river war. Picnic areas and overlooks make it a western Kentucky history stop.",
     "website": "https://parks.ky.gov/columbus/parks/historic/columbus-belmont-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Columbus-Belmont_State_Park"
     ],
     "geocode_source": "manual"
@@ -211,9 +201,7 @@
     "history": "Home of Cumberland Falls—the “Niagara of the South”—and one of the few places in the Western Hemisphere where a moonbow can appear under a full moon. Historic DuPont Lodge and Riverview Restaurant overlook the Cumberland River gorge (lodge dining closed for renovations as of late 2025–2026). Trails, cabins, and falls overlooks remain signature park experiences.",
     "website": "https://parks.ky.gov/corbin/parks/resort/cumberland-falls-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Cumberland_Falls_State_Resort_Park",
-      "https://www.kentucky.gov/Pages/Activity-stream.aspx?n=Parks&prId=325",
       "https://www.yelp.com/biz/riverview-restaurant-corbin",
       "https://foodeist.com/place/the-riverview-restaurant-corbin-ky"
     ],
@@ -237,7 +225,6 @@
     "history": "Kentucky’s resort foothold on vast Dale Hollow Lake along the Tennessee border. Clear water, smallmouth bass fishing, and marina access draw boaters to the lodge and cottages. Island View Restaurant’s glass walls look out over the lake and forested shoreline.",
     "website": "https://parks.ky.gov/burkesville/parks/resort/dale-hollow-lake-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Dale_Hollow_Lake_State_Park",
       "https://www.explorecumberlandcounty.com/site-map/business-directory/p/item/22051/island-view-restaurant"
     ],
@@ -259,11 +246,10 @@
     "combined_rating": null,
     "rating_note": null,
     "history": "Multi-use rail-trail on the former Dawkins Line through Johnson and Magoffin counties in eastern Kentucky. Hikers, cyclists, and equestrians follow converted railroad grade through Appalachian countryside. Trailheads and segments remain part of the Kentucky State Parks recreation inventory.",
-    "website": "https://parks.ky.gov/parks/recreation-parks",
+    "website": "https://parks.ky.gov/explore/dawkins-line-rail-trail-7831",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
-      "https://en.wikipedia.org/wiki/Dawkins_Line_Rail_Trail",
-      "https://parks.ky.gov/"
+      "https://parks.ky.gov/explore/dawkins-line-rail-trail-7831",
+      "https://en.wikipedia.org/wiki/Dawkins_Line_Rail_Trail"
     ],
     "geocode_source": "manual"
   },
@@ -285,7 +271,6 @@
     "history": "Replica of the cabin associated with Dr. Thomas Walker, who explored Kentucky through Cumberland Gap in 1750. Picnic grounds and a short interpretive stop sit near Barbourville. The site honors one of the earliest documented English explorations of the region.",
     "website": "https://parks.ky.gov/barbourville/parks/historic/dr-thomas-walker-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
       "https://en.wikipedia.org/wiki/Dr._Thomas_Walker_State_Historic_Site"
     ],
     "geocode_source": "manual"
@@ -306,9 +291,9 @@
     "combined_rating": null,
     "rating_note": null,
     "history": "Urban state park in northeast Louisville with trails, sports fields, a model airplane field, and community programming. Named for Jefferson County judge/executive E. P. “Tom” Sawyer. It is the system’s primary metro Louisville day-use park.",
-    "website": "https://parks.ky.gov/parks/recreation-parks",
+    "website": "https://parks.ky.gov/explore/e-p-tom-sawyer-state-park-7810",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
+      "https://parks.ky.gov/explore/e-p-tom-sawyer-state-park-7810",
       "https://en.wikipedia.org/wiki/E._P._%22Tom%22_Sawyer_State_Park"
     ],
     "geocode_source": "manual"
@@ -331,7 +316,6 @@
     "history": "Living-history fort on the Kentucky River at the site of Daniel Boone’s 1775 settlement. Reconstructed blockhouses, artisan demos, and a museum interpret Transylvania Company frontier life. Campground and river access support overnight stays near Richmond.",
     "website": "https://parks.ky.gov/richmond/parks/historic/fort-boonesborough-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park"
     ],
     "geocode_source": "manual"
@@ -354,7 +338,6 @@
     "history": "Island park in Lake Cumberland at Burnside, named for Civil War general Ambrose Burnside. Golf, camping, and lake access make it a southern Kentucky recreation hub. The island setting is unique among Kentucky state parks.",
     "website": "https://parks.ky.gov/burnside/parks/recreation/general-burnside-island-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/General_Burnside_State_Park"
     ],
     "geocode_source": "manual"
@@ -377,7 +360,6 @@
     "history": "Hilltop resort where the Kentucky River meets the Ohio near Carrollton. Named for Gen. William Orlando Butler, the park mixes lodge lodging, a ski slope in season, and the Butler-Turpin historic house. Two Rivers Restaurant serves park guests overlooking the river confluence country.",
     "website": "https://parks.ky.gov/parks/find-a-park/general-butler-state-resort-park-7789",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/General_Butler_State_Resort_Park",
       "https://www.sluurpy.us/carrollton/restaurant/4230652/two-rivers-restaurant",
       "https://www.roostcafeandbistro.com/two-rivers-restaurant-41008/"
@@ -402,7 +384,6 @@
     "history": "Camping and boating park on Grayson Lake in Carter County. Steep sandstone cliffs and clear water attract anglers and paddlers. The park is a quieter sister to nearby Carter Caves resort amenities.",
     "website": "https://parks.ky.gov/olive-hill/parks/recreation/grayson-lake-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Grayson_Lake_State_Park"
     ],
     "geocode_source": "manual"
@@ -425,7 +406,6 @@
     "history": "Large recreation park on Green River Lake near Campbellsville. Campground, beach, and marina support one of central Kentucky’s major Corps lakes. It is a frequent stop for fishing tournaments and family lake weekends.",
     "website": "https://parks.ky.gov/campbellsville/parks/recreation/green-river-lake-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Green_River_Lake_State_Park"
     ],
     "geocode_source": "manual"
@@ -448,7 +428,6 @@
     "history": "Wooded resort on Greenbo Lake in northeastern Kentucky near the Ohio River. Michael Tygart Lodge and Angler's Cove dining cater to anglers and hikers using the park’s trails and lake. The setting is a quiet contrast to the industrial Ohio River corridor nearby.",
     "website": "https://parks.ky.gov/parks/find-a-park/greenbo-lake-state-resort-park-7790",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Greenbo_Lake_State_Resort_Park",
       "https://www.yelp.com/biz/anglers-cove-restaurant-argillite",
       "https://www.mapquest.com/us/kentucky/anglers-cove-restaurant-388154216"
@@ -473,9 +452,7 @@
     "history": "Final resting place of Isaac Shelby, Kentucky’s first and fifth governor and a Revolutionary War leader. The small cemetery historic site near Junction City is a quiet stop on Bluegrass history routes. Interpretive markers place Shelby in the state’s founding story.",
     "website": "https://parks.ky.gov/junction-city/parks/historic/isaac-shelby-cemetery-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
-      "https://en.wikipedia.org/wiki/Isaac_Shelby_Cemetery_State_Historic_Site",
-      "https://parks.ky.gov/contact-us"
+      "https://en.wikipedia.org/wiki/Isaac_Shelby_Cemetery_State_Historic_Site"
     ],
     "geocode_source": "manual"
   },
@@ -497,7 +474,6 @@
     "history": "Obelisk and visitor center at the birthplace of Jefferson Davis in Fairview. The 351-foot concrete monument dominates the Todd County landscape and interprets Davis’s Kentucky origins. The site is a major Civil War–era landmark on the western Kentucky driving circuit.",
     "website": "https://parks.ky.gov/fairview/parks/historic/jefferson-davis-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
       "https://en.wikipedia.org/wiki/Jefferson_Davis_State_Historic_Site"
     ],
     "geocode_source": "manual"
@@ -520,7 +496,6 @@
     "history": "Mountain resort on Dewey Lake named for frontier captive Jenny Wiley. May Lodge overlooks pines and water; Music Highway Grill and Dewey’s Lounge serve lodge guests and day visitors. Elk-viewing tours, amphitheater shows, and hiking make it a flagship eastern Kentucky park.",
     "website": "https://parks.ky.gov/prestonsburg/parks/resort/jenny-wiley-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Jenny_Wiley_State_Resort_Park"
     ],
     "geocode_source": "manual"
@@ -543,7 +518,6 @@
     "history": "Museum and nature park in Henderson honoring artist-naturalist John James Audubon, who lived and worked here. Trails circle woodland lakes; the museum holds significant Audubon art and bird specimens. Cottages and camping extend stays along the Ohio River corridor.",
     "website": "https://parks.ky.gov/henderson/parks/historic/john-james-audubon-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/John_James_Audubon_State_Park"
     ],
     "geocode_source": "manual"
@@ -566,7 +540,6 @@
     "history": "Western Kentucky resort on Kentucky Lake in the Land Between the Lakes region. Lodge rooms, cottages, tennis, and a beach support long lake weekends. Aurora Landing is the onsite restaurant for breakfast through dinner service.",
     "website": "https://parks.ky.gov/hardin/parks/resort/kenlake-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Kenlake_State_Resort_Park",
       "https://www.roostcafeandbistro.com/aurora-landing-42048/"
     ],
@@ -590,7 +563,6 @@
     "history": "Large resort village at the head of Kentucky Lake near Kentucky Dam. Golf, marina slips, lodge rooms, and cottages make it one of the system’s busiest western parks. Harbor Lights restaurant serves lodge and day visitors overlooking the lake corridor.",
     "website": "https://parks.ky.gov/gilbertsville/parks/resort/kentucky-dam-village-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Kentucky_Dam_Village_State_Resort_Park"
     ],
     "geocode_source": "manual"
@@ -613,7 +585,6 @@
     "history": "Northern Kentucky lake park near Falmouth with camping, a beach, and boat rentals. Wooded hills surround a quiet reservoir popular with Cincinnati-area day-trippers. Trails and picnic areas fill out a classic recreation-park visit.",
     "website": "https://parks.ky.gov/falmouth/parks/recreation/kincaid-lake-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Kincaid_Lake_State_Park"
     ],
     "geocode_source": "manual"
@@ -636,7 +607,6 @@
     "history": "Kentucky’s highest state park, atop Pine Mountain near Cumberland in Harlan County. Raven Rock and Log Rock overlooks, a tiny lake, and hiking define the highland experience. The name nods to John Fox Jr.’s novel The Little Shepherd of Kingdom Come.",
     "website": "https://parks.ky.gov/cumberland/parks/recreation/kingdom-come-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Kingdom_Come_State_Park"
     ],
     "geocode_source": "manual"
@@ -659,7 +629,6 @@
     "history": "Lodge resort on Lake Barkley opposite the Land Between the Lakes National Recreation Area. Floor-to-ceiling windows at Windows on the Water frame pine shoreline and open water. Marina, trails, and cottages support multi-day lake trips in western Kentucky.",
     "website": "https://parks.ky.gov/cadiz/parks/resort/lake-barkley-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Lake_Barkley_State_Resort_Park",
       "https://www.yelp.com/biz/windows-on-the-water-cadiz",
       "https://gocadiz.com/windows-on-the-water/"
@@ -684,7 +653,6 @@
     "history": "Resort on sprawling Lake Cumberland, famous for houseboats and deep fishing holes. Lure Lodge and Rowena Landing restaurant sit above the water with marina access nearby. The park is a primary public gateway to one of Kentucky’s largest reservoirs.",
     "website": "https://parks.ky.gov/jamestown/parks/resort/lake-cumberland-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Lake_Cumberland_State_Resort_Park",
       "https://foodeist.com/place/rowena-landing-restaurant"
     ],
@@ -708,7 +676,6 @@
     "history": "Small recreation park on Lake Malone in Muhlenberg County. Sandstone cliffs, a beach, and camping draw western Kentucky weekenders. The lake is known for clear water and quiet fishing coves.",
     "website": "https://parks.ky.gov/dunmor/parks/recreation/lake-malone-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Lake_Malone_State_Park"
     ],
     "geocode_source": "manual"
@@ -731,7 +698,6 @@
     "history": "Interprets the Lincoln family’s Kentucky roots near Springfield, including replicas of Thomas Lincoln’s workshop and Mordecai Lincoln’s house. A museum and 18-hole golf course share the grounds. It complements nearby Hodgenville’s national Lincoln birthplace sites.",
     "website": "https://parks.ky.gov/springfield/parks/historic/lincoln-homestead-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Lincoln_Homestead_State_Park"
     ],
     "geocode_source": "manual"
@@ -754,7 +720,6 @@
     "history": "Golf-and-lake park on a bluff above Lake Barkley near Eddyville. The site recalls the former mansion of Kentucky governor Willis D. Green’s era mineral-mound estate. Fairways and lake views are the main visitor draw.",
     "website": "https://parks.ky.gov/eddyville/parks/recreation/mineral-mound-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Mineral_Mound_State_Park"
     ],
     "geocode_source": "manual"
@@ -777,7 +742,6 @@
     "history": "Preserves Federal Hill, the Rowan family mansion that inspired Stephen Foster’s “My Old Kentucky Home.” Guided mansion tours, gardens, and the outdoor Stephen Foster Story amphitheater anchor Bardstown visits. The park is one of Kentucky’s most visited historic recreation sites.",
     "website": "https://parks.ky.gov/bardstown/parks/historic/my-old-kentucky-home-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/My_Old_Kentucky_Home_State_Park"
     ],
     "geocode_source": "manual"
@@ -803,8 +767,7 @@
       "https://parks.ky.gov/parks/find-a-park/natural-bridge-state-resort-park-7796",
       "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park",
       "https://www.yelp.com/biz/sandstone-arches-restaurant-slade",
-      "https://wanderlog.com/place/details/2194456/sandstone-arches-restaurant",
-      "https://parks.ky.gov/field-trips"
+      "https://wanderlog.com/place/details/2194456/sandstone-arches-restaurant"
     ],
     "geocode_source": "manual"
   },
@@ -826,7 +789,6 @@
     "history": "Camping park on Nolin Lake just north of Mammoth Cave National Park. Boat ramps and a beach serve a large Corps reservoir in the karst region. Many visitors pair lake time with cave tours a short drive south.",
     "website": "https://parks.ky.gov/mammoth-cave/parks/recreation/nolin-lake-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Nolin_Lake_State_Park"
     ],
     "geocode_source": "manual"
@@ -849,7 +811,6 @@
     "history": "Full-scale reconstruction of Kentucky’s first permanent settlement (1774) in Harrodsburg. Cabin exhibits, the Mansion Museum, and pioneer cemetery interpret early Bluegrass frontier life. The park is a cornerstone stop on central Kentucky history drives.",
     "website": "https://parks.ky.gov/harrodsburg/parks/historic/old-fort-harrod-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Old_Fort_Harrod_State_Park"
     ],
     "geocode_source": "manual"
@@ -872,7 +833,6 @@
     "history": "Preserves a 1804 log meetinghouse, among Kentucky’s oldest, near Tompkinsville. Pioneer graves and the simple sanctuary recall early Baptist frontier worship. The site is a short stop in southern Kentucky near the Tennessee line.",
     "website": "https://parks.ky.gov/tompkinsville/parks/historic/old-mulkey-meetinghouse-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
       "https://en.wikipedia.org/wiki/Old_Mulkey_Meetinghouse_State_Historic_Site"
     ],
     "geocode_source": "manual"
@@ -895,7 +855,6 @@
     "history": "Marina and camping park on Paintsville Lake in Johnson County. Steep forested shores and clear water attract eastern Kentucky boaters. The park pairs well with nearby Jenny Wiley resort amenities and Mountain Parkway drives.",
     "website": "https://parks.ky.gov/staffordsville/parks/recreation/paintsville-lake-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Paintsville_Lake_State_Park"
     ],
     "geocode_source": "manual"
@@ -918,7 +877,6 @@
     "history": "Resort tucked inside Pennyrile State Forest in western Kentucky. A small lake, lodge, cottages, and Clifty Creek Restaurant support hiking and quiet lake days. The surrounding forest is one of the Commonwealth’s larger state forest tracts.",
     "website": "https://parks.ky.gov/dawson-springs/parks/resort/pennyrile-forest-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Pennyrile_Forest_State_Resort_Park",
       "https://visithopkinsville.com/listing/pennyrile-forest-state-resort-park-clifty-creek-restaurant/",
       "https://verview.com/biz/9222470-clifty-creek-restaurant-dawson-springs-kentucky"
@@ -943,7 +901,6 @@
     "history": "Preserves the core of Kentucky’s largest Civil War battle (October 8, 1862). Museum exhibits, monuments, and walking trails interpret the Confederate heartland offensive’s climax. Annual reenactments and quiet fields make it essential Bluegrass Civil War terrain.",
     "website": "https://parks.ky.gov/perryville/parks/historic/perryville-battlefield-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
       "https://en.wikipedia.org/wiki/Perryville_Battlefield_State_Historic_Site"
     ],
     "geocode_source": "manual"
@@ -966,7 +923,6 @@
     "history": "Kentucky’s first state park (1924), perched on Pine Mountain above Pineville. Herndon J. Evans Lodge and Mountain View Restaurant face long Appalachian valley views. Chained Rock, hiking trails, and mountain cottages define the historic mountain-resort experience.",
     "website": "https://parks.ky.gov/pineville/parks/resort/pine-mountain-state-resort-park",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Pine_Mountain_State_Resort_Park"
     ],
     "geocode_source": "manual"
@@ -989,7 +945,6 @@
     "history": "Resort on Rough River Lake spanning the Breckinridge–Grayson–Hardin border region. Lodge lodging and Grayson's Landing dining serve boaters and golfers on a popular western Kentucky reservoir. The dam and lake are Corps of Engineers projects wrapped by state park amenities.",
     "website": "https://parks.ky.gov/parks/find-a-park/rough-river-dam-state-resort-park-7800",
     "sources": [
-      "https://parks.ky.gov/parks/resorts",
       "https://en.wikipedia.org/wiki/Rough_River_Dam_State_Resort_Park",
       "https://foodeist.com/place/graysons-landing-restaurant",
       "https://www.sluurpy.us/falls-of-rough/restaurant/4294237/grayson-s-landing-restaurant"
@@ -1012,9 +967,9 @@
     "combined_rating": null,
     "rating_note": null,
     "history": "Large recreation park on Taylorsville Lake southeast of Louisville. Horse trails, camping, and boat ramps serve Spencer County’s Corps lake. It is a primary weekend escape for Louisville metro visitors.",
-    "website": "https://parks.ky.gov/parks/recreation-parks",
+    "website": "https://parks.ky.gov/explore/taylorsville-lake-state-park-7827",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
+      "https://parks.ky.gov/explore/taylorsville-lake-state-park-7827",
       "https://en.wikipedia.org/wiki/Taylorsville_Lake_State_Park"
     ],
     "geocode_source": "manual"
@@ -1037,7 +992,6 @@
     "history": "Greek Revival plantation house museum on Lexington’s south side, built by the Bryan family tied to Daniel Boone’s kin. Tours interpret antebellum Bluegrass plantation life and architecture. The landscaped grounds are a compact urban historic stop.",
     "website": "https://parks.ky.gov/lexington/parks/historic/waveland-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
       "https://en.wikipedia.org/wiki/Waveland_State_Historic_Site"
     ],
     "geocode_source": "manual"
@@ -1060,8 +1014,7 @@
     "history": "Mississippian culture mound center on the Mississippi River bluffs at Wickliffe. Museum galleries and preserved mounds interpret a Native town occupied roughly A.D. 1100–1350. It is a key prehistoric archaeology stop in far western Kentucky.",
     "website": "https://parks.ky.gov/wickliffe/parks/historic/wickliffe-mounds-state-historic-site",
     "sources": [
-      "https://parks.ky.gov/parks/historic-sites",
-      "https://en.wikipedia.org/wiki/Wickliffe_Mounds_State_Historic_Site"
+      "https://en.wikipedia.org/wiki/Wickliffe_Mounds"
     ],
     "geocode_source": "photon"
   },
@@ -1083,7 +1036,6 @@
     "history": "Boating and camping park on Yatesville Lake near Louisa in northeastern Kentucky. Open water and forested shoreline support fishing and marina use. The park anchors Lawrence County outdoor recreation along the Big Sandy region.",
     "website": "https://parks.ky.gov/louisa/parks/recreation/yatesville-lake-state-park",
     "sources": [
-      "https://parks.ky.gov/parks/recreation-parks",
       "https://en.wikipedia.org/wiki/Yatesville_Lake_State_Park"
     ],
     "geocode_source": "manual"

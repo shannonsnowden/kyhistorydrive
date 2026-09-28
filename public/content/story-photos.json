@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:43:32.936Z",
+  "generatedAt": "2026-09-28T13:51:05.189Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -147,7 +147,7 @@
     },
     "egushawa-and-the-odawa-in-kentuckys-war-years": {
       "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
-      "historyId": null,
+      "historyId": "martins-station-egushawa-odawa-1780",
       "photo": {
         "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
         "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
@@ -601,6 +601,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2018
+      }
+    },
+    "martins-station-egushawa-odawa-1780": {
+      "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
+      "historyId": "martins-station-egushawa-odawa-1780",
+      "photo": {
+        "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
+        "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
+        "year": 1795
       }
     },
     "ephraim-mcdowell-house-danville-1809": {
