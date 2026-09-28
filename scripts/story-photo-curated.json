@@ -349,5 +349,35 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2011
+  },
+  "capt-william-hubbells-ohio-flatboat-stand-1791": {
+    "ext": "jpg",
+    "commonsFile": "Maysville-from-Aberdeen-kyoh.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Maysville-from-Aberdeen-kyoh.jpg/1280px-Maysville-from-Aberdeen-kyoh.jpg",
+    "title": "Maysville (old Limestone landing) seen across the Ohio River from Aberdeen, Ohio",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Maysville-from-Aberdeen-kyoh.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+    "year": 2019
+  },
+  "augusta-on-the-ohio-1797": {
+    "ext": "jpg",
+    "commonsFile": "Augustariverline.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Augustariverline.jpg/1280px-Augustariverline.jpg",
+    "title": "Augusta's Ohio River frontage seen from the river",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Augustariverline.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Augustaky · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2012
+  },
+  "ephraim-mcdowell-jane-todd-crawford-1809": {
+    "ext": "jpg",
+    "commonsFile": "Ephraim McDowell House — Danville, Kentucky.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Ephraim_McDowell_House_%E2%80%94_Danville%2C_Kentucky.jpg/1280px-Ephraim_McDowell_House_%E2%80%94_Danville%2C_Kentucky.jpg",
+    "title": "Ephraim McDowell House (with apothecary wing), South Second Street, Danville",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Ephraim_McDowell_House_%E2%80%94_Danville,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2020
   }
 }

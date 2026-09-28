@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-27T09:31:18.785Z",
+  "generatedAt": "2026-09-28T09:41:53.158Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
     "county": 6,
-    "override": 68,
+    "override": 73,
     "none": 26
   },
   "locations": {
@@ -23,6 +23,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Read Shell Midden (15Bt10)",
       "historyId": "read-shell-midden-15bt10"
+    },
+    "cloudsplitter-rockshelter-menifee-county": {
+      "slug": "cloudsplitter-rockshelter-menifee-county",
+      "lat": 37.835,
+      "lon": -83.615,
+      "mapConfidence": "override",
+      "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)",
+      "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county"
     },
     "hansen-site-15gp14": {
       "slug": "hansen-site-15gp14",
@@ -640,6 +648,14 @@
       "matchedPlace": "Bardstown Founding",
       "historyId": "bardstown-founding"
     },
+    "egushawa-and-the-odawa-in-kentuckys-war-years": {
+      "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
+      "lat": 38.262614,
+      "lon": -84.293761,
+      "mapConfidence": "override",
+      "matchedPlace": "Egushawa's Odawa at Martin's Station (1780)",
+      "historyId": "martins-station-egushawa-odawa-1780"
+    },
     "elizabethtown-from-severns-valley": {
       "slug": "elizabethtown-from-severns-valley",
       "lat": 37.6828019,
@@ -840,6 +856,14 @@
       "matchedPlace": "Mount Sterling Founding",
       "historyId": "mount-sterling-founding"
     },
+    "capt-william-hubbells-ohio-flatboat-stand-1791": {
+      "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
+      "lat": 38.6488,
+      "lon": -83.7622,
+      "mapConfidence": "override",
+      "matchedPlace": "Hubbell's Flatboat Fight — Limestone Landing",
+      "historyId": "hubbell-flatboat-fight-limestone-1791"
+    },
     "mascouten-fire-nation-on-the-wabash": {
       "slug": "mascouten-fire-nation-on-the-wabash",
       "lat": null,
@@ -944,6 +968,14 @@
       "matchedPlace": "Lancaster founding / Wallace’s Crossroads",
       "historyId": "lancaster-founding-wallace-s-crossroads"
     },
+    "augusta-on-the-ohio-1797": {
+      "slug": "augusta-on-the-ohio-1797",
+      "lat": 38.7717376,
+      "lon": -84.0057628,
+      "mapConfidence": "override",
+      "matchedPlace": "Augusta founding / Capt. Philip Buckner",
+      "historyId": "augusta-founding-philip-buckner"
+    },
     "owensboro-yellow-banks": {
       "slug": "owensboro-yellow-banks",
       "lat": 37.7549958,
@@ -991,6 +1023,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Falls of the Ohio",
       "historyId": "falls-of-the-ohio"
+    },
+    "ephraim-mcdowell-jane-todd-crawford-1809": {
+      "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
+      "lat": 37.6451148,
+      "lon": -84.7710855,
+      "mapConfidence": "override",
+      "matchedPlace": "Ephraim McDowell House — first ovariotomy (1809)",
+      "historyId": "ephraim-mcdowell-house-danville-1809"
     },
     "great-saltpetre-cave": {
       "slug": "great-saltpetre-cave",

@@ -502,6 +502,37 @@ const MANUAL_OVERRIDES = {
     lon: -84.558316,
     confidence: 'override',
   },
+  // 2026-09-28 morning brief
+  'capt-william-hubbells-ohio-flatboat-stand-1791': {
+    matchName: "Hubbell's Flatboat Fight — Limestone Landing",
+    lat: 38.6488,
+    lon: -83.7622,
+    confidence: 'override',
+  },
+  'augusta-on-the-ohio-1797': {
+    matchName: 'Augusta founding / Capt. Philip Buckner',
+    lat: 38.7717376,
+    lon: -84.0057628,
+    confidence: 'override',
+  },
+  'egushawa-and-the-odawa-in-kentuckys-war-years': {
+    matchName: "Egushawa's Odawa at Martin's Station (1780)",
+    lat: 38.262614,
+    lon: -84.293761,
+    confidence: 'override',
+  },
+  'cloudsplitter-rockshelter-menifee-county': {
+    matchName: 'Cloudsplitter Rockshelter (15Mf36)',
+    lat: 37.835,
+    lon: -83.615,
+    confidence: 'override',
+  },
+  'ephraim-mcdowell-jane-todd-crawford-1809': {
+    matchName: 'Ephraim McDowell House — first ovariotomy (1809)',
+    lat: 37.6451148,
+    lon: -84.7710855,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)

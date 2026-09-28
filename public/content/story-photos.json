@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T09:29:18.732Z",
+  "generatedAt": "2026-09-28T09:41:57.005Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -25,6 +25,18 @@
         "year": 2007
       }
     },
+    "augusta-on-the-ohio-1797": {
+      "slug": "augusta-on-the-ohio-1797",
+      "historyId": "augusta-founding-philip-buckner",
+      "photo": {
+        "image_url": "/content/photos/stories/augusta-on-the-ohio-1797.jpg",
+        "title": "Augusta's Ohio River frontage seen from the river",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Augustariverline.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Augustaky · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2012
+      }
+    },
     "bagdad-how-a-shelby-county-rail-stop-took-over-consolation": {
       "slug": "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",
       "historyId": "bagdad-shelby-county",
@@ -47,6 +59,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "capt-william-hubbells-ohio-flatboat-stand-1791": {
+      "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
+      "historyId": "hubbell-flatboat-fight-limestone-1791",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-william-hubbells-ohio-flatboat-stand-1791.jpg",
+        "title": "Maysville (old Limestone landing) seen across the Ohio River from Aberdeen, Ohio",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Maysville-from-Aberdeen-kyoh.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2019
       }
     },
     "chickamauga-cherokee-hold-the-southern-flank": {
@@ -107,6 +131,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2018
+      }
+    },
+    "ephraim-mcdowell-jane-todd-crawford-1809": {
+      "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
+      "historyId": "ephraim-mcdowell-house-danville-1809",
+      "photo": {
+        "image_url": "/content/photos/stories/ephraim-mcdowell-jane-todd-crawford-1809.jpg",
+        "title": "Ephraim McDowell House (with apothecary wing), South Second Street, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ephraim_McDowell_House_%E2%80%94_Danville,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2020
       }
     },
     "erie-the-cat-nation-cleared-from-the-lake-shore": {
@@ -447,6 +483,18 @@
         "year": 2013
       }
     },
+    "augusta-founding-philip-buckner": {
+      "slug": "augusta-on-the-ohio-1797",
+      "historyId": "augusta-founding-philip-buckner",
+      "photo": {
+        "image_url": "/content/photos/stories/augusta-on-the-ohio-1797.jpg",
+        "title": "Augusta's Ohio River frontage seen from the river",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Augustariverline.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Augustaky · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2012
+      }
+    },
     "bagdad-shelby-county": {
       "slug": "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",
       "historyId": "bagdad-shelby-county",
@@ -469,6 +517,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "hubbell-flatboat-fight-limestone-1791": {
+      "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
+      "historyId": "hubbell-flatboat-fight-limestone-1791",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-william-hubbells-ohio-flatboat-stand-1791.jpg",
+        "title": "Maysville (old Limestone landing) seen across the Ohio River from Aberdeen, Ohio",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Maysville-from-Aberdeen-kyoh.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2019
       }
     },
     "cleek-mccabe-fort-ancient-village-boone-county": {
@@ -505,6 +565,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2018
+      }
+    },
+    "ephraim-mcdowell-house-danville-1809": {
+      "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
+      "historyId": "ephraim-mcdowell-house-danville-1809",
+      "photo": {
+        "image_url": "/content/photos/stories/ephraim-mcdowell-jane-todd-crawford-1809.jpg",
+        "title": "Ephraim McDowell House (with apothecary wing), South Second Street, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ephraim_McDowell_House_%E2%80%94_Danville,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2020
       }
     },
     "falmouth-licking-forks-pendleton": {
