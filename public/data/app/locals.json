@@ -151,8 +151,9 @@
     "category": "restaurant",
     "cuisine_or_type": "gastropub sandwiches",
     "history": "Germantown gastropub celebrated for creative sandwiches (including goat) and local beer culture. Single-site Louisville favorite born from food-truck roots\u2014not a chain.",
-    "website": null,
+    "website": "https://louisvillehammerheads.com/",
     "sources": [
+      "https://louisvillehammerheads.com/",
       "https://www.tripexpert.com/louisville/restaurants/hammerheads"
     ],
     "yelp_rating": null,
@@ -310,8 +311,10 @@
     "category": "restaurant",
     "cuisine_or_type": "American in historic depot",
     "history": "Independent restaurant in Paducah's restored railroad freight house\u2014one-of-a-kind adaptive-reuse dining destination in the creative district.",
-    "website": null,
-    "sources": [],
+    "website": "https://freighthousefood.com/",
+    "sources": [
+      "https://freighthousefood.com/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -526,8 +529,10 @@
     "category": "restaurant",
     "cuisine_or_type": "Yucatecan",
     "history": "Chef Bruce Uc\u00e1n's independent Yucatecan restaurant downtown\u2014Louisville original known for sikil pak and regional Mexican cooking, not a franchise.",
-    "website": null,
-    "sources": [],
+    "website": "https://themayancafe.com/",
+    "sources": [
+      "https://themayancafe.com/"
+    ],
     "yelp_rating": 4.0,
     "google_rating": 4.5,
     "combined_rating": 4.3,
@@ -657,8 +662,9 @@
     "category": "restaurant",
     "cuisine_or_type": "Kansas City-style BBQ",
     "history": "Award-winning Louisville BBQ known for dry-rub brisket, the Mucho Macho fried bologna, and house pickles. Independent smokehouse (flagship Bauer Avenue) distinct from national BBQ chains.",
-    "website": null,
+    "website": "https://mommasbbq.com/",
     "sources": [
+      "https://mommasbbq.com/",
       "https://foodeist.com/place/mommas-mustard-pickles-and-bbq-louisville-ky"
     ],
     "yelp_rating": 4.2,
@@ -702,8 +708,10 @@
     "category": "restaurant",
     "cuisine_or_type": "western Kentucky BBQ",
     "history": "Owensboro mutton-and-burgoo BBQ institution independent of the Moonlite\u2014another unique western Kentucky pit tradition, single local brand.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.oldhickorybar-b-q.com/",
+    "sources": [
+      "https://www.oldhickorybar-b-q.com/"
+    ],
     "yelp_rating": 4.0,
     "google_rating": 4.4,
     "combined_rating": 4.2,
@@ -1151,8 +1159,10 @@
     "category": "restaurant",
     "cuisine_or_type": "Chevy Chase tavern",
     "history": "Chevy Chase neighborhood tavern classic for generations of Lexingtonians\u2014burgers, beers, and a local-only vibe. Single Euclid Avenue institution.",
-    "website": null,
-    "sources": [],
+    "website": "https://charliebrownslex.com/",
+    "sources": [
+      "https://charliebrownslex.com/"
+    ],
     "yelp_rating": null,
     "google_rating": null,
     "combined_rating": null,
@@ -1866,8 +1876,10 @@
     "category": "restaurant",
     "cuisine_or_type": "cafe & outfitter food",
     "history": "Gorge trailhead cafe/outfitter kitchen\u2014independent Pine Ridge stop for climbers and hikers.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.facebook.com/SkyBridgeStation/",
+    "sources": [
+      "https://www.facebook.com/SkyBridgeStation/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -2060,8 +2072,10 @@
     "category": "restaurant",
     "cuisine_or_type": "Italian steakhouse",
     "history": "Independent Italian chophouse in Ashland\u2014elevated Boyd County dining.",
-    "website": null,
-    "sources": [],
+    "website": "https://tuscanprimechophouse.com/",
+    "sources": [
+      "https://tuscanprimechophouse.com/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.6,
     "combined_rating": 4.6,
@@ -2210,8 +2224,10 @@
     "category": "restaurant",
     "cuisine_or_type": "Italian & pizza",
     "history": "Market House Square brick-oven independent\u2014Paducah creative-district staple.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.maxsbrickovencafe.com/",
+    "sources": [
+      "https://www.maxsbrickovencafe.com/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -2340,8 +2356,10 @@
     "category": "restaurant",
     "cuisine_or_type": "steaks & American",
     "history": "Owensboro independent since the early 1970s\u2014steaks and salads unique to Daviess County.",
-    "website": null,
-    "sources": [],
+    "website": "https://briarpatchrestaurants.com/",
+    "sources": [
+      "https://briarpatchrestaurants.com/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -2382,8 +2400,10 @@
     "category": "restaurant",
     "cuisine_or_type": "American & spirits",
     "history": "Downtown Owensboro independent fine-casual\u2014local ownership.",
-    "website": null,
-    "sources": [],
+    "website": "http://www.colbysfinefoodandspirits.com/",
+    "sources": [
+      "http://www.colbysfinefoodandspirits.com/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -2446,8 +2466,10 @@
     "category": "restaurant",
     "cuisine_or_type": "New American",
     "history": "Chef-driven New American tavern downtown BG\u2014local sourcing unique to Warren County.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.gerards1907tavern.com/",
+    "sources": [
+      "https://www.gerards1907tavern.com/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.6,
     "combined_rating": 4.6,
@@ -2939,8 +2961,10 @@
     "category": "restaurant",
     "cuisine_or_type": "breakfast & gastropub",
     "history": "Baxter Avenue guesthouse cafe famous for elevated breakfast\u2014Highlands independent.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.thegrales.com/gralehaus",
+    "sources": [
+      "https://www.thegrales.com/gralehaus"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -3003,8 +3027,10 @@
     "category": "specialty",
     "cuisine_or_type": "coffee & biscuit shop",
     "history": "NuLu coffee-and-biscuit independent\u2014Louisville specialty cafe unique to the block.",
-    "website": null,
-    "sources": [],
+    "website": "https://wearepleaseandthankyou.com/",
+    "sources": [
+      "https://wearepleaseandthankyou.com/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -3177,8 +3203,10 @@
     "category": "restaurant",
     "cuisine_or_type": "Cuban",
     "history": "Louisville Cuban independent (local brand)\u2014Highlands Latin classic.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.havanarumbaonline.com/highlands/",
+    "sources": [
+      "https://www.havanarumbaonline.com/highlands/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -3349,8 +3377,10 @@
     "category": "restaurant",
     "cuisine_or_type": "Southern diner",
     "history": "Lexington-only Southern diner brand (local multi within Fayette)\u2014unique-to-Lexington comfort food.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.ramseysdiners.com/location/ramseys-diners-zandale/",
+    "sources": [
+      "https://www.ramseysdiners.com/location/ramseys-diners-zandale/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.4,
     "combined_rating": 4.4,
@@ -3473,8 +3503,10 @@
     "category": "restaurant",
     "cuisine_or_type": "American bar & grill",
     "history": "Richmond independent near EKU\u2014Madison County college-town classic.",
-    "website": null,
-    "sources": [],
+    "website": "https://www.madisongarden.net/",
+    "sources": [
+      "https://www.madisongarden.net/"
+    ],
     "yelp_rating": null,
     "google_rating": 4.4,
     "combined_rating": 4.4,
@@ -4121,8 +4153,9 @@
     "category": "restaurant",
     "cuisine_or_type": "chef-driven American",
     "history": "Family-owned Mount Sterling independent with revolving chef menu\u2014Courier-Journal road-trip pick.",
-    "website": null,
+    "website": "https://meetatromeros.com/",
     "sources": [
+      "https://meetatromeros.com/",
       "https://www.courier-journal.com/story/life/food/2024/03/08/kentucky-restaurant-guide/72855114007/"
     ],
     "yelp_rating": null,
@@ -4187,8 +4220,9 @@
     "category": "specialty",
     "cuisine_or_type": "pies & ice cream",
     "history": "Ramsey family pie shop near downtown Lexington\u2014Lexington-only specialty sweets.",
-    "website": null,
+    "website": "https://www.missyspieshop.com/",
     "sources": [
+      "https://www.missyspieshop.com/",
       "https://www.courier-journal.com/story/life/food/2024/03/08/kentucky-restaurant-guide/72855114007/"
     ],
     "yelp_rating": null,

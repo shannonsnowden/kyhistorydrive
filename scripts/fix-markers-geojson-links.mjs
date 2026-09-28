@@ -11,7 +11,8 @@
  * Mapping (same as the 2026-09-28 link audit, PR #93): take the OTA pack record
  * in public/data/app/markers.phase1.json with the same marker_number. If its
  * source_url is a history.ky.gov/markers/<slug> page (verified by marker number
- * in PR #93), use it. Markers without such a page are left unchanged and listed.
+ * in PR #93), or an HMdb marker page or Wikipedia article (2026-09-28
+ * follow-up), use it. Markers without such a page are left unchanged and listed.
  *
  * The edit is an exact string replacement of each feature's "source_url" value,
  * so only those values change and the rest of the file stays byte-identical.
@@ -28,6 +29,13 @@ const GEO = path.join(root, 'public/data/markers.geojson')
 const PACK = path.join(root, 'public/data/app/markers.phase1.json')
 const LEGACY = /^https:\/\/secure2\.kentucky\.gov\/kyhs\/hmdb\/MarkerSearch\.aspx\?mode=Number&markerNumber=(\d+)$/
 const KHS = /^https:\/\/history\.ky\.gov\/markers\/[a-z0-9-]+$/
+// 2026-09-28 follow-up: the 39 held markers got a topic link in the OTA pack,
+// in this order: history.ky.gov page under a variant slug (checked by marker
+// number and county), then the marker's own HMdb page (checked by marker number
+// and county), then a Wikipedia article on the subject.
+const HMDB = /^https:\/\/www\.hmdb\.org\/m\.asp\?m=\d+$/
+const WIKI = /^https:\/\/en\.wikipedia\.org\/wiki\/[^\s?#]+$/
+const ALLOWED = (u) => KHS.test(u) || HMDB.test(u) || WIKI.test(u)
 const dry = process.argv.includes('--dry-run')
 
 const pack = new Map()
@@ -46,8 +54,8 @@ for (const f of geo.features) {
     continue
   }
   const target = pack.get(String(p.marker_number))
-  if (!target || !KHS.test(target)) {
-    left.push({ marker_number: p.marker_number, title: p.title, county: p.county, reason: 'no verified history.ky.gov marker page' })
+  if (!target || !ALLOWED(target)) {
+    left.push({ marker_number: p.marker_number, title: p.title, county: p.county, reason: 'no verified topic link in the OTA pack' })
     continue
   }
   const needle = `"source_url":${JSON.stringify(p.source_url)}`
