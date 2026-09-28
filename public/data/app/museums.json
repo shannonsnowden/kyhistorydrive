@@ -103,8 +103,7 @@
     "museum_type": "history",
     "geocode_source": "photon",
     "sources": [
-      "https://www.capitalcitymuseum.com/",
-      "https://kymuseums.org/directory/"
+      "https://www.capitalcitymuseum.com/"
     ]
   },
   {
@@ -121,8 +120,7 @@
     "museum_type": "house",
     "geocode_source": "photon",
     "sources": [
-      "https://libertyhall.org/",
-      "https://kymuseums.org/directory/"
+      "https://libertyhall.org/"
     ]
   },
   {
@@ -369,8 +367,7 @@
     "museum_type": "house",
     "geocode_source": "photon",
     "sources": [
-      "https://farmingtonhistoricplantation.org/",
-      "https://kymuseums.org/directory/"
+      "https://farmingtonhistoricplantation.org/"
     ]
   },
   {
@@ -405,8 +402,7 @@
     "museum_type": "history",
     "geocode_source": "photon",
     "sources": [
-      "https://filsonhistorical.org/",
-      "https://kymuseums.org/directory/"
+      "https://filsonhistorical.org/"
     ]
   },
   {
@@ -423,8 +419,7 @@
     "museum_type": "house",
     "geocode_source": "photon",
     "sources": [
-      "https://henryclay.org/",
-      "https://kymuseums.org/directory/"
+      "https://henryclay.org/"
     ]
   },
   {
@@ -495,8 +490,7 @@
     "museum_type": "military",
     "geocode_source": "photon",
     "sources": [
-      "https://www.aviationky.org/",
-      "https://kymuseums.org/directory/"
+      "https://www.aviationky.org/"
     ]
   },
   {
@@ -761,8 +755,7 @@
     "museum_type": "other",
     "geocode_source": "photon",
     "sources": [
-      "https://www.bluegrasshall.org/",
-      "https://kymuseums.org/directory/"
+      "https://www.bluegrasshall.org/"
     ]
   },
   {
@@ -868,8 +861,7 @@
     "museum_type": "history",
     "geocode_source": "photon",
     "sources": [
-      "https://www.kygmc.org/",
-      "https://kymuseums.org/directory/"
+      "https://www.kygmc.org/"
     ]
   },
   {
@@ -969,11 +961,11 @@
     "longitude": -86.5666914,
     "founded_year": 1859,
     "history": "Rare octagonal antebellum house museum interpreting Civil War-era southern Kentucky life and architecture. Period rooms and grounds tours south of Franklin. Distinctive house-museum stop for travelers between Bowling Green and Nashville.",
-    "website": "https://www.octagonhall.com/",
+    "website": "https://en.wikipedia.org/wiki/Octagon_Hall",
     "museum_type": "house",
     "geocode_source": "photon",
     "sources": [
-      "https://www.octagonhall.com/",
+      "https://en.wikipedia.org/wiki/Octagon_Hall",
       "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
     ]
   },
@@ -1141,11 +1133,11 @@
     "longitude": -88.6307446,
     "founded_year": 2006,
     "history": "House museum interpreting Confederate General Lloyd Tilghman and the 1864 Battle of Paducah in the western theater of the Civil War.",
-    "website": "https://www.tilghmancivilwarmuseum.com/",
+    "website": "https://en.wikipedia.org/wiki/Lloyd_Tilghman_House",
     "museum_type": "military",
     "geocode_source": "photon",
     "sources": [
-      "https://www.tilghmancivilwarmuseum.com/"
+      "https://en.wikipedia.org/wiki/Lloyd_Tilghman_House"
     ]
   },
   {
@@ -1158,11 +1150,11 @@
     "longitude": -87.5921536,
     "founded_year": 1938,
     "history": "State park museum holding significant Audubon art and natural-history exhibits at the site associated with the artist's Kentucky years along the Ohio River.",
-    "website": "https://parks.ky.gov/henderson/parks/resort/john-james-audubon-state-park",
+    "website": "https://parks.ky.gov/explore/john-james-audubon-state-park-7815",
     "museum_type": "art",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/henderson/parks/resort/john-james-audubon-state-park"
+      "https://parks.ky.gov/explore/john-james-audubon-state-park-7815"
     ]
   },
   {
@@ -1192,11 +1184,11 @@
     "longitude": -82.9562693,
     "founded_year": 1994,
     "history": "Museum of coal-camp life and mining technology in a former International Harvester company store in Benham\u2014central to Harlan County's coal heritage story.",
-    "website": "https://www.kentuckycoalmuseum.org/",
+    "website": "https://en.wikipedia.org/wiki/Kentucky_Coal_Museum",
     "museum_type": "heritage",
     "geocode_source": "photon",
     "sources": [
-      "https://www.kentuckycoalmuseum.org/"
+      "https://en.wikipedia.org/wiki/Kentucky_Coal_Museum"
     ]
   },
   {
@@ -1226,11 +1218,11 @@
     "longitude": -83.4381528,
     "founded_year": 1985,
     "history": "Morehead State University museum dedicated to self-taught and folk artists of Kentucky and Appalachia, with rotating exhibitions and a permanent collection.",
-    "website": "https://www.moreheadstate.edu/kfac/",
+    "website": "https://www.moreheadstate.edu/academics/colleges/humanities/kentucky-folk-art-center/",
     "museum_type": "art",
     "geocode_source": "photon",
     "sources": [
-      "https://www.moreheadstate.edu/kfac/"
+      "https://www.moreheadstate.edu/academics/colleges/humanities/kentucky-folk-art-center/"
     ]
   },
   {
@@ -1243,11 +1235,11 @@
     "longitude": -84.3523272,
     "founded_year": 1971,
     "history": "Restored Italianate mansion of emancipationist Cassius Marcellus Clay, interpreting 19th-century politics, slavery debates, and Clay family life near Richmond.",
-    "website": "https://parks.ky.gov/richmond/parks/historic/white-hall-state-historic-site",
+    "website": "https://en.wikipedia.org/wiki/White_Hall_State_Historic_Site",
     "museum_type": "house",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/richmond/parks/historic/white-hall-state-historic-site"
+      "https://en.wikipedia.org/wiki/White_Hall_State_Historic_Site"
     ]
   },
   {
@@ -1345,11 +1337,11 @@
     "longitude": -84.5865,
     "founded_year": 1938,
     "history": "Brick frontier house of Revolutionary War pioneer William Whitley, interpreting early Kentucky settlement and the Sportsman's Hill racetrack tradition.",
-    "website": "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site",
+    "website": "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site",
     "museum_type": "house",
     "geocode_source": "manual",
     "sources": [
-      "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site"
+      "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site"
     ]
   },
   {
@@ -1498,11 +1490,11 @@
     "longitude": -84.333477,
     "founded_year": 2002,
     "history": "Museum and hall of fame celebrating Kentucky musicians from Renfro Valley barn-dance roots through country, bluegrass, and popular music.",
-    "website": "https://www.kentuckymusichalloffame.com/",
+    "website": "https://kentuckymusichalloffame.com/",
     "museum_type": "heritage",
     "geocode_source": "photon",
     "sources": [
-      "https://www.kentuckymusichalloffame.com/"
+      "https://kentuckymusichalloffame.com/"
     ]
   },
   {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:43:31.650Z",
+  "generatedAt": "2026-09-28T13:51:04.644Z",
   "count": 165,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -48,10 +48,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-28",
-      "lat": 37.83758,
-      "lon": -83.62047,
-      "mapConfidence": "override",
-      "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)",
       "photo": {
         "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
         "title": "Sandstone cliffs in the Red River Gorge Geological Area",
@@ -59,7 +55,11 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2007
-      }
+      },
+      "lat": 37.83758,
+      "lon": -83.62047,
+      "mapConfidence": "override",
+      "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)"
     },
     {
       "slug": "read-shell-midden-15bt10-butler-county",
@@ -1813,10 +1813,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-28",
-      "lat": 38.262614,
-      "lon": -84.293761,
-      "mapConfidence": "override",
-      "matchedPlace": "Egushawa's Odawa at Martin's Station",
       "photo": {
         "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
         "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
@@ -1824,7 +1820,11 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
         "year": 1795
-      }
+      },
+      "lat": 38.262614,
+      "lon": -84.293761,
+      "mapConfidence": "override",
+      "matchedPlace": "Egushawa's Odawa at Martin's Station"
     },
     {
       "slug": "elizabethtown-from-severns-valley",

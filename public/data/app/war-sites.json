@@ -13,8 +13,7 @@
     "website": "https://parks.ky.gov/explore/blue-licks-battlefield-state-resort-park-7782",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/",
-      "https://www.battlefields.org/"
+      "https://www.battlefields.org/learn/revolutionary-war/battles/blue-licks"
     ]
   },
   {
@@ -28,11 +27,10 @@
     "war": "revolutionary",
     "site_type": "fort",
     "history": "Daniel Boone\u2019s 1775 Transylvania settlement; withstood the September 1778 Shawnee/British-allied siege\u2014the longest sustained fight of the war in Kentucky. Reconstructed fort and museum; NHL archaeological site nearby.",
-    "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7786",
+    "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7811",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/",
-      "https://www.battlefields.org/"
+      "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park"
     ]
   },
   {
@@ -80,11 +78,10 @@
     "war": "revolutionary",
     "site_type": "fort",
     "history": "Days after Ruddle\u2019s fell in 1780, nearby Martin\u2019s Station also capitulated to Bird\u2019s British-allied expedition, accelerating militia mobilization across central Kentucky. Pin to documented marker/preserve coordinates.",
-    "website": "https://www.battlefields.org/",
+    "website": "https://en.wikipedia.org/wiki/Bird%27s_invasion_of_Kentucky",
     "geocode_source": "manual",
     "sources": [
-      "https://www.battlefields.org/",
-      "https://en.wikipedia.org/wiki/Ruddle%27s_and_Martin%27s_Stations"
+      "https://en.wikipedia.org/wiki/Bird%27s_invasion_of_Kentucky"
     ]
   },
   {
@@ -101,7 +98,7 @@
     "website": "https://parks.ky.gov/explore/old-fort-harrod-state-park-7823",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/"
+      "https://parks.ky.gov/explore/old-fort-harrod-state-park-7823"
     ]
   },
   {
@@ -168,10 +165,10 @@
     "war": "revolutionary",
     "site_type": "other",
     "history": "Spring where Lexington was named in 1775 amid Revolutionary fervor; later a protected natural and historic park interpreting settlement-era Bluegrass. Frontier context more than a battle site.",
-    "website": "https://www.lexingtonky.gov/mcconnell-springs",
+    "website": "https://www.lexingtonky.gov/playing/parks-natural-areas/natural-areas/mcconnell-springs-park",
     "geocode_source": "photon",
     "sources": [
-      "https://www.lexingtonky.gov/"
+      "https://www.lexingtonky.gov/playing/parks-natural-areas/natural-areas/mcconnell-springs-park"
     ]
   },
   {
@@ -185,10 +182,9 @@
     "war": "revolutionary",
     "site_type": "other",
     "history": "Seat of Kentucky\u2019s late-Revolution and early-statehood conventions (1784\u20131792) as the district separated from Virginia. Open historic site with period buildings in downtown Danville.",
-    "website": "https://parks.ky.gov/",
+    "website": "https://en.wikipedia.org/wiki/Constitution_Square_Historic_Site",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/",
       "https://en.wikipedia.org/wiki/Constitution_Square_Historic_Site"
     ]
   },
@@ -257,7 +253,7 @@
     "website": "https://www.cem.va.gov/cems/nchp/campnelson.asp",
     "geocode_source": "photon",
     "sources": [
-      "https://www.cem.va.gov/"
+      "https://www.cem.va.gov/cems/nchp/campnelson.asp"
     ]
   },
   {
@@ -322,10 +318,9 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "1862 and especially June 1864 engagements where Morgan\u2019s cavalry fought Union forces in and around Cynthiana. Town retains markers and local museum interpretation of the raids.",
-    "website": "https://www.battlefields.org/",
+    "website": "https://en.wikipedia.org/wiki/Battle_of_Cynthiana",
     "geocode_source": "manual",
     "sources": [
-      "https://www.battlefields.org/",
       "https://en.wikipedia.org/wiki/Battle_of_Cynthiana"
     ]
   },
@@ -343,7 +338,7 @@
     "website": "https://www.frankfort.ky.gov/facilities/facility/details/Leslie-Morris-Fort-Hill-Park-18",
     "geocode_source": "nominatim",
     "sources": [
-      "https://www.frankfort.ky.gov/"
+      "https://www.frankfort.ky.gov/facilities/facility/details/Leslie-Morris-Fort-Hill-Park-18"
     ]
   },
   {
@@ -357,11 +352,11 @@
     "war": "civil",
     "site_type": "fort",
     "history": "1861 Union fort ordered under Sherman\u2019s sphere to guard Louisville approaches and the L&N corridor. Earthworks, memorial cemetery, and self-guided tour on the hill above West Point.",
-    "website": "https://westpoint.ky.gov/pages/tourism.aspx",
+    "website": "https://en.wikipedia.org/wiki/Fort_Duffield",
     "geocode_source": "photon",
     "sources": [
-      "https://westpoint.ky.gov/pages/tourism.aspx",
-      "https://en.wikipedia.org/wiki/Fort_Duffield"
+      "https://en.wikipedia.org/wiki/Fort_Duffield",
+      "https://history.ky.gov/markers/fort-duffield"
     ]
   },
   {
@@ -392,10 +387,10 @@
     "war": "civil",
     "site_type": "museum",
     "history": "Large museum complex interpreting Western Theater campaigns from Bardstown. Already in museums.json\u2014war layer links rather than clones content.",
-    "website": "https://www.visitbardstown.com/",
+    "website": "https://en.wikipedia.org/wiki/Civil_War_Museum_(Bardstown)",
     "geocode_source": "photon",
     "sources": [
-      "https://www.visitbardstown.com/"
+      "https://en.wikipedia.org/wiki/Civil_War_Museum_(Bardstown)"
     ]
   },
   {
@@ -409,10 +404,11 @@
     "war": "civil",
     "site_type": "museum",
     "history": "Family home of Confederate Gen. John Hunt Morgan; Alexander T. Hunt Civil War Museum rooms interpret raids and divided Bluegrass loyalties. Bluegrass Trust historic house museum.",
-    "website": "https://www.bluegrasstrust.org/",
+    "website": "https://en.wikipedia.org/wiki/Hunt%E2%80%93Morgan_House",
     "geocode_source": "photon",
     "sources": [
-      "https://www.bluegrasstrust.org/"
+      "https://en.wikipedia.org/wiki/Hunt%E2%80%93Morgan_House",
+      "https://history.ky.gov/markers/hunt-morgan-house"
     ]
   },
   {
@@ -443,10 +439,9 @@
     "war": "civil",
     "site_type": "cemetery",
     "history": "Cemetery associated with the Kentucky Confederate Home; hundreds of veterans interred\u2014a rare public Confederate veterans landscape in the ring counties.",
-    "website": "https://www.oldhamcountyky.gov/",
+    "website": "https://en.wikipedia.org/wiki/Pewee_Valley_Confederate_Cemetery",
     "geocode_source": "photon",
     "sources": [
-      "https://www.oldhamcountyky.gov/",
       "https://en.wikipedia.org/wiki/Pewee_Valley_Confederate_Cemetery"
     ]
   },
@@ -478,10 +473,9 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "January 10, 1862: Union victory under James A. Garfield in eastern Kentucky. National Historic Landmark with interpretive park elements near Prestonsburg.",
-    "website": "https://www.battlefields.org/",
+    "website": "https://www.battlefields.org/visit/battlefields/middle-creek",
     "geocode_source": "photon",
     "sources": [
-      "https://www.battlefields.org/",
       "https://en.wikipedia.org/wiki/Battle_of_Middle_Creek"
     ]
   },
@@ -496,10 +490,11 @@
     "war": "civil",
     "site_type": "other",
     "history": "Repeated Morgan raid targets and occupation sites along the central Kentucky rail and road net. Local self-guided landmark tour interprets wartime Lebanon.",
-    "website": "https://www.battlefields.org/",
+    "website": "https://en.wikipedia.org/wiki/Battle_of_Lebanon_(Kentucky)",
     "geocode_source": "manual",
     "sources": [
-      "https://www.battlefields.org/"
+      "https://en.wikipedia.org/wiki/Battle_of_Lebanon_(Kentucky)",
+      "https://history.ky.gov/markers/battle-of-lebanon"
     ]
   },
   {
@@ -513,10 +508,11 @@
     "war": "civil",
     "site_type": "other",
     "history": "September 1862 river-town fight during the Kentucky Campaign as Confederates moved along the Ohio. Small but pinable riverfront interpretation in Bracken County.",
-    "website": "https://www.visitbrackencounty.com/",
+    "website": "https://history.ky.gov/markers/augusta-in-civil-war",
     "geocode_source": "nominatim",
     "sources": [
-      "https://www.visitbrackencounty.com/"
+      "https://history.ky.gov/markers/augusta-in-civil-war",
+      "https://en.wikipedia.org/wiki/Battle_of_Augusta_(1862)"
     ]
   },
   {
@@ -530,10 +526,10 @@
     "war": "civil",
     "site_type": "museum",
     "history": "Home of Cassius M. Clay, emancipationist and Lincoln\u2019s minister to Russia; interprets divided Kentucky politics around the war. Kentucky State Historic Site mansion and grounds.",
-    "website": "https://parks.ky.gov/explore/white-hall-state-historic-site-7855",
+    "website": "https://en.wikipedia.org/wiki/White_Hall_State_Historic_Site",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/"
+      "https://en.wikipedia.org/wiki/White_Hall_State_Historic_Site"
     ]
   },
   {
@@ -564,10 +560,9 @@
     "war": "civil",
     "site_type": "cemetery",
     "history": "Hilltop cemetery with Confederate monument traditions and graves of political and military figures. Overlooks the capital once defended from Fort Hill earthworks.",
-    "website": "https://frankfort.ky.gov/",
+    "website": "https://en.wikipedia.org/wiki/Frankfort_Cemetery",
     "geocode_source": "nominatim",
     "sources": [
-      "https://frankfort.ky.gov/",
       "https://en.wikipedia.org/wiki/Frankfort_Cemetery"
     ]
   },
@@ -617,10 +612,10 @@
     "war": "civil",
     "site_type": "museum",
     "history": "Companion museum in the Bardstown Civil War campus focusing on women\u2019s wartime roles. Pair with the Western Theater museum on the same complex.",
-    "website": "https://www.visitbardstown.com/",
+    "website": "https://en.wikipedia.org/wiki/Civil_War_Museum_(Bardstown)",
     "geocode_source": "photon",
     "sources": [
-      "https://www.visitbardstown.com/"
+      "https://en.wikipedia.org/wiki/Civil_War_Museum_(Bardstown)"
     ]
   },
   {
@@ -634,10 +629,9 @@
     "war": "civil",
     "site_type": "fort",
     "history": "Union fortifications guarded Cincinnati\u2013Covington; surviving interpretation and overlooks tell the Ohio River defense story. Public battery park and river-bluff markers.",
-    "website": "https://www.nkyov.org/",
+    "website": "https://en.wikipedia.org/wiki/Defense_of_Cincinnati",
     "geocode_source": "manual",
     "sources": [
-      "https://www.nkyov.org/",
       "https://en.wikipedia.org/wiki/Battery_Hooper"
     ]
   },
@@ -652,10 +646,11 @@
     "war": "civil",
     "site_type": "museum",
     "history": "Local museum supporting Battle for the Bridge interpretation and artifacts from the Green River campaigns. Downtown Munfordville stop paired with the preserve trails.",
-    "website": "https://www.hartcountyhistoricalsociety.com/",
+    "website": "https://www.hartcountymuseum.org/museum.html",
     "geocode_source": "photon",
     "sources": [
-      "https://www.hartcountyhistoricalsociety.com/"
+      "https://www.hartcountymuseum.org/museum.html",
+      "https://www.battlefields.org/visit/heritage-sites/hart-county-historical-society-museum"
     ]
   },
   {
@@ -669,11 +664,10 @@
     "war": "civil",
     "site_type": "fort",
     "history": "Confederate Mississippi River stronghold ('Gibraltar of the West') and site linked to Grant's 1861 Battle of Belmont. State park with earthworks, giant chain anchor, and Civil War museum.",
-    "website": "https://parks.ky.gov/columbus/parks/recreation/columbus-belmont-state-park",
+    "website": "https://parks.ky.gov/explore/columbus-belmont-state-park-7809",
     "geocode_source": "photon",
     "sources": [
-      "https://parks.ky.gov/columbus/parks/recreation/columbus-belmont-state-park",
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://parks.ky.gov/explore/columbus-belmont-state-park-7809"
     ]
   },
   {
@@ -687,10 +681,10 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "October 1861 battle in the Rockcastle Hills\u2014one of Kentucky's earliest Civil War engagements. Preserved by the Camp Wildcat Preservation Foundation with trails and interpretive markers in Laurel County.",
-    "website": "https://www.campwildcatpreservationfoundation.org/",
+    "website": "https://en.wikipedia.org/wiki/Battle_of_Camp_Wildcat",
     "geocode_source": "manual",
     "sources": [
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://history.ky.gov/markers/camp-wildcat"
     ]
   },
   {
@@ -704,10 +698,10 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "November 1861 engagement in the Big Sandy valley where Union forces under William 'Bull' Nelson pushed Confederates under John S. Williams. Monument and interpretive presence near Prestonsburg.",
-    "website": null,
+    "website": "https://explorekyhistory.ky.gov/items/show/475",
     "geocode_source": "manual",
     "sources": [
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://explorekyhistory.ky.gov/items/show/475"
     ]
   },
   {
@@ -721,10 +715,10 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "December 1861 cavalry fight often called Nathan Bedford Forrest's 'first battle'\u2014preserved and interpreted by the City of Sacramento with annual reenactments in western Kentucky.",
-    "website": "https://www.battleofsacramento.com/",
+    "website": "https://en.wikipedia.org/wiki/Battle_of_Sacramento_(Kentucky)",
     "geocode_source": "photon",
     "sources": [
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://explorekyhistory.ky.gov/items/show/20"
     ]
   },
   {
@@ -741,7 +735,7 @@
     "website": null,
     "geocode_source": "photon",
     "sources": [
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://history.ky.gov/markers/fort-williams"
     ]
   },
   {
@@ -755,10 +749,10 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "March 1864 Confederate raid on Paducah led by Nathan Bedford Forrest against Union-held river city defenses. Interpreted at the Lloyd Tilghman House & Civil War Museum.",
-    "website": "https://www.tilghmancivilwarmuseum.com/",
+    "website": "https://en.wikipedia.org/wiki/Battle_of_Paducah",
     "geocode_source": "photon",
     "sources": [
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://en.wikipedia.org/wiki/Battle_of_Paducah"
     ]
   },
   {
@@ -792,7 +786,7 @@
     "website": null,
     "geocode_source": "photon",
     "sources": [
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://en.wikipedia.org/wiki/Battle_of_Barbourville"
     ]
   },
   {
@@ -809,7 +803,7 @@
     "website": null,
     "geocode_source": "photon",
     "sources": [
-      "https://heritage.ky.gov/historic-places/military-heritage/Pages/civil-war-sites.aspx"
+      "https://history.ky.gov/markers/battle-of-rowletts-station"
     ]
   },
   {
@@ -840,10 +834,10 @@
     "war": "revolutionary",
     "site_type": "other",
     "history": "Home of militia leader William Whitley, who fought in Kentucky's Revolutionary-era Indian wars and later fell at the Battle of the Thames (1813). State historic site interpreting frontier defense.",
-    "website": "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site",
+    "website": "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site",
     "geocode_source": "manual",
     "sources": [
-      "https://parks.ky.gov/stanford/parks/historic/william-whitley-house-state-historic-site"
+      "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site"
     ]
   },
   {

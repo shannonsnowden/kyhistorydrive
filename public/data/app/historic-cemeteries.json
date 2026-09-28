@@ -120,10 +120,10 @@
     "nrhp": null,
     "history": "Major Northern Kentucky municipal cemetery serving Newport and Campbell County since the mid-nineteenth century. It is a well-known local historic landscape with Civil War and civic burials overlooking the Ohio River corridor.",
     "why_historic_url": "https://en.wikipedia.org/wiki/List_of_cemeteries_in_Kentucky",
-    "website": "https://www.evergreen-cemetery.com/",
+    "website": "https://en.wikipedia.org/wiki/Evergreen_Cemetery_(Southgate,_Kentucky)",
     "sources": [
       "https://en.wikipedia.org/wiki/List_of_cemeteries_in_Kentucky",
-      "https://www.evergreen-cemetery.com/"
+      "https://en.wikipedia.org/wiki/Evergreen_Cemetery_(Southgate,_Kentucky)"
     ],
     "geocode_source": "photon",
     "marker_number": null,
@@ -194,12 +194,12 @@
     "cemetery_type": "church",
     "nrhp": true,
     "history": "NRHP-listed church and cemetery within Mammoth Cave National Park, representing nineteenth-century cave-country Baptist congregations. Visitors reach the quiet historic site on park roads near the Green River.",
-    "why_historic_url": "https://www.nps.gov/maca/learn/historyculture/index.htm",
+    "why_historic_url": "https://www.nps.gov/places/maca-good-spring-baptist-church.htm",
     "website": "https://www.nps.gov/maca/",
     "sources": [
       "https://en.wikipedia.org/wiki/List_of_cemeteries_in_Kentucky",
       "https://www.nps.gov/maca/",
-      "https://www.nps.gov/maca/learn/historyculture/index.htm"
+      "https://www.nps.gov/places/maca-good-spring-baptist-church.htm"
     ],
     "geocode_source": "manual",
     "marker_number": null,
@@ -216,12 +216,12 @@
     "cemetery_type": "church",
     "nrhp": true,
     "history": "Third of the NRHP-listed Baptist church-and-cemetery complexes preserved in Mammoth Cave National Park. Together with Good Spring and Mammoth Cave Baptist, it documents rural congregations of the cave region.",
-    "why_historic_url": "https://www.nps.gov/maca/learn/historyculture/index.htm",
+    "why_historic_url": "https://www.nps.gov/places/joppa-missionary-baptist-church-cemetery.htm",
     "website": "https://www.nps.gov/maca/",
     "sources": [
       "https://en.wikipedia.org/wiki/List_of_cemeteries_in_Kentucky",
       "https://www.nps.gov/maca/",
-      "https://www.nps.gov/maca/learn/historyculture/index.htm"
+      "https://www.nps.gov/places/joppa-missionary-baptist-church-cemetery.htm"
     ],
     "geocode_source": "manual",
     "marker_number": null,
@@ -238,12 +238,12 @@
     "cemetery_type": "church",
     "nrhp": true,
     "history": "Historic Baptist church and cemetery inside Mammoth Cave National Park, NRHP-listed with other park churchyards. It preserves the religious and burial landscape of the cave-country communities that predated the national park.",
-    "why_historic_url": "https://www.nps.gov/maca/learn/historyculture/index.htm",
+    "why_historic_url": "https://www.nps.gov/places/maca-baptist-church.htm",
     "website": "https://www.nps.gov/maca/",
     "sources": [
       "https://en.wikipedia.org/wiki/List_of_cemeteries_in_Kentucky",
       "https://www.nps.gov/maca/",
-      "https://www.nps.gov/maca/learn/historyculture/index.htm"
+      "https://www.nps.gov/places/maca-baptist-church.htm"
     ],
     "geocode_source": "photon",
     "marker_number": null,
@@ -651,8 +651,7 @@
     "website": "https://cavehillcemetery.com/",
     "sources": [
       "https://en.wikipedia.org/wiki/Cave_Hill_Cemetery",
-      "https://cavehillcemetery.com/",
-      "https://www.nps.gov/nr/travel/national_cemeteries/kentucky/Cave_Hill_National_Cemetery.html"
+      "https://cavehillcemetery.com/"
     ],
     "geocode_source": "nrhp",
     "marker_number": null,
@@ -895,10 +894,10 @@
     "cemetery_type": "municipal",
     "nrhp": "89001585",
     "history": "Premier rural garden cemetery of northern Kentucky, planned by landscape architect Adolph Strauch and NRHP-listed as a historic district (89001585). It is known for Confederate and Union veterans, civic leaders, and finely designed monuments and mausoleums; members of the Goebel family (not Governor William Goebel himself) are among those interred here.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Highland_Cemetery_(Fort_Mitchell,_Kentucky)",
+    "why_historic_url": "https://www.highlandcemetery.com/",
     "website": "https://www.highlandcemetery.com/",
     "sources": [
-      "https://en.wikipedia.org/wiki/Highland_Cemetery_(Fort_Mitchell,_Kentucky)"
+      "https://www.highlandcemetery.com/"
     ],
     "geocode_source": "photon",
     "marker_number": null,
@@ -1118,10 +1117,10 @@
     "cemetery_type": "church",
     "nrhp": null,
     "history": "Pioneer Presbyterian church cemetery near McAfee in Mercer County, noted on a KHS marker for Revolutionary War soldiers buried at New Providence. It represents early settlement faith communities in the Harrodsburg hinterland.",
-    "why_historic_url": "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=1603",
+    "why_historic_url": "https://history.ky.gov/markers/revolutionary-war-soldiers-buried-in-new-providence-presbyterian-church-cemetery-1-mile",
     "website": null,
     "sources": [
-      "https://secure2.kentucky.gov/kyhs/hmdb/MarkerSearch.aspx?mode=Number&markerNumber=1603"
+      "https://history.ky.gov/markers/revolutionary-war-soldiers-buried-in-new-providence-presbyterian-church-cemetery-1-mile"
     ],
     "geocode_source": "photon",
     "marker_number": "1603",
@@ -1356,7 +1355,7 @@
         "name": "James F. Robinson",
         "lifespan": "1800–1882",
         "significance": "Civil War-era governor of Kentucky",
-        "bio_url": "https://en.wikipedia.org/wiki/James_F._Robinson"
+        "bio_url": "https://en.wikipedia.org/wiki/James_Fisher_Robinson"
       },
       {
         "name": "George W. Johnson",
@@ -1475,8 +1474,7 @@
     "why_historic_url": "https://history.ky.gov/markers/sons-daughters-of-relief-cemetery",
     "website": null,
     "sources": [
-      "https://history.ky.gov/markers/sons-daughters-of-relief-cemetery",
-      "https://en.wikipedia.org/wiki/Edward_Dudley_Brown"
+      "https://history.ky.gov/markers/sons-daughters-of-relief-cemetery"
     ],
     "geocode_source": "khs-marker",
     "marker_number": "2411",
@@ -1485,7 +1483,7 @@
         "name": "Edward Dudley Brown",
         "lifespan": "1850–1906",
         "significance": "Formerly enslaved Thoroughbred trainer and jockey (Brown Dick)",
-        "bio_url": "https://en.wikipedia.org/wiki/Edward_Dudley_Brown"
+        "bio_url": null
       }
     ]
   }
