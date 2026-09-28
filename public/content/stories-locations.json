@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:41:53.158Z",
+  "generatedAt": "2026-09-28T09:43:32.080Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
@@ -16,6 +16,14 @@
       "matchedPlace": "Chiggerville (15Oh1)",
       "historyId": "chiggerville-15oh1-ohio-county"
     },
+    "cloudsplitter-rockshelter-menifee-county": {
+      "slug": "cloudsplitter-rockshelter-menifee-county",
+      "lat": 37.83758,
+      "lon": -83.62047,
+      "mapConfidence": "override",
+      "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)",
+      "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county"
+    },
     "read-shell-midden-15bt10-butler-county": {
       "slug": "read-shell-midden-15bt10-butler-county",
       "lat": 37.2425,
@@ -23,14 +31,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Read Shell Midden (15Bt10)",
       "historyId": "read-shell-midden-15bt10"
-    },
-    "cloudsplitter-rockshelter-menifee-county": {
-      "slug": "cloudsplitter-rockshelter-menifee-county",
-      "lat": 37.835,
-      "lon": -83.615,
-      "mapConfidence": "override",
-      "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)",
-      "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county"
     },
     "hansen-site-15gp14": {
       "slug": "hansen-site-15gp14",
@@ -653,8 +653,8 @@
       "lat": 38.262614,
       "lon": -84.293761,
       "mapConfidence": "override",
-      "matchedPlace": "Egushawa's Odawa at Martin's Station (1780)",
-      "historyId": "martins-station-egushawa-odawa-1780"
+      "matchedPlace": "Egushawa's Odawa at Martin's Station",
+      "historyId": null
     },
     "elizabethtown-from-severns-valley": {
       "slug": "elizabethtown-from-severns-valley",

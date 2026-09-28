@@ -2102,8 +2102,8 @@
   },
   {
     "id": "martins-station-egushawa-odawa-1780",
-    "name": "Egushawa's Odawa at Martin's Station (1780)",
-    "subtitle": "Bourbon County · Odawa war chief with Bird's invasion · Martin's Station surrendered June 1780",
+    "name": "Egushawa's Odawa at Martin's Station",
+    "subtitle": "Bourbon County · Odawa war chief with Bird's invasion · Martin's Station 1780 · Greenville 1795",
     "latitude": 38.262614,
     "longitude": -84.293761,
     "history": "Egushawa (also Au-goosh-away), the Detroit-area Odawa war chief often treated as Pontiac’s successor, helped Britain recruit Wabash and Great Lakes allies against Kentucky settlements. In 1780 he led an Ottawa contingent with Capt. Henry Bird’s cannon-backed invasion that forced the surrenders at Ruddell’s and Martin’s stations and marched hundreds of prisoners north toward Detroit. After 1783 he rejected land cessions made without tribal consent, fought in the Northwest Confederacy’s victories over Harmar and St. Clair, was wounded at Fallen Timbers in 1794, and signed Greenville in 1795 as a principal Ottawa spokesman—tying Odawa strategy on the Maumee and Detroit to the raids that shaped Kentucky’s last Revolutionary decade.",
@@ -2115,24 +2115,40 @@
     "category": "person",
     "website": "https://en.wikipedia.org/wiki/Egushawa",
     "year_start": 1780,
-    "year_end": 1780
+    "year_end": 1795,
+    "photo": {
+      "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
+      "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
+      "year": 1795
+    }
   },
   {
     "id": "cloudsplitter-rockshelter-15mf36-menifee-county",
     "name": "Cloudsplitter Rockshelter (15Mf36)",
     "subtitle": "Menifee County · Red River Gorge · Late Archaic squash & early plant tending",
-    "latitude": 37.835,
-    "longitude": -83.615,
+    "latitude": 37.83758,
+    "longitude": -83.62047,
     "history": "In the Red River Gorge sandstone country, Cloudsplitter Rockshelter holds a deep Archaic-to-Early Woodland record. Dry sand preserved a roughly 3,700-year-old squash rind—early evidence that people here were tending plants—as well as chipped and ground stone tools and pollen that tracks climate change. Later Woodland layers at Cloudsplitter and neighboring Gorge shelters (Newt Kash, Haystack, Rogers) show storage pits, seed crops such as sunflower, sumpweed, maygrass, and knotweed, and a shift from nut-heavy foraging toward small-scale gardens. The Gorge’s dry shelters are why eastern Kentucky figures so largely in the story of plant domestication in eastern North America.",
     "source_date": "2026-09-28",
     "marker_number": null,
     "marker_title": null,
-    "geocode_source": "generalized-red-river-gorge-menifee",
-    "geocode_note": "Generalized location on the Menifee County (north) side of the Red River Gorge; exact site coordinates are not published. Years are Late Archaic occupation (~4500–3000 BP), not the 1978 excavation.",
+    "geocode_source": "topoquest-cloud-splitter-arch-menifee",
+    "geocode_note": "Pinned at the named Cloud Splitter natural arch (TopoQuest / USGS Pomeroyton quad, Menifee Co.). Exact 15Mf36 rockshelter coordinates are not published (address-restricted archaeological site). Years are Late Archaic occupation (~4500–3000 BP / −3000…−1000), not the 1978 excavation.",
     "category": "archaeology",
     "website": "https://www.livingarchaeologyweekend.org/_files/ugd/facae2_6e9670882c8d4fab7707d41bb9aeb65b.pdf",
-    "year_start": -2500,
-    "year_end": -1000
+    "year_start": -3000,
+    "year_end": -1000,
+    "photo": {
+      "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
+      "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
+      "year": 2007
+    }
   },
   {
     "id": "ephraim-mcdowell-house-danville-1809",

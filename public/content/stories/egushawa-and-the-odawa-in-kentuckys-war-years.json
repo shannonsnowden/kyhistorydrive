@@ -5,7 +5,7 @@
   "summary": "Egushawa (also Au-goosh-away), the Detroit-area Odawa war chief often treated as Pontiac’s successor, helped Britain recruit Wabash and Great Lakes allies against Kentucky…",
   "bodyMarkdown": "Egushawa (also Au-goosh-away), the Detroit-area Odawa war chief often treated as Pontiac’s successor, helped Britain recruit Wabash and Great Lakes allies against Kentucky settlements. In 1780 he led an Ottawa contingent with Capt. Henry Bird’s cannon-backed invasion that forced the surrenders at Ruddell’s and Martin’s stations and marched hundreds of prisoners north toward Detroit. After 1783 he rejected land cessions made without tribal consent, fought in the Northwest Confederacy’s victories over Harmar and St. Clair, was wounded at Fallen Timbers in 1794, and signed Greenville in 1795 as a principal Ottawa spokesman—tying Odawa strategy on the Maumee and Detroit to the raids that shaped Kentucky’s last Revolutionary decade.\nSource: [https://en.wikipedia.org/wiki/Egushawa](https://en.wikipedia.org/wiki/Egushawa)",
   "yearStart": 1780,
-  "yearEnd": 1780,
+  "yearEnd": 1795,
   "era": "native",
   "tags": [
     "native",
@@ -15,5 +15,13 @@
     "treaty"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-28"
+  "briefDate": "2026-09-28",
+  "photo": {
+    "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
+    "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
+    "year": 1795
+  }
 }

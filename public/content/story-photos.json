@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:41:57.005Z",
+  "generatedAt": "2026-09-28T09:43:32.936Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -97,6 +97,18 @@
         "year": null
       }
     },
+    "cloudsplitter-rockshelter-menifee-county": {
+      "slug": "cloudsplitter-rockshelter-menifee-county",
+      "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
+      "photo": {
+        "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
+        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2007
+      }
+    },
     "col-john-holder-at-lower-howards-creek": {
       "slug": "col-john-holder-at-lower-howards-creek",
       "historyId": "holders-station-lower-howards-creek",
@@ -131,6 +143,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2018
+      }
+    },
+    "egushawa-and-the-odawa-in-kentuckys-war-years": {
+      "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
+        "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
+        "year": 1795
       }
     },
     "ephraim-mcdowell-jane-todd-crawford-1809": {
@@ -541,6 +565,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
         "year": null
+      }
+    },
+    "cloudsplitter-rockshelter-15mf36-menifee-county": {
+      "slug": "cloudsplitter-rockshelter-menifee-county",
+      "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
+      "photo": {
+        "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
+        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2007
       }
     },
     "holders-station-lower-howards-creek": {

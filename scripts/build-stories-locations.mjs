@@ -516,15 +516,15 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'egushawa-and-the-odawa-in-kentuckys-war-years': {
-    matchName: "Egushawa's Odawa at Martin's Station (1780)",
+    matchName: "Egushawa's Odawa at Martin's Station",
     lat: 38.262614,
     lon: -84.293761,
     confidence: 'override',
   },
   'cloudsplitter-rockshelter-menifee-county': {
     matchName: 'Cloudsplitter Rockshelter (15Mf36)',
-    lat: 37.835,
-    lon: -83.615,
+    lat: 37.83758,
+    lon: -83.62047,
     confidence: 'override',
   },
   'ephraim-mcdowell-jane-todd-crawford-1809': {

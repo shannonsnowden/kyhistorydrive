@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:41:57.012Z",
+  "generatedAt": "2026-09-28T09:43:32.943Z",
   "briefDate": "2026-09-28",
   "displayDate": "Monday, September 28, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -58,29 +58,43 @@
       "yearStart": 1780,
       "briefDate": "2026-09-28",
       "href": "/#timeline/egushawa-and-the-odawa-in-kentuckys-war-years",
-      "place": "Egushawa's Odawa at Martin's Station (1780)",
+      "place": "Egushawa's Odawa at Martin's Station",
       "lat": 38.262614,
       "lon": -84.293761,
-      "historyId": "martins-station-egushawa-odawa-1780",
-      "mapHref": "/#map/history/martins-station-egushawa-odawa-1780",
+      "historyId": null,
+      "mapHref": "/#map/stories/egushawa-and-the-odawa-in-kentuckys-war-years",
       "quote": "Egushawa (also Au-goosh-away), the Detroit-area Odawa war chief often treated as Pontiac’s successor, helped Britain recruit Wabash and Great Lakes allies against Kentucky settlements.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
+        "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
+        "year": 1795
+      }
     },
     {
       "slug": "cloudsplitter-rockshelter-menifee-county",
       "title": "Cloudsplitter Rockshelter (Menifee County)",
       "summary": "In the Red River Gorge sandstone country, Cloudsplitter Rockshelter holds a deep Archaic-to-Early Woodland record. Dry sand preserved a roughly 3,700-year-old squash rind—early…",
       "era": "prehistoric",
-      "yearStart": -2500,
+      "yearStart": -3000,
       "briefDate": "2026-09-28",
       "href": "/#timeline/cloudsplitter-rockshelter-menifee-county",
       "place": "Cloudsplitter Rockshelter (15Mf36)",
-      "lat": 37.835,
-      "lon": -83.615,
+      "lat": 37.83758,
+      "lon": -83.62047,
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "mapHref": "/#map/history/cloudsplitter-rockshelter-15mf36-menifee-county",
       "quote": "In the Red River Gorge sandstone country, Cloudsplitter Rockshelter holds a deep Archaic-to-Early Woodland record.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
+        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2007
+      }
     },
     {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
@@ -161,29 +175,43 @@
       "yearStart": 1780,
       "briefDate": "2026-09-28",
       "href": "/#timeline/egushawa-and-the-odawa-in-kentuckys-war-years",
-      "place": "Egushawa's Odawa at Martin's Station (1780)",
+      "place": "Egushawa's Odawa at Martin's Station",
       "lat": 38.262614,
       "lon": -84.293761,
-      "historyId": "martins-station-egushawa-odawa-1780",
-      "mapHref": "/#map/history/martins-station-egushawa-odawa-1780",
+      "historyId": null,
+      "mapHref": "/#map/stories/egushawa-and-the-odawa-in-kentuckys-war-years",
       "quote": "Egushawa (also Au-goosh-away), the Detroit-area Odawa war chief often treated as Pontiac’s successor, helped Britain recruit Wabash and Great Lakes allies against Kentucky settlements.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
+        "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
+        "year": 1795
+      }
     },
     {
       "slug": "cloudsplitter-rockshelter-menifee-county",
       "title": "Cloudsplitter Rockshelter (Menifee County)",
       "summary": "In the Red River Gorge sandstone country, Cloudsplitter Rockshelter holds a deep Archaic-to-Early Woodland record. Dry sand preserved a roughly 3,700-year-old squash rind—early…",
       "era": "prehistoric",
-      "yearStart": -2500,
+      "yearStart": -3000,
       "briefDate": "2026-09-28",
       "href": "/#timeline/cloudsplitter-rockshelter-menifee-county",
       "place": "Cloudsplitter Rockshelter (15Mf36)",
-      "lat": 37.835,
-      "lon": -83.615,
+      "lat": 37.83758,
+      "lon": -83.62047,
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "mapHref": "/#map/history/cloudsplitter-rockshelter-15mf36-menifee-county",
       "quote": "In the Red River Gorge sandstone country, Cloudsplitter Rockshelter holds a deep Archaic-to-Early Woodland record.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
+        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2007
+      }
     },
     {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",

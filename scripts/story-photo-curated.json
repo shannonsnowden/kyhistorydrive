@@ -379,5 +379,25 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2020
+  },
+  "egushawa-and-the-odawa-in-kentuckys-war-years": {
+    "ext": "jpg",
+    "commonsFile": "Treaty of Greenville.jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Treaty_of_Greenville.jpg/1280px-Treaty_of_Greenville.jpg",
+    "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
+    "year": 1795
+  },
+  "cloudsplitter-rockshelter-menifee-county": {
+    "ext": "jpg",
+    "commonsFile": "Red river gorge (1698844416).jpg",
+    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Red_river_gorge_%281698844416%29.jpg/1280px-Red_river_gorge_%281698844416%29.jpg",
+    "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
+    "year": 2007
   }
 }
