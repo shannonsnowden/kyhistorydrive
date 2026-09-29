@@ -399,5 +399,35 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
     "year": 2007
+  },
+  "mary-draper-ingles-escapes-through-kentucky-1755": {
+    "ext": "jpg",
+    "commonsFile": "Bigbonelick.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bigbonelick.jpg?width=1280",
+    "title": "Big Bone Lick State Park entrance sign, Boone County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
+    "year": null
+  },
+  "bowling-green-takes-shape-on-the-barren-1798": {
+    "ext": "jpg",
+    "commonsFile": "Fountain Square Park, Bowling Green, Kentucky.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fountain_Square_Park,_Bowling_Green,_Kentucky.JPG?width=1280",
+    "title": "Fountain Square Park, downtown Bowling Green",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fountain_Square_Park,_Bowling_Green,_Kentucky.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "OPMaster · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2008
+  },
+  "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
+    "ext": "jpg",
+    "commonsFile": "OldTaylorDistillerCastleRuined.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/OldTaylorDistillerCastleRuined.jpg?width=1280",
+    "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
+    "source_url": "https://commons.wikimedia.org/wiki/File:OldTaylorDistillerCastleRuined.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
+    "year": 2016
   }
 }

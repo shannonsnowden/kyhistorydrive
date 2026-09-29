@@ -2174,5 +2174,97 @@
       "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
       "year": 2020
     }
+  },
+  {
+    "id": "mary-ingles-big-bone-lick-escape-1755",
+    "name": "Mary Ingles at Big Bone Lick (1755 escape)",
+    "subtitle": "Boone County · Shawnee captive at the salt camp · escape ~mid-Oct 1755 · KHS marker",
+    "latitude": 38.8878833,
+    "longitude": -84.7507333,
+    "history": "In July 1755 a Shawnee war party struck Draper's Meadow on the Virginia frontier and carried Mary Draper Ingles, then about twenty-three and pregnant, west with her two young sons. After the long march to the Ohio villages she was put to work at a salt-making camp at Big Bone Lick in what is now Boone County—among the earliest recorded European women on Kentucky ground. Around mid-October she slipped away with an older Dutch captive woman and walked the Ohio, Kanawha, and New River corridors for roughly forty-two days, foraging on walnuts, grapes, and roots until she reached a New River cabin near her old home. Her son Thomas was later ransomed; she lived until 1815. The Kentucky Historical Society marker at Big Bone Lick still marks the breakout that turned a captivity story into one of the frontier's great return journeys.",
+    "source_date": "2026-09-29",
+    "marker_number": "859",
+    "marker_title": "Mary Ingles",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #859 'Mary Ingles' at Big Bone Lick State Park (KY 338). Distinct from the existing Big Bone Lick fossil-lick pin (Pleistocene / Gist / Jefferson).",
+    "category": "person",
+    "website": "https://history.ky.gov/markers/mary-ingles-2",
+    "year_start": 1755,
+    "year_end": 1755,
+    "photo": {
+      "image_url": "/content/photos/stories/mary-draper-ingles-escapes-through-kentucky-1755.jpg",
+      "title": "Big Bone Lick State Park entrance sign, Boone County",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
+      "year": null
+    }
+  },
+  {
+    "id": "bowling-green-founding-bolin-green-1798",
+    "name": "Bowling Green founding / Bolin Green (1798)",
+    "subtitle": "Warren County seat · Robert & George Moore land · Fountain Square · town laid out 1798",
+    "latitude": 36.9931724,
+    "longitude": -86.4413471,
+    "history": "Long hunters marked the Barren River country in 1775; McFadden's Station rose on the north bank in 1778. In the mid-1790s brothers Robert and George Moore settled by a big spring, and when Warren County was created they donated land for a log courthouse and jail—today's Fountain Square. On more than thirty additional acres the county court laid out a town in early 1798 and named it Bolin Green, recalling New York's Bowling Green where patriots had pulled down King George's statue. The settlement won the county seat in 1809 and incorporated in 1812, growing into south-central Kentucky's commercial hub on the river and later the Louisville & Nashville road.",
+    "source_date": "2026-09-29",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "nominatim-fountain-square-park-bowling-green",
+    "geocode_note": "Fountain Square Park, the Moore brothers' courthouse-square donation and center of the 1798 town plat.",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Bowling_Green,_Kentucky",
+    "year_start": 1798,
+    "year_end": 1798,
+    "photo": {
+      "image_url": "/content/photos/stories/bowling-green-takes-shape-on-the-barren-1798.jpg",
+      "title": "Fountain Square Park, downtown Bowling Green",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fountain_Square_Park,_Bowling_Green,_Kentucky.JPG",
+      "source_label": "Wikimedia Commons",
+      "attribution": "OPMaster · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2008
+    }
+  },
+  {
+    "id": "old-taylor-distillery-bottled-in-bond-1897",
+    "name": "E.H. Taylor Jr. / Old Taylor Distillery — Bottled-in-Bond Act (1897)",
+    "subtitle": "Franklin County · Millville (Glenn's Creek) · Taylor's castle distillery · Bottled-in-Bond Act signed Mar 3 1897",
+    "latitude": 38.1466899,
+    "longitude": -84.832567,
+    "history": "Colonel Edmund Haynes Taylor Jr. (1830–1923) of Frankfort rebuilt Kentucky whiskey's reputation after the Civil War—raising the O.F.C. (Old Fire Copper) plant in 1869, later the Old Taylor works on Glenn's Creek, and fighting the flood of adulterated \"rectified\" spirits. Working with Treasury Secretary John G. Carlisle, he helped push the Bottled-in-Bond Act, signed March 3, 1897: one distiller, one distillery, one season; at least four years in wood under federal lock; bottled at 100 proof with nothing added but water. It was among the nation's first consumer-protection laws for spirits, and the green bond stamp became the buyer's guarantee that what was in the bottle was straight whiskey—not prune juice and industrial alcohol.",
+    "source_date": "2026-09-29",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "distilleries-layer-castle-key",
+    "geocode_note": "Old Taylor Distillery (now Castle & Key), 4445 McCracken Pike, Millville — E.H. Taylor Jr.'s Old Taylor plant, which he operated in 1897. His 1869 O.F.C. plant (now Buffalo Trace) was under George T. Stagg by then, so the Old Taylor works is the better-supported pin.",
+    "category": "bourbon",
+    "website": "https://en.wikipedia.org/wiki/Bottled-in-Bond_Act_of_1897",
+    "year_start": 1897,
+    "year_end": 1897,
+    "photo": {
+      "image_url": "/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
+      "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
+      "source_url": "https://commons.wikimedia.org/wiki/File:OldTaylorDistillerCastleRuined.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
+      "year": 2016
+    }
+  },
+  {
+    "id": "singer-hieronymus-fort-ancient-scott-county",
+    "name": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)",
+    "subtitle": "Scott County · North Elkhorn Creek ridge · circular Fort Ancient villages ~1200–1550",
+    "latitude": 38.2364,
+    "longitude": -84.6607,
+    "history": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D. 1200 and 1550. UK archaeologists mapped Singer Village in the late 1990s, then found more rings on the adjoining Hieronymus farm; later geophysics pushed the count to at least six or seven midden stains—concentric house, burial, and trash zones around open plazas, with corn-beans-squash agriculture and two low burial mounds on the largest circle. The complex looks like one community shifting along the ridge over generations, a rare Kentucky window on how Fort Ancient towns moved without leaving the same bluegrass creek.",
+    "source_date": "2026-09-29",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "nominatim-north-elkhorn-creek-scott-county",
+    "geocode_note": "Generalized pin on North Elkhorn Creek in Scott County. Exact 15Sc3/15Sc225 coordinates are not published (address-restricted archaeological site). Years are Fort Ancient occupation (~A.D. 1200–1550), not the 1920s/1990s/2010s investigations.",
+    "category": "archaeology",
+    "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Singer-Hieronymus.aspx",
+    "year_start": 1200,
+    "year_end": 1550
   }
 ]

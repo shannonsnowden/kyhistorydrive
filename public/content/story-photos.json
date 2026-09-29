@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T13:51:05.189Z",
+  "generatedAt": "2026-09-29T09:21:37.585Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -47,6 +47,18 @@
         "source_label": "Bagdad Roller Mills Inc.",
         "attribution": "Bagdad Roller Mills Inc. · company historic photo (early–mid 20th c., undated archival B&W)",
         "year": null
+      }
+    },
+    "bowling-green-takes-shape-on-the-barren-1798": {
+      "slug": "bowling-green-takes-shape-on-the-barren-1798",
+      "historyId": "bowling-green-founding-bolin-green-1798",
+      "photo": {
+        "image_url": "/content/photos/stories/bowling-green-takes-shape-on-the-barren-1798.jpg",
+        "title": "Fountain Square Park, downtown Bowling Green",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fountain_Square_Park,_Bowling_Green,_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "OPMaster · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
       }
     },
     "buckner-site-fort-ancient-villages-on-strodes-creek": {
@@ -131,6 +143,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
         "year": 1861
+      }
+    },
+    "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
+      "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
+      "historyId": "old-taylor-distillery-bottled-in-bond-1897",
+      "photo": {
+        "image_url": "/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
+        "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:OldTaylorDistillerCastleRuined.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
+        "year": 2016
       }
     },
     "edward-worthington-at-worthingtons-fort": {
@@ -298,6 +322,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      }
+    },
+    "mary-draper-ingles-escapes-through-kentucky-1755": {
+      "slug": "mary-draper-ingles-escapes-through-kentucky-1755",
+      "historyId": "mary-ingles-big-bone-lick-escape-1755",
+      "photo": {
+        "image_url": "/content/photos/stories/mary-draper-ingles-escapes-through-kentucky-1755.jpg",
+        "title": "Big Bone Lick State Park entrance sign, Boone County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
         "year": null
       }
     },
@@ -531,6 +567,18 @@
         "year": null
       }
     },
+    "bowling-green-founding-bolin-green-1798": {
+      "slug": "bowling-green-takes-shape-on-the-barren-1798",
+      "historyId": "bowling-green-founding-bolin-green-1798",
+      "photo": {
+        "image_url": "/content/photos/stories/bowling-green-takes-shape-on-the-barren-1798.jpg",
+        "title": "Fountain Square Park, downtown Bowling Green",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fountain_Square_Park,_Bowling_Green,_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "OPMaster · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      }
+    },
     "buckner-site-15bb12-bourbon-county": {
       "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
       "historyId": "buckner-site-15bb12-bourbon-county",
@@ -589,6 +637,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
         "year": 2023
+      }
+    },
+    "old-taylor-distillery-bottled-in-bond-1897": {
+      "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
+      "historyId": "old-taylor-distillery-bottled-in-bond-1897",
+      "photo": {
+        "image_url": "/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
+        "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:OldTaylorDistillerCastleRuined.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
+        "year": 2016
       }
     },
     "worthingtons-fort-danville": {
@@ -696,6 +756,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      }
+    },
+    "mary-ingles-big-bone-lick-escape-1755": {
+      "slug": "mary-draper-ingles-escapes-through-kentucky-1755",
+      "historyId": "mary-ingles-big-bone-lick-escape-1755",
+      "photo": {
+        "image_url": "/content/photos/stories/mary-draper-ingles-escapes-through-kentucky-1755.jpg",
+        "title": "Big Bone Lick State Park entrance sign, Boone County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
         "year": null
       }
     },

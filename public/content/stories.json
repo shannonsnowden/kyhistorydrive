@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-28T13:51:04.644Z",
-  "count": 165,
+  "generatedAt": "2026-09-29T09:21:32.563Z",
+  "count": 170,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-28"
+    "end": "2026-09-29"
   },
   "eras": [
     "early-commonwealth",
@@ -406,6 +406,26 @@
       "lon": -88.32188,
       "mapConfidence": "county",
       "matchedPlace": "Marshall County (centroid)"
+    },
+    {
+      "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+      "title": "Singer-Hieronymus: Fort Ancient villages on North Elkhorn",
+      "publishedDate": "2026-09-29",
+      "summary": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D. 1200 and…",
+      "yearStart": 1200,
+      "yearEnd": 1550,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-29",
+      "lat": 38.2364,
+      "lon": -84.6607,
+      "mapConfidence": "override",
+      "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)"
     },
     {
       "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
@@ -960,6 +980,36 @@
       "lon": -85.7628814,
       "mapConfidence": "override",
       "matchedPlace": "Falls of the Ohio"
+    },
+    {
+      "slug": "mary-draper-ingles-escapes-through-kentucky-1755",
+      "title": "Mary Draper Ingles escapes through Kentucky, 1755",
+      "publishedDate": "2026-09-29",
+      "summary": "In July 1755 a Shawnee war party struck Draper's Meadow on the Virginia frontier and carried Mary Draper Ingles, then about twenty-three and pregnant, west with her two young…",
+      "yearStart": 1755,
+      "yearEnd": 1755,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-29",
+      "photo": {
+        "image_url": "/content/photos/stories/mary-draper-ingles-escapes-through-kentucky-1755.jpg",
+        "title": "Big Bone Lick State Park entrance sign, Boone County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
+        "year": null
+      },
+      "lat": 38.8878833,
+      "lon": -84.7507333,
+      "mapConfidence": "override",
+      "matchedPlace": "Mary Ingles at Big Bone Lick (1755 escape)"
     },
     {
       "slug": "shepherdsville-on-salt-river",
@@ -2813,6 +2863,34 @@
       "matchedPlace": "Owensboro / Yellow Banks"
     },
     {
+      "slug": "bowling-green-takes-shape-on-the-barren-1798",
+      "title": "Bowling Green takes shape on the Barren, 1798",
+      "publishedDate": "2026-09-29",
+      "summary": "Long hunters marked the Barren River country in 1775; McFadden's Station rose on the north bank in 1778. In the mid-1790s brothers Robert and George Moore settled by a big…",
+      "yearStart": 1798,
+      "yearEnd": 1798,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-29",
+      "photo": {
+        "image_url": "/content/photos/stories/bowling-green-takes-shape-on-the-barren-1798.jpg",
+        "title": "Fountain Square Park, downtown Bowling Green",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fountain_Square_Park,_Bowling_Green,_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "OPMaster · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      },
+      "lat": 36.9931724,
+      "lon": -86.4413471,
+      "mapConfidence": "override",
+      "matchedPlace": "Bowling Green founding / Bolin Green (1798)"
+    },
+    {
       "slug": "glasgow-the-barrens",
       "title": "Glasgow & the Barrens",
       "publishedDate": "2026-09-18",
@@ -3161,6 +3239,34 @@
       "lon": -86.0626,
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
+    },
+    {
+      "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
+      "title": "E.H. Taylor Jr. and the Bottled-in-Bond Act, 1897",
+      "publishedDate": "2026-09-29",
+      "summary": "Colonel Edmund Haynes Taylor Jr. (1830–1923) of Frankfort rebuilt Kentucky whiskey's reputation after the Civil War—raising the O.F.C. (Old Fire Copper) plant in 1869, later…",
+      "yearStart": 1897,
+      "yearEnd": 1897,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-29",
+      "photo": {
+        "image_url": "/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
+        "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:OldTaylorDistillerCastleRuined.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
+        "year": 2016
+      },
+      "lat": 38.1466899,
+      "lon": -84.832567,
+      "mapConfidence": "override",
+      "matchedPlace": "E.H. Taylor Jr. / Old Taylor Distillery — Bottled-in-Bond Act (1897)"
     },
     {
       "slug": "natural-bridge-sandstone-arch",
@@ -3684,6 +3790,26 @@
         "attribution": "Unknown · Wikimedia Commons · Public domain",
         "year": null
       },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
+      "title": "Quapaw — the \"downstream people\" of the Ohio Valley",
+      "publishedDate": "2026-09-29",
+      "summary": "The Quapaw (Ugaxpa / Ugakhpa), a Dhegiha Siouan nation, keep oral tradition of a shared homeland in the Ohio River valley with the Osage, Omaha, Ponca, and Kansa. In the…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-29",
       "lat": null,
       "lon": null,
       "mapConfidence": null,

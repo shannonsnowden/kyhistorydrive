@@ -533,6 +533,31 @@ const MANUAL_OVERRIDES = {
     lon: -84.7710855,
     confidence: 'override',
   },
+  // 2026-09-29 morning brief (Quapaw is theme-only, no pin)
+  'mary-draper-ingles-escapes-through-kentucky-1755': {
+    matchName: 'Mary Ingles at Big Bone Lick (1755 escape)',
+    lat: 38.8878833,
+    lon: -84.7507333,
+    confidence: 'override',
+  },
+  'bowling-green-takes-shape-on-the-barren-1798': {
+    matchName: 'Bowling Green founding / Bolin Green (1798)',
+    lat: 36.9931724,
+    lon: -86.4413471,
+    confidence: 'override',
+  },
+  'e-h-taylor-jr-and-the-bottled-in-bond-act-1897': {
+    matchName: 'E.H. Taylor Jr. / Old Taylor Distillery — Bottled-in-Bond Act (1897)',
+    lat: 38.1466899,
+    lon: -84.832567,
+    confidence: 'override',
+  },
+  'singer-hieronymus-fort-ancient-villages-on-north-elkhorn': {
+    matchName: 'Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)',
+    lat: 38.2364,
+    lon: -84.6607,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)

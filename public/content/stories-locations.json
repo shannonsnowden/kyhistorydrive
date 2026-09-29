@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-28T13:51:04.769Z",
+  "generatedAt": "2026-09-29T09:21:32.787Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
     "county": 6,
-    "override": 73,
-    "none": 26
+    "override": 77,
+    "none": 27
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -143,6 +143,14 @@
       "mapConfidence": "county",
       "matchedPlace": "Marshall County (centroid)",
       "historyId": null
+    },
+    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
+      "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+      "lat": 38.2364,
+      "lon": -84.6607,
+      "mapConfidence": "override",
+      "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)",
+      "historyId": "singer-hieronymus-fort-ancient-scott-county"
     },
     "tolu-site-mississippian-mounds-on-the-lower-ohio": {
       "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
@@ -343,6 +351,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Falls of the Ohio",
       "historyId": "falls-of-the-ohio"
+    },
+    "mary-draper-ingles-escapes-through-kentucky-1755": {
+      "slug": "mary-draper-ingles-escapes-through-kentucky-1755",
+      "lat": 38.8878833,
+      "lon": -84.7507333,
+      "mapConfidence": "override",
+      "matchedPlace": "Mary Ingles at Big Bone Lick (1755 escape)",
+      "historyId": "mary-ingles-big-bone-lick-escape-1755"
     },
     "shepherdsville-on-salt-river": {
       "slug": "shepherdsville-on-salt-river",
@@ -992,6 +1008,14 @@
       "matchedPlace": "Owensboro / Yellow Banks",
       "historyId": "owensboro-founding-yellow-banks"
     },
+    "bowling-green-takes-shape-on-the-barren-1798": {
+      "slug": "bowling-green-takes-shape-on-the-barren-1798",
+      "lat": 36.9931724,
+      "lon": -86.4413471,
+      "mapConfidence": "override",
+      "matchedPlace": "Bowling Green founding / Bolin Green (1798)",
+      "historyId": "bowling-green-founding-bolin-green-1798"
+    },
     "glasgow-the-barrens": {
       "slug": "glasgow-the-barrens",
       "lat": 36.9818833,
@@ -1111,6 +1135,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
+    },
+    "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
+      "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
+      "lat": 38.1466899,
+      "lon": -84.832567,
+      "mapConfidence": "override",
+      "matchedPlace": "E.H. Taylor Jr. / Old Taylor Distillery — Bottled-in-Bond Act (1897)",
+      "historyId": "old-taylor-distillery-bottled-in-bond-1897"
     },
     "natural-bridge-sandstone-arch": {
       "slug": "natural-bridge-sandstone-arch",
@@ -1298,6 +1330,14 @@
     },
     "potawatomi-fire-keepers-and-the-ohio-valley-wars": {
       "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "quapaw-the-downstream-people-of-the-ohio-valley": {
+      "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
