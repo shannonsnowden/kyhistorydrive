@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T09:21:37.593Z",
+  "generatedAt": "2026-09-29T09:29:25.165Z",
   "briefDate": "2026-09-29",
   "displayDate": "Tuesday, September 29, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -87,7 +87,14 @@
       "historyId": "singer-hieronymus-fort-ancient-scott-county",
       "mapHref": "/#map/history/singer-hieronymus-fort-ancient-scott-county",
       "quote": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
+        "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011
+      }
     },
     {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
@@ -103,7 +110,14 @@
       "historyId": null,
       "mapHref": null,
       "quote": "The Quapaw (Ugaxpa / Ugakhpa), a Dhegiha Siouan nation, keep oral tradition of a shared homeland in the Ohio River valley with the Osage, Omaha, Ponca, and Kansa.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/quapaw-the-downstream-people-of-the-ohio-valley.jpg",
+        "title": "Quapaw ceramic bottle, 14th–17th century",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_1990.156.2.jpeg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Metropolitan Museum of Art (open access) · Wikimedia Commons · CC0",
+        "year": null
+      }
     }
   ],
   "hero": {
@@ -190,7 +204,14 @@
       "historyId": "singer-hieronymus-fort-ancient-scott-county",
       "mapHref": "/#map/history/singer-hieronymus-fort-ancient-scott-county",
       "quote": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
+        "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011
+      }
     },
     {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
@@ -206,7 +227,14 @@
       "historyId": null,
       "mapHref": null,
       "quote": "The Quapaw (Ugaxpa / Ugakhpa), a Dhegiha Siouan nation, keep oral tradition of a shared homeland in the Ohio River valley with the Osage, Omaha, Ponca, and Kansa.",
-      "photo": null
+      "photo": {
+        "image_url": "/content/photos/stories/quapaw-the-downstream-people-of-the-ohio-valley.jpg",
+        "title": "Quapaw ceramic bottle, 14th–17th century",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_1990.156.2.jpeg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Metropolitan Museum of Art (open access) · Wikimedia Commons · CC0",
+        "year": null
+      }
     }
   ],
   "layers": [
