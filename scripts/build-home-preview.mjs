@@ -93,7 +93,8 @@ function firstSentence(text) {
     .replace(/\s+/g, ' ')
     .trim()
   if (!t) return ''
-  const parts = t.split(/(?<=[.!?])\s+/)
+  // Only split where a new sentence starts (capital/quote); keeps "A.D. 1200" and "O.F.C. (Old…)" intact.
+  const parts = t.split(/(?<=[.!?])\s+(?=[A-Z"'\u201C\u2018])/)
   let out = ''
   for (const p of parts) {
     out = out ? `${out} ${p}` : p
