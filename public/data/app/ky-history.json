@@ -2265,6 +2265,14 @@
     "category": "archaeology",
     "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Singer-Hieronymus.aspx",
     "year_start": 1200,
-    "year_end": 1550
+    "year_end": 1550,
+    "photo": {
+      "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
+      "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2011
+    }
   }
 ]

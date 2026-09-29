@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T09:21:37.585Z",
+  "generatedAt": "2026-09-29T09:29:25.158Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -409,6 +409,18 @@
         "year": null
       }
     },
+    "quapaw-the-downstream-people-of-the-ohio-valley": {
+      "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/quapaw-the-downstream-people-of-the-ohio-valley.jpg",
+        "title": "Quapaw ceramic bottle, 14th–17th century",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_1990.156.2.jpeg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Metropolitan Museum of Art (open access) · Wikimedia Commons · CC0",
+        "year": null
+      }
+    },
     "saltpeter-cave-at-carter-caves": {
       "slug": "saltpeter-cave-at-carter-caves",
       "historyId": "saltpeter-cave-carter-caves-15cr99",
@@ -431,6 +443,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
         "year": 1902
+      }
+    },
+    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
+      "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+      "historyId": "singer-hieronymus-fort-ancient-scott-county",
+      "photo": {
+        "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
+        "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011
       }
     },
     "slack-farm-15un28-union-county": {
@@ -841,6 +865,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
         "year": 1902
+      }
+    },
+    "singer-hieronymus-fort-ancient-scott-county": {
+      "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+      "historyId": "singer-hieronymus-fort-ancient-scott-county",
+      "photo": {
+        "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
+        "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011
       }
     },
     "slack-farm-15un28-union-county": {

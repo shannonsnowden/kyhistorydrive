@@ -13,5 +13,13 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-29"
+  "briefDate": "2026-09-29",
+  "photo": {
+    "image_url": "/content/photos/stories/quapaw-the-downstream-people-of-the-ohio-valley.jpg",
+    "title": "Quapaw ceramic bottle, 14th–17th century",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_1990.156.2.jpeg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Metropolitan Museum of Art (open access) · Wikimedia Commons · CC0",
+    "year": null
+  }
 }

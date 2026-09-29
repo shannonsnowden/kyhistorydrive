@@ -429,5 +429,25 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
     "year": 2016
+  },
+  "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
+    "ext": "jpg",
+    "commonsFile": "Fort Ancient Tools and other artifacts HRoe 2011.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg?width=1000",
+    "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2011
+  },
+  "quapaw-the-downstream-people-of-the-ohio-valley": {
+    "ext": "jpg",
+    "commonsFile": "Bottle MET 1990.156.2.jpeg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bottle_MET_1990.156.2.jpeg?width=1280",
+    "title": "Quapaw ceramic bottle, 14th–17th century",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_1990.156.2.jpeg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Metropolitan Museum of Art (open access) · Wikimedia Commons · CC0",
+    "year": null
   }
 }

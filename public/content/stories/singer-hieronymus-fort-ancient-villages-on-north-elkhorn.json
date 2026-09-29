@@ -13,5 +13,13 @@
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-29"
+  "briefDate": "2026-09-29",
+  "photo": {
+    "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
+    "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2011
+  }
 }
