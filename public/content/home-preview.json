@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T09:29:25.165Z",
+  "generatedAt": "2026-09-29T09:41:48.001Z",
   "briefDate": "2026-09-29",
   "displayDate": "Tuesday, September 29, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -63,7 +63,7 @@
       "lon": -84.832567,
       "historyId": "old-taylor-distillery-bottled-in-bond-1897",
       "mapHref": "/#map/history/old-taylor-distillery-bottled-in-bond-1897",
-      "quote": "Colonel Edmund Haynes Taylor Jr. (1830–1923) of Frankfort rebuilt Kentucky whiskey's reputation after the Civil War—raising the O.F.C.",
+      "quote": "Colonel Edmund Haynes Taylor Jr. (1830–1923) of Frankfort rebuilt Kentucky whiskey's reputation after the Civil War—raising the O.F.C. (Old Fire Copper) plant in 1869, later the Old Taylor works on Glenn's Creek, and fighting the flood of adulterated \"rectified\" spirits.",
       "photo": {
         "image_url": "/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
         "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
@@ -86,7 +86,7 @@
       "lon": -84.6607,
       "historyId": "singer-hieronymus-fort-ancient-scott-county",
       "mapHref": "/#map/history/singer-hieronymus-fort-ancient-scott-county",
-      "quote": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D.",
+      "quote": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D. 1200 and 1550.",
       "photo": {
         "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
         "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
@@ -180,7 +180,7 @@
       "lon": -84.832567,
       "historyId": "old-taylor-distillery-bottled-in-bond-1897",
       "mapHref": "/#map/history/old-taylor-distillery-bottled-in-bond-1897",
-      "quote": "Colonel Edmund Haynes Taylor Jr. (1830–1923) of Frankfort rebuilt Kentucky whiskey's reputation after the Civil War—raising the O.F.C.",
+      "quote": "Colonel Edmund Haynes Taylor Jr. (1830–1923) of Frankfort rebuilt Kentucky whiskey's reputation after the Civil War—raising the O.F.C. (Old Fire Copper) plant in 1869, later the Old Taylor works on Glenn's Creek, and fighting the flood of adulterated \"rectified\" spirits.",
       "photo": {
         "image_url": "/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
         "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
@@ -203,7 +203,7 @@
       "lon": -84.6607,
       "historyId": "singer-hieronymus-fort-ancient-scott-county",
       "mapHref": "/#map/history/singer-hieronymus-fort-ancient-scott-county",
-      "quote": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D.",
+      "quote": "On a broad ridge overlooking North Elkhorn Creek in Scott County, just north of Lexington, Fort Ancient farmers built a chain of circular villages between about A.D. 1200 and 1550.",
       "photo": {
         "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
         "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
