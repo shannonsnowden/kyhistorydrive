@@ -3242,8 +3242,14 @@ function mountStoryTerritory(reader, meta) {
   const host = reader.querySelector('[data-territory-mount]')
   if (!host) return
   loadTerritory(meta.territory.ref)
-    .then(({ T, base }) => {
-      if (host.isConnected) mountTerritory(host, { T, base, mode: 'card', slug: meta.slug })
+    .then(async ({ T, base }) => {
+      let nation = null
+      try {
+        nation = nationForSlug(await getTerritoryNations(), meta.slug)
+      } catch {
+        /* index unavailable: default card color */
+      }
+      if (host.isConnected) mountTerritory(host, { T, base, mode: 'card', slug: meta.slug, ...(nation ? { color: nation.color } : {}) })
     })
     .catch((err) => {
       console.warn('territory card failed', err)
