@@ -61,7 +61,7 @@ export const territoryMapHash = (slug) => `#map/territory/${encodeURIComponent(s
 /** "Chickasaw claim in this area: 1780–1818" (years come only from the cited sources). */
 export function territoryRangeText(t) {
   const end = t.yearEnd ? `–${t.yearEnd}` : '–'
-  return `${t.presenceLabel || `${t.nation} presence`}: ${t.yearStart}${end}`
+  return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.yearStart ?? ''}${end}`
 }
 export function territoryListLineHtml(s) {
   if (!storyHasTerritory(s)) return ''
