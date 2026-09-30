@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-29T09:21:32.787Z",
+  "generatedAt": "2026-09-30T09:28:52.847Z",
   "stats": {
     "exact": 12,
     "fuzzy": 48,
     "county": 6,
-    "override": 77,
-    "none": 27
+    "override": 81,
+    "none": 28
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -55,6 +55,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Salts Cave (15Ht4)",
       "historyId": "salts-cave-15ht4-mammoth-cave"
+    },
+    "dover-mound-mason-county": {
+      "slug": "dover-mound-mason-county",
+      "lat": 38.7564,
+      "lon": -83.8844,
+      "mapConfidence": "override",
+      "matchedPlace": "Dover Mound (Adena burial mound, Mason County)",
+      "historyId": "dover-mound-adena-mason-county"
     },
     "gaitskill-mounds-engraved-tablets": {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -504,6 +512,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "levi-todd-lexington-co-founder": {
+      "slug": "levi-todd-lexington-co-founder",
+      "lat": 38.0137667,
+      "lon": -84.4600167,
+      "mapConfidence": "override",
+      "matchedPlace": "Levi Todd / Ellerslie (Lexington co-founder)",
+      "historyId": "levi-todd-ellerslie-lexington"
+    },
     "maj-joseph-bowman": {
       "slug": "maj-joseph-bowman",
       "lat": 37.7623,
@@ -768,6 +784,14 @@
       "matchedPlace": "Battle of Blue Licks",
       "historyId": "battle-of-blue-licks"
     },
+    "bryan-station-siege-august-1782": {
+      "slug": "bryan-station-siege-august-1782",
+      "lat": 38.07586667,
+      "lon": -84.41529167,
+      "mapConfidence": "override",
+      "matchedPlace": "Bryan Station siege (Aug 15–16, 1782)",
+      "historyId": "bryans-station-siege-1782"
+    },
     "capt-james-estill-estills-defeat": {
       "slug": "capt-james-estill-estills-defeat",
       "lat": 38.0561079,
@@ -1023,6 +1047,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Glasgow / Barren County seat",
       "historyId": "glasgow-founding-john-gorin-big-spring"
+    },
+    "new-castle-henry-county-seat": {
+      "slug": "new-castle-henry-county-seat",
+      "lat": 38.4333333,
+      "lon": -85.1688889,
+      "mapConfidence": "override",
+      "matchedPlace": "New Castle — Henry County seat (1798)",
+      "historyId": "new-castle-henry-county-seat-1798"
     },
     "richmond-from-millers-barn": {
       "slug": "richmond-from-millers-barn",
@@ -1338,6 +1370,14 @@
     },
     "quapaw-the-downstream-people-of-the-ohio-valley": {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "susquehannock-and-the-ohio-valley-door": {
+      "slug": "susquehannock-and-the-ohio-valley-door",
       "lat": null,
       "lon": null,
       "mapConfidence": null,

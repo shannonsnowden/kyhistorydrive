@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-29T09:29:24.602Z",
-  "count": 170,
+  "generatedAt": "2026-09-30T09:28:52.625Z",
+  "count": 175,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-29"
+    "end": "2026-09-30"
   },
   "eras": [
     "early-commonwealth",
@@ -144,6 +144,34 @@
       "lon": -86.101,
       "mapConfidence": "override",
       "matchedPlace": "Salts Cave (15Ht4)"
+    },
+    {
+      "slug": "dover-mound-mason-county",
+      "title": "Dover Mound, Mason County",
+      "publishedDate": "2026-09-30",
+      "summary": "On a ridge near Dover in Mason County, the Dover Mound was an Adena (Early Woodland) burial mound. University of Kentucky anthropologists William S. Webb and Charles E. Snow…",
+      "yearStart": -800,
+      "yearEnd": 700,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-30",
+      "photo": {
+        "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
+        "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009
+      },
+      "lat": 38.7564,
+      "lon": -83.8844,
+      "mapConfidence": "override",
+      "matchedPlace": "Dover Mound (Adena burial mound, Mason County)"
     },
     {
       "slug": "gaitskill-mounds-engraved-tablets",
@@ -422,10 +450,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-29",
-      "lat": 38.2364,
-      "lon": -84.6607,
-      "mapConfidence": "override",
-      "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)",
       "photo": {
         "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
         "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
@@ -433,7 +457,11 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2011
-      }
+      },
+      "lat": 38.2364,
+      "lon": -84.6607,
+      "mapConfidence": "override",
+      "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)"
     },
     {
       "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
@@ -1417,6 +1445,34 @@
       "matchedPlace": null
     },
     {
+      "slug": "levi-todd-lexington-co-founder",
+      "title": "Levi Todd, Lexington Co-Founder",
+      "publishedDate": "2026-09-30",
+      "summary": "Levi Todd (1756–1807) came to Kentucky in 1775 with his brothers John and Robert, helped lay out Lexington’s stockade, and was elected one of its first Gentlemen Trustees in…",
+      "yearStart": 1775,
+      "yearEnd": 1807,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-30",
+      "photo": {
+        "image_url": "/content/photos/stories/levi-todd-lexington-co-founder.jpg",
+        "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+        "year": 1778
+      },
+      "lat": 38.0137667,
+      "lon": -84.4600167,
+      "mapConfidence": "override",
+      "matchedPlace": "Levi Todd / Ellerslie (Lexington co-founder)"
+    },
+    {
       "slug": "maj-joseph-bowman",
       "title": "Maj. Joseph Bowman",
       "publishedDate": "2026-09-16",
@@ -2157,6 +2213,34 @@
       "lon": -83.99151666666667,
       "mapConfidence": "exact",
       "matchedPlace": "Battle of Blue Licks"
+    },
+    {
+      "slug": "bryan-station-siege-august-1782",
+      "title": "Bryan Station Siege, August 1782",
+      "publishedDate": "2026-09-30",
+      "summary": "Bryan Station (also Bryan’s / Bryant’s) sat on the south bank of Elkhorn Creek a few miles northeast of Lexington, planted in 1776 by the Bryan brothers and Boone in-laws from…",
+      "yearStart": 1782,
+      "yearEnd": 1782,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-30",
+      "photo": {
+        "image_url": "/content/photos/stories/bryan-station-siege-august-1782.jpg",
+        "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019
+      },
+      "lat": 38.07586667,
+      "lon": -84.41529167,
+      "mapConfidence": "override",
+      "matchedPlace": "Bryan Station siege (Aug 15–16, 1782)"
     },
     {
       "slug": "capt-james-estill-estills-defeat",
@@ -2917,6 +3001,34 @@
       "lon": -85.9145954,
       "mapConfidence": "override",
       "matchedPlace": "Glasgow / Barren County seat"
+    },
+    {
+      "slug": "new-castle-henry-county-seat",
+      "title": "New Castle, Henry County Seat",
+      "publishedDate": "2026-09-30",
+      "summary": "When the General Assembly cut Henry County from Shelby County in 1798 and named it for Virginia’s Patrick Henry, New Castle was fixed as the seat—just north of Shelby County,…",
+      "yearStart": 1798,
+      "yearEnd": 1798,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-30",
+      "photo": {
+        "image_url": "/content/photos/stories/new-castle-henry-county-seat.jpg",
+        "title": "Henry County courthouse, New Castle",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      },
+      "lat": 38.4333333,
+      "lon": -85.1688889,
+      "mapConfidence": "override",
+      "matchedPlace": "New Castle — Henry County seat (1798)"
     },
     {
       "slug": "richmond-from-millers-barn",
@@ -3818,10 +3930,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-29",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "photo": {
         "image_url": "/content/photos/stories/quapaw-the-downstream-people-of-the-ohio-valley.jpg",
         "title": "Quapaw ceramic bottle, 14th–17th century",
@@ -3829,7 +3937,39 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Metropolitan Museum of Art (open access) · Wikimedia Commons · CC0",
         "year": null
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "susquehannock-and-the-ohio-valley-door",
+      "title": "Susquehannock and the Ohio Valley Door",
+      "publishedDate": "2026-09-30",
+      "summary": "The Susquehannock (also Andaste / Minqua / later Conestoga) were an Iroquoian people of the lower Susquehanna who dominated mid-Atlantic fur trade in the early 1600s and fought…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-30",
+      "photo": {
+        "image_url": "/content/photos/stories/susquehannock-and-the-ohio-valley-door.jpg",
+        "title": "Susquehannock artifacts on display, State Museum of Pennsylvania (Harrisburg) — Susquehannock homeland, not a Kentucky site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Susquehannock_Artifacts_PA_State_Museum.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",

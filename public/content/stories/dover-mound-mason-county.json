@@ -1,0 +1,25 @@
+{
+  "slug": "dover-mound-mason-county",
+  "title": "Dover Mound, Mason County",
+  "publishedDate": "2026-09-30",
+  "summary": "On a ridge near Dover in Mason County, the Dover Mound was an Adena (Early Woodland) burial mound. University of Kentucky anthropologists William S. Webb and Charles E. Snow…",
+  "bodyMarkdown": "On a ridge near Dover in Mason County, the Dover Mound was an Adena (Early Woodland) burial mound. University of Kentucky anthropologists William S. Webb and Charles E. Snow excavated it in the early 1950s and reported fifty-five burials with accompanying artifacts—one of the fuller published Adena mortuary assemblages from northern Kentucky’s Ohio River hills. Their 1959 monograph still anchors what we know of the site and places Dover in the same Adena world as Mount Horeb and other Bluegrass earthworks, centuries before Fort Ancient villages lined the same river.\nSource: [https://www.kentuckypress.com/9780813155630/the-dover-mound/](https://www.kentuckypress.com/9780813155630/the-dover-mound/)",
+  "yearStart": -800,
+  "yearEnd": 700,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-09-30",
+  "photo": {
+    "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
+    "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2009
+  }
+}

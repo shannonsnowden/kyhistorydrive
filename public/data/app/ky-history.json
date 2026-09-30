@@ -2274,5 +2274,105 @@
       "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
       "year": 2011
     }
+  },
+  {
+    "id": "levi-todd-ellerslie-lexington",
+    "name": "Levi Todd / Ellerslie (Lexington co-founder)",
+    "subtitle": "Fayette County · Levi Todd's Ellerslie on Richmond Road · Lexington trustee 1776, county clerk, Blue Licks major · Kentucky career 1775–1807",
+    "latitude": 38.0137667,
+    "longitude": -84.4600167,
+    "history": "Levi Todd (1756–1807) came to Kentucky in 1775 with his brothers John and Robert, helped lay out Lexington’s stockade, and was elected one of its first Gentlemen Trustees in March 1776. He became Kentucky County’s first clerk in 1777, rode with George Rogers Clark’s Illinois campaign (including the capture of Kaskaskia in 1778), and later served decades as Fayette County clerk. In August 1782 he led a forty-man relief column toward Bryan Station, then fought at Blue Licks—where brother Col. John Todd was killed—and wrote one of the earliest official accounts of the defeat. He rose to major general of Kentucky militia, built Ellerslie (Fayette’s first brick house), and was grandfather of Mary Todd Lincoln.",
+    "source_date": "2026-09-30",
+    "marker_number": "1001",
+    "marker_title": "Ellerslie",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #1001 'Ellerslie', 2440 Richmond Rd., Lexington — site of the brick house Levi Todd built in 1787. Distinct from the existing Col. John Todd (his brother) pin in downtown Lexington. Years are Levi Todd's Kentucky career (arrived 1775, died 1807), not the house's later history.",
+    "category": "person",
+    "website": "https://en.wikipedia.org/wiki/Levi_Todd",
+    "year_start": 1775,
+    "year_end": 1807,
+    "photo": {
+      "image_url": "/content/photos/stories/levi-todd-lexington-co-founder.jpg",
+      "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+      "year": 1778
+    }
+  },
+  {
+    "id": "new-castle-henry-county-seat-1798",
+    "name": "New Castle — Henry County seat (1798)",
+    "subtitle": "Henry County · county cut from Shelby 1798 · courthouse square · incorporated 1817",
+    "latitude": 38.4333333,
+    "longitude": -85.1688889,
+    "history": "When the General Assembly cut Henry County from Shelby County in 1798 and named it for Virginia’s Patrick Henry, New Castle was fixed as the seat—just north of Shelby County, inside the Louisville–Lexington–Cincinnati triangle. Landowners opened a courthouse square; the town was incorporated in 1817 and is counted among Kentucky’s oldest incorporated communities. Tobacco, hay, and cattle long carried the surrounding farms, and the courthouse square still anchors a preserved downtown with the Caplinger House (1863) as the Henry County History Center.",
+    "source_date": "2026-09-30",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "wikipedia-coordinates-new-castle",
+    "geocode_note": "Town center / courthouse square, New Castle (Wikipedia coordinates 38.4333, -85.1689; KHS 'County Named, 1798' marker stands on the courthouse lawn). Year is the 1798 county and county-seat creation, not the 1875 courthouse or 1863 Caplinger House.",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Henry_County,_Kentucky",
+    "year_start": 1798,
+    "year_end": 1798,
+    "photo": {
+      "image_url": "/content/photos/stories/new-castle-henry-county-seat.jpg",
+      "title": "Henry County courthouse, New Castle",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+      "year": null
+    }
+  },
+  {
+    "id": "dover-mound-adena-mason-county",
+    "name": "Dover Mound (Adena burial mound, Mason County)",
+    "subtitle": "Mason County · Ohio River hills near Dover · Adena burial mound · 55 burials reported",
+    "latitude": 38.7564,
+    "longitude": -83.8844,
+    "history": "On a ridge near Dover in Mason County, the Dover Mound was an Adena (Early Woodland) burial mound. University of Kentucky anthropologists William S. Webb and Charles E. Snow excavated it in the early 1950s and reported fifty-five burials with accompanying artifacts—one of the fuller published Adena mortuary assemblages from northern Kentucky’s Ohio River hills. Their 1959 monograph still anchors what we know of the site and places Dover in the same Adena world as Mount Horeb and other Bluegrass earthworks, centuries before Fort Ancient villages lined the same river.",
+    "source_date": "2026-09-30",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "general-dover-mason-county",
+    "geocode_note": "Generalized pin at Dover, Mason County. Exact mound coordinates are not published in the cited source (University Press of Kentucky page). Years are the Adena occupation span (~800 B.C.–A.D. 700 default), NOT the early-1950s Webb–Snow excavation or the 1959 monograph.",
+    "category": "archaeology",
+    "website": "https://www.kentuckypress.com/9780813155630/the-dover-mound/",
+    "year_start": -800,
+    "year_end": 700,
+    "photo": {
+      "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
+      "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2009
+    }
+  },
+  {
+    "id": "bryans-station-siege-1782",
+    "name": "Bryan Station siege (Aug 15–16, 1782)",
+    "subtitle": "Fayette County · Elkhorn Creek north of Lexington · women at the spring · Caldwell–Girty force",
+    "latitude": 38.07586667,
+    "longitude": -84.41529167,
+    "history": "Bryan Station (also Bryan’s / Bryant’s) sat on the south bank of Elkhorn Creek a few miles northeast of Lexington, planted in 1776 by the Bryan brothers and Boone in-laws from North Carolina. On August 15–16, 1782, Capt. William Caldwell, Simon Girty, and several hundred British-allied Wyandot, Lenape, and Shawnee warriors surrounded the fort. Knowing the attackers hoped to ambush men at the spring, the garrison sent the women and girls out with their usual water pails; they filled the fort’s supply and returned unharmed. The siege failed to take the station; when Kentucky militia pursued three days later, they met disaster at Blue Licks.",
+    "source_date": "2026-09-30",
+    "marker_number": "21",
+    "marker_title": "Bryan's Station",
+    "geocode_source": "wikipedia-coordinates-bryan-station",
+    "geocode_note": "Bryan Station site on the south bank of Elkhorn Creek (Wikipedia coordinates 38.0759, -84.4153), near the Bryan Station Memorial. No existing History-pack pin; the Blue Licks pin is the later, separate battle of Aug 19, 1782. KHS marker #21 (Bryan's Station) is in the markers layer.",
+    "category": "frontier",
+    "website": "https://en.wikipedia.org/wiki/Bryan_Station",
+    "year_start": 1782,
+    "year_end": 1782,
+    "photo": {
+      "image_url": "/content/photos/stories/bryan-station-siege-august-1782.jpg",
+      "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2019
+    }
   }
 ]

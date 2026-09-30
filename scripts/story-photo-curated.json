@@ -449,5 +449,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Metropolitan Museum of Art (open access) · Wikimedia Commons · CC0",
     "year": null
+  },
+  "levi-todd-lexington-co-founder": {
+    "ext": "jpg",
+    "commonsFile": "Promise to pay Anthony Peltier, signed Levi Todd, witnessed by George Rogers Clark, August 3, 1778 - DPLA - c36847f6ff629adc2678fb7e933c28c0 (page 1).jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Promise_to_pay_Anthony_Peltier%2C_signed_Levi_Todd%2C_witnessed_by_George_Rogers_Clark%2C_August_3%2C_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_%28page_1%29.jpg?width=1280",
+    "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+    "year": 1778
+  },
+  "new-castle-henry-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Henry County, Kentucky courthouse.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Henry_County%2C_Kentucky_courthouse.jpg?width=1280",
+    "title": "Henry County courthouse, New Castle",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": null
+  },
+  "susquehannock-and-the-ohio-valley-door": {
+    "ext": "jpg",
+    "commonsFile": "Susquehannock Artifacts PA State Museum.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Susquehannock_Artifacts_PA_State_Museum.JPG?width=1280",
+    "title": "Susquehannock artifacts on display, State Museum of Pennsylvania (Harrisburg) — Susquehannock homeland, not a Kentucky site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Susquehannock_Artifacts_PA_State_Museum.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
+  },
+  "dover-mound-mason-county": {
+    "ext": "jpg",
+    "commonsFile": "Adena SerpMd gorget points HRoe 2009.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Adena_SerpMd_gorget_points_HRoe_2009.jpg?width=1280",
+    "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2009
+  },
+  "bryan-station-siege-august-1782": {
+    "ext": "jpg",
+    "commonsFile": "Bryan's Station.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bryan%27s_Station.jpg?width=1280",
+    "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2019
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T09:29:25.158Z",
+  "generatedAt": "2026-09-30T09:28:53.140Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -59,6 +59,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "OPMaster · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2008
+      }
+    },
+    "bryan-station-siege-august-1782": {
+      "slug": "bryan-station-siege-august-1782",
+      "historyId": "bryans-station-siege-1782",
+      "photo": {
+        "image_url": "/content/photos/stories/bryan-station-siege-august-1782.jpg",
+        "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019
       }
     },
     "buckner-site-fort-ancient-villages-on-strodes-creek": {
@@ -143,6 +155,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
         "year": 1861
+      }
+    },
+    "dover-mound-mason-county": {
+      "slug": "dover-mound-mason-county",
+      "historyId": "dover-mound-adena-mason-county",
+      "photo": {
+        "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
+        "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009
       }
     },
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
@@ -325,6 +349,18 @@
         "year": null
       }
     },
+    "levi-todd-lexington-co-founder": {
+      "slug": "levi-todd-lexington-co-founder",
+      "historyId": "levi-todd-ellerslie-lexington",
+      "photo": {
+        "image_url": "/content/photos/stories/levi-todd-lexington-co-founder.jpg",
+        "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+        "year": 1778
+      }
+    },
     "mary-draper-ingles-escapes-through-kentucky-1755": {
       "slug": "mary-draper-ingles-escapes-through-kentucky-1755",
       "historyId": "mary-ingles-big-bone-lick-escape-1755",
@@ -346,6 +382,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    "new-castle-henry-county-seat": {
+      "slug": "new-castle-henry-county-seat",
+      "historyId": "new-castle-henry-county-seat-1798",
+      "photo": {
+        "image_url": "/content/photos/stories/new-castle-henry-county-seat.jpg",
+        "title": "Henry County courthouse, New Castle",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null
       }
     },
@@ -481,6 +529,18 @@
         "year": 2008
       }
     },
+    "susquehannock-and-the-ohio-valley-door": {
+      "slug": "susquehannock-and-the-ohio-valley-door",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/susquehannock-and-the-ohio-valley-door.jpg",
+        "title": "Susquehannock artifacts on display, State Museum of Pennsylvania (Harrisburg) — Susquehannock homeland, not a Kentucky site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Susquehannock_Artifacts_PA_State_Museum.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      }
+    },
     "sweet-lick-knob-fort-ancient-gathering-place": {
       "slug": "sweet-lick-knob-fort-ancient-gathering-place",
       "historyId": "sweet-lick-knob-fort-ancient-estill",
@@ -603,6 +663,18 @@
         "year": 2008
       }
     },
+    "bryans-station-siege-1782": {
+      "slug": "bryan-station-siege-august-1782",
+      "historyId": "bryans-station-siege-1782",
+      "photo": {
+        "image_url": "/content/photos/stories/bryan-station-siege-august-1782.jpg",
+        "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019
+      }
+    },
     "buckner-site-15bb12-bourbon-county": {
       "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
       "historyId": "buckner-site-15bb12-bourbon-county",
@@ -661,6 +733,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
         "year": 2023
+      }
+    },
+    "dover-mound-adena-mason-county": {
+      "slug": "dover-mound-mason-county",
+      "historyId": "dover-mound-adena-mason-county",
+      "photo": {
+        "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
+        "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009
       }
     },
     "old-taylor-distillery-bottled-in-bond-1897": {
@@ -783,6 +867,18 @@
         "year": null
       }
     },
+    "levi-todd-ellerslie-lexington": {
+      "slug": "levi-todd-lexington-co-founder",
+      "historyId": "levi-todd-ellerslie-lexington",
+      "photo": {
+        "image_url": "/content/photos/stories/levi-todd-lexington-co-founder.jpg",
+        "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+        "year": 1778
+      }
+    },
     "mary-ingles-big-bone-lick-escape-1755": {
       "slug": "mary-draper-ingles-escapes-through-kentucky-1755",
       "historyId": "mary-ingles-big-bone-lick-escape-1755",
@@ -804,6 +900,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    "new-castle-henry-county-seat-1798": {
+      "slug": "new-castle-henry-county-seat",
+      "historyId": "new-castle-henry-county-seat-1798",
+      "photo": {
+        "image_url": "/content/photos/stories/new-castle-henry-county-seat.jpg",
+        "title": "Henry County courthouse, New Castle",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null
       }
     },

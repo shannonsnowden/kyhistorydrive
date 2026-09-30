@@ -558,6 +558,31 @@ const MANUAL_OVERRIDES = {
     lon: -84.6607,
     confidence: 'override',
   },
+  // 2026-09-30 morning brief (Susquehannock is theme-only, no pin)
+  'levi-todd-lexington-co-founder': {
+    matchName: 'Levi Todd / Ellerslie (Lexington co-founder)',
+    lat: 38.0137667,
+    lon: -84.4600167,
+    confidence: 'override',
+  },
+  'new-castle-henry-county-seat': {
+    matchName: 'New Castle — Henry County seat (1798)',
+    lat: 38.4333333,
+    lon: -85.1688889,
+    confidence: 'override',
+  },
+  'dover-mound-mason-county': {
+    matchName: 'Dover Mound (Adena burial mound, Mason County)',
+    lat: 38.7564,
+    lon: -83.8844,
+    confidence: 'override',
+  },
+  'bryan-station-siege-august-1782': {
+    matchName: 'Bryan Station siege (Aug 15–16, 1782)',
+    lat: 38.07586667,
+    lon: -84.41529167,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
