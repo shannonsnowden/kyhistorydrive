@@ -15,5 +15,12 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-03"
+  "briefDate": "2026-09-03",
+  "territory": {
+    "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+    "nation": "Shawnee",
+    "yearStart": 1774,
+    "yearEnd": 1795,
+    "presenceLabel": "Shawnee Ohio River line and towns in this area"
+  }
 }

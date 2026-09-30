@@ -84,3 +84,12 @@ html[data-hp-theme=light] .terr-open{color:#fff}.terr-open:hover{filter:brightne
 .terr-legend .lg-focal b{font-weight:800}
 .terr-legend .lg-other em{font-style:normal;opacity:.85;text-transform:none;letter-spacing:0}
 .terr-legend{gap:.35rem 1rem}
+
+/* multi-era nations: line / point legend swatches and the "not drawn" tag */
+.terr-legend i.lg-line{height:0;width:26px;border:0;border-top-width:3px;align-self:center}
+.terr-legend i.lg-pt{width:11px;height:11px;border-radius:50%}
+.terr-tag.nd{color:#4a3a00;background:rgba(240,228,66,.35)}
+html:not([data-hp-theme=light]) .terr-tag.nd{color:#fff3a0;background:rgba(240,228,66,.14)}
+.terr-full .terr-tag.nd{color:#fff3a0;background:rgba(240,228,66,.14)}
+.terr-bar .tk[hidden]{display:none}
+.terr-maplegend .ml-n{display:block;color:var(--muted);font-size:.7rem;line-height:1.3}

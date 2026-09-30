@@ -15,6 +15,39 @@
    "yearEnd": 1818,
    "confidence": "medium",
    "note": "Extent shown is the 1786 Treaty of Hopewell frame; its southern edge is not fixed by the sources."
+  },
+  {
+   "id": "cherokee",
+   "name": "Cherokee",
+   "color": "#0072B2",
+   "slugs": [
+    "treaties-of-hard-labour-and-lochaber",
+    "chickamauga-cherokee",
+    "chickamauga-cherokee-hold-the-southern-flank"
+   ],
+   "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+   "extentFeature": "extent",
+   "yearStart": 1768,
+   "yearEnd": 1794,
+   "confidence": "low-medium",
+   "mapNote": "Treaty lines and Chickamauga towns only; no Kentucky claim drawn.",
+   "note": "Main-map shape = sourced treaty/survey lines (1768, 1770, 1771) plus the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn."
+  },
+  {
+   "id": "shawnee",
+   "name": "Shawnee",
+   "color": "#009E73",
+   "slugs": [
+    "treaty-of-camp-charlotte-1774",
+    "shawnee-chillicothe-divisions"
+   ],
+   "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+   "extentFeature": "extent",
+   "yearStart": 1715,
+   "yearEnd": 1795,
+   "confidence": "low-medium",
+   "mapNote": "Shawnee claim in Kentucky: unknown, not drawn.",
+   "note": "Main-map shape = 1774 Ohio River line plus Ohio town counties. The Kentucky claim has no source boundary and is not drawn."
   }
  ]
 }

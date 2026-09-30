@@ -8,3 +8,10 @@ To add a nation (no code change):
 3. Add the small `territory` pointer to the story JSON (for the story card).
 
 Palette (Okabe-Ito, colorblind-safe): #D55E00 vermillion, #0072B2 blue, #009E73 green, #CC79A7 pink, #E69F00 orange, #56B4E9 sky, #F0E442 yellow. No empty strings anywhere.
+
+## Optional fields for multi-era nations (added in batch 1)
+- `baseRef`: base map JSON (default `_poster-base-ky.json`, the Chickasaw window). `_base-ohio-valley.json` is the wider window (Ohio Valley to the Carolinas).
+- `view.{full,narrow,card}`: SVG viewBox per layout. `pal`, `fadeSouth`, `fadeYears` (0 = hard cut between eras), `pins`.
+- `stories[slug]`: per-story displayed years/label when one file serves several stories; `startEra[slug]`: era shown first.
+- Era `layers[].style`: `soft`, `solid`, `hatch`, `line`, `dash`, `point`. Geometry may be a `GeometryCollection` (polygons fill, lines stroke). Era `notDrawn: {map, tag}` shows an "unknown, not drawn" note.
+- Index entry `mapNote`: one line shown under the nation in the map legend. `extentFeature` may be a `GeometryCollection` (main-map/muted shape).
