@@ -2484,9 +2484,120 @@ function summaryDuplicatesBody(summary, bodyMarkdown) {
   return prefix.length >= 24 && body.startsWith(prefix)
 }
 
-async function showStoryInReader(meta, { scroll = true } = {}) {
+/* -------------------- Timeline: story opens IN PLACE (under its list row) -------------------- */
+/** Scroll anchor captured when a story opens: the row's viewport top, used to restore on close. */
+let timelineReaderRestore = null
+let timelinePendingRestore = null
+
+function timelineHeaderOffset() {
+  const header = document.querySelector('header.top')
+  return header ? header.getBoundingClientRect().height + 8 : 8
+}
+
+function timelineItemFor(slug) {
+  if (!slug) return null
+  const esc = window.CSS?.escape ? window.CSS.escape(slug) : String(slug).replace(/"/g, '\\"')
+  return document.querySelector(`#timelineList .timeline-item[data-slug="${esc}"]`)
+}
+
+/** Put the reader back at its home spot (after the list) and drop the in-list slot. */
+function parkTimelineReader() {
+  const reader = document.getElementById('timelineStoryReader')
+  const list = document.getElementById('timelineList')
+  if (reader && list && reader.parentElement !== list.parentElement) {
+    list.insertAdjacentElement('afterend', reader)
+  }
+  document.getElementById('timelineReaderSlot')?.remove()
+}
+
+/** Move the reader to sit directly under `item`, keeping that row fixed on screen. */
+function placeTimelineReaderAfter(item) {
+  const reader = document.getElementById('timelineStoryReader')
+  if (!reader || !item) return
+  const top0 = item.getBoundingClientRect().top
+  let slot = document.getElementById('timelineReaderSlot')
+  if (!slot) {
+    slot = document.createElement('li')
+    slot.id = 'timelineReaderSlot'
+    slot.className = 'timeline-reader-slot'
+  }
+  if (slot.previousElementSibling !== item) item.insertAdjacentElement('afterend', slot)
+  if (reader.parentElement !== slot) slot.appendChild(reader)
+  const dy = item.getBoundingClientRect().top - top0
+  if (Math.abs(dy) > 1) window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
+}
+
+/** After the story's first paint, make sure the start of it is on screen (small nudge only). */
+function nudgeTimelineReaderIntoView(item) {
+  const slot = document.getElementById('timelineReaderSlot')
+  if (!slot || !item) return
+  const vh = window.innerHeight
+  const slotTop = slot.getBoundingClientRect().top
+  if (slotTop < vh * 0.62) return
+  const delta = item.getBoundingClientRect().top - timelineHeaderOffset()
+  if (delta > 0) window.scrollBy({ top: delta, left: 0, behavior: 'instant' })
+}
+
+function closeTimelineReader({ focusItem = true } = {}) {
+  const reader = document.getElementById('timelineStoryReader')
+  if (!reader || reader.classList.contains('is-empty')) return
+  const slug = selectedStorySlug
+  const restore = timelineReaderRestore
+  parkTimelineReader()
+  reader.classList.add('is-empty')
+  reader.innerHTML = ''
+  const jumpBar = document.getElementById('timelineReaderJump')
+  if (jumpBar) jumpBar.hidden = true
+  selectedStorySlug = null
+  history.replaceState(null, '', '#timeline')
+  document.querySelectorAll('#timelineList .timeline-item.selected').forEach((el) => el.classList.remove('selected'))
+  if (timelineMapReady) ensureHighlightSource(timelineMap, null)
+  const item = timelineItemFor(slug)
+  if (item) {
+    // Put the row back where it was on screen when the story was opened (exact scroll restore).
+    // No restore point (deep link): just keep the row just under the sticky header.
+    const want = restore && restore.slug === slug ? restore.top : timelineHeaderOffset()
+    const dy = item.getBoundingClientRect().top - want
+    if (Math.abs(dy) > 0.5) window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
+    if (focusItem) item.focus({ preventScroll: true })
+  }
+  timelineReaderRestore = null
+}
+
+function openNextTimelineStory() {
+  const slug = selectedStorySlug
+  const cur = timelineItemFor(slug)
+  let next = cur ? cur.nextElementSibling : null
+  while (next && !next.classList.contains('timeline-item')) next = next.nextElementSibling
+  if (!next) return false
+  parkTimelineReader() // collapse current story; next row slides up under it
+  const dy = next.getBoundingClientRect().top - timelineHeaderOffset()
+  window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
+  timelinePendingRestore = { slug: next.dataset.slug, top: next.getBoundingClientRect().top }
+  next.click()
+  return true
+}
+
+function timelineReaderBarHtml(pos) {
+  return `<div class="story-reader-bar story-reader-bar-${pos}" role="toolbar" aria-label="Story controls">
+    <button type="button" class="btn ghost small" data-reader-close>✕ Close story</button>
+    <button type="button" class="btn ghost small" data-reader-next>Next story ↓</button>
+  </div>`
+}
+
+async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
   const reader = document.getElementById('timelineStoryReader')
   if (!reader || !meta) return
+  const rowItem = timelineItemFor(meta.slug)
+  if (rowItem) {
+    // Re-anchor restore info (set by the click handler, or captured now for deep links)
+    const pending = timelinePendingRestore && timelinePendingRestore.slug === meta.slug ? timelinePendingRestore : null
+    timelinePendingRestore = null
+    // Deep links / programmatic opens have no restore point (Close then keeps the row in view instead)
+    if (pending) timelineReaderRestore = pending
+    else if (!timelineReaderRestore || timelineReaderRestore.slug !== meta.slug) timelineReaderRestore = null
+    placeTimelineReaderAfter(rowItem)
+  }
   reader.classList.remove('is-empty')
   reader.innerHTML = '<p class="muted">Loading…</p>'
   const jumpBar = document.getElementById('timelineReaderJump')
@@ -2567,6 +2678,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
       existingPhoto: s.photo || null,
     })
     reader.innerHTML = `
+      ${timelineReaderBarHtml('top')}
       <div class="story-reader-layout">
         <div class="story-reader-main">
           <header class="story-head">
@@ -2604,10 +2716,20 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
         </div>
         ${storySidebarPhotoHtml(sidebarPhoto, s.title)}
       </div>
+      ${timelineReaderBarHtml('bottom')}
     `
     wireShareButtons(reader)
     mountStoryTerritory(reader, meta)
-    if (scroll) reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    if (rowItem) {
+      // In place: never jump to the bottom of the list. Only nudge if the story start is off-screen.
+      if (scroll || focus) nudgeTimelineReaderIntoView(rowItem)
+      if (focus) {
+        reader.setAttribute('tabindex', '-1')
+        reader.focus({ preventScroll: true })
+      }
+    } else if (scroll) {
+      reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    }
   } catch {
     reader.innerHTML = `<p class="muted">Could not load this story.</p>`
   }
@@ -2742,6 +2864,28 @@ function setupTimelineJumpControls() {
   wire('timelineJumpFiltersBottom', 'filters')
   wire('timelineJumpStoriesBottom', 'stories')
   wire('timelineJumpTop', 'top')
+  const home = document.getElementById('timelineJumpHome')
+  if (home && !home.dataset.ready) {
+    home.dataset.ready = '1'
+    home.addEventListener('click', () => goHome())
+  }
+  const readerEl = document.getElementById('timelineStoryReader')
+  if (readerEl && !readerEl.dataset.barsReady) {
+    readerEl.dataset.barsReady = '1'
+    readerEl.addEventListener('click', (e) => {
+      if (e.target.closest('[data-reader-close]')) closeTimelineReader()
+      else if (e.target.closest('[data-reader-next]')) {
+        if (!openNextTimelineStory()) closeTimelineReader()
+      }
+    })
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || e.defaultPrevented) return
+      if (parseHash().view !== 'timeline') return
+      if (e.target.closest?.('input,select,textarea')) return
+      if (!document.getElementById('timelineReaderSlot')) return
+      closeTimelineReader()
+    })
+  }
 
   const wireReset = (id) => {
     const btn = document.getElementById(id)
@@ -2790,6 +2934,7 @@ async function renderTimelineList(preferredSlug) {
     const withCounty = filtered.filter((s) => s.county).length
     sortMeta.textContent = `${filtered.length} in this filter · ${withCounty} with county`
   }
+  parkTimelineReader() // keep the reader element out of the list while it is rebuilt
   list.innerHTML =
     filtered
       .map((s) => {
@@ -2820,13 +2965,31 @@ async function renderTimelineList(preferredSlug) {
     const s = allBySlug[slug]
     if (!s) return
     selectedStorySlug = s.slug
+    const row = timelineItemFor(s.slug)
+    if (row && document.getElementById('timelineReaderSlot')) {
+      // Another story is open: collapse it first, keeping the clicked row still on screen
+      const t0 = row.getBoundingClientRect().top
+      parkTimelineReader()
+      const dy = row.getBoundingClientRect().top - t0
+      if (Math.abs(dy) > 0.5) window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
+      timelinePendingRestore = null
+    }
+    // Remember where this row sits so Close can put the page back exactly
+    if (!timelinePendingRestore && row) {
+      timelinePendingRestore = { slug: s.slug, top: row.getBoundingClientRect().top }
+    }
     history.replaceState(null, '', `#timeline/${encodeURIComponent(s.slug)}`)
-    showStoryInReader(s)
+    showStoryInReader(s, { scroll: true, focus: true })
   }
 
   list.onclick = (e) => {
     const item = e.target.closest('.timeline-item[data-slug]')
     if (!item) return
+    if (item.dataset.slug === selectedStorySlug && document.getElementById('timelineReaderSlot')) {
+      // Clicking the open row again collapses it
+      closeTimelineReader()
+      return
+    }
     openStory(item.dataset.slug)
   }
   list.onkeydown = (e) => {
@@ -2851,6 +3014,10 @@ async function renderTimelineList(preferredSlug) {
       !reader.classList.contains('is-empty')
     if (!alreadyShowing) {
       await showStoryInReader(pick, { scroll: false })
+    } else {
+      // List was rebuilt (filter/sort): slot the open story back under its row if it is still listed
+      const row = timelineItemFor(pick.slug)
+      if (row) placeTimelineReaderAfter(row)
     }
   } else if (reader && !selectedStorySlug) {
     reader.classList.add('is-empty')
