@@ -4,6 +4,15 @@ import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { initSiteSearch } from './site-search.js'
 import { initThemeToggle } from './theme.js'
+import './territory.css'
+import {
+  storyHasTerritory,
+  territoryEnabled,
+  territoryListLineHtml,
+  territoryMapHash,
+  loadTerritory,
+  mountTerritory,
+} from './territory.js'
 
 /** CARTO Voyager raster (OSM data). Requires VITE_CARTO_API_KEY at build time. */
 const CARTO_KEY = (import.meta.env.VITE_CARTO_API_KEY || '').trim()
@@ -2585,6 +2594,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${extras}
+          ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
           ${
             mapHash
               ? `<p class="muted popup-hint">The Timeline map highlights this place. Open on the map to fly to the pin and see the full popup.</p>`
@@ -2596,6 +2606,7 @@ async function showStoryInReader(meta, { scroll = true } = {}) {
       </div>
     `
     wireShareButtons(reader)
+    mountStoryTerritory(reader, meta)
     if (scroll) reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   } catch {
     reader.innerHTML = `<p class="muted">Could not load this story.</p>`
@@ -2799,6 +2810,7 @@ async function renderTimelineList(preferredSlug) {
             ${tagHtml}
           </div>
           <p>${escapeHtml(s.summary || '')}</p>
+          ${territoryListLineHtml(s)}
         </div>
       </li>`
       })
@@ -3049,6 +3061,98 @@ async function revealPlaceFromHash({ placeLayer, placeId }, attempt = 0) {
 }
 
 
+
+/* -------------------- Tribal territory test (flag: src/territory-flag.js) -------------------- */
+function mountStoryTerritory(reader, meta) {
+  if (!storyHasTerritory(meta)) return
+  const host = reader.querySelector('[data-territory-mount]')
+  if (!host) return
+  loadTerritory(meta.territory.ref)
+    .then(({ T, base }) => {
+      if (host.isConnected) mountTerritory(host, { T, base, mode: 'card', slug: meta.slug })
+    })
+    .catch((err) => {
+      console.warn('territory card failed', err)
+      host.remove()
+    })
+}
+
+/** Slug from #map/territory/<slug>, or null (also null when the flag is off). */
+function territoryRouteSlug() {
+  if (!territoryEnabled()) return null
+  const { view, placeLayer, placeId } = parseHash()
+  return view === 'map' && placeLayer === 'territory' && placeId ? placeId : null
+}
+
+async function territoryStories() {
+  if (!territoryEnabled()) return []
+  const idx = await loadStories()
+  return idx.stories.filter(storyHasTerritory)
+}
+
+/** "Show only this nation" control in the Map layers panel. Flag off = nothing rendered. */
+async function setupTerritoryMapControl() {
+  if (!territoryEnabled()) return
+  const panel = document.querySelector('#map .layers-panel')
+  if (!panel || panel.querySelector('[data-territory-panel]')) return
+  const list = await territoryStories()
+  if (!list.length || panel.querySelector('[data-territory-panel]')) return
+  const s = list[0]
+  const box = document.createElement('div')
+  box.className = 'terr-panel'
+  box.dataset.territoryPanel = '1'
+  box.innerHTML = `<h3>Native territory <span class="muted">(test)</span></h3>
+    <label class="only"><input type="checkbox" id="terrOnly" /> <span>Show only this nation: ${escapeHtml(s.territory.nation)}</span></label>
+    <p class="muted">Shows just the ${escapeHtml(s.territory.nation)} area from the story “${escapeHtml(s.title)}” as an approximate, sourced shaded region. Hides the other layers.</p>`
+  const after = panel.querySelector('#layerToggles')
+  after.insertAdjacentElement('afterend', box)
+  box.querySelector('#terrOnly').addEventListener('change', (e) => {
+    if (e.target.checked) location.hash = territoryMapHash(s.slug)
+    else goHomeMap()
+  })
+  syncTerritoryControlState()
+}
+
+function syncTerritoryControlState() {
+  const cb = document.getElementById('terrOnly')
+  if (cb) cb.checked = Boolean(territoryRouteSlug())
+}
+
+async function showTerritoryMapView(slug) {
+  const section = document.getElementById('map')
+  const wrap = section?.querySelector('.map-canvas-wrap')
+  if (!section || !wrap) return false
+  const idx = await loadStories()
+  const meta = idx.stories.find((x) => x.slug === slug)
+  if (!storyHasTerritory(meta)) return false
+  let host = document.getElementById('territoryFull')
+  if (!host) {
+    host = document.createElement('div')
+    host.id = 'territoryFull'
+    wrap.appendChild(host)
+  }
+  const { T, base } = await loadTerritory(meta.territory.ref)
+  if (territoryRouteSlug() !== slug) return true
+  section.classList.add('terr-on')
+  mountTerritory(host, { T, base, mode: 'full', slug })
+  const nav = document.createElement('p')
+  nav.className = 'terr-back muted'
+  nav.style.margin = '.2rem .9rem .8rem'
+  nav.innerHTML = `<a href="/#timeline/${encodeURIComponent(slug)}">← Back to the story</a> · <a href="/#map" data-terr-exit>Back to the full map</a>`
+  host.appendChild(nav)
+  nav.querySelector('[data-terr-exit]').addEventListener('click', (e) => {
+    e.preventDefault()
+    goHomeMap()
+  })
+  return true
+}
+
+function leaveTerritoryMapView() {
+  document.getElementById('map')?.classList.remove('terr-on')
+  const host = document.getElementById('territoryFull')
+  if (host) host.innerHTML = ''
+}
+
 /* -------------------- Router -------------------- */
 function setActiveNav(view) {
   document.querySelectorAll('#mainNav a').forEach((a) => {
@@ -3068,7 +3172,28 @@ async function applyRoute() {
 
   setActiveNav(view)
 
-  if (view === 'map') {
+  if (view === 'map' && territoryRouteSlug()) {
+    // Tribal territory test: #map/territory/<slug> shows only that nation's shaded area
+    pendingFocus = null
+    setupTerritoryMapControl().catch(console.error)
+    syncTerritoryControlState()
+    showTerritoryMapView(territoryRouteSlug())
+      .then((ok) => {
+        if (!ok) {
+          history.replaceState(null, '', `${location.pathname}#map`)
+          applyRoute().catch(console.error)
+        }
+      })
+      .catch((err) => {
+        console.error(err)
+        history.replaceState(null, '', `${location.pathname}#map`)
+        applyRoute().catch(console.error)
+      })
+    requestAnimationFrame(scrollPageToTop)
+  } else if (view === 'map') {
+    leaveTerritoryMapView()
+    setupTerritoryMapControl().catch(console.error)
+    syncTerritoryControlState()
     const { placeLayer, placeId } = parseHash()
     // Always open Map on the full state (start or navigating back from Timeline/etc.)
     // unless a shared place deep link is present

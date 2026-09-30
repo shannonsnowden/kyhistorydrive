@@ -1,0 +1,73 @@
+/* Tribal territory test (Chickasaw only). Everything here is scoped to .terr-* and
+   only appears when TRIBAL_TERRITORY_ENABLED is true AND a story has a `territory` field. */
+.terr-card{margin:1.4rem 0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.85rem .95rem 1rem;box-shadow:0 2px 10px rgba(0,0,0,.14);max-width:40rem}
+.terr-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.25rem .75rem;margin-bottom:.5rem}
+.terr-kicker{font-family:"Bookman Old Style","URW Bookman","C059","Palatino Linotype","P052",Georgia,"DejaVu Serif",serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--heading);font-weight:800}
+.terr-presence{font-family:"Bookman Old Style","URW Bookman","C059","Palatino Linotype","P052",Georgia,"DejaVu Serif",serif;font-weight:800;color:var(--accent);font-size:1.02rem}
+.terr-map{border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#173a26;min-height:120px}
+.terr-map svg{display:block;width:100%;height:auto}
+.terr-ctl{display:flex;align-items:center;gap:.7rem;margin-top:.65rem}
+.terr-ctl input[type=range]{flex:1;min-width:0;accent-color:#b3261e;height:28px;cursor:pointer}
+.terr-out{font-family:"Bookman Old Style","URW Bookman","C059",Georgia,"DejaVu Serif",serif;font-weight:800;font-size:1.3rem;min-width:3.4rem;text-align:right;color:var(--accent)}
+.terr-bar{position:relative;height:1.9rem;margin:.35rem .2rem 0}
+.terr-bar .trk{position:absolute;left:0;right:0;top:.15rem;height:.7rem;border-radius:3px;background:rgba(128,128,128,.2);border:1px solid var(--line)}
+.terr-bar .seg{position:absolute;top:.15rem;height:.7rem;border:1px solid rgba(245,236,214,.6)}
+.terr-bar .cur{position:absolute;top:0;width:3px;height:1rem;background:var(--accent);transform:translateX(-50%);border-radius:2px}
+.terr-bar .tk{position:absolute;top:1rem;transform:translateX(-50%);font-size:.7rem;color:var(--muted);white-space:nowrap}
+.terr-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.55rem 0 .2rem}
+.terr-chips button{font:inherit;font-size:.78rem;padding:.3rem .65rem;min-height:2rem;border-radius:999px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.terr-chips button[aria-pressed=true]{background:var(--accent);color:var(--ink-on-gold,#1a140c);font-weight:700}
+html[data-hp-theme=light] .terr-chips button[aria-pressed=true]{color:#fff}
+.terr-chips button:focus-visible,.terr-ctl input:focus-visible,.terr-open:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.terr-era{margin:.5rem 0 .2rem}.terr-era h4{margin:0 0 .25rem;font-size:.92rem;color:var(--heading)}
+.terr-era p{margin:0;font-size:.86rem;line-height:1.5;color:var(--text)}
+.terr-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 .4rem}
+.terr-tag{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;padding:.22rem .55rem;border-radius:999px;border:1px solid currentColor;font-weight:700;line-height:1.25}
+.terr-tag.conf{color:#7a4a0e;background:rgba(201,137,58,.2)}.terr-tag.appr{color:#8f1d17;background:rgba(179,38,30,.12)}.terr-tag.ovl{color:#3b5a33;background:rgba(60,90,50,.12)}
+html:not([data-hp-theme=light]) .terr-tag.conf{color:#ffd9a0}html:not([data-hp-theme=light]) .terr-tag.appr{color:#ffb4a8}html:not([data-hp-theme=light]) .terr-tag.ovl{color:#cfe2c4}
+.terr-note,.terr-src,.terr-foot,.terr-span{font-size:.78rem;line-height:1.5;color:var(--muted);margin:.35rem 0 0}
+.terr-src a,.terr-span a{color:var(--accent);overflow-wrap:anywhere}
+.terr-foot{font-style:italic;border-top:1px solid var(--line);padding-top:.5rem;margin-top:.7rem}
+.terr-open{display:inline-block;margin-top:.7rem;padding:.5rem .95rem;border-radius:8px;background:var(--accent);color:var(--ink-on-gold,#1a140c);font-weight:700;font-size:.9rem;text-decoration:none;min-height:2.4rem}
+html[data-hp-theme=light] .terr-open{color:#fff}.terr-open:hover{filter:brightness(1.08)}
+.terr-listline{margin:.3rem 0 0;font-size:.82rem;font-weight:700;color:var(--accent)}
+.terr-listline small{font-weight:400;color:var(--muted)}
+/* map view */
+.terr-panel{margin:0 0 1rem;padding:.8rem .85rem;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.terr-panel h3{margin:0 0 .3rem;font-family:"Bookman Old Style","URW Bookman","C059",Georgia,"DejaVu Serif",serif;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem;color:var(--heading)}
+.terr-panel label.only{display:flex;gap:.5rem;align-items:center;font-size:.9rem;font-weight:600;margin:.4rem 0}
+.terr-panel .back{display:inline-block;margin-top:.5rem;font-size:.85rem}
+.terr-overlay{position:absolute;left:.6rem;right:3.4rem;bottom:1.8rem;z-index:3;background:rgba(21,48,31,.92);color:#f5ecd6;border:1px solid rgba(245,236,214,.5);border-radius:10px;padding:.5rem .7rem;box-shadow:0 4px 14px rgba(0,0,0,.4);max-width:30rem}
+.terr-overlay .terr-ctl{margin-top:0}.terr-overlay .terr-out{color:#ffd9a0;font-size:1.15rem}
+.terr-overlay .ov-l{font-family:"Bookman Old Style","URW Bookman","C059",Georgia,"DejaVu Serif",serif;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;margin-bottom:.15rem}
+.terr-overlay .ov-l b{color:#ffd9a0}
+.terr-overlay .ov-a{font-size:.7rem;margin-top:.15rem;color:#ffb4a8;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:520px){.terr-overlay{left:.4rem;right:.4rem;bottom:1.6rem;padding:.4rem .55rem}.terr-card{padding:.7rem .7rem .9rem}.terr-chips button{font-size:.76rem;padding:.3rem .55rem}}
+@media (prefers-reduced-motion:reduce){.terr-card *{transition:none!important}}
+/* full-screen (map view) mode */
+.terr-full{background:#15301f;color:#f5ecd6;border:1px solid #0a170f;border-radius:12px;padding:.9rem 1rem 1rem;position:relative;margin:.75rem;box-shadow:0 6px 22px rgba(0,0,0,.35)}
+.terr-full:before{content:"";position:absolute;inset:6px;border:1px solid rgba(245,236,214,.4);border-radius:8px;pointer-events:none}
+.terr-full .terr-title{font-family:"Bookman Old Style","URW Bookman","C059","Palatino Linotype",Georgia,"DejaVu Serif",serif;font-weight:800;text-transform:uppercase;letter-spacing:.09em;font-size:1.6rem;line-height:1.1;text-align:center;margin:.1rem 0 .1rem;color:#f5ecd6}
+.terr-full .terr-sub{text-align:center;font-family:"Bookman Old Style","URW Bookman","C059",Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:.7rem;margin-bottom:.6rem;color:#f5ecd6}
+.terr-full .terr-map{border-color:rgba(245,236,214,.3)}
+.terr-full .terr-out,.terr-full .terr-presence{color:#ffd9a0}
+.terr-full .terr-kicker{color:#f5ecd6}
+.terr-full .terr-bar .trk{background:rgba(245,236,214,.12);border-color:rgba(245,236,214,.35)}
+.terr-full .terr-bar .tk{color:rgba(245,236,214,.9)}
+.terr-full .terr-bar .cur{background:#ffd9a0}
+.terr-full .terr-chips button{border-color:#f5ecd6;color:#f5ecd6}
+.terr-full .terr-chips button[aria-pressed=true]{background:#f5ecd6;color:#15301f}
+.terr-full .terr-era h4{color:#ffd9a0}.terr-full .terr-era p{color:#f5ecd6}
+.terr-full .terr-tag.conf{color:#ffd9a0;background:rgba(201,137,58,.2)}.terr-full .terr-tag.appr{color:#ffb4a8;background:rgba(179,38,30,.25)}.terr-full .terr-tag.ovl{color:#cfe2c4;background:rgba(255,255,255,.08)}
+.terr-full .terr-note,.terr-full .terr-src,.terr-full .terr-foot,.terr-full .terr-span{color:rgba(245,236,214,.92)}
+.terr-full .terr-src a,.terr-full .terr-span a{color:#ffd9a0}.terr-full .terr-foot{border-color:rgba(245,236,214,.3)}
+.terr-full .terr-ctl input[type=range]{accent-color:#c4453b}
+.terr-legend{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-family:"Bookman Old Style","URW Bookman","C059",Georgia,serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin:.55rem 0 .1rem}
+.terr-legend span{display:inline-flex;align-items:center;gap:.4rem}
+.terr-legend i{display:inline-block;width:24px;height:13px;border:1px solid #c7a0a0}
+.terr-legend i.a{background:rgba(179,38,30,.55)}.terr-legend i.b{background:repeating-linear-gradient(45deg,rgba(179,38,30,.6) 0 2px,transparent 2px 6px);border-style:dashed}.terr-legend i.c{background:repeating-linear-gradient(45deg,#c4453b 0 2px,rgba(107,22,16,.4) 2px 5px)}
+.terr-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:1rem}
+@media (max-width:900px){.terr-grid{grid-template-columns:1fr}.terr-full .terr-title{font-size:1.25rem}.terr-full{margin:.5rem}}
+.map-section.terr-on #mapCanvas,.map-section.terr-on #zoomFullStateMap{display:none}
+.map-section.terr-on .map-canvas-wrap{min-height:0;overflow:auto}
+.terr-panel .muted{font-size:.8rem;line-height:1.45;margin:.3rem 0 0}

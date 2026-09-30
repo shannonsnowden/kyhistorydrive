@@ -25,6 +25,8 @@ for (const f of files) {
     source: raw.source,
     briefDate: raw.briefDate,
     ...(raw.photo?.image_url ? { photo: raw.photo } : {}),
+    // Web-only territory pointer (tribal territory test). Small; polygons live in public/data/web/territories/.
+    ...(raw.territory?.ref ? { territory: raw.territory } : {}),
   })
 }
 
