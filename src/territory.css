@@ -64,10 +64,23 @@ html[data-hp-theme=light] .terr-open{color:#fff}.terr-open:hover{filter:brightne
 .terr-full .terr-ctl input[type=range]{accent-color:#c4453b}
 .terr-legend{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-family:"Bookman Old Style","URW Bookman","C059",Georgia,serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin:.55rem 0 .1rem}
 .terr-legend span{display:inline-flex;align-items:center;gap:.4rem}
-.terr-legend i{display:inline-block;width:24px;height:13px;border:1px solid #c7a0a0}
-.terr-legend i.a{background:rgba(179,38,30,.55)}.terr-legend i.b{background:repeating-linear-gradient(45deg,rgba(179,38,30,.6) 0 2px,transparent 2px 6px);border-style:dashed}.terr-legend i.c{background:repeating-linear-gradient(45deg,#c4453b 0 2px,rgba(107,22,16,.4) 2px 5px)}
+.terr-legend i{display:inline-block;width:24px;height:13px;border:1px solid #c7a0a0;flex:none}
+
 .terr-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:1rem}
 @media (max-width:900px){.terr-grid{grid-template-columns:1fr}.terr-full .terr-title{font-size:1.25rem}.terr-full{margin:.5rem}}
 .map-section.terr-on #mapCanvas,.map-section.terr-on #zoomFullStateMap{display:none}
 .map-section.terr-on .map-canvas-wrap{min-height:0;overflow:auto}
 .terr-panel .muted{font-size:.8rem;line-height:1.45;margin:.3rem 0 0}
+/* per-nation toggles + map legend */
+.terr-nations{display:grid;gap:.1rem;margin:.3rem 0 .5rem}
+.terr-nation-row input:disabled{opacity:.8}
+.terr-maplegend{position:absolute;left:.6rem;bottom:2.4rem;z-index:2;max-width:min(17rem,calc(100% - 4.5rem));background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:.45rem .6rem;font-size:.78rem;line-height:1.35;box-shadow:0 2px 10px rgba(0,0,0,.3);pointer-events:none}
+.terr-maplegend .ml-h{font-weight:700;color:var(--heading);margin-bottom:.25rem;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase}
+.terr-maplegend .ml-row{display:flex;align-items:center;gap:.45rem;margin:.12rem 0}
+.terr-maplegend i{flex:none;width:22px;height:12px;border:2px solid;border-radius:2px}
+.terr-maplegend small{color:var(--muted)}
+.terr-maplegend .ml-f{margin-top:.3rem;color:var(--muted);font-size:.7rem}
+@media (max-width:520px){.terr-maplegend{left:.4rem;bottom:2.2rem;max-width:calc(100% - 4rem);font-size:.74rem}}
+.terr-legend .lg-focal b{font-weight:800}
+.terr-legend .lg-other em{font-style:normal;opacity:.85;text-transform:none;letter-spacing:0}
+.terr-legend{gap:.35rem 1rem}

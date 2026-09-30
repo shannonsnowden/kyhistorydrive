@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "note": "Territory index. To add a nation: add its data file under public/data/web/territories/ and one entry here. No code change needed. Colors: Okabe-Ito colorblind-safe palette, one per nation.",
+ "nations": [
+  {
+   "id": "chickasaw",
+   "name": "Chickasaw",
+   "color": "#D55E00",
+   "slugs": [
+    "chickasaw-hunting-grounds"
+   ],
+   "ref": "/data/web/territories/chickasaw-hunting-grounds.json",
+   "extentFeature": "r1",
+   "yearStart": 1780,
+   "yearEnd": 1818,
+   "confidence": "medium",
+   "note": "Extent shown is the 1786 Treaty of Hopewell frame; its southern edge is not fixed by the sources."
+  }
+ ]
+}
