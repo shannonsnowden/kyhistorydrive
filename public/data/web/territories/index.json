@@ -51,6 +51,38 @@
    "mapNote": "General area: Ohio town counties and a soft Kentucky-wide tint (reported claim/use). Low confidence, not a boundary.",
    "note": "Main-map shape = 1774 Ohio River line plus Ohio town counties. The Kentucky claim has no source boundary and is not drawn.",
    "mainMap": true
+  },
+  {
+   "id": "six-nations",
+   "name": "Six Nations (Haudenosaunee)",
+   "color": "#CC79A7",
+   "slugs": [
+    "treaty-of-fort-stanwix-1768"
+   ],
+   "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+   "extentFeature": "extent",
+   "yearStart": 1768,
+   "yearEnd": 1784,
+   "confidence": "low-medium",
+   "mapNote": "General area associated with the Six Nations (hatched): Kentucky east of the Tennessee River, clipped to Kentucky. A claim by treaty cession, not where people lived; approximate, low-medium confidence, not a boundary. Ohio River solid in Kentucky, dashed beyond.",
+   "note": "Kentucky east of the Tennessee River was sold to the Crown at Fort Stanwix 1768 on a Six Nations conquest claim that the Cherokee and Shawnee disputed. Outside Kentucky only the dashed Ohio River is drawn.",
+   "mainMap": true
+  },
+  {
+   "id": "mingo",
+   "name": "Mingo",
+   "color": "#A8456F",
+   "slugs": [
+    "mingo-camps-south-of-the-ohio"
+   ],
+   "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
+   "extentFeature": "extent",
+   "yearStart": 1770,
+   "yearEnd": 1776,
+   "confidence": "low",
+   "mapNote": "Presence, no mapped boundary. Three approximate points (Mingo Town OH 1770, Yellow Creek 1774, McClelland’s Station raid 1776). Kentucky camp sites unknown, not drawn.",
+   "note": "Presence only: sourced towns and raid sites; no Kentucky camp areas are known or drawn.",
+   "mainMap": true
   }
  ]
 }

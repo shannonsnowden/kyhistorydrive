@@ -3290,6 +3290,27 @@ async function getTerritoryNations() {
   return territoryNations
 }
 
+/** 16x16 (8 css px at pixelRatio 2) diagonal-stripe pattern in a nation colour, transparent between stripes. */
+function hatchImage(color) {
+  const S = 16
+  const c = document.createElement('canvas')
+  c.width = S
+  c.height = S
+  const g = c.getContext('2d')
+  g.fillStyle = rgba(color, 0.16)
+  g.fillRect(0, 0, S, S)
+  g.strokeStyle = color
+  g.globalAlpha = 0.9
+  g.lineWidth = 3
+  for (const o of [-S, 0, S]) {
+    g.beginPath()
+    g.moveTo(o, S)
+    g.lineTo(o + S, 0)
+    g.stroke()
+  }
+  return g.getImageData(0, 0, S, S)
+}
+
 const NATION_SRC = (id) => `terr-src-${id}`
 const NATION_FILL = (id) => `terr-fill-${id}`
 const NATION_LINE = (id) => `terr-line-${id}`
@@ -3323,7 +3344,12 @@ function addNationLayers(n, T, before) {
     const areaSrc = mm.area && src('area', mm.area)
     if (areaSrc) {
       // Sourced cession area, already clipped to Kentucky in the data (closed along the state boundary, no invented vertices)
-      add({ id: `${NATION_FILL(n.id)}-area`, type: 'fill', source: areaSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.5 } })
+      if (mm.hatch) {
+        // Diagonal hatch (pattern) so this nation's area stays readable where it overlaps another nation's solid fill
+        const imgId = `terr-hatch-${n.id}`
+        if (!map.hasImage(imgId)) map.addImage(imgId, hatchImage(n.color), { pixelRatio: 2 })
+        add({ id: `${NATION_FILL(n.id)}-area`, type: 'fill', source: areaSrc, paint: { 'fill-pattern': imgId } })
+      } else add({ id: `${NATION_FILL(n.id)}-area`, type: 'fill', source: areaSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.5 } })
       add({ id: `${NATION_LINE(n.id)}-area-edge`, type: 'line', source: areaSrc, paint: { 'line-color': n.color, 'line-width': 2, 'line-opacity': 0.95 } })
     }
     const fillSrc = src('fill', mm.fill)
@@ -3418,6 +3444,7 @@ async function syncNationLayers() {
   renderNationLegend(nations)
 }
 
+let legendNotesOpen = null
 function renderNationLegend(nations) {
   const wrap = document.querySelector('#map .map-canvas-wrap')
   if (!wrap) return
@@ -3435,11 +3462,18 @@ function renderNationLegend(nations) {
     el.setAttribute('aria-label', 'Native nations shown (approximate)')
     wrap.appendChild(el)
   }
-  el.innerHTML = `<div class="ml-h">Native nations (approximate)</div>${shown
+  // Compact by default when 3+ nations are on (notes hidden); a button toggles the notes. User choice sticks.
+  const collapsed = legendNotesOpen === null ? shown.length >= 3 : !legendNotesOpen
+  el.classList.toggle('ml-compact', collapsed)
+  el.innerHTML = `<div class="ml-h"><span>Native nations (approximate)</span><button type="button" class="ml-tog" aria-expanded="${!collapsed}" aria-label="${collapsed ? 'Show' : 'Hide'} nation notes">${collapsed ? 'Notes +' : 'Notes −'}</button></div>${shown
     .map(
       (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.5)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}${n.mapNote ? `<small class="ml-n">${escapeHtml(n.mapNote)}</small>` : ''}</span></div>`,
     )
-    .join('')}<div class="ml-f">Territories overlapped and shifted; boundaries simplified.</div>`
+    .join('')}<div class="ml-f">Territories overlapped and shifted; boundaries simplified. General areas are not boundaries.</div>`
+  el.querySelector('.ml-tog')?.addEventListener('click', () => {
+    legendNotesOpen = el.classList.contains('ml-compact')
+    renderNationLegend(nations)
+  })
 }
 
 /** Muted "other nations" inside the territory view = every toggled-on nation except the story's own. */

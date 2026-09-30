@@ -95,3 +95,9 @@ html:not([data-hp-theme=light]) .terr-tag.nd{color:#fff3a0;background:rgba(240,2
 .terr-maplegend .ml-n{display:block;color:var(--muted);font-size:.7rem;line-height:1.3}
 .terr-maplabel{font:800 .78rem/1.25 system-ui,sans-serif;text-align:center;max-width:11rem;pointer-events:none;padding:.15rem .3rem;border-radius:4px;background:rgba(255,255,255,.72);text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff}
 @media (max-width:520px){.terr-maplabel{font-size:.68rem;max-width:8.5rem}}
+
+.terr-maplegend{pointer-events:none}
+.terr-maplegend .ml-h{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.terr-maplegend .ml-tog{pointer-events:auto;font:700 .68rem system-ui,sans-serif;padding:.15rem .45rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--heading);cursor:pointer;text-transform:none;letter-spacing:0}
+.terr-maplegend.ml-compact .ml-n,.terr-maplegend.ml-compact .ml-f{display:none}
+.terr-maplegend{max-height:55%;overflow:auto}
