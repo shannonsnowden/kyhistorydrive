@@ -3244,6 +3244,8 @@ function mountStoryTerritory(reader, meta) {
     })
 }
 
+let cameFromTerritoryView = false
+
 /** Slug from #map/territory/<slug>, or null (also null when the flag is off). */
 function territoryRouteSlug() {
   if (!territoryEnabled()) return null
@@ -3339,11 +3341,22 @@ async function applyRoute() {
 
   setActiveNav(view)
 
+  if (!(view === 'map' && territoryRouteSlug())) {
+    // Any other route (timeline, home, plain map...) must not leave the territory view behind
+    if (document.getElementById('territoryFull')?.childElementCount || document.getElementById('map')?.classList.contains('terr-on')) {
+      leaveTerritoryMapView()
+    }
+  }
+
   if (view === 'map' && territoryRouteSlug()) {
     // Tribal territory test: #map/territory/<slug> shows only that nation's shaded area
     pendingFocus = null
-    setupTerritoryMapControl().catch(console.error)
+    cameFromTerritoryView = true
+    renderLayerToggles()
     syncTerritoryControlState()
+    const statsEl = document.getElementById('stats')
+    if (statsEl) statsEl.textContent = 'Other layers are hidden while viewing a nation. Your layer choices are kept.'
+    setupTerritoryMapControl().catch(console.error)
     showTerritoryMapView(territoryRouteSlug())
       .then((ok) => {
         if (!ok) {
@@ -3361,6 +3374,8 @@ async function applyRoute() {
     leaveTerritoryMapView()
     setupTerritoryMapControl().catch(console.error)
     syncTerritoryControlState()
+    const keepLayerChoices = cameFromTerritoryView
+    cameFromTerritoryView = false
     const { placeLayer, placeId } = parseHash()
     // Always open Map on the full state (start or navigating back from Timeline/etc.)
     // unless a shared place deep link is present
@@ -3374,10 +3389,13 @@ async function applyRoute() {
         revealPlaceFromHash({ placeLayer, placeId }).catch(console.error)
         return
       }
-      setLayerVisible('markers', true)
-      const markersToggle = document.querySelector('input[data-layer="markers"]')
-      if (markersToggle) markersToggle.checked = true
+      if (!keepLayerChoices) {
+        setLayerVisible('markers', true)
+        const markersToggle = document.querySelector('input[data-layer="markers"]')
+        if (markersToggle) markersToggle.checked = true
+      }
       syncAllLayersCheckbox()
+      updateStats()
       ensureHighlightSource(map, null)
       fitMapToKentucky(map, { duration: 0 })
     })
