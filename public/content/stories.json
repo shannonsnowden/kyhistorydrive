@@ -1363,9 +1363,10 @@
       "territory": {
         "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
         "nation": "Shawnee",
-        "yearStart": 1774,
+        "yearStart": 1715,
         "yearEnd": 1795,
-        "presenceLabel": "Shawnee Ohio River line and towns in this area"
+        "presenceLabel": "General area claimed or used by the Shawnee, towns and Ohio River line in this area",
+        "approxStart": true
       },
       "lat": null,
       "lon": null,
@@ -1792,9 +1793,10 @@
       "territory": {
         "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
         "nation": "Shawnee",
-        "yearStart": 1774,
-        "yearEnd": 1780,
-        "presenceLabel": "Old Chillicothe (Shawnee) in this area"
+        "yearStart": 1715,
+        "yearEnd": 1795,
+        "presenceLabel": "General area claimed or used by the Shawnee (Old Chillicothe 1774–80)",
+        "approxStart": true
       },
       "lat": null,
       "lon": null,
