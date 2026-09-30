@@ -12,6 +12,12 @@ import {
   territoryMapHash,
   loadTerritory,
   mountTerritory,
+  loadTerritoryIndex,
+  loadNationData,
+  nationForSlug,
+  nationExtentGeometry,
+  rgba,
+  darkOf,
 } from './territory.js'
 
 /** CARTO Voyager raster (OSM data). Requires VITE_CARTO_API_KEY at build time. */
@@ -1925,6 +1931,7 @@ function initMap() {
 
     mapReady = true
     syncAllLayersCheckbox()
+    syncNationLayers().catch(console.error)
     updateStats()
     pendingFocus = null
     ensureHighlightSource(map, null)
@@ -3259,32 +3266,165 @@ async function territoryStories() {
   return idx.stories.filter(storyHasTerritory)
 }
 
-/** "Show only this nation" control in the Map layers panel. Flag off = nothing rendered. */
+/* ---- per-nation toggles (list generated from public/data/web/territories/index.json) ---- */
+let territoryNations = null // [{id,name,color,slugs,ref,...}]
+const nationOn = new Set() // nations toggled on in the Layers panel
+let territoryView = null // { slug, focalId, handle }
+let lastNationToggled = null
+
+async function getTerritoryNations() {
+  if (!territoryEnabled()) return []
+  if (territoryNations) return territoryNations
+  try {
+    territoryNations = await loadTerritoryIndex()
+  } catch (err) {
+    console.warn('territory index failed', err)
+    territoryNations = []
+  }
+  return territoryNations
+}
+
+const NATION_SRC = (id) => `terr-src-${id}`
+const NATION_FILL = (id) => `terr-fill-${id}`
+const NATION_LINE = (id) => `terr-line-${id}`
+
+/** Draw (or show/hide) each toggled nation on the MapLibre main map. Semi-transparent fill + outline. */
+async function syncNationLayers() {
+  if (!territoryEnabled() || !map || !mapReady) return
+  const nations = await getTerritoryNations()
+  const before = map.getLayer(layerCircleId('markers')) ? layerCircleId('markers') : undefined
+  for (const n of nations) {
+    const on = nationOn.has(n.id)
+    if (on && !map.getSource(NATION_SRC(n.id))) {
+      try {
+        const T = await loadNationData(n.ref)
+        const geometry = nationExtentGeometry(T, n)
+        if (!geometry || map.getSource(NATION_SRC(n.id))) continue
+        map.addSource(NATION_SRC(n.id), { type: 'geojson', data: { type: 'Feature', properties: {}, geometry } })
+        map.addLayer({ id: NATION_FILL(n.id), type: 'fill', source: NATION_SRC(n.id), paint: { 'fill-color': n.color, 'fill-opacity': 0.3 } }, before)
+        map.addLayer({ id: NATION_LINE(n.id), type: 'line', source: NATION_SRC(n.id), paint: { 'line-color': n.color, 'line-width': 2.5, 'line-opacity': 0.95 } }, before)
+      } catch (err) {
+        console.warn('nation layer failed', n.id, err)
+      }
+    }
+    for (const id of [NATION_FILL(n.id), NATION_LINE(n.id)]) {
+      if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none')
+    }
+  }
+  renderNationLegend(nations)
+}
+
+function renderNationLegend(nations) {
+  const wrap = document.querySelector('#map .map-canvas-wrap')
+  if (!wrap) return
+  let el = document.getElementById('nationLegend')
+  const shown = territoryRouteSlug() ? [] : (nations || territoryNations || []).filter((n) => nationOn.has(n.id))
+  if (!shown.length) {
+    el?.remove()
+    return
+  }
+  if (!el) {
+    el = document.createElement('div')
+    el.id = 'nationLegend'
+    el.className = 'terr-maplegend'
+    el.setAttribute('role', 'group')
+    el.setAttribute('aria-label', 'Native nations shown (approximate)')
+    wrap.appendChild(el)
+  }
+  el.innerHTML = `<div class="ml-h">Native nations (approximate)</div>${shown
+    .map(
+      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.35)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${n.yearStart}–${n.yearEnd || ''}</small>` : ''}</span></div>`,
+    )
+    .join('')}<div class="ml-f">Territories overlapped and shifted; boundaries simplified.</div>`
+}
+
+/** Muted "other nations" inside the territory view = every toggled-on nation except the story's own. */
+async function refreshTerritoryOthers() {
+  if (!territoryView?.handle) return
+  const nations = await getTerritoryNations()
+  const others = []
+  for (const n of nations) {
+    if (n.id === territoryView.focalId || !nationOn.has(n.id)) continue
+    try {
+      const T = await loadNationData(n.ref)
+      const geometry = nationExtentGeometry(T, n)
+      if (geometry) others.push({ id: n.id, name: n.name, color: n.color, geometry })
+    } catch (err) {
+      console.warn('other nation failed', n.id, err)
+    }
+  }
+  if (territoryView?.handle) territoryView.handle.setOthers(others)
+}
+
+function syncNationRows() {
+  const rows = document.querySelectorAll('[data-territory-panel] input[data-nation]')
+  const focal = territoryView?.focalId || null
+  rows.forEach((cb) => {
+    const id = cb.dataset.nation
+    cb.checked = id === focal ? true : nationOn.has(id)
+    cb.disabled = id === focal
+    const tag = cb.closest('label')?.querySelector('[data-focal-tag]')
+    if (tag) tag.hidden = id !== focal
+  })
+  const only = document.getElementById('terrOnly')
+  if (only) only.checked = Boolean(territoryRouteSlug())
+  const name = document.querySelector('[data-only-name]')
+  if (name) {
+    const id = focal || lastNationToggled || territoryNations?.[0]?.id
+    const n = (territoryNations || []).find((x) => x.id === id)
+    if (n) {
+      name.textContent = n.name
+      document.getElementById('terrOnly').dataset.slug = n.slugs[0]
+    }
+  }
+}
+
+/** Native-territory block in the Layers panel: one toggle per nation + "Show only this nation". */
 async function setupTerritoryMapControl() {
   if (!territoryEnabled()) return
   const panel = document.querySelector('#map .layers-panel')
   if (!panel || panel.querySelector('[data-territory-panel]')) return
-  const list = await territoryStories()
-  if (!list.length || panel.querySelector('[data-territory-panel]')) return
-  const s = list[0]
+  const nations = await getTerritoryNations()
+  if (!nations.length || panel.querySelector('[data-territory-panel]')) return
   const box = document.createElement('div')
   box.className = 'terr-panel'
   box.dataset.territoryPanel = '1'
-  box.innerHTML = `<h3>Native territory <span class="muted">(test)</span></h3>
-    <label class="only"><input type="checkbox" id="terrOnly" /> <span>Show only this nation: ${escapeHtml(s.territory.nation)}</span></label>
-    <p class="muted">Shows just the ${escapeHtml(s.territory.nation)} area from the story “${escapeHtml(s.title)}” as an approximate, sourced shaded region. Hides the other layers.</p>`
+  box.innerHTML = `<h3>Native territories <span class="muted">(test)</span></h3>
+    <div class="terr-nations">${nations
+      .map(
+        (n) => `<label class="ctrl layer-row terr-nation-row">
+      <input type="checkbox" data-nation="${escapeHtml(n.id)}" />
+      <span>${escapeHtml(n.name)} <span class="muted small" data-focal-tag hidden>(this story)</span></span>
+      <span class="swatch" style="background:${escapeHtml(n.color)}"></span></label>`,
+      )
+      .join('')}</div>
+    <label class="only"><input type="checkbox" id="terrOnly" /> <span>Show only this nation: <b data-only-name>${escapeHtml(nations[0].name)}</b></span></label>
+    <p class="muted">Approximate, sourced areas. Toggle several at once; territories overlapped and shifted. “Show only” opens the nation's story map and hides the other layers.</p>`
   const after = panel.querySelector('#layerToggles')
   after.insertAdjacentElement('afterend', box)
-  box.querySelector('#terrOnly').addEventListener('change', (e) => {
-    if (e.target.checked) location.hash = territoryMapHash(s.slug)
-    else goHomeMap()
+  const onlyCb = box.querySelector('#terrOnly')
+  onlyCb.dataset.slug = nations[0].slugs[0]
+  box.addEventListener('change', (e) => {
+    const cb = e.target.closest('input[data-nation]')
+    if (cb) {
+      if (cb.checked) nationOn.add(cb.dataset.nation)
+      else nationOn.delete(cb.dataset.nation)
+      lastNationToggled = cb.dataset.nation
+      syncNationLayers().catch(console.error)
+      refreshTerritoryOthers().catch(console.error)
+      syncNationRows()
+      return
+    }
+    if (e.target === onlyCb) {
+      if (onlyCb.checked) location.hash = territoryMapHash(onlyCb.dataset.slug || nations[0].slugs[0])
+      else goHomeMap()
+    }
   })
-  syncTerritoryControlState()
+  syncNationRows()
 }
 
 function syncTerritoryControlState() {
-  const cb = document.getElementById('terrOnly')
-  if (cb) cb.checked = Boolean(territoryRouteSlug())
+  syncNationRows()
 }
 
 async function showTerritoryMapView(slug) {
@@ -3294,6 +3434,8 @@ async function showTerritoryMapView(slug) {
   const idx = await loadStories()
   const meta = idx.stories.find((x) => x.slug === slug)
   if (!storyHasTerritory(meta)) return false
+  const nations = await getTerritoryNations()
+  const nation = nationForSlug(nations, slug)
   let host = document.getElementById('territoryFull')
   if (!host) {
     host = document.createElement('div')
@@ -3303,7 +3445,8 @@ async function showTerritoryMapView(slug) {
   const { T, base } = await loadTerritory(meta.territory.ref)
   if (territoryRouteSlug() !== slug) return true
   section.classList.add('terr-on')
-  mountTerritory(host, { T, base, mode: 'full', slug })
+  const handle = mountTerritory(host, { T, base, mode: 'full', slug, color: nation?.color || '#b3261e', nation })
+  territoryView = { slug, focalId: nation?.id || null, handle }
   const nav = document.createElement('p')
   nav.className = 'terr-back muted'
   nav.style.margin = '.2rem .9rem .8rem'
@@ -3313,11 +3456,15 @@ async function showTerritoryMapView(slug) {
     e.preventDefault()
     goHomeMap()
   })
+  syncNationRows()
+  await refreshTerritoryOthers()
   return true
 }
 
 function leaveTerritoryMapView() {
+  territoryView = null
   document.getElementById('map')?.classList.remove('terr-on')
+  syncNationRows()
   const host = document.getElementById('territoryFull')
   if (host) host.innerHTML = ''
 }
@@ -3374,6 +3521,7 @@ async function applyRoute() {
     leaveTerritoryMapView()
     setupTerritoryMapControl().catch(console.error)
     syncTerritoryControlState()
+    syncNationLayers().catch(console.error)
     const keepLayerChoices = cameFromTerritoryView
     cameFromTerritoryView = false
     const { placeLayer, placeId } = parseHash()
