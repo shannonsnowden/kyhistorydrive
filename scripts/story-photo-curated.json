@@ -125,11 +125,14 @@
     "ext": "jpg",
     "commonsFile": "Chickamauga_Towns.jpg",
     "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Chickamauga_Towns.jpg/1280px-Chickamauga_Towns.jpg",
-    "title": "Chickamauga Towns (map)",
+    "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons",
-    "year": null
+    "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
+    "year": null,
+    "credit": "Chuck Hamilton",
+    "license": "GFDL 1.2 or later; CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   "jack-jouett-kentuckys-midnight-rider": {
     "ext": "jpg",

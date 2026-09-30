@@ -102,11 +102,14 @@
       "historyId": null,
       "photo": {
         "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Chickamauga Towns (map)",
+        "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
+        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
+        "year": null,
+        "credit": "Chuck Hamilton",
+        "license": "GFDL 1.2 or later; CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
       }
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
