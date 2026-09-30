@@ -14,7 +14,8 @@
    "yearStart": 1780,
    "yearEnd": 1818,
    "confidence": "medium",
-   "note": "Extent shown is the 1786 Treaty of Hopewell frame; its southern edge is not fixed by the sources."
+   "note": "Extent shown is the 1786 Treaty of Hopewell frame; its southern edge is not fixed by the sources.",
+   "mapNote": "General area (1786 Hopewell frame): approximate, not a boundary."
   },
   {
    "id": "cherokee",
@@ -30,7 +31,7 @@
    "yearStart": 1768,
    "yearEnd": 1794,
    "confidence": "low-medium",
-   "mapNote": "Filled: the Kentucky part of the 1771 Donelson cession area (clipped at the state line, approximate) and the Chickamauga county footprint. Sourced treaty lines dashed where they run outside Kentucky. No Cherokee claim frame drawn.",
+   "mapNote": "General area: Kentucky part of the 1771 cession and Chickamauga counties. Approximate, low-medium confidence, not a boundary. Treaty lines dashed outside Kentucky.",
    "note": "Main-map shape = sourced treaty/survey lines (1768, 1770, 1771) plus the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn.",
    "mainMap": true
   },
@@ -47,7 +48,7 @@
    "yearStart": 1715,
    "yearEnd": 1795,
    "confidence": "low-medium",
-   "mapNote": "Shawnee claim in Kentucky: unknown, not drawn. Shown: 1774 Ohio River line, Ohio town counties, dated sites.",
+   "mapNote": "General area: Ohio town counties and a soft Kentucky-wide tint (reported claim/use). Low confidence, not a boundary.",
    "note": "Main-map shape = 1774 Ohio River line plus Ohio town counties. The Kentucky claim has no source boundary and is not drawn.",
    "mainMap": true
   }
