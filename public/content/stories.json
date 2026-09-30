@@ -3204,6 +3204,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-28",
+      "territory": {
+        "ref": "/data/web/territories/chickasaw-hunting-grounds.json",
+        "nation": "Chickasaw",
+        "yearStart": 1780,
+        "yearEnd": 1818,
+        "presenceLabel": "Chickasaw claim in this area"
+      },
       "lat": 37.10445,
       "lon": -88.63255,
       "mapConfidence": "override",
