@@ -61,7 +61,7 @@ export const territoryMapHash = (slug) => `#map/territory/${encodeURIComponent(s
 /** "Chickasaw claim in this area: 1780–1818" (years come only from the cited sources). */
 export function territoryRangeText(t) {
   const end = t.yearEnd ? `–${t.yearEnd}` : '–'
-  return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.yearStart ?? ''}${end}`
+  return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.approxStart ? 'c.' : ''}${t.yearStart ?? ''}${end}`
 }
 export function territoryListLineHtml(s) {
   if (!storyHasTerritory(s)) return ''
@@ -258,7 +258,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     return `<span class="tk" style="left:${at}%"${show ? '' : ' aria-hidden="true" hidden'}>${e.yearStart}</span>`
   }).join('')
   const chips = eras.map((e) => `<button type="button" data-era="${e.id}" aria-pressed="false">${esc(e.short)}</button>`).join('')
-  const tags = (e) => `<span class="terr-tag conf">Confidence: ${esc(CONF[e.confidence] || e.confidence)}</span><span class="terr-tag appr">${e.noBoundary ? 'Approximate location' : 'Approximate boundary'}</span><span class="terr-tag ovl">Territories overlapped &amp; shifted</span>${e.notDrawn ? `<span class="terr-tag nd">${esc(e.notDrawn.tag)}</span>` : ''}`
+  const tags = (e) => `<span class="terr-tag conf">Confidence: ${esc(CONF[e.confidence] || e.confidence)}</span><span class="terr-tag appr">${e.apprTag || (e.noBoundary ? 'Approximate location' : 'Approximate boundary')}</span><span class="terr-tag ovl">Territories overlapped &amp; shifted</span>${e.notDrawn ? `<span class="terr-tag nd">${esc(e.notDrawn.tag)}</span>` : ''}`
   const footer = 'Approximate territory · simplified from public-domain treaty descriptions · not a legal boundary'
   const head = mode === 'card'
     ? `<div class="terr-head"><span class="terr-kicker">Territory · ${esc(T.nation)}</span><span class="terr-presence">${esc(rangeTxt)}</span></div>`

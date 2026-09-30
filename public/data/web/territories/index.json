@@ -48,9 +48,10 @@
    "yearStart": 1715,
    "yearEnd": 1795,
    "confidence": "low-medium",
-   "mapNote": "General area: Ohio town counties and a soft Kentucky-wide tint (reported claim/use). Low confidence, not a boundary.",
-   "note": "Main-map shape = 1774 Ohio River line plus Ohio town counties. The Kentucky claim has no source boundary and is not drawn.",
-   "mainMap": true
+   "mapNote": "General area claimed or used, c.1715–1795: effectively most of present Kentucky (drawn as the whole state, the most generous estimate) plus Ohio town counties. Approximate, low-medium confidence, not a boundary. 1774 Ohio River line on top.",
+   "note": "Main-map shape = general area claimed or used (Kentucky outline, most generous estimate of “most of Kentucky”), the 1774 Ohio River line and the Ohio town counties. No boundary is sourced.",
+   "mainMap": true,
+   "approxStart": true
   },
   {
    "id": "six-nations",

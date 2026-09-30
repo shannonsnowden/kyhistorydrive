@@ -3338,7 +3338,7 @@ function addNationLayers(n, T, before) {
     // General area (soft): a sourced region associated with the nation, NOT a boundary. Drawn first (lowest), soft dashed edge.
     const genSrc = mm.general && src('general', mm.general)
     if (genSrc) {
-      add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.34 } })
+      add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.42 } })
       add({ id: `${NATION_LINE(n.id)}-general-edge`, type: 'line', source: genSrc, paint: { 'line-color': n.color, 'line-width': 1.6, 'line-opacity': 0.75, 'line-dasharray': [2, 2] } })
     }
     const areaSrc = mm.area && src('area', mm.area)
@@ -3467,7 +3467,7 @@ function renderNationLegend(nations) {
   el.classList.toggle('ml-compact', collapsed)
   el.innerHTML = `<div class="ml-h"><span>Native nations (approximate)</span><button type="button" class="ml-tog" aria-expanded="${!collapsed}" aria-label="${collapsed ? 'Show' : 'Hide'} nation notes">${collapsed ? 'Notes +' : 'Notes −'}</button></div>${shown
     .map(
-      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.5)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}${n.mapNote ? `<small class="ml-n">${escapeHtml(n.mapNote)}</small>` : ''}</span></div>`,
+      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.5)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${n.approxStart ? 'c.' : ''}${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}${n.mapNote ? `<small class="ml-n">${escapeHtml(n.mapNote)}</small>` : ''}</span></div>`,
     )
     .join('')}<div class="ml-f">Territories overlapped and shifted; boundaries simplified. General areas are not boundaries.</div>`
   el.querySelector('.ml-tog')?.addEventListener('click', () => {
