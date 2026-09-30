@@ -32,6 +32,13 @@ function formatDisplayDate(iso) {
   })
 }
 
+/** Card/hero year label: negative years read as BCE (Dover Mound shows 800 BCE, not -800). */
+function storyYearLabel(y) {
+  const n = Number(y)
+  if (!Number.isFinite(n) || n === 0) return ''
+  return n < 0 ? `${Math.abs(n)} BCE` : String(n)
+}
+
 function eraLabel(era) {
   const map = {
     prehistoric: 'Prehistoric',
@@ -255,7 +262,7 @@ function renderHeroSlide(story, index) {
       <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade"></div></div>
       <div class="hp-mag-hero-copy">
         <p class="hp-kicker">Featured story</p>
-        <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(String(story.yearStart))}` : ''}</p>
+        <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(storyYearLabel(story.yearStart))}` : ''}</p>
         <h2 id="${titleId}">${escapeHtml(story.title)}</h2>
         <p class="hp-hero-deck">${escapeHtml(heroDeckText(story))}</p>
         <div class="hp-cta-row">
@@ -426,7 +433,7 @@ function renderFeatures(pack) {
       return `<article class="hp-feature${hasPhoto ? '' : ' hp-feature--no-photo'}">
         ${media}
         <div class="hp-feature-copy">
-          <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(String(item.yearStart))}` : ''}</p>
+          <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(storyYearLabel(item.yearStart))}` : ''}</p>
           <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
           <p class="hp-feature-deck">${escapeHtml(item.summary)}</p>
           ${cta}
