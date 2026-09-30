@@ -15,5 +15,12 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-01"
+  "briefDate": "2026-09-01",
+  "territory": {
+    "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+    "nation": "Cherokee",
+    "yearStart": 1768,
+    "yearEnd": 1771,
+    "presenceLabel": "Cherokee treaty lines in this area"
+  }
 }

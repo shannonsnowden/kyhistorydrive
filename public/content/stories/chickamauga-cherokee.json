@@ -4,7 +4,7 @@
   "publishedDate": "2026-09-18",
   "summary": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new…",
   "bodyMarkdown": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new towns on Chickamauga Creek (winter 1776–77). American settlers called them Chickamaugas. From those towns—and later the Five Lower Towns—they kept up uncompromising resistance, raiding with Northwestern Confederacy allies as far as Kentucky, Indiana, and Virginia until the 1794 Tellico Blockhouse peace.\nSource: [https://grokipedia.com/page/Chickamauga_Cherokee](https://grokipedia.com/page/Chickamauga_Cherokee)",
-  "yearStart": 1775,
+  "yearStart": 1776,
   "yearEnd": 1794,
   "era": "native",
   "tags": [
@@ -15,5 +15,12 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-18"
+  "briefDate": "2026-09-18",
+  "territory": {
+    "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+    "nation": "Cherokee",
+    "yearStart": 1777,
+    "yearEnd": 1794,
+    "presenceLabel": "Chickamauga Cherokee towns in this area"
+  }
 }

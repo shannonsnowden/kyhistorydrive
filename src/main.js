@@ -3339,7 +3339,7 @@ function renderNationLegend(nations) {
   }
   el.innerHTML = `<div class="ml-h">Native nations (approximate)</div>${shown
     .map(
-      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.35)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${n.yearStart}–${n.yearEnd || ''}</small>` : ''}</span></div>`,
+      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.35)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${n.yearStart}–${n.yearEnd || ''}</small>` : ''}${n.mapNote ? `<small class="ml-n">${escapeHtml(n.mapNote)}</small>` : ''}</span></div>`,
     )
     .join('')}<div class="ml-f">Territories overlapped and shifted; boundaries simplified.</div>`
 }
@@ -3505,6 +3505,7 @@ async function applyRoute() {
     // Tribal territory test: #map/territory/<slug> shows only that nation's shaded area
     pendingFocus = null
     cameFromTerritoryView = true
+    document.getElementById('nationLegend')?.remove() // the territory view has its own legend
     renderLayerToggles()
     syncTerritoryControlState()
     const statsEl = document.getElementById('stats')
