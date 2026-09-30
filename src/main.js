@@ -3314,16 +3314,22 @@ function addNationLayers(n, T, before) {
       if (!map.getSource(sid)) map.addSource(sid, { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: f.geometry } })
       return sid
     }
+    // General area (soft): a sourced region associated with the nation, NOT a boundary. Drawn first (lowest), soft dashed edge.
+    const genSrc = mm.general && src('general', mm.general)
+    if (genSrc) {
+      add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.34 } })
+      add({ id: `${NATION_LINE(n.id)}-general-edge`, type: 'line', source: genSrc, paint: { 'line-color': n.color, 'line-width': 1.6, 'line-opacity': 0.75, 'line-dasharray': [2, 2] } })
+    }
     const areaSrc = mm.area && src('area', mm.area)
     if (areaSrc) {
       // Sourced cession area, already clipped to Kentucky in the data (closed along the state boundary, no invented vertices)
-      add({ id: `${NATION_FILL(n.id)}-area`, type: 'fill', source: areaSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.34 } })
-      add({ id: `${NATION_LINE(n.id)}-area-edge`, type: 'line', source: areaSrc, paint: { 'line-color': n.color, 'line-width': 1.2, 'line-opacity': 0.8 } })
+      add({ id: `${NATION_FILL(n.id)}-area`, type: 'fill', source: areaSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.5 } })
+      add({ id: `${NATION_LINE(n.id)}-area-edge`, type: 'line', source: areaSrc, paint: { 'line-color': n.color, 'line-width': 2, 'line-opacity': 0.95 } })
     }
     const fillSrc = src('fill', mm.fill)
     if (fillSrc) {
-      add({ id: `${NATION_FILL(n.id)}`, type: 'fill', source: fillSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.3 } })
-      add({ id: `${NATION_LINE(n.id)}-edge`, type: 'line', source: fillSrc, paint: { 'line-color': n.color, 'line-width': 1.5, 'line-opacity': 0.9 } })
+      add({ id: `${NATION_FILL(n.id)}`, type: 'fill', source: fillSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.5 } })
+      add({ id: `${NATION_LINE(n.id)}-edge`, type: 'line', source: fillSrc, paint: { 'line-color': n.color, 'line-width': 2, 'line-opacity': 0.95 } })
     }
     const lineSrc = mm.lines && src('lines', mm.lines)
     if (lineSrc) add({ id: `${NATION_LINE(n.id)}-solid`, type: 'line', source: lineSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': n.color, 'line-width': 3, 'line-opacity': 0.95 } })
@@ -3356,7 +3362,7 @@ function nationBounds(T, n) {
     else c.forEach(walk)
   }
   const mm = T.mainMap
-  const ids = mm ? [mm.fill, mm.lines, mm.outside, mm.points] : [n.extentFeature || 'r1']
+  const ids = mm ? [mm.fill, mm.area, mm.lines, mm.outside, mm.points] : [n.extentFeature || 'r1']
   for (const id of ids) {
     const f = (T.geojson?.features || []).find((x) => x.properties?.id === id)
     if (f) walk(f.geometry.coordinates || f.geometry.geometries.map((g) => g.coordinates))
@@ -3431,7 +3437,7 @@ function renderNationLegend(nations) {
   }
   el.innerHTML = `<div class="ml-h">Native nations (approximate)</div>${shown
     .map(
-      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.35)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}${n.mapNote ? `<small class="ml-n">${escapeHtml(n.mapNote)}</small>` : ''}</span></div>`,
+      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.5)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}${n.mapNote ? `<small class="ml-n">${escapeHtml(n.mapNote)}</small>` : ''}</span></div>`,
     )
     .join('')}<div class="ml-f">Territories overlapped and shifted; boundaries simplified.</div>`
 }
