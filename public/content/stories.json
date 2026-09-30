@@ -1156,7 +1156,7 @@
       "slug": "treaties-of-hard-labour-and-lochaber",
       "title": "Treaties of Hard Labour and Lochaber",
       "publishedDate": "2026-09-01",
-      "summary": "A month before Fort Stanwix, British superintendent John Stuart met Cherokee headmen at Hard Labour Creek, South Carolina. In mid-October 1768 they drew a line from Chiswell's…",
+      "summary": "A month before Fort Stanwix, British superintendent John Stuart met Cherokee headmen at Hard Labour Creek, South Carolina. In October 1768 (the treaty text is dated October 14)…",
       "yearStart": 1768,
       "yearEnd": 1771,
       "era": "native",
@@ -1333,7 +1333,7 @@
       "slug": "treaty-of-camp-charlotte-1774",
       "title": "Treaty of Camp Charlotte (1774)",
       "publishedDate": "2026-09-03",
-      "summary": "After the Battle of Point Pleasant on October 10, 1774, Shawnee leaders under Cornstalk met Virginia's Lord Dunmore at Camp Charlotte on the Scioto. In the treaty that closed…",
+      "summary": "After the Battle of Point Pleasant on October 10, 1774, Shawnee leaders under Cornstalk met Virginia's Lord Dunmore at Camp Charlotte on Scippo Creek in present Pickaway…",
       "yearStart": 1774,
       "yearEnd": 1775,
       "era": "native",
@@ -1454,11 +1454,14 @@
       "briefDate": "2026-09-23",
       "photo": {
         "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Chickamauga Towns (map)",
+        "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
+        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
+        "year": null,
+        "credit": "Chuck Hamilton",
+        "license": "GFDL 1.2 or later; CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
       },
       "territory": {
         "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
