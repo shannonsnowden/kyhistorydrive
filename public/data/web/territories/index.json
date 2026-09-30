@@ -30,8 +30,9 @@
    "yearStart": 1768,
    "yearEnd": 1794,
    "confidence": "low-medium",
-   "mapNote": "Treaty lines and Chickamauga towns only; no Kentucky claim drawn.",
-   "note": "Main-map shape = sourced treaty/survey lines (1768, 1770, 1771) plus the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn."
+   "mapNote": "Sourced treaty lines (dashed where they run outside Kentucky, approximate) and the Chickamauga county footprint. No Kentucky claim drawn.",
+   "note": "Main-map shape = sourced treaty/survey lines (1768, 1770, 1771) plus the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn.",
+   "mainMap": true
   },
   {
    "id": "shawnee",
@@ -46,8 +47,9 @@
    "yearStart": 1715,
    "yearEnd": 1795,
    "confidence": "low-medium",
-   "mapNote": "Shawnee claim in Kentucky: unknown, not drawn.",
-   "note": "Main-map shape = 1774 Ohio River line plus Ohio town counties. The Kentucky claim has no source boundary and is not drawn."
+   "mapNote": "Shawnee claim in Kentucky: unknown, not drawn. Shown: 1774 Ohio River line, Ohio town counties, dated sites.",
+   "note": "Main-map shape = 1774 Ohio River line plus Ohio town counties. The Kentucky claim has no source boundary and is not drawn.",
+   "mainMap": true
   }
  ]
 }

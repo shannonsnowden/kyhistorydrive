@@ -3294,27 +3294,113 @@ const NATION_SRC = (id) => `terr-src-${id}`
 const NATION_FILL = (id) => `terr-fill-${id}`
 const NATION_LINE = (id) => `terr-line-${id}`
 
-/** Draw (or show/hide) each toggled nation on the MapLibre main map. Semi-transparent fill + outline. */
+const nationLayerIds = Object.create(null) // nation id -> [layer ids]
+const nationLabelMarkers = Object.create(null) // nation id -> [maplibregl.Marker]
+function addNationLayers(n, T, before) {
+  const ids = []
+  const add = (layer) => {
+    map.addLayer(layer, before)
+    ids.push(layer.id)
+  }
+  const mm = T.mainMap
+  const feat = (id) => (T.geojson?.features || []).find((x) => x.properties?.id === id)
+  if (mm) {
+    // Each part has its own source and layer type: fills only ever see polygons; treaty LINES are drawn as lines
+    // (a line in a fill layer gets closed into a polygon, which caused the "starburst" artifact).
+    const src = (k, id) => {
+      const f = feat(id)
+      if (!f) return null
+      const sid = `${NATION_SRC(n.id)}-${k}`
+      if (!map.getSource(sid)) map.addSource(sid, { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: f.geometry } })
+      return sid
+    }
+    const fillSrc = src('fill', mm.fill)
+    if (fillSrc) {
+      add({ id: `${NATION_FILL(n.id)}`, type: 'fill', source: fillSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.3 } })
+      add({ id: `${NATION_LINE(n.id)}-edge`, type: 'line', source: fillSrc, paint: { 'line-color': n.color, 'line-width': 1.5, 'line-opacity': 0.9 } })
+    }
+    const lineSrc = mm.lines && src('lines', mm.lines)
+    if (lineSrc) add({ id: `${NATION_LINE(n.id)}-solid`, type: 'line', source: lineSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': n.color, 'line-width': 3, 'line-opacity': 0.95 } })
+    const outSrc = mm.outside && src('outside', mm.outside)
+    if (outSrc) add({ id: `${NATION_LINE(n.id)}-dash`, type: 'line', source: outSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': n.color, 'line-width': 2, 'line-opacity': 0.85, 'line-dasharray': [3, 2] } })
+    const ptSrc = mm.points && src('points', mm.points)
+    if (ptSrc) add({ id: `${NATION_SRC(n.id)}-pts`, type: 'circle', source: ptSrc, paint: { 'circle-radius': 5, 'circle-color': n.color, 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.5 } })
+    nationLabelMarkers[n.id] = (mm.labels || []).map((l) => {
+      const el = document.createElement('div')
+      el.className = 'terr-maplabel'
+      el.style.color = n.color
+      el.textContent = l.text
+      return new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat(l.at)
+    })
+  } else {
+    const geometry = nationExtentGeometry(T, n)
+    if (!geometry) return
+    map.addSource(NATION_SRC(n.id), { type: 'geojson', data: { type: 'Feature', properties: {}, geometry } })
+    add({ id: NATION_FILL(n.id), type: 'fill', source: NATION_SRC(n.id), paint: { 'fill-color': n.color, 'fill-opacity': 0.3 } })
+    add({ id: NATION_LINE(n.id), type: 'line', source: NATION_SRC(n.id), paint: { 'line-color': n.color, 'line-width': 2.5, 'line-opacity': 0.95 } })
+  }
+  nationLayerIds[n.id] = ids
+}
+
+/** Bounds of a nation's main-map shapes (all parts). */
+function nationBounds(T, n) {
+  const b = new maplibregl.LngLatBounds()
+  const walk = (c) => {
+    if (typeof c[0] === 'number') b.extend(c)
+    else c.forEach(walk)
+  }
+  const mm = T.mainMap
+  const ids = mm ? [mm.fill, mm.lines, mm.outside, mm.points] : [n.extentFeature || 'r1']
+  for (const id of ids) {
+    const f = (T.geojson?.features || []).find((x) => x.properties?.id === id)
+    if (f) walk(f.geometry.coordinates || f.geometry.geometries.map((g) => g.coordinates))
+  }
+  return b.isEmpty() ? null : b
+}
+
+/** Fit the map to the nations currently toggled on (plus Kentucky so markers keep context). */
+async function fitMapToNations() {
+  if (!map || !mapReady) return
+  const nations = await getTerritoryNations()
+  const b = new maplibregl.LngLatBounds(KY_BOUNDS[0], KY_BOUNDS[1])
+  let any = false
+  for (const n of nations) {
+    if (!nationOn.has(n.id)) continue
+    try {
+      const nb = nationBounds(await loadNationData(n.ref), n)
+      if (nb) {
+        b.extend(nb)
+        any = true
+      }
+    } catch (err) {
+      console.warn('nation bounds failed', n.id, err)
+    }
+  }
+  if (any) map.fitBounds(b, { padding: 40, maxZoom: 7.5, duration: 600, essential: true })
+  else fitMapToKentucky(map, { duration: 400 })
+}
+
+/** Draw (or show/hide) each toggled nation on the MapLibre main map. Each nation only ever draws its own data. */
 async function syncNationLayers() {
   if (!territoryEnabled() || !map || !mapReady) return
   const nations = await getTerritoryNations()
   const before = map.getLayer(layerCircleId('markers')) ? layerCircleId('markers') : undefined
   for (const n of nations) {
     const on = nationOn.has(n.id)
-    if (on && !map.getSource(NATION_SRC(n.id))) {
+    if (on && !nationLayerIds[n.id]) {
       try {
         const T = await loadNationData(n.ref)
-        const geometry = nationExtentGeometry(T, n)
-        if (!geometry || map.getSource(NATION_SRC(n.id))) continue
-        map.addSource(NATION_SRC(n.id), { type: 'geojson', data: { type: 'Feature', properties: {}, geometry } })
-        map.addLayer({ id: NATION_FILL(n.id), type: 'fill', source: NATION_SRC(n.id), paint: { 'fill-color': n.color, 'fill-opacity': 0.3 } }, before)
-        map.addLayer({ id: NATION_LINE(n.id), type: 'line', source: NATION_SRC(n.id), paint: { 'line-color': n.color, 'line-width': 2.5, 'line-opacity': 0.95 } }, before)
+        if (!nationLayerIds[n.id]) addNationLayers(n, T, before)
       } catch (err) {
         console.warn('nation layer failed', n.id, err)
       }
     }
-    for (const id of [NATION_FILL(n.id), NATION_LINE(n.id)]) {
+    for (const id of nationLayerIds[n.id] || []) {
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none')
+    }
+    for (const m of nationLabelMarkers[n.id] || []) {
+      if (on) m.addTo(map)
+      else m.remove()
     }
   }
   renderNationLegend(nations)
@@ -3375,12 +3461,17 @@ function syncNationRows() {
   const only = document.getElementById('terrOnly')
   if (only) only.checked = Boolean(territoryRouteSlug())
   const name = document.querySelector('[data-only-name]')
-  if (name) {
-    const id = focal || lastNationToggled || territoryNations?.[0]?.id
-    const n = (territoryNations || []).find((x) => x.id === id)
+  if (name && only) {
+    // Follows the focal nation (territory view) or the most recently toggled nation still on; no stale default.
+    const id = focal || lastNationToggled
+    const n = id ? (territoryNations || []).find((x) => x.id === id) : null
+    only.disabled = !n
     if (n) {
       name.textContent = n.name
-      document.getElementById('terrOnly').dataset.slug = n.slugs[0]
+      only.dataset.slug = n.slugs[0]
+    } else {
+      name.textContent = '(turn on a nation first)'
+      delete only.dataset.slug
     }
   }
 }
@@ -3404,25 +3495,27 @@ async function setupTerritoryMapControl() {
       <span class="swatch" style="background:${escapeHtml(n.color)}"></span></label>`,
       )
       .join('')}</div>
-    <label class="only"><input type="checkbox" id="terrOnly" /> <span>Show only this nation: <b data-only-name>${escapeHtml(nations[0].name)}</b></span></label>
+    <label class="only"><input type="checkbox" id="terrOnly" /> <span>Show only this nation: <b data-only-name>(turn on a nation first)</b></span></label>
     <p class="muted">Approximate, sourced areas. Toggle several at once; territories overlapped and shifted. “Show only” opens the nation's story map and hides the other layers.</p>`
   const after = panel.querySelector('#layerToggles')
   after.insertAdjacentElement('afterend', box)
   const onlyCb = box.querySelector('#terrOnly')
-  onlyCb.dataset.slug = nations[0].slugs[0]
   box.addEventListener('change', (e) => {
     const cb = e.target.closest('input[data-nation]')
     if (cb) {
       if (cb.checked) nationOn.add(cb.dataset.nation)
       else nationOn.delete(cb.dataset.nation)
-      lastNationToggled = cb.dataset.nation
-      syncNationLayers().catch(console.error)
+      // "Show only" follows the most recently toggled nation that is still on (never a stale default)
+      lastNationToggled = [...nationOn].pop() || null
+      syncNationLayers()
+        .then(() => (territoryRouteSlug() ? null : fitMapToNations()))
+        .catch(console.error)
       refreshTerritoryOthers().catch(console.error)
       syncNationRows()
       return
     }
     if (e.target === onlyCb) {
-      if (onlyCb.checked) location.hash = territoryMapHash(onlyCb.dataset.slug || nations[0].slugs[0])
+      if (onlyCb.checked && onlyCb.dataset.slug) location.hash = territoryMapHash(onlyCb.dataset.slug)
       else goHomeMap()
     }
   })
