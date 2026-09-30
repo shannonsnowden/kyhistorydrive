@@ -15,3 +15,6 @@ Palette (Okabe-Ito, colorblind-safe): #D55E00 vermillion, #0072B2 blue, #009E73 
 - `stories[slug]`: per-story displayed years/label when one file serves several stories; `startEra[slug]`: era shown first.
 - Era `layers[].style`: `soft`, `solid`, `hatch`, `line`, `dash`, `point`. Geometry may be a `GeometryCollection` (polygons fill, lines stroke). Era `notDrawn: {map, tag}` shows an "unknown, not drawn" note.
 - Index entry `mapNote`: one line shown under the nation in the map legend. `extentFeature` may be a `GeometryCollection` (main-map/muted shape).
+
+### Main-map parts (`mainMap`, optional)
+`{fill, area, general, lines, outside, points, hatch, labels:[{text,at}]}`; each part names a feature id. `fill`/`area` = filled polygon (opacity 0.5; `hatch:true` makes `area` a diagonal-stripe pattern so it stays readable over another nation's solid fill), `general` = soft low general-area tint with dashed edge, `lines` = solid lines inside Kentucky, `outside` = dashed lines outside Kentucky (never filled), `points` = MultiPoint. Era field `noBoundary:true` changes the tag to "Approximate location" (presence-only nations).

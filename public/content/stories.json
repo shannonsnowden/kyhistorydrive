@@ -1113,8 +1113,8 @@
       "title": "Treaty of Fort Stanwix (1768)",
       "publishedDate": "2026-08-31",
       "summary": "At Fort Stanwix (Rome, New York), Sir William Johnson and the Haudenosaunee Six Nations drew a new Line of Property that pushed the Proclamation of 1763 boundary west to the…",
-      "yearStart": 1763,
-      "yearEnd": 1768,
+      "yearStart": 1768,
+      "yearEnd": 1774,
       "era": "native",
       "tags": [
         "native",
@@ -1126,6 +1126,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-31",
+      "territory": {
+        "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+        "nation": "Six Nations",
+        "yearStart": 1768,
+        "yearEnd": 1784,
+        "presenceLabel": "Six Nations cession or claim in this area (contested)"
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -1136,8 +1143,8 @@
       "title": "Mingo camps south of the Ohio",
       "publishedDate": "2026-09-15",
       "summary": "“Mingo” was the settlers’ label for Haudenosaunee (especially Seneca and Cayuga) families who had drifted into the Ohio Country and acted apart from the Onondaga council. With…",
-      "yearStart": 1768,
-      "yearEnd": 1768,
+      "yearStart": 1770,
+      "yearEnd": 1776,
       "era": "native",
       "tags": [
         "native",
@@ -1147,6 +1154,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-15",
+      "territory": {
+        "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
+        "nation": "Mingo",
+        "yearStart": 1770,
+        "yearEnd": 1776,
+        "presenceLabel": "Mingo town, camp or raid site in this area"
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
