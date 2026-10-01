@@ -188,6 +188,19 @@ const MANUAL_OVERRIDES = {
     lon: -85.7628814,
     confidence: 'override',
   },
+  // Bowman's 1779 raid hit Old Chillicothe (Oldtown, Xenia Twp, Greene Co., Ohio; Wikipedia
+  // 39°43′49″N 83°56′16″W), not Col. John Todd's Lexington pin it was fuzzy-matched to.
+  // matchName links to the corrected History pin (same coordinates).
+  'col-john-bowman-at-old-chillicothe': {
+    matchName: 'Col. John Bowman / Battle of Chillicothe',
+    lat: 39.73028,
+    lon: -83.93778,
+    confidence: 'override',
+  },
+  // Piankashaw 1804 cession: the body mentions the Falls of the Ohio only as the EAST end of the
+  // ceded tract (outside it), so the fuzzy Falls/Clarksville pin was misleading. No History pin
+  // exists for the Piankashaw; leave the story unpinned (empty override = no place match).
+  'piankashaw-claims-on-the-ohio-wabash': {},
   // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
   'col-john-todd-of-lexington': {
     matchName: 'Col. John Todd of Lexington',

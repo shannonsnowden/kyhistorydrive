@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-30T09:28:52.847Z",
+  "generatedAt": "2026-10-01T00:56:39.293Z",
   "stats": {
     "exact": 12,
-    "fuzzy": 48,
+    "fuzzy": 46,
     "county": 6,
-    "override": 81,
-    "none": 28
+    "override": 82,
+    "none": 29
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -626,11 +626,11 @@
     },
     "col-john-bowman-at-old-chillicothe": {
       "slug": "col-john-bowman-at-old-chillicothe",
-      "lat": 38.0406,
-      "lon": -84.5037,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Col. John Todd of Lexington",
-      "historyId": "col-john-todd-lexington-blue-licks"
+      "lat": 39.73028,
+      "lon": -83.93778,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Bowman / Battle of Chillicothe",
+      "historyId": "col-john-bowman-battle-of-chillicothe"
     },
     "col-robert-patterson-builds-lexington": {
       "slug": "col-robert-patterson-builds-lexington",
@@ -1074,11 +1074,11 @@
     },
     "piankashaw-claims-on-the-ohio-wabash": {
       "slug": "piankashaw-claims-on-the-ohio-wabash",
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio",
-      "historyId": "falls-of-the-ohio"
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "ephraim-mcdowell-jane-todd-crawford-1809": {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
