@@ -605,16 +605,16 @@ const MANUAL_OVERRIDES = {
   },
   'somerset': {
     matchName: 'Somerset — Pulaski County seat (1801)',
-    lat: 37.08444444,
-    lon: -84.60805556,
+    lat: 37.0897167,
+    lon: -84.60555,
     confidence: 'override',
   },
   'moneton': {},
   'croley-evans-site': {},
   'mammoth-cave-saltpeter': {
     matchName: 'Mammoth Cave saltpeter (War of 1812)',
-    lat: 37.1872902,
-    lon: -86.1034214,
+    lat: 37.131649017334,
+    lon: -86.1454315185547,
     confidence: 'override',
   },
 }
