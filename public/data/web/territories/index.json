@@ -31,8 +31,8 @@
    "yearStart": 1768,
    "yearEnd": 1794,
    "confidence": "low-medium",
-   "mapNote": "General area: Kentucky part of the 1771 cession and Chickamauga counties. Approximate, low-medium confidence, not a boundary. Treaty lines dashed outside Kentucky.",
-   "note": "Main-map shape = sourced treaty/survey lines (1768, 1770, 1771) plus the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn.",
+   "mapNote": "General area: the 1771 Donelson cession and the 1770 Lochaber wedge (hatched, full documented shapes, including the parts outside Kentucky) and the Chickamauga counties. Approximate, low-medium confidence, not a boundary.",
+   "note": "Main-map shape = sourced treaty/survey shapes (1770 wedge, 1771 survey area) drawn in full, solid lines inside Kentucky and the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn.",
    "mainMap": true
   },
   {
@@ -65,8 +65,8 @@
    "yearStart": 1768,
    "yearEnd": 1784,
    "confidence": "low-medium",
-   "mapNote": "General area associated with the Six Nations (hatched): Kentucky east of the Tennessee River, clipped to Kentucky. A claim by treaty cession, not where people lived; approximate, low-medium confidence, not a boundary. Ohio River solid in Kentucky, dashed beyond.",
-   "note": "Kentucky east of the Tennessee River was sold to the Crown at Fort Stanwix 1768 on a Six Nations conquest claim that the Cherokee and Shawnee disputed. Outside Kentucky only the dashed Ohio River is drawn.",
+   "mapNote": "Approximate general area of the Haudenosaunee homeland in New York and Pennsylvania (tint), and, hatched, the Kentucky east of the Tennessee River sold to the Crown in 1768 (a cession claim, not where people lived). Low-medium confidence, not a boundary.",
+   "note": "Kentucky east of the Tennessee River was sold to the Crown at Fort Stanwix 1768 on a Six Nations conquest claim that the Cherokee and Shawnee disputed. The tint in New York and Pennsylvania is a general area of the homeland, built from whole counties.",
    "mainMap": true
   },
   {
@@ -81,8 +81,8 @@
    "yearStart": 1770,
    "yearEnd": 1776,
    "confidence": "low",
-   "mapNote": "Presence, no mapped boundary. Three approximate points (Mingo Town OH 1770, Yellow Creek 1774, McClelland’s Station raid 1776). Kentucky camp sites unknown, not drawn.",
-   "note": "Presence only: sourced towns and raid sites; no Kentucky camp areas are known or drawn.",
+   "mapNote": "Approximate general area of Mingo presence on the upper Ohio, 1770–1776 (whole counties, not a boundary), with three approximate points. Kentucky camp sites unknown, not drawn. Low confidence.",
+   "note": "Presence: an approximate general area on the upper Ohio, sourced points and a raid site; no Kentucky camp areas are known or drawn.",
    "mainMap": true
   },
   {
@@ -98,8 +98,8 @@
    "yearStart": 1745,
    "yearEnd": 1795,
    "confidence": "low-medium",
-   "mapNote": "Towns at Sandusky and Detroit north of the Ohio, and raid sites in Kentucky (1780, 1782). Approximate area (dashed Ohio county outline), not a boundary. No Kentucky camp sites are known or drawn.",
-   "note": "Presence only: sourced towns and raid sites; no Kentucky camp areas are known or drawn.",
+   "mapNote": "Approximate general area of Wyandot towns on the Sandusky River and near Detroit, c.1745–1795 (whole counties, not a boundary); Kentucky only as 1780 and 1782 raid sites. The 1785 Fort McIntosh allotment is hatched as a county approximation. Low–medium confidence.",
+   "note": "A general area in Ohio and Michigan, sourced town and raid points; no Kentucky camp areas are known or drawn.",
    "mainMap": true,
    "approxStart": true
   },
@@ -116,8 +116,8 @@
    "yearStart": 1750,
    "yearEnd": 1805,
    "confidence": "low-medium",
-   "mapNote": "1804 cession shown as ten Indiana counties (approximate area, not a boundary), plus Bird’s 1780 route and event points. Kentucky camp sites are unknown and not drawn.",
-   "note": "Ohio and Indiana: towns, the 1780 route, treaty lines and the 1804 cession. No Kentucky camp areas are drawn.",
+   "mapNote": "Approximate general area of the Delaware (Lenape) Ohio towns c.1750–1795 (Muskingum and Tuscarawas valleys) and the ten-county 1804 Indiana cession (whole counties, not a boundary), plus Bird’s 1780 route in Kentucky. Kentucky camp sites unknown, not drawn.",
+   "note": "Ohio and Indiana: a general area of the towns, the 1780 route inside Kentucky, the 1785 allotment and the 1804 cession. No Kentucky camp areas are drawn.",
    "mainMap": true,
    "approxStart": true
   },
@@ -134,8 +134,8 @@
    "yearStart": 1750,
    "yearEnd": 1805,
    "confidence": "low-medium",
-   "mapNote": "Wabash towns (Miami, Wea, Piankashaw) and the 1804 cession as ten Indiana counties (approximate area, not a boundary). Northern Kentucky hunting ground: no area drawn.",
-   "note": "Wabash villages and the 1804 cession in southern Indiana; Kentucky hunting is described in text only.",
+   "mapNote": "Approximate general area of the Wabash country (Miami, Wea, Piankashaw) c.1750–1805, from Fort Wayne to Vincennes (whole counties, not a boundary), with the ten-county 1804 cession. Northern Kentucky hunting ground: no area drawn.",
+   "note": "Wabash valley in Indiana: a general area of the towns and the 1804 cession; Kentucky hunting is described in text only.",
    "mainMap": true,
    "approxStart": true
   },
@@ -152,8 +152,8 @@
    "yearStart": 1740,
    "yearEnd": 1819,
    "confidence": "low",
-   "mapNote": "General area (three counties in Indiana and Illinois), approximate and low confidence; not a boundary. The Mascouten have no area of their own and are shown here. No Kentucky villages are documented.",
-   "note": "Presence only: a general area in Indiana and Illinois; no Kentucky villages are documented.",
+   "mapNote": "Approximate general area in Indiana and Illinois, c.1740–1819 (the Wabash and Vermilion country, whole counties, not a boundary). The Mascouten have no area of their own and are shown here. No Kentucky villages are documented. Low confidence.",
+   "note": "A general area in Indiana and Illinois; no Kentucky villages are documented.",
    "mainMap": true,
    "approxStart": true
   },
@@ -169,8 +169,8 @@
    "yearStart": 1778,
    "yearEnd": 1803,
    "confidence": "low-medium",
-   "mapNote": "Cahokia and Kaskaskia points, and two river reaches of the 1803 claim (dashed, never closed). Inland calls of the claim are not drawn. Approximate, low–medium confidence.",
-   "note": "Two town points and the two sourced river reaches of the 1803 claim; no area is drawn.",
+   "mapNote": "Approximate general area of the Illinois towns on the Mississippi (1778) and of the claim declared in 1803 (southern Illinois, whole counties, not a boundary; the inland edge is unlocated). Low–medium confidence.",
+   "note": "Two town points and a general area of the 1803 declared claim in Illinois; the inland calls are unlocated, so the edge is a rough guess.",
    "mainMap": true
   },
   {
@@ -185,8 +185,8 @@
    "yearStart": 1640,
    "yearEnd": 1809,
    "confidence": "low",
-   "mapNote": "Detroit and Chicago points only. The Great Lakes homeland is outside the map window and is described in text, not drawn. Low confidence.",
-   "note": "Presence only: two sourced points; the homeland is text only.",
+   "mapNote": "Approximate general area of Potawatomi presence, c.1640–1809: Green Bay and Door County, then southern Michigan, northern Indiana and northeast Illinois (whole counties, not a boundary). Low confidence.",
+   "note": "A general area in Wisconsin, Michigan, Indiana and Illinois; Detroit and Chicago points; no Kentucky presence.",
    "mainMap": true,
    "approxStart": true
   },
@@ -199,12 +199,13 @@
    ],
    "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
    "extentFeature": "extent",
-   "yearStart": 1780,
+   "yearStart": 1700,
    "yearEnd": 1780,
    "confidence": "medium",
-   "mapNote": "Bird’s 1780 route only (solid in Kentucky, dashed outside) with Detroit and Martin’s Station points. The homeland is not drawn. The Odawa story about Egushawa is separate.",
-   "note": "Event route only: Bird’s June 1780 war road; no homeland is drawn.",
-   "mainMap": true
+   "mapNote": "Approximate general area of Odawa and Ojibwe presence around Detroit, Saginaw and the Maumee, c.1700–1780 (whole counties, not a boundary), and Bird’s 1780 route, solid in Kentucky. The wider homeland to the north is not drawn. Low confidence. The Odawa story about Egushawa is separate.",
+   "note": "A general area in Michigan and Ohio, and Bird’s June 1780 war road in Kentucky; the wider homeland is not drawn.",
+   "mainMap": true,
+   "approxStart": true
   }
  ]
 }
