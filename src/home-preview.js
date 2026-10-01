@@ -263,8 +263,8 @@ function renderHeroSlide(story, index) {
       <div class="hp-mag-hero-copy">
         <p class="hp-kicker">Featured story</p>
         <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(storyYearLabel(story.yearStart))}` : ''}</p>
-        <h2 id="${titleId}">${escapeHtml(story.title)}</h2>
-        <p class="hp-hero-deck">${escapeHtml(heroDeckText(story))}</p>
+        <h2 id="${titleId}" class="hp-fit">${escapeHtml(story.title)}</h2>
+        <p class="hp-hero-deck hp-fit">${escapeHtml(heroDeckText(story))}</p>
         <div class="hp-cta-row">
           <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
           ${
@@ -407,6 +407,7 @@ function renderHero(pack) {
       ${slides.map((story, i) => renderHeroSlide(story, i)).join('')}
     </div>
     ${renderHeroControls(slides)}`
+  fitHomeText()
   renderQuote(slides[0])
   initHeroRotator(root, slides)
 }
@@ -444,6 +445,84 @@ function renderFeatures(pack) {
     .join('')
 }
 
+/**
+ * Fixed-size text boxes (hero title/deck + quote): the box height is set in CSS per
+ * breakpoint, so rotating slides never moves anything. If a string is too long for its
+ * box at the default size, shrink the font (down to ~0.8x / 14px); if it still does not
+ * fit, leave it at the minimum size and let the box scroll (with a fade hint) — never
+ * truncate.
+ */
+const FIT_MIN_SCALE = 0.8
+const FIT_MIN_PX = 14
+
+function fitEl(el) {
+  el.style.setProperty('--fit', '1')
+  el.classList.remove('is-scrollable', 'at-end')
+  el.removeAttribute('tabindex')
+  el.removeAttribute('aria-label')
+  if (!el.clientHeight) return // not rendered (hidden); re-run when it becomes visible
+  const over = () => el.scrollHeight > el.clientHeight + 1
+  if (!over()) return
+  const target = el.firstElementChild && el.classList.contains('hp-quote-body') ? el.firstElementChild : el
+  const basePx = parseFloat(getComputedStyle(target).fontSize) || 16
+  const min = Math.min(1, Math.max(FIT_MIN_SCALE, FIT_MIN_PX / basePx))
+  el.style.setProperty('--fit', String(min))
+  if (over()) {
+    el.classList.add('is-scrollable')
+    el.setAttribute('tabindex', '0')
+    el.setAttribute('aria-label', 'Scrollable text')
+    updateScrollHint(el)
+    return
+  }
+  let lo = min
+  let hi = 1
+  for (let i = 0; i < 8; i += 1) {
+    const mid = (lo + hi) / 2
+    el.style.setProperty('--fit', String(mid))
+    if (over()) hi = mid
+    else lo = mid
+  }
+  el.style.setProperty('--fit', String(lo))
+}
+
+function updateScrollHint(el) {
+  el.classList.toggle('at-end', el.scrollTop + el.clientHeight >= el.scrollHeight - 2)
+}
+
+let fitWatching = false
+let fitRaf = 0
+function fitHomeText() {
+  document.querySelectorAll('#hpHero .hp-fit, #hpQuote .hp-fit').forEach(fitEl)
+  if (fitWatching) return
+  fitWatching = true
+  const rerun = () => {
+    cancelAnimationFrame(fitRaf)
+    fitRaf = requestAnimationFrame(() => {
+      document.querySelectorAll('#hpHero .hp-fit, #hpQuote .hp-fit').forEach(fitEl)
+    })
+  }
+  // Width changes (resize, rotation, split view), webfont/system-font swap, late reveal.
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(rerun)
+    ;['hpHero', 'hpQuote'].forEach((id) => {
+      const n = document.getElementById(id)
+      if (n) ro.observe(n)
+    })
+  }
+  window.addEventListener('resize', rerun)
+  window.addEventListener('orientationchange', rerun)
+  document.fonts?.ready?.then(rerun)
+  document.fonts?.addEventListener?.('loadingdone', rerun)
+  document.addEventListener(
+    'scroll',
+    (e) => {
+      const t = e.target
+      if (t instanceof Element && t.classList.contains('is-scrollable')) updateScrollHint(t)
+    },
+    true,
+  )
+}
+
 function renderQuote(story) {
   const root = document.getElementById('hpQuote')
   if (!root) return
@@ -455,7 +534,7 @@ function renderQuote(story) {
     return
   }
   const next = `<blockquote>
-      <p>${escapeHtml(q.text)}</p>
+      <div class="hp-quote-body hp-fit"><p>${escapeHtml(q.text)}</p></div>
       <footer>— <a href="${escapeHtml(q.href || '#')}">${escapeHtml(q.source || '')}</a></footer>
     </blockquote>`
   root.hidden = false
@@ -464,6 +543,7 @@ function renderQuote(story) {
   const apply = () => {
     root.innerHTML = next
     root.classList.remove('is-changing')
+    fitHomeText()
   }
   if (prefersReducedMotion() || !root.querySelector('blockquote')) {
     apply()
