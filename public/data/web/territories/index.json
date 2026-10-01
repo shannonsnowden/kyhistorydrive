@@ -201,8 +201,8 @@
    "extentFeature": "extent",
    "yearStart": 1700,
    "yearEnd": 1780,
-   "confidence": "medium",
-   "mapNote": "Approximate general area of Odawa and Ojibwe presence around Detroit, Saginaw and the Maumee, c.1700–1780 (whole counties, not a boundary), and Bird’s 1780 route, solid in Kentucky. The wider homeland to the north is not drawn. Low confidence. The Odawa story about Egushawa is separate.",
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area of Odawa and Ojibwe presence around Detroit, Saginaw and the Maumee, c.1700–1780 (whole counties, not a boundary), and Bird’s 1780 route, solid in Kentucky. The wider homeland to the north is not drawn. Area: low confidence; Bird’s route: medium. The Odawa story about Egushawa is separate.",
    "note": "A general area in Michigan and Ohio, and Bird’s June 1780 war road in Kentucky; the wider homeland is not drawn.",
    "mainMap": true,
    "approxStart": true
