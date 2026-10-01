@@ -4155,6 +4155,14 @@
         "attribution": "Unknown · Wikimedia Commons · Public domain",
         "year": null
       },
+      "territory": {
+        "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
+        "nation": "Osage (Wazhazhe, Ni-U-Kon-Ska)",
+        "yearStart": 1673,
+        "yearEnd": 1823,
+        "presenceLabel": "Osage villages in Missouri (nothing drawn in Kentucky)",
+        "yearText": "c.1673 to c.1823"
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -4359,6 +4367,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-05",
+      "territory": {
+        "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
+        "nation": "Yuchi (Euchee, Uchi)",
+        "yearStart": 1567,
+        "yearEnd": 1836,
+        "presenceLabel": "Yuchi towns in the Southeast (none documented in Kentucky)"
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,

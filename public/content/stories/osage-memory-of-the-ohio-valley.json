@@ -21,5 +21,13 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Unknown · Wikimedia Commons · Public domain",
     "year": null
+  },
+  "territory": {
+    "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
+    "nation": "Osage (Wazhazhe, Ni-U-Kon-Ska)",
+    "yearStart": 1673,
+    "yearEnd": 1823,
+    "presenceLabel": "Osage villages in Missouri (nothing drawn in Kentucky)",
+    "yearText": "c.1673 to c.1823"
   }
 }
