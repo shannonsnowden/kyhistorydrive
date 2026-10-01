@@ -3327,7 +3327,7 @@ const NATION_FILL = (id) => `terr-fill-${id}`
 const NATION_LINE = (id) => `terr-line-${id}`
 
 const nationLayerIds = Object.create(null) // nation id -> [layer ids]
-const nationLabelMarkers = Object.create(null) // nation id -> [maplibregl.Marker]
+const nationNoteTexts = Object.create(null) // nation id -> [note text] shown in the legend panel (never on the map)
 function addNationLayers(n, T, before) {
   const ids = []
   const add = (layer) => {
@@ -3372,14 +3372,8 @@ function addNationLayers(n, T, before) {
     if (lineSrc) add({ id: `${NATION_LINE(n.id)}-solid`, type: 'line', source: lineSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': n.color, 'line-width': 3, 'line-opacity': 0.95 } })
     const ptSrc = mm.points && src('points', mm.points)
     if (ptSrc) add({ id: `${NATION_SRC(n.id)}-pts`, type: 'circle', source: ptSrc, paint: { 'circle-radius': 5, 'circle-color': n.color, 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.5 } })
-    nationLabelMarkers[n.id] = (mm.labels || []).map((l, li) => {
-      const el = document.createElement('div')
-      el.className = 'terr-maplabel'
-      if (li > 0) el.dataset.sec = '1' // secondary labels are hidden first when many nations are on
-      el.style.color = n.color
-      el.textContent = l.text
-      return new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat(l.at)
-    })
+    // The long per-nation notes are no longer drawn on the map (they covered the shapes): they open from the legend row instead.
+    nationNoteTexts[n.id] = (mm.labels || []).map((l) => l.text).filter(Boolean)
   } else {
     const geometry = nationExtentGeometry(T, n)
     if (!geometry) return
@@ -3452,10 +3446,6 @@ async function syncNationLayers() {
     for (const id of nationLayerIds[n.id] || []) {
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none')
     }
-    for (const m of nationLabelMarkers[n.id] || []) {
-      if (on) m.addTo(map)
-      else m.remove()
-    }
   }
   // Label tidy-up: the legend already names every nation, so on-map labels thin out as more nations are toggled on.
   const mapEl = document.getElementById('map')
@@ -3463,7 +3453,62 @@ async function syncNationLayers() {
   renderNationLegend(nations)
 }
 
-let legendNotesOpen = null
+let legendNoteId = null // nation whose note is open (one at a time); null = all notes closed
+function nationNoteHtml(n) {
+  const yrs = n.yearLabel || (n.yearStart ? `${n.approxStart ? 'c.' : ''}${n.yearStart}–${n.yearEnd ?? ''}` : '')
+  const conf = { medium: 'Medium', 'low-medium': 'Low–medium', low: 'Low', high: 'High' }[n.confidence]
+  const texts = nationNoteTexts[n.id]?.length ? nationNoteTexts[n.id] : [n.mapNote || n.note || '']
+  return `<div class="ml-note-h"><b>${escapeHtml(n.name)}</b>${yrs ? ` <small>${escapeHtml(yrs)}</small>` : ''}<button type="button" class="ml-x" aria-label="Close note">×</button></div>${texts.map((t) => `<p>${escapeHtml(t)}</p>`).join('')}${n.note ? `<p>${escapeHtml(n.note)}</p>` : ''}${conf ? `<p class="ml-conf">Confidence: ${escapeHtml(conf)}</p>` : ''}`
+}
+/** The note lives in a panel BELOW the map (in the page flow, a sibling of the map canvas), never over the shapes. */
+function nationNotePanel() {
+  let p = document.getElementById('nationNote')
+  if (!p) {
+    const sec = document.getElementById('map')
+    if (!sec) return null
+    p = document.createElement('div')
+    p.id = 'nationNote'
+    p.className = 'terr-notepanel'
+    p.setAttribute('role', 'region')
+    p.setAttribute('aria-label', 'Nation note')
+    p.hidden = true
+    sec.appendChild(p)
+  }
+  return p
+}
+/** Open/close one nation's note (same row again closes it; one at a time). */
+function setLegendNote(id, { focus = false, scroll = true } = {}) {
+  const el = document.getElementById('nationLegend')
+  const note = nationNotePanel()
+  if (!el || !note) return
+  const n = (territoryNations || []).find((x) => x.id === id)
+  legendNoteId = n && legendNoteId !== id ? id : null
+  el.querySelectorAll('button.ml-row').forEach((b) => b.setAttribute('aria-expanded', String(b.dataset.nid === legendNoteId)))
+  if (legendNoteId) {
+    note.innerHTML = nationNoteHtml(n)
+    note.style.setProperty('--nc', n.outline || n.color)
+    note.hidden = false
+    note.querySelector('.ml-x')?.addEventListener('click', () => {
+      const cur = legendNoteId
+      setLegendNote(cur, { focus: true })
+    })
+    if (scroll) note.scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+  } else {
+    note.hidden = true
+    note.innerHTML = ''
+    if (focus) el.querySelector(`button.ml-row[data-nid="${id}"]`)?.focus()
+  }
+}
+window.addEventListener('hashchange', () => {
+  if (!legendNoteId) return
+  legendNoteId = null
+  const np = document.getElementById('nationNote')
+  if (np) { np.hidden = true; np.innerHTML = '' }
+  document.querySelectorAll('#nationLegend button.ml-row').forEach((b) => b.setAttribute('aria-expanded', 'false'))
+})
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && legendNoteId) setLegendNote(legendNoteId, { focus: true })
+})
 function renderNationLegend(nations) {
   const wrap = document.querySelector('#map .map-canvas-wrap')
   if (!wrap) return
@@ -3471,8 +3516,12 @@ function renderNationLegend(nations) {
   const shown = territoryRouteSlug() ? [] : (nations || territoryNations || []).filter((n) => nationOn.has(n.id))
   if (!shown.length) {
     el?.remove()
+    legendNoteId = null
+    const np = document.getElementById('nationNote')
+    if (np) { np.hidden = true; np.innerHTML = '' }
     return
   }
+  if (legendNoteId && !shown.some((n) => n.id === legendNoteId)) legendNoteId = null
   if (!el) {
     el = document.createElement('div')
     el.id = 'nationLegend'
@@ -3481,18 +3530,23 @@ function renderNationLegend(nations) {
     el.setAttribute('aria-label', 'Native nations shown (approximate)')
     wrap.appendChild(el)
   }
-  // Compact by default when 3+ nations are on (notes hidden); a button toggles the notes. User choice sticks.
-  const collapsed = legendNotesOpen === null ? shown.length >= 3 : !legendNotesOpen
-  el.classList.toggle('ml-compact', collapsed)
-  el.innerHTML = `<div class="ml-h"><span>Native nations (approximate)</span><button type="button" class="ml-tog" aria-expanded="${!collapsed}" aria-label="${collapsed ? 'Show' : 'Hide'} nation notes">${collapsed ? 'Notes +' : 'Notes −'}</button></div>${shown
+  // Notes are closed by default. Activate a row to read that nation's note in the panel under the title (one at a time).
+  const keep = document.activeElement?.dataset?.nid
+  el.innerHTML = `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shown
     .map(
-      (n) => `<div class="ml-row"><i style="background:${rgba(n.color, 0.5)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${n.approxStart ? 'c.' : ''}${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}${n.mapNote ? `<small class="ml-n">${escapeHtml(n.mapNote)}</small>` : ''}</span></div>`,
+      (n) => `<button type="button" class="ml-row" data-nid="${escapeHtml(n.id)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${rgba(n.color, 0.5)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${n.approxStart ? 'c.' : ''}${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`,
     )
-    .join('')}<div class="ml-f">Territories overlapped and shifted; boundaries simplified. General areas are not boundaries.</div>`
-  el.querySelector('.ml-tog')?.addEventListener('click', () => {
-    legendNotesOpen = el.classList.contains('ml-compact')
-    renderNationLegend(nations)
-  })
+    .join('')}</div><div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
+  el.querySelectorAll('button.ml-row').forEach((b) => b.addEventListener('click', () => setLegendNote(b.dataset.nid)))
+  if (legendNoteId) {
+    const id = legendNoteId
+    legendNoteId = null
+    setLegendNote(id, { scroll: false })
+  } else {
+    const np = document.getElementById('nationNote')
+    if (np) { np.hidden = true; np.innerHTML = '' }
+  }
+  if (keep) el.querySelector(`button.ml-row[data-nid="${keep}"]`)?.focus()
 }
 
 /** Muted "other nations" inside the territory view = every toggled-on nation except the story's own. */

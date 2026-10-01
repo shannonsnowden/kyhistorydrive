@@ -108,3 +108,22 @@ html:not([data-hp-theme=light]) .terr-tag.nd{color:#fff3a0;background:rgba(240,2
 #map[data-nlab="6"] .terr-maplabel[data-sec],#map[data-nlab="7"] .terr-maplabel[data-sec],#map[data-nlab="8"] .terr-maplabel[data-sec]{display:none}
 #map[data-nlab="9"] .terr-maplabel,#map[data-nlab="10"] .terr-maplabel,#map[data-nlab="11"] .terr-maplabel,#map[data-nlab="12"] .terr-maplabel{display:none}
 @media (max-width:520px){#map[data-nlab="2"] .terr-maplabel[data-sec]{display:none}#map[data-nlab="3"] .terr-maplabel,#map[data-nlab="4"] .terr-maplabel,#map[data-nlab="5"] .terr-maplabel,#map[data-nlab="6"] .terr-maplabel,#map[data-nlab="7"] .terr-maplabel,#map[data-nlab="8"] .terr-maplabel{display:none}}
+
+/* Legend rows are buttons; the one open note shows in a panel below the map, never over it */
+.terr-maplegend{pointer-events:none;display:flex;flex-direction:column;max-height:60%;overflow:hidden}
+.terr-maplegend .ml-rows{overflow:auto;pointer-events:none;min-height:0}
+.terr-maplegend button.ml-row{pointer-events:auto;display:flex;align-items:center;gap:.45rem;width:100%;margin:.08rem 0;padding:.12rem .2rem;border:0;border-radius:6px;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;min-height:1.7rem}
+.terr-maplegend button.ml-row:hover{background:rgba(127,127,127,.16)}
+.terr-maplegend button.ml-row:focus-visible,.terr-notepanel .ml-x:focus-visible{outline:2px solid var(--heading);outline-offset:1px}
+.terr-maplegend button.ml-row[aria-expanded="true"]{background:rgba(127,127,127,.24)}
+.terr-maplegend .ml-i{margin-left:auto;flex:none;width:1.1rem;height:1.1rem;border:1px solid var(--line);border-radius:50%;font:700 .65rem/1rem Georgia,serif;text-align:center;color:var(--muted)}
+.map-section>.controls{grid-row:1/span 2}
+.terr-notepanel{grid-column:2;grid-row:2;background:var(--panel);color:var(--text);border-top:4px solid var(--nc,var(--line));padding:.6rem .9rem;font-size:.9rem;line-height:1.45}
+.terr-notepanel[hidden]{display:none}
+.terr-notepanel p{margin:.25rem 0 0;max-width:62rem}
+.terr-notepanel .ml-note-h{display:flex;align-items:baseline;gap:.5rem}
+.terr-notepanel .ml-note-h b{color:var(--heading);font-size:1rem}
+.terr-notepanel .ml-x{margin-left:auto;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--heading);font:700 1.2rem/1 system-ui;cursor:pointer;min-width:2.4rem;min-height:2.4rem}
+.terr-notepanel .ml-conf{color:var(--muted)}
+@media (max-width:900px){.map-section>.controls{grid-row:auto}.terr-notepanel{grid-column:1;grid-row:auto}}
+.map-section.terr-on>.terr-notepanel{display:none}
