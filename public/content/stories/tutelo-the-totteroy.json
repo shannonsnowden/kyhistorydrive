@@ -12,5 +12,12 @@
     "kentucky"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-17"
+  "briefDate": "2026-09-17",
+  "territory": {
+    "ref": "/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
+    "nation": "Tutelo (Yesah, Totero)",
+    "yearStart": 1671,
+    "yearEnd": 1779,
+    "presenceLabel": "Tutelo village or refuge in this area"
+  }
 }

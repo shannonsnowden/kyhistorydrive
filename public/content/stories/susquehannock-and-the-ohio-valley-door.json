@@ -21,5 +21,13 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2007
+  },
+  "territory": {
+    "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
+    "nation": "Susquehannock (Conestoga)",
+    "yearStart": 1550,
+    "yearEnd": 1763,
+    "presenceLabel": "Susquehannock or Conestoga village in this area",
+    "approxStart": true
   }
 }
