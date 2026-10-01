@@ -101,7 +101,8 @@ function ringD(ring, P) {
 }
 function geomD(g, P) {
   if (g.type === 'GeometryCollection') return g.geometries.map((x) => geomD(x, P)).join('')
-  if (g.type === 'LineString' || g.type === 'MultiLineString' || g.type === 'Point') return ''
+  // only polygons make closed fills; lines, points and multipoints (e.g. inside an `extent` collection) draw nothing here
+  if (g.type !== 'Polygon' && g.type !== 'MultiPolygon') return ''
   const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates
   return polys.map((p) => p.map((r) => ringD(r, P)).join('')).join('')
 }
