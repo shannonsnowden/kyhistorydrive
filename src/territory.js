@@ -114,7 +114,7 @@ function lineD(g, P) {
 
 const stylesFor = (c, pfx, full) => ({
   solid: { fill: rgba(c, 0.52), stroke: darkOf(c), w: full ? 2.6 : 1.8, dash: '' },
-  soft: { fill: rgba(c, 0.3), stroke: darkOf(c), w: 1.6, dash: '7 5' },
+  soft: { fill: rgba(c, 0.38), stroke: darkOf(c), w: 1.4, dash: '' },
   hatch: { fill: `url(#${pfx}-hatch)`, stroke: darkOf(c), w: 1.6, dash: '' },
   line: { fill: 'none', stroke: darkOf(c), w: full ? 3.4 : 2.6, dash: '' },
   dash: { fill: 'none', stroke: darkOf(c), w: full ? 2.4 : 1.8, dash: '8 6' },
@@ -332,7 +332,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   // ---- full view: legend + other (muted) nations ----
   const P = projector(base.proj)
   const legendEl = root.querySelector('[data-legend]')
-  const sw = (bg, bd, dashed) => `<i style="background:${bg};border:1px ${dashed ? 'dashed' : 'solid'} ${bd}"></i>`
+  const sw = (bg, bd) => `<i style="background:${bg};border:1px solid ${bd}"></i>`
   const hatchBg = `repeating-linear-gradient(45deg,${darkOf(color)} 0 2px,${rgba(color, 0.14)} 2px 5px)`
   const lgSw = (kind) => {
     const d = darkOf(color)
@@ -341,7 +341,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     if (kind === 'point') return `<i class="lg-pt" style="background:${color};border:2px solid ${PAL.cream};box-shadow:0 0 0 1px ${d}"></i>`
     if (kind === 'ring') return `<i class="lg-pt" style="background:${PAL.cream};border:2px solid ${d}"></i>`
     if (kind === 'hatch') return sw(hatchBg, d)
-    if (kind === 'soft') return sw(rgba(color, 0.3), d, true)
+    if (kind === 'soft') return sw(rgba(color, 0.38), d)
     return sw(rgba(color, 0.52), d)
   }
   function paintLegend(others) {
@@ -350,7 +350,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     const items = tagOnly ? [] : T.legend || [{ kind: 'soft', label: 'Claimed / used' }, { kind: 'hatch', label: 'Ceded by treaty' }]
     const focal = tagOnly ? '' : `<span class="lg-focal">${sw(rgba(color, 0.52), darkOf(color))}<b>${nm}</b> (this story, highlighted)</span>
 ${items.map((i) => `<span>${lgSw(i.kind)}${esc(i.label)}</span>`).join('')}`
-    const oth = others.map((o) => `<span class="lg-other" data-lg-other="${esc(o.id)}">${sw(rgba(mutedOf(o.color), 0.28), mutedOf(o.color), true)}${esc(o.name)} <em>(other nation, muted)</em></span>`).join('')
+    const oth = others.map((o) => `<span class="lg-other" data-lg-other="${esc(o.id)}">${sw(rgba(mutedOf(o.color), 0.28), mutedOf(o.color))}${esc(o.name)} <em>(other nation, muted)</em></span>`).join('')
     legendEl.innerHTML = focal + oth
   }
   function setOthers(others) {
@@ -359,7 +359,7 @@ ${items.map((i) => `<span>${lgSw(i.kind)}${esc(i.label)}</span>`).join('')}`
       g.innerHTML = others.map((o) => {
         const c = mutedOf(o.color)
         const ln = lineD(o.geometry, P)
-        return `<path data-other="${esc(o.id)}" d="${geomD(o.geometry, P)}" fill="${rgba(c, 0.26)}" stroke="${c}" stroke-width="1" stroke-dasharray="5 4" stroke-linejoin="round" fill-rule="evenodd"/>${ln ? `<path data-other="${esc(o.id)}" d="${ln}" fill="none" stroke="${c}" stroke-width="1.2" stroke-dasharray="5 4" stroke-linejoin="round"/>` : ''}`
+        return `<path data-other="${esc(o.id)}" d="${geomD(o.geometry, P)}" fill="${rgba(c, 0.26)}" stroke="${c}" stroke-width="1" stroke-linejoin="round" fill-rule="evenodd"/>${ln ? `<path data-other="${esc(o.id)}" d="${ln}" fill="none" stroke="${c}" stroke-width="1.2" stroke-linejoin="round"/>` : ''}`
       }).join('')
     }
     paintLegend(others)

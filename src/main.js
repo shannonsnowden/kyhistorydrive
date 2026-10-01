@@ -3335,11 +3335,11 @@ function addNationLayers(n, T, before) {
       if (!map.getSource(sid)) map.addSource(sid, { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: f.geometry } })
       return sid
     }
-    // General area (soft): a sourced region associated with the nation, NOT a boundary. Drawn first (lowest), soft dashed edge.
+    // General area (soft): a sourced region associated with the nation, NOT a boundary. Drawn first (lowest), thin solid edge.
     const genSrc = mm.general && src('general', mm.general)
     if (genSrc) {
-      add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.42 } })
-      add({ id: `${NATION_LINE(n.id)}-general-edge`, type: 'line', source: genSrc, paint: { 'line-color': n.color, 'line-width': 1.6, 'line-opacity': 0.75, 'line-dasharray': [2, 2] } })
+      add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.4 } })
+      add({ id: `${NATION_LINE(n.id)}-general-edge`, type: 'line', source: genSrc, paint: { 'line-color': n.color, 'line-width': 1.4, 'line-opacity': 0.8 } })
     }
     const areaSrc = mm.area && src('area', mm.area)
     if (areaSrc) {
@@ -3359,13 +3359,12 @@ function addNationLayers(n, T, before) {
     }
     const lineSrc = mm.lines && src('lines', mm.lines)
     if (lineSrc) add({ id: `${NATION_LINE(n.id)}-solid`, type: 'line', source: lineSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': n.color, 'line-width': 3, 'line-opacity': 0.95 } })
-    const outSrc = mm.outside && src('outside', mm.outside)
-    if (outSrc) add({ id: `${NATION_LINE(n.id)}-dash`, type: 'line', source: outSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': n.color, 'line-width': 2, 'line-opacity': 0.85, 'line-dasharray': [3, 2] } })
     const ptSrc = mm.points && src('points', mm.points)
     if (ptSrc) add({ id: `${NATION_SRC(n.id)}-pts`, type: 'circle', source: ptSrc, paint: { 'circle-radius': 5, 'circle-color': n.color, 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.5 } })
-    nationLabelMarkers[n.id] = (mm.labels || []).map((l) => {
+    nationLabelMarkers[n.id] = (mm.labels || []).map((l, li) => {
       const el = document.createElement('div')
       el.className = 'terr-maplabel'
+      if (li > 0) el.dataset.sec = '1' // secondary labels are hidden first when many nations are on
       el.style.color = n.color
       el.textContent = l.text
       return new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat(l.at)
@@ -3388,7 +3387,7 @@ function nationBounds(T, n) {
     else c.forEach(walk)
   }
   const mm = T.mainMap
-  const ids = mm ? [mm.fill, mm.area, mm.lines, mm.outside, mm.points] : [n.extentFeature || 'r1']
+  const ids = mm ? [mm.general, mm.fill, mm.area, mm.lines, mm.points] : [n.extentFeature || 'r1']
   for (const id of ids) {
     const f = (T.geojson?.features || []).find((x) => x.properties?.id === id)
     if (f) walk(f.geometry.coordinates || f.geometry.geometries.map((g) => g.coordinates))
@@ -3416,6 +3415,12 @@ async function fitMapToNations() {
   }
   if (any) map.fitBounds(b, { padding: 40, maxZoom: 7.5, duration: 600, essential: true })
   else fitMapToKentucky(map, { duration: 400 })
+  // exposes the framed bounds (and what had to fit) on the map element for checks; no visual effect
+  const cv = document.getElementById('mapCanvas')
+  if (cv) {
+    cv.dataset.fitWanted = any ? b.toArray().flat().map((v) => v.toFixed(3)).join(',') : ''
+    map.once('moveend', () => { cv.dataset.fitView = map.getBounds().toArray().flat().map((v) => v.toFixed(3)).join(',') })
+  }
 }
 
 /** Draw (or show/hide) each toggled nation on the MapLibre main map. Each nation only ever draws its own data. */
@@ -3441,6 +3446,9 @@ async function syncNationLayers() {
       else m.remove()
     }
   }
+  // Label tidy-up: the legend already names every nation, so on-map labels thin out as more nations are toggled on.
+  const mapEl = document.getElementById('map')
+  if (mapEl) mapEl.dataset.nlab = String(nations.filter((x) => nationOn.has(x.id)).length)
   renderNationLegend(nations)
 }
 

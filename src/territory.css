@@ -101,3 +101,10 @@ html:not([data-hp-theme=light]) .terr-tag.nd{color:#fff3a0;background:rgba(240,2
 .terr-maplegend .ml-tog{pointer-events:auto;font:700 .68rem system-ui,sans-serif;padding:.15rem .45rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--heading);cursor:pointer;text-transform:none;letter-spacing:0}
 .terr-maplegend.ml-compact .ml-n,.terr-maplegend.ml-compact .ml-f{display:none}
 .terr-maplegend{max-height:55%;overflow:auto}
+
+/* fewer on-map labels as more nations are on (legend names every nation) */
+#map[data-nlab="3"] .terr-maplabel[data-sec],#map[data-nlab="4"] .terr-maplabel[data-sec],#map[data-nlab="5"] .terr-maplabel[data-sec]{display:none}
+#map[data-nlab="6"] .terr-maplabel,#map[data-nlab="7"] .terr-maplabel,#map[data-nlab="8"] .terr-maplabel{font-size:.66rem;max-width:7.5rem}
+#map[data-nlab="6"] .terr-maplabel[data-sec],#map[data-nlab="7"] .terr-maplabel[data-sec],#map[data-nlab="8"] .terr-maplabel[data-sec]{display:none}
+#map[data-nlab="9"] .terr-maplabel,#map[data-nlab="10"] .terr-maplabel,#map[data-nlab="11"] .terr-maplabel,#map[data-nlab="12"] .terr-maplabel{display:none}
+@media (max-width:520px){#map[data-nlab="2"] .terr-maplabel[data-sec]{display:none}#map[data-nlab="3"] .terr-maplabel,#map[data-nlab="4"] .terr-maplabel,#map[data-nlab="5"] .terr-maplabel,#map[data-nlab="6"] .terr-maplabel,#map[data-nlab="7"] .terr-maplabel,#map[data-nlab="8"] .terr-maplabel{display:none}}
