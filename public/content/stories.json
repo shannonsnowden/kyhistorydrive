@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T10:00:32.555Z",
+  "generatedAt": "2026-10-01T14:21:41.249Z",
   "count": 180,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -419,7 +419,7 @@
       "slug": "croley-evans-site",
       "title": "Croley-Evans Site",
       "publishedDate": "2026-10-01",
-      "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world. UK archaeologist Richard Jefferies’s…",
+      "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound complex. A 1996 study by UK archaeologist Richard Jefferies and colleagues…",
       "yearStart": 1200,
       "yearEnd": 1450,
       "era": "prehistoric",
@@ -432,7 +432,7 @@
       "briefDate": "2026-10-01",
       "photo": {
         "image_url": "/content/photos/stories/croley-evans-site.jpg",
-        "title": "Mississippian shell-tempered pottery from Wickliffe Mounds — representative northern-periphery ceramics, not from Croley-Evans (15KX24; address restricted)",
+        "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
@@ -686,9 +686,7 @@
       "tags": [
         "native",
         "kentucky",
-        "archaeology",
-        "native-history",
-        "frontier-war"
+        "native-history"
       ],
       "source": "ky-history",
       "briefDate": "2026-10-01",
@@ -1269,9 +1267,9 @@
       "slug": "james-knox",
       "title": "James Knox",
       "publishedDate": "2026-10-01",
-      "summary": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country. Around 1770 his men built a…",
+      "summary": "Before Boone’s fame crowded the memory, long hunter Col. James Knox led a party of Virginia and Carolina hunters through Cumberland Gap into Kentucky. The 1942 Historic Camp…",
       "yearStart": 1770,
-      "yearEnd": 1800,
+      "yearEnd": 1771,
       "era": "frontier",
       "tags": [
         "frontier",

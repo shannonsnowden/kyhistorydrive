@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T09:56:25.705Z",
+  "generatedAt": "2026-10-01T14:21:42.698Z",
   "briefDate": "2026-10-01",
   "displayDate": "Thursday, October 1, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -7,7 +7,7 @@
     {
       "slug": "james-knox",
       "title": "James Knox",
-      "summary": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country. Around 1770 his men built a…",
+      "summary": "Before Boone’s fame crowded the memory, long hunter Col. James Knox led a party of Virginia and Carolina hunters through Cumberland Gap into Kentucky. The 1942 Historic Camp…",
       "era": "frontier",
       "yearStart": 1770,
       "briefDate": "2026-10-01",
@@ -17,7 +17,7 @@
       "lon": -85.38215,
       "historyId": "james-knox-skinhouse-camp-knox-1770",
       "mapHref": "/#map/history/james-knox-skinhouse-camp-knox-1770",
-      "quote": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country.",
+      "quote": "Before Boone’s fame crowded the memory, long hunter Col. James Knox led a party of Virginia and Carolina hunters through Cumberland Gap into Kentucky.",
       "photo": {
         "image_url": "/content/photos/stories/james-knox.jpg",
         "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
@@ -76,7 +76,7 @@
     {
       "slug": "croley-evans-site",
       "title": "Croley-Evans Site",
-      "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world. UK archaeologist Richard Jefferies’s…",
+      "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound complex. A 1996 study by UK archaeologist Richard Jefferies and colleagues…",
       "era": "prehistoric",
       "yearStart": 1200,
       "briefDate": "2026-10-01",
@@ -86,10 +86,10 @@
       "lon": null,
       "historyId": null,
       "mapHref": null,
-      "quote": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world.",
+      "quote": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound complex.",
       "photo": {
         "image_url": "/content/photos/stories/croley-evans-site.jpg",
-        "title": "Mississippian shell-tempered pottery from Wickliffe Mounds — representative northern-periphery ceramics, not from Croley-Evans (15KX24; address restricted)",
+        "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
@@ -123,7 +123,7 @@
   "hero": {
     "slug": "james-knox",
     "title": "James Knox",
-    "summary": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country. Around 1770 his men built a…",
+    "summary": "Before Boone’s fame crowded the memory, long hunter Col. James Knox led a party of Virginia and Carolina hunters through Cumberland Gap into Kentucky. The 1942 Historic Camp…",
     "era": "frontier",
     "yearStart": 1770,
     "briefDate": "2026-10-01",
@@ -133,7 +133,7 @@
     "lon": -85.38215,
     "historyId": "james-knox-skinhouse-camp-knox-1770",
     "mapHref": "/#map/history/james-knox-skinhouse-camp-knox-1770",
-    "quote": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country.",
+    "quote": "Before Boone’s fame crowded the memory, long hunter Col. James Knox led a party of Virginia and Carolina hunters through Cumberland Gap into Kentucky.",
     "photo": {
       "image_url": "/content/photos/stories/james-knox.jpg",
       "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
@@ -193,7 +193,7 @@
     {
       "slug": "croley-evans-site",
       "title": "Croley-Evans Site",
-      "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world. UK archaeologist Richard Jefferies’s…",
+      "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound complex. A 1996 study by UK archaeologist Richard Jefferies and colleagues…",
       "era": "prehistoric",
       "yearStart": 1200,
       "briefDate": "2026-10-01",
@@ -203,10 +203,10 @@
       "lon": null,
       "historyId": null,
       "mapHref": null,
-      "quote": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world.",
+      "quote": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound complex.",
       "photo": {
         "image_url": "/content/photos/stories/croley-evans-site.jpg",
-        "title": "Mississippian shell-tempered pottery from Wickliffe Mounds — representative northern-periphery ceramics, not from Croley-Evans (15KX24; address restricted)",
+        "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
@@ -507,7 +507,7 @@
     }
   ],
   "quote": {
-    "text": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country.",
+    "text": "Before Boone’s fame crowded the memory, long hunter Col. James Knox led a party of Virginia and Carolina hunters through Cumberland Gap into Kentucky.",
     "source": "James Knox",
     "href": "/#timeline/james-knox"
   }

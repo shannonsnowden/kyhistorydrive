@@ -1,9 +1,9 @@
 {
-  "data_version": 47,
+  "data_version": 48,
   "layer": "ky-history",
   "entry_count": 132,
   "last_brief_date": "2026-10-01",
   "first_brief_date": "2026-08-27",
-  "updated_at": "2026-10-01T09:54:48Z",
+  "updated_at": "2026-10-01T14:22:00Z",
   "notes": "Cumulative place-based pins from daily KY History Morning Updates. App ships full ky-history.json each release; deltas record what was new since prior data_version."
 }
