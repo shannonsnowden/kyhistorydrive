@@ -421,6 +421,8 @@ function parseHash() {
   const raw = (location.hash || '').replace(/^#/, '')
   if (!raw || raw === 'home') return { view: 'home' }
   const [path, ...rest] = raw.split('/')
+  // Homepage "Explore a layer" magazine pages: #explore/<tab>/<page> (handled in explore-layer.js)
+  if (path === 'explore') return { view: 'home', explore: true }
   // Old #stories / #story links redirect into Timeline
   if (path === 'story' || path === 'stories') {
     const slug = rest[0] ? decodeURIComponent(rest[0]) : null
@@ -3733,6 +3735,8 @@ async function applyRoute() {
       }
       scrollTimelineToFilters()
     })
+  } else if (view === 'home' && parseHash().explore) {
+    // #explore/...: explore-layer.js scrolls to the section; do not pin to the top
   } else if (view === 'home' || view === 'about' || view === 'app') {
     // Hash #about can land mid-page after Timeline; force true top so logo shows
     // (native hash scrolling races us — retry a couple frames + short timeout)

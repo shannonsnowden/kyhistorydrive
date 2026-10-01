@@ -114,6 +114,10 @@ Stories are presented as evergreen highlights. The feed still refreshes from the
 
 Photos are credited on the page (Wikipedia / Commons / ULPA / Historypin, etc.). Layer highlight cards use curated Commons / HABS-LOC thumbs vendored under `public/content/photos/layers/` (catalog: `scripts/layer-photo-curated.json`) so every “Explore a layer” card has a same-origin thumbnail plus a map deep-link — not a Wikimedia hotlink or a text-only fallback. Daily highlights use the same pattern under `public/content/photos/stories/` (`scripts/story-photo-curated.json`).
 
+### Explore a layer (magazine pages)
+
+The homepage “Explore a layer” section (`src/explore-layer.js`) is a paged magazine. Tabs: **On the map** (the 12 curated layer stops) plus one tab per story era (Prehistoric / Native / Frontier / Early commonwealth / Other). Every story in `stories.json` that has a same-origin curated photo + credit in `story-photos.json` is listed exactly once (56 today); new stories appear automatically when their photo is added. Page size is fixed per breakpoint (6 desktop ≥1000px, 4 tablet ≥620px, 3 mobile) with a fixed card height so the page never jumps. URL: `#explore/<tab>/<page>`. Prev/Next, numbered pages, ←/→ keys, swipe, Home button on every page bar.
+
 ## Data attribution
 
 Marker inscriptions and locations: Kentucky Historical Society / [history.ky.gov](https://history.ky.gov/markers). Map data: © OpenStreetMap contributors; CARTO; OpenHistoricalMap when enabled. Morning-brief stories are authored for the KY History Drive project.

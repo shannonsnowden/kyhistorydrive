@@ -12,6 +12,7 @@
  * Map, Timeline, About, and App stay on the existing hash routes.
  */
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
+import { initExploreLayer } from './explore-layer.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -566,38 +567,25 @@ function layerHref(item) {
   return `/#map/${encodeURIComponent(item.layerId)}/${encodeURIComponent(item.placeId)}`
 }
 
+/** "Explore a layer": paged magazine of every curated story with a photo (see explore-layer.js). */
 function renderLayerCards(layers) {
   const root = document.getElementById('hpLayerCards')
   if (!root) return
-  const items = layers?.length ? layers : LAYER_HIGHLIGHTS
-  root.innerHTML = items
-    .map((item) => {
-      const curated = curatedLayer(item)
-      const photo =
-        curated?.photo?.image_url && curated.placeId === item.placeId
-          ? curated.photo
-          : item.photo?.image_url
-            ? item.photo
-            : curated?.photo
-      const blurb = item.blurb || curated?.blurb || ''
-      const href = layerHref(item)
-      const img = usablePhoto(photo)
-        ? `<img src="${escapeHtml(photo.image_url)}" alt="${escapeHtml(photo.title || item.name)}" width="640" height="480" loading="eager" referrerpolicy="no-referrer" decoding="async" />`
-        : `<div class="hp-feature-fallback" aria-hidden="true"></div>`
-      const credit = photoCredit(photo)
-      return `<article class="hp-layer-card">
-        <a class="hp-layer-media" href="${escapeHtml(href)}">${img}</a>
-        <div class="hp-layer-copy">
-          <p class="hp-card-layer">${escapeHtml(item.layerLabel)}</p>
-          <h3 class="hp-layer-title"><a href="${escapeHtml(href)}">${escapeHtml(item.name)}</a></h3>
-          <p class="hp-layer-place">${escapeHtml(item.place || '')}</p>
-          ${blurb ? `<p class="hp-card-blurb">${escapeHtml(blurb)}</p>` : ''}
-          <a class="hp-layer-cta" href="${escapeHtml(href)}">Open on the map</a>
-          ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
-        </div>
-      </article>`
-    })
-    .join('')
+  return initExploreLayer({
+    root,
+    layers,
+    helpers: {
+      escapeHtml,
+      usablePhoto,
+      photoCredit,
+      eraLabel,
+      storyYearLabel,
+      storyMapHref,
+      curatedLayer,
+      layerHref,
+      LAYER_HIGHLIGHTS,
+    },
+  }).catch((err) => console.error(err))
 }
 
 function relatedCardHtml(item) {
