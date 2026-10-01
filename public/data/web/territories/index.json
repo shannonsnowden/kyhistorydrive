@@ -208,6 +208,75 @@
    "note": "A general area in Michigan and Ohio, and Bird’s June 1780 war road in Kentucky; the wider homeland is not drawn.",
    "mainMap": true,
    "approxStart": true
+  },
+  {
+   "id": "erie",
+   "name": "Erie",
+   "color": "#7A0177",
+   "slugs": [
+    "erie-the-cat-nation",
+    "erie-the-cat-nation-cleared-from-the-lake-shore"
+   ],
+   "ref": "/data/web/territories/erie-south-shore-of-lake-erie.json",
+   "extentFeature": "extent",
+   "yearStart": 1600,
+   "yearEnd": 1656,
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area of the Erie, c.1600–1656: Erie and Chautauqua counties, New York, and Erie County, Pennsylvania (whole counties, not a boundary). Ohio is not drawn because the Erie’s western extent is contested. Low–medium confidence. The years 1654–1656 are the war and dispersal, not the years of settlement.",
+   "note": "A general area on the south-eastern shore of Lake Erie (New York and Pennsylvania); nothing in Kentucky or Ohio.",
+   "mainMap": true,
+   "approxStart": true
+  },
+  {
+   "id": "susquehannock",
+   "name": "Susquehannock",
+   "color": "#117733",
+   "slugs": [
+    "susquehannock-and-the-ohio-valley-door"
+   ],
+   "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
+   "extentFeature": "extent",
+   "yearStart": 1550,
+   "yearEnd": 1763,
+   "confidence": "medium",
+   "mapNote": "Approximate general area of the Susquehannock and Conestoga, c.1550–1763: Lancaster and York counties, Pennsylvania, with Prince George’s County, Maryland, in 1675 and Conestoga Town in Lancaster County (whole counties, not a boundary). Medium confidence for the counties, low–medium for the dates. Nothing in Ohio or Kentucky.",
+   "note": "A general area in Pennsylvania and Maryland; nothing in Ohio or Kentucky.",
+   "mainMap": true,
+   "approxStart": true
+  },
+  {
+   "id": "tutelo",
+   "name": "Tutelo",
+   "color": "#FFAABB",
+   "outline": "#7A1F3D",
+   "slugs": [
+    "tutelo-the-totteroy"
+   ],
+   "ref": "/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
+   "extentFeature": "extent",
+   "yearStart": 1671,
+   "yearEnd": 1779,
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area of the Tutelo, 1671–1779: Roanoke and Salem and Mecklenburg County, Virginia, then Brunswick County, Virginia (Fort Christanna), Northumberland County, Pennsylvania (Shamokin) and Tompkins County, New York (Coreorgonel); whole counties, not a boundary. Low–medium confidence. ‘Totteroy’ is a map name only: nothing is drawn in Kentucky.",
+   "note": "A general area in Virginia, Pennsylvania and New York; no documented village in Kentucky.",
+   "mainMap": true
+  },
+  {
+   "id": "mosopelea",
+   "name": "Mosopelea (Ofo)",
+   "color": "#661100",
+   "slugs": [
+    "mosopelea-ofo-the-ohio-valley"
+   ],
+   "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
+   "extentFeature": "extent",
+   "yearStart": 1673,
+   "yearEnd": 1784,
+   "yearLabel": "before 1673–1784",
+   "confidence": "low",
+   "mapNote": "Approximate general area of the Mosopelea (Ofo), before 1673 to 1784: the five Ohio River counties between the Muskingum and the Scioto (from a 1684 French map; disputed), then Yazoo and Adams counties, Mississippi, and Pointe Coupee Parish, Louisiana (whole counties, not a boundary). Low confidence; no start year is known. Nothing in Kentucky.",
+   "note": "A general area in Ohio (disputed), Mississippi and Louisiana; nothing documented in Kentucky.",
+   "mainMap": true
   }
  ]
 }

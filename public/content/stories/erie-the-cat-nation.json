@@ -20,5 +20,13 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Wikimedia Commons",
     "year": null
+  },
+  "territory": {
+    "ref": "/data/web/territories/erie-south-shore-of-lake-erie.json",
+    "nation": "Erie (Eriehronon, Cat Nation)",
+    "yearStart": 1600,
+    "yearEnd": 1656,
+    "presenceLabel": "Erie villages in this area",
+    "approxStart": true
   }
 }

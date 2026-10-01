@@ -14,5 +14,13 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-04"
+  "briefDate": "2026-09-04",
+  "territory": {
+    "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
+    "nation": "Mosopelea (Ofo, Ofogoula)",
+    "yearStart": 1673,
+    "yearEnd": 1784,
+    "presenceLabel": "Mosopelea or Ofo village in this area",
+    "yearText": "before 1673 to 1784"
+  }
 }

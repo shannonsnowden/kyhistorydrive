@@ -643,6 +643,14 @@
         "attribution": "Wikimedia Commons",
         "year": null
       },
+      "territory": {
+        "ref": "/data/web/territories/erie-south-shore-of-lake-erie.json",
+        "nation": "Erie (Eriehronon, Cat Nation)",
+        "yearStart": 1600,
+        "yearEnd": 1656,
+        "presenceLabel": "Erie villages in this area",
+        "approxStart": true
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -669,6 +677,14 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      },
+      "territory": {
+        "ref": "/data/web/territories/erie-south-shore-of-lake-erie.json",
+        "nation": "Erie (Eriehronon, Cat Nation)",
+        "yearStart": 1600,
+        "yearEnd": 1656,
+        "presenceLabel": "Erie villages in this area",
+        "approxStart": true
       },
       "lat": null,
       "lon": null,
@@ -717,6 +733,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-17",
+      "territory": {
+        "ref": "/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
+        "nation": "Tutelo (Yesah, Totero)",
+        "yearStart": 1671,
+        "yearEnd": 1779,
+        "presenceLabel": "Tutelo village or refuge in this area"
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -738,6 +761,14 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-04",
+      "territory": {
+        "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
+        "nation": "Mosopelea (Ofo, Ofogoula)",
+        "yearStart": 1673,
+        "yearEnd": 1784,
+        "presenceLabel": "Mosopelea or Ofo village in this area",
+        "yearText": "before 1673 to 1784"
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -4244,6 +4275,14 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2007
+      },
+      "territory": {
+        "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
+        "nation": "Susquehannock (Conestoga)",
+        "yearStart": 1550,
+        "yearEnd": 1763,
+        "presenceLabel": "Susquehannock or Conestoga village in this area",
+        "approxStart": true
       },
       "lat": null,
       "lon": null,

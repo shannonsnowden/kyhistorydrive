@@ -62,6 +62,7 @@ export const territoryMapHash = (slug) => `#map/territory/${encodeURIComponent(s
 export function territoryRangeText(t) {
   // Place-name stories carry no dates: show the label alone. A single-year event shows one year, not "1780–1780".
   if (t.yearStart == null && t.yearEnd == null && t.presenceLabel) return t.presenceLabel
+  if (t.yearText) return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.yearText}`
   if (t.yearStart != null && t.yearStart === t.yearEnd) return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.approxStart ? 'c.' : ''}${t.yearStart}`
   const end = t.yearEnd ? `–${t.yearEnd}` : '–'
   return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.approxStart ? 'c.' : ''}${t.yearStart ?? ''}${end}`
@@ -113,12 +114,13 @@ function lineD(g, P) {
   return ls.map((l) => l.map((c, i) => { const [x, y] = P(c[0], c[1]); return `${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}` }).join('')).join('')
 }
 
-const stylesFor = (c, pfx, full) => ({
-  solid: { fill: rgba(c, 0.52), stroke: darkOf(c), w: full ? 2.6 : 1.8, dash: '' },
-  soft: { fill: rgba(c, 0.38), stroke: darkOf(c), w: 1.4, dash: '' },
-  hatch: { fill: `url(#${pfx}-hatch)`, stroke: darkOf(c), w: 1.6, dash: '' },
-  line: { fill: 'none', stroke: darkOf(c), w: full ? 3.4 : 2.6, dash: '' },
-  dash: { fill: 'none', stroke: darkOf(c), w: full ? 2.4 : 1.8, dash: '8 6' },
+// `edge` = optional dark outline colour for a pale nation colour (index.json `outline`); fill is then a little stronger.
+const stylesFor = (c, pfx, full, edge) => ({
+  solid: { fill: rgba(c, edge ? 0.7 : 0.52), stroke: edge || darkOf(c), w: full ? 2.6 : 1.8, dash: '' },
+  soft: { fill: rgba(c, edge ? 0.62 : 0.38), stroke: edge || darkOf(c), w: edge ? 2 : 1.4, dash: '' },
+  hatch: { fill: `url(#${pfx}-hatch)`, stroke: edge || darkOf(c), w: 1.6, dash: '' },
+  line: { fill: 'none', stroke: edge || darkOf(c), w: full ? 3.4 : 2.6, dash: '' },
+  dash: { fill: 'none', stroke: edge || darkOf(c), w: full ? 2.4 : 1.8, dash: '8 6' },
 })
 
 function svgText(x, y, txt, o = {}) {
@@ -139,11 +141,11 @@ function pointSvg(g, props, { P, color, k, mode }) {
   return `<g data-point="${esc(props?.id || '')}">${dot}${lab}</g>`
 }
 
-function buildSvg({ T, base, mode, pfx, color }) {
+function buildSvg({ T, base, mode, pfx, color, edge = null }) {
   const P = projector(base.proj)
   const full = mode === 'full'
-  const STY = stylesFor(color, pfx, full)
-  const halo = darkOf(color)
+  const STY = stylesFor(color, pfx, full, edge)
+  const halo = edge || darkOf(color)
   const narrow = full && typeof window !== 'undefined' && window.innerWidth < 700
   // label scale so text stays legible when the SVG is squeezed into a phone width
   const k = mode === 'card' ? 1.55 : narrow ? 1.9 : 1
@@ -263,7 +265,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     const at = Number(pct(e.yearStart))
     const show = at - lastTick >= 9 // skip labels that would overlap the previous one
     if (show) lastTick = at
-    return `<span class="tk" style="left:${at}%"${show ? '' : ' aria-hidden="true" hidden'}>${e.yearStart}</span>`
+    return `<span class="tk" style="left:${at}%"${show ? '' : ' aria-hidden="true" hidden'}>${esc(e.tick || e.yearStart)}</span>`
   }).join('')
   const chips = eras.map((e) => `<button type="button" data-era="${e.id}" aria-pressed="false">${esc(e.short)}</button>`).join('')
   const tags = (e) => `<span class="terr-tag conf">Confidence: ${esc(CONF[e.confidence] || e.confidence)}</span><span class="terr-tag appr">${e.apprTag || (e.noBoundary ? 'Approximate location' : 'Approximate boundary')}</span><span class="terr-tag ovl">Territories overlapped &amp; shifted</span>${e.notDrawn ? `<span class="terr-tag nd">${esc(e.notDrawn.tag)}</span>` : ''}`
@@ -287,7 +289,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     : `${head}<div class="terr-grid"><div><div class="terr-map"></div>${controls}${openLink}</div><div>${eraBox}</div></div><p class="terr-foot">${footer}</p>`
   el.innerHTML = `<section class="terr-${mode === 'card' ? 'card' : 'full'}" data-territory="${esc(slug)}" aria-label="${esc(T.nation)} territory, approximate">${body}</section>`
   const root = el.firstElementChild
-  root.querySelector('.terr-map').innerHTML = buildSvg({ T, base, mode, pfx, color })
+  root.querySelector('.terr-map').innerHTML = buildSvg({ T, base, mode, pfx, color, edge: nation?.outline || null })
   const range = root.querySelector('input[type=range]')
   const out = root.querySelector('.terr-out')
   const cur = root.querySelector('.cur')
@@ -307,7 +309,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
       if (nd) nd.style.opacity = op
     })
     const e = eraOf(y)
-    out.textContent = y
+    out.textContent = e.outText || y
     cur.style.left = `${pct(y)}%`
     range.setAttribute('aria-valuetext', `${y}: ${e.label}`)
     if (e.id !== lastEra) {
@@ -331,12 +333,13 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   render(+range.value)
 
   // ---- full view: legend + other (muted) nations ----
+  const edgeC = nation?.outline || null
   const P = projector(base.proj)
   const legendEl = root.querySelector('[data-legend]')
   const sw = (bg, bd) => `<i style="background:${bg};border:1px solid ${bd}"></i>`
   const hatchBg = `repeating-linear-gradient(45deg,${darkOf(color)} 0 2px,${rgba(color, 0.14)} 2px 5px)`
   const lgSw = (kind) => {
-    const d = darkOf(color)
+    const d = edgeC || darkOf(color)
     if (kind === 'line') return `<i class="lg-line" style="border-top:3px solid ${d}"></i>`
     if (kind === 'dash') return `<i class="lg-line" style="border-top:3px dashed ${d}"></i>`
     if (kind === 'point') return `<i class="lg-pt" style="background:${color};border:2px solid ${PAL.cream};box-shadow:0 0 0 1px ${d}"></i>`
@@ -349,7 +352,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     if (!legendEl) return
     const nm = esc(nation?.name || T.nation)
     const items = tagOnly ? [] : T.legend || [{ kind: 'soft', label: 'Claimed / used' }, { kind: 'hatch', label: 'Ceded by treaty' }]
-    const focal = tagOnly ? '' : `<span class="lg-focal">${sw(rgba(color, 0.52), darkOf(color))}<b>${nm}</b> (this story, highlighted)</span>
+    const focal = tagOnly ? '' : `<span class="lg-focal">${sw(rgba(color, 0.52), edgeC || darkOf(color))}<b>${nm}</b> (this story, highlighted)</span>
 ${items.map((i) => `<span>${lgSw(i.kind)}${esc(i.label)}</span>`).join('')}`
     const oth = others.map((o) => `<span class="lg-other" data-lg-other="${esc(o.id)}">${sw(rgba(mutedOf(o.color), 0.28), mutedOf(o.color))}${esc(o.name)} <em>(other nation, muted)</em></span>`).join('')
     legendEl.innerHTML = focal + oth

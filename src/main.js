@@ -3260,7 +3260,7 @@ function mountStoryTerritory(reader, meta) {
       } catch {
         /* index unavailable: default card color */
       }
-      if (host.isConnected) mountTerritory(host, { T, base, mode: 'card', slug: meta.slug, ...(nation ? { color: nation.color } : {}) })
+      if (host.isConnected) mountTerritory(host, { T, base, mode: 'card', slug: meta.slug, ...(nation ? { color: nation.color, nation } : {}) })
     })
     .catch((err) => {
       console.warn('territory card failed', err)
@@ -3349,8 +3349,8 @@ function addNationLayers(n, T, before) {
     // General area (soft): a sourced region associated with the nation, NOT a boundary. Drawn first (lowest), thin solid edge.
     const genSrc = mm.general && src('general', mm.general)
     if (genSrc) {
-      add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.4 } })
-      add({ id: `${NATION_LINE(n.id)}-general-edge`, type: 'line', source: genSrc, paint: { 'line-color': n.color, 'line-width': 1.4, 'line-opacity': 0.8 } })
+      add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': n.outline ? 0.55 : 0.4 } })
+      add({ id: `${NATION_LINE(n.id)}-general-edge`, type: 'line', source: genSrc, paint: { 'line-color': n.outline || n.color, 'line-width': n.outline ? 2.2 : 1.4, 'line-opacity': n.outline ? 1 : 0.8 } })
     }
     const areaSrc = mm.area && src('area', mm.area)
     if (areaSrc) {
@@ -3534,7 +3534,7 @@ function renderNationLegend(nations) {
   const keep = document.activeElement?.dataset?.nid
   el.innerHTML = `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shown
     .map(
-      (n) => `<button type="button" class="ml-row" data-nid="${escapeHtml(n.id)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${rgba(n.color, 0.5)};border-color:${n.color}"></i><span>${escapeHtml(n.name)}${n.yearStart ? ` <small>${n.approxStart ? 'c.' : ''}${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`,
+      (n) => `<button type="button" class="ml-row" data-nid="${escapeHtml(n.id)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${rgba(n.color, 0.5)};border-color:${n.outline || n.color}"></i><span>${escapeHtml(n.name)}${n.yearLabel ? ` <small>${escapeHtml(n.yearLabel)}</small>` : n.yearStart ? ` <small>${n.approxStart ? 'c.' : ''}${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`,
     )
     .join('')}</div><div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
   el.querySelectorAll('button.ml-row').forEach((b) => b.addEventListener('click', () => setLegendNote(b.dataset.nid)))
@@ -3559,7 +3559,7 @@ async function refreshTerritoryOthers() {
     try {
       const T = await loadNationData(n.ref)
       const geometry = nationExtentGeometry(T, n)
-      if (geometry) others.push({ id: n.id, name: n.name, color: n.color, geometry })
+      if (geometry) others.push({ id: n.id, name: n.name, color: n.outline || n.color, geometry })
     } catch (err) {
       console.warn('other nation failed', n.id, err)
     }
