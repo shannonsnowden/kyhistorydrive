@@ -1461,7 +1461,7 @@ function detailHtmlFromProps(p, layerId, coords) {
   if (layerId === 'markers' || p.marker_number) {
     metaBits.push(`#${p.marker_number || '—'}`)
   }
-  if (p.county) metaBits.push(`${p.county} County`)
+  if (p.county) metaBits.push(countyLabel(p.county, true))
   if (p.city) metaBits.push(p.city)
   if (p.era) metaBits.push(p.era)
   if (p.yearStart != null || p.yearEnd != null) {
@@ -2322,7 +2322,8 @@ async function enrichStoriesCounties(stories) {
   }
 
   for (const s of stories) {
-    if (s.county) continue
+    // county set in the story JSON wins; an explicit '' means "no county label" (out-of-state / unpinned stories).
+    if (s.county != null) continue
     const loc = locations[s.slug] || {}
     let county = ''
     const histId = loc.historyId || s.historyId
@@ -2402,11 +2403,19 @@ function sortStoriesList(stories, mode) {
   return list
 }
 
+/** Story card county label. A value with a comma (e.g. "Greene, Ohio") is shown as-is; otherwise "X Co."/"X County". */
+function countyLabel(county, long = false) {
+  const c = String(county || '').trim()
+  if (!c) return ''
+  if (c.includes(',')) return c
+  return long ? `${c} County` : `${c} Co.`
+}
+
 function storyCardHtml(s) {
   const years = formatYearRange(s.yearStart, s.yearEnd)
   const loc = s.lat != null ? '' : '<span class="muted"> · no map yet</span>'
   const county = s.county
-    ? `<span class="story-county">${escapeHtml(s.county)} Co.</span>`
+    ? `<span class="story-county">${escapeHtml(countyLabel(s.county))}</span>`
     : ''
   const tag = primaryStoryTag(s)
   const tagHtml = tag ? `<span class="muted">#${escapeHtml(tag)}</span>` : ''
@@ -2657,7 +2666,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     }
     const tags = (s.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join(' ')
     const countyLine = meta.county
-      ? `<span class="story-county">${escapeHtml(meta.county)} County</span>`
+      ? `<span class="story-county">${escapeHtml(countyLabel(meta.county, true))}</span>`
       : ''
     const mapHash = storyPlaceHash({
       historyId,
@@ -2946,7 +2955,7 @@ async function renderTimelineList(preferredSlug) {
     filtered
       .map((s) => {
         const county = s.county
-          ? `<span class="story-county">${escapeHtml(s.county)} Co.</span>`
+          ? `<span class="story-county">${escapeHtml(countyLabel(s.county))}</span>`
           : ''
         const tag = primaryStoryTag(s)
         const tagHtml = tag ? `<span class="muted">#${escapeHtml(tag)}</span>` : ''

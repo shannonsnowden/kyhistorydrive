@@ -24,6 +24,8 @@ for (const f of files) {
     tags: raw.tags || [],
     source: raw.source,
     briefDate: raw.briefDate,
+    // Optional card-header county override ("" = show no county label, e.g. out-of-state or unpinned stories).
+    ...(typeof raw.county === 'string' ? { county: raw.county } : {}),
     ...(raw.photo?.image_url ? { photo: raw.photo } : {}),
     // Web-only territory pointer (tribal territory test). Small; polygons live in public/data/web/territories/.
     ...(raw.territory?.ref ? { territory: raw.territory } : {}),
