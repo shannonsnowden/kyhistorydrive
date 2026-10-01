@@ -1,0 +1,25 @@
+{
+  "slug": "croley-evans-site",
+  "title": "Croley-Evans Site",
+  "publishedDate": "2026-10-01",
+  "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world. UK archaeologist Richard Jefferies’s…",
+  "bodyMarkdown": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world. UK archaeologist Richard Jefferies’s work shows the heaviest occupation from about A.D. 1200 to 1450: platform-mound stages, village areas, shell-tempered pottery, and a mixed farming-and-foraging economy with fewer exotic trade goods than richer southern centers. Listed on the National Register in 1985 (address restricted), it still marks how Mississippian life looked on Kentucky’s southeast frontier.\nSource: [https://scholars.uky.edu/en/publications/mississippian-adaptation-on-the-northern-periphery-settlement-sub/](https://scholars.uky.edu/en/publications/mississippian-adaptation-on-the-northern-periphery-settlement-sub/)",
+  "yearStart": 1200,
+  "yearEnd": 1450,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-01",
+  "photo": {
+    "image_url": "/content/photos/stories/croley-evans-site.jpg",
+    "title": "Mississippian shell-tempered pottery from Wickliffe Mounds — representative northern-periphery ceramics, not from Croley-Evans (15KX24; address restricted)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T09:28:53.140Z",
+  "generatedAt": "2026-10-01T09:51:05.792Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -146,6 +146,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
         "year": 2023
+      }
+    },
+    "croley-evans-site": {
+      "slug": "croley-evans-site",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/croley-evans-site.jpg",
+        "title": "Mississippian shell-tempered pottery from Wickliffe Mounds — representative northern-periphery ceramics, not from Croley-Evans (15KX24; address restricted)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
       }
     },
     "delaware-winter-camps-on-kentucky-ground": {
@@ -316,6 +328,18 @@
         "year": null
       }
     },
+    "james-knox": {
+      "slug": "james-knox",
+      "historyId": "james-knox-skinhouse-camp-knox-1770",
+      "photo": {
+        "image_url": "/content/photos/stories/james-knox.jpg",
+        "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
+        "source_url": "https://commons.wikimedia.org/wiki/File:NT_Reenactment-_longhunter_(15193433686).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Virginia State Parks · Wikimedia Commons · CC BY 2.0",
+        "year": 2014
+      }
+    },
     "jenny-wileys-captivity-and-escape": {
       "slug": "jenny-wileys-captivity-and-escape",
       "historyId": "jenny-wiley-state-resort-park",
@@ -364,6 +388,18 @@
         "year": 1778
       }
     },
+    "mammoth-cave-saltpeter": {
+      "slug": "mammoth-cave-saltpeter",
+      "historyId": "mammoth-cave-saltpeter-war-of-1812",
+      "photo": {
+        "image_url": "/content/photos/stories/mammoth-cave-saltpeter.jpg",
+        "title": "Saltpeter mining remnants inside Mammoth Cave (War of 1812-era industrial works near Historic Entrance / Rotunda)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Saltpeter_Mine.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2022
+      }
+    },
     "mary-draper-ingles-escapes-through-kentucky-1755": {
       "slug": "mary-draper-ingles-escapes-through-kentucky-1755",
       "historyId": "mary-ingles-big-bone-lick-escape-1755",
@@ -374,6 +410,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
         "year": null
+      }
+    },
+    "moneton": {
+      "slug": "moneton",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/moneton.jpg",
+        "title": "Kanawha River south of Charleston, West Virginia — Moneton homeland on Kentucky’s eastern approaches, not a Kentucky village site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kanawha_River_S_Charleston_WV1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Acroterion · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2016
       }
     },
     "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
@@ -518,6 +566,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2020
+      }
+    },
+    "somerset": {
+      "slug": "somerset",
+      "historyId": "somerset-founding-pulaski-seat-1801",
+      "photo": {
+        "image_url": "/content/photos/stories/somerset.jpg",
+        "title": "Pulaski County courthouse, Somerset",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pulaski_County_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
       }
     },
     "springfield-founding-and-washington-county-seat": {
@@ -846,6 +906,18 @@
         "year": null
       }
     },
+    "james-knox-skinhouse-camp-knox-1770": {
+      "slug": "james-knox",
+      "historyId": "james-knox-skinhouse-camp-knox-1770",
+      "photo": {
+        "image_url": "/content/photos/stories/james-knox.jpg",
+        "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
+        "source_url": "https://commons.wikimedia.org/wiki/File:NT_Reenactment-_longhunter_(15193433686).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Virginia State Parks · Wikimedia Commons · CC BY 2.0",
+        "year": 2014
+      }
+    },
     "jenny-wiley-state-resort-park": {
       "slug": "jenny-wileys-captivity-and-escape",
       "historyId": "jenny-wiley-state-resort-park",
@@ -880,6 +952,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
         "year": 1778
+      }
+    },
+    "mammoth-cave-saltpeter-war-of-1812": {
+      "slug": "mammoth-cave-saltpeter",
+      "historyId": "mammoth-cave-saltpeter-war-of-1812",
+      "photo": {
+        "image_url": "/content/photos/stories/mammoth-cave-saltpeter.jpg",
+        "title": "Saltpeter mining remnants inside Mammoth Cave (War of 1812-era industrial works near Historic Entrance / Rotunda)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Saltpeter_Mine.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2022
       }
     },
     "mary-ingles-big-bone-lick-escape-1755": {
@@ -1000,6 +1084,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2020
+      }
+    },
+    "somerset-founding-pulaski-seat-1801": {
+      "slug": "somerset",
+      "historyId": "somerset-founding-pulaski-seat-1801",
+      "photo": {
+        "image_url": "/content/photos/stories/somerset.jpg",
+        "title": "Pulaski County courthouse, Somerset",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pulaski_County_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
       }
     },
     "springfield-washington-county-seat": {

@@ -1,0 +1,27 @@
+{
+  "slug": "moneton",
+  "title": "Moneton",
+  "publishedDate": "2026-10-01",
+  "summary": "The Moneton (“Big Water” people) lived along the Kanawha and New Rivers in the middle Ohio Valley—on Kentucky’s eastern approaches—when English explorers first wrote them down.…",
+  "bodyMarkdown": "The Moneton (“Big Water” people) lived along the Kanawha and New Rivers in the middle Ohio Valley—on Kentucky’s eastern approaches—when English explorers first wrote them down. Thomas Batts noted them in 1671; Gabriel Arthur, sent by Abraham Wood from Fort Henry, described their “great town” in 1674. Likely tied to Fort Ancient networks and sometimes linked to Siouan neighbors, they vanish from the record soon after, absorbed under disease, Iroquois pressure, and the slave trade—many scholars argue into Shawnee communities—before Kentucky stations rose west of their homeland.\nSource: [https://en.wikipedia.org/wiki/Moneton](https://en.wikipedia.org/wiki/Moneton)",
+  "yearStart": 1671,
+  "yearEnd": 1674,
+  "era": "native",
+  "tags": [
+    "native",
+    "kentucky",
+    "archaeology",
+    "native-history",
+    "frontier-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-01",
+  "photo": {
+    "image_url": "/content/photos/stories/moneton.jpg",
+    "title": "Kanawha River south of Charleston, West Virginia — Moneton homeland on Kentucky’s eastern approaches, not a Kentucky village site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kanawha_River_S_Charleston_WV1.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Acroterion · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2016
+  }
+}

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-30T09:28:52.625Z",
-  "count": 175,
+  "generatedAt": "2026-10-01T09:51:04.231Z",
+  "count": 180,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-09-30"
+    "end": "2026-10-01"
   },
   "eras": [
     "early-commonwealth",
@@ -416,6 +416,34 @@
       "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
     {
+      "slug": "croley-evans-site",
+      "title": "Croley-Evans Site",
+      "publishedDate": "2026-10-01",
+      "summary": "On the Upper Cumberland in Knox County, Croley-Evans (15KX24) was a Mississippian town-and-mound center at the northern edge of that world. UK archaeologist Richard Jefferies’s…",
+      "yearStart": 1200,
+      "yearEnd": 1450,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-01",
+      "photo": {
+        "image_url": "/content/photos/stories/croley-evans-site.jpg",
+        "title": "Mississippian shell-tempered pottery from Wickliffe Mounds — representative northern-periphery ceramics, not from Croley-Evans (15KX24; address restricted)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "jonathan-creek-mississippian-center",
       "title": "Jonathan Creek Mississippian center",
       "publishedDate": "2026-09-08",
@@ -641,6 +669,36 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "moneton",
+      "title": "Moneton",
+      "publishedDate": "2026-10-01",
+      "summary": "The Moneton (“Big Water” people) lived along the Kanawha and New Rivers in the middle Ohio Valley—on Kentucky’s eastern approaches—when English explorers first wrote them down.…",
+      "yearStart": 1671,
+      "yearEnd": 1674,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "archaeology",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-01",
+      "photo": {
+        "image_url": "/content/photos/stories/moneton.jpg",
+        "title": "Kanawha River south of Charleston, West Virginia — Moneton homeland on Kentucky’s eastern approaches, not a Kentucky village site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kanawha_River_S_Charleston_WV1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Acroterion · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2016
       },
       "lat": null,
       "lon": null,
@@ -1109,6 +1167,35 @@
       "matchedPlace": "Bland W. Ballard / Tyler Station"
     },
     {
+      "slug": "treaties-of-hard-labour-and-lochaber",
+      "title": "Treaties of Hard Labour and Lochaber",
+      "publishedDate": "2026-09-01",
+      "summary": "A month before Fort Stanwix, British superintendent John Stuart met Cherokee headmen at Hard Labour Creek, South Carolina. In October 1768 (the treaty text is dated October 14)…",
+      "yearStart": 1768,
+      "yearEnd": 1771,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-01",
+      "territory": {
+        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+        "nation": "Cherokee",
+        "yearStart": 1768,
+        "yearEnd": 1771,
+        "presenceLabel": "Cherokee treaty lines in this area"
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "treaty-of-fort-stanwix-1768",
       "title": "Treaty of Fort Stanwix (1768)",
       "publishedDate": "2026-08-31",
@@ -1132,63 +1219,6 @@
         "yearStart": 1768,
         "yearEnd": 1784,
         "presenceLabel": "Six Nations cession or claim in this area (contested)"
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
-      "slug": "mingo-camps-south-of-the-ohio",
-      "title": "Mingo camps south of the Ohio",
-      "publishedDate": "2026-09-15",
-      "summary": "“Mingo” is an outsiders’ name for Iroquois-descended families, mostly Seneca and Cayuga, who moved into the Ohio Country in the mid-1700s and acted apart from the Onondaga…",
-      "yearStart": 1770,
-      "yearEnd": 1776,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-15",
-      "territory": {
-        "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
-        "nation": "Mingo",
-        "yearStart": 1770,
-        "yearEnd": 1776,
-        "presenceLabel": "Mingo town, camp or raid site in this area"
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
-      "slug": "treaties-of-hard-labour-and-lochaber",
-      "title": "Treaties of Hard Labour and Lochaber",
-      "publishedDate": "2026-09-01",
-      "summary": "A month before Fort Stanwix, British superintendent John Stuart met Cherokee headmen at Hard Labour Creek, South Carolina. In October 1768 (the treaty text is dated October 14)…",
-      "yearStart": 1768,
-      "yearEnd": 1771,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "treaty",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-01",
-      "territory": {
-        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
-        "nation": "Cherokee",
-        "yearStart": 1768,
-        "yearEnd": 1771,
-        "presenceLabel": "Cherokee treaty lines in this area"
       },
       "lat": null,
       "lon": null,
@@ -1234,6 +1264,62 @@
       "lon": -84.314117,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Hancock Taylor / Taylor's Fork burial"
+    },
+    {
+      "slug": "james-knox",
+      "title": "James Knox",
+      "publishedDate": "2026-10-01",
+      "summary": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country. Around 1770 his men built a…",
+      "yearStart": 1770,
+      "yearEnd": 1800,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "long-hunters"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-01",
+      "photo": {
+        "image_url": "/content/photos/stories/james-knox.jpg",
+        "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
+        "source_url": "https://commons.wikimedia.org/wiki/File:NT_Reenactment-_longhunter_(15193433686).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Virginia State Parks · Wikimedia Commons · CC BY 2.0",
+        "year": 2014
+      },
+      "lat": 37.170333,
+      "lon": -85.38215,
+      "mapConfidence": "override",
+      "matchedPlace": "James Knox / Camp Knox (Skinhouse Branch)"
+    },
+    {
+      "slug": "mingo-camps-south-of-the-ohio",
+      "title": "Mingo camps south of the Ohio",
+      "publishedDate": "2026-09-15",
+      "summary": "“Mingo” is an outsiders’ name for Iroquois-descended families, mostly Seneca and Cayuga, who moved into the Ohio Country in the mid-1700s and acted apart from the Onondaga…",
+      "yearStart": 1770,
+      "yearEnd": 1776,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-15",
+      "territory": {
+        "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
+        "nation": "Mingo",
+        "yearStart": 1770,
+        "yearEnd": 1776,
+        "presenceLabel": "Mingo town, camp or raid site in this area"
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "bullitts-lick-kentuckys-first-industry",
@@ -1344,6 +1430,35 @@
       "matchedPlace": "John Floyd / Floyd's Station"
     },
     {
+      "slug": "shawnee-chillicothe-divisions",
+      "title": "Shawnee Chillicothe divisions",
+      "publishedDate": "2026-09-20",
+      "summary": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe…",
+      "yearStart": 1774,
+      "yearEnd": 1780,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-20",
+      "territory": {
+        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+        "nation": "Shawnee",
+        "yearStart": 1735,
+        "yearEnd": 1795,
+        "presenceLabel": "Shawnee presence and claim (Old Chillicothe 1774–80; Kentucky presence to c.1782)",
+        "approxStart": true
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "treaty-of-camp-charlotte-1774",
       "title": "Treaty of Camp Charlotte (1774)",
       "publishedDate": "2026-09-03",
@@ -1420,75 +1535,6 @@
       "lon": -84.6676739,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station"
-    },
-    {
-      "slug": "chickamauga-cherokee",
-      "title": "Chickamauga Cherokee",
-      "publishedDate": "2026-09-18",
-      "summary": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new…",
-      "yearStart": 1776,
-      "yearEnd": 1794,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "treaty",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-18",
-      "territory": {
-        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
-        "nation": "Cherokee",
-        "yearStart": 1777,
-        "yearEnd": 1794,
-        "presenceLabel": "Chickamauga Cherokee towns in this area"
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "title": "Chickamauga Cherokee hold the southern flank",
-      "publishedDate": "2026-09-23",
-      "summary": "After the 1775 Treaty of Sycamore Shoals sold Cherokee claims to Kentucky hunting ground, Dragging Canoe (Tsiyu Gansini) broke with the accommodationist chiefs, warning of a…",
-      "yearStart": 1776,
-      "yearEnd": 1794,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "treaty",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-23",
-      "photo": {
-        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
-        "year": null,
-        "credit": "Chuck Hamilton",
-        "license": "GFDL 1.2 or later; CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
-      },
-      "territory": {
-        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
-        "nation": "Cherokee",
-        "yearStart": 1777,
-        "yearEnd": 1794,
-        "presenceLabel": "Chickamauga Cherokee towns in this area"
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
     },
     {
       "slug": "levi-todd-lexington-co-founder",
@@ -1619,6 +1665,75 @@
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County"
     },
     {
+      "slug": "chickamauga-cherokee",
+      "title": "Chickamauga Cherokee",
+      "publishedDate": "2026-09-18",
+      "summary": "After the 1775 Treaty of Sycamore Shoals, war chief Dragging Canoe broke from Overhill leaders who had sold vast hunting grounds and led followers down the Tennessee to new…",
+      "yearStart": 1776,
+      "yearEnd": 1794,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-18",
+      "territory": {
+        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+        "nation": "Cherokee",
+        "yearStart": 1777,
+        "yearEnd": 1794,
+        "presenceLabel": "Chickamauga Cherokee towns in this area"
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "chickamauga-cherokee-hold-the-southern-flank",
+      "title": "Chickamauga Cherokee hold the southern flank",
+      "publishedDate": "2026-09-23",
+      "summary": "After the 1775 Treaty of Sycamore Shoals sold Cherokee claims to Kentucky hunting ground, Dragging Canoe (Tsiyu Gansini) broke with the accommodationist chiefs, warning of a…",
+      "yearStart": 1776,
+      "yearEnd": 1794,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-23",
+      "photo": {
+        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
+        "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
+        "year": null,
+        "credit": "Chuck Hamilton",
+        "license": "GFDL 1.2 or later; CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "territory": {
+        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+        "nation": "Cherokee",
+        "yearStart": 1777,
+        "yearEnd": 1794,
+        "presenceLabel": "Chickamauga Cherokee towns in this area"
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "paris-from-hopewell",
       "title": "Paris from Hopewell",
       "publishedDate": "2026-09-02",
@@ -1708,17 +1823,17 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-10",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
         "nation": "Delaware (Lenape)",
         "yearStart": 1778,
         "yearEnd": 1795,
         "presenceLabel": "Delaware (Lenape) town, raid or claim in this area"
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "falls-of-the-ohio",
@@ -1776,41 +1891,12 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-16",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
         "nation": "Illinois Confederation (Kaskaskia, Cahokia)",
         "yearStart": 1778,
         "yearEnd": 1803,
         "presenceLabel": "Illinois (Illiniwek) town or declared claim in this area"
-      }
-    },
-    {
-      "slug": "shawnee-chillicothe-divisions",
-      "title": "Shawnee Chillicothe divisions",
-      "publishedDate": "2026-09-20",
-      "summary": "The Shawnee were a loose confederacy of five divisions—Chalahgawtha (Chillicothe), Mekoche, Kispoko, Pekowi, and Hathawekela—each with traditional roles; Chillicothe…",
-      "yearStart": 1774,
-      "yearEnd": 1780,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-20",
-      "territory": {
-        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
-        "nation": "Shawnee",
-        "yearStart": 1735,
-        "yearEnd": 1795,
-        "presenceLabel": "Shawnee presence and claim (Old Chillicothe 1774–80; Kentucky presence to c.1782)",
-        "approxStart": true
       },
       "lat": null,
       "lon": null,
@@ -2138,17 +2224,17 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-19",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
         "nation": "Ojibwe (Chippewa) and Odawa",
         "yearStart": 1780,
         "yearEnd": 1780,
         "presenceLabel": "Ojibwe and Odawa war road"
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "shelbyville",
@@ -2383,17 +2469,17 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-14",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
         "nation": "Wyandot",
         "yearStart": 1780,
         "yearEnd": 1782,
         "presenceLabel": "Wyandot raids on Kentucky stations"
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "john-filson-kentucke-1784",
@@ -2660,10 +2746,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-09",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
         "nation": "Kickapoo (with Mascouten)",
@@ -2671,7 +2753,11 @@
         "yearEnd": 1791,
         "presenceLabel": "Mascouten presence, shared with the Kickapoo (very low confidence)",
         "approxStart": true
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
@@ -2718,10 +2804,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-08",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
         "nation": "Kickapoo (with Mascouten)",
@@ -2729,7 +2811,11 @@
         "yearEnd": 1795,
         "presenceLabel": "Kickapoo village or claim in this area",
         "approxStart": true
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "nicholasville-takes-shape",
@@ -3169,6 +3255,34 @@
       "matchedPlace": "Taylorsville"
     },
     {
+      "slug": "somerset",
+      "title": "Somerset",
+      "publishedDate": "2026-10-01",
+      "summary": "Pulaski County needed a seat after its 1799 creation from Lincoln and Green. In 1801 the court laid out Somerset on forty acres donated by William Dodson, beside a dependable…",
+      "yearStart": 1801,
+      "yearEnd": 1801,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "settlement"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-01",
+      "photo": {
+        "image_url": "/content/photos/stories/somerset.jpg",
+        "title": "Pulaski County courthouse, Somerset",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pulaski_County_Kentucky_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null
+      },
+      "lat": 37.08444444,
+      "lon": -84.60805556,
+      "mapConfidence": "override",
+      "matchedPlace": "Somerset — Pulaski County seat (1801)"
+    },
+    {
       "slug": "piankashaw-claims-on-the-ohio-wabash",
       "title": "Piankashaw Claims on the Ohio–Wabash",
       "publishedDate": "2026-09-07",
@@ -3184,17 +3298,17 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-07",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
         "nation": "Miami (with Wea and Piankashaw)",
         "yearStart": 1804,
         "yearEnd": 1805,
         "presenceLabel": "Piankashaw cession and Miami claim (Indiana)"
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
@@ -3243,6 +3357,35 @@
       "lon": -84.2036474,
       "mapConfidence": "exact",
       "matchedPlace": "Great Saltpetre Cave"
+    },
+    {
+      "slug": "mammoth-cave-saltpeter",
+      "title": "Mammoth Cave saltpeter",
+      "publishedDate": "2026-10-01",
+      "summary": "Long before tourism, Mammoth Cave’s nitrate-rich dirt fed gunpowder. In the War of 1812, when British blockade cut imported saltpeter, operators worked the Rotunda and nearby…",
+      "yearStart": 1812,
+      "yearEnd": 1815,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "geology",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-01",
+      "photo": {
+        "image_url": "/content/photos/stories/mammoth-cave-saltpeter.jpg",
+        "title": "Saltpeter mining remnants inside Mammoth Cave (War of 1812-era industrial works near Historic Entrance / Rotunda)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Saltpeter_Mine.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2022
+      },
+      "lat": 37.1872902,
+      "lon": -86.1034214,
+      "mapConfidence": "override",
+      "matchedPlace": "Mammoth Cave saltpeter (War of 1812)"
     },
     {
       "slug": "saltpeter-cave-at-carter-caves",
@@ -3750,10 +3893,6 @@
         "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
         "year": 1861
       },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
         "nation": "Delaware (Lenape)",
@@ -3761,7 +3900,11 @@
         "yearEnd": 1775,
         "presenceLabel": "Delaware (Lenape) winter and hunting camps",
         "approxStart": true
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "miami-hunters-return-north-of-the-ohio",
@@ -3779,10 +3922,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-06",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
         "nation": "Miami (with Wea and Piankashaw)",
@@ -3790,7 +3929,11 @@
         "yearEnd": 1795,
         "presenceLabel": "Miami hunting and towns north of the Ohio",
         "approxStart": true
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "big-bone-lick-older-cycle",
@@ -4038,10 +4181,6 @@
         "attribution": "Unknown · Wikimedia Commons · Public domain",
         "year": null
       },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
         "nation": "Potawatomi",
@@ -4049,7 +4188,11 @@
         "yearEnd": 1809,
         "presenceLabel": "Potawatomi town or homeland area (general)",
         "approxStart": true
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
@@ -4151,15 +4294,15 @@
         "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
         "year": null
       },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
       "territory": {
         "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
         "nation": "Wyandot",
         "presenceLabel": "Place name, no mapped territory"
-      }
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "yuchi-on-the-green-river-maps",

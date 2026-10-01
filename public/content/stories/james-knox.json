@@ -1,0 +1,25 @@
+{
+  "slug": "james-knox",
+  "title": "James Knox",
+  "publishedDate": "2026-10-01",
+  "summary": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country. Around 1770 his men built a…",
+  "bodyMarkdown": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country. Around 1770 his men built a “skin house” pelt camp on what is still called Skinhouse Branch in Green County—Camp Knox on the markers. Tradition holds that Cherokee hunter Captain Dick guided him and that Knox named Dix River for that guide. Knox later raised a company for Virginia’s 8th Regiment, fought with Morgan’s Rifles at Saratoga, and sat in the Kentucky Senate from Lincoln County (1795–1800).\nSource: [https://en.wikipedia.org/wiki/Long_hunter](https://en.wikipedia.org/wiki/Long_hunter)",
+  "yearStart": 1770,
+  "yearEnd": 1800,
+  "era": "frontier",
+  "tags": [
+    "frontier",
+    "kentucky",
+    "long-hunters"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-01",
+  "photo": {
+    "image_url": "/content/photos/stories/james-knox.jpg",
+    "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
+    "source_url": "https://commons.wikimedia.org/wiki/File:NT_Reenactment-_longhunter_(15193433686).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Virginia State Parks · Wikimedia Commons · CC BY 2.0",
+    "year": 2014
+  }
+}
