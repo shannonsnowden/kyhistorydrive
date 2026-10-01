@@ -422,10 +422,10 @@ export const RELATED_GROUPS = [
         href: 'https://abandonedonline.net/location/abandoned-houses-in-kentucky/',
       },
       {
-        name: 'Grokipedia — Cumberland Falls',
+        name: 'Kentucky State Parks — Cumberland Falls State Resort Park',
         kind: 'Place',
-        blurb: 'Topic page already cited in the Cumberland Falls timeline story (moonbow, gorge, state park).',
-        href: 'https://grokipedia.com/page/Cumberland_Falls',
+        blurb: 'Park page for the falls cited in the Cumberland Falls timeline story (moonbow, gorge, state park).',
+        href: 'https://parks.ky.gov/corbin/parks/resort/cumberland-falls-state-resort-park',
       },
     ],
   },
