@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T14:21:41.249Z",
+  "generatedAt": "2026-10-01T22:41:34.758Z",
   "count": 180,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -723,9 +723,9 @@
       "slug": "tutelo-the-totteroy",
       "title": "Tutelo & the Totteroy",
       "publishedDate": "2026-09-17",
-      "summary": "The Tutelo (Yesą́), Eastern Siouan kin to the Saponi and Occaneechi, are tied in tradition and early maps to the Big Sandy—called the Totteroy River on mid-1700s British charts…",
+      "summary": "The Tutelo (Yesáh in their own language) were an Eastern Siouan people, related to the Saponi and Occaneechi, who lived above the Fall Line in what is now Virginia and…",
       "yearStart": 1671,
-      "yearEnd": 1758,
+      "yearEnd": 1779,
       "era": "native",
       "tags": [
         "native",
@@ -1309,6 +1309,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-01",
+      "county": "Green",
       "photo": {
         "image_url": "/content/photos/stories/james-knox.jpg",
         "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
