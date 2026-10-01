@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T09:51:05.297Z",
+  "generatedAt": "2026-10-01T09:54:49.312Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
@@ -1098,8 +1098,8 @@
     },
     "somerset": {
       "slug": "somerset",
-      "lat": 37.08444444,
-      "lon": -84.60805556,
+      "lat": 37.0897167,
+      "lon": -84.60555,
       "mapConfidence": "override",
       "matchedPlace": "Somerset — Pulaski County seat (1801)",
       "historyId": "somerset-founding-pulaski-seat-1801"
@@ -1130,8 +1130,8 @@
     },
     "mammoth-cave-saltpeter": {
       "slug": "mammoth-cave-saltpeter",
-      "lat": 37.1872902,
-      "lon": -86.1034214,
+      "lat": 37.131649017334,
+      "lon": -86.1454315185547,
       "mapConfidence": "override",
       "matchedPlace": "Mammoth Cave saltpeter (War of 1812)",
       "historyId": "mammoth-cave-saltpeter-war-of-1812"
