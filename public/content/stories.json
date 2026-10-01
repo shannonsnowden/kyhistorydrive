@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T09:55:00.830Z",
+  "generatedAt": "2026-10-01T10:00:32.555Z",
   "count": 180,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -1919,6 +1919,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-08",
+      "county": "Greene, Ohio",
       "lat": 39.73028,
       "lon": -83.93778,
       "mapConfidence": "override",
@@ -3298,6 +3299,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-07",
+      "county": "",
       "territory": {
         "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
         "nation": "Miami (with Wea and Piankashaw)",
