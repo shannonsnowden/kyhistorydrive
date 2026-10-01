@@ -60,13 +60,16 @@ export const territoryMapHash = (slug) => `#map/territory/${encodeURIComponent(s
 
 /** "Chickasaw claim in this area: 1780–1818" (years come only from the cited sources). */
 export function territoryRangeText(t) {
+  // Place-name stories carry no dates: show the label alone. A single-year event shows one year, not "1780–1780".
+  if (t.yearStart == null && t.yearEnd == null && t.presenceLabel) return t.presenceLabel
+  if (t.yearStart != null && t.yearStart === t.yearEnd) return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.approxStart ? 'c.' : ''}${t.yearStart}`
   const end = t.yearEnd ? `–${t.yearEnd}` : '–'
   return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.approxStart ? 'c.' : ''}${t.yearStart ?? ''}${end}`
 }
 export function territoryListLineHtml(s) {
   if (!storyHasTerritory(s)) return ''
   const t = s.territory
-  return `<p class="terr-listline" data-territory-line>${esc(territoryRangeText(t))} <small>(approximate, sourced)</small></p>`
+  return `<p class="terr-listline" data-territory-line>${esc(territoryRangeText(t))}${t.yearStart == null ? '' : ' <small>(approximate, sourced)</small>'}</p>`
 }
 
 const cache = Object.create(null)
@@ -233,7 +236,11 @@ const CONF = { medium: 'Medium', 'low-medium': 'Low–medium', low: 'Low', high:
 export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nation = null }) {
   const pfx = `tt${mode}${Math.random().toString(36).slice(2, 7)}`
   const { min, max } = T.timeline
-  const eras = T.eras
+  // A place-name story (T.stories[slug].tagOnly) is a single fixed view: no slider, bar or chips, and no dates.
+  const tagOnly = Boolean(T.stories?.[slug]?.tagOnly)
+  const eras = tagOnly
+    ? [{ ...(T.eras.find((e) => e.id === T.startEra?.[slug]) || T.eras[T.eras.length - 1]), yearStart: min }]
+    : T.eras.filter((e) => e.yearStart != null)
   const span = max - min
   const pct = (y) => (((y - min) / span) * 100).toFixed(2)
   const eraOf = (y) => [...eras].reverse().find((e) => y >= e.yearStart) || eras[0]
@@ -242,9 +249,9 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   const chipYear = (e) => e.yearStart + (fh ? 2 : 0)
   // open on the era for this story (T.startEra[slug]), else the era listing the slug, else the second era (Chickasaw default)
   const startEra = eras.find((e) => e.id === T.startEra?.[slug]) || eras.find((e) => (e.storySlugs || []).includes(slug))
-  const startYear = startEra ? chipYear(startEra) : eras[1].yearStart
+  const startYear = startEra ? chipYear(startEra) : (eras[1] || eras[0]).yearStart
   // a nation file can serve several stories, each with its own displayed years/label (T.stories[slug])
-  const rangeTxt = territoryRangeText({ ...T, ...(T.stories?.[slug] || {}) })
+  const rangeTxt = territoryRangeText({ ...T, ...(T.stories?.[slug] || {}), ...(tagOnly ? { yearStart: null, yearEnd: null } : {}) })
   const segs = eras.map((e, i) => {
     const b = i + 1 < eras.length ? eras[i + 1].yearStart : max
     const cl = e.id === 'claim'
@@ -263,12 +270,13 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   const head = mode === 'card'
     ? `<div class="terr-head"><span class="terr-kicker">Territory · ${esc(T.nation)}</span><span class="terr-presence">${esc(rangeTxt)}</span></div>`
     : `<h2 class="terr-title">${esc(T.nation)} territory over time</h2><div class="terr-sub">${esc(rangeTxt)} · only this nation is shown</div>`
-  const controls = `<div class="terr-ctl"><input type="range" min="${min}" max="${max}" step="1" value="${startYear}" aria-label="Year shown on the ${esc(T.nation)} territory map"><output class="terr-out" aria-live="off"></output></div>
+  const controlsHtml = `<div class="terr-ctl"><input type="range" min="${min}" max="${max}" step="1" value="${startYear}" aria-label="Year shown on the ${esc(T.nation)} territory map"><output class="terr-out" aria-live="off"></output></div>
 <div class="terr-bar" role="img" aria-label="${esc(rangeTxt)} on a timeline from ${min} to ${max}"><span class="trk"></span>${segs}<span class="cur"></span>${ticks}</div>
 <div class="terr-chips" role="group" aria-label="Jump to a period">${chips}</div>`
+  const controls = tagOnly ? `<div hidden style="display:none">${controlsHtml}</div>` : controlsHtml
   const eraBox = `<div class="terr-era" aria-live="polite"><h4></h4><p></p></div><div class="terr-tags"></div>
 <p class="terr-note"><b>Territories overlapped and shifted.</b> ${esc(T.overlapNote)}</p>
-<p class="terr-span">${esc(T.presenceNote)}</p>
+<p class="terr-span">${esc(T.stories?.[slug]?.presenceNote || T.presenceNote)}</p>
 <p class="terr-src"><b>Source:</b> <span class="terr-srclist"></span></p>`
   const openLink = mode === 'card'
     ? `<a class="terr-open" href="/${territoryMapHash(slug)}">Open full-screen territory map →</a>`
@@ -339,8 +347,8 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   function paintLegend(others) {
     if (!legendEl) return
     const nm = esc(nation?.name || T.nation)
-    const items = T.legend || [{ kind: 'soft', label: 'Claimed / used' }, { kind: 'hatch', label: 'Ceded by treaty' }]
-    const focal = `<span class="lg-focal">${sw(rgba(color, 0.52), darkOf(color))}<b>${nm}</b> (this story, highlighted)</span>
+    const items = tagOnly ? [] : T.legend || [{ kind: 'soft', label: 'Claimed / used' }, { kind: 'hatch', label: 'Ceded by treaty' }]
+    const focal = tagOnly ? '' : `<span class="lg-focal">${sw(rgba(color, 0.52), darkOf(color))}<b>${nm}</b> (this story, highlighted)</span>
 ${items.map((i) => `<span>${lgSw(i.kind)}${esc(i.label)}</span>`).join('')}`
     const oth = others.map((o) => `<span class="lg-other" data-lg-other="${esc(o.id)}">${sw(rgba(mutedOf(o.color), 0.28), mutedOf(o.color), true)}${esc(o.name)} <em>(other nation, muted)</em></span>`).join('')
     legendEl.innerHTML = focal + oth

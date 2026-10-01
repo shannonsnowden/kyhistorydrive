@@ -84,6 +84,127 @@
    "mapNote": "Presence, no mapped boundary. Three approximate points (Mingo Town OH 1770, Yellow Creek 1774, McClelland’s Station raid 1776). Kentucky camp sites unknown, not drawn.",
    "note": "Presence only: sourced towns and raid sites; no Kentucky camp areas are known or drawn.",
    "mainMap": true
+  },
+  {
+   "id": "wyandot",
+   "name": "Wyandot",
+   "color": "#56B4E9",
+   "slugs": [
+    "wyandot-on-kentuckys-northern-frontier",
+    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
+   ],
+   "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+   "extentFeature": "extent",
+   "yearStart": 1745,
+   "yearEnd": 1795,
+   "confidence": "low-medium",
+   "mapNote": "Towns at Sandusky and Detroit north of the Ohio, and raid sites in Kentucky (1780, 1782). Approximate area (dashed Ohio county outline), not a boundary. No Kentucky camp sites are known or drawn.",
+   "note": "Presence only: sourced towns and raid sites; no Kentucky camp areas are known or drawn.",
+   "mainMap": true,
+   "approxStart": true
+  },
+  {
+   "id": "delaware-lenape",
+   "name": "Delaware (Lenape)",
+   "color": "#E69F00",
+   "slugs": [
+    "delaware-lenape-in-the-1780-kentucky-raids",
+    "delaware-winter-camps-on-kentucky-ground"
+   ],
+   "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+   "extentFeature": "extent",
+   "yearStart": 1750,
+   "yearEnd": 1805,
+   "confidence": "low-medium",
+   "mapNote": "1804 cession shown as ten Indiana counties (approximate area, not a boundary), plus Bird’s 1780 route and event points. Kentucky camp sites are unknown and not drawn.",
+   "note": "Ohio and Indiana: towns, the 1780 route, treaty lines and the 1804 cession. No Kentucky camp areas are drawn.",
+   "mainMap": true,
+   "approxStart": true
+  },
+  {
+   "id": "miami",
+   "name": "Miami (with Wea and Piankashaw)",
+   "color": "#332288",
+   "slugs": [
+    "miami-hunters-return-north-of-the-ohio",
+    "piankashaw-claims-on-the-ohio-wabash"
+   ],
+   "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+   "extentFeature": "extent",
+   "yearStart": 1750,
+   "yearEnd": 1805,
+   "confidence": "low-medium",
+   "mapNote": "Wabash towns (Miami, Wea, Piankashaw) and the 1804 cession as ten Indiana counties (approximate area, not a boundary). Northern Kentucky hunting ground: no area drawn.",
+   "note": "Wabash villages and the 1804 cession in southern Indiana; Kentucky hunting is described in text only.",
+   "mainMap": true,
+   "approxStart": true
+  },
+  {
+   "id": "kickapoo",
+   "name": "Kickapoo (with Mascouten)",
+   "color": "#999933",
+   "slugs": [
+    "kickapoo-on-the-kentucky-frontier",
+    "mascouten-fire-nation-on-the-wabash"
+   ],
+   "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+   "extentFeature": "extent",
+   "yearStart": 1740,
+   "yearEnd": 1819,
+   "confidence": "low",
+   "mapNote": "General area (three counties in Indiana and Illinois), approximate and low confidence; not a boundary. The Mascouten have no area of their own and are shown here. No Kentucky villages are documented.",
+   "note": "Presence only: a general area in Indiana and Illinois; no Kentucky villages are documented.",
+   "mainMap": true,
+   "approxStart": true
+  },
+  {
+   "id": "illinois",
+   "name": "Illinois Confederation (Kaskaskia, Cahokia)",
+   "color": "#8C510A",
+   "slugs": [
+    "illinois-confederation-at-cahokia"
+   ],
+   "ref": "/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
+   "extentFeature": "extent",
+   "yearStart": 1778,
+   "yearEnd": 1803,
+   "confidence": "low-medium",
+   "mapNote": "Cahokia and Kaskaskia points, and two river reaches of the 1803 claim (dashed, never closed). Inland calls of the claim are not drawn. Approximate, low–medium confidence.",
+   "note": "Two town points and the two sourced river reaches of the 1803 claim; no area is drawn.",
+   "mainMap": true
+  },
+  {
+   "id": "potawatomi",
+   "name": "Potawatomi",
+   "color": "#9B59B6",
+   "slugs": [
+    "potawatomi-fire-keepers-and-the-ohio-valley-wars"
+   ],
+   "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+   "extentFeature": "extent",
+   "yearStart": 1640,
+   "yearEnd": 1809,
+   "confidence": "low",
+   "mapNote": "Detroit and Chicago points only. The Great Lakes homeland is outside the map window and is described in text, not drawn. Low confidence.",
+   "note": "Presence only: two sourced points; the homeland is text only.",
+   "mainMap": true,
+   "approxStart": true
+  },
+  {
+   "id": "ojibwe",
+   "name": "Ojibwe (Chippewa) and Odawa",
+   "color": "#4D4D4D",
+   "slugs": [
+    "ojibwe-on-birds-war-road"
+   ],
+   "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
+   "extentFeature": "extent",
+   "yearStart": 1780,
+   "yearEnd": 1780,
+   "confidence": "medium",
+   "mapNote": "Bird’s 1780 route only (solid in Kentucky, dashed outside) with Detroit and Martin’s Station points. The homeland is not drawn. The Odawa story about Egushawa is separate.",
+   "note": "Event route only: Bird’s June 1780 war road; no homeland is drawn.",
+   "mainMap": true
   }
  ]
 }

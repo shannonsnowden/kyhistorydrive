@@ -1711,7 +1711,14 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+        "nation": "Delaware (Lenape)",
+        "yearStart": 1778,
+        "yearEnd": 1795,
+        "presenceLabel": "Delaware (Lenape) town, raid or claim in this area"
+      }
     },
     {
       "slug": "falls-of-the-ohio",
@@ -1772,7 +1779,14 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
+        "nation": "Illinois Confederation (Kaskaskia, Cahokia)",
+        "yearStart": 1778,
+        "yearEnd": 1803,
+        "presenceLabel": "Illinois (Illiniwek) town or declared claim in this area"
+      }
     },
     {
       "slug": "shawnee-chillicothe-divisions",
@@ -2127,7 +2141,14 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
+        "nation": "Ojibwe (Chippewa) and Odawa",
+        "yearStart": 1780,
+        "yearEnd": 1780,
+        "presenceLabel": "Ojibwe and Odawa war road"
+      }
     },
     {
       "slug": "shelbyville",
@@ -2365,7 +2386,14 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+        "nation": "Wyandot",
+        "yearStart": 1780,
+        "yearEnd": 1782,
+        "presenceLabel": "Wyandot raids on Kentucky stations"
+      }
     },
     {
       "slug": "john-filson-kentucke-1784",
@@ -2635,7 +2663,15 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+        "nation": "Kickapoo (with Mascouten)",
+        "yearStart": 1740,
+        "yearEnd": 1791,
+        "presenceLabel": "Mascouten presence, shared with the Kickapoo (very low confidence)",
+        "approxStart": true
+      }
     },
     {
       "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
@@ -2685,7 +2721,15 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+        "nation": "Kickapoo (with Mascouten)",
+        "yearStart": 1775,
+        "yearEnd": 1795,
+        "presenceLabel": "Kickapoo village or claim in this area",
+        "approxStart": true
+      }
     },
     {
       "slug": "nicholasville-takes-shape",
@@ -3143,7 +3187,14 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+        "nation": "Miami (with Wea and Piankashaw)",
+        "yearStart": 1804,
+        "yearEnd": 1805,
+        "presenceLabel": "Piankashaw cession and Miami claim (Indiana)"
+      }
     },
     {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
@@ -3702,7 +3753,15 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+        "nation": "Delaware (Lenape)",
+        "yearStart": 1750,
+        "yearEnd": 1775,
+        "presenceLabel": "Delaware (Lenape) winter and hunting camps",
+        "approxStart": true
+      }
     },
     {
       "slug": "miami-hunters-return-north-of-the-ohio",
@@ -3723,7 +3782,15 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+        "nation": "Miami (with Wea and Piankashaw)",
+        "yearStart": 1750,
+        "yearEnd": 1795,
+        "presenceLabel": "Miami hunting and towns north of the Ohio",
+        "approxStart": true
+      }
     },
     {
       "slug": "big-bone-lick-older-cycle",
@@ -3974,7 +4041,15 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+        "nation": "Potawatomi",
+        "yearStart": 1640,
+        "yearEnd": 1809,
+        "presenceLabel": "Potawatomi town or homeland area (general)",
+        "approxStart": true
+      }
     },
     {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
@@ -4079,7 +4154,12 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "territory": {
+        "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+        "nation": "Wyandot",
+        "presenceLabel": "Place name, no mapped territory"
+      }
     },
     {
       "slug": "yuchi-on-the-green-river-maps",

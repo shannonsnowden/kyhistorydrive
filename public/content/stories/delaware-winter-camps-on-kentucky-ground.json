@@ -22,5 +22,13 @@
     "source_label": "Wikimedia Commons",
     "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
     "year": 1861
+  },
+  "territory": {
+    "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+    "nation": "Delaware (Lenape)",
+    "yearStart": 1750,
+    "yearEnd": 1775,
+    "presenceLabel": "Delaware (Lenape) winter and hunting camps",
+    "approxStart": true
   }
 }
