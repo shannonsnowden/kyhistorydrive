@@ -14,5 +14,12 @@
     "treaty"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-07"
+  "briefDate": "2026-09-07",
+  "territory": {
+    "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+    "nation": "Miami (with Wea and Piankashaw)",
+    "yearStart": 1804,
+    "yearEnd": 1805,
+    "presenceLabel": "Piankashaw cession and Miami claim (Indiana)"
+  }
 }

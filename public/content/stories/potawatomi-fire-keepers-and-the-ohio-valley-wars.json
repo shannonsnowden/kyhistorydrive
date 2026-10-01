@@ -22,5 +22,13 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Unknown · Wikimedia Commons · Public domain",
     "year": null
+  },
+  "territory": {
+    "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+    "nation": "Potawatomi",
+    "yearStart": 1640,
+    "yearEnd": 1809,
+    "presenceLabel": "Potawatomi town or homeland area (general)",
+    "approxStart": true
   }
 }

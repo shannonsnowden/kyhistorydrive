@@ -22,5 +22,10 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
     "year": null
+  },
+  "territory": {
+    "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+    "nation": "Wyandot",
+    "presenceLabel": "Place name, no mapped territory"
   }
 }

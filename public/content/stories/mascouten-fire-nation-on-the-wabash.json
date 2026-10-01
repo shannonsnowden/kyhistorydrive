@@ -13,5 +13,13 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-09"
+  "briefDate": "2026-09-09",
+  "territory": {
+    "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+    "nation": "Kickapoo (with Mascouten)",
+    "yearStart": 1740,
+    "yearEnd": 1791,
+    "presenceLabel": "Mascouten presence, shared with the Kickapoo (very low confidence)",
+    "approxStart": true
+  }
 }

@@ -14,5 +14,13 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-06"
+  "briefDate": "2026-09-06",
+  "territory": {
+    "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+    "nation": "Miami (with Wea and Piankashaw)",
+    "yearStart": 1750,
+    "yearEnd": 1795,
+    "presenceLabel": "Miami hunting and towns north of the Ohio",
+    "approxStart": true
+  }
 }
