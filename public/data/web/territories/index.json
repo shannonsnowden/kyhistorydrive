@@ -62,12 +62,13 @@
    ],
    "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
    "extentFeature": "extent",
-   "yearStart": 1768,
+   "yearStart": 1600,
    "yearEnd": 1784,
    "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Haudenosaunee homeland in New York and Pennsylvania (tint), and, hatched, the Kentucky east of the Tennessee River sold to the Crown in 1768 (a cession claim, not where people lived). Low-medium confidence, not a boundary.",
+   "mapNote": "Approximate general area of the Haudenosaunee homeland in New York and Pennsylvania (tint), shown from 1600 (a display start; no founding year is sourced) to 1784, and, hatched, the Kentucky east of the Tennessee River sold to the Crown in 1768 (a cession claim, not where people lived). Low–medium confidence, not a boundary.",
    "note": "Kentucky east of the Tennessee River was sold to the Crown at Fort Stanwix 1768 on a Six Nations conquest claim that the Cherokee and Shawnee disputed. The tint in New York and Pennsylvania is a general area of the homeland, built from whole counties.",
-   "mainMap": true
+   "mainMap": true,
+   "approxStart": true
   },
   {
    "id": "mingo",
@@ -78,12 +79,13 @@
    ],
    "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
    "extentFeature": "extent",
-   "yearStart": 1770,
-   "yearEnd": 1776,
-   "confidence": "low",
-   "mapNote": "Approximate general area of Mingo presence on the upper Ohio, 1770–1776 (whole counties, not a boundary), with three approximate points. Kentucky camp sites unknown, not drawn. Low confidence.",
-   "note": "Presence: an approximate general area on the upper Ohio, sourced points and a raid site; no Kentucky camp areas are known or drawn.",
-   "mainMap": true
+   "yearStart": 1750,
+   "yearEnd": 1832,
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area of Mingo presence, c.1750–1832 (whole counties, not a boundary): the Cayuga and Seneca lakes in New York, the upper Ohio (Mingo Town 1770), Delaware County, Ohio (Pluggy’s Town from 1772, county level) and the Sandusky and Lewistown Seneca to 1832, with three approximate points. Kentucky camp sites unknown, not drawn. Low–medium confidence.",
+   "note": "Presence: approximate general areas in New York and Ohio, sourced points and a raid site; no Kentucky camp areas are known or drawn.",
+   "mainMap": true,
+   "approxStart": true
   },
   {
    "id": "wyandot",
@@ -95,13 +97,13 @@
    ],
    "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
    "extentFeature": "extent",
-   "yearStart": 1745,
-   "yearEnd": 1795,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of Wyandot towns on the Sandusky River and near Detroit, c.1745–1795 (whole counties, not a boundary); Kentucky only as 1780 and 1782 raid sites. The 1785 Fort McIntosh allotment is hatched as a county approximation. Low–medium confidence.",
-   "note": "A general area in Ohio and Michigan, sourced town and raid points; no Kentucky camp areas are known or drawn.",
+   "yearStart": 1671,
+   "yearEnd": 1843,
+   "confidence": "medium",
+   "mapNote": "Approximate general area of Wyandot towns, 1671–1843 (whole counties, not a boundary): Michilimackinac, Detroit, Sandusky Bay and the Muskingum, then the Sandusky River and the 1817 reserves; Kentucky only as 1780 and 1782 raid sites. The 1785 Fort McIntosh allotment is hatched as a county approximation. Medium confidence for named sites; the county tint is low–medium.",
+   "note": "A general area in Michigan and Ohio, sourced town and raid points; no Kentucky camp areas are known or drawn.",
    "mainMap": true,
-   "approxStart": true
+   "approxStart": false
   },
   {
    "id": "delaware-lenape",
@@ -116,7 +118,7 @@
    "yearStart": 1750,
    "yearEnd": 1805,
    "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Delaware (Lenape) Ohio towns c.1750–1795 (Muskingum and Tuscarawas valleys) and the ten-county 1804 Indiana cession (whole counties, not a boundary), plus Bird’s 1780 route in Kentucky. Kentucky camp sites unknown, not drawn.",
+   "mapNote": "Approximate general area of the Delaware (Lenape) Ohio towns c.1750–1795 (Muskingum and Tuscarawas valleys; the Tuscarawas towns date from 1772) and the ten-county 1804 Indiana cession (whole counties, not a boundary), plus Bird’s 1780 route in Kentucky. The Delaware valley counties in Pennsylvania are an inference (low confidence). Kentucky camp sites unknown, not drawn.",
    "note": "Ohio and Indiana: a general area of the towns, the 1780 route inside Kentucky, the 1785 allotment and the 1804 cession. No Kentucky camp areas are drawn.",
    "mainMap": true,
    "approxStart": true
@@ -131,10 +133,10 @@
    ],
    "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
    "extentFeature": "extent",
-   "yearStart": 1750,
-   "yearEnd": 1805,
+   "yearStart": 1654,
+   "yearEnd": 1846,
    "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Wabash country (Miami, Wea, Piankashaw) c.1750–1805, from Fort Wayne to Vincennes (whole counties, not a boundary), with the ten-county 1804 cession. Northern Kentucky hunting ground: no area drawn.",
+   "mapNote": "Approximate general area of the Miami, Wea and Piankashaw, c.1654–1846: Lake Michigan and Detroit sites, then the Wabash country from Fort Wayne to Vincennes, with the ten-county 1804 cession (whole counties, not a boundary). Medium confidence for the town points, low–medium for the county tints. Northern Kentucky hunting ground: no area drawn.",
    "note": "Wabash valley in Indiana: a general area of the towns and the 1804 cession; Kentucky hunting is described in text only.",
    "mainMap": true,
    "approxStart": true
@@ -149,10 +151,10 @@
    ],
    "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
    "extentFeature": "extent",
-   "yearStart": 1740,
+   "yearStart": 1730,
    "yearEnd": 1819,
-   "confidence": "low",
-   "mapNote": "Approximate general area in Indiana and Illinois, c.1740–1819 (the Wabash and Vermilion country, whole counties, not a boundary). The Mascouten have no area of their own and are shown here. No Kentucky villages are documented. Low confidence.",
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area in Indiana and Illinois, c.1730s–1819 (the Wabash and Vermilion country, whole counties, not a boundary). Sources disagree on where the Kickapoo were at first contact, so none is asserted. The Mascouten have no area of their own and are shown here. No Kentucky villages are documented. Low–medium confidence.",
    "note": "A general area in Indiana and Illinois; no Kentucky villages are documented.",
    "mainMap": true,
    "approxStart": true
@@ -169,8 +171,8 @@
    "yearStart": 1778,
    "yearEnd": 1803,
    "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Illinois towns on the Mississippi (1778) and of the claim declared in 1803 (southern Illinois, whole counties, not a boundary; the inland edge is unlocated). Low–medium confidence.",
-   "note": "Two town points and a general area of the 1803 declared claim in Illinois; the inland calls are unlocated, so the edge is a rough guess.",
+   "mapNote": "Approximate general area of the Illinois towns on the Mississippi (1778) and of the claim declared in 1803 (southern Illinois, whole counties, not a boundary). The claim’s southern edge is the Ohio River from Cairo to Saline Creek (medium confidence); nothing in Kentucky is claimed. The inland ridge calls are unlocated, so the inland edge is a rough guess (low). Low–medium overall.",
+   "note": "Two town points and a general area of the 1803 declared claim in Illinois; the Ohio River edge is sourced, the inland calls are unlocated, and no Kentucky territory is claimed.",
    "mainMap": true
   },
   {
@@ -184,8 +186,8 @@
    "extentFeature": "extent",
    "yearStart": 1640,
    "yearEnd": 1809,
-   "confidence": "low",
-   "mapNote": "Approximate general area of Potawatomi presence, c.1640–1809: Green Bay and Door County, then southern Michigan, northern Indiana and northeast Illinois (whole counties, not a boundary). Low confidence.",
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area of Potawatomi presence, c.1640–1809: Green Bay and the Door Peninsula to about 1700, then the St. Joseph River, Chicago and Milwaukee, then southern Michigan, northern Indiana and northeast Illinois (whole counties, not a boundary). Low–medium confidence to 1763; low from 1763.",
    "note": "A general area in Wisconsin, Michigan, Indiana and Illinois; Detroit and Chicago points; no Kentucky presence.",
    "mainMap": true,
    "approxStart": true
@@ -200,9 +202,9 @@
    "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
    "extentFeature": "extent",
    "yearStart": 1700,
-   "yearEnd": 1780,
+   "yearEnd": 1819,
    "confidence": "low-medium",
-   "mapNote": "Approximate general area of Odawa and Ojibwe presence around Detroit, Saginaw and the Maumee, c.1700–1780 (whole counties, not a boundary), and Bird’s 1780 route, solid in Kentucky. The wider homeland to the north is not drawn. Area: low confidence; Bird’s route: medium. The Odawa story about Egushawa is separate.",
+   "mapNote": "Approximate general area of Odawa and Ojibwe presence, c.1700–1819: Sault Ste. Marie and the Straits of Mackinac, Detroit, Saginaw and the Maumee, and (from the 1807 and 1819 treaties) the Saginaw and Thunder Bay counties (whole counties, not a boundary), plus Bird’s 1780 route, solid in Kentucky. Low–medium confidence. The wider homeland (Wisconsin, Minnesota, Ontario) is text only. The Odawa story about Egushawa is separate.",
    "note": "A general area in Michigan and Ohio, and Bird’s June 1780 war road in Kentucky; the wider homeland is not drawn.",
    "mainMap": true,
    "approxStart": true
