@@ -58,7 +58,8 @@
    "name": "Six Nations (Haudenosaunee)",
    "color": "#CC79A7",
    "slugs": [
-    "treaty-of-fort-stanwix-1768"
+    "treaty-of-fort-stanwix-1768",
+    "iroquois-beaver-wars"
    ],
    "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
    "extentFeature": "extent",
