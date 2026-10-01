@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-01T00:56:39.293Z",
+  "generatedAt": "2026-10-01T09:51:05.297Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 82,
-    "none": 29
+    "override": 85,
+    "none": 31
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -144,6 +144,14 @@
       "matchedPlace": "Cleek-McCabe Fort Ancient Village",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
     },
+    "croley-evans-site": {
+      "slug": "croley-evans-site",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "jonathan-creek-mississippian-center": {
       "slug": "jonathan-creek-mississippian-center",
       "lat": 36.86767,
@@ -210,6 +218,14 @@
     },
     "erie-the-cat-nation": {
       "slug": "erie-the-cat-nation",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "moneton": {
+      "slug": "moneton",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -392,24 +408,16 @@
       "matchedPlace": "Bland W. Ballard / Tyler Station",
       "historyId": "bland-ballard-tyler-station"
     },
-    "treaty-of-fort-stanwix-1768": {
-      "slug": "treaty-of-fort-stanwix-1768",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "mingo-camps-south-of-the-ohio": {
-      "slug": "mingo-camps-south-of-the-ohio",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
     "treaties-of-hard-labour-and-lochaber": {
       "slug": "treaties-of-hard-labour-and-lochaber",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "treaty-of-fort-stanwix-1768": {
+      "slug": "treaty-of-fort-stanwix-1768",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -431,6 +439,22 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Hancock Taylor / Taylor's Fork burial",
       "historyId": "richmond-founding-2"
+    },
+    "james-knox": {
+      "slug": "james-knox",
+      "lat": 37.170333,
+      "lon": -85.38215,
+      "mapConfidence": "override",
+      "matchedPlace": "James Knox / Camp Knox (Skinhouse Branch)",
+      "historyId": "james-knox-skinhouse-camp-knox-1770"
+    },
+    "mingo-camps-south-of-the-ohio": {
+      "slug": "mingo-camps-south-of-the-ohio",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "bullitts-lick-kentuckys-first-industry": {
       "slug": "bullitts-lick-kentuckys-first-industry",
@@ -472,6 +496,14 @@
       "matchedPlace": "John Floyd / Floyd's Station",
       "historyId": "floyds-station"
     },
+    "shawnee-chillicothe-divisions": {
+      "slug": "shawnee-chillicothe-divisions",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "treaty-of-camp-charlotte-1774": {
       "slug": "treaty-of-camp-charlotte-1774",
       "lat": null,
@@ -495,22 +527,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
-    },
-    "chickamauga-cherokee": {
-      "slug": "chickamauga-cherokee",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "chickamauga-cherokee-hold-the-southern-flank": {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
     },
     "levi-todd-lexington-co-founder": {
       "slug": "levi-todd-lexington-co-founder",
@@ -559,6 +575,22 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Capt. John Strode / Strode's Station 1779 Clark County",
       "historyId": "capt-john-strode-strode-s-station-1779-clark-county"
+    },
+    "chickamauga-cherokee": {
+      "slug": "chickamauga-cherokee",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "chickamauga-cherokee-hold-the-southern-flank": {
+      "slug": "chickamauga-cherokee-hold-the-southern-flank",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "paris-from-hopewell": {
       "slug": "paris-from-hopewell",
@@ -610,14 +642,6 @@
     },
     "illinois-confederation-at-cahokia": {
       "slug": "illinois-confederation-at-cahokia",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "shawnee-chillicothe-divisions": {
-      "slug": "shawnee-chillicothe-divisions",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -1072,6 +1096,14 @@
       "matchedPlace": "Taylorsville",
       "historyId": null
     },
+    "somerset": {
+      "slug": "somerset",
+      "lat": 37.08444444,
+      "lon": -84.60805556,
+      "mapConfidence": "override",
+      "matchedPlace": "Somerset — Pulaski County seat (1801)",
+      "historyId": "somerset-founding-pulaski-seat-1801"
+    },
     "piankashaw-claims-on-the-ohio-wabash": {
       "slug": "piankashaw-claims-on-the-ohio-wabash",
       "lat": null,
@@ -1095,6 +1127,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "Great Saltpetre Cave",
       "historyId": "great-saltpetre-cave"
+    },
+    "mammoth-cave-saltpeter": {
+      "slug": "mammoth-cave-saltpeter",
+      "lat": 37.1872902,
+      "lon": -86.1034214,
+      "mapConfidence": "override",
+      "matchedPlace": "Mammoth Cave saltpeter (War of 1812)",
+      "historyId": "mammoth-cave-saltpeter-war-of-1812"
     },
     "saltpeter-cave-at-carter-caves": {
       "slug": "saltpeter-cave-at-carter-caves",

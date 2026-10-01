@@ -2374,5 +2374,80 @@
       "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
       "year": 2019
     }
+  },
+  {
+    "id": "james-knox-skinhouse-camp-knox-1770",
+    "name": "James Knox / Camp Knox (Skinhouse Branch)",
+    "subtitle": "Green County · Skinhouse Branch · long-hunter base camp ~1770 · Dix River tradition · KY Senate 1795–1800",
+    "latitude": 37.170333,
+    "longitude": -85.38215,
+    "history": "Before Boone’s fame crowded the memory, Scots-Irish long hunter James Knox led parties through Cumberland Gap into Kentucky’s Green River country. Around 1770 his men built a “skin house” pelt camp on what is still called Skinhouse Branch in Green County—Camp Knox on the markers. Tradition holds that Cherokee hunter Captain Dick guided him and that Knox named Dix River for that guide. Knox later raised a company for Virginia’s 8th Regiment, fought with Morgan’s Rifles at Saratoga, and sat in the Kentucky Senate from Lincoln County (1795–1800).",
+    "source_date": "2026-10-01",
+    "marker_number": null,
+    "marker_title": "Historic Camp Knox",
+    "geocode_source": "hmdb-245360-historic-camp-knox",
+    "geocode_note": "HMDB Historic Camp Knox marker at Skinhouse Branch Rd (SR 2188) & Long Hunters Camp Rd (SR 767), Green County (37°10.22′N 85°22.929′W). Distinct from Fort Knox (Hardin County). Years are the ~1770 camp through Knox’s Kentucky Senate service (to 1800).",
+    "category": "frontier",
+    "website": "https://en.wikipedia.org/wiki/Long_hunter",
+    "year_start": 1770,
+    "year_end": 1800,
+    "photo": {
+      "image_url": "/content/photos/stories/james-knox.jpg",
+      "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
+      "source_url": "https://commons.wikimedia.org/wiki/File:NT_Reenactment-_longhunter_(15193433686).jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Virginia State Parks · Wikimedia Commons · CC BY 2.0",
+      "year": 2014
+    }
+  },
+  {
+    "id": "somerset-founding-pulaski-seat-1801",
+    "name": "Somerset — Pulaski County seat (1801)",
+    "subtitle": "Pulaski County · William Dodson donation · Town Spring · named for Somerset County, N.J.",
+    "latitude": 37.08444444,
+    "longitude": -84.60805556,
+    "history": "Pulaski County needed a seat after its 1799 creation from Lincoln and Green. In 1801 the court laid out Somerset on forty acres donated by William Dodson, beside a dependable spring whose path became the town’s busiest early street. Migrants from Somerset County, New Jersey, gave the place its name. Kentucky Historical Society Marker 1607 still marks the Old Town Spring—where locals joked that whoever drank would gain wisdom and always return.",
+    "source_date": "2026-10-01",
+    "marker_number": "1607",
+    "marker_title": "Old Town Spring",
+    "geocode_source": "wikipedia-coordinates-somerset-kentucky",
+    "geocode_note": "Town center, Somerset (Wikipedia 37.0844, -84.6081). Year is the 1801 court layout / county seat, not the 1799 county creation. KHS Marker 1607 (Old Town Spring) is in the markers layer.",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Somerset,_Kentucky",
+    "year_start": 1801,
+    "year_end": 1801,
+    "photo": {
+      "image_url": "/content/photos/stories/somerset.jpg",
+      "title": "Pulaski County courthouse, Somerset",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pulaski_County_Kentucky_courthouse.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+      "year": null
+    }
+  },
+  {
+    "id": "mammoth-cave-saltpeter-war-of-1812",
+    "name": "Mammoth Cave saltpeter (War of 1812)",
+    "subtitle": "Edmonson County · Historic Entrance / Rotunda · industrial nitrate mining 1812–1815 · enslaved labor",
+    "latitude": 37.1872902,
+    "longitude": -86.1034214,
+    "history": "Long before tourism, Mammoth Cave’s nitrate-rich dirt fed gunpowder. In the War of 1812, when British blockade cut imported saltpeter, operators worked the Rotunda and nearby passages at industrial scale—leaching cave soil in wooden vats, pumping liquor to the surface, and converting it to potassium nitrate. Enslaved laborers did most of the hauling and filtering; remnants of vats, pipes, and pump works still stand just inside the Historic Entrance. After 1815 cheap imports killed the market, and the same passages became Kentucky’s first great show cave.",
+    "source_date": "2026-10-01",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "nominatim-mammoth-cave-historic-entrance",
+    "geocode_note": "Mammoth Cave Historic Entrance (OSM/Nominatim). Distinct from Salts Cave (15Ht4) Early Woodland sulfate mining, Great Saltpetre Cave (Rockcastle), and Saltpeter Cave at Carter Caves. Years are War of 1812 industrial production (1812–1815), not park establishment.",
+    "category": "industry",
+    "website": "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park",
+    "year_start": 1812,
+    "year_end": 1815,
+    "photo": {
+      "image_url": "/content/photos/stories/mammoth-cave-saltpeter.jpg",
+      "title": "Saltpeter mining remnants inside Mammoth Cave (War of 1812-era industrial works near Historic Entrance / Rotunda)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Saltpeter_Mine.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2022
+    }
   }
 ]

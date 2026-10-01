@@ -596,6 +596,27 @@ const MANUAL_OVERRIDES = {
     lon: -84.41529167,
     confidence: 'override',
   },
+  // 2026-10-01 morning brief (Moneton theme-only; Croley-Evans address-restricted / no public coords)
+  'james-knox': {
+    matchName: 'James Knox / Camp Knox (Skinhouse Branch)',
+    lat: 37.170333,
+    lon: -85.38215,
+    confidence: 'override',
+  },
+  'somerset': {
+    matchName: 'Somerset — Pulaski County seat (1801)',
+    lat: 37.08444444,
+    lon: -84.60805556,
+    confidence: 'override',
+  },
+  'moneton': {},
+  'croley-evans-site': {},
+  'mammoth-cave-saltpeter': {
+    matchName: 'Mammoth Cave saltpeter (War of 1812)',
+    lat: 37.1872902,
+    lon: -86.1034214,
+    confidence: 'override',
+  },
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
@@ -725,6 +746,17 @@ for (const story of idx.stories) {
       historyId: found.feature.properties.id || null,
     }
     stats[found.confidence] = (stats[found.confidence] || 0) + 1
+  } else if (override) {
+    // Explicit empty MANUAL_OVERRIDES entry = intentional theme-only unpin (skip county centroid).
+    loc = {
+      slug: story.slug,
+      lat: null,
+      lon: null,
+      mapConfidence: null,
+      matchedPlace: null,
+      historyId: null,
+    }
+    stats.none++
   } else {
     const text = [story.title, story.summary, body, ...(story.tags || [])].join(' ')
     const fb = countyFallback(text)
