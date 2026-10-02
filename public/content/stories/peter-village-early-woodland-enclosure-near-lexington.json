@@ -22,5 +22,12 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
     "year": 1848
+  },
+  "territory": {
+    "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+    "nation": "Adena (archaeological culture)",
+    "yearStart": -300,
+    "yearEnd": -200,
+    "presenceLabel": "Adena area (archaeological culture, not a tribe)"
   }
 }

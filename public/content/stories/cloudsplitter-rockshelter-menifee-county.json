@@ -21,5 +21,10 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
     "year": 2007
+  },
+  "territory": {
+    "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
+    "nation": "Early Woodland caves and rockshelters (archaeological period)",
+    "presenceLabel": "Archaeological period, no mapped area"
   }
 }
