@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T20:27:03.960Z",
+  "generatedAt": "2026-10-02T23:34:09.956Z",
   "count": 185,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -13,6 +13,33 @@
     "prehistoric"
   ],
   "stories": [
+    {
+      "slug": "carlston-annis-shell-mound",
+      "title": "Carlston Annis Shell Mound",
+      "publishedDate": "2026-09-03",
+      "summary": "On the Green River floodplain in Butler County, Carlston Annis (15Bt5) is a Late Archaic shell midden about 300 by 350 feet and more than six feet thick, piled up beside a…",
+      "yearStart": -3000,
+      "yearEnd": -1000,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-03",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
+      "lat": 37.21,
+      "lon": -86.68,
+      "mapConfidence": "exact",
+      "matchedPlace": "Carlston Annis Shell Mound"
+    },
     {
       "slug": "chiggerville-15oh1",
       "title": "Chiggerville (15Oh1)",
@@ -36,8 +63,8 @@
         "yearEnd": -1000,
         "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
       },
-      "lat": 37.4,
-      "lon": -86.9,
+      "lat": 37.48,
+      "lon": -86.84,
       "mapConfidence": "override",
       "matchedPlace": "Chiggerville (15Oh1)"
     },
@@ -69,10 +96,39 @@
         "nation": "Early Woodland caves and rockshelters (archaeological period)",
         "presenceLabel": "Archaeological period, no mapped area"
       },
-      "lat": 37.83758,
-      "lon": -83.62047,
+      "lat": 37.94,
+      "lon": -83.59,
       "mapConfidence": "override",
       "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)"
+    },
+    {
+      "slug": "indian-knoll-on-the-green-river",
+      "title": "Indian Knoll on the Green River",
+      "publishedDate": "2026-08-29",
+      "summary": "Five thousand years before the first stations, Late Archaic hunter-gatherers kept returning to a shell midden on the Green River in Ohio County. Indian Knoll (15OH2) yielded…",
+      "yearStart": -3000,
+      "yearEnd": -1000,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-08-29",
+      "county": "Ohio",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
+      "lat": 37.48,
+      "lon": -86.84,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Indian Knoll"
     },
     {
       "slug": "read-shell-midden-15bt10-butler-county",
@@ -96,10 +152,37 @@
         "yearEnd": -1000,
         "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
       },
-      "lat": 37.2425,
-      "lon": -86.79083,
+      "lat": 37.21,
+      "lon": -86.68,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Read Shell Midden (15Bt10)"
+    },
+    {
+      "slug": "ward-site-15mcl11-mclean-county",
+      "title": "Ward Site (15McL11), McLean County",
+      "publishedDate": "2026-09-13",
+      "summary": "On the Godfrey Ward farm along the Green River, WPA crews under John B. Elliott dug about 16,000 square feet in 1938 and catalogued 433 human burials plus dog burials and…",
+      "yearStart": -3000,
+      "yearEnd": -1000,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-13",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
+      "lat": 37.53,
+      "lon": -87.27,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Ward Site (15McL11) Late Archaic"
     },
     {
       "slug": "hansen-site-15gp14",
@@ -124,37 +207,10 @@
         "nation": "Late Archaic (archaeological period)",
         "presenceLabel": "Archaeological period, no mapped area"
       },
-      "lat": 38.72371944,
-      "lon": -83.01908889,
+      "lat": 38.56,
+      "lon": -82.93,
       "mapConfidence": "override",
       "matchedPlace": "Hansen Site (15GP14)"
-    },
-    {
-      "slug": "carlston-annis-shell-mound",
-      "title": "Carlston Annis Shell Mound",
-      "publishedDate": "2026-09-03",
-      "summary": "On the Green River floodplain in Butler County, Carlston Annis (15Bt5) is a Late Archaic shell midden about 300 by 350 feet and more than six feet thick, piled up beside a…",
-      "yearStart": -3000,
-      "yearEnd": -1000,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-03",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
-      "lat": 37.2849569,
-      "lon": -86.7683398,
-      "mapConfidence": "exact",
-      "matchedPlace": "Carlston Annis Shell Mound"
     },
     {
       "slug": "salts-cave-15ht4",
@@ -178,8 +234,8 @@
         "nation": "Early Woodland caves and rockshelters (archaeological period)",
         "presenceLabel": "Archaeological period, no mapped area"
       },
-      "lat": 37.187,
-      "lon": -86.101,
+      "lat": 37.31,
+      "lon": -85.88,
       "mapConfidence": "override",
       "matchedPlace": "Salts Cave (15Ht4)"
     },
@@ -213,8 +269,8 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.7564,
-      "lon": -83.8844,
+      "lat": 38.76,
+      "lon": -83.88,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)"
     },
@@ -246,6 +302,60 @@
       "matchedPlace": "Gaitskill Mound"
     },
     {
+      "slug": "ashlands-adena-mounds",
+      "title": "Ashland's Adena mounds",
+      "publishedDate": "2026-09-02",
+      "summary": "Six conical Adena burial mounds survive in Ashland's Central Park, roughly 15–20 feet across and 4–6 feet high in a slight curve. A 1930s survey said no Kentucky city held…",
+      "yearStart": -500,
+      "yearEnd": 250,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-02",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
+      "lat": 38.4730716,
+      "lon": -82.63752,
+      "mapConfidence": "override",
+      "matchedPlace": "Ashland Central Park Adena Mounds"
+    },
+    {
+      "slug": "mount-horeb-earthworks",
+      "title": "Mount Horeb Earthworks",
+      "publishedDate": "2026-08-30",
+      "summary": "Above Elkhorn Creek near Lexington, Adena people built a circular ditch-and-embankment enclosure during the Adena period. WPA digs under…",
+      "yearStart": -500,
+      "yearEnd": 250,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-08-30",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
+      "lat": 38.1588727,
+      "lon": -84.4652044,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Mount Horeb Adena / Adena Park"
+    },
+    {
       "slug": "peter-village-enclosure-15fa166",
       "title": "Peter Village enclosure (15Fa166)",
       "publishedDate": "2026-09-11",
@@ -267,10 +377,128 @@
         "yearEnd": -200,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.0459102,
-      "lon": -84.4960297,
+      "lat": 38.05,
+      "lon": -84.5,
       "mapConfidence": "exact",
       "matchedPlace": "Peter Village enclosure (15Fa166)"
+    },
+    {
+      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "title": "Peter Village: Early Woodland Enclosure Near Lexington",
+      "publishedDate": "2026-09-22",
+      "summary": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric…",
+      "yearStart": -300,
+      "yearEnd": -200,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-22",
+      "photo": {
+        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
+        "title": "Peter Village enclosure (Squier & Davis 1848)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+        "year": 1848
+      },
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -300,
+        "yearEnd": -200,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
+      "lat": 38.05,
+      "lon": -84.5,
+      "mapConfidence": "override",
+      "matchedPlace": "Peter Village enclosure (15Fa166)"
+    },
+    {
+      "slug": "robbins-mounds-boone-county",
+      "title": "Robbins Mounds, Boone County",
+      "publishedDate": "2026-09-06",
+      "summary": "Two Middle Woodland Adena burial mounds (15Be3 and 15Be14) once crowned an upland ridge near the Ohio. University of Kentucky crews excavated them in 1939: the larger stood…",
+      "yearStart": -150,
+      "yearEnd": 1,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-06",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -150,
+        "yearEnd": 1,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
+      "lat": 39.09,
+      "lon": -84.71,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Robbins Mounds (Boone County Adena)"
+    },
+    {
+      "slug": "indian-fort-mountain",
+      "title": "Indian Fort Mountain",
+      "publishedDate": "2026-09-01",
+      "summary": "On a knobby ridge south of Berea, dry-laid stone walls ring Indian Fort Mountain (15Ma25) in the Berea College Forest. Hopewell-era Middle Woodland people built them about…",
+      "yearStart": -39,
+      "yearEnd": 236,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-01",
+      "territory": {
+        "ref": "/data/web/territories/hopewell-style-middle-woodland-indian-fort-mountain.json",
+        "nation": "Hopewell-style Middle Woodland (archaeological culture)",
+        "presenceLabel": "Archaeological culture, no mapped area"
+      },
+      "lat": 37.5675476,
+      "lon": -84.2328837,
+      "mapConfidence": "exact",
+      "matchedPlace": "Indian Fort Mountain"
+    },
+    {
+      "slug": "wright-mounds-montgomery-county",
+      "title": "Wright Mounds, Montgomery County",
+      "publishedDate": "2026-09-07",
+      "summary": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop. University of Kentucky crews excavated two in 1937: the larger stood about 30 feet high and 180 feet…",
+      "yearStart": 1,
+      "yearEnd": 250,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "bourbon",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-07",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
+      "lat": 38.06,
+      "lon": -83.94,
+      "mapConfidence": "override",
+      "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
     {
       "slug": "muir-site-15js86",
@@ -296,8 +524,8 @@
         "yearEnd": 1200,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.8967,
-      "lon": -84.6228,
+      "lat": 37.87,
+      "lon": -84.58,
       "mapConfidence": "override",
       "matchedPlace": "Muir Site (15Js86)"
     },
@@ -361,8 +589,8 @@
         "yearEnd": 1255,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.8840694,
-      "lon": -84.593,
+      "lat": 37.87,
+      "lon": -84.58,
       "mapConfidence": "override",
       "matchedPlace": "Muir Site (15Js86)"
     },
@@ -389,8 +617,8 @@
         "yearEnd": 1500,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.552,
-      "lon": -89.186,
+      "lat": 36.55,
+      "lon": -89.19,
       "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)"
     },
@@ -425,8 +653,8 @@
         "yearEnd": 1500,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.552,
-      "lon": -89.186,
+      "lat": 36.55,
+      "lon": -89.19,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)"
     },
@@ -452,10 +680,37 @@
         "yearEnd": 1300,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.89476944,
-      "lon": -89.08521944,
+      "lat": 36.89,
+      "lon": -89.09,
       "mapConfidence": "override",
       "matchedPlace": "Turk Site (15Ce6)"
+    },
+    {
+      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+      "title": "Wickliffe Mounds Mississippian village Ballard County",
+      "publishedDate": "2026-08-27",
+      "summary": "Stub topic: Wickliffe Mounds, a Mississippian village and mound center in Ballard County near the Mississippi–Ohio confluence.",
+      "yearStart": 1100,
+      "yearEnd": 1350,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-08-27",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1100,
+        "yearEnd": 1350,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
+      "lat": 36.9712176,
+      "lon": -89.0917492,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wickliffe Mounds"
     },
     {
       "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
@@ -490,10 +745,39 @@
         "yearEnd": 1550,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.2132087,
-      "lon": -84.2492072,
+      "lat": 38.2,
+      "lon": -84.21,
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)"
+    },
+    {
+      "slug": "cleek-mccabe-fort-ancient-village",
+      "title": "Cleek-McCabe Fort Ancient village",
+      "publishedDate": "2026-09-10",
+      "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
+      "yearStart": 1200,
+      "yearEnd": 1300,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-10",
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1300,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
+      "lat": 38.96,
+      "lon": -84.74,
+      "mapConfidence": "exact",
+      "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
@@ -527,8 +811,8 @@
         "yearEnd": 1300,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.772860422898226,
-      "lon": -84.00880725804063,
+      "lat": 38.96,
+      "lon": -84.74,
       "mapConfidence": "override",
       "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
@@ -625,8 +909,8 @@
         "yearEnd": 1550,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.2364,
-      "lon": -84.6607,
+      "lat": 38.29,
+      "lon": -84.58,
       "mapConfidence": "override",
       "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)"
     },
@@ -661,8 +945,8 @@
         "yearEnd": 1450,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.43722222,
-      "lon": -88.25166667,
+      "lat": 37.44,
+      "lon": -88.25,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Tolu Site (15Cn1)"
     },
@@ -697,10 +981,38 @@
         "yearEnd": 1450,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.0676389,
-      "lon": -89.14405,
+      "lat": 37.07,
+      "lon": -89.14,
       "mapConfidence": "override",
       "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)"
+    },
+    {
+      "slug": "annis-mound-village",
+      "title": "Annis Mound & Village",
+      "publishedDate": "2026-09-17",
+      "summary": "On the Green River’s Big Bend in Butler County, Annis (15Bt2 / 15Bt20) was a Middle Mississippian mound center of the early–mid 1300s. UK’s WPA crew (1939–40) and Penn State…",
+      "yearStart": 1300,
+      "yearEnd": 1350,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-17",
+      "county": "Butler",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1300,
+        "yearEnd": 1350,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
+      "lat": 37.21,
+      "lon": -86.68,
+      "mapConfidence": "override",
+      "matchedPlace": "Annis Mound & Village (15Bt2)"
     },
     {
       "slug": "fox-farm-mason-county",
@@ -726,8 +1038,8 @@
         "yearEnd": 1650,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.5175801,
-      "lon": -83.8418974,
+      "lat": 38.59,
+      "lon": -83.83,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Fox Farm Fort Ancient"
     },
@@ -755,8 +1067,8 @@
         "yearEnd": 1750,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.6661229,
-      "lon": -84.2876618,
+      "lat": 37.73,
+      "lon": -84.28,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient"
     },
@@ -790,8 +1102,8 @@
         "yearEnd": 1700,
         "presenceLabel": "Caborn-Welborn area (archaeological culture, not a tribe)"
       },
-      "lat": 37.775,
-      "lon": -87.925,
+      "lat": 37.66,
+      "lon": -87.95,
       "mapConfidence": "override",
       "matchedPlace": "Slack Farm (15Un28) Caborn-Welborn village"
     },
@@ -825,10 +1137,38 @@
         "yearEnd": 1450,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.7072,
-      "lon": -83.984,
+      "lat": 37.69,
+      "lon": -83.96,
       "mapConfidence": "override",
       "matchedPlace": "Sweet Lick Knob Fort Ancient public building"
+    },
+    {
+      "slug": "hardin-village-15gp22",
+      "title": "Hardin Village (15Gp22)",
+      "publishedDate": "2026-09-04",
+      "summary": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s to the mid-1600s and covering more than…",
+      "yearStart": 1550,
+      "yearEnd": 1650,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-04",
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1550,
+        "yearEnd": 1650,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
+      "lat": 38.56,
+      "lon": -82.93,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Hardin Village Fort Ancient"
     },
     {
       "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
@@ -1272,8 +1612,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-29",
-      "lat": 38.7250509,
-      "lon": -83.0141361,
+      "lat": 38.73,
+      "lon": -83.01,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Lower Shawneetown"
     },
@@ -4114,199 +4454,6 @@
       "matchedPlace": "Cumberland Falls"
     },
     {
-      "slug": "ashlands-adena-mounds",
-      "title": "Ashland's Adena mounds",
-      "publishedDate": "2026-09-02",
-      "summary": "Six conical Adena burial mounds survive in Ashland's Central Park, roughly 15–20 feet across and 4–6 feet high in a slight curve. A 1930s survey said no Kentucky city held…",
-      "yearStart": -500,
-      "yearEnd": 250,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-02",
-      "territory": {
-        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
-        "nation": "Adena (archaeological culture)",
-        "yearStart": -500,
-        "yearEnd": 250,
-        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
-      },
-      "lat": 38.4730716,
-      "lon": -82.63752,
-      "mapConfidence": "override",
-      "matchedPlace": "Ashland Central Park Adena Mounds"
-    },
-    {
-      "slug": "wright-mounds-montgomery-county",
-      "title": "Wright Mounds, Montgomery County",
-      "publishedDate": "2026-09-07",
-      "summary": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop. University of Kentucky crews excavated two in 1937: the larger stood about 30 feet high and 180 feet…",
-      "yearStart": 1,
-      "yearEnd": 250,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "bourbon",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-07",
-      "territory": {
-        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
-        "nation": "Adena (archaeological culture)",
-        "yearStart": -500,
-        "yearEnd": 250,
-        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
-      },
-      "lat": 38.05699,
-      "lon": -83.94437,
-      "mapConfidence": "override",
-      "matchedPlace": "Wright Mounds (Montgomery County Adena)"
-    },
-    {
-      "slug": "ward-site-15mcl11-mclean-county",
-      "title": "Ward Site (15McL11), McLean County",
-      "publishedDate": "2026-09-13",
-      "summary": "On the Godfrey Ward farm along the Green River, WPA crews under John B. Elliott dug about 16,000 square feet in 1938 and catalogued 433 human burials plus dog burials and…",
-      "yearStart": -3000,
-      "yearEnd": -1000,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-13",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
-      "lat": 37.53,
-      "lon": -87.27,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Ward Site (15McL11) Late Archaic"
-    },
-    {
-      "slug": "annis-mound-village",
-      "title": "Annis Mound & Village",
-      "publishedDate": "2026-09-17",
-      "summary": "On the Green River’s Big Bend in Butler County, Annis (15Bt2 / 15Bt20) was a Middle Mississippian mound center of the early–mid 1300s. UK’s WPA crew (1939–40) and Penn State…",
-      "yearStart": 1300,
-      "yearEnd": 1350,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-17",
-      "county": "Butler",
-      "territory": {
-        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
-        "nation": "Mississippian, western Kentucky (archaeological culture)",
-        "yearStart": 1300,
-        "yearEnd": 1350,
-        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
-      },
-      "lat": 37.2898389,
-      "lon": -86.752889,
-      "mapConfidence": "override",
-      "matchedPlace": "Annis Mound & Village (15Bt2)"
-    },
-    {
-      "slug": "hardin-village-15gp22",
-      "title": "Hardin Village (15Gp22)",
-      "publishedDate": "2026-09-04",
-      "summary": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s to the mid-1600s and covering more than…",
-      "yearStart": 1550,
-      "yearEnd": 1650,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-04",
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1550,
-        "yearEnd": 1650,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 38.7194548,
-      "lon": -82.9633675,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Hardin Village Fort Ancient"
-    },
-    {
-      "slug": "mount-horeb-earthworks",
-      "title": "Mount Horeb Earthworks",
-      "publishedDate": "2026-08-30",
-      "summary": "Above Elkhorn Creek near Lexington, Adena people built a circular ditch-and-embankment enclosure during the Adena period. WPA digs under…",
-      "yearStart": -500,
-      "yearEnd": 250,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-30",
-      "territory": {
-        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
-        "nation": "Adena (archaeological culture)",
-        "yearStart": -500,
-        "yearEnd": 250,
-        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
-      },
-      "lat": 38.1588727,
-      "lon": -84.4652044,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Horeb Adena / Adena Park"
-    },
-    {
-      "slug": "robbins-mounds-boone-county",
-      "title": "Robbins Mounds, Boone County",
-      "publishedDate": "2026-09-06",
-      "summary": "Two Middle Woodland Adena burial mounds (15Be3 and 15Be14) once crowned an upland ridge near the Ohio. University of Kentucky crews excavated them in 1939: the larger stood…",
-      "yearStart": -150,
-      "yearEnd": 1,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "bourbon",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-06",
-      "territory": {
-        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
-        "nation": "Adena (archaeological culture)",
-        "yearStart": -150,
-        "yearEnd": 1,
-        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
-      },
-      "lat": 39.0933727,
-      "lon": -84.7133552,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Robbins Mounds (Boone County Adena)"
-    },
-    {
       "slug": "carter-caves-cascade-falls",
       "title": "Carter Caves & Cascade Falls",
       "publishedDate": "2026-09-13",
@@ -4326,32 +4473,6 @@
       "lon": -83.1233,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)"
-    },
-    {
-      "slug": "indian-fort-mountain",
-      "title": "Indian Fort Mountain",
-      "publishedDate": "2026-09-01",
-      "summary": "On a knobby ridge south of Berea, dry-laid stone walls ring Indian Fort Mountain (15Ma25) in the Berea College Forest. Hopewell-era Middle Woodland people built them about…",
-      "yearStart": -39,
-      "yearEnd": 236,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-01",
-      "territory": {
-        "ref": "/data/web/territories/hopewell-style-middle-woodland-indian-fort-mountain.json",
-        "nation": "Hopewell-style Middle Woodland (archaeological culture)",
-        "presenceLabel": "Archaeological culture, no mapped area"
-      },
-      "lat": 37.5675476,
-      "lon": -84.2328837,
-      "mapConfidence": "exact",
-      "matchedPlace": "Indian Fort Mountain"
     },
     {
       "slug": "delaware-winter-camps-on-kentucky-ground",
@@ -4440,64 +4561,6 @@
       "lon": -84.775606,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Big Bone Lick"
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "title": "Cleek-McCabe Fort Ancient village",
-      "publishedDate": "2026-09-10",
-      "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
-      "yearStart": 1200,
-      "yearEnd": 1300,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1200,
-        "yearEnd": 1300,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 38.772860422898226,
-      "lon": -84.00880725804063,
-      "mapConfidence": "exact",
-      "matchedPlace": "Cleek-McCabe Fort Ancient Village"
-    },
-    {
-      "slug": "indian-knoll-on-the-green-river",
-      "title": "Indian Knoll on the Green River",
-      "publishedDate": "2026-08-29",
-      "summary": "Five thousand years before the first stations, Late Archaic hunter-gatherers kept returning to a shell midden on the Green River in Ohio County. Indian Knoll (15OH2) yielded…",
-      "yearStart": -3000,
-      "yearEnd": -1000,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-29",
-      "county": "Ohio",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
-      "lat": 37.303551,
-      "lon": -86.890631,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Indian Knoll"
     },
     {
       "slug": "iroquois-beaver-wars",
@@ -4608,8 +4671,8 @@
         "nation": "Early Woodland caves and rockshelters (archaeological period)",
         "presenceLabel": "Archaeological period, no mapped area"
       },
-      "lat": 37.9510333,
-      "lon": -83.6258167,
+      "lat": 37.94,
+      "lon": -83.59,
       "mapConfidence": "override",
       "matchedPlace": "Newt Kash Hollow (15Mf1)"
     },
@@ -4649,42 +4712,6 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
-    },
-    {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "title": "Peter Village: Early Woodland Enclosure Near Lexington",
-      "publishedDate": "2026-09-22",
-      "summary": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric…",
-      "yearStart": -300,
-      "yearEnd": -200,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-22",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848
-      },
-      "territory": {
-        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
-        "nation": "Adena (archaeological culture)",
-        "yearStart": -300,
-        "yearEnd": -200,
-        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
-      },
-      "lat": 38.0459102,
-      "lon": -84.4960297,
-      "mapConfidence": "override",
-      "matchedPlace": "Peter Village enclosure (15Fa166)"
     },
     {
       "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
@@ -4789,33 +4816,6 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
-    },
-    {
-      "slug": "wickliffe-mounds-mississippian-village-ballard-county",
-      "title": "Wickliffe Mounds Mississippian village Ballard County",
-      "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Wickliffe Mounds, a Mississippian village and mound center in Ballard County near the Mississippi–Ohio confluence.",
-      "yearStart": 1100,
-      "yearEnd": 1350,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "territory": {
-        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
-        "nation": "Mississippian, western Kentucky (archaeological culture)",
-        "yearStart": 1100,
-        "yearEnd": 1350,
-        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
-      },
-      "lat": 36.9712176,
-      "lon": -89.0917492,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Wickliffe Mounds"
     },
     {
       "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "decimals": 2,
+  "comment": "Prehistoric/archaeological story pins (era \"prehistoric\" or tag \"archaeology\") with more than 2 decimals are rounded by apply-story-overrides.mjs. Slugs/History ids below are exempt (tier C public sites, or already county-level).",
+  "skipSlugs": [
+    "ashlands-adena-mounds",
+    "carter-caves-cascade-falls",
+    "croley-evans-site",
+    "diamond-caverns-decorated-limestone",
+    "gaitskill-mounds-engraved-tablets",
+    "indian-fort-mountain",
+    "jonathan-creek-mississippian-center",
+    "lost-river-cave",
+    "mount-horeb-earthworks",
+    "mount-sterling-little-mountain-town",
+    "natural-bridge-sandstone-arch",
+    "page-site-lost-city-15lo1",
+    "paris-from-hopewell",
+    "ward-site-15mcl11-mclean-county",
+    "wickliffe-mounds-mississippian-village-ballard-county"
+  ],
+  "skipHistoryIds": [
+    "ashland-adena-mounds",
+    "diamond-caverns-park-city-ste-genevieve-limestone",
+    "gaitskill-mound",
+    "indian-fort-mountain",
+    "lost-river-cave-bowling-green",
+    "mount-horeb-adena-park",
+    "mount-sterling-founding",
+    "natural-bridge-corbin-sandstone",
+    "paris-founding",
+    "saltpeter-cave-carter-caves-15cr99",
+    "ward-site-15mcl11-mclean-county-late-archaic",
+    "wickliffe-mounds"
+  ]
+}

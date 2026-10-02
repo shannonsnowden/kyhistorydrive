@@ -22,7 +22,17 @@ Add an override (keyed by story slug; `reason` and `date` are required):
 ```bash
 npm run apply-overrides   # apply now
 npm run check-overrides   # dry run; exit 2 if an override would change files (drift) or is stale
-npm run test-overrides    # temp-copy tests (idempotence, re-ingest repair, stale, malformed)
+npm run test-overrides    # temp-copy tests (idempotence, re-ingest repair, stale, malformed, pin rounding)
 ```
 
 Not touched: `public/data/app/search-index.json` (iOS term index), `home-preview.json` (rebuilt from stories afterwards), `markers.*`, the iOS repo. Overrides never bump `data_version`; bump it yourself when an override changes served data.
+
+## Pin rounding for looting-sensitive sites (`scripts/pin-rounding.json`, #141)
+
+Archaeological site pins are published generalized: tier A sites use a county-level point, tier B sites are rounded to 2 decimals (about 1 km). Those exact public values are entries in `story-overrides.json` (reason "Looting-sensitive site, public coordinate generalized (#141)"), so a rebuild or a re-ingested pack re-applies them.
+
+`pin-rounding.json` is a generic rule that covers future daily ingests with no manual step: after the overrides, `apply-story-overrides.mjs` rounds to `decimals` (2) the pin of every story with era `prehistoric` or tag `archaeology` that has more decimals than that, in every copy (story index, locations, both GeoJSON files, History layer, `ky-history.json`, both search indexes). The step is reported as `pin-rounding: N ... rounded: slugs`. It reaches History entries through the story's `historyId` and never touches stories that are not prehistoric/archaeological.
+
+Exempt (never rounded): `skipSlugs` / `skipHistoryIds` in `pin-rounding.json`, which holds the tier C public sites (parks, caves, towns, museums) and the already county-level sites. To exempt a new public site, add its story slug and its History id to those two lists. To generalize a new site more coarsely than 2 decimals (county centroid), add an override entry instead.
+
+Not changed by design: roadside marker positions (`markers.geojson`, `public/data/app/markers.phase1.json`, `marker:` entries in the search indexes) and the iOS app repo.

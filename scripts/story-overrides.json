@@ -12,7 +12,12 @@
       "reason": "Reader-visible wording: 'survive' instead of 'still sit' (#148).",
       "date": "2026-10-02",
       "historyId": "ashland-adena-mounds",
-      "replace": [{ "old": "burial mounds still sit in Ashland", "new": "burial mounds survive in Ashland" }]
+      "replace": [
+        {
+          "old": "burial mounds still sit in Ashland",
+          "new": "burial mounds survive in Ashland"
+        }
+      ]
     },
     "mount-horeb-earthworks": {
       "reason": "Removed unsourced '2,000 years ago for periodic ritual gatherings' claim (#148).",
@@ -39,6 +44,223 @@
           "new": "he was sworn in at Crow’s Station, Virginia…"
         }
       ]
+    },
+    "chiggerville-15oh1": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "chiggerville-15oh1-ohio-county",
+      "lat": 37.48,
+      "lon": -86.84
+    },
+    "cloudsplitter-rockshelter-menifee-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
+      "lat": 37.94,
+      "lon": -83.59
+    },
+    "newt-kash-hollow-15mf1": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county",
+      "lat": 37.94,
+      "lon": -83.59
+    },
+    "read-shell-midden-15bt10-butler-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "read-shell-midden-15bt10",
+      "lat": 37.21,
+      "lon": -86.68
+    },
+    "carlston-annis-shell-mound": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "carlston-annis-shell-mound",
+      "lat": 37.21,
+      "lon": -86.68
+    },
+    "indian-knoll-on-the-green-river": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "indian-knoll",
+      "lat": 37.48,
+      "lon": -86.84
+    },
+    "hansen-site-15gp14": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "hansen-site-15gp14-greenup-county",
+      "lat": 38.56,
+      "lon": -82.93
+    },
+    "salts-cave-15ht4": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "salts-cave-15ht4-mammoth-cave",
+      "lat": 37.31,
+      "lon": -85.88
+    },
+    "muir-site-15js86": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "muir-site-15js86-jessamine-county",
+      "lat": 37.87,
+      "lon": -84.58
+    },
+    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "muir-site-15js86-jessamine-county",
+      "lat": 37.87,
+      "lon": -84.58
+    },
+    "buckner-site-fort-ancient-villages-on-strodes-creek": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "buckner-site-15bb12-bourbon-county",
+      "lat": 38.2,
+      "lon": -84.21
+    },
+    "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
+      "lat": 38.96,
+      "lon": -84.74
+    },
+    "cleek-mccabe-fort-ancient-village": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
+      "lat": 38.96,
+      "lon": -84.74
+    },
+    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "singer-hieronymus-fort-ancient-scott-county",
+      "lat": 38.29,
+      "lon": -84.58
+    },
+    "fox-farm-mason-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "fox-farm-fort-ancient",
+      "lat": 38.59,
+      "lon": -83.83
+    },
+    "howard-site-late-fort-ancient-above-harts-fork": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "howard-site-15ma427-late-fort-ancient-madison-county",
+      "lat": 37.73,
+      "lon": -84.28
+    },
+    "sweet-lick-knob-fort-ancient-gathering-place": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "sweet-lick-knob-fort-ancient-estill",
+      "lat": 37.69,
+      "lon": -83.96
+    },
+    "hardin-village-15gp22": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "hardin-village-fort-ancient",
+      "lat": 38.56,
+      "lon": -82.93
+    },
+    "annis-mound-village": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "annis-mound-village-15bt2-butler-county",
+      "lat": 37.21,
+      "lon": -86.68
+    },
+    "slack-farm-15un28-union-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "slack-farm-15un28-union-county",
+      "lat": 37.66,
+      "lon": -87.95
+    },
+    "dover-mound-mason-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "dover-mound-adena-mason-county",
+      "lat": 38.76,
+      "lon": -83.88
+    },
+    "peter-village-enclosure-15fa166": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county",
+      "lat": 38.05,
+      "lon": -84.5
+    },
+    "peter-village-early-woodland-enclosure-near-lexington": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "peter-village-enclosure-15fa166-fayette-county",
+      "lat": 38.05,
+      "lon": -84.5
+    },
+    "adams-site-15fu4": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "adams-site-15fu4-mississippian-fulton-county",
+      "lat": 36.55,
+      "lon": -89.19
+    },
+    "adams-site-mississippian-town-near-hickman": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "adams-site-15fu4-mississippian-fulton-county",
+      "lat": 36.55,
+      "lon": -89.19
+    },
+    "turk-site-carlisle-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "turk-site-15ce6-carlisle-county",
+      "lat": 36.89,
+      "lon": -89.09
+    },
+    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "tolu-site-15cn1-crittenden-county",
+      "lat": 37.44,
+      "lon": -88.25
+    },
+    "twin-mounds-site": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "twin-mounds-site-15ba2-ballard-county",
+      "lat": 37.07,
+      "lon": -89.14
+    },
+    "wright-mounds-montgomery-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "wright-mounds-15mm6-8-montgomery-county-adena",
+      "lat": 38.06,
+      "lon": -83.94
+    },
+    "robbins-mounds-boone-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "robbins-mounds",
+      "lat": 39.09,
+      "lon": -84.71
+    },
+    "lower-shawneetown-at-the-scioto-mouth": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "date": "2026-10-02",
+      "historyId": "lower-shawneetown",
+      "lat": 38.73,
+      "lon": -83.01
     }
   }
 }

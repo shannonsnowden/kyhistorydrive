@@ -32,15 +32,16 @@ const snap = () => Object.fromEntries(all().map((f) => [f, fs.readFileSync(path.
 const read = (f) => JSON.parse(fs.readFileSync(path.join(tmp, f), 'utf8'))
 const write = (f, d, indent) => fs.writeFileSync(path.join(tmp, f), JSON.stringify(d, null, indent) + (indent ? '\n' : ''))
 const tmpOverrides = (obj) => { const p = path.join(tmp, 'o.json'); fs.writeFileSync(p, typeof obj === 'string' ? obj : JSON.stringify(obj)); return p }
+const N = Object.keys(JSON.parse(fs.readFileSync(REAL, 'utf8')).overrides).length
 const ok = (name) => console.log(`ok - ${name}`)
 
 // 1. no-op on current data
 const before = snap()
 let r = run()
 assert.equal(r.status, 0, r.stderr)
-assert.match(r.stdout, /0 applied, 4 already in place, 0 stale/)
+assert.match(r.stdout, new RegExp(`0 applied, ${N} already in place, 0 stale`))
 assert.deepEqual(snap(), before)
-ok('seeded overrides are a no-op on current data (files byte-identical)')
+ok('committed overrides and pin rounding are a no-op on current data (files byte-identical)')
 
 // 2. simulate an old pack: revert Ward pin + years, Ashland/Innes text in every copy, then re-apply
 const W = 'ward-site-15mcl11-mclean-county'
@@ -62,14 +63,14 @@ assert.equal(r.status, 2, 'check should flag drift')
 assert.match(r.stdout, /DRIFT/)
 r = run()
 assert.equal(r.status, 0, r.stderr)
-assert.match(r.stdout, /3 applied, 1 already in place/)
+assert.match(r.stdout, new RegExp(`3 applied, ${N - 3} already in place`))
 assert.deepEqual(snap(), before)
 ok('re-ingesting an old pack is repaired: every copy restored byte-for-byte; --check flags the drift first')
 
 // 3. idempotent
 const afterOnce = snap()
 r = run()
-assert.match(r.stdout, /0 applied, 4 already in place/)
+assert.match(r.stdout, new RegExp(`0 applied, ${N} already in place`))
 assert.deepEqual(snap(), afterOnce)
 ok('applying twice is idempotent')
 
@@ -97,6 +98,41 @@ assert.deepEqual([hp.county, hp.yearStart, hp.year_start, hp.yearEnd, hp.year_en
 assert.equal(read(FILES[4]).find((p) => p.id === 'harry-innes-frankfort-1783-1816').year_end, 1800)
 assert.equal(read('public/content/stories/harry-innes.json').yearStart, 1790)
 ok('county and years update story json, index, geojson, History layer and ky-history')
+
+// 5b. pin-rounding rule (#141): prehistoric/archaeological pins rounded; allowlist, county-level and modern places untouched
+const none = tmpOverrides({ version: 1, overrides: {} })
+const setPin = (slug, hid, lat, lon) => {
+  let d = read(FILES[0]); Object.assign(d.stories.find((x) => x.slug === slug), { lat, lon }); write(FILES[0], d, 2)
+  d = read(FILES[1]); Object.assign(d.locations[slug], { lat, lon }); write(FILES[1], d, 2)
+  d = read(FILES[2]); d.features.find((f) => f.properties.slug === slug).geometry.coordinates = [lon, lat]; write(FILES[2], d)
+  if (hid) {
+    d = read(FILES[3]); d.features.find((f) => f.properties.id === hid).geometry.coordinates = [lon, lat]; write(FILES[3], d)
+    d = read(FILES[4]); Object.assign(d.find((x) => x.id === hid), { latitude: lat, longitude: lon }); write(FILES[4], d, 2)
+  }
+}
+const pinOf = (slug) => { const x = read(FILES[0]).stories.find((y) => y.slug === slug); return [x.lat, x.lon] }
+const historyPin = (hid) => read(FILES[3]).features.find((f) => f.properties.id === hid).geometry.coordinates
+const DOVER = 'dover-mound-mason-county'
+const DOVER_H = 'dover-mound-adena-mason-county'
+setPin(DOVER, DOVER_H, 38.756412, -83.884411) // prehistoric, not allowlisted
+setPin('harry-innes', 'harry-innes-frankfort-1783-1816', 38.193912, -84.865812) // modern (frontier): must stay
+setPin('page-site-lost-city-15lo1', null, 36.824611, -86.848911) // county-level allowlist: must stay
+setPin('mount-horeb-earthworks', 'mount-horeb-adena-park', 38.1588727, -84.4652044) // tier C: must stay
+r = run([], none)
+assert.equal(r.status, 0, r.stderr)
+assert.match(r.stdout, /pin-rounding: 1 prehistoric\/archaeological story pin\(s\) rounded: dover-mound-mason-county/)
+assert.deepEqual(pinOf(DOVER), [38.76, -83.88])
+assert.deepEqual(historyPin(DOVER_H), [-83.88, 38.76])
+assert.deepEqual(pinOf('harry-innes'), [38.193912, -84.865812])
+assert.deepEqual(historyPin('harry-innes-frankfort-1783-1816'), [-84.865812, 38.193912])
+assert.deepEqual(pinOf('page-site-lost-city-15lo1'), [36.824611, -86.848911])
+assert.deepEqual(pinOf('mount-horeb-earthworks'), [38.1588727, -84.4652044])
+const rounded = snap()
+r = run([], none)
+assert.match(r.stdout, /pin-rounding: 0 /)
+assert.deepEqual(snap(), rounded)
+assert.equal(run(['--check'], none).status, 0)
+ok('pin rounding: prehistoric rounded in every copy; tier C, county-level and modern places untouched; idempotent')
 
 // 6. malformed files fail clearly (exit 1)
 const bad = [
