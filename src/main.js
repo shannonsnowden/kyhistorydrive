@@ -3,6 +3,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { initSiteSearch } from './site-search.js'
+import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import './territory.css'
 import {
@@ -2700,6 +2701,9 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       layer: 'history',
       storyPhoto: s.photo || null,
     })
+    const relatedData = await loadRelatedPeople()
+    const relTitles = Object.fromEntries(((await loadStories()).stories || []).map((x) => [x.slug, x.title]))
+    const relTitleFor = (sl) => relTitles[sl]
     const sidebarPhoto = await resolveStorySidebarPhoto({
       title: s.title,
       lat: meta.lat ?? s.lat,
@@ -2737,6 +2741,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             }
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
           ${extras}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
           ${
@@ -2750,6 +2755,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       </div>
       ${timelineReaderBarHtml('bottom')}
     `
+    linkPeopleInBody(reader.querySelector('.story-body'), relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)
     mountStoryTerritory(reader, meta)
     if (rowItem) {
