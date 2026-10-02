@@ -1413,7 +1413,15 @@ function storySidebarPhotoHtml(photo, title) {
   if (photo.image_url) {
     const href = escapeHtml(photo.source_url || photo.image_url)
     const img = escapeHtml(photo.image_url)
-    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer">
+    // The link wraps only an image: give it an explicit name that says where it goes and that it opens a new tab.
+    let linkHost = ''
+    try {
+      linkHost = new URL(photo.source_url || photo.image_url).hostname.replace(/^www\./, '')
+    } catch {
+      linkHost = ''
+    }
+    const linkLabel = escapeHtml(`Open ${photo.source_label || photo.credit || linkHost || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`)
+    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" loading="lazy" />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
