@@ -21,5 +21,10 @@
     "source_label": "Wikimedia Commons",
     "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
     "year": 2019
+  },
+  "territory": {
+    "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+    "nation": "Shawnee",
+    "presenceLabel": "Shawnee leader, no mapped area"
   }
 }

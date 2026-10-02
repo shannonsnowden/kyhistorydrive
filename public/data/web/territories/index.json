@@ -41,7 +41,8 @@
    "color": "#009E73",
    "slugs": [
     "treaty-of-camp-charlotte-1774",
-    "shawnee-chillicothe-divisions"
+    "shawnee-chillicothe-divisions",
+    "nonhelema"
    ],
    "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
    "extentFeature": "extent",
