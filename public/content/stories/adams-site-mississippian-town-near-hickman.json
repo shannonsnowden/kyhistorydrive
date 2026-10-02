@@ -22,5 +22,12 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Nyttend · Wikimedia Commons · Public domain",
     "year": 2013
+  },
+  "territory": {
+    "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+    "nation": "Mississippian, western Kentucky (archaeological culture)",
+    "yearStart": 1100,
+    "yearEnd": 1500,
+    "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
   }
 }

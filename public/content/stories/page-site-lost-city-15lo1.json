@@ -13,5 +13,12 @@
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-12"
+  "briefDate": "2026-09-12",
+  "territory": {
+    "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+    "nation": "Mississippian, western Kentucky (archaeological culture)",
+    "yearStart": 1000,
+    "yearEnd": 1100,
+    "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+  }
 }

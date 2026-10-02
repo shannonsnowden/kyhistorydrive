@@ -362,6 +362,78 @@
    "mapNote": "Approximate general area of Adena (an archaeological culture, not a tribe): eight Kentucky counties, 500 BCE–250 CE, and Ross County, Ohio, c.800 BCE–100 CE (whole counties, not a boundary). Medium confidence for years, medium-low for area.",
    "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: Bluegrass and nearby Kentucky counties plus Ross County, Ohio; no site locations are shown.",
    "mainMap": true
+  },
+  {
+   "kind": "culture",
+   "extentFeature": "extent",
+   "mainMap": true,
+   "id": "fort-ancient",
+   "name": "Fort Ancient",
+   "texture": "horizontal",
+   "color": "#8C4682",
+   "slugs": [
+    "muir-site-15js86",
+    "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+    "buckner-site-fort-ancient-villages-on-strodes-creek",
+    "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
+    "cleek-mccabe-fort-ancient-village",
+    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+    "fox-farm-mason-county",
+    "howard-site-late-fort-ancient-above-harts-fork",
+    "sweet-lick-knob-fort-ancient-gathering-place",
+    "hardin-village-15gp22"
+   ],
+   "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+   "yearStart": 1000,
+   "yearEnd": 1750,
+   "confidence": "medium",
+   "mapNote": "Approximate general area of Fort Ancient (an archaeological culture, not a tribe), 1000–1750 CE: ten Kentucky counties with documented villages (whole counties, not a boundary). Medium confidence.",
+   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: central, northern and eastern Kentucky counties with documented villages; no site locations are shown."
+  },
+  {
+   "kind": "culture",
+   "extentFeature": "extent",
+   "mainMap": true,
+   "id": "mississippian-western-kentucky",
+   "name": "Mississippian (western Kentucky)",
+   "texture": "diamonds",
+   "color": "#5A965A",
+   "slugs": [
+    "adams-site-15fu4",
+    "adams-site-mississippian-town-near-hickman",
+    "turk-site-carlisle-county",
+    "twin-mounds-site",
+    "tolu-site-mississippian-mounds-on-the-lower-ohio",
+    "jonathan-creek-mississippian-center",
+    "wickliffe-mounds-mississippian-village-ballard-county",
+    "annis-mound-village",
+    "page-site-lost-city-15lo1",
+    "croley-evans-site"
+   ],
+   "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+   "yearStart": 1000,
+   "yearEnd": 1700,
+   "confidence": "medium",
+   "mapNote": "Approximate general area of Mississippian western Kentucky (an archaeological culture, not a tribe), 1000–1700 CE: eight Kentucky counties holding named towns and mound centers (whole counties, not a boundary). Medium confidence for years, medium-low for area.",
+   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: western and south-central Kentucky counties with named towns; no site locations are shown."
+  },
+  {
+   "kind": "culture",
+   "extentFeature": "extent",
+   "mainMap": true,
+   "id": "caborn-welborn",
+   "name": "Caborn-Welborn",
+   "texture": "vertical",
+   "color": "#D2AAD2",
+   "slugs": [
+    "slack-farm-15un28-union-county"
+   ],
+   "ref": "/data/web/territories/caborn-welborn-slack-farm.json",
+   "yearStart": 1400,
+   "yearEnd": 1700,
+   "confidence": "high",
+   "mapNote": "Approximate general area of Caborn-Welborn (an archaeological culture, not a tribe), 1400–1700 CE: Union and Henderson counties, Kentucky, and Posey County, Indiana (whole counties, not a boundary). High confidence for years, medium for area.",
+   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area near the mouth of the Wabash River; no site locations are shown."
   }
  ]
 }

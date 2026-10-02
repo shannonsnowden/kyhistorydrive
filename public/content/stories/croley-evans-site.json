@@ -22,5 +22,12 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2010
+  },
+  "territory": {
+    "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+    "nation": "Mississippian, western Kentucky (archaeological culture)",
+    "yearStart": 1200,
+    "yearEnd": 1450,
+    "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
   }
 }

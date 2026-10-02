@@ -21,5 +21,12 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
     "year": 2020
+  },
+  "territory": {
+    "ref": "/data/web/territories/caborn-welborn-slack-farm.json",
+    "nation": "Caborn-Welborn (archaeological culture)",
+    "yearStart": 1400,
+    "yearEnd": 1700,
+    "presenceLabel": "Caborn-Welborn area (archaeological culture, not a tribe)"
   }
 }
