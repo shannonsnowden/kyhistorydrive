@@ -14,5 +14,12 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-05"
+  "briefDate": "2026-09-05",
+  "territory": {
+    "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
+    "nation": "Yuchi (Euchee, Uchi)",
+    "yearStart": 1567,
+    "yearEnd": 1836,
+    "presenceLabel": "Yuchi towns in the Southeast (none documented in Kentucky)"
+  }
 }

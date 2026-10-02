@@ -58,7 +58,8 @@
    "name": "Six Nations (Haudenosaunee)",
    "color": "#CC79A7",
    "slugs": [
-    "treaty-of-fort-stanwix-1768"
+    "treaty-of-fort-stanwix-1768",
+    "iroquois-beaver-wars"
    ],
    "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
    "extentFeature": "extent",
@@ -276,6 +277,40 @@
    "confidence": "low",
    "mapNote": "Approximate general area of the Mosopelea (Ofo), before 1673 to 1784: the five Ohio River counties between the Muskingum and the Scioto (from a 1684 French map; disputed), then Yazoo and Adams counties, Mississippi, and Pointe Coupee Parish, Louisiana (whole counties, not a boundary). Low confidence; no start year is known. Nothing in Kentucky.",
    "note": "A general area in Ohio (disputed), Mississippi and Louisiana; nothing documented in Kentucky.",
+   "mainMap": true
+  },
+  {
+   "id": "osage",
+   "name": "Osage",
+   "color": "#8855FF",
+   "slugs": [
+    "osage-memory-of-the-ohio-valley"
+   ],
+   "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
+   "extentFeature": "extent",
+   "yearStart": 1673,
+   "yearEnd": 1823,
+   "yearLabel": "c.1673–c.1823",
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area of the Osage, c.1673–c.1823: Vernon and Bates counties, Missouri (the Osage River villages), and Saline County, Missouri, for the Little Osage after 1717 (whole counties, not a boundary; the Saline County placement is uncertain). Low–medium confidence. Nothing is drawn in Kentucky: the Ohio Valley origin is oral tradition and scholarship with no sourced place or year.",
+   "note": "A general area in western Missouri; the Ohio Valley and Kentucky origin is oral tradition, undated, and nothing is drawn in Kentucky.",
+   "mainMap": true
+  },
+  {
+   "id": "yuchi",
+   "name": "Yuchi",
+   "color": "#FF4466",
+   "outline": "#5A0F23",
+   "slugs": [
+    "yuchi-on-the-green-river-maps"
+   ],
+   "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
+   "extentFeature": "extent",
+   "yearStart": 1567,
+   "yearEnd": 1836,
+   "confidence": "low-medium",
+   "mapNote": "Approximate general area of the Yuchi, 1567–1836: Bradley and Polk counties, Tennessee, to 1714 (sources disagree on the county), Effingham County, Georgia, and Aiken County, South Carolina, on the Savannah River c.1722–1751, and Russell County, Alabama, on the Chattahoochee River 1715–1836 (whole counties, not a boundary). Low–medium confidence. Kentucky is a tag only: one undated early-map mark, no documented town.",
+   "note": "A general area in Tennessee, Georgia, South Carolina and Alabama; no documented town in Kentucky.",
    "mainMap": true
   }
  ]

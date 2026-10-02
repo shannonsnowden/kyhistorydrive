@@ -15,5 +15,10 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-27"
+  "briefDate": "2026-08-27",
+  "territory": {
+    "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+    "nation": "Six Nations (Haudenosaunee)",
+    "presenceLabel": "Conquest claim, no mapped area"
+  }
 }
