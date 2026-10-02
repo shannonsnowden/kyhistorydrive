@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T20:25:20.426Z",
+  "generatedAt": "2026-10-02T20:27:04.121Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
@@ -1290,8 +1290,8 @@
     },
     "ward-site-15mcl11-mclean-county": {
       "slug": "ward-site-15mcl11-mclean-county",
-      "lat": 36.6621891,
-      "lon": -88.3096434,
+      "lat": 37.53,
+      "lon": -87.27,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Ward Site (15McL11) Late Archaic",
       "historyId": "ward-site-15mcl11-mclean-county-late-archaic"

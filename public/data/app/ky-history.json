@@ -580,8 +580,8 @@
     "geocode_source": "nominatim",
     "category": "archaeology",
     "website": null,
-    "year_start": -800,
-    "year_end": 200
+    "year_start": -500,
+    "year_end": 250
   },
   {
     "id": "fox-farm-fort-ancient",
@@ -612,8 +612,8 @@
     "geocode_source": "nominatim",
     "category": "archaeology",
     "website": null,
-    "year_start": -100,
-    "year_end": 500
+    "year_start": -39,
+    "year_end": 236
   },
   {
     "id": "ashland-adena-mounds",
@@ -628,8 +628,8 @@
     "geocode_source": "nominatim",
     "category": "archaeology",
     "website": null,
-    "year_start": -800,
-    "year_end": 700
+    "year_start": -500,
+    "year_end": 250
   },
   {
     "id": "mount-sterling-founding",
@@ -685,15 +685,15 @@
     "subtitle": "Greenup County / 15Gp22",
     "latitude": 38.7194548,
     "longitude": -82.9633675,
-    "history": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s into the early 1600s and covering more than ten acres. University of Kentucky digs in 1939 and again in the 2010s mapped large bark-walled houses, storage pits, and family cemeteries. Triangular endscrapers point to intensive hide work for long-distance exchange—marine shell and brass among the imports—just as the protohistoric Ohio Valley was tipping toward abandonment.",
+    "history": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s to the mid-1600s and covering more than ten acres. University of Kentucky digs in 1939 and again in the 2010s mapped large bark-walled houses, storage pits, and family cemeteries. Triangular endscrapers point to intensive hide work for long-distance exchange—marine shell and brass among the imports—just as the protohistoric Ohio Valley was tipping toward abandonment.",
     "source_date": "2026-09-04",
     "marker_number": null,
     "marker_title": null,
     "geocode_source": "nominatim",
     "category": "archaeology",
     "website": null,
-    "year_start": 1400,
-    "year_end": 1700
+    "year_start": 1550,
+    "year_end": 1650
   },
   {
     "id": "richmond-founding",
@@ -749,15 +749,15 @@
     "subtitle": "Boone County · Adena burial mounds",
     "latitude": 39.0933727,
     "longitude": -84.7133552,
-    "history": "Robbins Mounds (15Be3) is an Adena burial complex in Boone County excavated by WPA–UK crews in 1939, revealing circular screens and log tombs typical of Early Woodland ceremonial architecture along the Ohio.",
+    "history": "Robbins Mounds (15Be3) is an Adena burial complex in Boone County excavated by WPA–UK crews in 1939, revealing circular screens and log tombs typical of Middle Woodland Adena ceremonial architecture along the Ohio.",
     "source_date": "2026-09-06",
     "marker_number": null,
     "marker_title": null,
     "geocode_source": "photon",
     "category": "archaeology",
     "website": null,
-    "year_start": -800,
-    "year_end": 700
+    "year_start": -150,
+    "year_end": 1
   },
   {
     "id": "basil-hayden-holy-cross",
@@ -813,15 +813,15 @@
     "subtitle": "Montgomery County · Adena mounds",
     "latitude": 38.0284225,
     "longitude": -84.5029855,
-    "history": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop in Montgomery County. University of Kentucky crews excavated two in 1937 and found paired-post screens and log tombs typical of Adena mortuary practice. The mounds date to the Adena period (roughly 800 B.C.–A.D. 200), not the excavation year.",
+    "history": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop in Montgomery County. University of Kentucky crews excavated two in 1937 and found paired-post screens and log tombs typical of Adena mortuary practice. The mounds date to the Late Adena period (roughly A.D. 1–250), not the excavation year.",
     "source_date": "2026-09-07",
     "marker_number": null,
     "marker_title": null,
     "geocode_source": "nominatim",
     "category": "archaeology",
     "website": null,
-    "year_start": -800,
-    "year_end": 200
+    "year_start": 1,
+    "year_end": 250
   },
   {
     "id": "diamond-caverns-park-city-ste-genevieve-limestone",
@@ -1021,17 +1021,18 @@
     "id": "ward-site-15mcl11-mclean-county-late-archaic",
     "name": "Ward Site (15McL11) Late Archaic",
     "subtitle": "McLean County · Late Archaic shell midden",
-    "latitude": 36.6621891,
-    "longitude": -88.3096434,
+    "latitude": 37.53,
+    "longitude": -87.27,
     "history": "On the Godfrey Ward farm along the Green River, the Ward Site (15McL11) is a Late Archaic shell-midden cemetery in the same Green River series as Indian Knoll and Carlston Annis. WPA crews dug about 16,000 square feet in 1938 and catalogued hundreds of burials; the occupation itself belongs to the Late Archaic (roughly 3000–1000 B.C.).",
     "source_date": "2026-09-13",
     "marker_number": null,
     "marker_title": null,
-    "geocode_source": "nominatim",
+    "geocode_source": "manual-census-gazetteer-mclean-county",
     "category": "archaeology",
     "website": null,
     "year_start": -3000,
-    "year_end": -1000
+    "year_end": -1000,
+    "geocode_note": "Generalized to the McLean County internal point (Census 2025 Gazetteer 37.5267, -87.2656, rounded to 2 decimals); exact site location is not published. Corrected from a geocoder hit far west of McLean County (36.66, -88.31)."
   },
   {
     "id": "carter-caves-cascade-cave-and-falls",
@@ -1294,15 +1295,15 @@
     "subtitle": "Butler County · Middle Mississippian mound center",
     "latitude": 37.2898389,
     "longitude": -86.752889,
-    "history": "On the Green River’s Big Bend in Butler County, Annis (15Bt2 / 15Bt20) was a Middle Mississippian mound center occupied about 800–1300 CE, with expanding palisades and a large platform mound. Pinned from the 2026-09-17 KY History update (occupation years, not WPA/NRHP dates).",
+    "history": "On the Green River’s Big Bend in Butler County, Annis (15Bt2 / 15Bt20) was a Middle Mississippian mound center dated to the early to mid-1300s AD, with expanding palisades and a large platform mound. Pinned from the 2026-09-17 KY History update (occupation years, not WPA/NRHP dates).",
     "source_date": "2026-09-17",
     "marker_number": null,
     "marker_title": null,
     "geocode_source": "manual-wikipedia-annis",
     "category": "archaeology",
     "website": null,
-    "year_start": 800,
-    "year_end": 1300
+    "year_start": 1300,
+    "year_end": 1350
   },
   {
     "id": "cumberland-falls",
