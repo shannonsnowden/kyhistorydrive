@@ -37,6 +37,93 @@ export const darkOf = (h) => mix(h, [0, 0, 0], 0.5)
 /** Muted (other-nation) color: desaturated toward gray. */
 export const mutedOf = (h) => mix(h, [128, 128, 128], 0.6)
 
+/* ---------- BCE-aware year labels (negative years = BCE). Positive-only data prints exactly as before. ---------- */
+/** 250 -> "250"; -800 -> "800 BCE"; approx adds "c."; ce:true appends " CE" to a positive year (used when a range crosses zero). */
+export function fmtYear(y, { approx = false, ce = false } = {}) {
+  const n = Number(y)
+  if (y == null || y === '' || !Number.isFinite(n)) return ''
+  const c = approx ? 'c.' : ''
+  return n < 0 ? `${c}${Math.abs(n)} BCE` : `${c}${n}${ce && n > 0 ? ' CE' : ''}`
+}
+/** "800 BCE – 700 CE", "4000–1000 BCE", "c.1000 BCE – 500 BCE"; a range with no BCE end prints as plain "a–b". */
+export function fmtYearSpan(a, b, { approx = false, sep = '–' } = {}) {
+  const x = Number(a)
+  const y = Number(b)
+  if (!Number.isFinite(x) && !Number.isFinite(y)) return ''
+  if (!Number.isFinite(y)) return fmtYear(x, { approx })
+  if (!Number.isFinite(x)) return fmtYear(y)
+  if (x < 0 && y < 0) return approx ? `c.${Math.abs(x)} BCE${sep}${Math.abs(y)} BCE` : `${Math.abs(x)}${sep}${Math.abs(y)} BCE`
+  return `${fmtYear(x, { approx })}${sep}${fmtYear(y, { ce: x < 0 })}`
+}
+
+/* ---------- culture textures (Batch 6-0): one tile definition, drawn as SVG pattern, canvas image or CSS swatch ---------- */
+export const TEXTURE_IDS = ['dots', 'crosshatch', 'horizontal', 'diamonds', 'vertical']
+export const CULTURE_EDGE = '#4a2f1a' // default dark-brown outline for culture shapes
+const TILE = 20
+// ops in a 20x20 tile; line ops tile seamlessly (they run edge to edge)
+const TEX_OPS = {
+  dots: [['c', 5, 5, 2.1], ['c', 15, 15, 2.1]],
+  crosshatch: [['l', 0, 0, 20, 20], ['l', 0, 20, 20, 0]],
+  horizontal: [['l', 0, 5, 20, 5], ['l', 0, 15, 20, 15]],
+  vertical: [['l', 5, 0, 5, 20], ['l', 15, 0, 15, 20]],
+  diamonds: [['p', [[10, 3], [17, 10], [10, 17], [3, 10]]]],
+}
+export const isCulture = (n) => n?.kind === 'culture' && TEXTURE_IDS.includes(n.texture)
+/** Texture line colour: the culture fill darkened (readable on pale and mid fills, in light and dark themes). */
+const texInk = (color) => darkOf(color)
+const TEX_BACK = 0.5 // colour backing under the lines, so the shape reads as a closed, filled area
+/** SVG markup for one tile (rect backing + marks) at TILE x TILE. */
+function texTileInner(texture, color) {
+  const ink = texInk(color)
+  const marks = (TEX_OPS[texture] || TEX_OPS.dots)
+    .map((o) => {
+      if (o[0] === 'c') return `<circle cx="${o[1]}" cy="${o[2]}" r="${o[3]}" fill="${ink}"/>`
+      if (o[0] === 'p') return `<polygon points="${o[1].map((q) => q.join(',')).join(' ')}" fill="${ink}"/>`
+      return `<line x1="${o[1]}" y1="${o[2]}" x2="${o[3]}" y2="${o[4]}" stroke="${ink}" stroke-width="1.7"/>`
+    })
+    .join('')
+  return `<rect width="${TILE}" height="${TILE}" fill="${rgba(color, TEX_BACK)}"/>${marks}`
+}
+/** <pattern> element for an inline SVG (the territory card / full view). */
+export function texturePatternSvg(id, texture, color) {
+  return `<pattern id="${id}" width="${TILE}" height="${TILE}" patternUnits="userSpaceOnUse" data-texture="${esc(texture)}">${texTileInner(texture, color)}</pattern>`
+}
+/** CSS background for a legend / layers swatch. */
+export function textureCss(texture, color) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${TILE}" height="${TILE}" viewBox="0 0 ${TILE} ${TILE}">${texTileInner(texture, color)}</svg>`
+  return `url('data:image/svg+xml,${encodeURIComponent(svg).replace(/'/g, '%27')}') 0 0/10px 10px`
+}
+/** ImageData for a MapLibre `fill-pattern` (addImage with pixelRatio 2 -> 10 css px tile). */
+export function textureImage(texture, color) {
+  const S = TILE * 2
+  const cv = document.createElement('canvas')
+  cv.width = S
+  cv.height = S
+  const g = cv.getContext('2d')
+  g.scale(2, 2)
+  g.fillStyle = rgba(color, TEX_BACK)
+  g.fillRect(0, 0, TILE, TILE)
+  g.fillStyle = texInk(color)
+  g.strokeStyle = texInk(color)
+  g.lineWidth = 1.7
+  for (const o of TEX_OPS[texture] || TEX_OPS.dots) {
+    g.beginPath()
+    if (o[0] === 'c') {
+      g.arc(o[1], o[2], o[3], 0, Math.PI * 2)
+      g.fill()
+    } else if (o[0] === 'p') {
+      o[1].forEach((q, i) => (i ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])))
+      g.closePath()
+      g.fill()
+    } else {
+      g.moveTo(o[1], o[2])
+      g.lineTo(o[3], o[4])
+      g.stroke()
+    }
+  }
+  return g.getImageData(0, 0, S, S)
+}
+
 /** Territories index (nations list). Validates entries; no empty strings. */
 export async function loadTerritoryIndex() {
   const idx = await getJson(INDEX_URL)
@@ -44,7 +131,9 @@ export async function loadTerritoryIndex() {
   const nations = (idx.nations || []).filter(
     (n) => ok(n.id) && ok(n.name) && ok(n.color) && ok(n.ref) && Array.isArray(n.slugs) && n.slugs.some(ok),
   )
-  return nations
+  // `kind: "culture"` (archaeological culture, not a tribe) needs a known `texture`; one with an unknown texture falls back to dots.
+  // Entries without `kind` are nations and are returned untouched.
+  return nations.map((n) => (n.kind === 'culture' && !TEXTURE_IDS.includes(n.texture) ? { ...n, texture: 'dots' } : n))
 }
 export const nationForSlug = (nations, slug) => nations.find((n) => n.slugs.includes(slug)) || null
 export async function loadNationData(ref) {
@@ -63,6 +152,12 @@ export function territoryRangeText(t) {
   // Place-name stories carry no dates: show the label alone. A single-year event shows one year, not "1780–1780".
   if (t.yearStart == null && t.yearEnd == null && t.presenceLabel) return t.presenceLabel
   if (t.yearText) return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.yearText}`
+  const lbl = t.presenceLabel || `${t.nation || 'Native'} presence`
+  if (t.yearStart < 0 || t.yearEnd < 0) {
+    // BCE: "800 BCE", "4000–1000 BCE", "800 BCE – 700 CE" (never a bare "-800")
+    if (t.yearStart === t.yearEnd || t.yearEnd == null) return `${lbl}: ${fmtYear(t.yearStart, { approx: t.approxStart })}`
+    return `${lbl}: ${fmtYearSpan(t.yearStart, t.yearEnd, { approx: t.approxStart })}`
+  }
   if (t.yearStart != null && t.yearStart === t.yearEnd) return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.approxStart ? 'c.' : ''}${t.yearStart}`
   const end = t.yearEnd ? `–${t.yearEnd}` : '–'
   return `${t.presenceLabel || `${t.nation || 'Native'} presence`}: ${t.approxStart ? 'c.' : ''}${t.yearStart ?? ''}${end}`
@@ -115,13 +210,20 @@ function lineD(g, P) {
 }
 
 // `edge` = optional dark outline colour for a pale nation colour (index.json `outline`); fill is then a little stronger.
-const stylesFor = (c, pfx, full, edge) => ({
-  solid: { fill: rgba(c, edge ? 0.7 : 0.52), stroke: edge || darkOf(c), w: full ? 2.6 : 1.8, dash: '' },
-  soft: { fill: rgba(c, edge ? 0.62 : 0.38), stroke: edge || darkOf(c), w: edge ? 2 : 1.4, dash: '' },
-  hatch: { fill: `url(#${pfx}-hatch)`, stroke: edge || darkOf(c), w: 1.6, dash: '' },
-  line: { fill: 'none', stroke: edge || darkOf(c), w: full ? 3.4 : 2.6, dash: '' },
-  dash: { fill: 'none', stroke: edge || darkOf(c), w: full ? 2.4 : 1.8, dash: '8 6' },
-})
+const stylesFor = (c, pfx, full, edge, texture = null) => {
+  const st = {
+    solid: { fill: rgba(c, edge ? 0.7 : 0.52), stroke: edge || darkOf(c), w: full ? 2.6 : 1.8, dash: '' },
+    soft: { fill: rgba(c, edge ? 0.62 : 0.38), stroke: edge || darkOf(c), w: edge ? 2 : 1.4, dash: '' },
+    hatch: { fill: `url(#${pfx}-hatch)`, stroke: edge || darkOf(c), w: 1.6, dash: '' },
+    line: { fill: 'none', stroke: edge || darkOf(c), w: full ? 3.4 : 2.6, dash: '' },
+    dash: { fill: 'none', stroke: edge || darkOf(c), w: full ? 2.4 : 1.8, dash: '8 6' },
+  }
+  if (texture) {
+    // archaeological culture: every filled style uses the culture's texture, with its outline
+    for (const k of ['solid', 'soft', 'hatch']) st[k] = { ...st[k], fill: `url(#${pfx}-tex)`, stroke: edge || CULTURE_EDGE, w: full ? 2.4 : 1.8 }
+  }
+  return st
+}
 
 function svgText(x, y, txt, o = {}) {
   const s = o.s || 15
@@ -141,10 +243,10 @@ function pointSvg(g, props, { P, color, k, mode }) {
   return `<g data-point="${esc(props?.id || '')}">${dot}${lab}</g>`
 }
 
-function buildSvg({ T, base, mode, pfx, color, edge = null }) {
+function buildSvg({ T, base, mode, pfx, color, edge = null, texture = null }) {
   const P = projector(base.proj)
   const full = mode === 'full'
-  const STY = stylesFor(color, pfx, full, edge)
+  const STY = stylesFor(color, pfx, full, edge, texture)
   const halo = edge || darkOf(color)
   const narrow = full && typeof window !== 'undefined' && window.innerWidth < 700
   // label scale so text stays legible when the SVG is squeezed into a phone width
@@ -163,6 +265,7 @@ function buildSvg({ T, base, mode, pfx, color, edge = null }) {
   const nb = Object.values(base.nb).map((d) => `<path d="${d}" fill="${pal.nb}" stroke="${PAL.nbLine}" stroke-width="1" fill-rule="evenodd"/>`).join('')
   const lakes = Object.values(base.lakes || {}).map((d) => `<path d="${d}" fill="${pal.lake || PAL.river}" opacity=".9" fill-rule="evenodd"/>`).join('')
   const defs = `<defs>
+${texture ? texturePatternSvg(`${pfx}-tex`, texture, color) : ''}
 <pattern id="${pfx}-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="${rgba(color, 0.14)}"/><line x1="0" y1="0" x2="0" y2="7" stroke="${darkOf(color)}" stroke-width="2.4"/></pattern>
 <linearGradient id="${pfx}-fg" gradientUnits="userSpaceOnUse" x1="0" y1="400" x2="0" y2="590"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
 <mask id="${pfx}-fade"><rect x="-50" y="-50" width="1100" height="700" fill="url(#${pfx}-fg)"/></mask>
@@ -261,11 +364,14 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     return `<span class="seg" style="left:${pct(e.yearStart)}%;width:${(pct(b) - pct(e.yearStart)).toFixed(2)}%;background:${cl ? rgba(color, 0.4) : color};${cl ? 'border-style:dashed' : ''}"></span>`
   }).join('')
   let lastTick = -99
+  // BCE-aware labels only when the timeline reaches below zero; positive-only nations print exactly as before
+  const bce = min < 0
+  const yLbl = (y) => (bce ? fmtYear(y, { ce: true }) : y)
   const ticks = eras.map((e) => {
     const at = Number(pct(e.yearStart))
     const show = at - lastTick >= 9 // skip labels that would overlap the previous one
     if (show) lastTick = at
-    return `<span class="tk" style="left:${at}%"${show ? '' : ' aria-hidden="true" hidden'}>${esc(e.tick || e.yearStart)}</span>`
+    return `<span class="tk" style="left:${at}%"${show ? '' : ' aria-hidden="true" hidden'}>${esc(e.tick || yLbl(e.yearStart))}</span>`
   }).join('')
   const chips = eras.map((e) => `<button type="button" data-era="${e.id}" aria-pressed="false">${esc(e.short)}</button>`).join('')
   const tags = (e) => `<span class="terr-tag conf">Confidence: ${esc(CONF[e.confidence] || e.confidence)}</span><span class="terr-tag appr">${e.apprTag || (e.noBoundary ? 'Approximate location' : 'Approximate boundary')}</span><span class="terr-tag ovl">Territories overlapped &amp; shifted</span>${e.notDrawn ? `<span class="terr-tag nd">${esc(e.notDrawn.tag)}</span>` : ''}`
@@ -274,7 +380,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     ? `<div class="terr-head"><span class="terr-kicker">Territory · ${esc(T.nation)}</span><span class="terr-presence">${esc(rangeTxt)}</span></div>`
     : `<h2 class="terr-title">${esc(T.nation)} territory over time</h2><div class="terr-sub">${esc(rangeTxt)} · only this nation is shown</div>`
   const controlsHtml = `<div class="terr-ctl"><input type="range" min="${min}" max="${max}" step="1" value="${startYear}" aria-label="Year shown on the ${esc(T.nation)} territory map"><output class="terr-out" aria-live="off"></output></div>
-<div class="terr-bar" role="img" aria-label="${esc(rangeTxt)} on a timeline from ${min} to ${max}"><span class="trk"></span>${segs}<span class="cur"></span>${ticks}</div>
+<div class="terr-bar" role="img" aria-label="${esc(rangeTxt)} on a timeline from ${yLbl(min)} to ${yLbl(max)}"><span class="trk"></span>${segs}<span class="cur"></span>${ticks}</div>
 <div class="terr-chips" role="group" aria-label="Jump to a period">${chips}</div>`
   const controls = tagOnly ? `<div hidden style="display:none">${controlsHtml}</div>` : controlsHtml
   const eraBox = `<div class="terr-era" aria-live="polite"><h4></h4><p></p></div><div class="terr-tags"></div>
@@ -289,7 +395,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     : `${head}<div class="terr-grid"><div><div class="terr-map"></div>${controls}${openLink}</div><div>${eraBox}</div></div><p class="terr-foot">${footer}</p>`
   el.innerHTML = `<section class="terr-${mode === 'card' ? 'card' : 'full'}" data-territory="${esc(slug)}" aria-label="${esc(T.nation)} territory, approximate">${body}</section>`
   const root = el.firstElementChild
-  root.querySelector('.terr-map').innerHTML = buildSvg({ T, base, mode, pfx, color, edge: nation?.outline || null })
+  root.querySelector('.terr-map').innerHTML = buildSvg({ T, base, mode, pfx, color, edge: nation?.outline || null, texture: isCulture(nation) ? nation.texture : null })
   const range = root.querySelector('input[type=range]')
   const out = root.querySelector('.terr-out')
   const cur = root.querySelector('.cur')
@@ -309,9 +415,9 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
       if (nd) nd.style.opacity = op
     })
     const e = eraOf(y)
-    out.textContent = e.outText || y
+    out.textContent = e.outText || yLbl(y)
     cur.style.left = `${pct(y)}%`
-    range.setAttribute('aria-valuetext', `${y}: ${e.label}`)
+    range.setAttribute('aria-valuetext', `${yLbl(y)}: ${e.label}`)
     if (e.id !== lastEra) {
       lastEra = e.id
       root.querySelector('.terr-era h4').textContent = e.label
@@ -338,8 +444,11 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   const legendEl = root.querySelector('[data-legend]')
   const sw = (bg, bd) => `<i style="background:${bg};border:1px solid ${bd}"></i>`
   const hatchBg = `repeating-linear-gradient(45deg,${darkOf(color)} 0 2px,${rgba(color, 0.14)} 2px 5px)`
+  const cult = isCulture(nation)
+  const texSw = () => `<i data-texture="${esc(nation.texture)}" style="background:${textureCss(nation.texture, color)};border:1.5px solid ${edgeC || CULTURE_EDGE}"></i>`
   const lgSw = (kind) => {
-    const d = edgeC || darkOf(color)
+    const d = edgeC || (cult ? CULTURE_EDGE : darkOf(color))
+    if (cult && (kind === 'hatch' || kind === 'soft' || kind === 'solid')) return texSw()
     if (kind === 'line') return `<i class="lg-line" style="border-top:3px solid ${d}"></i>`
     if (kind === 'dash') return `<i class="lg-line" style="border-top:3px dashed ${d}"></i>`
     if (kind === 'point') return `<i class="lg-pt" style="background:${color};border:2px solid ${PAL.cream};box-shadow:0 0 0 1px ${d}"></i>`
@@ -352,7 +461,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     if (!legendEl) return
     const nm = esc(nation?.name || T.nation)
     const items = tagOnly ? [] : T.legend || [{ kind: 'soft', label: 'Claimed / used' }, { kind: 'hatch', label: 'Ceded by treaty' }]
-    const focal = tagOnly ? '' : `<span class="lg-focal">${sw(rgba(color, 0.52), edgeC || darkOf(color))}<b>${nm}</b> (this story, highlighted)</span>
+    const focal = tagOnly ? '' : `<span class="lg-focal">${cult ? texSw() : sw(rgba(color, 0.52), edgeC || darkOf(color))}<b>${nm}</b> (this story, highlighted)</span>
 ${items.map((i) => `<span>${lgSw(i.kind)}${esc(i.label)}</span>`).join('')}`
     const oth = others.map((o) => `<span class="lg-other" data-lg-other="${esc(o.id)}">${sw(rgba(mutedOf(o.color), 0.28), mutedOf(o.color))}${esc(o.name)} <em>(other nation, muted)</em></span>`).join('')
     legendEl.innerHTML = focal + oth

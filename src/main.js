@@ -18,6 +18,11 @@ import {
   nationExtentGeometry,
   rgba,
   darkOf,
+  fmtYearSpan,
+  isCulture,
+  textureImage,
+  textureCss,
+  CULTURE_EDGE,
 } from './territory.js'
 
 /** CARTO Voyager raster (OSM data). Requires VITE_CARTO_API_KEY at build time. */
@@ -395,7 +400,8 @@ function formatYear(y) {
 function formatYearRange(start, end) {
   if (start == null && end == null) return 'Year unknown'
   if (start != null && end != null && start !== end) {
-    return `${formatYear(start)} – ${formatYear(end)}`
+    // a range that crosses zero names the era on the end year: "800 BCE – 700 CE"
+    return `${formatYear(start)} – ${formatYear(end)}${start < 0 && end > 0 ? ' CE' : ''}`
   }
   return formatYear(start ?? end)
 }
@@ -2054,7 +2060,7 @@ function updateTimelineMapCounts() {
     } else {
       const range =
         yearMin != null || yearMax != null
-          ? `${formatYear(yearMin ?? '…')} – ${formatYear(yearMax ?? '…')}`
+          ? `${formatYear(yearMin ?? '…')} – ${formatYear(yearMax ?? '…')}${yearMin < 0 && yearMax > 0 ? ' CE' : ''}`
           : 'selected eras'
       meta.textContent = `Showing places in ${range}.`
     }
@@ -3344,6 +3350,15 @@ function addNationLayers(n, T, before) {
   }
   const mm = T.mainMap
   const feat = (id) => (T.geojson?.features || []).find((x) => x.properties?.id === id)
+  // Archaeological culture (kind "culture" + texture): textured fill + light casing + dark-brown outline, same closed-shape look in both themes.
+  const cult = isCulture(n)
+  const cultureFill = (sourceId, key) => {
+    const imgId = `terr-tex-${n.texture}-${String(n.color).replace('#', '')}`
+    if (!map.hasImage(imgId)) map.addImage(imgId, textureImage(n.texture, n.color), { pixelRatio: 2 })
+    add({ id: `${NATION_FILL(n.id)}-${key}`, type: 'fill', source: sourceId, paint: { 'fill-pattern': imgId } })
+    add({ id: `${NATION_LINE(n.id)}-${key}-casing`, type: 'line', source: sourceId, layout: { 'line-join': 'round' }, paint: { 'line-color': '#f5ecd6', 'line-width': 4.6, 'line-opacity': 0.7 } })
+    add({ id: `${NATION_LINE(n.id)}-${key}-edge`, type: 'line', source: sourceId, layout: { 'line-join': 'round' }, paint: { 'line-color': n.outline || CULTURE_EDGE, 'line-width': 2.2, 'line-opacity': 1 } })
+  }
   if (mm) {
     // Each part has its own source and layer type: fills only ever see polygons; treaty LINES are drawn as lines
     // (a line in a fill layer gets closed into a polygon, which caused the "starburst" artifact).
@@ -3356,12 +3371,14 @@ function addNationLayers(n, T, before) {
     }
     // General area (soft): a sourced region associated with the nation, NOT a boundary. Drawn first (lowest), thin solid edge.
     const genSrc = mm.general && src('general', mm.general)
-    if (genSrc) {
+    if (genSrc && cult) cultureFill(genSrc, 'general')
+    else if (genSrc) {
       add({ id: `${NATION_FILL(n.id)}-general`, type: 'fill', source: genSrc, paint: { 'fill-color': n.color, 'fill-opacity': n.outline ? 0.55 : 0.4 } })
       add({ id: `${NATION_LINE(n.id)}-general-edge`, type: 'line', source: genSrc, paint: { 'line-color': n.outline || n.color, 'line-width': n.outline ? 2.2 : 1.4, 'line-opacity': n.outline ? 1 : 0.8 } })
     }
     const areaSrc = mm.area && src('area', mm.area)
-    if (areaSrc) {
+    if (areaSrc && cult) cultureFill(areaSrc, 'area')
+    else if (areaSrc) {
       // Sourced cession area, already clipped to Kentucky in the data (closed along the state boundary, no invented vertices)
       if (mm.hatch) {
         // Diagonal hatch (pattern) so this nation's area stays readable where it overlaps another nation's solid fill
@@ -3372,12 +3389,13 @@ function addNationLayers(n, T, before) {
       add({ id: `${NATION_LINE(n.id)}-area-edge`, type: 'line', source: areaSrc, paint: { 'line-color': n.color, 'line-width': 2, 'line-opacity': 0.95 } })
     }
     const fillSrc = src('fill', mm.fill)
-    if (fillSrc) {
+    if (fillSrc && cult) cultureFill(fillSrc, 'fill')
+    else if (fillSrc) {
       add({ id: `${NATION_FILL(n.id)}`, type: 'fill', source: fillSrc, paint: { 'fill-color': n.color, 'fill-opacity': 0.5 } })
       add({ id: `${NATION_LINE(n.id)}-edge`, type: 'line', source: fillSrc, paint: { 'line-color': n.color, 'line-width': 2, 'line-opacity': 0.95 } })
     }
     const lineSrc = mm.lines && src('lines', mm.lines)
-    if (lineSrc) add({ id: `${NATION_LINE(n.id)}-solid`, type: 'line', source: lineSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': n.color, 'line-width': 3, 'line-opacity': 0.95 } })
+    if (lineSrc) add({ id: `${NATION_LINE(n.id)}-solid`, type: 'line', source: lineSrc, layout: { 'line-join': 'round' }, paint: { 'line-color': cult ? n.outline || CULTURE_EDGE : n.color, 'line-width': 3, 'line-opacity': 0.95 } })
     const ptSrc = mm.points && src('points', mm.points)
     if (ptSrc) add({ id: `${NATION_SRC(n.id)}-pts`, type: 'circle', source: ptSrc, paint: { 'circle-radius': 5, 'circle-color': n.color, 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.5 } })
     // The long per-nation notes are no longer drawn on the map (they covered the shapes): they open from the legend row instead.
@@ -3386,8 +3404,11 @@ function addNationLayers(n, T, before) {
     const geometry = nationExtentGeometry(T, n)
     if (!geometry) return
     map.addSource(NATION_SRC(n.id), { type: 'geojson', data: { type: 'Feature', properties: {}, geometry } })
-    add({ id: NATION_FILL(n.id), type: 'fill', source: NATION_SRC(n.id), paint: { 'fill-color': n.color, 'fill-opacity': 0.3 } })
-    add({ id: NATION_LINE(n.id), type: 'line', source: NATION_SRC(n.id), paint: { 'line-color': n.color, 'line-width': 2.5, 'line-opacity': 0.95 } })
+    if (cult) cultureFill(NATION_SRC(n.id), 'extent')
+    else {
+      add({ id: NATION_FILL(n.id), type: 'fill', source: NATION_SRC(n.id), paint: { 'fill-color': n.color, 'fill-opacity': 0.3 } })
+      add({ id: NATION_LINE(n.id), type: 'line', source: NATION_SRC(n.id), paint: { 'line-color': n.color, 'line-width': 2.5, 'line-opacity': 0.95 } })
+    }
   }
   nationLayerIds[n.id] = ids
 }
@@ -3458,15 +3479,24 @@ async function syncNationLayers() {
   // Label tidy-up: the legend already names every nation, so on-map labels thin out as more nations are toggled on.
   const mapEl = document.getElementById('map')
   if (mapEl) mapEl.dataset.nlab = String(nations.filter((x) => nationOn.has(x.id)).length)
+  // exposes which archaeological cultures are drawn (id:texture) for checks; no visual effect
+  if (mapEl) mapEl.dataset.cultures = nations.filter((x) => nationOn.has(x.id) && isCulture(x) && nationLayerIds[x.id]).map((x) => `${x.id}:${x.texture}`).join(',')
   renderNationLegend(nations)
 }
 
+/** Years shown beside a nation / culture name. BCE-aware; positive-only entries print exactly as before. */
+function nationYears(n) {
+  if (n.yearLabel) return n.yearLabel
+  if (!n.yearStart) return ''
+  if (n.yearStart < 0 || n.yearEnd < 0) return fmtYearSpan(n.yearStart, n.yearEnd, { approx: n.approxStart })
+  return `${n.approxStart ? 'c.' : ''}${n.yearStart}–${n.yearEnd ?? ''}`
+}
 let legendNoteId = null // nation whose note is open (one at a time); null = all notes closed
 function nationNoteHtml(n) {
-  const yrs = n.yearLabel || (n.yearStart ? `${n.approxStart ? 'c.' : ''}${n.yearStart}–${n.yearEnd ?? ''}` : '')
+  const yrs = nationYears(n)
   const conf = { medium: 'Medium', 'low-medium': 'Low–medium', low: 'Low', high: 'High' }[n.confidence]
   const texts = nationNoteTexts[n.id]?.length ? nationNoteTexts[n.id] : [n.mapNote || n.note || '']
-  return `<div class="ml-note-h"><b>${escapeHtml(n.name)}</b>${yrs ? ` <small>${escapeHtml(yrs)}</small>` : ''}<button type="button" class="ml-x" aria-label="Close note">×</button></div>${texts.map((t) => `<p>${escapeHtml(t)}</p>`).join('')}${n.note ? `<p>${escapeHtml(n.note)}</p>` : ''}${conf ? `<p class="ml-conf">Confidence: ${escapeHtml(conf)}</p>` : ''}`
+  return `<div class="ml-note-h"><b>${escapeHtml(n.name)}</b>${yrs ? ` <small>${escapeHtml(yrs)}</small>` : ''}<button type="button" class="ml-x" aria-label="Close note">×</button></div>${texts.map((t) => `<p>${escapeHtml(t)}</p>`).join('')}${n.note ? `<p>${escapeHtml(n.note)}</p>` : ''}${isCulture(n) ? '<p class="ml-culture-line">Archaeological culture defined by artifacts and sites, not a tribe; no descent claim.</p>' : ''}${conf ? `<p class="ml-conf">Confidence: ${escapeHtml(conf)}</p>` : ''}`
 }
 /** The note lives in a panel BELOW the map (in the page flow, a sibling of the map canvas), never over the shapes. */
 function nationNotePanel() {
@@ -3539,12 +3569,17 @@ function renderNationLegend(nations) {
     wrap.appendChild(el)
   }
   // Notes are closed by default. Activate a row to read that nation's note in the panel under the title (one at a time).
+  // Archaeological cultures (kind "culture") get their own group below the nations, and only when one is toggled on.
   const keep = document.activeElement?.dataset?.nid
-  el.innerHTML = `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shown
-    .map(
-      (n) => `<button type="button" class="ml-row" data-nid="${escapeHtml(n.id)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${rgba(n.color, 0.5)};border-color:${n.outline || n.color}"></i><span>${escapeHtml(n.name)}${n.yearLabel ? ` <small>${escapeHtml(n.yearLabel)}</small>` : n.yearStart ? ` <small>${n.approxStart ? 'c.' : ''}${escapeHtml(n.yearStart)}–${escapeHtml(n.yearEnd ?? '')}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`,
-    )
-    .join('')}</div><div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
+  const nationRow = (n) => `<button type="button" class="ml-row" data-nid="${escapeHtml(n.id)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${rgba(n.color, 0.5)};border-color:${n.outline || n.color}"></i><span>${escapeHtml(n.name)}${nationYears(n) ? ` <small>${escapeHtml(nationYears(n))}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`
+  const cultureRow = (n) => {
+    const y = nationYears(n)
+    return `<button type="button" class="ml-row ml-culture" data-nid="${escapeHtml(n.id)}" data-texture="${escapeHtml(n.texture)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${textureCss(n.texture, n.color)};border-color:${n.outline || CULTURE_EDGE}"></i><span>${escapeHtml(n.name)}${y ? ` <small>${escapeHtml(y)}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`
+  }
+  const shownNations = shown.filter((n) => !isCulture(n))
+  const shownCultures = shown.filter((n) => isCulture(n))
+  el.setAttribute('aria-label', shownNations.length ? 'Native nations shown (approximate)' : 'Archaeological cultures shown (not tribes)')
+  el.innerHTML = `${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}<div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
   el.querySelectorAll('button.ml-row').forEach((b) => b.addEventListener('click', () => setLegendNote(b.dataset.nid)))
   if (legendNoteId) {
     const id = legendNoteId
@@ -3576,7 +3611,7 @@ async function refreshTerritoryOthers() {
 }
 
 function syncNationRows() {
-  const rows = document.querySelectorAll('[data-territory-panel] input[data-nation]')
+  const rows = document.querySelectorAll('[data-territory-panel] input[data-nation], [data-culture-panel] input[data-nation]')
   const focal = territoryView?.focalId || null
   rows.forEach((cb) => {
     const id = cb.dataset.nation
@@ -3610,11 +3645,13 @@ async function setupTerritoryMapControl() {
   if (!panel || panel.querySelector('[data-territory-panel]')) return
   const nations = await getTerritoryNations()
   if (!nations.length || panel.querySelector('[data-territory-panel]')) return
+  const nationList = nations.filter((n) => !isCulture(n))
+  const cultureList = nations.filter((n) => isCulture(n))
   const box = document.createElement('div')
   box.className = 'terr-panel'
   box.dataset.territoryPanel = '1'
   box.innerHTML = `<h3>Native territories <span class="muted">(test)</span></h3>
-    <div class="terr-nations">${nations
+    <div class="terr-nations">${nationList
       .map(
         (n) => `<label class="ctrl layer-row terr-nation-row">
       <input type="checkbox" data-nation="${escapeHtml(n.id)}" />
@@ -3626,8 +3663,26 @@ async function setupTerritoryMapControl() {
     <p class="muted">Approximate, sourced areas. Toggle several at once; territories overlapped and shifted. “Show only” opens the nation's story map and hides the other layers.</p>`
   const after = panel.querySelector('#layerToggles')
   after.insertAdjacentElement('afterend', box)
+  // Separate group for archaeological cultures (not tribes). Only exists when the index has at least one culture entry.
+  let cbox = null
+  if (cultureList.length) {
+    cbox = document.createElement('div')
+    cbox.className = 'terr-panel terr-panel-cultures'
+    cbox.dataset.culturePanel = '1'
+    cbox.innerHTML = `<h3>Archaeological cultures <span class="muted">(not tribes)</span></h3>
+    <div class="terr-nations">${cultureList
+      .map(
+        (n) => `<label class="ctrl layer-row terr-nation-row">
+      <input type="checkbox" data-nation="${escapeHtml(n.id)}" />
+      <span>${escapeHtml(n.name)} <span class="muted small" data-focal-tag hidden>(this story)</span></span>
+      <span class="swatch swatch-tex" data-texture="${escapeHtml(n.texture)}" style="background:${textureCss(n.texture, n.color)};border:1.5px solid ${escapeHtml(n.outline || CULTURE_EDGE)}"></span></label>`,
+      )
+      .join('')}</div>
+    <p class="muted">Archaeological cultures are defined by artifacts and sites, not a tribe; no descent claim. Shown as textured areas, approximate.</p>`
+    box.insertAdjacentElement('afterend', cbox)
+  }
   const onlyCb = box.querySelector('#terrOnly')
-  box.addEventListener('change', (e) => {
+  const onChange = (e) => {
     const cb = e.target.closest('input[data-nation]')
     if (cb) {
       if (cb.checked) nationOn.add(cb.dataset.nation)
@@ -3645,7 +3700,9 @@ async function setupTerritoryMapControl() {
       if (onlyCb.checked && onlyCb.dataset.slug) location.hash = territoryMapHash(onlyCb.dataset.slug)
       else goHomeMap()
     }
-  })
+  }
+  box.addEventListener('change', onChange)
+  cbox?.addEventListener('change', onChange)
   syncNationRows()
 }
 
