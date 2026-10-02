@@ -15,5 +15,12 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-15"
+  "briefDate": "2026-09-15",
+  "territory": {
+    "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+    "nation": "Fort Ancient (archaeological culture)",
+    "yearStart": 1000,
+    "yearEnd": 1200,
+    "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+  }
 }

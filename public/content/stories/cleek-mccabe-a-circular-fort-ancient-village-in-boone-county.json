@@ -23,5 +23,12 @@
     "source_label": "Wikimedia Commons",
     "attribution": "w_lemay · Wikimedia Commons · CC0",
     "year": null
+  },
+  "territory": {
+    "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+    "nation": "Fort Ancient (archaeological culture)",
+    "yearStart": 1200,
+    "yearEnd": 1300,
+    "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
   }
 }

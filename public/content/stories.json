@@ -289,6 +289,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-15",
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1000,
+        "yearEnd": 1200,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 37.8967,
       "lon": -84.6228,
       "mapConfidence": "override",
@@ -309,6 +316,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1000,
+        "yearEnd": 1100,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 36.82461,
       "lon": -86.84895,
       "mapConfidence": "county",
@@ -340,6 +354,13 @@
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null
       },
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1010,
+        "yearEnd": 1255,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 37.8840694,
       "lon": -84.593,
       "mapConfidence": "override",
@@ -361,6 +382,13 @@
       "source": "ky-history",
       "briefDate": "2026-09-16",
       "county": "Fulton",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1100,
+        "yearEnd": 1500,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 36.552,
       "lon": -89.186,
       "mapConfidence": "override",
@@ -390,6 +418,13 @@
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": 2013
       },
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1100,
+        "yearEnd": 1500,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 36.552,
       "lon": -89.186,
       "mapConfidence": "fuzzy",
@@ -410,6 +445,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-19",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1100,
+        "yearEnd": 1300,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 36.89476944,
       "lon": -89.08521944,
       "mapConfidence": "override",
@@ -441,6 +483,13 @@
         "attribution": "Wikimedia Commons",
         "year": null
       },
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1550,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 38.2132087,
       "lon": -84.2492072,
       "mapConfidence": "override",
@@ -471,6 +520,13 @@
         "attribution": "w_lemay · Wikimedia Commons · CC0",
         "year": null
       },
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1300,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 38.772860422898226,
       "lon": -84.00880725804063,
       "mapConfidence": "override",
@@ -500,6 +556,13 @@
         "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
       },
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1450,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -520,6 +583,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-08",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1000,
+        "yearEnd": 1300,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 36.86767,
       "lon": -88.32188,
       "mapConfidence": "county",
@@ -547,6 +617,13 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2011
+      },
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1550,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
       "lat": 38.2364,
       "lon": -84.6607,
@@ -577,6 +654,13 @@
         "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
       },
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1450,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 37.43722222,
       "lon": -88.25166667,
       "mapConfidence": "fuzzy",
@@ -606,6 +690,13 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
       },
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1450,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 37.0676389,
       "lon": -89.14405,
       "mapConfidence": "override",
@@ -628,6 +719,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-31",
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1300,
+        "yearEnd": 1650,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 38.5175801,
       "lon": -83.8418974,
       "mapConfidence": "fuzzy",
@@ -650,6 +748,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-09",
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1400,
+        "yearEnd": 1750,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 37.6661229,
       "lon": -84.2876618,
       "mapConfidence": "fuzzy",
@@ -678,6 +783,13 @@
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2020
       },
+      "territory": {
+        "ref": "/data/web/territories/caborn-welborn-slack-farm.json",
+        "nation": "Caborn-Welborn (archaeological culture)",
+        "yearStart": 1400,
+        "yearEnd": 1700,
+        "presenceLabel": "Caborn-Welborn area (archaeological culture, not a tribe)"
+      },
       "lat": 37.775,
       "lon": -87.925,
       "mapConfidence": "override",
@@ -705,6 +817,13 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons · Public domain",
         "year": null
+      },
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1400,
+        "yearEnd": 1450,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
       "lat": 37.7072,
       "lon": -83.984,
@@ -4092,6 +4211,13 @@
       "source": "ky-history",
       "briefDate": "2026-09-17",
       "county": "Butler",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1300,
+        "yearEnd": 1350,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 37.2898389,
       "lon": -86.752889,
       "mapConfidence": "override",
@@ -4113,6 +4239,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-04",
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1550,
+        "yearEnd": 1650,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 38.7194548,
       "lon": -82.9633675,
       "mapConfidence": "fuzzy",
@@ -4325,6 +4458,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-10",
+      "territory": {
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+        "nation": "Fort Ancient (archaeological culture)",
+        "yearStart": 1200,
+        "yearEnd": 1300,
+        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+      },
       "lat": 38.772860422898226,
       "lon": -84.00880725804063,
       "mapConfidence": "exact",
@@ -4665,6 +4805,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-27",
+      "territory": {
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+        "nation": "Mississippian, western Kentucky (archaeological culture)",
+        "yearStart": 1100,
+        "yearEnd": 1350,
+        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+      },
       "lat": 36.9712176,
       "lon": -89.0917492,
       "mapConfidence": "fuzzy",
