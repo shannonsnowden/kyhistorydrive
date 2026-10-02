@@ -13,5 +13,12 @@
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-30"
+  "briefDate": "2026-08-30",
+  "territory": {
+    "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+    "nation": "Adena (archaeological culture)",
+    "yearStart": -500,
+    "yearEnd": 250,
+    "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+  }
 }

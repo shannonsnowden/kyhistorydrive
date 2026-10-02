@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T09:57:26.203Z",
+  "generatedAt": "2026-10-02T20:25:20.154Z",
   "count": 185,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -29,6 +29,13 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Ohio",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
       "lat": 37.4,
       "lon": -86.9,
       "mapConfidence": "override",
@@ -57,6 +64,11 @@
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2007
       },
+      "territory": {
+        "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
+        "nation": "Early Woodland caves and rockshelters (archaeological period)",
+        "presenceLabel": "Archaeological period, no mapped area"
+      },
       "lat": 37.83758,
       "lon": -83.62047,
       "mapConfidence": "override",
@@ -77,6 +89,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-14",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
       "lat": 37.2425,
       "lon": -86.79083,
       "mapConfidence": "fuzzy",
@@ -100,6 +119,11 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-20",
+      "territory": {
+        "ref": "/data/web/territories/archaic-hansen-site.json",
+        "nation": "Late Archaic (archaeological period)",
+        "presenceLabel": "Archaeological period, no mapped area"
+      },
       "lat": 38.72371944,
       "lon": -83.01908889,
       "mapConfidence": "override",
@@ -120,6 +144,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-03",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
       "lat": 37.2849569,
       "lon": -86.7683398,
       "mapConfidence": "exact",
@@ -142,6 +173,11 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Hart, Edmonson counties",
+      "territory": {
+        "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
+        "nation": "Early Woodland caves and rockshelters (archaeological period)",
+        "presenceLabel": "Archaeological period, no mapped area"
+      },
       "lat": 37.187,
       "lon": -86.101,
       "mapConfidence": "override",
@@ -170,6 +206,13 @@
         "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2009
       },
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
       "lat": 38.7564,
       "lon": -83.8844,
       "mapConfidence": "override",
@@ -190,6 +233,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-05",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
       "lat": 38.0733,
       "lon": -83.9511,
       "mapConfidence": "fuzzy",
@@ -210,6 +260,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-11",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -300,
+        "yearEnd": -200,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
       "lat": 38.0459102,
       "lon": -84.4960297,
       "mapConfidence": "exact",
@@ -1041,11 +1098,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-02",
-      "territory": {
-        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
-        "nation": "Shawnee",
-        "presenceLabel": "Shawnee leader, no mapped area"
-      },
       "photo": {
         "image_url": "/content/photos/stories/nonhelema.jpg",
         "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
@@ -1053,6 +1105,11 @@
         "source_label": "Wikimedia Commons",
         "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
         "year": 2019
+      },
+      "territory": {
+        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+        "nation": "Shawnee",
+        "presenceLabel": "Shawnee leader, no mapped area"
       },
       "lat": null,
       "lon": null,
@@ -3952,6 +4009,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-02",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
       "lat": 38.4730716,
       "lon": -82.63752,
       "mapConfidence": "override",
@@ -3973,6 +4037,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-07",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
       "lat": 38.05699,
       "lon": -83.94437,
       "mapConfidence": "override",
@@ -3993,6 +4064,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-13",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
       "lat": 36.6621891,
       "lon": -88.3096434,
       "mapConfidence": "fuzzy",
@@ -4055,6 +4133,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-30",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -500,
+        "yearEnd": 250,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
       "lat": 38.1588727,
       "lon": -84.4652044,
       "mapConfidence": "fuzzy",
@@ -4076,6 +4161,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-06",
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -150,
+        "yearEnd": 1,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+      },
       "lat": 39.0933727,
       "lon": -84.7133552,
       "mapConfidence": "fuzzy",
@@ -4118,6 +4210,11 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-01",
+      "territory": {
+        "ref": "/data/web/territories/hopewell-style-middle-woodland-indian-fort-mountain.json",
+        "nation": "Hopewell-style Middle Woodland (archaeological culture)",
+        "presenceLabel": "Archaeological culture, no mapped area"
+      },
       "lat": 37.5675476,
       "lon": -84.2328837,
       "mapConfidence": "exact",
@@ -4250,6 +4347,13 @@
       "source": "ky-history",
       "briefDate": "2026-08-29",
       "county": "Ohio",
+      "territory": {
+        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+        "nation": "Green River Archaic (archaeological culture)",
+        "yearStart": -3000,
+        "yearEnd": -1000,
+        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
+      },
       "lat": 37.303551,
       "lon": -86.890631,
       "mapConfidence": "fuzzy",
@@ -4359,6 +4463,11 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-15",
+      "territory": {
+        "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
+        "nation": "Early Woodland caves and rockshelters (archaeological period)",
+        "presenceLabel": "Archaeological period, no mapped area"
+      },
       "lat": 37.9510333,
       "lon": -83.6258167,
       "mapConfidence": "override",
@@ -4424,6 +4533,13 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
         "year": 1848
+      },
+      "territory": {
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+        "nation": "Adena (archaeological culture)",
+        "yearStart": -300,
+        "yearEnd": -200,
+        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
       "lat": 38.0459102,
       "lon": -84.4960297,

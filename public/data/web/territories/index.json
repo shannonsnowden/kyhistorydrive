@@ -313,6 +313,55 @@
    "mapNote": "Approximate general area of the Yuchi, 1567–1836: Bradley and Polk counties, Tennessee, to 1714 (sources disagree on the county), Effingham County, Georgia, and Aiken County, South Carolina, on the Savannah River c.1722–1751, and Russell County, Alabama, on the Chattahoochee River 1715–1836 (whole counties, not a boundary). Low–medium confidence. Kentucky is a tag only: one undated early-map mark, no documented town.",
    "note": "A general area in Tennessee, Georgia, South Carolina and Alabama; no documented town in Kentucky.",
    "mainMap": true
+  },
+  {
+   "id": "green-river-archaic",
+   "name": "Green River Archaic",
+   "kind": "culture",
+   "texture": "dots",
+   "color": "#BEDCA0",
+   "slugs": [
+    "chiggerville-15oh1",
+    "read-shell-midden-15bt10-butler-county",
+    "carlston-annis-shell-mound",
+    "indian-knoll-on-the-green-river",
+    "ward-site-15mcl11-mclean-county"
+   ],
+   "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+   "extentFeature": "extent",
+   "yearStart": -4000,
+   "yearEnd": -1000,
+   "confidence": "medium",
+   "mapNote": "Approximate general area of the Green River Archaic (an archaeological culture, not a tribe), 4000–1000 BCE: Butler, Ohio, Henderson, McLean and Muhlenberg counties, Kentucky (whole counties, not a boundary). Medium confidence.",
+   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area in west-central Kentucky; no site locations are shown.",
+   "mainMap": true
+  },
+  {
+   "id": "adena",
+   "name": "Adena",
+   "kind": "culture",
+   "texture": "crosshatch",
+   "color": "#6E6EDC",
+   "slugs": [
+    "dover-mound-mason-county",
+    "gaitskill-mounds-engraved-tablets",
+    "peter-village-enclosure-15fa166",
+    "peter-village-early-woodland-enclosure-near-lexington",
+    "mount-horeb-earthworks",
+    "robbins-mounds-boone-county",
+    "wright-mounds-montgomery-county",
+    "ashlands-adena-mounds"
+   ],
+   "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+   "extentFeature": "extent",
+   "yearStart": -800,
+   "yearEnd": 250,
+   "approxStart": true,
+   "yearLabel": "Kentucky 500 BCE–250 CE · Ohio c.800 BCE–100 CE",
+   "confidence": "medium",
+   "mapNote": "Approximate general area of Adena (an archaeological culture, not a tribe): eight Kentucky counties, 500 BCE–250 CE, and Ross County, Ohio, c.800 BCE–100 CE (whole counties, not a boundary). Medium confidence for years, medium-low for area.",
+   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: Bluegrass and nearby Kentucky counties plus Ross County, Ohio; no site locations are shown.",
+   "mainMap": true
   }
  ]
 }
