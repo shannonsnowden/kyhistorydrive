@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T09:48:39.378Z",
+  "generatedAt": "2026-10-02T09:57:26.861Z",
   "briefDate": "2026-10-02",
   "displayDate": "Friday, October 2, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -7,7 +7,7 @@
     {
       "slug": "harry-innes",
       "title": "Harry Innes",
-      "summary": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn near present-day…",
+      "summary": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn in at Crow’s Station, Virginia…",
       "era": "frontier",
       "yearStart": 1783,
       "briefDate": "2026-10-02",
@@ -17,7 +17,7 @@
       "lon": -84.8658,
       "historyId": "harry-innes-frankfort-1783-1816",
       "mapHref": "/#map/history/harry-innes-frankfort-1783-1816",
-      "quote": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn near present-day Danville in November 1782.",
+      "quote": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782.",
       "photo": {
         "image_url": "/content/photos/stories/harry-innes.jpg",
         "title": "Frankfort Cemetery — burial place of Judge Harry Innes (first U.S. district judge for Kentucky)",
@@ -123,7 +123,7 @@
   "hero": {
     "slug": "harry-innes",
     "title": "Harry Innes",
-    "summary": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn near present-day…",
+    "summary": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn in at Crow’s Station, Virginia…",
     "era": "frontier",
     "yearStart": 1783,
     "briefDate": "2026-10-02",
@@ -133,7 +133,7 @@
     "lon": -84.8658,
     "historyId": "harry-innes-frankfort-1783-1816",
     "mapHref": "/#map/history/harry-innes-frankfort-1783-1816",
-    "quote": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn near present-day Danville in November 1782.",
+    "quote": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782.",
     "photo": {
       "image_url": "/content/photos/stories/harry-innes.jpg",
       "title": "Frankfort Cemetery — burial place of Judge Harry Innes (first U.S. district judge for Kentucky)",
@@ -507,7 +507,7 @@
     }
   ],
   "quote": {
-    "text": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn near present-day Danville in November 1782.",
+    "text": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782.",
     "source": "Harry Innes",
     "href": "/#timeline/harry-innes"
   }
