@@ -1,0 +1,1 @@
+INTERNAL TEST FIXTURE for Batch 6-0 (culture textures, legend group, BCE labels). Not in `public/`, not in `dist/`, not referenced by the real `index.json`. Used only by the QA script (Playwright route interception). Do not move it into `public/`.

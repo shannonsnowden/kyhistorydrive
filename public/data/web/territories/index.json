@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "Territory index. To add a nation: add its data file under public/data/web/territories/ and one entry here. No code change needed. Colors: Okabe-Ito colorblind-safe palette, one per nation.",
+ "note": "Territory index. To add a nation: add its data file under public/data/web/territories/ and one entry here. No code change needed. Colors: Okabe-Ito colorblind-safe palette, one per nation. ARCHAEOLOGICAL CULTURES (not tribes): an entry with \"kind\": \"culture\" and \"texture\" (one of dots, crosshatch, horizontal, diamonds, vertical) is listed in its own Layers group 'Archaeological cultures (not tribes)' and its own map-legend group, never mixed with the nations; the group appears only when at least one culture entry exists. A culture uses the same fields as a nation (id, name, color = fill, slugs, ref, extentFeature or mainMap parts, confidence, note, mapNote) plus: texture (required; an unknown value falls back to dots), outline (optional hex, default dark brown #4a2f1a), yearStart/yearEnd (negative = BCE, e.g. -4000; the labels print '4000 BCE', 'c.800 BCE' with approxStart:true, or '800 BCE – 700 CE'), yearLabel (optional text that replaces the years). Its note panel always adds: archaeological culture defined by artifacts and sites, not a tribe; no descent claim. Do not use a nation color or a nation slug for a culture; cultures are separated by texture, outline, legend group and year range, not by color alone.",
  "nations": [
   {
    "id": "chickasaw",
