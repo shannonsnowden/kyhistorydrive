@@ -21,5 +21,12 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2009
+  },
+  "territory": {
+    "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+    "nation": "Adena (archaeological culture)",
+    "yearStart": -500,
+    "yearEnd": 250,
+    "presenceLabel": "Adena area (archaeological culture, not a tribe)"
   }
 }
