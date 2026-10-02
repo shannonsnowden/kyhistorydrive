@@ -1,0 +1,26 @@
+{
+  "slug": "twin-mounds-site",
+  "title": "Twin Mounds Site",
+  "publishedDate": "2026-10-02",
+  "summary": "Near Barlow in Ballard County, just north of where the Ohio meets the Mississippi, Twin Mounds (15Ba2 / Nolan; village 15Ba14) was a Mississippian administrative center with…",
+  "bodyMarkdown": "Near Barlow in Ballard County, just north of where the Ohio meets the Mississippi, Twin Mounds (15Ba2 / Nolan; village 15Ba14) was a Mississippian administrative center with two platform mounds around a plaza and a village midden up to about two meters thick. Principal occupation ran about 1200–1450 CE (Dorena and Medley phases). It stood contemporary with Wickliffe Mounds a few miles southeast; as Wickliffe thinned around 1300, people appear to have shifted toward Twin Mounds. Excavations recovered a rare Cahokia-style flint-clay human effigy pipe carved from Missouri pipestone.\nSource: [https://en.wikipedia.org/wiki/Twin_Mounds_Site](https://en.wikipedia.org/wiki/Twin_Mounds_Site)\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Wickliffe.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Wickliffe.aspx)",
+  "yearStart": 1200,
+  "yearEnd": 1450,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-02",
+  "county": "Ballard",
+  "photo": {
+    "image_url": "/content/photos/stories/twin-mounds-site.jpg",
+    "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010
+  }
+}

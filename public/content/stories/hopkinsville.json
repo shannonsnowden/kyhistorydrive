@@ -1,0 +1,26 @@
+{
+  "slug": "hopkinsville",
+  "title": "Hopkinsville",
+  "publishedDate": "2026-10-02",
+  "summary": "Bartholomew Wood claimed a Christian County tract in 1796 and, with his wife Martha Ann, donated five acres and a half interest in Old Rock Spring when the new county seated…",
+  "bodyMarkdown": "Bartholomew Wood claimed a Christian County tract in 1796 and, with his wife Martha Ann, donated five acres and a half interest in Old Rock Spring when the new county seated justice there in 1797. A log courthouse and jail rose by 1798; locals tried the name Elizabeth for the Woods’ eldest daughter, but Elizabethtown already held that name. In 1804 the General Assembly established the town as Hopkinsville for Gen. Samuel Hopkins—Revolutionary veteran, Transylvania Company agent, and later Henderson County organizer—whose name also marks Hopkins County. It remains Christian County’s seat.\nSource: [https://en.wikipedia.org/wiki/Hopkinsville,_Kentucky](https://en.wikipedia.org/wiki/Hopkinsville,_Kentucky)\nSource: [https://explorekyhistory.ky.gov/items/show/388](https://explorekyhistory.ky.gov/items/show/388)\nSource: [https://history.ky.gov/markers/gen-samuel-hopkins](https://history.ky.gov/markers/gen-samuel-hopkins)",
+  "yearStart": 1797,
+  "yearEnd": 1804,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "town-founding"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-02",
+  "county": "Christian",
+  "photo": {
+    "image_url": "/content/photos/stories/hopkinsville.jpg",
+    "title": "Christian County Courthouse, Hopkinsville (county seat since the 1797 Wood donation / 1804 renaming)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Christian_County_courthouse_Kentucky.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · public domain",
+    "year": 2010
+  }
+}
