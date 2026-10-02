@@ -31,6 +31,7 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
+import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -197,7 +198,13 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err.message || err)
-  process.exit(1)
-})
+main()
+  .then(() => {
+    // Re-apply editor QA fixes (scripts/story-overrides.json) after the pack is (re)written. Idempotent.
+    const r = spawnSync(process.execPath, [path.join(__dirname, 'apply-story-overrides.mjs')], { stdio: 'inherit' })
+    if (r.status !== 0) process.exit(r.status || 1)
+  })
+  .catch((err) => {
+    console.error(err.message || err)
+    process.exit(1)
+  })
