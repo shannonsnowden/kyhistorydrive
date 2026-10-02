@@ -2983,7 +2983,7 @@ async function renderTimelineList(preferredSlug) {
         const tagHtml = tag ? `<span class="muted">#${escapeHtml(tag)}</span>` : ''
         const selected = selectedStorySlug === s.slug ? ' selected' : ''
         return `
-      <li class="timeline-item${selected}" data-slug="${escapeHtml(s.slug)}" role="button" tabindex="0">
+      <li class="timeline-item${selected}" data-slug="${escapeHtml(s.slug)}" tabindex="0" aria-label="${escapeHtml(s.title)}, ${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}">
         <div class="timeline-year">${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</div>
         <div class="timeline-body">
           <strong>${escapeHtml(s.title)}</strong>

@@ -425,7 +425,7 @@ function renderFeatures(pack) {
     .map((item) => {
       const hasPhoto = Boolean(usablePhoto(item.photo))
       const media = hasPhoto
-        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}"><img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.title)}" loading="lazy" referrerpolicy="no-referrer" decoding="async" /></a>`
+        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}" aria-label="Read: ${escapeHtml(item.title)}"><img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.title)}" loading="lazy" referrerpolicy="no-referrer" decoding="async" /></a>`
         : ''
       const credit = photoCredit(item.photo)
       const mapHref = storyMapHref(item)
