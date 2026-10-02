@@ -67,6 +67,7 @@ Edit History and the manifest **in this repo only** (`public/data/app/ky-history
 
 ```bash
 npm run sync-app-data   # validates committed public/data/app/; does not fetch
+# QA fixes in scripts/story-overrides.json are re-applied after sync and in npm run build (see scripts/README.md)
 # PR or push to main — Amplify deploys the committed files
 ```
 

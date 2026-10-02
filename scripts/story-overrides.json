@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "overrides": {
+    "ward-site-15mcl11-mclean-county": {
+      "reason": "Pin on the Ward site (McLean County) lat/lon was lost when packs rebuilt (PRs #118/#119); keep 37.53,-87.27.",
+      "date": "2026-10-02",
+      "historyId": "ward-site-15mcl11-mclean-county-late-archaic",
+      "lat": 37.53,
+      "lon": -87.27
+    },
+    "ashlands-adena-mounds": {
+      "reason": "Reader-visible wording: 'survive' instead of 'still sit' (#148).",
+      "date": "2026-10-02",
+      "historyId": "ashland-adena-mounds",
+      "replace": [{ "old": "burial mounds still sit in Ashland", "new": "burial mounds survive in Ashland" }]
+    },
+    "mount-horeb-earthworks": {
+      "reason": "Removed unsourced '2,000 years ago for periodic ritual gatherings' claim (#148).",
+      "date": "2026-10-02",
+      "historyId": "mount-horeb-adena-park",
+      "replace": [
+        {
+          "old": "ditch-and-embankment enclosure more than 2,000 years ago for periodic ritual gatherings",
+          "new": "ditch-and-embankment enclosure during the Adena period"
+        }
+      ]
+    },
+    "harry-innes": {
+      "reason": "Swearing-in location wording fix: Crow's Station, Virginia (#135).",
+      "date": "2026-10-02",
+      "historyId": "harry-innes-frankfort-1783-1816",
+      "replace": [
+        {
+          "old": "he was sworn near present-day Danville in November 1782",
+          "new": "he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782"
+        },
+        {
+          "old": "he was sworn near present-day…",
+          "new": "he was sworn in at Crow’s Station, Virginia…"
+        }
+      ]
+    }
+  }
+}
