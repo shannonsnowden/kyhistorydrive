@@ -1041,6 +1041,11 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-02",
+      "territory": {
+        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+        "nation": "Shawnee",
+        "presenceLabel": "Shawnee leader, no mapped area"
+      },
       "photo": {
         "image_url": "/content/photos/stories/nonhelema.jpg",
         "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
