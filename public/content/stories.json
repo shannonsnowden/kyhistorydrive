@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-01T23:35:00.499Z",
-  "count": 180,
+  "generatedAt": "2026-10-02T09:48:09.134Z",
+  "count": 185,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-01"
+    "end": "2026-10-02"
   },
   "eras": [
     "early-commonwealth",
@@ -526,6 +526,35 @@
       "matchedPlace": "Tolu Site (15Cn1)"
     },
     {
+      "slug": "twin-mounds-site",
+      "title": "Twin Mounds Site",
+      "publishedDate": "2026-10-02",
+      "summary": "Near Barlow in Ballard County, just north of where the Ohio meets the Mississippi, Twin Mounds (15Ba2 / Nolan; village 15Ba14) was a Mississippian administrative center with…",
+      "yearStart": 1200,
+      "yearEnd": 1450,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-02",
+      "county": "Ballard",
+      "photo": {
+        "image_url": "/content/photos/stories/twin-mounds-site.jpg",
+        "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
+      },
+      "lat": 37.0676389,
+      "lon": -89.14405,
+      "mapConfidence": "override",
+      "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)"
+    },
+    {
       "slug": "fox-farm-mason-county",
       "title": "Fox Farm (Mason County)",
       "publishedDate": "2026-08-31",
@@ -996,6 +1025,34 @@
       "lon": -84.5037,
       "mapConfidence": "override",
       "matchedPlace": "Col. John Todd of Lexington"
+    },
+    {
+      "slug": "nonhelema",
+      "title": "Nonhelema",
+      "publishedDate": "2026-10-02",
+      "summary": "Nonhelema Hokolesqua (active mid-1700s–1786), sister of the Shawnee leader Cornstalk, was a Chalakatha (Chillicothe) chief, diplomat, and warrior whom settlers nicknamed “the…",
+      "yearStart": 1750,
+      "yearEnd": 1786,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-02",
+      "photo": {
+        "image_url": "/content/photos/stories/nonhelema.jpg",
+        "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
+        "year": 2019
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "thomas-walker-and-cumberland-gap",
@@ -2309,6 +2366,36 @@
       "matchedPlace": null
     },
     {
+      "slug": "phosphatic-limestone-and-horse-country",
+      "title": "Phosphatic limestone and horse country",
+      "publishedDate": "2026-10-02",
+      "summary": "Inner Bluegrass soils rest on phosphatic Lexington and Cynthiana limestones, with high calcium and phosphorus. University of Kentucky soil tests still show that edge over the…",
+      "yearStart": 1780,
+      "yearEnd": 1820,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "geology",
+        "horses"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-02",
+      "county": "Fayette",
+      "photo": {
+        "image_url": "/content/photos/stories/phosphatic-limestone-and-horse-country.jpg",
+        "title": "Horses on Inner Bluegrass pasture, Lexington–Fayette County (phosphatic limestone soils)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Horses_with_tall_building_in_background_in_Lexington-Fayette_County,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Preston County · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019
+      },
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Inner Bluegrass phosphatic limestone & horse country"
+    },
+    {
       "slug": "shelbyville",
       "title": "Shelbyville",
       "publishedDate": "2026-08-28",
@@ -2558,6 +2645,34 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "harry-innes",
+      "title": "Harry Innes",
+      "publishedDate": "2026-10-02",
+      "summary": "Virginia lawyer Harry Innes reached Kentucky in 1783 after Virginia elected him an assistant judge of the District of Kentucky’s supreme court; he was sworn near present-day…",
+      "yearStart": 1783,
+      "yearEnd": 1816,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-02",
+      "county": "Franklin",
+      "photo": {
+        "image_url": "/content/photos/stories/harry-innes.jpg",
+        "title": "Frankfort Cemetery — burial place of Judge Harry Innes (first U.S. district judge for Kentucky)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Frankfort_Cemetery;_Frankfort,_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+        "year": null
+      },
+      "lat": 38.1939,
+      "lon": -84.8658,
+      "mapConfidence": "override",
+      "matchedPlace": "Harry Innes (Frankfort / federal judge)"
     },
     {
       "slug": "john-filson-kentucke-1784",
@@ -3172,6 +3287,35 @@
       "lon": -84.0057628,
       "mapConfidence": "override",
       "matchedPlace": "Augusta founding / Capt. Philip Buckner"
+    },
+    {
+      "slug": "hopkinsville",
+      "title": "Hopkinsville",
+      "publishedDate": "2026-10-02",
+      "summary": "Bartholomew Wood claimed a Christian County tract in 1796 and, with his wife Martha Ann, donated five acres and a half interest in Old Rock Spring when the new county seated…",
+      "yearStart": 1797,
+      "yearEnd": 1804,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-02",
+      "county": "Christian",
+      "photo": {
+        "image_url": "/content/photos/stories/hopkinsville.jpg",
+        "title": "Christian County Courthouse, Hopkinsville (county seat since the 1797 Wood donation / 1804 renaming)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Christian_County_courthouse_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · public domain",
+        "year": 2010
+      },
+      "lat": 36.85472,
+      "lon": -87.48889,
+      "mapConfidence": "override",
+      "matchedPlace": "Hopkinsville founding (Elizabeth → Hopkinsville)"
     },
     {
       "slug": "owensboro-yellow-banks",

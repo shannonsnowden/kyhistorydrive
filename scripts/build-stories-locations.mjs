@@ -617,6 +617,32 @@ const MANUAL_OVERRIDES = {
     lon: -86.1454315185547,
     confidence: 'override',
   },
+  // 2026-10-02 morning brief (Nonhelema theme-only / Ohio village — leave unpinned)
+  'harry-innes': {
+    matchName: 'Harry Innes (Frankfort / federal judge)',
+    lat: 38.1939,
+    lon: -84.8658,
+    confidence: 'override',
+  },
+  'hopkinsville': {
+    matchName: 'Hopkinsville founding (Elizabeth → Hopkinsville)',
+    lat: 36.85472,
+    lon: -87.48889,
+    confidence: 'override',
+  },
+  'phosphatic-limestone-and-horse-country': {
+    matchName: 'Inner Bluegrass phosphatic limestone & horse country',
+    lat: 38.0406,
+    lon: -84.5037,
+    confidence: 'override',
+  },
+  'twin-mounds-site': {
+    matchName: 'Twin Mounds Site (15Ba2 / Nolan)',
+    lat: 37.0676389,
+    lon: -89.14405,
+    confidence: 'override',
+  },
+  'nonhelema': {},
 }
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)

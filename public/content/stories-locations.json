@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-01T14:21:41.427Z",
+  "generatedAt": "2026-10-02T09:48:31.805Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 85,
-    "none": 31
+    "override": 89,
+    "none": 32
   },
   "locations": {
     "chiggerville-15oh1": {
@@ -176,6 +176,14 @@
       "matchedPlace": "Tolu Site (15Cn1)",
       "historyId": "tolu-site-15cn1-crittenden-county"
     },
+    "twin-mounds-site": {
+      "slug": "twin-mounds-site",
+      "lat": 37.0676389,
+      "lon": -89.14405,
+      "mapConfidence": "override",
+      "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)",
+      "historyId": "twin-mounds-site-15ba2-ballard-county"
+    },
     "fox-farm-mason-county": {
       "slug": "fox-farm-mason-county",
       "lat": 38.5175801,
@@ -327,6 +335,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Col. John Todd of Lexington",
       "historyId": "col-john-todd-lexington-blue-licks"
+    },
+    "nonhelema": {
+      "slug": "nonhelema",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "thomas-walker-and-cumberland-gap": {
       "slug": "thomas-walker-and-cumberland-gap",
@@ -760,6 +776,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "phosphatic-limestone-and-horse-country": {
+      "slug": "phosphatic-limestone-and-horse-country",
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "override",
+      "matchedPlace": "Inner Bluegrass phosphatic limestone & horse country",
+      "historyId": "inner-bluegrass-phosphatic-limestone-horse-country"
+    },
     "shelbyville": {
       "slug": "shelbyville",
       "lat": 38.211083333333335,
@@ -839,6 +863,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "harry-innes": {
+      "slug": "harry-innes",
+      "lat": 38.1939,
+      "lon": -84.8658,
+      "mapConfidence": "override",
+      "matchedPlace": "Harry Innes (Frankfort / federal judge)",
+      "historyId": "harry-innes-frankfort-1783-1816"
     },
     "john-filson-kentucke-1784": {
       "slug": "john-filson-kentucke-1784",
@@ -1039,6 +1071,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Augusta founding / Capt. Philip Buckner",
       "historyId": "augusta-founding-philip-buckner"
+    },
+    "hopkinsville": {
+      "slug": "hopkinsville",
+      "lat": 36.85472,
+      "lon": -87.48889,
+      "mapConfidence": "override",
+      "matchedPlace": "Hopkinsville founding (Elizabeth → Hopkinsville)",
+      "historyId": "hopkinsville-founding-elizabeth-1804"
     },
     "owensboro-yellow-banks": {
       "slug": "owensboro-yellow-banks",
