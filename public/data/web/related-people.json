@@ -1,0 +1,261 @@
+{
+ "_note": "Web-only cross-links. \"people\": name -> story slug (first mention per story is linked; case-sensitive). \"related\": story slug -> [{slug,label}]. Every pair is stated in the story texts. Add rows here; no story text is edited.",
+ "people": {
+  "Nonhelema": "nonhelema",
+  "Hugh McGary": "hugh-mcgary-the-blue-licks-hothead",
+  "McGary": "hugh-mcgary-the-blue-licks-hothead",
+  "Benjamin Logan": "benjamin-logan",
+  "George Rogers Clark": "george-rogers-clark",
+  "Richard Henderson": "richard-henderson",
+  "Isaac Shelby": "isaac-shelby-old-kings-mountain",
+  "Levi Todd": "levi-todd-lexington-co-founder",
+  "John Todd": "col-john-todd-of-lexington",
+  "John Floyd": "john-floyd",
+  "Squire Boone": "squire-boones-painted-stone",
+  "John Finley": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+  "Hancock Taylor": "hancock-taylor-fincastle-surveyor"
+ },
+ "skip": {
+  "Richard Henderson": [
+   "henderson-at-red-banks"
+  ]
+ },
+ "related": {
+  "nonhelema": [
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Family: her brother Cornstalk led the Shawnee delegation here"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: named in her story as the man who killed her husband Moluntha in 1786"
+   },
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: Logan’s 1786 militia raid struck her Ohio village"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Same event: McGary killed Moluntha in 1786"
+   }
+  ],
+  "treaty-of-camp-charlotte-1774": [
+   {
+    "slug": "nonhelema",
+    "label": "Family: Cornstalk’s sister Nonhelema was a Shawnee chief and diplomat"
+   },
+   {
+    "slug": "isaac-shelby-old-kings-mountain",
+    "label": "Same event: Isaac Shelby fought at Point Pleasant in Lord Dunmore’s War"
+   },
+   {
+    "slug": "richard-henderson",
+    "label": "Same person: Richard Henderson’s separate 1775 Transylvania purchase"
+   }
+  ],
+  "hugh-mcgary-the-blue-licks-hothead": [
+   {
+    "slug": "nonhelema",
+    "label": "Same event: Moluntha, husband of Nonhelema, was killed in the 1786 raid"
+   },
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: McGary served on Logan’s 1786 Ohio raid"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Another story about Hugh McGary"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Same event: served under Col. John Todd at Blue Licks"
+   }
+  ],
+  "benjamin-logan": [
+   {
+    "slug": "nonhelema",
+    "label": "Same event: the 1786 raid on Nonhelema’s Ohio village"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: McGary served on Logan’s 1786 Ohio raid"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Same event: McGary served on this raid"
+   }
+  ],
+  "hugh-mcgary-the-hothead-major": [
+   {
+    "slug": "nonhelema",
+    "label": "Same event: killed Moluntha, Nonhelema’s husband, in 1786"
+   },
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: Logan’s Mad River raid, 1786"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Another story about Hugh McGary"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   }
+  ],
+  "battle-of-blue-licks": [
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: Hugh McGary commanded the center at Blue Licks"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Same event: Hugh McGary dared the militia across the Licking at Blue Licks"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Same event: Col. John Todd was killed at Blue Licks"
+   },
+   {
+    "slug": "levi-todd-lexington-co-founder",
+    "label": "Same event: Levi Todd fought at Blue Licks, where his brother John was killed"
+   },
+   {
+    "slug": "col-stephen-trigg-of-viney-grove",
+    "label": "Same event: Col. Stephen Trigg commanded the right wing and was killed at Blue Licks"
+   },
+   {
+    "slug": "maj-silas-harlan",
+    "label": "Same event: Maj. Silas Harlan fell at Blue Licks"
+   },
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: Militia pursued the raiders from Bryan Station to Blue Licks three days later"
+   }
+  ],
+  "col-john-todd-of-lexington": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: Hugh McGary commanded under Todd at Blue Licks"
+   },
+   {
+    "slug": "levi-todd-lexington-co-founder",
+    "label": "Family: his brother Levi Todd co-founded Lexington"
+   }
+  ],
+  "levi-todd-lexington-co-founder": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Family: his brother, killed at Blue Licks"
+   },
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: led a relief column toward Bryan Station"
+   }
+  ],
+  "col-stephen-trigg-of-viney-grove": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   }
+  ],
+  "maj-silas-harlan": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   }
+  ],
+  "bryan-station-siege-august-1782": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "levi-todd-lexington-co-founder",
+    "label": "Same event: Levi Todd led a relief column toward the station"
+   }
+  ],
+  "jack-jouett-kentuckys-midnight-rider": [
+   {
+    "slug": "capt-jack-jouett",
+    "label": "Another story about Jack Jouett"
+   }
+  ],
+  "capt-jack-jouett": [
+   {
+    "slug": "jack-jouett-kentuckys-midnight-rider",
+    "label": "Another story about Jack Jouett"
+   }
+  ],
+  "squire-boones-painted-stone": [
+   {
+    "slug": "shelbyville",
+    "label": "Same place: Squire Boone’s station stood near present Shelbyville"
+   }
+  ],
+  "shelbyville": [
+   {
+    "slug": "squire-boones-painted-stone",
+    "label": "Same place: Squire Boone’s Painted Stone Station was the earlier foothold nearby"
+   }
+  ],
+  "hancock-taylor-fincastle-surveyor": [
+   {
+    "slug": "leestown",
+    "label": "Same event: Hancock Taylor surveyed the Kentucky River crossing in 1773"
+   }
+  ],
+  "leestown": [
+   {
+    "slug": "hancock-taylor-fincastle-surveyor",
+    "label": "Same event: Hancock Taylor’s 1773 survey"
+   }
+  ],
+  "john-finley-the-trader-who-put-kentucky-on-boones-map": [
+   {
+    "slug": "odawa-raid-at-eskippakithiki-1753",
+    "label": "Same event: Finley’s store at Eskippakithiki was hit in 1753"
+   }
+  ],
+  "odawa-raid-at-eskippakithiki-1753": [
+   {
+    "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "label": "Same event: John Finley kept a store at the town"
+   }
+  ],
+  "isaac-shelby-old-kings-mountain": [
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: Lord Dunmore’s War (Point Pleasant, 1774)"
+   }
+  ],
+  "henderson-at-red-banks": [
+   {
+    "slug": "richard-henderson",
+    "label": "Same person: Richard Henderson & Company held the Red Banks grant"
+   }
+  ],
+  "richard-henderson": [
+   {
+    "slug": "henderson-at-red-banks",
+    "label": "Same place: Red Banks lay on the Henderson & Company grant"
+   },
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: bought Transylvania land from the Cherokee, 1775"
+   }
+  ]
+ }
+}
