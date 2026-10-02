@@ -216,14 +216,14 @@ const MANUAL_OVERRIDES = {
   },
   'newt-kash-hollow-15mf1': {
     matchName: 'Newt Kash Hollow (15Mf1)',
-    lat: 37.9510333,
-    lon: -83.6258167,
+    lat: 37.94,
+    lon: -83.59,
     confidence: 'override',
   },
   'muir-site-15js86': {
     matchName: 'Muir Site (15Js86)',
-    lat: 37.8967,
-    lon: -84.6228,
+    lat: 37.87,
+    lon: -84.58,
     confidence: 'override',
   },
   // Sep 16 — use iOS pin coords; leave Illinois Confederation unpinned (Cahokia)
@@ -241,8 +241,8 @@ const MANUAL_OVERRIDES = {
   },
   'adams-site-15fu4': {
     matchName: 'Adams Site (15Fu4)',
-    lat: 36.5520,
-    lon: -89.1860,
+    lat: 36.55,
+    lon: -89.19,
     confidence: 'override',
   },
   'drennon-springs-salt-works': {
@@ -266,8 +266,8 @@ const MANUAL_OVERRIDES = {
   },
   'annis-mound-village': {
     matchName: 'Annis Mound & Village (15Bt2)',
-    lat: 37.2898389,
-    lon: -86.752889,
+    lat: 37.21,
+    lon: -86.68,
     confidence: 'override',
   },
   'cumberland-falls': {
@@ -291,14 +291,14 @@ const MANUAL_OVERRIDES = {
   },
   'chiggerville-15oh1': {
     matchName: 'Chiggerville (15Oh1)',
-    lat: 37.4,
-    lon: -86.9,
+    lat: 37.48,
+    lon: -86.84,
     confidence: 'override',
   },
   'salts-cave-15ht4': {
     matchName: 'Salts Cave (15Ht4)',
-    lat: 37.187,
-    lon: -86.101,
+    lat: 37.31,
+    lon: -85.88,
     confidence: 'override',
   },
   // Sep 19 — align with iOS pins; leave Ojibwe unpinned (theme / Bird's War Road)
@@ -316,8 +316,8 @@ const MANUAL_OVERRIDES = {
   },
   'turk-site-carlisle-county': {
     matchName: 'Turk Site (15Ce6)',
-    lat: 36.89476944,
-    lon: -89.08521944,
+    lat: 36.89,
+    lon: -89.09,
     confidence: 'override',
   },
   'lost-river-cave': {
@@ -341,8 +341,8 @@ const MANUAL_OVERRIDES = {
   },
   'hansen-site-15gp14': {
     matchName: 'Hansen Site (15GP14)',
-    lat: 38.72371944,
-    lon: -83.01908889,
+    lat: 38.56,
+    lon: -82.93,
     confidence: 'override',
   },
   'natural-bridge-sandstone-arch': {
@@ -382,8 +382,8 @@ const MANUAL_OVERRIDES = {
   // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
   'wright-mounds-montgomery-county': {
     matchName: 'Wright Mounds (Montgomery County Adena)',
-    lat: 38.05699,
-    lon: -83.94437,
+    lat: 38.06,
+    lon: -83.94,
     confidence: 'override',
   },
   // 2026-09-22 morning brief
@@ -401,8 +401,8 @@ const MANUAL_OVERRIDES = {
   },
   'peter-village-early-woodland-enclosure-near-lexington': {
     matchName: 'Peter Village enclosure (15Fa166)',
-    lat: 38.0459102,
-    lon: -84.4960297,
+    lat: 38.05,
+    lon: -84.5,
     confidence: 'override',
   },
   'isaac-ruddell-and-the-guns-at-ruddell-s-station': {
@@ -427,8 +427,8 @@ const MANUAL_OVERRIDES = {
   // Erie / Cat Nation — theme-only, no KY place pin
   'buckner-site-fort-ancient-villages-on-strodes-creek': {
     matchName: 'Buckner Site (15Bb12)',
-    lat: 38.2132087,
-    lon: -84.2492072,
+    lat: 38.2,
+    lon: -84.21,
     confidence: 'override',
   },
   'jacob-beam-sells-old-jakes-first-barrel': {
@@ -452,14 +452,14 @@ const MANUAL_OVERRIDES = {
   },
   'muir-site-early-fort-ancient-on-a-jessamine-ridge': {
     matchName: 'Muir Site (15Js86)',
-    lat: 37.8840694,
-    lon: -84.593,
+    lat: 37.87,
+    lon: -84.58,
     confidence: 'override',
   },
   'cleek-mccabe-a-circular-fort-ancient-village-in-boone-county': {
     matchName: 'Cleek-McCabe Fort Ancient Village',
-    lat: 38.772860422898226,
-    lon: -84.00880725804063,
+    lat: 38.96,
+    lon: -84.74,
     confidence: 'override',
   },
   // Wyandot Kah-ten-tah-teh — theme-only, no KY place pin
@@ -479,8 +479,8 @@ const MANUAL_OVERRIDES = {
   // Osage Memory of the Ohio Valley — theme-only, no KY place pin
   'sweet-lick-knob-fort-ancient-gathering-place': {
     matchName: 'Sweet Lick Knob Fort Ancient public building',
-    lat: 37.7072,
-    lon: -83.9840,
+    lat: 37.69,
+    lon: -83.96,
     confidence: 'override',
   },
   'falmouth-at-the-licking-forks': {
@@ -505,8 +505,8 @@ const MANUAL_OVERRIDES = {
   // Potawatomi fire-keepers — theme-only, no KY place pin
   'slack-farm-15un28-union-county': {
     matchName: 'Slack Farm (15Un28) Caborn-Welborn village',
-    lat: 37.775,
-    lon: -87.925,
+    lat: 37.66,
+    lon: -87.95,
     confidence: 'override',
   },
   'the-travelling-church-1781': {
@@ -536,8 +536,8 @@ const MANUAL_OVERRIDES = {
   },
   'cloudsplitter-rockshelter-menifee-county': {
     matchName: 'Cloudsplitter Rockshelter (15Mf36)',
-    lat: 37.83758,
-    lon: -83.62047,
+    lat: 37.94,
+    lon: -83.59,
     confidence: 'override',
   },
   'ephraim-mcdowell-jane-todd-crawford-1809': {
@@ -567,8 +567,8 @@ const MANUAL_OVERRIDES = {
   },
   'singer-hieronymus-fort-ancient-villages-on-north-elkhorn': {
     matchName: 'Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)',
-    lat: 38.2364,
-    lon: -84.6607,
+    lat: 38.29,
+    lon: -84.58,
     confidence: 'override',
   },
   // 2026-09-30 morning brief (Susquehannock is theme-only, no pin)
@@ -586,8 +586,8 @@ const MANUAL_OVERRIDES = {
   },
   'dover-mound-mason-county': {
     matchName: 'Dover Mound (Adena burial mound, Mason County)',
-    lat: 38.7564,
-    lon: -83.8844,
+    lat: 38.76,
+    lon: -83.88,
     confidence: 'override',
   },
   'bryan-station-siege-august-1782': {
@@ -638,8 +638,8 @@ const MANUAL_OVERRIDES = {
   },
   'twin-mounds-site': {
     matchName: 'Twin Mounds Site (15Ba2 / Nolan)',
-    lat: 37.0676389,
-    lon: -89.14405,
+    lat: 37.07,
+    lon: -89.14,
     confidence: 'override',
   },
   'nonhelema': {},

@@ -7,6 +7,7 @@
  *   node scripts/apply-story-overrides.mjs --check    dry run; exit 2 if any override would change files or is stale
  *   --root <dir>   repo root holding public/ (default: this repo; used by tests)
  *   --file <path>  overrides file (default: scripts/story-overrides.json)
+ *   --rules <path> pin-rounding rules (default: scripts/pin-rounding.json; see scripts/README.md)
  *
  * Exit codes: 0 ok (stale overrides are only reported), 1 malformed overrides file or data file, 2 --check failed.
  * See scripts/README.md for the file format.
@@ -20,6 +21,7 @@ const argv = process.argv.slice(2)
 const argVal = (n) => (argv.includes(n) ? argv[argv.indexOf(n) + 1] : null)
 const ROOT = path.resolve(argVal('--root') || path.join(HERE, '..'))
 const FILE = path.resolve(argVal('--file') || path.join(HERE, 'story-overrides.json'))
+const RULES = path.resolve(argVal('--rules') || path.join(HERE, 'pin-rounding.json'))
 const CHECK = argv.includes('--check')
 
 const ALLOWED = new Set(['reason', 'date', 'historyId', 'lat', 'lon', 'county', 'yearStart', 'yearEnd', 'replace'])
@@ -88,6 +90,7 @@ const F = {
   hgeo: `${D}/layers/history.geojson`,
   kyh: `${D}/app/ky-history.json`,
   search: `${D}/search-index.json`,
+  appSearch: `${D}/app/search-index.json`,
 }
 
 /** Records (objects) a slug/historyId lives in, each with accessors for the fields we touch. */
@@ -108,6 +111,8 @@ function targets(slug, historyId) {
   if (historyId && Array.isArray(kyh?.data)) kyh.data.forEach((p) => p.id === historyId && add(p, { file: kyh, lat: 'latitude', lon: 'longitude', years: 'snake' }))
   const si = load(F.search)
   si?.data.documents?.forEach((d) => (d.id === `story:${slug}` || (historyId && d.id === `place:${historyId}`)) && add(d, { file: si, lat: 'lat', lon: 'lon' }))
+  const as = load(F.appSearch)
+  if (as?.data.sites) for (const k of [`story:${slug}`, historyId && `history:${historyId}`]) k && add(as.data.sites[k], { file: as, lat: 'latitude', lon: 'longitude' })
   return out
 }
 
@@ -122,6 +127,16 @@ function setVal(t, obj, key, val, mode) {
   obj[key] = val
   t.file.dirty = true
   return 1
+}
+function applyPin(ts, lat, lon) {
+  let n = 0
+  for (const t of ts) {
+    if (t.geo) {
+      const c = t.obj.geometry?.coordinates
+      if (Array.isArray(c) && (c[0] !== lon || c[1] !== lat)) { t.obj.geometry.coordinates = [lon, lat]; t.file.dirty = true; n++ }
+    } else if (t.lat) n += setVal(t, t.obj, t.lat, lat, 'exists') + setVal(t, t.obj, t.lon, lon, 'exists')
+  }
+  return n
 }
 function walk(node, fn) {
   if (Array.isArray(node)) node.forEach((v, i) => { const r = fn(v); if (r !== undefined) node[i] = r; else walk(v, fn) })
@@ -141,13 +156,7 @@ for (const [slug, o] of Object.entries(spec.overrides)) {
     continue
   }
   if ('lat' in o) {
-    let n = 0
-    for (const t of ts) {
-      if (t.geo) {
-        const c = t.obj.geometry?.coordinates
-        if (Array.isArray(c) && (c[0] !== o.lon || c[1] !== o.lat)) { t.obj.geometry.coordinates = [o.lon, o.lat]; t.file.dirty = true; n++ }
-      } else if (t.lat) n += setVal(t, t.obj, t.lat, o.lat, 'exists') + setVal(t, t.obj, t.lon, o.lon, 'exists')
-    }
+    const n = applyPin(ts, o.lat, o.lon)
     if (n) notes.push(`pin ${o.lat},${o.lon} (${n} values)`)
     changed += n
   }
@@ -186,6 +195,39 @@ for (const [slug, o] of Object.entries(spec.overrides)) {
   else if (!stale) report.ok.push(slug)
 }
 
+// ---- generic pin rounding for prehistoric/archaeological stories (#141) -------------------------
+// Looting-sensitive: any story with era "prehistoric" or tag "archaeology" whose pin has more than
+// `decimals` decimals is rounded, unless its slug is in the rules file allowlist. History entries are
+// reached through the story's historyId (stories-locations.json). Modern places are never touched.
+const rounding = { rounded: [] }
+if (fs.existsSync(RULES)) {
+  let rules
+  try {
+    rules = JSON.parse(fs.readFileSync(RULES, 'utf8'))
+  } catch (e) {
+    fail(`cannot read/parse ${path.relative(process.cwd(), RULES)}: ${e.message}`)
+  }
+  const dec = rules?.decimals
+  const okList = (a) => Array.isArray(a) && a.every((x) => typeof x === 'string')
+  if (!Number.isInteger(dec) || dec < 0 || dec > 6 || !okList(rules.skipSlugs) || !okList(rules.skipHistoryIds)) {
+    fail('pin-rounding.json needs integer "decimals" (0-6), "skipSlugs" and "skipHistoryIds" string arrays')
+  }
+  const skipS = new Set(rules.skipSlugs)
+  const skipH = new Set(rules.skipHistoryIds)
+  const rnd = (x) => Number(x.toFixed(dec))
+  for (const st of load(F.index)?.data.stories || []) {
+    if (!(st.era === 'prehistoric' || (st.tags || []).includes('archaeology'))) continue
+    if (skipS.has(st.slug) || !isNum(st.lat) || !isNum(st.lon)) continue
+    const hid = load(F.locs)?.data.locations?.[st.slug]?.historyId || null
+    if (hid && skipH.has(hid)) continue
+    const lat = rnd(st.lat)
+    const lon = rnd(st.lon)
+    if (lat === st.lat && lon === st.lon) continue
+    const n = applyPin(targets(st.slug, hid), lat, lon)
+    if (n) rounding.rounded.push(st.slug)
+  }
+}
+
 if (!CHECK) {
   for (const f of files.values()) {
     if (f?.dirty) fs.writeFileSync(f.fp, JSON.stringify(f.data, null, f.indent || undefined) + (f.nl ? '\n' : ''))
@@ -195,4 +237,5 @@ const n = Object.keys(spec.overrides).length
 console.log(`story-overrides: ${n} override(s): ${report.applied.length} ${CHECK ? 'would apply' : 'applied'}, ${report.ok.length} already in place, ${report.stale.length} stale`)
 report.applied.forEach((l) => console.log(`  ${CHECK ? 'DRIFT' : 'applied'}: ${l}`))
 report.stale.forEach((l) => console.log(`  stale:   ${l}`))
-if (CHECK && (report.applied.length || report.stale.length)) process.exit(2)
+console.log(`pin-rounding: ${rounding.rounded.length} prehistoric/archaeological story pin(s) ${CHECK ? 'would be rounded' : 'rounded'}${rounding.rounded.length ? ': ' + rounding.rounded.join(', ') : ''}`)
+if (CHECK && (report.applied.length || report.stale.length || rounding.rounded.length)) process.exit(2)
