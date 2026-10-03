@@ -2,8 +2,8 @@
   "slug": "mcafee-station-on-the-salt-river",
   "title": "McAfee Station on the Salt River",
   "publishedDate": "2026-10-03",
-  "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
-  "bodyMarkdown": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County. After Point Pleasant service and delayed returns, they built a stockade on James McAfee’s land in 1779; by 1781 nearly every local family sheltered there, and a Shawnee attack that May was beaten back with help from nearby stations. New Providence Presbyterian Church (1785) grew from the same community, and the modern hamlet of McAfee still marks the pioneer name.\nSource: [https://explorekyhistory.ky.gov/items/show/987](https://explorekyhistory.ky.gov/items/show/987)",
+  "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
+  "bodyMarkdown": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County. After Point Pleasant service and delayed returns, they built a stockade on James McAfee’s land in 1779; by 1781 nearly every local family sheltered there, and a Shawnee attack that May was beaten back with help from nearby stations. New Providence Presbyterian Church (1785) grew from the same community, and the station area is now part of an unincorporated Mercer County community.\nSource: [https://explorekyhistory.ky.gov/items/show/987](https://explorekyhistory.ky.gov/items/show/987)",
   "yearStart": 1773,
   "yearEnd": 1785,
   "era": "native",
@@ -24,5 +24,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Flynnke · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2014
-  }
+  },
+  "county": "Mercer"
 }

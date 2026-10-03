@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T09:45:15.259Z",
+  "generatedAt": "2026-10-03T10:24:54.678Z",
   "briefDate": "2026-10-03",
   "displayDate": "Saturday, October 3, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -7,7 +7,7 @@
     {
       "slug": "mcafee-station-on-the-salt-river",
       "title": "McAfee Station on the Salt River",
-      "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
+      "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
       "era": "native",
       "yearStart": 1773,
       "briefDate": "2026-10-03",
@@ -17,7 +17,7 @@
       "lon": -84.851895,
       "historyId": "mcafee-station-salt-river-mercer-1773-1785",
       "mapHref": "/#map/history/mcafee-station-salt-river-mercer-1773-1785",
-      "quote": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County.",
+      "quote": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County.",
       "photo": {
         "image_url": "/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
         "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
@@ -40,7 +40,7 @@
       "lon": -83.808533,
       "historyId": "washington-mason-county-founding-1785-1786",
       "mapHref": "/#map/history/washington-mason-county-founding-1785-1786",
-      "quote": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still a Virginia county.",
+      "quote": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still part of Virginia.",
       "photo": {
         "image_url": "/content/photos/stories/washington-mason-county.jpg",
         "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
@@ -53,7 +53,7 @@
     {
       "slug": "blue-jacket-weyapiersenwah",
       "title": "Blue Jacket (Weyapiersenwah)",
-      "summary": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in British records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the…",
+      "summary": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in written records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the…",
       "era": "native",
       "yearStart": 1787,
       "briefDate": "2026-10-03",
@@ -63,7 +63,7 @@
       "lon": -83.76211,
       "historyId": "blue-jacket-limestone-negotiation-1787-1788",
       "mapHref": "/#map/history/blue-jacket-limestone-negotiation-1787-1788",
-      "quote": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in British records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the British through the Revolution.",
+      "quote": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in written records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the British through the Revolution.",
       "photo": {
         "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
         "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
@@ -123,7 +123,7 @@
   "hero": {
     "slug": "mcafee-station-on-the-salt-river",
     "title": "McAfee Station on the Salt River",
-    "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
+    "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
     "era": "native",
     "yearStart": 1773,
     "briefDate": "2026-10-03",
@@ -133,7 +133,7 @@
     "lon": -84.851895,
     "historyId": "mcafee-station-salt-river-mercer-1773-1785",
     "mapHref": "/#map/history/mcafee-station-salt-river-mercer-1773-1785",
-    "quote": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County.",
+    "quote": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County.",
     "photo": {
       "image_url": "/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
       "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
@@ -157,7 +157,7 @@
       "lon": -83.808533,
       "historyId": "washington-mason-county-founding-1785-1786",
       "mapHref": "/#map/history/washington-mason-county-founding-1785-1786",
-      "quote": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still a Virginia county.",
+      "quote": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still part of Virginia.",
       "photo": {
         "image_url": "/content/photos/stories/washington-mason-county.jpg",
         "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
@@ -170,7 +170,7 @@
     {
       "slug": "blue-jacket-weyapiersenwah",
       "title": "Blue Jacket (Weyapiersenwah)",
-      "summary": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in British records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the…",
+      "summary": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in written records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the…",
       "era": "native",
       "yearStart": 1787,
       "briefDate": "2026-10-03",
@@ -180,7 +180,7 @@
       "lon": -83.76211,
       "historyId": "blue-jacket-limestone-negotiation-1787-1788",
       "mapHref": "/#map/history/blue-jacket-limestone-negotiation-1787-1788",
-      "quote": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in British records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the British through the Revolution.",
+      "quote": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in written records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the British through the Revolution.",
       "photo": {
         "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
         "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
@@ -507,7 +507,7 @@
     }
   ],
   "quote": {
-    "text": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County.",
+    "text": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in today’s Mercer County.",
     "source": "McAfee Station on the Salt River",
     "href": "/#timeline/mcafee-station-on-the-salt-river"
   }

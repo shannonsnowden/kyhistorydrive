@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T09:45:13.782Z",
+  "generatedAt": "2026-10-03T10:24:53.820Z",
   "count": 190,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -1070,7 +1070,8 @@
       "lat": 37.41,
       "lon": -82.33,
       "mapConfidence": "override",
-      "matchedPlace": "Slone Site (15Pi11), Pike County"
+      "matchedPlace": "Slone Site (15Pi11), Pike County",
+      "county": "Pike"
     },
     {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
@@ -2052,7 +2053,7 @@
       "slug": "mcafee-station-on-the-salt-river",
       "title": "McAfee Station on the Salt River",
       "publishedDate": "2026-10-03",
-      "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
+      "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, and George, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
       "yearStart": 1773,
       "yearEnd": 1785,
       "era": "native",
@@ -2077,7 +2078,8 @@
       "lat": 37.850631,
       "lon": -84.851895,
       "mapConfidence": "override",
-      "matchedPlace": "McAfee Station on the Salt River"
+      "matchedPlace": "McAfee Station on the Salt River",
+      "county": "Mercer"
     },
     {
       "slug": "georgetown-and-royal-spring",
@@ -3363,13 +3365,14 @@
       "lat": 38.615908,
       "lon": -83.808533,
       "mapConfidence": "override",
-      "matchedPlace": "Washington, Mason County (Old Washington)"
+      "matchedPlace": "Washington, Mason County (Old Washington)",
+      "county": "Mason"
     },
     {
       "slug": "blue-jacket-weyapiersenwah",
       "title": "Blue Jacket (Weyapiersenwah)",
       "publishedDate": "2026-10-03",
-      "summary": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in British records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the…",
+      "summary": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in written records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the…",
       "yearStart": 1787,
       "yearEnd": 1788,
       "era": "native",
@@ -3394,7 +3397,8 @@
       "lat": 38.64867,
       "lon": -83.76211,
       "mapConfidence": "override",
-      "matchedPlace": "Blue Jacket at Limestone (Maysville)"
+      "matchedPlace": "Blue Jacket at Limestone (Maysville)",
+      "county": "Mason"
     },
     {
       "slug": "william-whitley-sportsmans-hill",
@@ -4477,7 +4481,8 @@
       "lat": 38.24611,
       "lon": -85.76889,
       "mapConfidence": "override",
-      "matchedPlace": "Louisville & Nashville Railroad (main line opens)"
+      "matchedPlace": "Louisville & Nashville Railroad (main line opens)",
+      "county": "Jefferson"
     },
     {
       "slug": "henry-mckennas-fairfield-sour-mash",
