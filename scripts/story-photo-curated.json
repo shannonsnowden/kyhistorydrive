@@ -602,5 +602,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
     "year": 2019
+  },
+  "mcafee-station-on-the-salt-river": {
+    "ext": "jpg",
+    "commonsFile": "New_Providence_Presbyterian_Church.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/New_Providence_Presbyterian_Church.JPG?width=1280",
+    "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:New_Providence_Presbyterian_Church.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Flynnke · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2014
+  },
+  "washington-mason-county": {
+    "ext": "jpg",
+    "commonsFile": "PaxtonInn.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/PaxtonInn.jpg?width=1280",
+    "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:PaxtonInn.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2011
+  },
+  "blue-jacket-weyapiersenwah": {
+    "ext": "jpg",
+    "commonsFile": "Treaty_of_Greenville.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Treaty_of_Greenville.jpg?width=1280",
+    "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
+    "year": 1795
+  },
+  "slone-site-15pi11-pike-county": {
+    "ext": "jpg",
+    "commonsFile": "Stone_discoidals_SOMACC_HRoe_2010.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Stone_discoidals_SOMACC_HRoe_2010.jpg?width=1280",
+    "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010
+  },
+  "louisville-nashville-railroad-opens-the-interior": {
+    "ext": "jpg",
+    "commonsFile": "UnionStationLouisville.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/UnionStationLouisville.jpg?width=1280",
+    "title": "Louisville Union Station (L&N), 1000 West Broadway — later passenger terminal on the Old Reliable’s Louisville end",
+    "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
+    "year": 1979
   }
 }

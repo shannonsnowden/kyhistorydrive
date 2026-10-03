@@ -261,6 +261,51 @@
       "historyId": "lower-shawneetown",
       "lat": 38.73,
       "lon": -83.01
+    },
+    "mcafee-station-on-the-salt-river": {
+      "reason": "Pin McAfee Station / McAfee hamlet (Mercer GNIS) for 1773 survey–1785 New Providence span.",
+      "date": "2026-10-03",
+      "historyId": "mcafee-station-salt-river-mercer-1773-1785",
+      "lat": 37.850631,
+      "lon": -84.851895,
+      "yearStart": 1773,
+      "yearEnd": 1785
+    },
+    "washington-mason-county": {
+      "reason": "Pin Old Washington (GNIS); founding/charter years 1785–1786 (not 1848 seat move).",
+      "date": "2026-10-03",
+      "historyId": "washington-mason-county-founding-1785-1786",
+      "lat": 38.615908,
+      "lon": -83.808533,
+      "yearStart": 1785,
+      "yearEnd": 1786
+    },
+    "blue-jacket-weyapiersenwah": {
+      "reason": "Pin Limestone/Maysville for 1787 negotiation (+ 1788 KY raids); not theme-only / Ohio towns.",
+      "date": "2026-10-03",
+      "historyId": "blue-jacket-limestone-negotiation-1787-1788",
+      "lat": 38.64867,
+      "lon": -83.76211,
+      "yearStart": 1787,
+      "yearEnd": 1788
+    },
+    "slone-site-15pi11-pike-county": {
+      "reason": "Flooded under Fishtrap Reservoir (Woodside/Levisa Fork); public coordinate generalized to ~0.01° (#141 style). Occupation 1350–1400 CE.",
+      "date": "2026-10-03",
+      "historyId": "slone-site-15pi11-pike-county",
+      "lat": 37.41,
+      "lon": -82.33,
+      "yearStart": 1350,
+      "yearEnd": 1400
+    },
+    "louisville-nashville-railroad-opens-the-interior": {
+      "reason": "Pin Louisville Union Station / 10th & Broadway for L&N charter→main-line open 1850–1859.",
+      "date": "2026-10-03",
+      "historyId": "louisville-nashville-railroad-main-line-1850-1859",
+      "lat": 38.24611,
+      "lon": -85.76889,
+      "yearStart": 1850,
+      "yearEnd": 1859
     }
   }
 }
