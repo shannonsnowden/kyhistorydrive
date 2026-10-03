@@ -3,7 +3,7 @@
   "title": "Louisville & Nashville Railroad opens the interior",
   "publishedDate": "2026-10-03",
   "summary": "Kentucky chartered the Louisville & Nashville on March 5, 1850, to build south toward Nashville; Tennessee authorized the extension in 1851. Track laying began in Louisville in…",
-  "bodyMarkdown": "Kentucky chartered the Louisville & Nashville on March 5, 1850, to build south toward Nashville; Tennessee authorized the extension in 1851. Track laying began in Louisville in May 1853; the first eight-mile excursion ran August 25, 1855, and on October 27, 1859, the first train covered the full ~187-mile Louisville–Nashville main line. Unlike the earlier Lexington & Ohio Bluegrass short line, the L&N tied the Falls city to the Deep South, survived Civil War use by both sides, and later drove branch construction into western and eastern Kentucky coalfields—the “Old Reliable” that opened much of the commonwealth’s interior freight map.\nSource: [https://www.lnrr.org/History.aspx](https://www.lnrr.org/History.aspx)",
+  "bodyMarkdown": "Kentucky chartered the Louisville & Nashville on March 5, 1850, to build south toward Nashville; Tennessee authorized the extension in 1851. Track laying began in Louisville in May 1853; the first eight-mile excursion ran August 25, 1855, and on October 27, 1859, the first train covered the full ~187-mile Louisville–Nashville main line. The L&N survived Civil War use by both sides, later reached the Gulf Coast, and drove branch construction into western and eastern Kentucky coalfields—the “Old Reliable” that opened much of the commonwealth’s interior freight map.\nSource: [https://www.lnrr.org/History.aspx](https://www.lnrr.org/History.aspx)",
   "yearStart": 1850,
   "yearEnd": 1859,
   "era": "other",
@@ -22,5 +22,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
     "year": 1979
-  }
+  },
+  "county": "Jefferson"
 }

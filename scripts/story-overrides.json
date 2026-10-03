@@ -263,49 +263,90 @@
       "lon": -83.01
     },
     "mcafee-station-on-the-salt-river": {
-      "reason": "Pin McAfee Station / McAfee hamlet (Mercer GNIS) for 1773 survey–1785 New Providence span.",
+      "reason": "Pin McAfee Station / McAfee hamlet (Mercer GNIS) for 1773 survey–1785 New Providence span. | QA 2026-10-03: county label was Boyle (nearest-pin inference); 1773 party = Robert, James, George + McCoun, Adams per cited marker; removed unsupported \"hamlet still marks the name\".",
       "date": "2026-10-03",
       "historyId": "mcafee-station-salt-river-mercer-1773-1785",
       "lat": 37.850631,
       "lon": -84.851895,
       "yearStart": 1773,
-      "yearEnd": 1785
+      "yearEnd": 1785,
+      "county": "Mercer",
+      "replace": [
+        {
+          "old": "brothers James, Robert, George, Samuel, and William, with",
+          "new": "brothers James, Robert, and George, with"
+        },
+        {
+          "old": "and the modern hamlet of McAfee still marks the pioneer name.",
+          "new": "and the station area is now part of an unincorporated Mercer County community."
+        }
+      ]
     },
     "washington-mason-county": {
-      "reason": "Pin Old Washington (GNIS); founding/charter years 1785–1786 (not 1848 seat move).",
+      "reason": "Pin Old Washington (GNIS); founding/charter years 1785–1786 (not 1848 seat move). | QA 2026-10-03: county label showed Washington County (title regex); added sources for 1785 purchase/700 acres/1786 charter/119 houses/1788 seat; hedged \"first town named for Washington\".",
       "date": "2026-10-03",
       "historyId": "washington-mason-county-founding-1785-1786",
       "lat": 38.615908,
       "lon": -83.808533,
       "yearStart": 1785,
-      "yearEnd": 1786
+      "yearEnd": 1786,
+      "county": "Mason",
+      "replace": [
+        {
+          "old": "while Kentucky was still a Virginia county",
+          "new": "while Kentucky was still part of Virginia"
+        },
+        {
+          "old": "first U.S. town named for George Washington",
+          "new": "widely cited as the first town named for George Washington"
+        }
+      ]
     },
     "blue-jacket-weyapiersenwah": {
-      "reason": "Pin Limestone/Maysville for 1787 negotiation (+ 1788 KY raids); not theme-only / Ohio towns.",
+      "reason": "Pin Limestone/Maysville for 1787 negotiation (+ 1788 KY raids); not theme-only / Ohio towns. | QA 2026-10-03: added Dictionary of Canadian Biography source (Point Pleasant, Logan 1786, Limestone 1787, 1788 raids are not in the cited Wikipedia page); \"British records\" -> written records; \"most of Ohio\" -> \"much of Ohio\".",
       "date": "2026-10-03",
       "historyId": "blue-jacket-limestone-negotiation-1787-1788",
       "lat": 38.64867,
       "lon": -83.76211,
       "yearStart": 1787,
-      "yearEnd": 1788
+      "yearEnd": 1788,
+      "county": "Mason",
+      "replace": [
+        {
+          "old": "first appears in British records at",
+          "new": "first appears in written records at"
+        },
+        {
+          "old": "opened most of Ohio to settlement",
+          "new": "opened much of Ohio to settlement"
+        }
+      ]
     },
     "slone-site-15pi11-pike-county": {
-      "reason": "Flooded under Fishtrap Reservoir (Woodside/Levisa Fork); public coordinate generalized to ~0.01° (#141 style). Occupation 1350–1400 CE.",
+      "reason": "Flooded under Fishtrap Reservoir (Woodside/Levisa Fork); public coordinate generalized to ~0.01° (#141 style). Occupation 1350–1400 CE. | QA 2026-10-03: county label read \"Pike County · Levisa Fork County\".",
       "date": "2026-10-03",
       "historyId": "slone-site-15pi11-pike-county",
       "lat": 37.41,
       "lon": -82.33,
       "yearStart": 1350,
-      "yearEnd": 1400
+      "yearEnd": 1400,
+      "county": "Pike"
     },
     "louisville-nashville-railroad-opens-the-interior": {
-      "reason": "Pin Louisville Union Station / 10th & Broadway for L&N charter→main-line open 1850–1859.",
+      "reason": "Pin Louisville Union Station / 10th & Broadway for L&N charter→main-line open 1850–1859. | QA 2026-10-03: county label read \"Jefferson County · Louisville Union Station County\"; removed Lexington & Ohio comparison and \"Deep South\" in 1859 (not in cited source).",
       "date": "2026-10-03",
       "historyId": "louisville-nashville-railroad-main-line-1850-1859",
       "lat": 38.24611,
       "lon": -85.76889,
       "yearStart": 1850,
-      "yearEnd": 1859
+      "yearEnd": 1859,
+      "county": "Jefferson",
+      "replace": [
+        {
+          "old": "Unlike the earlier Lexington & Ohio Bluegrass short line, the L&N tied the Falls city to the Deep South, survived Civil War use by both sides, and later drove",
+          "new": "The L&N survived Civil War use by both sides, later reached the Gulf Coast, and drove"
+        }
+      ]
     }
   }
 }

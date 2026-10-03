@@ -3,7 +3,7 @@
   "title": "Washington, Mason County",
   "publishedDate": "2026-10-03",
   "summary": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first…",
-  "bodyMarkdown": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still a Virginia county. By the 1790 census it had 462 residents in 119 houses, second only to Lexington; it became Mason County’s seat in 1788, hosted an early regional post office, and later yielded the seat to riverside Maysville (1848) before Maysville annexed Old Washington in 1990.\nSource: [https://en.wikipedia.org/wiki/Washington,_Kentucky](https://en.wikipedia.org/wiki/Washington,_Kentucky)",
+  "bodyMarkdown": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first American settlement named for George Washington while Kentucky was still part of Virginia. By the 1790 census it had 462 residents in 119 houses, second only to Lexington; it became Mason County’s seat in 1788, hosted an early regional post office, and later yielded the seat to riverside Maysville (1848) before Maysville annexed Old Washington in 1990.\nSource: [https://en.wikipedia.org/wiki/Washington,_Kentucky](https://en.wikipedia.org/wiki/Washington,_Kentucky)\nSource: [https://en.wikipedia.org/wiki/Washington_Historic_District_(Washington,_Kentucky)](https://en.wikipedia.org/wiki/Washington_Historic_District_(Washington,_Kentucky))\nSource: [https://oldwashingtonky.com/sketch-of-washington-ky/](https://oldwashingtonky.com/sketch-of-washington-ky/)",
   "yearStart": 1785,
   "yearEnd": 1786,
   "era": "frontier",
@@ -21,5 +21,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2011
-  }
+  },
+  "county": "Mason"
 }
