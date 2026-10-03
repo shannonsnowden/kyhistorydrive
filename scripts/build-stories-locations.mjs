@@ -643,7 +643,39 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'nonhelema': {},
+  // 2026-10-03 morning brief (all five pinned)
+  'mcafee-station-on-the-salt-river': {
+    matchName: 'McAfee Station on the Salt River',
+    lat: 37.850631,
+    lon: -84.851895,
+    confidence: 'override',
+  },
+  'washington-mason-county': {
+    matchName: 'Washington, Mason County (Old Washington)',
+    lat: 38.615908,
+    lon: -83.808533,
+    confidence: 'override',
+  },
+  'blue-jacket-weyapiersenwah': {
+    matchName: 'Blue Jacket at Limestone (Maysville)',
+    lat: 38.64867,
+    lon: -83.76211,
+    confidence: 'override',
+  },
+  'slone-site-15pi11-pike-county': {
+    matchName: 'Slone Site (15Pi11), Pike County',
+    lat: 37.41,
+    lon: -82.33,
+    confidence: 'override',
+  },
+  'louisville-nashville-railroad-opens-the-interior': {
+    matchName: 'Louisville & Nashville Railroad (main line opens)',
+    lat: 38.24611,
+    lon: -85.76889,
+    confidence: 'override',
+  },
 }
+
 
 const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
 const countyRe = countyNames.length

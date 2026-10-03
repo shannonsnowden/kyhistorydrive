@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T23:34:10.105Z",
+  "generatedAt": "2026-10-03T09:45:14.267Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 89,
+    "override": 94,
     "none": 32
   },
   "locations": {
@@ -279,6 +279,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Fox Farm Fort Ancient",
       "historyId": "fox-farm-fort-ancient"
+    },
+    "slone-site-15pi11-pike-county": {
+      "slug": "slone-site-15pi11-pike-county",
+      "lat": 37.41,
+      "lon": -82.33,
+      "mapConfidence": "override",
+      "matchedPlace": "Slone Site (15Pi11), Pike County",
+      "historyId": "slone-site-15pi11-pike-county"
     },
     "howard-site-late-fort-ancient-above-harts-fork": {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
@@ -591,6 +599,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "Leestown",
       "historyId": "leestown"
+    },
+    "mcafee-station-on-the-salt-river": {
+      "slug": "mcafee-station-on-the-salt-river",
+      "lat": 37.850631,
+      "lon": -84.851895,
+      "mapConfidence": "override",
+      "matchedPlace": "McAfee Station on the Salt River",
+      "historyId": "mcafee-station-salt-river-mercer-1773-1785"
     },
     "georgetown-and-royal-spring": {
       "slug": "georgetown-and-royal-spring",
@@ -1000,6 +1016,22 @@
       "matchedPlace": "Henderson / Red Banks",
       "historyId": "henderson-founding-red-banks"
     },
+    "washington-mason-county": {
+      "slug": "washington-mason-county",
+      "lat": 38.615908,
+      "lon": -83.808533,
+      "mapConfidence": "override",
+      "matchedPlace": "Washington, Mason County (Old Washington)",
+      "historyId": "washington-mason-county-founding-1785-1786"
+    },
+    "blue-jacket-weyapiersenwah": {
+      "slug": "blue-jacket-weyapiersenwah",
+      "lat": 38.64867,
+      "lon": -83.76211,
+      "mapConfidence": "override",
+      "matchedPlace": "Blue Jacket at Limestone (Maysville)",
+      "historyId": "blue-jacket-limestone-negotiation-1787-1788"
+    },
     "william-whitley-sportsmans-hill": {
       "slug": "william-whitley-sportsmans-hill",
       "lat": 37.4761695,
@@ -1327,6 +1359,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Bagdad / Consolation rail stop",
       "historyId": "bagdad-shelby-county"
+    },
+    "louisville-nashville-railroad-opens-the-interior": {
+      "slug": "louisville-nashville-railroad-opens-the-interior",
+      "lat": 38.24611,
+      "lon": -85.76889,
+      "mapConfidence": "override",
+      "matchedPlace": "Louisville & Nashville Railroad (main line opens)",
+      "historyId": "louisville-nashville-railroad-main-line-1850-1859"
     },
     "henry-mckennas-fairfield-sour-mash": {
       "slug": "henry-mckennas-fairfield-sour-mash",

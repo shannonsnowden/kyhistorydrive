@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-02T23:34:09.956Z",
-  "count": 185,
+  "generatedAt": "2026-10-03T09:45:13.782Z",
+  "count": 190,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-02"
+    "end": "2026-10-03"
   },
   "eras": [
     "early-commonwealth",
@@ -1044,6 +1044,35 @@
       "matchedPlace": "Fox Farm Fort Ancient"
     },
     {
+      "slug": "slone-site-15pi11-pike-county",
+      "title": "Slone Site (15Pi11), Pike County",
+      "publishedDate": "2026-10-03",
+      "summary": "On the north bank of the Levisa Fork of the Big Sandy, Slone was a late Middle Fort Ancient circular village occupied about 1350–1400 CE for roughly thirty to forty-five years.…",
+      "yearStart": 1350,
+      "yearEnd": 1400,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-03",
+      "photo": {
+        "image_url": "/content/photos/stories/slone-site-15pi11-pike-county.jpg",
+        "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
+      },
+      "lat": 37.41,
+      "lon": -82.33,
+      "mapConfidence": "override",
+      "matchedPlace": "Slone Site (15Pi11), Pike County"
+    },
+    {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
       "title": "Howard Site — Late Fort Ancient above Harts Fork",
       "publishedDate": "2026-09-09",
@@ -2018,6 +2047,37 @@
       "lon": -84.8677266,
       "mapConfidence": "exact",
       "matchedPlace": "Leestown"
+    },
+    {
+      "slug": "mcafee-station-on-the-salt-river",
+      "title": "McAfee Station on the Salt River",
+      "publishedDate": "2026-10-03",
+      "summary": "In May 1773, Virginia’s McAfee Company—brothers James, Robert, George, Samuel, and William, with James McCoun Jr. and Samuel Adams—surveyed fertile Salt River bottomlands in…",
+      "yearStart": 1773,
+      "yearEnd": 1785,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war",
+        "town-founding",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-03",
+      "photo": {
+        "image_url": "/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
+        "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:New_Providence_Presbyterian_Church.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Flynnke · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2014
+      },
+      "lat": 37.850631,
+      "lon": -84.851895,
+      "mapConfidence": "override",
+      "matchedPlace": "McAfee Station on the Salt River"
     },
     {
       "slug": "georgetown-and-royal-spring",
@@ -3278,6 +3338,65 @@
       "matchedPlace": "Henderson / Red Banks"
     },
     {
+      "slug": "washington-mason-county",
+      "title": "Washington, Mason County",
+      "publishedDate": "2026-10-03",
+      "summary": "In 1785 Arthur Fox and Baptist preacher William Wood bought about 700 acres and laid out a one-mile-square town; Virginia chartered Washington in 1786—widely cited as the first…",
+      "yearStart": 1785,
+      "yearEnd": 1786,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-03",
+      "photo": {
+        "image_url": "/content/photos/stories/washington-mason-county.jpg",
+        "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:PaxtonInn.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011
+      },
+      "lat": 38.615908,
+      "lon": -83.808533,
+      "mapConfidence": "override",
+      "matchedPlace": "Washington, Mason County (Old Washington)"
+    },
+    {
+      "slug": "blue-jacket-weyapiersenwah",
+      "title": "Blue Jacket (Weyapiersenwah)",
+      "publishedDate": "2026-10-03",
+      "summary": "Shawnee war chief Blue Jacket (c. 1743–1810) first appears in British records at his Scioto town in 1773, fought at Point Pleasant in Lord Dunmore’s War, and allied with the…",
+      "yearStart": 1787,
+      "yearEnd": 1788,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-03",
+      "photo": {
+        "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
+        "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
+        "year": 1795
+      },
+      "lat": 38.64867,
+      "lon": -83.76211,
+      "mapConfidence": "override",
+      "matchedPlace": "Blue Jacket at Limestone (Maysville)"
+    },
+    {
       "slug": "william-whitley-sportsmans-hill",
       "title": "William Whitley / Sportsman's Hill",
       "publishedDate": "2026-08-28",
@@ -4330,6 +4449,35 @@
       "lon": -85.0577313,
       "mapConfidence": "override",
       "matchedPlace": "Bagdad / Consolation rail stop"
+    },
+    {
+      "slug": "louisville-nashville-railroad-opens-the-interior",
+      "title": "Louisville & Nashville Railroad opens the interior",
+      "publishedDate": "2026-10-03",
+      "summary": "Kentucky chartered the Louisville & Nashville on March 5, 1850, to build south toward Nashville; Tennessee authorized the extension in 1851. Track laying began in Louisville in…",
+      "yearStart": 1850,
+      "yearEnd": 1859,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "town-founding",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-03",
+      "photo": {
+        "image_url": "/content/photos/stories/louisville-nashville-railroad-opens-the-interior.jpg",
+        "title": "Louisville Union Station (L&N), 1000 West Broadway — later passenger terminal on the Old Reliable’s Louisville end",
+        "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
+        "year": 1979
+      },
+      "lat": 38.24611,
+      "lon": -85.76889,
+      "mapConfidence": "override",
+      "matchedPlace": "Louisville & Nashville Railroad (main line opens)"
     },
     {
       "slug": "henry-mckennas-fairfield-sour-mash",

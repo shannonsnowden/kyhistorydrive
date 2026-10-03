@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T23:34:10.773Z",
+  "generatedAt": "2026-10-03T09:45:15.251Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -47,6 +47,18 @@
         "source_label": "Bagdad Roller Mills Inc.",
         "attribution": "Bagdad Roller Mills Inc. · company historic photo (early–mid 20th c., undated archival B&W)",
         "year": null
+      }
+    },
+    "blue-jacket-weyapiersenwah": {
+      "slug": "blue-jacket-weyapiersenwah",
+      "historyId": "blue-jacket-limestone-negotiation-1787-1788",
+      "photo": {
+        "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
+        "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
+        "year": 1795
       }
     },
     "bowling-green-takes-shape-on-the-barren-1798": {
@@ -412,6 +424,18 @@
         "year": 1778
       }
     },
+    "louisville-nashville-railroad-opens-the-interior": {
+      "slug": "louisville-nashville-railroad-opens-the-interior",
+      "historyId": "louisville-nashville-railroad-main-line-1850-1859",
+      "photo": {
+        "image_url": "/content/photos/stories/louisville-nashville-railroad-opens-the-interior.jpg",
+        "title": "Louisville Union Station (L&N), 1000 West Broadway — later passenger terminal on the Old Reliable’s Louisville end",
+        "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
+        "year": 1979
+      }
+    },
     "mammoth-cave-saltpeter": {
       "slug": "mammoth-cave-saltpeter",
       "historyId": "mammoth-cave-saltpeter-war-of-1812",
@@ -434,6 +458,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
         "year": null
+      }
+    },
+    "mcafee-station-on-the-salt-river": {
+      "slug": "mcafee-station-on-the-salt-river",
+      "historyId": "mcafee-station-salt-river-mercer-1773-1785",
+      "photo": {
+        "image_url": "/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
+        "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:New_Providence_Presbyterian_Church.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Flynnke · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2014
       }
     },
     "moneton": {
@@ -616,6 +652,18 @@
         "year": 2020
       }
     },
+    "slone-site-15pi11-pike-county": {
+      "slug": "slone-site-15pi11-pike-county",
+      "historyId": "slone-site-15pi11-pike-county",
+      "photo": {
+        "image_url": "/content/photos/stories/slone-site-15pi11-pike-county.jpg",
+        "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
+      }
+    },
     "somerset": {
       "slug": "somerset",
       "historyId": "somerset-founding-pulaski-seat-1801",
@@ -700,6 +748,18 @@
         "year": 2010
       }
     },
+    "washington-mason-county": {
+      "slug": "washington-mason-county",
+      "historyId": "washington-mason-county-founding-1785-1786",
+      "photo": {
+        "image_url": "/content/photos/stories/washington-mason-county.jpg",
+        "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:PaxtonInn.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011
+      }
+    },
     "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
       "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
       "historyId": "wea-waayaahtanwa-ouiatenon",
@@ -772,6 +832,18 @@
         "source_label": "Bagdad Roller Mills Inc.",
         "attribution": "Bagdad Roller Mills Inc. · company historic photo (early–mid 20th c., undated archival B&W)",
         "year": null
+      }
+    },
+    "blue-jacket-limestone-negotiation-1787-1788": {
+      "slug": "blue-jacket-weyapiersenwah",
+      "historyId": "blue-jacket-limestone-negotiation-1787-1788",
+      "photo": {
+        "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
+        "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
+        "year": 1795
       }
     },
     "bowling-green-founding-bolin-green-1798": {
@@ -1038,6 +1110,18 @@
         "year": 1778
       }
     },
+    "louisville-nashville-railroad-main-line-1850-1859": {
+      "slug": "louisville-nashville-railroad-opens-the-interior",
+      "historyId": "louisville-nashville-railroad-main-line-1850-1859",
+      "photo": {
+        "image_url": "/content/photos/stories/louisville-nashville-railroad-opens-the-interior.jpg",
+        "title": "Louisville Union Station (L&N), 1000 West Broadway — later passenger terminal on the Old Reliable’s Louisville end",
+        "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
+        "year": 1979
+      }
+    },
     "mammoth-cave-saltpeter-war-of-1812": {
       "slug": "mammoth-cave-saltpeter",
       "historyId": "mammoth-cave-saltpeter-war-of-1812",
@@ -1060,6 +1144,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Mattguyver · Wikimedia Commons · CC BY 3.0",
         "year": null
+      }
+    },
+    "mcafee-station-salt-river-mercer-1773-1785": {
+      "slug": "mcafee-station-on-the-salt-river",
+      "historyId": "mcafee-station-salt-river-mercer-1773-1785",
+      "photo": {
+        "image_url": "/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
+        "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:New_Providence_Presbyterian_Church.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Flynnke · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2014
       }
     },
     "muir-site-15js86-jessamine-county": {
@@ -1182,6 +1278,18 @@
         "year": 2020
       }
     },
+    "slone-site-15pi11-pike-county": {
+      "slug": "slone-site-15pi11-pike-county",
+      "historyId": "slone-site-15pi11-pike-county",
+      "photo": {
+        "image_url": "/content/photos/stories/slone-site-15pi11-pike-county.jpg",
+        "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
+      }
+    },
     "somerset-founding-pulaski-seat-1801": {
       "slug": "somerset",
       "historyId": "somerset-founding-pulaski-seat-1801",
@@ -1252,6 +1360,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
+      }
+    },
+    "washington-mason-county-founding-1785-1786": {
+      "slug": "washington-mason-county",
+      "historyId": "washington-mason-county-founding-1785-1786",
+      "photo": {
+        "image_url": "/content/photos/stories/washington-mason-county.jpg",
+        "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:PaxtonInn.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011
       }
     },
     "wea-waayaahtanwa-ouiatenon": {

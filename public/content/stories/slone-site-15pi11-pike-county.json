@@ -1,0 +1,26 @@
+{
+  "slug": "slone-site-15pi11-pike-county",
+  "title": "Slone Site (15Pi11), Pike County",
+  "publishedDate": "2026-10-03",
+  "summary": "On the north bank of the Levisa Fork of the Big Sandy, Slone was a late Middle Fort Ancient circular village occupied about 1350–1400 CE for roughly thirty to forty-five years.…",
+  "bodyMarkdown": "On the north bank of the Levisa Fork of the Big Sandy, Slone was a late Middle Fort Ancient circular village occupied about 1350–1400 CE for roughly thirty to forty-five years. University of Kentucky crews excavated about eighty percent of the site in 1963–64 before Fishtrap Reservoir rose; they mapped at least twelve houses around a plaza, concentric cooking/storage and residential zones, family cemeteries behind the houses, and three successive wooden palisades that grew the enclosure from just over 200 to about 255 feet across. More than 150 stone discoidals—likely chunkey game pieces—underscore daily life in this eastern Kentucky Fort Ancient community.\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Slone.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Slone.aspx)",
+  "yearStart": 1350,
+  "yearEnd": 1400,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology",
+    "frontier-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-03",
+  "photo": {
+    "image_url": "/content/photos/stories/slone-site-15pi11-pike-county.jpg",
+    "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010
+  }
+}
