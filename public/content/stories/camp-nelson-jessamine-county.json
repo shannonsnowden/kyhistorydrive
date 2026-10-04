@@ -1,0 +1,26 @@
+{
+  "slug": "camp-nelson-jessamine-county",
+  "title": "Camp Nelson, Jessamine County",
+  "publishedDate": "2026-10-04",
+  "summary": "The U.S. Army established Camp Nelson in central Kentucky in April 1863 as a fortified supply depot, forward base and hospital, part of the Union effort to liberate East…",
+  "bodyMarkdown": "The U.S. Army established Camp Nelson in central Kentucky in April 1863 as a fortified supply depot, forward base and hospital, part of the Union effort to liberate East Tennessee. At its 1865 height it covered roughly 4,000 acres and more than 300 buildings, with earthen forts built primarily by enslaved African Americans impressed by the Army. From 1864 thousands of Black men, women and children reached the camp; eight regiments of United States Colored Troops were organized there, making it the largest USCT recruitment center in Kentucky and the third largest in the nation. In November 1864 soldiers expelled more than 400 women and children and destroyed their huts, and more than one hundred of the displaced refugees died of illness and exposure. The Army then built a Home for Colored Refugees, opened in January 1865, and on March 3, 1865 an Act of Congress emancipated the wives, children and mothers of USCT soldiers. Camp Nelson became a national monument in 2018; the pin marks the monument, not the whole camp.\nSource: [https://www.nps.gov/cane/learn/historyculture/overview-of-camp-nelson.htm](https://www.nps.gov/cane/learn/historyculture/overview-of-camp-nelson.htm)\nSource: [https://en.wikipedia.org/wiki/Camp_Nelson_National_Monument](https://en.wikipedia.org/wiki/Camp_Nelson_National_Monument)",
+  "yearStart": 1863,
+  "yearEnd": 1865,
+  "era": "other",
+  "tags": [
+    "other",
+    "kentucky",
+    "civil-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-04",
+  "photo": {
+    "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
+    "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
+    "year": 2022
+  },
+  "county": "Jessamine"
+}

@@ -674,6 +674,37 @@ const MANUAL_OVERRIDES = {
     lon: -85.76889,
     confidence: 'override',
   },
+  // 2026-10-04 brief (Covington and Tutelo repeats swapped for Pleasant Hill and Camp Nelson)
+  'william-hoy-and-hoys-station': {
+    matchName: "William Hoy’s Station (Madison County)",
+    lat: 37.822972,
+    lon: -84.329608,
+    confidence: 'override',
+  },
+  'shaker-village-of-pleasant-hill': {
+    matchName: "Shaker Village of Pleasant Hill",
+    lat: 37.818017,
+    lon: -84.740317,
+    confidence: 'override',
+  },
+  'camp-nelson-jessamine-county': {
+    matchName: "Camp Nelson (Civil War depot and USCT recruiting center)",
+    lat: 37.78778,
+    lon: -84.59806,
+    confidence: 'override',
+  },
+  'andalex-village-15hk22-hopkins-county': {
+    matchName: "Andalex Village (15Hk22), Hopkins County",
+    lat: 37.32,
+    lon: -87.52,
+    confidence: 'override',
+  },
+  'louisville-and-portland-canal': {
+    matchName: "Louisville and Portland Canal (locks)",
+    lat: 38.27181,
+    lon: -85.77933,
+    confidence: 'override',
+  },
 }
 
 

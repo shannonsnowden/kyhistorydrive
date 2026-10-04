@@ -1,0 +1,26 @@
+{
+  "slug": "william-hoy-and-hoys-station",
+  "title": "William Hoy and Hoy’s Station",
+  "publishedDate": "2026-10-04",
+  "summary": "William Hoy established Hoy’s Station in Madison County in 1781, with help from George Boone, according to a Boone-family genealogy; a Filson Historical Society study of…",
+  "bodyMarkdown": "William Hoy established Hoy’s Station in Madison County in 1781, with help from George Boone, according to a Boone-family genealogy; a Filson Historical Society study of pioneer forts and stations places it about six miles northwest of present-day Richmond. In 1782, Wyandot warriors captured two boys, Jones Hoy and Jack Calloway, near Boonesborough. On August 12, 1782, Capt. John Holder and 17 militiamen overtook the band on Great Salt Creek (the Licking River); Holder lost four men in the skirmish and, outnumbered, withdrew without the boys. Jones Hoy was held captive for seven years, Calloway not as long. The Kentucky Historical Society’s Upper Blue Licks marker (Nicholas County) records that skirmish but does not mention the station or say how the boys were tied to it, so the map pin uses the USGS historic-locale point for William Hoy’s Station—an approximate site.\nSource: [https://history.ky.gov/markers/upper-blue-licks](https://history.ky.gov/markers/upper-blue-licks)\nSource: [https://filsonhistorical.org/wp-content/uploads/publicationpdfs/76-4-6_Kentucky-Pioneer-Forts-and-Stations_Hammon-Neal-O..pdf](https://filsonhistorical.org/wp-content/uploads/publicationpdfs/76-4-6_Kentucky-Pioneer-Forts-and-Stations_Hammon-Neal-O..pdf)\nSource: [https://sites.rootsweb.com/~cummingsofscgen/GBooneIV2.html](https://sites.rootsweb.com/~cummingsofscgen/GBooneIV2.html)",
+  "yearStart": 1781,
+  "yearEnd": 1782,
+  "era": "frontier",
+  "tags": [
+    "frontier",
+    "kentucky",
+    "frontier-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-04",
+  "photo": {
+    "image_url": "/content/photos/stories/william-hoy-and-hoys-station.jpg",
+    "title": "Reconstructed Fort Boonesborough, Madison County—a stand-in for an early Madison County station; not Hoy’s Station",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2017
+  },
+  "county": "Madison"
+}

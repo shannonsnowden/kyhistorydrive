@@ -13,7 +13,8 @@
   "John Floyd": "john-floyd",
   "Squire Boone": "squire-boones-painted-stone",
   "John Finley": "john-finley-the-trader-who-put-kentucky-on-boones-map",
-  "Hancock Taylor": "hancock-taylor-fincastle-surveyor"
+  "Hancock Taylor": "hancock-taylor-fincastle-surveyor",
+  "John Holder": "col-john-holder-at-lower-howards-creek"
  },
  "skip": {
   "Richard Henderson": [
@@ -255,6 +256,18 @@
    {
     "slug": "treaty-of-camp-charlotte-1774",
     "label": "Same event: bought Transylvania land from the Cherokee, 1775"
+   }
+  ],
+  "william-hoy-and-hoys-station": [
+   {
+    "slug": "col-john-holder-at-lower-howards-creek",
+    "label": "Same person: John Holder, who led the August 1782 pursuit of the captors; his Boonesborough and Kentucky River career has its own story"
+   }
+  ],
+  "col-john-holder-at-lower-howards-creek": [
+   {
+    "slug": "william-hoy-and-hoys-station",
+    "label": "Same event: Holder led the August 1782 pursuit of the Wyandot band holding Jones Hoy and Jack Calloway"
    }
   ]
  }

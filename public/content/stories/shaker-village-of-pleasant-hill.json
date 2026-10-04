@@ -1,0 +1,26 @@
+{
+  "slug": "shaker-village-of-pleasant-hill",
+  "title": "Shaker Village of Pleasant Hill",
+  "publishedDate": "2026-10-04",
+  "summary": "In 1805 three Shaker missionaries—John Meacham, Issachar Bates and Benjamin Seth Youngs—left New York and traveled mostly on foot to Kentucky, and in August found three…",
+  "bodyMarkdown": "In 1805 three Shaker missionaries—John Meacham, Issachar Bates and Benjamin Seth Youngs—left New York and traveled mostly on foot to Kentucky, and in August found three Kentuckians willing to listen, who soon became the state’s first Shaker converts. Believers began moving to Elisha Thomas’s 140-acre Mercer County farm; 44 people signed the first family covenant in December 1806, and two years later they moved to a nearby hilltop they named Pleasant Hill. By 1823 the village had 491 Shakers on about 4,500 acres, and over 105 years they built more than 260 structures, including one of Kentucky’s earliest municipal water systems. By 1816 they were shipping brooms, cooperage, preserves and seeds on trading trips to New Orleans by river. Pleasant Hill closed as an active religious society by 1910 and the last Shaker died in 1923; a nonprofit formed in 1961 has since restored the village.\nSource: [https://shakervillageky.org/about-us/history/](https://shakervillageky.org/about-us/history/)\nSource: [https://en.wikipedia.org/wiki/Pleasant_Hill,_Kentucky](https://en.wikipedia.org/wiki/Pleasant_Hill,_Kentucky)",
+  "yearStart": 1805,
+  "yearEnd": 1910,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "settlement"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-04",
+  "photo": {
+    "image_url": "/content/photos/stories/shaker-village-of-pleasant-hill.jpg",
+    "title": "Buildings at Shaker Village of Pleasant Hill, Mercer County (photographed 2007)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Shaker_Village_at_Pleasant_Hill_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Timothy Brown · Wikimedia Commons · CC BY 2.0",
+    "year": 2007
+  },
+  "county": "Mercer"
+}

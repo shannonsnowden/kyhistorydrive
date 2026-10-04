@@ -1,0 +1,26 @@
+{
+  "slug": "louisville-and-portland-canal",
+  "title": "Louisville and Portland Canal",
+  "publishedDate": "2026-10-04",
+  "summary": "The Falls of the Ohio form the only barrier to navigation between Pittsburgh and New Orleans, and cargo was portaged around them except for a few weeks of high water each…",
+  "bodyMarkdown": "The Falls of the Ohio form the only barrier to navigation between Pittsburgh and New Orleans, and cargo was portaged around them except for a few weeks of high water each spring. Kentucky chartered the private Louisville and Portland Canal Company in 1825; construction started March 1, 1826, and the canal opened in 1830. As built, it was 1.9 miles long and 64 feet wide and ended in a three-flight lock with a total lift of 26 feet. Wikipedia describes it as the first major improvement completed on a major U.S. river and dates full completion to 1833. The route was later enlarged and rebuilt and is now the McAlpine Locks and Dam canal; the pin marks the lock site at the downstream end.\nSource: [https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/louisville-and-portland-canal-locks-and-dam](https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/louisville-and-portland-canal-locks-and-dam)\nSource: [https://en.wikipedia.org/wiki/Louisville_and_Portland_Canal](https://en.wikipedia.org/wiki/Louisville_and_Portland_Canal)",
+  "yearStart": 1826,
+  "yearEnd": 1830,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "transport"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-04",
+  "photo": {
+    "image_url": "/content/photos/stories/louisville-and-portland-canal.jpg",
+    "title": "Coal barge tow in the Louisville and Portland Canal today—modern traffic on the 1830 canal route, not a period view",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Censusdata · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
+  },
+  "county": "Jefferson"
+}
