@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-03T10:24:53.820Z",
-  "count": 190,
+  "generatedAt": "2026-10-04T09:36:50.902Z",
+  "count": 195,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-03"
+    "end": "2026-10-04"
   },
   "eras": [
     "early-commonwealth",
@@ -711,6 +711,35 @@
       "lon": -89.0917492,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Wickliffe Mounds"
+    },
+    {
+      "slug": "andalex-village-15hk22-hopkins-county",
+      "title": "Andalex Village (15Hk22), Hopkins County",
+      "publishedDate": "2026-10-04",
+      "summary": "The Andalex site sits on a bluff overlooking the Pond River in Hopkins County, where Mississippian farmers occupied a mound center from AD 1175 to 1275. Cultural Resource…",
+      "yearStart": 1175,
+      "yearEnd": 1275,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-04",
+      "county": "Hopkins",
+      "photo": {
+        "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
+        "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
+      },
+      "lat": 37.32,
+      "lon": -87.52,
+      "mapConfidence": "override",
+      "matchedPlace": "Andalex Village (15Hk22), Hopkins County"
     },
     {
       "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
@@ -3099,6 +3128,35 @@
       "matchedPlace": "Craig's Station / Travelling Church (Gilbert's Creek)"
     },
     {
+      "slug": "william-hoy-and-hoys-station",
+      "title": "William Hoy and Hoy’s Station",
+      "publishedDate": "2026-10-04",
+      "summary": "William Hoy established Hoy’s Station in Madison County in 1781, with help from George Boone, according to a Boone-family genealogy; a Filson Historical Society study of…",
+      "yearStart": 1781,
+      "yearEnd": 1782,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-04",
+      "county": "Madison",
+      "photo": {
+        "image_url": "/content/photos/stories/william-hoy-and-hoys-station.jpg",
+        "title": "Reconstructed Fort Boonesborough, Madison County—a stand-in for an early Madison County station; not Hoy’s Station",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2017
+      },
+      "lat": 37.822972,
+      "lon": -84.329608,
+      "mapConfidence": "override",
+      "matchedPlace": "William Hoy’s Station (Madison County)"
+    },
+    {
       "slug": "battle-of-blue-licks",
       "title": "Battle of Blue Licks",
       "publishedDate": "2026-08-30",
@@ -4194,6 +4252,35 @@
       "matchedPlace": null
     },
     {
+      "slug": "shaker-village-of-pleasant-hill",
+      "title": "Shaker Village of Pleasant Hill",
+      "publishedDate": "2026-10-04",
+      "summary": "In 1805 three Shaker missionaries—John Meacham, Issachar Bates and Benjamin Seth Youngs—left New York and traveled mostly on foot to Kentucky, and in August found three…",
+      "yearStart": 1805,
+      "yearEnd": 1910,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "settlement"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-04",
+      "county": "Mercer",
+      "photo": {
+        "image_url": "/content/photos/stories/shaker-village-of-pleasant-hill.jpg",
+        "title": "Buildings at Shaker Village of Pleasant Hill, Mercer County (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Shaker_Village_at_Pleasant_Hill_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Timothy Brown · Wikimedia Commons · CC BY 2.0",
+        "year": 2007
+      },
+      "lat": 37.818017,
+      "lon": -84.740317,
+      "mapConfidence": "override",
+      "matchedPlace": "Shaker Village of Pleasant Hill"
+    },
+    {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
       "title": "Ephraim McDowell & Jane Todd Crawford (1809)",
       "publishedDate": "2026-09-28",
@@ -4349,6 +4436,35 @@
       "lon": -88.63255,
       "mapConfidence": "override",
       "matchedPlace": "Chickasaw / Jackson Purchase"
+    },
+    {
+      "slug": "louisville-and-portland-canal",
+      "title": "Louisville and Portland Canal",
+      "publishedDate": "2026-10-04",
+      "summary": "The Falls of the Ohio form the only barrier to navigation between Pittsburgh and New Orleans, and cargo was portaged around them except for a few weeks of high water each…",
+      "yearStart": 1826,
+      "yearEnd": 1830,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-04",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/louisville-and-portland-canal.jpg",
+        "title": "Coal barge tow in the Louisville and Portland Canal today—modern traffic on the 1830 canal route, not a period view",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Censusdata · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "lat": 38.27181,
+      "lon": -85.77933,
+      "mapConfidence": "override",
+      "matchedPlace": "Louisville and Portland Canal (locks)"
     },
     {
       "slug": "paducah-at-the-tennessee-mouth",
@@ -4534,6 +4650,35 @@
       "lon": -86.0626,
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
+    },
+    {
+      "slug": "camp-nelson-jessamine-county",
+      "title": "Camp Nelson, Jessamine County",
+      "publishedDate": "2026-10-04",
+      "summary": "The U.S. Army established Camp Nelson in central Kentucky in April 1863 as a fortified supply depot, forward base and hospital, part of the Union effort to liberate East…",
+      "yearStart": 1863,
+      "yearEnd": 1865,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "civil-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-04",
+      "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
+        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
+        "year": 2022
+      },
+      "lat": 37.78778,
+      "lon": -84.59806,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
     },
     {
       "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",

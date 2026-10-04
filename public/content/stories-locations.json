@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-03T09:45:14.267Z",
+  "generatedAt": "2026-10-04T09:36:51.047Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 94,
+    "override": 99,
     "none": 32
   },
   "locations": {
@@ -199,6 +199,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Wickliffe Mounds",
       "historyId": "wickliffe-mounds"
+    },
+    "andalex-village-15hk22-hopkins-county": {
+      "slug": "andalex-village-15hk22-hopkins-county",
+      "lat": 37.32,
+      "lon": -87.52,
+      "mapConfidence": "override",
+      "matchedPlace": "Andalex Village (15Hk22), Hopkins County",
+      "historyId": "andalex-village-15hk22-hopkins-county"
     },
     "buckner-site-fort-ancient-villages-on-strodes-creek": {
       "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
@@ -936,6 +944,14 @@
       "matchedPlace": "Craig's Station / Travelling Church (Gilbert's Creek)",
       "historyId": "craigs-station-travelling-church-gilberts-creek"
     },
+    "william-hoy-and-hoys-station": {
+      "slug": "william-hoy-and-hoys-station",
+      "lat": 37.822972,
+      "lon": -84.329608,
+      "mapConfidence": "override",
+      "matchedPlace": "William Hoy’s Station (Madison County)",
+      "historyId": "hoys-station-madison-1781-1782"
+    },
     "battle-of-blue-licks": {
       "slug": "battle-of-blue-licks",
       "lat": 38.43443333333333,
@@ -1280,6 +1296,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "shaker-village-of-pleasant-hill": {
+      "slug": "shaker-village-of-pleasant-hill",
+      "lat": 37.818017,
+      "lon": -84.740317,
+      "mapConfidence": "override",
+      "matchedPlace": "Shaker Village of Pleasant Hill",
+      "historyId": "pleasant-hill-shaker-village-mercer-1805-1910"
+    },
     "ephraim-mcdowell-jane-todd-crawford-1809": {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
       "lat": 37.6451148,
@@ -1327,6 +1351,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Chickasaw / Jackson Purchase",
       "historyId": "jackson-purchase"
+    },
+    "louisville-and-portland-canal": {
+      "slug": "louisville-and-portland-canal",
+      "lat": 38.27181,
+      "lon": -85.77933,
+      "mapConfidence": "override",
+      "matchedPlace": "Louisville and Portland Canal (locks)",
+      "historyId": "louisville-portland-canal-1826-1830"
     },
     "paducah-at-the-tennessee-mouth": {
       "slug": "paducah-at-the-tennessee-mouth",
@@ -1383,6 +1415,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
+    },
+    "camp-nelson-jessamine-county": {
+      "slug": "camp-nelson-jessamine-county",
+      "lat": 37.78778,
+      "lon": -84.59806,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)",
+      "historyId": "camp-nelson-jessamine-1863-1865"
     },
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
       "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",

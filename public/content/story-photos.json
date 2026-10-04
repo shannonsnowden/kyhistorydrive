@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T09:45:15.251Z",
+  "generatedAt": "2026-10-04T09:36:51.759Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -11,6 +11,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": 2013
+      }
+    },
+    "andalex-village-15hk22-hopkins-county": {
+      "slug": "andalex-village-15hk22-hopkins-county",
+      "historyId": "andalex-village-15hk22-hopkins-county",
+      "photo": {
+        "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
+        "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
       }
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
@@ -95,6 +107,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "camp-nelson-jessamine-county": {
+      "slug": "camp-nelson-jessamine-county",
+      "historyId": "camp-nelson-jessamine-1863-1865",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
+        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
+        "year": 2022
       }
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
@@ -424,6 +448,18 @@
         "year": 1778
       }
     },
+    "louisville-and-portland-canal": {
+      "slug": "louisville-and-portland-canal",
+      "historyId": "louisville-portland-canal-1826-1830",
+      "photo": {
+        "image_url": "/content/photos/stories/louisville-and-portland-canal.jpg",
+        "title": "Coal barge tow in the Louisville and Portland Canal today—modern traffic on the 1830 canal route, not a period view",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Censusdata · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      }
+    },
     "louisville-nashville-railroad-opens-the-interior": {
       "slug": "louisville-nashville-railroad-opens-the-interior",
       "historyId": "louisville-nashville-railroad-main-line-1850-1859",
@@ -616,6 +652,18 @@
         "year": null
       }
     },
+    "shaker-village-of-pleasant-hill": {
+      "slug": "shaker-village-of-pleasant-hill",
+      "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
+      "photo": {
+        "image_url": "/content/photos/stories/shaker-village-of-pleasant-hill.jpg",
+        "title": "Buildings at Shaker Village of Pleasant Hill, Mercer County (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Shaker_Village_at_Pleasant_Hill_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Timothy Brown · Wikimedia Commons · CC BY 2.0",
+        "year": 2007
+      }
+    },
     "simpsonville-takes-shape-on-the-louisville-road": {
       "slug": "simpsonville-takes-shape-on-the-louisville-road",
       "historyId": "simpsonville-laid-out-1816",
@@ -772,6 +820,18 @@
         "year": 2008
       }
     },
+    "william-hoy-and-hoys-station": {
+      "slug": "william-hoy-and-hoys-station",
+      "historyId": "hoys-station-madison-1781-1782",
+      "photo": {
+        "image_url": "/content/photos/stories/william-hoy-and-hoys-station.jpg",
+        "title": "Reconstructed Fort Boonesborough, Madison County—a stand-in for an early Madison County station; not Hoy’s Station",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2017
+      }
+    },
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {
       "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
       "historyId": null,
@@ -808,6 +868,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": 2013
+      }
+    },
+    "andalex-village-15hk22-hopkins-county": {
+      "slug": "andalex-village-15hk22-hopkins-county",
+      "historyId": "andalex-village-15hk22-hopkins-county",
+      "photo": {
+        "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
+        "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010
       }
     },
     "augusta-founding-philip-buckner": {
@@ -880,6 +952,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "camp-nelson-jessamine-1863-1865": {
+      "slug": "camp-nelson-jessamine-county",
+      "historyId": "camp-nelson-jessamine-1863-1865",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
+        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
+        "year": 2022
       }
     },
     "hubbell-flatboat-fight-limestone-1791": {
@@ -1110,6 +1194,18 @@
         "year": 1778
       }
     },
+    "louisville-portland-canal-1826-1830": {
+      "slug": "louisville-and-portland-canal",
+      "historyId": "louisville-portland-canal-1826-1830",
+      "photo": {
+        "image_url": "/content/photos/stories/louisville-and-portland-canal.jpg",
+        "title": "Coal barge tow in the Louisville and Portland Canal today—modern traffic on the 1830 canal route, not a period view",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Censusdata · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      }
+    },
     "louisville-nashville-railroad-main-line-1850-1859": {
       "slug": "louisville-nashville-railroad-opens-the-interior",
       "historyId": "louisville-nashville-railroad-main-line-1850-1859",
@@ -1240,6 +1336,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "pleasant-hill-shaker-village-mercer-1805-1910": {
+      "slug": "shaker-village-of-pleasant-hill",
+      "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
+      "photo": {
+        "image_url": "/content/photos/stories/shaker-village-of-pleasant-hill.jpg",
+        "title": "Buildings at Shaker Village of Pleasant Hill, Mercer County (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Shaker_Village_at_Pleasant_Hill_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Timothy Brown · Wikimedia Commons · CC BY 2.0",
+        "year": 2007
       }
     },
     "simpsonville-laid-out-1816": {
@@ -1384,6 +1492,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2008
+      }
+    },
+    "hoys-station-madison-1781-1782": {
+      "slug": "william-hoy-and-hoys-station",
+      "historyId": "hoys-station-madison-1781-1782",
+      "photo": {
+        "image_url": "/content/photos/stories/william-hoy-and-hoys-station.jpg",
+        "title": "Reconstructed Fort Boonesborough, Madison County—a stand-in for an early Madison County station; not Hoy’s Station",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2017
       }
     }
   }

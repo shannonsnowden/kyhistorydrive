@@ -347,6 +347,56 @@
           "new": "The L&N survived Civil War use by both sides, later reached the Gulf Coast, and drove"
         }
       ]
+    },
+    "william-hoy-and-hoys-station": {
+      "reason": "Pin USGS GNIS historic locale William Hoys Station (Madison County, ~6 mi NW of Richmond). QA lessons applied: explicit county; years 1781–1782; tags set by hand.",
+      "date": "2026-10-04",
+      "historyId": "hoys-station-madison-1781-1782",
+      "lat": 37.822972,
+      "lon": -84.329608,
+      "yearStart": 1781,
+      "yearEnd": 1782,
+      "county": "Madison"
+    },
+    "shaker-village-of-pleasant-hill": {
+      "reason": "Replacement for repeat Covington (covington-at-the-point, 2026-09-13). Pin Shaker Village of Pleasant Hill (NRHP/Wikipedia coords).",
+      "date": "2026-10-04",
+      "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
+      "lat": 37.818017,
+      "lon": -84.740317,
+      "yearStart": 1805,
+      "yearEnd": 1910,
+      "county": "Mercer"
+    },
+    "camp-nelson-jessamine-county": {
+      "reason": "Replacement for repeat Tutelo (tutelo-the-totteroy, 2026-09-17). Pin Camp Nelson National Monument.",
+      "date": "2026-10-04",
+      "historyId": "camp-nelson-jessamine-1863-1865",
+      "lat": 37.78778,
+      "lon": -84.59806,
+      "yearStart": 1863,
+      "yearEnd": 1865,
+      "county": "Jessamine"
+    },
+    "andalex-village-15hk22-hopkins-county": {
+      "reason": "Archaeological site, location not public: county-level pin (Hopkins centroid, 2 decimals), same approach as Slone/#141. Occupation 1175–1275 CE, not 1988–89 investigation.",
+      "date": "2026-10-04",
+      "historyId": "andalex-village-15hk22-hopkins-county",
+      "lat": 37.32,
+      "lon": -87.52,
+      "yearStart": 1175,
+      "yearEnd": 1275,
+      "county": "Hopkins"
+    },
+    "louisville-and-portland-canal": {
+      "reason": "Replaces the Grokipedia source with Wikipedia + ASCE. Pin canal lock site (ASCE landmark coords). Opened 1830 (first boat Dec 22, 1830 per USACE); full completion 1833 per Wikipedia.",
+      "date": "2026-10-04",
+      "historyId": "louisville-portland-canal-1826-1830",
+      "lat": 38.27181,
+      "lon": -85.77933,
+      "yearStart": 1826,
+      "yearEnd": 1830,
+      "county": "Jefferson"
     }
   }
 }

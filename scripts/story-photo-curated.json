@@ -652,5 +652,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
     "year": 1979
+  },
+  "william-hoy-and-hoys-station": {
+    "ext": "jpg",
+    "commonsFile": "Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Boonesborough_reproduction,_KY,_US_(03).jpg?width=1280",
+    "title": "Reconstructed Fort Boonesborough, Madison County—a stand-in for an early Madison County station; not Hoy’s Station",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2017
+  },
+  "shaker-village-of-pleasant-hill": {
+    "ext": "jpg",
+    "commonsFile": "Shaker_Village_at_Pleasant_Hill_Kentucky.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shaker_Village_at_Pleasant_Hill_Kentucky.jpg?width=1280",
+    "title": "Buildings at Shaker Village of Pleasant Hill, Mercer County (photographed 2007)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Shaker_Village_at_Pleasant_Hill_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Timothy Brown · Wikimedia Commons · CC BY 2.0",
+    "year": 2007
+  },
+  "camp-nelson-jessamine-county": {
+    "ext": "jpg",
+    "commonsFile": "Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg?width=1280",
+    "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
+    "year": 2022
+  },
+  "andalex-village-15hk22-hopkins-county": {
+    "ext": "jpg",
+    "commonsFile": "Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Pottery_artifacts_HRoe_01.jpg?width=1280",
+    "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010
+  },
+  "louisville-and-portland-canal": {
+    "ext": "jpg",
+    "commonsFile": "Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg?width=1280",
+    "title": "Coal barge tow in the Louisville and Portland Canal today—modern traffic on the 1830 canal route, not a period view",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Censusdata · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
   }
 }
