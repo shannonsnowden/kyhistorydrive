@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T09:36:51.759Z",
+  "generatedAt": "2026-10-05T09:31:35.909Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -133,6 +133,18 @@
         "year": 2019
       }
     },
+    "carrollton-from-port-william": {
+      "slug": "carrollton-from-port-william",
+      "historyId": "carrollton-port-william-carroll-1792-1838",
+      "photo": {
+        "image_url": "/content/photos/stories/carrollton-from-port-william.jpg",
+        "title": "Richard Masterson House, Carrollton—where the first Gallatin County court met in 1799 (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Richard_Masterson_House_at_Carrollton.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
+      }
+    },
     "chickamauga-cherokee-hold-the-southern-flank": {
       "slug": "chickamauga-cherokee-hold-the-southern-flank",
       "historyId": null,
@@ -170,6 +182,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2007
+      }
+    },
+    "col-john-hardin-of-pleasant-run": {
+      "slug": "col-john-hardin-of-pleasant-run",
+      "historyId": "john-hardin-pleasant-run-washington-1786-1792",
+      "photo": {
+        "image_url": "/content/photos/stories/col-john-hardin-of-pleasant-run.jpg",
+        "title": "Washington County Courthouse, Springfield (HABS photo, 1940)—built 1816, after Hardin’s death; a county stand-in, not his homestead",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
+        "year": 1940
       }
     },
     "col-john-holder-at-lower-howards-creek": {
@@ -326,6 +350,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2017
+      }
+    },
+    "hidden-river-cave-under-horse-cave": {
+      "slug": "hidden-river-cave-under-horse-cave",
+      "historyId": "hidden-river-cave-horse-cave-1890-1943",
+      "photo": {
+        "image_url": "/content/photos/stories/hidden-river-cave-under-horse-cave.jpg",
+        "title": "The sinkhole entrance to Hidden River Cave in Horse Cave (photographed 2022)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
+        "year": 2022
       }
     },
     "hopkinsville": {
@@ -640,6 +676,18 @@
         "year": null
       }
     },
+    "rowlandton-mound-site-15mcn3-paducah": {
+      "slug": "rowlandton-mound-site-15mcn3-paducah",
+      "historyId": "rowlandton-mound-site-15mcn3-mccracken",
+      "photo": {
+        "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
+        "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2003
+      }
+    },
     "saltpeter-cave-at-carter-caves": {
       "slug": "saltpeter-cave-at-carter-caves",
       "historyId": "saltpeter-cave-carter-caves-15cr99",
@@ -757,6 +805,18 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons · Public domain",
+        "year": null
+      }
+    },
+    "tellico-cession-1805-south-of-the-cumberland": {
+      "slug": "tellico-cession-1805-south-of-the-cumberland",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/tellico-cession-1805-south-of-the-cumberland.jpg",
+        "title": "Bridge over the Cumberland River at Williamsburg, Whitley County (HAER survey photo)—the river that bounded the 1805 cession in Kentucky; a modern stand-in",
+        "source_url": "https://commons.wikimedia.org/wiki/File:GENERAL_VIEW_OF_BRIDGE_-_Williamsburg_Bridge,_Spanning_Cumberland_River,_Williamsburg,_Whitley_County,_KY_HAER_KY,118-WILBU,1-1.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "J. E. Daniel & G. D. Rawlings / Kentucky Transportation Cabinet (HAER) · Wikimedia Commons · public domain",
         "year": null
       }
     },
@@ -978,6 +1038,18 @@
         "year": 2019
       }
     },
+    "carrollton-port-william-carroll-1792-1838": {
+      "slug": "carrollton-from-port-william",
+      "historyId": "carrollton-port-william-carroll-1792-1838",
+      "photo": {
+        "image_url": "/content/photos/stories/carrollton-from-port-william.jpg",
+        "title": "Richard Masterson House, Carrollton—where the first Gallatin County court met in 1799 (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Richard_Masterson_House_at_Carrollton.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
+      }
+    },
     "cleek-mccabe-fort-ancient-village-boone-county": {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
@@ -1000,6 +1072,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2007
+      }
+    },
+    "john-hardin-pleasant-run-washington-1786-1792": {
+      "slug": "col-john-hardin-of-pleasant-run",
+      "historyId": "john-hardin-pleasant-run-washington-1786-1792",
+      "photo": {
+        "image_url": "/content/photos/stories/col-john-hardin-of-pleasant-run.jpg",
+        "title": "Washington County Courthouse, Springfield (HABS photo, 1940)—built 1816, after Hardin’s death; a county stand-in, not his homestead",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
+        "year": 1940
       }
     },
     "holders-station-lower-howards-creek": {
@@ -1096,6 +1180,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
+      }
+    },
+    "hidden-river-cave-horse-cave-1890-1943": {
+      "slug": "hidden-river-cave-under-horse-cave",
+      "historyId": "hidden-river-cave-horse-cave-1890-1943",
+      "photo": {
+        "image_url": "/content/photos/stories/hidden-river-cave-under-horse-cave.jpg",
+        "title": "The sinkhole entrance to Hidden River Cave in Horse Cave (photographed 2022)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
+        "year": 2022
       }
     },
     "hopkinsville-founding-elizabeth-1804": {
@@ -1324,6 +1420,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Preston County · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2019
+      }
+    },
+    "rowlandton-mound-site-15mcn3-mccracken": {
+      "slug": "rowlandton-mound-site-15mcn3-paducah",
+      "historyId": "rowlandton-mound-site-15mcn3-mccracken",
+      "photo": {
+        "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
+        "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2003
       }
     },
     "saltpeter-cave-carter-caves-15cr99": {

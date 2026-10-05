@@ -2800,5 +2800,105 @@
       "attribution": "Censusdata · Wikimedia Commons · CC BY-SA 3.0",
       "year": 2007
     }
+  },
+  {
+    "id": "john-hardin-pleasant-run-washington-1786-1792",
+    "name": "Col. John Hardin’s Pleasant Run homestead (approximate)",
+    "subtitle": "Washington County · Pleasant Run, ~3 mi east of Springfield (approximate) · settled April 1786 · killed on 1792 peace mission",
+    "latitude": 37.69,
+    "longitude": -85.17,
+    "history": "John Hardin was born in Virginia in 1753. In August 1774, at the start of Lord Dunmore’s War, he was wounded in a skirmish at Snake’s Town on the Muskingum during Angus McDonald’s expedition; the musket ball lodged in his thigh near the groin and stayed there for the rest of his life. In the Revolution he was a lieutenant picked for Daniel Morgan’s riflemen and fought at Saratoga under Morgan. In April 1786 he settled his family on Pleasant Run, a branch of Beech Fork, about three miles east of present-day Springfield in what is now Washington County, Kentucky; the family farmed, raised livestock and joined the Methodist church. As a militia captain that year he attacked a Piankashaw village near Vincennes, although the Piankashaw were friendly to the Americans. Promoted to colonel, he led the Kentucky militia detachment routed in 1790 at Heller’s Corner—“Hardin’s Defeat”—which began a long run of American losses to the Miami chief Little Turtle, and in 1791 he led mounted militia against a Kickapoo village during Gen. Charles Scott’s Wabash campaign. In May 1792 Gen. James Wilkinson sent him to carry American peace terms to the nations along the Sandusky River. A Shawnee party offered to escort him, then killed him and his servant Freeman one night as he slept. Hardin County, Kentucky, and the town of Hardin, Ohio, near where he was killed, are named for him. His son Martin D. Hardin, later a U.S. senator from Kentucky, married Ann Logan, daughter of Gen. Benjamin Logan. The map pin is an approximate point about three miles east of Springfield, where the Kentucky Historical Society’s John Hardin marker stands on US 150 and where his son Mark Hardin placed the homestead; the exact house site is not mapped.",
+    "source_date": "2026-10-05",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "approx-khs-931-location-text-mark-hardin-account",
+    "geocode_note": "Approximate point ~3 mi due east of Springfield (37.685, -85.222 town center), rounded to 0.01°. KHS marker #931 (John Hardin, 1753-92) stands “3 mi. E. of Springfield, US 150” but has no published coordinates; Mark Hardin’s 1869 account (in Ben Hardin: His Times and Contemporaries, 1887) puts the Pleasant Run homestead about three miles east of Springfield. Not the Hardin Village 15Gp22 site and not the Ohio death site. Years 1786 settlement–1792 death.",
+    "category": "person",
+    "website": "https://en.wikipedia.org/wiki/John_Hardin",
+    "year_start": 1786,
+    "year_end": 1792,
+    "photo": {
+      "image_url": "/content/photos/stories/col-john-hardin-of-pleasant-run.jpg",
+      "title": "Washington County Courthouse, Springfield (HABS photo, 1940)—built 1816, after Hardin’s death; a county stand-in, not his homestead",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
+      "year": 1940
+    }
+  },
+  {
+    "id": "carrollton-port-william-carroll-1792-1838",
+    "name": "Carrollton (Port William) at the Kentucky–Ohio confluence",
+    "subtitle": "Carroll County · Point Park at the mouth of the Kentucky River · settled 1792 · incorporated as Port William 1794 · Gallatin County seat · renamed Carrollton 1838",
+    "latitude": 38.68195,
+    "longitude": -85.18682,
+    "history": "Where the Kentucky River empties into the Ohio, Gen. Charles Scott built a blockhouse in 1789 to protect settlers, according to the Kentucky Historical Society marker at Point Park. The town at the river mouth was first settled in 1792 and called Port William. Benjamin Craig, who had come to Kentucky with the Traveling Church led by his brother Lewis Craig, laid off the town on 613 acres that he and James Hawkins owned, and the legislature incorporated Port William in 1794; Craig had built the first brick house in the county in 1792. When Gallatin County was formed on December 14, 1798, from parts of Franklin and Shelby counties, Port William served as its county seat. The first Gallatin County court met on May 14, 1799, at the brick home of Richard and Sarah Masterson—leading Methodists, and Richard an early trustee of Port William—which still stands on the east side of town. In 1838 the Kentucky legislature formed Carroll County, partly out of Gallatin, and changed the town’s name to Carrollton, both in honor of Charles Carroll of Carrollton, the Maryland signer of the Declaration of Independence; Carrollton became the new county’s seat. The map pin marks Point Park at the confluence.",
+    "source_date": "2026-10-05",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "khs-marker-1094-scotts-blockhouse-point-park",
+    "geocode_note": "KHS marker #1094 (Scott’s Blockhouse), Point Park, Carrollton (38.68195, -85.18682), at the Kentucky–Ohio confluence. Years 1792 settlement–1838 rename (not the 1964 marker). Wikipedia’s Carrollton article says Port William was Gallatin’s seat “until 1843”; KHS markers and the Carroll County article give 1838 for the new county and rename, which the story uses.",
+    "category": "town",
+    "website": "https://history.ky.gov/markers/carrollton",
+    "year_start": 1792,
+    "year_end": 1838,
+    "photo": {
+      "image_url": "/content/photos/stories/carrollton-from-port-william.jpg",
+      "title": "Richard Masterson House, Carrollton—where the first Gallatin County court met in 1799 (photographed 2013)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Richard_Masterson_House_at_Carrollton.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "year": 2013
+    }
+  },
+  {
+    "id": "rowlandton-mound-site-15mcn3-mccracken",
+    "name": "Rowlandton Mound Site (15McN3), Paducah",
+    "subtitle": "McCracken County · Paducah, oxbow lake edge south of the Ohio · Mississippian platform mound and village · occupation ~1100–1350 CE · pin rounded to 0.01°",
+    "latitude": 37.1,
+    "longitude": -88.64,
+    "history": "The Rowlandton Mound Site (15MCN3) is a Mississippian town site inside present-day Paducah, on the edge of an old oxbow lake a little south of the Ohio River. People lived there from about 1100 to about 1350 CE. The 3-hectare (7.4-acre) site has a large platform mound and an associated village area, roughly the size of the Wickliffe Mounds site in far western Kentucky. Archaeologists once thought that large civic centers in western Kentucky such as Rowlandton, Twin Mounds and Tolu were 13th-century expansions of the Kincaid Mounds polity in nearby southern Illinois, but excavations in 2006 by Kit Wesler of Murray State University showed that this was not the case; the centers were probably founded by local Late Woodland peoples. The map pin is the site’s published coordinate rounded to two decimals (about 1 km), the site’s rule for archaeological pins.",
+    "source_date": "2026-10-05",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "wikipedia-rowlandton-rounded-2dp",
+    "geocode_note": "Wikipedia coordinates (37.0950194, -88.6364694) rounded to 0.01° per pin-rounding rule #141 (tier B). Occupation years ~1100–1350 CE (not the 2006 Wesler excavation).",
+    "category": "archaeology",
+    "website": "https://en.wikipedia.org/wiki/Rowlandton_Mound_Site",
+    "year_start": 1100,
+    "year_end": 1350,
+    "photo": {
+      "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
+      "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2003
+    }
+  },
+  {
+    "id": "hidden-river-cave-horse-cave-1890-1943",
+    "name": "Hidden River Cave (Horse Cave)",
+    "subtitle": "Hart County · sinkhole entrance at 119 E. Main St., Horse Cave · turbine 1890 · generator 1892 · tours 1912–1943 · American Cave Museum 1992",
+    "latitude": 37.17928,
+    "longitude": -85.90619,
+    "history": "Hidden River Cave lies directly beneath the town of Horse Cave in Hart County, and its main entrance is a large sinkhole at 119 East Main Street. The cave stream was the town’s water source, and attempts to set up public waterworks in the cave go back to 1879. Dentist George A. Thomas moved to Horse Cave in 1888, bought a house by the entrance and, a year later, bought the cave for $375. In 1890 a vertical-shaft turbine was built below the junction of the two cave streams to drive the pumps, and in 1892 an added electrical generator lit the Thomas home, his dental office and two other buildings—making Horse Cave, the cave’s operators say, the first town in Kentucky with incandescent lights (Louisville had electric arc lights earlier). The cave offered commercial tours from 1912 through 1943, though the same history dates the opening of a half-mile tour section to 1916. Domestic and industrial sewage dumped into sinkholes and wells fouled the stream; with noxious odors, low wartime visitation and a failed lawsuit, the tours closed in 1943, and the cave became known as one of the most polluted in America. A regional sewage treatment system stopped the sewage in December 1989, the stream began to recover, and in 1992 the American Cave Museum opened beside the entrance and the steps down to the underground river were rebuilt. Tours reached Sunset Dome again in 2020.",
+    "source_date": "2026-10-05",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "osm-hidden-river-cave-entrance",
+    "geocode_note": "OpenStreetMap cave_entrance node “Hidden River Cave”, East Main Street, Horse Cave (37.17928, -85.90619); museum address 119 E. Main St. Public show cave (not an archaeological pin). Years 1890 turbine–1943 tour closure.",
+    "category": "industry",
+    "website": "https://hiddenrivercave.com/hidden-river-cave-history/",
+    "year_start": 1890,
+    "year_end": 1943,
+    "photo": {
+      "image_url": "/content/photos/stories/hidden-river-cave-under-horse-cave.jpg",
+      "title": "The sinkhole entrance to Hidden River Cave in Horse Cave (photographed 2022)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
+      "year": 2022
+    }
   }
 ]

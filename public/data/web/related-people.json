@@ -14,7 +14,8 @@
   "Squire Boone": "squire-boones-painted-stone",
   "John Finley": "john-finley-the-trader-who-put-kentucky-on-boones-map",
   "Hancock Taylor": "hancock-taylor-fincastle-surveyor",
-  "John Holder": "col-john-holder-at-lower-howards-creek"
+  "John Holder": "col-john-holder-at-lower-howards-creek",
+  "John Hardin": "col-john-hardin-of-pleasant-run"
  },
  "skip": {
   "Richard Henderson": [
@@ -268,6 +269,38 @@
    {
     "slug": "william-hoy-and-hoys-station",
     "label": "Same event: Holder led the August 1782 pursuit of the Wyandot band holding Jones Hoy and Jack Calloway"
+   }
+  ],
+  "col-john-hardin-of-pleasant-run": [
+   {
+    "slug": "benjamin-logan",
+    "label": "Family: Hardin’s son Martin D. Hardin married Logan’s daughter Ann"
+   },
+   {
+    "slug": "mascouten-fire-nation-on-the-wabash",
+    "label": "Same event: Hardin led a detachment in Gen. Charles Scott’s 1791 Wabash raid"
+   }
+  ],
+  "mascouten-fire-nation-on-the-wabash": [
+   {
+    "slug": "col-john-hardin-of-pleasant-run",
+    "label": "Same person: Col. John Hardin, who led a detachment in the 1791 raid, has his own story"
+   }
+  ],
+  "carrollton-from-port-william": [
+   {
+    "slug": "the-travelling-church-1781",
+    "label": "Family: town founder Benjamin Craig came to Kentucky with the Traveling Church led by his brother Lewis Craig"
+   }
+  ],
+  "rowlandton-mound-site-15mcn3-paducah": [
+   {
+    "slug": "twin-mounds-site",
+    "label": "Same argument: Twin Mounds was also once called a Kincaid outpost"
+   },
+   {
+    "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+    "label": "Compared: Rowlandton is roughly the size of Wickliffe Mounds"
    }
   ]
  }
