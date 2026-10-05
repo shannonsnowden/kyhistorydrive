@@ -15,7 +15,7 @@ const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
 
 // "Related people & stories" block (empty string when a story has no entries).
-export function relatedBlockHtml(data, slug, titleFor) {
+export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelatedH') {
   const seen = new Set()
   const items = (data?.related?.[slug] || []).filter((x) => {
     if (!x?.slug || x.slug === slug || seen.has(x.slug) || !titleFor(x.slug)) return false
@@ -23,6 +23,7 @@ export function relatedBlockHtml(data, slug, titleFor) {
     return true
   })
   if (!items.length) return ''
+  const hid = String(headingId || 'storyRelatedH').replace(/[^\w-]/g, '') || 'storyRelatedH'
   const lis = items
     .map(
       (x) =>
@@ -31,7 +32,7 @@ export function relatedBlockHtml(data, slug, titleFor) {
         }</li>`,
     )
     .join('')
-  return `<aside class="story-related" aria-labelledby="storyRelatedH"><h3 id="storyRelatedH">Related people &amp; stories</h3><ul>${lis}</ul></aside>`
+  return `<aside class="story-related" aria-labelledby="${hid}"><h3 id="${hid}">Related people &amp; stories</h3><ul>${lis}</ul></aside>`
 }
 
 // Link the first mention of each known person (when they have their own story) inside the story body.

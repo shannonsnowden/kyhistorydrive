@@ -672,9 +672,12 @@ html[data-hp-theme="light"] .era-other {
 .story-related h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--heading); }
 .story-related ul { margin: 0; padding-left: 1.1rem; }
 .story-related li { margin: 0.3rem 0; line-height: 1.45; overflow-wrap: anywhere; }
-.story-related a, .story-body a.person-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-.story-body a.person-link { text-decoration-style: dotted; }
-.story-related a:focus-visible, .story-body a.person-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.story-related a, .story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { text-decoration-style: dotted; }
+.story-related a:focus-visible, .story-body a.person-link:focus-visible, .story-summary a.person-link:focus-visible, .map-popup a.person-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.map-popup .story-related { margin: 0.65rem 0 0; padding: 0.55rem 0.7rem; }
+.map-popup .story-related h3 { font-size: 0.92rem; }
+.map-popup .story-related li { font-size: 0.86rem; }
 .related-note { color: var(--muted); font-size: 0.92em; }
 .story-source { margin-top: 1.25rem; font-size: 0.85rem; }
 
