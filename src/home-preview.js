@@ -80,7 +80,9 @@ function firstSentence(text) {
     if (
       out.length >= 40 &&
       /[.!?]$/.test(out) &&
-      !/\b(Jr|Sr|Dr|Capt|Col|Gen|Mr|Mrs|Ms|St|Ave)\.$/.test(out)
+      !/\b(Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co)\.$/.test(out) &&
+      // Don't stop on a middle/first initial ("Return J. Meigs", "John C. Breckinridge").
+      !/(?:^|[\s(])[A-Z]\.$/.test(out)
     ) {
       break
     }
