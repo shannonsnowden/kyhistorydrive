@@ -702,5 +702,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Censusdata · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2007
+  },
+  "col-john-hardin-of-pleasant-run": {
+    "ext": "jpg",
+    "commonsFile": "Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif?width=1280",
+    "title": "Washington County Courthouse, Springfield (HABS photo, 1940)—built 1816, after Hardin’s death; a county stand-in, not his homestead",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
+    "year": 1940
+  },
+  "carrollton-from-port-william": {
+    "ext": "jpg",
+    "commonsFile": "Richard_Masterson_House_at_Carrollton.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Richard_Masterson_House_at_Carrollton.jpg?width=1280",
+    "title": "Richard Masterson House, Carrollton—where the first Gallatin County court met in 1799 (photographed 2013)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Richard_Masterson_House_at_Carrollton.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": 2013
+  },
+  "tellico-cession-1805-south-of-the-cumberland": {
+    "ext": "jpg",
+    "commonsFile": "GENERAL_VIEW_OF_BRIDGE_-_Williamsburg_Bridge,_Spanning_Cumberland_River,_Williamsburg,_Whitley_County,_KY_HAER_KY,118-WILBU,1-1.tif",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/GENERAL_VIEW_OF_BRIDGE_-_Williamsburg_Bridge,_Spanning_Cumberland_River,_Williamsburg,_Whitley_County,_KY_HAER_KY,118-WILBU,1-1.tif?width=1280",
+    "title": "Bridge over the Cumberland River at Williamsburg, Whitley County (HAER survey photo)—the river that bounded the 1805 cession in Kentucky; a modern stand-in",
+    "source_url": "https://commons.wikimedia.org/wiki/File:GENERAL_VIEW_OF_BRIDGE_-_Williamsburg_Bridge,_Spanning_Cumberland_River,_Williamsburg,_Whitley_County,_KY_HAER_KY,118-WILBU,1-1.tif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "J. E. Daniel & G. D. Rawlings / Kentucky Transportation Cabinet (HAER) · Wikimedia Commons · public domain",
+    "year": null
+  },
+  "rowlandton-mound-site-15mcn3-paducah": {
+    "ext": "jpg",
+    "commonsFile": "Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg?width=1280",
+    "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2003
+  },
+  "hidden-river-cave-under-horse-cave": {
+    "ext": "jpg",
+    "commonsFile": "Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg?width=1280",
+    "title": "The sinkhole entrance to Hidden River Cave in Horse Cave (photographed 2022)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
+    "year": 2022
   }
 }

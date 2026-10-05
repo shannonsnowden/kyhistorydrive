@@ -1,0 +1,26 @@
+{
+  "slug": "col-john-hardin-of-pleasant-run",
+  "title": "Col. John Hardin of Pleasant Run",
+  "publishedDate": "2026-10-05",
+  "summary": "John Hardin was born in Virginia in 1753. In August 1774, at the start of Lord Dunmore’s War, he was wounded in a skirmish at Snake’s Town on the Muskingum during Angus…",
+  "bodyMarkdown": "John Hardin was born in Virginia in 1753. In August 1774, at the start of Lord Dunmore’s War, he was wounded in a skirmish at Snake’s Town on the Muskingum during Angus McDonald’s expedition; the musket ball lodged in his thigh near the groin and stayed there for the rest of his life. In the Revolution he was a lieutenant picked for Daniel Morgan’s riflemen and fought at Saratoga under Morgan. In April 1786 he settled his family on Pleasant Run, a branch of Beech Fork, about three miles east of present-day Springfield in what is now Washington County, Kentucky; the family farmed, raised livestock and joined the Methodist church. As a militia captain that year he attacked a Piankashaw village near Vincennes, although the Piankashaw were friendly to the Americans. Promoted to colonel, he led the Kentucky militia detachment routed in 1790 at Heller’s Corner—“Hardin’s Defeat”—which began a long run of American losses to the Miami chief Little Turtle, and in 1791 he led mounted militia against a Kickapoo village during Gen. Charles Scott’s Wabash campaign. In May 1792 Gen. James Wilkinson sent him to carry American peace terms to the nations along the Sandusky River. A Shawnee party offered to escort him, then killed him and his servant Freeman one night as he slept. Hardin County, Kentucky, and the town of Hardin, Ohio, near where he was killed, are named for him. His son Martin D. Hardin, later a U.S. senator from Kentucky, married Ann Logan, daughter of Gen. Benjamin Logan. The map pin is an approximate point about three miles east of Springfield, where the Kentucky Historical Society’s John Hardin marker stands on US 150 and where his son Mark Hardin placed the homestead; the exact house site is not mapped.\nSource: [https://en.wikipedia.org/wiki/John_Hardin](https://en.wikipedia.org/wiki/John_Hardin)\nSource: [https://history.ky.gov/markers/john-hardin-1753-92](https://history.ky.gov/markers/john-hardin-1753-92)\nSource: [https://archive.org/details/benhardinhistime00inlitt](https://archive.org/details/benhardinhistime00inlitt)",
+  "yearStart": 1786,
+  "yearEnd": 1792,
+  "era": "frontier",
+  "tags": [
+    "frontier",
+    "kentucky",
+    "frontier-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-05",
+  "photo": {
+    "image_url": "/content/photos/stories/col-john-hardin-of-pleasant-run.jpg",
+    "title": "Washington County Courthouse, Springfield (HABS photo, 1940)—built 1816, after Hardin’s death; a county stand-in, not his homestead",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
+    "year": 1940
+  },
+  "county": "Washington"
+}

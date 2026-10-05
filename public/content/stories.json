@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-04T09:36:50.902Z",
-  "count": 195,
+  "generatedAt": "2026-10-05T09:31:34.971Z",
+  "count": 200,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-04"
+    "end": "2026-10-05"
   },
   "eras": [
     "early-commonwealth",
@@ -659,6 +659,35 @@
       "matchedPlace": "Adams Site (15Fu4)"
     },
     {
+      "slug": "rowlandton-mound-site-15mcn3-paducah",
+      "title": "Rowlandton Mound Site (15McN3), Paducah",
+      "publishedDate": "2026-10-05",
+      "summary": "The Rowlandton Mound Site (15MCN3) is a Mississippian town site inside present-day Paducah, on the edge of an old oxbow lake a little south of the Ohio River. People…",
+      "yearStart": 1100,
+      "yearEnd": 1350,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-05",
+      "county": "McCracken",
+      "photo": {
+        "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
+        "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2003
+      },
+      "lat": 37.1,
+      "lon": -88.64,
+      "mapConfidence": "override",
+      "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah"
+    },
+    {
       "slug": "turk-site-carlisle-county",
       "title": "Turk Site, Carlisle County",
       "publishedDate": "2026-09-19",
@@ -1088,6 +1117,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-03",
+      "county": "Pike",
       "photo": {
         "image_url": "/content/photos/stories/slone-site-15pi11-pike-county.jpg",
         "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
@@ -1099,8 +1129,7 @@
       "lat": 37.41,
       "lon": -82.33,
       "mapConfidence": "override",
-      "matchedPlace": "Slone Site (15Pi11), Pike County",
-      "county": "Pike"
+      "matchedPlace": "Slone Site (15Pi11), Pike County"
     },
     {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
@@ -2096,6 +2125,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-03",
+      "county": "Mercer",
       "photo": {
         "image_url": "/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
         "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
@@ -2107,8 +2137,7 @@
       "lat": 37.850631,
       "lon": -84.851895,
       "mapConfidence": "override",
-      "matchedPlace": "McAfee Station on the Salt River",
-      "county": "Mercer"
+      "matchedPlace": "McAfee Station on the Salt River"
     },
     {
       "slug": "georgetown-and-royal-spring",
@@ -3412,6 +3441,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-03",
+      "county": "Mason",
       "photo": {
         "image_url": "/content/photos/stories/washington-mason-county.jpg",
         "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
@@ -3423,8 +3453,36 @@
       "lat": 38.615908,
       "lon": -83.808533,
       "mapConfidence": "override",
-      "matchedPlace": "Washington, Mason County (Old Washington)",
-      "county": "Mason"
+      "matchedPlace": "Washington, Mason County (Old Washington)"
+    },
+    {
+      "slug": "col-john-hardin-of-pleasant-run",
+      "title": "Col. John Hardin of Pleasant Run",
+      "publishedDate": "2026-10-05",
+      "summary": "John Hardin was born in Virginia in 1753. In August 1774, at the start of Lord Dunmore’s War, he was wounded in a skirmish at Snake’s Town on the Muskingum during Angus…",
+      "yearStart": 1786,
+      "yearEnd": 1792,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-05",
+      "county": "Washington",
+      "photo": {
+        "image_url": "/content/photos/stories/col-john-hardin-of-pleasant-run.jpg",
+        "title": "Washington County Courthouse, Springfield (HABS photo, 1940)—built 1816, after Hardin’s death; a county stand-in, not his homestead",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
+        "year": 1940
+      },
+      "lat": 37.69,
+      "lon": -85.17,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)"
     },
     {
       "slug": "blue-jacket-weyapiersenwah",
@@ -3444,6 +3502,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-03",
+      "county": "Mason",
       "photo": {
         "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
         "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
@@ -3455,8 +3514,7 @@
       "lat": 38.64867,
       "lon": -83.76211,
       "mapConfidence": "override",
-      "matchedPlace": "Blue Jacket at Limestone (Maysville)",
-      "county": "Mason"
+      "matchedPlace": "Blue Jacket at Limestone (Maysville)"
     },
     {
       "slug": "william-whitley-sportsmans-hill",
@@ -3690,6 +3748,35 @@
       "lon": -86.96,
       "mapConfidence": "override",
       "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon"
+    },
+    {
+      "slug": "carrollton-from-port-william",
+      "title": "Carrollton from Port William",
+      "publishedDate": "2026-10-05",
+      "summary": "Where the Kentucky River empties into the Ohio, Gen. Charles Scott built a blockhouse in 1789 to protect settlers, according to the Kentucky Historical Society marker at…",
+      "yearStart": 1792,
+      "yearEnd": 1838,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-05",
+      "county": "Carroll",
+      "photo": {
+        "image_url": "/content/photos/stories/carrollton-from-port-william.jpg",
+        "title": "Richard Masterson House, Carrollton—where the first Gallatin County court met in 1799 (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Richard_Masterson_House_at_Carrollton.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
+      },
+      "lat": 38.68195,
+      "lon": -85.18682,
+      "mapConfidence": "override",
+      "matchedPlace": "Carrollton (Port William) at the Kentucky–Ohio confluence"
     },
     {
       "slug": "kickapoo-on-the-kentucky-frontier",
@@ -4281,6 +4368,36 @@
       "matchedPlace": "Shaker Village of Pleasant Hill"
     },
     {
+      "slug": "tellico-cession-1805-south-of-the-cumberland",
+      "title": "Tellico cession, 1805, south of the Cumberland",
+      "publishedDate": "2026-10-05",
+      "summary": "On October 25, 1805, at Tellico, U.S. commissioners Return J. Meigs and Daniel Smith concluded a treaty with Cherokee chiefs and headmen—among the signers were Path…",
+      "yearStart": 1805,
+      "yearEnd": 1810,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-05",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/tellico-cession-1805-south-of-the-cumberland.jpg",
+        "title": "Bridge over the Cumberland River at Williamsburg, Whitley County (HAER survey photo)—the river that bounded the 1805 cession in Kentucky; a modern stand-in",
+        "source_url": "https://commons.wikimedia.org/wiki/File:GENERAL_VIEW_OF_BRIDGE_-_Williamsburg_Bridge,_Spanning_Cumberland_River,_Williamsburg,_Whitley_County,_KY_HAER_KY,118-WILBU,1-1.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "J. E. Daniel & G. D. Rawlings / Kentucky Transportation Cabinet (HAER) · Wikimedia Commons · public domain",
+        "year": null
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
       "title": "Ephraim McDowell & Jane Todd Crawford (1809)",
       "publishedDate": "2026-09-28",
@@ -4586,6 +4703,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-03",
+      "county": "Jefferson",
       "photo": {
         "image_url": "/content/photos/stories/louisville-nashville-railroad-opens-the-interior.jpg",
         "title": "Louisville Union Station (L&N), 1000 West Broadway — later passenger terminal on the Old Reliable’s Louisville end",
@@ -4597,8 +4715,7 @@
       "lat": 38.24611,
       "lon": -85.76889,
       "mapConfidence": "override",
-      "matchedPlace": "Louisville & Nashville Railroad (main line opens)",
-      "county": "Jefferson"
+      "matchedPlace": "Louisville & Nashville Railroad (main line opens)"
     },
     {
       "slug": "henry-mckennas-fairfield-sour-mash",
@@ -4679,6 +4796,35 @@
       "lon": -84.59806,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
+    },
+    {
+      "slug": "hidden-river-cave-under-horse-cave",
+      "title": "Hidden River Cave under Horse Cave",
+      "publishedDate": "2026-10-05",
+      "summary": "Hidden River Cave lies directly beneath the town of Horse Cave in Hart County, and its main entrance is a large sinkhole at 119 East Main Street. The cave stream was the…",
+      "yearStart": 1890,
+      "yearEnd": 1943,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-05",
+      "county": "Hart",
+      "photo": {
+        "image_url": "/content/photos/stories/hidden-river-cave-under-horse-cave.jpg",
+        "title": "The sinkhole entrance to Hidden River Cave in Horse Cave (photographed 2022)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
+        "year": 2022
+      },
+      "lat": 37.17928,
+      "lon": -85.90619,
+      "mapConfidence": "override",
+      "matchedPlace": "Hidden River Cave (Horse Cave)"
     },
     {
       "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",

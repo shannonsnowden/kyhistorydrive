@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-04T09:36:51.047Z",
+  "generatedAt": "2026-10-05T09:31:35.112Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 99,
-    "none": 32
+    "override": 103,
+    "none": 33
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -183,6 +183,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
+    },
+    "rowlandton-mound-site-15mcn3-paducah": {
+      "slug": "rowlandton-mound-site-15mcn3-paducah",
+      "lat": 37.1,
+      "lon": -88.64,
+      "mapConfidence": "override",
+      "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah",
+      "historyId": "rowlandton-mound-site-15mcn3-mccracken"
     },
     "turk-site-carlisle-county": {
       "slug": "turk-site-carlisle-county",
@@ -1040,6 +1048,14 @@
       "matchedPlace": "Washington, Mason County (Old Washington)",
       "historyId": "washington-mason-county-founding-1785-1786"
     },
+    "col-john-hardin-of-pleasant-run": {
+      "slug": "col-john-hardin-of-pleasant-run",
+      "lat": 37.69,
+      "lon": -85.17,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)",
+      "historyId": "john-hardin-pleasant-run-washington-1786-1792"
+    },
     "blue-jacket-weyapiersenwah": {
       "slug": "blue-jacket-weyapiersenwah",
       "lat": 38.64867,
@@ -1119,6 +1135,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon",
       "historyId": "wea-waayaahtanwa-ouiatenon"
+    },
+    "carrollton-from-port-william": {
+      "slug": "carrollton-from-port-william",
+      "lat": 38.68195,
+      "lon": -85.18682,
+      "mapConfidence": "override",
+      "matchedPlace": "Carrollton (Port William) at the Kentucky–Ohio confluence",
+      "historyId": "carrollton-port-william-carroll-1792-1838"
     },
     "kickapoo-on-the-kentucky-frontier": {
       "slug": "kickapoo-on-the-kentucky-frontier",
@@ -1304,6 +1328,14 @@
       "matchedPlace": "Shaker Village of Pleasant Hill",
       "historyId": "pleasant-hill-shaker-village-mercer-1805-1910"
     },
+    "tellico-cession-1805-south-of-the-cumberland": {
+      "slug": "tellico-cession-1805-south-of-the-cumberland",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "ephraim-mcdowell-jane-todd-crawford-1809": {
       "slug": "ephraim-mcdowell-jane-todd-crawford-1809",
       "lat": 37.6451148,
@@ -1423,6 +1455,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)",
       "historyId": "camp-nelson-jessamine-1863-1865"
+    },
+    "hidden-river-cave-under-horse-cave": {
+      "slug": "hidden-river-cave-under-horse-cave",
+      "lat": 37.17928,
+      "lon": -85.90619,
+      "mapConfidence": "override",
+      "matchedPlace": "Hidden River Cave (Horse Cave)",
+      "historyId": "hidden-river-cave-horse-cave-1890-1943"
     },
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
       "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",

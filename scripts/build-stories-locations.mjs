@@ -705,6 +705,32 @@ const MANUAL_OVERRIDES = {
     lon: -85.77933,
     confidence: 'override',
   },
+  // 2026-10-05 brief (Tellico cession intentionally unpinned: theme-only, three-county strip)
+  'col-john-hardin-of-pleasant-run': {
+    matchName: "Col. John Hardin’s Pleasant Run homestead (approximate)",
+    lat: 37.69,
+    lon: -85.17,
+    confidence: 'override',
+  },
+  'carrollton-from-port-william': {
+    matchName: "Carrollton (Port William) at the Kentucky–Ohio confluence",
+    lat: 38.68195,
+    lon: -85.18682,
+    confidence: 'override',
+  },
+  'tellico-cession-1805-south-of-the-cumberland': {},
+  'rowlandton-mound-site-15mcn3-paducah': {
+    matchName: "Rowlandton Mound Site (15McN3), Paducah",
+    lat: 37.1,
+    lon: -88.64,
+    confidence: 'override',
+  },
+  'hidden-river-cave-under-horse-cave': {
+    matchName: "Hidden River Cave (Horse Cave)",
+    lat: 37.17928,
+    lon: -85.90619,
+    confidence: 'override',
+  },
 }
 
 

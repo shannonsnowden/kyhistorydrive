@@ -1,0 +1,26 @@
+{
+  "slug": "hidden-river-cave-under-horse-cave",
+  "title": "Hidden River Cave under Horse Cave",
+  "publishedDate": "2026-10-05",
+  "summary": "Hidden River Cave lies directly beneath the town of Horse Cave in Hart County, and its main entrance is a large sinkhole at 119 East Main Street. The cave stream was the…",
+  "bodyMarkdown": "Hidden River Cave lies directly beneath the town of Horse Cave in Hart County, and its main entrance is a large sinkhole at 119 East Main Street. The cave stream was the town’s water source, and attempts to set up public waterworks in the cave go back to 1879. Dentist George A. Thomas moved to Horse Cave in 1888, bought a house by the entrance and, a year later, bought the cave for $375. In 1890 a vertical-shaft turbine was built below the junction of the two cave streams to drive the pumps, and in 1892 an added electrical generator lit the Thomas home, his dental office and two other buildings—making Horse Cave, the cave’s operators say, the first town in Kentucky with incandescent lights (Louisville had electric arc lights earlier). The cave offered commercial tours from 1912 through 1943, though the same history dates the opening of a half-mile tour section to 1916. Domestic and industrial sewage dumped into sinkholes and wells fouled the stream; with noxious odors, low wartime visitation and a failed lawsuit, the tours closed in 1943, and the cave became known as one of the most polluted in America. A regional sewage treatment system stopped the sewage in December 1989, the stream began to recover, and in 1992 the American Cave Museum opened beside the entrance and the steps down to the underground river were rebuilt. Tours reached Sunset Dome again in 2020.\nSource: [https://hiddenrivercave.com/hidden-river-cave-history/](https://hiddenrivercave.com/hidden-river-cave-history/)\nSource: [https://caveconservation.com/hidden-river-cave-the-american-cave-museum/](https://caveconservation.com/hidden-river-cave-the-american-cave-museum/)",
+  "yearStart": 1890,
+  "yearEnd": 1943,
+  "era": "other",
+  "tags": [
+    "other",
+    "kentucky",
+    "geology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-05",
+  "photo": {
+    "image_url": "/content/photos/stories/hidden-river-cave-under-horse-cave.jpg",
+    "title": "The sinkhole entrance to Hidden River Cave in Horse Cave (photographed 2022)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
+    "year": 2022
+  },
+  "county": "Hart"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "rowlandton-mound-site-15mcn3-paducah",
+  "title": "Rowlandton Mound Site (15McN3), Paducah",
+  "publishedDate": "2026-10-05",
+  "summary": "The Rowlandton Mound Site (15MCN3) is a Mississippian town site inside present-day Paducah, on the edge of an old oxbow lake a little south of the Ohio River. People…",
+  "bodyMarkdown": "The Rowlandton Mound Site (15MCN3) is a Mississippian town site inside present-day Paducah, on the edge of an old oxbow lake a little south of the Ohio River. People lived there from about 1100 to about 1350 CE. The 3-hectare (7.4-acre) site has a large platform mound and an associated village area, roughly the size of the Wickliffe Mounds site in far western Kentucky. Archaeologists once thought that large civic centers in western Kentucky such as Rowlandton, Twin Mounds and Tolu were 13th-century expansions of the Kincaid Mounds polity in nearby southern Illinois, but excavations in 2006 by Kit Wesler of Murray State University showed that this was not the case; the centers were probably founded by local Late Woodland peoples. The map pin is the site’s published coordinate rounded to two decimals (about 1 km), the site’s rule for archaeological pins.\nSource: [https://en.wikipedia.org/wiki/Rowlandton_Mound_Site](https://en.wikipedia.org/wiki/Rowlandton_Mound_Site)",
+  "yearStart": 1100,
+  "yearEnd": 1350,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-05",
+  "photo": {
+    "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
+    "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2003
+  },
+  "county": "McCracken"
+}

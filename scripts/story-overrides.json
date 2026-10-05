@@ -397,6 +397,46 @@
       "yearStart": 1826,
       "yearEnd": 1830,
       "county": "Jefferson"
+    },
+    "col-john-hardin-of-pleasant-run": {
+      "reason": "Pin approximate Pleasant Run homestead ~3 mi E of Springfield (KHS #931 location text + Mark Hardin 1869 account), 2 decimals; not Hardin Village 15Gp22 or the Ohio death site. Claims checked against Wikipedia (Shelby County, OH and Fauquier birthplace softened). Years 1786–1792.",
+      "date": "2026-10-05",
+      "historyId": "john-hardin-pleasant-run-washington-1786-1792",
+      "lat": 37.69,
+      "lon": -85.17,
+      "yearStart": 1786,
+      "yearEnd": 1792,
+      "county": "Washington"
+    },
+    "carrollton-from-port-william": {
+      "reason": "Grokipedia source replaced with KHS markers (#216, #893, #1725, #1094) + Wikipedia. Pin Point Park at the Kentucky–Ohio confluence (KHS #1094 coords). County Carroll set explicitly (never “Port William County”). Years 1792–1838.",
+      "date": "2026-10-05",
+      "historyId": "carrollton-port-william-carroll-1792-1838",
+      "lat": 38.68195,
+      "lon": -85.18682,
+      "yearStart": 1792,
+      "yearEnd": 1838,
+      "county": "Carroll"
+    },
+    "rowlandton-mound-site-15mcn3-paducah": {
+      "reason": "Archaeological site: Wikipedia public coords rounded to 2 decimals (#141 tier B). Occupation ~1100–1350 CE, not the 2006 excavation.",
+      "date": "2026-10-05",
+      "historyId": "rowlandton-mound-site-15mcn3-mccracken",
+      "lat": 37.1,
+      "lon": -88.64,
+      "yearStart": 1100,
+      "yearEnd": 1350,
+      "county": "McCracken"
+    },
+    "hidden-river-cave-under-horse-cave": {
+      "reason": "Pin OSM Hidden River Cave entrance on E. Main St., Horse Cave. Years 1890 turbine–1943 closure. 1993 reopening claim dropped (sources give 1989 sewer, 1992 museum/steps, 2020 Sunset Dome).",
+      "date": "2026-10-05",
+      "historyId": "hidden-river-cave-horse-cave-1890-1943",
+      "lat": 37.17928,
+      "lon": -85.90619,
+      "yearStart": 1890,
+      "yearEnd": 1943,
+      "county": "Hart"
     }
   }
 }
