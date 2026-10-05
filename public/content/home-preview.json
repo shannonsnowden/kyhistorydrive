@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T09:31:35.921Z",
+  "generatedAt": "2026-10-05T09:41:24.456Z",
   "briefDate": "2026-10-05",
   "displayDate": "Monday, October 5, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -63,7 +63,7 @@
       "lon": null,
       "historyId": null,
       "mapHref": null,
-      "quote": "On October 25, 1805, at Tellico, U.S. commissioners Return J.",
+      "quote": "On October 25, 1805, at Tellico, U.S. commissioners Return J. Meigs and Daniel Smith concluded a treaty with Cherokee chiefs and headmen—among the signers were Path Killer, Doublehead, Glass and John Jolly—in which the Cherokee gave up all the land they had claimed north of a line that began at the mouth of the Duck River.",
       "photo": {
         "image_url": "/content/photos/stories/tellico-cession-1805-south-of-the-cumberland.jpg",
         "title": "Bridge over the Cumberland River at Williamsburg, Whitley County (HAER survey photo)—the river that bounded the 1805 cession in Kentucky; a modern stand-in",
@@ -180,7 +180,7 @@
       "lon": null,
       "historyId": null,
       "mapHref": null,
-      "quote": "On October 25, 1805, at Tellico, U.S. commissioners Return J.",
+      "quote": "On October 25, 1805, at Tellico, U.S. commissioners Return J. Meigs and Daniel Smith concluded a treaty with Cherokee chiefs and headmen—among the signers were Path Killer, Doublehead, Glass and John Jolly—in which the Cherokee gave up all the land they had claimed north of a line that began at the mouth of the Duck River.",
       "photo": {
         "image_url": "/content/photos/stories/tellico-cession-1805-south-of-the-cumberland.jpg",
         "title": "Bridge over the Cumberland River at Williamsburg, Whitley County (HAER survey photo)—the river that bounded the 1805 cession in Kentucky; a modern stand-in",

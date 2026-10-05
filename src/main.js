@@ -1472,7 +1472,7 @@ function placeDetailExtrasHtml({
 }
 
 
-function detailHtmlFromProps(p, layerId, coords) {
+function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   const name = p.name || p.title || 'Untitled'
   const metaBits = []
   if (layerId === 'markers' || p.marker_number) {
@@ -1530,6 +1530,7 @@ function detailHtmlFromProps(p, layerId, coords) {
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
       ${desc ? `<div class="popup-full-text">${linkifyPlainUrls(escapeHtml(desc))}</div>` : ''}
+      ${relatedHtml || ''}
       ${link}
       ${extras}
     </div>
@@ -1573,6 +1574,36 @@ function popupPlacement(targetMap, lngLat) {
   return { anchor, maxHeightPx, maxWidth: 'min(92vw, 480px)' }
 }
 
+let historyIdToSlugCache = null
+async function slugForPlaceProps(props) {
+  const idx = await loadStories()
+  const known = new Set((idx?.stories || []).map((s) => s.slug))
+  const direct = props?.slug != null ? String(props.slug) : ''
+  if (direct && known.has(direct)) return direct
+  const id = props?.id != null ? String(props.id) : ''
+  if (id && known.has(id)) return id
+  if (!historyIdToSlugCache) {
+    const locations = await loadStoriesLocations()
+    historyIdToSlugCache = {}
+    for (const row of Object.values(locations || {})) {
+      if (row?.historyId && row.slug && !historyIdToSlugCache[row.historyId]) {
+        historyIdToSlugCache[row.historyId] = row.slug
+      }
+    }
+  }
+  const hid = props?.historyId != null ? String(props.historyId) : id
+  if (hid && historyIdToSlugCache[hid] && known.has(historyIdToSlugCache[hid])) return historyIdToSlugCache[hid]
+  return null
+}
+
+async function popupRelatedHtml(props) {
+  const slug = await slugForPlaceProps(props)
+  if (!slug) return ''
+  const [relatedData, idx] = await Promise.all([loadRelatedPeople(), loadStories()])
+  const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH')
+}
+
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (!targetMap || !feature) return
   if (activePopup) {
@@ -1589,6 +1620,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   const props = enrichFeatureProps(layerId, feature.properties || {})
   const storyPhoto = await storyPhotoForProps(props)
   if (storyPhoto) props.photo = storyPhoto
+  const relatedHtml = await popupRelatedHtml(props)
   const shareHash = placeShareHash(layerId, props)
   // Keep a shareable deep link in the address bar (home map only)
   if (targetMap === map && shareHash.startsWith('#map/')) {
@@ -1604,9 +1636,20 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     className: 'ky-popup',
   })
     .setLngLat(coords)
-    .setHTML(detailHtmlFromProps(props, layerId, coords))
+    .setHTML(detailHtmlFromProps(props, layerId, coords, relatedHtml))
     .addTo(targetMap)
   const popupEl = activePopup.getElement()
+  try {
+    const slug = await slugForPlaceProps(props)
+    const textRoot = popupEl?.querySelector('.popup-full-text')
+    if (textRoot) {
+      const [relatedData, idx] = await Promise.all([loadRelatedPeople(), loadStories()])
+      const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
+      linkPeopleInBody(textRoot, relatedData, slug || '', (sl) => relTitles[sl])
+    }
+  } catch {
+    /* related links are optional */
+  }
   const content = popupEl?.querySelector('.maplibregl-popup-content')
   if (content) {
     content.style.maxHeight = `${place.maxHeightPx}px`
@@ -2756,6 +2799,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       ${timelineReaderBarHtml('bottom')}
     `
     linkPeopleInBody(reader.querySelector('.story-body'), relatedData, meta.slug, relTitleFor)
+    const summaryEl = reader.querySelector('.story-summary')
+    if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)
     mountStoryTerritory(reader, meta)
     if (rowItem) {
