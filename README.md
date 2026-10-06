@@ -73,6 +73,8 @@ npm run sync-app-data   # validates committed public/data/app/; does not fetch
 
 Amplify `preBuild` runs `sync-app-data`, which validates and publishes the committed pack. It does **not** pull `ky-markers-drive`. Do not set `SYNC_FROM_MARKERS` on Amplify (a GitHub token on the build is not enough to pull, and must not be treated as a daily refresh).
 
+`npm run check-ota-types` (`scripts/check-ota-types.mjs`) fails the build when `public/data/app/` cannot decode on iOS builds 4 and 5. History `marker_number` must be a JSON integer or omitted (never null or a string). `bio_url` must be a non-empty string. Null URL keys are rejected. The check runs inside `sync-app-data` and `npm run build`. `apply-story-overrides` rewrites History entries to that shape so a pack rebuild does not put the drift back.
+
 `SYNC_FROM_MARKERS=1` is a legacy/migration override only. With that opt-in, `KY_MARKERS_DRIVE_DIR` or `KY_MARKERS_DRIVE_GITHUB_TOKEN` (also `GH_TOKEN` / `GITHUB_TOKEN`) can overwrite `public/data/app/` from the iOS repo. Leave it unset for daily deploys.
 
 `customHttp.yml` sets short CloudFront cache (`max-age=0`, `s-maxage=60`) and CORS (`Access-Control-Allow-Origin: *`) on `/data/app/*.json` so version bumps are not stuck behind Amplify’s default 1-year CDN cache. Native iOS URLSession does not need CORS; it is there for completeness.

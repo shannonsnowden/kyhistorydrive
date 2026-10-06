@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/restore-truncated-sources.mjs && vite",
-    "build": "node scripts/restore-truncated-sources.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && node scripts/apply-story-overrides.mjs && node scripts/build-home-preview.mjs && vite build",
+    "build": "node scripts/check-ota-types.mjs && node scripts/restore-truncated-sources.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && node scripts/apply-story-overrides.mjs && node scripts/check-ota-types.mjs && node scripts/build-home-preview.mjs && vite build",
     "preview": "vite preview",
     "build-stories": "node scripts/build-stories.mjs",
     "build-home-preview": "node scripts/build-home-preview.mjs",
@@ -14,6 +14,8 @@
     "build-story-locs": "node scripts/build-stories-locations.mjs",
     "build-search": "node scripts/build-search-index.mjs",
     "sync-app-data": "node scripts/sync-ios-app-data.mjs",
+    "check-ota-types": "node scripts/check-ota-types.mjs",
+    "test-ota-types": "node scripts/test-ota-types.mjs",
     "apply-overrides": "node scripts/apply-story-overrides.mjs",
     "check-overrides": "node scripts/apply-story-overrides.mjs --check",
     "test-overrides": "node scripts/test-story-overrides.mjs"

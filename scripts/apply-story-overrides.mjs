@@ -15,6 +15,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { canonicalizeHistoryPlace } from './ota-types.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const argv = process.argv.slice(2)
@@ -228,6 +229,15 @@ if (fs.existsSync(RULES)) {
   }
 }
 
+// History OTA: marker_number is an integer or omitted, and null URL keys are omitted.
+// Runs even when no override touched the file, so a pack rebuild cannot persist the drift.
+const kyhFile = load(F.kyh)
+let historyTypes = 0
+if (kyhFile && Array.isArray(kyhFile.data)) {
+  for (const place of kyhFile.data) if (canonicalizeHistoryPlace(place)) historyTypes++
+  if (historyTypes) kyhFile.dirty = true
+}
+
 if (!CHECK) {
   for (const f of files.values()) {
     if (f?.dirty) fs.writeFileSync(f.fp, JSON.stringify(f.data, null, f.indent || undefined) + (f.nl ? '\n' : ''))
@@ -238,4 +248,5 @@ console.log(`story-overrides: ${n} override(s): ${report.applied.length} ${CHECK
 report.applied.forEach((l) => console.log(`  ${CHECK ? 'DRIFT' : 'applied'}: ${l}`))
 report.stale.forEach((l) => console.log(`  stale:   ${l}`))
 console.log(`pin-rounding: ${rounding.rounded.length} prehistoric/archaeological story pin(s) ${CHECK ? 'would be rounded' : 'rounded'}${rounding.rounded.length ? ': ' + rounding.rounded.join(', ') : ''}`)
-if (CHECK && (report.applied.length || report.stale.length || rounding.rounded.length)) process.exit(2)
+if (historyTypes) console.log(`history-types: ${historyTypes} ky-history entr${historyTypes === 1 ? 'y' : 'ies'} ${CHECK ? 'would be' : ''} canonicalized (marker_number integer-or-absent, null URLs omitted)`)
+if (CHECK && (report.applied.length || report.stale.length || rounding.rounded.length || historyTypes)) process.exit(2)
