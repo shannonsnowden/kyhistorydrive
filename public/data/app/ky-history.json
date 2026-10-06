@@ -2900,5 +2900,105 @@
       "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
       "year": 2022
     }
+  },
+  {
+    "id": "gen-charles-scott-canewood-clark-1785-1813",
+    "name": "Canewood, Gen. Charles Scott’s last home (KHS marker #116)",
+    "subtitle": "Clark County · KHS marker #116, KY 627 about 6½ mi N of Winchester · Scott in Kentucky 1785–1813 · Scott’s Landing/Petersburg near Versailles not mapped",
+    "latitude": 38.0877684,
+    "longitude": -84.1756194,
+    "history": "Revolutionary War general Charles Scott first saw Kentucky in 1785, coming down the Ohio to Limestone, and moved his family out in 1787 to land near present-day Versailles, where he built a two-story log house, a stockade, and a tobacco inspection warehouse at what became Scott's Landing. That June, Shawnee warriors killed his son Samuel as he crossed the Ohio in a canoe while Scott watched from the bank, and another son, Merritt, was killed in Harmar's 1790 campaign. Scott sold lots for a town he called Petersburg and offered it as the new state capital in 1792, but Frankfort won, and Petersburg never grew into a real town. In 1791 he led Kentucky mounted volunteers against the Wea towns on the Wabash. He went on to lead Kentucky's mounted volunteers under Anthony Wayne at Fallen Timbers in 1794, served as the fourth governor from 1808 to 1812, died at his Canewood estate in 1813, and was reburied in Frankfort Cemetery in 1854. Scott County and Scottsville are named for him. The map pin marks the Kentucky Historical Society's Canewood marker in Clark County, for the house Scott shared with his wife, the widow of Col. Nathaniel Gist, in his last years; the sites of Scott's Landing and Petersburg near Versailles are not mapped.",
+    "source_date": "2026-10-06",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "khs-marker-116-canewood",
+    "geocode_note": "KHS marker #116 (Canewood - 1-1/4 miles), KY 627 about 6.5 mi N of Winchester (38.0877684, -84.1756194); the house itself is 1¼ mi from the marker and not separately mapped. Scott’s Landing / Petersburg (Woodford County) has no reliable published coordinate. Years 1785 first visit–1813 death.",
+    "category": "person",
+    "website": "https://en.wikipedia.org/wiki/Charles_Scott_(Kentucky_politician)",
+    "year_start": 1785,
+    "year_end": 1813,
+    "photo": {
+      "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+      "title": "Gen. Charles Scott (portrait, published 1907)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Unknown artist · Wikimedia Commons · public domain",
+      "year": 1907
+    }
+  },
+  {
+    "id": "flemingsburg-stockton-fleming-1787-1812",
+    "name": "Flemingsburg (Fleming County courthouse)",
+    "subtitle": "Fleming County · courthouse lawn, Flemingsburg (KHS marker #950) · Stockton’s Station 1787 · Fleming’s Station 1788 · county seat 1798 · incorporated 1812",
+    "latitude": 38.4229167,
+    "longitude": -83.7330833,
+    "history": "Col. John Fleming came into the hill country south of Limestone in 1776 to mark and improve land, served as an officer in the Revolution, and built Fleming's Station in 1788. It was the second fort in the area. The first was Stockton's Station, built in 1787 by his half-brother, Maj. George Stockton, who had raised a crop on the spot in 1786 while still living at Strode's Station. Stockton owned the land where the town grew, laid it out in the mid-1790s (the Kentucky Historical Society marker says 1796), and named it for his half-brother. When Fleming County was cut from Mason in 1798 as Kentucky's 26th county, Flemingsburg became its seat, and the legislature incorporated the town in 1812. The country stayed dangerous for years: Robert Stockton was killed by Indians in 1789 and still lies under stacked rock slabs in a field in eastern Fleming County. The map pin marks the Fleming County marker on the courthouse lawn in Flemingsburg.",
+    "source_date": "2026-10-06",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "khs-marker-950-fleming-county",
+    "geocode_note": "KHS marker #950 (Fleming County), courthouse lawn, Flemingsburg (38.4229167, -83.7330833). Years 1787 Stockton’s Station–1812 incorporation. KHS marker gives 1796 for the town plat; Wikipedia gives 1797.",
+    "category": "town",
+    "website": "https://history.ky.gov/markers/fleming-county",
+    "year_start": 1787,
+    "year_end": 1812,
+    "photo": {
+      "image_url": "/content/photos/stories/flemingsburg-stocktons-town.jpg",
+      "title": "Fleming County Courthouse, Flemingsburg (photographed 2007)—a later courthouse on the county seat Stockton laid out",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fleming_County,_Kentucky_courthouse_2.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2007
+    }
+  },
+  {
+    "id": "stitzel-brothers-distillery-maple-st-jefferson-1879-1935",
+    "name": "Stitzel Brothers Distillery remains, 25th & Maple, Louisville",
+    "subtitle": "Jefferson County · 2501 Maple St., western Louisville · Stitzel barrel-rack patent 1879 · Stitzel-Weller opens in Shively 1935",
+    "latitude": 38.24837,
+    "longitude": -85.79375,
+    "history": "Before 1879, Kentucky warehousemen rolled barrels into lines on the floor, laid a pair of wooden rails across them, and rolled another row on top, three or four barrels high. Reaching a bottom barrel meant taking the whole line apart, the weight made the lower barrels leak, and poor air flow could leave whiskey musty after a hot summer. Louisville distiller Frederick Stitzel, working on the problem at the Glencoe Distillery, patented a fix in 1879: timber frames with projecting rails, so every barrel rested on its own ledge with air all around it and any one could be rolled out without disturbing the rest. The racks stood free of the building's walls, and insurance maps of the era started labeling such buildings \"patent warehouses.\" The rick system is still the standard in Kentucky rickhouses, and the family name carried on: the A. Ph. Stitzel Distillery later joined W. L. Weller & Sons, and Stitzel-Weller opened in Shively on Derby Day 1935. Stitzel’s racks came eighteen years before E. H. Taylor Jr.’s Bottled-in-Bond Act of 1897. The map pin marks the surviving buildings of the Stitzel Brothers Distillery at 25th and Maple streets in western Louisville; the site of the Glencoe Distillery is not mapped.",
+    "source_date": "2026-10-06",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "osm-2501-maple-st-louisville",
+    "geocode_note": "OpenStreetMap building at 2501 Maple Street, Louisville (38.2483735, -85.7937522), the surviving Stitzel Brothers Distillery site per HistoricLouisville.com (“25th & Maple St.”). Not the Glencoe Distillery (unmapped) and not Stitzel-Weller in Shively. Years 1879 patent–1935 Stitzel-Weller opening.",
+    "category": "bourbon",
+    "website": "https://bourbonveach.com/2022/09/26/patent-warehouses-with-barrel-racks/",
+    "year_start": 1879,
+    "year_end": 1935,
+    "photo": {
+      "image_url": "/content/photos/stories/frederick-stitzels-barrel-racks-1879.jpg",
+      "title": "Stitzel-Weller Distillery in Shively (photographed 2017)—opened 1935, a later stand-in, not Stitzel’s 1879 warehouse",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Stitzel-Weller_Distillery_1_(cropped).jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Timothyjosephwood · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2017
+    }
+  },
+  {
+    "id": "jeptha-knob-clay-village-shelby-1887-1925",
+    "name": "Jeptha’s Knob marker, Clay Village (KHS #161)",
+    "subtitle": "Shelby County · KHS marker #161 at Clay Village @ Jeptha Knob Road · suspected impact structure · described 1887 (Linney), mapped 1925 (Bucher) · knob on private land",
+    "latitude": 38.18519,
+    "longitude": -85.10823,
+    "history": "About eight miles east of Shelbyville near Clay Village, Jeptha Knob rises some 300 feet above the surrounding farmland and is the highest point in the Bluegrass. Underneath is a circular structure nearly three miles across: a core of uplifted, shattered Ordovician limestone and shale ringed by concentric and radial faults, later buried under flat-lying Silurian rock. William Linney of the Kentucky Geological Survey first described it in 1887, and Walter Bucher mapped it in 1925 and called it \"cryptovolcanic,\" the word still on its roadside marker. Most geologists now suspect a meteorite or comet strike around the end of the Ordovician, roughly 440 million years ago, and unusually high iridium in its broken rock points that way, but it isn't on the official list of impact craters because no shatter cones or coesite have been found. The knob is on private land. The years on this story are the human ones, from Linney’s 1887 report to Bucher’s 1925 map. The map pin marks the Kentucky Historical Society’s Jeptha’s Knob marker at Clay Village; the knob itself is private.",
+    "source_date": "2026-10-06",
+    "marker_number": null,
+    "marker_title": null,
+    "geocode_source": "khs-marker-161-jepthas-knob",
+    "geocode_note": "KHS marker #161 (Jeptha’s Knob), “Clayvillage @ Jeptha Knob Road” (38.1851863, -85.1082285). Public roadside marker, not an archaeological site; the knob summit is private land and not pinned. Years 1887 Linney report–1925 Bucher map (the structure itself formed ~440 million years ago).",
+    "category": "geology",
+    "website": "https://www.uky.edu/KGS/geoky/fieldtrip/2005%20AIPG%20Guidebooks/JepthaKnob.pdf",
+    "year_start": 1887,
+    "year_end": 1925,
+    "photo": {
+      "image_url": "/content/photos/stories/jeptha-knob-shelby-countys-buried-crater.jpg",
+      "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2020
+    }
   }
 ]

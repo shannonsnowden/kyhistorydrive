@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-05T09:31:35.112Z",
+  "generatedAt": "2026-10-06T09:24:45.369Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 103,
-    "none": 33
+    "override": 107,
+    "none": 34
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -1032,6 +1032,14 @@
       "matchedPlace": "Basil Hayden Sr. / Holy Cross (Pottinger's Creek)",
       "historyId": "basil-hayden-holy-cross"
     },
+    "gen-charles-scott-and-petersburg": {
+      "slug": "gen-charles-scott-and-petersburg",
+      "lat": 38.0877684,
+      "lon": -84.1756194,
+      "mapConfidence": "override",
+      "matchedPlace": "Canewood, Gen. Charles Scott’s last home (KHS marker #116)",
+      "historyId": "gen-charles-scott-canewood-clark-1785-1813"
+    },
     "henderson-at-red-banks": {
       "slug": "henderson-at-red-banks",
       "lat": 37.8479021,
@@ -1063,6 +1071,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Blue Jacket at Limestone (Maysville)",
       "historyId": "blue-jacket-limestone-negotiation-1787-1788"
+    },
+    "flemingsburg-stocktons-town": {
+      "slug": "flemingsburg-stocktons-town",
+      "lat": 38.4229167,
+      "lon": -83.7330833,
+      "mapConfidence": "override",
+      "matchedPlace": "Flemingsburg (Fleming County courthouse)",
+      "historyId": "flemingsburg-stockton-fleming-1787-1812"
     },
     "william-whitley-sportsmans-hill": {
       "slug": "william-whitley-sportsmans-hill",
@@ -1223,6 +1239,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Jacob Beam / Hardin's Creek",
       "historyId": "jacob-beam-hardins-creek-washington-county"
+    },
+    "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
+      "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "lancaster-at-wallaces-crossroads": {
       "slug": "lancaster-at-wallaces-crossroads",
@@ -1455,6 +1479,22 @@
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)",
       "historyId": "camp-nelson-jessamine-1863-1865"
+    },
+    "frederick-stitzels-barrel-racks-1879": {
+      "slug": "frederick-stitzels-barrel-racks-1879",
+      "lat": 38.24837,
+      "lon": -85.79375,
+      "mapConfidence": "override",
+      "matchedPlace": "Stitzel Brothers Distillery remains, 25th & Maple, Louisville",
+      "historyId": "stitzel-brothers-distillery-maple-st-jefferson-1879-1935"
+    },
+    "jeptha-knob-shelby-countys-buried-crater": {
+      "slug": "jeptha-knob-shelby-countys-buried-crater",
+      "lat": 38.18519,
+      "lon": -85.10823,
+      "mapConfidence": "override",
+      "matchedPlace": "Jeptha’s Knob marker, Clay Village (KHS #161)",
+      "historyId": "jeptha-knob-clay-village-shelby-1887-1925"
     },
     "hidden-river-cave-under-horse-cave": {
       "slug": "hidden-river-cave-under-horse-cave",

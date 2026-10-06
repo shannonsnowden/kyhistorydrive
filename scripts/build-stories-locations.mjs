@@ -731,6 +731,32 @@ const MANUAL_OVERRIDES = {
     lon: -85.90619,
     confidence: 'override',
   },
+  // 2026-10-06 brief (Treaty of Greenville intentionally unpinned: Ohio treaty; its Kentucky-side point is the Carrollton pin)
+  'gen-charles-scott-and-petersburg': {
+    matchName: "Canewood, Gen. Charles Scott’s last home (KHS marker #116)",
+    lat: 38.0877684,
+    lon: -84.1756194,
+    confidence: 'override',
+  },
+  'flemingsburg-stocktons-town': {
+    matchName: "Flemingsburg (Fleming County courthouse)",
+    lat: 38.4229167,
+    lon: -83.7330833,
+    confidence: 'override',
+  },
+  'frederick-stitzels-barrel-racks-1879': {
+    matchName: "Stitzel Brothers Distillery remains, 25th & Maple, Louisville",
+    lat: 38.24837,
+    lon: -85.79375,
+    confidence: 'override',
+  },
+  'treaty-of-greenville-1795-the-line-to-the-kentucky-river': {},
+  'jeptha-knob-shelby-countys-buried-crater': {
+    matchName: "Jeptha’s Knob marker, Clay Village (KHS #161)",
+    lat: 38.18519,
+    lon: -85.10823,
+    confidence: 'override',
+  },
 }
 
 

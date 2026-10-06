@@ -24,7 +24,8 @@
   "Lewis Craig": "the-travelling-church-1781",
   "John Strode": "capt-john-strode-of-strodes-station",
   "Henry Bird": "ojibwe-on-birds-war-road",
-  "Dragging Canoe": "chickamauga-cherokee"
+  "Dragging Canoe": "chickamauga-cherokee",
+  "Charles Scott": "gen-charles-scott-and-petersburg"
  },
  "skip": {
   "Richard Henderson": [
@@ -372,6 +373,10 @@
    {
     "slug": "the-travelling-church-1781",
     "label": "Family: town founder Benjamin Craig came to Kentucky with the Traveling Church led by his brother Lewis Craig"
+   },
+   {
+    "slug": "gen-charles-scott-and-petersburg",
+    "label": "Same person: Gen. Charles Scott, who built the 1789 blockhouse, has his own story"
    }
   ],
   "rowlandton-mound-site-15mcn3-paducah": [
@@ -882,6 +887,10 @@
    {
     "slug": "kickapoo-on-the-kentucky-frontier",
     "label": "Same event: Scott’s June 1791 raid burned Kickapoo towns"
+   },
+   {
+    "slug": "gen-charles-scott-and-petersburg",
+    "label": "Same person: Gen. Charles Scott, who led the raid, has his own story"
    }
   ],
   "william-calks-1775-journal": [
@@ -916,6 +925,44 @@
    {
     "slug": "col-stephen-trigg-of-viney-grove",
     "label": "Same event: Col. Stephen Trigg was killed at Blue Licks"
+   }
+  ],
+  "gen-charles-scott-and-petersburg": [
+   {
+    "slug": "frankfort-franks-ford-becomes-the-capital",
+    "label": "Same event: Frankfort beat Scott’s Petersburg for the 1792 state capital"
+   },
+   {
+    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+    "label": "Same event: Scott led the 1791 mounted raid on the Wea towns"
+   }
+  ],
+  "flemingsburg-stocktons-town": [
+   {
+    "slug": "capt-john-strode-of-strodes-station",
+    "label": "Same place: George Stockton was living at Strode’s Station when he raised his first crop in 1786"
+   }
+  ],
+  "frederick-stitzels-barrel-racks-1879": [
+   {
+    "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
+    "label": "Compared: the next big change, the Bottled-in-Bond Act, came in 1897"
+   }
+  ],
+  "treaty-of-greenville-1795-the-line-to-the-kentucky-river": [
+   {
+    "slug": "blue-jacket-weyapiersenwah",
+    "label": "Same person: Blue Jacket urged the nations to accept the treaty"
+   },
+   {
+    "slug": "carrollton-from-port-william",
+    "label": "Same place: the treaty line reached the Ohio opposite the mouth of the Kentucky River, at Carrollton"
+   }
+  ],
+  "jeptha-knob-shelby-countys-buried-crater": [
+   {
+    "slug": "shelbyville",
+    "label": "Same county: the knob rises about eight miles east of Shelbyville"
    }
   ]
  }

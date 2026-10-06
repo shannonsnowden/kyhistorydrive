@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T09:31:35.909Z",
+  "generatedAt": "2026-10-06T09:24:49.664Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -328,6 +328,42 @@
         "year": null
       }
     },
+    "flemingsburg-stocktons-town": {
+      "slug": "flemingsburg-stocktons-town",
+      "historyId": "flemingsburg-stockton-fleming-1787-1812",
+      "photo": {
+        "image_url": "/content/photos/stories/flemingsburg-stocktons-town.jpg",
+        "title": "Fleming County Courthouse, Flemingsburg (photographed 2007)—a later courthouse on the county seat Stockton laid out",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fleming_County,_Kentucky_courthouse_2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2007
+      }
+    },
+    "frederick-stitzels-barrel-racks-1879": {
+      "slug": "frederick-stitzels-barrel-racks-1879",
+      "historyId": "stitzel-brothers-distillery-maple-st-jefferson-1879-1935",
+      "photo": {
+        "image_url": "/content/photos/stories/frederick-stitzels-barrel-racks-1879.jpg",
+        "title": "Stitzel-Weller Distillery in Shively (photographed 2017)—opened 1935, a later stand-in, not Stitzel’s 1879 warehouse",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stitzel-Weller_Distillery_1_(cropped).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Timothyjosephwood · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2017
+      }
+    },
+    "gen-charles-scott-and-petersburg": {
+      "slug": "gen-charles-scott-and-petersburg",
+      "historyId": "gen-charles-scott-canewood-clark-1785-1813",
+      "photo": {
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+        "title": "Gen. Charles Scott (portrait, published 1907)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": 1907
+      }
+    },
     "harry-innes": {
       "slug": "harry-innes",
       "historyId": "harry-innes-frankfort-1783-1816",
@@ -446,6 +482,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    "jeptha-knob-shelby-countys-buried-crater": {
+      "slug": "jeptha-knob-shelby-countys-buried-crater",
+      "historyId": "jeptha-knob-clay-village-shelby-1887-1925",
+      "photo": {
+        "image_url": "/content/photos/stories/jeptha-knob-shelby-countys-buried-crater.jpg",
+        "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2020
       }
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
@@ -844,6 +892,18 @@
         "year": null
       }
     },
+    "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
+      "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-greenville-1795-the-line-to-the-kentucky-river.jpg",
+        "title": "Painting of the Treaty of Greenville, 1795, made around the time of the treaty",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": 1795
+      }
+    },
     "twin-mounds-site": {
       "slug": "twin-mounds-site",
       "historyId": "twin-mounds-site-15ba2-ballard-county",
@@ -1170,6 +1230,42 @@
         "year": null
       }
     },
+    "flemingsburg-stockton-fleming-1787-1812": {
+      "slug": "flemingsburg-stocktons-town",
+      "historyId": "flemingsburg-stockton-fleming-1787-1812",
+      "photo": {
+        "image_url": "/content/photos/stories/flemingsburg-stocktons-town.jpg",
+        "title": "Fleming County Courthouse, Flemingsburg (photographed 2007)—a later courthouse on the county seat Stockton laid out",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fleming_County,_Kentucky_courthouse_2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2007
+      }
+    },
+    "stitzel-brothers-distillery-maple-st-jefferson-1879-1935": {
+      "slug": "frederick-stitzels-barrel-racks-1879",
+      "historyId": "stitzel-brothers-distillery-maple-st-jefferson-1879-1935",
+      "photo": {
+        "image_url": "/content/photos/stories/frederick-stitzels-barrel-racks-1879.jpg",
+        "title": "Stitzel-Weller Distillery in Shively (photographed 2017)—opened 1935, a later stand-in, not Stitzel’s 1879 warehouse",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stitzel-Weller_Distillery_1_(cropped).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Timothyjosephwood · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2017
+      }
+    },
+    "gen-charles-scott-canewood-clark-1785-1813": {
+      "slug": "gen-charles-scott-and-petersburg",
+      "historyId": "gen-charles-scott-canewood-clark-1785-1813",
+      "photo": {
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+        "title": "Gen. Charles Scott (portrait, published 1907)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": 1907
+      }
+    },
     "harry-innes-frankfort-1783-1816": {
       "slug": "harry-innes",
       "historyId": "harry-innes-frankfort-1783-1816",
@@ -1264,6 +1360,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "U.S. Army Corps of Engineers · Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    "jeptha-knob-clay-village-shelby-1887-1925": {
+      "slug": "jeptha-knob-shelby-countys-buried-crater",
+      "historyId": "jeptha-knob-clay-village-shelby-1887-1925",
+      "photo": {
+        "image_url": "/content/photos/stories/jeptha-knob-shelby-countys-buried-crater.jpg",
+        "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2020
       }
     },
     "lebanon-marion-county-seat": {
