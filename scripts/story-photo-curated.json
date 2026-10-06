@@ -752,5 +752,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
     "year": 2022
+  },
+  "gen-charles-scott-and-petersburg": {
+    "ext": "jpg",
+    "commonsFile": "Portrait_of_Charles_Scott.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait_of_Charles_Scott.jpg?width=1280",
+    "title": "Gen. Charles Scott (portrait, published 1907)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown artist · Wikimedia Commons · public domain",
+    "year": 1907
+  },
+  "flemingsburg-stocktons-town": {
+    "ext": "jpg",
+    "commonsFile": "Fleming_County,_Kentucky_courthouse_2.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fleming_County,_Kentucky_courthouse_2.jpg?width=1280",
+    "title": "Fleming County Courthouse, Flemingsburg (photographed 2007)—a later courthouse on the county seat Stockton laid out",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fleming_County,_Kentucky_courthouse_2.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2007
+  },
+  "frederick-stitzels-barrel-racks-1879": {
+    "ext": "jpg",
+    "commonsFile": "Stitzel-Weller_Distillery_1_(cropped).jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Stitzel-Weller_Distillery_1_(cropped).jpg?width=1280",
+    "title": "Stitzel-Weller Distillery in Shively (photographed 2017)—opened 1935, a later stand-in, not Stitzel’s 1879 warehouse",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Stitzel-Weller_Distillery_1_(cropped).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Timothyjosephwood · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2017
+  },
+  "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
+    "ext": "jpg",
+    "commonsFile": "Treaty_of_Greenville.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Treaty_of_Greenville.jpg?width=1280",
+    "title": "Painting of the Treaty of Greenville, 1795, made around the time of the treaty",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown artist · Wikimedia Commons · public domain",
+    "year": 1795
+  },
+  "jeptha-knob-shelby-countys-buried-crater": {
+    "ext": "jpg",
+    "commonsFile": "Vanatta_House_—_Clay_Village,_Kentucky.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vanatta_House_—_Clay_Village,_Kentucky.jpg?width=1280",
+    "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2020
   }
 }

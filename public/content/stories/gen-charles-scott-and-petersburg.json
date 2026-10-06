@@ -1,0 +1,26 @@
+{
+  "slug": "gen-charles-scott-and-petersburg",
+  "title": "Gen. Charles Scott and Petersburg",
+  "publishedDate": "2026-10-06",
+  "summary": "Revolutionary War general Charles Scott first saw Kentucky in 1785, coming down the Ohio to Limestone, and moved his family out in 1787 to land near present-day…",
+  "bodyMarkdown": "Revolutionary War general Charles Scott first saw Kentucky in 1785, coming down the Ohio to Limestone, and moved his family out in 1787 to land near present-day Versailles, where he built a two-story log house, a stockade, and a tobacco inspection warehouse at what became Scott's Landing. That June, Shawnee warriors killed his son Samuel as he crossed the Ohio in a canoe while Scott watched from the bank, and another son, Merritt, was killed in Harmar's 1790 campaign. Scott sold lots for a town he called Petersburg and offered it as the new state capital in 1792, but Frankfort won, and Petersburg never grew into a real town. In 1791 he led Kentucky mounted volunteers against the Wea towns on the Wabash. He went on to lead Kentucky's mounted volunteers under Anthony Wayne at Fallen Timbers in 1794, served as the fourth governor from 1808 to 1812, died at his Canewood estate in 1813, and was reburied in Frankfort Cemetery in 1854. Scott County and Scottsville are named for him. The map pin marks the Kentucky Historical Society's Canewood marker in Clark County, for the house Scott shared with his wife, the widow of Col. Nathaniel Gist, in his last years; the sites of Scott's Landing and Petersburg near Versailles are not mapped.\nSource: [https://en.wikipedia.org/wiki/Charles_Scott_(Kentucky_politician)](https://en.wikipedia.org/wiki/Charles_Scott_(Kentucky_politician))\nSource: [https://history.ky.gov/markers/scott-county-1792](https://history.ky.gov/markers/scott-county-1792)",
+  "yearStart": 1785,
+  "yearEnd": 1813,
+  "era": "frontier",
+  "tags": [
+    "frontier",
+    "kentucky",
+    "frontier-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-06",
+  "photo": {
+    "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+    "title": "Gen. Charles Scott (portrait, published 1907)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown artist · Wikimedia Commons · public domain",
+    "year": 1907
+  },
+  "county": "Clark"
+}

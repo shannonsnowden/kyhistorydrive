@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-05T09:31:34.971Z",
-  "count": 200,
+  "generatedAt": "2026-10-06T09:24:45.232Z",
+  "count": 205,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-05"
+    "end": "2026-10-06"
   },
   "eras": [
     "early-commonwealth",
@@ -3408,6 +3408,35 @@
       "matchedPlace": "Basil Hayden Sr. / Holy Cross (Pottinger's Creek)"
     },
     {
+      "slug": "gen-charles-scott-and-petersburg",
+      "title": "Gen. Charles Scott and Petersburg",
+      "publishedDate": "2026-10-06",
+      "summary": "Revolutionary War general Charles Scott first saw Kentucky in 1785, coming down the Ohio to Limestone, and moved his family out in 1787 to land near present-day…",
+      "yearStart": 1785,
+      "yearEnd": 1813,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-06",
+      "county": "Clark",
+      "photo": {
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+        "title": "Gen. Charles Scott (portrait, published 1907)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": 1907
+      },
+      "lat": 38.0877684,
+      "lon": -84.1756194,
+      "mapConfidence": "override",
+      "matchedPlace": "Canewood, Gen. Charles Scott’s last home (KHS marker #116)"
+    },
+    {
       "slug": "henderson-at-red-banks",
       "title": "Henderson at Red Banks",
       "publishedDate": "2026-09-19",
@@ -3515,6 +3544,35 @@
       "lon": -83.76211,
       "mapConfidence": "override",
       "matchedPlace": "Blue Jacket at Limestone (Maysville)"
+    },
+    {
+      "slug": "flemingsburg-stocktons-town",
+      "title": "Flemingsburg, Stockton’s town",
+      "publishedDate": "2026-10-06",
+      "summary": "Col. John Fleming came into the hill country south of Limestone in 1776 to mark and improve land, served as an officer in the Revolution, and built Fleming's Station in…",
+      "yearStart": 1787,
+      "yearEnd": 1812,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-06",
+      "county": "Fleming",
+      "photo": {
+        "image_url": "/content/photos/stories/flemingsburg-stocktons-town.jpg",
+        "title": "Fleming County Courthouse, Flemingsburg (photographed 2007)—a later courthouse on the county seat Stockton laid out",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fleming_County,_Kentucky_courthouse_2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2007
+      },
+      "lat": 38.4229167,
+      "lon": -83.7330833,
+      "mapConfidence": "override",
+      "matchedPlace": "Flemingsburg (Fleming County courthouse)"
     },
     {
       "slug": "william-whitley-sportsmans-hill",
@@ -4028,6 +4086,36 @@
       "lon": -85.3364,
       "mapConfidence": "override",
       "matchedPlace": "Jacob Beam / Hardin's Creek"
+    },
+    {
+      "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+      "title": "Treaty of Greenville, 1795: the line to the Kentucky River",
+      "publishedDate": "2026-10-06",
+      "summary": "On August 3, 1795, at Fort Greenville in western Ohio, leaders of twelve nations (Wyandot, Delaware, Shawnee, Odawa, Ojibwe, Potawatomi, Miami, Eel River, Wea, Kickapoo…",
+      "yearStart": 1795,
+      "yearEnd": 1795,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-06",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-greenville-1795-the-line-to-the-kentucky-river.jpg",
+        "title": "Painting of the Treaty of Greenville, 1795, made around the time of the treaty",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": 1795
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "lancaster-at-wallaces-crossroads",
@@ -4796,6 +4884,64 @@
       "lon": -84.59806,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
+    },
+    {
+      "slug": "frederick-stitzels-barrel-racks-1879",
+      "title": "Frederick Stitzel’s barrel racks, 1879",
+      "publishedDate": "2026-10-06",
+      "summary": "Before 1879, Kentucky warehousemen rolled barrels into lines on the floor, laid a pair of wooden rails across them, and rolled another row on top, three or four barrels…",
+      "yearStart": 1879,
+      "yearEnd": 1935,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-06",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/frederick-stitzels-barrel-racks-1879.jpg",
+        "title": "Stitzel-Weller Distillery in Shively (photographed 2017)—opened 1935, a later stand-in, not Stitzel’s 1879 warehouse",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stitzel-Weller_Distillery_1_(cropped).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Timothyjosephwood · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2017
+      },
+      "lat": 38.24837,
+      "lon": -85.79375,
+      "mapConfidence": "override",
+      "matchedPlace": "Stitzel Brothers Distillery remains, 25th & Maple, Louisville"
+    },
+    {
+      "slug": "jeptha-knob-shelby-countys-buried-crater",
+      "title": "Jeptha Knob, Shelby County’s buried crater",
+      "publishedDate": "2026-10-06",
+      "summary": "About eight miles east of Shelbyville near Clay Village, Jeptha Knob rises some 300 feet above the surrounding farmland and is the highest point in the Bluegrass.…",
+      "yearStart": 1887,
+      "yearEnd": 1925,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "geology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-06",
+      "county": "Shelby",
+      "photo": {
+        "image_url": "/content/photos/stories/jeptha-knob-shelby-countys-buried-crater.jpg",
+        "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2020
+      },
+      "lat": 38.18519,
+      "lon": -85.10823,
+      "mapConfidence": "override",
+      "matchedPlace": "Jeptha’s Knob marker, Clay Village (KHS #161)"
     },
     {
       "slug": "hidden-river-cave-under-horse-cave",

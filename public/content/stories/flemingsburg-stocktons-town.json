@@ -1,0 +1,26 @@
+{
+  "slug": "flemingsburg-stocktons-town",
+  "title": "Flemingsburg, Stockton’s town",
+  "publishedDate": "2026-10-06",
+  "summary": "Col. John Fleming came into the hill country south of Limestone in 1776 to mark and improve land, served as an officer in the Revolution, and built Fleming's Station in…",
+  "bodyMarkdown": "Col. John Fleming came into the hill country south of Limestone in 1776 to mark and improve land, served as an officer in the Revolution, and built Fleming's Station in 1788. It was the second fort in the area. The first was Stockton's Station, built in 1787 by his half-brother, Maj. George Stockton, who had raised a crop on the spot in 1786 while still living at Strode's Station. Stockton owned the land where the town grew, laid it out in the mid-1790s (the Kentucky Historical Society marker says 1796), and named it for his half-brother. When Fleming County was cut from Mason in 1798 as Kentucky's 26th county, Flemingsburg became its seat, and the legislature incorporated the town in 1812. The country stayed dangerous for years: Robert Stockton was killed by Indians in 1789 and still lies under stacked rock slabs in a field in eastern Fleming County. The map pin marks the Fleming County marker on the courthouse lawn in Flemingsburg.\nSource: [https://history.ky.gov/markers/fleming-county](https://history.ky.gov/markers/fleming-county)\nSource: [https://en.wikipedia.org/wiki/Flemingsburg,_Kentucky](https://en.wikipedia.org/wiki/Flemingsburg,_Kentucky)\nSource: [https://en.wikipedia.org/wiki/Fleming_County,_Kentucky](https://en.wikipedia.org/wiki/Fleming_County,_Kentucky)",
+  "yearStart": 1787,
+  "yearEnd": 1812,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "town-founding"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-06",
+  "photo": {
+    "image_url": "/content/photos/stories/flemingsburg-stocktons-town.jpg",
+    "title": "Fleming County Courthouse, Flemingsburg (photographed 2007)—a later courthouse on the county seat Stockton laid out",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fleming_County,_Kentucky_courthouse_2.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2007
+  },
+  "county": "Fleming"
+}

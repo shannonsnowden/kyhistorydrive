@@ -437,6 +437,46 @@
       "yearStart": 1890,
       "yearEnd": 1943,
       "county": "Hart"
+    },
+    "gen-charles-scott-and-petersburg": {
+      "reason": "Pin KHS marker #116 (Canewood) in Clark County, Scott’s last home; Scott’s Landing/Petersburg near Versailles unmapped (no reliable coordinate). County Clark to match pin. Years 1785–1813.",
+      "date": "2026-10-06",
+      "historyId": "gen-charles-scott-canewood-clark-1785-1813",
+      "lat": 38.0877684,
+      "lon": -84.1756194,
+      "yearStart": 1785,
+      "yearEnd": 1813,
+      "county": "Clark"
+    },
+    "flemingsburg-stocktons-town": {
+      "reason": "Pin KHS marker #950 (Fleming County) on the courthouse lawn. County Fleming. Years 1787 Stockton’s Station–1812 incorporation (not a marker date).",
+      "date": "2026-10-06",
+      "historyId": "flemingsburg-stockton-fleming-1787-1812",
+      "lat": 38.4229167,
+      "lon": -83.7330833,
+      "yearStart": 1787,
+      "yearEnd": 1812,
+      "county": "Fleming"
+    },
+    "frederick-stitzels-barrel-racks-1879": {
+      "reason": "Pin OSM 2501 Maple St., Louisville (Stitzel Brothers Distillery remains, HistoricLouisville.com); not Glencoe (unmapped) or Stitzel-Weller in Shively. Years 1879 patent–1935 Stitzel-Weller opening.",
+      "date": "2026-10-06",
+      "historyId": "stitzel-brothers-distillery-maple-st-jefferson-1879-1935",
+      "lat": 38.24837,
+      "lon": -85.79375,
+      "yearStart": 1879,
+      "yearEnd": 1935,
+      "county": "Jefferson"
+    },
+    "jeptha-knob-shelby-countys-buried-crater": {
+      "reason": "Pin KHS marker #161 at Clay Village (public roadside marker; knob is private, summit not pinned). Not archaeological, no rounding. Years 1887 Linney–1925 Bucher (human study years; structure ~440 Ma).",
+      "date": "2026-10-06",
+      "historyId": "jeptha-knob-clay-village-shelby-1887-1925",
+      "lat": 38.18519,
+      "lon": -85.10823,
+      "yearStart": 1887,
+      "yearEnd": 1925,
+      "county": "Shelby"
     }
   }
 }
