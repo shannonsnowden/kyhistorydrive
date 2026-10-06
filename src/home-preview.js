@@ -410,9 +410,25 @@ function renderHero(pack) {
       ${slides.map((story, i) => renderHeroSlide(story, i)).join('')}
     </div>
     ${renderHeroControls(slides)}`
+  markPortraitHeroImages(root)
   fitHomeText()
   renderQuote(slides[0])
   initHeroRotator(root, slides)
+}
+
+/**
+ * Tall (portrait) photos in the wide hero: object-fit: cover crops them to a band through the
+ * middle, which cuts faces off at the eyes (e.g. the 2026-10-06 Charles Scott portrait at 1280).
+ * Bias portrait crops toward the top so heads stay in frame; landscape photos are unchanged.
+ */
+function markPortraitHeroImages(root) {
+  root.querySelectorAll('img.hp-mag-hero-img').forEach((img) => {
+    const mark = () => {
+      if (img.naturalWidth && img.naturalHeight > img.naturalWidth * 1.05) img.classList.add('is-portrait')
+    }
+    if (img.complete) mark()
+    else img.addEventListener('load', mark, { once: true })
+  })
 }
 
 function renderFeatures(pack) {
