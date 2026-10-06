@@ -1467,6 +1467,9 @@ html[data-hp-theme="light"] .era-other {
   object-fit: cover;
   display: block;
 }
+.hp-mag-hero-img.is-portrait {
+  object-position: 50% 18%;
+}
 .hp-mag-hero-shade {
   position: absolute;
   inset: 0;
