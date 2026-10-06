@@ -33,6 +33,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+import { checkOtaPack } from './ota-types.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -99,6 +100,15 @@ async function readGithub(file, token) {
   return Buffer.from(await res.arrayBuffer())
 }
 
+function assertOtaTypes(dir) {
+  const issues = checkOtaPack(dir)
+  if (!issues.length) return
+  throw new Error(
+    `OTA type check failed (${issues.length}):\n  ` + issues.slice(0, 40).join('\n  ') +
+      (issues.length > 40 ? `\n  … ${issues.length - 40} more` : ''),
+  )
+}
+
 function assertJson(file, buf) {
   let parsed
   try {
@@ -136,6 +146,7 @@ function useCommitted() {
     const parsed = assertJson(file, fs.readFileSync(path.join(OUT_DIR, file)))
     if (file === 'ky-history-manifest.json') manifest = parsed
   }
+  assertOtaTypes(OUT_DIR)
   console.log(
     `Validated ${FILES.length} files in public/data/app/ (data_version ${manifest.data_version}).`,
   )
@@ -153,6 +164,7 @@ async function fetchAll(localDir, token) {
       results.push({ file, bytes: buf.length, extra })
       console.log(`  ${file}  ${buf.length} bytes${extra}`)
     }
+    assertOtaTypes(staging)
     fs.mkdirSync(OUT_DIR, { recursive: true })
     for (const file of FILES) {
       moveFile(path.join(staging, file), path.join(OUT_DIR, file))

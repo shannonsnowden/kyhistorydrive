@@ -732,7 +732,6 @@
     "war": "civil",
     "site_type": "fort",
     "history": "Union fortification in Glasgow interpreting Barren County's Civil War occupation and the defense of south-central Kentucky approaches.",
-    "website": null,
     "geocode_source": "photon",
     "sources": [
       "https://history.ky.gov/markers/fort-williams"
@@ -766,7 +765,6 @@
     "war": "civil",
     "site_type": "camp",
     "history": "First large Union recruiting camp established south of the Ohio River (1861), key to organizing Kentucky and East Tennessee Union volunteers. Interpretive markers in Garrard County.",
-    "website": null,
     "geocode_source": "manual",
     "sources": [
       "https://en.wikipedia.org/wiki/Camp_Dick_Robinson"
@@ -783,7 +781,6 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "September 1861 Confederate attack on a Union recruiting camp\u2014one of the Civil War Sites Advisory Commission\u2019s 11 principal Kentucky battlefields in the Cumberland Gap approaches.",
-    "website": null,
     "geocode_source": "photon",
     "sources": [
       "https://en.wikipedia.org/wiki/Battle_of_Barbourville"
@@ -800,7 +797,6 @@
     "war": "civil",
     "site_type": "battlefield",
     "history": "December 1861 railroad bridge fight on the L&N near Munfordville, part of the Green River corridor battles that include the later Battle for the Bridge campaign.",
-    "website": null,
     "geocode_source": "photon",
     "sources": [
       "https://history.ky.gov/markers/battle-of-rowletts-station"

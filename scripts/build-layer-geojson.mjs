@@ -26,7 +26,7 @@ const LAYERS = [
       description: p.history || null,
       website: p.website || null,
       category: p.category || null,
-      marker_number: p.marker_number ?? null,
+      marker_number: historyMarkerNumber(p.marker_number),
       marker_title: p.marker_title || null,
       source_date: p.source_date || null,
       year_start: p.year_start ?? null,
@@ -230,6 +230,14 @@ const CATEGORY_ERA = {
   person: 'other',
   bourbon: 'other',
   industry: 'other',
+}
+
+/** HistoryPlace.markerNumber is Int. Emit an integer, or null so the feature omits the key. */
+function historyMarkerNumber(value) {
+  if (value == null || value === '') return null
+  if (typeof value === 'number' && Number.isInteger(value)) return value
+  if (typeof value === 'string' && /^-?\d+$/.test(value.trim())) return Number(value.trim())
+  return null
 }
 
 function countyFromSubtitle(sub) {

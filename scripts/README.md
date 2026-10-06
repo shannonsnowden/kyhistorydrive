@@ -27,6 +27,8 @@ npm run test-overrides    # temp-copy tests (idempotence, re-ingest repair, stal
 
 Not touched: `public/data/app/search-index.json` (iOS term index), `home-preview.json` (rebuilt from stories afterwards), `markers.*`, the iOS repo. Overrides never bump `data_version`; bump it yourself when an override changes served data.
 
+When `ky-history.json` is loaded, each History entry is canonicalized before it is written: `marker_number` becomes a JSON integer or the key is removed, and null URL keys are removed. `npm run check-ota-types` (also run by `sync-app-data` and `npm run build`) fails if that shape, a `bio_url`, or any other iOS field type drifts.
+
 ## Pin rounding for looting-sensitive sites (`scripts/pin-rounding.json`, #141)
 
 Archaeological site pins are published generalized: tier A sites use a county-level point, tier B sites are rounded to 2 decimals (about 1 km). Those exact public values are entries in `story-overrides.json` (reason "Looting-sensitive site, public coordinate generalized (#141)"), so a rebuild or a re-ingested pack re-applies them.
