@@ -538,6 +538,15 @@ async function main() {
   for (const card of cards) {
     if (writeStoryPhoto(card.slug, card.photo)) persisted += 1
   }
+  // Back-fill: any older story that has a curated photo but none persisted yet
+  // (e.g. curated key fixed after its pack day) gets it, so Explore lists it.
+  const today = new Set(cards.map((c) => c.slug))
+  for (const s of index.stories || []) {
+    if (today.has(s.slug) || !curatedPhotos[s.slug]) continue
+    if (loadStory(s.slug)?.photo?.image_url) continue
+    const photo = await vendorCuratedPhoto(s.slug, curatedPhotos[s.slug])
+    if (writeStoryPhoto(s.slug, publicPhoto(photo))) persisted += 1
+  }
   const photoIndex = writeStoryPhotoIndex(locations)
   const indexPatched = patchStoriesIndexPhotos()
 

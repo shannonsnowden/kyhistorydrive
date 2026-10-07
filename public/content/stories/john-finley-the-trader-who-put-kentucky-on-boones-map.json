@@ -14,5 +14,13 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-22"
+  "briefDate": "2026-09-22",
+  "photo": {
+    "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
+    "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+    "year": 1851
+  }
 }

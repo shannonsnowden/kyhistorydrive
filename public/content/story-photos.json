@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T09:04:03.501Z",
+  "generatedAt": "2026-10-07T09:21:44.840Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -424,6 +424,18 @@
         "year": null
       }
     },
+    "isaac-ruddell-and-the-guns-at-ruddells-station": {
+      "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
+      "historyId": "ruddells-station-harrison-county",
+      "photo": {
+        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2012
+      }
+    },
     "jack-jouett-kentuckys-midnight-rider": {
       "slug": "jack-jouett-kentuckys-midnight-rider",
       "historyId": "capt-jack-jouett-midnight-ride-1781",
@@ -494,6 +506,18 @@
         "source_label": "USGS 3D Elevation Program",
         "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
         "year": 2026
+      }
+    },
+    "john-finley-the-trader-who-put-kentucky-on-boones-map": {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+      "historyId": "john-finley-eskippakithiki-trader",
+      "photo": {
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
+        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+        "year": 1851
       }
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
@@ -1314,6 +1338,18 @@
         "year": null
       }
     },
+    "ruddells-station-harrison-county": {
+      "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
+      "historyId": "ruddells-station-harrison-county",
+      "photo": {
+        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2012
+      }
+    },
     "capt-jack-jouett-midnight-ride-1781": {
       "slug": "jack-jouett-kentuckys-midnight-rider",
       "historyId": "capt-jack-jouett-midnight-ride-1781",
@@ -1372,6 +1408,18 @@
         "source_label": "USGS 3D Elevation Program",
         "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
         "year": 2026
+      }
+    },
+    "john-finley-eskippakithiki-trader": {
+      "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+      "historyId": "john-finley-eskippakithiki-trader",
+      "photo": {
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
+        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+        "year": 1851
       }
     },
     "lebanon-marion-county-seat": {
