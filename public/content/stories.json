@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T09:04:02.418Z",
+  "generatedAt": "2026-10-07T09:21:43.876Z",
   "count": 205,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -1721,6 +1721,14 @@
       "source": "ky-history",
       "briefDate": "2026-09-22",
       "county": "Clark",
+      "photo": {
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
+        "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
+        "year": 1851
+      },
       "lat": 37.93955,
       "lon": -83.9975333,
       "mapConfidence": "fuzzy",
@@ -2784,6 +2792,14 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
+      "photo": {
+        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+        "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2012
+      },
       "lat": 38.3351,
       "lon": -84.2749,
       "mapConfidence": "fuzzy",
