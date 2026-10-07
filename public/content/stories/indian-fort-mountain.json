@@ -14,10 +14,5 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-01",
-  "territory": {
-    "ref": "/data/web/territories/hopewell-style-middle-woodland-indian-fort-mountain.json",
-    "nation": "Hopewell-style Middle Woodland (archaeological culture)",
-    "presenceLabel": "Archaeological culture, no mapped area"
-  }
+  "briefDate": "2026-09-01"
 }
