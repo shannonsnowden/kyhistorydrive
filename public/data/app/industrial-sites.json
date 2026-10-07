@@ -1224,7 +1224,7 @@
     "address": "946 Goss Ave., Louisvville",
     "latitude": 38.2292833,
     "longitude": -85.74025,
-    "industry_type": "manufacturing",
+    "industry_type": "mill",
     "built_year": 1889,
     "history": "First cotton mill in Louisville (1889), a major Victorian industrial complex that first made cotton warp for “Kentucky Jeans.” Later Louisville Textile Co. / Fincastle Fabrics sold worldwide; by 1948 Louisville Textiles was Kentucky’s largest textile employer. The Goss Avenue plant is interpreted by KHS marker 2516.",
     "website": "https://history.ky.gov/markers/louisville-cotton-mill",
@@ -1308,5 +1308,471 @@
     "geocode_source": "khs-marker",
     "nrhp": null,
     "marker_number": "1642"
+  },
+  {
+    "id": "green-mill-grayson",
+    "name": "Green Mill",
+    "city": "Falls of Rough",
+    "county": "Grayson",
+    "latitude": 37.588333,
+    "longitude": -86.553283,
+    "industry_type": "mill",
+    "built_year": 1823,
+    "history": "Built in 1823, this mill was operated continuously by the Green family for over 140 years. It was part of a 6,000-acre farm-timber complex, and farmers from seven counties brought grain here to be milled into flour and cornmeal. (Kentucky Historical Society marker 906.)",
+    "website": "https://history.ky.gov/markers/green-mill",
+    "sources": [
+      "https://history.ky.gov/markers/green-mill",
+      "https://www.hmdb.org/m.asp?m=301212"
+    ],
+    "geocode_source": "hmdb",
+    "marker_number": "906"
+  },
+  {
+    "id": "moore-s-mill-monroe",
+    "name": "Moore's Mill",
+    "city": "Tompkinsville",
+    "county": "Monroe",
+    "latitude": 36.664983,
+    "longitude": -85.653967,
+    "industry_type": "mill",
+    "built_year": 1874,
+    "history": "Phillip Moore bought a steam sawmill on Meshack Creek in 1874; his son Joel and four grandsons later moved the mill to this site on KY 163. In 1929 the expanded lumber mill was among the first in the area to run at night with electric lights. (Kentucky Historical Society marker 2041.)",
+    "website": "https://history.ky.gov/markers/moores-mill",
+    "sources": [
+      "https://history.ky.gov/markers/moores-mill",
+      "https://www.hmdb.org/m.asp?m=39402"
+    ],
+    "geocode_source": "hmdb",
+    "marker_number": "2041"
+  },
+  {
+    "id": "doe-run-mill-doe-run-creek-historic-district",
+    "name": "Doe Run Mill (Doe Run Creek Historic District)",
+    "city": "Brandenburg",
+    "county": "Meade",
+    "address": "Kentucky Route 1638 on Doe Run Creek",
+    "latitude": 37.959722,
+    "longitude": -86.121944,
+    "industry_type": "mill",
+    "history": "Doe Run Mill, a gristmill on Doe Run Creek near Brandenburg, is within the Doe Run Creek Historic District, listed on the National Register of Historic Places on October 6, 1987 (reference 87002053). Kentucky Historical Society marker 1755 also marks the district.",
+    "website": "https://en.wikipedia.org/wiki/Doe_Run_Inn",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Doe_Run_Inn",
+      "https://npgallery.nps.gov/AssetDetail/NRIS/87002053"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "87002053",
+    "marker_number": "1755"
+  },
+  {
+    "id": "gullian-gerig-s-mill",
+    "name": "Gullian Gerig's Mill",
+    "city": "Glasgow",
+    "county": "Barren",
+    "address": "Beaver Valley Rd.",
+    "latitude": 37.025556,
+    "longitude": -85.964722,
+    "industry_type": "mill",
+    "history": "Gullian Gerig's Mill in Glasgow, Barren County, was listed on the National Register of Historic Places on October 5, 1987 (reference 87002050). Listed location: Beaver Valley Rd..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/87002050",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/87002050"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "87002050"
+  },
+  {
+    "id": "grimes-house-and-mill-complex",
+    "name": "Grimes House and Mill Complex",
+    "city": "Lexington",
+    "county": "Fayette",
+    "address": "Grimes Mill Rd.",
+    "latitude": 37.915833,
+    "longitude": -84.342778,
+    "industry_type": "mill",
+    "history": "Grimes House and Mill Complex in Lexington, Fayette County, was listed on the National Register of Historic Places on June 21, 1982 (reference 82002687). Listed location: Grimes Mill Rd..",
+    "website": "https://en.wikipedia.org/wiki/Grimes_House_and_Mill_Complex",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Grimes_House_and_Mill_Complex",
+      "https://npgallery.nps.gov/AssetDetail/NRIS/82002687"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "82002687"
+  },
+  {
+    "id": "james-pettit-s-mill",
+    "name": "James Pettit's Mill",
+    "city": "Ford",
+    "county": "Fayette",
+    "address": "Kentucky Route 418",
+    "latitude": 37.932222,
+    "longitude": -84.34,
+    "industry_type": "mill",
+    "history": "James Pettit's Mill in Ford, Fayette County, was listed on the National Register of Historic Places on June 23, 1983 (reference 83002768). Listed location: Kentucky Route 418.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/83002768",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/83002768"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "83002768"
+  },
+  {
+    "id": "garrard-mills",
+    "name": "Garrard Mills",
+    "city": "Lancaster",
+    "county": "Garrard",
+    "address": "205 E. Buford St.",
+    "latitude": 37.618056,
+    "longitude": -84.576389,
+    "industry_type": "mill",
+    "history": "Garrard Mills in Lancaster, Garrard County, was listed on the National Register of Historic Places on March 26, 1984 (reference 84001447). Listed location: 205 E. Buford St.. Opened for business September 19, 1900.",
+    "website": "https://en.wikipedia.org/wiki/Garrard_Mills",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Garrard_Mills",
+      "https://npgallery.nps.gov/AssetDetail/NRIS/84001447"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "84001447"
+  },
+  {
+    "id": "montgomery-s-mill",
+    "name": "Montgomery's Mill",
+    "city": "Greensburg",
+    "county": "Green",
+    "address": "Off Kentucky Route 88",
+    "latitude": 37.273333,
+    "longitude": -85.553889,
+    "industry_type": "mill",
+    "history": "Montgomery's Mill in Greensburg, Green County, was listed on the National Register of Historic Places on August 24, 1984 (reference 84001523). Listed location: Off Kentucky Route 88.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/84001523",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/84001523"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "84001523"
+  },
+  {
+    "id": "white-mill",
+    "name": "White Mill",
+    "city": "White Mills",
+    "county": "Hardin",
+    "address": "Nolin River",
+    "latitude": 37.555278,
+    "longitude": -86.031111,
+    "industry_type": "mill",
+    "history": "White Mill in White Mills, Hardin County, was listed on the National Register of Historic Places on October 5, 1988 (reference 88001761). Listed location: Nolin River.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/88001761",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/88001761"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "88001761"
+  },
+  {
+    "id": "bradford-mills",
+    "name": "Bradford Mills",
+    "city": "Germantown",
+    "county": "Jefferson",
+    "address": "1124 Reutlinger Ave.",
+    "latitude": 38.2325,
+    "longitude": -85.735,
+    "industry_type": "mill",
+    "history": "Bradford Mills in Germantown, Jefferson County, was listed on the National Register of Historic Places on October 6, 1982 (reference 82001555). Listed location: 1124 Reutlinger Ave..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/82001555",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/82001555"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "82001555"
+  },
+  {
+    "id": "eclipse-woolen-mill",
+    "name": "Eclipse Woolen Mill",
+    "city": "Phoenix Hill",
+    "county": "Jefferson",
+    "address": "1044 E. Chestnut St.",
+    "latitude": 38.248889,
+    "longitude": -85.7325,
+    "industry_type": "mill",
+    "history": "Eclipse Woolen Mill in Phoenix Hill, Jefferson County, was listed on the National Register of Historic Places on December 22, 1978 (reference 78001352). Listed location: 1044 E. Chestnut St..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/78001352",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/78001352"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "78001352"
+  },
+  {
+    "id": "hope-worsted-mills",
+    "name": "Hope Worsted Mills",
+    "city": "Germantown",
+    "county": "Jefferson",
+    "address": "942 E. Kentucky St.",
+    "latitude": 38.235833,
+    "longitude": -85.737222,
+    "industry_type": "mill",
+    "history": "Hope Worsted Mills in Germantown, Jefferson County, was listed on the National Register of Historic Places on January 19, 1996 (reference 95001543). Listed location: 942 E. Kentucky St..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/95001543",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/95001543"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "95001543"
+  },
+  {
+    "id": "wolf-pen-branch-mill",
+    "name": "Wolf Pen Branch Mill",
+    "city": "Harrods Creek",
+    "county": "Jefferson",
+    "address": "7839 Wolf Pen Branch Rd.",
+    "latitude": 38.330139,
+    "longitude": -85.596389,
+    "industry_type": "mill",
+    "history": "Wolf Pen Branch Mill in Harrods Creek, Jefferson County, was listed on the National Register of Historic Places on January 5, 1978 (reference 78001344). Listed location: 7839 Wolf Pen Branch Rd..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/78001344",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/78001344"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "78001344"
+  },
+  {
+    "id": "glass-mill-complex",
+    "name": "Glass Mill Complex",
+    "city": "Wilmore",
+    "county": "Jessamine",
+    "address": "1995 Glass Mill Road",
+    "latitude": 37.8416,
+    "longitude": -84.6455,
+    "industry_type": "mill",
+    "history": "Glass Mill Complex in Wilmore, Jessamine County, was listed on the National Register of Historic Places on January 13, 2025 (reference 100011310). Listed location: 1995 Glass Mill Road.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/100011310",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/100011310"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "100011310"
+  },
+  {
+    "id": "big-sandy-milling-company",
+    "name": "Big Sandy Milling Company",
+    "city": "Louisa",
+    "county": "Lawrence",
+    "address": "Pike St. between Lock Ave. and railroad tracks",
+    "latitude": 38.116667,
+    "longitude": -82.605556,
+    "industry_type": "mill",
+    "history": "Big Sandy Milling Company in Louisa, Lawrence County, was listed on the National Register of Historic Places on November 1, 1988 (reference 88002045). Listed location: Pike St. between Lock Ave. and railroad tracks. Three-story post-and-beam mill building.",
+    "website": "https://en.wikipedia.org/wiki/Big_Sandy_Milling_Company",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Big_Sandy_Milling_Company",
+      "https://npgallery.nps.gov/AssetDetail/NRIS/88002045"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "88002045"
+  },
+  {
+    "id": "swope-dudderar-house-and-mill-site",
+    "name": "Swope-Dudderar House and Mill Site",
+    "city": "Stanford",
+    "county": "Lincoln",
+    "address": "East of Stanford on Goshen Rd.",
+    "latitude": 37.556667,
+    "longitude": -84.600833,
+    "industry_type": "mill",
+    "history": "Swope-Dudderar House and Mill Site in Stanford, Lincoln County, was listed on the National Register of Historic Places on April 16, 1979 (reference 79001020). Listed location: East of Stanford on Goshen Rd..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/79001020",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/79001020"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "79001020"
+  },
+  {
+    "id": "bogie-houses-and-mill-site",
+    "name": "Bogie Houses and Mill Site",
+    "city": "Richmond",
+    "county": "Madison",
+    "address": "{{convert|8|mi}} west of Richmond on Silver Creek",
+    "latitude": 37.7283,
+    "longitude": -84.4244,
+    "industry_type": "mill",
+    "history": "Bogie Houses and Mill Site in Richmond, Madison County, was listed on the National Register of Historic Places on August 13, 1976 (reference 76000920). Listed location: {{convert|8|mi}} west of Richmond on Silver Creek.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/76000920",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/76000920"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "76000920"
+  },
+  {
+    "id": "milton-mills",
+    "name": "Milton Mills",
+    "city": "Orangeburg",
+    "county": "Mason",
+    "address": "7191 Taylor Mill Rd.",
+    "latitude": 38.574167,
+    "longitude": -83.734444,
+    "industry_type": "mill",
+    "history": "Milton Mills in Orangeburg, Mason County, was listed on the National Register of Historic Places on January 8, 1987 (reference 87000148). Listed location: 7191 Taylor Mill Rd..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/87000148",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/87000148"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "87000148"
+  },
+  {
+    "id": "monarch-milling-company",
+    "name": "Monarch Milling Company",
+    "city": "Mount Sterling",
+    "county": "Montgomery",
+    "address": "Junction of S. Maysville and E. Locust",
+    "latitude": 38.055,
+    "longitude": -83.941389,
+    "industry_type": "mill",
+    "history": "Monarch Milling Company in Mount Sterling, Montgomery County, was listed on the National Register of Historic Places on April 23, 1991 (reference 91000425). Listed location: Junction of S. Maysville and E. Locust.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/91000425",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/91000425"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "91000425"
+  },
+  {
+    "id": "payne-mill",
+    "name": "Payne Mill",
+    "city": "Eubank",
+    "county": "Pulaski",
+    "address": "Off Kentucky Route 1247",
+    "latitude": 37.280833,
+    "longitude": -84.659722,
+    "industry_type": "mill",
+    "history": "Payne Mill in Eubank, Pulaski County, was listed on the National Register of Historic Places on August 14, 1984 (reference 84001968). Listed location: Off Kentucky Route 1247.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/84001968",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/84001968"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "84001968"
+  },
+  {
+    "id": "robinson-mill",
+    "name": "Robinson Mill",
+    "city": "Somerset",
+    "county": "Pulaski",
+    "address": "S. Main St.",
+    "latitude": 37.081944,
+    "longitude": -84.611389,
+    "industry_type": "mill",
+    "history": "Robinson Mill in Somerset, Pulaski County, was listed on the National Register of Historic Places on August 14, 1984 (reference 84001971). Listed location: S. Main St..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/84001971",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/84001971"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "84001971"
+  },
+  {
+    "id": "thomsons-mill-warehouse",
+    "name": "Thomsons Mill Warehouse",
+    "city": "Georgetown",
+    "county": "Scott",
+    "address": "Off U.S. Route 460",
+    "latitude": 38.218333,
+    "longitude": -84.574722,
+    "industry_type": "mill",
+    "history": "Thomsons Mill Warehouse in Georgetown, Scott County, was listed on the National Register of Historic Places on June 23, 1983 (reference 83002871). Listed location: Off U.S. Route 460.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/83002871",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/83002871"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "83002871"
+  },
+  {
+    "id": "s-f-turner-and-company-steam-flouring-and-grist-mill",
+    "name": "S.F. Turner and Company Steam Flouring and Grist Mill",
+    "city": "Springfield",
+    "county": "Washington",
+    "address": "400 W. Main St.",
+    "latitude": 37.688611,
+    "longitude": -85.229444,
+    "industry_type": "mill",
+    "history": "S.F. Turner and Company Steam Flouring and Grist Mill in Springfield, Washington County, was listed on the National Register of Historic Places on February 10, 1989 (reference 88003390). Listed location: 400 W. Main St..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/88003390",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/88003390"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "88003390"
+  },
+  {
+    "id": "adkins-hurt-mill",
+    "name": "Adkins-Hurt Mill",
+    "city": "Mount Pisgah",
+    "county": "Wayne",
+    "address": "Off Kentucky Route 167",
+    "latitude": 36.651667,
+    "longitude": -84.804444,
+    "industry_type": "mill",
+    "history": "Adkins-Hurt Mill in Mount Pisgah, Wayne County, was listed on the National Register of Historic Places on May 6, 1977 (reference 77000662). Listed location: Off Kentucky Route 167.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/77000662",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/77000662"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "77000662"
+  },
+  {
+    "id": "guyn-s-mill-historic-district",
+    "name": "Guyn's Mill Historic District",
+    "city": "Troy",
+    "county": "Woodford",
+    "address": "Mundy's Landing and Pauls Mill Rds.",
+    "latitude": 37.900556,
+    "longitude": -84.708056,
+    "industry_type": "mill",
+    "history": "Guyn's Mill Historic District in Troy, Woodford County, was listed on the National Register of Historic Places on August 29, 1983 (reference 83002897). Listed location: Mundy's Landing and Pauls Mill Rds..",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/83002897",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/83002897"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "83002897"
+  },
+  {
+    "id": "mccrackin-distillery-and-mill",
+    "name": "McCrackin Distillery and Mill",
+    "city": "Tyrone",
+    "county": "Woodford",
+    "address": "Kentucky Route 1659",
+    "latitude": 38.091944,
+    "longitude": -84.788056,
+    "industry_type": "mill",
+    "history": "McCrackin Distillery and Mill in Tyrone, Woodford County, was listed on the National Register of Historic Places on June 23, 1983 (reference 83002903). Listed location: Kentucky Route 1659.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/83002903",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/83002903"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "83002903"
+  },
+  {
+    "id": "stone-house-at-fisher-s-mill",
+    "name": "Stone House at Fisher's Mill",
+    "city": "Midway",
+    "county": "Woodford",
+    "address": "Off U.S. Route 421",
+    "latitude": 38.1725,
+    "longitude": -84.704444,
+    "industry_type": "mill",
+    "history": "Stone House at Fisher's Mill in Midway, Woodford County, was listed on the National Register of Historic Places on June 23, 1983 (reference 83002912). Listed location: Off U.S. Route 421.",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/83002912",
+    "sources": [
+      "https://npgallery.nps.gov/AssetDetail/NRIS/83002912"
+    ],
+    "geocode_source": "nrhp-wikipedia",
+    "nrhp": "83002912"
   }
 ]
