@@ -50,7 +50,7 @@
     "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
     "year": 2017
   },
-  "john-finley-the-trader-who-put-kentucky-on-boone-s-map": {
+  "john-finley-the-trader-who-put-kentucky-on-boones-map": {
     "ext": "jpg",
     "fileBase": "john-finley-the-trader-who-put-kentucky-on-boones-trail",
     "commonsFile": "George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
@@ -71,7 +71,7 @@
     "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
     "year": 1848
   },
-  "isaac-ruddell-and-the-guns-at-ruddell-s-station": {
+  "isaac-ruddell-and-the-guns-at-ruddells-station": {
     "ext": "jpg",
     "commonsFile": "Downtown_Cynthiana_on_Main_Street.jpg",
     "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Downtown_Cynthiana_on_Main_Street.jpg/1280px-Downtown_Cynthiana_on_Main_Street.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -79,7 +79,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Cynthianakentucky · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2012
+    "year": 2012,
+    "fileBase": "isaac-ruddell-and-the-guns-at-ruddell-s-station"
   },
   "springfield-founding-and-washington-county-seat": {
     "ext": "jpg",

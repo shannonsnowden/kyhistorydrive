@@ -21,6 +21,11 @@ const TABS_ERA = [
   { id: 'other', label: 'Other' },
 ]
 const MAP_TAB = { id: 'map', label: 'On the map' }
+// First daily pack published under the magazine homepage (#72 went live 2026-09-20 after that
+// morning's ingest). Every story with publishedDate >= this date (and a real photo) is listed in
+// the "Daily stories" tab, newest first, so each new daily pack is picked up automatically.
+const MAGAZINE_START = '2026-09-21'
+const DAILY_TAB = { id: 'daily', label: 'Daily stories' }
 
 const MQ_DESKTOP = '(min-width: 1000px)'
 const MQ_TABLET = '(min-width: 620px)'
@@ -101,6 +106,8 @@ export async function initExploreLayer({ root, layers, helpers }) {
   const locations = locIdx?.locations || {}
   const storyItems = {}
   for (const t of TABS_ERA) storyItems[t.id] = []
+  const daily = []
+  const dailySeen = new Set()
   const seen = new Set()
   for (const s of (storiesIdx?.stories || []).slice().sort(sortStories)) {
     if (!s?.slug || seen.has(s.slug)) continue
@@ -116,7 +123,7 @@ export async function initExploreLayer({ root, layers, helpers }) {
       lon: s.lon ?? loc.lon ?? null,
     })
     const year = storyYearLabel(s.yearStart)
-    storyItems[era].push({
+    const item = {
       key: `story:${s.slug}`,
       kicker: `${eraLabel(era)}${year ? ` · ${year}` : ''}`,
       title: s.title,
@@ -125,12 +132,22 @@ export async function initExploreLayer({ root, layers, helpers }) {
       cta: 'Read the story',
       mapHref,
       photo,
-    })
+    }
+    storyItems[era].push(item)
+    const pub = String(s.publishedDate || s.briefDate || '')
+    if (pub >= MAGAZINE_START && !dailySeen.has(s.slug)) {
+      dailySeen.add(s.slug)
+      daily.push({ ...item, pub, order: daily.length })
+    }
   }
+  // Newest pack first; within a pack keep the story's timeline order.
+  daily.sort((a, b) => (a.pub === b.pub ? a.order - b.order : a.pub < b.pub ? 1 : -1))
 
-  const tabs = [{ ...MAP_TAB, items: layerItems.filter((i) => i.photo) }]
+  const tabs = []
+  if (daily.length) tabs.push({ ...DAILY_TAB, items: daily })
+  tabs.push({ ...MAP_TAB, items: layerItems.filter((i) => i.photo) })
   for (const t of TABS_ERA) if (storyItems[t.id].length) tabs.push({ ...t, items: storyItems[t.id] })
-  if (!tabs[0].items.length) tabs.shift()
+  for (let i = tabs.length - 1; i >= 0; i--) if (!tabs[i].items.length) tabs.splice(i, 1)
   if (!tabs.length) {
     root.innerHTML = `<p class="muted">Stories with photos will appear here soon. Try the <a href="/#timeline">Timeline</a>.</p>`
     return
@@ -216,7 +233,13 @@ export async function initExploreLayer({ root, layers, helpers }) {
         ? `<a class="exp-step" data-step="next" href="${hashFor(tab, page + 1)}" aria-label="Next page">Next <span aria-hidden="true">›</span></a>`
         : `<span class="exp-step is-disabled" aria-disabled="true">Next <span aria-hidden="true">›</span></span>`
     let nums = ''
+    // Long tabs: 1 … (page-1) page (page+1) … last, so the bar fits at 390px.
+    const show = (p) => total <= 7 || p === 1 || p === total || Math.abs(p - page) <= 1
     for (let p = 1; p <= total; p++) {
+      if (!show(p)) {
+        if (show(p - 1)) nums += `<span class="exp-gap" aria-hidden="true">…</span>`
+        continue
+      }
       nums += `<a class="exp-num" data-page="${p}" href="${hashFor(tab, p)}" aria-label="Page ${p} of ${total}"${p === page ? ' aria-current="page"' : ''}>${p}</a>`
     }
     return `${prev}<span class="exp-nums">${nums}</span>${next}`

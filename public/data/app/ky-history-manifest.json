@@ -4,6 +4,6 @@
   "entry_count": 159,
   "last_brief_date": "2026-10-07",
   "first_brief_date": "2026-08-27",
-  "updated_at": "2026-10-07T09:20:23Z",
+  "updated_at": "2026-10-07T09:22:40Z",
   "notes": "Cumulative place-based pins from daily KY History Morning Updates. App ships full ky-history.json each release; deltas record what was new since prior data_version."
 }

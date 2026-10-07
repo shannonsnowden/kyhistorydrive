@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T09:20:36.475Z",
+  "generatedAt": "2026-10-07T09:22:41.499Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
@@ -582,7 +582,7 @@
       "lon": -83.936,
       "mapConfidence": "override",
       "matchedPlace": "Pilot Knob State Nature Preserve (Boone’s Overlook)",
-      "historyId": null
+      "historyId": "pilot-knob-boones-overlook-powell-1769"
     },
     "james-knox": {
       "slug": "james-knox",
@@ -774,7 +774,7 @@
       "lon": -85.30327,
       "mapConfidence": "override",
       "matchedPlace": "Daniel Trabue House, Columbia (KHS marker #1782)",
-      "historyId": null
+      "historyId": "daniel-trabue-house-columbia-adair-1778-1840"
     },
     "delaware-lenape-in-the-1780-kentucky-raids": {
       "slug": "delaware-lenape-in-the-1780-kentucky-raids",
@@ -1150,7 +1150,7 @@
       "lon": -86.89278,
       "mapConfidence": "override",
       "matchedPlace": "Russellville (Logan Court House), Logan County courthouse square",
-      "historyId": null
+      "historyId": "russellville-logan-court-house-logan-1790-1810"
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
       "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
@@ -1438,7 +1438,7 @@
       "lon": -86.98,
       "mapConfidence": "override",
       "matchedPlace": "McLean Drift Bank, old Paradise on the Green River (generalized)",
-      "historyId": null
+      "historyId": "mclean-drift-bank-paradise-muhlenberg-1820-1967"
     },
     "louisville-and-portland-canal": {
       "slug": "louisville-and-portland-canal",
@@ -1662,7 +1662,7 @@
       "lon": -83.76,
       "mapConfidence": "override",
       "matchedPlace": "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
-      "historyId": null
+      "historyId": "red-bird-river-petroglyphs-eriline-clay"
     },
     "susquehannock-and-the-ohio-valley-door": {
       "slug": "susquehannock-and-the-ohio-valley-door",
