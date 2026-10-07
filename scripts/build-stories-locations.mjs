@@ -757,6 +757,37 @@ const MANUAL_OVERRIDES = {
     lon: -85.10823,
     confidence: 'override',
   },
+  // 2026-10-07 brief (Shawnee divisions swapped for Pilot Knob: repeat of shawnee-chillicothe-divisions)
+  'daniel-trabue-of-columbia': {
+    matchName: "Daniel Trabue House, Columbia (KHS marker #1782)",
+    lat: 37.10017,
+    lon: -85.30327,
+    confidence: 'override',
+  },
+  'russellville-from-big-boiling-spring-to-county-seat': {
+    matchName: "Russellville (Logan Court House), Logan County courthouse square",
+    lat: 36.8425,
+    lon: -86.89278,
+    confidence: 'override',
+  },
+  'pilot-knob-boones-overlook-1769': {
+    matchName: "Pilot Knob State Nature Preserve (Boone’s Overlook)",
+    lat: 37.911,
+    lon: -83.936,
+    confidence: 'override',
+  },
+  'red-bird-river-petroglyphs-clay-county': {
+    matchName: "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
+    lat: 37.16,
+    lon: -83.76,
+    confidence: 'override',
+  },
+  'mclean-drift-bank-kentuckys-first-commercial-coal-mine': {
+    matchName: "McLean Drift Bank, old Paradise on the Green River (generalized)",
+    lat: 37.27,
+    lon: -86.98,
+    confidence: 'override',
+  },
 }
 
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T09:04:03.501Z",
+  "generatedAt": "2026-10-07T09:20:38.793Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -218,6 +218,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
+      }
+    },
+    "daniel-trabue-of-columbia": {
+      "slug": "daniel-trabue-of-columbia",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/daniel-trabue-of-columbia.jpg",
+        "title": "Daniel Trabue House, Columbia, built 1823 (photographed 2012)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:DANIEL_TRABUE_HOUSE.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jerrye & Roy Klotz, MD · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2012
       }
     },
     "delaware-winter-camps-on-kentucky-ground": {
@@ -592,6 +604,17 @@
         "year": 2014
       }
     },
+    "mclean-drift-bank-kentuckys-first-commercial-coal-mine": {
+      "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/mclean-drift-bank-kentuckys-first-commercial-coal-mine.jpg",
+        "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
+      }
+    },
     "moneton": {
       "slug": "moneton",
       "historyId": null,
@@ -700,6 +723,18 @@
         "year": 2019
       }
     },
+    "pilot-knob-boones-overlook-1769": {
+      "slug": "pilot-knob-boones-overlook-1769",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/pilot-knob-boones-overlook-1769.jpg",
+        "title": "Pilot Knob State Nature Preserve, Powell County (uploaded 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pilot_Knob_Photo.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
+      }
+    },
     "potawatomi-fire-keepers-and-the-ohio-valley-wars": {
       "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
       "historyId": null,
@@ -724,6 +759,18 @@
         "year": null
       }
     },
+    "red-bird-river-petroglyphs-clay-county": {
+      "slug": "red-bird-river-petroglyphs-clay-county",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
+        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 1988
+      }
+    },
     "rowlandton-mound-site-15mcn3-paducah": {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
@@ -734,6 +781,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2003
+      }
+    },
+    "russellville-from-big-boiling-spring-to-county-seat": {
+      "slug": "russellville-from-big-boiling-spring-to-county-seat",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/russellville-from-big-boiling-spring-to-county-seat.jpg",
+        "title": "Logan County Courthouse, Russellville (photographed 2008)—a later courthouse on the county seat, not the 1790s town",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logan_County_courthouse_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · public domain",
+        "year": 2008
       }
     },
     "saltpeter-cave-at-carter-caves": {
