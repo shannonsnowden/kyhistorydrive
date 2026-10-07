@@ -3720,7 +3720,7 @@ async function setupTerritoryMapControl() {
   const box = document.createElement('div')
   box.className = 'terr-panel'
   box.dataset.territoryPanel = '1'
-  box.innerHTML = `<h3>Native territories <span class="muted">(test)</span></h3>
+  box.innerHTML = `<h3>Native territories</h3>
     <div class="terr-nations">${nationList
       .map(
         (n) => `<label class="ctrl layer-row terr-nation-row">
