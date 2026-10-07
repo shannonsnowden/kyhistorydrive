@@ -473,11 +473,23 @@ async function main() {
   if (!briefDate) throw new Error('stories.json has no briefDateRange.end')
 
   const bySlug = new Map(index.stories.map((s) => [s.slug, s]))
+  // Today's pack = stories whose briefDate is the newest brief. Story slugs can
+  // be renamed by story-overrides.json, so match each brief header to a
+  // today's story by slug OR by slugified title, in morning-email order.
+  // Never fall back to "last N in stories.json": that index is not date-sorted
+  // and silently put old stories on the homepage (2026-10-07).
+  const todays = index.stories.filter((s) => s.briefDate === briefDate)
   const order = briefOrder(briefDate)
-  let slugs = order.filter((slug) => bySlug.has(slug))
-  if (!slugs.length) {
-    slugs = index.stories.slice(-5).map((s) => s.slug)
+  const slugs = []
+  for (const h of order) {
+    const hit =
+      todays.find((s) => s.slug === h) ||
+      todays.find((s) => slugify(s.title || '') === h) ||
+      (bySlug.get(h)?.briefDate === briefDate ? bySlug.get(h) : null)
+    if (hit && !slugs.includes(hit.slug)) slugs.push(hit.slug)
   }
+  for (const s of todays) if (!slugs.includes(s.slug)) slugs.push(s.slug)
+  if (!slugs.length) throw new Error(`no stories with briefDate ${briefDate}`)
 
   const cards = []
   for (const slug of slugs) {
