@@ -3696,8 +3696,24 @@ async function setupTerritoryMapControl() {
   if (!panel || panel.querySelector('[data-territory-panel]')) return
   const nations = await getTerritoryNations()
   if (!nations.length || panel.querySelector('[data-territory-panel]')) return
-  const nationList = nations.filter((n) => !isCulture(n))
-  const cultureList = nations.filter((n) => isCulture(n))
+  // Oldest first by the presence/period years already in the index (yearStart, then yearEnd);
+  // entries with no usable yearStart go last, in index order.
+  const yr = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null)
+  const byAge = (list) =>
+    list
+      .map((n, i) => ({ n, i }))
+      .sort((a, b) => {
+        const sa = yr(a.n.yearStart)
+        const sb = yr(b.n.yearStart)
+        if (sa == null || sb == null) return sa == null && sb == null ? a.i - b.i : sa == null ? 1 : -1
+        if (sa !== sb) return sa - sb
+        const ea = yr(a.n.yearEnd) ?? Infinity
+        const eb = yr(b.n.yearEnd) ?? Infinity
+        return ea !== eb ? ea - eb : a.i - b.i
+      })
+      .map((x) => x.n)
+  const nationList = byAge(nations.filter((n) => !isCulture(n)))
+  const cultureList = byAge(nations.filter((n) => isCulture(n)))
   const box = document.createElement('div')
   box.className = 'terr-panel'
   box.dataset.territoryPanel = '1'
@@ -3713,7 +3729,6 @@ async function setupTerritoryMapControl() {
     <label class="only"><input type="checkbox" id="terrOnly" /> <span>Show only this nation: <b data-only-name>(turn on a nation first)</b></span></label>
     <p class="muted">Approximate, sourced areas. Toggle several at once; territories overlapped and shifted. “Show only” opens the nation's story map and hides the other layers.</p>`
   const after = panel.querySelector('#layerToggles')
-  after.insertAdjacentElement('afterend', box)
   // Separate group for archaeological cultures (not tribes). Only exists when the index has at least one culture entry.
   let cbox = null
   if (cultureList.length) {
@@ -3730,8 +3745,12 @@ async function setupTerritoryMapControl() {
       )
       .join('')}</div>
     <p class="muted">Archaeological cultures are defined by artifacts and sites, not a tribe; no descent claim. Shown as textured areas, approximate.</p>`
-    box.insertAdjacentElement('afterend', cbox)
   }
+  // Archaeological cultures first (oldest), then Native territories.
+  if (cbox) {
+    after.insertAdjacentElement('afterend', cbox)
+    cbox.insertAdjacentElement('afterend', box)
+  } else after.insertAdjacentElement('afterend', box)
   const onlyCb = box.querySelector('#terrOnly')
   const onChange = (e) => {
     const cb = e.target.closest('input[data-nation]')
