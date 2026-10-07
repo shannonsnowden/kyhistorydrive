@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T10:24:04.876Z",
+  "generatedAt": "2026-10-07T10:43:08.604Z",
   "count": 210,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -28,13 +28,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-03",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
       "lat": 37.21,
       "lon": -86.68,
       "mapConfidence": "exact",
@@ -56,13 +49,6 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Ohio",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
       "lat": 37.48,
       "lon": -86.84,
       "mapConfidence": "override",
@@ -113,13 +99,6 @@
       "source": "ky-history",
       "briefDate": "2026-08-29",
       "county": "Ohio",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
       "lat": 37.48,
       "lon": -86.84,
       "mapConfidence": "fuzzy",
@@ -140,13 +119,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-14",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
       "lat": 37.21,
       "lon": -86.68,
       "mapConfidence": "fuzzy",
@@ -167,13 +139,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-13",
-      "territory": {
-        "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-        "nation": "Green River Archaic (archaeological culture)",
-        "yearStart": -3000,
-        "yearEnd": -1000,
-        "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-      },
       "lat": 37.53,
       "lon": -87.27,
       "mapConfidence": "fuzzy",
@@ -197,11 +162,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-20",
-      "territory": {
-        "ref": "/data/web/territories/archaic-hansen-site.json",
-        "nation": "Late Archaic (archaeological period)",
-        "presenceLabel": "Archaeological period, no mapped area"
-      },
       "lat": 38.56,
       "lon": -82.93,
       "mapConfidence": "override",
@@ -1168,13 +1128,6 @@
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2020
       },
-      "territory": {
-        "ref": "/data/web/territories/caborn-welborn-slack-farm.json",
-        "nation": "Caborn-Welborn (archaeological culture)",
-        "yearStart": 1400,
-        "yearEnd": 1700,
-        "presenceLabel": "Caborn-Welborn area (archaeological culture, not a tribe)"
-      },
       "lat": 37.66,
       "lon": -87.95,
       "mapConfidence": "override",
@@ -1267,14 +1220,6 @@
         "attribution": "Wikimedia Commons",
         "year": null
       },
-      "territory": {
-        "ref": "/data/web/territories/erie-south-shore-of-lake-erie.json",
-        "nation": "Erie (Eriehronon, Cat Nation)",
-        "yearStart": 1600,
-        "yearEnd": 1656,
-        "presenceLabel": "Erie villages in this area",
-        "approxStart": true
-      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -1301,14 +1246,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
-      },
-      "territory": {
-        "ref": "/data/web/territories/erie-south-shore-of-lake-erie.json",
-        "nation": "Erie (Eriehronon, Cat Nation)",
-        "yearStart": 1600,
-        "yearEnd": 1656,
-        "presenceLabel": "Erie villages in this area",
-        "approxStart": true
       },
       "lat": null,
       "lon": null,

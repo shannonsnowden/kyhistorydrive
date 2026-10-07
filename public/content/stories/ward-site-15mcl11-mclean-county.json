@@ -13,12 +13,5 @@
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-13",
-  "territory": {
-    "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-    "nation": "Green River Archaic (archaeological culture)",
-    "yearStart": -3000,
-    "yearEnd": -1000,
-    "presenceLabel": "Green River Archaic area (archaeological culture, not a tribe)"
-  }
+  "briefDate": "2026-09-13"
 }
