@@ -1894,6 +1894,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-dot:focus-visible {
   font-size: 0.88rem; font-weight: 700; text-decoration: none;
 }
 .exp-num { padding: 0; border-color: var(--line); }
+.exp-gap { display: inline-flex; align-items: center; padding: 0 .15rem; color: var(--muted, #666); }
 .exp-step:hover, .exp-num:hover { background: var(--accent); border-color: var(--accent); color: var(--ink-on-gold); }
 html[data-hp-theme="light"] .exp-step:hover, html[data-hp-theme="light"] .exp-num:hover { color: #fffdf6; }
 .exp-num[aria-current="page"] {
