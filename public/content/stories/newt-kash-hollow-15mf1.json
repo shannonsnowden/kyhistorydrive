@@ -12,10 +12,5 @@
     "kentucky"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-15",
-  "territory": {
-    "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
-    "nation": "Early Woodland caves and rockshelters (archaeological period)",
-    "presenceLabel": "Archaeological period, no mapped area"
-  }
+  "briefDate": "2026-09-15"
 }

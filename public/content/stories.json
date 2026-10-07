@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T09:46:37.134Z",
+  "generatedAt": "2026-10-07T10:24:04.876Z",
   "count": 210,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -90,11 +90,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2007
-      },
-      "territory": {
-        "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
-        "nation": "Early Woodland caves and rockshelters (archaeological period)",
-        "presenceLabel": "Archaeological period, no mapped area"
       },
       "lat": 37.94,
       "lon": -83.59,
@@ -229,11 +224,6 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Hart, Edmonson counties",
-      "territory": {
-        "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
-        "nation": "Early Woodland caves and rockshelters (archaeological period)",
-        "presenceLabel": "Archaeological period, no mapped area"
-      },
       "lat": 37.31,
       "lon": -85.88,
       "mapConfidence": "override",
@@ -5386,11 +5376,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-15",
-      "territory": {
-        "ref": "/data/web/territories/early-woodland-caves-and-rockshelters.json",
-        "nation": "Early Woodland caves and rockshelters (archaeological period)",
-        "presenceLabel": "Archaeological period, no mapped area"
-      },
       "lat": 37.94,
       "lon": -83.59,
       "mapConfidence": "override",
