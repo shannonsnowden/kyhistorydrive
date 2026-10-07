@@ -3683,9 +3683,11 @@ function syncNationRows() {
     if (n) {
       name.textContent = n.name
       only.dataset.slug = n.slugs[0]
+      only.dataset.nid = n.id
     } else {
       name.textContent = '(turn on a nation first)'
       delete only.dataset.slug
+      delete only.dataset.nid
     }
   }
 }
@@ -3770,7 +3772,17 @@ async function setupTerritoryMapControl() {
       return
     }
     if (e.target === onlyCb) {
-      if (onlyCb.checked && onlyCb.dataset.slug) location.hash = territoryMapHash(onlyCb.dataset.slug)
+      if (onlyCb.checked && onlyCb.dataset.slug) {
+        // Use the story territory page when it exists; otherwise the layer-only view by nation id.
+        const slug = onlyCb.dataset.slug
+        const id = onlyCb.dataset.nid
+        loadStories()
+          .then((idx) => {
+            const meta = idx.stories.find((x) => x.slug === slug)
+            location.hash = territoryMapHash(storyHasTerritory(meta) || !id ? slug : id)
+          })
+          .catch(console.error)
+      }
       else goHomeMap()
     }
   }
@@ -3789,16 +3801,18 @@ async function showTerritoryMapView(slug) {
   if (!section || !wrap) return false
   const idx = await loadStories()
   const meta = idx.stories.find((x) => x.slug === slug)
-  if (!storyHasTerritory(meta)) return false
   const nations = await getTerritoryNations()
-  const nation = nationForSlug(nations, slug)
+  // Layer-only view (#map/territory/<nation id>): for a panel layer whose story pages were removed.
+  const layerOnly = !storyHasTerritory(meta) ? nations.find((n) => n.id === slug) || null : null
+  if (!storyHasTerritory(meta) && !layerOnly) return false
+  const nation = layerOnly || nationForSlug(nations, slug)
   let host = document.getElementById('territoryFull')
   if (!host) {
     host = document.createElement('div')
     host.id = 'territoryFull'
     wrap.appendChild(host)
   }
-  const { T, base } = await loadTerritory(meta.territory.ref)
+  const { T, base } = await loadTerritory(layerOnly ? layerOnly.ref : meta.territory.ref)
   if (territoryRouteSlug() !== slug) return true
   section.classList.add('terr-on')
   const handle = mountTerritory(host, { T, base, mode: 'full', slug, color: nation?.color || '#b3261e', nation })
@@ -3806,7 +3820,7 @@ async function showTerritoryMapView(slug) {
   const nav = document.createElement('p')
   nav.className = 'terr-back muted'
   nav.style.margin = '.2rem .9rem .8rem'
-  nav.innerHTML = `<a href="/#timeline/${encodeURIComponent(slug)}">← Back to the story</a> · <a href="/#map" data-terr-exit>Back to the full map</a>`
+  nav.innerHTML = `${layerOnly ? '' : `<a href="/#timeline/${encodeURIComponent(slug)}">← Back to the story</a> · `}<a href="/#map" data-terr-exit>Back to the full map</a>`
   host.appendChild(nav)
   nav.querySelector('[data-terr-exit]').addEventListener('click', (e) => {
     e.preventDefault()
