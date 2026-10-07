@@ -186,6 +186,17 @@ const DATA_LAYERS = [
     geojson: '/data/layers/distilleries.geojson',
     yearFilter: true,
   },
+  {
+    // Web-only layer (public/data/layers/caves.geojson, hand-curated, not OTA).
+    // Public show/historic caves plus county-centre markers; never wild cave locations.
+    id: 'caves',
+    label: 'Caves',
+    icon: { type: 'emoji', glyph: '🦇' },
+    color: '#4b4f7a',
+    defaultOn: false,
+    geojson: '/data/layers/caves.geojson',
+    yearFilter: false,
+  },
 ]
 
 marked.setOptions({ breaks: true })
@@ -1462,7 +1473,8 @@ function placeDetailExtrasHtml({
   if (storyPhoto?.image_url && !photos.some((p) => p.image_url === storyPhoto.image_url)) {
     photos.unshift(storyPhoto)
   }
-  return `${mapsLinksHtml(lat, lon, name, placeHint)}${photosHtml(photos)}${researchLinksHtml(links, name, {
+  const mapsHtml = lat == null || lon == null ? '' : mapsLinksHtml(lat, lon, name, placeHint)
+  return `${mapsHtml}${photosHtml(photos)}${researchLinksHtml(links, name, {
     placeHint,
     source_url,
     website,
@@ -1496,11 +1508,15 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
       : ''
   let lat = null
   let lon = null
-  if (coords) {
+  // County cave markers sit at a county centre, not a cave: no directions links.
+  if (p.kind === 'county') coords = null
+  if (p.kind === 'county') {
+    /* fall through with no lat/lon */
+  } else if (coords) {
     const c = Array.isArray(coords) ? coords : [coords.lng, coords.lat]
     lon = c[0]
     lat = c[1]
-  } else if (p.lat != null && p.lon != null) {
+  } else if (p.kind !== 'county' && p.lat != null && p.lon != null) {
     lat = p.lat
     lon = p.lon
   } else if (p.latitude != null && p.longitude != null) {
@@ -1523,6 +1539,13 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   })
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
   const shareUrl = absoluteShareUrl(placeShareHash(layerId, p))
+  // Curated layers (Caves) carry their own topic-page source list.
+  const srcLinks = p.sourcesMarkdown ? extractMarkdownLinks(p.sourcesMarkdown) : []
+  const sourcesHtml = srcLinks.length
+    ? `<div class="popup-research"><div class="historic-photos-label">Sources &amp; links</div><ul class="research-list">${srcLinks
+        .map((l) => `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label || l.url)}</a></li>`)
+        .join('')}</ul></div>`
+    : ''
   return `
     <div class="map-popup">
       <div class="detail-layer">${escapeHtml(layerLabel)}</div>
@@ -1531,6 +1554,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
       ${shareControlHtml(shareUrl, name)}
       ${desc ? `<div class="popup-full-text">${linkifyPlainUrls(escapeHtml(desc))}</div>` : ''}
       ${relatedHtml || ''}
+      ${sourcesHtml}
       ${link}
       ${extras}
     </div>
