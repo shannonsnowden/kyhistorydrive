@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-07T09:21:43.876Z",
-  "count": 205,
+  "generatedAt": "2026-10-07T09:22:41.360Z",
+  "count": 210,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-06"
+    "end": "2026-10-07"
   },
   "eras": [
     "early-commonwealth",
@@ -1993,6 +1993,36 @@
       "matchedPlace": "Hancock Taylor / Taylor's Fork burial"
     },
     {
+      "slug": "pilot-knob-boones-overlook-1769",
+      "title": "Pilot Knob, Boone’s overlook",
+      "publishedDate": "2026-10-07",
+      "summary": "Pilot Knob, a 730-foot sandstone outcrop in Powell County, is believed to be where Daniel Boone and John Finley first looked out over the Bluegrass. By tradition they…",
+      "yearStart": 1769,
+      "yearEnd": 1769,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "exploration",
+        "nature-preserve"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-07",
+      "county": "Powell",
+      "photo": {
+        "image_url": "/content/photos/stories/pilot-knob-boones-overlook-1769.jpg",
+        "title": "Pilot Knob State Nature Preserve, Powell County (uploaded 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pilot_Knob_Photo.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
+      },
+      "lat": 37.911,
+      "lon": -83.936,
+      "mapConfidence": "override",
+      "matchedPlace": "Pilot Knob State Nature Preserve (Boone’s Overlook)"
+    },
+    {
       "slug": "james-knox",
       "title": "James Knox",
       "publishedDate": "2026-10-01",
@@ -2572,6 +2602,36 @@
       "lon": -85.2222,
       "mapConfidence": "override",
       "matchedPlace": "Springfield"
+    },
+    {
+      "slug": "daniel-trabue-of-columbia",
+      "title": "Daniel Trabue, the pioneer who wrote it all down",
+      "publishedDate": "2026-10-07",
+      "summary": "Daniel Trabue (1760–1840), raised in Chesterfield County, Virginia, and descended from French Huguenots, came through Cumberland Gap as a teenager with his brother James…",
+      "yearStart": 1778,
+      "yearEnd": 1840,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "pioneer",
+        "memoir"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-07",
+      "county": "Adair",
+      "photo": {
+        "image_url": "/content/photos/stories/daniel-trabue-of-columbia.jpg",
+        "title": "Daniel Trabue House, Columbia, built 1823 (photographed 2012)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:DANIEL_TRABUE_HOUSE.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jerrye & Roy Klotz, MD · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2012
+      },
+      "lat": 37.10017,
+      "lon": -85.30327,
+      "mapConfidence": "override",
+      "matchedPlace": "Daniel Trabue House, Columbia (KHS marker #1782)"
     },
     {
       "slug": "delaware-lenape-in-the-1780-kentucky-raids",
@@ -3735,6 +3795,35 @@
       "matchedPlace": "Mount Sterling Founding"
     },
     {
+      "slug": "russellville-from-big-boiling-spring-to-county-seat",
+      "title": "Russellville: from Big Boiling Spring to a county seat",
+      "publishedDate": "2026-10-07",
+      "summary": "The Logan County seat started as a spring with a string of names: Big Boiling Spring, Gasper Butcher’s Spring, Butcher’s Station. A local historian put Butcher there…",
+      "yearStart": 1790,
+      "yearEnd": 1810,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-07",
+      "county": "Logan",
+      "photo": {
+        "image_url": "/content/photos/stories/russellville-from-big-boiling-spring-to-county-seat.jpg",
+        "title": "Logan County Courthouse, Russellville (photographed 2008)—a later courthouse on the county seat, not the 1790s town",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logan_County_courthouse_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bedford at en.wikipedia · Wikimedia Commons · public domain",
+        "year": 2008
+      },
+      "lat": 36.8425,
+      "lon": -86.89278,
+      "mapConfidence": "override",
+      "matchedPlace": "Russellville (Logan Court House), Logan County courthouse square"
+    },
+    {
       "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
       "title": "Capt. William Hubbell’s Ohio Flatboat Stand (1791)",
       "publishedDate": "2026-09-28",
@@ -4659,6 +4748,35 @@
       "matchedPlace": "Chickasaw / Jackson Purchase"
     },
     {
+      "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
+      "title": "McLean Drift Bank: Kentucky’s first commercial coal mine (1820)",
+      "publishedDate": "2026-10-07",
+      "summary": "Explorer Thomas Walker found coal in what would become Kentucky in 1750 and burned it in his campfire, but nobody mined it for sale for another seventy years. In 1820…",
+      "yearStart": 1820,
+      "yearEnd": 1967,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "coal",
+        "industry"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-07",
+      "county": "Muhlenberg",
+      "photo": {
+        "image_url": "/content/photos/stories/mclean-drift-bank-kentuckys-first-commercial-coal-mine.jpg",
+        "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
+      },
+      "lat": 37.27,
+      "lon": -86.98,
+      "mapConfidence": "override",
+      "matchedPlace": "McLean Drift Bank, old Paradise on the Green River (generalized)"
+    },
+    {
       "slug": "louisville-and-portland-canal",
       "title": "Louisville and Portland Canal",
       "publishedDate": "2026-10-04",
@@ -5385,6 +5503,36 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "red-bird-river-petroglyphs-clay-county",
+      "title": "Red Bird River Petroglyphs: the carved rock that fell onto KY 66",
+      "publishedDate": "2026-10-07",
+      "summary": "A 50-ton sandstone block cut with petroglyphs sat in a cliff above the Red Bird River near Eriline in Clay County. The inscribed face was about 5½ feet high and 20 feet…",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "rock-art"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-07",
+      "county": "Clay",
+      "photo": {
+        "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
+        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 1988
+      },
+      "lat": 37.16,
+      "lon": -83.76,
+      "mapConfidence": "override",
+      "matchedPlace": "Red Bird River Petroglyphs, original site near Eriline (15CY51)"
     },
     {
       "slug": "susquehannock-and-the-ohio-valley-door",

@@ -477,6 +477,54 @@
       "yearStart": 1887,
       "yearEnd": 1925,
       "county": "Shelby"
+    },
+    "daniel-trabue-of-columbia": {
+      "reason": "Pin KHS marker #1782 at the Daniel Trabue House, 299 Jamestown St., Columbia. County Adair. Years 1778 (at Boonesborough/Logan’s Fort)–1840 death.",
+      "date": "2026-10-07",
+      "historyId": "daniel-trabue-house-columbia-adair-1778-1840",
+      "lat": 37.10017,
+      "lon": -85.30327,
+      "yearStart": 1778,
+      "yearEnd": 1840,
+      "county": "Adair"
+    },
+    "russellville-from-big-boiling-spring-to-county-seat": {
+      "reason": "Pin downtown Russellville at the Logan County courthouse square (Wikipedia city point). County Logan. Years 1790 Cook’s Cabin–1810 establishment.",
+      "date": "2026-10-07",
+      "historyId": "russellville-logan-court-house-logan-1790-1810",
+      "lat": 36.8425,
+      "lon": -86.89278,
+      "yearStart": 1790,
+      "yearEnd": 1810,
+      "county": "Logan"
+    },
+    "pilot-knob-boones-overlook-1769": {
+      "reason": "Swap for the Shawnee five-divisions item (repeat of shawnee-chillicothe-divisions, 2026-09-20). Pin Pilot Knob SNP (Wikipedia point). County Powell. Year 1769 traditional Boone–Finley view.",
+      "date": "2026-10-07",
+      "historyId": "pilot-knob-boones-overlook-powell-1769",
+      "lat": 37.911,
+      "lon": -83.936,
+      "yearStart": 1769,
+      "yearEnd": 1769,
+      "county": "Powell"
+    },
+    "red-bird-river-petroglyphs-clay-county": {
+      "reason": "Pin original site near Eriline, rounded to 2 decimals (archaeology). County Clay. No years: no source dates the carvings; 1994 fall/move to Manchester is text only.",
+      "date": "2026-10-07",
+      "historyId": "red-bird-river-petroglyphs-eriline-clay",
+      "lat": 37.16,
+      "lon": -83.76,
+      "county": "Clay"
+    },
+    "mclean-drift-bank-kentuckys-first-commercial-coal-mine": {
+      "reason": "Generalized pin at old Paradise (exact mine site unpublished), 2 decimals. County Muhlenberg. Years 1820 opening–1967 TVA buyout of Paradise.",
+      "date": "2026-10-07",
+      "historyId": "mclean-drift-bank-paradise-muhlenberg-1820-1967",
+      "lat": 37.27,
+      "lon": -86.98,
+      "yearStart": 1820,
+      "yearEnd": 1967,
+      "county": "Muhlenberg"
     }
   }
 }

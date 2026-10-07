@@ -25,7 +25,8 @@
   "John Strode": "capt-john-strode-of-strodes-station",
   "Henry Bird": "ojibwe-on-birds-war-road",
   "Dragging Canoe": "chickamauga-cherokee",
-  "Charles Scott": "gen-charles-scott-and-petersburg"
+  "Charles Scott": "gen-charles-scott-and-petersburg",
+  "Daniel Trabue": "daniel-trabue-of-columbia"
  },
  "skip": {
   "Richard Henderson": [
@@ -107,6 +108,10 @@
    {
     "slug": "stanford-from-st-asaph",
     "label": "Same place: Logan’s Station (St. Asaph), near present Stanford"
+   },
+   {
+    "slug": "daniel-trabue-of-columbia",
+    "label": "Same place: Daniel Trabue, who served at Logan’s Fort and wrote about it, has his own story"
    }
   ],
   "hugh-mcgary-the-hothead-major": [
@@ -283,6 +288,10 @@
    {
     "slug": "odawa-raid-at-eskippakithiki-1753",
     "label": "Same event: Finley’s store at Eskippakithiki was hit in 1753"
+   },
+   {
+    "slug": "pilot-knob-boones-overlook-1769",
+    "label": "Same event: the traditional June 1769 view of the Bluegrass from Pilot Knob"
    }
   ],
   "odawa-raid-at-eskippakithiki-1753": [
@@ -541,6 +550,10 @@
    {
     "slug": "isaac-shelby-old-kings-mountain",
     "label": "Same event: served at Kings Mountain, 1780"
+   },
+   {
+    "slug": "russellville-from-big-boiling-spring-to-county-seat",
+    "label": "Same family: the town named for his father has its own story"
    }
   ],
   "delaware-lenape-in-the-1780-kentucky-raids": [
@@ -963,6 +976,24 @@
    {
     "slug": "shelbyville",
     "label": "Same county: the knob rises about eight miles east of Shelbyville"
+   }
+  ],
+  "daniel-trabue-of-columbia": [
+   {
+    "slug": "benjamin-logan",
+    "label": "Same place: Trabue spent part of his first Kentucky years at Logan’s Fort"
+   }
+  ],
+  "russellville-from-big-boiling-spring-to-county-seat": [
+   {
+    "slug": "col-william-russell-iii",
+    "label": "Same family: Russellville is named for his father, Gen. William Russell"
+   }
+  ],
+  "pilot-knob-boones-overlook-1769": [
+   {
+    "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "label": "Same person: John Finley, who by tradition stood on Pilot Knob with Boone, has his own story"
    }
   ]
  }

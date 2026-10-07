@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-07T09:04:02.555Z",
+  "generatedAt": "2026-10-07T09:22:41.499Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 107,
+    "override": 112,
     "none": 34
   },
   "locations": {
@@ -576,6 +576,14 @@
       "matchedPlace": "Hancock Taylor / Taylor's Fork burial",
       "historyId": "richmond-founding-2"
     },
+    "pilot-knob-boones-overlook-1769": {
+      "slug": "pilot-knob-boones-overlook-1769",
+      "lat": 37.911,
+      "lon": -83.936,
+      "mapConfidence": "override",
+      "matchedPlace": "Pilot Knob State Nature Preserve (Boone’s Overlook)",
+      "historyId": "pilot-knob-boones-overlook-powell-1769"
+    },
     "james-knox": {
       "slug": "james-knox",
       "lat": 37.170333,
@@ -759,6 +767,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Springfield",
       "historyId": null
+    },
+    "daniel-trabue-of-columbia": {
+      "slug": "daniel-trabue-of-columbia",
+      "lat": 37.10017,
+      "lon": -85.30327,
+      "mapConfidence": "override",
+      "matchedPlace": "Daniel Trabue House, Columbia (KHS marker #1782)",
+      "historyId": "daniel-trabue-house-columbia-adair-1778-1840"
     },
     "delaware-lenape-in-the-1780-kentucky-raids": {
       "slug": "delaware-lenape-in-the-1780-kentucky-raids",
@@ -1128,6 +1144,14 @@
       "matchedPlace": "Mount Sterling Founding",
       "historyId": "mount-sterling-founding"
     },
+    "russellville-from-big-boiling-spring-to-county-seat": {
+      "slug": "russellville-from-big-boiling-spring-to-county-seat",
+      "lat": 36.8425,
+      "lon": -86.89278,
+      "mapConfidence": "override",
+      "matchedPlace": "Russellville (Logan Court House), Logan County courthouse square",
+      "historyId": "russellville-logan-court-house-logan-1790-1810"
+    },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
       "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",
       "lat": 38.6488,
@@ -1408,6 +1432,14 @@
       "matchedPlace": "Chickasaw / Jackson Purchase",
       "historyId": "jackson-purchase"
     },
+    "mclean-drift-bank-kentuckys-first-commercial-coal-mine": {
+      "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
+      "lat": 37.27,
+      "lon": -86.98,
+      "mapConfidence": "override",
+      "matchedPlace": "McLean Drift Bank, old Paradise on the Green River (generalized)",
+      "historyId": "mclean-drift-bank-paradise-muhlenberg-1820-1967"
+    },
     "louisville-and-portland-canal": {
       "slug": "louisville-and-portland-canal",
       "lat": 38.27181,
@@ -1623,6 +1655,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "red-bird-river-petroglyphs-clay-county": {
+      "slug": "red-bird-river-petroglyphs-clay-county",
+      "lat": 37.16,
+      "lon": -83.76,
+      "mapConfidence": "override",
+      "matchedPlace": "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
+      "historyId": "red-bird-river-petroglyphs-eriline-clay"
     },
     "susquehannock-and-the-ohio-valley-door": {
       "slug": "susquehannock-and-the-ohio-valley-door",

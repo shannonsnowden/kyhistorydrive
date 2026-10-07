@@ -803,5 +803,54 @@
     "source_label": "USGS 3D Elevation Program",
     "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
     "year": 2026
+  },
+  "daniel-trabue-of-columbia": {
+    "ext": "jpg",
+    "commonsFile": "DANIEL_TRABUE_HOUSE.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/DANIEL_TRABUE_HOUSE.jpg?width=1280",
+    "title": "Daniel Trabue House, Columbia, built 1823 (photographed 2012)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:DANIEL_TRABUE_HOUSE.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Jerrye & Roy Klotz, MD · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2012
+  },
+  "russellville-from-big-boiling-spring-to-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Logan_County_courthouse_Kentucky.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Logan_County_courthouse_Kentucky.JPG?width=1280",
+    "title": "Logan County Courthouse, Russellville (photographed 2008)—a later courthouse on the county seat, not the 1790s town",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Logan_County_courthouse_Kentucky.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Bedford at en.wikipedia · Wikimedia Commons · public domain",
+    "year": 2008
+  },
+  "pilot-knob-boones-overlook-1769": {
+    "ext": "jpg",
+    "commonsFile": "Pilot_Knob_Photo.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pilot_Knob_Photo.jpg?width=1280",
+    "title": "Pilot Knob State Nature Preserve, Powell County (uploaded 2008)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pilot_Knob_Photo.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2008
+  },
+  "red-bird-river-petroglyphs-clay-county": {
+    "ext": "jpg",
+    "commonsFile": "RedBirdMcC5.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/RedBirdMcC5.jpg?width=1280",
+    "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+    "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 1988
+  },
+  "mclean-drift-bank-kentuckys-first-commercial-coal-mine": {
+    "ext": "jpg",
+    "commonsFile": "Paradise_Fossil_Plant.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Paradise_Fossil_Plant.jpg?width=1280",
+    "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
   }
 }

@@ -1,0 +1,26 @@
+{
+  "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
+  "title": "McLean Drift Bank: Kentucky’s first commercial coal mine (1820)",
+  "publishedDate": "2026-10-07",
+  "summary": "Explorer Thomas Walker found coal in what would become Kentucky in 1750 and burned it in his campfire, but nobody mined it for sale for another seventy years. In 1820…",
+  "bodyMarkdown": "Explorer Thomas Walker found coal in what would become Kentucky in 1750 and burned it in his campfire, but nobody mined it for sale for another seventy years. In 1820 Kentucky’s first commercial coal mine, the McLean Drift Bank, opened along the Green River at what became the village of Paradise in Muhlenberg County, and it produced 328 tons in its first year. For decades the Western Coalfield carried the whole state: 100,000 tons by 1843 and a million tons by 1879, the year the first commercial mine in the Eastern Coalfield opened in Bell County. Paradise began as Stom’s Landing, named for Leonard Stom, who ran a ferry there, and it became a coal-mining town. The sources don’t say when the drift bank itself closed. TVA began building its Paradise coal plant on the town site in 1959, bought out the last residents in 1967, and demolished the town, which lives on in John Prine’s song “Paradise.” The exact mine site isn’t published, so the map pin is a generalized point at old Paradise.\nSource: [https://en.wikipedia.org/wiki/Muhlenberg_County,_Kentucky](https://en.wikipedia.org/wiki/Muhlenberg_County,_Kentucky)\nSource: [https://en.wikipedia.org/wiki/Coal_mining_in_Kentucky](https://en.wikipedia.org/wiki/Coal_mining_in_Kentucky)\nSource: [https://en.wikipedia.org/wiki/Paradise,_Kentucky](https://en.wikipedia.org/wiki/Paradise,_Kentucky)",
+  "yearStart": 1820,
+  "yearEnd": 1967,
+  "era": "other",
+  "tags": [
+    "other",
+    "kentucky",
+    "coal",
+    "industry"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-07",
+  "photo": {
+    "image_url": "/content/photos/stories/mclean-drift-bank-kentuckys-first-commercial-coal-mine.jpg",
+    "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
+  },
+  "county": "Muhlenberg"
+}

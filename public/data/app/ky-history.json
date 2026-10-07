@@ -2840,5 +2840,117 @@
       "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
       "year": 2026
     }
+  },
+  {
+    "id": "daniel-trabue-house-columbia-adair-1778-1840",
+    "name": "Daniel Trabue House, Columbia (KHS marker #1782)",
+    "subtitle": "Adair County · 299 Jamestown St., Columbia · KHS marker #1782 · house built ca. 1823 · Trabue in Kentucky 1778–1840",
+    "latitude": 37.10017,
+    "longitude": -85.30327,
+    "history": "Daniel Trabue (1760–1840), raised in Chesterfield County, Virginia, and descended from French Huguenots, came through Cumberland Gap as a teenager with his brother James and spent nearly three years in Kentucky, at Fort Boonesborough and Logan’s Fort. He went back to Virginia, peddled goods to American soldiers during the Yorktown campaign, married Mary Haskins in 1782, and brought his family down the Ohio in 1785. After several years in Fayette County near the Kentucky River, the family moved to the Green River country in present Adair County. There Trabue helped survey and establish the town of Columbia and served as town trustee, sheriff, and justice of the peace while running a grist mill, an inn, and a store. About 1823 he built a brick house on a hill above town; money troubles forced the family out in 1828. In 1827 he wrote his memoir of the pioneer years, including events at Logan’s Station, Boonesborough, and service under Anthony Wayne. It survives in the Draper Manuscripts and is read today as Westward into Kentucky: The Narrative of Daniel Trabue. The map pin marks his house at 299 Jamestown Street in Columbia (KHS marker #1782).",
+    "source_date": "2026-10-07",
+    "geocode_source": "khs-marker-1782-daniel-trabue",
+    "geocode_note": "KHS marker #1782 at 299 Jamestown St., Columbia (37°6.01′N, 85°18.196′W = 37.10017, -85.30327); Wikipedia NRHP point 37.10056, -85.30306 agrees within ~45 m. Years 1778 (in Kentucky by then, at Boonesborough and Logan’s Fort)–1840 death.",
+    "category": "person",
+    "website": "https://explorekyhistory.ky.gov/items/show/216",
+    "year_start": 1778,
+    "year_end": 1840,
+    "photo": {
+      "image_url": "/content/photos/stories/daniel-trabue-of-columbia.jpg",
+      "title": "Daniel Trabue House, Columbia, built 1823 (photographed 2012)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DANIEL_TRABUE_HOUSE.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Jerrye & Roy Klotz, MD · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2012
+    }
+  },
+  {
+    "id": "russellville-logan-court-house-logan-1790-1810",
+    "name": "Russellville (Logan Court House), Logan County courthouse square",
+    "subtitle": "Logan County · downtown Russellville at the courthouse square · Cook’s Station 1790 · Logan Court House 1792 · named for Gen. William Russell 1798 · established 1810",
+    "latitude": 36.8425,
+    "longitude": -86.89278,
+    "history": "The Logan County seat started as a spring with a string of names: Big Boiling Spring, Gasper Butcher’s Spring, Butcher’s Station. A local historian put Butcher there around 1780, but others have questioned it, and historian W. R. Jillson found no written record of anyone living on the site before 1790, when William Cook and his wife built Cook’s Cabin (Cook’s Station) about a mile east of today’s town, joined by 18-year-old William Stewart. The settlement became Logan Court House when it was picked as the seat of the new Logan County in 1792. Gen. William Russell, who held a 2,000-acre grant there for Revolutionary War service, donated land for the platted county seat in 1795; the town took his name in 1798, and the legislature formally established it on Jan. 15, 1810. The same county saw the Rev. James McGready’s June 1800 camp meeting at the Red River Meeting House, often counted as the start of the Revival of 1800, and Andrew Jackson’s fatal 1806 duel with Charles Dickinson at Harrison’s Mill. The map pin marks downtown Russellville at the courthouse square.",
+    "source_date": "2026-10-07",
+    "geocode_source": "wikipedia-russellville-kentucky",
+    "geocode_note": "Wikipedia city coordinate for Russellville (36.84250, -86.89278), downtown at the Logan County courthouse square. Cook’s Station (about 1 mi east) is not separately mapped. Years 1790 Cook’s Cabin–1810 legislative establishment.",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Russellville,_Kentucky",
+    "year_start": 1790,
+    "year_end": 1810,
+    "photo": {
+      "image_url": "/content/photos/stories/russellville-from-big-boiling-spring-to-county-seat.jpg",
+      "title": "Logan County Courthouse, Russellville (photographed 2008)—a later courthouse on the county seat, not the 1790s town",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Logan_County_courthouse_Kentucky.JPG",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Bedford at en.wikipedia · Wikimedia Commons · public domain",
+      "year": 2008
+    }
+  },
+  {
+    "id": "pilot-knob-boones-overlook-powell-1769",
+    "name": "Pilot Knob State Nature Preserve (Boone’s Overlook)",
+    "subtitle": "Powell County · Pilot Knob State Nature Preserve · Boone and Finley’s traditional first view of the Bluegrass, June 7, 1769 · preserve dedicated 1985",
+    "latitude": 37.911,
+    "longitude": -83.936,
+    "history": "Pilot Knob, a 730-foot sandstone outcrop in Powell County, is believed to be where Daniel Boone and John Finley first looked out over the Bluegrass. By tradition they reached the summit on June 7, 1769, before making camp and exploring the country beyond; Finley called it “the beautiful level of Kentucky,” and John Filson’s 1784 Boone narrative has Boone recalling that he “had gained the summit of a commanding ridge” and “beheld the ample plains, the beauteous tracts below.” The Kentucky Historical Society marks June 7 as Boone Day. The knob, also called Boone’s Overlook, is Pennsylvanian conglomerate sandstone, and pieces of it were once quarried for millstones. From the top you can see the Cumberland Plateau, the Knobs, and the Bluegrass. The state dedicated the first 308 acres as Pilot Knob State Nature Preserve on Sept. 26, 1985; it has since grown to about 1,258 acres with two strenuous trails. The map pin marks the preserve, near the knob.",
+    "source_date": "2026-10-07",
+    "geocode_source": "wikipedia-pilot-knob-snp",
+    "geocode_note": "Wikipedia coordinate for Pilot Knob State Nature Preserve (37.911, -83.936). Not archaeological. Year 1769 is the traditional Boone–Finley view (Wikipedia: “believed to be”); 1985 preserve dedication in text only.",
+    "category": "landmark",
+    "website": "https://en.wikipedia.org/wiki/Pilot_Knob_State_Nature_Preserve",
+    "year_start": 1769,
+    "year_end": 1769,
+    "photo": {
+      "image_url": "/content/photos/stories/pilot-knob-boones-overlook-1769.jpg",
+      "title": "Pilot Knob State Nature Preserve, Powell County (uploaded 2008)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pilot_Knob_Photo.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2008
+    }
+  },
+  {
+    "id": "red-bird-river-petroglyphs-eriline-clay",
+    "name": "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
+    "subtitle": "Clay County · original cliff site above the Red Bird River near Eriline (generalized) · carvings undated · fell Dec. 7, 1994; now in Rawlings–Stinson Park, Manchester",
+    "latitude": 37.16,
+    "longitude": -83.76,
+    "history": "A 50-ton sandstone block cut with petroglyphs sat in a cliff above the Red Bird River near Eriline in Clay County. The inscribed face was about 5½ feet high and 20 feet long, with sharp, linear carvings that the authors of Rock Art of Kentucky called “different from any of the previously reported Kentucky petroglyphs.” Nobody has dated them: a state marker credits a legendary Cherokee chief named Red Bird, but the Kentucky Historical Society itself has said there are no reliable dates, and writers have described the marks as possibly Native, colonial, or both. That gap is why this story carries no years. The site, 15CY51, went on the National Register in September 1989. Building and widening KY 66 undercut the face, and on Dec. 7, 1994, the block fell onto the road at Lower Red Bird; two days later it was moved to Rawlings–Stinson Park in Manchester, where it sits roofed and fenced. It was taken off the Register in 2003. A sign at the park claims eight Old World alphabets on the stone, a fringe claim scholars reject. It isn’t the Red Bird River Shelter (15CY52) across the river. The map pin is the original riverside site, rounded to two decimals.",
+    "source_date": "2026-10-07",
+    "geocode_source": "generalized-red-bird-river-eriline",
+    "geocode_note": "Original site near Eriline (about 37.1586, -83.7620 per CoS brief), rounded to 2 decimals per archaeology rule. The stone itself is now in Rawlings–Stinson Park, Manchester (not pinned). No source dates the carvings, so year_start/year_end are omitted; 1989 listing, 1994 fall, 2003 delisting are text only.",
+    "category": "archaeology",
+    "website": "https://en.wikipedia.org/wiki/Red_Bird_River_Petroglyphs",
+    "photo": {
+      "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
+      "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+      "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 1988
+    }
+  },
+  {
+    "id": "mclean-drift-bank-paradise-muhlenberg-1820-1967",
+    "name": "McLean Drift Bank, old Paradise on the Green River (generalized)",
+    "subtitle": "Muhlenberg County · Green River at the lost town of Paradise (generalized point) · first commercial coal mine in Kentucky 1820 · TVA buyout of Paradise 1967",
+    "latitude": 37.27,
+    "longitude": -86.98,
+    "history": "Explorer Thomas Walker found coal in what would become Kentucky in 1750 and burned it in his campfire, but nobody mined it for sale for another seventy years. In 1820 Kentucky’s first commercial coal mine, the McLean Drift Bank, opened along the Green River at what became the village of Paradise in Muhlenberg County, and it produced 328 tons in its first year. For decades the Western Coalfield carried the whole state: 100,000 tons by 1843 and a million tons by 1879, the year the first commercial mine in the Eastern Coalfield opened in Bell County. Paradise began as Stom’s Landing, named for Leonard Stom, who ran a ferry there, and it became a coal-mining town. The sources don’t say when the drift bank itself closed. TVA began building its Paradise coal plant on the town site in 1959, bought out the last residents in 1967, and demolished the town, which lives on in John Prine’s song “Paradise.” The exact mine site isn’t published, so the map pin is a generalized point at old Paradise.",
+    "source_date": "2026-10-07",
+    "geocode_source": "generalized-paradise-kentucky",
+    "geocode_note": "Generalized from the Wikipedia coordinate for Paradise, Kentucky (37.26806, -86.98361), rounded to 2 decimals; the drift bank’s exact location is not published. Years 1820 mine opening–1967 TVA buyout of Paradise (mine closure date not found in sources).",
+    "category": "industry",
+    "website": "https://en.wikipedia.org/wiki/Muhlenberg_County,_Kentucky",
+    "year_start": 1820,
+    "year_end": 1967,
+    "photo": {
+      "image_url": "/content/photos/stories/mclean-drift-bank-kentuckys-first-commercial-coal-mine.jpg",
+      "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
+    }
   }
 ]
