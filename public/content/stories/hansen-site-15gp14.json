@@ -16,10 +16,5 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20",
-  "territory": {
-    "ref": "/data/web/territories/archaic-hansen-site.json",
-    "nation": "Late Archaic (archaeological period)",
-    "presenceLabel": "Archaeological period, no mapped area"
-  }
+  "briefDate": "2026-09-20"
 }
