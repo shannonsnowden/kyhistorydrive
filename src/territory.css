@@ -131,6 +131,8 @@ html:not([data-hp-theme=light]) .terr-tag.nd{color:#fff3a0;background:rgba(240,2
 /* Archaeological cultures (Batch 6-0): separate Layers group, separate map-legend group, textured swatches. Shown only when the index has a culture entry. */
 .terr-panel-cultures .swatch-tex{width:22px;height:12px;border-radius:2px;flex:none}
 .terr-maplegend .ml-h-cult{margin-top:.45rem}
+.terr-maplegend .ml-h-cult:first-child{margin-top:0}
+.terr-maplegend .ml-rows + .ml-h{margin-top:.45rem}
 .terr-maplegend button.ml-culture i{background-repeat:repeat;background-size:10px 10px}
 .terr-notepanel .ml-culture-line{font-style:italic}
 .terr-legend i[data-texture]{background-repeat:repeat}
