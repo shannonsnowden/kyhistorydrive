@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T09:22:43.482Z",
+  "generatedAt": "2026-10-07T09:28:46.630Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -636,7 +636,8 @@
         "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
         "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
+        "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain",
+        "year": null
       }
     },
     "moneton": {
@@ -1585,7 +1586,8 @@
         "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
         "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
+        "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain",
+        "year": null
       }
     },
     "muir-site-15js86-jessamine-county": {
