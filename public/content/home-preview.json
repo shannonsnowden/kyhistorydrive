@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T09:24:49.678Z",
+  "generatedAt": "2026-10-07T09:04:03.509Z",
   "briefDate": "2026-10-06",
   "displayDate": "Tuesday, October 6, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -111,12 +111,12 @@
       "mapHref": "/#map/history/jeptha-knob-clay-village-shelby-1887-1925",
       "quote": "About eight miles east of Shelbyville near Clay Village, Jeptha Knob rises some 300 feet above the surrounding farmland and is the highest point in the Bluegrass.",
       "photo": {
-        "image_url": "/content/photos/stories/jeptha-knob-shelby-countys-buried-crater.jpg",
-        "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2020
+        "image_url": "/content/photos/stories/jeptha-knob-relief.jpg",
+        "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
+        "source_url": "https://apps.nationalmap.gov/3depdem/",
+        "source_label": "USGS 3D Elevation Program",
+        "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
+        "year": 2026
       }
     }
   ],
@@ -228,12 +228,12 @@
       "mapHref": "/#map/history/jeptha-knob-clay-village-shelby-1887-1925",
       "quote": "About eight miles east of Shelbyville near Clay Village, Jeptha Knob rises some 300 feet above the surrounding farmland and is the highest point in the Bluegrass.",
       "photo": {
-        "image_url": "/content/photos/stories/jeptha-knob-shelby-countys-buried-crater.jpg",
-        "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2020
+        "image_url": "/content/photos/stories/jeptha-knob-relief.jpg",
+        "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
+        "source_url": "https://apps.nationalmap.gov/3depdem/",
+        "source_label": "USGS 3D Elevation Program",
+        "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
+        "year": 2026
       }
     }
   ],

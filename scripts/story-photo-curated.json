@@ -795,12 +795,12 @@
   },
   "jeptha-knob-shelby-countys-buried-crater": {
     "ext": "jpg",
-    "commonsFile": "Vanatta_House_—_Clay_Village,_Kentucky.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vanatta_House_—_Clay_Village,_Kentucky.jpg?width=1280",
-    "title": "Vanatta House in Clay Village, built about 1812 (photographed 2020)—a nearby village stand-in, not the knob",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Vanatta_House_—_Clay_Village,_Kentucky.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2020
+    "fileBase": "jeptha-knob-relief",
+    "thumb_url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?bbox=-85.157,38.155,-85.066,38.200&bboxSR=4326&imageSR=3857&size=1280,800&format=jpg&renderingRule=%7B%22rasterFunction%22%3A%22Hillshade%20Elevation%20Tinted%22%7D&f=image",
+    "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
+    "source_url": "https://apps.nationalmap.gov/3depdem/",
+    "source_label": "USGS 3D Elevation Program",
+    "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
+    "year": 2026
   }
 }
