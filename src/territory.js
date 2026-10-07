@@ -382,7 +382,8 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   const controlsHtml = `<div class="terr-ctl"><input type="range" min="${min}" max="${max}" step="1" value="${startYear}" aria-label="Year shown on the ${esc(T.nation)} territory map"><output class="terr-out" aria-live="off"></output></div>
 <div class="terr-bar" role="img" aria-label="${esc(rangeTxt)} on a timeline from ${yLbl(min)} to ${yLbl(max)}"><span class="trk"></span>${segs}<span class="cur"></span>${ticks}</div>
 <div class="terr-chips" role="group" aria-label="Jump to a period">${chips}</div>`
-  const controls = tagOnly ? `<div hidden style="display:none">${controlsHtml}</div>` : controlsHtml
+  // One dated phase only (nothing for a slider to change): fixed view, dates kept in the heading.
+  const controls = tagOnly || eras.length < 2 ? `<div hidden style="display:none">${controlsHtml}</div>` : controlsHtml
   const eraBox = `<div class="terr-era" aria-live="polite"><h4></h4><p></p></div><div class="terr-tags"></div>
 <p class="terr-note"><b>Territories overlapped and shifted.</b> ${esc(T.overlapNote)}</p>
 <p class="terr-span">${esc(T.stories?.[slug]?.presenceNote || T.presenceNote)}</p>

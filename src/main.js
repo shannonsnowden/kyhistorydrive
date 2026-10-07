@@ -3862,9 +3862,13 @@ async function applyRoute() {
     if (statsEl) statsEl.textContent = 'Other layers are hidden while viewing a nation. Your layer choices are kept.'
     setupTerritoryMapControl().catch(console.error)
     showTerritoryMapView(territoryRouteSlug())
-      .then((ok) => {
+      .then(async (ok) => {
         if (!ok) {
-          history.replaceState(null, '', `${location.pathname}#map`)
+          // No territory page for this story (e.g. removed): fall back to the story's own pin, else the map.
+          const slug = territoryRouteSlug()
+          const meta = slug ? (await loadStories()).stories.find((x) => x.slug === slug) : null
+          const pinHash = meta && meta.lat != null && meta.lon != null ? `#map/stories/${encodeURIComponent(slug)}` : '#map'
+          history.replaceState(null, '', `${location.pathname}${pinHash}`)
           applyRoute().catch(console.error)
         }
       })
