@@ -80,6 +80,8 @@ function placeDocs() {
     }
     const geo = readJson(layer.file)
     for (const feature of geo.features || []) {
+      // Cross-listed copies (also_on) already appear under their home layer.
+      if (feature.properties?.also_on) continue
       const p = feature.properties || {}
       const coords = feature.geometry?.type === 'Point' ? feature.geometry.coordinates : null
       if (!coords || coords.length < 2) continue

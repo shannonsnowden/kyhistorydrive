@@ -1,0 +1,88 @@
+{
+ "_comment": "Web-only cross-listing: mills whose pin lives on another layer (Markers/History). build-layer-geojson.mjs appends these to industry.geojson with also_on; the map hides the Industry copy while the source layer is visible so there is never a duplicate pin. Not part of OTA app data. Ringos Mill and Bennett's Mill covered bridges are intentionally NOT listed: they are bridges named for mills, not mill sites; they stay on Markers/Bridges.",
+ "items": [
+  {
+   "id": "xlist-marker-1462",
+   "name": "Ruddell's Mills",
+   "county": "Bourbon",
+   "industry_type": "mill",
+   "mill_kind": "grist & saw mill",
+   "history": "Near his home Isaac Ruddell built a gristmill in 1788 on the north side of Hinkson bridge, and a sawmill in 1795 to be operated by his son, Abram. A 720-spindle cotton mill erected 500 feet west by Thomas and Hugh Brent in 1828, burned 1836. Soon rebuilt by Abram Spears, it also spun wool until about 1855. Ruddell gave land for Stoner Mouth Church and cemetery. Silas Baptist Church 1 mile west (Marker Number: 1596) County: Bourbon Location: Russell Cave Road, KY 353 Description: Organized by 20 members of the Cooper's Run Church in 1800, with the help of Ambrose Dudley, George Eve and Augustine Eastin. They built at this site on land given, 1798, by Charles Smith, Sr. The log structure was replaced by a brick house of worship in 1850 and redecorated in 1902. It is the oldest church in the county continuing without interruption. NOTE: Marker #2096 (Carter Co.) was replaced and given the number 1596, as well. We are working on resolving this issue.",
+   "website": "https://history.ky.gov/markers/ruddells-mills",
+   "latitude": 38.30405,
+   "longitude": -84.2382333,
+   "marker_number": "1462",
+   "also_on": "markers",
+   "also_on_id": "1462"
+  },
+  {
+   "id": "xlist-marker-875",
+   "name": "Early Gunpowder Mill",
+   "county": "Hart",
+   "industry_type": "mill",
+   "mill_kind": "gunpowder mill",
+   "history": "Two miles east on Lynn Camp Creek John Courts built, 1811-12, first commercial gunpowder mill in the State of Kentucky. Located near two large springs that furnished power to grind the charcoal made on site. Mixed with saltpeter and sulphur, finer product made rifle powder and coarser for cannon and blasting powder. Used in War of 1812 through period of Civil War.",
+   "website": "https://history.ky.gov/markers/early-gunpowder-mill",
+   "latitude": 37.3468667,
+   "longitude": -85.7547333,
+   "marker_number": "875",
+   "also_on": "markers",
+   "also_on_id": "875"
+  },
+  {
+   "id": "xlist-marker-2588",
+   "name": "Falls City Jeans & Woolen Mills/Kentucky Jeans",
+   "county": "Jefferson",
+   "industry_type": "mill",
+   "mill_kind": "woolen mill",
+   "history": "Incorporated in 1882, the Falls City Jeans & Woolen Mill Company produced the most Kentucky Jeans in Louisville. The company created 2.5 million yards of jeans a year. Later, Enro Shirt Company & Ohio Valley Bag & Burlap used the site. Factory designed by architect DJ Williams. Added to National Register of Historic Places 1982. The Burkhart Company. (Reverse) Kentucky Jeans were cotton cloth made with finer count yarns, using a twill weave. Kentucky Jeans were coarse and most suitable for work clothing. After the Civil War, Louisville was a hub for cotton processing, with 8 cotton mills by 1905. The expansion of the L&N Railroad supported Louisville’s thriving textile industry. Shelby Park Neighborhood Association. Dedicated August 1, 2019.",
+   "website": "https://history.ky.gov/markers/falls-city-jeans-woolen-millskentucky-jeans",
+   "latitude": 38.2375833,
+   "longitude": -85.7491167,
+   "marker_number": "2588",
+   "also_on": "markers",
+   "also_on_id": "2588"
+  },
+  {
+   "id": "xlist-marker-1423",
+   "name": "Tenn. Rolling Mills",
+   "county": "Lyon",
+   "industry_type": "mill",
+   "mill_kind": "iron rolling mill",
+   "history": "Moved from Nashville to a site one mile west, 1845-46, by Thomas Tennessee Watson and Daniel Hillman. Pig iron from charcoal-fueled blast furnaces in this vicinity was processed into boiler plate, sheets, beams and other articles here for shipment all over the Mississippi Valley. Operations transferred to Louisville in 1884 by the L. P. Ewald Iron Co.",
+   "website": "https://history.ky.gov/markers/tenn-rolling-mills",
+   "latitude": 36.9423833,
+   "longitude": -87.9951833,
+   "marker_number": "1423",
+   "also_on": "markers",
+   "also_on_id": "1423"
+  },
+  {
+   "id": "xlist-marker-1871",
+   "name": "Site of Barnes Mill",
+   "county": "Madison",
+   "industry_type": "mill",
+   "mill_kind": "mill",
+   "history": "Here a mill operated continuously by same family for over one hundred years. Elias Barnes, Sr., a Rev. War soldier, built mill on Silver Creek by 1796. It passed to Elias, Jr., a blacksmith, and then to his son James, a captain in the Mexican War. Other family members operated Barnes Mill until ca. 1913. Barnes Mill Pike is all that remains. Presented by Mrs. Jamie Bronston Long.",
+   "website": "https://history.ky.gov/markers/site-of-barnes-mill",
+   "latitude": 37.7142133,
+   "longitude": -84.3901233,
+   "marker_number": "1871",
+   "also_on": "markers",
+   "also_on_id": "1871"
+  },
+  {
+   "id": "xlist-history-m-robison-sawmill-irvine",
+   "name": "M. Robison Sawmill (Irvine)",
+   "county": "Estill",
+   "industry_type": "mill",
+   "mill_kind": "sawmill",
+   "history": "The M. Robison Sawmill at Irvine, Estill County, Kentucky, circa 1908 — captured in the Stuart S. Sprague photograph collection. Map pin uses Irvine town center (Nominatim) because the exact mill footprint is not documented in the catalog record; treat as a place-level pin for the historic sawmill operation, not a surveyed building outline. Photo: https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/",
+   "website": "https://scholarworks.moreheadstate.edu/sprague_photo_collection/119/",
+   "latitude": 37.700638,
+   "longitude": -83.973813,
+   "also_on": "history",
+   "also_on_id": "m-robison-sawmill-irvine"
+  }
+ ]
+}

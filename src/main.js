@@ -639,9 +639,14 @@ function buildTimelineMapFilter(layerDef) {
 function applyFiltersToMapInstance(targetMap) {
   if (!targetMap) return
   const onTimeline = targetMap === timelineMap
+  // Cross-listed pins (e.g. a marker mill also listed on Industry) carry also_on=<layer id>;
+  // hide that copy while its home layer is visible so the same place never shows twice.
+  const visibleIds = DATA_LAYERS.filter((l) => layerVisibility[l.id]).map((l) => l.id)
+  const crossFilter = ['!', ['in', ['coalesce', ['get', 'also_on'], ''], ['literal', visibleIds]]]
   for (const def of DATA_LAYERS) {
     // Home map: show all enabled-layer dots. Year/era filters only affect Timeline.
-    const filter = onTimeline ? buildTimelineMapFilter(def) : null
+    const base = onTimeline ? buildTimelineMapFilter(def) : null
+    const filter = base ? ['all', base, crossFilter] : crossFilter
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
       if (targetMap.getLayer(lid)) targetMap.setFilter(lid, filter)
     }
@@ -670,6 +675,8 @@ function setLayerVisible(id, on) {
     if (map.getLayer(lid)) map.setLayoutProperty(lid, 'visibility', vis)
   }
   syncAllLayersCheckbox()
+  applyFiltersToMapInstance(map)
+  if (timelineMap && timelineMapReady) applyFiltersToMapInstance(timelineMap)
   updateStats()
 }
 
@@ -1698,7 +1705,8 @@ function updateStats() {
     if (!layerVisibility[def.id]) continue
     const src = map.getSource(def.id)
     if (!src?._data?.features) continue
-    let n = src._data.features.length
+    // Don't count cross-listed copies hidden because their home layer is on.
+    const n = src._data.features.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
     bits.push(`${n.toLocaleString()} ${def.label}`)
   }
   statsEl.textContent = bits.length ? `Showing ${bits.join(' · ')}` : 'No layers enabled'

@@ -128,6 +128,7 @@ const LAYERS = [
   {
     id: 'industry',
     file: 'industrial-sites.json',
+    crossList: 'scripts/industry-cross-list.json',
     pick: (p) => ({
       id: p.id,
       name: p.name,
@@ -359,6 +360,14 @@ function buildLayer(spec) {
     const f = toFeature(spec.id, item, spec.pick(item))
     if (f) features.push(f)
     else skipped++
+  }
+  if (spec.crossList) {
+    // Web-only cross-listed items (pins that live on another layer); see the JSON's _comment.
+    const xl = JSON.parse(fs.readFileSync(path.join(root, spec.crossList), 'utf8'))
+    for (const item of xl.items || []) {
+      const f = toFeature(spec.id, item, { ...spec.pick(item), also_on: item.also_on, also_on_id: item.also_on_id, mill_kind: item.mill_kind })
+      if (f) features.push(f)
+    }
   }
   const geo = { type: 'FeatureCollection', features }
   fs.mkdirSync(outDir, { recursive: true })
