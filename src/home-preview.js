@@ -473,6 +473,12 @@ function renderFeatures(pack) {
  */
 const FIT_MIN_SCALE = 0.8
 const FIT_MIN_PX = 14
+// Headlines (the hero <h2>) must never hide words behind a scroll fade, so they
+// may shrink further before falling back to scrolling (2026-10-07: long titles
+// like "McLean Drift Bank: Kentucky's first commercial coal mine (1820)" lost
+// their last line at 0.8x).
+const FIT_TITLE_MIN_SCALE = 0.5
+const FIT_TITLE_MIN_PX = 18
 
 function fitEl(el) {
   el.style.setProperty('--fit', '1')
@@ -484,7 +490,10 @@ function fitEl(el) {
   if (!over()) return
   const target = el.firstElementChild && el.classList.contains('hp-quote-body') ? el.firstElementChild : el
   const basePx = parseFloat(getComputedStyle(target).fontSize) || 16
-  const min = Math.min(1, Math.max(FIT_MIN_SCALE, FIT_MIN_PX / basePx))
+  const isTitle = el.tagName === 'H2'
+  const min = isTitle
+    ? Math.min(1, Math.max(FIT_TITLE_MIN_SCALE, FIT_TITLE_MIN_PX / basePx))
+    : Math.min(1, Math.max(FIT_MIN_SCALE, FIT_MIN_PX / basePx))
   el.style.setProperty('--fit', String(min))
   if (over()) {
     el.classList.add('is-scrollable')
