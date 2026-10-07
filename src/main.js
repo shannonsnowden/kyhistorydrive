@@ -3620,17 +3620,18 @@ function renderNationLegend(nations) {
     wrap.appendChild(el)
   }
   // Notes are closed by default. Activate a row to read that nation's note in the panel under the title (one at a time).
-  // Archaeological cultures (kind "culture") get their own group below the nations, and only when one is toggled on.
+  // Archaeological cultures (kind "culture") get their own group above the nations, and only when one is toggled on.
   const keep = document.activeElement?.dataset?.nid
   const nationRow = (n) => `<button type="button" class="ml-row" data-nid="${escapeHtml(n.id)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${rgba(n.color, 0.5)};border-color:${n.outline || n.color}"></i><span>${escapeHtml(n.name)}${nationYears(n) ? ` <small>${escapeHtml(nationYears(n))}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`
   const cultureRow = (n) => {
     const y = nationYears(n)
     return `<button type="button" class="ml-row ml-culture" data-nid="${escapeHtml(n.id)}" data-texture="${escapeHtml(n.texture)}" aria-expanded="false" aria-controls="nationNote"><i style="background:${textureCss(n.texture, n.color)};border-color:${n.outline || CULTURE_EDGE}"></i><span>${escapeHtml(n.name)}${y ? ` <small>${escapeHtml(y)}</small>` : ''}</span><em class="ml-i" aria-hidden="true">i</em></button>`
   }
-  const shownNations = shown.filter((n) => !isCulture(n))
-  const shownCultures = shown.filter((n) => isCulture(n))
-  el.setAttribute('aria-label', shownNations.length ? 'Native nations shown (approximate)' : 'Archaeological cultures shown (not tribes)')
-  el.innerHTML = `${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}<div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
+  // Same order as the Layers panel (#165): cultures first, then nations, both oldest first.
+  const shownNations = byAge(shown.filter((n) => !isCulture(n)))
+  const shownCultures = byAge(shown.filter((n) => isCulture(n)))
+  el.setAttribute('aria-label', shownCultures.length ? 'Archaeological cultures shown (not tribes)' : 'Native nations shown (approximate)')
+  el.innerHTML = `${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}<div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
   el.querySelectorAll('button.ml-row').forEach((b) => b.addEventListener('click', () => setLegendNote(b.dataset.nid)))
   if (legendNoteId) {
     const id = legendNoteId
@@ -3689,6 +3690,24 @@ function syncNationRows() {
   }
 }
 
+// Oldest first by the presence/period years already in the index (yearStart, then yearEnd);
+// entries with no usable yearStart go last, in index order.
+const ageYr = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null)
+function byAge(list) {
+  return list
+    .map((n, i) => ({ n, i }))
+    .sort((a, b) => {
+      const sa = ageYr(a.n.yearStart)
+      const sb = ageYr(b.n.yearStart)
+      if (sa == null || sb == null) return sa == null && sb == null ? a.i - b.i : sa == null ? 1 : -1
+      if (sa !== sb) return sa - sb
+      const ea = ageYr(a.n.yearEnd) ?? Infinity
+      const eb = ageYr(b.n.yearEnd) ?? Infinity
+      return ea !== eb ? ea - eb : a.i - b.i
+    })
+    .map((x) => x.n)
+}
+
 /** Native-territory block in the Layers panel: one toggle per nation + "Show only this nation". */
 async function setupTerritoryMapControl() {
   if (!territoryEnabled()) return
@@ -3696,22 +3715,6 @@ async function setupTerritoryMapControl() {
   if (!panel || panel.querySelector('[data-territory-panel]')) return
   const nations = await getTerritoryNations()
   if (!nations.length || panel.querySelector('[data-territory-panel]')) return
-  // Oldest first by the presence/period years already in the index (yearStart, then yearEnd);
-  // entries with no usable yearStart go last, in index order.
-  const yr = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null)
-  const byAge = (list) =>
-    list
-      .map((n, i) => ({ n, i }))
-      .sort((a, b) => {
-        const sa = yr(a.n.yearStart)
-        const sb = yr(b.n.yearStart)
-        if (sa == null || sb == null) return sa == null && sb == null ? a.i - b.i : sa == null ? 1 : -1
-        if (sa !== sb) return sa - sb
-        const ea = yr(a.n.yearEnd) ?? Infinity
-        const eb = yr(b.n.yearEnd) ?? Infinity
-        return ea !== eb ? ea - eb : a.i - b.i
-      })
-      .map((x) => x.n)
   const nationList = byAge(nations.filter((n) => !isCulture(n)))
   const cultureList = byAge(nations.filter((n) => isCulture(n)))
   const box = document.createElement('div')
