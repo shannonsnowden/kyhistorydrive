@@ -479,14 +479,20 @@
       "county": "Shelby"
     },
     "daniel-trabue-of-columbia": {
-      "reason": "Pin KHS marker #1782 at the Daniel Trabue House, 299 Jamestown St., Columbia. County Adair. Years 1778 (at Boonesborough/Logan’s Fort)–1840 death.",
+      "reason": "Pin KHS marker #1782 at the Daniel Trabue House, 299 Jamestown St., Columbia. County Adair. Years 1778 (at Boonesborough/Logan’s Fort)–1840 death. Body: links to his published memoir (UPK; Internet Archive) and the Draper Mss 57J manuscript (WHS finding aid).",
       "date": "2026-10-07",
       "historyId": "daniel-trabue-house-columbia-adair-1778-1840",
       "lat": 37.10017,
       "lon": -85.30327,
       "yearStart": 1778,
       "yearEnd": 1840,
-      "county": "Adair"
+      "county": "Adair",
+      "replace": [
+        {
+          "old": "(KHS marker #1782).\nSource: [https://explorekyhistory.ky.gov/items/show/216]",
+          "new": "(KHS marker #1782). Read his memoir: [Westward into Kentucky: The Narrative of Daniel Trabue](https://www.kentuckypress.com/9780813191195/westward-into-kentucky/), edited by Chester Raymond Young (University Press of Kentucky, 1981; [borrow it at the Internet Archive](https://archive.org/details/westwardintokent0000trab)), and see his 1827 manuscript autobiography in [volume 57J of the Lyman C. Draper Manuscripts](https://digicoll.library.wisc.edu/cgi/f/findaid/findaid-idx?c=wiarchives;cc=wiarchives;view=text;rgn=main;didno=uw-whs-draper00j) at the Wisconsin Historical Society.\nSource: [https://explorekyhistory.ky.gov/items/show/216]"
+        }
+      ]
     },
     "russellville-from-big-boiling-spring-to-county-seat": {
       "reason": "Pin downtown Russellville at the Logan County courthouse square (Wikipedia city point). County Logan. Years 1790 Cook’s Cabin–1810 establishment.",
