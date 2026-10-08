@@ -1470,6 +1470,31 @@ html[data-hp-theme="light"] .era-other {
 .hp-mag-hero-img.is-portrait {
   object-position: 50% 18%;
 }
+/* Tall portraits (any pack): never crop the face behind the headline. The full portrait
+   sits to the right of the text column on desktop and at the top on phones; a blurred,
+   darkened copy fills the rest of the hero. */
+.hp-mag-hero-media.has-portrait {
+  overflow: hidden;
+  background: #1a1f1b;
+}
+.hp-mag-hero-media.has-portrait::before {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  background: var(--hp-hero-bg) center / cover no-repeat;
+  filter: blur(28px) brightness(0.5) saturate(0.9);
+}
+.hp-mag-hero-media.has-portrait .hp-mag-hero-img.is-portrait {
+  position: relative;
+  object-fit: contain;
+  object-position: 88% 50%;
+}
+@media (max-width: 760px) {
+  .hp-mag-hero-media.has-portrait .hp-mag-hero-img.is-portrait {
+    height: 56%;
+    object-position: 50% 0%;
+  }
+}
 .hp-mag-hero-shade {
   position: absolute;
   inset: 0;
