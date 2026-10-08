@@ -424,7 +424,16 @@ function renderHero(pack) {
 function markPortraitHeroImages(root) {
   root.querySelectorAll('img.hp-mag-hero-img').forEach((img) => {
     const mark = () => {
-      if (img.naturalWidth && img.naturalHeight > img.naturalWidth * 1.05) img.classList.add('is-portrait')
+      if (img.naturalWidth && img.naturalHeight > img.naturalWidth * 1.05) {
+        img.classList.add('is-portrait')
+        // Tall portraits: show the whole picture beside/above the headline on a blurred
+        // copy of itself instead of cropping the face behind the text (see styles.css).
+        const media = img.closest('.hp-mag-hero-media')
+        if (media) {
+          media.classList.add('has-portrait')
+          media.style.setProperty('--hp-hero-bg', `url("${img.currentSrc || img.src}")`)
+        }
+      }
     }
     if (img.complete) mark()
     else img.addEventListener('load', mark, { once: true })

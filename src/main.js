@@ -1652,6 +1652,17 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   const storyPhoto = await storyPhotoForProps(props)
   if (storyPhoto) props.photo = storyPhoto
   const relatedHtml = await popupRelatedHtml(props)
+  // A pin tied to a story shows the story's own era, so popup and story/hero labels agree.
+  // Display only: the pin's computed era still drives Timeline era filtering.
+  try {
+    const eraSlug = await slugForPlaceProps(props)
+    if (eraSlug) {
+      const st = ((await loadStories())?.stories || []).find((x) => x.slug === eraSlug)
+      if (st?.era) props.era = st.era
+    }
+  } catch {
+    /* keep the pin's own era */
+  }
   const shareHash = placeShareHash(layerId, props)
   // Keep a shareable deep link in the address bar (home map only)
   if (targetMap === map && shareHash.startsWith('#map/')) {
@@ -2496,9 +2507,13 @@ function sortStoriesList(stories, mode) {
 }
 
 /** Story card county label. A value with a comma (e.g. "Greene, Ohio") is shown as-is; otherwise "X Co."/"X County". */
+// Display spellings for county names whose data key differs (keys stay as-is).
+const COUNTY_DISPLAY = { Larue: 'LaRue' }
+
 function countyLabel(county, long = false) {
-  const c = String(county || '').trim()
-  if (!c) return ''
+  const raw = String(county || '').trim()
+  if (!raw) return ''
+  const c = COUNTY_DISPLAY[raw] || raw
   if (c.includes(',')) return c
   return long ? `${c} County` : `${c} Co.`
 }
