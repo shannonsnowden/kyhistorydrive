@@ -45,7 +45,7 @@
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
-    <header class="top">
+    <header class="top site-header">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
           <img class="brand-logo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
@@ -53,7 +53,40 @@
         </a>
         <p class="tagline">History is all around us.</p>
       </div>
-      <nav id="mainNav">
+      <div class="nav-mobile-tools" id="navMobileTools">
+        <button
+          type="button"
+          class="nav-icon-btn"
+          id="navSearchToggle"
+          aria-expanded="false"
+          aria-controls="navSearch"
+          aria-label="Search places and stories"
+        >
+          <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M16 16.5 20.5 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="nav-icon-btn"
+          id="navMenuToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Open menu"
+        >
+          <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <nav id="mainNav" aria-label="Primary">
         <div class="nav-search" id="navSearch">
           <form id="siteSearchForm" role="search" action="#" autocomplete="off">
             <label class="visually-hidden" for="siteSearchInput">Search places and stories</label>
@@ -95,7 +128,7 @@
         <a href="#map" data-route="map">Map</a>
         <a href="#timeline" data-route="timeline">Timeline</a>
         <a href="#about" data-route="about">About</a>
-        <a href="#app" data-route="app">App</a>
+        <a href="#app" data-route="app">App (coming soon)</a>
         <button
           type="button"
           id="hpThemeToggle"

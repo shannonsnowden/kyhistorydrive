@@ -6,6 +6,7 @@ import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
+import { MobileNav } from './mobile-nav.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -4107,5 +4108,6 @@ syncDeepLinkFromQuery()
 ensureHomeHash()
 initThemeToggle()
 initSiteSearch()
+MobileNav.init()
 initHomePage()
 applyRoute().catch(console.error)

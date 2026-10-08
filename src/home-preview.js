@@ -15,6 +15,7 @@ import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
+import { HeroCarousel } from './hero-carousel.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -301,100 +302,18 @@ function renderHeroControls(slides) {
   return `<div class="hp-hero-controls">
       <button type="button" class="hp-hero-nav" data-hero-dir="-1" aria-label="Previous story">‹</button>
       <div class="hp-hero-dots" role="group" aria-label="Featured stories">${dots}</div>
+      <button type="button" class="hp-hero-playback" data-hero-playback aria-pressed="false">Play</button>
       <button type="button" class="hp-hero-nav" data-hero-dir="1" aria-label="Next story">›</button>
     </div>
     <p class="visually-hidden" id="hpHeroStatus" aria-live="polite"></p>`
 }
 
 function initHeroRotator(root, slides) {
-  if (!root || slides.length < 2) return
-  const slideEls = [...root.querySelectorAll('.hp-hero-slide')]
-  const dots = [...root.querySelectorAll('.hp-hero-dot')]
-  const status = document.getElementById('hpHeroStatus')
-  const intervalMs = 7000
-  let index = 0
-  let timer = null
-  let paused = false
-
-  function announce(i) {
-    if (!status) return
-    const story = slides[i]
-    status.textContent = `Story ${i + 1} of ${slides.length}: ${story.title}`
-  }
-
-  function show(next, { announceChange = true } = {}) {
-    index = (next + slideEls.length) % slideEls.length
-    slideEls.forEach((el, i) => {
-      const on = i === index
-      el.classList.toggle('is-active', on)
-      el.setAttribute('aria-hidden', on ? 'false' : 'true')
-      if (on) el.removeAttribute('inert')
-      else el.setAttribute('inert', '')
-    })
-    dots.forEach((dot, i) => {
-      const on = i === index
-      dot.classList.toggle('is-active', on)
-      dot.setAttribute('aria-current', on ? 'true' : 'false')
-    })
-    const title = slideEls[index]?.querySelector('h2')
-    if (title) root.setAttribute('aria-labelledby', title.id)
-    renderQuote(slides[index])
-    if (announceChange) announce(index)
-  }
-
-  function stop() {
-    if (timer) {
-      clearInterval(timer)
-      timer = null
-    }
-  }
-
-  function play() {
-    stop()
-    if (prefersReducedMotion() || paused) return
-    timer = setInterval(() => show(index + 1), intervalMs)
-  }
-
-  function pause() {
-    paused = true
-    stop()
-  }
-
-  function resume() {
-    paused = false
-    play()
-  }
-
-  root.querySelectorAll('[data-hero-dir]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      show(index + Number(btn.dataset.heroDir || 0))
-      play()
-    })
+  HeroCarousel.mount(root, slides, {
+    onSlide(story) {
+      renderQuote(story)
+    },
   })
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      show(Number(dot.dataset.heroTo || 0))
-      play()
-    })
-  })
-  root.addEventListener('mouseenter', pause)
-  root.addEventListener('mouseleave', resume)
-  root.addEventListener('focusin', pause)
-  root.addEventListener('focusout', (e) => {
-    if (!root.contains(e.relatedTarget)) resume()
-  })
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stop()
-    else if (!paused) play()
-  })
-  window.matchMedia?.('(prefers-reduced-motion: reduce)')?.addEventListener?.('change', () => {
-    if (prefersReducedMotion()) stop()
-    else play()
-  })
-
-  root.setAttribute('aria-roledescription', 'carousel')
-  announce(0)
-  play()
 }
 
 function renderHero(pack) {
@@ -684,10 +603,10 @@ function bindTodayNav() {
     toggleTodayNav()
   })
   wrap.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeTodayNav()
-      btn.focus()
-    }
+    if (e.key !== 'Escape' || btn.getAttribute('aria-expanded') !== 'true') return
+    e.stopPropagation()
+    closeTodayNav()
+    btn.focus()
   })
   document.addEventListener('click', (e) => {
     if (!wrap.contains(e.target)) closeTodayNav()

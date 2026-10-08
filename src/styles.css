@@ -156,6 +156,40 @@ nav a {
   padding: 0 0.35rem;
 }
 nav a:hover, nav a.active { color: var(--accent); }
+.nav-mobile-tools { display: none; }
+.nav-icon-btn {
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--heading);
+  cursor: pointer;
+}
+.nav-icon-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.nav-icon-btn .icon-close { display: none; }
+.nav-icon-btn[aria-expanded="true"] .icon-open { display: none; }
+.nav-icon-btn[aria-expanded="true"] .icon-close { display: block; }
+.nav-icon-btn:hover,
+.nav-icon-btn[aria-expanded="true"] {
+  background: var(--surface);
+  border-color: var(--line);
+}
+.nav-icon-btn:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
@@ -1451,6 +1485,7 @@ html[data-hp-theme="light"] .era-other {
   bottom: 1.1rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.55rem;
 }
 .hp-hero-nav {
@@ -1472,15 +1507,39 @@ html[data-hp-theme="light"] .era-other {
   color: #f6edd8;
 }
 .hp-hero-nav:focus-visible,
-.hp-hero-dot:focus-visible {
+.hp-hero-dot:focus-visible,
+.hp-hero-playback:focus-visible {
   outline: 3px solid #f6edd8;
   outline-offset: 2px;
+}
+.hp-hero-playback {
+  appearance: none;
+  min-width: 44px;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(243, 234, 216, 0.4);
+  background: rgba(16, 24, 18, 0.55);
+  color: #f6edd8;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.hp-hero-playback:hover,
+.hp-hero-playback:focus-visible {
+  border-color: var(--accent);
+  color: #f6edd8;
 }
 .hp-hero-dots {
   display: flex;
   align-items: center;
   gap: 0;
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: min-content;
 }
 /* 44px hit target; the visible dot stays about 11px. */
 .hp-hero-dot {
@@ -1514,7 +1573,8 @@ html[data-hp-theme="light"] .era-other {
   border-color: var(--accent);
 }
 @media (prefers-reduced-motion: reduce) {
-  .hp-hero-slide {
+  .hp-hero-slide,
+  .hp-mag-hero-copy {
     transition: none;
   }
   .hp-mag-quote blockquote {
@@ -1580,6 +1640,13 @@ html[data-hp-theme="light"] .era-other {
   z-index: 1;
   width: min(46rem, 100%);
   padding: clamp(5.5rem, 12vw, 8rem) clamp(1.25rem, 5vw, 4rem) clamp(4.25rem, 8vw, 5.5rem);
+  transition: opacity 0.32s ease;
+}
+/* Inactive slides, and the slide that is leaving, keep their copy invisible
+   so the next headline fades in only after the previous one has faded out. */
+.hp-hero-slide.is-copy-out .hp-mag-hero-copy,
+.hp-hero-slide:not(.is-active) .hp-mag-hero-copy {
+  opacity: 0;
 }
 .hp-mag-hero-copy .hp-kicker,
 .hp-hero-eyebrow {
@@ -1910,7 +1977,8 @@ html[data-hp-theme="light"] .hp-layer-card:hover {
 html[data-hp-theme="light"] .hp-mag-hero {
   background: #2a2216;
 }
-html[data-hp-theme="light"] .hp-hero-nav {
+html[data-hp-theme="light"] .hp-hero-nav,
+html[data-hp-theme="light"] .hp-hero-playback {
   background: rgba(26, 20, 12, 0.45);
 }
 html[data-hp-theme="light"] .hp-hero-dot {
@@ -1926,8 +1994,10 @@ html[data-hp-theme="light"] .hp-hero-dot.is-active::before {
 }
 html[data-hp-theme="light"] .hp-home .hp-hero-nav:focus-visible,
 html[data-hp-theme="light"] .hp-home .hp-hero-dot:focus-visible,
+html[data-hp-theme="light"] .hp-home .hp-hero-playback:focus-visible,
 html[data-hp-theme="light"] .hp-page .hp-hero-nav:focus-visible,
-html[data-hp-theme="light"] .hp-page .hp-hero-dot:focus-visible {
+html[data-hp-theme="light"] .hp-page .hp-hero-dot:focus-visible,
+html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   outline-color: #f6edd8;
 }
 
@@ -1964,6 +2034,154 @@ html[data-hp-theme="light"] .hp-page .hp-hero-dot:focus-visible {
   .hp-layer-rail,
   .hp-related-grid { grid-template-columns: 1fr; }
   .hp-section { padding: 1.35rem 1.15rem 1.85rem; }
+}
+
+/* Phone header: one 60px bar. Wider than 600px keeps the full nav row. */
+@media (max-width: 600px) {
+  .site-header {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.25rem;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 0 0.35rem 0 0.65rem;
+  }
+  .site-header .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0;
+  }
+  .site-header .brand-home {
+    max-width: 100%;
+    min-width: 0;
+    gap: 0.45rem;
+  }
+  .site-header .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .site-header .brand h1 {
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .site-header .tagline { display: none; }
+  .site-header .nav-mobile-tools {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 0;
+  }
+  .site-header nav#mainNav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: auto;
+    flex: none;
+    z-index: 30;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.15rem;
+    margin: 0;
+    padding: 0.4rem 0.55rem 0.7rem;
+    background: var(--header-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+    max-height: calc(100dvh - 60px);
+    overflow: auto;
+  }
+  .site-header.is-menu-open nav#mainNav { display: flex; }
+  .site-header.is-menu-open .nav-search { display: none; }
+  .site-header.is-menu-open nav a[data-route="home"] { order: 1; }
+  .site-header.is-menu-open nav a[data-route="map"] { order: 2; }
+  .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
+  .site-header.is-menu-open nav a[data-route="about"] { order: 4; }
+  .site-header.is-menu-open nav a[data-route="app"] { order: 5; }
+  .site-header.is-menu-open .nav-today { order: 6; }
+  .site-header.is-menu-open .hp-theme-toggle { order: 7; }
+  .site-header.is-menu-open nav a,
+  .site-header.is-menu-open .nav-today-btn,
+  .site-header.is-menu-open .hp-theme-toggle {
+    width: 100%;
+    min-height: 44px;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    box-sizing: border-box;
+  }
+  .site-header.is-menu-open nav a:hover,
+  .site-header.is-menu-open nav a.active,
+  .site-header.is-menu-open .nav-today-btn:hover,
+  .site-header.is-menu-open .hp-theme-toggle:hover {
+    background: var(--surface);
+  }
+  .site-header.is-menu-open .nav-today { width: 100%; }
+  .site-header.is-menu-open .nav-today-menu {
+    position: static;
+    right: auto;
+    min-width: 0;
+    max-width: none;
+    max-height: none;
+    box-shadow: none;
+    margin-top: 0.2rem;
+  }
+  .site-header.is-menu-open .nav-today-btn:focus-visible,
+  .site-header.is-menu-open .hp-theme-toggle:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .site-header.is-search-open:not(.is-menu-open) nav#mainNav {
+    display: block;
+    position: static;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    max-height: none;
+    overflow: visible;
+  }
+  .site-header.is-search-open:not(.is-menu-open) nav#mainNav > :not(#navSearch) {
+    display: none !important;
+  }
+  .site-header.is-search-open #navSearch {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 31;
+    max-width: none;
+    min-width: 0;
+    flex: none;
+    margin: 0;
+    padding: 0.55rem 0.7rem 0.7rem;
+    background: var(--header-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+  }
+  .site-header.is-search-open #siteSearchInput {
+    min-height: 44px;
+    font-size: 1rem;
+  }
+  /* The bar is 60px, so the hero can fill the rest of the first screen. */
+  .hp-mag-hero { min-height: calc(100svh - 60px); }
+  .hp-hero-controls {
+    left: 0.35rem;
+    right: 0.35rem;
+    gap: 0;
+  }
+  .hp-hero-playback {
+    padding: 0 0.55rem;
+    font-size: 0.78rem;
+  }
 }
 
 /* Timeline: story opens in place under its row (list position preserved) */
