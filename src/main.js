@@ -470,6 +470,7 @@ function parseHash() {
     const placeId = rest[1] ? decodeURIComponent(rest.slice(1).join('/')) : null
     return { view: 'map', placeLayer, placeId }
   }
+  if (path === 'resources') return { view: 'resources' }
   if (['about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
@@ -4032,7 +4033,7 @@ async function applyRoute() {
     })
   } else if (view === 'home' && parseHash().explore) {
     // #explore/...: explore-layer.js scrolls to the section; do not pin to the top
-  } else if (view === 'home' || view === 'about' || view === 'app') {
+  } else if (view === 'home' || view === 'about' || view === 'app' || view === 'resources') {
     if (view === 'about') revealAboutSeal()
     // Hash #about can land mid-page after Timeline; force true top so logo shows
     // (native hash scrolling races us — retry a couple frames + short timeout)
