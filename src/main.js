@@ -419,11 +419,25 @@ function formatYearRange(start, end) {
   return formatYear(start ?? end)
 }
 
+function clearAliasHash() {
+  const raw = (location.hash || '').replace(/^#/, '')
+  if (raw !== 'home' && raw !== 'content') return
+  const url = new URL(location.href)
+  url.hash = ''
+  history.replaceState(null, '', url.href)
+}
+
 function ensureHomeHash() {
   // Empty hash → magazine homepage; #home is an alias. Legacy #stories → #timeline.
+  // #content is only the skip-link target. Clearing it has to wait until after the
+  // browser applies the fragment, or the hash is put back.
   const raw = (location.hash || '').replace(/^#/, '')
-  if (!raw || raw === 'home') {
-    if (raw === 'home') history.replaceState(null, '', location.pathname)
+  if (!raw || raw === 'home' || raw === 'content') {
+    clearAliasHash()
+    requestAnimationFrame(clearAliasHash)
+    window.addEventListener('load', clearAliasHash, { once: true })
+    setTimeout(clearAliasHash, 0)
+    setTimeout(clearAliasHash, 50)
     return
   }
   if (raw === 'stories' || raw === 'story') {
@@ -438,7 +452,7 @@ function ensureHomeHash() {
 
 function parseHash() {
   const raw = (location.hash || '').replace(/^#/, '')
-  if (!raw || raw === 'home') return { view: 'home' }
+  if (!raw || raw === 'home' || raw === 'content') return { view: 'home' }
   const [path, ...rest] = raw.split('/')
   // Homepage "Explore a layer" magazine pages: #explore/<tab>/<page> (handled in explore-layer.js)
   if (path === 'explore') return { view: 'home', explore: true }
@@ -4018,6 +4032,7 @@ async function applyRoute() {
   } else if (view === 'home' && parseHash().explore) {
     // #explore/...: explore-layer.js scrolls to the section; do not pin to the top
   } else if (view === 'home' || view === 'about' || view === 'app') {
+    if (view === 'about') revealAboutSeal()
     // Hash #about can land mid-page after Timeline; force true top so logo shows
     // (native hash scrolling races us — retry a couple frames + short timeout)
     const pinTop = () => scrollPageToTop()
@@ -4031,6 +4046,7 @@ async function applyRoute() {
 }
 
 window.addEventListener('hashchange', () => {
+  clearAliasHash()
   applyRoute().catch(console.error)
 })
 
@@ -4056,6 +4072,22 @@ document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('clic
 
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+
+/** About seal is 402KB and hidden on first load. Fetch it only when About opens. */
+function revealAboutSeal() {
+  const img = document.querySelector('#about img.about-logo')
+  if (!img || img.getAttribute('src')) return
+  const src = img.dataset.src
+  if (!src) return
+  img.src = src
+}
+
+document.querySelector('a.skip-link')?.addEventListener('click', (e) => {
+  const main = document.getElementById('content')
+  if (!main) return
+  e.preventDefault()
+  main.focus()
+})
 
 document.querySelector('a.brand-home')?.addEventListener('click', (e) => {
   e.preventDefault()

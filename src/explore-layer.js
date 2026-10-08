@@ -14,6 +14,7 @@
  */
 
 import { AdSlot } from './ad-slot.js'
+import { responsivePicture } from './responsive-img.js'
 
 const TABS_ERA = [
   { id: 'prehistoric', label: 'Prehistoric' },
@@ -201,7 +202,12 @@ export async function initExploreLayer({ root, layers, helpers }) {
       ? `<a class="exp-sec" href="${esc(item.mapHref)}" aria-label="${esc(item.title)} on the map">On the map</a>`
       : ''
     return `<article class="exp-card" data-key="${esc(item.key)}">
-      <a class="exp-media" href="${esc(item.href)}" aria-label="Read: ${esc(item.title)}" tabindex="-1" aria-hidden="true"><img src="${esc(item.photo.image_url)}" alt="${esc(alt)}" width="640" height="400" loading="lazy" decoding="async" referrerpolicy="no-referrer" /></a>
+      <a class="exp-media" href="${esc(item.href)}" aria-label="Read: ${esc(item.title)}" tabindex="-1" aria-hidden="true">${responsivePicture({
+        src: item.photo.image_url,
+        alt,
+        loading: 'lazy',
+        sizes: '(max-width: 619px) 100vw, (max-width: 999px) 50vw, 33vw',
+      })}</a>
       <div class="exp-copy">
         <p class="hp-card-layer exp-kicker">${esc(item.kicker)}</p>
         <h3 class="exp-title"><a href="${esc(item.href)}">${esc(item.title)}</a></h3>
