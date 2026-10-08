@@ -23,6 +23,8 @@ frontend:
 # on the same document. Do not add a catch-all SPA rewrite — it would swallow
 # /privacy (no file extension) and /sitemap.xml (.xml is outside Amplify's
 # usual static-extension exclusion list). /robots.txt is a real file.
+# /stories/<slug>/ and /layers/<id>/ are prerendered index.html files from
+# scripts/prerender-pages.mjs. The rules below do not match those paths.
 # Old /home-preview links redirect to the live home.
 customRules:
   - source: '/home-preview'

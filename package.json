@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/restore-truncated-sources.mjs && vite",
-    "build": "node scripts/check-ota-types.mjs && node scripts/restore-truncated-sources.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && node scripts/apply-story-overrides.mjs && node scripts/check-ota-types.mjs && node scripts/build-home-preview.mjs && vite build",
+    "build": "node scripts/check-ota-types.mjs && node scripts/restore-truncated-sources.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && node scripts/apply-story-overrides.mjs && node scripts/check-ota-types.mjs && node scripts/build-home-preview.mjs && vite build && node scripts/prerender-pages.mjs",
+    "prerender": "node scripts/prerender-pages.mjs",
     "preview": "vite preview",
     "build-stories": "node scripts/build-stories.mjs",
     "build-home-preview": "node scripts/build-home-preview.mjs",
