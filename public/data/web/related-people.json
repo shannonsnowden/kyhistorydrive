@@ -26,7 +26,8 @@
   "Henry Bird": "ojibwe-on-birds-war-road",
   "Dragging Canoe": "chickamauga-cherokee",
   "Charles Scott": "gen-charles-scott-and-petersburg",
-  "Daniel Trabue": "daniel-trabue-of-columbia"
+  "Daniel Trabue": "daniel-trabue-of-columbia",
+  "James Wilkinson": "gen-james-wilkinson-kentuckys-agent-13"
  },
  "skip": {
   "Richard Henderson": [
@@ -292,12 +293,20 @@
    {
     "slug": "pilot-knob-boones-overlook-1769",
     "label": "Same event: the traditional June 1769 view of the Bluegrass from Pilot Knob"
+   },
+   {
+    "slug": "athiamiowee-the-warriors-path-through-kentucky",
+    "label": "Same place: Finley and Boone used the Warriors’ Path in 1769"
    }
   ],
   "odawa-raid-at-eskippakithiki-1753": [
    {
     "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
     "label": "Same event: John Finley kept a store at the town"
+   },
+   {
+    "slug": "athiamiowee-the-warriors-path-through-kentucky",
+    "label": "Same place: Eskippakithiki stood on the Warriors’ Path"
    }
   ],
   "isaac-shelby-old-kings-mountain": [
@@ -362,6 +371,10 @@
    {
     "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
     "label": "Same event: Gen. Charles Scott’s 1791 Wabash campaign"
+   },
+   {
+    "slug": "gen-james-wilkinson-kentuckys-agent-13",
+    "label": "Same person: Gen. James Wilkinson, who sent Hardin on his last errand, has his own story"
    }
   ],
   "mascouten-fire-nation-on-the-wabash": [
@@ -634,6 +647,10 @@
    {
     "slug": "lower-shawneetown-at-the-scioto-mouth",
     "label": "Same place: on the terrace just upstream from Lower Shawneetown"
+   },
+   {
+    "slug": "old-fort-earthworks-15gp1-greenup-county",
+    "label": "Same place: the Hopewell Old Fort Earthworks stand nearby"
    }
   ],
   "henry-skaggs-green-river-long-hunter": [
@@ -988,12 +1005,64 @@
    {
     "slug": "col-william-russell-iii",
     "label": "Same family: Russellville is named for his father, Gen. William Russell"
+   },
+   {
+    "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
+    "label": "Same event: the 1801 Cane Ridge camp meeting followed McGready’s Logan County revival"
    }
   ],
   "pilot-knob-boones-overlook-1769": [
    {
     "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
     "label": "Same person: John Finley, who by tradition stood on Pilot Knob with Boone, has his own story"
+   }
+  ],
+  "gen-james-wilkinson-kentuckys-agent-13": [
+   {
+    "slug": "frankfort-franks-ford-becomes-the-capital",
+    "label": "Same place: Wilkinson laid out Frankfort in 1786"
+   },
+   {
+    "slug": "col-john-hardin-of-pleasant-run",
+    "label": "Same event: Wilkinson sent Hardin on the 1792 peace errand that cost his life"
+   }
+  ],
+  "frankfort-franks-ford-becomes-the-capital": [
+   {
+    "slug": "gen-james-wilkinson-kentuckys-agent-13",
+    "label": "Same person: Gen. James Wilkinson, who laid out the town, has his own story"
+   }
+  ],
+  "athiamiowee-the-warriors-path-through-kentucky": [
+   {
+    "slug": "odawa-raid-at-eskippakithiki-1753",
+    "label": "Same place: the path ran past the Shawnee town of Eskippakithiki"
+   },
+   {
+    "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "label": "Same person: Finley followed the path with Boone in 1769"
+   }
+  ],
+  "old-fort-earthworks-15gp1-greenup-county": [
+   {
+    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "label": "Same place: Lower Shawneetown later stood within the same archaeological district"
+   },
+   {
+    "slug": "hansen-site-15gp14",
+    "label": "Same place: another site in the Lower Shawneetown district near South Portsmouth"
+   }
+  ],
+  "lower-shawneetown-at-the-scioto-mouth": [
+   {
+    "slug": "old-fort-earthworks-15gp1-greenup-county",
+    "label": "Same place: the Hopewell Old Fort Earthworks stand nearby"
+   }
+  ],
+  "cane-ridge-meeting-house-and-the-1801-camp-meeting": [
+   {
+    "slug": "russellville-from-big-boiling-spring-to-county-seat",
+    "label": "Same event: McGready’s 1800 Logan County camp meeting came the year before Cane Ridge"
    }
   ]
  }

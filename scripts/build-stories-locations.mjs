@@ -788,6 +788,37 @@ const MANUAL_OVERRIDES = {
     lon: -86.98,
     confidence: 'override',
   },
+  // 2026-10-08 brief (no anti-repeat swaps; Grokipedia links replaced)
+  'gen-james-wilkinson-kentuckys-agent-13': {
+    matchName: "Gen. James Wilkinson’s Love House site, Frankfort (KHS marker #1182)",
+    lat: 38.1986833,
+    lon: -84.8816833,
+    confidence: 'override',
+  },
+  'hodgenville-from-hodgens-mill-to-county-seat': {
+    matchName: "Hodgenville (Hodgen’s Mill), KHS marker #1096",
+    lat: 37.5757833,
+    lon: -85.74015,
+    confidence: 'override',
+  },
+  'athiamiowee-the-warriors-path-through-kentucky': {
+    matchName: "Warriors’ Path (Athiamiowee), KHS marker #697, Gray Hawk",
+    lat: 37.3931167,
+    lon: -83.9368333,
+    confidence: 'override',
+  },
+  'old-fort-earthworks-15gp1-greenup-county': {
+    matchName: "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)",
+    lat: 38.72,
+    lon: -83.02,
+    confidence: 'override',
+  },
+  'cane-ridge-meeting-house-and-the-1801-camp-meeting': {
+    matchName: "Cane Ridge Meeting House (KHS marker #51)",
+    lat: 38.2126389,
+    lon: -84.1191667,
+    confidence: 'override',
+  },
 }
 
 

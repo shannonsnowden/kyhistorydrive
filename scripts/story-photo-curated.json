@@ -852,5 +852,55 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
+  },
+  "gen-james-wilkinson-kentuckys-agent-13": {
+    "ext": "jpg",
+    "commonsFile": "James_Wilkinson.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/James_Wilkinson.jpg?width=1280",
+    "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
+    "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
+    "year": 1797
+  },
+  "hodgenville-from-hodgens-mill-to-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Hodgenville_KY_Town_Square.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hodgenville_KY_Town_Square.jpg?width=1280",
+    "title": "Hodgenville town square (photographed 2008)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hodgenville_KY_Town_Square.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Jamie · Wikimedia Commons · CC BY 2.0",
+    "year": 2008
+  },
+  "athiamiowee-the-warriors-path-through-kentucky": {
+    "ext": "jpg",
+    "commonsFile": "Cumberland_Gap_Height_of_Land.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cumberland_Gap_Height_of_Land.jpg?width=1280",
+    "title": "The saddle of Cumberland Gap, where the Warriors’ Path entered Kentucky (photographed 2020)—a modern view of the gap, not the trail itself",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Gap_Height_of_Land.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Coasterlover1994 · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2020
+  },
+  "old-fort-earthworks-15gp1-greenup-county": {
+    "ext": "jpg",
+    "commonsFile": "Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg?width=1280",
+    "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": 2012
+  },
+  "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
+    "ext": "jpg",
+    "commonsFile": "Cane_Ridge_Meeting_House,_Little_Rock_Road,_Paris_vicinity_(Bourbon_County,_Kentucky).jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cane_Ridge_Meeting_House,_Little_Rock_Road,_Paris_vicinity_(Bourbon_County,_Kentucky).jpg?width=1280",
+    "title": "Cane Ridge Meeting House, Historic American Buildings Survey photo by Theodore Webb, Feb. 7, 1934, before the stone shelter was built",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cane_Ridge_Meeting_House,_Little_Rock_Road,_Paris_vicinity_(Bourbon_County,_Kentucky).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
+    "year": 1934
   }
 }
