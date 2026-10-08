@@ -12,3 +12,9 @@ customHeaders:
         value: 'GET, HEAD, OPTIONS'
       - key: 'Content-Type'
         value: 'application/json; charset=utf-8'
+  # ads.txt is a static file (public/ads.txt). Pin text/plain so a missing
+  # console MIME guess cannot serve it as HTML. This is not a rewrite.
+  - pattern: '/ads.txt'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/plain'
