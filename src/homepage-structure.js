@@ -12,7 +12,7 @@ export class HomepageStructure {
   /** About 25 words. A sentence a few words longer stays whole. */
   static HERO_WORD_CAP = 25
   static HERO_WORD_SLACK = 5
-  /** First page of Explore, at the widest page size, so every breakpoint skips the hero set. */
+  /** First page of the default Explore tab, at the widest page size. */
   static EXPLORE_DEFER_PAGE = 6
   /**
    * Homepage picks. Matched by href so the link records themselves stay
@@ -147,8 +147,27 @@ export class HomepageStructure {
   }
 
   /**
-   * Keep every daily story, but do not open Explore on the hero set.
-   * The skipped stories return after the first page of other stories.
+   * Stories already on the homepage above Explore, in that order:
+   * hero, then Highlights, then the quote.
+   */
+  static firstViewSkip(heroSlugs, highlights, quoteSlug) {
+    const skip = []
+    const seen = new Set()
+    const add = (slug) => {
+      if (!slug || seen.has(slug)) return
+      seen.add(slug)
+      skip.push(slug)
+    }
+    for (const slug of heroSlugs || []) add(slug)
+    for (const story of highlights || []) add(story.slug || story)
+    add(quoteSlug)
+    return skip
+  }
+
+  /**
+   * Default Explore first page only. Skipped stories stay in the list, after
+   * that first page, so later pages still reach them. Other tabs are not passed
+   * through here, so era and map filters do not hide stories.
    */
   static deferFromFirstPage(items, skipSlugs, pageSize = HomepageStructure.EXPLORE_DEFER_PAGE) {
     const skip = skipSlugs instanceof Set ? skipSlugs : new Set(skipSlugs || [])

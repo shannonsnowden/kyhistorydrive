@@ -782,7 +782,10 @@ export function initHomePage() {
       renderFeatures({ features: highlights })
       renderQuote(quoteStory)
       applyArchiveLabels(catalog.count)
-      renderLayerCards(pack.layers, heroSlugs)
+      renderLayerCards(
+        pack.layers,
+        HomepageStructure.firstViewSkip(heroSlugs, highlights, quotePick?.slug),
+      )
     })
     .catch((err) => {
       console.error(err)

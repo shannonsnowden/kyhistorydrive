@@ -150,7 +150,8 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
   }
   // Newest pack first; within a pack keep the story's timeline order.
   daily.sort((a, b) => (a.pub === b.pub ? a.order - b.order : a.pub < b.pub ? 1 : -1))
-  // Default first page skips the hero carousel. Those stories stay later in the list.
+  // Default first page skips stories already shown above (hero, Highlights, quote).
+  // They stay later in this tab. Era and map tabs are not filtered.
   const dailyItems = HomepageStructure.deferFromFirstPage(daily, skipSlugs, HomepageStructure.EXPLORE_DEFER_PAGE)
   daily.length = 0
   daily.push(...dailyItems)
