@@ -19,7 +19,7 @@ frontend:
     paths:
       - node_modules/**/*
 
-# Magazine homepage is `/`. Keep hash routes (#map, #timeline, #about, #app)
+# Magazine homepage is `/`. Keep hash routes (#map, #timeline, #about, #app, #resources)
 # on the same document. Do not add a catch-all SPA rewrite — it would swallow
 # /privacy (no file extension) and /sitemap.xml (.xml is outside Amplify's
 # usual static-extension exclusion list). /robots.txt is a real file.

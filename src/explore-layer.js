@@ -15,6 +15,7 @@
 
 import { AdSlot } from './ad-slot.js'
 import { responsivePicture } from './responsive-img.js'
+import { HomepageStructure } from './homepage-structure.js'
 
 const TABS_ERA = [
   { id: 'prehistoric', label: 'Prehistoric' },
@@ -36,7 +37,11 @@ const MQ_TABLET = '(min-width: 620px)'
 function pageSize() {
   if (window.matchMedia(MQ_DESKTOP).matches) return 6
   if (window.matchMedia(MQ_TABLET).matches) return 4
-  return 3
+  return 6
+}
+
+function isNarrow() {
+  return window.matchMedia('(max-width: 619px)').matches
 }
 
 export function parseExploreHash(hash = location.hash) {
@@ -65,7 +70,7 @@ function sortStories(a, b) {
 }
 
 /** helpers come from home-preview.js (shared escaping / photo rules). */
-export async function initExploreLayer({ root, layers, helpers }) {
+export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }) {
   if (!root) return
   const {
     escapeHtml: esc,
@@ -145,6 +150,11 @@ export async function initExploreLayer({ root, layers, helpers }) {
   }
   // Newest pack first; within a pack keep the story's timeline order.
   daily.sort((a, b) => (a.pub === b.pub ? a.order - b.order : a.pub < b.pub ? 1 : -1))
+  // Default first page skips stories already shown above (hero, Highlights, quote).
+  // They stay later in this tab. Era and map tabs are not filtered.
+  const dailyItems = HomepageStructure.deferFromFirstPage(daily, skipSlugs, HomepageStructure.EXPLORE_DEFER_PAGE)
+  daily.length = 0
+  daily.push(...dailyItems)
 
   const tabs = []
   if (daily.length) tabs.push({ ...DAILY_TAB, items: daily })
@@ -169,8 +179,7 @@ export async function initExploreLayer({ root, layers, helpers }) {
   root.innerHTML = `
     <div class="exp-shell">
       <div class="exp-topbar">
-        <button type="button" class="scroll-fab nav-jump exp-home" title="Back to the home page" aria-label="Home: back to the top of the home page"><span class="nav-jump-ico" aria-hidden="true">⌂</span><span class="nav-jump-label">Home</span></button>
-        <nav class="exp-tabs" aria-label="Explore a layer sections"><ul></ul></nav>
+        <nav class="exp-tabs" aria-label="Story archive sections"><ul></ul></nav>
       </div>
       <div class="exp-pagebar exp-pagebar-top"><nav class="exp-pager" aria-label="Pages (top)"></nav><p class="exp-count muted" aria-hidden="true"></p></div>
       <div class="exp-viewport" role="region" tabindex="0" aria-roledescription="magazine pages">
@@ -180,6 +189,7 @@ export async function initExploreLayer({ root, layers, helpers }) {
         <nav class="exp-pager" aria-label="Pages (bottom)"></nav>
         <button type="button" class="scroll-fab nav-jump exp-home" title="Back to the home page" aria-label="Home: back to the top of the home page"><span class="nav-jump-ico" aria-hidden="true">⌂</span><span class="nav-jump-label">Home</span></button>
       </div>
+      <button type="button" class="btn exp-more" hidden>Load more</button>
       <p class="exp-hint muted">Turn pages with the buttons, the ← → keys, or a swipe. Every story is also in the <a href="/#timeline">Timeline</a>.</p>
       <p class="exp-status sr-only" role="status" aria-live="polite"></p>
     </div>`
@@ -197,7 +207,8 @@ export async function initExploreLayer({ root, layers, helpers }) {
   function cardHtml(item, idx) {
     const credit = photoCredit(item.photo)
     const alt = item.photo.title || item.title
-    const deck = item.deck ? `<p class="exp-deck">${esc(item.deck)}</p>` : '<p class="exp-deck"></p>'
+    const deckText = HomepageStructure.deckText(item.deck)
+    const deck = deckText ? `<p class="exp-deck">${esc(deckText)}</p>` : '<p class="exp-deck"></p>'
     const map = item.mapHref
       ? `<a class="exp-sec" href="${esc(item.mapHref)}" aria-label="${esc(item.title)} on the map">On the map</a>`
       : ''
@@ -257,11 +268,16 @@ export async function initExploreLayer({ root, layers, helpers }) {
     const tab = tabs[tabIdx]
     const total = pagesFor(tab)
     page = Math.min(Math.max(1, page), total)
-    const from = (page - 1) * size
-    const slice = tab.items.slice(from, from + size)
+    // Phones show 6, then Load more keeps the earlier cards and brings in the next 6.
+    // Wider screens still replace the page, 6 on desktop and 4 on tablet.
+    const narrow = isNarrow()
+    const from = narrow ? 0 : (page - 1) * size
+    const take = narrow ? Math.min(tab.items.length, page * size) : size
+    const slice = tab.items.slice(from, from + take)
+    const atEnd = from + slice.length >= tab.items.length
     // Pad short last pages so the page height never changes: the first spare slot becomes an
     // "end of section" card (continue to the next section / back to the start), the rest are invisible.
-    const spare = size - slice.length
+    const spare = narrow ? (atEnd ? 1 : 0) : size - slice.length
     let endCard = ''
     if (spare > 0) {
       const nextTab = tabs[(tabIdx + 1) % tabs.length]
@@ -281,6 +297,8 @@ export async function initExploreLayer({ root, layers, helpers }) {
     const label = `${tab.label}: stories ${from + 1}–${from + slice.length} of ${tab.items.length} · page ${page} of ${total}`
     el.counts.forEach((c) => (c.textContent = label))
     el.status.textContent = label
+    const more = root.querySelector('.exp-more')
+    if (more) more.hidden = !(narrow && page < total)
     const shell = root.querySelector('.exp-shell')
     if (page >= 2) AdSlot.mount(shell, 'explore')
     else AdSlot.unmount(shell)
@@ -335,6 +353,12 @@ export async function initExploreLayer({ root, layers, helpers }) {
   }
 
   // ---- Events ------------------------------------------------------------
+  root.querySelector('.exp-more')?.addEventListener('click', () => {
+    const tab = tabs[tabIdx]
+    if (page >= pagesFor(tab)) return
+    go(tab.id, page + 1, { dir: 1, scroll: false })
+  })
+
   root.addEventListener('click', (e) => {
     const a = e.target.closest('a')
     if (!a || !root.contains(a)) return
@@ -461,19 +485,26 @@ export async function initExploreLayer({ root, layers, helpers }) {
     else if (tabIdx !== 0 || page !== 1) applyHash({ scroll: false })
   })
 
-  // Viewport size class changed: keep the first visible story on screen
+  // Viewport size class changed: keep the first visible story on screen.
+  // Crossing 619px also switches Load more on, even when the page size stays 6.
+  let narrowMode = isNarrow()
   const onSize = () => {
     const next = pageSize()
-    if (next === size) return
-    const first = (page - 1) * size
-    size = next
-    page = Math.floor(first / size) + 1
+    const nowNarrow = isNarrow()
+    if (next === size && nowNarrow === narrowMode) return
+    if (next !== size) {
+      const first = narrowMode ? 0 : (page - 1) * size
+      size = next
+      page = Math.floor(first / size) + 1
+    }
+    narrowMode = nowNarrow
     render()
     const h = parseExploreHash()
     if (h) history.replaceState(null, '', currentHash())
   }
   window.matchMedia(MQ_DESKTOP).addEventListener('change', onSize)
   window.matchMedia(MQ_TABLET).addEventListener('change', onSize)
+  window.matchMedia('(max-width: 619px)').addEventListener('change', onSize)
 
   // ---- First paint ------------------------------------------------------
   const initial = parseExploreHash()

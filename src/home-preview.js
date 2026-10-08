@@ -16,6 +16,7 @@ import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
 import { HeroCarousel } from './hero-carousel.js'
+import { HomepageStructure } from './homepage-structure.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -105,17 +106,16 @@ function quoteFromStory(story) {
   }
 }
 
-/** Hero overlay: full first-sentence quote — never mid-sentence summary ellipsis. */
+/** Hero overlay: about 25 words, on a sentence or word break. Display only. */
 function heroDeckText(story) {
   const quote = String(story?.quote || '').trim()
-  if (quote) return quote
+  if (quote) return HomepageStructure.capWords(quote)
   const summary = String(story?.summary || '').trim()
   if (!summary) return ''
-  // Strip trailing ellipsis / … then take a complete sentence if possible.
-  const stripped = summary.replace(/\u2026\s*$/, '').replace(/\.\.\.\s*$/, '').trim()
+  const stripped = HomepageStructure.deckText(summary)
   const sentence = firstSentence(stripped)
-  if (sentence && /[.!?]$/.test(sentence)) return sentence
-  return stripped
+  if (sentence && /[.!?]$/.test(sentence)) return HomepageStructure.capWords(sentence)
+  return HomepageStructure.capWords(stripped)
 }
 
 /** Home-map deep link for a pin-backed story. Does not invent coordinates. */
@@ -309,11 +309,7 @@ function renderHeroControls(slides) {
 }
 
 function initHeroRotator(root, slides) {
-  HeroCarousel.mount(root, slides, {
-    onSlide(story) {
-      renderQuote(story)
-    },
-  })
+  HeroCarousel.mount(root, slides)
 }
 
 function renderHero(pack) {
@@ -330,7 +326,7 @@ function renderHero(pack) {
         <a class="btn hp-cta" href="/#timeline">Timeline</a>
       </div>
     </div>`
-    renderQuote(null)
+    root.removeAttribute('aria-busy')
     return
   }
   root.innerHTML = `
@@ -338,9 +334,9 @@ function renderHero(pack) {
       ${slides.map((story, i) => renderHeroSlide(story, i)).join('')}
     </div>
     ${renderHeroControls(slides)}`
+  root.removeAttribute('aria-busy')
   markPortraitHeroImages(root)
   fitHomeText()
-  renderQuote(slides[0])
   initHeroRotator(root, slides)
 }
 
@@ -536,13 +532,14 @@ function layerHref(item) {
   return `/#map/${encodeURIComponent(item.layerId)}/${encodeURIComponent(item.placeId)}`
 }
 
-/** "Explore a layer": paged magazine of every curated story with a photo (see explore-layer.js). */
-function renderLayerCards(layers) {
+/** Story archive: paged magazine of every curated story with a photo (see explore-layer.js). */
+function renderLayerCards(layers, skipSlugs = []) {
   const root = document.getElementById('hpLayerCards')
   if (!root) return
   return initExploreLayer({
     root,
     layers,
+    skipSlugs,
     helpers: {
       escapeHtml,
       usablePhoto,
@@ -555,6 +552,34 @@ function renderLayerCards(layers) {
       LAYER_HIGHLIGHTS,
     },
   }).catch((err) => console.error(err))
+}
+
+function applyArchiveLabels(count) {
+  const labels = HomepageStructure.archiveLabels(count)
+  const kicker = document.getElementById('hpExploreKicker')
+  const title = document.getElementById('hp-layers-title')
+  const meta = document.getElementById('hpFeaturesMeta')
+  if (kicker) kicker.textContent = labels.kicker
+  if (title) title.textContent = labels.title
+  if (meta) meta.textContent = labels.features
+}
+
+/** Quote copy from a story file. Falls back to the index summary. Does not edit the file. */
+async function loadQuoteStory(story) {
+  if (!story?.slug) return null
+  let text = ''
+  try {
+    const res = await fetch(`/content/stories/${encodeURIComponent(story.slug)}.json`)
+    if (res.ok) {
+      const full = await res.json()
+      text = firstSentence(full.bodyMarkdown || '')
+    }
+  } catch {
+    /* use the index summary */
+  }
+  if (!text) text = firstSentence(HomepageStructure.deckText(story.summary || ''))
+  if (!text) return null
+  return { ...story, quote: text }
 }
 
 function relatedCardHtml(item) {
@@ -621,10 +646,13 @@ function renderTodayNav(pack) {
   const stories = briefStories(pack)
   if (!stories.length) {
     wrap.hidden = true
+    wrap.classList.remove('is-reserved')
     list.innerHTML = ''
     return
   }
   wrap.hidden = false
+  wrap.classList.remove('is-reserved')
+  document.getElementById('navTodayBtn')?.removeAttribute('tabindex')
   list.innerHTML = stories
     .map((item, i) => {
       const href = storyNavHref(item)
@@ -642,17 +670,30 @@ function renderTodayNav(pack) {
   })
 }
 
-function renderRelatedCards() {
-  const root = document.getElementById('hpRelatedCards')
-  if (!root) return
-  root.innerHTML = RELATED_GROUPS.map((group) => {
-    return `<div class="hp-related-group">
+function relatedGroupsHtml(groups) {
+  return groups
+    .map((group) => {
+      return `<div class="hp-related-group">
       <h3 class="hp-related-group-title">${escapeHtml(group.title)}</h3>
       <div class="hp-related-grid">
         ${group.sites.map(relatedCardHtml).join('')}
       </div>
     </div>`
-  }).join('')
+    })
+    .join('')
+}
+
+function renderRelatedCards() {
+  const root = document.getElementById('hpRelatedCards')
+  const full = document.getElementById('resourcesList')
+  const bundle = HomepageStructure.relatedBundle(RELATED_GROUPS)
+  if (full) full.innerHTML = relatedGroupsHtml(bundle.groups)
+  if (!root) return
+  const more =
+    bundle.total > bundle.picks.length
+      ? `<p class="hp-related-more"><a href="#resources">See all ${bundle.total} resources</a></p>`
+      : ''
+  root.innerHTML = `<div class="hp-related-grid">${bundle.picks.map(relatedCardHtml).join('')}</div>${more}`
 }
 
 async function loadPack() {
@@ -726,16 +767,30 @@ export function initHomePage() {
   homePageStarted = true
   AdSlot.mount(document.getElementById('home'), 'home')
   renderRelatedCards()
-  Promise.all([loadPack(), loadPhotoVariants()])
-    .then(([pack]) => {
+  Promise.all([loadPack(), loadPhotoVariants(), HomepageStructure.loadCatalog()])
+    .then(async ([pack, , catalog]) => {
+      const slides = heroSlides(pack)
+      const heroSlugs = slides.map((story) => story.slug).filter(Boolean)
+      const highlights = HomepageStructure.pickHighlights(catalog.stories, heroSlugs, 4)
+      const quotePick = HomepageStructure.pickQuote(catalog.stories, [
+        ...heroSlugs,
+        ...highlights.map((story) => story.slug),
+      ])
+      const quoteStory = await loadQuoteStory(quotePick)
       renderTodayNav(pack)
       renderHero(pack)
-      renderFeatures(pack)
-      renderLayerCards(pack.layers)
+      renderFeatures({ features: highlights })
+      renderQuote(quoteStory)
+      applyArchiveLabels(catalog.count)
+      renderLayerCards(
+        pack.layers,
+        HomepageStructure.firstViewSkip(heroSlugs, highlights, quotePick?.slug),
+      )
     })
     .catch((err) => {
       console.error(err)
       renderTodayNav({ stories: [] })
+      renderQuote(null)
       renderLayerCards([])
     })
 }
