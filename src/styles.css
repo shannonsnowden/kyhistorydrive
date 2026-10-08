@@ -1996,3 +1996,74 @@ html[data-hp-theme="light"] .hp-cta:hover { background: #6e4214; border-color: #
 html[data-hp-theme="light"] .exp-tab[aria-current="true"],
 html[data-hp-theme="light"] .exp-num[aria-current="page"] { color: #1a140c; }
 html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color: #dcab5c; }
+
+/* Ad slots. Absent from the DOM unless the ads flag or ?adpreview=1 is on,
+   so these rules do not change layout when advertising is off.
+   Cream card, bourbon border, gold/amber label — same palette as the site. */
+.ad-slot {
+  display: block;
+  box-sizing: border-box;
+  background: #fffdf6;
+  color: #3d2a12;
+  border: 1px solid #c9893a;
+  border-radius: 12px;
+  padding: 0.4rem 0.65rem 0.65rem;
+}
+.ad-slot-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #8b5a2b;
+  line-height: 1.2;
+}
+.ad-slot-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f3ead8;
+  border: 1px dashed #c9893a;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.ad-slot--home .ad-slot-frame,
+.ad-slot--explore .ad-slot-frame {
+  height: 100px;
+  min-height: 100px;
+}
+.ad-slot--sidebar .ad-slot-frame {
+  height: 250px;
+  min-height: 250px;
+}
+.ad-slot--home,
+.ad-slot--explore {
+  min-height: 132px;
+}
+.ad-slot--home {
+  width: min(728px, calc(100% - 2.5rem));
+  margin: 0.5rem auto 1.5rem;
+}
+.ad-slot--explore {
+  width: min(728px, 100%);
+  margin: 1.75rem auto 0.35rem;
+}
+.ad-slot--sidebar {
+  width: 100%;
+  margin: 0.75rem 0 0;
+  min-height: 286px;
+}
+.ad-slot-frame ins.adsbygoogle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+.story-sidebar-col { min-width: 0; }
+.story-sidebar-col .story-sidebar-photo { position: static; }
+@media (max-width: 900px) {
+  .story-sidebar-col { order: -1; max-width: 280px; }
+  .ad-slot--sidebar { display: none !important; }
+}

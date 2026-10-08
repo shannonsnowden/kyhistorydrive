@@ -2,6 +2,7 @@ import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
+import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
@@ -1931,6 +1932,16 @@ function ensureHighlightSource(targetMap, focus) {
   }
 }
 
+/** Tell ad slots the map has finished its first tile load so they don't race it. */
+function noteMapIdle(mapInstance) {
+  if (!mapInstance || mapInstance.__khdIdleHook) return
+  mapInstance.__khdIdleHook = true
+  mapInstance.once('idle', () => {
+    window.__khdMapIdle = true
+    window.dispatchEvent(new Event('khd-map-idle'))
+  })
+}
+
 function initMap() {
   if (map) {
     requestAnimationFrame(() => {
@@ -1956,6 +1967,7 @@ function initMap() {
   })
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
+  noteMapIdle(map)
 
   const zoomFull = () => fitMapToKentucky(map)
   document.getElementById('zoomFullState')?.addEventListener('click', zoomFull)
@@ -2172,6 +2184,7 @@ async function initTimelineMap() {
     zoom: START_ZOOM,
   })
   timelineMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
+  noteMapIdle(timelineMap)
   document.getElementById('timelineZoomFullState')?.addEventListener('click', () => {
     fitMapToKentucky(timelineMap, { duration: 600 })
   })
@@ -2845,6 +2858,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       </div>
       ${timelineReaderBarHtml('bottom')}
     `
+    const sidebar = reader.querySelector('.story-sidebar-photo')
+    if (sidebar) AdSlot.mount(sidebar, 'sidebar')
     linkPeopleInBody(reader.querySelector('.story-body'), relatedData, meta.slug, relTitleFor)
     const summaryEl = reader.querySelector('.story-summary')
     if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)

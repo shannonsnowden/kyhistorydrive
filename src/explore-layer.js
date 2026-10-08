@@ -13,6 +13,8 @@
  * Code-only: reads existing /content/*.json packs and photos; no data changes.
  */
 
+import { AdSlot } from './ad-slot.js'
+
 const TABS_ERA = [
   { id: 'prehistoric', label: 'Prehistoric' },
   { id: 'native', label: 'Native' },
@@ -273,6 +275,9 @@ export async function initExploreLayer({ root, layers, helpers }) {
     const label = `${tab.label}: stories ${from + 1}–${from + slice.length} of ${tab.items.length} · page ${page} of ${total}`
     el.counts.forEach((c) => (c.textContent = label))
     el.status.textContent = label
+    const shell = root.querySelector('.exp-shell')
+    if (page >= 2) AdSlot.mount(shell, 'explore')
+    else AdSlot.unmount(shell)
     if (focus) {
       const bar = `.exp-pagebar-${focus.bar}`
       const target =
