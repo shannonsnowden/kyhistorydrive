@@ -13,6 +13,7 @@
  */
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initExploreLayer } from './explore-layer.js'
+import { AdSlot } from './ad-slot.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -791,6 +792,7 @@ export function initHomePage() {
   if (homePageStarted) return
   if (!document.getElementById('hpHero')) return
   homePageStarted = true
+  AdSlot.mount(document.getElementById('home'), 'home')
   renderRelatedCards()
   loadPack()
     .then((pack) => {

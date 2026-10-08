@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-hp-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy — Kentucky History Drive</title>
+    <meta
+      name="description"
+      content="How Kentucky History Drive uses cookies when Google ads are shown, and how to opt out of personalized ads."
+    />
+    <link rel="canonical" href="https://kyhistorydrive.com/privacy" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme')
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.setAttribute('data-hp-theme', stored)
+            return
+          }
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.setAttribute('data-hp-theme', 'light')
+          }
+        } catch (e) {}
+      })()
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <a href="/" class="brand-home" title="Home">
+          <img class="brand-logo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
+          <h1>Kentucky History Drive</h1>
+        </a>
+        <p class="tagline">History is all around us.</p>
+      </div>
+      <nav aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/#map">Map</a>
+        <a href="/#timeline">Timeline</a>
+        <a href="/#about">About</a>
+        <a href="/#app">App</a>
+      </nav>
+    </header>
+
+    <main class="panel privacy-page">
+      <h2>Privacy</h2>
+      <p>
+        Kentucky History Drive is a static site about Kentucky history. Story and map pages do not ask you to
+        create an account. When advertising is turned on, Google AdSense may set cookies and use similar
+        identifiers to show and measure ads.
+      </p>
+
+      <h3>Advertising cookies</h3>
+      <p>
+        Google and its advertising partners use cookies to serve ads, including personalized ads based on
+        pages you have visited, and to measure how those ads perform. That can happen on this site only
+        when an ad slot is actually filled.
+      </p>
+      <p>
+        Google describes this in
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer"
+          >How Google uses information from sites or apps that use our services</a
+        >. Details on advertising cookies are in
+        <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer"
+          >How Google uses cookies in advertising</a
+        >.
+      </p>
+
+      <h3>Opting out of personalized ads</h3>
+      <p>
+        You can turn off ad personalization in
+        <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.
+        That choice is tied to the browser or Google account you use there. Turning it off does not stop ads
+        from appearing; it asks Google to show ads that are not based on your interests.
+      </p>
+
+      <h3>Consent in the EEA, UK, and Switzerland, and US state messages</h3>
+      <p>
+        Visitors in the European Economic Area, the United Kingdom, and Switzerland are shown a consent
+        message before personalized ads. Visitors in US states that require it are shown a state privacy
+        message. Both messages come from AdSense Privacy &amp; messaging, which is Google’s certified
+        consent-management platform for those regions. This site does not run a separate consent banner.
+      </p>
+
+      <h3>Other requests</h3>
+      <p>
+        Opening the map loads tiles from CARTO (OpenStreetMap data). The site stores your light or dark theme
+        choice in local storage on this browser. Those requests are separate from advertising cookies.
+      </p>
+    </main>
+
+    <footer class="foot">
+      <span>kyhistorydrive.com</span>
+      <a href="/privacy" aria-current="page">Privacy</a>
+      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+    </footer>
+  </body>
+</html>

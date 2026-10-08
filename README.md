@@ -83,6 +83,26 @@ Amplify `preBuild` runs `sync-app-data`, which validates and publishes the commi
 
 When cutting an App Store or TestFlight build (Shannon/CoS-driven), copy the current OTA pack from this repo’s `public/data/app/` into `ky-markers-drive` `data/` as the offline fallback, then bump the iOS build. There is no push script. Do that copy only on a store cut, not for a daily `data_version` bump.
 
+## Advertising preview
+
+Ad slots are off unless `VITE_ADS_ENABLED` is `true` or `1` at build time, or the URL has `?adpreview=1` (query before the hash, for example `/?adpreview=1#timeline/some-story`). `?adpreview=0` forces them off. With the flag off and no preview query, the page does not insert a slot and does not shift layout. The head already includes one `adsbygoogle.js` tag, and `/ads.txt` is already a static file. Slots reuse that tag and do not add a second copy. A slot inserts the script only when a unit id is set and the tag is missing, after first paint, and only once the slot is within about 300px of the viewport. There is no preload. A slot waits until a visible map has gone idle (or eight seconds) so the ad request does not compete with MapLibre tile loading.
+
+The publisher id defaults to `ca-pub-8587137224654033` (public). Override with `VITE_ADSENSE_CLIENT`. Unit ids are `VITE_ADSENSE_SLOT_HOME`, `VITE_ADSENSE_SLOT_SIDEBAR`, and `VITE_ADSENSE_SLOT_EXPLORE`. Until those are set, each slot is a same-size placeholder: one small Advertisement label and an empty reserved box. The always-on pages from this change are the footer Privacy link, `/privacy`, `/robots.txt`, and `/sitemap.xml`.
+
+Placements, and nowhere else (not the map, popups, pin links, hero, or nav):
+
+1. Bottom of the homepage, after today’s stories and the rest of the home sections, above the footer.
+2. Bottom of the story photo sidebar on `/#timeline/<slug>`, only when that story has the sidebar. Hidden at viewports 900px and narrower so it does not stack with another slot on a phone. The map layers panel and the Timeline places map are sidebars too, and they do not get a slot.
+3. Bottom of Explore a layer, after the card list and clear of the pager, on page 2 and later only.
+
+Each slot is labeled Advertisement and keeps a fixed min-height so a late or empty fill cannot collapse the page. In the AdSense account, leave Auto ads off, including anchor and vignette, so Google does not inject sticky or full-screen units.
+
+`/privacy` is a real HTML page (not a hash route) linked from the footer. It covers Google and partner advertising cookies, links to [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites), and explains opting out in [Google Ads Settings](https://adssettings.google.com/). Consent for EEA, UK, and Swiss visitors, and the US state privacy message, come from AdSense Privacy & messaging (Google’s certified CMP for those regions). Publish that message before turning `VITE_ADS_ENABLED` on for production traffic.
+
+`/robots.txt` allows all crawlers, including Mediapartners-Google, GPTBot, PerplexityBot, ClaudeBot, and Google-Extended, and points at `/sitemap.xml`. The sitemap lists the crawlable URLs (`/` and `/privacy`). Hash routes are the same document and are not listed.
+
+`amplify.yml` has no catch-all SPA rewrite. It rewrites `/privacy` and `/privacy/` to `/privacy/index.html` (200). `/robots.txt` and `/sitemap.xml` are files in `public/`. If the Amplify console has a hosting rewrite to `/index.html` for extensionless paths, `/privacy` and `/sitemap.xml` (`.xml` is often not in the static-extension exclusion list) will be swallowed. Put the file-specific rules above that catch-all, or add `xml` to the exclusion list and exclude `/privacy`. Do not add a new catch-all.
+
 ## Build
 
 ```bash
