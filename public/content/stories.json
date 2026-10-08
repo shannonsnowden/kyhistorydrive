@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-07T10:43:08.604Z",
-  "count": 210,
+  "generatedAt": "2026-10-08T09:46:30.066Z",
+  "count": 215,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-07"
+    "end": "2026-10-08"
   },
   "eras": [
     "early-commonwealth",
@@ -367,6 +367,37 @@
       "lon": -84.5,
       "mapConfidence": "override",
       "matchedPlace": "Peter Village enclosure (15Fa166)"
+    },
+    {
+      "slug": "old-fort-earthworks-15gp1-greenup-county",
+      "title": "Old Fort Earthworks: Hopewell’s square on the Ohio",
+      "publishedDate": "2026-10-08",
+      "summary": "Across the Ohio River from Portsmouth, Ohio, near South Portsmouth in Greenup County, Middle Woodland builders (about 200 BC to AD 500) raised the westernmost part of…",
+      "yearStart": -200,
+      "yearEnd": 500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "hopewell",
+        "earthworks"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-08",
+      "county": "Greenup",
+      "photo": {
+        "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
+        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "lat": 38.72,
+      "lon": -83.02,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)"
     },
     {
       "slug": "robbins-mounds-boone-county",
@@ -1336,6 +1367,37 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "athiamiowee-the-warriors-path-through-kentucky",
+      "title": "Athiamiowee: the Warriors’ Path through Kentucky",
+      "publishedDate": "2026-10-08",
+      "summary": "Long before the Wilderness Road, the main north–south route through eastern Kentucky was a Native trail the Shawnee called Athiamiowee, the “Path of the Armed Ones.” It…",
+      "yearStart": 1674,
+      "yearEnd": 1769,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "trail",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-08",
+      "county": "Jackson",
+      "photo": {
+        "image_url": "/content/photos/stories/athiamiowee-the-warriors-path-through-kentucky.jpg",
+        "title": "The saddle of Cumberland Gap, where the Warriors’ Path entered Kentucky (photographed 2020)—a modern view of the gap, not the trail itself",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Gap_Height_of_Land.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Coasterlover1994 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2020
+      },
+      "lat": 37.3931167,
+      "lon": -83.9368333,
+      "mapConfidence": "override",
+      "matchedPlace": "Warriors’ Path (Athiamiowee), KHS marker #697, Gray Hawk"
     },
     {
       "slug": "col-richard-callaway-of-boonesborough",
@@ -2904,6 +2966,35 @@
       "matchedPlace": "Frankfort Founding"
     },
     {
+      "slug": "hodgenville-from-hodgens-mill-to-county-seat",
+      "title": "Hodgenville: from Hodgen’s Mill to a county seat",
+      "publishedDate": "2026-10-08",
+      "summary": "The LaRue County seat grew up around a gristmill. The county’s first settlement was Phillips Fort, built in 1780 on the North Fork of the Nolin River by surveyor Philip…",
+      "yearStart": 1780,
+      "yearEnd": 1843,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-08",
+      "county": "Larue",
+      "photo": {
+        "image_url": "/content/photos/stories/hodgenville-from-hodgens-mill-to-county-seat.jpg",
+        "title": "Hodgenville town square (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hodgenville_KY_Town_Square.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Jamie · Wikimedia Commons · CC BY 2.0",
+        "year": 2008
+      },
+      "lat": 37.5757833,
+      "lon": -85.74015,
+      "mapConfidence": "override",
+      "matchedPlace": "Hodgenville (Hodgen’s Mill), KHS marker #1096"
+    },
+    {
       "slug": "isaac-shelby-old-kings-mountain",
       "title": "Isaac Shelby, \"Old Kings Mountain\"",
       "publishedDate": "2026-08-29",
@@ -3385,6 +3476,36 @@
       "matchedPlace": "Danville Constitution Square"
     },
     {
+      "slug": "gen-james-wilkinson-kentuckys-agent-13",
+      "title": "Gen. James Wilkinson, Kentucky’s “Agent 13”",
+      "publishedDate": "2026-10-08",
+      "summary": "James Wilkinson (1757–1825), born in Maryland, was brevetted a brigadier general in November 1777, at 20, after carrying news of the Saratoga victory to Congress, though…",
+      "yearStart": 1784,
+      "yearEnd": 1792,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "spanish-conspiracy",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-08",
+      "county": "Franklin",
+      "photo": {
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
+        "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
+        "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
+        "year": 1797
+      },
+      "lat": 38.1986833,
+      "lon": -84.8816833,
+      "mapConfidence": "override",
+      "matchedPlace": "Gen. James Wilkinson’s Love House site, Frankfort (KHS marker #1182)"
+    },
+    {
       "slug": "basil-haydens-high-rye-trail",
       "title": "Basil Hayden’s High-Rye Trail",
       "publishedDate": "2026-09-06",
@@ -3744,6 +3865,36 @@
       "lon": -86.89278,
       "mapConfidence": "override",
       "matchedPlace": "Russellville (Logan Court House), Logan County courthouse square"
+    },
+    {
+      "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
+      "title": "Cane Ridge Meeting House and the 1801 camp meeting",
+      "publishedDate": "2026-10-08",
+      "summary": "About six miles east of Paris in Bourbon County, Presbyterian settlers built a meeting house of blue ash logs in 1791 on a ridge named for its canebrakes. Enslaved…",
+      "yearStart": 1791,
+      "yearEnd": 1804,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "religion",
+        "great-revival"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-08",
+      "county": "Bourbon",
+      "photo": {
+        "image_url": "/content/photos/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting.jpg",
+        "title": "Cane Ridge Meeting House, Historic American Buildings Survey photo by Theodore Webb, Feb. 7, 1934, before the stone shelter was built",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cane_Ridge_Meeting_House,_Little_Rock_Road,_Paris_vicinity_(Bourbon_County,_Kentucky).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
+        "year": 1934
+      },
+      "lat": 38.2126389,
+      "lon": -84.1191667,
+      "mapConfidence": "override",
+      "matchedPlace": "Cane Ridge Meeting House (KHS marker #51)"
     },
     {
       "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",

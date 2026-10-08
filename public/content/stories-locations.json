@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-07T09:22:41.499Z",
+  "generatedAt": "2026-10-08T09:46:30.227Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 112,
+    "override": 117,
     "none": 34
   },
   "locations": {
@@ -119,6 +119,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Peter Village enclosure (15Fa166)",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
+    },
+    "old-fort-earthworks-15gp1-greenup-county": {
+      "slug": "old-fort-earthworks-15gp1-greenup-county",
+      "lat": 38.72,
+      "lon": -83.02,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)",
+      "historyId": "old-fort-earthworks-15gp1-greenup"
     },
     "robbins-mounds-boone-county": {
       "slug": "robbins-mounds-boone-county",
@@ -375,6 +383,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "athiamiowee-the-warriors-path-through-kentucky": {
+      "slug": "athiamiowee-the-warriors-path-through-kentucky",
+      "lat": 37.3931167,
+      "lon": -83.9368333,
+      "mapConfidence": "override",
+      "matchedPlace": "Warriors’ Path (Athiamiowee), KHS marker #697, Gray Hawk",
+      "historyId": "warriors-path-athiamiowee-gray-hawk-jackson-1674-1769"
     },
     "col-richard-callaway-of-boonesborough": {
       "slug": "col-richard-callaway-of-boonesborough",
@@ -888,6 +904,14 @@
       "matchedPlace": "Frankfort Founding",
       "historyId": "frankfort-founding"
     },
+    "hodgenville-from-hodgens-mill-to-county-seat": {
+      "slug": "hodgenville-from-hodgens-mill-to-county-seat",
+      "lat": 37.5757833,
+      "lon": -85.74015,
+      "mapConfidence": "override",
+      "matchedPlace": "Hodgenville (Hodgen’s Mill), KHS marker #1096",
+      "historyId": "hodgenville-hodgens-mill-larue-1780-1843"
+    },
     "isaac-shelby-old-kings-mountain": {
       "slug": "isaac-shelby-old-kings-mountain",
       "lat": 37.5753439,
@@ -1040,6 +1064,14 @@
       "matchedPlace": "Danville Constitution Square",
       "historyId": "danville-constitution-square"
     },
+    "gen-james-wilkinson-kentuckys-agent-13": {
+      "slug": "gen-james-wilkinson-kentuckys-agent-13",
+      "lat": 38.1986833,
+      "lon": -84.8816833,
+      "mapConfidence": "override",
+      "matchedPlace": "Gen. James Wilkinson’s Love House site, Frankfort (KHS marker #1182)",
+      "historyId": "wilkinson-love-house-frankfort-franklin-1784-1792"
+    },
     "basil-haydens-high-rye-trail": {
       "slug": "basil-haydens-high-rye-trail",
       "lat": 37.6730101,
@@ -1151,6 +1183,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Russellville (Logan Court House), Logan County courthouse square",
       "historyId": "russellville-logan-court-house-logan-1790-1810"
+    },
+    "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
+      "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
+      "lat": 38.2126389,
+      "lon": -84.1191667,
+      "mapConfidence": "override",
+      "matchedPlace": "Cane Ridge Meeting House (KHS marker #51)",
+      "historyId": "cane-ridge-meeting-house-bourbon-1791-1804"
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
       "slug": "capt-william-hubbells-ohio-flatboat-stand-1791",

@@ -531,6 +531,56 @@
       "yearStart": 1820,
       "yearEnd": 1967,
       "county": "Muhlenberg"
+    },
+    "gen-james-wilkinson-kentuckys-agent-13": {
+      "reason": "Pin KHS marker #1182 (Site of Love House, built ca. 1786 by Wilkinson), Wapping & Wilkinson Sts., Frankfort. County Franklin. Years 1784 move to Kentucky–1792 sale of Frankfort land.",
+      "date": "2026-10-08",
+      "historyId": "wilkinson-love-house-frankfort-franklin-1784-1792",
+      "lat": 38.1986833,
+      "lon": -84.8816833,
+      "yearStart": 1784,
+      "yearEnd": 1792,
+      "county": "Franklin"
+    },
+    "hodgenville-from-hodgens-mill-to-county-seat": {
+      "reason": "Pin KHS marker #1096 Hodgenville (KHS API point). County Larue. Years 1780 Phillips Fort–1843 LaRue County seat.",
+      "date": "2026-10-08",
+      "historyId": "hodgenville-hodgens-mill-larue-1780-1843",
+      "lat": 37.5757833,
+      "lon": -85.74015,
+      "yearStart": 1780,
+      "yearEnd": 1843,
+      "county": "Larue"
+    },
+    "athiamiowee-the-warriors-path-through-kentucky": {
+      "reason": "Pin KHS marker #697 Warrior’s Path, US 421 at Gray Hawk. County Jackson. Years 1674 Gabriel Arthur–1769 Finley and Boone (travelers named on the marker).",
+      "date": "2026-10-08",
+      "historyId": "warriors-path-athiamiowee-gray-hawk-jackson-1674-1769",
+      "lat": 37.3931167,
+      "lon": -83.9368333,
+      "yearStart": 1674,
+      "yearEnd": 1769,
+      "county": "Jackson"
+    },
+    "old-fort-earthworks-15gp1-greenup-county": {
+      "reason": "Looting-sensitive site, public coordinate generalized (#141): NRHP Portsmouth Earthworks Group A point rounded to 2 decimals. County Greenup. Years −200…500 (KAS Middle Woodland period), not the 1938 WPA dig or 1980 listing.",
+      "date": "2026-10-08",
+      "historyId": "old-fort-earthworks-15gp1-greenup",
+      "lat": 38.72,
+      "lon": -83.02,
+      "yearStart": -200,
+      "yearEnd": 500,
+      "county": "Greenup"
+    },
+    "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
+      "reason": "Pin the meeting house (Wikipedia/NRHP point); KHS marker #51 is ~170 m away. County Bourbon. Years 1791 meeting house–1804 Springfield Presbytery Last Will.",
+      "date": "2026-10-08",
+      "historyId": "cane-ridge-meeting-house-bourbon-1791-1804",
+      "lat": 38.2126389,
+      "lon": -84.1191667,
+      "yearStart": 1791,
+      "yearEnd": 1804,
+      "county": "Bourbon"
     }
   }
 }

@@ -2952,5 +2952,120 @@
       "source_label": "Wikimedia Commons",
       "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain"
     }
+  },
+  {
+    "id": "wilkinson-love-house-frankfort-franklin-1784-1792",
+    "name": "Gen. James Wilkinson’s Love House site, Frankfort (KHS marker #1182)",
+    "subtitle": "Franklin County · Wapping & Wilkinson Sts., Frankfort · house built ca. 1786 by Wilkinson · Frankfort laid out 1786 · Spanish oath 1787 · Frankfort land sold 1792",
+    "latitude": 38.1986833,
+    "longitude": -84.8816833,
+    "history": "James Wilkinson (1757–1825), born in Maryland, was brevetted a brigadier general in November 1777, at 20, after carrying news of the Saratoga victory to Congress, though he was soon pushed to resign. He moved to Kentucky in 1784 and threw himself into the fight to separate from Virginia. He bought land at Frank’s Ford on the Kentucky River from Humphrey Marshall, won Virginia’s approval in 1786 to lay out a town there, and drew the street plan of what became Frankfort; about 1786 he also built the house later called the Love House, where the legislature first met in 1793. In April 1787 he made a trading trip down the Mississippi to New Orleans, capital of Spanish Louisiana, where Gov. Esteban Miró agreed to let Kentucky trade on the river in return for Wilkinson’s promise to serve Spanish interests. On Aug. 22, 1787, Wilkinson signed an expatriation declaration and swore allegiance to the King of Spain. His “First Memorial” urged Spain to take Kentuckians under its protection, and his letters were written in a cipher called “Number 13,” the source of his nickname, Agent 13. He chaired a committee at the November 1788 separation convention but could not swing it toward Spain, and in 1792 he sold his Frankfort land to Andrew Holmes. He went on to serve twice as the senior officer of the U.S. Army while still secretly taking Spanish money. Historian Charles Gayarré published his letters to Miró in 1854, proving what many had suspected. Theodore Roosevelt wrote that “in all our history, there is no more despicable character,” and Frederick Jackson Turner called him “the most consummate artist in treason that the nation ever possessed.” The map pin marks the site of the Love House at Wapping and Wilkinson streets in Frankfort (KHS marker #1182).",
+    "source_date": "2026-10-08",
+    "geocode_source": "khs-marker-1182-site-of-love-house",
+    "geocode_note": "KHS marker #1182 “Site of Love House” at Wapping & Wilkinson Sts., Frankfort (KHS API point 38.1986833, -84.8816833). Marker: built about 1786 by Gen. James Wilkinson. Years 1784 (Wilkinson moves to Kentucky)–1792 (sells his Frankfort land to Andrew Holmes).",
+    "category": "person",
+    "website": "https://en.wikipedia.org/wiki/James_Wilkinson",
+    "year_start": 1784,
+    "year_end": 1792,
+    "photo": {
+      "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
+      "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
+      "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
+      "year": 1797
+    }
+  },
+  {
+    "id": "hodgenville-hodgens-mill-larue-1780-1843",
+    "name": "Hodgenville (Hodgen’s Mill), KHS marker #1096",
+    "subtitle": "LaRue County · Hodgenville, KY 61 · Phillips Fort 1780 · Hodgen’s mill 1789 · town established Feb. 1818 · LaRue County seat 1843",
+    "latitude": 37.5757833,
+    "longitude": -85.74015,
+    "history": "The LaRue County seat grew up around a gristmill. The county’s first settlement was Phillips Fort, built in 1780 on the North Fork of the Nolin River by surveyor Philip Phillips and a company of settlers from Pennsylvania; it served as a refuge from Indian raids until about 1786, when it was safe enough to build homes, and it was then abandoned and taken down. Robert Hodgen, a Pennsylvania-born tavern keeper who bought land in the area, built a gristmill on the Nolin in 1789 within the protection of the fort. After his death, his widow and children petitioned for a town, and in February 1818 the Hardin County Court established Hodgenville on 27 acres of Hodgen land. The post office opened in 1826 (spelled Hodgensville until 1904), the town incorporated in 1839, and when LaRue County was formed from Hardin County on March 1, 1843, Hodgenville became its seat. In between, on Feb. 12, 1809, Abraham Lincoln was born in a cabin on Sinking Spring Farm a few miles south. For the centennial of his birth, Adolph Weinman’s bronze seated Lincoln was dedicated on the town square on May 31, 1909, with Robert Todd Lincoln in the crowd of more than 10,000. The map pin marks the KHS Hodgenville marker (#1096) in town.",
+    "source_date": "2026-10-08",
+    "geocode_source": "khs-marker-1096-hodgenville",
+    "geocode_note": "KHS marker #1096 “Hodgenville” on KY 61 (KHS API point 37.5757833, -85.74015); Wikipedia city point 37.57111, -85.73861 is ~0.5 km away. Phillips Fort site (marker #1098, half a mile east of 37.58163, -85.73725) not separately pinned. Years 1780 Phillips Fort–1843 county seat.",
+    "category": "town",
+    "website": "https://history.ky.gov/markers/hodgenville",
+    "year_start": 1780,
+    "year_end": 1843,
+    "photo": {
+      "image_url": "/content/photos/stories/hodgenville-from-hodgens-mill-to-county-seat.jpg",
+      "title": "Hodgenville town square (photographed 2008)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Hodgenville_KY_Town_Square.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Jamie · Wikimedia Commons · CC BY 2.0",
+      "year": 2008
+    }
+  },
+  {
+    "id": "warriors-path-athiamiowee-gray-hawk-jackson-1674-1769",
+    "name": "Warriors’ Path (Athiamiowee), KHS marker #697, Gray Hawk",
+    "subtitle": "Jackson County · US 421 at Gray Hawk; the path ran along War Fork two miles east · Shawnee–Cherokee trail · travelers 1674–1769",
+    "latitude": 37.3931167,
+    "longitude": -83.9368333,
+    "history": "Long before the Wilderness Road, the main north–south route through eastern Kentucky was a Native trail the Shawnee called Athiamiowee, the “Path of the Armed Ones.” It linked the Shawnee and other nations north of the Ohio with the Cherokee towns of east Tennessee and the southern Appalachians. Like most Native routes it followed old game trails worn by elk and buffalo through gaps and valleys, and it was marked or blazed along the way. The Shawnee and Cherokee, often bitter enemies, both used it to reach the Kentucky hunting grounds and to raid each other, and English speakers were calling it the Warriors’ Path by the 1750s. In Kentucky it came north through Cumberland Gap, crossed the Cumberland River at Cumberland Ford (present Pineville), followed the river toward Flat Lick, then ran overland to Goose Creek in Clay County and along War Fork in Jackson County. It crossed Powell County and part of Clark County near the Shawnee town of Eskippakithiki, crossed the Licking River near Blue Licks, and reached the Ohio at Cabin Creek in Mason County. Gabriel Arthur followed it in 1674 after his Native captors released him, and Thomas Walker in 1750, Christopher Gist in 1751, and John Finley with Daniel Boone in 1769 all used it; John Filson’s 1784 map of Kentucky shows it. A Kentucky Historical Society marker (#697) on US 421 at Gray Hawk notes that the path ran along War Fork two miles east, and the map pin marks that marker.",
+    "source_date": "2026-10-08",
+    "geocode_source": "khs-marker-697-warriors-path",
+    "geocode_note": "KHS marker #697 “Warrior’s Path” on US 421 at Gray Hawk (marker text 37°23′35.12″N, 83°56′12.62″W; KHS API 37.3931167, -83.9368333). The trail itself ran along War Fork about two miles east; the whole route is not drawn. Years 1674 (Gabriel Arthur)–1769 (Finley and Boone), the documented travelers on the marker.",
+    "category": "transport",
+    "website": "https://history.ky.gov/markers/warriors-path",
+    "year_start": 1674,
+    "year_end": 1769,
+    "photo": {
+      "image_url": "/content/photos/stories/athiamiowee-the-warriors-path-through-kentucky.jpg",
+      "title": "The saddle of Cumberland Gap, where the Warriors’ Path entered Kentucky (photographed 2020)—a modern view of the gap, not the trail itself",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Gap_Height_of_Land.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Coasterlover1994 · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2020
+    }
+  },
+  {
+    "id": "old-fort-earthworks-15gp1-greenup",
+    "name": "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)",
+    "subtitle": "Greenup County · near South Portsmouth (generalized point) · Middle Woodland square enclosure, about 200 BC–AD 500",
+    "latitude": 38.72,
+    "longitude": -83.02,
+    "history": "Across the Ohio River from Portsmouth, Ohio, near South Portsmouth in Greenup County, Middle Woodland builders (about 200 BC to AD 500) raised the westernmost part of the Portsmouth Earthworks. Old Fort Earthworks (site 15Gp1) is a square earthen enclosure on a terrace above the Ohio floodplain. It surrounds 13.5 acres; its north and south walls run 825 feet and its east and west walls 822 feet, and its corners, not its walls, point to the four cardinal directions. Pairs of long, low parallel embankments, the “arms,” run out from the east and west walls, and walled roads once tied this group to the rest of the complex across the river, which E. G. Squier mapped in 1847. In 1774 a surveying party under Hanson, laying off land at the mouth of the Scioto for Patrick Henry, noted the enclosure in their journal and wrongly guessed it was the ruin of a 1750s stone trading house. WPA crews mapped and trenched it in 1938, the only systematic excavation, and found how the walls were built: the builders left the old topsoil in place, spread about two feet of nearby soil and humus over it, heaped thousands of basketloads of sand, gravel, loam, and clay into a six-foot core, then dressed the slope with yellow-brown clay. They also filled ravines and cut slopes to keep the walls level, and they and later Native groups kept the interior clean. It was listed on the National Register on Dec. 4, 1980, as Portsmouth Earthworks, Group A. The Kentucky Archaeological Survey does not publish site locations, so the map pin is the National Register point rounded to two decimals.",
+    "source_date": "2026-10-08",
+    "geocode_source": "generalized-nrhp-portsmouth-earthworks-group-a",
+    "geocode_note": "Wikipedia/NRIS point for Portsmouth Earthworks, Group A (38°43′17.76″N, 83°1′22.98″W = 38.72160, -83.02305), rounded to 2 decimals per the archaeology rule; KAS does not publish site locations. Years −200…500 from the KAS time period (Middle Woodland, 200 BC to 500 AD); 1774 survey, 1847 Squier map, 1938 WPA work and 1980 listing are text only.",
+    "category": "archaeology",
+    "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Old-Fort-Earthworks.aspx",
+    "year_start": -200,
+    "year_end": 500,
+    "photo": {
+      "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
+      "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "year": 2012
+    }
+  },
+  {
+    "id": "cane-ridge-meeting-house-bourbon-1791-1804",
+    "name": "Cane Ridge Meeting House (KHS marker #51)",
+    "subtitle": "Bourbon County · Cane Ridge, about 6 mi. east of Paris · log meeting house 1791 · camp meeting Aug. 1801 · Springfield Presbytery dissolved 1804",
+    "latitude": 38.2126389,
+    "longitude": -84.1191667,
+    "history": "About six miles east of Paris in Bourbon County, Presbyterian settlers built a meeting house of blue ash logs in 1791 on a ridge named for its canebrakes. Enslaved worshippers sat in a gallery reached by an outside ladder at the west end until an 1829 renovation removed it. Barton W. Stone began preaching at Cane Ridge in 1796. In August 1801 the congregation invited neighboring Presbyterian and Methodist churches to its annual communion, and from Aug. 6 to Aug. 12 or 13 the crowds kept coming. Estimates run from 10,000 to 20,000 or more; The Encyclopedia of the Stone-Campbell Movement figures that 20,000 could have come at some point during the week, nearly a tenth of Kentucky’s 1800 population, though probably no more than 10,000 at once. Eighteen Presbyterian ministers and numerous Methodists and Baptists preached, often at the same time in different parts of the camp, from the meeting house, outdoor platforms, stumps, wagons, and fallen trees, and 800 to 1,100 people took communion. It was the largest and most famous camp meeting of the Second Great Awakening and set off a wave of smaller camp meetings across the frontier. In 1804 Stone and other Presbyterian ministers signed “The Last Will and Testament of the Springfield Presbytery” at Cane Ridge (the state marker dates the new “Christian Church” to June 28, 1804), starting a movement that joined Thomas and Alexander Campbell’s followers in 1832. In the 1930s a stone building was put up around the original log meeting house, which still stands inside it. The map pin marks the meeting house.",
+    "source_date": "2026-10-08",
+    "geocode_source": "wikipedia-cane-ridge-meeting-house",
+    "geocode_note": "Wikipedia/NRHP coordinate for the meeting house (38.2126389, -84.1191667); KHS marker #51 on KY 537 is ~170 m away (38.2111286, -84.1187449). Not archaeological. Years 1791 meeting house–1804 Springfield Presbytery “Last Will.”",
+    "category": "landmark",
+    "website": "https://explorekyhistory.ky.gov/items/show/428",
+    "year_start": 1791,
+    "year_end": 1804,
+    "photo": {
+      "image_url": "/content/photos/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting.jpg",
+      "title": "Cane Ridge Meeting House, Historic American Buildings Survey photo by Theodore Webb, Feb. 7, 1934, before the stone shelter was built",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Cane_Ridge_Meeting_House,_Little_Rock_Road,_Paris_vicinity_(Bourbon_County,_Kentucky).jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
+      "year": 1934
+    }
   }
 ]
