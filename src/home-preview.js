@@ -14,6 +14,7 @@
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
+import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -253,7 +254,14 @@ function prefersReducedMotion() {
 function renderHeroSlide(story, index) {
   const titleId = index === 0 ? 'hp-hero-title' : `hp-hero-title-${index}`
   const img = usablePhoto(story.photo)
-    ? `<img class="hp-mag-hero-img" src="${escapeHtml(story.photo.image_url)}" alt="${escapeHtml(story.photo.title || story.title)}" ${index === 0 ? '' : 'loading="lazy"'} referrerpolicy="no-referrer" decoding="async" />`
+    ? responsivePicture({
+        src: story.photo.image_url,
+        alt: story.photo.title || story.title,
+        className: 'hp-mag-hero-img',
+        loading: index === 0 ? 'eager' : 'lazy',
+        fetchPriority: index === 0 ? 'high' : '',
+        sizes: '100vw',
+      })
     : ''
   const credit = photoCredit(story.photo)
   const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
@@ -453,7 +461,12 @@ function renderFeatures(pack) {
     .map((item) => {
       const hasPhoto = Boolean(usablePhoto(item.photo))
       const media = hasPhoto
-        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}" aria-label="Read: ${escapeHtml(item.title)}"><img src="${escapeHtml(item.photo.image_url)}" alt="${escapeHtml(item.photo.title || item.title)}" loading="lazy" referrerpolicy="no-referrer" decoding="async" /></a>`
+        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}" aria-label="Read: ${escapeHtml(item.title)}" tabindex="-1" aria-hidden="true">${responsivePicture({
+            src: item.photo.image_url,
+            alt: item.photo.title || item.title,
+            loading: 'lazy',
+            sizes: '(max-width: 700px) 100vw, 420px',
+          })}</a>`
         : ''
       const credit = photoCredit(item.photo)
       const mapHref = storyMapHref(item)
@@ -794,8 +807,8 @@ export function initHomePage() {
   homePageStarted = true
   AdSlot.mount(document.getElementById('home'), 'home')
   renderRelatedCards()
-  loadPack()
-    .then((pack) => {
+  Promise.all([loadPack(), loadPhotoVariants()])
+    .then(([pack]) => {
       renderTodayNav(pack)
       renderHero(pack)
       renderFeatures(pack)
