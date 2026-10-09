@@ -14,5 +14,16 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-08"
+  "briefDate": "2026-09-08",
+  "photo": {
+    "image_url": "/content/photos/stories/elizabethtown-from-severns-valley.jpg",
+    "title": "Western front of the Hardin County Courthouse, located at the center of Courthouse Square in Elizabethtown, Kentucky, United States.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hardin_County_Courthouse_in_Elizabethtown.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2011,
+    "credit": "Nyttend",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

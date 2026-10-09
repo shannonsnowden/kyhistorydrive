@@ -16,5 +16,16 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-01"
+  "briefDate": "2026-09-01",
+  "photo": {
+    "image_url": "/content/photos/stories/leestown.jpg",
+    "title": "Lexington Veterans Affairs Medical Center Leestown Road Division.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_Veterans_Affairs_Medical_Center,_Leestown_Road_Division.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2008,
+    "credit": "FloNight (Sydney Poore) and Russell Poore",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
 }

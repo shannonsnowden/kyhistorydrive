@@ -21,5 +21,16 @@
     "yearStart": 1300,
     "yearEnd": 1350,
     "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/annis-mound-village.jpg",
+    "title": "Artists conception of the Annis Mound and Village Site (15BT2, 15BT20, & l5BT21) circa 1250-1300 CE.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Annis_Mound_%26_Village_illustration_HRoe_2019_350px.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2019,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
   }
 }

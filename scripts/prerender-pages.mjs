@@ -66,6 +66,10 @@ class PrerenderPages {
       throw new Error(`prerender: ${dist}/index.html is missing; run vite build first`)
     }
     PrerenderPages.configureMarked()
+    const manifestPath = path.join(root, 'public/content/photos/responsive.json')
+    PrerenderPages.photoVariants = fs.existsSync(manifestPath)
+      ? PrerenderPages.readJson(manifestPath).images || {}
+      : {}
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
     const stories = PrerenderPages.loadStories(root)
     PrerenderPages.assertOverridesApplied(root, stories)
@@ -704,6 +708,19 @@ class PrerenderPages {
     })
   }
 
+  static storyPictureHtml(src, alt) {
+    const img = `<img src="${PrerenderPages.escapeHtml(src)}" alt="${alt}" loading="lazy" />`
+    const meta = PrerenderPages.photoVariants?.[src]
+    if (!meta?.avif?.length && !meta?.webp?.length) return img
+    const sizes = '(max-width: 600px) 100vw, 220px'
+    const source = (type, list) => {
+      if (!list?.length) return ''
+      const srcset = list.map((v) => `${PrerenderPages.escapeHtml(v.src)} ${Number(v.w)}w`).join(', ')
+      return `<source type="${type}" srcset="${srcset}" sizes="${sizes}" />`
+    }
+    return `<picture>${source('image/avif', meta.avif)}${source('image/webp', meta.webp)}${img}</picture>`
+  }
+
   static photoAbsolute(url) {
     if (!url) return ''
     if (/^https?:\/\//i.test(url)) return url
@@ -717,14 +734,14 @@ class PrerenderPages {
     const attribution = PrerenderPages.escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
     const year = photo.year ? ` <span class="muted">(${PrerenderPages.escapeHtml(String(photo.year))})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
-    const img = PrerenderPages.escapeHtml(photo.image_url)
+    const img = PrerenderPages.storyPictureHtml(photo.image_url, caption)
     const linkLabel = PrerenderPages.escapeHtml(
       `Open ${photo.source_label || photo.credit || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`,
     )
     return `<aside class="story-sidebar-photo" aria-label="Story photo">
       <p class="story-sidebar-photo-heading">Photos</p>
       <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
-        <img src="${img}" alt="${caption}" loading="lazy" />
+        ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year}</p>
       <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>

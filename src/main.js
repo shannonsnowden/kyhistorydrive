@@ -8,6 +8,7 @@ import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related
 import { initThemeToggle } from './theme.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -1456,7 +1457,6 @@ function storySidebarPhotoHtml(photo, title) {
   let thumb = ''
   if (photo.image_url) {
     const href = escapeHtml(photo.source_url || photo.image_url)
-    const img = escapeHtml(photo.image_url)
     // The link wraps only an image: give it an explicit name that says where it goes and that it opens a new tab.
     let linkHost = ''
     try {
@@ -1465,8 +1465,14 @@ function storySidebarPhotoHtml(photo, title) {
       linkHost = ''
     }
     const linkLabel = escapeHtml(`Open ${photo.source_label || photo.credit || linkHost || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`)
+    const img = responsivePicture({
+      src: photo.image_url,
+      alt: photo.title || title || 'Related photo',
+      loading: 'lazy',
+      sizes: '(max-width: 600px) 100vw, 220px',
+    })
     thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
-        <img src="${img}" alt="${caption}" loading="lazy" />
+        ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
       <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>`
@@ -2764,6 +2770,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
   })
   try {
     await loadHistoricPhotoData()
+    await loadPhotoVariants()
     const s = await loadStoryBody(meta.slug)
     let historyId = meta.historyId || null
     try {

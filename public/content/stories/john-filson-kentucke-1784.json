@@ -14,5 +14,16 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-04"
+  "briefDate": "2026-09-04",
+  "photo": {
+    "image_url": "/content/photos/stories/john-filson-kentucke-1784.jpg",
+    "title": "Scale 1:633,600; 10 miles to an in.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:This_map_of_Kentucke,_LOC_73691819.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Filson, John · Wikimedia Commons · Public domain",
+    "year": 1800,
+    "credit": "Filson, John",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

@@ -22,5 +22,16 @@
     "yearStart": 1770,
     "yearEnd": 1776,
     "presenceLabel": "Mingo town, camp or raid site in this area"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/mingo-camps-south-of-the-ohio.jpg",
+    "title": "Chief Logan, statue at Chief Logan State Park, West Virginia, USA.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Statue_of_Chief_Logan_the_Orator_(Logan,_West_Virginia).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "The original uploader was Pollinator at English Wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2004,
+    "credit": "The original uploader was Pollinator at English Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
   }
 }

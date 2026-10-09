@@ -23,5 +23,16 @@
     "yearStart": 1780,
     "yearEnd": 1780,
     "presenceLabel": "Ojibwe and Odawa war road"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/ojibwe-on-birds-war-road.jpg",
+    "title": "Map of Trans-Appalachian Virginia as it was from 1776 to 1780.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_County,_Virginia_1776.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Drdpw · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2018,
+    "credit": "Drdpw",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
   }
 }

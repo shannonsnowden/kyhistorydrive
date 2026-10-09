@@ -21,5 +21,16 @@
     "yearStart": 1100,
     "yearEnd": 1500,
     "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+    "title": "A map showing en:Mississippian culture mound sites on the Lower en:Ohio River",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   }
 }

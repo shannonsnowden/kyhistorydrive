@@ -13,5 +13,16 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-18"
+  "briefDate": "2026-09-18",
+  "photo": {
+    "image_url": "/content/photos/stories/glasgow-the-barrens.jpg",
+    "title": "1950 Census Enumeration District Maps - Kentucky (KY) - Barren County - Glasgow - ED 5-1 to 9",
+    "source_url": "https://commons.wikimedia.org/wiki/File:1950_Census_Enumeration_District_Maps_-_Kentucky_(KY)_-_Barren_County_-_Glasgow_-_ED_5-1_to_9_-_NARA_-_12058275.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons · Public domain",
+    "year": 1880,
+    "credit": "",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

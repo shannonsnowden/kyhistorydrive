@@ -14,5 +14,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-05"
+  "briefDate": "2026-09-05",
+  "photo": {
+    "image_url": "/content/photos/stories/bland-w-ballard-of-tick-creek.jpg",
+    "title": "Bland Ballard 2",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bland_Ballard_2.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Kentucky Ante-Bellum portraiture · Wikimedia Commons · Public domain",
+    "year": null,
+    "credit": "Kentucky Ante-Bellum portraiture",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

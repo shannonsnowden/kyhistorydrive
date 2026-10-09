@@ -15,5 +15,16 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-01"
+  "briefDate": "2026-09-01",
+  "photo": {
+    "image_url": "/content/photos/stories/georgetown-and-royal-spring.jpg",
+    "title": "Royal Spring, the main source of water for Georgetown, Kentucky since earliest settlement as McClelland's Station in 1775.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Spring1.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007,
+    "credit": "FloNight (Sydney Poore) and Russell Poore",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T11:57:55.928Z",
+  "generatedAt": "2026-10-09T16:39:21.913Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg": {
@@ -200,6 +200,1338 @@
         {
           "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-720.webp",
           "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/indian-knoll-on-the-green-river.jpg": {
+      "sha256": "942d732b88548e6ba03be901146df0c09ec87c96424e2c671c197f7c370cde4d",
+      "width": 626,
+      "height": 411,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/indian-knoll-on-the-green-river-626.avif",
+          "w": 626
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/indian-knoll-on-the-green-river-626.webp",
+          "w": 626
+        }
+      ]
+    },
+    "/content/photos/stories/ashlands-adena-mounds.jpg": {
+      "sha256": "c28413facb889cc5beef514206a39989023062a421c8cccb04bae82b548eb753",
+      "width": 1600,
+      "height": 1062,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/ashlands-adena-mounds-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/ashlands-adena-mounds-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/ashlands-adena-mounds-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/ashlands-adena-mounds-1156.webp",
+          "w": 1156
+        }
+      ]
+    },
+    "/content/photos/stories/mount-horeb-earthworks.jpg": {
+      "sha256": "ec5a90cd154af18ef05ac0b9c9dca02cab54183aea3b078cc09dbd70c92850c7",
+      "width": 350,
+      "height": 215,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/adams-site-15fu4.jpg": {
+      "sha256": "147add011720ab1dd437abb95598a83cd67802f2559db5178ba50647d7282f9c",
+      "width": 800,
+      "height": 511,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/adams-site-15fu4-800.avif",
+          "w": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/adams-site-15fu4-800.webp",
+          "w": 800
+        }
+      ]
+    },
+    "/content/photos/stories/turk-site-carlisle-county.jpg": {
+      "sha256": "7615d48c57008e910564869aec425ad45a6aff783a13d613370113ea6c70d6ac",
+      "width": 1600,
+      "height": 900,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/turk-site-carlisle-county-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/turk-site-carlisle-county-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/turk-site-carlisle-county-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/turk-site-carlisle-county-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/annis-mound-village.jpg": {
+      "sha256": "0f03c8dd2e7913329050dd665aa01426a09d55e304183eaf380b06384ccc4d8d",
+      "width": 350,
+      "height": 240,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/fox-farm-mason-county.jpg": {
+      "sha256": "185e368a1e124a66faac40f79f1292ccc3c6fc5beca65a3ce036d5f62364c04c",
+      "width": 1600,
+      "height": 1064,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/fox-farm-mason-county-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/fox-farm-mason-county-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/fox-farm-mason-county-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/fox-farm-mason-county-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/tutelo-the-totteroy.jpg": {
+      "sha256": "f7d58a707ba3363800ddaa7b396e7ceaa3d0a469108a8a95bcf599c3d9efb407",
+      "width": 266,
+      "height": 442,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/col-richard-callaway-of-boonesborough.jpg": {
+      "sha256": "44d19286f7334d2b70034f13f1c9ede6c5af57869d4e91cccc6cb6283ed4a6cf",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/col-richard-callaway-of-boonesborough-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-richard-callaway-of-boonesborough-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/col-richard-callaway-of-boonesborough-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-richard-callaway-of-boonesborough-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/wea-waayaahtanwa-on-the-wabash.jpg": {
+      "sha256": "fe0bfeb2a693f5cf17f02d67c83f4d19dd7b0ad3e629df033a7d05d0ae64019d",
+      "width": 1101,
+      "height": 1350,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/wea-waayaahtanwa-on-the-wabash-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/wea-waayaahtanwa-on-the-wabash-1101.avif",
+          "w": 1101
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/wea-waayaahtanwa-on-the-wabash-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/wea-waayaahtanwa-on-the-wabash-1101.webp",
+          "w": 1101
+        }
+      ]
+    },
+    "/content/photos/stories/capt-abraham-lincoln-on-long-run.jpg": {
+      "sha256": "b667448c71e8cf2ca20db7b6e84f23ca51ff37d6d808e38f03918d53c4da3a4a",
+      "width": 323,
+      "height": 108,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/christopher-gist-1750-51.jpg": {
+      "sha256": "1c4599f7252a6f51eefeb55af28d5cee4abf673126dc94ca93f3d6c870f3f598",
+      "width": 501,
+      "height": 442,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/christopher-gist-1750-51-501.avif",
+          "w": 501
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/christopher-gist-1750-51-501.webp",
+          "w": 501
+        }
+      ]
+    },
+    "/content/photos/stories/col-john-todd-of-lexington.jpg": {
+      "sha256": "ad228987953d79857c32748e0e7a26c969e9ab08dee780c597b15e741fe21e5b",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/evan-williams-on-the-louisville-wharf.jpg": {
+      "sha256": "d01a141c21f2bfa2ef27113b0ba6511bb927dc46a3ab90d88bcfe6768f112c00",
+      "width": 1600,
+      "height": 2099,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/shepherdsville-on-salt-river.jpg": {
+      "sha256": "4f3c6e31ff87ca2761097eded03fd784f532c8e9868fcb23e6fb2762cd954f5c",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/shepherdsville-on-salt-river-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/shepherdsville-on-salt-river-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/shepherdsville-on-salt-river-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/shepherdsville-on-salt-river-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/bland-w-ballard-of-tick-creek.jpg": {
+      "sha256": "247437d9e4006e709efbaffeed2ebf1fa0933055afd9b2dad98dbd12b3e14a62",
+      "width": 1195,
+      "height": 1499,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/bland-w-ballard-of-tick-creek-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/bland-w-ballard-of-tick-creek-1195.avif",
+          "w": 1195
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/bland-w-ballard-of-tick-creek-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/bland-w-ballard-of-tick-creek-1195.webp",
+          "w": 1195
+        }
+      ]
+    },
+    "/content/photos/stories/treaty-of-fort-stanwix-1768.jpg": {
+      "sha256": "fa5a374f72f6b0fe4e273d62daecfdf14fe48707bc403cff701244ada21ece9f",
+      "width": 1000,
+      "height": 796,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-stanwix-1768-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-stanwix-1768-1000.avif",
+          "w": 1000
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-stanwix-1768-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-stanwix-1768-1000.webp",
+          "w": 1000
+        }
+      ]
+    },
+    "/content/photos/stories/hancock-taylor-fincastle-surveyor.jpg": {
+      "sha256": "09ececae18fbf2a80fdc6f9c0b65414e7a88b46ab7caeea1028c9e1ad91524e0",
+      "width": 1600,
+      "height": 2133,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/hancock-taylor-fincastle-surveyor-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/hancock-taylor-fincastle-surveyor-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/hancock-taylor-fincastle-surveyor-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/hancock-taylor-fincastle-surveyor-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/mingo-camps-south-of-the-ohio.jpg": {
+      "sha256": "6c00ce152085667285c41bdca34f48b151f86ce9e8a0799fbef8f071a2e735ed",
+      "width": 300,
+      "height": 633,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/leestown.jpg": {
+      "sha256": "51a3dd42c7497d11607c8c09d7ba4e4f1742377c7682959458e24f767d2c0ff7",
+      "width": 1600,
+      "height": 933,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/leestown-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/leestown-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/leestown-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/leestown-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/georgetown-and-royal-spring.jpg": {
+      "sha256": "ff6323346811bc8d48cae95ca773824a0c1dd0a02cce7b8a0251cc36c03268fa",
+      "width": 1370,
+      "height": 1455,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/georgetown-and-royal-spring-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/georgetown-and-royal-spring-1370.avif",
+          "w": 1370
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/georgetown-and-royal-spring-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/georgetown-and-royal-spring-1370.webp",
+          "w": 1370
+        }
+      ]
+    },
+    "/content/photos/stories/john-floyd.jpg": {
+      "sha256": "e64cdb796f0e007e68747bdb86a2c501d2fff7495667295722310f03ca633147",
+      "width": 1388,
+      "height": 3308,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/john-floyd-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/john-floyd-1388.avif",
+          "w": 1388
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/john-floyd-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/john-floyd-1388.webp",
+          "w": 1388
+        }
+      ]
+    },
+    "/content/photos/stories/shawnee-chillicothe-divisions.jpg": {
+      "sha256": "5d2127510d46cc56a4ea341668a67bfd0995df164f0794d0ef24f2a8fa3a6e97",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/shawnee-chillicothe-divisions-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/shawnee-chillicothe-divisions-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/shawnee-chillicothe-divisions-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/shawnee-chillicothe-divisions-983.webp",
+          "w": 983
+        }
+      ]
+    },
+    "/content/photos/stories/treaty-of-camp-charlotte-1774.jpg": {
+      "sha256": "90373f3b335a6970715d1bca495fcff272b3452855935fc3dc97d2bb0e2a4001",
+      "width": 1600,
+      "height": 1600,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-camp-charlotte-1774-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/treaty-of-camp-charlotte-1774-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-camp-charlotte-1774-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/treaty-of-camp-charlotte-1774-983.webp",
+          "w": 983
+        }
+      ]
+    },
+    "/content/photos/stories/benjamin-logan.jpg": {
+      "sha256": "132b3a1ee5c197d29aca47aaae9136c5d32a146e543466d313e0956a084dcfb4",
+      "width": 1600,
+      "height": 1370,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/benjamin-logan-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/benjamin-logan-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/benjamin-logan-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/benjamin-logan-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/maj-joseph-bowman.jpg": {
+      "sha256": "6b5349a40a2d7ef468dfb06f5a9a9327ffc2d4991f9ed678ae24bec3b498c888",
+      "width": 667,
+      "height": 717,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/maj-joseph-bowman-667.avif",
+          "w": 667
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/maj-joseph-bowman-667.webp",
+          "w": 667
+        }
+      ]
+    },
+    "/content/photos/stories/richard-henderson.jpg": {
+      "sha256": "62212b6be2a65404cb593fa10ef7f40506d465ad04b04e79b160294492749aa6",
+      "width": 1292,
+      "height": 1016,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/richard-henderson-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/richard-henderson-1292.avif",
+          "w": 1292
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/richard-henderson-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/richard-henderson-1292.webp",
+          "w": 1292
+        }
+      ]
+    },
+    "/content/photos/stories/stanford-from-st-asaph.jpg": {
+      "sha256": "b7386f5946466cfa2497e50ed490b0747dbf8ff395c2c7bf05e43abfed69fa77",
+      "width": 1600,
+      "height": 856,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/stanford-from-st-asaph-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/stanford-from-st-asaph-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/stanford-from-st-asaph-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/stanford-from-st-asaph-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/chickamauga-cherokee.jpg": {
+      "sha256": "8f40fc921c86c26d80b34fce6c48389f8ef23a724634db0f6179346885dd66d1",
+      "width": 1600,
+      "height": 1169,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/chickamauga-cherokee-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/chickamauga-cherokee-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/chickamauga-cherokee-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/chickamauga-cherokee-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/paris-from-hopewell.jpg": {
+      "sha256": "e5b3d95f7e07d3bf0cd584936d35ac52a24bbfa3045745e5f33f0b15c3f6862c",
+      "width": 175,
+      "height": 225,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/falls-of-the-ohio.jpg": {
+      "sha256": "0bae2ef9b73b01c1fd3a1abecf2175129c102e4074acdfe0851f166473d06b15",
+      "width": 1600,
+      "height": 1048,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/falls-of-the-ohio-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/falls-of-the-ohio-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/falls-of-the-ohio-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/falls-of-the-ohio-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/george-rogers-clark.jpg": {
+      "sha256": "4c0e40e6662ae3858597fdee06d770312917e44eb4b74d5dac1885bd59f91228",
+      "width": 1600,
+      "height": 1204,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/george-rogers-clark-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/george-rogers-clark-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/george-rogers-clark-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/george-rogers-clark-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/col-robert-patterson-builds-lexington.jpg": {
+      "sha256": "ad228987953d79857c32748e0e7a26c969e9ab08dee780c597b15e741fe21e5b",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/col-robert-patterson-builds-lexington-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-robert-patterson-builds-lexington-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/col-robert-patterson-builds-lexington-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-robert-patterson-builds-lexington-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/bardstown.jpg": {
+      "sha256": "5b313f1777c9d7b1a069c95c6dec0b86823b3ab34728c320383065bc4af66c00",
+      "width": 617,
+      "height": 502,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/bardstown-617.avif",
+          "w": 617
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/bardstown-617.webp",
+          "w": 617
+        }
+      ]
+    },
+    "/content/photos/stories/elizabethtown-from-severns-valley.jpg": {
+      "sha256": "276d783cde000723db0f3c4c0dca9d2d2e8c839923f8abd71bd516db6bce83b3",
+      "width": 1600,
+      "height": 900,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/elizabethtown-from-severns-valley-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/elizabethtown-from-severns-valley-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/elizabethtown-from-severns-valley-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/elizabethtown-from-severns-valley-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/isaac-shelby-old-kings-mountain.jpg": {
+      "sha256": "5bee0f2a369dfa83eac98b5a69f4449db0eb27fb34ae708740d0584b5f3ab79b",
+      "width": 379,
+      "height": 459,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/ojibwe-on-birds-war-road.jpg": {
+      "sha256": "c4e5ba8f64ba5a116db4270ed3005171511ec10f64caa7e1061578e393b2373f",
+      "width": 638,
+      "height": 300,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/ojibwe-on-birds-war-road-638.avif",
+          "w": 638
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/ojibwe-on-birds-war-road-638.webp",
+          "w": 638
+        }
+      ]
+    },
+    "/content/photos/stories/shelbyville.jpg": {
+      "sha256": "9d3d671a3c80990b540aff1ddf565683cc6b31c77d50bf165e6e94b240bfce03",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/shelbyville-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/shelbyville-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/shelbyville-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/shelbyville-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/squire-boones-painted-stone.jpg": {
+      "sha256": "e9bff8116d824af9389cb7a0b72fe64f96257baf84cc87e6514903a24312df58",
+      "width": 455,
+      "height": 500,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/capt-jack-jouett.jpg": {
+      "sha256": "90a01b4b7daea0d36a0c14d8096f28ec34a3a7943273307057891556d24c99cc",
+      "width": 1600,
+      "height": 2728,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/capt-jack-jouett-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-jack-jouett-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/capt-jack-jouett-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-jack-jouett-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/battle-of-blue-licks.jpg": {
+      "sha256": "fc521c65896d4dd63cff3a5a7d82046ffc4699e716f68e3714feee0689cd2812",
+      "width": 1536,
+      "height": 2048,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/battle-of-blue-licks-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/battle-of-blue-licks-1536.avif",
+          "w": 1536
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/battle-of-blue-licks-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/battle-of-blue-licks-1110.webp",
+          "w": 1110
+        }
+      ]
+    },
+    "/content/photos/stories/john-filson-kentucke-1784.jpg": {
+      "sha256": "126e958371c4a281a07f2bfd4680c72b292077434d2130f8698ba4b94184b65a",
+      "width": 1600,
+      "height": 1804,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/john-filson-kentucke-1784-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/john-filson-kentucke-1784-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/john-filson-kentucke-1784-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/john-filson-kentucke-1784-1360.webp",
+          "w": 1360
+        }
+      ]
+    },
+    "/content/photos/stories/danville-and-constitution-square.jpg": {
+      "sha256": "3300bc9b2a898c0587c030342393f2919d86d2735c5cc6fc57c3131aec14c930",
+      "width": 422,
+      "height": 600,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/henderson-at-red-banks.jpg": {
+      "sha256": "499a0c251bcc08aff0dc8d1b4c04db85469ed534c1f5c8222d4436b62992299b",
+      "width": 1600,
+      "height": 2530,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/henderson-at-red-banks-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/henderson-at-red-banks-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/henderson-at-red-banks-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/henderson-at-red-banks-983.webp",
+          "w": 983
+        }
+      ]
+    },
+    "/content/photos/stories/william-whitley-sportsmans-hill.jpg": {
+      "sha256": "cbd88d53d83e50f571d118cc9a840b9e64b6b5f8c26885e4dfd687fc64484718",
+      "width": 1600,
+      "height": 1148,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/william-whitley-sportsmans-hill-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/william-whitley-sportsmans-hill-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/william-whitley-sportsmans-hill-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/william-whitley-sportsmans-hill-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/covington-at-the-point.jpg": {
+      "sha256": "d3feadfd3ba81762b8f939e3b05b8ff125a68b7f36f7bbecab24f994880b87f3",
+      "width": 1600,
+      "height": 1056,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/covington-at-the-point-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/covington-at-the-point-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/covington-at-the-point-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/covington-at-the-point-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/mount-sterling-little-mountain-town.jpg": {
+      "sha256": "36e8935bd762c6ec68bcc63b95ed698580574886c173bf94d568bd753ef9ba92",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/mount-sterling-little-mountain-town-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/mount-sterling-little-mountain-town-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/mount-sterling-little-mountain-town-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/mount-sterling-little-mountain-town-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/kickapoo-on-the-kentucky-frontier.jpg": {
+      "sha256": "06fecaa71f72714cfaa238f8a64dae75cf20f2b1d7680c173ad71fbca0cf19d7",
+      "width": 1600,
+      "height": 1087,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/nicholasville-takes-shape.jpg": {
+      "sha256": "ad847ed5f5e0d142dbb36a14e5e26ca644be434e339b5b94d5524869045e47d2",
+      "width": 1600,
+      "height": 900,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/nicholasville-takes-shape-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/nicholasville-takes-shape-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/nicholasville-takes-shape-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/nicholasville-takes-shape-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/versailles-takes-shape.jpg": {
+      "sha256": "9b57d824158c66785a9a2186eb401b9e74a11d86e21f83f8ac669cd19e56de46",
+      "width": 1600,
+      "height": 1185,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/versailles-takes-shape-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/versailles-takes-shape-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/versailles-takes-shape-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/versailles-takes-shape-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/winchester-clark-county-seat.jpg": {
+      "sha256": "be4cd6793cba557d3f52185a5009092913771f5d24851e612f835b88080fbd2a",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/winchester-clark-county-seat-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/winchester-clark-county-seat-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/winchester-clark-county-seat-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/winchester-clark-county-seat-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/newport-at-the-licking-mouth.jpg": {
+      "sha256": "ac83bb884a995d21b2451bba5a8c55faa80e787e0ae2d6944e12c2a1a5de7a62",
+      "width": 641,
+      "height": 362,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/newport-at-the-licking-mouth-641.avif",
+          "w": 641
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/newport-at-the-licking-mouth-641.webp",
+          "w": 641
+        }
+      ]
+    },
+    "/content/photos/stories/lancaster-at-wallaces-crossroads.jpg": {
+      "sha256": "e298ee08c8d8ffa16050d9f9758f4674182a66edb516ac37bbb760a355d792f7",
+      "width": 1600,
+      "height": 1068,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/lancaster-at-wallaces-crossroads-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/lancaster-at-wallaces-crossroads-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/lancaster-at-wallaces-crossroads-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/lancaster-at-wallaces-crossroads-1360.webp",
+          "w": 1360
+        }
+      ]
+    },
+    "/content/photos/stories/glasgow-the-barrens.jpg": {
+      "sha256": "6e7afecaba8ad37637f29517b2819d7059388bb3880e16ffc2ee39b6757a6b95",
+      "width": 1600,
+      "height": 2139,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/glasgow-the-barrens-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/glasgow-the-barrens-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/glasgow-the-barrens-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/glasgow-the-barrens-1360.webp",
+          "w": 1360
+        }
+      ]
+    },
+    "/content/photos/stories/great-saltpetre-cave.jpg": {
+      "sha256": "2891c4b3cb75a19a1df64545dca643fd038567dd6f06f03583e4f02c53057e0d",
+      "width": 1352,
+      "height": 1014,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/great-saltpetre-cave-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/great-saltpetre-cave-1352.avif",
+          "w": 1352
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/great-saltpetre-cave-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/great-saltpetre-cave-1149.webp",
+          "w": 1149
+        }
+      ]
+    },
+    "/content/photos/stories/james-crow-on-glenns-creek.jpg": {
+      "sha256": "c2931b98549278a08e9faa607ca4dd391301efd91d777a5291febc0ac90785a6",
+      "width": 1497,
+      "height": 1548,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/james-crow-on-glenns-creek-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/james-crow-on-glenns-creek-1497.avif",
+          "w": 1497
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/james-crow-on-glenns-creek-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/james-crow-on-glenns-creek-1081.webp",
+          "w": 1081
+        }
+      ]
+    },
+    "/content/photos/stories/natural-bridge-sandstone-arch.jpg": {
+      "sha256": "99bd5f88c87d037e0cec0026927dab5d4da38ce8c7f1186375f1dd4f170a93f9",
+      "width": 1600,
+      "height": 2133,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/natural-bridge-sandstone-arch-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/natural-bridge-sandstone-arch-1360.avif",
+          "w": 1360
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/natural-bridge-sandstone-arch-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/natural-bridge-sandstone-arch-836.webp",
+          "w": 836
+        }
+      ]
+    },
+    "/content/photos/stories/cumberland-falls.jpg": {
+      "sha256": "3a6df0c4672a28b9aa98b872b8f03575e026df0d10059046f14eac7c8c95850f",
+      "width": 1600,
+      "height": 1200,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/cumberland-falls-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/cumberland-falls-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/cumberland-falls-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/cumberland-falls-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/iroquois-beaver-wars.jpg": {
+      "sha256": "7bcc9f78c9c8d46e8a57d516646fdfb041497ceccb7556c80623bfebe0b10d84",
+      "width": 1280,
+      "height": 857,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/iroquois-beaver-wars-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/iroquois-beaver-wars-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/iroquois-beaver-wars-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/iroquois-beaver-wars-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/kentucky-river-palisades.jpg": {
+      "sha256": "2675ec319c8d1bd11461b112a2d8c9792d3004ee767b898fe59d2e4ff6f4a1ed",
+      "width": 900,
+      "height": 600,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/kentucky-river-palisades-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/kentucky-river-palisades-900.avif",
+          "w": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/kentucky-river-palisades-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/kentucky-river-palisades-900.webp",
+          "w": 900
+        }
+      ]
+    },
+    "/content/photos/stories/lexington-named.jpg": {
+      "sha256": "ed39e466b9ac979b356642a23d38104a41557b4c85e252440a84597449054a89",
+      "width": 1600,
+      "height": 2133,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/lexington-named-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/lexington-named-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/lexington-named-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/lexington-named-836.webp",
+          "w": 836
+        }
+      ]
+    },
+    "/content/photos/stories/lost-river-cave.jpg": {
+      "sha256": "1996558151192e4e3815fd58f6f0eb5c2bb6a4f4c85974a205128e31ca1746f3",
+      "width": 1600,
+      "height": 900,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/lost-river-cave-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/lost-river-cave-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/lost-river-cave-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/lost-river-cave-1600.webp",
+          "w": 1600
         }
       ]
     }

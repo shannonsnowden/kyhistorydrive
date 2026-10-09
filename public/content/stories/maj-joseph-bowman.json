@@ -14,5 +14,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-16"
+  "briefDate": "2026-09-16",
+  "photo": {
+    "image_url": "/content/photos/stories/maj-joseph-bowman.jpg",
+    "title": "Government marker for Joseph Bowman, Old Cathedral Cemetery, Vincennes, Indiana",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Bowman_marker.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Mingusboodle (talk) · Wikimedia Commons · Public domain",
+    "year": 2008,
+    "credit": "Mingusboodle (talk)",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

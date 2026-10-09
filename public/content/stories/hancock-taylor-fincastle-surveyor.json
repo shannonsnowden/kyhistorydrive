@@ -14,5 +14,16 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-14"
+  "briefDate": "2026-09-14",
+  "photo": {
+    "image_url": "/content/photos/stories/hancock-taylor-fincastle-surveyor.jpg",
+    "title": "Kentucky Historical Marker for a surveyor killed during the Fincastle County (Virginia) surveys in 1774.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2021-09-19_Hancock_Taylor_Marker_Richmond_KY.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Seblake · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2021,
+    "credit": "Seblake",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
 }

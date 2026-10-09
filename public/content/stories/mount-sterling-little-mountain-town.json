@@ -15,5 +15,16 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-03"
+  "briefDate": "2026-09-03",
+  "photo": {
+    "image_url": "/content/photos/stories/mount-sterling-little-mountain-town.jpg",
+    "title": "Mt.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Sterling,_Kentucky_(14311593050).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
+    "year": 2014,
+    "credit": "Ken Lund from Reno, Nevada, USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+  }
 }

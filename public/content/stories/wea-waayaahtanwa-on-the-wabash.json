@@ -15,5 +15,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-13"
+  "briefDate": "2026-09-13",
+  "photo": {
+    "image_url": "/content/photos/stories/wea-waayaahtanwa-on-the-wabash.jpg",
+    "title": "Go-to-ków-páh-ah, Stands by Himself, a Distinguished Brave",
+    "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin_-_Go-to-k%C3%B3w-p%C3%A1h-ah,_Stands_by_Himself,_a_Distinguished_Brave_-_1985.66.248_-_Smithsonian_American_Art_Museum.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "George Catlin · Wikimedia Commons · Public domain",
+    "year": 1830,
+    "credit": "George Catlin",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

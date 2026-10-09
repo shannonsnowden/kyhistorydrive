@@ -1250,6 +1250,11 @@ html[data-hp-theme="light"] .era-other {
   background: #0c120e;
   margin-top: 0.65rem;
 }
+.story-sidebar-photo-frame picture,
+.story-sidebar-photo-thumb picture {
+  display: block;
+  width: 100%;
+}
 .story-sidebar-photo-frame img,
 .story-sidebar-photo-thumb img {
   display: block;

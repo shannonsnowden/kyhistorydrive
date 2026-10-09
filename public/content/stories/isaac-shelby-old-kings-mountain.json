@@ -13,5 +13,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-29"
+  "briefDate": "2026-08-29",
+  "photo": {
+    "image_url": "/content/photos/stories/isaac-shelby-old-kings-mountain.jpg",
+    "title": "Isaac Shelby (1750–1826), the first and fifth Governor of the U.S.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Isaac_shelby.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Matthew Harris Jouett · Wikimedia Commons · Public domain",
+    "year": 1820,
+    "credit": "Matthew Harris Jouett",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

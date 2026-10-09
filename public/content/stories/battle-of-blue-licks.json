@@ -16,5 +16,16 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-30"
+  "briefDate": "2026-08-30",
+  "photo": {
+    "image_url": "/content/photos/stories/battle-of-blue-licks.jpg",
+    "title": "Monument of the Battle of Blue Licks, Kentucky",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_monument.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "User:Kevin Myers · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2006,
+    "credit": "User:Kevin Myers",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+  }
 }

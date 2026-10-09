@@ -15,5 +15,16 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-14"
+  "briefDate": "2026-09-14",
+  "photo": {
+    "image_url": "/content/photos/stories/kentucky-river-palisades.jpg",
+    "title": "Close up of The Kentucky River Palisades",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_River_Palisades_Close_up.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher Wayne Hensley · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2008,
+    "credit": "Christopher Wayne Hensley",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+  }
 }

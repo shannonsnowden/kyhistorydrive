@@ -14,5 +14,16 @@
     "bourbon"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-09"
+  "briefDate": "2026-09-09",
+  "photo": {
+    "image_url": "/content/photos/stories/evan-williams-on-the-louisville-wharf.jpg",
+    "title": "Evan Williams white label and black label whiskey bottles",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Evan_Williams_white_label_and_black_label_whiskey_bottles.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Kenneth C. Zirkel · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2020,
+    "credit": "Kenneth C. Zirkel",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
 }

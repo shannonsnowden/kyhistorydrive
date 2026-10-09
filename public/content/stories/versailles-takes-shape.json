@@ -13,5 +13,16 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-06"
+  "briefDate": "2026-09-06",
+  "photo": {
+    "image_url": "/content/photos/stories/versailles-takes-shape.jpg",
+    "title": "Drawer pull in the shape of a double-headed eagle, reminiscent of the House of Austria, in the library of the Petit appartement de la Reine, Palace of Versai…",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Aigle_bicephale_poignee_bibliotheque_cabinets_interieurs_Reine_Versailles.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Myrabella · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2011,
+    "credit": "Myrabella",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+  }
 }

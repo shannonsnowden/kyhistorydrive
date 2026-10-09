@@ -23,5 +23,16 @@
     "yearEnd": 1795,
     "presenceLabel": "Shawnee presence and claim (Kentucky presence to c.1782; Ohio lines to 1795)",
     "approxStart": true
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/treaty-of-camp-charlotte-1774.jpg",
+    "title": "Camp Charlotte location plaque in Pickaway County, Ohio.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:CampCharlotte2.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Aesopposea · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2013,
+    "credit": "Aesopposea",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   }
 }
