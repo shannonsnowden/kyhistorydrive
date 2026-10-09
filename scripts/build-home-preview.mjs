@@ -19,6 +19,11 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { HomepageStructure } from '../src/homepage-structure.js'
 
+const HERO_DECK_OVERRIDES_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'hero-deck-overrides.json')
+const heroDeckOverrides = fs.existsSync(HERO_DECK_OVERRIDES_FILE)
+  ? JSON.parse(fs.readFileSync(HERO_DECK_OVERRIDES_FILE, 'utf8')).overrides || {}
+  : {}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const UA = 'kyhistorydrive-home-preview/1.0 (https://github.com/shannonsnowden/kyhistorydrive)'
@@ -542,7 +547,22 @@ async function main() {
       photo: publicPhoto(photo),
     })
     // Hero overlay copy (~25 words, whole sentence or clean clause). Story text is untouched.
-    cards[cards.length - 1].heroDeck = HomepageStructure.heroDeck(cards[cards.length - 1])
+    // A hand-written entry in scripts/hero-deck-overrides.json wins over the automatic cut.
+    const card = cards[cards.length - 1]
+    const manual = heroDeckOverrides[slug]?.heroDeck
+    if (manual) {
+      card.heroDeck = manual
+      const n = manual.split(/\s+/).length
+      if (n > 30 || !/[.!?]["'”’)\]]*$/.test(manual)) {
+        console.warn(`hero-deck: override for ${slug} is ${n} words or lacks a full stop; keep it 20-25 words ending on a sentence`)
+      }
+    } else {
+      card.heroDeck = HomepageStructure.heroDeck(card)
+      const n = card.heroDeck.split(/\s+/).filter(Boolean).length
+      if (card.heroDeck.endsWith('…') && n < 15) {
+        console.warn(`hero-deck: WARNING ${slug}: automatic cut is only ${n} words ("${card.heroDeck}"). Add a 20-25 word summary to scripts/hero-deck-overrides.json.`)
+      }
+    }
   }
 
   const withPhotos = cards.filter((c) => c.photo?.image_url)

@@ -1,0 +1,10 @@
+{
+  "_comment": "Hand-written homepage hero summaries, keyed by story slug. build-home-preview.mjs uses these instead of the automatic ~25-word cut (HomepageStructure.heroDeck). Display only: story text is never changed. Keep each 20-25 words, ending on a full stop, drawn only from the story text. The build warns when an automatic cut drops under 15 words so new packs get flagged for an entry here.",
+  "overrides": {
+    "mantle-rock-and-the-trail-of-tears": {
+      "heroDeck": "Mantle Rock, a sandstone arch in Livingston County, stands near the old road that carried the Cherokee on the Trail of Tears in 1838–39.",
+      "reason": "Automatic clause cut gave 12 words (\"West of the crossroads of Joy in Livingston County, off KY 133…\"); Critiquito review of PR #191.",
+      "date": "2026-10-09"
+    }
+  }
+}
