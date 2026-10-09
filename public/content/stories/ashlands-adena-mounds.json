@@ -20,5 +20,16 @@
     "yearStart": -500,
     "yearEnd": 250,
     "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/ashlands-adena-mounds.jpg",
+    "title": "THESE MOUNDS HAVE BEEN EXCAVATED IN 1870 AND FOUND TO CONTAIN HUMAN BONES AND OTHER ARTEFACTS.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:INDIAN_MOUNDS_IN_CENTRAL_PARK.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "JERRYE & ROY KLOTZ MD · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2012,
+    "credit": "JERRYE & ROY KLOTZ MD",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   }
 }

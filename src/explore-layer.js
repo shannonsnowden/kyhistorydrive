@@ -227,7 +227,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
           <a class="hp-layer-cta" href="${esc(item.href)}" aria-label="${esc(item.cta)}: ${esc(item.title)}">${esc(item.cta)}</a>
           ${map}
         </div>
-        <p class="hp-photo-credit exp-credit">Photo: ${esc(credit)}</p>
+        <p class="hp-photo-credit exp-credit">Photo: ${credit}</p>
       </div>
     </article>`
   }

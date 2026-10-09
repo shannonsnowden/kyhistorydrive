@@ -15,5 +15,16 @@
     "transport"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20"
+  "briefDate": "2026-09-20",
+  "photo": {
+    "image_url": "/content/photos/stories/natural-bridge-sandstone-arch.jpg",
+    "title": "Steps leading up to a sandstone arch stand at Natural Bridge State Resort Park in Slade, Kentucky.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Natural_Bridge_State_Resort_Park_in_Slade,_Kentucky_(47613983601).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "PEO ACWA · Wikimedia Commons · CC BY 2.0",
+    "year": 2019,
+    "credit": "PEO ACWA",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+  }
 }

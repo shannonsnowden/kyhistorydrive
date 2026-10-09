@@ -14,5 +14,16 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-30"
+  "briefDate": "2026-08-30",
+  "photo": {
+    "image_url": "/content/photos/stories/great-saltpetre-cave.jpg",
+    "title": "A sign inside the Great Saltpetre Cave",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Great_Saltpetre_Cave,_sign1.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Grorp · Wikimedia Commons · CC0",
+    "year": 2024,
+    "credit": "Grorp",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  }
 }

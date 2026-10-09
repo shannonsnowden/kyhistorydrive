@@ -13,5 +13,16 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-20"
+  "briefDate": "2026-09-20",
+  "photo": {
+    "image_url": "/content/photos/stories/shepherdsville-on-salt-river.jpg",
+    "title": "Downtown Sheperdsville, KY",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_shepherdsville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": null,
+    "credit": "W.marsh",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+  }
 }

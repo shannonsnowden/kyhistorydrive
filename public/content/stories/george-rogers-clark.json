@@ -14,5 +14,16 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-30"
+  "briefDate": "2026-08-30",
+  "photo": {
+    "image_url": "/content/photos/stories/george-rogers-clark.jpg",
+    "title": "The George Rogers Clark Memorial Bridge crosses the Ohio River between Louisville (Kentucky) and Jeffersonville (Indiana)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:George_Rogers_Clark_Memorial_Bridge-1.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Vxla from Chicago, US · Wikimedia Commons · CC BY 2.0",
+    "year": 2009,
+    "credit": "Vxla from Chicago, US",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+  }
 }

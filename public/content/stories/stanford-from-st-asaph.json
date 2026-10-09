@@ -14,5 +14,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-15"
+  "briefDate": "2026-09-15",
+  "photo": {
+    "image_url": "/content/photos/stories/stanford-from-st-asaph.jpg",
+    "title": "Commercial District, Stanford, Kentucky, USA",
+    "source_url": "https://commons.wikimedia.org/wiki/File:StanfordKY-Commercial-District.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+    "year": 2014,
+    "credit": "Joel Bradshaw",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  }
 }

@@ -42,3 +42,7 @@ customHeaders:
     headers:
       - key: 'Content-Type'
         value: 'text/html; charset=utf-8'
+  # /content/photos/* is not given Cache-Control: immutable.
+  # Those names are the story slug (stories/<slug>.jpg and
+  # opt/stories/<slug>-<width>.avif), not a content hash. Replacing a
+  # photo keeps the same URL, so a one-year immutable cache would be stale.

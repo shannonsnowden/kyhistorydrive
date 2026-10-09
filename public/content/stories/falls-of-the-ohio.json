@@ -14,5 +14,16 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-28"
+  "briefDate": "2026-08-28",
+  "photo": {
+    "image_url": "/content/photos/stories/falls-of-the-ohio.jpg",
+    "title": "Looking SE from Falls of the Ohio.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:87h034_Falls_of_the_Ohio_(7316656018).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "William Alden from Louisville, Kentucky, USA · Wikimedia Commons · CC BY-SA 2.0",
+    "year": 1987,
+    "credit": "William Alden from Louisville, Kentucky, USA",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+  }
 }

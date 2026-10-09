@@ -14,5 +14,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-30"
+  "briefDate": "2026-08-30",
+  "photo": {
+    "image_url": "/content/photos/stories/danville-and-constitution-square.jpg",
+    "title": "A monument commemorating the drafting of Kentucky's first state constitution in Danville, Kentucky.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_Constitution_Monument_Danville,_KY.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Acdixon · Wikimedia Commons · CC0",
+    "year": 2012,
+    "credit": "Acdixon",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  }
 }

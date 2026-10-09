@@ -14,5 +14,16 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-02"
+  "briefDate": "2026-09-02",
+  "photo": {
+    "image_url": "/content/photos/stories/christopher-gist-1750-51.jpg",
+    "title": "Drawing of Gist from Emerson's magazine and Putnam's monthly, Volume 5, NO 40, 1857",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Christopher_Gist.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Up-loaded by David McCoy--no name associated with art · Wikimedia Commons · Public domain",
+    "year": 2013,
+    "credit": "Up-loaded by David McCoy--no name associated with art",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

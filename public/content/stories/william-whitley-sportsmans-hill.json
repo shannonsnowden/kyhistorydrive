@@ -13,5 +13,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-28"
+  "briefDate": "2026-08-28",
+  "photo": {
+    "image_url": "/content/photos/stories/william-whitley-sportsmans-hill.jpg",
+    "title": "Historic American Buildings Survey Lester Jones, Photographer May 30, 1940 NORTHEAST ELEVATION (FRONT) - Colonel William Whitley House, Stanford-Crab Orchard Pike, Stanford, Lincoln County, KY",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_30,_1940_NORTHEAST_ELEVATION_(FRONT)_-_Colonel_William_Whitley_House,_Stanford-Crab_Orchard_Pike,_Stanford,_HABS_KY,69-_,1-2.tif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "https://www.loc.gov/pictures/item/ky0096.photos.071420p · Wikimedia Commons · Public domain",
+    "year": 1940,
+    "credit": "https://www.loc.gov/pictures/item/ky0096.photos.071420p",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

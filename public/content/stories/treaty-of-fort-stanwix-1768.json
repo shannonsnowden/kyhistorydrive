@@ -24,5 +24,16 @@
     "yearStart": 1768,
     "yearEnd": 1784,
     "presenceLabel": "Six Nations cession or claim in this area (contested)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/treaty-of-fort-stanwix-1768.jpg",
+    "title": "Frontier of NY in Revolution2",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Frontier_of_NY_in_Revolution2.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wikimedia Commons · Public domain",
+    "year": null,
+    "credit": "",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
   }
 }

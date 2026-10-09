@@ -22,5 +22,16 @@
     "yearStart": 1777,
     "yearEnd": 1794,
     "presenceLabel": "Chickamauga Cherokee towns in this area"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/chickamauga-cherokee.jpg",
+    "title": "Chickamauga Camp, View of",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Camp,_View_of_-_NARA_-_279720.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Tennessee Valley Authority · Wikimedia Commons · Public domain",
+    "year": 1937,
+    "credit": "Tennessee Valley Authority",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
   }
 }

@@ -1258,6 +1258,11 @@ html[data-hp-theme="light"] .era-other {
   background: #0c120e;
   margin-top: 0.65rem;
 }
+.story-sidebar-photo-frame picture,
+.story-sidebar-photo-thumb picture {
+  display: block;
+  width: 100%;
+}
 .story-sidebar-photo-frame img,
 .story-sidebar-photo-thumb img {
   display: block;
@@ -1278,6 +1283,13 @@ html[data-hp-theme="light"] .era-other {
   font-size: 0.7rem;
   line-height: 1.35;
   color: var(--muted);
+}
+.story-sidebar-photo-attr a,
+.hp-photo-credit a,
+.historic-photo-attr a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 .story-photo-source-label {
   color: var(--accent);

@@ -20,5 +20,16 @@
     "yearStart": -500,
     "yearEnd": 250,
     "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/mount-horeb-earthworks.jpg",
+    "title": "Artists conception of \"Mount Horeb Site 1\", an Adena culture causewayed ring ditch and timber circle located on the bank above Elkhorn Creek in Fayette Count…",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Horeb_Site_1_HRoe_2022_350px.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2022,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
   }
 }

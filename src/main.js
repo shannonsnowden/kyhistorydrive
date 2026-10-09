@@ -8,6 +8,9 @@ import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related
 import { initThemeToggle } from './theme.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
+import { photoCreditHtml } from './photo-credit.js'
+import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -1064,7 +1067,7 @@ function photosHtml(photos) {
     .map((p) => {
       const title = escapeHtml(p.title || 'Historic photo')
       const year = p.year ? escapeHtml(String(p.year)) : ''
-      const credit = escapeHtml(p.attribution || p.source_label || p.credit || '')
+      const credit = photoCreditHtml(p)
       const href = escapeHtml(p.source_url || p.image_url)
       const img = escapeHtml(p.image_url)
       return `<a class="historic-photo-card" href="${href}" target="_blank" rel="noopener noreferrer">
@@ -1361,11 +1364,35 @@ function topicPhotoScore(photo, title, placeHint) {
 
 const MIN_STORY_PHOTO_SCORE = 8
 
-async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown, existingPhoto }) {
+async function resolveStorySidebarPhoto({
+  slug,
+  title,
+  lat,
+  lon,
+  placeHint,
+  historyId,
+  bodyMarkdown,
+  existingPhoto,
+}) {
   await loadHistoricPhotoData()
   const links = photoSearchLinks(title, placeHint, {
     wikipedia_url: extractWikipediaUrl(bodyMarkdown) || wikipediaSearchUrl(title),
   })
+
+  const storedLocal = String(existingPhoto?.image_url || '').startsWith('/content/photos/')
+  if (storyBlocksAutoPhoto(slug) && !storedLocal) {
+    return {
+      image_url: null,
+      title,
+      source_label: null,
+      attribution: null,
+      credit: null,
+      source_url: null,
+      ...links,
+      loc_url: null,
+      nara_url: null,
+    }
+  }
 
   if (existingPhoto?.image_url) {
     return {
@@ -1437,7 +1464,7 @@ function storySidebarPhotoHtml(photo, title) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
   const sourceLabel = escapeHtml(photo.source_label || photo.credit || '')
-  const attribution = escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
+  const attribution = photoCreditHtml(photo)
   const year = photo.year ? escapeHtml(String(photo.year)) : ''
 
   const bits = [
@@ -1456,7 +1483,6 @@ function storySidebarPhotoHtml(photo, title) {
   let thumb = ''
   if (photo.image_url) {
     const href = escapeHtml(photo.source_url || photo.image_url)
-    const img = escapeHtml(photo.image_url)
     // The link wraps only an image: give it an explicit name that says where it goes and that it opens a new tab.
     let linkHost = ''
     try {
@@ -1465,8 +1491,15 @@ function storySidebarPhotoHtml(photo, title) {
       linkHost = ''
     }
     const linkLabel = escapeHtml(`Open ${photo.source_label || photo.credit || linkHost || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`)
+    const img = responsivePicture({
+      src: photo.image_url,
+      alt: photo.title || title || 'Related photo',
+      loading: 'eager',
+      fetchPriority: 'high',
+      sizes: '(max-width: 600px) 100vw, 220px',
+    })
     thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
-        <img src="${img}" alt="${caption}" loading="lazy" />
+        ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
       <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>`
@@ -2776,6 +2809,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
   })
   try {
     await loadHistoricPhotoData()
+    await loadPhotoVariants()
     const s = await loadStoryBody(meta.slug)
     let historyId = meta.historyId || null
     try {
@@ -2839,6 +2873,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const relTitles = Object.fromEntries(((await loadStories()).stories || []).map((x) => [x.slug, x.title]))
     const relTitleFor = (sl) => relTitles[sl]
     const sidebarPhoto = await resolveStorySidebarPhoto({
+      slug: meta.slug,
       title: s.title,
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
