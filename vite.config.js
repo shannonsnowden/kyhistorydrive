@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { injectGtagHead, privacyChoicesBootHtml } from './scripts/gtag-snippet.mjs'
+import { siteChromeScriptHtml, siteHeaderHtml } from './scripts/site-chrome.mjs'
 
 const root = dirname(fileURLToPath(import.meta.url))
 
@@ -33,7 +35,27 @@ function privacyPath() {
 
 export default defineConfig({
   base: '/',
-  plugins: [privacyPath()],
+  plugins: [
+    privacyPath(),
+    {
+      name: 'khd-gtag',
+      transformIndexHtml: {
+        order: 'pre',
+        handler(html) {
+          if (html.includes('<!-- khd-site-header -->')) {
+            html = html.replace('<!-- khd-site-header -->', siteHeaderHtml(''))
+          }
+          if (html.includes('<!-- khd-site-chrome -->')) {
+            html = html.replace('<!-- khd-site-chrome -->', siteChromeScriptHtml())
+          }
+          if (html.includes('<!-- khd-privacy-choices -->')) {
+            html = html.replace('<!-- khd-privacy-choices -->', privacyChoicesBootHtml())
+          }
+          return injectGtagHead(html)
+        },
+      },
+    },
+  ],
   build: {
     outDir: 'dist',
     sourcemap: true,
