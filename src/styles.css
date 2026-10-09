@@ -1517,9 +1517,20 @@ html[data-hp-theme="light"] .era-other {
   border-radius: 14px;
   border: 1px solid var(--line);
   background: #1a241c;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 html[data-hp-theme="light"] .hp-map-strip-img {
   background: #f4ead6;
+}
+.hp-map-strip > a[href="#map"]:hover .hp-map-strip-img,
+.hp-map-strip > a[href="#map"]:focus-within .hp-map-strip-img {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-map-strip-img {
+    transition: none;
+  }
 }
 .hp-map-seal {
   position: absolute;
