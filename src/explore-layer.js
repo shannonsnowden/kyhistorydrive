@@ -187,7 +187,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
       </div>
       <div class="exp-pagebar exp-pagebar-bottom">
         <nav class="exp-pager" aria-label="Pages (bottom)"></nav>
-        <button type="button" class="scroll-fab nav-jump exp-home" title="Back to the home page" aria-label="Home: back to the top of the home page"><span class="nav-jump-ico" aria-hidden="true">⌂</span><span class="nav-jump-label">Home</span></button>
+        <button type="button" class="scroll-fab nav-jump exp-home" title="Back to top" aria-label="Back to top of the home page"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Back to top</span></button>
       </div>
       <button type="button" class="btn exp-more" hidden>Load more</button>
       <p class="exp-hint muted">Turn pages with the buttons, the ← → keys, or a swipe. Every story is also in the <a href="/#timeline">Timeline</a>.</p>

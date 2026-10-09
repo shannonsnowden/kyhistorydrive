@@ -108,6 +108,8 @@ function quoteFromStory(story) {
 
 /** Hero overlay: about 25 words, on a sentence or word break. Display only. */
 function heroDeckText(story) {
+  // Build-time copy (scripts/build-home-preview.mjs) when present; same rules at runtime otherwise.
+  if (story?.heroDeck) return story.heroDeck
   const quote = String(story?.quote || '').trim()
   if (quote) return HomepageStructure.capWords(quote)
   const summary = String(story?.summary || '').trim()
