@@ -1567,6 +1567,15 @@ html[data-hp-theme="light"] .hp-map-seal {
   line-height: 1.15;
 }
 .hp-map-strip-copy p { margin: 0 0 0.85rem; }
+.hp-map-strip-list {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.hp-map-strip-list li { margin: 0 0 0.35rem; }
+.hp-map-strip-list li::marker { color: var(--accent); }
 .hp-map-cta {
   min-height: 48px;
   padding: 0.55rem 1.1rem;
