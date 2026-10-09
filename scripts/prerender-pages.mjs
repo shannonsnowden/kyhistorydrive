@@ -724,7 +724,58 @@ class PrerenderPages {
     return 'image/jpeg'
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, main, jsonLd = '', ogType = 'article' }) {
+  /** Same header as the homepage. Search and Today’s stories link back; the menu is a few lines of script. */
+  static siteHeader(activeRoute = '') {
+    const item = (route, href, label) => {
+      const current = route === activeRoute ? ' class="active" aria-current="page"' : ''
+      return `<a href="${href}" data-route="${route}"${current}>${label}</a>`
+    }
+    return `<a class="skip-link" href="#content">Skip to content</a>
+    <header class="top site-header">
+      <div class="brand">
+        <a href="/" class="brand-home" title="Home">
+          <img class="brand-logo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
+          <h1>Kentucky History Drive</h1>
+        </a>
+        <p class="tagline">History is all around us.</p>
+      </div>
+      <div class="nav-mobile-tools" id="navMobileTools">
+        <a class="nav-icon-btn" id="navSearchToggle" href="/" aria-label="Search places and stories">
+          <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M16 16.5 20.5 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </a>
+        <button type="button" class="nav-icon-btn" id="navMenuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+          <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <nav id="mainNav" aria-label="Primary">
+        <div class="nav-search" id="navSearch">
+          <a id="siteSearchInput" href="/">Search places &amp; stories…</a>
+        </div>
+        <div class="nav-today" id="navToday">
+          <a class="nav-today-btn" href="/#timeline">Today’s stories</a>
+        </div>
+        ${item('home', '/', 'Home')}
+        ${item('map', '/#map', 'Map')}
+        ${item('timeline', '/#timeline', 'Timeline')}
+        ${item('about', '/about/', 'About')}
+        ${item('app', '/#app', 'iPhone app (coming soon)')}
+        <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+          <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
+          <span class="hp-theme-toggle-label">Light</span>
+        </button>
+      </nav>
+    </header>`
+  }
+
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, main, jsonLd = '', ogType = 'article', activeRoute = '' }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
@@ -739,7 +790,7 @@ class PrerenderPages {
     <meta name="twitter:image:alt" content="${PrerenderPages.escapeHtml(altText)}" />
     <meta name="twitter:card" content="${large ? 'summary_large_image' : 'summary'}" />`
     return `<!DOCTYPE html>
-<html lang="en" data-hp-theme="light">
+<html lang="en" data-hp-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -763,7 +814,6 @@ class PrerenderPages {
     ${cssHrefs.map((href) => `<link rel="stylesheet" href="${PrerenderPages.escapeHtml(href)}" />`).join('\n    ')}
     <style>
       .static-read { max-width: 52rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
-      .brand .brand-title { margin: 0; font-size: clamp(1.05rem, 2.5vw, 1.35rem); letter-spacing: 0.02em; color: var(--heading); line-height: 1.15; font-weight: 700; }
       .static-kicker { margin: 0 0 0.35rem; color: var(--accent); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
       .story-head h1 { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
       .story-lead { font-size: 1.125rem; line-height: 1.5; margin: 0 0 1rem; }
@@ -780,25 +830,24 @@ class PrerenderPages {
       .foot a { color: var(--accent); }
       @media (max-width: 700px) { .place-list { columns: 1; } }
     </style>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme')
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.setAttribute('data-hp-theme', stored)
+            return
+          }
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.setAttribute('data-hp-theme', 'light')
+          }
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
-    <header class="top">
-      <div class="brand">
-        <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
-          <p class="brand-title">Kentucky History Drive</p>
-        </a>
-        <p class="tagline">History is all around us.</p>
-      </div>
-      <nav id="mainNav" aria-label="Site">
-        <a href="/">Home</a>
-        <a href="/#map">Map</a>
-        <a href="/#timeline">Timeline</a>
-        <a href="/about/">About</a>
-        <a href="/#app">App</a>
-      </nav>
-    </header>
-    <main class="static-read">
+    ${PrerenderPages.siteHeader(activeRoute)}
+    <main id="content" class="static-read" tabindex="-1">
       ${main}
     </main>
     <footer class="foot">
@@ -807,6 +856,57 @@ class PrerenderPages {
       <a href="/privacy/">Privacy</a>
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
     </footer>
+    <script>
+      (function () {
+        var header = document.querySelector('header.site-header')
+        var menuBtn = document.getElementById('navMenuToggle')
+        var mq = window.matchMedia('(max-width: 600px)')
+        function closeMenu() {
+          if (!header || !menuBtn) return
+          header.classList.remove('is-menu-open')
+          menuBtn.setAttribute('aria-expanded', 'false')
+          menuBtn.setAttribute('aria-label', 'Open menu')
+        }
+        if (header && menuBtn) {
+          menuBtn.addEventListener('click', function () {
+            if (!mq.matches) return
+            var open = header.classList.toggle('is-menu-open')
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false')
+            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
+          })
+          document.getElementById('mainNav').addEventListener('click', function (e) {
+            if (e.target.closest('a') && mq.matches) closeMenu()
+          })
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeMenu()
+          })
+          mq.addEventListener('change', function (e) { if (!e.matches) closeMenu() })
+        }
+        function syncTheme(theme) {
+          document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+            var light = theme === 'light'
+            btn.setAttribute('aria-pressed', light ? 'true' : 'false')
+            btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme')
+            var label = btn.querySelector('.hp-theme-toggle-label')
+            var icon = btn.querySelector('.hp-theme-toggle-icon')
+            if (label) label.textContent = light ? 'Dark' : 'Light'
+            if (icon) icon.textContent = light ? '☾' : '☀'
+          })
+        }
+        syncTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
+        document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var next = document.documentElement.getAttribute('data-hp-theme') === 'light' ? 'dark' : 'light'
+            document.documentElement.setAttribute('data-hp-theme', next)
+            try {
+              localStorage.setItem('khd-theme', next)
+              localStorage.setItem('khd-home-preview-theme', next)
+            } catch (e) {}
+            syncTheme(next)
+          })
+        })
+      })()
+    </script>
   </body>
 </html>
 `
@@ -928,8 +1028,8 @@ class PrerenderPages {
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
-    const main = `<article class="story-reader-layout">
-        <div class="story-reader-main">
+    const main = `<article class="story-reader-layout static-story">
+        <div class="story-intro">
           <nav class="story-crumbs" aria-label="Breadcrumb">
             <a href="/">Home</a>
             <span aria-hidden="true">/</span>
@@ -943,6 +1043,9 @@ class PrerenderPages {
             <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
             ${lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''}
           </header>
+        </div>
+        ${PrerenderPages.storyCreditHtml(photo, story.title)}
+        <div class="story-reader-main">
           <div class="story-body">${marked.parse(bodyMarkdown)}</div>
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
           ${PrerenderPages.relatedHtml(story, all)}
@@ -951,7 +1054,6 @@ class PrerenderPages {
             ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
           </div>
         </div>
-        ${PrerenderPages.storyCreditHtml(photo, story.title)}
       </article>`
     return PrerenderPages.shell({
       title,
@@ -1029,6 +1131,12 @@ class PrerenderPages {
     }
     if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
       throw new Error(`prerender: ${urlPath} is missing the AdSense head tag`)
+    }
+    if (!html.includes('class="top site-header"') || !html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
+      throw new Error(`prerender: ${urlPath} is missing the shared homepage header`)
+    }
+    if (html.includes('KY Markers Drive iPhone app')) {
+      throw new Error(`prerender: ${urlPath} uses an unconfirmed app name`)
     }
     // Place JSON-LD may repeat the public pin. Anything tighter than that pin is rejected.
     let scrubbed = html
@@ -1119,7 +1227,7 @@ class PrerenderPages {
           <p class="about-logo-caption muted">Official Kentucky History Drive seal</p>
         </div>
         <h2>Publisher</h2>
-        <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. It is a web companion to the KY Markers Drive iPhone app.</p>
+        <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
         <h2>Author</h2>
         <p>Shannon Snowden is the author of the Kentucky history stories on this site. Each story is written for Kentucky History Drive and tied to a place, a year, or a map layer when the sources support it.</p>
         <p>Kentucky History Drive helps you explore Kentucky’s historical highway markers on a map, and browse Kentucky history stories on a timeline by era and year.</p>
@@ -1163,6 +1271,7 @@ class PrerenderPages {
       ogType: 'website',
       jsonLd,
       main,
+      activeRoute: 'about',
     })
   }
 
