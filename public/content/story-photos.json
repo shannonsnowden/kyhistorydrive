@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T16:39:19.877Z",
+  "generatedAt": "2026-10-09T18:05:05.219Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -409,21 +409,6 @@
         "year": 2023
       }
     },
-    "col-john-todd-of-lexington": {
-      "slug": "col-john-todd-of-lexington",
-      "historyId": "col-john-todd-lexington-blue-licks",
-      "photo": {
-        "image_url": "/content/photos/stories/col-john-todd-of-lexington.jpg",
-        "title": "Lexington, consolidated with Fayette County, is the second-largest city in Kentucky and the 61st largest in the United States.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Outskirts_of_Lexington,_Kentucky_(14497063772).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
-        "year": 2014,
-        "credit": "Ken Lund from Reno, Nevada, USA",
-        "license": "CC BY-SA 2.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
-      }
-    },
     "col-richard-callaway-of-boonesborough": {
       "slug": "col-richard-callaway-of-boonesborough",
       "historyId": null,
@@ -634,21 +619,6 @@
         "year": null
       }
     },
-    "evan-williams-on-the-louisville-wharf": {
-      "slug": "evan-williams-on-the-louisville-wharf",
-      "historyId": "falls-of-the-ohio",
-      "photo": {
-        "image_url": "/content/photos/stories/evan-williams-on-the-louisville-wharf.jpg",
-        "title": "Evan Williams white label and black label whiskey bottles",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Evan_Williams_white_label_and_black_label_whiskey_bottles.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Kenneth C. Zirkel · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2020,
-        "credit": "Kenneth C. Zirkel",
-        "license": "CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
-      }
-    },
     "falls-of-the-ohio": {
       "slug": "falls-of-the-ohio",
       "historyId": "falls-of-the-ohio",
@@ -769,21 +739,6 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
-    "glasgow-the-barrens": {
-      "slug": "glasgow-the-barrens",
-      "historyId": "glasgow-founding-john-gorin-big-spring",
-      "photo": {
-        "image_url": "/content/photos/stories/glasgow-the-barrens.jpg",
-        "title": "1950 Census Enumeration District Maps - Kentucky (KY) - Barren County - Glasgow - ED 5-1 to 9",
-        "source_url": "https://commons.wikimedia.org/wiki/File:1950_Census_Enumeration_District_Maps_-_Kentucky_(KY)_-_Barren_County_-_Glasgow_-_ED_5-1_to_9_-_NARA_-_12058275.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons · Public domain",
-        "year": 1880,
-        "credit": "",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
-      }
-    },
     "great-saltpetre-cave": {
       "slug": "great-saltpetre-cave",
       "historyId": "great-saltpetre-cave",
@@ -824,21 +779,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
-      }
-    },
-    "henderson-at-red-banks": {
-      "slug": "henderson-at-red-banks",
-      "historyId": "henderson-founding-red-banks",
-      "photo": {
-        "image_url": "/content/photos/stories/henderson-at-red-banks.jpg",
-        "title": "81 (The descriptions are such as we have received, from the introducers.) AMARANTHUS SALICIFOLIUS.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Henderson_and_Co%27s_seed_catalogue_(16256696489).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Henry G. Gilbert Nursery and Seed Trade Catalog Collection.; Peter Henderson & Co · Wikimedia Commons · Public domain",
-        "year": 1872,
-        "credit": "Henry G. Gilbert Nursery and Seed Trade Catalog Collection.; Peter Henderson & Co",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "henry-mckennas-fairfield-sour-mash": {
@@ -899,21 +839,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null
-      }
-    },
-    "indian-knoll-on-the-green-river": {
-      "slug": "indian-knoll-on-the-green-river",
-      "historyId": "indian-knoll",
-      "photo": {
-        "image_url": "/content/photos/stories/indian-knoll-on-the-green-river.jpg",
-        "title": "This image was produced by the Auditor's Office in Lucas County, Ohio for tax assessment purposes.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Block_Card_603_Indian_Knoll_Drive_-_DPLA_-_e4c9771c923858cc7b511e9580e0c356.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Lucas County (Ohio). Auditor's Office · Wikimedia Commons · Public domain",
-        "year": 1965,
-        "credit": "Lucas County (Ohio). Auditor's Office",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "iroquois-beaver-wars": {
@@ -1126,21 +1051,6 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
-    "kickapoo-on-the-kentucky-frontier": {
-      "slug": "kickapoo-on-the-kentucky-frontier",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/kickapoo-on-the-kentucky-frontier.jpg",
-        "title": "Ron McKinney, 22, whose Indian name is Mahkuk, is standing in a virgin Tallgrass prairie area near White Cloud and Troy, Kansas in Doniphan County in the extreme northeast corner of the state *The young man, a Potawatomie-Kickapoo, lives near White Cloud which was named for the last great chief of the Iowa Indian tribe the Indians were given the area land by treaty in 1836. The small town is located at the edge of the Iowa-Sac-Fox Indian Reservation",
-        "source_url": "https://commons.wikimedia.org/wiki/File:RON_MCKINNEY,_22,_WHOSE_INDIAN_NAME_IS_MAHKUK,_IS_STANDING_IN_A_VIRGIN_TALLGRASS_PRAIRIE_AREA_NEAR_WHITE_CLOUD_AND..._-_NARA_-_557112.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Patricia DuBose Duncan · Wikimedia Commons · Public domain",
-        "year": 1974,
-        "credit": "Patricia DuBose Duncan",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
-      }
-    },
     "lancaster-at-wallaces-crossroads": {
       "slug": "lancaster-at-wallaces-crossroads",
       "historyId": "lancaster-founding-wallace-s-crossroads",
@@ -1178,21 +1088,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null
-      }
-    },
-    "leestown": {
-      "slug": "leestown",
-      "historyId": "leestown",
-      "photo": {
-        "image_url": "/content/photos/stories/leestown.jpg",
-        "title": "Lexington Veterans Affairs Medical Center Leestown Road Division.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_Veterans_Affairs_Medical_Center,_Leestown_Road_Division.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2008,
-        "credit": "FloNight (Sydney Poore) and Russell Poore",
-        "license": "CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
       }
     },
     "levi-todd-lexington-co-founder": {
@@ -1474,21 +1369,6 @@
         "year": 2019
       }
     },
-    "ojibwe-on-birds-war-road": {
-      "slug": "ojibwe-on-birds-war-road",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/ojibwe-on-birds-war-road.jpg",
-        "title": "Map of Trans-Appalachian Virginia as it was from 1776 to 1780.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_County,_Virginia_1776.png",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Drdpw · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2018,
-        "credit": "Drdpw",
-        "license": "CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
-      }
-    },
     "old-fort-earthworks-15gp1-greenup-county": {
       "slug": "old-fort-earthworks-15gp1-greenup-county",
       "historyId": "old-fort-earthworks-15gp1-greenup",
@@ -1535,21 +1415,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2018
-      }
-    },
-    "paris-from-hopewell": {
-      "slug": "paris-from-hopewell",
-      "historyId": "paris-founding",
-      "photo": {
-        "image_url": "/content/photos/stories/paris-from-hopewell.jpg",
-        "title": "Portrait of Senator John Edwards of Kentucky",
-        "source_url": "https://commons.wikimedia.org/wiki/File:John_Edwards_of_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "From the book, \"Paris (Hopewell) sesquicentennial: a record of the one hundred and fiftieth anniversary of the founding of Bourbon's county seat,\" by Mrs. Wm. Breckenridge Arder… · Wikimedia Commons · Public domain",
-        "year": null,
-        "credit": "From the book, \"Paris (Hopewell) sesquicentennial: a record of the one hundred and fiftieth anniversary of the founding of Bourbon's county seat,\" by Mrs. Wm. Breckenridge Arder…",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "peter-village-early-woodland-enclosure-near-lexington": {
@@ -1988,21 +1853,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
-      }
-    },
-    "versailles-takes-shape": {
-      "slug": "versailles-takes-shape",
-      "historyId": "versailles-founding",
-      "photo": {
-        "image_url": "/content/photos/stories/versailles-takes-shape.jpg",
-        "title": "Drawer pull in the shape of a double-headed eagle, reminiscent of the House of Austria, in the library of the Petit appartement de la Reine, Palace of Versai…",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Aigle_bicephale_poignee_bibliotheque_cabinets_interieurs_Reine_Versailles.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Myrabella · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2011,
-        "credit": "Myrabella",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "washington-mason-county": {
@@ -2460,21 +2310,6 @@
         "year": 2023
       }
     },
-    "col-john-todd-lexington-blue-licks": {
-      "slug": "col-john-todd-of-lexington",
-      "historyId": "col-john-todd-lexington-blue-licks",
-      "photo": {
-        "image_url": "/content/photos/stories/col-john-todd-of-lexington.jpg",
-        "title": "Lexington, consolidated with Fayette County, is the second-largest city in Kentucky and the 61st largest in the United States.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Outskirts_of_Lexington,_Kentucky_(14497063772).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
-        "year": 2014,
-        "credit": "Ken Lund from Reno, Nevada, USA",
-        "license": "CC BY-SA 2.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
-      }
-    },
     "cumberland-falls": {
       "slug": "cumberland-falls",
       "historyId": "cumberland-falls",
@@ -2712,21 +2547,6 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
-    "glasgow-founding-john-gorin-big-spring": {
-      "slug": "glasgow-the-barrens",
-      "historyId": "glasgow-founding-john-gorin-big-spring",
-      "photo": {
-        "image_url": "/content/photos/stories/glasgow-the-barrens.jpg",
-        "title": "1950 Census Enumeration District Maps - Kentucky (KY) - Barren County - Glasgow - ED 5-1 to 9",
-        "source_url": "https://commons.wikimedia.org/wiki/File:1950_Census_Enumeration_District_Maps_-_Kentucky_(KY)_-_Barren_County_-_Glasgow_-_ED_5-1_to_9_-_NARA_-_12058275.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons · Public domain",
-        "year": 1880,
-        "credit": "",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
-      }
-    },
     "great-saltpetre-cave": {
       "slug": "great-saltpetre-cave",
       "historyId": "great-saltpetre-cave",
@@ -2767,21 +2587,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
-      }
-    },
-    "henderson-founding-red-banks": {
-      "slug": "henderson-at-red-banks",
-      "historyId": "henderson-founding-red-banks",
-      "photo": {
-        "image_url": "/content/photos/stories/henderson-at-red-banks.jpg",
-        "title": "81 (The descriptions are such as we have received, from the introducers.) AMARANTHUS SALICIFOLIUS.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Henderson_and_Co%27s_seed_catalogue_(16256696489).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Henry G. Gilbert Nursery and Seed Trade Catalog Collection.; Peter Henderson & Co · Wikimedia Commons · Public domain",
-        "year": 1872,
-        "credit": "Henry G. Gilbert Nursery and Seed Trade Catalog Collection.; Peter Henderson & Co",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "hidden-river-cave-horse-cave-1890-1943": {
@@ -2830,21 +2635,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null
-      }
-    },
-    "indian-knoll": {
-      "slug": "indian-knoll-on-the-green-river",
-      "historyId": "indian-knoll",
-      "photo": {
-        "image_url": "/content/photos/stories/indian-knoll-on-the-green-river.jpg",
-        "title": "This image was produced by the Auditor's Office in Lucas County, Ohio for tax assessment purposes.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Block_Card_603_Indian_Knoll_Drive_-_DPLA_-_e4c9771c923858cc7b511e9580e0c356.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Lucas County (Ohio). Auditor's Office · Wikimedia Commons · Public domain",
-        "year": 1965,
-        "credit": "Lucas County (Ohio). Auditor's Office",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "ruddells-station-harrison-county": {
@@ -3043,21 +2833,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null
-      }
-    },
-    "leestown": {
-      "slug": "leestown",
-      "historyId": "leestown",
-      "photo": {
-        "image_url": "/content/photos/stories/leestown.jpg",
-        "title": "Lexington Veterans Affairs Medical Center Leestown Road Division.",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_Veterans_Affairs_Medical_Center,_Leestown_Road_Division.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2008,
-        "credit": "FloNight (Sydney Poore) and Russell Poore",
-        "license": "CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
       }
     },
     "levi-todd-ellerslie-lexington": {
@@ -3319,21 +3094,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2018
-      }
-    },
-    "paris-founding": {
-      "slug": "paris-from-hopewell",
-      "historyId": "paris-founding",
-      "photo": {
-        "image_url": "/content/photos/stories/paris-from-hopewell.jpg",
-        "title": "Portrait of Senator John Edwards of Kentucky",
-        "source_url": "https://commons.wikimedia.org/wiki/File:John_Edwards_of_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "From the book, \"Paris (Hopewell) sesquicentennial: a record of the one hundred and fiftieth anniversary of the founding of Bourbon's county seat,\" by Mrs. Wm. Breckenridge Arder… · Wikimedia Commons · Public domain",
-        "year": null,
-        "credit": "From the book, \"Paris (Hopewell) sesquicentennial: a record of the one hundred and fiftieth anniversary of the founding of Bourbon's county seat,\" by Mrs. Wm. Breckenridge Arder…",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "peter-village-enclosure-15fa166-fayette-county": {
@@ -3625,21 +3385,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
-      }
-    },
-    "versailles-founding": {
-      "slug": "versailles-takes-shape",
-      "historyId": "versailles-founding",
-      "photo": {
-        "image_url": "/content/photos/stories/versailles-takes-shape.jpg",
-        "title": "Drawer pull in the shape of a double-headed eagle, reminiscent of the House of Austria, in the library of the Petit appartement de la Reine, Palace of Versai…",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Aigle_bicephale_poignee_bibliotheque_cabinets_interieurs_Reine_Versailles.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Myrabella · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2011,
-        "credit": "Myrabella",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "washington-mason-county-founding-1785-1786": {

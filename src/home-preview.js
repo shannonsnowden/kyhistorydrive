@@ -17,6 +17,8 @@ import { AdSlot } from './ad-slot.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
 import { HeroCarousel } from './hero-carousel.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { photoCreditHtml } from './photo-credit.js'
+import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
 
 function escapeHtml(s) {
   return String(s)
@@ -188,10 +190,11 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
       /* use index row */
     }
     const wiki = extractWikipediaUrl(full.bodyMarkdown)
+    const slug = full.slug || meta.slug
     const stored = usablePhoto(full.photo) || usablePhoto(meta.photo)
     // Only try Wikipedia when the story cites a wiki URL — title fallback 404s (e.g. theme-only briefs).
-    const photo = stored || (wiki ? await fetchWikipediaPhoto(wiki) : null)
-    const slug = full.slug || meta.slug
+    // Blocked slugs stay empty unless a hand-picked file is already stored.
+    const photo = stored || (wiki && !storyBlocksAutoPhoto(slug) ? await fetchWikipediaPhoto(wiki) : null)
     const loc = locations[slug] || {}
     const lat = loc.lat ?? meta.lat ?? null
     const lon = loc.lon ?? meta.lon ?? null
@@ -227,10 +230,7 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
 }
 
 function photoCredit(photo) {
-  if (!photo) return ''
-  const label = photo.attribution || photo.source_label || ''
-  const year = photo.year ? ` · ${photo.year}` : ''
-  return label ? `${label}${year}` : ''
+  return photoCreditHtml(photo, { includeYear: true })
 }
 
 function briefStories(pack) {
@@ -288,7 +288,7 @@ function renderHeroSlide(story, index) {
               : `<a class="btn hp-cta" href="/#timeline">All stories</a>`
           }
         </div>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
+        ${credit ? `<p class="hp-photo-credit">Photo: ${credit}</p>` : ''}
       </div>
     </article>`
 }
@@ -397,7 +397,7 @@ function renderFeatures(pack) {
           <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
           <p class="hp-feature-deck">${escapeHtml(HomepageStructure.finishedSummary(item.summary))}</p>
           ${cta}
-          ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
+          ${credit ? `<p class="hp-photo-credit">Photo: ${credit}</p>` : ''}
         </div>
       </article>`
     })

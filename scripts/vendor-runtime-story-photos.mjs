@@ -13,6 +13,7 @@
  *   node scripts/vendor-runtime-story-photos.mjs --apply   # write files
  */
 import { createHash } from 'node:crypto'
+import { storyBlocksAutoPhoto } from '../src/no-auto-story-photos.js'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -533,6 +534,16 @@ function storedPhoto({ caption, sourceUrl, author, license, licenseUrl, year }) 
 }
 
 async function resolveOne(story, loc, historicPhotos, siteLinks) {
+  if (storyBlocksAutoPhoto(story.slug)) {
+    return {
+      slug: story.slug,
+      title: story.title,
+      status: 'skipped',
+      reason: 'no auto photo (wrong subject)',
+      license: 'blocked',
+      source: '',
+    }
+  }
   const title = story.title
   const placeHint = loc.matchedPlace || story.county || ''
   const lat = loc.lat ?? null

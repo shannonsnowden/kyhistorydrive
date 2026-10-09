@@ -12,16 +12,5 @@
     "kentucky"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-19",
-  "photo": {
-    "image_url": "/content/photos/stories/henderson-at-red-banks.jpg",
-    "title": "81 (The descriptions are such as we have received, from the introducers.) AMARANTHUS SALICIFOLIUS.",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Henderson_and_Co%27s_seed_catalogue_(16256696489).jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Henry G. Gilbert Nursery and Seed Trade Catalog Collection.; Peter Henderson & Co · Wikimedia Commons · Public domain",
-    "year": 1872,
-    "credit": "Henry G. Gilbert Nursery and Seed Trade Catalog Collection.; Peter Henderson & Co",
-    "license": "Public domain",
-    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
-  }
+  "briefDate": "2026-09-19"
 }

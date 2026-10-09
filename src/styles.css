@@ -1276,6 +1276,13 @@ html[data-hp-theme="light"] .era-other {
   line-height: 1.35;
   color: var(--muted);
 }
+.story-sidebar-photo-attr a,
+.hp-photo-credit a,
+.historic-photo-attr a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
 .story-photo-source-label {
   color: var(--accent);
   font-weight: 700;

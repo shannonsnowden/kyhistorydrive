@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T16:39:21.913Z",
+  "generatedAt": "2026-10-09T18:05:07.191Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg": {
@@ -203,23 +203,6 @@
         }
       ]
     },
-    "/content/photos/stories/indian-knoll-on-the-green-river.jpg": {
-      "sha256": "942d732b88548e6ba03be901146df0c09ec87c96424e2c671c197f7c370cde4d",
-      "width": 626,
-      "height": 411,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/indian-knoll-on-the-green-river-626.avif",
-          "w": 626
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/indian-knoll-on-the-green-river-626.webp",
-          "w": 626
-        }
-      ]
-    },
     "/content/photos/stories/ashlands-adena-mounds.jpg": {
       "sha256": "c28413facb889cc5beef514206a39989023062a421c8cccb04bae82b548eb753",
       "width": 1600,
@@ -407,56 +390,6 @@
         }
       ]
     },
-    "/content/photos/stories/col-john-todd-of-lexington.jpg": {
-      "sha256": "ad228987953d79857c32748e0e7a26c969e9ab08dee780c597b15e741fe21e5b",
-      "width": 1600,
-      "height": 1200,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/col-john-todd-of-lexington-1600.webp",
-          "w": 1600
-        }
-      ]
-    },
-    "/content/photos/stories/evan-williams-on-the-louisville-wharf.jpg": {
-      "sha256": "d01a141c21f2bfa2ef27113b0ba6511bb927dc46a3ab90d88bcfe6768f112c00",
-      "width": 1600,
-      "height": 2099,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/evan-williams-on-the-louisville-wharf-1600.webp",
-          "w": 1600
-        }
-      ]
-    },
     "/content/photos/stories/shepherdsville-on-salt-river.jpg": {
       "sha256": "4f3c6e31ff87ca2761097eded03fd784f532c8e9868fcb23e6fb2762cd954f5c",
       "width": 1280,
@@ -563,31 +496,6 @@
       "height": 633,
       "avif": [],
       "webp": []
-    },
-    "/content/photos/stories/leestown.jpg": {
-      "sha256": "51a3dd42c7497d11607c8c09d7ba4e4f1742377c7682959458e24f767d2c0ff7",
-      "width": 1600,
-      "height": 933,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/leestown-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/leestown-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/leestown-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/leestown-1600.webp",
-          "w": 1600
-        }
-      ]
     },
     "/content/photos/stories/georgetown-and-royal-spring.jpg": {
       "sha256": "ff6323346811bc8d48cae95ca773824a0c1dd0a02cce7b8a0251cc36c03268fa",
@@ -806,13 +714,6 @@
         }
       ]
     },
-    "/content/photos/stories/paris-from-hopewell.jpg": {
-      "sha256": "e5b3d95f7e07d3bf0cd584936d35ac52a24bbfa3045745e5f33f0b15c3f6862c",
-      "width": 175,
-      "height": 225,
-      "avif": [],
-      "webp": []
-    },
     "/content/photos/stories/falls-of-the-ohio.jpg": {
       "sha256": "0bae2ef9b73b01c1fd3a1abecf2175129c102e4074acdfe0851f166473d06b15",
       "width": 1600,
@@ -937,23 +838,6 @@
       "avif": [],
       "webp": []
     },
-    "/content/photos/stories/ojibwe-on-birds-war-road.jpg": {
-      "sha256": "c4e5ba8f64ba5a116db4270ed3005171511ec10f64caa7e1061578e393b2373f",
-      "width": 638,
-      "height": 300,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/ojibwe-on-birds-war-road-638.avif",
-          "w": 638
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/ojibwe-on-birds-war-road-638.webp",
-          "w": 638
-        }
-      ]
-    },
     "/content/photos/stories/shelbyville.jpg": {
       "sha256": "9d3d671a3c80990b540aff1ddf565683cc6b31c77d50bf165e6e94b240bfce03",
       "width": 1600,
@@ -1068,31 +952,6 @@
       "avif": [],
       "webp": []
     },
-    "/content/photos/stories/henderson-at-red-banks.jpg": {
-      "sha256": "499a0c251bcc08aff0dc8d1b4c04db85469ed534c1f5c8222d4436b62992299b",
-      "width": 1600,
-      "height": 2530,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/henderson-at-red-banks-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/henderson-at-red-banks-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/henderson-at-red-banks-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/henderson-at-red-banks-983.webp",
-          "w": 983
-        }
-      ]
-    },
     "/content/photos/stories/william-whitley-sportsmans-hill.jpg": {
       "sha256": "cbd88d53d83e50f571d118cc9a840b9e64b6b5f8c26885e4dfd687fc64484718",
       "width": 1600,
@@ -1168,31 +1027,6 @@
         }
       ]
     },
-    "/content/photos/stories/kickapoo-on-the-kentucky-frontier.jpg": {
-      "sha256": "06fecaa71f72714cfaa238f8a64dae75cf20f2b1d7680c173ad71fbca0cf19d7",
-      "width": 1600,
-      "height": 1087,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/kickapoo-on-the-kentucky-frontier-1600.webp",
-          "w": 1600
-        }
-      ]
-    },
     "/content/photos/stories/nicholasville-takes-shape.jpg": {
       "sha256": "ad847ed5f5e0d142dbb36a14e5e26ca644be434e339b5b94d5524869045e47d2",
       "width": 1600,
@@ -1214,31 +1048,6 @@
         },
         {
           "src": "/content/photos/opt/stories/nicholasville-takes-shape-1600.webp",
-          "w": 1600
-        }
-      ]
-    },
-    "/content/photos/stories/versailles-takes-shape.jpg": {
-      "sha256": "9b57d824158c66785a9a2186eb401b9e74a11d86e21f83f8ac669cd19e56de46",
-      "width": 1600,
-      "height": 1185,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/versailles-takes-shape-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/versailles-takes-shape-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/versailles-takes-shape-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/versailles-takes-shape-1600.webp",
           "w": 1600
         }
       ]
@@ -1306,31 +1115,6 @@
         },
         {
           "src": "/content/photos/opt/stories/lancaster-at-wallaces-crossroads-1360.webp",
-          "w": 1360
-        }
-      ]
-    },
-    "/content/photos/stories/glasgow-the-barrens.jpg": {
-      "sha256": "6e7afecaba8ad37637f29517b2819d7059388bb3880e16ffc2ee39b6757a6b95",
-      "width": 1600,
-      "height": 2139,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/glasgow-the-barrens-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/glasgow-the-barrens-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/glasgow-the-barrens-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/glasgow-the-barrens-1360.webp",
           "w": 1360
         }
       ]

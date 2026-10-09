@@ -20,6 +20,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { marked } from 'marked'
+import sharp from 'sharp'
+import { ccByLicense, photoCreditHtml } from '../src/photo-credit.js'
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
@@ -27,6 +29,7 @@ class PrerenderPages {
   static LOGO = 'https://kyhistorydrive.com/brand/khd-logo-512.png'
   static ADSENSE =
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>'
+  static photoSizes = {}
   static COUNTY_DISPLAY = { Larue: 'LaRue' }
   static ERA_LABEL = {
     prehistoric: 'Prehistoric',
@@ -72,6 +75,7 @@ class PrerenderPages {
       : {}
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
     const stories = PrerenderPages.loadStories(root)
+    await PrerenderPages.collectPhotoSizes(root, stories)
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
     const dates = PrerenderPages.gitFileDates(root)
@@ -709,7 +713,10 @@ class PrerenderPages {
   }
 
   static storyPictureHtml(src, alt) {
-    const img = `<img src="${PrerenderPages.escapeHtml(src)}" alt="${alt}" loading="lazy" />`
+    const size = PrerenderPages.photoSizes?.[src]
+    const dim =
+      size?.width && size?.height ? ` width="${Number(size.width)}" height="${Number(size.height)}"` : ''
+    const img = `<img src="${PrerenderPages.escapeHtml(src)}" alt="${alt}"${dim} loading="eager" fetchpriority="high" decoding="async" />`
     const meta = PrerenderPages.photoVariants?.[src]
     if (!meta?.avif?.length && !meta?.webp?.length) return img
     const sizes = '(max-width: 600px) 100vw, 220px'
@@ -730,8 +737,7 @@ class PrerenderPages {
   static storyCreditHtml(photo, title) {
     if (!photo?.image_url) return ''
     const caption = PrerenderPages.escapeHtml(PrerenderPages.photoAlt(photo, title))
-    const sourceLabel = PrerenderPages.escapeHtml(photo.source_label || photo.credit || '')
-    const attribution = PrerenderPages.escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
+    const attribution = photoCreditHtml(photo)
     const year = photo.year ? ` <span class="muted">(${PrerenderPages.escapeHtml(String(photo.year))})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
     const img = PrerenderPages.storyPictureHtml(photo.image_url, caption)
@@ -744,15 +750,13 @@ class PrerenderPages {
         ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year}</p>
-      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>
+      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || 'Unknown'}</p>
     </aside>`
   }
 
   static layerCreditHtml(photo) {
     if (!photo?.image_url) return ''
-    const label = photo.attribution || photo.source_label || ''
-    const year = photo.year ? ` · ${photo.year}` : ''
-    const credit = label ? `${label}${year}` : ''
+    const credit = photoCreditHtml(photo, { includeYear: true })
     const caption = PrerenderPages.escapeHtml(photo.title || 'Layer photo')
     const img = PrerenderPages.escapeHtml(photo.image_url)
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
@@ -762,7 +766,7 @@ class PrerenderPages {
       </a>
       <figcaption>
         <p class="story-sidebar-photo-cap">${caption}</p>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${PrerenderPages.escapeHtml(credit)}</p>` : ''}
+        ${credit ? `<p class="hp-photo-credit">Photo: ${credit}</p>` : ''}
       </figcaption>
     </figure>`
   }
@@ -843,17 +847,37 @@ class PrerenderPages {
     </header>`
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, main, jsonLd = '', ogType = 'article', activeRoute = '' }) {
+  static shell({
+    title,
+    description,
+    canonical,
+    cssHrefs,
+    image,
+    imageAlt,
+    imageWidth,
+    imageHeight,
+    main,
+    jsonLd = '',
+    ogType = 'article',
+    activeRoute = '',
+  }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
     const imgUrl = image || PrerenderPages.LOGO
     const large = Boolean(image) && image !== PrerenderPages.LOGO
     const altText = imageAlt || 'Kentucky History Drive official seal'
+    const width = Number(imageWidth)
+    const height = Number(imageHeight)
+    const dims =
+      width > 0 && height > 0
+        ? `\n    <meta property="og:image:width" content="${width}" />
+    <meta property="og:image:height" content="${height}" />`
+        : ''
     const img = `<meta property="og:image" content="${PrerenderPages.escapeHtml(imgUrl)}" />
     <meta property="og:image:secure_url" content="${PrerenderPages.escapeHtml(imgUrl)}" />
     <meta property="og:image:type" content="${PrerenderPages.imageType(imgUrl)}" />
-    <meta property="og:image:alt" content="${PrerenderPages.escapeHtml(altText)}" />
+    <meta property="og:image:alt" content="${PrerenderPages.escapeHtml(altText)}" />${dims}
     <meta name="twitter:image" content="${PrerenderPages.escapeHtml(imgUrl)}" />
     <meta name="twitter:image:alt" content="${PrerenderPages.escapeHtml(altText)}" />
     <meta name="twitter:card" content="${large ? 'summary_large_image' : 'summary'}" />`
@@ -1036,7 +1060,7 @@ class PrerenderPages {
     return `<nav class="static-related" aria-label="Related stories"><h2>Related stories</h2><ul>${items}</ul></nav>`
   }
 
-  static storyJsonLd(story, description, image, imageAlt, layer) {
+  static storyJsonLd(story, description, image, imageAlt, layer, imageWidth, imageHeight) {
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const geo = PrerenderPages.publicGeo(story)
     const placeName = story.matchedPlace || story.title
@@ -1062,7 +1086,15 @@ class PrerenderPages {
       description,
       mainEntityOfPage: canonical,
       url: canonical,
-      image: [image || PrerenderPages.LOGO],
+      image:
+        Number(imageWidth) > 0 && Number(imageHeight) > 0
+          ? {
+              '@type': 'ImageObject',
+              url: image || PrerenderPages.LOGO,
+              width: Number(imageWidth),
+              height: Number(imageHeight),
+            }
+          : [image || PrerenderPages.LOGO],
       datePublished: dates.published,
       dateModified: dates.modified,
       author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
@@ -1126,6 +1158,7 @@ class PrerenderPages {
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
+    const imageSize = photo ? PrerenderPages.photoSizes?.[photo.image_url] : null
     const main = `<article class="story-reader-layout static-story">
         <div class="story-intro">
           ${PrerenderPages.crumbHtml(story, layer)}
@@ -1154,7 +1187,17 @@ class PrerenderPages {
       cssHrefs,
       image,
       imageAlt,
-      jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
+      imageWidth: imageSize?.width,
+      imageHeight: imageSize?.height,
+      jsonLd: PrerenderPages.storyJsonLd(
+        story,
+        description,
+        image,
+        imageAlt,
+        layer,
+        imageSize?.width,
+        imageSize?.height,
+      ),
       main,
     })
   }
@@ -1312,6 +1355,14 @@ class PrerenderPages {
     if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} og:image is not the story photo or logo fallback`)
     }
+    const articleImage = article?.image
+    const articleImageUrl =
+      typeof articleImage === 'string'
+        ? articleImage
+        : articleImage?.url || (Array.isArray(articleImage) ? articleImage[0]?.url || articleImage[0] : '')
+    if (articleImageUrl !== expectedImage) {
+      throw new Error(`prerender: ${urlPath} Article image is not the og:image`)
+    }
     if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} twitter:image is missing`)
     }
@@ -1326,7 +1377,52 @@ class PrerenderPages {
       if (html.includes('property="og:image" content="' + PrerenderPages.LOGO + '"')) {
         throw new Error(`prerender: ${urlPath} used the logo instead of the story photo`)
       }
+      const size = PrerenderPages.photoSizes?.[story.photo.image_url]
+      if (!size?.width || !size?.height) {
+        throw new Error(`prerender: ${urlPath} story photo is missing width and height`)
+      }
+      if (!html.includes(`property="og:image:width" content="${size.width}"`)) {
+        throw new Error(`prerender: ${urlPath} og:image:width is missing`)
+      }
+      if (!html.includes(`property="og:image:height" content="${size.height}"`)) {
+        throw new Error(`prerender: ${urlPath} og:image:height is missing`)
+      }
+      if (article?.image?.width !== size.width || article?.image?.height !== size.height) {
+        throw new Error(`prerender: ${urlPath} Article image size does not match og:image`)
+      }
+      if (!html.includes(`width="${size.width}"`) || !html.includes(`height="${size.height}"`)) {
+        throw new Error(`prerender: ${urlPath} in-page photo is missing width and height`)
+      }
+      if (!html.includes('loading="eager"') || !html.includes('fetchpriority="high"')) {
+        throw new Error(`prerender: ${urlPath} main photo is not eager`)
+      }
+      const cc = ccByLicense(story.photo)
+      if (cc) {
+        const licenseHref = `href="${PrerenderPages.escapeHtml(cc.url)}"`
+        if (!html.includes(licenseHref) || !html.includes('rel="license noopener noreferrer"')) {
+          throw new Error(`prerender: ${urlPath} CC license is not linked`)
+        }
+        if (!html.includes('>source file</a>')) {
+          throw new Error(`prerender: ${urlPath} is missing the source file link`)
+        }
+      }
     }
+  }
+
+  static async collectPhotoSizes(root, stories) {
+    const sizes = {}
+    for (const [url, meta] of Object.entries(PrerenderPages.photoVariants || {})) {
+      if (meta?.width > 0 && meta?.height > 0) sizes[url] = { width: meta.width, height: meta.height }
+    }
+    for (const story of stories) {
+      const url = story.photo?.image_url
+      if (!url || sizes[url] || !String(url).startsWith('/content/photos/')) continue
+      const abs = path.join(root, 'public', url.replace(/^\//, ''))
+      if (!fs.existsSync(abs)) continue
+      const meta = await sharp(abs).metadata()
+      if (meta.width > 0 && meta.height > 0) sizes[url] = { width: meta.width, height: meta.height }
+    }
+    PrerenderPages.photoSizes = sizes
   }
 
   static aboutPage(cssHrefs) {
