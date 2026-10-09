@@ -563,7 +563,7 @@ class PrerenderPages {
     <header class="top">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive" />
+          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" />
           <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(im&&s&&im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
           <p class="brand-title">Kentucky History Drive</p>
         </a>
