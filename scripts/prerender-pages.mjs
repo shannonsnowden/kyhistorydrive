@@ -561,8 +561,8 @@ class PrerenderPages {
     <header class="top">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo brand-logo--dark" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
-          <img class="brand-logo brand-logo--light" src="/brand/khd-logo-light.png" width="88" height="88" alt="Kentucky History Drive logo" loading="lazy" decoding="async" />
+          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
+          <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}var im=document.getElementById('brandLogo');if(im&&i>0){im.src=L[i]}if(im){im.setAttribute('data-logo',String(i))}})()</script>
           <p class="brand-title">Kentucky History Drive</p>
         </a>
         <p class="tagline">History is all around us.</p>
