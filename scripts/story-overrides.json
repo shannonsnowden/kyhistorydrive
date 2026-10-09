@@ -612,6 +612,18 @@
       "yearEnd": 1933,
       "county": "Fayette"
     },
+    "delaware-winter-camps-on-kentucky-ground": {
+      "reason": "yearStart/yearEnd were 2018 from the WordPress upload path in the Henderson 1992 PDF URL (/uploads/2018/10/), not the event. Winter camps use the story territory window c.1750–1775 (vague start; end follows Henderson’s “by the 1770s”).",
+      "date": "2026-10-09",
+      "yearStart": 1750,
+      "yearEnd": 1775
+    },
+    "miami-hunters-return-north-of-the-ohio": {
+      "reason": "yearStart/yearEnd were 2020 from the nkytribune.com/2020/11/ source URL, not the event. The hunters’ return uses the story territory window c.1750–1795.",
+      "date": "2026-10-09",
+      "yearStart": 1750,
+      "yearEnd": 1795
+    },
     "mantle-rock-and-the-trail-of-tears": {
       "reason": "SWAP for Cumberland Falls (already cumberland-falls, 2026-09-17). Pin KHS marker #1675 on KY 133 (public TNC preserve, Trail of Tears NHT). County Livingston. Years 1838–1839.",
       "date": "2026-10-09",

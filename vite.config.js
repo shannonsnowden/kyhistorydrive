@@ -4,13 +4,14 @@ import { fileURLToPath } from 'node:url'
 
 const root = dirname(fileURLToPath(import.meta.url))
 
-/** `/privacy` and `/privacy/` both serve the crawlable privacy page. */
+/** `/privacy` and `/about` serve the crawlable pages, with or without a trailing slash. */
 function privacyPath() {
   const rewrite = (req, _res, next) => {
     const q = req.url?.indexOf('?') ?? -1
     const path = q === -1 ? req.url : req.url.slice(0, q)
     const search = q === -1 ? '' : req.url.slice(q)
     if (path === '/privacy' || path === '/privacy/') req.url = `/privacy/index.html${search}`
+    if (path === '/about' || path === '/about/') req.url = `/about/index.html${search}`
     next()
   }
   return {

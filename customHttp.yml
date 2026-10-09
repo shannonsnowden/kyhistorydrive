@@ -34,3 +34,11 @@ customHeaders:
     headers:
       - key: 'Content-Type'
         value: 'text/html; charset=utf-8'
+  - pattern: '/about'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/html; charset=utf-8'
+  - pattern: '/about/'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/html; charset=utf-8'

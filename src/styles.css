@@ -1416,6 +1416,38 @@ html[data-hp-theme="light"] .era-other {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
+/* Filled at build time with /stories/ and /layers/ links. Empty in dev, so it stays out of the way. */
+.crawl-directory:not(:has(a)) { display: none; }
+.crawl-directory {
+  padding: 0.25rem clamp(1.25rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.25rem);
+}
+.crawl-directory summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.crawl-directory-groups {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 0.9rem;
+}
+.crawl-directory h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--heading);
+}
+.crawl-list {
+  columns: 3;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.crawl-list li { break-inside: avoid; margin: 0 0 0.28rem; }
+.crawl-directory a { color: var(--text); }
+.crawl-directory a:hover { color: var(--accent); }
+@media (max-width: 900px) { .crawl-list { columns: 2; } }
+@media (max-width: 640px) { .crawl-list { columns: 1; } }
 .hp-section-head {
   margin-bottom: 1.35rem;
 }

@@ -23,6 +23,25 @@
     <meta name="twitter:description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. An iPhone app is coming soon." />
     <meta name="twitter:image" content="https://kyhistorydrive.com/brand/khd-logo-512.png" />
     <meta name="twitter:image:alt" content="Kentucky History Drive official seal" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://kyhistorydrive.com/#organization",
+        "name": "Kentucky History Drive",
+        "url": "https://kyhistorydrive.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://kyhistorydrive.com/brand/khd-logo-512.png"
+        },
+        "description": "Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline.",
+        "founder": {
+          "@type": "Person",
+          "name": "Shannon Snowden",
+          "url": "https://kyhistorydrive.com/about/"
+        }
+      }
+    </script>
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -209,6 +228,7 @@
         </div>
         <div id="hpRelatedCards" class="hp-related"></div>
       </section>
+      <nav id="crawlDirectory" class="crawl-directory" aria-label="Stories and map layers"></nav>
     </section>
 
     <section id="hero" class="hero" data-view="map" hidden>
@@ -352,7 +372,8 @@
 
     <footer class="foot">
       <span>kyhistorydrive.com</span>
-      <a href="/privacy">Privacy</a>
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy</a>
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
     </footer>
 

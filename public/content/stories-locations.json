@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T09:20:59.845Z",
+  "generatedAt": "2026-10-09T12:00:23.448Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
@@ -471,6 +471,22 @@
       "mapConfidence": "override",
       "matchedPlace": "Col. John Todd of Lexington",
       "historyId": "col-john-todd-lexington-blue-licks"
+    },
+    "delaware-winter-camps-on-kentucky-ground": {
+      "slug": "delaware-winter-camps-on-kentucky-ground",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "miami-hunters-return-north-of-the-ohio": {
+      "slug": "miami-hunters-return-north-of-the-ohio",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "nonhelema": {
       "slug": "nonhelema",
@@ -1647,22 +1663,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)",
       "historyId": "saltpeter-cave-carter-caves-15cr99"
-    },
-    "delaware-winter-camps-on-kentucky-ground": {
-      "slug": "delaware-winter-camps-on-kentucky-ground",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "miami-hunters-return-north-of-the-ohio": {
-      "slug": "miami-hunters-return-north-of-the-ohio",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
     },
     "big-bone-lick-older-cycle": {
       "slug": "big-bone-lick-older-cycle",

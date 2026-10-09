@@ -15,6 +15,7 @@
  * Years written here are yearStart/yearEnd (occupation or event). Archaeological
  * pins are never printed. MapLibre is not included.
  */
+import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -22,6 +23,10 @@ import { marked } from 'marked'
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
+  static ORG_ID = 'https://kyhistorydrive.com/#organization'
+  static LOGO = 'https://kyhistorydrive.com/brand/khd-logo-512.png'
+  static ADSENSE =
+    '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>'
   static COUNTY_DISPLAY = { Larue: 'LaRue' }
   static ERA_LABEL = {
     prehistoric: 'Prehistoric',
@@ -65,26 +70,58 @@ class PrerenderPages {
     const stories = PrerenderPages.loadStories(root)
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
-    const urls = []
+    const dates = PrerenderPages.gitLastmods(root)
+    for (const story of stories) story.lastmod = PrerenderPages.storyLastmod(story, dates)
+    const homeLast = stories.reduce(
+      (max, story) => PrerenderPages.laterDate(max, story.lastmod),
+      dates.get('index.html') || '',
+    )
+    const entries = [{ loc: `${PrerenderPages.SITE}/`, lastmod: homeLast }]
+    const aboutHtml = PrerenderPages.aboutPage(cssHrefs)
+    PrerenderPages.assertPage(aboutHtml, { archaeological: false, lat: null, lon: null }, '/about/')
+    if (!aboutHtml.includes('Shannon Snowden') || !aboutHtml.includes('"@type":"Organization"')) {
+      throw new Error('prerender: about page is missing the publisher, author, or Organization JSON-LD')
+    }
+    PrerenderPages.writePage(dist, '/about/', aboutHtml)
+    entries.push({
+      loc: `${PrerenderPages.SITE}/about/`,
+      lastmod: PrerenderPages.laterDate(dates.get('scripts/prerender-pages.mjs') || '', dates.get('index.html') || ''),
+    })
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
-      const html = PrerenderPages.storyPage(story, cssHrefs)
+      const description = PrerenderPages.metaDescription(
+        PrerenderPages.plainText(story.bodyMarkdown) || story.summary,
+      )
+      const html = PrerenderPages.storyPage(story, stories, cssHrefs)
       PrerenderPages.assertPage(html, story, urlPath)
+      PrerenderPages.assertStory(html, story, description)
       PrerenderPages.writePage(dist, urlPath, html)
-      urls.push(`${PrerenderPages.SITE}${urlPath}`)
+      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: story.lastmod })
     }
     for (const layer of layers) {
       const urlPath = `/layers/${layer.id}/`
       const html = PrerenderPages.layerPage(layer, cssHrefs)
       PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
       PrerenderPages.writePage(dist, urlPath, html)
-      urls.push(`${PrerenderPages.SITE}${urlPath}`)
+      const layerFile = `public/${String(layer.geojson || '').replace(/^\//, '')}`
+      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: dates.get(layerFile) || homeLast })
     }
-    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), urls)
+    entries.push({
+      loc: `${PrerenderPages.SITE}/privacy/`,
+      lastmod: dates.get('privacy/index.html') || '',
+    })
+    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
+    PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
-      `prerender: ${urls.length} pages (${stories.length} stories, ${layers.length} layers); sitemap ${sitemapCount} urls`,
+      `prerender: ${entries.length - 3} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, privacy; sitemap ${sitemapCount} urls`,
     )
-    return { pages: urls.length, stories: stories.length, layers: layers.length, sitemap: sitemapCount, urls }
+    return {
+      pages: stories.length + layers.length + 1,
+      stories: stories.length,
+      layers: layers.length,
+      sitemap: sitemapCount,
+      urls: entries.map((entry) => entry.loc),
+    }
   }
 
   static arg(argv, name) {
@@ -188,15 +225,179 @@ class PrerenderPages {
       .join('\n')
   }
 
-  static metaDescription(text) {
-    const plain = String(text || '')
+  static plainText(text) {
+    return String(text || '')
       .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
       .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
       .replace(/[#*_>`]/g, '')
       .replace(/\s+/g, ' ')
       .trim()
+  }
+
+  /** Split on sentence ends, keeping "Col." / "St." / "John C." with the next fragment. */
+  static splitSentences(plain) {
+    const parts = String(plain || '').split(/(?<=[.!?])\s+(?=[A-Z"'\u201C\u2018])/)
+    const out = []
+    let buf = ''
+    const abbrev = (s) =>
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(
+        s.trimEnd(),
+      ) || /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd())
+    for (const part of parts) {
+      const piece = String(part || '').trim()
+      if (!piece) continue
+      buf = buf ? `${buf} ${piece}` : piece
+      if (abbrev(buf)) continue
+      out.push(buf)
+      buf = ''
+    }
+    if (buf) out.push(buf)
+    return out
+  }
+
+  static firstSentence(text) {
+    const sentences = PrerenderPages.splitSentences(PrerenderPages.plainText(text))
+    return sentences[0] || ''
+  }
+
+  /** Drop a lead sentence already shown above the body. Later paragraphs stay intact. */
+  static bodyWithoutLead(markdown, lead) {
+    const trimmed = String(markdown || '').trim()
+    if (!lead || !trimmed) return trimmed
+    const paras = trimmed.split(/\n{2,}/)
+    const firstFlat = paras[0].replace(/\s+/g, ' ').trim()
+    if (firstFlat === lead) return paras.slice(1).join('\n\n').trim()
+    if (firstFlat.startsWith(lead)) {
+      const rest = firstFlat.slice(lead.length).replace(/^[\s,;:–—-]+/, '').trim()
+      if (rest) paras[0] = rest
+      else paras.shift()
+      return paras.join('\n\n').trim()
+    }
+    return trimmed
+  }
+
+  /**
+   * Meta description aimed at 150–160 characters when the source is longer.
+   * Ends on a sentence, or on a word if the next sentence would pass 160.
+   */
+  static metaDescription(text) {
+    const plain = PrerenderPages.plainText(text)
+    if (!plain) return ''
     if (plain.length <= 160) return plain
-    return `${plain.slice(0, 157).replace(/\s+\S*$/, '')}…`
+    const sentences = PrerenderPages.splitSentences(plain)
+    let acc = ''
+    for (const sentence of sentences) {
+      const next = acc ? `${acc} ${sentence}` : sentence
+      if (next.length <= 160) {
+        acc = next
+        continue
+      }
+      break
+    }
+    if (acc.length >= 150 && acc.length <= 160) return acc
+    const rest = plain.slice(acc.length).replace(/^\s+/, '')
+    const words = rest.split(/\s+/).filter(Boolean)
+    const room = 160 - (acc ? acc.length + 1 : 0)
+    let extra = ''
+    for (const word of words) {
+      const trial = extra ? `${extra} ${word}` : word
+      if (trial.length > room) break
+      extra = trial
+    }
+    let combined = [acc, extra].filter(Boolean).join(' ').replace(/[,:;]+$/g, '').trim()
+    if (combined.length >= 150 && combined.length <= 160) return combined
+    if (combined.length > 160) {
+      const cut = combined.slice(0, 160)
+      const space = cut.lastIndexOf(' ')
+      combined = (space > 0 ? cut.slice(0, space) : cut).replace(/[,:;]+$/g, '').trim()
+    }
+    if (plain.length > 160 && combined.length < 150) {
+      const window = plain.slice(0, 160)
+      let space = -1
+      for (let i = window.length - 1; i >= 0; i--) {
+        if (window[i] !== ' ') continue
+        if (i >= 150 || space < 0) space = i
+        if (i >= 150) break
+      }
+      if (space > 40) return window.slice(0, space).replace(/[,:;]+$/g, '').trim()
+    }
+    return combined || acc || plain.slice(0, 160).trim()
+  }
+
+  static photoAlt(photo, storyTitle) {
+    const title = String(photo?.title || '').trim()
+    if (title && !/\.(jpe?g|png|webp|gif)$/i.test(title) && !/^https?:/i.test(title)) return title
+    const subject = String(storyTitle || '').trim()
+    return subject ? `${subject} — historic photograph` : 'Historic Kentucky photograph'
+  }
+
+  /** Public map pin. Null pins stay off the page. Archaeological coordinates are already rounded. */
+  static publicGeo(story) {
+    if (story?.lat == null || story?.lon == null || story.lat === '' || story.lon === '') return null
+    const lat = Number(story.lat)
+    const lon = Number(story.lon)
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null
+    if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
+    if (lat === 0 && lon === 0) return null
+    return { lat, lon }
+  }
+
+  static jsonLdScript(nodes) {
+    const data = { '@context': 'https://schema.org', '@graph': nodes.filter(Boolean) }
+    const json = JSON.stringify(data).replace(/</g, '\\u003c')
+    return `<script type="application/ld+json">${json}</script>`
+  }
+
+  static organizationNode() {
+    return {
+      '@type': 'Organization',
+      '@id': PrerenderPages.ORG_ID,
+      name: 'Kentucky History Drive',
+      url: `${PrerenderPages.SITE}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: PrerenderPages.LOGO,
+      },
+      founder: {
+        '@type': 'Person',
+        name: 'Shannon Snowden',
+        url: `${PrerenderPages.SITE}/about/`,
+      },
+    }
+  }
+
+  static gitLastmods(root) {
+    const map = new Map()
+    try {
+      const out = execFileSync('git', ['log', '--name-only', '--pretty=format:%cs'], {
+        cwd: root,
+        encoding: 'utf8',
+        maxBuffer: 64 * 1024 * 1024,
+      })
+      let date = ''
+      for (const line of out.split('\n')) {
+        if (!line) continue
+        if (/^\d{4}-\d{2}-\d{2}$/.test(line)) {
+          date = line
+          continue
+        }
+        if (date && !map.has(line)) map.set(line, date)
+      }
+    } catch (err) {
+      console.warn(`prerender: git lastmod unavailable (${err.message})`)
+    }
+    return map
+  }
+
+  static laterDate(a, b) {
+    if (a && b) return a > b ? a : b
+    return a || b || ''
+  }
+
+  static storyLastmod(story, dates) {
+    const git = dates.get(`public/content/stories/${story.slug}.json`) || ''
+    const published = /^\d{4}-\d{2}-\d{2}$/.test(story.publishedDate || '') ? story.publishedDate : ''
+    return PrerenderPages.laterDate(git, published)
   }
 
   /** Site CSS only. Skip the MapLibre bundle Vite emits next to the app script. */
@@ -239,6 +440,8 @@ class PrerenderPages {
       tags: body.tags || indexRow?.tags || [],
       yearStart: body.yearStart ?? null,
       yearEnd: body.yearEnd ?? null,
+      publishedDate: body.publishedDate || body.briefDate || indexRow?.publishedDate || '',
+      territoryNation: body.territory?.nation || '',
       county: indexRow?.county != null ? indexRow.county : '',
       matchedPlace: indexRow?.matchedPlace || loc?.matchedPlace || '',
       mapConfidence: indexRow?.mapConfidence || loc?.mapConfidence || '',
@@ -459,7 +662,7 @@ class PrerenderPages {
 
   static storyCreditHtml(photo, title) {
     if (!photo?.image_url) return ''
-    const caption = PrerenderPages.escapeHtml(photo.title || title || 'Story photo')
+    const caption = PrerenderPages.escapeHtml(PrerenderPages.photoAlt(photo, title))
     const sourceLabel = PrerenderPages.escapeHtml(photo.source_label || photo.credit || '')
     const attribution = PrerenderPages.escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
     const year = photo.year ? ` <span class="muted">(${PrerenderPages.escapeHtml(String(photo.year))})</span>` : ''
@@ -513,16 +716,28 @@ class PrerenderPages {
     return ''
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, main }) {
+  static imageType(url) {
+    const path = String(url || '').split('?')[0].toLowerCase()
+    if (path.endsWith('.png')) return 'image/png'
+    if (path.endsWith('.webp')) return 'image/webp'
+    if (path.endsWith('.gif')) return 'image/gif'
+    return 'image/jpeg'
+  }
+
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, main, jsonLd = '', ogType = 'article' }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
-    const img = image
-      ? `<meta property="og:image" content="${PrerenderPages.escapeHtml(image)}" />
-    <meta name="twitter:image" content="${PrerenderPages.escapeHtml(image)}" />
-    <meta name="twitter:card" content="summary_large_image" />`
-      : `<meta name="twitter:card" content="summary" />`
-    const alt = imageAlt ? `<meta property="og:image:alt" content="${PrerenderPages.escapeHtml(imageAlt)}" />` : ''
+    const imgUrl = image || PrerenderPages.LOGO
+    const large = Boolean(image) && image !== PrerenderPages.LOGO
+    const altText = imageAlt || 'Kentucky History Drive official seal'
+    const img = `<meta property="og:image" content="${PrerenderPages.escapeHtml(imgUrl)}" />
+    <meta property="og:image:secure_url" content="${PrerenderPages.escapeHtml(imgUrl)}" />
+    <meta property="og:image:type" content="${PrerenderPages.imageType(imgUrl)}" />
+    <meta property="og:image:alt" content="${PrerenderPages.escapeHtml(altText)}" />
+    <meta name="twitter:image" content="${PrerenderPages.escapeHtml(imgUrl)}" />
+    <meta name="twitter:image:alt" content="${PrerenderPages.escapeHtml(altText)}" />
+    <meta name="twitter:card" content="${large ? 'summary_large_image' : 'summary'}" />`
     return `<!DOCTYPE html>
 <html lang="en" data-hp-theme="light">
   <head>
@@ -531,25 +746,34 @@ class PrerenderPages {
     <title>${t}</title>
     <meta name="description" content="${d}" />
     <link rel="canonical" href="${c}" />
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content="${PrerenderPages.escapeHtml(ogType)}" />
     <meta property="og:site_name" content="Kentucky History Drive" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="${c}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
     ${img}
-    ${alt}
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    ${PrerenderPages.ADSENSE}
+    ${jsonLd}
     ${cssHrefs.map((href) => `<link rel="stylesheet" href="${PrerenderPages.escapeHtml(href)}" />`).join('\n    ')}
     <style>
       .static-read { max-width: 52rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
       .brand .brand-title { margin: 0; font-size: clamp(1.05rem, 2.5vw, 1.35rem); letter-spacing: 0.02em; color: var(--heading); line-height: 1.15; font-weight: 700; }
       .static-kicker { margin: 0 0 0.35rem; color: var(--accent); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
       .story-head h1 { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
+      .story-lead { font-size: 1.125rem; line-height: 1.5; margin: 0 0 1rem; }
+      .story-crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0 0 0.85rem; font-size: 0.85rem; color: var(--muted); }
+      .story-crumbs a { color: var(--accent); text-decoration: none; }
+      .story-crumbs [aria-current="page"] { color: var(--text); }
+      .static-related { margin-top: 1.75rem; }
+      .static-related h2 { font-size: 1.2rem; margin: 0 0 0.55rem; color: var(--heading); }
+      .static-related ul { list-style: none; margin: 0; padding: 0; }
+      .static-related li { margin: 0 0 0.45rem; }
       .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
@@ -570,7 +794,7 @@ class PrerenderPages {
         <a href="/">Home</a>
         <a href="/#map">Map</a>
         <a href="/#timeline">Timeline</a>
-        <a href="/#about">About</a>
+        <a href="/about/">About</a>
         <a href="/#app">App</a>
       </nav>
     </header>
@@ -579,7 +803,8 @@ class PrerenderPages {
     </main>
     <footer class="foot">
       <span>kyhistorydrive.com</span>
-      <a href="/privacy">Privacy</a>
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy</a>
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
     </footer>
   </body>
@@ -587,43 +812,155 @@ class PrerenderPages {
 `
   }
 
-  static storyPage(story, cssHrefs) {
+  /** Same era, county, or subject layer (shared tag or territory). Three to five stories. */
+  static relatedStories(story, all) {
+    const generic = new Set(['kentucky', 'other', 'prehistoric', 'native', 'frontier', 'early-commonwealth', story.era])
+    const tags = new Set((story.tags || []).filter((tag) => tag && !generic.has(tag)))
+    const ranked = []
+    for (const other of all) {
+      if (!other || other.slug === story.slug) continue
+      let score = 0
+      if (story.era && other.era === story.era) score += 3
+      if (story.county && other.county && other.county === story.county) score += 4
+      if (story.territoryNation && other.territoryNation && other.territoryNation === story.territoryNation) score += 3
+      const shared = (other.tags || []).filter((tag) => tags.has(tag)).length
+      if (shared) score += Math.min(4, shared * 2)
+      if (score > 0) ranked.push({ other, score })
+    }
+    ranked.sort((a, b) => b.score - a.score || a.other.title.localeCompare(b.other.title))
+    const picked = []
+    const seen = new Set()
+    const take = (item) => {
+      if (!item || seen.has(item.slug) || picked.length >= 5) return
+      seen.add(item.slug)
+      picked.push(item)
+    }
+    for (const row of ranked) take(row.other)
+    if (picked.length < 3) {
+      for (const other of all) {
+        if (other.era === story.era) take(other)
+        if (picked.length >= 3) break
+      }
+    }
+    if (picked.length < 3) {
+      for (const other of all) {
+        take(other)
+        if (picked.length >= 3) break
+      }
+    }
+    return picked.slice(0, 5)
+  }
+
+  static relatedHtml(story, all) {
+    const related = PrerenderPages.relatedStories(story, all)
+    const items = related
+      .map((other) => {
+        const bits = [
+          other.county ? PrerenderPages.countyLabel(other.county, true) : '',
+          PrerenderPages.formatYearRange(other.yearStart, other.yearEnd),
+        ].filter(Boolean)
+        const extra = bits.length ? ` <span class="muted">${PrerenderPages.escapeHtml(bits.join(' · '))}</span>` : ''
+        return `<li><a href="/stories/${other.slug}/">${PrerenderPages.escapeHtml(other.title)}</a>${extra}</li>`
+      })
+      .join('')
+    return `<nav class="static-related" aria-label="Related stories"><h2>Related stories</h2><ul>${items}</ul></nav>`
+  }
+
+  static storyJsonLd(story, description, image, imageAlt) {
+    const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
+    const geo = PrerenderPages.publicGeo(story)
+    const placeName = story.matchedPlace || story.title
+    const place = {
+      '@type': 'Place',
+      name: placeName,
+    }
+    if (story.county) {
+      place.containedInPlace = {
+        '@type': 'AdministrativeArea',
+        name: `${PrerenderPages.countyLabel(story.county, true)}, Kentucky`,
+      }
+    }
+    if (geo) {
+      place.geo = { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lon }
+    }
+    const article = {
+      '@type': 'Article',
+      headline: story.title,
+      description,
+      mainEntityOfPage: canonical,
+      url: canonical,
+      image: [image || PrerenderPages.LOGO],
+      author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+      publisher: { '@id': PrerenderPages.ORG_ID },
+      contentLocation: place,
+    }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(story.publishedDate || '')) article.datePublished = story.publishedDate
+    if (/^\d{4}-\d{2}-\d{2}$/.test(story.lastmod || '')) article.dateModified = story.lastmod
+    const crumbs = {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Stories', item: `${PrerenderPages.SITE}/#timeline` },
+        { '@type': 'ListItem', position: 3, name: story.title, item: canonical },
+      ],
+    }
+    return PrerenderPages.jsonLdScript([PrerenderPages.organizationNode(), article, place, crumbs])
+  }
+
+  static storyPage(story, all, cssHrefs) {
     const title = `${story.title} · Kentucky History Drive`
-    const description = PrerenderPages.metaDescription(story.summary || story.bodyMarkdown)
+    const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
+    const description = PrerenderPages.metaDescription(bodyPlain || story.summary)
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
     const metaBits = [county, PrerenderPages.eraLabel(story.era), years].filter(Boolean)
-    const summary =
-      story.summary && !PrerenderPages.summaryDuplicatesBody(story.summary, story.bodyMarkdown)
-        ? `<p class="story-summary">${PrerenderPages.escapeHtml(story.summary)}</p>`
-        : ''
+    const lead =
+      PrerenderPages.firstSentence(story.bodyMarkdown) ||
+      PrerenderPages.firstSentence(story.summary) ||
+      story.title
+    const bodyMarkdown = PrerenderPages.bodyWithoutLead(
+      PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
+      lead,
+    )
     const mapHref = PrerenderPages.storyMapHref(story)
     const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
+    const photo = story.photo?.image_url ? story.photo : null
+    const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
+    const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const main = `<article class="story-reader-layout">
         <div class="story-reader-main">
+          <nav class="story-crumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="/#timeline">Stories</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">${PrerenderPages.escapeHtml(story.title)}</span>
+          </nav>
           <header class="story-head">
             <p class="static-kicker">Timeline story</p>
             <p class="story-card-meta">${metaBits.map((bit) => `<span>${PrerenderPages.escapeHtml(bit)}</span>`).join(' · ')}</p>
             <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
-            ${summary}
+            ${lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''}
           </header>
-          <div class="story-body">${marked.parse(PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''))}</div>
+          <div class="story-body">${marked.parse(bodyMarkdown)}</div>
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
+          ${PrerenderPages.relatedHtml(story, all)}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
             ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
           </div>
         </div>
-        ${PrerenderPages.storyCreditHtml(story.photo, story.title)}
+        ${PrerenderPages.storyCreditHtml(photo, story.title)}
       </article>`
     return PrerenderPages.shell({
       title,
       description,
       canonical,
       cssHrefs,
-      image: PrerenderPages.photoAbsolute(story.photo?.image_url) || `${PrerenderPages.SITE}/brand/khd-logo-512.png`,
-      imageAlt: story.photo?.title || story.title,
+      image,
+      imageAlt,
+      jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt),
       main,
     })
   }
@@ -687,21 +1024,189 @@ class PrerenderPages {
     if (!html.includes('<title>') || !html.includes('rel="canonical"') || !html.includes(urlPath)) {
       throw new Error(`prerender: ${urlPath} is missing title or canonical`)
     }
-    if (/maplibre|\/src\/main\.js/i.test(html)) {
+    if (/\/src\/main\.js|maplibre-gl|maplibregl-/i.test(html)) {
       throw new Error(`prerender: ${urlPath} pulled in the app bundle`)
     }
-    if (/-?\d{1,3}\.\d{5,}/.test(html)) {
+    if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
+      throw new Error(`prerender: ${urlPath} is missing the AdSense head tag`)
+    }
+    // Place JSON-LD may repeat the public pin. Anything tighter than that pin is rejected.
+    let scrubbed = html
+    for (const value of [story.lat, story.lon]) {
+      if (typeof value !== 'number' || !Number.isFinite(value)) continue
+      scrubbed = scrubbed.split(String(value)).join('').split(JSON.stringify(value)).join('')
+    }
+    if (/-?\d{1,3}\.\d{5,}/.test(scrubbed)) {
       throw new Error(`prerender: ${urlPath} includes a precise coordinate`)
     }
-    const leak = [story.lat, story.lon]
-      .filter((v) => typeof v === 'number')
-      .map(String)
-      .find((p) => {
-        const decimals = (p.split('.')[1] || '').length
-        if (!(story.archaeological || decimals > 2)) return false
-        return html.includes(p)
-      })
-    if (leak) throw new Error(`prerender: ${urlPath} includes coordinate ${leak}`)
+  }
+
+  static assertStory(html, story, description) {
+    const urlPath = `/stories/${story.slug}/`
+    if (description.length > 160) {
+      throw new Error(`prerender: ${urlPath} description is ${description.length} characters`)
+    }
+    if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
+    const related = html.match(/<nav class="static-related"[\s\S]*?<\/nav>/)
+    const relatedCount = related ? (related[0].match(/href="\/stories\//g) || []).length : 0
+    if (relatedCount < 3 || relatedCount > 5) {
+      throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
+    }
+    let data
+    const block = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
+    if (!block) throw new Error(`prerender: ${urlPath} is missing JSON-LD`)
+    try {
+      data = JSON.parse(block[1])
+    } catch (err) {
+      throw new Error(`prerender: ${urlPath} has invalid JSON-LD (${err.message})`)
+    }
+    const nodes = data['@graph'] || [data]
+    for (const type of ['Article', 'Place', 'BreadcrumbList', 'Organization']) {
+      if (!nodes.some((node) => node['@type'] === type)) {
+        throw new Error(`prerender: ${urlPath} JSON-LD is missing ${type}`)
+      }
+    }
+    const place = nodes.find((node) => node['@type'] === 'Place')
+    const geo = PrerenderPages.publicGeo(story)
+    if (geo) {
+      if (place?.geo?.['@type'] !== 'GeoCoordinates') {
+        throw new Error(`prerender: ${urlPath} Place is missing geo coordinates`)
+      }
+      if (place.geo.latitude !== geo.lat || place.geo.longitude !== geo.lon) {
+        throw new Error(`prerender: ${urlPath} geo does not match the public pin`)
+      }
+    } else if (place?.geo) {
+      throw new Error(`prerender: ${urlPath} has geo without a public pin`)
+    }
+    const photo = story.photo?.image_url ? PrerenderPages.photoAbsolute(story.photo.image_url) : ''
+    const expectedImage = photo || PrerenderPages.LOGO
+    if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
+      throw new Error(`prerender: ${urlPath} og:image is not the story photo or logo fallback`)
+    }
+    if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
+      throw new Error(`prerender: ${urlPath} twitter:image is missing`)
+    }
+    if (photo) {
+      const alt = PrerenderPages.photoAlt(story.photo, story.title)
+      if (!alt || alt === 'Kentucky History Drive logo') {
+        throw new Error(`prerender: ${urlPath} photo alt is empty`)
+      }
+      if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
+        throw new Error(`prerender: ${urlPath} in-page photo alt does not match`)
+      }
+      if (html.includes('property="og:image" content="' + PrerenderPages.LOGO + '"')) {
+        throw new Error(`prerender: ${urlPath} used the logo instead of the story photo`)
+      }
+    }
+  }
+
+  static aboutPage(cssHrefs) {
+    const description =
+      'Kentucky History Drive is published by Shannon Snowden. It maps Kentucky Historical Society markers and publishes a timeline of Kentucky history stories.'
+    const main = `<article>
+        <nav class="story-crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">About</span>
+        </nav>
+        <header class="story-head">
+          <p class="static-kicker">About</p>
+          <h1>Kentucky History Drive</h1>
+          <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
+        </header>
+        <div class="about-logo-block">
+          <img class="about-logo" src="/brand/khd-logo-512.png" width="360" height="360" alt="Kentucky History Drive seal — muskets, historical marker, and road to kyhistorydrive.com" />
+          <p class="about-logo-caption muted">Official Kentucky History Drive seal</p>
+        </div>
+        <h2>Publisher</h2>
+        <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. It is a web companion to the KY Markers Drive iPhone app.</p>
+        <h2>Author</h2>
+        <p>Shannon Snowden is the author of the Kentucky history stories on this site. Each story is written for Kentucky History Drive and tied to a place, a year, or a map layer when the sources support it.</p>
+        <p>Kentucky History Drive helps you explore Kentucky’s historical highway markers on a map, and browse Kentucky history stories on a timeline by era and year.</p>
+        <h2>Credits</h2>
+        <ul class="about-credits">
+          <li>Marker text and locations: Kentucky Historical Society / <a href="https://history.ky.gov/markers" target="_blank" rel="noopener">history.ky.gov</a></li>
+          <li>Map rendering: <a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre GL JS</a></li>
+          <li>Basemap tiles: <a href="https://carto.com/basemaps/" target="_blank" rel="noopener">CARTO</a> Voyager (OpenStreetMap data)</li>
+          <li>Map data: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</li>
+          <li>State outline: Natural Earth</li>
+          <li>Stories: Shannon Snowden for Kentucky History Drive</li>
+          <li>Layer places (history, museums, parks, and more): KY Markers Drive project data</li>
+        </ul>
+        <div class="static-cta">
+          <a class="btn" href="/">Home</a>
+          <a class="btn ghost" href="/#map">Open the map</a>
+          <a class="btn ghost" href="/#timeline">Open the timeline</a>
+        </div>
+      </article>`
+    const jsonLd = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'AboutPage',
+        '@id': `${PrerenderPages.SITE}/about/#webpage`,
+        url: `${PrerenderPages.SITE}/about/`,
+        name: 'About Kentucky History Drive',
+        description,
+        isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
+        about: { '@id': PrerenderPages.ORG_ID },
+        publisher: { '@id': PrerenderPages.ORG_ID },
+        author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+      },
+    ])
+    return PrerenderPages.shell({
+      title: 'About · Kentucky History Drive',
+      description,
+      canonical: `${PrerenderPages.SITE}/about/`,
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'website',
+      jsonLd,
+      main,
+    })
+  }
+
+  /** Crawlable story and layer links in the built homepage, without replacing the hash app. */
+  static injectHome(file, stories, layers) {
+    let html = fs.readFileSync(file, 'utf8')
+    const storyLinks = stories
+      .map((story) => `<li><a href="/stories/${story.slug}/">${PrerenderPages.escapeHtml(story.title)}</a></li>`)
+      .join('')
+    const layerLinks = layers
+      .map((layer) => `<li><a href="/layers/${layer.id}/">${PrerenderPages.escapeHtml(layer.label)}</a></li>`)
+      .join('')
+    const nav = `<nav id="crawlDirectory" class="crawl-directory" aria-label="Stories and map layers">
+        <details>
+          <summary>All stories and map layers</summary>
+          <div class="crawl-directory-groups">
+            <section>
+              <h2>Stories</h2>
+              <ul class="crawl-list">${storyLinks}</ul>
+            </section>
+            <section>
+              <h2>Map layers</h2>
+              <ul class="crawl-list">${layerLinks}</ul>
+            </section>
+            <p><a href="/about/">About Kentucky History Drive</a></p>
+          </div>
+        </details>
+      </nav>`
+    if (!html.includes('id="crawlDirectory"')) {
+      throw new Error('prerender: dist/index.html is missing #crawlDirectory')
+    }
+    html = html.replace(/<nav id="crawlDirectory"[\s\S]*?<\/nav>/, nav)
+    if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
+      throw new Error('prerender: homepage is missing the AdSense head tag')
+    }
+    if (!/<script type="module"/.test(html)) throw new Error('prerender: homepage lost the app bundle')
+    if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
+      throw new Error('prerender: homepage is missing Organization JSON-LD')
+    }
+    const storyHrefs = (html.match(/href="\/stories\/[a-z0-9-]+\/"/g) || []).length
+    const layerHrefs = (html.match(/href="\/layers\/[a-z0-9-]+\/"/g) || []).length
+    if (storyHrefs < stories.length) throw new Error(`prerender: homepage has ${storyHrefs} story links, expected ${stories.length}`)
+    if (layerHrefs < layers.length) throw new Error(`prerender: homepage has ${layerHrefs} layer links, expected ${layers.length}`)
+    fs.writeFileSync(file, html)
   }
 
   static writePage(dist, urlPath, html) {
@@ -710,37 +1215,30 @@ class PrerenderPages {
     fs.writeFileSync(path.join(dir, 'index.html'), html)
   }
 
-  /**
-   * Keep sitemap entries that are not generated story/layer URLs (home, privacy,
-   * and anything later added beside this step), then append this build's pages.
-   */
-  static updateSitemap(file, pageUrls) {
-    const kept = []
-    if (fs.existsSync(file)) {
-      const xml = fs.readFileSync(file, 'utf8')
-      for (const match of xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)) {
-        const loc = match[1].trim()
-        let pathname = ''
-        try {
-          pathname = new URL(loc).pathname
-        } catch {
-          continue
-        }
-        if (pathname.startsWith('/stories/') || pathname.startsWith('/layers/')) continue
-        if (!kept.includes(loc)) kept.push(loc)
-      }
+  /** Home, about, stories, layers, then /privacy/ last. Each URL gets its own lastmod. */
+  static updateSitemap(file, entries) {
+    if (!entries.length || !String(entries[entries.length - 1].loc).endsWith('/privacy/')) {
+      throw new Error('prerender: sitemap must end with /privacy/')
     }
-    if (!kept.length) kept.push(`${PrerenderPages.SITE}/`)
-    const locs = [...kept]
-    for (const loc of pageUrls) if (!locs.includes(loc)) locs.push(loc)
-    const body = locs
-      .map((loc) => `  <url>\n    <loc>${PrerenderPages.escapeXml(loc)}</loc>\n  </url>`)
-      .join('\n')
+    const seen = new Set()
+    const rows = []
+    for (const entry of entries) {
+      if (!entry?.loc || seen.has(entry.loc)) continue
+      seen.add(entry.loc)
+      const lastmod = /^\d{4}-\d{2}-\d{2}$/.test(entry.lastmod || '')
+        ? `\n    <lastmod>${PrerenderPages.escapeXml(entry.lastmod)}</lastmod>`
+        : ''
+      if (!lastmod) throw new Error(`prerender: ${entry.loc} is missing lastmod`)
+      rows.push(`  <url>\n    <loc>${PrerenderPages.escapeXml(entry.loc)}</loc>${lastmod}\n  </url>`)
+    }
+    if (!String(entries[entries.length - 1].loc).endsWith('/privacy/') || rows.at(-1).includes('/privacy</loc>')) {
+      throw new Error('prerender: sitemap privacy URL must be /privacy/ and must be last')
+    }
     fs.writeFileSync(
       file,
-      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`,
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</urlset>\n`,
     )
-    return locs.length
+    return rows.length
   }
 }
 
