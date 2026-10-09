@@ -33,6 +33,7 @@ import { siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
   static ORG_ID = 'https://kyhistorydrive.com/#organization'
+  static CONTACT_EMAIL = 'contact@kyhistorydrive.com'
   static LOGO = 'https://kyhistorydrive.com/brand/khd-logo-512.png'
   static ADSENSE =
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>'
@@ -94,6 +95,13 @@ class PrerenderPages {
     PrerenderPages.assertPage(aboutHtml, { archaeological: false, lat: null, lon: null }, '/about/')
     if (!aboutHtml.includes('Shannon Snowden') || !aboutHtml.includes('"@type":"Organization"')) {
       throw new Error('prerender: about page is missing the publisher, author, or Organization JSON-LD')
+    }
+    if (
+      !aboutHtml.includes('mailto:contact@kyhistorydrive.com') ||
+      !aboutHtml.includes('"contactType":"customer support"') ||
+      !aboutHtml.includes('"email":"contact@kyhistorydrive.com"')
+    ) {
+      throw new Error('prerender: about page is missing the contact email')
     }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
@@ -409,9 +417,15 @@ class PrerenderPages {
       '@id': PrerenderPages.ORG_ID,
       name: 'Kentucky History Drive',
       url: `${PrerenderPages.SITE}/`,
+      email: PrerenderPages.CONTACT_EMAIL,
       logo: {
         '@type': 'ImageObject',
         url: PrerenderPages.LOGO,
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: PrerenderPages.CONTACT_EMAIL,
+        contactType: 'customer support',
       },
       founder: {
         '@type': 'Person',
@@ -419,6 +433,10 @@ class PrerenderPages {
         url: `${PrerenderPages.SITE}/about/`,
       },
     }
+  }
+
+  static publisherNode() {
+    return { '@id': PrerenderPages.ORG_ID, email: PrerenderPages.CONTACT_EMAIL }
   }
 
   /** Newest commit date per file, and the first commit date (oldest) for datePublished. */
@@ -969,7 +987,7 @@ class PrerenderPages {
       datePublished: dates.published,
       dateModified: dates.modified,
       author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
-      publisher: { '@id': PrerenderPages.ORG_ID },
+      publisher: PrerenderPages.publisherNode(),
       contentLocation: { '@id': placeId },
     }
     const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` }]
@@ -1269,6 +1287,8 @@ class PrerenderPages {
           <li>Stories: Shannon Snowden for Kentucky History Drive</li>
           <li>Layer places (history, museums, parks, and more): KY Markers Drive project data</li>
         </ul>
+        <h2>Contact</h2>
+        <p>Questions, corrections or photo suggestions: <a href="mailto:${PrerenderPages.CONTACT_EMAIL}">${PrerenderPages.CONTACT_EMAIL}</a></p>
         <div class="static-cta">
           <a class="btn" href="/">Home</a>
           <a class="btn ghost" href="/#map">Open the map</a>
@@ -1285,7 +1305,7 @@ class PrerenderPages {
         description,
         isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
         about: { '@id': PrerenderPages.ORG_ID },
-        publisher: { '@id': PrerenderPages.ORG_ID },
+        publisher: PrerenderPages.publisherNode(),
         author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
       },
     ])
