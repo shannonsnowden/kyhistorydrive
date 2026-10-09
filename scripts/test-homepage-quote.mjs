@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * Homepage quote: pinned when the pack or Editor names one, otherwise rotated
- * by the pack date among stories that are not in the hero or Highlights.
- * Fails if the quote freezes on the same story when the pack date changes.
+ * Homepage quote follows #186: the newest story not already shown above,
+ * unless the pack or Editor names a pin. The hero sentence copied into
+ * home-preview.json is not a pin. Fails if that file is a stale pack, or if
+ * the quote stays the same when the pack date (and its hero set) changes.
  */
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
@@ -34,12 +35,6 @@ function warnsOf(fn) {
   }
 }
 
-function addDay(iso) {
-  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso)
-  const t = Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) + 86400000
-  return new Date(t).toISOString().slice(0, 10)
-}
-
 const hero = story('hero-story', '2026-10-09', 'Hero')
 const highlight = story('highlight-story', '2026-10-08', 'Highlight')
 const older = [
@@ -51,13 +46,14 @@ const catalog = [hero, highlight, ...older]
 const exclude = ['hero-story', 'highlight-story']
 const heroSlugs = ['hero-story']
 
-const dayA = HomepageStructure.pickQuote(catalog, exclude, { date: '2026-10-09', heroSlugs })
-const dayB = HomepageStructure.pickQuote(catalog, exclude, { date: '2026-10-10', heroSlugs })
-assert.ok(dayA?.slug && dayB?.slug)
-assert.notEqual(dayA.slug, dayB.slug, 'quote must change when the pack date changes')
-for (const picked of [dayA, dayB]) {
-  assert.ok(!exclude.includes(picked.slug), `${picked.slug} is in the hero or Highlights`)
-}
+const newest = HomepageStructure.pickQuote(catalog, exclude, { heroSlugs })
+assert.equal(newest.slug, 'q-one')
+assert.ok(!exclude.includes(newest.slug))
+const nextHero = ['q-one']
+const nextExclude = ['q-one', 'highlight-story']
+const nextPack = HomepageStructure.pickQuote(catalog, nextExclude, { heroSlugs: nextHero })
+assert.notEqual(nextPack.slug, newest.slug, 'quote must change when the pack hero set changes')
+assert.ok(!nextExclude.includes(nextPack.slug))
 
 const pinned = HomepageStructure.pickQuote(catalog, exclude, {
   date: '2026-10-09',
@@ -80,7 +76,7 @@ const rejected = warnsOf(() =>
     pin: { slug: 'hero-story', allowsHero: false },
   }),
 )
-assert.ok(rejected.lines.some((line) => line.includes('hero story') && line.includes('rotating')))
+assert.ok(rejected.lines.some((line) => line.includes('hero story') && line.includes('not shown above')))
 assert.ok(!heroSlugs.includes(rejected.value.slug))
 assert.ok(!exclude.includes(rejected.value.slug))
 
@@ -92,11 +88,12 @@ const missingPin = warnsOf(() =>
   }),
 )
 assert.ok(missingPin.lines.some((line) => line.includes('not in the catalog')))
+assert.equal(missingPin.value.slug, 'q-one')
 assert.ok(!exclude.includes(missingPin.value.slug))
 
-const noDate = warnsOf(() => HomepageStructure.pickQuote(catalog, exclude, { heroSlugs }))
-assert.ok(noDate.lines.some((line) => line.includes('no pack date')))
-assert.ok(!exclude.includes(noDate.value.slug))
+const unpinned = warnsOf(() => HomepageStructure.pickQuote(catalog, exclude, { heroSlugs }))
+assert.deepEqual(unpinned.lines, [])
+assert.equal(unpinned.value.slug, 'q-one')
 
 const empty = warnsOf(() =>
   HomepageStructure.pickQuote(catalog, catalog.map((s) => s.slug), { date: '2026-10-09', heroSlugs }),
@@ -158,33 +155,46 @@ function loadCatalog() {
 }
 
 const pack = JSON.parse(fs.readFileSync(path.join(root, 'public/content/home-preview.json'), 'utf8'))
-const liveHero = (pack.stories || []).map((s) => s.slug).filter(Boolean)
+const overrides = JSON.parse(fs.readFileSync(path.join(root, 'scripts/hero-deck-overrides.json'), 'utf8'))
 const liveCatalog = loadCatalog()
-const liveHighlights = HomepageStructure.pickHighlights(liveCatalog, liveHero, 4)
-const liveExclude = [...liveHero, ...liveHighlights.map((s) => s.slug)]
-const livePin = HomepageStructure.quotePinFromPack(pack, liveHero)
-assert.equal(livePin, null, 'today’s pack quote is the hero mirror, not an Editor pin')
-const liveToday = HomepageStructure.pickQuote(liveCatalog, liveExclude, {
-  date: pack.briefDate,
-  heroSlugs: liveHero,
-  pin: livePin,
-})
-const liveNext = HomepageStructure.pickQuote(liveCatalog, liveExclude, {
-  date: addDay(pack.briefDate),
-  heroSlugs: liveHero,
-  pin: livePin,
-})
-assert.ok(liveToday?.slug && liveNext?.slug)
-assert.notEqual(
-  liveToday.slug,
-  liveNext.slug,
-  `quote froze on ${liveToday.slug} when the pack date changed`,
-)
-const used = new Set(liveExclude)
-for (const picked of [liveToday, liveNext]) {
-  assert.ok(!used.has(picked.slug), `${picked.slug} is in the hero or Highlights`)
+assert.equal(HomepageStructure.editorQuotePin(overrides), null, '#189 and the Editor file do not name a quote')
+
+function slugsForDate(date) {
+  return liveCatalog.filter((s) => s.briefDate === date).map((s) => s.slug)
 }
+const dates = [...new Set(liveCatalog.map((s) => s.briefDate).filter(Boolean))].sort()
+const latest = dates[dates.length - 1]
+const previous = dates[dates.length - 2]
+assert.ok(latest && previous)
+assert.equal(pack.briefDate, latest, 'home-preview.json briefDate is behind the story catalog')
+const packSlugs = (pack.stories || []).map((s) => s.slug).filter(Boolean).sort()
+assert.deepEqual(packSlugs, slugsForDate(latest).sort(), 'home-preview.json is not today’s hero set')
+const mirrorSlug = HomepageStructure.slugFromHref(pack.quote?.href)
+assert.ok(packSlugs.includes(mirrorSlug), 'pack quote href is not one of today’s stories')
+assert.equal(
+  HomepageStructure.quotePinFromPack(pack, packSlugs),
+  null,
+  'the copied hero sentence is not a pin',
+)
+
+function quoteFor(date) {
+  const heroSlugsForDay = slugsForDate(date)
+  const highlights = HomepageStructure.pickHighlights(liveCatalog, heroSlugsForDay, 4)
+  const exclude = [...heroSlugsForDay, ...highlights.map((s) => s.slug)]
+  const picked = HomepageStructure.pickQuote(liveCatalog, exclude, { heroSlugs: heroSlugsForDay })
+  assert.ok(picked?.slug, date)
+  assert.ok(!exclude.includes(picked.slug), `${date} quote ${picked.slug} is already shown above`)
+  return picked
+}
+const todayQuote = quoteFor(latest)
+const previousQuote = quoteFor(previous)
+assert.notEqual(
+  todayQuote.slug,
+  previousQuote.slug,
+  `quote froze on ${todayQuote.slug} when the pack date changed from ${previous} to ${latest}`,
+)
+assert.notEqual(todayQuote.slug, mirrorSlug, 'quote reused the hero sentence stored in home-preview.json')
 console.log(
-  `homepage quote ${pack.briefDate}: ${liveToday.slug} (${liveToday.title}); next day: ${liveNext.slug}`,
+  `homepage quote ${latest}: ${todayQuote.slug} (${todayQuote.title}); ${previous}: ${previousQuote.slug}`,
 )
 console.log('homepage quote checks passed')

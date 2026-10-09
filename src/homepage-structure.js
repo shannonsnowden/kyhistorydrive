@@ -222,11 +222,12 @@ export class HomepageStructure {
   }
 
   /**
-   * Quote story for this pack.
-   * A pin wins. A hero story is used only when the pin allows it.
-   * Otherwise one story outside the hero and Highlights, chosen from the pack
-   * date, so a new pack day selects a different story. The newest leftover is
-   * only a fallback when the pack has no date, and that path warns.
+   * Quote story for this pack (#186).
+   * A named pin wins. A hero story is used only when the pin allows it.
+   * Otherwise the newest story that is not already shown above
+   * (hero, then Highlights). Nothing is pinned when the pack only copies
+   * the hero sentence. An empty pool warns and does not reuse a story
+   * already on screen.
    */
   static pickQuote(stories, excludeSlugs, options = {}) {
     const exclude = new Set(excludeSlugs || [])
@@ -235,10 +236,10 @@ export class HomepageStructure {
     if (pin?.slug) {
       const named = (stories || []).find((s) => s?.slug === pin.slug) || null
       if (!named) {
-        console.warn(`quote: named story "${pin.slug}" is not in the catalog; rotating instead`)
+        console.warn(`quote: named story "${pin.slug}" is not in the catalog; using a story not shown above`)
       } else if (!pin.allowsHero && heroSlugs.includes(named.slug)) {
         console.warn(
-          `quote: "${pin.slug}" is a hero story and was not marked as the intended quote; rotating instead`,
+          `quote: "${pin.slug}" is a hero story and was not marked as the intended quote; using a story not shown above`,
         )
       } else {
         return named
@@ -250,22 +251,7 @@ export class HomepageStructure {
       console.warn('quote: no story outside the hero and Highlights; leaving the quote empty')
       return null
     }
-    const index = HomepageStructure.#quoteDayIndex(options.date, pool.length)
-    if (index == null) {
-      console.warn('quote: no pack date; falling back to the first story outside the hero and Highlights')
-      return pool[0]
-    }
-    return pool[index]
-  }
-
-  /** UTC day count for YYYY-MM-DD, or null when the pack date is missing. */
-  static #quoteDayIndex(date, length) {
-    if (!length) return null
-    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(date || '').trim())
-    if (!m) return null
-    const days = Math.floor(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) / 86400000)
-    if (!Number.isFinite(days)) return null
-    return ((days % length) + length) % length
+    return pool[0]
   }
 
   /**

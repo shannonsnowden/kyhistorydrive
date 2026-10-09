@@ -778,7 +778,6 @@ export function initHomePage() {
         catalog.stories,
         [...heroSlugs, ...highlights.map((story) => story.slug)],
         {
-          date: pack?.briefDate,
           heroSlugs,
           pin: HomepageStructure.quotePinFromPack(pack, heroSlugs),
         },
