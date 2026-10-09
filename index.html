@@ -189,70 +189,11 @@
         </picture>
         </div>
         </a>
-        <div class="hp-map-intro">
-          <div class="hp-map-lead">
-            <p class="hp-kicker">Map</p>
-            <h2 id="hp-map-strip-title">Kentucky, layer by layer</h2>
-            <p>The marker map opens on Kentucky Historical Society highway markers. Toggle the other layers, tap a pin to read its story, and stack Native homelands and archaeological cultures under today’s markers to see the deeper history around you, including on the road.</p>
-            <p>Archaeological sites are shown at approximate locations. Culture areas are defined by artifacts and sites, not as tribes, and Native areas are general pictures, not boundaries.</p>
-          </div>
+        <div class="hp-map-strip-copy">
+          <p class="hp-kicker">Map</p>
+          <h2 id="hp-map-strip-title">Kentucky marker map</h2>
+          <p class="muted">Highway markers from the Kentucky Historical Society, drawn on one state map.</p>
           <a class="btn hp-cta hp-map-cta" href="#map">Open the marker map</a>
-        </div>
-        <div class="hp-map-layer-block">
-          <h3 class="hp-map-layers-title">Layers on this map</h3>
-          <ul class="hp-map-layers" id="hpMapLayers">
-            <li><strong>Markers</strong> <span>Kentucky Historical Society highway markers.</span></li>
-            <li><strong>History</strong> <span>Places from the daily history briefs, including archaeological sites at approximate locations.</span></li>
-            <li><strong>Museums</strong> <span>Museums and historic houses you can visit.</span></li>
-            <li><strong>National</strong> <span>National Historic Landmarks and National Park Service sites.</span></li>
-            <li><strong>War Sites</strong> <span>Revolutionary War and Civil War places.</span></li>
-            <li><strong>Good Eats</strong> <span>Restaurants, taverns, groceries, and bakeries.</span></li>
-            <li><strong>Covered Bridges</strong> <span>Covered bridges and the streams they cross.</span></li>
-            <li><strong>Industry</strong> <span>Mills, iron furnaces, depots, and other historic works.</span></li>
-            <li><strong>Newspapers</strong> <span>Historic Kentucky newspapers.</span></li>
-            <li><strong>Parks</strong> <span>State parks, resort parks, and state historic sites.</span></li>
-            <li><strong>Cemeteries</strong> <span>Historic cemeteries, from family plots to national cemeteries.</span></li>
-            <li><strong>Distilleries</strong> <span>Kentucky Bourbon Trail distilleries and a few independents.</span></li>
-            <li><strong>Caves</strong> <span>Public show caves. Documented caves without a public entrance are marked at the county center, not the cave.</span></li>
-            <li class="hp-map-layer-group">Archaeological cultures (not tribes)</li>
-            <li><strong>Green River Archaic</strong> <span>Shell middens in west-central Kentucky, about 4000–1000 BCE.</span></li>
-            <li><strong>Adena</strong> <span>Mounds and earthworks in the Bluegrass and nearby, about 800 BCE–250 CE.</span></li>
-            <li><strong>Fort Ancient</strong> <span>Farming villages in central, northern, and eastern Kentucky, about 1000–1750.</span></li>
-            <li><strong>Mississippian (western Kentucky)</strong> <span>Towns in western and south-central Kentucky, about 1000–1700.</span></li>
-            <li><strong>Caborn-Welborn</strong> <span>Towns near the mouth of the Wabash, about 1400–1700.</span></li>
-            <li class="hp-map-layer-group">Native territories</li>
-            <li><strong>Chickasaw</strong> <span>Hopewell-frame hunting ground, 1780–1818. Approximate, not a boundary.</span></li>
-            <li><strong>Cherokee</strong> <span>Donelson cession, Lochaber wedge, and Chickamauga counties, 1768–1794.</span></li>
-            <li><strong>Shawnee</strong> <span>Presence in Kentucky and a claim to most of the state, about 1735–1795. A generous estimate, not a boundary.</span></li>
-            <li><strong>Six Nations (Haudenosaunee)</strong> <span>Homeland in New York and Pennsylvania, and a 1768 cession claim east of the Tennessee River.</span></li>
-            <li><strong>Mingo</strong> <span>Upper Ohio and New York presence, about 1750–1832. No Kentucky camps are drawn.</span></li>
-            <li><strong>Wyandot</strong> <span>Towns from Michilimackinac to the Sandusky, 1671–1843. Kentucky appears as 1780 and 1782 raid sites.</span></li>
-            <li><strong>Delaware (Lenape)</strong> <span>Ohio towns and the 1804 Indiana cession, plus Bird’s 1780 route in Kentucky.</span></li>
-            <li><strong>Miami (with Wea and Piankashaw)</strong> <span>Wabash country from Fort Wayne to Vincennes. No Kentucky hunting ground is drawn.</span></li>
-            <li><strong>Kickapoo (with Mascouten)</strong> <span>Wabash and Vermilion country. No Kentucky villages are documented.</span></li>
-            <li><strong>Illinois Confederation (Kaskaskia, Cahokia)</strong> <span>Mississippi towns and an 1803 claim that stops at the Ohio. Nothing in Kentucky is claimed.</span></li>
-            <li><strong>Potawatomi</strong> <span>Great Lakes country, about 1640–1809. No Kentucky presence is drawn.</span></li>
-            <li><strong>Ojibwe (Chippewa) and Odawa</strong> <span>Straits of Mackinac, Detroit, and Saginaw, plus Bird’s 1780 route.</span></li>
-            <li><strong>Erie</strong> <span>Erie and Chautauqua counties in New York, and Erie County, Pennsylvania, about 1600–1656.</span></li>
-            <li><strong>Susquehannock</strong> <span>Lancaster and York counties in Pennsylvania, and a 1675 Maryland county, about 1550–1763.</span></li>
-            <li><strong>Tutelo</strong> <span>Virginia, then Shamokin and Coreorgonel, 1671–1779.</span></li>
-            <li><strong>Mosopelea (Ofo)</strong> <span>Ohio River counties between the Muskingum and the Scioto, then the lower Mississippi, before 1673 to 1784.</span></li>
-            <li><strong>Osage</strong> <span>Osage River villages in Missouri, about 1673–1823. No Kentucky area is drawn.</span></li>
-            <li><strong>Yuchi</strong> <span>Tennessee to 1714, then the Savannah and the Chattahoochee, 1567–1836.</span></li>
-          </ul>
-          <button type="button" class="hp-map-layers-more" aria-expanded="false" aria-controls="hpMapLayers">and more</button>
-          <script>
-            (function () {
-              var btn = document.querySelector('.hp-map-layers-more')
-              var list = document.getElementById('hpMapLayers')
-              if (!btn || !list) return
-              btn.addEventListener('click', function () {
-                var open = list.classList.toggle('is-open')
-                btn.setAttribute('aria-expanded', open ? 'true' : 'false')
-                btn.textContent = open ? 'Show fewer' : 'and more'
-              })
-            })()
-          </script>
         </div>
       </section>
 
