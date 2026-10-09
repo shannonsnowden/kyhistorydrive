@@ -2188,7 +2188,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
   .site-header .nav-search {
     flex: 1 1 6rem;
-    min-width: 5.75rem;
+    /* "Search stories" is about 82px at 0.8rem; 5.75rem clipped the last letter below ~860px. */
+    min-width: 6.6rem;
     max-width: 10rem;
   }
   .site-header nav a {

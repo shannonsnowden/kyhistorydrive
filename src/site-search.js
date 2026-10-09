@@ -6,6 +6,9 @@ import MiniSearch from 'minisearch'
 
 const SEARCH_LIMIT = 12
 const SEARCH_MIN_CHARS = 2
+const SEARCH_PLACEHOLDER_FULL = 'Search places & stories…'
+const SEARCH_PLACEHOLDER_NARROW = 'Search stories'
+const SEARCH_NARROW_QUERY = '(max-width: 1400px)'
 
 let searchMini = null
 let searchDocsById = new Map()
@@ -207,6 +210,15 @@ export function initSiteSearch(options = {}) {
   if (typeof options.navigate === 'function') {
     navigateHash = options.navigate
   }
+
+  // The full placeholder clips in the tightened laptop search box ("Search places & storie").
+  // The label stays "Search places and stories" at every width.
+  const narrowSearch = window.matchMedia(SEARCH_NARROW_QUERY)
+  const syncPlaceholder = () => {
+    input.placeholder = narrowSearch.matches ? SEARCH_PLACEHOLDER_NARROW : SEARCH_PLACEHOLDER_FULL
+  }
+  syncPlaceholder()
+  narrowSearch.addEventListener('change', syncPlaceholder)
 
   const warmSearchIndex = () => {
     ensureSearchIndex().catch((err) => console.warn('search index load failed', err))
