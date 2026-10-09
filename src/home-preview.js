@@ -774,10 +774,15 @@ export function initHomePage() {
       const slides = heroSlides(pack)
       const heroSlugs = slides.map((story) => story.slug).filter(Boolean)
       const highlights = HomepageStructure.pickHighlights(catalog.stories, heroSlugs, 4)
-      const quotePick = HomepageStructure.pickQuote(catalog.stories, [
-        ...heroSlugs,
-        ...highlights.map((story) => story.slug),
-      ])
+      const quotePick = HomepageStructure.pickQuote(
+        catalog.stories,
+        [...heroSlugs, ...highlights.map((story) => story.slug)],
+        {
+          date: pack?.briefDate,
+          heroSlugs,
+          pin: HomepageStructure.quotePinFromPack(pack, heroSlugs),
+        },
+      )
       const quoteStory = await loadQuoteStory(quotePick)
       renderTodayNav(pack)
       renderHero(pack)

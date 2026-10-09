@@ -174,12 +174,98 @@ export class HomepageStructure {
     return picked
   }
 
-  /** A story that is not already in the hero or the highlights. */
-  static pickQuote(stories, excludeSlugs) {
+  /**
+   * Slug from a pack quote href (`/#timeline/<slug>`).
+   * Empty when the href does not point at a story.
+   */
+  static slugFromHref(href) {
+    const raw = String(href || '')
+    const m = raw.match(/#timeline\/([^/?#]+)/) || raw.match(/\/timeline\/([^/?#]+)/)
+    if (!m) return ''
+    try {
+      return decodeURIComponent(m[1])
+    } catch {
+      return m[1]
+    }
+  }
+
+  /**
+   * Quote named in scripts/hero-deck-overrides.json under `quote.slug`.
+   * `pinned` or `allowHero` means that story may also be in the hero.
+   * Returns null when the Editor has not named one.
+   */
+  static editorQuotePin(doc) {
+    const q = doc?.quote
+    if (!q || typeof q !== 'object') return null
+    const slug = String(q.slug || '').trim()
+    if (!slug) return null
+    return { slug, allowsHero: q.pinned === true || q.allowHero === true }
+  }
+
+  /**
+   * Pin from the homepage pack.
+   * The build copies the hero sentence into `quote.href`. That mirror is not a pin.
+   * An explicit `quote.slug` / `quoteSlug`, or an href that is not a hero story, is.
+   * A hero story is pinned only when `pinned` or `allowHero` is true.
+   * Returns `{ slug, allowsHero: false }` when an explicit pin names a hero story
+   * without that flag, so the caller can warn and rotate.
+   */
+  static quotePinFromPack(pack, heroSlugs) {
+    const quote = pack?.quote && typeof pack.quote === 'object' ? pack.quote : null
+    const explicit = String(pack?.quoteSlug || quote?.slug || '').trim()
+    const slug = explicit || HomepageStructure.slugFromHref(quote?.href)
+    if (!slug) return null
+    const allowsHero = quote?.pinned === true || quote?.allowHero === true || pack?.quotePinned === true
+    const inHero = new Set(heroSlugs || []).has(slug)
+    if (inHero && !allowsHero) return explicit ? { slug, allowsHero: false } : null
+    return { slug, allowsHero: true }
+  }
+
+  /**
+   * Quote story for this pack.
+   * A pin wins. A hero story is used only when the pin allows it.
+   * Otherwise one story outside the hero and Highlights, chosen from the pack
+   * date, so a new pack day selects a different story. The newest leftover is
+   * only a fallback when the pack has no date, and that path warns.
+   */
+  static pickQuote(stories, excludeSlugs, options = {}) {
     const exclude = new Set(excludeSlugs || [])
+    const heroSlugs = options.heroSlugs || []
+    const pin = options.pin
+    if (pin?.slug) {
+      const named = (stories || []).find((s) => s?.slug === pin.slug) || null
+      if (!named) {
+        console.warn(`quote: named story "${pin.slug}" is not in the catalog; rotating instead`)
+      } else if (!pin.allowsHero && heroSlugs.includes(named.slug)) {
+        console.warn(
+          `quote: "${pin.slug}" is a hero story and was not marked as the intended quote; rotating instead`,
+        )
+      } else {
+        return named
+      }
+    }
     const pool = (stories || []).filter((s) => s?.slug && !exclude.has(s.slug))
     pool.sort(HomepageStructure.#newest)
-    return pool[0] || null
+    if (!pool.length) {
+      console.warn('quote: no story outside the hero and Highlights; leaving the quote empty')
+      return null
+    }
+    const index = HomepageStructure.#quoteDayIndex(options.date, pool.length)
+    if (index == null) {
+      console.warn('quote: no pack date; falling back to the first story outside the hero and Highlights')
+      return pool[0]
+    }
+    return pool[index]
+  }
+
+  /** UTC day count for YYYY-MM-DD, or null when the pack date is missing. */
+  static #quoteDayIndex(date, length) {
+    if (!length) return null
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(date || '').trim())
+    if (!m) return null
+    const days = Math.floor(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) / 86400000)
+    if (!Number.isFinite(days)) return null
+    return ((days % length) + length) % length
   }
 
   /**
