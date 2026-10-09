@@ -2061,13 +2061,23 @@ html[data-hp-theme="light"] .hp-cta:hover {
 html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
   filter: none;
 }
+/* Header seal: the dark theme keeps khd-logo.png. The light theme shows the cream, navy and gold
+   KY-flag seal (khd-logo-light.png), whose outer gold rim is its edge. A thin navy border and a soft shadow. */
+.brand-logo--light { display: none; }
+html[data-hp-theme="light"] .brand-logo--dark { display: none; }
+html[data-hp-theme="light"] .brand-logo--light { display: block; }
 html[data-hp-theme="light"] .brand-logo {
-  box-shadow: 0 6px 20px rgba(40, 28, 12, 0.18);
+  background: transparent;
+  border: 1.5px solid #002f6c;
+  box-shadow: 0 2px 8px rgba(40, 28, 12, 0.12);
 }
 html[data-hp-theme="light"] .hp-page .brand-logo {
-  box-shadow:
-    0 6px 22px rgba(40, 28, 12, 0.2),
-    0 0 0 3px rgba(154, 95, 28, 0.22);
+  border-width: 2px;
+  box-shadow: 0 3px 10px rgba(40, 28, 12, 0.14);
+}
+html[data-hp-theme="light"] .brand-home:hover .brand-logo,
+html[data-hp-theme="light"] .brand-home:focus-visible .brand-logo {
+  border-color: #c9a227;
 }
 html[data-hp-theme="light"] .nav-search-hit-title {
   color: var(--heading);
