@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
-    <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
+    <script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
     <title>Kentucky History Drive</title>
     <meta name="description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. An iPhone app is coming soon." />
     <link rel="canonical" href="https://kyhistorydrive.com/" />
@@ -77,7 +77,7 @@
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
           <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" />
-          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(im&&s&&im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
+          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
           <h1>Kentucky History Drive</h1>
         </a>
         <p class="tagline">History is all around us.</p>
@@ -393,7 +393,7 @@
         <li>Map data: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</li>
         <li>State outline: Natural Earth</li>
         <li>Stories: Kentucky history for the KY History Drive project</li>
-        <li>Layer places (history, museums, parks, and more): KY Markers Drive project data</li>
+        <li>Layer places (history, museums, parks, and more): Kentucky History Drive project data</li>
       </ul>
       <p class="muted about-app-data">
         iOS app data:
