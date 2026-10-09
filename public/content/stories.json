@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-08T09:46:30.066Z",
-  "count": 215,
+  "generatedAt": "2026-10-09T09:20:59.679Z",
+  "count": 220,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-08"
+    "end": "2026-10-09"
   },
   "eras": [
     "early-commonwealth",
@@ -1760,6 +1760,36 @@
       "lon": -83.9975333,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
+    },
+    {
+      "slug": "treaty-of-logstown-1752",
+      "title": "Treaty of Logstown, 1752",
+      "publishedDate": "2026-10-09",
+      "summary": "Logstown (French Chiningué) stood on the Ohio River near present Ambridge and Baden in Beaver County, Pennsylvania. Shawnee people settled it around 1725 to 1730, and…",
+      "yearStart": 1752,
+      "yearEnd": 1752,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-09",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-logstown-1752.jpg",
+        "title": "Pennsylvania historical marker for Logstown near Ambridge, Beaver County (photographed 2009)—a modern marker near the site, not the town itself",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logstown2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Lee Paxton · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2009
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "evan-williams-on-the-louisville-wharf",
@@ -3694,6 +3724,36 @@
       "matchedPlace": "Flemingsburg (Fleming County courthouse)"
     },
     {
+      "slug": "john-bradford-and-the-kentucke-gazette",
+      "title": "John Bradford and the Kentucke Gazette",
+      "publishedDate": "2026-10-09",
+      "summary": "John Bradford (1749–1830), born in Prince William County, Virginia, first came to Kentucky with a surveying party in 1775 and moved his family out in 1784 or 1785. He…",
+      "yearStart": 1787,
+      "yearEnd": 1830,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "printing",
+        "newspapers"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-09",
+      "county": "Fayette",
+      "photo": {
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
+        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": null
+      },
+      "lat": 38.1222,
+      "lon": -84.4565833,
+      "mapConfidence": "override",
+      "matchedPlace": "John Bradford’s Fairfield, KHS marker #1864 (Kentucky Gazette printer)"
+    },
+    {
       "slug": "william-whitley-sportsmans-hill",
       "title": "William Whitley / Sportsman's Hill",
       "publishedDate": "2026-08-28",
@@ -4527,6 +4587,35 @@
       "matchedPlace": "Richmond Founding"
     },
     {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "title": "Carlisle: a county seat in Kincart’s peach orchard",
+      "publishedDate": "2026-10-09",
+      "summary": "Nicholas County was formed in 1799 from parts of Mason and Bourbon counties and named for Col. George Nicholas, a Revolutionary War veteran who became a popular lawyer…",
+      "yearStart": 1799,
+      "yearEnd": 1816,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-09",
+      "county": "Nicholas",
+      "photo": {
+        "image_url": "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg",
+        "title": "Nicholas County Courthouse, Carlisle (photographed 2007), the third courthouse on the 1816 site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "lat": 38.31245,
+      "lon": -84.0282167,
+      "mapConfidence": "override",
+      "matchedPlace": "Carlisle courthouse square (Nicholas County seat since 1816)"
+    },
+    {
       "slug": "taylorsville-on-brashears-creek",
       "title": "Taylorsville on Brashears Creek",
       "publishedDate": "2026-09-10",
@@ -4851,6 +4940,36 @@
       "matchedPlace": "McLean Drift Bank, old Paradise on the Green River (generalized)"
     },
     {
+      "slug": "kentucky-association-1826-lexington-race-course",
+      "title": "Horse series: the Kentucky Association and Lexington’s race course",
+      "publishedDate": "2026-10-09",
+      "summary": "On July 23, 1826, Bluegrass horsemen formed the Kentucky Association to promote the breeding and racing of Thoroughbreds. Its founders included Henry Clay, Jesse…",
+      "yearStart": 1826,
+      "yearEnd": 1933,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "horses",
+        "horse-racing"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-09",
+      "county": "Fayette",
+      "photo": {
+        "image_url": "/content/photos/stories/kentucky-association-1826-lexington-race-course.jpg",
+        "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
+        "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
+        "year": 1920
+      },
+      "lat": 38.04639,
+      "lon": -84.48,
+      "mapConfidence": "override",
+      "matchedPlace": "Kentucky Association race course site, E. Fifth & Race Sts., Lexington"
+    },
+    {
       "slug": "louisville-and-portland-canal",
       "title": "Louisville and Portland Canal",
       "publishedDate": "2026-10-04",
@@ -4953,6 +5072,37 @@
       "lon": -84.78761913468118,
       "mapConfidence": "override",
       "matchedPlace": "James C. Crow / Oscar Pepper"
+    },
+    {
+      "slug": "mantle-rock-and-the-trail-of-tears",
+      "title": "Mantle Rock and the Trail of Tears, 1838–39",
+      "publishedDate": "2026-10-09",
+      "summary": "West of the crossroads of Joy in Livingston County, off KY 133, a sandstone arch about 30 feet high and 188 feet long stands in the woods of the McGilligan Creek…",
+      "yearStart": 1838,
+      "yearEnd": 1839,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "trail-of-tears",
+        "natural-arch"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-09",
+      "county": "Livingston",
+      "photo": {
+        "image_url": "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg",
+        "title": "The sandstone arch at Mantle Rock, Livingston County (photographed 2018)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mantle_Rock,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Rsfinlayson · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2018
+      },
+      "lat": 37.3605167,
+      "lon": -88.4229667,
+      "mapConfidence": "override",
+      "matchedPlace": "Mantle Rock, Trail of Tears campsite (KHS marker #1675)"
     },
     {
       "slug": "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",

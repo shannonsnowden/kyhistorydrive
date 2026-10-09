@@ -819,6 +819,32 @@ const MANUAL_OVERRIDES = {
     lon: -84.1191667,
     confidence: 'override',
   },
+  // 2026-10-09 brief (Todd swapped for John Bradford, Cumberland Falls for Mantle Rock; Treaty of Logstown intentionally unpinned: Pennsylvania town)
+  'john-bradford-and-the-kentucke-gazette': {
+    matchName: "John Bradford’s Fairfield, KHS marker #1864 (Kentucky Gazette printer)",
+    lat: 38.1222,
+    lon: -84.4565833,
+    confidence: 'override',
+  },
+  'carlisle-kincarts-peach-orchard-county-seat': {
+    matchName: "Carlisle courthouse square (Nicholas County seat since 1816)",
+    lat: 38.31245,
+    lon: -84.0282167,
+    confidence: 'override',
+  },
+  'kentucky-association-1826-lexington-race-course': {
+    matchName: "Kentucky Association race course site, E. Fifth & Race Sts., Lexington",
+    lat: 38.04639,
+    lon: -84.48,
+    confidence: 'override',
+  },
+  'treaty-of-logstown-1752': {},
+  'mantle-rock-and-the-trail-of-tears': {
+    matchName: "Mantle Rock, Trail of Tears campsite (KHS marker #1675)",
+    lat: 37.3605167,
+    lon: -88.4229667,
+    confidence: 'override',
+  },
 }
 
 

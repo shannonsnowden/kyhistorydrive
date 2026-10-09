@@ -902,5 +902,54 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
     "year": 1934
+  },
+  "john-bradford-and-the-kentucke-gazette": {
+    "ext": "jpg",
+    "commonsFile": "John-Bradford.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/John-Bradford.jpg?width=1280",
+    "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown artist · Wikimedia Commons · public domain"
+  },
+  "carlisle-kincarts-peach-orchard-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Nicholas_County_Kentucky_Courthouse.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nicholas_County_Kentucky_Courthouse.jpg?width=1280",
+    "title": "Nicholas County Courthouse, Carlisle (photographed 2007), the third courthouse on the 1816 site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
+  },
+  "kentucky-association-1826-lexington-race-course": {
+    "ext": "jpg",
+    "commonsFile": "KentuckyAssociationRacetrack-1920.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/KentuckyAssociationRacetrack-1920.jpg?width=1280",
+    "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
+    "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
+    "year": 1920
+  },
+  "treaty-of-logstown-1752": {
+    "ext": "jpg",
+    "commonsFile": "Logstown2.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Logstown2.jpg?width=1280",
+    "title": "Pennsylvania historical marker for Logstown near Ambridge, Beaver County (photographed 2009)—a modern marker near the site, not the town itself",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Logstown2.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Lee Paxton · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2009
+  },
+  "mantle-rock-and-the-trail-of-tears": {
+    "ext": "jpg",
+    "commonsFile": "Mantle_Rock,_Kentucky.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mantle_Rock,_Kentucky.jpg?width=1280",
+    "title": "The sandstone arch at Mantle Rock, Livingston County (photographed 2018)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mantle_Rock,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Rsfinlayson · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2018
   }
 }

@@ -581,6 +581,46 @@
       "yearStart": 1791,
       "yearEnd": 1804,
       "county": "Bourbon"
+    },
+    "john-bradford-and-the-kentucke-gazette": {
+      "reason": "SWAP for Col. John Todd (already col-john-todd-of-lexington, 2026-09-15). Pin KHS marker #1864 John Bradford (Fairfield), 1916 Iron Works Pike. County Fayette. Years 1787 first Gazette–1830 death.",
+      "date": "2026-10-09",
+      "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830",
+      "lat": 38.1222,
+      "lon": -84.4565833,
+      "yearStart": 1787,
+      "yearEnd": 1830,
+      "county": "Fayette"
+    },
+    "carlisle-kincarts-peach-orchard-county-seat": {
+      "reason": "Pin Nicholas County Courthouse lawn (KHS marker #2053 point), Carlisle. County Nicholas. Years 1799 county formed–1816 Carlisle founded.",
+      "date": "2026-10-09",
+      "historyId": "carlisle-courthouse-square-nicholas-1799-1816",
+      "lat": 38.31245,
+      "lon": -84.0282167,
+      "yearStart": 1799,
+      "yearEnd": 1816,
+      "county": "Nicholas"
+    },
+    "kentucky-association-1826-lexington-race-course": {
+      "reason": "Horse series. Pin Wikipedia point for the track, E. Fifth & Race Sts., Lexington. County Fayette. Years 1826 Association formed–1933 track closed.",
+      "date": "2026-10-09",
+      "historyId": "kentucky-association-race-course-lexington-fayette-1826-1933",
+      "lat": 38.04639,
+      "lon": -84.48,
+      "yearStart": 1826,
+      "yearEnd": 1933,
+      "county": "Fayette"
+    },
+    "mantle-rock-and-the-trail-of-tears": {
+      "reason": "SWAP for Cumberland Falls (already cumberland-falls, 2026-09-17). Pin KHS marker #1675 on KY 133 (public TNC preserve, Trail of Tears NHT). County Livingston. Years 1838–1839.",
+      "date": "2026-10-09",
+      "historyId": "mantle-rock-trail-of-tears-livingston-1838-1839",
+      "lat": 37.3605167,
+      "lon": -88.4229667,
+      "yearStart": 1838,
+      "yearEnd": 1839,
+      "county": "Livingston"
     }
   }
 }
