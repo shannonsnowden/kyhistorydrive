@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T09:46:31.248Z",
+  "generatedAt": "2026-10-09T09:21:00.882Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -155,6 +155,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2019
+      }
+    },
+    "carlisle-kincarts-peach-orchard-county-seat": {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "historyId": "carlisle-courthouse-square-nicholas-1799-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg",
+        "title": "Nicholas County Courthouse, Carlisle (photographed 2007), the third courthouse on the 1816 site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "carrollton-from-port-william": {
@@ -568,6 +580,18 @@
         "year": 2026
       }
     },
+    "john-bradford-and-the-kentucke-gazette": {
+      "slug": "john-bradford-and-the-kentucke-gazette",
+      "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830",
+      "photo": {
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
+        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": null
+      }
+    },
     "john-finley-the-trader-who-put-kentucky-on-boones-map": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
       "historyId": "john-finley-eskippakithiki-trader",
@@ -578,6 +602,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
         "year": 1851
+      }
+    },
+    "kentucky-association-1826-lexington-race-course": {
+      "slug": "kentucky-association-1826-lexington-race-course",
+      "historyId": "kentucky-association-race-course-lexington-fayette-1826-1933",
+      "photo": {
+        "image_url": "/content/photos/stories/kentucky-association-1826-lexington-race-course.jpg",
+        "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
+        "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
+        "year": 1920
       }
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
@@ -650,6 +686,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2022
+      }
+    },
+    "mantle-rock-and-the-trail-of-tears": {
+      "slug": "mantle-rock-and-the-trail-of-tears",
+      "historyId": "mantle-rock-trail-of-tears-livingston-1838-1839",
+      "photo": {
+        "image_url": "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg",
+        "title": "The sandstone arch at Mantle Rock, Livingston County (photographed 2018)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mantle_Rock,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Rsfinlayson · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2018
       }
     },
     "mary-draper-ingles-escapes-through-kentucky-1755": {
@@ -1048,6 +1096,18 @@
         "year": 1795
       }
     },
+    "treaty-of-logstown-1752": {
+      "slug": "treaty-of-logstown-1752",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-logstown-1752.jpg",
+        "title": "Pennsylvania historical marker for Logstown near Ambridge, Beaver County (photographed 2009)—a modern marker near the site, not the town itself",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logstown2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Lee Paxton · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2009
+      }
+    },
     "twin-mounds-site": {
       "slug": "twin-mounds-site",
       "historyId": "twin-mounds-site-15ba2-ballard-county",
@@ -1264,6 +1324,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2019
+      }
+    },
+    "carlisle-courthouse-square-nicholas-1799-1816": {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "historyId": "carlisle-courthouse-square-nicholas-1799-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg",
+        "title": "Nicholas County Courthouse, Carlisle (photographed 2007), the third courthouse on the 1816 site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "carrollton-port-william-carroll-1792-1838": {
@@ -1590,6 +1662,18 @@
         "year": 2026
       }
     },
+    "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830": {
+      "slug": "john-bradford-and-the-kentucke-gazette",
+      "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830",
+      "photo": {
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
+        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": null
+      }
+    },
     "john-finley-eskippakithiki-trader": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
       "historyId": "john-finley-eskippakithiki-trader",
@@ -1600,6 +1684,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
         "year": 1851
+      }
+    },
+    "kentucky-association-race-course-lexington-fayette-1826-1933": {
+      "slug": "kentucky-association-1826-lexington-race-course",
+      "historyId": "kentucky-association-race-course-lexington-fayette-1826-1933",
+      "photo": {
+        "image_url": "/content/photos/stories/kentucky-association-1826-lexington-race-course.jpg",
+        "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
+        "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
+        "year": 1920
       }
     },
     "lebanon-marion-county-seat": {
@@ -1660,6 +1756,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bpluke01 · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2022
+      }
+    },
+    "mantle-rock-trail-of-tears-livingston-1838-1839": {
+      "slug": "mantle-rock-and-the-trail-of-tears",
+      "historyId": "mantle-rock-trail-of-tears-livingston-1838-1839",
+      "photo": {
+        "image_url": "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg",
+        "title": "The sandstone arch at Mantle Rock, Livingston County (photographed 2018)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mantle_Rock,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Rsfinlayson · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2018
       }
     },
     "mary-ingles-big-bone-lick-escape-1755": {

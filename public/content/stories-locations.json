@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-08T09:46:30.227Z",
+  "generatedAt": "2026-10-09T09:20:59.845Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 117,
-    "none": 34
+    "override": 121,
+    "none": 35
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -519,6 +519,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
+    },
+    "treaty-of-logstown-1752": {
+      "slug": "treaty-of-logstown-1752",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "evan-williams-on-the-louisville-wharf": {
       "slug": "evan-williams-on-the-louisville-wharf",
@@ -1128,6 +1136,14 @@
       "matchedPlace": "Flemingsburg (Fleming County courthouse)",
       "historyId": "flemingsburg-stockton-fleming-1787-1812"
     },
+    "john-bradford-and-the-kentucke-gazette": {
+      "slug": "john-bradford-and-the-kentucke-gazette",
+      "lat": 38.1222,
+      "lon": -84.4565833,
+      "mapConfidence": "override",
+      "matchedPlace": "John Bradford’s Fairfield, KHS marker #1864 (Kentucky Gazette printer)",
+      "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830"
+    },
     "william-whitley-sportsmans-hill": {
       "slug": "william-whitley-sportsmans-hill",
       "lat": 37.4761695,
@@ -1384,6 +1400,14 @@
       "matchedPlace": "Richmond Founding",
       "historyId": "richmond-founding"
     },
+    "carlisle-kincarts-peach-orchard-county-seat": {
+      "slug": "carlisle-kincarts-peach-orchard-county-seat",
+      "lat": 38.31245,
+      "lon": -84.0282167,
+      "mapConfidence": "override",
+      "matchedPlace": "Carlisle courthouse square (Nicholas County seat since 1816)",
+      "historyId": "carlisle-courthouse-square-nicholas-1799-1816"
+    },
     "taylorsville-on-brashears-creek": {
       "slug": "taylorsville-on-brashears-creek",
       "lat": 38.0317,
@@ -1480,6 +1504,14 @@
       "matchedPlace": "McLean Drift Bank, old Paradise on the Green River (generalized)",
       "historyId": "mclean-drift-bank-paradise-muhlenberg-1820-1967"
     },
+    "kentucky-association-1826-lexington-race-course": {
+      "slug": "kentucky-association-1826-lexington-race-course",
+      "lat": 38.04639,
+      "lon": -84.48,
+      "mapConfidence": "override",
+      "matchedPlace": "Kentucky Association race course site, E. Fifth & Race Sts., Lexington",
+      "historyId": "kentucky-association-race-course-lexington-fayette-1826-1933"
+    },
     "louisville-and-portland-canal": {
       "slug": "louisville-and-portland-canal",
       "lat": 38.27181,
@@ -1511,6 +1543,14 @@
       "mapConfidence": "override",
       "matchedPlace": "James C. Crow / Oscar Pepper",
       "historyId": "james-crow-oscar-pepper"
+    },
+    "mantle-rock-and-the-trail-of-tears": {
+      "slug": "mantle-rock-and-the-trail-of-tears",
+      "lat": 37.3605167,
+      "lon": -88.4229667,
+      "mapConfidence": "override",
+      "matchedPlace": "Mantle Rock, Trail of Tears campsite (KHS marker #1675)",
+      "historyId": "mantle-rock-trail-of-tears-livingston-1838-1839"
     },
     "bagdad-how-a-shelby-county-rail-stop-took-over-consolation": {
       "slug": "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",

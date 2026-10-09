@@ -27,7 +27,8 @@
   "Dragging Canoe": "chickamauga-cherokee",
   "Charles Scott": "gen-charles-scott-and-petersburg",
   "Daniel Trabue": "daniel-trabue-of-columbia",
-  "James Wilkinson": "gen-james-wilkinson-kentuckys-agent-13"
+  "James Wilkinson": "gen-james-wilkinson-kentuckys-agent-13",
+  "John Bradford": "john-bradford-and-the-kentucke-gazette"
  },
  "skip": {
   "Richard Henderson": [
@@ -519,6 +520,10 @@
    {
     "slug": "falls-of-the-ohio",
     "label": "Same place: warned off the Falls in 1751"
+   },
+   {
+    "slug": "treaty-of-logstown-1752",
+    "label": "Same person: Gist represented the Ohio Company at the 1752 Logstown treaty"
    }
   ],
   "cleek-mccabe-fort-ancient-village": [
@@ -1063,6 +1068,40 @@
    {
     "slug": "russellville-from-big-boiling-spring-to-county-seat",
     "label": "Same event: McGready’s 1800 Logan County camp meeting came the year before Cane Ridge"
+   }
+  ],
+  "treaty-of-logstown-1752": [
+   {
+    "slug": "christopher-gist-1750-51",
+    "label": "Same person: Christopher Gist, who spoke for the Ohio Company at Logstown, has his own story"
+   }
+  ],
+  "carlisle-kincarts-peach-orchard-county-seat": [
+   {
+    "slug": "nicholasville-takes-shape",
+    "label": "Same person: both Nicholas County and Nicholasville are named for George Nicholas"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same place: Nicholas County’s court first met at Lower Blue Licks"
+   }
+  ],
+  "nicholasville-takes-shape": [
+   {
+    "slug": "carlisle-kincarts-peach-orchard-county-seat",
+    "label": "Same person: Nicholas County, whose seat is Carlisle, is also named for George Nicholas"
+   }
+  ],
+  "kentucky-association-1826-lexington-race-course": [
+   {
+    "slug": "phosphatic-limestone-and-horse-country",
+    "label": "Same series: the previous Horse series chapter, on Bluegrass soils and the first horse settlers"
+   }
+  ],
+  "phosphatic-limestone-and-horse-country": [
+   {
+    "slug": "kentucky-association-1826-lexington-race-course",
+    "label": "Same series: the next Horse series chapter, the Kentucky Association of 1826"
    }
   ]
  }

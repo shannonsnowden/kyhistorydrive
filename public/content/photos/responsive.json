@@ -1,129 +1,105 @@
 {
-  "generatedAt": "2026-10-08T13:09:48.124Z",
+  "generatedAt": "2026-10-09T09:21:01.157Z",
   "maxBytes": 204800,
   "images": {
-    "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg": {
-      "sha256": "f3d2fc011cd9ff5f65c4687a30cbc2271a3c8896511b14fb6a2ff58a6d2ae46d",
-      "width": 1087,
-      "height": 1369,
+    "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg": {
+      "sha256": "bd167a358d16931fdb40b5c5a6d483326f49cb955ec3c1f89dd6d0acbe18af2f",
+      "width": 616,
+      "height": 878,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-1087.avif",
-          "w": 1087
+          "src": "/content/photos/opt/stories/john-bradford-and-the-kentucke-gazette-616.avif",
+          "w": 616
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-1087.webp",
-          "w": 1087
+          "src": "/content/photos/opt/stories/john-bradford-and-the-kentucke-gazette-616.webp",
+          "w": 616
         }
       ]
     },
-    "/content/photos/stories/hodgenville-from-hodgens-mill-to-county-seat.jpg": {
-      "sha256": "29ee7cf06771effef7a6141a04cb26ef147ff2141a84fc49aec2583a655b270a",
-      "width": 1200,
-      "height": 900,
+    "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg": {
+      "sha256": "f7addbdd464b71b6b4a27b54963146348a79b38a1c7353dda72aed9bc28c902d",
+      "width": 1024,
+      "height": 1365,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/hodgenville-from-hodgens-mill-to-county-seat-800.avif",
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/hodgenville-from-hodgens-mill-to-county-seat-1200.avif",
-          "w": 1200
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-1024.avif",
+          "w": 1024
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/hodgenville-from-hodgens-mill-to-county-seat-800.webp",
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/hodgenville-from-hodgens-mill-to-county-seat-1200.webp",
-          "w": 1200
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-1024.webp",
+          "w": 1024
         }
       ]
     },
-    "/content/photos/stories/athiamiowee-the-warriors-path-through-kentucky.jpg": {
-      "sha256": "c3e42017775fa22f8fdd1cc1d97bc0bb203ff08d232de2abda4c7b486ee49280",
+    "/content/photos/stories/kentucky-association-1826-lexington-race-course.jpg": {
+      "sha256": "5b01937236996a8c938f094bfba1618584776acf47dd185b843c9d69df145192",
+      "width": 550,
+      "height": 324,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/kentucky-association-1826-lexington-race-course-550.avif",
+          "w": 550
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/kentucky-association-1826-lexington-race-course-550.webp",
+          "w": 550
+        }
+      ]
+    },
+    "/content/photos/stories/treaty-of-logstown-1752.jpg": {
+      "sha256": "5282b8e1b6829e2ef5b46a3b09cf49ed8cd4b9bfa5c4e9933a5f5844d2eab53d",
+      "width": 600,
+      "height": 450,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-logstown-1752-600.avif",
+          "w": 600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-logstown-1752-600.webp",
+          "w": 600
+        }
+      ]
+    },
+    "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg": {
+      "sha256": "7c59a9cb1696437a27d936cf05ea2423a4f080b509563267a2dd7dc0c329e790",
       "width": 1280,
-      "height": 960,
+      "height": 854,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-800.avif",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-1280.avif",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-1280.avif",
           "w": 1280
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-800.webp",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-925.webp",
-          "w": 925
-        }
-      ]
-    },
-    "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg": {
-      "sha256": "a53f23a7da4011975359e716ca9223354200ef593a411cce494df00c5d3f8ef4",
-      "width": 1280,
-      "height": 960,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-1280.avif",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-1280.webp",
           "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-1280.webp",
-          "w": 1280
-        }
-      ]
-    },
-    "/content/photos/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting.jpg": {
-      "sha256": "0b5a98c11d16f0bd6a068af7a00f6b81db4d0e86fb9847ca42f1859ca0153e60",
-      "width": 931,
-      "height": 652,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-931.avif",
-          "w": 931
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-931.webp",
-          "w": 931
         }
       ]
     }
