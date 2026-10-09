@@ -1,11 +1,12 @@
 /**
  * Homepage image weight (critique W9).
  *
- * Writes a 176px header logo (shown at 88px) and AVIF/WebP variants of the
- * photos referenced by public/content/home-preview.json. Original JPEGs stay
- * where they are, with the same filenames and credits. Each variant is kept
- * under 200KB. Sources wider than 1600px are capped; narrower photos are not
- * upscaled.
+ * Writes a 176px header logo (shown at 88px), a 576px map-strip seal (2× for
+ * a seal at about 80% of the strip height on a 1440px page), and AVIF/WebP
+ * variants of the photos referenced by public/content/home-preview.json.
+ * Original JPEGs stay where they are, with the same filenames and credits.
+ * Each photo variant is kept under 200KB. Sources wider than 1600px are
+ * capped; narrower photos are not upscaled.
  *
  * The high-resolution logo master lives in scripts/brand-src/ (not deployed).
  * On the first run it is copied from public/brand/khd-logo.png.
@@ -21,8 +22,13 @@ const PACK_PATH = path.join(ROOT, 'public/content/home-preview.json')
 const MANIFEST_PATH = path.join(ROOT, 'public/content/photos/responsive.json')
 const LOGO_SRC = path.join(ROOT, 'scripts/brand-src/khd-logo.jpg')
 const LOGO_OUT = path.join(ROOT, 'public/brand/khd-logo.png')
+const SEAL_SRC = LOGO_SRC
+const SEAL_SIDE = 576
+const SEAL_AVIF = path.join(ROOT, 'public/brand/khd-map-seal.avif')
+const SEAL_WEBP = path.join(ROOT, 'public/brand/khd-map-seal.webp')
 const MAX_BYTES = 200 * 1024
 const LOGO_MAX_BYTES = 20 * 1024
+const SEAL_MAX_BYTES = 40 * 1024
 
 function sha256(buf) {
   return createHash('sha256').update(buf).digest('hex')
@@ -155,8 +161,23 @@ async function optimizeLogo() {
   console.log(`logo ${info.width}x${info.height} ${(buf.length / 1024).toFixed(1)}KB`)
 }
 
+async function optimizeMapSeal() {
+  if (!fs.existsSync(SEAL_SRC)) throw new Error('missing seal master')
+  const base = sharp(SEAL_SRC).rotate().resize(SEAL_SIDE, SEAL_SIDE, { fit: 'cover', position: 'centre' })
+  const avif = await base.clone().avif({ quality: 52, effort: 6 }).toBuffer()
+  const webp = await base.clone().webp({ quality: 72, effort: 6 }).toBuffer()
+  for (const [file, buf] of [[SEAL_AVIF, avif], [SEAL_WEBP, webp]]) {
+    if (buf.length > SEAL_MAX_BYTES) {
+      throw new Error(`${path.basename(file)} is ${buf.length} bytes, over ${SEAL_MAX_BYTES}`)
+    }
+    fs.writeFileSync(file, buf)
+    console.log(`seal ${path.basename(file)} ${SEAL_SIDE}x${SEAL_SIDE} ${(buf.length / 1024).toFixed(1)}KB`)
+  }
+}
+
 async function main() {
   await optimizeLogo()
+  await optimizeMapSeal()
   const pack = readJson(PACK_PATH)
   const previous = fs.existsSync(MANIFEST_PATH) ? readJson(MANIFEST_PATH).images || {} : {}
   const images = {}
