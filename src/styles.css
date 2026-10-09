@@ -77,6 +77,14 @@ a:focus-visible {
   position: sticky; top: 0; background: var(--header-bg); z-index: 20;
   backdrop-filter: blur(8px);
 }
+/* Privacy uses the shared header. A solid fill so body text cannot show through while it is sticky. */
+body.privacy-doc header.top {
+  background: #101812;
+  backdrop-filter: none;
+}
+html[data-hp-theme="light"] body.privacy-doc header.top {
+  background: #f3ead8;
+}
 .brand-home {
   display: inline-flex;
   align-items: center;
