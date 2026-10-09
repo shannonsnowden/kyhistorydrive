@@ -7,6 +7,7 @@
  * Downloads the shapefiles, projects them (not raw longitude/latitude), simplifies
  * the rings, and writes public/brand/ky-map-strip.svg (outline) plus
  * public/brand/ky-map-strip-counties.svg (same outline with county lines).
+ * The homepage default is the county map. ?mapstrip=a shows the outline only.
  * Pass --markers to also write a marker-dot variant from markers.geojson.
  */
 import { execFileSync } from 'node:child_process'
@@ -416,6 +417,7 @@ async function main() {
       desc: outlineDesc,
       vbH: scale.vbH,
       body: outlineBody,
+      hidden: true,
     })}\n        ${inlineSvg({
       id: 'hp-map-b',
       titleId: 'hp-map-b-title',
@@ -424,7 +426,6 @@ async function main() {
       desc: countyDesc,
       vbH: scale.vbH,
       body: countyBody,
-      hidden: true,
     })}`
     const next = html.replace(/<!-- ky-map-strip:start -->[\s\S]*?<!-- ky-map-strip:end -->/, `<!-- ky-map-strip:start -->\n        ${inline}\n        <!-- ky-map-strip:end -->`)
     if (next === html) throw new Error('index.html is missing ky-map-strip markers')
