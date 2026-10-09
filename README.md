@@ -97,6 +97,8 @@ Placements, and nowhere else (not the map, popups, pin links, hero, or nav):
 
 Each slot is labeled Advertisement and keeps a fixed min-height so a late or empty fill cannot collapse the page. In the AdSense account, leave Auto ads off, including anchor and vignette, so Google does not inject sticky or full-screen units.
 
+Keep AdSense Auto ads OFF: the loader is on every page, so Auto ads would place ads on all stories.
+
 `/privacy` is a real HTML page (not a hash route) linked from the footer. It covers Google and partner advertising cookies, links to [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites), and explains opting out in [Google Ads Settings](https://adssettings.google.com/). Consent for EEA, UK, and Swiss visitors, and the US state privacy message, come from AdSense Privacy & messaging (Google’s certified CMP for those regions). Publish that message before turning `VITE_ADS_ENABLED` on for production traffic.
 
 `/robots.txt` allows all crawlers, including Mediapartners-Google, GPTBot, PerplexityBot, ClaudeBot, and Google-Extended, and points at `/sitemap.xml`. The sitemap lists the crawlable URLs (`/` and `/privacy`). Hash routes are the same document and are not listed.

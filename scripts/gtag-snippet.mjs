@@ -56,15 +56,88 @@ export function gtagHeadHtml() {
       gtag('js', new Date());
       gtag('config', '${GA_MEASUREMENT_ID}', { 'send_page_view': false });
       var khdLastPagePath = '';
-      function khdPageView() {
-        var page_path = location.pathname + location.search + location.hash;
-        if (page_path === khdLastPagePath) return;
+      var khdTitleWait = null;
+      function khdHashParts() {
+        var raw = (location.hash || '').replace(/^#/, '').split('?')[0];
+        return raw ? raw.split('/') : [];
+      }
+      function khdStorySlug() {
+        var parts = khdHashParts();
+        var head = parts[0] || '';
+        if (head !== 'timeline' && head !== 'stories' && head !== 'story') return '';
+        if (!parts[1]) return '';
+        try { return decodeURIComponent(parts.slice(1).join('/')); }
+        catch (e) { return parts.slice(1).join('/'); }
+      }
+      function khdLookupStoryTitle(slug) {
+        if (!slug) return '';
+        var map = window.__khdStoryTitles;
+        if (map && map[slug]) return map[slug];
+        var node = document.querySelector('[data-slug="' + slug.replace(/"/g, '') + '"] strong');
+        if (node && node.textContent.trim()) return node.textContent.trim();
+        var links = document.querySelectorAll('a[href]');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href') || '';
+          var hash = href.split('#')[1] || '';
+          if (hash !== 'timeline/' + slug) continue;
+          var label = (links[i].textContent || '').replace(/\\s+/g, ' ').trim();
+          if (label && label !== 'Read the story' && label.indexOf('Read:') !== 0 && label !== 'Open on the map') return label;
+        }
+        return '';
+      }
+      function khdPageTitle() {
+        var parts = khdHashParts();
+        var head = parts[0] || '';
+        if (!head || head === 'home' || head === 'content' || head === 'explore') return document.title;
+        if (head === 'map') return 'Map';
+        if (head === 'about') return 'About';
+        if (head === 'app') return 'iPhone app';
+        if (head === 'resources') return 'Resources';
+        if (head === 'timeline' || head === 'stories' || head === 'story') {
+          if (!parts[1]) return 'Timeline';
+          return khdLookupStoryTitle(khdStorySlug()) || '';
+        }
+        return document.title;
+      }
+      function khdCancelTitleWait() {
+        if (!khdTitleWait) return;
+        window.removeEventListener('khd-story-titles', khdTitleWait.finish);
+        clearTimeout(khdTitleWait.timer);
+        khdTitleWait = null;
+      }
+      function khdSend(page_path) {
+        var slug = khdStorySlug();
+        var title = slug ? (khdLookupStoryTitle(slug) || 'Timeline') : khdPageTitle();
         khdLastPagePath = page_path;
         gtag('event', 'page_view', {
           page_location: location.href,
           page_path: page_path,
-          page_title: document.title
+          page_title: title || document.title
         });
+      }
+      function khdPageView() {
+        var page_path = location.pathname + location.search + location.hash;
+        var slug = khdStorySlug();
+        if (slug && !khdLookupStoryTitle(slug)) {
+          if (khdLastPagePath === page_path) return;
+          if (khdTitleWait && khdTitleWait.path === page_path) return;
+          khdCancelTitleWait();
+          var sent = false;
+          function finish() {
+            if (sent) return;
+            sent = true;
+            var still = (location.pathname + location.search + location.hash) === page_path;
+            khdCancelTitleWait();
+            if (!still) { khdPageView(); return; }
+            khdSend(page_path);
+          }
+          khdTitleWait = { path: page_path, finish: finish, timer: setTimeout(finish, 2500) };
+          window.addEventListener('khd-story-titles', finish);
+          return;
+        }
+        khdCancelTitleWait();
+        if (page_path === khdLastPagePath) return;
+        khdSend(page_path);
       }
       khdPageView();
       window.addEventListener('hashchange', khdPageView);
@@ -98,6 +171,7 @@ export function missingGaSnippet(html) {
     problems.push('missing hashchange page_view')
   }
   if (!html.includes('page_path: page_path')) problems.push('missing page_path')
+  if (!html.includes('page_title:')) problems.push('missing page_title')
   for (const code of ['AT', 'IS', 'NO', 'GB', 'CH']) {
     if (!html.includes(`'${code}'`)) problems.push(`missing region ${code}`)
   }
@@ -117,4 +191,83 @@ export function injectGtagHead(html) {
     if (start !== -1) return `${html.slice(0, start)}${snippet}\n    ${html.slice(start)}`
   }
   return html.replace('</head>', `${snippet}\n  </head>`)
+}
+
+/** Immediate AdSense loader. The SPA and the privacy page use this. */
+export const ADSENSE_SRC =
+  'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033'
+
+export function adsenseLoaderHtml() {
+  return `<script async src="${ADSENSE_SRC}" crossorigin="anonymous"></script>`
+}
+
+/**
+ * Prerendered story, layer, and about pages have no ad slots. Load the same
+ * adsbygoogle.js tag on idle or the first interaction so it does not compete
+ * with LCP. Consent defaults are already queued by gtagHeadHtml().
+ */
+export function deferredAdsenseLoaderHtml() {
+  return `<script>
+    (function () {
+      var src = '${ADSENSE_SRC}';
+      var started = false;
+      function load() {
+        if (started || document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
+        started = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.crossOrigin = 'anonymous';
+        s.src = src;
+        document.head.appendChild(s);
+      }
+      window.__khdLoadAds = load;
+      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (name) {
+        window.addEventListener(name, load, { once: true, passive: true });
+      });
+      if (window.requestIdleCallback) window.requestIdleCallback(function () { load(); }, { timeout: 2000 });
+      else window.addEventListener('load', function () { setTimeout(load, 1); });
+    })();
+  </script>`
+}
+
+/** Footer control that reopens AdSense Privacy & messaging. Hidden until googlefc exists. */
+export function privacyChoicesLinkHtml() {
+  return `<a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>`
+}
+
+export function privacyChoicesBootHtml() {
+  return `<script>
+    (function () {
+      var links = document.querySelectorAll('[data-privacy-choices]');
+      if (!links.length) return;
+      function googleFcReady() {
+        var fc = window.googlefc;
+        return !!(fc && (fc.callbackQueue || typeof fc.showRevocationMessage === 'function'));
+      }
+      function openChoices(e) {
+        if (window.__khdLoadAds) window.__khdLoadAds();
+        if (!googleFcReady()) {
+          if (location.pathname.indexOf('/privacy') === 0) e.preventDefault();
+          return;
+        }
+        e.preventDefault();
+        window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+        window.googlefc.callbackQueue.push(function () {
+          googlefc.showRevocationMessage();
+        });
+      }
+      links.forEach(function (link) { link.addEventListener('click', openChoices); });
+      function reveal() {
+        if (!googleFcReady()) return false;
+        links.forEach(function (link) { link.hidden = false; });
+        return true;
+      }
+      if (reveal()) return;
+      var tries = 0;
+      var timer = setInterval(function () {
+        tries += 1;
+        if (reveal() || tries > 40) clearInterval(timer);
+      }, 250);
+    })();
+  </script>`
 }

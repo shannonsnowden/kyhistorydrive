@@ -2372,10 +2372,22 @@ let storiesSortMode = 'brief-desc'
 let timelineStoriesSortMode = 'year-asc'
 let storiesBySlug = {}
 
+function publishStoryTitles(stories) {
+  const map = window.__khdStoryTitles || (window.__khdStoryTitles = {})
+  for (const story of stories || []) {
+    if (story?.slug && story.title) map[story.slug] = story.title
+  }
+  window.dispatchEvent(new Event('khd-story-titles'))
+}
+
 async function loadStories() {
-  if (storiesIndex) return storiesIndex
+  if (storiesIndex) {
+    publishStoryTitles(storiesIndex.stories)
+    return storiesIndex
+  }
   const res = await fetch('/content/stories.json')
   storiesIndex = await res.json()
+  publishStoryTitles(storiesIndex.stories)
   await enrichStoriesCounties(storiesIndex.stories)
   return storiesIndex
 }

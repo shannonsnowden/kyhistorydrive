@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
+    <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
     <title>Privacy — Kentucky History Drive</title>
     <meta
       name="description"
@@ -29,25 +31,10 @@
     <!-- khd-gtag -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
   </head>
-  <body>
-    <header class="top">
-      <div class="brand">
-        <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
-          <h1>Kentucky History Drive</h1>
-        </a>
-        <p class="tagline">History is all around us.</p>
-      </div>
-      <nav aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/#map">Map</a>
-        <a href="/#timeline">Timeline</a>
-        <a href="/#about">About</a>
-        <a href="/#app">App</a>
-      </nav>
-    </header>
+  <body class="privacy-doc">
+    <!-- khd-site-header -->
 
-    <main class="panel privacy-page">
+    <main id="content" class="panel privacy-page" tabindex="-1">
       <h2>Privacy</h2>
       <p>
         Kentucky History Drive is a static site about Kentucky history. Story and map pages do not ask you to
@@ -58,25 +45,33 @@
 
       <h3>Google Analytics</h3>
       <p>
-        Google Analytics 4 (measurement ID G-83G4SBQKT1) records how the site is used. That includes the
-        page address, the page title, and general browser and device information such as language and screen
-        size. On the main page, the map and individual stories use a hash address (for example
-        <code>/#map</code> or <code>/#timeline/a-story</code>). A page view is sent when the page loads and
-        again when that hash changes, so a story or the map counts separately from the home page. Google
-        uses the IP address to derive an approximate location. Google Analytics 4 does not store the full
-        IP address. When analytics cookies are allowed, a first-party cookie can recognize a later visit in
-        the same browser. This site does not use Analytics to create an account.
+        We use Google Analytics to count visits and see which stories people read. It doesn't identify you.
+        You can opt out below.
       </p>
       <p>
-        Before the tag is configured, each page sets Google Consent Mode defaults. In the European Economic
-        Area, the United Kingdom, and Switzerland, ad storage, ad user data, ad personalization, and
-        analytics storage start denied. The consent message for those regions is AdSense Privacy &amp;
-        messaging, loaded by the Google ad tag already in the page head. That message updates the consent
-        choice itself. The tag waits briefly so a saved choice can apply before a page view is sent. If you
-        do not consent, analytics cookies are not set. Google may still receive a cookieless ping that does
-        not include those cookies. In other regions those storage types start granted. Where a US state
-        requires a privacy message, that message also comes from AdSense Privacy &amp; messaging.
+        Google Analytics 4 (measurement ID G-83G4SBQKT1) records the page address, the page title, and general
+        browser and device information such as language and screen size. On the main page, the map and stories
+        use a hash address (for example <code>/#map</code> or <code>/#timeline/a-story</code>). A page view is
+        sent when the page loads and when that hash changes. Google uses the IP address for an approximate
+        location and does not store the full IP address. When analytics cookies are allowed, a first-party
+        cookie can recognize a later visit in this browser.
       </p>
+      <p>Consent Mode is set before the tag runs:</p>
+      <ul>
+        <li>
+          <strong>EEA, UK, and Switzerland.</strong> Ad storage, ad user data, ad personalization, and
+          analytics storage start denied. AdSense Privacy &amp; messaging asks before those are turned on.
+          The tag waits briefly for a saved choice. If you do not consent, analytics cookies stay off. Google
+          may still receive a cookieless ping.
+        </li>
+        <li>
+          <strong>Other regions.</strong> Those storage types start granted.
+        </li>
+        <li>
+          <strong>US states that require it.</strong> A state privacy message comes from the same AdSense
+          Privacy &amp; messaging tool.
+        </li>
+      </ul>
       <p>
         You can opt out of Google Analytics in this browser with the
         <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer"
@@ -115,7 +110,8 @@
         message before personalized ads or analytics cookies. Visitors in US states that require it are
         shown a state privacy message. Both messages come from AdSense Privacy &amp; messaging, which is
         Google’s certified consent-management platform for those regions. The message updates Google
-        Consent Mode on the page. This site does not run a separate consent banner.
+        Consent Mode on the page. This site does not run a separate consent banner. The Privacy choices
+        link in the footer reopens that message when it is available.
       </p>
 
       <h3>Other requests</h3>
@@ -127,8 +123,12 @@
 
     <footer class="foot">
       <span>kyhistorydrive.com</span>
+      <a href="/about/">About</a>
       <a href="/privacy/" aria-current="page">Privacy</a>
+      <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
     </footer>
+    <!-- khd-site-chrome -->
+    <!-- khd-privacy-choices -->
   </body>
 </html>
