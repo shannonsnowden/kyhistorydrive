@@ -5,9 +5,10 @@
  * cb_2025_us_county_500k, public domain; drawn in NAD83 / Kentucky Single Zone (EPSG:3089).
  *
  * Downloads the shapefiles, projects them (not raw longitude/latitude), simplifies
- * the rings, and writes public/brand/ky-map-strip.svg (outline) plus
- * public/brand/ky-map-strip-counties.svg (same outline with county lines).
- * The homepage default is the county map. ?mapstrip=a shows the outline only.
+ * the rings, and writes public/brand/ky-map-strip-counties.svg (dark) plus
+ * public/brand/ky-map-strip-counties-light.svg. The homepage loads the dark
+ * file as an image; page CSS swaps in the light file. An img cannot use the
+ * page's theme variables, so each file bakes in its palette.
  * Pass --markers to also write a marker-dot variant from markers.geojson.
  */
 import { execFileSync } from 'node:child_process'
@@ -287,34 +288,33 @@ function pathD(rings, scale) {
   }).join('')
 }
 
-function styleBlock() {
+const PALETTES = {
+  dark: { paper: '#1a241c', land: '#5a3d22', ink: '#e8d5a8' },
+  light: { paper: '#f4ead6', land: '#e4d3ae', ink: '#6e4214' },
+}
+
+function styleBlock(theme) {
+  const p = PALETTES[theme]
+  if (!p) throw new Error(`unknown map theme ${theme}`)
   return `<style>
-    .hp-ky-paper { fill: #f4ead6; }
-    .hp-ky-fill { fill: #e4d3ae; stroke: none; }
-    .hp-ky-edge { fill: none; stroke: #6e4214; stroke-width: 1.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-    .hp-ky-counties { fill: none; stroke: #8d6940; stroke-width: 0.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-    .hp-ky-markers { fill: #85500f; stroke: none; }
+    .hp-ky-paper { fill: ${p.paper}; }
+    .hp-ky-fill { fill: ${p.land}; stroke: none; }
+    .hp-ky-edge { fill: none; stroke: ${p.ink}; stroke-width: 1.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .hp-ky-counties { fill: none; stroke: ${p.ink}; stroke-width: 1px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 0.5; }
+    .hp-ky-markers { fill: ${p.ink}; stroke: none; }
   </style>`
 }
 
-function svgDoc({ vbH, title, desc, body, labelledBy }) {
+function svgDoc({ vbH, title, desc, body, labelledBy, theme }) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- ${SOURCE_LINE} -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${VB_W} ${fmt(vbH)}" width="${VB_W}" height="${fmt(vbH)}" role="img" aria-labelledby="${labelledBy}" fill-rule="evenodd">
-  ${styleBlock()}
+  ${styleBlock(theme)}
   <title id="${labelledBy.split(' ')[0]}">${title}</title>
   <desc id="${labelledBy.split(' ')[1]}">${desc}</desc>
   ${body}
 </svg>
 `
-}
-
-function inlineSvg({ id, titleId, descId, title, desc, vbH, body, hidden }) {
-  return `<svg id="${id}" class="hp-map-strip-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${VB_W} ${fmt(vbH)}" width="${VB_W}" height="${fmt(vbH)}" role="img" aria-labelledby="${titleId} ${descId}" fill-rule="evenodd"${hidden ? ' hidden' : ''}>
-          <title id="${titleId}">${title}</title>
-          <desc id="${descId}">${desc}</desc>
-          ${body}
-        </svg>`
 }
 
 function markerDots(scale, markersPath) {
@@ -338,11 +338,10 @@ function escapeXml(s) {
 }
 
 function parseArgs(argv) {
-  const out = { outDir: path.join(ROOT, 'public/brand'), markers: '', writeHtml: false }
+  const out = { outDir: path.join(ROOT, 'public/brand'), markers: '' }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--out') out.outDir = path.resolve(argv[++i])
     else if (argv[i] === '--markers') out.markers = path.resolve(argv[++i] || path.join(ROOT, 'public/data/markers.geojson'))
-    else if (argv[i] === '--write-html') out.writeHtml = true
     else if (argv[i] === '--main-tol') MAIN_TOL_M = Number(argv[++i])
     else if (argv[i] === '--small-tol') SMALL_TOL_M = Number(argv[++i])
     else throw new Error(`unknown arg ${argv[i]}`)
@@ -367,30 +366,22 @@ async function main() {
   const fill = `<path class="hp-ky-fill" d="${stateD}"/>`
   const edge = `<path class="hp-ky-edge" d="${stateD}"/>`
   const countyPath = `<path class="hp-ky-counties" d="${countyD}"/>`
-  const outlineBody = `${paper}\n  ${fill}\n  ${edge}`
   const countyBody = `${paper}\n  ${fill}\n  ${countyPath}\n  ${edge}`
 
   fs.mkdirSync(args.outDir, { recursive: true })
-  const outlineTitle = 'Kentucky'
-  const outlineDesc = 'Outline of Kentucky, including the Kentucky Bend exclave of Fulton County. Static picture, not the interactive marker map.'
   const countyTitle = 'Kentucky counties'
   const countyDesc = 'Kentucky with county lines, including the Kentucky Bend exclave of Fulton County. Static picture, not the interactive marker map.'
-  const outlineSvg = svgDoc({
-    vbH: scale.vbH,
-    title: outlineTitle,
-    desc: outlineDesc,
-    body: outlineBody,
-    labelledBy: 'kyMapTitle kyMapDesc',
-  })
-  const countySvg = svgDoc({
-    vbH: scale.vbH,
-    title: countyTitle,
-    desc: countyDesc,
-    body: countyBody,
-    labelledBy: 'kyMapCountyTitle kyMapCountyDesc',
-  })
-  fs.writeFileSync(path.join(args.outDir, 'ky-map-strip.svg'), outlineSvg)
-  fs.writeFileSync(path.join(args.outDir, 'ky-map-strip-counties.svg'), countySvg)
+  for (const theme of ['dark', 'light']) {
+    const file = theme === 'dark' ? 'ky-map-strip-counties.svg' : 'ky-map-strip-counties-light.svg'
+    fs.writeFileSync(path.join(args.outDir, file), svgDoc({
+      vbH: scale.vbH,
+      title: countyTitle,
+      desc: countyDesc,
+      body: countyBody,
+      labelledBy: 'kyMapCountyTitle kyMapCountyDesc',
+      theme,
+    }))
+  }
   fs.writeFileSync(path.join(args.outDir, 'ky-map-strip-source.txt'), `${SOURCE_LINE}\n`)
 
   let markerSvg = ''
@@ -402,34 +393,9 @@ async function main() {
       desc: 'Outline of Kentucky with Historical Society marker dots, including the Kentucky Bend. Static picture, not the interactive marker map.',
       body: `${paper}\n  ${fill}\n  ${dots}\n  ${edge}`,
       labelledBy: 'kyMapMarkerTitle kyMapMarkerDesc',
+      theme: 'light',
     })
     fs.writeFileSync(path.join(args.outDir, 'ky-map-strip-markers.svg'), markerSvg)
-  }
-
-  if (args.writeHtml) {
-    const indexPath = path.join(ROOT, 'index.html')
-    const html = fs.readFileSync(indexPath, 'utf8')
-    const inline = `${inlineSvg({
-      id: 'hp-map-a',
-      titleId: 'hp-map-a-title',
-      descId: 'hp-map-a-desc',
-      title: outlineTitle,
-      desc: outlineDesc,
-      vbH: scale.vbH,
-      body: outlineBody,
-      hidden: true,
-    })}\n        ${inlineSvg({
-      id: 'hp-map-b',
-      titleId: 'hp-map-b-title',
-      descId: 'hp-map-b-desc',
-      title: countyTitle,
-      desc: countyDesc,
-      vbH: scale.vbH,
-      body: countyBody,
-    })}`
-    const next = html.replace(/<!-- ky-map-strip:start -->[\s\S]*?<!-- ky-map-strip:end -->/, `<!-- ky-map-strip:start -->\n        ${inline}\n        <!-- ky-map-strip:end -->`)
-    if (next === html) throw new Error('index.html is missing ky-map-strip markers')
-    fs.writeFileSync(indexPath, next)
   }
 
   const pts = (rings) => rings.reduce((n, ring) => n + ring.pts.length, 0)

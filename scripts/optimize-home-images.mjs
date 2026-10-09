@@ -1,8 +1,8 @@
 /**
  * Homepage image weight (critique W9).
  *
- * Writes a 176px header logo (shown at 88px), a 384px map-strip seal (2× for
- * a seal at about half the strip height on a 1440px page), and AVIF/WebP
+ * Writes a 176px header logo (shown at 88px), a 576px map-strip seal (2× for
+ * a seal at about 80% of the strip height on a 1440px page), and AVIF/WebP
  * variants of the photos referenced by public/content/home-preview.json.
  * Original JPEGs stay where they are, with the same filenames and credits.
  * Each photo variant is kept under 200KB. Sources wider than 1600px are
@@ -22,8 +22,8 @@ const PACK_PATH = path.join(ROOT, 'public/content/home-preview.json')
 const MANIFEST_PATH = path.join(ROOT, 'public/content/photos/responsive.json')
 const LOGO_SRC = path.join(ROOT, 'scripts/brand-src/khd-logo.jpg')
 const LOGO_OUT = path.join(ROOT, 'public/brand/khd-logo.png')
-const SEAL_SRC = path.join(ROOT, 'public/brand/khd-logo-512.png')
-const SEAL_SIDE = 384
+const SEAL_SRC = LOGO_SRC
+const SEAL_SIDE = 576
 const SEAL_AVIF = path.join(ROOT, 'public/brand/khd-map-seal.avif')
 const SEAL_WEBP = path.join(ROOT, 'public/brand/khd-map-seal.webp')
 const MAX_BYTES = 200 * 1024
@@ -162,10 +162,10 @@ async function optimizeLogo() {
 }
 
 async function optimizeMapSeal() {
-  if (!fs.existsSync(SEAL_SRC)) throw new Error('missing 512px seal')
-  const base = sharp(SEAL_SRC).resize(SEAL_SIDE, SEAL_SIDE, { fit: 'cover', position: 'centre' })
-  const avif = await base.clone().avif({ quality: 58, effort: 6 }).toBuffer()
-  const webp = await base.clone().webp({ quality: 80, effort: 6 }).toBuffer()
+  if (!fs.existsSync(SEAL_SRC)) throw new Error('missing seal master')
+  const base = sharp(SEAL_SRC).rotate().resize(SEAL_SIDE, SEAL_SIDE, { fit: 'cover', position: 'centre' })
+  const avif = await base.clone().avif({ quality: 52, effort: 6 }).toBuffer()
+  const webp = await base.clone().webp({ quality: 72, effort: 6 }).toBuffer()
   for (const [file, buf] of [[SEAL_AVIF, avif], [SEAL_WEBP, webp]]) {
     if (buf.length > SEAL_MAX_BYTES) {
       throw new Error(`${path.basename(file)} is ${buf.length} bytes, over ${SEAL_MAX_BYTES}`)

@@ -2,11 +2,11 @@
 <!-- U.S. Census Bureau 2025 Cartographic Boundary Files cb_2025_us_state_500k and cb_2025_us_county_500k, public domain; drawn in NAD83 / Kentucky Single Zone (EPSG:3089). -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 431.7" width="1000" height="431.7" role="img" aria-labelledby="kyMapCountyTitle kyMapCountyDesc" fill-rule="evenodd">
   <style>
-    .hp-ky-paper { fill: #1a241c; }
-    .hp-ky-fill { fill: #5a3d22; stroke: none; }
-    .hp-ky-edge { fill: none; stroke: #e8d5a8; stroke-width: 1.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-    .hp-ky-counties { fill: none; stroke: #e8d5a8; stroke-width: 1px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 0.5; }
-    .hp-ky-markers { fill: #e8d5a8; stroke: none; }
+    .hp-ky-paper { fill: #f4ead6; }
+    .hp-ky-fill { fill: #e4d3ae; stroke: none; }
+    .hp-ky-edge { fill: none; stroke: #6e4214; stroke-width: 1.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .hp-ky-counties { fill: none; stroke: #6e4214; stroke-width: 1px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 0.5; }
+    .hp-ky-markers { fill: #6e4214; stroke: none; }
   </style>
   <title id="kyMapCountyTitle">Kentucky counties</title>
   <desc id="kyMapCountyDesc">Kentucky with county lines, including the Kentucky Bend exclave of Fulton County. Static picture, not the interactive marker map.</desc>
