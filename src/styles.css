@@ -1492,19 +1492,51 @@ html[data-hp-theme="light"] .era-other {
 .hp-skel-deck-short { width: 70%; }
 .hp-skel-cta { width: 10.5rem; height: 44px; border-radius: 8px; margin-top: 0.45rem; }
 .hp-map-strip {
+  --ky-paper: #1a241c;
+  --ky-land: #5a3d22;
+  --ky-edge: #e8d5a8;
+  --ky-county: #e8d5a8;
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.75fr);
   gap: 1.15rem 1.75rem;
   align-items: center;
   padding: 1.15rem clamp(1.25rem, 5vw, 4rem) 0.25rem;
 }
-.hp-map-strip-img {
+html[data-hp-theme="light"] .hp-map-strip {
+  --ky-paper: #f4ead6;
+  --ky-land: #e4d3ae;
+  --ky-edge: #6e4214;
+  --ky-county: #6e4214;
+}
+.hp-map-strip-figure { min-width: 0; }
+.hp-map-strip-svg[hidden] { display: none !important; }
+.hp-map-strip-svg {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 14px;
   border: 1px solid var(--line);
-  background: #f4ead6;
+  background: var(--ky-paper);
+  overflow: hidden;
+}
+.hp-ky-paper { fill: var(--ky-paper); }
+.hp-ky-fill { fill: var(--ky-land); stroke: none; }
+.hp-ky-edge {
+  fill: none;
+  stroke: var(--ky-edge);
+  stroke-width: 1.75px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.hp-ky-counties {
+  fill: none;
+  stroke: var(--ky-county);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.5;
 }
 .hp-map-strip-copy h2 {
   margin: 0 0 0.4rem;
