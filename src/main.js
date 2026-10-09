@@ -7,6 +7,7 @@ import { initSiteSearch } from './site-search.js'
 import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { MobileNav } from './mobile-nav.js'
+import { HomepageStructure } from './homepage-structure.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -2317,8 +2318,8 @@ function focusStoryOnMaps(story) {
     historyId: story.historyId || null,
     name: story.title,
     title: story.title,
-    history: story.summary || '',
-    description: story.summary || '',
+    history: HomepageStructure.finishedSummary(story.summary || ''),
+    description: HomepageStructure.finishedSummary(story.summary || ''),
     bodyMarkdown: story.bodyMarkdown || '',
     county: story.county,
     era: story.era,
@@ -2565,7 +2566,7 @@ function storyCardHtml(s) {
             ${tagHtml}${loc}
           </span>
           <h3>${escapeHtml(s.title)}</h3>
-          <p>${escapeHtml(s.summary || '')}</p>
+          <p>${escapeHtml(HomepageStructure.finishedSummary(s.summary || ''))}</p>
         </span>
       </button>`
 }
@@ -2786,7 +2787,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
         name: s.title,
         title: s.title,
         history: stripSourceAttribution(s.bodyMarkdown) || s.summary || '',
-        description: s.summary || '',
+        description: HomepageStructure.finishedSummary(s.summary || ''),
         bodyMarkdown: s.bodyMarkdown || '',
         county: meta.county || s.county,
         era: s.era,
@@ -2848,7 +2849,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
                 ? ''
-                : `<p class="story-summary">${escapeHtml(s.summary || meta.summary || '')}</p>`
+                : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
             <div class="tags">${tags}</div>
             ${
@@ -3115,7 +3116,7 @@ async function renderTimelineList(preferredSlug) {
             <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
             ${tagHtml}
           </div>
-          <p>${escapeHtml(s.summary || '')}</p>
+          <p>${escapeHtml(HomepageStructure.finishedSummary(s.summary || ''))}</p>
           ${territoryListLineHtml(s)}
         </div>
       </li>`

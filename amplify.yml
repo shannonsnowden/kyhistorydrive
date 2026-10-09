@@ -42,9 +42,12 @@ customRules:
   - source: '/privacy/'
     target: '/privacy/index.html'
     status: '200'
+  # Slashless /about matches the live /privacy behavior: 301 to the
+  # trailing-slash URL. /privacy's 301 is S3's directory redirect, not a
+  # 301 rule in this file (the /privacy rule below is still a 200 rewrite).
   - source: '/about'
-    target: '/about/index.html'
-    status: '200'
+    target: '/about/'
+    status: '301'
   - source: '/about/'
     target: '/about/index.html'
     status: '200'

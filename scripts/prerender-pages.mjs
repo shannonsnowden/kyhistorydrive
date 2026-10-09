@@ -70,11 +70,15 @@ class PrerenderPages {
     const stories = PrerenderPages.loadStories(root)
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
-    const dates = PrerenderPages.gitLastmods(root)
-    for (const story of stories) story.lastmod = PrerenderPages.storyLastmod(story, dates)
+    const dates = PrerenderPages.gitFileDates(root)
+    for (const story of stories) {
+      const file = `public/content/stories/${story.slug}.json`
+      story.created = dates.created.get(file) || ''
+      story.lastmod = PrerenderPages.storyLastmod(story, dates.lastmod)
+    }
     const homeLast = stories.reduce(
       (max, story) => PrerenderPages.laterDate(max, story.lastmod),
-      dates.get('index.html') || '',
+      dates.lastmod.get('index.html') || '',
     )
     const entries = [{ loc: `${PrerenderPages.SITE}/`, lastmod: homeLast }]
     const aboutHtml = PrerenderPages.aboutPage(cssHrefs)
@@ -85,14 +89,17 @@ class PrerenderPages {
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
       loc: `${PrerenderPages.SITE}/about/`,
-      lastmod: PrerenderPages.laterDate(dates.get('scripts/prerender-pages.mjs') || '', dates.get('index.html') || ''),
+      lastmod: PrerenderPages.laterDate(
+        dates.lastmod.get('scripts/prerender-pages.mjs') || '',
+        dates.lastmod.get('index.html') || '',
+      ),
     })
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.metaDescription(
-        PrerenderPages.plainText(story.bodyMarkdown) || story.summary,
+        PrerenderPages.plainText(story.bodyMarkdown) || PrerenderPages.finishedSummary(story.summary),
       )
-      const html = PrerenderPages.storyPage(story, stories, cssHrefs)
+      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers)
       PrerenderPages.assertPage(html, story, urlPath)
       PrerenderPages.assertStory(html, story, description)
       PrerenderPages.writePage(dist, urlPath, html)
@@ -104,11 +111,11 @@ class PrerenderPages {
       PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
       PrerenderPages.writePage(dist, urlPath, html)
       const layerFile = `public/${String(layer.geojson || '').replace(/^\//, '')}`
-      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: dates.get(layerFile) || homeLast })
+      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: dates.lastmod.get(layerFile) || homeLast })
     }
     entries.push({
       loc: `${PrerenderPages.SITE}/privacy/`,
-      lastmod: dates.get('privacy/index.html') || '',
+      lastmod: dates.lastmod.get('privacy/index.html') || '',
     })
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
@@ -260,6 +267,45 @@ class PrerenderPages {
     return sentences[0] || ''
   }
 
+  /**
+   * A stored summary often ends in an ellipsis mid-sentence.
+   * Keep the complete sentences and drop the cut tail. The JSON file is unchanged.
+   */
+  static finishedSummary(text) {
+    const plain = PrerenderPages.plainText(text)
+    if (!plain) return ''
+    if (!/(?:\u2026|\.\.\.)\s*$/u.test(plain)) return plain
+    const stripped = plain.replace(/\s*(?:\u2026|\.\.\.)\s*$/u, '').trim()
+    const sentences = PrerenderPages.splitSentences(stripped).filter((sentence) =>
+      /[.!?]["'”’)\]]*$/.test(sentence),
+    )
+    if (sentences.length) return sentences.join(' ')
+    return stripped.replace(/[,:;]+$/g, '').trim()
+  }
+
+  static isoDate(value) {
+    return /^\d{4}-\d{2}-\d{2}$/.test(value || '') ? value : ''
+  }
+
+  /** publishedDate when the file has one; otherwise the story file's first git commit date. */
+  static articleDates(story) {
+    const published = PrerenderPages.isoDate(story.publishedDate) || PrerenderPages.isoDate(story.created)
+    const modified = PrerenderPages.isoDate(story.lastmod) || published
+    if (!published || !modified) {
+      throw new Error(`prerender: ${story.slug} is missing datePublished or dateModified`)
+    }
+    return { published, modified }
+  }
+
+  /** History pin, or a tag that is itself a layer id. Otherwise the story has no layer page. */
+  static storyLayer(story, layers) {
+    const byId = new Map((layers || []).map((layer) => [layer.id, layer]))
+    const tagged = (story.tags || []).find((tag) => byId.has(tag))
+    if (tagged) return byId.get(tagged)
+    if (story.historyId && byId.has('history')) return byId.get('history')
+    return null
+  }
+
   /** Drop a lead sentence already shown above the body. Later paragraphs stay intact. */
   static bodyWithoutLead(markdown, lead) {
     const trimmed = String(markdown || '').trim()
@@ -366,8 +412,10 @@ class PrerenderPages {
     }
   }
 
-  static gitLastmods(root) {
-    const map = new Map()
+  /** Newest commit date per file, and the first commit date (oldest) for datePublished. */
+  static gitFileDates(root) {
+    const lastmod = new Map()
+    const created = new Map()
     try {
       const out = execFileSync('git', ['log', '--name-only', '--pretty=format:%cs'], {
         cwd: root,
@@ -381,12 +429,14 @@ class PrerenderPages {
           date = line
           continue
         }
-        if (date && !map.has(line)) map.set(line, date)
+        if (!date) continue
+        if (!lastmod.has(line)) lastmod.set(line, date)
+        created.set(line, date)
       }
     } catch (err) {
-      console.warn(`prerender: git lastmod unavailable (${err.message})`)
+      console.warn(`prerender: git dates unavailable (${err.message})`)
     }
-    return map
+    return { lastmod, created }
   }
 
   static laterDate(a, b) {
@@ -966,12 +1016,14 @@ class PrerenderPages {
     return `<nav class="static-related" aria-label="Related stories"><h2>Related stories</h2><ul>${items}</ul></nav>`
   }
 
-  static storyJsonLd(story, description, image, imageAlt) {
+  static storyJsonLd(story, description, image, imageAlt, layer) {
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const geo = PrerenderPages.publicGeo(story)
     const placeName = story.matchedPlace || story.title
+    const placeId = `${canonical}#place`
     const place = {
       '@type': 'Place',
+      '@id': placeId,
       name: placeName,
     }
     if (story.county) {
@@ -983,6 +1035,7 @@ class PrerenderPages {
     if (geo) {
       place.geo = { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lon }
     }
+    const dates = PrerenderPages.articleDates(story)
     const article = {
       '@type': 'Article',
       headline: story.title,
@@ -990,34 +1043,59 @@ class PrerenderPages {
       mainEntityOfPage: canonical,
       url: canonical,
       image: [image || PrerenderPages.LOGO],
+      datePublished: dates.published,
+      dateModified: dates.modified,
       author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
       publisher: { '@id': PrerenderPages.ORG_ID },
-      contentLocation: place,
+      contentLocation: { '@id': placeId },
     }
-    if (/^\d{4}-\d{2}-\d{2}$/.test(story.publishedDate || '')) article.datePublished = story.publishedDate
-    if (/^\d{4}-\d{2}-\d{2}$/.test(story.lastmod || '')) article.dateModified = story.lastmod
-    const crumbs = {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
-        { '@type': 'ListItem', position: 2, name: 'Stories', item: `${PrerenderPages.SITE}/#timeline` },
-        { '@type': 'ListItem', position: 3, name: story.title, item: canonical },
-      ],
+    const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` }]
+    if (layer?.id && layer.label) {
+      crumbs.push({
+        '@type': 'ListItem',
+        position: 2,
+        name: layer.label,
+        item: `${PrerenderPages.SITE}/layers/${layer.id}/`,
+      })
     }
-    return PrerenderPages.jsonLdScript([PrerenderPages.organizationNode(), article, place, crumbs])
+    crumbs.push({
+      '@type': 'ListItem',
+      position: crumbs.length + 1,
+      name: story.title,
+      item: canonical,
+    })
+    return PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      article,
+      place,
+      { '@type': 'BreadcrumbList', itemListElement: crumbs },
+    ])
   }
 
-  static storyPage(story, all, cssHrefs) {
+  static crumbHtml(story, layer) {
+    const bits = [`<a href="/">Home</a>`]
+    if (layer?.id && layer.label) {
+      bits.push(`<a href="/layers/${layer.id}/">${PrerenderPages.escapeHtml(layer.label)}</a>`)
+    }
+    bits.push(`<span aria-current="page">${PrerenderPages.escapeHtml(story.title)}</span>`)
+    return `<nav class="story-crumbs" aria-label="Breadcrumb">${bits
+      .map((bit, i) => (i === 0 ? bit : `<span aria-hidden="true">/</span>${bit}`))
+      .join('')}</nav>`
+  }
+
+  static storyPage(story, all, cssHrefs, layers) {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
-    const description = PrerenderPages.metaDescription(bodyPlain || story.summary)
+    const summary = PrerenderPages.finishedSummary(story.summary)
+    const description = PrerenderPages.metaDescription(bodyPlain || summary)
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
     const metaBits = [county, PrerenderPages.eraLabel(story.era), years].filter(Boolean)
+    const layer = PrerenderPages.storyLayer(story, layers)
     const lead =
       PrerenderPages.firstSentence(story.bodyMarkdown) ||
-      PrerenderPages.firstSentence(story.summary) ||
+      PrerenderPages.firstSentence(summary) ||
       story.title
     const bodyMarkdown = PrerenderPages.bodyWithoutLead(
       PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
@@ -1030,13 +1108,7 @@ class PrerenderPages {
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const main = `<article class="story-reader-layout static-story">
         <div class="story-intro">
-          <nav class="story-crumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="/#timeline">Stories</a>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">${PrerenderPages.escapeHtml(story.title)}</span>
-          </nav>
+          ${PrerenderPages.crumbHtml(story, layer)}
           <header class="story-head">
             <p class="static-kicker">Timeline story</p>
             <p class="story-card-meta">${metaBits.map((bit) => `<span>${PrerenderPages.escapeHtml(bit)}</span>`).join(' · ')}</p>
@@ -1062,7 +1134,7 @@ class PrerenderPages {
       cssHrefs,
       image,
       imageAlt,
-      jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt),
+      jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
       main,
     })
   }
@@ -1175,6 +1247,35 @@ class PrerenderPages {
       }
     }
     const place = nodes.find((node) => node['@type'] === 'Place')
+    const article = nodes.find((node) => node['@type'] === 'Article')
+    const crumbs = nodes.find((node) => node['@type'] === 'BreadcrumbList')
+    const placeId = `${PrerenderPages.SITE}${urlPath}#place`
+    if (nodes.filter((node) => node['@type'] === 'Place').length !== 1) {
+      throw new Error(`prerender: ${urlPath} Place is repeated`)
+    }
+    if (place?.['@id'] !== placeId) throw new Error(`prerender: ${urlPath} Place is missing @id`)
+    if (article?.contentLocation?.['@id'] !== placeId || article.contentLocation.name) {
+      throw new Error(`prerender: ${urlPath} contentLocation is not a Place @id`)
+    }
+    if (!PrerenderPages.isoDate(article?.datePublished) || !PrerenderPages.isoDate(article?.dateModified)) {
+      throw new Error(`prerender: ${urlPath} Article is missing datePublished or dateModified`)
+    }
+    const items = crumbs?.itemListElement || []
+    if (items.some((item) => String(item.item || '').includes('/#timeline'))) {
+      throw new Error(`prerender: ${urlPath} breadcrumb points at the homepage hash`)
+    }
+    if (items.length < 2 || items.length > 3 || items[0]?.item !== `${PrerenderPages.SITE}/`) {
+      throw new Error(`prerender: ${urlPath} breadcrumb has ${items.length} levels`)
+    }
+    if (items.length === 3 && !String(items[1]?.item || '').includes('/layers/')) {
+      throw new Error(`prerender: ${urlPath} breadcrumb level 2 is not a layer page`)
+    }
+    if (items.at(-1)?.item !== `${PrerenderPages.SITE}${urlPath}`) {
+      throw new Error(`prerender: ${urlPath} breadcrumb does not end on the story`)
+    }
+    if (html.includes('href="/#timeline">Stories')) {
+      throw new Error(`prerender: ${urlPath} visible breadcrumb still uses the timeline hash`)
+    }
     const geo = PrerenderPages.publicGeo(story)
     if (geo) {
       if (place?.geo?.['@type'] !== 'GeoCoordinates') {
