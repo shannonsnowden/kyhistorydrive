@@ -2,8 +2,10 @@
  * Homepage image weight (critique W9).
  *
  * Writes a 176px header logo (shown at 88px), a 576px map-strip seal (2× for
- * a seal at about 80% of the strip height on a 1440px page), and AVIF/WebP
- * variants of the photos referenced by public/content/home-preview.json.
+ * a seal at about 80% of the strip height on a 1440px page), AVIF/WebP
+ * variants of the photos referenced by public/content/home-preview.json, and
+ * card-sized AVIF/WebP (about 2× a Highlights card) for the four homepage
+ * highlight photos.
  * Original JPEGs stay where they are, with the same filenames and credits.
  * Each photo variant is kept under 200KB. Sources wider than 1600px are
  * capped; narrower photos are not upscaled.
@@ -29,6 +31,9 @@ const SEAL_WEBP = path.join(ROOT, 'public/brand/khd-map-seal.webp')
 const MAX_BYTES = 200 * 1024
 const LOGO_MAX_BYTES = 20 * 1024
 const SEAL_MAX_BYTES = 40 * 1024
+/** About 2× a Highlights card (roughly 320px wide, ~360px on a phone). */
+const CARD_WIDTHS = [480, 720]
+const ERA_ORDER = ['prehistoric', 'native', 'frontier', 'early-commonwealth', 'other']
 
 function sha256(buf) {
   return createHash('sha256').update(buf).digest('hex')
@@ -81,7 +86,65 @@ function targetWidths(nativeWidth) {
   return [...new Set(widths)]
 }
 
-async function optimizePhoto(url, previous) {
+/**
+ * Same picks as HomepageStructure.pickHighlights: one newest story per era,
+ * skipping the hero carousel. Those cards are not in the morning pack, so
+ * the hero optimizer never writes variants for them.
+ */
+function highlightPhotoUrls(pack) {
+  const indexPath = path.join(ROOT, 'public/content/stories.json')
+  const photosPath = path.join(ROOT, 'public/content/story-photos.json')
+  if (!fs.existsSync(indexPath) || !fs.existsSync(photosPath)) return []
+  const index = readJson(indexPath)
+  const photos = readJson(photosPath)
+  const bySlug = photos?.bySlug || {}
+  const heroSlugs = new Set()
+  for (const item of pack?.stories || []) if (item?.slug) heroSlugs.add(item.slug)
+  if (pack?.hero?.slug) heroSlugs.add(pack.hero.slug)
+  const newest = (a, b) => {
+    const da = String(a.publishedDate || a.briefDate || '')
+    const db = String(b.publishedDate || b.briefDate || '')
+    if (da !== db) return da < db ? 1 : -1
+    return String(a.title || '').localeCompare(String(b.title || ''))
+  }
+  const pool = []
+  for (const row of index?.stories || []) {
+    if (!row?.slug || heroSlugs.has(row.slug)) continue
+    const photo = bySlug[row.slug]?.photo
+    if (!photo?.image_url || !(photo.attribution || photo.source_label)) continue
+    if (!String(photo.image_url).startsWith('/content/photos/')) continue
+    pool.push({
+      slug: row.slug,
+      title: row.title || '',
+      era: row.era || 'other',
+      publishedDate: row.publishedDate || '',
+      briefDate: row.briefDate || '',
+      url: photo.image_url,
+    })
+  }
+  const byEra = new Map(ERA_ORDER.map((era) => [era, []]))
+  for (const story of pool) {
+    const era = byEra.has(story.era) ? story.era : 'other'
+    byEra.get(era).push(story)
+  }
+  for (const list of byEra.values()) list.sort(newest)
+  const picked = []
+  const used = new Set()
+  for (const era of ERA_ORDER) {
+    const next = byEra.get(era).find((story) => !used.has(story.slug))
+    if (!next) continue
+    picked.push(next)
+    used.add(next.slug)
+    if (picked.length === 4) break
+  }
+  return picked.map((story) => story.url)
+}
+
+function variantWidths(entry) {
+  return [...(entry?.avif || []), ...(entry?.webp || [])].map((v) => v.w)
+}
+
+async function optimizePhoto(url, previous, widths) {
   const rel = url.replace(/^\//, '')
   const abs = path.join(ROOT, 'public', rel)
   if (!fs.existsSync(abs)) {
@@ -90,18 +153,22 @@ async function optimizePhoto(url, previous) {
   }
   const source = fs.readFileSync(abs)
   const hash = sha256(source)
+  const meta = await sharp(source).metadata()
+  const nativeW = meta.width || 0
+  const want = widths || targetWidths(nativeW)
+  const cappedWant = [...new Set(want.map((w) => Math.min(w, nativeW || w)))].sort((a, b) => a - b)
   if (previous?.sha256 === hash && previous.avif?.length) {
-    const ok = [...(previous.avif || []), ...(previous.webp || [])].every((v) => {
+    const have = variantWidths(previous).sort((a, b) => a - b)
+    const filesOk = [...(previous.avif || []), ...(previous.webp || [])].every((v) => {
       const file = path.join(ROOT, 'public', v.src.replace(/^\//, ''))
       return fs.existsSync(file) && fs.statSync(file).size <= MAX_BYTES
     })
-    if (ok) {
+    const widthsOk = cappedWant.every((w) => have.includes(w)) && have.every((w) => cappedWant.includes(w) || w === nativeW)
+    if (filesOk && widthsOk) {
       console.log(`keep ${url}`)
       return previous
     }
   }
-  const meta = await sharp(source).metadata()
-  const nativeW = meta.width || 0
   const photoRel = rel.replace(/^content\/photos\//, '')
   const dirRel = path.dirname(photoRel)
   const base = path.basename(photoRel, path.extname(photoRel))
@@ -119,7 +186,7 @@ async function optimizePhoto(url, previous) {
   }
   for (const format of ['avif', 'webp']) {
     const seen = new Set()
-    for (const want of targetWidths(nativeW)) {
+    for (const want of widths || targetWidths(nativeW)) {
       const encoded = await encodeUnder(abs, want, format)
       if (!encoded || seen.has(encoded.width)) continue
       seen.add(encoded.width)
@@ -183,6 +250,11 @@ async function main() {
   const images = {}
   for (const url of collectPhotoUrls(pack)) {
     const entry = await optimizePhoto(url, previous[url])
+    if (entry) images[url] = entry
+  }
+  for (const url of highlightPhotoUrls(pack)) {
+    if (images[url]) continue
+    const entry = await optimizePhoto(url, previous[url], CARD_WIDTHS)
     if (entry) images[url] = entry
   }
   const manifest = {

@@ -152,7 +152,9 @@ export class HeroCarousel {
     const playing = this.wantsPlay()
     const label = playing ? 'Pause' : 'Play'
     btn.textContent = label
-    btn.setAttribute('aria-pressed', playing ? 'true' : 'false')
+    // Pressed means autoplay is held off. While the stories are playing the
+    // Pause control is not pressed.
+    btn.setAttribute('aria-pressed', playing ? 'false' : 'true')
     btn.setAttribute('aria-label', playing ? 'Pause featured stories' : 'Play featured stories')
     if (this.prefersReducedMotion()) {
       btn.setAttribute('aria-disabled', 'true')

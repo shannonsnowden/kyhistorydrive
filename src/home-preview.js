@@ -382,7 +382,7 @@ function renderFeatures(pack) {
             src: item.photo.image_url,
             alt: item.photo.title || item.title,
             loading: 'lazy',
-            sizes: '(max-width: 700px) 100vw, 420px',
+            sizes: '(max-width: 720px) calc(100vw - 2.3rem), (max-width: 1100px) 46vw, 22rem',
           })}</a>`
         : ''
       const credit = photoCredit(item.photo)
