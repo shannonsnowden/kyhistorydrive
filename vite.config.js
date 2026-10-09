@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { injectGtagHead } from './scripts/gtag-snippet.mjs'
 
 const root = dirname(fileURLToPath(import.meta.url))
 
@@ -33,7 +34,18 @@ function privacyPath() {
 
 export default defineConfig({
   base: '/',
-  plugins: [privacyPath()],
+  plugins: [
+    privacyPath(),
+    {
+      name: 'khd-gtag',
+      transformIndexHtml: {
+        order: 'pre',
+        handler(html) {
+          return injectGtagHead(html)
+        },
+      },
+    },
+  ],
   build: {
     outDir: 'dist',
     sourcemap: true,

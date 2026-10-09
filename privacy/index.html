@@ -6,7 +6,7 @@
     <title>Privacy — Kentucky History Drive</title>
     <meta
       name="description"
-      content="How Kentucky History Drive uses cookies when Google ads are shown, and how to opt out of personalized ads."
+      content="How Kentucky History Drive uses Google Analytics, advertising cookies when ads are shown, consent in the EEA, UK, and Switzerland, and how to opt out."
     />
     <link rel="canonical" href="https://kyhistorydrive.com/privacy/" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -26,6 +26,7 @@
         } catch (e) {}
       })()
     </script>
+    <!-- khd-gtag -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -50,8 +51,38 @@
       <h2>Privacy</h2>
       <p>
         Kentucky History Drive is a static site about Kentucky history. Story and map pages do not ask you to
-        create an account. When advertising is turned on, Google AdSense may set cookies and use similar
-        identifiers to show and measure ads.
+        create an account. The site uses Google Analytics 4 to understand which pages are opened. When
+        advertising is turned on, Google AdSense may set cookies and use similar identifiers to show and
+        measure ads.
+      </p>
+
+      <h3>Google Analytics</h3>
+      <p>
+        Google Analytics 4 (measurement ID G-83G4SBQKT1) records how the site is used. That includes the
+        page address, the page title, and general browser and device information such as language and screen
+        size. On the main page, the map and individual stories use a hash address (for example
+        <code>/#map</code> or <code>/#timeline/a-story</code>). A page view is sent when the page loads and
+        again when that hash changes, so a story or the map counts separately from the home page. Google
+        uses the IP address to derive an approximate location. Google Analytics 4 does not store the full
+        IP address. When analytics cookies are allowed, a first-party cookie can recognize a later visit in
+        the same browser. This site does not use Analytics to create an account.
+      </p>
+      <p>
+        Before the tag is configured, each page sets Google Consent Mode defaults. In the European Economic
+        Area, the United Kingdom, and Switzerland, ad storage, ad user data, ad personalization, and
+        analytics storage start denied. The consent message for those regions is AdSense Privacy &amp;
+        messaging, loaded by the Google ad tag already in the page head. That message updates the consent
+        choice itself. The tag waits briefly so a saved choice can apply before a page view is sent. If you
+        do not consent, analytics cookies are not set. Google may still receive a cookieless ping that does
+        not include those cookies. In other regions those storage types start granted. Where a US state
+        requires a privacy message, that message also comes from AdSense Privacy &amp; messaging.
+      </p>
+      <p>
+        You can opt out of Google Analytics in this browser with the
+        <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer"
+          >Google Analytics Opt-out Browser Add-on</a
+        >. How Google handles information collected by its products is described in
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s privacy policy</a>.
       </p>
 
       <h3>Advertising cookies</h3>
@@ -81,9 +112,10 @@
       <h3>Consent in the EEA, UK, and Switzerland, and US state messages</h3>
       <p>
         Visitors in the European Economic Area, the United Kingdom, and Switzerland are shown a consent
-        message before personalized ads. Visitors in US states that require it are shown a state privacy
-        message. Both messages come from AdSense Privacy &amp; messaging, which is Google’s certified
-        consent-management platform for those regions. This site does not run a separate consent banner.
+        message before personalized ads or analytics cookies. Visitors in US states that require it are
+        shown a state privacy message. Both messages come from AdSense Privacy &amp; messaging, which is
+        Google’s certified consent-management platform for those regions. The message updates Google
+        Consent Mode on the page. This site does not run a separate consent banner.
       </p>
 
       <h3>Other requests</h3>

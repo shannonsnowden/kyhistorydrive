@@ -20,6 +20,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { marked } from 'marked'
+import { GA_MEASUREMENT_ID, gtagHeadHtml, missingGaSnippet } from './gtag-snippet.mjs'
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
@@ -862,6 +863,7 @@ class PrerenderPages {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    ${gtagHeadHtml()}
     ${PrerenderPages.ADSENSE}
     ${jsonLd}
     ${cssHrefs.map((href) => `<link rel="stylesheet" href="${PrerenderPages.escapeHtml(href)}" />`).join('\n    ')}
@@ -1207,6 +1209,10 @@ class PrerenderPages {
     if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
       throw new Error(`prerender: ${urlPath} is missing the AdSense head tag`)
     }
+    const gaProblems = missingGaSnippet(html)
+    if (gaProblems.length) {
+      throw new Error(`prerender: ${urlPath} ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
+    }
     if (!html.includes('class="top site-header"') || !html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
       throw new Error(`prerender: ${urlPath} is missing the shared homepage header`)
     }
@@ -1410,6 +1416,10 @@ class PrerenderPages {
     html = html.replace(/<nav id="crawlDirectory"[\s\S]*?<\/nav>/, nav)
     if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
       throw new Error('prerender: homepage is missing the AdSense head tag')
+    }
+    const gaProblems = missingGaSnippet(html)
+    if (gaProblems.length) {
+      throw new Error(`prerender: homepage ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
     if (!/<script type="module"/.test(html)) throw new Error('prerender: homepage lost the app bundle')
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
