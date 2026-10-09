@@ -341,20 +341,20 @@ export const RELATED_GROUPS = [
       {
         name: 'Kentucky Organization of Professional Archaeologists',
         kind: 'Org',
-        blurb: 'Official KyOPA site: statewide professional archaeologists, ethics, grants, and public education.',
-        href: 'https://kyopa.org/',
+        blurb: 'KyOPA: statewide professional archaeologists, ethics, grants, and public education. (Archived copy, Jan 2026: kyopa.org is returning a server error.)',
+        href: 'https://web.archive.org/web/20260103042134/https://kyopa.org/',
       },
       {
         name: 'KyOPA — Archaeology Resources',
         kind: 'Resources',
-        blurb: 'KyOPA’s live resource list for Kentucky archaeology publications, surveys, and regional journals (their path is spelled “resoures”).',
-        href: 'https://kyopa.org/kentucky-archaeology-resoures/',
+        blurb: 'KyOPA’s resource list for Kentucky archaeology publications, surveys, and regional journals. (Archived copy, Oct 2024: kyopa.org is returning a server error.)',
+        href: 'https://web.archive.org/web/20241011003301/https://kyopa.org/kentucky-archaeology-resoures/',
       },
       {
         name: 'KyOPA — Kentucky Archaeology Month',
         kind: 'Campaign',
-        blurb: 'Annual public-education campaign from KyOPA, with posters and events highlighting Kentucky archaeology.',
-        href: 'https://kyopa.org/kentucky-archaeology-month/',
+        blurb: 'Annual public-education campaign from KyOPA, with posters and events highlighting Kentucky archaeology. (Archived copy, Sept 2025: kyopa.org is returning a server error.)',
+        href: 'https://web.archive.org/web/20250930201030/https://kyopa.org/kentucky-archaeology-month/',
       },
       {
         name: '30 Days of Kentucky Archaeology',
