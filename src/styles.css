@@ -2072,7 +2072,11 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 }
 html[data-hp-theme="light"] .brand-logo,
 html[data-hp-theme="light"] .hp-page .brand-logo {
-  box-shadow: 0 0 0 1px rgba(0, 47, 108, 0.45), 0 2px 8px rgba(40, 28, 12, 0.14);
+  border: 2px solid #0b2a5b;
+  box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
+}
+@media (min-width: 1024px) {
+  .brand .tagline { margin-top: -8px; }
 }
 .brand-home:hover .brand-logo,
 .brand-home:focus-visible .brand-logo,

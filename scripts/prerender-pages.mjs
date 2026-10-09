@@ -528,6 +528,8 @@ class PrerenderPages {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
+    <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
     <title>${t}</title>
     <meta name="description" content="${d}" />
     <link rel="canonical" href="${c}" />
@@ -561,8 +563,8 @@ class PrerenderPages {
     <header class="top">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
-          <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}var im=document.getElementById('brandLogo');if(im&&i>0){im.src=L[i]}if(im){im.setAttribute('data-logo',String(i))}})()</script>
+          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive" />
+          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(im&&s&&im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
           <p class="brand-title">Kentucky History Drive</p>
         </a>
         <p class="tagline">History is all around us.</p>

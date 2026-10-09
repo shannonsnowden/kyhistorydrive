@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
+    <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
     <title>Kentucky History Drive</title>
     <meta name="description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. An iPhone app is coming soon." />
     <link rel="canonical" href="https://kyhistorydrive.com/" />
@@ -48,8 +50,8 @@
     <header class="top site-header">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive logo" />
-          <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}var im=document.getElementById('brandLogo');if(im&&i>0){im.src=L[i]}if(im){im.setAttribute('data-logo',String(i))}})()</script>
+          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="Kentucky History Drive" />
+          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(im&&s&&im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
           <h1>Kentucky History Drive</h1>
         </a>
         <p class="tagline">History is all around us.</p>
