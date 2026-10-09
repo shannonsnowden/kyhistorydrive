@@ -1518,10 +1518,7 @@ html[data-hp-theme="light"] .era-other {
   border: 1px solid var(--line);
   background: #1a241c;
 }
-.hp-map-strip-img--light { display: none; }
-html[data-hp-theme="light"] .hp-map-strip-img--dark { display: none; }
-html[data-hp-theme="light"] .hp-map-strip-img--light {
-  display: block;
+html[data-hp-theme="light"] .hp-map-strip-img {
   background: #f4ead6;
 }
 .hp-map-seal {

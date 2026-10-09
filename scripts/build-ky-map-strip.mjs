@@ -7,7 +7,8 @@
  * Downloads the shapefiles, projects them (not raw longitude/latitude), simplifies
  * the rings, and writes public/brand/ky-map-strip-counties.svg (dark) plus
  * public/brand/ky-map-strip-counties-light.svg. The homepage loads the dark
- * file as an image; page CSS swaps in the light file. An img cannot use the
+ * file as the one homepage image; the page swaps that image's src for the
+ * light file. An img cannot use the
  * page's theme variables, so each file bakes in its palette.
  * A short set of Historical Society marker dots is drawn on land the homepage
  * seal leaves open, from public/data/markers.geojson, in the same projection.
