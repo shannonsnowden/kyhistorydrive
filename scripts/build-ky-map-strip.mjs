@@ -9,7 +9,8 @@
  * public/brand/ky-map-strip-counties-light.svg. The homepage loads the dark
  * file as an image; page CSS swaps in the light file. An img cannot use the
  * page's theme variables, so each file bakes in its palette.
- * Pass --markers to also write a marker-dot variant from markers.geojson.
+ * A short set of Historical Society marker dots is drawn on land the homepage
+ * seal leaves open, from public/data/markers.geojson, in the same projection.
  */
 import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
@@ -301,7 +302,7 @@ function styleBlock(theme) {
     .hp-ky-fill { fill: ${p.land}; stroke: none; }
     .hp-ky-edge { fill: none; stroke: ${p.ink}; stroke-width: 1.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
     .hp-ky-counties { fill: none; stroke: ${p.ink}; stroke-width: 1px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 0.5; }
-    .hp-ky-markers { fill: ${p.ink}; stroke: none; }
+    .hp-ky-markers { fill: ${p.ink}; stroke: ${p.paper}; stroke-width: 1.25px; }
   </style>`
 }
 
@@ -317,20 +318,105 @@ function svgDoc({ vbH, title, desc, body, labelledBy, theme }) {
 `
 }
 
-function markerDots(scale, markersPath) {
+/** Seal center is left 37% and 80% of the strip height, matching .hp-map-seal. */
+const SEAL_CX_FRAC = 0.37
+const SEAL_R_FRAC = 0.4
+const SEAL_MARGIN = 10
+const DOT_COUNT = 16
+const DOT_R = 4.6
+
+function pointInRing(x, y, ring) {
+  let inside = false
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const xi = ring[i][0]
+    const yi = ring[i][1]
+    const xj = ring[j][0]
+    const yj = ring[j][1]
+    const intersect = (yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi
+    if (intersect) inside = !inside
+  }
+  return inside
+}
+
+function inRings(x, y, rings) {
+  let hits = 0
+  for (const ring of rings) {
+    if (pointInRing(x, y, ring)) hits += 1
+  }
+  return hits % 2 === 1
+}
+
+/**
+ * 12–20 real Historical Society markers on land the seal does not cover.
+ * Coordinates come from the site marker file and use the same EPSG:3089
+ * projection and viewBox scale as the county shapes.
+ */
+function selectMarkerDots(scale, stateRings, markersPath) {
   const geo = JSON.parse(fs.readFileSync(markersPath, 'utf8'))
+  const main = stateRings.filter((ring) => ring.area >= SMALL_AREA_M2).map((ring) => ring.pts)
+  const cx = SEAL_CX_FRAC * VB_W
+  const cy = scale.vbH / 2
+  const radius = scale.vbH * SEAL_R_FRAC + SEAL_MARGIN
   const seen = new Set()
-  const dots = []
+  const candidates = []
   for (const feature of geo.features || []) {
     const pair = feature.geometry?.coordinates
-    if (!pair) continue
-    const [x, y] = scale.xy(project(pair[0], pair[1]))
+    if (!pair || pair.length < 2) continue
+    const projected = project(pair[0], pair[1])
+    if (!inRings(projected[0], projected[1], main)) continue
+    const [x, y] = scale.xy(projected)
+    if (x < 8 || y < 8 || x > VB_W - 8 || y > scale.vbH - 8) continue
+    if (Math.hypot(x - cx, y - cy) < radius) continue
     const key = `${Math.round(x)}:${Math.round(y)}`
     if (seen.has(key)) continue
     seen.add(key)
-    dots.push(`<circle class="hp-ky-markers" cx="${fmt(x)}" cy="${fmt(y)}" r="2.6"><title>${escapeXml(feature.properties?.title || 'Marker')}</title></circle>`)
+    candidates.push({
+      x,
+      y,
+      title: feature.properties?.title || 'Marker',
+      county: feature.properties?.county || '',
+    })
   }
-  return dots.join('')
+  if (candidates.length < 12) {
+    throw new Error(`only ${candidates.length} markers sit on visible land; need at least 12`)
+  }
+  const count = Math.min(DOT_COUNT, 20, candidates.length)
+  let start = candidates[0]
+  for (const dot of candidates) {
+    if (dot.x > start.x) start = dot
+  }
+  const picked = [start]
+  const used = new Set([start])
+  while (picked.length < count) {
+    let best = null
+    let bestD = -1
+    for (const dot of candidates) {
+      if (used.has(dot)) continue
+      let near = Infinity
+      for (const have of picked) near = Math.min(near, Math.hypot(dot.x - have.x, dot.y - have.y))
+      if (near > bestD) {
+        bestD = near
+        best = dot
+      }
+    }
+    if (!best || bestD < 28) break
+    used.add(best)
+    picked.push(best)
+  }
+  if (picked.length < 12) {
+    throw new Error(`spread only ${picked.length} marker dots; need at least 12`)
+  }
+  picked.sort((a, b) => a.x - b.x || a.y - b.y)
+  return picked
+}
+
+function markerMarkup(dots) {
+  return dots
+    .map(
+      (dot) =>
+        `<circle class="hp-ky-markers" cx="${fmt(dot.x)}" cy="${fmt(dot.y)}" r="${DOT_R}"><title>${escapeXml(dot.title)}${dot.county ? `, ${escapeXml(dot.county)} County` : ''}</title></circle>`,
+    )
+    .join('\n  ')
 }
 
 function escapeXml(s) {
@@ -369,38 +455,29 @@ async function main() {
   const countyBody = `${paper}\n  ${fill}\n  ${countyPath}\n  ${edge}`
 
   fs.mkdirSync(args.outDir, { recursive: true })
+  const markersPath = args.markers || path.join(ROOT, 'public/data/markers.geojson')
+  const dots = selectMarkerDots(scale, state, markersPath)
+  const dotMarkup = markerMarkup(dots)
   const countyTitle = 'Kentucky counties'
-  const countyDesc = 'Kentucky with county lines, including the Kentucky Bend exclave of Fulton County. Static picture, not the interactive marker map.'
+  const countyDesc = 'Kentucky with county lines and historical marker dots, including the Kentucky Bend exclave of Fulton County. Static picture, not the interactive marker map.'
   for (const theme of ['dark', 'light']) {
     const file = theme === 'dark' ? 'ky-map-strip-counties.svg' : 'ky-map-strip-counties-light.svg'
     fs.writeFileSync(path.join(args.outDir, file), svgDoc({
       vbH: scale.vbH,
       title: countyTitle,
       desc: countyDesc,
-      body: countyBody,
+      body: `${countyBody}\n  ${dotMarkup}`,
       labelledBy: 'kyMapCountyTitle kyMapCountyDesc',
       theme,
     }))
   }
   fs.writeFileSync(path.join(args.outDir, 'ky-map-strip-source.txt'), `${SOURCE_LINE}\n`)
 
-  let markerSvg = ''
-  if (args.markers) {
-    const dots = markerDots(scale, args.markers)
-    markerSvg = svgDoc({
-      vbH: scale.vbH,
-      title: 'Kentucky marker map',
-      desc: 'Outline of Kentucky with Historical Society marker dots, including the Kentucky Bend. Static picture, not the interactive marker map.',
-      body: `${paper}\n  ${fill}\n  ${dots}\n  ${edge}`,
-      labelledBy: 'kyMapMarkerTitle kyMapMarkerDesc',
-      theme: 'light',
-    })
-    fs.writeFileSync(path.join(args.outDir, 'ky-map-strip-markers.svg'), markerSvg)
-  }
-
   const pts = (rings) => rings.reduce((n, ring) => n + ring.pts.length, 0)
   console.log(`state rings ${state.length} (${pts(state)} pts), counties ${counties.length} (${pts(counties)} pts), bend ${bend.length} ring(s)`)
   console.log(`viewBox 0 0 ${VB_W} ${fmt(scale.vbH)}`)
+  console.log(`marker dots ${dots.length} (visible land, seal at ${SEAL_CX_FRAC * 100}% )`)
+  for (const dot of dots) console.log(`  ${dot.title} (${dot.county}) ${fmt(dot.x)},${fmt(dot.y)}`)
   for (const ring of state) console.log(`  ring area ${(ring.area / 1e6).toFixed(1)} km2, ${ring.pts.length} pts`)
 }
 

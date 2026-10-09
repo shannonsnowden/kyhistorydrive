@@ -1498,6 +1498,13 @@ html[data-hp-theme="light"] .era-other {
   align-items: center;
   padding: 1.15rem clamp(1.25rem, 5vw, 4rem) 0.25rem;
 }
+.hp-map-strip > a[href="#map"] {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 14px;
+}
 .hp-map-strip-figure {
   position: relative;
   min-width: 0;
@@ -1520,7 +1527,7 @@ html[data-hp-theme="light"] .hp-map-strip-img--light {
 .hp-map-seal {
   position: absolute;
   z-index: 1;
-  left: 50%;
+  left: 37%;
   top: 50%;
   height: 80%;
   width: auto;
@@ -1529,7 +1536,6 @@ html[data-hp-theme="light"] .hp-map-strip-img--light {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   overflow: hidden;
-  pointer-events: none;
   box-shadow:
     0 0 0 3px #e8d5a8,
     0 10px 24px rgba(0, 0, 0, 0.42);
@@ -1554,7 +1560,7 @@ html[data-hp-theme="light"] .hp-map-seal {
 }
 .hp-map-strip-copy p { margin: 0 0 0.85rem; }
 .hp-map-cta {
-  min-height: 44px;
+  min-height: 48px;
   padding: 0.55rem 1.1rem;
 }
 .hp-hero-viewport {
@@ -1943,7 +1949,7 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
   --hpq-lines: 4;
   --hpq-foot-lines: 1;
   --hpq-body-h: calc(var(--hpq-fs) * 1.45 * var(--hpq-lines));
-  --hpq-foot-h: calc(0.9rem * 1.4 * var(--hpq-foot-lines));
+  --hpq-foot-h: 44px;
   width: 100%;
   margin: 0;
   padding: 2.5rem clamp(1.25rem, 5vw, 4rem);
@@ -1978,13 +1984,21 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
 }
 .hp-mag-quote footer {
   flex: 0 0 var(--hpq-foot-h);
+  min-height: 44px;
   height: var(--hpq-foot-h);
   overflow-y: auto;
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.4;
 }
-.hp-mag-quote a { color: var(--accent); }
+.hp-mag-quote a {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
+}
 
 .hp-layer-rail {
   display: grid;
@@ -2146,6 +2160,59 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .hp-section { padding: 1.35rem 1.15rem 1.85rem; }
 }
 
+/* Laptop widths, including 1366 and 1280: keep the nav on one row.
+   A wrapped header is about 193px and pushes "Read the story" below an 800px screen. */
+@media (max-width: 1400px) and (min-width: 701px) {
+  .site-header {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.35rem 0.5rem;
+    padding: 0.35rem 0.7rem;
+  }
+  .site-header .brand-logo {
+    width: 56px;
+    height: 56px;
+  }
+  .site-header .brand-home { gap: 0.4rem; }
+  .site-header .brand h1 { font-size: 1.02rem; }
+  .site-header .tagline {
+    margin-left: calc(56px + 0.4rem);
+    font-size: 0.75rem;
+  }
+  .site-header nav#mainNav {
+    flex-wrap: nowrap;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    min-width: 0;
+    gap: 0.05rem 0.2rem;
+  }
+  .site-header .nav-search {
+    flex: 1 1 6rem;
+    min-width: 5.75rem;
+    max-width: 10rem;
+  }
+  .site-header nav a {
+    padding: 0 0.12rem;
+    font-size: 0.84rem;
+    white-space: nowrap;
+  }
+  .site-header .nav-today-btn {
+    min-width: 0;
+    padding: 0.28rem 0.45rem;
+    font-size: 0.78rem;
+  }
+  .site-header .hp-theme-toggle {
+    padding: 0.28rem 0.45rem;
+    font-size: 0.76rem;
+    white-space: nowrap;
+    gap: 0.25rem;
+  }
+  .site-header #siteSearchInput {
+    padding: 0.28rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
 /* Phone header: one 60px bar. Wider than 600px keeps the full nav row. */
 @media (max-width: 600px) {
   .site-header {
@@ -2192,20 +2259,21 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     right: 0;
     width: auto;
     flex: none;
-    z-index: 30;
+    z-index: 70;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 0.15rem;
     margin: 0;
     padding: 0.4rem 0.55rem 0.7rem;
-    background: var(--header-bg);
-    backdrop-filter: blur(8px);
+    background: var(--bg);
+    backdrop-filter: none;
     border-bottom: 1px solid var(--line);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
     max-height: calc(100dvh - 60px);
     overflow: auto;
   }
+  .site-header.is-menu-open { z-index: 60; }
   .site-header.is-menu-open nav#mainNav { display: flex; }
   .site-header.is-menu-open .nav-search { display: none; }
   .site-header.is-menu-open nav a[data-route="home"] { order: 1; }
@@ -2247,6 +2315,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     outline: 3px solid var(--focus-ring);
     outline-offset: 2px;
   }
+  .site-header.is-search-open { z-index: 60; }
   .site-header.is-search-open:not(.is-menu-open) nav#mainNav {
     display: block;
     position: static;
@@ -2266,14 +2335,14 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     top: 100%;
     left: 0;
     right: 0;
-    z-index: 31;
+    z-index: 70;
     max-width: none;
     min-width: 0;
     flex: none;
     margin: 0;
     padding: 0.55rem 0.7rem 0.7rem;
-    background: var(--header-bg);
-    backdrop-filter: blur(8px);
+    background: var(--bg);
+    backdrop-filter: none;
     border-bottom: 1px solid var(--line);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
   }

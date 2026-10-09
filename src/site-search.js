@@ -208,12 +208,17 @@ export function initSiteSearch(options = {}) {
     navigateHash = options.navigate
   }
 
-  // Warm the index in the background
-  ensureSearchIndex().catch((err) => console.warn('search index preload failed', err))
+  const warmSearchIndex = () => {
+    ensureSearchIndex().catch((err) => console.warn('search index load failed', err))
+  }
 
   const debounced = debounce(() => runSiteSearch(input.value), 180)
-  input.addEventListener('input', debounced)
+  input.addEventListener('input', () => {
+    warmSearchIndex()
+    debounced()
+  })
   input.addEventListener('focus', () => {
+    warmSearchIndex()
     if (input.value.trim().length >= SEARCH_MIN_CHARS) runSiteSearch(input.value)
   })
   form.addEventListener('submit', (e) => {
