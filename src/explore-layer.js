@@ -135,7 +135,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
       key: `story:${s.slug}`,
       kicker: `${eraLabel(era)}${year ? ` · ${year}` : ''}`,
       title: s.title,
-      deck: s.summary || '',
+      deck: HomepageStructure.finishedSummary(s.summary || ''),
       href: `/#timeline/${encodeURIComponent(s.slug)}`,
       cta: 'Read the story',
       mapHref,

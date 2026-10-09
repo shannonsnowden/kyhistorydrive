@@ -395,7 +395,7 @@ function renderFeatures(pack) {
         <div class="hp-feature-copy">
           <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(storyYearLabel(item.yearStart))}` : ''}</p>
           <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
-          <p class="hp-feature-deck">${escapeHtml(item.summary)}</p>
+          <p class="hp-feature-deck">${escapeHtml(HomepageStructure.finishedSummary(item.summary))}</p>
           ${cta}
           ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
         </div>

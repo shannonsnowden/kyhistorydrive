@@ -140,13 +140,37 @@ export class HomepageStructure {
   }
 
   /**
+   * Summaries are often cut mid-sentence and stored with an ellipsis.
+   * Display copy ends on the last full sentence. The JSON summary is unchanged.
+   * A cut with no sentence end drops the ellipsis and any trailing comma.
+   */
+  static finishedSummary(summary) {
+    const plain = String(summary || '').replace(/\s+/g, ' ').trim()
+    if (!plain) return ''
+    if (!/(?:\u2026|\.\.\.)\s*$/u.test(plain)) return plain
+    const stripped = plain.replace(/\s*(?:\u2026|\.\.\.)\s*$/u, '').trim()
+    const abbrev = (s) =>
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(s) ||
+      /(?:^|[\s(])[A-Z]\.$/.test(s)
+    let end = -1
+    for (let i = 0; i < stripped.length; i++) {
+      if (!/[.!?]/.test(stripped[i])) continue
+      const before = stripped.slice(0, i + 1)
+      if (abbrev(before)) continue
+      let j = i + 1
+      while (j < stripped.length && /["'”’)\]]/.test(stripped[j])) j++
+      if (j >= stripped.length || /\s/.test(stripped[j])) end = j
+    }
+    if (end > 0) return stripped.slice(0, end).trim()
+    return stripped.replace(/[,:;]+$/g, '').trim()
+  }
+
+  /**
    * Drop a trailing ellipsis that the brief pipeline stored on summaries.
    * The card clamp draws the only ellipsis.
    */
   static deckText(summary) {
-    return String(summary || '')
-      .replace(/\s*(?:\u2026|\.\.\.)\s*$/u, '')
-      .trim()
+    return HomepageStructure.finishedSummary(summary)
   }
 
   static pickHighlights(stories, excludeSlugs, limit = 4) {

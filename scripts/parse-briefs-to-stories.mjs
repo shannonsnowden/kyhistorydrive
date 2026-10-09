@@ -46,6 +46,11 @@ function cleanUrls(text) {
 
 function extractYears(text) {
   // Historical years only — ignore quantities ("100 acres", "160–300 militia").
+  // Source lines and URLs are not event years. A WordPress upload path
+  // (/uploads/2018/10/) or a news URL (/2020/11/) must not become yearStart.
+  text = String(text || '')
+    .replace(/^[ \t]*source:[ \t]*.+$/gim, ' ')
+    .replace(/https?:\/\/\S+/g, ' ')
   const years = []
   const push = (y) => {
     if (!Number.isFinite(y)) return
