@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T09:21:01.157Z",
+  "generatedAt": "2026-10-09T11:57:55.928Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg": {
@@ -100,6 +100,106 @@
         {
           "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-1280.webp",
           "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg": {
+      "sha256": "a53f23a7da4011975359e716ca9223354200ef593a411cce494df00c5d3f8ef4",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/athiamiowee-the-warriors-path-through-kentucky.jpg": {
+      "sha256": "c3e42017775fa22f8fdd1cc1d97bc0bb203ff08d232de2abda4c7b486ee49280",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg": {
+      "sha256": "f3d2fc011cd9ff5f65c4687a30cbc2271a3c8896511b14fb6a2ff58a6d2ae46d",
+      "width": 1087,
+      "height": 1369,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting.jpg": {
+      "sha256": "0b5a98c11d16f0bd6a068af7a00f6b81db4d0e86fb9847ca42f1859ca0153e60",
+      "width": 931,
+      "height": 652,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-720.webp",
+          "w": 720
         }
       ]
     }

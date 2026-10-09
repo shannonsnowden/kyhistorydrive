@@ -6,6 +6,9 @@ import MiniSearch from 'minisearch'
 
 const SEARCH_LIMIT = 12
 const SEARCH_MIN_CHARS = 2
+const SEARCH_PLACEHOLDER_FULL = 'Search places & stories…'
+const SEARCH_PLACEHOLDER_NARROW = 'Search stories'
+const SEARCH_NARROW_QUERY = '(max-width: 1400px)'
 
 let searchMini = null
 let searchDocsById = new Map()
@@ -208,12 +211,26 @@ export function initSiteSearch(options = {}) {
     navigateHash = options.navigate
   }
 
-  // Warm the index in the background
-  ensureSearchIndex().catch((err) => console.warn('search index preload failed', err))
+  // The full placeholder clips in the tightened laptop search box ("Search places & storie").
+  // The label stays "Search places and stories" at every width.
+  const narrowSearch = window.matchMedia(SEARCH_NARROW_QUERY)
+  const syncPlaceholder = () => {
+    input.placeholder = narrowSearch.matches ? SEARCH_PLACEHOLDER_NARROW : SEARCH_PLACEHOLDER_FULL
+  }
+  syncPlaceholder()
+  narrowSearch.addEventListener('change', syncPlaceholder)
+
+  const warmSearchIndex = () => {
+    ensureSearchIndex().catch((err) => console.warn('search index load failed', err))
+  }
 
   const debounced = debounce(() => runSiteSearch(input.value), 180)
-  input.addEventListener('input', debounced)
+  input.addEventListener('input', () => {
+    warmSearchIndex()
+    debounced()
+  })
   input.addEventListener('focus', () => {
+    warmSearchIndex()
     if (input.value.trim().length >= SEARCH_MIN_CHARS) runSiteSearch(input.value)
   })
   form.addEventListener('submit', (e) => {

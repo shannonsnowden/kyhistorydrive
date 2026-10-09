@@ -20,9 +20,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { HomepageStructure } from '../src/homepage-structure.js'
 
 const HERO_DECK_OVERRIDES_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'hero-deck-overrides.json')
-const heroDeckOverrides = fs.existsSync(HERO_DECK_OVERRIDES_FILE)
-  ? JSON.parse(fs.readFileSync(HERO_DECK_OVERRIDES_FILE, 'utf8')).overrides || {}
+const heroDeckDoc = fs.existsSync(HERO_DECK_OVERRIDES_FILE)
+  ? JSON.parse(fs.readFileSync(HERO_DECK_OVERRIDES_FILE, 'utf8'))
   : {}
+const heroDeckOverrides = heroDeckDoc.overrides || {}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -465,6 +466,19 @@ function patchStoriesIndexPhotos() {
   return n
 }
 
+/** Pack quote object. Editor pin when named; otherwise the hero sentence the homepage does not treat as a pin. */
+function editorPackQuote(doc, hero) {
+  const pin = HomepageStructure.editorQuotePin(doc)
+  if (pin) {
+    return {
+      slug: pin.slug,
+      pinned: pin.allowsHero,
+      href: `/#timeline/${encodeURIComponent(pin.slug)}`,
+    }
+  }
+  return hero?.quote ? { text: hero.quote, source: hero.title, href: hero.href } : null
+}
+
 async function main() {
   const { LAYER_HIGHLIGHTS } = await import(
     pathToFileURL(path.join(ROOT, 'src/home-preview-data.js')).href
@@ -626,9 +640,10 @@ async function main() {
     hero,
     features,
     layers,
-    quote: hero?.quote
-      ? { text: hero.quote, source: hero.title, href: hero.href }
-      : null,
+    // Automatic hero sentence. The homepage ignores this unless the Editor
+    // names quote.slug in scripts/hero-deck-overrides.json (pinned: true if
+    // that story is also in the hero).
+    quote: editorPackQuote(heroDeckDoc, hero),
   }
 
   const out = path.join(ROOT, 'public/content/home-preview.json')

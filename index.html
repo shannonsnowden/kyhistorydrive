@@ -183,19 +183,44 @@
 
       <!-- Static picture only. The interactive marker map is the #map route, not a second map on this page. -->
       <section class="hp-map-strip" aria-labelledby="hp-map-strip-title">
+        <a href="#map" tabindex="-1" aria-hidden="true">
         <div class="hp-map-strip-figure">
-        <img class="hp-map-strip-img hp-map-strip-img--dark" src="/brand/ky-map-strip-counties.svg" width="1000" height="432" alt="Kentucky with county lines, including the Kentucky Bend exclave of Fulton County." />
-        <img class="hp-map-strip-img hp-map-strip-img--light" src="/brand/ky-map-strip-counties-light.svg" width="1000" height="432" alt="Kentucky with county lines, including the Kentucky Bend exclave of Fulton County." />
+        <img
+          id="hpMapStripImg"
+          class="hp-map-strip-img"
+          src="/brand/ky-map-strip-counties.svg"
+          width="1000"
+          height="432"
+          alt="Kentucky with county lines and historical marker dots, including the Kentucky Bend exclave of Fulton County."
+          decoding="async"
+          loading="lazy"
+        />
+        <script>
+          (function () {
+            var img = document.getElementById('hpMapStripImg')
+            if (!img) return
+            var light = document.documentElement.getAttribute('data-hp-theme') === 'light'
+            var next = light ? '/brand/ky-map-strip-counties-light.svg' : '/brand/ky-map-strip-counties.svg'
+            if (img.getAttribute('src') !== next) img.src = next
+            img.loading = 'eager'
+          })()
+        </script>
         <picture class="hp-map-seal">
           <source type="image/avif" srcset="/brand/khd-map-seal.avif" />
           <img src="/brand/khd-map-seal.webp" width="576" height="576" alt="" loading="lazy" decoding="async" />
         </picture>
         </div>
+        </a>
         <div class="hp-map-strip-copy">
           <p class="hp-kicker">Map</p>
-          <h2 id="hp-map-strip-title">Kentucky marker map</h2>
-          <p class="muted">Highway markers from the Kentucky Historical Society, drawn on one state map.</p>
-          <a class="btn hp-cta hp-map-cta" href="#map">Open the marker map</a>
+          <h2 id="hp-map-strip-title">Explore Kentucky’s history map</h2>
+          <p class="muted">A free, interactive map of the Kentucky Historical Society’s historical markers. Turn on layers to see what else happened nearby.</p>
+          <ul class="hp-map-strip-list">
+            <li>Add museums, covered bridges, mills, distilleries (mostly Bourbon), caves, and more.</li>
+            <li>See approximate Native American territories and archaeological cultures beneath today’s roads.</li>
+            <li>Tap any pin to read its marker or story. It works on your phone.</li>
+          </ul>
+          <a class="btn hp-cta hp-map-cta" href="#map">Open the history map</a>
         </div>
       </section>
 
@@ -245,6 +270,19 @@
       <aside class="controls">
         <div class="layers-panel">
           <h2 class="layers-heading">Layers</h2>
+          <details class="map-help">
+            <summary>How to use this map</summary>
+            <div class="map-help-body">
+              <p>Start with the Kentucky Historical Society’s highway markers, then turn on more layers to see what else happened nearby.</p>
+              <ul>
+                <li>Add history sites, national sites, Civil War and frontier war sites, museums, covered bridges, industry and mills, historic newspapers, parks, cemeteries, distilleries (mostly Bourbon), caves, and good places to eat.</li>
+                <li>Tap a pin to read its marker text or story.</li>
+                <li>Lay archaeological cultures and Native American territories under today’s markers. Both are approximate areas. “Show only” opens one nation’s map, most with a year slider.</li>
+                <li>Public caves are pinned. Other caves appear only by county, to protect them.</li>
+                <li>It runs in your phone’s browser, so it can ride along on a road trip.</li>
+              </ul>
+            </div>
+          </details>
           <label class="ctrl layer-row master">
             <input type="checkbox" id="allLayers" />
             <span class="layer-icon emoji" aria-hidden="true">🗂</span>

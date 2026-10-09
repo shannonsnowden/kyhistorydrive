@@ -34,9 +34,24 @@ function syncToggle(btn, theme) {
   if (icon) icon.textContent = isLight ? '☾' : '☀'
 }
 
+const MAP_STRIP_SRC = {
+  dark: '/brand/ky-map-strip-counties.svg',
+  light: '/brand/ky-map-strip-counties-light.svg',
+}
+
+function syncMapStrip(theme) {
+  const img = document.getElementById('hpMapStripImg')
+  if (!img) return
+  const next = theme === 'light' ? MAP_STRIP_SRC.light : MAP_STRIP_SRC.dark
+  const current = img.getAttribute('src') || ''
+  if (current === next || current.endsWith(next)) return
+  img.src = next
+}
+
 export function applyTheme(theme, { persist = true } = {}) {
   const next = theme === 'light' ? 'light' : 'dark'
   document.documentElement.setAttribute(THEME_ATTR, next)
+  syncMapStrip(next)
   if (persist) {
     try {
       localStorage.setItem(THEME_KEY, next)

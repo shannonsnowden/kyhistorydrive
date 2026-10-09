@@ -199,6 +199,7 @@ const DATA_LAYERS = [
     defaultOn: false,
     geojson: '/data/layers/caves.geojson',
     yearFilter: false,
+    note: 'Public show caves are pinned. Other caves appear only by county, to protect them.',
   },
 ]
 
@@ -1750,12 +1751,13 @@ function renderLayerToggles() {
       l.icon.type === 'img'
         ? `<img class="layer-icon" src="${l.icon.src}" alt="" width="18" height="18" />`
         : `<span class="layer-icon emoji" aria-hidden="true">${l.icon.glyph}</span>`
+    const noteId = l.note ? `layerNote-${l.id}` : ''
     return `<label class="ctrl layer-row">
-      <input type="checkbox" data-layer="${l.id}" ${l.defaultOn ? 'checked' : ''} />
+      <input type="checkbox" data-layer="${l.id}" ${l.defaultOn ? 'checked' : ''}${noteId ? ` aria-describedby="${noteId}"` : ''} />
       ${icon}
       <span>${escapeHtml(l.label)}</span>
       <span class="swatch" style="background:${l.color}"></span>
-    </label>`
+    </label>${noteId ? `<p class="layer-note muted" id="${noteId}">${escapeHtml(l.note)}</p>` : ''}`
   }).join('')
 
   box.addEventListener('change', (e) => {

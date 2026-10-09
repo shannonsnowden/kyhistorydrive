@@ -382,7 +382,7 @@ function renderFeatures(pack) {
             src: item.photo.image_url,
             alt: item.photo.title || item.title,
             loading: 'lazy',
-            sizes: '(max-width: 700px) 100vw, 420px',
+            sizes: '(max-width: 720px) calc(100vw - 2.3rem), (max-width: 1100px) 46vw, 22rem',
           })}</a>`
         : ''
       const credit = photoCredit(item.photo)
@@ -774,10 +774,14 @@ export function initHomePage() {
       const slides = heroSlides(pack)
       const heroSlugs = slides.map((story) => story.slug).filter(Boolean)
       const highlights = HomepageStructure.pickHighlights(catalog.stories, heroSlugs, 4)
-      const quotePick = HomepageStructure.pickQuote(catalog.stories, [
-        ...heroSlugs,
-        ...highlights.map((story) => story.slug),
-      ])
+      const quotePick = HomepageStructure.pickQuote(
+        catalog.stories,
+        [...heroSlugs, ...highlights.map((story) => story.slug)],
+        {
+          heroSlugs,
+          pin: HomepageStructure.quotePinFromPack(pack, heroSlugs),
+        },
+      )
       const quoteStory = await loadQuoteStory(quotePick)
       renderTodayNav(pack)
       renderHero(pack)
