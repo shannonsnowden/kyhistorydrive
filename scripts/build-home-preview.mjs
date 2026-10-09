@@ -17,6 +17,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { HomepageStructure } from '../src/homepage-structure.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -540,6 +541,8 @@ async function main() {
       quote: firstSentence(full.bodyMarkdown || full.summary || ''),
       photo: publicPhoto(photo),
     })
+    // Hero overlay copy (~25 words, whole sentence or clean clause). Story text is untouched.
+    cards[cards.length - 1].heroDeck = HomepageStructure.heroDeck(cards[cards.length - 1])
   }
 
   const withPhotos = cards.filter((c) => c.photo?.image_url)

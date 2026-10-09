@@ -11,7 +11,10 @@ export class HomepageStructure {
   static ERA_ORDER = ['prehistoric', 'native', 'frontier', 'early-commonwealth', 'other']
   /** About 25 words. A sentence a few words longer stays whole. */
   static HERO_WORD_CAP = 25
-  static HERO_WORD_SLACK = 20
+  static HERO_WORD_SLACK = 5
+  /** A longer sentence is cut at the last clause break (comma, semicolon, dash) in this word range. */
+  static HERO_CLAUSE_MIN = 12
+  static HERO_CLAUSE_MAX = 30
   /** First page of the default Explore tab, at the widest page size. */
   static EXPLORE_DEFER_PAGE = 6
   /**
@@ -107,6 +110,16 @@ export class HomepageStructure {
     first = first.trim()
     const words = first.split(/\s+/).filter(Boolean)
     if (words.length <= limit + HomepageStructure.HERO_WORD_SLACK) return first
+    // Prefer a clean clause: the last word ending in , ; : or followed by a dash, within range.
+    // Never splits after an abbreviation or initial ("Col.", "John C.").
+    for (let i = Math.min(words.length - 1, HomepageStructure.HERO_CLAUSE_MAX) - 1; i >= HomepageStructure.HERO_CLAUSE_MIN - 1; i--) {
+      const w = words[i]
+      const dashNext = /^[—–-]{1,2}$/.test(words[i + 1] || '')
+      if (/[,;:]["'”’)\]]*$/.test(w) || /[—]$/.test(w) || dashNext) {
+        const clause = words.slice(0, i + 1).join(' ').replace(/[,;:—–-]+(["'”’)\]]*)$/, '$1').trim()
+        if (clause) return `${clause}…`
+      }
+    }
     const broken = words
       .slice(0, limit)
       .join(' ')
@@ -114,6 +127,16 @@ export class HomepageStructure {
       .trim()
     if (!broken) return first
     return /[.!?]["'”’)\]]*$/.test(broken) ? broken : `${broken}…`
+  }
+
+  /**
+   * Hero overlay text for a pack card. build-home-preview.mjs stores it as
+   * `heroDeck` in home-preview.json so every pack ships compliant copy.
+   */
+  static heroDeck(story) {
+    const quote = String(story?.quote || '').trim()
+    if (quote) return HomepageStructure.capWords(quote)
+    return HomepageStructure.capWords(HomepageStructure.deckText(story?.summary || ''))
   }
 
   /**
