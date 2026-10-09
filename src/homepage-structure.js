@@ -11,7 +11,7 @@ export class HomepageStructure {
   static ERA_ORDER = ['prehistoric', 'native', 'frontier', 'early-commonwealth', 'other']
   /** About 25 words. A sentence a few words longer stays whole. */
   static HERO_WORD_CAP = 25
-  static HERO_WORD_SLACK = 5
+  static HERO_WORD_SLACK = 20
   /** First page of the default Explore tab, at the widest page size. */
   static EXPLORE_DEFER_PAGE = 6
   /**
@@ -91,7 +91,20 @@ export class HomepageStructure {
     const clean = String(text || '').replace(/\s+/g, ' ').trim()
     if (!clean) return ''
     const sentences = clean.match(/[^.!?]+[.!?]+(?:["'”’)\]]+)?|[^.!?]+$/g) || [clean]
-    const first = sentences[0].trim()
+    // Re-join fragments split after an abbreviation ("Col.", "St.") or an initial ("John C."),
+    // so the hero never stops mid-sentence.
+    let first = sentences[0]
+    for (let i = 1; i < sentences.length; i++) {
+      const prev = first.trimEnd()
+      const next = sentences[i]
+      const abbrev =
+        /\b(Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(prev) ||
+        /(?:^|[\s(])[A-Z]\.$/.test(prev) ||
+        /^\s*[a-z0-9]/.test(next)
+      if (!abbrev) break
+      first += next
+    }
+    first = first.trim()
     const words = first.split(/\s+/).filter(Boolean)
     if (words.length <= limit + HomepageStructure.HERO_WORD_SLACK) return first
     const broken = words
