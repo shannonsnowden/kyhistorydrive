@@ -18,3 +18,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://kyhistorydrive.com/sitemap.xml
+Sitemap: https://kyhistorydrive.com/sitemap-videos.xml
