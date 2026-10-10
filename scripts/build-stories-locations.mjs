@@ -845,6 +845,32 @@ const MANUAL_OVERRIDES = {
     lon: -88.4229667,
     confidence: 'override',
   },
+  // 2026-10-10 brief (Glasgow swapped for Old Mulkey Meetinghouse, Lost River Cave for Liberty Hall; Cornstalk intentionally unpinned: Point Pleasant is in West Virginia; Esther Whitley shares the Whitley House pin)
+  'cornstalk-hokoleskwa-point-pleasant-to-fort-randolph': {},
+  'esther-whitley-over-the-cumberlands-1775': {
+    matchName: "William Whitley / Sportsman's Hill",
+    lat: 37.4761695,
+    lon: -84.54252,
+    confidence: 'override',
+  },
+  'pine-mountain-and-pound-gap': {
+    matchName: "Pound Gap, Pine Mountain (Kentucky side, near Jenkins)",
+    lat: 37.158,
+    lon: -82.637,
+    confidence: 'override',
+  },
+  'old-mulkey-meetinghouse-1804': {
+    matchName: "Old Mulkey Meetinghouse State Historic Site, Tompkinsville",
+    lat: 36.67777778,
+    lon: -85.7075,
+    confidence: 'override',
+  },
+  'liberty-hall-john-browns-frankfort-house': {
+    matchName: "Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house)",
+    lat: 38.1998,
+    lon: -84.88117,
+    confidence: 'override',
+  },
 }
 
 

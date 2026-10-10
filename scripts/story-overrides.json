@@ -633,6 +633,42 @@
       "yearStart": 1838,
       "yearEnd": 1839,
       "county": "Livingston"
+    },
+    "esther-whitley-over-the-cumberlands-1775": {
+      "reason": "Shares the existing William Whitley House pin (historyId william-whitley-sportsmans-hill); county only, so the house pin keeps its own years. County Lincoln. Story years 1775 (Wilderness Road)–1833 (death).",
+      "date": "2026-10-10",
+      "historyId": "william-whitley-sportsmans-hill",
+      "county": "Lincoln"
+    },
+    "pine-mountain-and-pound-gap": {
+      "reason": "Pin approximate Kentucky side of Pound Gap near Jenkins (Wikipedia point is in Wise Co., VA). County Letcher. Years 1750 Ohio Company surveyors–1864 Morgan’s Raiders.",
+      "date": "2026-10-10",
+      "historyId": "pound-gap-pine-mountain-letcher-1750-1864",
+      "lat": 37.158,
+      "lon": -82.637,
+      "yearStart": 1750,
+      "yearEnd": 1864,
+      "county": "Letcher"
+    },
+    "old-mulkey-meetinghouse-1804": {
+      "reason": "SWAP for Glasgow founding (already glasgow-the-barrens, 2026-09-18). Pin Wikipedia site point, KY 1446 S of Tompkinsville. County Monroe. Years 1804 built–1856 last services.",
+      "date": "2026-10-10",
+      "historyId": "old-mulkey-meetinghouse-monroe-1804-1856",
+      "lat": 36.67777778,
+      "lon": -85.7075,
+      "yearStart": 1804,
+      "yearEnd": 1856,
+      "county": "Monroe"
+    },
+    "liberty-hall-john-browns-frankfort-house": {
+      "reason": "SWAP for Lost River Cave (already lost-river-cave, 2026-09-19). Pin Wikipedia point, 218 Wilkinson St., Frankfort. County Franklin. Years 1796 lot bought–1837 Brown’s death.",
+      "date": "2026-10-10",
+      "historyId": "liberty-hall-john-brown-frankfort-franklin-1796-1837",
+      "lat": 38.1998,
+      "lon": -84.88117,
+      "yearStart": 1796,
+      "yearEnd": 1837,
+      "county": "Franklin"
     }
   }
 }

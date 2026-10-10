@@ -28,7 +28,9 @@
   "Charles Scott": "gen-charles-scott-and-petersburg",
   "Daniel Trabue": "daniel-trabue-of-columbia",
   "James Wilkinson": "gen-james-wilkinson-kentuckys-agent-13",
-  "John Bradford": "john-bradford-and-the-kentucke-gazette"
+  "John Bradford": "john-bradford-and-the-kentucke-gazette",
+  "Cornstalk": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+  "Esther Whitley": "esther-whitley-over-the-cumberlands-1775"
  },
  "skip": {
   "Richard Henderson": [
@@ -56,6 +58,10 @@
    {
     "slug": "lower-shawneetown-at-the-scioto-mouth",
     "label": "Same place: she held influence at Lower Shawneetown"
+   },
+   {
+    "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+    "label": "Same family: her brother Cornstalk has his own story"
    }
   ],
   "treaty-of-camp-charlotte-1774": [
@@ -70,6 +76,10 @@
    {
     "slug": "richard-henderson",
     "label": "Same person: Richard Henderson’s separate 1775 Transylvania purchase"
+   },
+   {
+    "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+    "label": "Same person: Cornstalk, who led the Shawnees at Point Pleasant and Camp Charlotte, has his own story"
    }
   ],
   "hugh-mcgary-the-blue-licks-hothead": [
@@ -524,6 +534,10 @@
    {
     "slug": "treaty-of-logstown-1752",
     "label": "Same person: Gist represented the Ohio Company at the 1752 Logstown treaty"
+   },
+   {
+    "slug": "pine-mountain-and-pound-gap",
+    "label": "Same place: the Kentucky Historical Society credits Gist with finding the Pound Gap route"
    }
   ],
   "cleek-mccabe-fort-ancient-village": [
@@ -732,6 +746,10 @@
    {
     "slug": "falls-of-the-ohio",
     "label": "Same place: the 1774 warning ride passed the Falls of the Ohio"
+   },
+   {
+    "slug": "pine-mountain-and-pound-gap",
+    "label": "Same place: Stoner and Boone crossed Pound Gap in 1774"
    }
   ],
   "mingo-camps-south-of-the-ohio": [
@@ -1036,6 +1054,10 @@
    {
     "slug": "gen-james-wilkinson-kentuckys-agent-13",
     "label": "Same person: Gen. James Wilkinson, who laid out the town, has his own story"
+   },
+   {
+    "slug": "liberty-hall-john-browns-frankfort-house",
+    "label": "Same place: Liberty Hall, John Brown’s Frankfort house of 1796–1800"
    }
   ],
   "athiamiowee-the-warriors-path-through-kentucky": [
@@ -1102,6 +1124,48 @@
    {
     "slug": "kentucky-association-1826-lexington-race-course",
     "label": "Same series: the next Horse series chapter, the Kentucky Association of 1826"
+   }
+  ],
+  "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": [
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: the Camp Charlotte peace Cornstalk made after Point Pleasant"
+   },
+   {
+    "slug": "nonhelema",
+    "label": "Same family: Nonhelema was Cornstalk’s sister"
+   }
+  ],
+  "esther-whitley-over-the-cumberlands-1775": [
+   {
+    "slug": "william-whitley-sportsmans-hill",
+    "label": "Same family: her husband William Whitley and their house, Sportsman’s Hill"
+   }
+  ],
+  "william-whitley-sportsmans-hill": [
+   {
+    "slug": "esther-whitley-over-the-cumberlands-1775",
+    "label": "Same family: Esther Whitley, who came over the Cumberlands with William in 1775"
+   }
+  ],
+  "pine-mountain-and-pound-gap": [
+   {
+    "slug": "christopher-gist-1750-51",
+    "label": "Same person: Christopher Gist, credited with finding the Pound Gap route in 1751"
+   },
+   {
+    "slug": "michael-stoner-german-long-hunter",
+    "label": "Same person: Michael Stoner crossed Pound Gap with Daniel Boone in 1774"
+   }
+  ],
+  "liberty-hall-john-browns-frankfort-house": [
+   {
+    "slug": "gen-james-wilkinson-kentuckys-agent-13",
+    "label": "Same person: James Wilkinson laid out the Frankfort streets around Liberty Hall"
+   },
+   {
+    "slug": "frankfort-franks-ford-becomes-the-capital",
+    "label": "Same place: Frankfort, the new capital where John Brown built"
    }
   ]
  }
