@@ -3158,5 +3158,74 @@
       "attribution": "Rsfinlayson · Wikimedia Commons · CC BY-SA 4.0",
       "year": 2018
     }
+  },
+  {
+    "id": "pound-gap-pine-mountain-letcher-1750-1864",
+    "name": "Pound Gap, Pine Mountain (Kentucky side, near Jenkins)",
+    "subtitle": "Letcher County · US 23 at the Virginia line, Jenkins · Ohio Company surveyors 1750, Gist 1751 · Boone and Stoner 1774 · settler families c. 1798 · Civil War 1862, 1864",
+    "latitude": 37.158,
+    "longitude": -82.637,
+    "history": "Pine Mountain is a single ridge of the Appalachians running about 125 miles from near Pioneer, Tennessee, to near Elkhorn City, Kentucky. Its highest point, Birch Knob, rises 3,273 feet on the Kentucky–Virginia border. It has long been a barrier to travel: only two waterways pass through the whole ridge, the Cumberland River at Pineville and the Clear Fork near Jellico, Tennessee. Travelers crossed at gaps instead, and the best known on the Virginia line is Pound Gap, between Jenkins, Kentucky, and Pound, Virginia. Ohio Company surveyors, possibly including Christopher Gist, passed through it in 1750, and the Kentucky Historical Society’s marker credits Gist with finding the route on April 1, 1751. Hunters used the gap over the following decade. In 1774 Daniel Boone, who called it “Sounding Gap,” crossed here with Michael Stoner to warn surveyors of a possible Shawnee attack. Around 1798 seven families, the Adamses, Webbs, Caudills, Crafts, Hammonds, Sturgills, and Collinses, came through to settle what became Letcher County, and in 1834 the General Assembly acted to improve the road from Mount Sterling to Pound Gap, a route used to drive horses, hogs, and cattle to Virginia and southern markets. War came through too. On March 16, 1862, Union troops under Brig. Gen. James A. Garfield forced about 500 Confederates from the gap, and on June 1, 1864, on their last raid into Kentucky, Morgan’s Raiders dislodged Union forces here. U.S. 23 now runs through a cut at the top. The map pin is an approximate point on the Kentucky side of the gap, near Jenkins.",
+    "source_date": "2026-10-10",
+    "geocode_source": "approx-pound-gap-kentucky-side",
+    "geocode_note": "Approximate point on the Kentucky (Letcher County) side of Pound Gap near US 23 (37.158, -82.637); the Wikipedia gap point (37.15483, -82.63266) reverse-geocodes to Wise County, Virginia, so the pin is moved just inside Kentucky. KHS marker #510 (US 23/119, Jenkins) is not precisely geolocated. Years 1750 (Ohio Company surveyors)–1864 (Morgan’s Raiders).",
+    "category": "landmark",
+    "website": "https://en.wikipedia.org/wiki/Pound_Gap",
+    "year_start": 1750,
+    "year_end": 1864,
+    "photo": {
+      "image_url": "/content/photos/stories/pine-mountain-and-pound-gap.jpg",
+      "title": "Looking west along U.S. 23 into the cut atop Pound Gap (photographed 2014)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:US23_cut_at_Pound_Gap.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "year": 2014
+    }
+  },
+  {
+    "id": "old-mulkey-meetinghouse-monroe-1804-1856",
+    "name": "Old Mulkey Meetinghouse State Historic Site, Tompkinsville",
+    "subtitle": "Monroe County · KY 1446 south of Tompkinsville · Mill Creek Baptist Church meetinghouse built 1804 · services until 1856 · state park 1931",
+    "latitude": 36.67777778,
+    "longitude": -85.7075,
+    "history": "South of Tompkinsville in Monroe County, off KY 1446, stands a log meetinghouse built in 1804 for the Mill Creek Baptist Church, a congregation of pioneer Baptists from the Carolinas led by John and Philip Mulkey. A religious revival swept Kentucky in the early 1800s, and by 1803 the congregation had grown to 125 members. The church minutes of May 11, 1804, called for a meetinghouse 50 feet long and 30 feet wide, with jointed wood shingles, five windows, and three doors, its builder to be paid in trade by subscription. The finished building, of half-hewn logs chinked with rocks and mud, is shaped like a cross with twelve corners, said to stand for the twelve apostles or the twelve tribes of Israel, and its three doors are said to symbolize the Trinity. It had no fireplace. Worshippers warmed their feet in bags of heated stones, and the men took turns tending an outdoor fire and keeping guard. John Mulkey is said to have preached more than 10,000 sermons, and his descendants helped establish more than 50 Disciples of Christ congregations. Services were held there until 1856. The cemetery holds Revolutionary War soldiers and pioneers, among them Daniel Boone’s sister Hannah Boone Stewart Pennington, who died in 1828. The site became Kentucky’s 19th state park in 1931. It is often called the oldest log meetinghouse in Kentucky, though the state’s nature preserves office calls it the second-oldest church meetinghouse. The map pin marks the meetinghouse.",
+    "source_date": "2026-10-10",
+    "geocode_source": "wikipedia-old-mulkey-meetinghouse",
+    "geocode_note": "Wikipedia coordinate for Old Mulkey Meetinghouse State Historic Site (36.67777778, -85.7075), south of Tompkinsville on KY 1446. Years 1804 (meetinghouse built)–1856 (last services).",
+    "category": "landmark",
+    "website": "https://en.wikipedia.org/wiki/Old_Mulkey_Meetinghouse_State_Historic_Site",
+    "year_start": 1804,
+    "year_end": 1856,
+    "photo": {
+      "image_url": "/content/photos/stories/old-mulkey-meetinghouse-1804.jpg",
+      "title": "The Old Mulkey Meeting House near Tompkinsville (photographed 2010)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Old-mulkey-meeting-house-ky1.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 3.0",
+      "year": 2010
+    }
+  },
+  {
+    "id": "liberty-hall-john-brown-frankfort-franklin-1796-1837",
+    "name": "Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house)",
+    "subtitle": "Franklin County · Wilkinson & W. Main Sts., Frankfort · lot bought 1796 · house built 1796–1800 · National Historic Landmark 1971",
+    "latitude": 38.1998,
+    "longitude": -84.88117,
+    "history": "In 1786 James Wilkinson bought much of the land that is now downtown Frankfort and laid out the town, naming its streets for friends, famous people and places, and himself. Three of his streets, Wilkinson, Wapping, and Montgomery (now Main), bound three sides of the Liberty Hall grounds. In 1796 John Brown (1757–1837) bought the four-acre lot overlooking the Kentucky River. Brown had represented Virginia in the Continental Congress and in the U.S. Congress, where he introduced the bill granting Kentucky statehood, and Kentucky’s legislature then elected him to the U.S. Senate, where he served until 1805. Often away on government business in Philadelphia, he built a two-story, five-bay brick house, one of the earliest brick homes in Frankfort, from bricks fired from clay dug out of its own cellar. It was substantially complete in 1800, and its glass windows were added in 1804. The National Park Service calls it one of the most perfect examples of Federal domestic architecture ever realized in the country, patterned on the finest houses Brown had seen in the East. The grounds also held a kitchen and laundry, a smokehouse, a privy, stables, a carriage house, and slave quarters. In 1835 Brown divided the property so his sons would inherit equally: Mason received Liberty Hall, and for Orlando he hired Gideon Shryock, designer of the Kentucky State Capitol, to design the Greek Revival Orlando Brown House. Liberty Hall opened as a museum in 1937 and was designated a National Historic Landmark in 1971. The map pin marks the house at 218 Wilkinson Street.",
+    "source_date": "2026-10-10",
+    "geocode_source": "wikipedia-liberty-hall-frankfort",
+    "geocode_note": "Wikipedia coordinate for Liberty Hall (38.1998, -84.88117), 218 Wilkinson St. at W. Main St., Frankfort. Years 1796 (Brown buys the lot and begins building)–1837 (Brown’s death).",
+    "category": "landmark",
+    "website": "https://en.wikipedia.org/wiki/Liberty_Hall_%28Frankfort,_Kentucky%29",
+    "year_start": 1796,
+    "year_end": 1837,
+    "photo": {
+      "image_url": "/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg",
+      "title": "Front of Liberty Hall, Frankfort (photographed 2018)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Liberty_Hall_—_Frankfort,_Kentucky.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2018
+    }
   }
 ]

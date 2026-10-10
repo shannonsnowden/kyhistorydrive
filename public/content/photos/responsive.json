@@ -1,104 +1,120 @@
 {
-  "generatedAt": "2026-10-09T11:57:55.928Z",
+  "generatedAt": "2026-10-10T09:24:02.948Z",
   "maxBytes": 204800,
   "images": {
-    "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg": {
-      "sha256": "bd167a358d16931fdb40b5c5a6d483326f49cb955ec3c1f89dd6d0acbe18af2f",
-      "width": 616,
-      "height": 878,
+    "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg": {
+      "sha256": "5a46d9ed249ab699abc474916df7a2776baeedcf7cc9ef952a1d92c4cb154390",
+      "width": 489,
+      "height": 522,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/john-bradford-and-the-kentucke-gazette-616.avif",
-          "w": 616
+          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-489.avif",
+          "w": 489
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/john-bradford-and-the-kentucke-gazette-616.webp",
-          "w": 616
+          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-489.webp",
+          "w": 489
         }
       ]
     },
-    "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg": {
-      "sha256": "f7addbdd464b71b6b4a27b54963146348a79b38a1c7353dda72aed9bc28c902d",
-      "width": 1024,
-      "height": 1365,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-1024.avif",
-          "w": 1024
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-1024.webp",
-          "w": 1024
-        }
-      ]
-    },
-    "/content/photos/stories/kentucky-association-1826-lexington-race-course.jpg": {
-      "sha256": "5b01937236996a8c938f094bfba1618584776acf47dd185b843c9d69df145192",
-      "width": 550,
-      "height": 324,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/kentucky-association-1826-lexington-race-course-550.avif",
-          "w": 550
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/kentucky-association-1826-lexington-race-course-550.webp",
-          "w": 550
-        }
-      ]
-    },
-    "/content/photos/stories/treaty-of-logstown-1752.jpg": {
-      "sha256": "5282b8e1b6829e2ef5b46a3b09cf49ed8cd4b9bfa5c4e9933a5f5844d2eab53d",
-      "width": 600,
-      "height": 450,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/treaty-of-logstown-1752-600.avif",
-          "w": 600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/treaty-of-logstown-1752-600.webp",
-          "w": 600
-        }
-      ]
-    },
-    "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg": {
-      "sha256": "7c59a9cb1696437a27d936cf05ea2423a4f080b509563267a2dd7dc0c329e790",
+    "/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg": {
+      "sha256": "1190772243bdfbedff8587913408db19af15fb667c920e0ffd0fe30f96b07a77",
       "width": 1280,
-      "height": 854,
+      "height": 919,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-800.avif",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-1280.avif",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-1280.avif",
           "w": 1280
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-800.webp",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-1280.webp",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-1088.webp",
+          "w": 1088
+        }
+      ]
+    },
+    "/content/photos/stories/pine-mountain-and-pound-gap.jpg": {
+      "sha256": "1cfb3a384ac0402325b87c6b410a49accba21bdf7dd6490c22760aac2a2714bc",
+      "width": 1280,
+      "height": 851,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/old-mulkey-meetinghouse-1804.jpg": {
+      "sha256": "bc4d3ee832c8ae0bfccdcae9b66140ab7ea119a2472a7674d5ff7df2afb68091",
+      "width": 1280,
+      "height": 721,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-1088.webp",
+          "w": 1088
+        }
+      ]
+    },
+    "/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg": {
+      "sha256": "0a8a405d6a0d246bc899cc9a8cfca85de32134220b175fb0bb28b33570178c03",
+      "width": 1280,
+      "height": 876,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-1280.webp",
           "w": 1280
         }
       ]
@@ -128,27 +144,27 @@
         }
       ]
     },
-    "/content/photos/stories/athiamiowee-the-warriors-path-through-kentucky.jpg": {
-      "sha256": "c3e42017775fa22f8fdd1cc1d97bc0bb203ff08d232de2abda4c7b486ee49280",
+    "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg": {
+      "sha256": "7c59a9cb1696437a27d936cf05ea2423a4f080b509563267a2dd7dc0c329e790",
       "width": 1280,
-      "height": 960,
+      "height": 854,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-480.avif",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-480.avif",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-720.avif",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-720.avif",
           "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-480.webp",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-480.webp",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/athiamiowee-the-warriors-path-through-kentucky-720.webp",
+          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-720.webp",
           "w": 720
         }
       ]
@@ -178,27 +194,27 @@
         }
       ]
     },
-    "/content/photos/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting.jpg": {
-      "sha256": "0b5a98c11d16f0bd6a068af7a00f6b81db4d0e86fb9847ca42f1859ca0153e60",
-      "width": 931,
-      "height": 652,
+    "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg": {
+      "sha256": "f7addbdd464b71b6b4a27b54963146348a79b38a1c7353dda72aed9bc28c902d",
+      "width": 1024,
+      "height": 1365,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-480.avif",
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-480.avif",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-720.avif",
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-720.avif",
           "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-480.webp",
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-480.webp",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting-720.webp",
+          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-720.webp",
           "w": 720
         }
       ]

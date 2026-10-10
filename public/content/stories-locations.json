@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-09T12:00:23.448Z",
+  "generatedAt": "2026-10-10T09:22:52.009Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 121,
-    "none": 35
+    "override": 125,
+    "none": 36
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -496,6 +496,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "pine-mountain-and-pound-gap": {
+      "slug": "pine-mountain-and-pound-gap",
+      "lat": 37.158,
+      "lon": -82.637,
+      "mapConfidence": "override",
+      "matchedPlace": "Pound Gap, Pine Mountain (Kentucky side, near Jenkins)",
+      "historyId": null
+    },
     "thomas-walker-and-cumberland-gap": {
       "slug": "thomas-walker-and-cumberland-gap",
       "lat": 36.60686666666667,
@@ -672,6 +680,14 @@
       "matchedPlace": "McAfee Station on the Salt River",
       "historyId": "mcafee-station-salt-river-mercer-1773-1785"
     },
+    "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
+      "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "georgetown-and-royal-spring": {
       "slug": "georgetown-and-royal-spring",
       "lat": 38.2100364,
@@ -719,6 +735,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Benjamin Logan / Logan's Station",
       "historyId": "logans-station"
+    },
+    "esther-whitley-over-the-cumberlands-1775": {
+      "slug": "esther-whitley-over-the-cumberlands-1775",
+      "lat": 37.4761695,
+      "lon": -84.54252,
+      "mapConfidence": "override",
+      "matchedPlace": "William Whitley / Sportsman's Hill",
+      "historyId": "william-whitley-sportsmans-hill"
     },
     "levi-todd-lexington-co-founder": {
       "slug": "levi-todd-lexington-co-founder",
@@ -1352,6 +1376,14 @@
       "matchedPlace": "Lancaster founding / Wallace’s Crossroads",
       "historyId": "lancaster-founding-wallace-s-crossroads"
     },
+    "liberty-hall-john-browns-frankfort-house": {
+      "slug": "liberty-hall-john-browns-frankfort-house",
+      "lat": 38.1998,
+      "lon": -84.88117,
+      "mapConfidence": "override",
+      "matchedPlace": "Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house)",
+      "historyId": null
+    },
     "augusta-on-the-ohio-1797": {
       "slug": "augusta-on-the-ohio-1797",
       "lat": 38.7717376,
@@ -1439,6 +1471,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Somerset — Pulaski County seat (1801)",
       "historyId": "somerset-founding-pulaski-seat-1801"
+    },
+    "old-mulkey-meetinghouse-1804": {
+      "slug": "old-mulkey-meetinghouse-1804",
+      "lat": 36.67777778,
+      "lon": -85.7075,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Mulkey Meetinghouse State Historic Site, Tompkinsville",
+      "historyId": null
     },
     "piankashaw-claims-on-the-ohio-wabash": {
       "slug": "piankashaw-claims-on-the-ohio-wabash",
