@@ -965,6 +965,13 @@ html[data-hp-theme="light"] .era-other {
 }
 .about-credits li { margin: 0.35rem 0; }
 .about-credits a { color: var(--accent); }
+.contact-reveal { display: inline; }
+.contact-reveal .btn { vertical-align: baseline; margin: 0 0.15rem; }
+.contact-reveal button:focus-visible,
+.contact-reveal a:focus {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 .about-app-data {
   font-size: 0.75rem;
   margin-top: 2.25rem;

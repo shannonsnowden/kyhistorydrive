@@ -28,7 +28,8 @@ import {
   privacyChoicesBootHtml,
   privacyChoicesLinkHtml,
 } from './gtag-snippet.mjs'
-import { siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { contactLineHtml } from './contact-reveal.mjs'
 import { FILMS, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 
 class PrerenderPages {
@@ -95,6 +96,16 @@ class PrerenderPages {
     PrerenderPages.assertPage(aboutHtml, { archaeological: false, lat: null, lon: null }, '/about/')
     if (!aboutHtml.includes('Shannon Snowden') || !aboutHtml.includes('"@type":"Organization"')) {
       throw new Error('prerender: about page is missing the publisher, author, or Organization JSON-LD')
+    }
+    if (!aboutHtml.includes('>Show email address<') || !aboutHtml.includes('contact [at] kyhistorydrive [dot] com')) {
+      throw new Error('prerender: about page is missing the contact reveal')
+    }
+    const contactPoint = `"contactPoint":{"@type":"ContactPoint","contactType":"customer support","url":"${PrerenderPages.SITE}/about/"}`
+    if (!aboutHtml.includes(contactPoint)) {
+      throw new Error('prerender: about page contactPoint should point at /about/')
+    }
+    if (aboutHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(aboutHtml)) {
+      throw new Error('prerender: about page includes the plain contact address')
     }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
@@ -427,12 +438,21 @@ class PrerenderPages {
         '@type': 'ImageObject',
         url: PrerenderPages.LOGO,
       },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        url: `${PrerenderPages.SITE}/about/`,
+      },
       founder: {
         '@type': 'Person',
         name: 'Shannon Snowden',
         url: `${PrerenderPages.SITE}/about/`,
       },
     }
+  }
+
+  static publisherNode() {
+    return { '@id': PrerenderPages.ORG_ID }
   }
 
   /** Newest commit date per file, and the first commit date (oldest) for datePublished. */
@@ -830,7 +850,7 @@ class PrerenderPages {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
-    <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
+    ${sealRotationScriptHtml()}
     <title>${t}</title>
     <meta name="description" content="${d}" />
     <link rel="canonical" href="${c}" />
@@ -987,7 +1007,7 @@ class PrerenderPages {
       datePublished: dates.published,
       dateModified: dates.modified,
       author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
-      publisher: { '@id': PrerenderPages.ORG_ID },
+      publisher: PrerenderPages.publisherNode(),
       contentLocation: { '@id': placeId },
     }
     const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` }]
@@ -1172,6 +1192,12 @@ class PrerenderPages {
     }
     if (!html.includes('class="top site-header"') || !html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
       throw new Error(`prerender: ${urlPath} is missing the shared homepage header`)
+    }
+    if (!html.includes('src="/brand/khd-logo.png"') || !html.includes("var B='/brand/'")) {
+      throw new Error(`prerender: ${urlPath} seal path is not root-absolute`)
+    }
+    if (/src="brand\/khd-logo/.test(html)) {
+      throw new Error(`prerender: ${urlPath} seal path is relative and would 404 on a subpage`)
     }
     if (html.includes('KY Markers Drive iPhone app')) {
       throw new Error(`prerender: ${urlPath} uses an unconfirmed app name`)
@@ -1521,8 +1547,10 @@ ${rows.join('\n')}
           <li>Map data: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</li>
           <li>State outline: Natural Earth</li>
           <li>Stories: Shannon Snowden for Kentucky History Drive</li>
-          <li>Layer places (history, museums, parks, and more): KY Markers Drive project data</li>
+          <li>Layer places (history, museums, parks, and more): Kentucky History Drive project data</li>
         </ul>
+        <h2>Contact</h2>
+        ${contactLineHtml('Questions, corrections or photo suggestions:')}
         <div class="static-cta">
           <a class="btn" href="/">Home</a>
           <a class="btn ghost" href="/#map">Open the map</a>
@@ -1539,7 +1567,7 @@ ${rows.join('\n')}
         description,
         isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
         about: { '@id': PrerenderPages.ORG_ID },
-        publisher: { '@id': PrerenderPages.ORG_ID },
+        publisher: PrerenderPages.publisherNode(),
         author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
       },
     ])

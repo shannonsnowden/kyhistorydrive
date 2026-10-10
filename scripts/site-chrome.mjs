@@ -1,3 +1,13 @@
+/** Root-absolute seal files. A path without the leading slash resolves under /about/ or /stories/ and 404s. */
+export function sealRotationScriptHtml() {
+  return `<script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>`
+}
+
+/** Apply the rotated seal. Force a /brand/ path so a subpage cannot resolve it relatively. */
+export function sealSrcScriptHtml() {
+  return `<script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>`
+}
+
 /** Menu and theme toggle for the shared header on pages that are not the SPA. */
 export function siteChromeScriptHtml() {
   return `<script>
@@ -64,7 +74,7 @@ export function siteHeaderHtml(activeRoute = '') {
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
           <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" />
-          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(im&&s&&im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
+          ${sealSrcScriptHtml()}
           <h1>Kentucky History Drive</h1>
         </a>
         <p class="tagline">History is all around us.</p>
