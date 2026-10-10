@@ -1712,10 +1712,19 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     /* related links are optional */
   }
   const content = popupEl?.querySelector('.maplibregl-popup-content')
-  if (content) {
-    content.style.maxHeight = `${place.maxHeightPx}px`
-    content.style.overflowY = 'auto'
-    content.style.webkitOverflowScrolling = 'touch'
+  const scroller = popupEl?.querySelector('.map-popup')
+  if (scroller) {
+    let maxH = place.maxHeightPx
+    if (content) {
+      const cs = getComputedStyle(content)
+      const chrome =
+        (parseFloat(cs.paddingTop) || 0) +
+        (parseFloat(cs.paddingBottom) || 0) +
+        (parseFloat(cs.borderTopWidth) || 0) +
+        (parseFloat(cs.borderBottomWidth) || 0)
+      maxH = Math.max(120, Math.floor(place.maxHeightPx - chrome))
+    }
+    scroller.style.maxHeight = `${maxH}px`
   }
   wireShareButtons(popupEl)
   activePopup.on('close', () => {
@@ -1961,8 +1970,32 @@ function noteMapIdle(mapInstance) {
   })
 }
 
+/** Keep the WebGL canvas matched to the grid cell after the controls column settles. */
+function bindMapResize(mapInstance) {
+  if (!mapInstance || mapInstance.__khdResizeObs) return
+  const el = mapInstance.getContainer?.()
+  if (!el || typeof ResizeObserver === 'undefined') return
+  let last = ''
+  const ro = new ResizeObserver(() => {
+    const w = el.clientWidth
+    const h = el.clientHeight
+    if (!w || !h) return
+    const key = `${w}x${h}`
+    if (key === last) return
+    last = key
+    try {
+      mapInstance.resize()
+    } catch {
+      /* map removed */
+    }
+  })
+  mapInstance.__khdResizeObs = ro
+  ro.observe(el)
+}
+
 function initMap() {
   if (map) {
+    bindMapResize(map)
     requestAnimationFrame(() => {
       map.resize()
       pendingFocus = null
@@ -1984,6 +2017,7 @@ function initMap() {
     center: CENTER,
     zoom: START_ZOOM,
   })
+  bindMapResize(map)
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
   noteMapIdle(map)
