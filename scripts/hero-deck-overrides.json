@@ -5,6 +5,11 @@
       "heroDeck": "Mantle Rock, a sandstone arch in Livingston County, stands near the old road that carried the Cherokee on the Trail of Tears in 1838–39.",
       "reason": "Automatic clause cut gave 12 words (\"West of the crossroads of Joy in Livingston County, off KY 133…\"); Critiquito review of PR #191.",
       "date": "2026-10-09"
+    },
+    "old-mulkey-meetinghouse-1804": {
+      "heroDeck": "South of Tompkinsville stands a log meetinghouse built in 1804 for the Mill Creek Baptist Church, pioneer Baptists from the Carolinas.",
+      "reason": "Automatic cut ended mid-sentence with an ellipsis (\"…for the Mill Creek Baptist Church…\"); editorial QA 2026-10-10.",
+      "date": "2026-10-10"
     }
   }
 }

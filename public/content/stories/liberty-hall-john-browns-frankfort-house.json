@@ -1,0 +1,27 @@
+{
+  "slug": "liberty-hall-john-browns-frankfort-house",
+  "title": "Liberty Hall: John Brown’s house in the new capital",
+  "publishedDate": "2026-10-10",
+  "summary": "In 1786 James Wilkinson bought much of the land that is now downtown Frankfort and laid out the town, naming its streets for friends, famous people and places, and…",
+  "bodyMarkdown": "In 1786 James Wilkinson bought much of the land that is now downtown Frankfort and laid out the town, naming its streets for friends, famous people and places, and himself. Three of his streets, Wilkinson, Wapping, and Montgomery (now Main), bound three sides of the Liberty Hall grounds. In 1796 John Brown (1757–1837) bought the four-acre lot overlooking the Kentucky River. Brown had represented Virginia in the Continental Congress and in the U.S. Congress, where he introduced the bill granting Kentucky statehood, and Kentucky’s legislature then elected him to the U.S. Senate, where he served until 1805. Often away on government business in Philadelphia, he built a two-story, five-bay brick house, one of the earliest brick homes in Frankfort, from bricks fired from clay dug out of its own cellar. It was substantially complete in 1800, and its glass windows were added in 1804. The National Park Service calls it one of the most perfect examples of Federal domestic architecture ever realized in the country, patterned on the finest houses Brown had seen in the East. The grounds also held a kitchen and laundry, a smokehouse, a privy, stables, a carriage house, and slave quarters. In 1835 Brown divided the property so his sons would inherit equally: Mason received Liberty Hall, and for Orlando he hired Gideon Shryock, designer of the Kentucky State Capitol, to design the Greek Revival Orlando Brown House. Liberty Hall opened as a museum in 1937 and was designated a National Historic Landmark in 1971. The map pin marks the house at 218 Wilkinson Street.\nSource: [https://en.wikipedia.org/wiki/Liberty_Hall_%28Frankfort,_Kentucky%29](https://en.wikipedia.org/wiki/Liberty_Hall_%28Frankfort,_Kentucky%29)\nSource: [https://www.nps.gov/places/liberty-hall.htm](https://www.nps.gov/places/liberty-hall.htm)",
+  "yearStart": 1796,
+  "yearEnd": 1837,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "architecture",
+    "statehood"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-10",
+  "photo": {
+    "image_url": "/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg",
+    "title": "Front of Liberty Hall, Frankfort (photographed 2018)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Liberty_Hall_—_Frankfort,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2018
+  },
+  "county": "Franklin"
+}

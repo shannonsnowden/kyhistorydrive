@@ -1,0 +1,28 @@
+{
+  "slug": "pine-mountain-and-pound-gap",
+  "title": "Pine Mountain and Pound Gap",
+  "publishedDate": "2026-10-10",
+  "summary": "Pine Mountain is a single ridge of the Appalachians running about 125 miles from near Pioneer, Tennessee, to near Elkhorn City, Kentucky. Its highest point, Birch Knob…",
+  "bodyMarkdown": "Pine Mountain is a single ridge of the Appalachians running about 125 miles from near Pioneer, Tennessee, to near Elkhorn City, Kentucky. Its highest point, Birch Knob, rises 3,273 feet on the Kentucky–Virginia border. It has long been a barrier to travel: only two waterways pass through the whole ridge, the Cumberland River at Pineville and the Clear Fork near Jellico, Tennessee. Travelers crossed at gaps instead, and the best known on the Virginia line is Pound Gap, between Jenkins, Kentucky, and Pound, Virginia. Ohio Company surveyors, possibly including Christopher Gist, passed through it in 1750, and the Kentucky Historical Society’s marker credits Gist with finding the route on April 1, 1751. Hunters used the gap over the following decade. In 1774 Daniel Boone, who called it “Sounding Gap,” crossed here with Michael Stoner to warn surveyors of a possible Shawnee attack. Around 1798 seven families, the Adamses, Webbs, Caudills, Crafts, Hammonds, Sturgills, and Collinses, came through to settle what became Letcher County, and in 1834 the General Assembly acted to improve the road from Mount Sterling to Pound Gap, a route used to drive horses, hogs, and cattle to Virginia and southern markets. War came through too. On March 16, 1862, Union troops under Brig. Gen. James A. Garfield forced about 500 Confederates from the gap, and on June 1, 1864, on their last raid into Kentucky, Morgan’s Raiders dislodged Union forces here. U.S. 23 now runs through a cut at the top. The map pin is an approximate point on the Kentucky side of the gap, near Jenkins.\nSource: [https://en.wikipedia.org/wiki/Pound_Gap](https://en.wikipedia.org/wiki/Pound_Gap)\nSource: [https://history.ky.gov/markers/pound-gap](https://history.ky.gov/markers/pound-gap)\nSource: [https://en.wikipedia.org/wiki/Pine_Mountain_%28Appalachian_Mountains%29](https://en.wikipedia.org/wiki/Pine_Mountain_%28Appalachian_Mountains%29)",
+  "yearStart": 1750,
+  "yearEnd": 1864,
+  "era": "frontier",
+  "tags": [
+    "frontier",
+    "kentucky",
+    "mountains",
+    "roads",
+    "civil-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-10",
+  "photo": {
+    "image_url": "/content/photos/stories/pine-mountain-and-pound-gap.jpg",
+    "title": "Looking west along U.S. 23 into the cut atop Pound Gap (photographed 2014)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:US23_cut_at_Pound_Gap.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": 2014
+  },
+  "county": "Letcher"
+}

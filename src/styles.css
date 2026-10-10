@@ -921,8 +921,15 @@ html[data-hp-theme="light"] .era-other {
 }
 
 .full-state-btn { margin-top: 0.75rem; width: 100%; }
-.map-canvas-wrap { position: relative; min-height: 60vh; width: 100%; }
-.map-canvas-wrap #mapCanvas { min-height: 60vh; width: 100%; height: 100%; }
+.map-canvas-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  min-height: 60vh;
+  width: 100%;
+}
+.map-canvas-wrap #mapCanvas { flex: 1 1 auto; min-height: 60vh; width: 100%; height: auto; }
 .full-state-fab {
   position: absolute;
   left: 12px;
@@ -1095,19 +1102,23 @@ html[data-hp-theme="light"] .era-other {
 
 
 .ky-popup .maplibregl-popup-content {
-  /* JS sets a tighter max-height from free space above/below the pin */
+  /* The popup root is transformed. A scrollport on this shell clears a
+     rectangle of the WebGL canvas in Chrome (page background shows through
+     the tiles). Clip the shell and scroll the inner card instead.
+     JS sets a tighter max-height on .map-popup from free space around the pin. */
+  max-height: none;
+  overflow: hidden;
+}
+.ky-popup .map-popup {
   max-height: min(70vh, 560px);
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 .ky-popup.maplibregl-popup {
   z-index: 5;
-}
-/* Keep popup scroll gestures from stealing the map */
-.ky-popup .maplibregl-popup-content {
-  touch-action: pan-y;
 }
 .map-popup .popup-full-text {
   white-space: pre-wrap;
@@ -1366,6 +1377,95 @@ html[data-hp-theme="light"] .era-other {
     aspect-ratio: 16 / 10;
     object-fit: cover;
   }
+}
+
+/* Film embed. 16:9 is reserved before the poster arrives so the story photo stays put.
+   On a film story the photo column matches the player column: a 4:3 photo is a larger
+   box than the 16:9 player, so the photo remains the largest image. */
+.film-block {
+  margin: 1.25rem 0 0.5rem;
+}
+.film-title {
+  margin: 0 0 0.4rem;
+  color: var(--heading);
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+.film-summary {
+  margin: 0 0 0.35rem;
+  line-height: 1.5;
+}
+.film-runtime,
+.film-credit,
+.film-more {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.film-credit {
+  margin-top: 0.55rem;
+  color: var(--text);
+}
+.film-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 0.75rem;
+  background: #0c120e;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.film-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+@media (min-width: 901px) {
+  /* Wider photo column so the 4:3 story picture outranks the lead paragraph and the 16:9 player. */
+  main.static-read:has(.static-story.has-film) {
+    max-width: 72rem;
+  }
+  .static-story.has-film.story-reader-layout:has(.story-sidebar-photo) {
+    grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1.18fr);
+  }
+  .story-reader.has-film .story-reader-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .story-reader.has-film .story-sidebar-photo {
+    position: static;
+    margin-top: 0;
+  }
+  .static-story.has-film .story-sidebar-photo-frame img,
+  .static-story.has-film .story-sidebar-photo-thumb img,
+  .story-reader.has-film .story-sidebar-photo-frame img,
+  .story-reader.has-film .story-sidebar-photo-thumb img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 4 / 3;
+  }
+}
+@media (max-width: 600px) {
+  .story-reader.has-film .story-sidebar-photo {
+    max-width: none;
+    width: 100%;
+  }
+  .story-reader.has-film .story-sidebar-photo-frame img,
+  .story-reader.has-film .story-sidebar-photo-thumb img {
+    width: 100%;
+    max-height: none;
+    aspect-ratio: 16 / 10;
+  }
+}
+.film-list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.film-story-link {
+  margin: 0.85rem 0 0;
 }
 
 

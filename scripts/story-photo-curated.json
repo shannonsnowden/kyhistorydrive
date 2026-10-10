@@ -951,5 +951,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Rsfinlayson · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2018
+  },
+  "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
+    "ext": "jpg",
+    "commonsFile": "1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg?width=1280",
+    "title": "Cornstalk as imagined in John Frost’s 1872 pictorial history of the Indians (cropped engraving, not a life portrait)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Illustrator unidentified, from John Frost’s book · Wikimedia Commons · public domain",
+    "year": 1872
+  },
+  "esther-whitley-over-the-cumberlands-1775": {
+    "ext": "jpg",
+    "commonsFile": "William_Whitley_House_—_Lincoln_County,_Kentucky.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/William_Whitley_House_—_Lincoln_County,_Kentucky.jpg?width=1280",
+    "title": "The William Whitley House near Crab Orchard (photographed 2019), Esther Whitley’s home; no portrait of her is known to the site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:William_Whitley_House_—_Lincoln_County,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2019
+  },
+  "pine-mountain-and-pound-gap": {
+    "ext": "jpg",
+    "commonsFile": "US23_cut_at_Pound_Gap.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/US23_cut_at_Pound_Gap.jpg?width=1280",
+    "title": "Looking west along U.S. 23 into the cut atop Pound Gap (photographed 2014)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:US23_cut_at_Pound_Gap.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": 2014
+  },
+  "old-mulkey-meetinghouse-1804": {
+    "ext": "jpg",
+    "commonsFile": "Old-mulkey-meeting-house-ky1.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Old-mulkey-meeting-house-ky1.jpg?width=1280",
+    "title": "The Old Mulkey Meeting House near Tompkinsville (photographed 2010)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Old-mulkey-meeting-house-ky1.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 3.0",
+    "year": 2010
+  },
+  "liberty-hall-john-browns-frankfort-house": {
+    "ext": "jpg",
+    "commonsFile": "Liberty_Hall_—_Frankfort,_Kentucky.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Liberty_Hall_—_Frankfort,_Kentucky.jpg?width=1280",
+    "title": "Front of Liberty Hall, Frankfort (photographed 2018)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Liberty_Hall_—_Frankfort,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2018
   }
 }
