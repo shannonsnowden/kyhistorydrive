@@ -29,12 +29,12 @@ import {
   privacyChoicesLinkHtml,
 } from './gtag-snippet.mjs'
 import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { contactLineHtml } from './contact-reveal.mjs'
 import { FILMS, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
   static ORG_ID = 'https://kyhistorydrive.com/#organization'
-  static CONTACT_EMAIL = 'contact@kyhistorydrive.com'
   static LOGO = 'https://kyhistorydrive.com/brand/khd-logo-512.png'
   static ADSENSE =
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>'
@@ -97,12 +97,15 @@ class PrerenderPages {
     if (!aboutHtml.includes('Shannon Snowden') || !aboutHtml.includes('"@type":"Organization"')) {
       throw new Error('prerender: about page is missing the publisher, author, or Organization JSON-LD')
     }
-    if (
-      !aboutHtml.includes('mailto:contact@kyhistorydrive.com') ||
-      !aboutHtml.includes('"contactType":"customer support"') ||
-      !aboutHtml.includes('"email":"contact@kyhistorydrive.com"')
-    ) {
-      throw new Error('prerender: about page is missing the contact email')
+    if (!aboutHtml.includes('>Show email address<') || !aboutHtml.includes('contact [at] kyhistorydrive [dot] com')) {
+      throw new Error('prerender: about page is missing the contact reveal')
+    }
+    const contactPoint = `"contactPoint":{"@type":"ContactPoint","contactType":"customer support","url":"${PrerenderPages.SITE}/about/"}`
+    if (!aboutHtml.includes(contactPoint)) {
+      throw new Error('prerender: about page contactPoint should point at /about/')
+    }
+    if (aboutHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(aboutHtml)) {
+      throw new Error('prerender: about page includes the plain contact address')
     }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
@@ -431,15 +434,14 @@ class PrerenderPages {
       '@id': PrerenderPages.ORG_ID,
       name: 'Kentucky History Drive',
       url: `${PrerenderPages.SITE}/`,
-      email: PrerenderPages.CONTACT_EMAIL,
       logo: {
         '@type': 'ImageObject',
         url: PrerenderPages.LOGO,
       },
       contactPoint: {
         '@type': 'ContactPoint',
-        email: PrerenderPages.CONTACT_EMAIL,
         contactType: 'customer support',
+        url: `${PrerenderPages.SITE}/about/`,
       },
       founder: {
         '@type': 'Person',
@@ -450,7 +452,7 @@ class PrerenderPages {
   }
 
   static publisherNode() {
-    return { '@id': PrerenderPages.ORG_ID, email: PrerenderPages.CONTACT_EMAIL }
+    return { '@id': PrerenderPages.ORG_ID }
   }
 
   /** Newest commit date per file, and the first commit date (oldest) for datePublished. */
@@ -1548,7 +1550,7 @@ ${rows.join('\n')}
           <li>Layer places (history, museums, parks, and more): Kentucky History Drive project data</li>
         </ul>
         <h2>Contact</h2>
-        <p>Questions, corrections or photo suggestions: <a href="mailto:${PrerenderPages.CONTACT_EMAIL}">${PrerenderPages.CONTACT_EMAIL}</a></p>
+        ${contactLineHtml('Questions, corrections or photo suggestions:')}
         <div class="static-cta">
           <a class="btn" href="/">Home</a>
           <a class="btn ghost" href="/#map">Open the map</a>

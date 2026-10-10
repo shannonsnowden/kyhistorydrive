@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { injectGtagHead, privacyChoicesBootHtml } from './scripts/gtag-snippet.mjs'
 import { siteChromeScriptHtml, siteHeaderHtml } from './scripts/site-chrome.mjs'
+import { contactLineHtml } from './scripts/contact-reveal.mjs'
 
 const root = dirname(fileURLToPath(import.meta.url))
 
@@ -58,6 +59,7 @@ export default defineConfig({
           if (html.includes('<!-- khd-privacy-choices -->')) {
             html = html.replace('<!-- khd-privacy-choices -->', privacyChoicesBootHtml())
           }
+          html = html.replace(/<!-- khd-contact-line\s+([\s\S]*?)\s*-->/g, (_, lead) => contactLineHtml(lead.trim()))
           return injectGtagHead(html)
         },
       },
