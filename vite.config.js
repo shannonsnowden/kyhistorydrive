@@ -20,6 +20,13 @@ function privacyPath() {
       return
     }
     if (path === '/about/') req.url = `/about/index.html${search}`
+    if (path === '/videos') {
+      res.statusCode = 301
+      res.setHeader('Location', `/videos/${search}`)
+      res.end()
+      return
+    }
+    if (path === '/videos/') req.url = `/videos/index.html${search}`
     next()
   }
   return {

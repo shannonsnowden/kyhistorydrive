@@ -8,6 +8,7 @@ import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related
 import { initThemeToggle } from './theme.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml } from './films.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -1433,7 +1434,7 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
   }
 }
 
-function storySidebarPhotoHtml(photo, title) {
+function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
   const sourceLabel = escapeHtml(photo.source_label || photo.credit || '')
@@ -1465,8 +1466,11 @@ function storySidebarPhotoHtml(photo, title) {
       linkHost = ''
     }
     const linkLabel = escapeHtml(`Open ${photo.source_label || photo.credit || linkHost || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`)
+    const imgAttrs = priority
+      ? 'fetchpriority="high" loading="eager" data-lcp="story-photo"'
+      : 'loading="lazy"'
     thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
-        <img src="${img}" alt="${caption}" loading="lazy" />
+        <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
       <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>`
@@ -2799,7 +2803,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     else if (!timelineReaderRestore || timelineReaderRestore.slug !== meta.slug) timelineReaderRestore = null
     placeTimelineReaderAfter(rowItem)
   }
-  reader.classList.remove('is-empty')
+  reader.classList.remove('is-empty', 'has-film')
   reader.innerHTML = '<p class="muted">Loading…</p>'
   const jumpBar = document.getElementById('timelineReaderJump')
   if (jumpBar) jumpBar.hidden = false
@@ -2881,6 +2885,15 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       bodyMarkdown: s.bodyMarkdown || '',
       existingPhoto: s.photo || null,
     })
+    const film = filmForStory(meta.slug)
+    const filmHtml = film
+      ? filmPlayerHtml(film, {
+          summary: filmDescriptionFromPlain(stripSourceAttribution(s.bodyMarkdown || '')),
+          headingLevel: 3,
+          moreHtml: '<a href="/videos/">All videos</a>',
+        })
+      : ''
+    if (film) reader.classList.add('has-film')
     reader.innerHTML = `
       ${timelineReaderBarHtml('top')}
       <div class="story-reader-layout">
@@ -2909,6 +2922,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             }
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
+          ${filmHtml}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
           ${extras}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
@@ -2919,7 +2933,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           }
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
-        ${storySidebarPhotoHtml(sidebarPhoto, s.title)}
+        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: Boolean(film) })}
       </div>
       ${timelineReaderBarHtml('bottom')}
     `
