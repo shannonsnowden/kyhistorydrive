@@ -390,17 +390,45 @@ Proposed for review:
 - Signed-in UI has reserved space so there's no layout shift (CLS).
 - Phase 1b's county and hub pages need the Desk's structure and internal-link review.
 
-### 6.3 Critiquito: sign-in and profile UX (Pending input)
+### 6.3 Critiquito: sign-in and profile UX (Agreed with edits, 2026-10-11)
 
-Proposed for review:
+**Save and Visited controls**
+- **Story pages:** one row directly under the title and dek, above the photo, next to "Open on the map". **Map popups:** a row under the marker title. **Know before you go:** "Mark visited" sits beside the box (idea 10).
+- Each control is an icon plus a text label, never an icon alone. Height and width are at least 44px. They use the pill style (`border-radius: 999px`, `1px solid var(--line)`) and the site focus ring.
+- They are real `<button>`s with `aria-pressed`. Labels: "Save" changes to "Saved" (a filled bookmark, `--chip-active` fill, `--ink-on-gold` text). "Mark visited" changes to "Visited ✓". The label changes as well as the color.
+- A polite `aria-live` toast: "Saved on this device" (signed out) or "Saved to your account" (signed in).
+- The space is reserved in the prerendered HTML so there's no CLS.
 
-- Where the Sign in button sits in the header and mobile nav.
-- Save and Visited controls on story pages and map popups.
-- The "Saved on this device" and account page layout.
-- The merge prompt on first sign-in.
-- The delete confirmation.
-- Empty states.
-- The failure notice when sign-in is blocked.
+**Signed out (anonymous saves)**
+- Both buttons work right away through `khd-saved-v1`. Nothing is gated.
+- On the **first** Save or Visited only, a small inline prompt appears under the row and can be dismissed: "Saved on this device. Sign in to keep it on all your devices. [Sign in] [Not now]". It never shows again after "Not now", and never as a modal.
+- The "Saved on this device" view (linked from the header menu) lists items newest first. Empty state: "Nothing saved yet. Tap Save on any story or marker."
+
+**Sign-in placement**
+- The header has a person icon button labeled "Sign in" (`aria-label`, 44px), placed before the theme toggle. On phones it's in the menu as "Sign in" text. Once signed in, it reads "Account".
+- The sign-in sheet has two equal buttons that follow each provider's brand rules, "Continue with Google" and "Continue with Apple". They get equal size and prominence (Apple 4.8 parity). Under them: "Optional. Everything on the site works without an account."
+- **Consent line under the buttons:** "We get only your email address from Google or Apple. We use it to keep your saved stories and visited markers. No ads, no analytics, never sold. [Privacy]" Signing in does not change cookie choices.
+- **Blocked or failed sign-in:** "Sign-in isn't available right now. Your saves are still kept on this device." There's a Try again button. Nothing is lost.
+
+**Merge on first sign-in**
+- If there's device data, show: "You have 7 saved stories and 12 visited markers on this device. Add them to your account?" with **[Add to my account]** as the primary button and [Skip] as the secondary.
+- After merging: "Keep a copy on this device too?" [Keep] [Clear]. Keep is the default.
+
+**Account page (`/account/`, noindex, no ads)** has one column, max-width 40rem, with cards in this order:
+1. Signed in as `email` (provider icon) and Sign out.
+2. Saved: stories, routes and hubs, with counts and links.
+3. Visited markers: the count, with a link to view on the map.
+4. Home county (Phase 3).
+5. **Your data:** "Download my data (JSON)" as a secondary button.
+6. **Delete account:** a danger zone at the bottom with a red-outlined button that's not filled. The destructive color must clear AA on both themes.
+
+**Delete confirmation** is a dialog with focus trapped and Esc to cancel:
+- Title: "Delete your account?"
+- Body: "This removes your saved stories, visited markers and tour progress from our servers right away. It can't be undone."
+- First, it offers **[Download my data first]**.
+- A checkbox: "Also clear saves on this device."
+- Buttons: [Cancel] (default focus) and [Delete my account]. The delete button is enabled only after the user types DELETE (or, if the team prefers, confirms a second time).
+- Afterwards: "Your account is deleted." The user is signed out.
 
 ### 6.4 AI Search Visibility (Pending input)
 
