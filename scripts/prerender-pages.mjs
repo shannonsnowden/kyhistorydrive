@@ -85,6 +85,13 @@ class PrerenderPages {
     if (!fs.existsSync(path.join(dist, 'index.html'))) {
       throw new Error(`prerender: ${dist}/index.html is missing; run vite build first`)
     }
+    const lightboxJs = fs.readFileSync(path.join(dist, 'route-map-lightbox.js'), 'utf8')
+    if (/\beval\s*\(|\bnew Function\b|onclick\s*=|javascript:/.test(lightboxJs)) {
+      throw new Error('prerender: route map lightbox is not CSP-friendly')
+    }
+    if (!/1920\s*\*\s*2/.test(lightboxJs)) {
+      throw new Error('prerender: route map lightbox does not build the hi-res URL in script')
+    }
     PrerenderPages.configureMarked()
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
     const stories = PrerenderPages.loadStories(root)
@@ -923,7 +930,7 @@ class PrerenderPages {
     return siteHeaderHtml(activeRoute)
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '' }) {
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', routeLightbox = false }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
@@ -990,6 +997,8 @@ class PrerenderPages {
       .route-map h2, .route-map h3 { color: var(--heading); }
       .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
       .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
+      .route-map-zoom { position: relative; display: block; }
+      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; margin: 0; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
       .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
       .route-map-phone-note a { color: var(--accent); }
@@ -999,6 +1008,7 @@ class PrerenderPages {
       .route-links ul, .route-index-list { list-style: none; margin: 0; padding: 0; }
       .route-links li { margin: 0 0 0.4rem; }
       .route-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 0.85rem; align-items: center; margin: 0 0 0.85rem; padding: 0.65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: inherit; text-decoration: none; }
+      .route-card-link { color: inherit; text-decoration: none; }
       .route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
       .route-card p { margin: 0; }
       @media (max-width: 700px) { .place-list { columns: 1; } .route-card { grid-template-columns: 1fr; } }
@@ -1036,6 +1046,7 @@ class PrerenderPages {
     ${privacyChoicesBootHtml()}
     ${PrerenderPages.siteChromeScript()}
     ${routeMapThemeScript()}
+    ${routeLightbox ? '<script src="/route-map-lightbox.js" defer></script>' : ''}
   </body>
 </html>
 `
@@ -1251,6 +1262,7 @@ class PrerenderPages {
       imageWidth: route ? 1600 : 0,
       imageHeight: route ? 900 : 0,
       jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
+      routeLightbox: Boolean(route),
       main,
     })
   }
@@ -1300,6 +1312,7 @@ class PrerenderPages {
       imageAlt: 'Kentucky History Drive official seal',
       ogType: 'website',
       jsonLd,
+      routeLightbox: true,
       main,
     })
   }
@@ -1435,6 +1448,18 @@ class PrerenderPages {
     if (block.includes('3840') || block.includes('-master-')) {
       throw new Error(`prerender: ${urlPath} includes a 3840 master`)
     }
+    if (!block.includes('class="route-map-zoom"') || !block.includes('class="route-map-expand"') || !block.includes('>Expand<')) {
+      throw new Error(`prerender: ${urlPath} route map is missing the expand control`)
+    }
+    if (!block.includes(`data-route-slug="${route.slug}"`) || !block.includes(`data-fallback="${route.files.fullWebp}"`)) {
+      throw new Error(`prerender: ${urlPath} route map lightbox is missing its sources`)
+    }
+    if (/onclick=|onerror=|onload=|javascript:/.test(block)) {
+      throw new Error(`prerender: ${urlPath} route map uses an inline event handler`)
+    }
+    if (!html.includes('src="/route-map-lightbox.js"')) {
+      throw new Error(`prerender: ${urlPath} is missing the route map lightbox script`)
+    }
     if (route.slug === 'mantle-rock-and-the-trail-of-tears') {
       if (!block.includes('Northern Route') || /Benge-Drane|\bDrane\b/.test(block)) {
         throw new Error(`prerender: ${urlPath} must use the NPS name Northern Route`)
@@ -1490,6 +1515,11 @@ class PrerenderPages {
       throw new Error('prerender: /routes/ must use the NPS name Northern Route')
     }
     if (html.includes('3840') || html.includes('-master-')) throw new Error('prerender: /routes/ includes a 3840 master')
+    if (!html.includes('src="/route-map-lightbox.js"')) throw new Error('prerender: /routes/ is missing the lightbox script')
+    if ((html.match(/class="route-map-expand"/g) || []).length !== ROUTE_MAPS.length) {
+      throw new Error('prerender: /routes/ is missing an expand control on each map')
+    }
+    if (/onclick=|javascript:/.test(html)) throw new Error('prerender: /routes/ uses an inline event handler')
     const cards = html.match(/class="route-card"/g) || []
     if (cards.length !== ROUTE_MAPS.length) {
       throw new Error(`prerender: /routes/ has ${cards.length} cards, expected ${ROUTE_MAPS.length}`)
@@ -2002,6 +2032,9 @@ ${rows.join('\n')}
       throw new Error(`prerender: homepage ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
     if (!/<script type="module"/.test(html)) throw new Error('prerender: homepage lost the app bundle')
+    if (!html.includes('src="/route-map-lightbox.js"')) {
+      throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
+    }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')
     }

@@ -318,6 +318,20 @@ export function routeMapPictureHtml(route, { thumb = false } = {}) {
     </picture>`
 }
 
+/** Thumbnail or story figure. The hi-res file is not in the markup; the viewer loads it on open. */
+export function routeMapZoomHtml(route, { thumb = false } = {}) {
+  const label = `Expand: ${route.alt}`
+  return `<div class="route-map-zoom" data-route-slug="${esc(route.slug)}" data-fallback="${esc(route.files.fullWebp)}">
+      ${routeMapPictureHtml(route, { thumb })}
+      <button type="button" class="route-map-expand" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="${esc(label)}">
+        <svg class="route-map-expand-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>Expand</span>
+      </button>
+    </div>`
+}
+
 function storyHref(slug, linkMode) {
   if (linkMode === 'hash') return `#timeline/${encodeURIComponent(slug)}`
   return `/stories/${encodeURIComponent(slug)}/`
@@ -368,7 +382,7 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
       <p class="route-summary">${esc(route.sentence)}</p>
       ${route.distance ? `<p>${esc(route.distance)}</p>` : ''}
       <figure class="route-map-figure">
-        ${routeMapPictureHtml(route)}
+        ${routeMapZoomHtml(route)}
         <figcaption>
           <p class="route-map-caption">${esc(route.caption)}</p>
           ${phoneCropNote(route)}
@@ -385,13 +399,11 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
 export function routesIndexArticleHtml(titleFor) {
   const cards = ROUTE_MAPS.map((route) => {
     const title = (titleFor && titleFor(route.slug)) || route.slug
-    return `<li>
-        <a class="route-card" href="/stories/${esc(route.slug)}/#route-map">
-          ${routeMapPictureHtml(route, { thumb: true })}
-          <div>
-            <h2>${esc(title)}</h2>
-            <p class="muted">${esc(route.era)}</p>
-          </div>
+    return `<li class="route-card">
+        ${routeMapZoomHtml(route, { thumb: true })}
+        <a class="route-card-link" href="/stories/${esc(route.slug)}/#route-map">
+          <h2>${esc(title)}</h2>
+          <p class="muted">${esc(route.era)}</p>
         </a>
       </li>`
   }).join('')
