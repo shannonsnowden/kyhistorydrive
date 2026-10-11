@@ -7,7 +7,7 @@ KY Website Editor looked at 10 live sites on 2026-10-11. The table lists ideas t
 ## Top 10
 | # | Idea | From | Why it fits kyhistorydrive | Impact | Effort |
 |---|---|---|---|---|---|
-| 1 | **"Cite this story" block with byline, published and last-revised dates** | e-WV ("Cite This Article", "Last Revised"), Encyclopedia Virginia | Stories are sourced but give no date or citation. A citation line plus `dateModified` in the Article JSON-LD builds trust, helps teachers and makes stories easier for AI answers to cite. | H | S |
+| 1 | **"Cite this story" block with byline, published and last-revised dates** | e-WV ("Cite This Article", "Last Revised"), Encyclopedia Virginia | Stories are sourced but give no date or citation. A citation line plus `dateModified` in the Article JSON-LD builds trust, helps teachers and makes stories easier for AI answers to cite. Effort is M because published and revised dates must be backfilled across about 230 stories, plus `dateModified` in the JSON-LD. | H | M |
 | 2 | **Nearby markers and stories, with distance** | HMdb ("At least 8 other markers are within walking distance… a few steps / 300 feet away") | Every story already has coordinates, and the marker layer is in the repo. A "Nearby" list fits the road-trip audience on a phone and adds internal links. | H | S |
 | 3 | **"On this day in Kentucky history"** module and dated pages | History.com (This Day in History), Encyclopedia Virginia (On This Day), e-WV (Today in WV History) | Gives readers a daily reason to return alongside the daily packs, and matches searches like "October 11 Kentucky history". Needs exact dates on stories that have them. | H | M |
 | 4 | **County and A to Z browse pages** | Encyclopedia Virginia (History A–Z), HMdb (Places by state, county and town) | Stories already carry a county ("Butler County · Prehistoric"). A crawlable page per county is how locals search ("history in Butler County KY") and strengthens site structure. | H | M |
@@ -31,4 +31,4 @@ KY Website Editor looked at 10 live sites on 2026-10-11. The table lists ideas t
 ## Sources checked (live, 2026-10-11)
 history.com/this-day-in-history · smithsonianmag.com/history · archives.gov · nps.gov/maca (Mammoth Cave home and Plan Your Visit) · hmdb.org (marker page and FAQ) · explorekyhistory.ky.gov · atlasobscura.com/things-to-do/kentucky · loc.gov · encyclopediavirginia.org · wvencyclopedia.org (home and the "Abolitionism" entry)
 
-All top-10 cards wait in **Holding** for Shannon's OK on the Engineering Board.
+Shannon approved all 10 ideas on 2026-10-11 and wants profile support built in where it helps.

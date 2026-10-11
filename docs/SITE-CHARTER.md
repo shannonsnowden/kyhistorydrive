@@ -37,23 +37,36 @@ Plain and specific. Place first ("On the Green River's Big Bend in Butler County
 Header: logo (goes Home), search, Today's stories, Home, Map, Timeline, About, iPhone app (coming soon), and a light/dark toggle. Story pages: breadcrumb, "Learn more" sources, related stories, "Open on the timeline" and "Open on the map". Footer: About, Videos, Route maps, Privacy.
 
 ## Quality bar
-Fast first paint (ads and maps load after it). axe: 0 violations. Check mobile at 390 px and desktop at 1280 px. No broken links. Every map pin opens and sits in the right place. `npm run build` checks must pass, including the OTA type check and the map canvas check.
+Fast first paint (ads and maps load after it). axe: 0 violations. Check at 1440, 1280 and 390 px wide, light and dark; keep 1280, because the map gap bug only shows there. No broken links. Every map pin opens and sits in the right place.
+
+Every check script in `npm run build` must pass:
+- prerender
+- GA4 tag on every page
+- map canvas overlap and gap (the browser pass is skipped on Amplify, which has no Chrome, so run it locally)
+- contact address not in the HTML
+- whole-sentence story meta descriptions
+- paragraph-split word-identity check
+- RSS validation, once #214 lands
 
 ## Ads, SEO and AI visibility
-- **Ads**: AdSense (`ads.txt`). Slots are reserved on home, explore and sidebar, and stay off unless `VITE_ADS_ENABLED` is set. They never block content or the map.
+- **Ads**: AdSense (`ads.txt`). Slots are reserved on home, explore and sidebar, and stay off unless `VITE_ADS_ENABLED` is set. They never block content or the map, and reserved slots must cause no layout shift. `VITE_ADS_ENABLED` stays unset until Google approves the site.
 - **SEO**: prerendered pages, canonical URLs, sitemaps, and JSON-LD (Organization, Article, Place, BreadcrumbList).
 - **AI visibility**: `robots.txt` allows GPTBot, PerplexityBot, ClaudeBot and Google-Extended. Clear sourcing and dates make stories easy to cite.
 
 ## Review pipeline
-Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews search, then KY Website Editor does the final review, then Shannon OKs the merge. Daily packs skip this unless they change templates.
+Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews search, then KY Website Editor does the final review, then Shannon OKs the merge. 
+- There are no Amplify PR previews. Reviews use agent screenshots or a gh-pages preview, then live checks after the deploy.
+- KY Website Editor and KY History merge their own daily content packs. Those are exempt from this pipeline unless they change templates.
+- Never commit secrets.
 
 ## Sign-off
 | Bot | Status |
 |---|---|
-| Lingxi's Engineer Bot | Pending |
+| Lingxi's Engineer Bot | Agreed (with edits, 2026-10-11) |
 | Critiquito | Pending |
 | SEO & AEO Desk | Pending |
 | AI Search Visibility | Pending |
 | KY History | Pending |
 | Story Studio | Pending |
 | Research Bot | Pending |
+| KY Website Editor | Agreed (author, 2026-10-11) |
