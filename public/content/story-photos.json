@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T09:22:06.727Z",
+  "generatedAt": "2026-10-11T09:39:41.845Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -678,7 +678,7 @@
     },
     "liberty-hall-john-browns-frankfort-house": {
       "slug": "liberty-hall-john-browns-frankfort-house",
-      "historyId": null,
+      "historyId": "liberty-hall-john-brown-frankfort-franklin-1796-1837",
       "photo": {
         "image_url": "/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg",
         "title": "Front of Liberty Hall, Frankfort (photographed 2018)",
@@ -738,10 +738,10 @@
     },
     "manns-lick-louisvilles-salt-town": {
       "slug": "manns-lick-louisvilles-salt-town",
-      "historyId": null,
+      "historyId": "manns-lick-fairdale-jefferson-1773-1830",
       "photo": {
         "image_url": "/content/photos/stories/manns-lick-louisvilles-salt-town.jpg",
-        "title": "Bee Lick Creek in Jefferson Memorial Forest near Fairdale (photographed 2005), a stand-in: no image of the Mann’s Lick saltworks survives on the site",
+        "title": "Bee Lick Creek (photographed 2005), a nearby landscape in Jefferson Memorial Forest; no historic image of Mann’s Lick is known",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jefferson_Memorial_Forest-Bee_Lick_Creek.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "John Knouse · Wikimedia Commons · public domain",
@@ -858,7 +858,7 @@
     },
     "old-mulkey-meetinghouse-1804": {
       "slug": "old-mulkey-meetinghouse-1804",
-      "historyId": null,
+      "historyId": "old-mulkey-meetinghouse-monroe-1804-1856",
       "photo": {
         "image_url": "/content/photos/stories/old-mulkey-meetinghouse-1804.jpg",
         "title": "The Old Mulkey Meeting House near Tompkinsville (photographed 2010)",
@@ -894,7 +894,7 @@
     },
     "owingsville-a-town-named-on-a-wager": {
       "slug": "owingsville-a-town-named-on-a-wager",
-      "historyId": null,
+      "historyId": "owingsville-bath-1795-1811",
       "photo": {
         "image_url": "/content/photos/stories/owingsville-a-town-named-on-a-wager.jpg",
         "title": "Downtown Owingsville (photographed 2007)",
@@ -954,7 +954,7 @@
     },
     "pine-mountain-and-pound-gap": {
       "slug": "pine-mountain-and-pound-gap",
-      "historyId": null,
+      "historyId": "pound-gap-pine-mountain-letcher-1750-1864",
       "photo": {
         "image_url": "/content/photos/stories/pine-mountain-and-pound-gap.jpg",
         "title": "Looking west along U.S. 23 into the cut atop Pound Gap (photographed 2014)",
@@ -1002,7 +1002,7 @@
     },
     "red-river-gorge-arches-and-the-dam-fight": {
       "slug": "red-river-gorge-arches-and-the-dam-fight",
-      "historyId": null,
+      "historyId": "red-river-gorge-menifee-1962-1993",
       "photo": {
         "image_url": "/content/photos/stories/red-river-gorge-arches-and-the-dam-fight.jpg",
         "title": "Chimney Top Rock in the Red River Gorge, seen from Half Moon (photographed 2006)",
@@ -1902,6 +1902,18 @@
         "year": 2022
       }
     },
+    "manns-lick-fairdale-jefferson-1773-1830": {
+      "slug": "manns-lick-louisvilles-salt-town",
+      "historyId": "manns-lick-fairdale-jefferson-1773-1830",
+      "photo": {
+        "image_url": "/content/photos/stories/manns-lick-louisvilles-salt-town.jpg",
+        "title": "Bee Lick Creek (photographed 2005), a nearby landscape in Jefferson Memorial Forest; no historic image of Mann’s Lick is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jefferson_Memorial_Forest-Bee_Lick_Creek.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "John Knouse · Wikimedia Commons · public domain",
+        "year": 2005
+      }
+    },
     "mantle-rock-trail-of-tears-livingston-1838-1839": {
       "slug": "mantle-rock-and-the-trail-of-tears",
       "historyId": "mantle-rock-trail-of-tears-livingston-1838-1839",
@@ -2010,6 +2022,18 @@
         "year": null
       }
     },
+    "owingsville-bath-1795-1811": {
+      "slug": "owingsville-a-town-named-on-a-wager",
+      "historyId": "owingsville-bath-1795-1811",
+      "photo": {
+        "image_url": "/content/photos/stories/owingsville-a-town-named-on-a-wager.jpg",
+        "title": "Downtown Owingsville (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Owingsville,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      }
+    },
     "paducah-1827-clark-plat": {
       "slug": "paducah-at-the-tennessee-mouth",
       "historyId": "paducah-1827-clark-plat",
@@ -2080,6 +2104,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
         "year": 1988
+      }
+    },
+    "red-river-gorge-menifee-1962-1993": {
+      "slug": "red-river-gorge-arches-and-the-dam-fight",
+      "historyId": "red-river-gorge-menifee-1962-1993",
+      "photo": {
+        "image_url": "/content/photos/stories/red-river-gorge-arches-and-the-dam-fight.jpg",
+        "title": "Chimney Top Rock in the Red River Gorge, seen from Half Moon (photographed 2006)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Chimney_Top_Rock.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mrherbalwarrior · Wikimedia Commons · CC BY 3.0",
+        "year": 2006
       }
     },
     "rowlandton-mound-site-15mcn3-mccracken": {
