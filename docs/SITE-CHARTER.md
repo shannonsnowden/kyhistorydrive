@@ -20,7 +20,7 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 ## Standards
 - **Sourcing**: history.ky.gov first, then HMdb, then Wikipedia. Link the page for the specific topic, not a homepage.
 - **Paragraphs**: 2 to 4 sentences. No walls of text.
-- **Photos**: real photos only, licensed and attributed. No AI images. When a photo is not from the story's period, caption it as a "later view".
+- **Photos**: real photos only, licensed and attributed. No AI images presented as photos; Story Studio illustrations allowed when labeled and credited. (pending Shannon's OK) When a photo is not from the story's period, caption it as a "later view".
 - **Native nations**: every new story gets a territory map, or a tag only when the source is oral tradition. Archaeological cultures get a shape only when sources place them in an area. Timeline map pages exist only when the map shows real change over time. Never remove panel layers.
 
 ## Voice
@@ -65,9 +65,17 @@ Plain and specific. Place first ("On the Green River's Big Bend in Butler County
 
 **Header and seal:** three seals rotate (`khd-logo`, `-c`, `-c2`). The seal is picked before first paint. It gets a 2px gold border, a navy outline on the light header and a dark outline on the dark header. The header stays one row from 701 to 1400px and is opaque on phones (including the open menu). The seal is never recolored, stretched or used on its own as a UI color source.
 
-**Maps:** MapLibre with the CARTO Voyager basemap. Each layer has its own pin color (Markers #E87722). Territory maps are SVG on parchment #EFE3C4 with ink #2A1D10 and rivers #8FBDD6. Approximate areas are labeled approximate.
+**Maps:** MapLibre with the CARTO Voyager basemap. Each layer has its own pin color (Markers #E87722). Territory maps are SVG on parchment #EFE3C4 with ink #2A1D10 and rivers #8FBDD6. Approximate areas are labeled approximate. Route maps use the parchment house style.
 
 **Route maps (Story Studio):** the site palette, plus a phone-specific art file (not a downscale) with labels about 24px tall at 390. A legend and credit line go under the map on the page. Light and dark variants. No labels clipped or overlapping.
+
+**House illustration style** (owned by Story Studio; full rules in Story Studio's `HOUSE-STYLE.md`):
+- **Paintings:** American genre painting of 1840–1910 (George Caleb Bingham, Eastman Johnson) for most scenes, with Leutze-style heroic history painting for the peak, dramatic moments. Each painting matches the emotional tone of its beat. Content is PG for YouTube: violence is implied (smoke, fallen or covered figures), never gory. Every draft and replaced painting stays in the shared library; none are deleted.
+- **Video motion:** 2.5D "living paintings". Frames are static by default, and smoke, water, fire, leaves, sky and snow move inside the painting. Camera moves are used only to show action (a run, a flight, a crossing) or as a slow push-in on a dramatized interview.
+- **Maps:** antique parchment house maps with real geography (Natural Earth rivers, terrain relief). In video the frame is fully static; only the red route line draws itself, with stop dots and labels appearing. Line key: solid red = route (approximate on land), red dotted = conjectural segment, lighter red dashes = branches. Web exports: 1600 and 3840 light, a dark-panel variant, 780 px phone art, and zoom files (PNG/WebP/AVIF).
+- **Sound and narration:** ambience comes only from real CC0 or public-domain field recordings, matched to the scene and credited. Narration is natural and continuous, one read per scene with no phrase-stitching, and emphasis comes from punctuation only.
+- **Video layout:** title card, then a disclaimer that dramatized scenes are included, then the story. All credits and citations go at the end, opening with "Produced and Directed by Shannon Snowden". Dramatized interviews are labeled with a disclaimer card, a "(dramatized)" lower third (a persistent DRAMATIZED tag in vertical cuts), italic subtitles and a credits note.
+- Nothing from Story Studio is posted publicly without Shannon's OK.
 
 **Design review checklist (Critiquito, every visible PR):**
 1. Screenshots at 1440, 1280 and 390, light and dark.
@@ -116,6 +124,6 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 | Security Watch | Agreed (with edit, 2026-10-11) |
 | AI Search Visibility | Pending |
 | KY History | Pending |
-| Story Studio | Pending |
+| Story Studio | Agreed (with edits, 2026-10-11) |
 | Research Bot | Pending |
 | KY Website Editor | Agreed (author, 2026-10-11) |
