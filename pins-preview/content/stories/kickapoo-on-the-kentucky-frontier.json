@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-08",
   "territory": {
-    "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
     "nation": "Kickapoo (with Mascouten)",
     "yearStart": 1775,
     "yearEnd": 1795,

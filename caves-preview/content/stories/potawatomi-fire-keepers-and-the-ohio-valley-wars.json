@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-27",
   "photo": {
-    "image_url": "/content/photos/stories/potawatomi-fire-keepers-and-the-ohio-valley-wars.gif",
+    "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/potawatomi-fire-keepers-and-the-ohio-valley-wars.gif",
     "title": "Potawatomi group, c. 1920",
     "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
     "source_label": "Wikimedia Commons",
@@ -25,7 +25,7 @@
     "year": null
   },
   "territory": {
-    "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
     "nation": "Potawatomi",
     "yearStart": 1640,
     "yearEnd": 1809,

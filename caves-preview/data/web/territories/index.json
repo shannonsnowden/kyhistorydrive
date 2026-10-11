@@ -9,7 +9,7 @@
    "slugs": [
     "chickasaw-hunting-grounds"
    ],
-   "ref": "/data/web/territories/chickasaw-hunting-grounds.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/chickasaw-hunting-grounds.json",
    "extentFeature": "r1",
    "yearStart": 1780,
    "yearEnd": 1818,
@@ -26,7 +26,7 @@
     "chickamauga-cherokee",
     "chickamauga-cherokee-hold-the-southern-flank"
    ],
-   "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
    "extentFeature": "extent",
    "yearStart": 1768,
    "yearEnd": 1794,
@@ -44,7 +44,7 @@
     "shawnee-chillicothe-divisions",
     "nonhelema"
    ],
-   "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
    "extentFeature": "extent",
    "yearStart": 1735,
    "yearEnd": 1795,
@@ -62,7 +62,7 @@
     "treaty-of-fort-stanwix-1768",
     "iroquois-beaver-wars"
    ],
-   "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
    "extentFeature": "extent",
    "yearStart": 1600,
    "yearEnd": 1784,
@@ -79,7 +79,7 @@
    "slugs": [
     "mingo-camps-south-of-the-ohio"
    ],
-   "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/mingo-presence-ohio-and-kentucky.json",
    "extentFeature": "extent",
    "yearStart": 1750,
    "yearEnd": 1832,
@@ -97,7 +97,7 @@
     "wyandot-on-kentuckys-northern-frontier",
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
    ],
-   "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
    "extentFeature": "extent",
    "yearStart": 1671,
    "yearEnd": 1843,
@@ -115,7 +115,7 @@
     "delaware-lenape-in-the-1780-kentucky-raids",
     "delaware-winter-camps-on-kentucky-ground"
    ],
-   "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
    "extentFeature": "extent",
    "yearStart": 1750,
    "yearEnd": 1805,
@@ -133,7 +133,7 @@
     "miami-hunters-return-north-of-the-ohio",
     "piankashaw-claims-on-the-ohio-wabash"
    ],
-   "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
    "extentFeature": "extent",
    "yearStart": 1654,
    "yearEnd": 1846,
@@ -151,7 +151,7 @@
     "kickapoo-on-the-kentucky-frontier",
     "mascouten-fire-nation-on-the-wabash"
    ],
-   "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
    "extentFeature": "extent",
    "yearStart": 1730,
    "yearEnd": 1819,
@@ -168,7 +168,7 @@
    "slugs": [
     "illinois-confederation-at-cahokia"
    ],
-   "ref": "/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
    "extentFeature": "extent",
    "yearStart": 1778,
    "yearEnd": 1803,
@@ -184,7 +184,7 @@
    "slugs": [
     "potawatomi-fire-keepers-and-the-ohio-valley-wars"
    ],
-   "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
    "extentFeature": "extent",
    "yearStart": 1640,
    "yearEnd": 1809,
@@ -201,7 +201,7 @@
    "slugs": [
     "ojibwe-on-birds-war-road"
    ],
-   "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
    "extentFeature": "extent",
    "yearStart": 1700,
    "yearEnd": 1819,
@@ -219,7 +219,7 @@
     "erie-the-cat-nation",
     "erie-the-cat-nation-cleared-from-the-lake-shore"
    ],
-   "ref": "/data/web/territories/erie-south-shore-of-lake-erie.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/erie-south-shore-of-lake-erie.json",
    "extentFeature": "extent",
    "yearStart": 1600,
    "yearEnd": 1656,
@@ -236,7 +236,7 @@
    "slugs": [
     "susquehannock-and-the-ohio-valley-door"
    ],
-   "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
    "extentFeature": "extent",
    "yearStart": 1550,
    "yearEnd": 1763,
@@ -254,7 +254,7 @@
    "slugs": [
     "tutelo-the-totteroy"
    ],
-   "ref": "/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
    "extentFeature": "extent",
    "yearStart": 1671,
    "yearEnd": 1779,
@@ -270,7 +270,7 @@
    "slugs": [
     "mosopelea-ofo-the-ohio-valley"
    ],
-   "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
    "extentFeature": "extent",
    "yearStart": 1673,
    "yearEnd": 1784,
@@ -287,7 +287,7 @@
    "slugs": [
     "osage-memory-of-the-ohio-valley"
    ],
-   "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
    "extentFeature": "extent",
    "yearStart": 1673,
    "yearEnd": 1823,
@@ -305,7 +305,7 @@
    "slugs": [
     "yuchi-on-the-green-river-maps"
    ],
-   "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
    "extentFeature": "extent",
    "yearStart": 1567,
    "yearEnd": 1836,
@@ -327,7 +327,7 @@
     "indian-knoll-on-the-green-river",
     "ward-site-15mcl11-mclean-county"
    ],
-   "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/green-river-archaic-shell-middens.json",
    "extentFeature": "extent",
    "yearStart": -4000,
    "yearEnd": -1000,
@@ -352,7 +352,7 @@
     "wright-mounds-montgomery-county",
     "ashlands-adena-mounds"
    ],
-   "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
    "extentFeature": "extent",
    "yearStart": -800,
    "yearEnd": 250,
@@ -383,7 +383,7 @@
     "sweet-lick-knob-fort-ancient-gathering-place",
     "hardin-village-15gp22"
    ],
-   "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
    "yearStart": 1000,
    "yearEnd": 1750,
    "confidence": "medium",
@@ -410,7 +410,7 @@
     "page-site-lost-city-15lo1",
     "croley-evans-site"
    ],
-   "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
    "yearStart": 1000,
    "yearEnd": 1700,
    "confidence": "medium",
@@ -428,7 +428,7 @@
    "slugs": [
     "slack-farm-15un28-union-county"
    ],
-   "ref": "/data/web/territories/caborn-welborn-slack-farm.json",
+   "ref": "/kyhistorydrive/caves-preview/data/web/territories/caborn-welborn-slack-farm.json",
    "yearStart": 1400,
    "yearEnd": 1700,
    "confidence": "high",

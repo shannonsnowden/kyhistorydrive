@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-08-31",
   "territory": {
-    "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/fort-ancient-farming-villages.json",
     "nation": "Fort Ancient (archaeological culture)",
     "yearStart": 1300,
     "yearEnd": 1650,

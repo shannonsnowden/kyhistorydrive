@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-20",
   "territory": {
-    "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
     "nation": "Shawnee",
     "yearStart": 1735,
     "yearEnd": 1795,

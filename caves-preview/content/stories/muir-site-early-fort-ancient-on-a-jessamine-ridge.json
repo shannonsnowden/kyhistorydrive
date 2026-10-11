@@ -18,7 +18,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-25",
   "photo": {
-    "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
+    "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
     "title": "Main Street, Nicholasville",
     "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
     "source_label": "Wikimedia Commons",
@@ -26,7 +26,7 @@
     "year": null
   },
   "territory": {
-    "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
     "nation": "Fort Ancient (archaeological culture)",
     "yearStart": 1010,
     "yearEnd": 1255,

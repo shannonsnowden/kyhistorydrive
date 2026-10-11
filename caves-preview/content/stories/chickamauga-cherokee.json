@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-18",
   "territory": {
-    "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
     "nation": "Cherokee",
     "yearStart": 1777,
     "yearEnd": 1794,

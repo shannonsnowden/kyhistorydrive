@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-30",
   "photo": {
-    "image_url": "/content/photos/stories/susquehannock-and-the-ohio-valley-door.jpg",
+    "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/susquehannock-and-the-ohio-valley-door.jpg",
     "title": "Susquehannock artifacts on display, State Museum of Pennsylvania (Harrisburg) — Susquehannock homeland, not a Kentucky site",
     "source_url": "https://commons.wikimedia.org/wiki/File:Susquehannock_Artifacts_PA_State_Museum.JPG",
     "source_label": "Wikimedia Commons",
@@ -24,7 +24,7 @@
     "year": 2007
   },
   "territory": {
-    "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
     "nation": "Susquehannock (Conestoga)",
     "yearStart": 1550,
     "yearEnd": 1763,

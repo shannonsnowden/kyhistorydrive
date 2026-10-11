@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-25",
   "photo": {
-    "image_url": "/content/photos/stories/wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow.jpg",
+    "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow.jpg",
     "title": "Wilderness Road, Richmond, Kentucky",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wilderness_Road_in_Richmond_-_October_2023_-_Sarah_Stierch.jpg",
     "source_label": "Wikimedia Commons",
@@ -24,7 +24,7 @@
     "year": null
   },
   "territory": {
-    "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
     "nation": "Wyandot",
     "presenceLabel": "Place name, no mapped territory"
   }

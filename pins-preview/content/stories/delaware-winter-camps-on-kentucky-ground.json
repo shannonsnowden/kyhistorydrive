@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-22",
   "photo": {
-    "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
+    "image_url": "/kyhistorydrive/pins-preview/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
     "title": "Three Delaware Indians (George Catlin)",
     "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
     "source_label": "Wikimedia Commons",
@@ -24,7 +24,7 @@
     "year": 1861
   },
   "territory": {
-    "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
     "nation": "Delaware (Lenape)",
     "yearStart": 1750,
     "yearEnd": 1775,

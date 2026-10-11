@@ -16,7 +16,7 @@
   "briefDate": "2026-10-02",
   "county": "Ballard",
   "photo": {
-    "image_url": "/content/photos/stories/twin-mounds-site.jpg",
+    "image_url": "/kyhistorydrive/pins-preview/content/photos/stories/twin-mounds-site.jpg",
     "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
     "source_label": "Wikimedia Commons",
@@ -24,7 +24,7 @@
     "year": 2010
   },
   "territory": {
-    "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/mississippian-western-kentucky-towns.json",
     "nation": "Mississippian, western Kentucky (archaeological culture)",
     "yearStart": 1200,
     "yearEnd": 1450,

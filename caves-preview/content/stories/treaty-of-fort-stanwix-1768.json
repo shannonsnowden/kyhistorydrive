@@ -19,7 +19,7 @@
   "source": "ky-history",
   "briefDate": "2026-08-31",
   "territory": {
-    "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
     "nation": "Six Nations",
     "yearStart": 1768,
     "yearEnd": 1784,

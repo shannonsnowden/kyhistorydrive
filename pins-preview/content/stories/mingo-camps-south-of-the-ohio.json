@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-15",
   "territory": {
-    "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/mingo-presence-ohio-and-kentucky.json",
     "nation": "Mingo",
     "yearStart": 1770,
     "yearEnd": 1776,

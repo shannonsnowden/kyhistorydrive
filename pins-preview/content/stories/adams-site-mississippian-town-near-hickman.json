@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-21",
   "photo": {
-    "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
+    "image_url": "/kyhistorydrive/pins-preview/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
     "title": "Hickman Carnegie Library, Fulton County",
     "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
     "source_label": "Wikimedia Commons",
@@ -24,7 +24,7 @@
     "year": 2013
   },
   "territory": {
-    "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/mississippian-western-kentucky-towns.json",
     "nation": "Mississippian, western Kentucky (archaeological culture)",
     "yearStart": 1100,
     "yearEnd": 1500,

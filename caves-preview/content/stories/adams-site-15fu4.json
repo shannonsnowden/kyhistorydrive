@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-16",
   "territory": {
-    "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
     "nation": "Mississippian, western Kentucky (archaeological culture)",
     "yearStart": 1100,
     "yearEnd": 1500,

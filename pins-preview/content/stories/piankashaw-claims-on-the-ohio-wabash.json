@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-07",
   "territory": {
-    "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+    "ref": "/kyhistorydrive/pins-preview/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
     "nation": "Miami (with Wea and Piankashaw)",
     "yearStart": 1804,
     "yearEnd": 1805,

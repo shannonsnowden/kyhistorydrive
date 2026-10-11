@@ -18,7 +18,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-24",
   "photo": {
-    "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
+    "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
     "title": "Paris, Bourbon County (nearest city to Buckner Site)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
     "source_label": "Wikimedia Commons",
@@ -26,7 +26,7 @@
     "year": null
   },
   "territory": {
-    "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
     "nation": "Fort Ancient (archaeological culture)",
     "yearStart": 1200,
     "yearEnd": 1550,
