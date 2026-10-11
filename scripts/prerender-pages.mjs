@@ -30,7 +30,7 @@ import {
 } from './gtag-snippet.mjs'
 import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
-import { FILMS, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
+import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
   ROUTE_MAPS,
   absoluteUrl,
@@ -126,9 +126,7 @@ class PrerenderPages {
     })
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
-      const description = PrerenderPages.metaDescription(
-        PrerenderPages.plainText(story.bodyMarkdown) || PrerenderPages.finishedSummary(story.summary),
-      )
+      const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
       const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers)
       PrerenderPages.assertPage(html, story, urlPath)
       PrerenderPages.assertStory(html, story, description)
@@ -165,7 +163,15 @@ class PrerenderPages {
       throw new Error('prerender: /videos/ is missing lastmod')
     }
     entries.push({ loc: `${PrerenderPages.SITE}/videos/`, lastmod: videosLast })
-    PrerenderPages.writeVideoSitemap(path.join(dist, 'sitemap-videos.xml'), FILMS, stories)
+    const videoSitemap = path.join(dist, 'sitemap-videos.xml')
+    PrerenderPages.writeVideoSitemap(videoSitemap, FILMS, stories)
+    const videoXml = fs.readFileSync(videoSitemap, 'utf8')
+    if (videoXml.includes('/videos/</loc>') || !videoXml.includes('/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>')) {
+      throw new Error('prerender: video sitemap must point at the story page')
+    }
+    if (!videoXml.includes('2026-10-10T09:00:00-04:00')) {
+      throw new Error('prerender: video sitemap publication date is not the upload time')
+    }
     const routesHtml = PrerenderPages.routesPage(stories, cssHrefs)
     PrerenderPages.assertPage(routesHtml, { lat: null, lon: null }, '/routes/')
     PrerenderPages.assertRoutes(routesHtml, stories)
@@ -313,7 +319,9 @@ class PrerenderPages {
     const abbrev = (s) =>
       /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(
         s.trimEnd(),
-      ) || /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd())
+      ) ||
+      /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
+      /\b(?:[A-Z]\.){2,}$/.test(s.trimEnd())
     for (const part of parts) {
       const piece = String(part || '').trim()
       if (!piece) continue
@@ -348,7 +356,8 @@ class PrerenderPages {
   }
 
   static isoDate(value) {
-    return /^\d{4}-\d{2}-\d{2}$/.test(value || '') ? value : ''
+    const match = /^(\d{4}-\d{2}-\d{2})(?:$|T)/.exec(String(value || ''))
+    return match ? match[1] : ''
   }
 
   /** publishedDate when the file has one; otherwise the story file's first git commit date. */
@@ -386,9 +395,63 @@ class PrerenderPages {
     return trimmed
   }
 
+  /** Body prose, or the finished summary when a story has no body. */
+  static storyDescriptionSource(story) {
+    return PrerenderPages.plainText(story.bodyMarkdown) || PrerenderPages.finishedSummary(story.summary)
+  }
+
+  /**
+   * Story meta description: whole sentences only, up to 160 characters.
+   * The next sentence is added only when it fits completely. The first
+   * sentence is cut on a word, with no ellipsis, only when it is itself
+   * longer than 160 characters.
+   */
+  static storyMetaDescription(text) {
+    const plain = PrerenderPages.plainText(text)
+    if (!plain) return ''
+    const sentences = PrerenderPages.splitSentences(plain)
+    if (!sentences.length) return ''
+    const first = sentences[0]
+    if (first.length > 160) {
+      const window = first.slice(0, 160)
+      const space = window.lastIndexOf(' ')
+      return (space > 0 ? window.slice(0, space) : window).trim()
+    }
+    let acc = ''
+    for (const sentence of sentences) {
+      const next = acc ? `${acc} ${sentence}` : sentence
+      if (next.length > 160) break
+      acc = next
+    }
+    return acc
+  }
+
+  /** Sentence punctuation, allowing a closing quote or parenthesis after it. */
+  static endsWithSentence(text) {
+    return /[.!?]["'”’)\]]*$/.test(String(text || ''))
+  }
+
+  static assertStoryMeta(description, source, urlPath) {
+    if (!description) throw new Error(`prerender: ${urlPath} meta description is empty`)
+    if (description.length > 160) {
+      throw new Error(`prerender: ${urlPath} description is ${description.length} characters`)
+    }
+    if (/(?:\u2026|\.\.\.)\s*$/u.test(description)) {
+      throw new Error(`prerender: ${urlPath} meta description ends with an ellipsis`)
+    }
+    const expected = PrerenderPages.storyMetaDescription(source)
+    if (description !== expected) {
+      throw new Error(`prerender: ${urlPath} meta description does not follow the sentence rule`)
+    }
+    const first = PrerenderPages.splitSentences(PrerenderPages.plainText(source))[0] || ''
+    if (first.length <= 160 && !PrerenderPages.endsWithSentence(description)) {
+      throw new Error(`prerender: ${urlPath} meta description does not end with sentence punctuation`)
+    }
+  }
+
   /**
    * Meta description aimed at 150–160 characters when the source is longer.
-   * Ends on a sentence, or on a word if the next sentence would pass 160.
+   * Used for layer and collection pages. Story pages use storyMetaDescription.
    */
   static metaDescription(text) {
     const plain = PrerenderPages.plainText(text)
@@ -1114,7 +1177,7 @@ class PrerenderPages {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
-    const description = PrerenderPages.metaDescription(bodyPlain || summary)
+    const description = PrerenderPages.storyMetaDescription(bodyPlain || summary)
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
@@ -1143,6 +1206,7 @@ class PrerenderPages {
           summary: filmDescription,
           headingLevel: 2,
           moreHtml: '<a href="/videos/">All videos</a>',
+          transcript: PrerenderPages.transcriptForFilm(film),
         })
       : ''
     const main = `<article class="story-reader-layout static-story${film ? ' has-film' : ''}">
@@ -1164,13 +1228,13 @@ class PrerenderPages {
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
-          ${filmHtml}
           ${PrerenderPages.relatedHtml(story, all)}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
             ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
           </div>
         </div>
+        ${filmHtml}
       </article>`
     return PrerenderPages.shell({
       title,
@@ -1430,8 +1494,9 @@ class PrerenderPages {
 
   static assertStory(html, story, description) {
     const urlPath = `/stories/${story.slug}/`
-    if (description.length > 160) {
-      throw new Error(`prerender: ${urlPath} description is ${description.length} characters`)
+    PrerenderPages.assertStoryMeta(description, PrerenderPages.storyDescriptionSource(story), urlPath)
+    if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
+      throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
     }
     if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
     const related = html.match(/<nav class="static-related"[\s\S]*?<\/nav>/)
@@ -1520,6 +1585,17 @@ class PrerenderPages {
     if (!film) return
     const filmDescription = filmDescriptionFromPlain(PrerenderPages.plainText(story.bodyMarkdown))
     PrerenderPages.assertFilmEmbed(html, film, filmDescription, urlPath)
+    const transcript = PrerenderPages.transcriptForFilm(film)
+    if (!html.includes('<details class="film-transcript"><summary>Transcript</summary><pre>')) {
+      throw new Error(`prerender: ${urlPath} is missing the collapsible transcript`)
+    }
+    const firstLine = transcript.split('\n')[0]
+    if (!firstLine || !html.includes(PrerenderPages.escapeHtml(firstLine))) {
+      throw new Error(`prerender: ${urlPath} transcript does not include the first caption line`)
+    }
+    if ((transcript.match(/\n/g) || []).length < 10) {
+      throw new Error(`prerender: ${urlPath} transcript is too short`)
+    }
     if (story.photo?.image_url) {
       if (!html.includes('data-lcp="story-photo"') || !html.includes('fetchpriority="high"') || !html.includes('loading="eager"')) {
         throw new Error(`prerender: ${urlPath} story photo is not the priority image`)
@@ -1538,10 +1614,67 @@ class PrerenderPages {
     return filmDescriptionFromPlain(PrerenderPages.plainText(story.bodyMarkdown))
   }
 
+  /** Start time from a VTT timestamp, as m:ss or h:mm:ss, without milliseconds. */
+  static vttClock(stamp) {
+    const parts = String(stamp || '').split(':')
+    const seconds = Math.floor(Number(parts.at(-1)) || 0)
+    const minutes = Number(parts.at(-2)) || 0
+    const hours = parts.length > 2 ? Number(parts[0]) || 0 : 0
+    const ss = String(seconds).padStart(2, '0')
+    if (hours) return `${hours}:${String(minutes).padStart(2, '0')}:${ss}`
+    return `${minutes}:${ss}`
+  }
+
+  /**
+   * Plain-text transcript from a WebVTT file. Each kept cue is one line:
+   * timestamp, then the cue text. Wrapped lines are joined, tags are removed,
+   * and a cue whose text repeats an earlier cue is dropped.
+   */
+  static transcriptFromVtt(vtt) {
+    const blocks = String(vtt || '')
+      .replace(/^\uFEFF/, '')
+      .replace(/\r\n/g, '\n')
+      .split(/\n{2,}/)
+    const seen = new Set()
+    const lines = []
+    for (const block of blocks) {
+      const rows = block.split('\n').map((row) => row.trim()).filter(Boolean)
+      if (!rows.length || /^(WEBVTT|NOTE|STYLE|REGION)\b/i.test(rows[0])) continue
+      const timeIdx = rows.findIndex((row) => row.includes('-->'))
+      if (timeIdx < 0) continue
+      const stamp = rows[timeIdx].match(/^((?:\d{2}:)?\d{2}:\d{2}\.\d+)/)
+      if (!stamp) continue
+      const cue = rows
+        .slice(timeIdx + 1)
+        .join(' ')
+        .replace(/<[^>]+>/g, '')
+        .replace(/&nbsp;/gi, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/\s+/g, ' ')
+        .trim()
+      if (!cue || seen.has(cue)) continue
+      seen.add(cue)
+      lines.push(`${PrerenderPages.vttClock(stamp[1])} ${cue}`)
+    }
+    return lines.join('\n')
+  }
+
+  static transcriptForFilm(film) {
+    const rel = String(film?.captions || '').replace(/^\//, '')
+    const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', rel)
+    if (!rel || !fs.existsSync(file)) {
+      throw new Error(`prerender: ${film?.id || 'film'} captions file is missing`)
+    }
+    const transcript = PrerenderPages.transcriptFromVtt(fs.readFileSync(file, 'utf8'))
+    if (!transcript) throw new Error(`prerender: ${film.id} transcript is empty`)
+    return transcript
+  }
+
   static videosPage(films, stories, cssHrefs) {
     const pageUrl = `${PrerenderPages.SITE}/videos/`
     const cards = []
-    const videoNodes = []
     for (const film of films) {
       const story = stories.find((item) => item.slug === film.storySlug)
       if (!story) {
@@ -1549,23 +1682,21 @@ class PrerenderPages {
       }
       const description = PrerenderPages.filmPlain(story)
       if (!description) throw new Error(`prerender: film ${film.id} has no story description`)
-      videoNodes.push(
-        videoObjectNode({
-          film,
-          description,
-          pageUrl,
-          orgId: PrerenderPages.ORG_ID,
+      cards.push(
+        filmCardHtml(film, {
+          summary: description,
+          href: `/stories/${story.slug}/#${film.id}`,
         }),
       )
-      const more = `<a href="/stories/${story.slug}/">Read the story: ${PrerenderPages.escapeHtml(story.title)}</a>`
-      cards.push(filmPlayerHtml(film, { summary: description, headingLevel: 2, moreHtml: more }))
     }
     const lead = 'Films published by Kentucky History Drive.'
-    const description = PrerenderPages.metaDescription(
-      films.length ? PrerenderPages.filmPlain(stories.find((item) => item.slug === films[0].storySlug)) : lead,
-    )
+    const description = films.length
+      ? PrerenderPages.storyMetaDescription(
+          PrerenderPages.filmPlain(stories.find((item) => item.slug === films[0].storySlug)),
+        )
+      : lead
     const image = films[0]?.poster || PrerenderPages.LOGO
-    const main = `<article>
+    const main = `<article class="videos-page">
         <nav class="story-crumbs" aria-label="Breadcrumb">
           <a href="/">Home</a>
           <span aria-hidden="true">/</span>
@@ -1587,7 +1718,7 @@ class PrerenderPages {
             '@type': 'ListItem',
             position: index + 1,
             name: film.title,
-            url: `${pageUrl}#${film.id}`,
+            url: `${PrerenderPages.SITE}/stories/${film.storySlug}/#${film.id}`,
           })),
         }
       : null
@@ -1610,7 +1741,6 @@ class PrerenderPages {
         ],
       },
       list,
-      ...videoNodes,
     ])
     return PrerenderPages.shell({
       title: 'Videos · Kentucky History Drive',
@@ -1639,8 +1769,14 @@ class PrerenderPages {
     const videoTags = [...html.matchAll(/<video\b[^>]*>/gi)].map((match) => match[0])
     const tag = videoTags.find((item) => item.includes(`poster="${film.poster}"`))
     if (!tag) throw new Error(`prerender: ${urlPath} is missing a video element`)
-    if (!/controls/.test(tag) || !/playsinline/.test(tag) || !/crossorigin="anonymous"/.test(tag)) {
-      throw new Error(`prerender: ${urlPath} video is missing controls, playsinline, or crossorigin`)
+    if (!/controls/.test(tag) || !/playsinline/.test(tag)) {
+      throw new Error(`prerender: ${urlPath} video is missing controls or playsinline`)
+    }
+    if (/crossorigin=/i.test(tag)) {
+      throw new Error(`prerender: ${urlPath} video sets crossorigin, which blocks the caption track off the production origin`)
+    }
+    if (!/class="film-cc[\s"]/.test(html) || !html.includes('aria-label="Captions"')) {
+      throw new Error(`prerender: ${urlPath} is missing the CC control`)
     }
     if (!/preload="metadata"/.test(tag)) throw new Error(`prerender: ${urlPath} video preload is not metadata`)
     if (/autoplay/i.test(tag)) throw new Error(`prerender: ${urlPath} video autoplays`)
@@ -1683,7 +1819,8 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} VideoObject publisher is not the site Organization`)
     }
     const captionUrl = typeof videoNode.caption === 'string' ? videoNode.caption : videoNode.caption?.contentUrl
-    if (captionUrl !== film.captions) throw new Error(`prerender: ${urlPath} VideoObject caption does not point at the VTT`)
+    const expectedCaption = new URL(film.captions, `${PrerenderPages.SITE}/`).href
+    if (captionUrl !== expectedCaption) throw new Error(`prerender: ${urlPath} VideoObject caption does not point at the VTT`)
     if (!nodes.some((node) => node['@type'] === 'Organization' && node['@id'] === PrerenderPages.ORG_ID)) {
       throw new Error(`prerender: ${urlPath} is missing the Organization node`)
     }
@@ -1692,11 +1829,23 @@ class PrerenderPages {
   static assertVideos(html, films, stories) {
     if (!html.includes('<h1>Videos</h1>')) throw new Error('prerender: /videos/ is missing its heading')
     if (!html.includes('href="/videos/"')) throw new Error('prerender: /videos/ footer link is missing')
+    if (html.includes('"@type":"VideoObject"') || /<video\b/i.test(html)) {
+      throw new Error('prerender: /videos/ embeds a film; the story page is the watch page')
+    }
+    if (html.includes('<summary>Transcript</summary>')) {
+      throw new Error('prerender: /videos/ includes a transcript; that belongs on the story page')
+    }
     for (const film of films) {
       const story = stories.find((item) => item.slug === film.storySlug)
-      PrerenderPages.assertFilmEmbed(html, film, PrerenderPages.filmPlain(story), '/videos/')
-      if (!html.includes(`href="/stories/${story.slug}/"`)) {
-        throw new Error(`prerender: /videos/ does not link to ${story.slug}`)
+      const href = `/stories/${story.slug}/#${film.id}`
+      if (!html.includes(`href="${href}"`)) {
+        throw new Error(`prerender: /videos/ does not link ${film.id} to its story page`)
+      }
+      if (!html.includes(PrerenderPages.escapeHtml(film.title))) {
+        throw new Error(`prerender: /videos/ is missing the title for ${film.id}`)
+      }
+      if (!html.includes(PrerenderPages.escapeHtml(PrerenderPages.filmPlain(story)))) {
+        throw new Error(`prerender: /videos/ is missing the summary for ${film.id}`)
       }
     }
   }
@@ -1707,9 +1856,8 @@ class PrerenderPages {
     for (const film of films) {
       const story = stories.find((item) => item.slug === film.storySlug)
       const description = PrerenderPages.escapeXml(PrerenderPages.filmPlain(story))
-      const pages = [`${PrerenderPages.SITE}/videos/`, `${PrerenderPages.SITE}/stories/${story.slug}/`]
-      for (const loc of pages) {
-        rows.push(`  <url>
+      const loc = `${PrerenderPages.SITE}/stories/${story.slug}/`
+      rows.push(`  <url>
     <loc>${PrerenderPages.escapeXml(loc)}</loc>
     <video:video>
       <video:thumbnail_loc>${PrerenderPages.escapeXml(film.poster)}</video:thumbnail_loc>
@@ -1722,7 +1870,6 @@ class PrerenderPages {
       <video:live>no</video:live>
     </video:video>
   </url>`)
-      }
     }
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
