@@ -380,15 +380,15 @@ You don't need to set up Facebook. It's deliberately left out.
   - The `amplify.yml` backend phase (`npx ampx pipeline-deploy`) alongside the existing `sync-app-data` step, which must not change.
   - The Apple token revocation on delete.
 
-### 6.2 SEO & AEO Desk: crawlability, no SEO hit (Pending input)
+### 6.2 SEO & AEO Desk: crawlability, no SEO hit (Agreed with edits, 2026-10-11)
 
-Proposed for review:
-
-- No content is gated. Prerendered HTML doesn't change, and canonicals and `sitemap.xml` stay the same.
-- `/account/` is `noindex` (not robots-disallowed, so the noindex is seen) and is left out of the sitemap.
-- No personalized content in the prerendered HTML, and no personalization query parameters on story URLs.
-- Signed-in UI has reserved space so there's no layout shift (CLS).
-- Phase 1b's county and hub pages need the Desk's structure and internal-link review.
+- `noindex` `/account/` and the sign-in and callback pages, and keep them out of the sitemap.
+- Never use `robots.txt` to block anything the pages need to load.
+- Load the sign-in code only on click.
+- No indexable favorites, list or profile URLs.
+- Public story HTML is identical for signed-out crawlers, with no personalization query params.
+- Reserve space for the signed-in UI so there's no layout shift.
+- Phase 1b's county and hub pages still need the Desk's structure and internal-link review when those pages ship.
 
 ### 6.3 Critiquito: sign-in and profile UX (Agreed with edits, 2026-10-11)
 
