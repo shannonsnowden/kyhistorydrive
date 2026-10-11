@@ -19,6 +19,7 @@ function filesFor(slug, base) {
   return {
     phoneWebp: f('-phone.webp'),
     phonePng: f('-phone.png'),
+    phoneDarkWebp: f('-phone-dark.webp'),
     phoneDarkPng: f('-phone-dark.png'),
     webWebp: f('-web.webp'),
     fullWebp: f('.webp'),
@@ -34,6 +35,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'athiamiowee-the-warriors-path-through-kentucky',
     base: 'warriors-path-map',
+    phoneCrop: true,
     era: 'before 1674 to the 1770s',
     alt: "Map of the Warriors' Path from the Ohio River at the Scioto south past Eskippakithiki to Cumberland Gap and Cherokee towns.",
     caption:
@@ -74,6 +76,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'thomas-walker-and-cumberland-gap',
     base: 'thomas-walker-and-cumberland-gap-route-map',
+    phoneCrop: true,
     era: '1750',
     alt: "Map of Thomas Walker's 1750 route from Castle Hill, Virginia, through Cumberland Gap to his cabin near Barbourville and back.",
     caption:
@@ -113,6 +116,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'christopher-gist-1750-51',
     base: 'christopher-gist-1750-51-route-map',
+    phoneCrop: true,
     era: '1750–1751',
     alt: "Map of Christopher Gist's 1750–51 route from Old Town, Maryland, through Ohio and Kentucky to his home on the Yadkin.",
     caption:
@@ -151,6 +155,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'william-calks-1775-journal',
     base: 'william-calks-1775-journal-route-map',
+    phoneCrop: true,
     era: '1775',
     alt: "Map of William Calk's 1775 trek from Prince William County, Virginia, through Cumberland Gap to Boonesborough, Kentucky.",
     caption: "Solid: Calk's route (approximate) · Dotted: conjectural segment. Map: Kentucky History Drive.",
@@ -194,6 +199,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'george-rogers-clark',
     base: 'george-rogers-clark-route-map',
+    phoneCrop: false,
     era: '1778–1779',
     alt: "Map of George Rogers Clark's 1778–79 Illinois Campaign from the Falls of the Ohio to Kaskaskia, Cahokia and Vincennes.",
     caption:
@@ -222,6 +228,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'mantle-rock-and-the-trail-of-tears',
     base: 'mantle-rock-and-the-trail-of-tears-route-map',
+    phoneCrop: true,
     era: '1838–1839 · Northern Route',
     alt: 'Map of the Trail of Tears Northern Route across Kentucky via Hopkinsville, Princeton and Mantle Rock to the Ohio at Golconda.',
     caption:
@@ -297,6 +304,7 @@ export function routeMapPictureHtml(route, { thumb = false } = {}) {
         source('light', 'thumb', f.webWebp, 'image/webp', '(min-width: 0px)'),
       ]
     : [
+        source('dark', 'phone', f.phoneDarkWebp, 'image/webp', '(max-width: 699px) and (prefers-color-scheme: dark)'),
         source('dark', 'phone', f.phoneDarkPng, 'image/png', '(max-width: 699px) and (prefers-color-scheme: dark)'),
         source('light', 'phone', f.phoneWebp, 'image/webp', '(max-width: 699px)'),
         source('light', 'phone', f.phonePng, 'image/png', '(max-width: 699px)'),
@@ -333,6 +341,13 @@ function linksHtml(route, linkMode, titleFor) {
   return `<nav class="route-links" aria-label="Related stories and markers"><h3>Related stories and markers</h3><ul>${items.join('')}</ul></nav>`
 }
 
+function phoneCropNote(route) {
+  if (!route.phoneCrop) return ''
+  const light = route.files.fullPng
+  const dark = route.files.darkPng
+  return `<p class="route-map-phone-note">Kentucky leg shown — <a class="route-map-full-link" href="${esc(light)}" data-href-light="${esc(light)}" data-href-dark="${esc(dark)}">view full route</a></p>`
+}
+
 function stopsHtml(route) {
   const items = route.stops
     .map((stop) => {
@@ -354,7 +369,10 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
       ${route.distance ? `<p>${esc(route.distance)}</p>` : ''}
       <figure class="route-map-figure">
         ${routeMapPictureHtml(route)}
-        <figcaption class="route-map-caption">${esc(route.caption)}</figcaption>
+        <figcaption>
+          <p class="route-map-caption">${esc(route.caption)}</p>
+          ${phoneCropNote(route)}
+        </figcaption>
       </figure>
       ${stopsHtml(route)}
       ${note}
@@ -457,6 +475,10 @@ export function applyRouteMapTheme(theme) {
     img.remove()
     pic.appendChild(img)
   })
+  document.querySelectorAll('a.route-map-full-link').forEach((link) => {
+    const next = link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light')
+    if (next) link.setAttribute('href', next)
+  })
 }
 
 export function routeMapThemeScript() {
@@ -479,6 +501,10 @@ export function routeMapThemeScript() {
             if (next) img.setAttribute('src', next)
             img.remove()
             pic.appendChild(img)
+          })
+          document.querySelectorAll('a.route-map-full-link').forEach(function (link) {
+            var next = link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light')
+            if (next) link.setAttribute('href', next)
           })
         }
         function run() { apply(document.documentElement.getAttribute('data-hp-theme') || 'dark') }

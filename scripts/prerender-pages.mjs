@@ -1028,11 +1028,16 @@ class PrerenderPages {
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
       .foot a { color: var(--accent); }
-      .route-map { margin: 1.75rem 0 0.5rem; }
+      .route-map { margin: 1.75rem 0 0.5rem; scroll-margin-top: 9rem; }
+      @media (max-width: 1400px) and (min-width: 601px) { .route-map { scroll-margin-top: 6.75rem; } }
+      @media (max-width: 600px) { .route-map { scroll-margin-top: 4.25rem; } }
       .route-map h2, .route-map h3 { color: var(--heading); }
       .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
       .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+      .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
+      .route-map-phone-note a { color: var(--accent); }
+      @media (max-width: 699px) { .route-map-phone-note { display: block; } }
       .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
       .route-waypoints li { margin: 0 0 0.35rem; }
       .route-links ul, .route-index-list { list-style: none; margin: 0; padding: 0; }
@@ -1450,6 +1455,17 @@ class PrerenderPages {
     }
     if (!block.includes('(max-width: 699px)') || !block.includes('(min-width: 700px)') || !block.includes('prefers-color-scheme: dark')) {
       throw new Error(`prerender: ${urlPath} route map picture is missing the phone or dark sources`)
+    }
+    if (!block.includes(route.files.phoneDarkWebp)) {
+      throw new Error(`prerender: ${urlPath} route map is missing the dark phone WebP`)
+    }
+    const cropNote = 'Kentucky leg shown'
+    if (route.phoneCrop) {
+      if (!block.includes(cropNote) || !block.includes(route.files.fullPng)) {
+        throw new Error(`prerender: ${urlPath} phone crop is missing the full-route link`)
+      }
+    } else if (block.includes(cropNote)) {
+      throw new Error(`prerender: ${urlPath} phone art is the full route and must not say Kentucky leg`)
     }
     if (!block.includes('960w') || !block.includes('1600w')) {
       throw new Error(`prerender: ${urlPath} route map is missing the 960 and 1600 sources`)

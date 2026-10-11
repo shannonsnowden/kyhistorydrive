@@ -3079,7 +3079,13 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   min-height: 100%;
 }
 .hp-map-routes { margin: 0.75rem 0 0; }
-.route-map { margin: 1.75rem 0 0.5rem; }
+.route-map { margin: 1.75rem 0 0.5rem; scroll-margin-top: 9rem; }
+@media (max-width: 1400px) and (min-width: 601px) {
+  .route-map { scroll-margin-top: 6.75rem; }
+}
+@media (max-width: 600px) {
+  .route-map { scroll-margin-top: 4.25rem; }
+}
 .story-reader-layout > .route-map,
 .story-reader-main .route-map { min-width: 0; }
 .route-map h2,
@@ -3098,7 +3104,13 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   border: 1px solid var(--line);
   border-radius: 12px;
 }
-.route-map-caption { margin: 0.4rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+.route-map-caption { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+.route-map-figure figcaption { margin: 0 0 0.85rem; }
+.route-map-phone-note { display: none; margin: 0.35rem 0 0; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
+.route-map-phone-note a { color: var(--accent); }
+@media (max-width: 699px) {
+  .route-map-phone-note { display: block; }
+}
 .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
 .route-waypoints li { margin: 0 0 0.35rem; }
 .route-sources { margin: 0.35rem 0 0.85rem; }
