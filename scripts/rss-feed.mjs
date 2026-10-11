@@ -9,6 +9,8 @@
  * sentence. A route story uses its route-map sentence and the route-map PNG
  * (the same image the story page uses for Open Graph). Other stories carry
  * an enclosure plus media:content when they have a local photo.
+ * Text fields and URLs escape & < > " '. Only stories prerender publishes
+ * (not draft, hidden, or future-dated) are included.
  *
  * /layers/history/feed.xml and /layers/good-eats/feed.xml are written only
  * when every item in that layer has a stable on-site URL (a real /stories/
@@ -60,7 +62,12 @@ function clean(s) {
 }
 
 function esc(s) {
-  return clean(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  return clean(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
 }
 
 function escAttr(s) {
@@ -130,12 +137,19 @@ function byNewest(a, b) {
   return b.added.localeCompare(a.added) || a.slug.localeCompare(b.slug)
 }
 
-function assertRouteItems(items) {
+function assertRouteItems(items, liveSlugs) {
   const bySlug = new Map(items.map((item) => [item.slug, item]))
+  for (const item of items) {
+    if (!liveSlugs.has(item.slug)) throw new Error(`rss: ${item.slug} is not a published live story`)
+  }
   for (const route of ROUTE_MAPS) {
     const item = bySlug.get(route.slug)
     const sentence = clean(route.sentence)
     const imageUrl = `${SITE}${route.files.fullPng}`
+    if (!liveSlugs.has(route.slug)) {
+      if (item) throw new Error(`rss: unpublished route story ${route.slug} is in the feed`)
+      continue
+    }
     if (!item) throw new Error(`rss: route story ${route.slug} is missing from the feed`)
     if (!isWholeSentence(sentence) || item.description !== sentence) {
       throw new Error(`rss: route story ${route.slug} description is not the route-map sentence`)
@@ -184,7 +198,7 @@ function itemXml(item) {
   return lines.join('\n')
 }
 
-function renderFeed({ title, link, self, description, items }) {
+export function renderFeed({ title, link, self, description, items }) {
   const last = items[0]?.pubDate || new Date().toUTCString()
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
@@ -202,7 +216,9 @@ ${items.map(itemXml).join('\n')}
 }
 
 export function planStoryItems(root) {
-  const stories = PrerenderPages.loadStories(root)
+  const loaded = PrerenderPages.loadStories(root)
+  const stories = PrerenderPages.liveStories(loaded)
+  const liveSlugs = new Set(stories.map((story) => story.slug))
   const dates = PrerenderPages.gitFileDates(root)
   const ranked = []
   const dropped = []
@@ -232,12 +248,13 @@ export function planStoryItems(root) {
   const included = new Set(newest.map((item) => item.slug))
   const pinned = ranked.filter((item) => item.route && !included.has(item.slug))
   const items = newest.concat(pinned).sort(byNewest)
-  assertRouteItems(items)
+  assertRouteItems(items, liveSlugs)
   return {
     items,
     eligible: ranked.length,
     dropped,
-    slugs: new Set(stories.map((story) => story.slug)),
+    unpublished: loaded.filter((story) => !liveSlugs.has(story.slug)).map((story) => story.slug),
+    slugs: liveSlugs,
   }
 }
 
@@ -552,7 +569,66 @@ function oneText(el, name, where) {
   return text
 }
 
+const XML_ENTITY = /&(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);/g
+const RSS_TAGS = new Set([
+  'rss',
+  'channel',
+  'title',
+  'link',
+  'description',
+  'language',
+  'lastBuildDate',
+  'atom:link',
+  'item',
+  'guid',
+  'pubDate',
+  'enclosure',
+  'media:content',
+])
+
+function rawXmlSpecial(fragment, where) {
+  const bare = String(fragment).replace(XML_ENTITY, '')
+  if (/[&<>"']/.test(bare)) throw new Error(`rss: unescaped XML in ${where}`)
+}
+
+/** Text and attribute values are entity-escaped (& < > " '), or left inside CDATA. */
+export function assertEscapedXml(xml) {
+  const source = String(xml)
+    .replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+  let i = 0
+  while (i < source.length) {
+    if (source.startsWith('<?', i)) {
+      const end = source.indexOf('?>', i)
+      if (end < 0) throw new Error('rss: unclosed processing instruction')
+      i = end + 2
+      continue
+    }
+    if (source[i] === '<') {
+      const end = source.indexOf('>', i)
+      if (end < 0) throw new Error('rss: unclosed tag')
+      const tag = source.slice(i + 1, end)
+      const tagName = tag.replace(/^\//, '').trim().split(/\s+/)[0]
+      if (!RSS_TAGS.has(tagName)) throw new Error(`rss: unexpected tag ${tagName}`)
+      const tagBare = tag.replace(/[^\s=]+\s*=\s*("[^"]*"|'[^']*')/g, '')
+      rawXmlSpecial(tagBare, 'tag')
+      const attrs = /([^\s=]+)\s*=\s*("([^"]*)"|'([^']*)')/g
+      let match
+      while ((match = attrs.exec(tag))) {
+        rawXmlSpecial(match[3] != null ? match[3] : match[4], `attribute ${match[1]}`)
+      }
+      i = end + 1
+      continue
+    }
+    const next = source.indexOf('<', i)
+    rawXmlSpecial(source.slice(i, next < 0 ? source.length : next), 'text')
+    if (next < 0) break
+    i = next
+  }
+}
+
 function assertFeed(xml, expected, { title, link, self }) {
+  assertEscapedXml(xml)
   if (!xml.startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
     throw new Error('rss: missing XML declaration')
   }
@@ -737,8 +813,9 @@ export function selfTest() {
 
 function report(plan) {
   const newest = plan.stories.items[0]?.added || 'n/a'
+  const held = plan.stories.unpublished?.length || 0
   console.log(
-    `rss: ${STORY_FEED_PATH} ${plan.stories.items.length} items (eligible ${plan.stories.eligible}, newest ${newest})`,
+    `rss: ${STORY_FEED_PATH} ${plan.stories.items.length} items (eligible ${plan.stories.eligible}, newest ${newest}${held ? `, withheld ${held} unpublished` : ''})`,
   )
   for (const layer of plan.layers) {
     if (layer.skip) console.log(`rss: skip ${layer.outPath} — ${layer.skip}`)
