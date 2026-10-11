@@ -1101,13 +1101,13 @@ class PrerenderPages {
         <div class="story-reader-main">
           <div class="story-body">${marked.parse(bodyMarkdown)}</div>
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
-          ${filmHtml}
           ${PrerenderPages.relatedHtml(story, all)}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
             ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
           </div>
         </div>
+        ${filmHtml}
       </article>`
     return PrerenderPages.shell({
       title,
@@ -1348,7 +1348,7 @@ class PrerenderPages {
       films.length ? PrerenderPages.filmPlain(stories.find((item) => item.slug === films[0].storySlug)) : lead,
     )
     const image = films[0]?.poster || PrerenderPages.LOGO
-    const main = `<article>
+    const main = `<article class="videos-page">
         <nav class="story-crumbs" aria-label="Breadcrumb">
           <a href="/">Home</a>
           <span aria-hidden="true">/</span>
@@ -1422,8 +1422,14 @@ class PrerenderPages {
     const videoTags = [...html.matchAll(/<video\b[^>]*>/gi)].map((match) => match[0])
     const tag = videoTags.find((item) => item.includes(`poster="${film.poster}"`))
     if (!tag) throw new Error(`prerender: ${urlPath} is missing a video element`)
-    if (!/controls/.test(tag) || !/playsinline/.test(tag) || !/crossorigin="anonymous"/.test(tag)) {
-      throw new Error(`prerender: ${urlPath} video is missing controls, playsinline, or crossorigin`)
+    if (!/controls/.test(tag) || !/playsinline/.test(tag)) {
+      throw new Error(`prerender: ${urlPath} video is missing controls or playsinline`)
+    }
+    if (/crossorigin=/i.test(tag)) {
+      throw new Error(`prerender: ${urlPath} video sets crossorigin, which blocks the caption track off the production origin`)
+    }
+    if (!/class="film-cc[\s"]/.test(html) || !html.includes('aria-label="Captions"')) {
+      throw new Error(`prerender: ${urlPath} is missing the CC control`)
     }
     if (!/preload="metadata"/.test(tag)) throw new Error(`prerender: ${urlPath} video preload is not metadata`)
     if (/autoplay/i.test(tag)) throw new Error(`prerender: ${urlPath} video autoplays`)
@@ -1466,7 +1472,8 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} VideoObject publisher is not the site Organization`)
     }
     const captionUrl = typeof videoNode.caption === 'string' ? videoNode.caption : videoNode.caption?.contentUrl
-    if (captionUrl !== film.captions) throw new Error(`prerender: ${urlPath} VideoObject caption does not point at the VTT`)
+    const expectedCaption = new URL(film.captions, `${PrerenderPages.SITE}/`).href
+    if (captionUrl !== expectedCaption) throw new Error(`prerender: ${urlPath} VideoObject caption does not point at the VTT`)
     if (!nodes.some((node) => node['@type'] === 'Organization' && node['@id'] === PrerenderPages.ORG_ID)) {
       throw new Error(`prerender: ${urlPath} is missing the Organization node`)
     }

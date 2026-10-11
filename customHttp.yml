@@ -54,3 +54,7 @@ customHeaders:
     headers:
       - key: 'Content-Type'
         value: 'text/html; charset=utf-8'
+  - pattern: '/content/captions/**/*.vtt'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/vtt; charset=utf-8'
