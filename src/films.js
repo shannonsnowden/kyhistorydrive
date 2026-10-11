@@ -15,7 +15,7 @@ export const FILMS = [
     runtimeLabel: 'About 5 minutes',
     duration: 'PT5M10S',
     durationSeconds: 310,
-    uploadDate: '2026-10-10',
+    uploadDate: '2026-10-10T09:00:00-04:00',
     credit: 'Produced and Directed by Shannon Snowden',
     creator: 'Shannon Snowden',
     director: 'Shannon Snowden',
@@ -57,7 +57,9 @@ export function filmDescriptionFromPlain(plain) {
   const abbrev = (s) =>
     /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(
       s.trimEnd(),
-    ) || /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd())
+    ) ||
+    /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
+    /\b(?:[A-Z]\.){2,}$/.test(s.trimEnd())
   for (const part of parts) {
     const piece = String(part || '').trim()
     if (!piece) continue
@@ -144,7 +146,21 @@ export function wireFilmCaptions(root) {
  * only allows https://kyhistorydrive.com, which drops the track (and the CC
  * control) on every other origin.
  */
-export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '' } = {}) {
+/** Poster, title, and summary. The story page is where the film is watched. */
+export function filmCardHtml(film, { summary, href } = {}) {
+  const summaryText = summary || ''
+  const runtime = film.runtimeLabel
+    ? `<p class="film-runtime">${escapeHtml(film.runtimeLabel)}</p>`
+    : ''
+  return `<a class="film-card" href="${escapeHtml(href)}">
+      <img class="film-card-poster" src="${escapeHtml(film.poster)}" alt="" loading="lazy" decoding="async">
+      <h2 class="film-title">${escapeHtml(film.title)}</h2>
+      <p class="film-summary" title="${escapeHtml(summaryText)}">${escapeHtml(summaryText)}</p>
+      ${runtime}
+    </a>`
+}
+
+export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '', transcript = '' } = {}) {
   const level = headingLevel === 3 ? 3 : 2
   const vertical = Boolean(film.useVertical && film.verticalSrc)
   const sources = vertical
@@ -156,6 +172,9 @@ export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '' 
     ? `<p class="film-runtime">${escapeHtml(film.runtimeLabel)}</p>`
     : ''
   const more = moreHtml ? `<p class="film-more">${moreHtml}</p>` : ''
+  const transcriptHtml = transcript
+    ? `<details class="film-transcript"><summary>Transcript</summary><pre>${escapeHtml(transcript)}</pre></details>`
+    : ''
   const summaryText = summary || ''
   return `<figure class="film-block" id="${escapeHtml(film.id)}">
       <figcaption class="film-lead">
@@ -172,6 +191,7 @@ export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '' 
       </div>
       <p class="film-credit">${escapeHtml(film.credit)}</p>
       ${more}
+      ${transcriptHtml}
       <script>(${wireFilmCaptions.toString()})(document.currentScript.closest('.film-block'))</script>
     </figure>`
 }
