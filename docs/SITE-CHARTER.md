@@ -54,7 +54,8 @@ Every check script in `npm run build` must pass:
 - **AI visibility**: `robots.txt` allows GPTBot, PerplexityBot, ClaudeBot and Google-Extended. Clear sourcing and dates make stories easy to cite.
 
 ## Review pipeline
-Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews search, then KY Website Editor does the final review, then Shannon OKs the merge. 
+Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews search, then Security Watch reviews security, then KY Website Editor does the final review, then Shannon OKs the merge.
+- Security Watch is the security specialist: it does a security review of every site PR (especially auth and profiles) and regular site monitoring.
 - There are no Amplify PR previews. Reviews use agent screenshots or a gh-pages preview, then live checks after the deploy.
 - KY Website Editor and KY History merge their own daily content packs. Those are exempt from this pipeline unless they change templates.
 - Never commit secrets.
@@ -65,6 +66,7 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 | Lingxi's Engineer Bot | Agreed (with edits, 2026-10-11) |
 | Critiquito | Pending |
 | SEO & AEO Desk | Pending |
+| Security Watch | Pending |
 | AI Search Visibility | Pending |
 | KY History | Pending |
 | Story Studio | Pending |
