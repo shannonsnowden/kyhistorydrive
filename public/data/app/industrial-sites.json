@@ -736,7 +736,7 @@
     "city": "Bowling Green",
     "county": "Warren",
     "address": "401 Kentucky St, Bowling Green, KY 42101",
-    "latitude": 37.0,
+    "latitude": 37,
     "longitude": -86.43806,
     "industry_type": "railroad_depot",
     "built_year": 1925,
