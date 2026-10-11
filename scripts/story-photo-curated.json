@@ -1001,5 +1001,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2018
+  },
+  "simon-girty-interpreter-at-bryan-station-1782": {
+    "ext": "jpg",
+    "commonsFile": "Simon_Girty.png",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Simon_Girty.png?width=1280",
+    "title": "Simon Girty in an uncredited artist’s rendering published in 1905 (not a life portrait)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Simon_Girty.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Artist uncredited · Wikimedia Commons · public domain",
+    "year": 1905
+  },
+  "owingsville-a-town-named-on-a-wager": {
+    "ext": "jpg",
+    "commonsFile": "Downtown_Owingsville,_Kentucky.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Downtown_Owingsville,_Kentucky.jpg?width=1280",
+    "title": "Downtown Owingsville (photographed 2007)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Owingsville,_Kentucky.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
+  },
+  "manns-lick-louisvilles-salt-town": {
+    "ext": "jpg",
+    "commonsFile": "Jefferson_Memorial_Forest-Bee_Lick_Creek.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jefferson_Memorial_Forest-Bee_Lick_Creek.jpg?width=1280",
+    "title": "Bee Lick Creek in Jefferson Memorial Forest near Fairdale (photographed 2005), a stand-in: no image of the Mann’s Lick saltworks survives on the site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jefferson_Memorial_Forest-Bee_Lick_Creek.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "John Knouse · Wikimedia Commons · public domain",
+    "year": 2005
+  },
+  "little-turtle-and-hardins-defeat-1790": {
+    "ext": "jpg",
+    "commonsFile": "Little_Turtle.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Little_Turtle.jpg?width=1280",
+    "title": "Little Turtle, a lithograph after a lost portrait (circa 1798 original)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Little_Turtle.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown author · Wikimedia Commons · public domain",
+    "year": 1798
+  },
+  "red-river-gorge-arches-and-the-dam-fight": {
+    "ext": "jpg",
+    "commonsFile": "View_of_Chimney_Top_Rock.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Chimney_Top_Rock.JPG?width=1280",
+    "title": "Chimney Top Rock in the Red River Gorge, seen from Half Moon (photographed 2006)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Chimney_Top_Rock.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Mrherbalwarrior · Wikimedia Commons · CC BY 3.0",
+    "year": 2006
   }
 }

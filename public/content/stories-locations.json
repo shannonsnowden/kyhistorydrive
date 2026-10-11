@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-10T09:22:52.009Z",
+  "generatedAt": "2026-10-11T09:22:05.763Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 125,
-    "none": 36
+    "override": 129,
+    "none": 37
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -672,6 +672,14 @@
       "matchedPlace": "Leestown",
       "historyId": "leestown"
     },
+    "manns-lick-louisvilles-salt-town": {
+      "slug": "manns-lick-louisvilles-salt-town",
+      "lat": 38.121,
+      "lon": -85.7585,
+      "mapConfidence": "override",
+      "matchedPlace": "Mann’s Lick saltworks (approximate, north of Fairdale)",
+      "historyId": null
+    },
     "mcafee-station-on-the-salt-river": {
       "slug": "mcafee-station-on-the-salt-river",
       "lat": 37.850631,
@@ -870,6 +878,14 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null,
+      "historyId": null
+    },
+    "simon-girty-interpreter-at-bryan-station-1782": {
+      "slug": "simon-girty-interpreter-at-bryan-station-1782",
+      "lat": 38.07586667,
+      "lon": -84.41529167,
+      "mapConfidence": "override",
+      "matchedPlace": "Bryan Station siege site",
       "historyId": null
     },
     "col-john-bowman-at-old-chillicothe": {
@@ -1224,6 +1240,14 @@
       "matchedPlace": "Jacob Spears",
       "historyId": "jacob-spears"
     },
+    "little-turtle-and-hardins-defeat-1790": {
+      "slug": "little-turtle-and-hardins-defeat-1790",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "mount-sterling-little-mountain-town": {
       "slug": "mount-sterling-little-mountain-town",
       "lat": 38.0561079,
@@ -1359,6 +1383,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Jacob Beam / Hardin's Creek",
       "historyId": "jacob-beam-hardins-creek-washington-county"
+    },
+    "owingsville-a-town-named-on-a-wager": {
+      "slug": "owingsville-a-town-named-on-a-wager",
+      "lat": 38.13638889,
+      "lon": -83.76027778,
+      "mapConfidence": "override",
+      "matchedPlace": "Owingsville (Bath County seat)",
+      "historyId": null
     },
     "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
       "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
@@ -1703,6 +1735,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)",
       "historyId": "saltpeter-cave-carter-caves-15cr99"
+    },
+    "red-river-gorge-arches-and-the-dam-fight": {
+      "slug": "red-river-gorge-arches-and-the-dam-fight",
+      "lat": 37.83388889,
+      "lon": -83.60777778,
+      "mapConfidence": "override",
+      "matchedPlace": "Red River Gorge Geological Area",
+      "historyId": null
     },
     "big-bone-lick-older-cycle": {
       "slug": "big-bone-lick-older-cycle",

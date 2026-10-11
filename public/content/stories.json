@@ -1,16 +1,18 @@
 {
-  "generatedAt": "2026-10-10T09:22:51.835Z",
-  "count": 225,
+  "generatedAt": "2026-10-11T09:22:05.605Z",
+  "count": 230,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-10"
+    "end": "2026-10-11"
   },
   "eras": [
     "early-commonwealth",
     "frontier",
+    "modern",
     "native",
     "other",
-    "prehistoric"
+    "prehistoric",
+    "revolution"
   ],
   "stories": [
     {
@@ -2258,6 +2260,37 @@
       "matchedPlace": "Leestown"
     },
     {
+      "slug": "manns-lick-louisvilles-salt-town",
+      "title": "Mann’s Lick, Louisville’s forgotten salt town",
+      "publishedDate": "2026-10-11",
+      "summary": "Mann’s Lick was a salt lick just north of the present-day Fairdale neighborhood of Louisville.…",
+      "yearStart": 1773,
+      "yearEnd": 1830,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "salt",
+        "industry",
+        "louisville"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-11",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/manns-lick-louisvilles-salt-town.jpg",
+        "title": "Bee Lick Creek in Jefferson Memorial Forest near Fairdale (photographed 2005), a stand-in: no image of the Mann’s Lick saltworks survives on the site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Jefferson_Memorial_Forest-Bee_Lick_Creek.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "John Knouse · Wikimedia Commons · public domain",
+        "year": 2005
+      },
+      "lat": 38.121,
+      "lon": -85.7585,
+      "mapConfidence": "override",
+      "matchedPlace": "Mann’s Lick saltworks (approximate, north of Fairdale)"
+    },
+    {
       "slug": "mcafee-station-on-the-salt-river",
       "title": "McAfee Station on the Salt River",
       "publishedDate": "2026-10-03",
@@ -2905,6 +2938,36 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "simon-girty-interpreter-at-bryan-station-1782",
+      "title": "Simon Girty, the frontier’s most hated interpreter",
+      "publishedDate": "2026-10-11",
+      "summary": "Simon Girty was born in 1741 at Chambers’ Mills in Lancaster County, Pennsylvania.…",
+      "yearStart": 1778,
+      "yearEnd": 1795,
+      "era": "revolution",
+      "tags": [
+        "revolution",
+        "kentucky",
+        "frontier-war",
+        "loyalist"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-11",
+      "county": "Fayette",
+      "photo": {
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg",
+        "title": "Simon Girty in an uncredited artist’s rendering published in 1905 (not a life portrait)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Simon_Girty.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Artist uncredited · Wikimedia Commons · public domain",
+        "year": 1905
+      },
+      "lat": 38.07586667,
+      "lon": -84.41529167,
+      "mapConfidence": "override",
+      "matchedPlace": "Bryan Station siege site"
     },
     {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -4034,6 +4097,37 @@
       "matchedPlace": "Jacob Spears"
     },
     {
+      "slug": "little-turtle-and-hardins-defeat-1790",
+      "title": "Little Turtle and Kentucky’s 1790 militia disaster",
+      "publishedDate": "2026-10-11",
+      "summary": "Little Turtle, Mihšihkinaahkwa in the Miami language, was a Miami war leader who had lived at Turtletown on the Eel River.…",
+      "yearStart": 1790,
+      "yearEnd": 1795,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "miami",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-11",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg",
+        "title": "Little Turtle, a lithograph after a lost portrait (circa 1798 original)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Little_Turtle.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown author · Wikimedia Commons · public domain",
+        "year": 1798
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "mount-sterling-little-mountain-town",
       "title": "Mount Sterling / Little Mountain Town",
       "publishedDate": "2026-09-03",
@@ -4482,6 +4576,36 @@
       "lon": -85.3364,
       "mapConfidence": "override",
       "matchedPlace": "Jacob Beam / Hardin's Creek"
+    },
+    {
+      "slug": "owingsville-a-town-named-on-a-wager",
+      "title": "Owingsville: a town named on a wager",
+      "publishedDate": "2026-10-11",
+      "summary": "In 1795 Colonel Thomas Dye Owings was sent from Maryland to Kentucky by his father to operate some of the first iron furnaces in the region.…",
+      "yearStart": 1795,
+      "yearEnd": 1811,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "towns",
+        "iron-industry"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-11",
+      "county": "Bath",
+      "photo": {
+        "image_url": "/content/photos/stories/owingsville-a-town-named-on-a-wager.jpg",
+        "title": "Downtown Owingsville (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Owingsville,_Kentucky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "lat": 38.13638889,
+      "lon": -83.76027778,
+      "mapConfidence": "override",
+      "matchedPlace": "Owingsville (Bath County seat)"
     },
     {
       "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
@@ -5639,6 +5763,37 @@
       "lon": -83.1233,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)"
+    },
+    {
+      "slug": "red-river-gorge-arches-and-the-dam-fight",
+      "title": "Red River Gorge: sandstone arches and the dam fight",
+      "publishedDate": "2026-10-11",
+      "summary": "The Red River Gorge is a canyon system on the Red River in east-central Kentucky, part of the Pottsville Escarpment, carved over millions of years by erosion and weathering into high sandstone cliffs, rock shelters, waterfalls, and natural bridges.…",
+      "yearStart": 1962,
+      "yearEnd": 1993,
+      "era": "modern",
+      "tags": [
+        "modern",
+        "kentucky",
+        "geology",
+        "parks",
+        "conservation"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-11",
+      "county": "Menifee",
+      "photo": {
+        "image_url": "/content/photos/stories/red-river-gorge-arches-and-the-dam-fight.jpg",
+        "title": "Chimney Top Rock in the Red River Gorge, seen from Half Moon (photographed 2006)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Chimney_Top_Rock.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mrherbalwarrior · Wikimedia Commons · CC BY 3.0",
+        "year": 2006
+      },
+      "lat": 37.83388889,
+      "lon": -83.60777778,
+      "mapConfidence": "override",
+      "matchedPlace": "Red River Gorge Geological Area"
     },
     {
       "slug": "big-bone-lick-older-cycle",
