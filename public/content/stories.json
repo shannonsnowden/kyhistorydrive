@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T15:30:25.927Z",
+  "generatedAt": "2026-10-11T15:34:45.070Z",
   "count": 230,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -511,9 +511,9 @@
       "slug": "page-site-lost-city-15lo1",
       "title": "Page Site / “Lost City” (15LO1)",
       "publishedDate": "2026-09-12",
-      "summary": "Above the Mud River east of Lewisburg in Logan County sits the Page Site, a major Mississippian mound-and-ossuary complex (roughly A.D. 1000–1600) excavated by William S. Webb…",
+      "summary": "Above the Mud River east of Lewisburg in Logan County sits the Page Site (15LO1), a major Mississippian mound site…",
       "yearStart": 1000,
-      "yearEnd": 1600,
+      "yearEnd": null,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
