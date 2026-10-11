@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-hp-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
+    <script>(function(){var B='/kyhistorydrive/caves-preview/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
+    <title>History · Kentucky History Drive</title>
+    <meta name="description" content="History places tied to the Timeline: towns, stations, earthworks, and other sites. Years on this layer are occupation or event years. A Pleistocene salt lick" />
+    <link rel="canonical" href="https://kyhistorydrive.com/layers/history/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Kentucky History Drive" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://kyhistorydrive.com/layers/history/" />
+    <meta property="og:title" content="History · Kentucky History Drive" />
+    <meta property="og:description" content="History places tied to the Timeline: towns, stations, earthworks, and other sites. Years on this layer are occupation or event years. A Pleistocene salt lick" />
+    <meta property="og:image" content="https://kyhistorydrive.com/content/photos/layers/big-bone-lick.jpg" />
+    <meta property="og:image:secure_url" content="https://kyhistorydrive.com/content/photos/layers/big-bone-lick.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Big Bone Lick State Park" />
+    
+    <meta name="twitter:image" content="https://kyhistorydrive.com/content/photos/layers/big-bone-lick.jpg" />
+    <meta name="twitter:image:alt" content="Big Bone Lick State Park" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="History · Kentucky History Drive" />
+    <meta name="twitter:description" content="History places tied to the Timeline: towns, stations, earthworks, and other sites. Years on this layer are occupation or event years. A Pleistocene salt lick" />
+    <link rel="icon" href="/kyhistorydrive/caves-preview/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/kyhistorydrive/caves-preview/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/kyhistorydrive/caves-preview/apple-touch-icon.png" />
+    <!-- Google tag (gtag.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500,
+        'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE',
+        'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV',
+        'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK',
+        'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH']
+      });
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-83G4SBQKT1', { 'send_page_view': false });
+      var khdLastPagePath = '';
+      var khdTitleWait = null;
+      function khdHashParts() {
+        var raw = (location.hash || '').replace(/^#/, '').split('?')[0];
+        return raw ? raw.split('/') : [];
+      }
+      function khdStorySlug() {
+        var parts = khdHashParts();
+        var head = parts[0] || '';
+        if (head !== 'timeline' && head !== 'stories' && head !== 'story') return '';
+        if (!parts[1]) return '';
+        try { return decodeURIComponent(parts.slice(1).join('/')); }
+        catch (e) { return parts.slice(1).join('/'); }
+      }
+      function khdLookupStoryTitle(slug) {
+        if (!slug) return '';
+        var map = window.__khdStoryTitles;
+        if (map && map[slug]) return map[slug];
+        var node = document.querySelector('[data-slug="' + slug.replace(/"/g, '') + '"] strong');
+        if (node && node.textContent.trim()) return node.textContent.trim();
+        var links = document.querySelectorAll('a[href]');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href') || '';
+          var hash = href.split('#')[1] || '';
+          if (hash !== 'timeline/' + slug) continue;
+          var label = (links[i].textContent || '').replace(/\s+/g, ' ').trim();
+          if (label && label !== 'Read the story' && label.indexOf('Read:') !== 0 && label !== 'Open on the map') return label;
+        }
+        return '';
+      }
+      function khdPageTitle() {
+        var parts = khdHashParts();
+        var head = parts[0] || '';
+        if (!head || head === 'home' || head === 'content' || head === 'explore') return document.title;
+        if (head === 'map') return 'Map';
+        if (head === 'about') return 'About';
+        if (head === 'app') return 'iPhone app';
+        if (head === 'resources') return 'Resources';
+        if (head === 'timeline' || head === 'stories' || head === 'story') {
+          if (!parts[1]) return 'Timeline';
+          return khdLookupStoryTitle(khdStorySlug()) || '';
+        }
+        return document.title;
+      }
+      function khdCancelTitleWait() {
+        if (!khdTitleWait) return;
+        window.removeEventListener('khd-story-titles', khdTitleWait.finish);
+        clearTimeout(khdTitleWait.timer);
+        khdTitleWait = null;
+      }
+      function khdSend(page_path) {
+        var slug = khdStorySlug();
+        var title = slug ? (khdLookupStoryTitle(slug) || 'Timeline') : khdPageTitle();
+        khdLastPagePath = page_path;
+        gtag('event', 'page_view', {
+          page_location: location.href,
+          page_path: page_path,
+          page_title: title || document.title
+        });
+      }
+      function khdPageView() {
+        var page_path = location.pathname + location.search + location.hash;
+        var slug = khdStorySlug();
+        if (slug && !khdLookupStoryTitle(slug)) {
+          if (khdLastPagePath === page_path) return;
+          if (khdTitleWait && khdTitleWait.path === page_path) return;
+          khdCancelTitleWait();
+          var sent = false;
+          function finish() {
+            if (sent) return;
+            sent = true;
+            var still = (location.pathname + location.search + location.hash) === page_path;
+            khdCancelTitleWait();
+            if (!still) { khdPageView(); return; }
+            khdSend(page_path);
+          }
+          khdTitleWait = { path: page_path, finish: finish, timer: setTimeout(finish, 2500) };
+          window.addEventListener('khd-story-titles', finish);
+          return;
+        }
+        khdCancelTitleWait();
+        if (page_path === khdLastPagePath) return;
+        khdSend(page_path);
+      }
+      khdPageView();
+      window.addEventListener('hashchange', khdPageView);
+      ['pushState', 'replaceState'].forEach(function (method) {
+        var orig = history[method];
+        history[method] = function () {
+          var result = orig.apply(this, arguments);
+          khdPageView();
+          return result;
+        };
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-83G4SBQKT1"></script>
+    
+    <link rel="stylesheet" href="/kyhistorydrive/caves-preview/assets/styles-Dt93ElGl.css" />
+    <style>
+      .static-read { max-width: 52rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
+      .static-kicker { margin: 0 0 0.35rem; color: var(--accent); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+      .story-head h1 { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
+      .story-lead { font-size: 1.125rem; line-height: 1.5; margin: 0 0 1rem; }
+      .story-crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0 0 0.85rem; font-size: 0.85rem; color: var(--muted); }
+      .story-crumbs a { color: var(--accent); text-decoration: none; }
+      .story-crumbs [aria-current="page"] { color: var(--text); }
+      .static-related { margin-top: 1.75rem; }
+      .static-related h2 { font-size: 1.2rem; margin: 0 0 0.55rem; color: var(--heading); }
+      .static-related ul { list-style: none; margin: 0; padding: 0; }
+      .static-related li { margin: 0 0 0.45rem; }
+      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+      .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
+      .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
+      .foot a { color: var(--accent); }
+      .route-map { margin: 1.75rem 0 0.5rem; scroll-margin-top: 9rem; }
+      @media (max-width: 1400px) and (min-width: 601px) { .route-map { scroll-margin-top: 6.75rem; } }
+      @media (max-width: 600px) { .route-map { scroll-margin-top: 4.25rem; } }
+      .route-map h2, .route-map h3 { color: var(--heading); }
+      .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
+      .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
+      .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+      .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
+      .route-map-phone-note a { color: var(--accent); }
+      @media (max-width: 699px) { .route-map-phone-note { display: block; } }
+      .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
+      .route-waypoints li { margin: 0 0 0.35rem; }
+      .route-links ul, .route-index-list { list-style: none; margin: 0; padding: 0; }
+      .route-links li { margin: 0 0 0.4rem; }
+      .route-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 0.85rem; align-items: center; margin: 0 0 0.85rem; padding: 0.65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: inherit; text-decoration: none; }
+      .route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
+      .route-card p { margin: 0; }
+      @media (max-width: 700px) { .place-list { columns: 1; } .route-card { grid-template-columns: 1fr; } }
+    </style>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme')
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.setAttribute('data-hp-theme', stored)
+            return
+          }
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.setAttribute('data-hp-theme', 'light')
+          }
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="top site-header">
+      <div class="brand">
+        <a href="/kyhistorydrive/caves-preview/" class="brand-home" title="Home">
+          <img class="brand-logo" id="brandLogo" src="/kyhistorydrive/caves-preview/brand/khd-logo.png" width="88" height="88" alt="" />
+          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(!im||!s)return;if(s.indexOf('/kyhistorydrive/caves-preview/brand/')!==0)s='/kyhistorydrive/caves-preview/brand/'+String(s).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
+          <h1>Kentucky History Drive</h1>
+        </a>
+        <p class="tagline">History is all around us.</p>
+      </div>
+      <div class="nav-mobile-tools" id="navMobileTools">
+        <a class="nav-icon-btn" id="navSearchToggle" href="/kyhistorydrive/caves-preview/" aria-label="Search places and stories">
+          <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M16 16.5 20.5 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </a>
+        <button type="button" class="nav-icon-btn" id="navMenuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+          <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <nav id="mainNav" aria-label="Primary">
+        <div class="nav-search" id="navSearch">
+          <a id="siteSearchInput" href="/kyhistorydrive/caves-preview/">Search places &amp; stories…</a>
+        </div>
+        <div class="nav-today" id="navToday">
+          <a class="nav-today-btn" href="/kyhistorydrive/caves-preview/#timeline">Today’s stories</a>
+        </div>
+        <a href="/kyhistorydrive/caves-preview/" data-route="home">Home</a>
+        <a href="/kyhistorydrive/caves-preview/#map" data-route="map">Map</a>
+        <a href="/kyhistorydrive/caves-preview/#timeline" data-route="timeline">Timeline</a>
+        <a href="/kyhistorydrive/caves-preview/about/" data-route="about">About</a>
+        <a href="/kyhistorydrive/caves-preview/#app" data-route="app">iPhone app (coming soon)</a>
+        <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+          <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
+          <span class="hp-theme-toggle-label">Light</span>
+        </button>
+      </nav>
+    </header>
+    <main id="content" class="static-read" tabindex="-1">
+      <article>
+        <header class="story-head">
+          <p class="static-kicker">Map layer</p>
+          <h1>History</h1>
+          <p>History places tied to the Timeline: towns, stations, earthworks, and other sites. Years on this layer are occupation or event years.</p>
+        </header>
+        <section class="story-reader-layout" aria-label="Featured place">
+          <div class="story-reader-main">
+            <h2>Big Bone Lick</h2>
+            <p class="story-card-meta">Boone County · 10000 BCE – 8000 BCE</p>
+            <p>A Pleistocene salt lick where mastodons left bones in the mud — Kentucky’s window on deep time.</p>
+            <div class="story-body"><p>Big Bone Lick was a mineral spring where Pleistocene mastodons, mammoths, and ground sloths left bones in the mud while seeking salt. Native peoples and later explorers—including Christopher Gist—collected fossils here; Thomas Jefferson later studied specimens from the lick. The site became Big Bone Lick State Historic Site, one of Kentucky’s earliest windows on deep time and a waypoint for salt hunters on the Ohio frontier.</p></div>
+            <div class="static-cta">
+              <a class="btn" href="/kyhistorydrive/caves-preview/#map/history/big-bone-lick">Open this layer on the map</a>
+              <a class="btn ghost" href="/kyhistorydrive/caves-preview/#map">Full map</a>
+            </div>
+          </div>
+          <figure class="story-sidebar-photo">
+      <a class="story-sidebar-photo-frame" href="https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg" target="_blank" rel="noopener noreferrer">
+        <img src="/kyhistorydrive/caves-preview/content/photos/layers/big-bone-lick.jpg" alt="Big Bone Lick State Park" loading="lazy" />
+      </a>
+      <figcaption>
+        <p class="story-sidebar-photo-cap">Big Bone Lick State Park</p>
+        <p class="hp-photo-credit">Photo: Mattguyver · Wikimedia Commons · CC BY 3.0</p>
+      </figcaption>
+    </figure>
+        </section>
+        <section aria-label="Places on this layer">
+          <h2>174 places</h2>
+          <ul class="place-list"><li>Adams Site (15Fu4) <span class="muted">1100 – 1500</span></li><li>Andalex Village (15Hk22), Hopkins County <span class="muted">Hopkins County · 1175 – 1275</span></li><li>Ann McGinty <span class="muted">1775 – 1815</span></li><li>Annis Mound &amp; Village (15Bt2) <span class="muted">1300 – 1350</span></li><li>Ashland Central Park Adena Mounds <span class="muted">Boyd County · 500 BCE – 250 CE</span></li><li>Augusta founding / Capt. Philip Buckner <span class="muted">1797</span></li><li>Bagdad / Consolation rail stop <span class="muted">1850 – 1861</span></li><li>Bardstown Founding <span class="muted">Nelson County seat County · 1780 – 1788</span></li><li>Basil Hayden Sr. / Holy Cross (Pottinger's Creek) <span class="muted">Nelson County · 1785</span></li><li>Battle of Blue Licks <span class="muted">1782</span></li><li>Benjamin Logan / Logan's Station <span class="muted">Lincoln County · 1775 – 1777</span></li><li>Big Bone Lick <span class="muted">Boone County · 10000 BCE – 8000 BCE</span></li><li>Bland W. Ballard / Tyler Station <span class="muted">Shelby County · 1761 – 1788</span></li><li>Blue Jacket at Limestone (Maysville) <span class="muted">Mason County · 1787 – 1788</span></li><li>Bowling Green founding / Bolin Green (1798) <span class="muted">1798</span></li><li>Bryan Station siege (Aug 15–16, 1782) <span class="muted">Fayette County · 1782</span></li><li>Buckner Site (15Bb12) <span class="muted">1200 – 1550</span></li><li>Bullitt's Lick <span class="muted">Bullitt County · 1773 – 1780</span></li><li>Camp Nelson (Civil War depot and USCT recruiting center) <span class="muted">Jessamine County · 1863 – 1865</span></li><li>Cane Ridge Meeting House (KHS marker #51) <span class="muted">Bourbon County · 1791 – 1804</span></li><li>Canewood, Gen. Charles Scott’s last home (KHS marker #116) <span class="muted">Clark County · 1785 – 1813</span></li><li>Capt. Jack Jouett / Craig’s Creek <span class="muted">1781 – 1797</span></li><li>Capt. John Strode / Strode's Station 1779 Clark County <span class="muted">1779 – 1781</span></li><li>Capt. Nathaniel Hart / White Oak Springs <span class="muted">1779 – 1782</span></li><li>Capt. Will Emery / Long Hunters <span class="muted">Warren County · 1769</span></li><li>Carlisle courthouse square (Nicholas County seat since 1816) <span class="muted">Nicholas County · 1799 – 1816</span></li><li>Carlston Annis Shell Mound <span class="muted">Butler County · 3000 BCE – 1000 BCE</span></li><li>Carrollton (Port William) at the Kentucky–Ohio confluence <span class="muted">Carroll County · 1792 – 1838</span></li><li>Carter Caves / Cascade Cave &amp; Falls <span class="muted">1946</span></li><li>Catherine Spears Carpenter <span class="muted">Casey County · 1806 – 1818</span></li><li>Chickasaw / Jackson Purchase <span class="muted">Western Kentucky County · 1818</span></li><li>Chiggerville (15Oh1) <span class="muted">3000 BCE – 1000 BCE</span></li><li>Christopher Gist / Ohio Company <span class="muted">Fayette County · 1750</span></li><li>Cleek-McCabe Fort Ancient Village <span class="muted">1200 – 1300</span></li><li>Cloudsplitter Rockshelter (15Mf36) <span class="muted">3000 BCE – 1000 BCE</span></li><li>Col. John Bowman / Battle of Chillicothe <span class="muted">1779</span></li><li>Col. John Hardin’s Pleasant Run homestead (approximate) <span class="muted">Washington County · 1786 – 1792</span></li><li>Col. John Todd of Lexington <span class="muted">1775 – 1782</span></li><li>Col. William Russell III <span class="muted">1780 – 1813</span></li><li>Craig's Station / Travelling Church (Gilbert's Creek) <span class="muted">1781 – 1783</span></li><li>Cumberland Falls</li><li>Cumberland Gap / Thomas Walker <span class="muted">Bell County · 1750</span></li><li>Cynthiana founding / Robert Harrison <span class="muted">1793</span></li><li>Daniel Trabue House, Columbia (KHS marker #1782) <span class="muted">Adair County · 1778 – 1840</span></li><li>Danville Constitution Square <span class="muted">Boyle County · 1784 – 1792</span></li><li>David Snowden homeplace <span class="muted">1825 – 1914</span></li><li>Diamond Caverns Park City / Ste. Genevieve limestone <span class="muted">1859</span></li><li>Dover Mound (Adena burial mound, Mason County) <span class="muted">800 BCE – 700 CE</span></li><li>Drennon Springs <span class="muted">1773 – 1785</span></li><li>E.H. Taylor Jr. / Old Taylor Distillery — Bottled-in-Bond Act (1897) <span class="muted">1897</span></li><li>Egushawa's Odawa at Martin's Station <span class="muted">1780 – 1795</span></li><li>Elizabethtown founding / Severns Valley <span class="muted">1780 – 1797</span></li><li>Ephraim McDowell House — first ovariotomy (1809) <span class="muted">1809</span></li><li>Estill Springs <span class="muted">1814 – 1924</span></li><li>Estill's Defeat <span class="muted">Montgomery County · 1782</span></li><li>Falls of the Ohio <span class="muted">Clarksville County · 4000 BCE – 1800 CE</span></li><li>Falmouth at the Licking Forks <span class="muted">1793 – 1799</span></li><li>Flemingsburg (Fleming County courthouse) <span class="muted">Fleming County · 1787 – 1812</span></li><li>Fort Jefferson (Clark's post on the Mississippi) <span class="muted">1780 – 1781</span></li><li>Fox Farm Fort Ancient <span class="muted">Mason County · 1200 – 1700</span></li><li>Frankfort Founding <span class="muted">Franklin County · 1780 – 1830</span></li><li>Gaitskill Mound <span class="muted">Montgomery County · 800 BCE – 700 CE</span></li><li>Gen. James Wilkinson’s Love House site, Frankfort (KHS marker #1182) <span class="muted">Franklin County · 1784 – 1792</span></li><li>George Rogers Clark / Corn Island <span class="muted">Jefferson County · 1778 – 1780</span></li><li>Georgetown / Royal Spring <span class="muted">Scott County · 1774 – 1790</span></li><li>Glasgow / Barren County seat <span class="muted">1798 – 1809</span></li><li>Great Saltpetre Cave <span class="muted">Rockcastle County · 1815</span></li><li>Hancock Taylor / Taylor's Fork burial <span class="muted">1773 – 1774</span></li><li>Hansen Site (15GP14) <span class="muted">2000 BCE – 1500 CE</span></li><li>Hardin Village Fort Ancient <span class="muted">Greenup County · 1550 – 1650</span></li><li>Harry Innes (Frankfort / federal judge) <span class="muted">1783 – 1816</span></li><li>Henderson / Red Banks <span class="muted">1797 – 1799</span></li><li>Henry McKenna <span class="muted">1855 – 1883</span></li><li>Hidden River Cave (Horse Cave) <span class="muted">Hart County · 1890 – 1943</span></li><li>Hodgenville (Hodgen’s Mill), KHS marker #1096 <span class="muted">LaRue County · 1780 – 1843</span></li><li>Holder's Station / Lower Howard's Creek <span class="muted">1782 – 1799</span></li><li>Hopkinsville founding (Elizabeth → Hopkinsville) <span class="muted">1797 – 1804</span></li><li>Howard Site (15Ma427) Late Fort Ancient <span class="muted">1400 – 1750</span></li><li>Hubbell's Flatboat Fight — Limestone Landing <span class="muted">1791</span></li><li>Indian Fort Mountain <span class="muted">Madison County · 39 BCE – 236 CE</span></li><li>Indian Knoll <span class="muted">3000 BCE – 1000 BCE</span></li><li>Inner Bluegrass phosphatic limestone &amp; horse country <span class="muted">Fayette County · 1780 – 1820</span></li><li>Isaac Shelby <span class="muted">Lincoln County · 1780 – 1792</span></li><li>Jacob Beam / Hardin's Creek <span class="muted">1795</span></li><li>Jacob Spears <span class="muted">Bourbon County · 1790</span></li><li>James C. Crow / Oscar Pepper <span class="muted">Woodford County · 1837</span></li><li>James Knox / Camp Knox (Skinhouse Branch) <span class="muted">1770 – 1771</span></li><li>Jenny Wiley / Big Sandy <span class="muted">1789 – 1800</span></li><li>Jeptha’s Knob marker, Clay Village (KHS #161) <span class="muted">Shelby County · 1887 – 1925</span></li><li>John Bradford’s Fairfield, KHS marker #1864 (Kentucky Gazette printer) <span class="muted">Fayette County · 1787 – 1830</span></li><li>John Filson <span class="muted">Jefferson County · 1783 – 1788</span></li><li>John Finley <span class="muted">1752 – 1769</span></li><li>John Floyd / Floyd's Station <span class="muted">Jefferson County · 1774 – 1783</span></li><li>Kentucky Association race course site, E. Fifth &amp; Race Sts., Lexington <span class="muted">Fayette County · 1826 – 1933</span></li><li>Kentucky River Palisades</li><li>Lancaster founding / Wallace’s Crossroads <span class="muted">1797</span></li><li>Lawrenceburg founding / Kaufman’s–Coffman’s Station <span class="muted">1780 – 1827</span></li><li>Lebanon / Hardin's Creek Meeting House <span class="muted">1789 – 1834</span></li><li>Leestown <span class="muted">Franklin County · 1773 – 1777</span></li><li>Levi Todd / Ellerslie (Lexington co-founder) <span class="muted">1775 – 1807</span></li><li>Lexington &amp; Ohio Railroad <span class="muted">Franklin County · 1830 – 1835</span></li><li>Lexington Named <span class="muted">Fayette County · 1782</span></li><li>Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house) <span class="muted">Franklin County · 1796 – 1837</span></li><li>Lost River Cave <span class="muted">1790 – 1800</span></li><li>Louisville &amp; Nashville Railroad (main line opens) <span class="muted">Jefferson County · 1850 – 1859</span></li><li>Louisville and Portland Canal (locks) <span class="muted">Jefferson County · 1826 – 1830</span></li><li>Lower Shawneetown <span class="muted">Greenup County · 1600 – 1750</span></li><li>M. Robison Sawmill (Irvine) <span class="muted">1908</span></li><li>Maj. Joseph Bowman <span class="muted">1775 – 1779</span></li><li>Maj. Silas Harlan / Harlan’s Station <span class="muted">1774 – 1782</span></li><li>Mammoth Cave saltpeter (War of 1812) <span class="muted">Edmonson County · Historic Entrance County · 1812 – 1815</span></li><li>Mann’s Lick saltworks (approximate, north of Fairdale) <span class="muted">Jefferson County · 1773 – 1830</span></li><li>Mantle Rock, Trail of Tears campsite (KHS marker #1675) <span class="muted">Livingston County · 1838 – 1839</span></li><li>Mary Ingles at Big Bone Lick (1755 escape) <span class="muted">1755</span></li><li>McAfee Station on the Salt River <span class="muted">Mercer County · 1773 – 1785</span></li><li>McGary's Station / Shawnee Springs <span class="muted">1779 – 1782</span></li><li>McLean Drift Bank, old Paradise on the Green River (generalized) <span class="muted">Muhlenberg County · 1820 – 1967</span></li><li>Michael Stoner / Holsteiner <span class="muted">1774</span></li><li>Mount Horeb Adena / Adena Park <span class="muted">Fayette County · 500 BCE – 250 CE</span></li><li>Mount Sterling Founding <span class="muted">Montgomery County seat County · 1792</span></li><li>Muir Site (15Js86) <span class="muted">1010 – 1255</span></li><li>Natural Bridge <span class="muted">10000 BCE – 1000 BCE</span></li><li>New Castle — Henry County seat (1798) <span class="muted">1798</span></li><li>Newport at the Licking Mouth <span class="muted">1793 – 1803</span></li><li>Newt Kash Hollow (15Mf1) <span class="muted">1000 BCE – 200 CE</span></li><li>Nicholasville founding / Rev. John Metcalf 1798 <span class="muted">1798</span></li><li>Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized) <span class="muted">Greenup County · 200 BCE – 500 CE</span></li><li>Old Mulkey Meetinghouse State Historic Site, Tompkinsville <span class="muted">Monroe County · 1804 – 1856</span></li><li>Owensboro / Yellow Banks <span class="muted">1797 – 1817</span></li><li>Owingsville (Bath County seat) <span class="muted">Bath County · 1795 – 1811</span></li><li>Paducah — 1827 William Clark plat <span class="muted">1827 – 1832</span></li><li>Paris Founding <span class="muted">Bourbon County seat County · 1789 – 1790</span></li><li>Peter Village enclosure (15Fa166) <span class="muted">500 BCE – 0</span></li><li>Pilot Knob State Nature Preserve (Boone’s Overlook) <span class="muted">Powell County · 1769</span></li><li>Pound Gap, Pine Mountain (Kentucky side, near Jenkins) <span class="muted">Letcher County · 1750 – 1864</span></li><li>Read Shell Midden (15Bt10) <span class="muted">3000 BCE – 1000 BCE</span></li><li>Red Bird River Petroglyphs, original site near Eriline (15CY51) <span class="muted">Clay County · 10000 BCE – 1000 BCE</span></li><li>Red River Gorge Geological Area <span class="muted">Menifee County · 1962 – 1993</span></li><li>Richard Henderson / Transylvania <span class="muted">Henderson County · 1775</span></li><li>Richmond Founding <span class="muted">Madison County · 1798 – 1809</span></li><li>Robbins Mounds (Boone County Adena) <span class="muted">150 BCE – 1 CE</span></li><li>Rowlandton Mound Site (15McN3), Paducah <span class="muted">McCracken County · 1100 – 1350</span></li><li>Ruddell's Station <span class="muted">1779 – 1780</span></li><li>Russellville (Logan Court House), Logan County courthouse square <span class="muted">Logan County · 1790 – 1810</span></li><li>Saltpeter Cave (Carter Caves) <span class="muted">1812 – 1815</span></li><li>Salts Cave (15Ht4) <span class="muted">1000 BCE – 200 BCE</span></li><li>Shaker Village of Pleasant Hill <span class="muted">Mercer County · 1805 – 1910</span></li><li>Shelbyville Founding <span class="muted">Shelby County seat County · 1792 – 1800</span></li><li>Shepherdsville / Salt River falls <span class="muted">1793 – 1797</span></li><li>Simpsonville <span class="muted">1816</span></li><li>Singer-Hieronymus Site Complex (15Sc3 / 15Sc225) <span class="muted">1200 – 1550</span></li><li>Slack Farm (15Un28) Caborn-Welborn village <span class="muted">1400 – 1700</span></li><li>Slone Site (15Pi11), Pike County <span class="muted">Pike County · 1350 – 1400</span></li><li>Somerset — Pulaski County seat (1801) <span class="muted">1801</span></li><li>Springfield / Washington County seat <span class="muted">1792 – 1793</span></li><li>Squire Boone / Painted Stone / Long Run <span class="muted">Shelby &amp; Jefferson counties County · 1780 – 1781</span></li><li>Stanford / St. Asaph (Logan’s Fort) <span class="muted">1775 – 1786</span></li><li>Stitzel Brothers Distillery remains, 25th &amp; Maple, Louisville <span class="muted">Jefferson County · 1879 – 1935</span></li><li>Sweet Lick Knob Fort Ancient public building <span class="muted">1400 – 1450</span></li><li>Tolu Site (15Cn1) <span class="muted">1200 – 1300</span></li><li>Turk Site (15Ce6) <span class="muted">1100 – 1300</span></li><li>Twin Mounds Site (15Ba2 / Nolan) <span class="muted">1200 – 1450</span></li><li>Versailles founding / Hezekiah Briscoe <span class="muted">1792</span></li><li>Ward Site (15McL11) Late Archaic <span class="muted">3000 BCE – 1000 BCE</span></li><li>Warriors’ Path (Athiamiowee), KHS marker #697, Gray Hawk <span class="muted">Jackson County · 1674 – 1769</span></li><li>Washington, Mason County (Old Washington) <span class="muted">Mason County · 1785 – 1786</span></li><li>Wea (Waayaahtanwa) / Ouiatenon <span class="muted">1795 – 1818</span></li><li>Wickliffe Mounds <span class="muted">Ballard County · 1100 – 1350</span></li><li>William Christian / Fort William <span class="muted">1786</span></li><li>William Hoy’s Station (Madison County) <span class="muted">Madison County · 1781 – 1782</span></li><li>William Whitley / Sportsman's Hill <span class="muted">Lincoln County · 1787 – 1794</span></li><li>Winchester Founding <span class="muted">1792 – 1794</span></li><li>Worthington's Fort (Edward Worthington) <span class="muted">1779 – 1781</span></li><li>Wright Mounds (Montgomery County Adena) <span class="muted">1 – 250</span></li></ul>
+        </section>
+      </article>
+    </main>
+    <footer class="foot">
+      <span>kyhistorydrive.com</span>
+      <a href="/kyhistorydrive/caves-preview/about/">About</a>
+      <a href="/kyhistorydrive/caves-preview/videos/">Videos</a>
+      <a href="/kyhistorydrive/caves-preview/routes/">Route maps</a>
+      <a href="/kyhistorydrive/caves-preview/privacy/">Privacy</a>
+      <a href="/kyhistorydrive/caves-preview/privacy/" data-privacy-choices hidden>Privacy choices</a>
+      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+    </footer>
+    <script>
+    (function () {
+      var src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033';
+      var started = false;
+      function load() {
+        if (started || document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
+        started = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.crossOrigin = 'anonymous';
+        s.src = src;
+        document.head.appendChild(s);
+      }
+      window.__khdLoadAds = load;
+      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (name) {
+        window.addEventListener(name, load, { once: true, passive: true });
+      });
+      if (window.requestIdleCallback) window.requestIdleCallback(function () { load(); }, { timeout: 2000 });
+      else window.addEventListener('load', function () { setTimeout(load, 1); });
+    })();
+  </script>
+    <script>
+    (function () {
+      var links = document.querySelectorAll('[data-privacy-choices]');
+      if (!links.length) return;
+      function revocationReady() {
+        var fc = window.googlefc;
+        return !!(fc && typeof fc.showRevocationMessage === 'function');
+      }
+      function openChoices(e) {
+        if (window.__khdLoadAds) window.__khdLoadAds();
+        if (!revocationReady()) {
+          if (location.pathname.indexOf('/kyhistorydrive/caves-preview/privacy') === 0) e.preventDefault();
+          return;
+        }
+        e.preventDefault();
+        window.googlefc.showRevocationMessage();
+      }
+      links.forEach(function (link) { link.addEventListener('click', openChoices); });
+      function reveal() {
+        if (!revocationReady()) return false;
+        links.forEach(function (link) { link.hidden = false; });
+        return true;
+      }
+      if (reveal()) return;
+      var tries = 0;
+      var timer = setInterval(function () {
+        tries += 1;
+        if (reveal() || tries > 120) clearInterval(timer);
+      }, 250);
+    })();
+  </script>
+    <script>
+      (function () {
+        var header = document.querySelector('header.site-header')
+        var menuBtn = document.getElementById('navMenuToggle')
+        var mq = window.matchMedia('(max-width: 600px)')
+        function closeMenu() {
+          if (!header || !menuBtn) return
+          header.classList.remove('is-menu-open')
+          menuBtn.setAttribute('aria-expanded', 'false')
+          menuBtn.setAttribute('aria-label', 'Open menu')
+        }
+        if (header && menuBtn) {
+          menuBtn.addEventListener('click', function () {
+            if (!mq.matches) return
+            var open = header.classList.toggle('is-menu-open')
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false')
+            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
+          })
+          document.getElementById('mainNav').addEventListener('click', function (e) {
+            if (e.target.closest('a') && mq.matches) closeMenu()
+          })
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeMenu()
+          })
+          mq.addEventListener('change', function (e) { if (!e.matches) closeMenu() })
+        }
+        function syncTheme(theme) {
+          document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+            var light = theme === 'light'
+            btn.setAttribute('aria-pressed', light ? 'true' : 'false')
+            btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme')
+            var label = btn.querySelector('.hp-theme-toggle-label')
+            var icon = btn.querySelector('.hp-theme-toggle-icon')
+            if (label) label.textContent = light ? 'Dark' : 'Light'
+            if (icon) icon.textContent = light ? '☾' : '☀'
+          })
+        }
+        syncTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
+        document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var next = document.documentElement.getAttribute('data-hp-theme') === 'light' ? 'dark' : 'light'
+            document.documentElement.setAttribute('data-hp-theme', next)
+            try {
+              localStorage.setItem('khd-theme', next)
+              localStorage.setItem('khd-home-preview-theme', next)
+            } catch (e) {}
+            syncTheme(next)
+          })
+        })
+      })()
+    </script>
+    <script>
+      (function () {
+        var phone = '(max-width: 699px)'
+        var desk = '(min-width: 700px)'
+        function apply(theme) {
+          var mode = theme === 'light' ? 'light' : 'dark'
+          document.querySelectorAll('picture.route-map-picture').forEach(function (pic) {
+            pic.querySelectorAll('source[data-theme]').forEach(function (src) {
+              var role = src.getAttribute('data-theme')
+              var slot = src.getAttribute('data-slot') || 'desk'
+              if (role !== mode) { src.media = 'not all'; return }
+              src.media = slot === 'phone' ? phone : slot === 'desk' ? desk : '(min-width: 0px)'
+            })
+            var img = pic.querySelector('img')
+            if (!img) return
+            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
+            if (next) img.setAttribute('src', next)
+            img.remove()
+            pic.appendChild(img)
+          })
+          document.querySelectorAll('a.route-map-full-link').forEach(function (link) {
+            var next = link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light')
+            if (next) link.setAttribute('href', next)
+          })
+        }
+        function run() { apply(document.documentElement.getAttribute('data-hp-theme') || 'dark') }
+        run()
+        new MutationObserver(run).observe(document.documentElement, { attributes: true, attributeFilter: ['data-hp-theme'] })
+      })()
+    </script>
+  </body>
+</html>
