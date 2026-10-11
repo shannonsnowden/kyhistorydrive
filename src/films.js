@@ -160,7 +160,7 @@ export function filmCardHtml(film, { summary, href } = {}) {
     </a>`
 }
 
-export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '' } = {}) {
+export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '', transcript = '' } = {}) {
   const level = headingLevel === 3 ? 3 : 2
   const vertical = Boolean(film.useVertical && film.verticalSrc)
   const sources = vertical
@@ -172,6 +172,9 @@ export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '' 
     ? `<p class="film-runtime">${escapeHtml(film.runtimeLabel)}</p>`
     : ''
   const more = moreHtml ? `<p class="film-more">${moreHtml}</p>` : ''
+  const transcriptHtml = transcript
+    ? `<details class="film-transcript"><summary>Transcript</summary><pre>${escapeHtml(transcript)}</pre></details>`
+    : ''
   const summaryText = summary || ''
   return `<figure class="film-block" id="${escapeHtml(film.id)}">
       <figcaption class="film-lead">
@@ -188,6 +191,7 @@ export function filmPlayerHtml(film, { summary, headingLevel = 2, moreHtml = '' 
       </div>
       <p class="film-credit">${escapeHtml(film.credit)}</p>
       ${more}
+      ${transcriptHtml}
       <script>(${wireFilmCaptions.toString()})(document.currentScript.closest('.film-block'))</script>
     </figure>`
 }

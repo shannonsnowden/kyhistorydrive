@@ -1449,6 +1449,25 @@ html[data-hp-theme="light"] .era-other {
   color: var(--muted);
   font-size: 0.85rem;
 }
+.film-transcript {
+  margin: 0.85rem 0 0;
+}
+.film-transcript summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--heading);
+}
+.film-transcript summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.film-transcript pre {
+  margin: 0.65rem 0 0;
+  white-space: pre-wrap;
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
 .film-credit {
   margin-top: 0.55rem;
   color: var(--text);
