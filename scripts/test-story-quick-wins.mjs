@@ -23,6 +23,10 @@ import {
   nearbyMarkers,
   nearbyPlaces,
   nearbyStories,
+  compactYearRange,
+  learnMoreBlockHtml,
+  learnMoreItemsFromMarkdown,
+  learnMoreLinkText,
   relatedAndNearbyHtml,
   photoCreditHtml,
   photoCreditModel,
@@ -290,10 +294,59 @@ const merged = relatedAndNearbyHtml(
   [{ kind: 'marker', id: '9', title: 'A marker', miles: 1.2 }],
 )
 assert.match(merged, /Related and nearby/)
+assert.match(merged, /class="related-card"/)
 assert.match(merged, /class="related-story"/)
-assert.match(merged, /nearby-kind">Story · Jessamine County</)
+assert.match(merged, /related-card-title">Related one</)
+assert.match(merged, /nearby-kind">Story</)
+assert.match(merged, /Jessamine County/)
 assert.match(merged, /nearby-kind">Historical marker</)
 assert.match(merged, /nearby-miles">1.2 miles</)
+assert.match(merged, /related-card-chevron/)
+assert.match(merged, /aria-hidden="true"/)
 assert.ok(merged.indexOf('Related one') < merged.indexOf('A marker'))
+
+assert.equal(compactYearRange(1812, 1815), '1812\u20131815')
+assert.equal(compactYearRange(-800, 700), '800 BCE\u2013700 CE')
+assert.equal(compactYearRange(1812, 1812), '1812')
+assert.equal(
+  learnMoreLinkText('https://en.wikipedia.org/wiki/Great_Saltpetre_Cave'),
+  'Great Saltpetre Cave on Wikipedia',
+)
+assert.equal(
+  learnMoreLinkText('https://en.wikipedia.org/wiki/Bird%27s_invasion_of_Kentucky'),
+  "Bird's invasion of Kentucky on Wikipedia",
+)
+assert.equal(
+  learnMoreLinkText('https://en.wikipedia.org/wiki/Falmouth,_Kentucky', 'https://en.wikipedia.org/wiki/Falmouth,_Kentucky'),
+  'Falmouth, Kentucky on Wikipedia',
+)
+assert.equal(
+  learnMoreLinkText('https://www.nps.gov/maca/learn/historyculture/index.htm', 'Mammoth Cave'),
+  'Mammoth Cave on NPS.gov',
+)
+assert.equal(learnMoreLinkText('https://www.example.com/places/foo', ''), 'foo on example.com')
+assert.equal(
+  learnMoreLinkText(
+    'https://npgallery.nps.gov/AssetDetail/NRIS/85002975',
+    'Croley-Evans Site (15KX24), National Register of Historic Places (NPGallery)',
+  ),
+  'Croley-Evans Site (15KX24), National Register of Historic Places (NPGallery) on NPS.gov',
+)
+assert.equal(
+  learnMoreLinkText('https://www.nps.gov/articles/000/paleontology-of-ohio-coral-reef-nnl.htm', 'https://www.nps.gov/articles/000/paleontology-of-ohio-coral-reef-nnl.htm'),
+  'paleontology of ohio coral reef nnl on NPS.gov',
+)
+const learn = learnMoreBlockHtml(
+  learnMoreItemsFromMarkdown(
+    'Source: [https://en.wikipedia.org/wiki/Great_Saltpetre_Cave](https://en.wikipedia.org/wiki/Great_Saltpetre_Cave)',
+  ),
+  { storyTitle: 'Great Saltpetre Cave' },
+)
+assert.match(learn, /Learn more/)
+assert.match(learn, /Great Saltpetre Cave on Wikipedia/)
+assert.match(learn, /class="external-icon"/)
+assert.match(learn, /opens in a new tab/)
+assert.match(learn, /learn-more-list/)
+assert.doesNotMatch(learn, /<li>[^<]*•/)
 
 console.log('story quick wins: ok')

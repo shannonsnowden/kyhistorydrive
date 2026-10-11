@@ -14,9 +14,10 @@ import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-ma
 import {
   citeBoxHtml,
   correctionHtml,
+  learnMoreBlockHtml,
   markerRecords,
-  nearbyHtml,
   photoCreditHtml,
+  relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
   wireCiteBoxes,
@@ -940,9 +941,9 @@ function collectResearchItems(linkList, extra = {}) {
     const normalized = normalizeResearchUrl(url)
     if (!normalized || isGrokipediaUrl(normalized) || seenUrl.has(normalized)) return
     seenUrl.add(normalized)
-    items.push({ label: labelForResearchUrl(normalized, label), url: normalized })
+    items.push({ label: labelForResearchUrl(normalized, label), linkText: label, url: normalized })
   }
-  for (const l of linkList || []) add(l.label, l.url)
+  for (const l of linkList || []) add(l.linkText || l.label, l.url)
   add('Kentucky Historical Society', extra.source_url)
   add('Website', extra.website)
 
@@ -969,7 +970,7 @@ function extractResearchLinks(markdown) {
     const normalized = normalizeResearchUrl(url)
     if (!normalized || isGrokipediaUrl(normalized) || seen.has(normalized)) return
     seen.add(normalized)
-    links.push({ label: labelForResearchUrl(normalized, label), url: normalized })
+    links.push({ label: labelForResearchUrl(normalized, label), linkText: label, url: normalized })
   }
   for (const link of extractMarkdownLinks(markdown)) add(link.label, link.url)
   for (const url of extractBareHttpUrls(markdown)) {
@@ -1117,15 +1118,7 @@ function researchLinksHtml(links, title, extra = {}) {
     return !(fam && alreadyFamilies.has(fam))
   })
   if (!items.length) return ''
-  return `<div class="popup-research">
-    <div class="historic-photos-label">Learn more</div>
-    <ul class="research-list">${items
-      .map(
-        (l) =>
-          `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a></li>`,
-      )
-      .join('')}</ul>
-  </div>`
+  return learnMoreBlockHtml(items, { storyTitle: title || '' })
 }
 
 
@@ -3080,18 +3073,26 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
           ${extras}
-          ${nearbyHtml(
-            { slug: meta.slug, title: s.title, lat: meta.lat ?? s.lat, lon: meta.lon ?? s.lon },
-            storyIndex.stories,
+          ${relatedAndNearbyForStory(
             {
-              headingLevel: 3,
-              markers: markerRecords(markerFeatures),
-              limit: 3,
-              excludeSlugs: [
-                ...(relatedData?.related?.[meta.slug] || []).map((item) => item.slug),
-                ...(routeBySlug(meta.slug)?.relatedStories || []),
-              ],
+              slug: meta.slug,
+              title: s.title,
+              era: s.era || meta.era,
+              tags: s.tags || meta.tags,
+              county: meta.county || s.county,
+              territoryNation: s.territoryNation || meta.territoryNation,
+              yearStart: s.yearStart ?? meta.yearStart,
+              yearEnd: s.yearEnd ?? meta.yearEnd,
+              lat: meta.lat ?? s.lat,
+              lon: meta.lon ?? s.lon,
+            },
+            storyIndex.stories,
+            markerRecords(markerFeatures),
+            {
+              headingLevel: 2,
+              excludeSlugs: routeBySlug(meta.slug)?.relatedStories || [],
               excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
+              limit: 3,
             },
           )}
           ${citeBoxHtml({
