@@ -29,7 +29,7 @@ Distance (measured on the map line): about 220 miles from the Ohio to Cumberland
 ## Waypoints (north to south) – coordinates WGS84, all approximate
 | # | stop | modern town / area | county, state | lat, lon | confidence |
 |---|---|---|---|---|---|
-| 1 | Lower Shawneetown (Ohio crossing, mouth of the Scioto) | South Portsmouth / Fullerton (opposite Portsmouth OH) | Greenup Co., KY (& Scioto Co., OH) | 38.677, -83.107 | high (town site), KYGeoNet point |
+| 1 | Lower Shawneetown (Ohio crossing, mouth of the Scioto) | South Portsmouth / Fullerton (opposite Portsmouth OH) | Greenup Co., KY (& Scioto Co., OH) | 38.7, -83.1 (rounded to 0.1°, protected site) | high (town site), KYGeoNet point |
 | 2 | Scioto prong via Slate Creek country | near Olive Hill / Mount Sterling area | Carter–Bath–Montgomery cos., KY | 38.137, -83.566 (bend) | low / conjectural |
 | 3 | Eskippakithiki (Indian Old Fields) | Indian Fields, ~10 mi E of Winchester | Clark Co., KY | 37.946, -84.000 | high |
 | 4 | Red River crossing (near Kentucky River junction) | near Clay City / Lulbegrud Creek | Clark–Powell–Estill cos., KY | ~37.84, -84.02 | medium |

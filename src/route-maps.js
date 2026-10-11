@@ -56,7 +56,7 @@ export const ROUTE_MAPS = [
     note: 'A dashed branch runs from Eskippakithiki northeast across the Licking near Upper Blue Licks (Fleming and Nicholas counties) to the Ohio at Cabin Creek (Mason and Lewis counties), with a Maysville prong.',
     sources: 'Sources: Filson 1784; KHS marker #697; KYGeoNet Ky Frontier Trails; NPS.',
     stops: [
-      wp('South Portsmouth / Fullerton, Greenup County, Kentucky, and Scioto County, Ohio', 'Lower Shawneetown', [38.677, -83.107]),
+      wp('South Portsmouth / Fullerton, Greenup County, Kentucky, and Scioto County, Ohio', 'Lower Shawneetown', [38.7, -83.1]),
       wp('near Olive Hill and the Mount Sterling area, Carter, Bath, and Montgomery counties, Kentucky', 'Scioto prong', [38.137, -83.566], true),
       wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.946, -84]),
       wp('near Clay City, Clark, Powell, and Estill counties, Kentucky', 'Red River crossing', [37.84, -84.02]),
@@ -143,7 +143,7 @@ export const ROUTE_MAPS = [
       wp('Pittsburgh and Ambridge/Baden, Allegheny and Beaver counties, Pennsylvania', "Shannopin's Town and Logstown"),
       wp('Coshocton, Coshocton County, Ohio', 'Wyandot town on the Muskingum', [40.27, -81.86]),
       wp('Lancaster and the Circleville area, Fairfield and Pickaway counties, Ohio', 'Hockhocking and Maguck'),
-      wp('Portsmouth, Ohio / South Portsmouth, Kentucky, Scioto County, Ohio, and Greenup County, Kentucky', 'Lower Shawneetown', [38.73, -82.99]),
+      wp('Portsmouth, Ohio / South Portsmouth, Kentucky, Scioto County, Ohio, and Greenup County, Kentucky', 'Lower Shawneetown', [38.7, -83.0]),
       wp('Piqua, Miami County, Ohio', 'Pickawillany', [40.18, -84.24]),
       wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.71, -83]),
       wp('Lewis, Mason, and Bracken counties, Kentucky', 'down the southeast side of the Ohio', null, true),

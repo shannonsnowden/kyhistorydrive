@@ -378,7 +378,7 @@ function renderFeatures(pack) {
     .map((item) => {
       const hasPhoto = Boolean(usablePhoto(item.photo))
       const media = hasPhoto
-        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}" aria-label="Read: ${escapeHtml(item.title)}" tabindex="-1" aria-hidden="true">${responsivePicture({
+        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}" aria-label="Read: ${escapeHtml(item.title)}" tabindex="-1">${responsivePicture({
             src: item.photo.image_url,
             alt: item.photo.title || item.title,
             loading: 'lazy',

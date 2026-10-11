@@ -923,6 +923,14 @@ html[data-hp-theme="light"] .era-other {
   line-height: 1.4;
 }
 .map-popup .popup-link { margin-top: 0.55rem; }
+.map-popup .popup-protected {
+  margin: 0.4rem 0 0.5rem;
+  padding: 0.4rem 0.55rem;
+  border-left: 3px solid var(--accent, #b7791f);
+  background: color-mix(in srgb, var(--accent, #b7791f) 10%, transparent);
+  font-size: 0.82rem;
+  color: var(--text, inherit);
+}
 .map-popup .detail-layer {
   font-size: 0.72rem;
   text-transform: uppercase;
