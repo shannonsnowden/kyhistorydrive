@@ -226,22 +226,33 @@
             <li>See approximate Native American territories and archaeological cultures beneath today’s roads.</li>
             <li>Tap any pin to read its marker or story. It works on your phone.</li>
           </ul>
-          <a class="btn hp-cta hp-map-cta" href="#map">Open the history map</a>
+        </div>
+        <div class="hp-map-cards">
+          <a class="hp-map-card hp-history-map" href="#map" aria-label="Open the history map: Every Historical Society marker in Kentucky">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" type="image/webp" />
+              <img alt="" width="640" height="400" loading="lazy" decoding="async" />
+            </picture>
+            <span class="hp-map-card-copy">
+              <h3 class="hp-map-card-title">Open the history map</h3>
+              <p class="hp-map-card-deck">Every Historical Society marker in Kentucky</p>
+            </span>
+          </a>
           <a class="hp-map-routes" href="/routes/" aria-label="Route maps: Follow six historic routes across Kentucky">
             <picture>
               <source media="(prefers-color-scheme: dark)" type="image/webp" />
               <img alt="" width="640" height="400" loading="lazy" decoding="async" />
             </picture>
-            <span class="hp-map-routes-copy">
-              <h3 class="hp-map-routes-title">Route maps</h3>
-              <p class="hp-map-routes-deck">Follow six historic routes across Kentucky</p>
+            <span class="hp-map-card-copy">
+              <h3 class="hp-map-card-title">Route maps</h3>
+              <p class="hp-map-card-deck">Follow six historic routes across Kentucky</p>
             </span>
           </a>
-          <script type="module">
-            import { paintRouteMapsCard } from '/src/route-card-art.js'
-            paintRouteMapsCard()
-          </script>
         </div>
+        <script type="module">
+          import { paintHomeMapCards } from '/src/route-card-art.js'
+          paintHomeMapCards()
+        </script>
       </section>
 
       <section class="hp-section hp-features-section" aria-labelledby="hp-features-title">

@@ -3078,11 +3078,20 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   height: 100%;
   min-height: 100%;
 }
-/* Same surface as .route-card and .hp-feature: panel, line, heading, muted. */
+/* Matched pair: history map and route maps. Same surface as .route-card. */
+.hp-map-cards {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin: 0.15rem 0 0.85rem;
+}
+.hp-map-card,
 .hp-map-routes {
   display: flex;
   flex-direction: column;
-  margin: 0.85rem 0 0;
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--panel);
@@ -3091,10 +3100,12 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   overflow: hidden;
   transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
+.hp-map-card picture,
 .hp-map-routes picture {
   display: block;
   background: var(--surface);
 }
+.hp-map-card img,
 .hp-map-routes img {
   display: block;
   width: 100%;
@@ -3103,37 +3114,47 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   object-fit: cover;
   background: var(--surface);
 }
-.hp-map-routes-copy {
+.hp-map-card-copy {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.75rem 0.85rem 0.85rem;
 }
-.hp-map-routes-title {
+.hp-map-card-title {
   margin: 0;
   color: var(--heading);
   font-size: 1.15rem;
   line-height: 1.25;
 }
-.hp-map-routes .hp-map-routes-deck {
+.hp-map-card-deck {
   margin: 0;
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.35;
 }
+.hp-map-card:hover,
 .hp-map-routes:hover {
   transform: translateY(-3px);
   border-color: var(--accent);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
 }
+.hp-map-card:focus-visible,
 .hp-map-routes:focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
+@media (max-width: 700px) {
+  .hp-map-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
+  .hp-map-card,
   .hp-map-routes {
     transition: none;
   }
+  .hp-map-card:hover,
   .hp-map-routes:hover {
     transform: none;
   }

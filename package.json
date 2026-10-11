@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/restore-truncated-sources.mjs && vite",
-    "build": "node scripts/test-homepage-quote.mjs && node scripts/check-ota-types.mjs && node scripts/restore-truncated-sources.mjs && node scripts/split-long-descriptions.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && node scripts/apply-story-overrides.mjs && node scripts/split-long-descriptions.mjs && node scripts/check-ota-types.mjs && node scripts/build-home-preview.mjs && node scripts/optimize-home-images.mjs && vite build && node scripts/prerender-pages.mjs && node scripts/check-ga-html.mjs && node scripts/check-map-canvas.mjs && node scripts/check-contact-html.mjs && node scripts/check-story-descriptions.mjs",
+    "dev": "node scripts/restore-truncated-sources.mjs && node scripts/build-history-map-card.mjs && vite",
+    "build": "node scripts/test-homepage-quote.mjs && node scripts/check-ota-types.mjs && node scripts/restore-truncated-sources.mjs && node scripts/split-long-descriptions.mjs && node scripts/build-stories.mjs && node scripts/build-stories-locations.mjs && node scripts/build-layer-geojson.mjs && node scripts/build-search-index.mjs && node scripts/apply-story-overrides.mjs && node scripts/split-long-descriptions.mjs && node scripts/check-ota-types.mjs && node scripts/build-home-preview.mjs && node scripts/optimize-home-images.mjs && node scripts/build-history-map-card.mjs && vite build && node scripts/prerender-pages.mjs && node scripts/check-ga-html.mjs && node scripts/check-map-canvas.mjs && node scripts/check-contact-html.mjs && node scripts/check-story-descriptions.mjs",
+    "build-history-map-card": "node scripts/build-history-map-card.mjs",
     "check-contact": "node scripts/check-contact-html.mjs",
     "test-map-canvas": "node scripts/check-map-canvas.mjs",
     "check-ga": "node scripts/check-ga-html.mjs",
