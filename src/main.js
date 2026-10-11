@@ -6,7 +6,7 @@ import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
-import { loadProtectedPins, protectedPinNoteHtml } from './protected-pins.js'
+import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
@@ -1594,9 +1594,9 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     <div class="map-popup">
       <div class="detail-layer">${escapeHtml(layerLabel)}</div>
       <h3>${escapeHtml(name)}</h3>
+      ${protectedPinNoteHtml(p.historyId || p.id || p.slug)}
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
-      ${protectedPinNoteHtml(p.id || p.historyId || p.slug)}
       ${descHtml}
       ${relatedHtml || ''}
       ${sourcesHtml}
@@ -1996,6 +1996,7 @@ function fitMapToKentucky(targetMap = map, opts = {}) {
 
 function flyToFocus(targetMap, focus, zoom = 12) {
   if (!targetMap || !focus || focus.lon == null || focus.lat == null) return
+  zoom = capProtectedZoom(zoom, focus.historyId, focus.slug, focus.id)
   // Skip no-op flies (filter re-renders used to re-call this and race on iPad Safari)
   try {
     const curZoom = targetMap.getZoom()
@@ -2222,6 +2223,7 @@ function initMap() {
     }
 
     applyMapFilters()
+    addProtectedPinLayers(map)
 
     mapReady = true
     syncAllLayersCheckbox()
@@ -3495,6 +3497,7 @@ async function openStoryHighlightOnHomeMap(place) {
     lat: place.lat,
     title: place.title || place.matchedPlace || place.slug,
     slug: place.slug,
+    historyId: place.historyId || null,
   }
   pendingFocus = focus
   highlightDetailProps = {
@@ -3577,7 +3580,9 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
     return false
   }
   const [lon, lat] = feature.geometry.coordinates
-  map.easeTo({ center: [lon, lat], zoom: Math.max(map.getZoom(), 12), duration: 600 })
+  const fp = feature.properties || {}
+  const zoom = capProtectedZoom(Math.max(map.getZoom(), 12), fp.historyId, fp.id, fp.slug, placeId)
+  map.easeTo({ center: [lon, lat], zoom, duration: 600 })
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
   return true
 }
