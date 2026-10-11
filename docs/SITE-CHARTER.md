@@ -21,7 +21,8 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 - **Sourcing**: history.ky.gov first, then HMdb, then Wikipedia. Link the page for the specific topic, not a homepage.
 - **Paragraphs**: 2 to 4 sentences. No walls of text.
 - **Photos**: real photos only, licensed and attributed. No AI images presented as photos; Story Studio illustrations allowed when labeled and credited. (pending Shannon's OK) When a photo is not from the story's period, caption it as a "later view".
-- **Native nations**: every new story gets a territory map, or a tag only when the source is oral tradition. Archaeological cultures get a shape only when sources place them in an area. Timeline map pages exist only when the map shows real change over time. Never remove panel layers.
+- **Fairness** (Shannon, 2026-10-11): Every story must be fair to the Shawnee and to every people it covers. Present Native nations, settlers and all groups with balance, using their own perspectives and names where sources allow, and avoid one-sided framing.
+- **Native nations**: every new story gets a territory map, or a tag only when the source is oral tradition. Archaeological cultures get a shape only when sources place them in an area. Timeline map pages exist only when the map shows real change over time. Never remove panel layers. Outside tribal review was skipped; stories rely on cited sources.
 
 ## Voice
 Plain and specific. Place first ("On the Green River's Big Bend in Butler County…"), dates and site numbers up front, short sentences. Call areas approximate when they are approximate. No hype.
