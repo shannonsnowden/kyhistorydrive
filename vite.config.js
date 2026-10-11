@@ -94,7 +94,8 @@ export default defineConfig({
   ],
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    // Published bundles stay unmapped. scripts/check-sourcemaps.mjs fails the build if dist contains a .map file.
+    sourcemap: false,
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
