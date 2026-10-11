@@ -89,8 +89,11 @@ class PrerenderPages {
     if (/\beval\s*\(|\bnew Function\b|onclick\s*=|javascript:/.test(lightboxJs)) {
       throw new Error('prerender: route map lightbox is not CSP-friendly')
     }
-    if (!/1920\s*\*\s*2/.test(lightboxJs)) {
-      throw new Error('prerender: route map lightbox does not build the hi-res URL in script')
+    if (!lightboxJs.includes('data-zoom-light-avif') || !lightboxJs.includes('data-zoom-dark-webp')) {
+      throw new Error('prerender: route map lightbox does not load theme-matched zoom art')
+    }
+    if (/3840|HIRES_WIDTH|-route-map-'/.test(lightboxJs)) {
+      throw new Error('prerender: route map lightbox still requests the old hi-res WebP')
     }
     PrerenderPages.configureMarked()
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
@@ -1000,9 +1003,14 @@ class PrerenderPages {
       .route-map-zoom { position: relative; display: block; }
       .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; margin: 0; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+      .route-map-caption-phone { display: none; }
       .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
       .route-map-phone-note a { color: var(--accent); }
-      @media (max-width: 699px) { .route-map-phone-note { display: block; } }
+      @media (max-width: 699px) {
+        .route-map-phone-note { display: block; }
+        .has-phone-caption .route-map-caption-desk { display: none; }
+        .route-map-caption-phone { display: block; }
+      }
       .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
       .route-waypoints li { margin: 0 0 0.35rem; }
       .route-links ul, .route-index-list { list-style: none; margin: 0; padding: 0; }
@@ -1454,6 +1462,20 @@ class PrerenderPages {
     if (!block.includes(`data-route-slug="${route.slug}"`) || !block.includes(`data-fallback="${route.files.fullWebp}"`)) {
       throw new Error(`prerender: ${urlPath} route map lightbox is missing its sources`)
     }
+    for (const file of [route.files.zoomLightAvif, route.files.zoomLightWebp, route.files.zoomDarkAvif, route.files.zoomDarkWebp]) {
+      if (!block.includes(file)) throw new Error(`prerender: ${urlPath} route map is missing zoom art ${file}`)
+    }
+    if (route.phoneCaption) {
+      const phone = block.match(/class="route-map-caption route-map-caption-phone">([\s\S]*?)<\/p>/)
+      if (!phone || phone[1] !== PrerenderPages.escapeHtml(route.phoneCaption)) {
+        throw new Error(`prerender: ${urlPath} phone caption does not match the crop`)
+      }
+      if (route.slug === 'christopher-gist-1750-51' && /north of the Ohio|Pickawillany/.test(phone[1])) {
+        throw new Error(`prerender: ${urlPath} phone caption still describes the route north of the Ohio`)
+      }
+    } else if (block.includes('route-map-caption-phone')) {
+      throw new Error(`prerender: ${urlPath} has a phone caption the full route does not need`)
+    }
     if (/onclick=|onerror=|onload=|javascript:/.test(block)) {
       throw new Error(`prerender: ${urlPath} route map uses an inline event handler`)
     }
@@ -1534,6 +1556,9 @@ class PrerenderPages {
       }
       if (!html.includes(route.files.webWebp) || !html.includes('loading="lazy"') || !html.includes('width="1600"')) {
         throw new Error(`prerender: /routes/ thumbnail for ${route.slug} is missing`)
+      }
+      if (!html.includes(route.files.phoneWebp) || !html.includes(route.files.phoneDarkWebp) || !html.includes('(max-width: 699px)')) {
+        throw new Error(`prerender: /routes/ thumbnail for ${route.slug} does not serve phone art under 700px`)
       }
     }
   }

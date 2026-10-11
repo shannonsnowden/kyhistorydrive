@@ -1,13 +1,12 @@
 /**
  * Full-screen viewer for route maps.
- * Hi-res files load only after a map is opened. Gestures are pointer, wheel,
- * and double-click — no library. 1920 * 2 is the light-only WebP width.
+ * Zoom art loads only after a map is opened: theme-matched AVIF, then WebP,
+ * then the 1600 WebP. Gestures are pointer, wheel, and double-click — no library.
  */
 ;(function () {
   if (window.__khdRouteLightbox) return
   window.__khdRouteLightbox = true
 
-  var HIRES_WIDTH = 1920 * 2
   var MAX_SCALE = 8
   var dialog = null
   var backdrop = null
@@ -19,6 +18,7 @@
   var spinner = null
   var closeBtn = null
   var trigger = null
+  var openFrame = null
   var inerted = []
   var locked = false
   var scrollY = 0
@@ -41,8 +41,20 @@
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches
   }
 
-  function hiresUrl(slug) {
-    return '/maps/routes/' + encodeURIComponent(slug) + '/' + encodeURIComponent(slug) + '-route-map-' + HIRES_WIDTH + '.webp'
+  function themeMode() {
+    return document.documentElement.getAttribute('data-hp-theme') === 'light' ? 'light' : 'dark'
+  }
+
+  function zoomChain(frame) {
+    var mode = themeMode()
+    var urls = []
+    ;['avif', 'webp'].forEach(function (ext) {
+      var url = frame.getAttribute('data-zoom-' + mode + '-' + ext) || ''
+      if (url && urls.indexOf(url) === -1) urls.push(url)
+    })
+    var fallback = frame.getAttribute('data-fallback') || ''
+    if (fallback && urls.indexOf(fallback) === -1) urls.push(fallback)
+    return urls
   }
 
   function makeButton(label, className, extra) {
@@ -442,8 +454,9 @@
     inerted = []
   }
 
-  function startLoad(hires, fallback) {
+  function startLoad(urls) {
     var gen = ++loadGen
+    var index = 0
     img.classList.remove('is-ready')
     showStatus('Loading map', true)
     dialog.setAttribute('aria-busy', 'true')
@@ -462,9 +475,9 @@
     }
     function fail() {
       if (gen !== loadGen) return
-      var current = img.getAttribute('src') || ''
-      if (fallback && current !== fallback) {
-        img.src = fallback
+      index += 1
+      if (index < urls.length) {
+        img.src = urls[index]
         return
       }
       dialog.setAttribute('aria-busy', 'false')
@@ -473,18 +486,22 @@
     }
     img.onload = ok
     img.onerror = fail
-    if (img.getAttribute('src') === hires && img.complete && img.naturalWidth) {
+    if (!urls.length) {
+      fail()
+      return
+    }
+    if (img.getAttribute('src') === urls[0] && img.complete && img.naturalWidth) {
       ok()
       return
     }
-    img.src = hires
+    img.src = urls[0]
   }
 
   function open(frame, opener) {
     var slug = frame.getAttribute('data-route-slug') || ''
-    var fallback = frame.getAttribute('data-fallback') || ''
     if (!slug) return
     ensure()
+    openFrame = frame
     var pic = frame.querySelector('img')
     var label = (pic && pic.getAttribute('alt')) || 'Route map'
     trigger = opener && opener.focus ? opener : frame.querySelector('.route-map-expand')
@@ -501,11 +518,12 @@
     setInert(true)
     document.addEventListener('keydown', onKey, true)
     closeBtn.focus()
-    startLoad(hiresUrl(slug), fallback)
+    startLoad(zoomChain(frame))
   }
 
   function close() {
     if (!dialog || dialog.hidden) return
+    openFrame = null
     loadGen += 1
     dialog.classList.remove('is-open')
     dialog.hidden = true
@@ -521,6 +539,11 @@
     trigger = null
     if (back && back.isConnected && back.focus) back.focus()
   }
+
+  new MutationObserver(function () {
+    if (!dialog || dialog.hidden || !openFrame) return
+    startLoad(zoomChain(openFrame))
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-hp-theme'] })
 
   document.addEventListener('click', function (e) {
     var frame = e.target.closest && e.target.closest('.route-map-zoom')

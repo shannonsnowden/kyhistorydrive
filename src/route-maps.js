@@ -13,9 +13,11 @@ const esc = (s) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
 
-function filesFor(slug, base) {
+function filesFor(slug, base, zoomStem) {
   const dir = `/maps/routes/${slug}`
   const f = (suffix) => `${dir}/${base}${suffix}`
+  const stem = zoomStem || slug
+  const zoom = (theme, ext) => `${dir}/zoom/${stem}-zoom-${theme}.${ext}`
   return {
     phoneWebp: f('-phone.webp'),
     phonePng: f('-phone.png'),
@@ -26,6 +28,10 @@ function filesFor(slug, base) {
     fullPng: f('.png'),
     darkWebp: f('-dark.webp'),
     darkPng: f('-dark.png'),
+    zoomLightAvif: zoom('light', 'avif'),
+    zoomLightWebp: zoom('light', 'webp'),
+    zoomDarkAvif: zoom('dark', 'avif'),
+    zoomDarkWebp: zoom('dark', 'webp'),
   }
 }
 
@@ -35,11 +41,13 @@ export const ROUTE_MAPS = [
   {
     slug: 'athiamiowee-the-warriors-path-through-kentucky',
     base: 'warriors-path-map',
+    zoomStem: 'warriors-path',
     phoneCrop: true,
     era: 'before 1674 to the 1770s',
     alt: "Map of the Warriors' Path from the Ohio River at the Scioto south past Eskippakithiki to Cumberland Gap and Cherokee towns.",
     caption:
       "Solid: Warriors' Path (approximate) · Dotted: conjectural segment · Light dashes: branch prongs to the Ohio. Map: Kentucky History Drive.",
+    phoneCaption: "Solid: Warriors' Path (approximate). Map: Kentucky History Drive.",
     sentence:
       "The Warriors' Path ran from the Ohio River opposite the mouth of the Scioto (Lower Shawneetown, near present South Portsmouth) south past Eskippakithiki in Clark County, across the Red and Kentucky rivers near Irvine, along War Fork and Goose Creek to Flat Lick, over the Cumberland River at Pineville, and through Cumberland Gap toward the Cherokee Overhill towns on the Little Tennessee River.",
     distance:
@@ -121,6 +129,8 @@ export const ROUTE_MAPS = [
     alt: "Map of Christopher Gist's 1750–51 route from Old Town, Maryland, through Ohio and Kentucky to his home on the Yadkin.",
     caption:
       'Solid: route north of the Ohio (approximate) · Dotted: Kentucky and return (conjectural) · Light dashes: side trip to Pickawillany. Map: Kentucky History Drive.',
+    phoneCaption:
+      'Dotted: Kentucky and return (conjectural); the return is not shown in this crop. Map: Kentucky History Drive.',
     sentence:
       "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Kentucky River and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
     distance:
@@ -159,6 +169,7 @@ export const ROUTE_MAPS = [
     era: '1775',
     alt: "Map of William Calk's 1775 trek from Prince William County, Virginia, through Cumberland Gap to Boonesborough, Kentucky.",
     caption: "Solid: Calk's route (approximate) · Dotted: conjectural segment. Map: Kentucky History Drive.",
+    phoneCaption: "Solid: Calk's route (approximate). Map: Kentucky History Drive.",
     sentence:
       "William Calk walked from Prince William County, Virginia, by Rapidan and over the Blue Ridge, down the Valley to Crow's Ferry, Pepper's Ferry on the New River and Fort Chiswell, across the Clinch country to Martin's Station in Powell Valley, through Cumberland Gap on April 8, and along Boone's Trace by the Cumberland, Laurel and Rockcastle rivers to Boonesborough on April 20, 1775.",
     distance: 'About 490 miles, a 39-day trip including a five-day snowbound stop on the Clinch, measured on the map line.',
@@ -233,6 +244,7 @@ export const ROUTE_MAPS = [
     alt: 'Map of the Trail of Tears Northern Route across Kentucky via Hopkinsville, Princeton and Mantle Rock to the Ohio at Golconda.',
     caption:
       'Solid: Northern Route (NPS designated, approximate) · Light dashes: Benge Route (another detachment). Map: Kentucky History Drive.',
+    phoneCaption: 'Solid: Northern Route (NPS designated, approximate). Map: Kentucky History Drive.',
     sentence:
       "On the Northern Route of the Trail of Tears, Cherokee detachments entered Kentucky on the Port Royal Road in Todd County, camped at Hopkinsville and Princeton, followed the Salem–Golconda Road through Salem past Mantle Rock, and crossed the Ohio at Berry's Ferry to Golconda, Illinois, before heading west to the Mississippi.",
     distance:
@@ -258,7 +270,7 @@ export const ROUTE_MAPS = [
 ]
 
 for (const route of ROUTE_MAPS) {
-  route.files = filesFor(route.slug, route.base)
+  route.files = filesFor(route.slug, route.base, route.zoomStem)
   if (route.alt.length > 125) {
     throw new Error(`route map alt for ${route.slug} is ${route.alt.length} characters`)
   }
@@ -299,9 +311,13 @@ export function routeMapPictureHtml(route, { thumb = false } = {}) {
   const sizes = '(min-width: 700px) min(100vw, 52rem)'
   const sources = thumb
     ? [
-        source('dark', 'thumb', f.darkWebp, 'image/webp', '(prefers-color-scheme: dark)'),
-        source('dark', 'thumb', f.darkPng, 'image/png', '(prefers-color-scheme: dark)'),
-        source('light', 'thumb', f.webWebp, 'image/webp', '(min-width: 0px)'),
+        source('dark', 'phone', f.phoneDarkWebp, 'image/webp', '(max-width: 699px) and (prefers-color-scheme: dark)'),
+        source('dark', 'phone', f.phoneDarkPng, 'image/png', '(max-width: 699px) and (prefers-color-scheme: dark)'),
+        source('light', 'phone', f.phoneWebp, 'image/webp', '(max-width: 699px)'),
+        source('light', 'phone', f.phonePng, 'image/png', '(max-width: 699px)'),
+        source('dark', 'desk', f.darkWebp, 'image/webp', '(min-width: 700px) and (prefers-color-scheme: dark)'),
+        source('dark', 'desk', f.darkPng, 'image/png', '(min-width: 700px) and (prefers-color-scheme: dark)'),
+        source('light', 'desk', f.webWebp, 'image/webp', '(min-width: 700px)'),
       ]
     : [
         source('dark', 'phone', f.phoneDarkWebp, 'image/webp', '(max-width: 699px) and (prefers-color-scheme: dark)'),
@@ -321,7 +337,8 @@ export function routeMapPictureHtml(route, { thumb = false } = {}) {
 /** Thumbnail or story figure. The hi-res file is not in the markup; the viewer loads it on open. */
 export function routeMapZoomHtml(route, { thumb = false } = {}) {
   const label = `Expand: ${route.alt}`
-  return `<div class="route-map-zoom" data-route-slug="${esc(route.slug)}" data-fallback="${esc(route.files.fullWebp)}">
+  const f = route.files
+  return `<div class="route-map-zoom" data-route-slug="${esc(route.slug)}" data-fallback="${esc(f.fullWebp)}" data-zoom-light-avif="${esc(f.zoomLightAvif)}" data-zoom-light-webp="${esc(f.zoomLightWebp)}" data-zoom-dark-avif="${esc(f.zoomDarkAvif)}" data-zoom-dark-webp="${esc(f.zoomDarkWebp)}">
       ${routeMapPictureHtml(route, { thumb })}
       <button type="button" class="route-map-expand" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="${esc(label)}">
         <svg class="route-map-expand-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
@@ -381,10 +398,11 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
       <h${level} id="route-map-heading">View the map</h${level}>
       <p class="route-summary">${esc(route.sentence)}</p>
       ${route.distance ? `<p>${esc(route.distance)}</p>` : ''}
-      <figure class="route-map-figure">
+      <figure class="route-map-figure${route.phoneCaption ? ' has-phone-caption' : ''}">
         ${routeMapZoomHtml(route)}
         <figcaption>
-          <p class="route-map-caption">${esc(route.caption)}</p>
+          <p class="route-map-caption${route.phoneCaption ? ' route-map-caption-desk' : ''}">${esc(route.caption)}</p>
+          ${route.phoneCaption ? `<p class="route-map-caption route-map-caption-phone">${esc(route.phoneCaption)}</p>` : ''}
           ${phoneCropNote(route)}
         </figcaption>
       </figure>
