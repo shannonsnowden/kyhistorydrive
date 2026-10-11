@@ -785,8 +785,11 @@ class PrerenderPages {
     const caption = PrerenderPages.escapeHtml(photo.title || 'Layer photo')
     const img = PrerenderPages.escapeHtml(photo.image_url)
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
+    const linkLabel = PrerenderPages.escapeHtml(
+      `Open ${photo.source_label || photo.credit || 'photo source'}: ${photo.title || 'layer photo'} (opens in a new tab)`,
+    )
     return `<figure class="story-sidebar-photo">
-      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer">
+      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" loading="lazy" />
       </a>
       <figcaption>
@@ -830,7 +833,12 @@ class PrerenderPages {
     return siteHeaderHtml(activeRoute)
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, main, jsonLd = '', ogType = 'article', activeRoute = '' }) {
+  /** Autodiscovery for the stories feed. Homepage source carries the same tag. */
+  static rssAlternateLink() {
+    return `<link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="${PrerenderPages.SITE}/feed.xml" />`
+  }
+
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, main, jsonLd = '', ogType = 'article', activeRoute = '', rss = false }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
@@ -854,6 +862,7 @@ class PrerenderPages {
     <title>${t}</title>
     <meta name="description" content="${d}" />
     <link rel="canonical" href="${c}" />
+    ${rss ? PrerenderPages.rssAlternateLink() : ''}
     <meta property="og:type" content="${PrerenderPages.escapeHtml(ogType)}" />
     <meta property="og:site_name" content="Kentucky History Drive" />
     <meta property="og:locale" content="en_US" />
@@ -1118,6 +1127,7 @@ class PrerenderPages {
       imageAlt,
       jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
       main,
+      rss: true,
     })
   }
 
@@ -1219,6 +1229,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} description is ${description.length} characters`)
     }
     if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
+    if (!html.includes(PrerenderPages.rssAlternateLink())) {
+      throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
+    }
     const related = html.match(/<nav class="static-related"[\s\S]*?<\/nav>/)
     const relatedCount = related ? (related[0].match(/href="\/stories\//g) || []).length : 0
     if (relatedCount < 3 || relatedCount > 5) {
@@ -1616,6 +1629,9 @@ ${rows.join('\n')}
     html = html.replace(/<nav id="crawlDirectory"[\s\S]*?<\/nav>/, nav)
     if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
       throw new Error('prerender: homepage is missing the AdSense head tag')
+    }
+    if (!html.includes(PrerenderPages.rssAlternateLink())) {
+      throw new Error('prerender: homepage is missing the RSS alternate link')
     }
     const gaProblems = missingGaSnippet(html)
     if (gaProblems.length) {
