@@ -409,3 +409,25 @@ Proposed for review:
 - Confirm that AI crawlers see the same static pages.
 - Confirm that the Phase 1 citation, `dateModified` and county/hub pages are the AEO gains.
 - Confirm that nothing profile-related appears in `llms.txt` or structured data.
+
+### 6.5 Security Watch: requirements (Agreed with requirements, 2026-10-11)
+
+All of the following must be met **before any auth build** starts. Phase 1 (no-profile quick wins) can ship without them; Phase 2 cannot.
+
+**Auth and API**
+
+- **CSP is live.** Start with a Report-Only CloudFront security-headers policy that allows GTM, AdSense, cartocdn and the videos S3 bucket. Then tighten and add the auth domain, AppSync, cognito-idp, Apple and Google. Amplify tokens sit in localStorage, so CSP must cover every origin that touches those tokens.
+- **Immutable `userId` owner field** with `allow.owner()` (or `allow.ownerDefinedIn('userId')`). No public API key and no guest access on the AppSync API.
+- **PKCE code flow only.** No implicit flow.
+- **Exact callback URLs.** Authorized redirect URIs match production (and any preview) exactly; no wildcards.
+- **No user-existence leaks.** Error messages must not reveal whether an email or account already exists.
+- **Short token lifetimes**, plus revoke tokens on sign-out and on Delete my account.
+- **Secrets only in Amplify secrets** (Google and Apple client material). Never in the repo, build logs or client bundles.
+- **Least-privilege Lambda IAM** for the pre sign-up, delete and export (or email) functions.
+- **DynamoDB PITR and encryption** on (encryption at rest; point-in-time recovery as already planned).
+- **No `sub` or email sent to GA or AdSense.** Profile identifiers stay out of analytics and ads payloads.
+
+**Site baseline** (required alongside the auth gate; not auth-specific)
+
+- `build.sourcemap` is `false` in production Vite config so source maps are not published.
+- DNS has **DMARC** and **CAA** records for `kyhistorydrive.com` (and the auth/email domains as used).
