@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "decimals": 2,
-  "comment": "Prehistoric/archaeological story pins (era \"prehistoric\" or tag \"archaeology\") with more than 2 decimals are rounded by apply-story-overrides.mjs. Slugs/History ids below are exempt (tier C public sites, or already county-level).",
+  "decimals": 1,
+  "comment": "Prehistoric/archaeological story pins (era \"prehistoric\" or tag \"archaeology\") with more than 1 decimal (0.1\u00b0, about 10 km; was 2 until 2026-10-11) are rounded by apply-story-overrides.mjs. Slugs/History ids below are exempt (tier C public sites, or already county-level).",
   "skipSlugs": [
     "ashlands-adena-mounds",
     "carter-caves-cascade-falls",

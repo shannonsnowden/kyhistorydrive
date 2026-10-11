@@ -88,7 +88,7 @@ class PrerenderPages {
     }
     PrerenderPages.configureMarked()
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
-    const stories = PrerenderPages.loadStories(root)
+    const stories = PrerenderPages.liveStories(PrerenderPages.loadStories(root))
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
     const dates = PrerenderPages.gitFileDates(root)
@@ -361,6 +361,37 @@ class PrerenderPages {
     return match ? match[1] : ''
   }
 
+  /** Calendar day in Kentucky. A story dated after this is not live yet. */
+  static siteToday(now = new Date()) {
+    return new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/New_York',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(now)
+  }
+
+  /**
+   * Stories prerender writes a public page for. Drafts, hidden stories, and
+   * future publishedDate values stay off the site. The RSS feed uses this too.
+   */
+  static isLiveStory(story, today = PrerenderPages.siteToday()) {
+    if (!story || typeof story.slug !== 'string' || !story.slug) return false
+    if (story.draft === true || story.hidden === true) return false
+    const status = String(story.status || story.visibility || '').trim().toLowerCase()
+    if (status === 'draft' || status === 'hidden' || status === 'unpublished' || status === 'private' || status === 'scheduled') {
+      return false
+    }
+    const published = PrerenderPages.isoDate(story.publishedDate)
+    const day = PrerenderPages.isoDate(today)
+    if (!published || !day || published > day) return false
+    return true
+  }
+
+  static liveStories(stories, today = PrerenderPages.siteToday()) {
+    return (stories || []).filter((story) => PrerenderPages.isLiveStory(story, today))
+  }
+
   /** publishedDate when the file has one; otherwise the story file's first git commit date. */
   static articleDates(story) {
     const published = PrerenderPages.isoDate(story.publishedDate) || PrerenderPages.isoDate(story.created)
@@ -628,6 +659,10 @@ class PrerenderPages {
       yearStart: body.yearStart ?? null,
       yearEnd: body.yearEnd ?? null,
       publishedDate: body.publishedDate || body.briefDate || indexRow?.publishedDate || '',
+      draft: body.draft === true || indexRow?.draft === true,
+      hidden: body.hidden === true || indexRow?.hidden === true,
+      status: body.status || indexRow?.status || '',
+      visibility: body.visibility || indexRow?.visibility || '',
       territoryNation: body.territory?.nation || '',
       county: indexRow?.county != null ? indexRow.county : '',
       matchedPlace: indexRow?.matchedPlace || loc?.matchedPlace || '',
@@ -879,8 +914,11 @@ class PrerenderPages {
     const caption = PrerenderPages.escapeHtml(photo.title || 'Layer photo')
     const img = PrerenderPages.escapeHtml(photo.image_url)
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
+    const linkLabel = PrerenderPages.escapeHtml(
+      `Open ${photo.source_label || photo.credit || 'photo source'}: ${photo.title || 'layer photo'} (opens in a new tab)`,
+    )
     return `<figure class="story-sidebar-photo">
-      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer">
+      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" loading="lazy" />
       </a>
       <figcaption>
@@ -924,7 +962,12 @@ class PrerenderPages {
     return siteHeaderHtml(activeRoute)
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '' }) {
+  /** Autodiscovery for the stories feed. Homepage source carries the same tag. */
+  static rssAlternateLink() {
+    return `<link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="${PrerenderPages.SITE}/feed.xml" />`
+  }
+
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', rss = false }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
@@ -954,6 +997,7 @@ class PrerenderPages {
     <title>${t}</title>
     <meta name="description" content="${d}" />
     <link rel="canonical" href="${c}" />
+    ${rss ? PrerenderPages.rssAlternateLink() : ''}
     <meta property="og:type" content="${PrerenderPages.escapeHtml(ogType)}" />
     <meta property="og:site_name" content="Kentucky History Drive" />
     <meta property="og:locale" content="en_US" />
@@ -1262,6 +1306,7 @@ class PrerenderPages {
       imageHeight: route ? 900 : 0,
       jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
       main,
+      rss: true,
     })
   }
 
@@ -1525,6 +1570,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
     }
     if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
+    if (!html.includes(PrerenderPages.rssAlternateLink())) {
+      throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
+    }
     const related = html.match(/<nav class="static-related"[\s\S]*?<\/nav>/)
     const relatedCount = related ? (related[0].match(/href="\/stories\//g) || []).length : 0
     if (relatedCount < 3 || relatedCount > 5) {
@@ -2006,6 +2054,9 @@ ${rows.join('\n')}
     html = html.replace(/<nav id="crawlDirectory"[\s\S]*?<\/nav>/, nav)
     if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
       throw new Error('prerender: homepage is missing the AdSense head tag')
+    }
+    if (!html.includes(PrerenderPages.rssAlternateLink())) {
+      throw new Error('prerender: homepage is missing the RSS alternate link')
     }
     const gaProblems = missingGaSnippet(html)
     if (gaProblems.length) {

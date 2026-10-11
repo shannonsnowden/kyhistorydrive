@@ -6,6 +6,7 @@ import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
+import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
@@ -203,7 +204,7 @@ const DATA_LAYERS = [
   },
   {
     // Web-only layer (public/data/layers/caves.geojson, hand-curated, not OTA).
-    // Public show/historic caves plus county-centre markers; never wild cave locations.
+    // Public show/historic caves plus county-center markers; never wild cave locations.
     id: 'caves',
     label: 'Caves',
     icon: { type: 'emoji', glyph: '🦇' },
@@ -212,6 +213,17 @@ const DATA_LAYERS = [
     geojson: '/data/layers/caves.geojson',
     yearFilter: false,
     note: 'Public show caves are pinned. Other caves appear only by county, to protect them.',
+    // County markers draw as hollow rings so they never read as a cave pin.
+    ringKind: 'county',
+    legend: [
+      { ring: false, text: 'Public cave (exact location)' },
+      { ring: true, text: 'County with caves (not a cave location)' },
+    ],
+    statsText: (features) => {
+      const counties = features.filter((f) => f.properties?.kind === 'county').length
+      const pub = features.length - counties
+      return `${pub} public cave${pub === 1 ? '' : 's'} · ${counties} counties with caves`
+    },
   },
 ]
 
@@ -690,7 +702,9 @@ function applyFiltersToMapInstance(targetMap) {
     const base = onTimeline ? buildTimelineMapFilter(def) : null
     const filter = base ? ['all', base, crossFilter] : crossFilter
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
-      if (targetMap.getLayer(lid)) targetMap.setFilter(lid, filter)
+      if (!targetMap.getLayer(lid)) continue
+      const offsetOnly = def.ringKind && lid === layerSymbolId(def.id)
+      targetMap.setFilter(lid, offsetOnly ? ['all', ['has', 'display_offset'], filter] : filter)
     }
   }
   for (const lid of ['stories-circle', 'stories-hit', 'stories-highlight']) {
@@ -1536,6 +1550,8 @@ function placeDetailExtrasHtml({
 }
 
 
+loadProtectedPins()
+
 function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   const name = p.name || p.title || 'Untitled'
   const metaBits = []
@@ -1561,7 +1577,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
       : ''
   let lat = null
   let lon = null
-  // County cave markers sit at a county centre, not a cave: no directions links.
+  // County cave markers sit at a county center, not a cave: no directions links.
   if (p.kind === 'county') coords = null
   if (p.kind === 'county') {
     /* fall through with no lat/lon */
@@ -1603,6 +1619,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     <div class="map-popup">
       <div class="detail-layer">${escapeHtml(layerLabel)}</div>
       <h3>${escapeHtml(name)}</h3>
+      ${protectedPinNoteHtml(p.historyId || p.id || p.slug)}
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
       ${descHtml}
@@ -1652,12 +1669,17 @@ function waitForCamera(targetMap, timeout = 4000) {
 
 /**
  * Wide maps: park the pin near the top so the card opens under it and related
- * stories stay inside the map. Narrow maps: slide the pin sideways so a
- * centered card does not run off the left or right edge.
+ * stories stay inside the map. Narrow maps: park the pin in the lower third so
+ * the card opens above with room to scroll, and slide sideways so a centered
+ * card does not run off the left or right edge.
  */
 async function nudgeCameraForPopup(targetMap, lngLat) {
   if (!targetMap?.project || !targetMap.getContainer?.() || !lngLat) return
+  // A deep-link easeTo may still be queued; wait until the camera is quiet.
   await waitForCamera(targetMap)
+  if (targetMap.isMoving?.()) await waitForCamera(targetMap)
+  else await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))
+  if (targetMap.isMoving?.()) await waitForCamera(targetMap)
   const el = targetMap.getContainer()
   const w = el.clientWidth
   const h = el.clientHeight
@@ -1668,6 +1690,10 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
   if (w >= 700 && h >= 420) {
     const targetY = Math.round(Math.min(112, Math.max(72, h * 0.16)))
     if (pt.y > targetY + 28) dy = pt.y - targetY
+  } else if (w < 700) {
+    // Lower third: more space above the pin for the scrollable card body.
+    const targetY = Math.round(Math.min(h - 56, h * 0.68))
+    if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
   }
   if (w < 760) {
     const boxW = Math.min(460, Math.max(200, w - 16))
@@ -1706,8 +1732,12 @@ function popupPlacement(targetMap, lngLat) {
   const popupW = Math.min(460, Math.max(200, w - pad * 2))
   const spaceAbove = Math.max(0, pt.y - pad)
   const spaceBelow = Math.max(0, h - pt.y - pad)
-  // After the wide-map nudge the pin sits near the top, so the card opens below it.
-  const openUp = w >= 700 ? spaceBelow < 160 && spaceAbove > spaceBelow : spaceAbove > spaceBelow
+  // Wide maps: after the top nudge the card opens below the pin. Narrow maps:
+  // prefer opening upward whenever space below is tight, so the scrollable card
+  // stays inside the canvas (Critiquito #213 phone cut-off).
+  const openUp = w >= 700
+    ? spaceBelow < 160 && spaceAbove > spaceBelow
+    : spaceBelow < 220 || spaceAbove > spaceBelow
   let anchor = openUp ? 'bottom' : 'top'
   const half = popupW / 2
   if (pt.x - half < pad && w - pt.x > pad + 160) {
@@ -1718,7 +1748,7 @@ function popupPlacement(targetMap, lngLat) {
   const avail = openUp ? spaceAbove : spaceBelow
   // Tip, offset, and a margin so the card stays inside the map, clear of the
   // site header above the canvas and the footer below it.
-  const maxHeightPx = Math.max(120, Math.min(560, Math.floor(avail - 36)))
+  const maxHeightPx = Math.max(w < 700 ? 96 : 120, Math.min(560, Math.floor(avail - 36)))
   return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px` }
 }
 
@@ -1736,7 +1766,9 @@ function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
   if (rect.bottom > mapRect.bottom - 6) overflowY = Math.max(overflowY, rect.bottom - (mapRect.bottom - 6))
   if (rect.top < mapRect.top + 6) overflowY = Math.max(overflowY, mapRect.top + 6 - rect.top)
   if (overflowY > 1 && scroller) {
-    const next = Math.max(120, Math.floor(scroller.clientHeight - overflowY - 2))
+    // Allow a shorter card on phones so the body can scroll inside the canvas
+    // instead of clipping mid-sentence at the map edge.
+    const next = Math.max(88, Math.floor(scroller.clientHeight - overflowY - 2))
     scroller.style.maxHeight = `${next}px`
   }
   const again = popupEl.getBoundingClientRect()
@@ -1850,7 +1882,15 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
         (parseFloat(cs.paddingBottom) || 0) +
         (parseFloat(cs.borderTopWidth) || 0) +
         (parseFloat(cs.borderBottomWidth) || 0)
-      maxH = Math.max(120, Math.floor(place.maxHeightPx - chrome))
+      maxH = Math.max(place.maxHeightPx < 120 ? 88 : 120, Math.floor(place.maxHeightPx - chrome))
+      // Explicit "More" cue when the body scrolls (fade alone reads as a hard cut-off).
+      if (!content.querySelector('.popup-more-hint')) {
+        const hint = document.createElement('div')
+        hint.className = 'popup-more-hint'
+        hint.setAttribute('aria-hidden', 'true')
+        hint.innerHTML = '<span>More</span>'
+        content.appendChild(hint)
+      }
     }
     scroller.style.maxHeight = `${maxH}px`
     scroller.addEventListener('scroll', () => syncPopupFade(scroller), { passive: true })
@@ -1880,9 +1920,15 @@ function updateStats() {
     if (!src?._data?.features) continue
     // Don't count cross-listed copies hidden because their home layer is on.
     const n = src._data.features.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
+    if (def.statsText) {
+      bits.push(def.statsText(src._data.features))
+      continue
+    }
     bits.push(`${n.toLocaleString()} ${def.label}`)
   }
-  statsEl.textContent = bits.length ? `Showing ${bits.join(' · ')}` : 'No layers enabled'
+  // A layer with its own statsText reads as a full phrase ("8 public caves · 71 counties with caves").
+  const only = bits.length === 1 && DATA_LAYERS.find((d) => layerVisibility[d.id] && d.statsText)
+  statsEl.textContent = bits.length ? (only ? bits[0] : `Showing ${bits.join(' · ')}`) : 'No layers enabled'
 }
 
 function renderLayerToggles() {
@@ -1900,7 +1946,13 @@ function renderLayerToggles() {
       ${icon}
       <span>${escapeHtml(l.label)}</span>
       <span class="swatch" style="background:${l.color}"></span>
-    </label>${noteId ? `<p class="layer-note muted" id="${noteId}">${escapeHtml(l.note)}</p>` : ''}`
+    </label>${noteId ? `<p class="layer-note muted" id="${noteId}">${escapeHtml(l.note)}</p>` : ''}${
+      l.legend
+        ? `<ul class="layer-legend" aria-label="${escapeHtml(l.label)} key">${l.legend
+            .map((k) => `<li><span class="layer-legend-dot${k.ring ? ' ring' : ''}" style="--c:${l.color}" aria-hidden="true"></span>${escapeHtml(k.text)}</li>`)
+            .join('')}</ul>`
+        : ''
+    }`
   }).join('')
 
   box.addEventListener('change', (e) => {
@@ -1916,6 +1968,48 @@ function renderLayerToggles() {
       if (input) input.checked = on
       setLayerVisible(def.id, on)
     }
+  })
+}
+
+// Tight clusters (e.g. the caves around Mammoth Cave) overlap at state zoom. Features with a
+// display_offset [dx, dy] (px) are nudged apart by a symbol layer until OFFSET_MAXZOOM, where
+// they separate on their own; the real coordinates (popups, directions) never change.
+const OFFSET_MAXZOOM = 10.5
+function dotImage(color, ring) {
+  const r = 2 // pixel ratio
+  const size = 14 * r
+  const c = document.createElement('canvas')
+  c.width = c.height = size
+  const g = c.getContext('2d')
+  g.beginPath()
+  g.arc(size / 2, size / 2, ring ? 5.2 * r : 5.5 * r, 0, Math.PI * 2)
+  g.fillStyle = ring ? 'rgba(243,234,216,0.55)' : color
+  g.globalAlpha = ring ? 1 : 0.95
+  g.fill()
+  g.globalAlpha = 1
+  g.lineWidth = (ring ? 2.5 : 1.5) * r
+  g.strokeStyle = ring ? color : '#f3ead8'
+  g.stroke()
+  return { width: size, height: size, data: g.getImageData(0, 0, size, size).data }
+}
+function addOffsetDotLayer(targetMap, def, vis) {
+  const solid = `${def.id}-dot-solid`
+  const ring = `${def.id}-dot-ring`
+  if (!targetMap.hasImage(solid)) targetMap.addImage(solid, dotImage(def.color, false), { pixelRatio: 2 })
+  if (!targetMap.hasImage(ring)) targetMap.addImage(ring, dotImage(def.color, true), { pixelRatio: 2 })
+  targetMap.addLayer({
+    id: layerSymbolId(def.id),
+    type: 'symbol',
+    source: def.id,
+    maxzoom: OFFSET_MAXZOOM,
+    filter: ['has', 'display_offset'],
+    layout: {
+      visibility: vis,
+      'icon-image': ['case', ['==', ['get', 'kind'], def.ringKind], ring, solid],
+      'icon-offset': ['get', 'display_offset'],
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+    },
   })
 }
 
@@ -1949,14 +2043,29 @@ async function addDataLayerOn(targetMap, def, visMap) {
       type: 'circle',
       source: def.id,
       layout: { visibility: vis },
-      paint: {
-        'circle-radius': circleRadius,
-        'circle-color': def.color,
-        'circle-stroke-width': 1.5,
-        'circle-stroke-color': '#f3ead8',
-        'circle-opacity': 0.95,
-      },
+      paint: def.ringKind
+        ? (() => {
+            const ring = ['==', ['get', 'kind'], def.ringKind]
+            // Features with display_offset are drawn by the offset symbol layer below zoom 10.5.
+            const offsetHidden = (v) => ['step', ['zoom'], ['case', ['has', 'display_offset'], 0, v], OFFSET_MAXZOOM, v]
+            return {
+              'circle-radius': circleRadius,
+              'circle-color': ['case', ring, '#f3ead8', def.color],
+              'circle-stroke-width': ['case', ring, 2.5, 1.5],
+              'circle-stroke-color': ['case', ring, def.color, '#f3ead8'],
+              'circle-opacity': offsetHidden(['case', ring, 0.55, 0.95]),
+              'circle-stroke-opacity': offsetHidden(1),
+            }
+          })()
+        : {
+            'circle-radius': circleRadius,
+            'circle-color': def.color,
+            'circle-stroke-width': 1.5,
+            'circle-stroke-color': '#f3ead8',
+            'circle-opacity': 0.95,
+          },
     })
+    if (def.ringKind) addOffsetDotLayer(targetMap, def, vis)
     targetMap.addLayer({
       id: layerHitId(def.id),
       type: 'circle',
@@ -2004,6 +2113,7 @@ function fitMapToKentucky(targetMap = map, opts = {}) {
 
 function flyToFocus(targetMap, focus, zoom = 12) {
   if (!targetMap || !focus || focus.lon == null || focus.lat == null) return
+  zoom = capProtectedZoom(zoom, focus.historyId, focus.slug, focus.id)
   // Skip no-op flies (filter re-renders used to re-call this and race on iPad Safari)
   try {
     const curZoom = targetMap.getZoom()
@@ -2230,6 +2340,7 @@ function initMap() {
     }
 
     applyMapFilters()
+    addProtectedPinLayers(map)
 
     mapReady = true
     syncAllLayersCheckbox()
@@ -2332,7 +2443,11 @@ function updateTimelineMapCounts() {
     if (!feats) continue
     const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
     if (n) {
-      bits.push(`${n.toLocaleString()} ${def.label}`)
+      if (def.statsText) {
+      bits.push(def.statsText(src._data.features))
+      continue
+    }
+    bits.push(`${n.toLocaleString()} ${def.label}`)
       total += n
     }
   }
@@ -3506,6 +3621,7 @@ async function openStoryHighlightOnHomeMap(place) {
     lat: place.lat,
     title: place.title || place.matchedPlace || place.slug,
     slug: place.slug,
+    historyId: place.historyId || null,
   }
   pendingFocus = focus
   highlightDetailProps = {
@@ -3588,7 +3704,18 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
     return false
   }
   const [lon, lat] = feature.geometry.coordinates
-  map.easeTo({ center: [lon, lat], zoom: Math.max(map.getZoom(), 12), duration: 600 })
+  const fp = feature.properties || {}
+  const zoom = capProtectedZoom(Math.max(map.getZoom(), 12), fp.historyId, fp.id, fp.slug, placeId)
+  // Wait for the zoom to settle before placing the popup. Otherwise the easeTo
+  // finishes after nudgeCameraForPopup and recenters the pin, undoing the
+  // phone lower-third offset and clipping the scrollable card (#213).
+  map.easeTo({ center: [lon, lat], zoom, duration: 600, essential: true })
+  await waitForCamera(map, 900)
+  // If easeTo had not started moving yet when waitForCamera checked, give it a
+  // beat and wait again so placement runs on the settled camera.
+  if (map.isMoving?.()) await waitForCamera(map, 900)
+  else await new Promise((r) => setTimeout(r, 50))
+  if (map.isMoving?.()) await waitForCamera(map, 900)
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
   return true
 }
