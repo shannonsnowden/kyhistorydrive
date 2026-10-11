@@ -89,7 +89,7 @@ class PrerenderPages {
     if (/\beval\s*\(|\bnew Function\b|onclick\s*=|javascript:/.test(lightboxJs)) {
       throw new Error('prerender: route map lightbox is not CSP-friendly')
     }
-    if (!lightboxJs.includes('data-zoom-light-avif') || !lightboxJs.includes('data-zoom-dark-webp')) {
+    if (!/data-zoom-' \+ mode \+ '-' \+ ext/.test(lightboxJs) || !lightboxJs.includes("'avif'") || !lightboxJs.includes("'webp'")) {
       throw new Error('prerender: route map lightbox does not load theme-matched zoom art')
     }
     if (/3840|HIRES_WIDTH|-route-map-'/.test(lightboxJs)) {
