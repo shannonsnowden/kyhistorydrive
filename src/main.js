@@ -203,7 +203,7 @@ const DATA_LAYERS = [
   },
   {
     // Web-only layer (public/data/layers/caves.geojson, hand-curated, not OTA).
-    // Public show/historic caves plus county-centre markers; never wild cave locations.
+    // Public show/historic caves plus county-center markers; never wild cave locations.
     id: 'caves',
     label: 'Caves',
     icon: { type: 'emoji', glyph: '🦇' },
@@ -212,6 +212,17 @@ const DATA_LAYERS = [
     geojson: '/data/layers/caves.geojson',
     yearFilter: false,
     note: 'Public show caves are pinned. Other caves appear only by county, to protect them.',
+    // County markers draw as hollow rings so they never read as a cave pin.
+    ringKind: 'county',
+    legend: [
+      { ring: false, text: 'Public cave (exact location)' },
+      { ring: true, text: 'County with caves (not a cave location)' },
+    ],
+    statsText: (features) => {
+      const counties = features.filter((f) => f.properties?.kind === 'county').length
+      const pub = features.length - counties
+      return `${pub} public cave${pub === 1 ? '' : 's'} · ${counties} counties with caves`
+    },
   },
 ]
 
@@ -679,7 +690,9 @@ function applyFiltersToMapInstance(targetMap) {
     const base = onTimeline ? buildTimelineMapFilter(def) : null
     const filter = base ? ['all', base, crossFilter] : crossFilter
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
-      if (targetMap.getLayer(lid)) targetMap.setFilter(lid, filter)
+      if (!targetMap.getLayer(lid)) continue
+      const offsetOnly = def.ringKind && lid === layerSymbolId(def.id)
+      targetMap.setFilter(lid, offsetOnly ? ['all', ['has', 'display_offset'], filter] : filter)
     }
   }
   for (const lid of ['stories-circle', 'stories-hit', 'stories-highlight']) {
@@ -1552,7 +1565,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
       : ''
   let lat = null
   let lon = null
-  // County cave markers sit at a county centre, not a cave: no directions links.
+  // County cave markers sit at a county center, not a cave: no directions links.
   if (p.kind === 'county') coords = null
   if (p.kind === 'county') {
     /* fall through with no lat/lon */
@@ -1872,9 +1885,15 @@ function updateStats() {
     if (!src?._data?.features) continue
     // Don't count cross-listed copies hidden because their home layer is on.
     const n = src._data.features.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
+    if (def.statsText) {
+      bits.push(def.statsText(src._data.features))
+      continue
+    }
     bits.push(`${n.toLocaleString()} ${def.label}`)
   }
-  statsEl.textContent = bits.length ? `Showing ${bits.join(' · ')}` : 'No layers enabled'
+  // A layer with its own statsText reads as a full phrase ("8 public caves · 71 counties with caves").
+  const only = bits.length === 1 && DATA_LAYERS.find((d) => layerVisibility[d.id] && d.statsText)
+  statsEl.textContent = bits.length ? (only ? bits[0] : `Showing ${bits.join(' · ')}`) : 'No layers enabled'
 }
 
 function renderLayerToggles() {
@@ -1892,7 +1911,13 @@ function renderLayerToggles() {
       ${icon}
       <span>${escapeHtml(l.label)}</span>
       <span class="swatch" style="background:${l.color}"></span>
-    </label>${noteId ? `<p class="layer-note muted" id="${noteId}">${escapeHtml(l.note)}</p>` : ''}`
+    </label>${noteId ? `<p class="layer-note muted" id="${noteId}">${escapeHtml(l.note)}</p>` : ''}${
+      l.legend
+        ? `<ul class="layer-legend" aria-label="${escapeHtml(l.label)} key">${l.legend
+            .map((k) => `<li><span class="layer-legend-dot${k.ring ? ' ring' : ''}" style="--c:${l.color}" aria-hidden="true"></span>${escapeHtml(k.text)}</li>`)
+            .join('')}</ul>`
+        : ''
+    }`
   }).join('')
 
   box.addEventListener('change', (e) => {
@@ -1908,6 +1933,48 @@ function renderLayerToggles() {
       if (input) input.checked = on
       setLayerVisible(def.id, on)
     }
+  })
+}
+
+// Tight clusters (e.g. the caves around Mammoth Cave) overlap at state zoom. Features with a
+// display_offset [dx, dy] (px) are nudged apart by a symbol layer until OFFSET_MAXZOOM, where
+// they separate on their own; the real coordinates (popups, directions) never change.
+const OFFSET_MAXZOOM = 10.5
+function dotImage(color, ring) {
+  const r = 2 // pixel ratio
+  const size = 14 * r
+  const c = document.createElement('canvas')
+  c.width = c.height = size
+  const g = c.getContext('2d')
+  g.beginPath()
+  g.arc(size / 2, size / 2, ring ? 5.2 * r : 5.5 * r, 0, Math.PI * 2)
+  g.fillStyle = ring ? 'rgba(243,234,216,0.55)' : color
+  g.globalAlpha = ring ? 1 : 0.95
+  g.fill()
+  g.globalAlpha = 1
+  g.lineWidth = (ring ? 2.5 : 1.5) * r
+  g.strokeStyle = ring ? color : '#f3ead8'
+  g.stroke()
+  return { width: size, height: size, data: g.getImageData(0, 0, size, size).data }
+}
+function addOffsetDotLayer(targetMap, def, vis) {
+  const solid = `${def.id}-dot-solid`
+  const ring = `${def.id}-dot-ring`
+  if (!targetMap.hasImage(solid)) targetMap.addImage(solid, dotImage(def.color, false), { pixelRatio: 2 })
+  if (!targetMap.hasImage(ring)) targetMap.addImage(ring, dotImage(def.color, true), { pixelRatio: 2 })
+  targetMap.addLayer({
+    id: layerSymbolId(def.id),
+    type: 'symbol',
+    source: def.id,
+    maxzoom: OFFSET_MAXZOOM,
+    filter: ['has', 'display_offset'],
+    layout: {
+      visibility: vis,
+      'icon-image': ['case', ['==', ['get', 'kind'], def.ringKind], ring, solid],
+      'icon-offset': ['get', 'display_offset'],
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+    },
   })
 }
 
@@ -1941,14 +2008,29 @@ async function addDataLayerOn(targetMap, def, visMap) {
       type: 'circle',
       source: def.id,
       layout: { visibility: vis },
-      paint: {
-        'circle-radius': circleRadius,
-        'circle-color': def.color,
-        'circle-stroke-width': 1.5,
-        'circle-stroke-color': '#f3ead8',
-        'circle-opacity': 0.95,
-      },
+      paint: def.ringKind
+        ? (() => {
+            const ring = ['==', ['get', 'kind'], def.ringKind]
+            // Features with display_offset are drawn by the offset symbol layer below zoom 10.5.
+            const offsetHidden = (v) => ['step', ['zoom'], ['case', ['has', 'display_offset'], 0, v], OFFSET_MAXZOOM, v]
+            return {
+              'circle-radius': circleRadius,
+              'circle-color': ['case', ring, '#f3ead8', def.color],
+              'circle-stroke-width': ['case', ring, 2.5, 1.5],
+              'circle-stroke-color': ['case', ring, def.color, '#f3ead8'],
+              'circle-opacity': offsetHidden(['case', ring, 0.55, 0.95]),
+              'circle-stroke-opacity': offsetHidden(1),
+            }
+          })()
+        : {
+            'circle-radius': circleRadius,
+            'circle-color': def.color,
+            'circle-stroke-width': 1.5,
+            'circle-stroke-color': '#f3ead8',
+            'circle-opacity': 0.95,
+          },
     })
+    if (def.ringKind) addOffsetDotLayer(targetMap, def, vis)
     targetMap.addLayer({
       id: layerHitId(def.id),
       type: 'circle',
@@ -2326,7 +2408,11 @@ function updateTimelineMapCounts() {
     if (!feats) continue
     const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
     if (n) {
-      bits.push(`${n.toLocaleString()} ${def.label}`)
+      if (def.statsText) {
+      bits.push(def.statsText(src._data.features))
+      continue
+    }
+    bits.push(`${n.toLocaleString()} ${def.label}`)
       total += n
     }
   }
