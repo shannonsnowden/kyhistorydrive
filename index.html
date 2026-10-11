@@ -187,36 +187,56 @@
         <p class="visually-hidden">Loading stories…</p>
       </section>
 
-      <!-- Static picture only. The interactive marker map is the #map route, not a second map on this page. -->
+      <!-- Static pictures only. The interactive marker map is the #map route, not a second map on this page. -->
       <section class="hp-map-strip" aria-labelledby="hp-map-strip-title">
-        <a href="#map" tabindex="-1" aria-hidden="true">
-        <div class="hp-map-strip-figure">
-        <img
-          id="hpMapStripImg"
-          class="hp-map-strip-img"
-          src="/brand/ky-map-strip-counties.svg"
-          width="1000"
-          height="432"
-          alt="Kentucky with county lines and historical marker dots, including the Kentucky Bend exclave of Fulton County."
-          decoding="async"
-          loading="lazy"
-        />
-        <script>
-          (function () {
-            var img = document.getElementById('hpMapStripImg')
-            if (!img) return
-            var light = document.documentElement.getAttribute('data-hp-theme') === 'light'
-            var next = light ? '/brand/ky-map-strip-counties-light.svg' : '/brand/ky-map-strip-counties.svg'
-            if (img.getAttribute('src') !== next) img.src = next
-            img.loading = 'eager'
-          })()
-        </script>
-        <picture class="hp-map-seal">
-          <source type="image/avif" srcset="/brand/khd-map-seal.avif" />
-          <img src="/brand/khd-map-seal.webp" width="576" height="576" alt="" loading="lazy" decoding="async" />
-        </picture>
+        <div class="hp-card-pair">
+          <a class="hp-map-card" href="#map">
+            <span class="hp-card-pair-media">
+              <span class="hp-card-pair-zoom">
+                <img
+                  id="hpMapStripImg"
+                  src="/brand/ky-map-strip-counties.svg"
+                  width="1000"
+                  height="432"
+                  alt="Kentucky county map with historical marker dots."
+                  decoding="async"
+                />
+                <script>
+                  (function () {
+                    var img = document.getElementById('hpMapStripImg')
+                    if (!img) return
+                    var light = document.documentElement.getAttribute('data-hp-theme') === 'light'
+                    var next = light ? '/brand/ky-map-strip-counties-light.svg' : '/brand/ky-map-strip-counties.svg'
+                    if (img.getAttribute('src') !== next) img.src = next
+                    img.loading = 'eager'
+                  })()
+                </script>
+                <picture class="hp-map-seal">
+                  <source type="image/avif" srcset="/brand/khd-map-seal.avif" />
+                  <img src="/brand/khd-map-seal.webp" width="576" height="576" alt="" loading="lazy" decoding="async" />
+                </picture>
+              </span>
+            </span>
+            <span class="hp-card-pair-copy">
+              <h3 class="hp-card-pair-title">Open the history map</h3>
+              <p class="hp-card-pair-deck">Every Kentucky Historical Society marker, plus layers.</p>
+            </span>
+          </a>
+          <a class="hp-map-routes" href="/routes/">
+            <span class="hp-card-pair-media">
+              <span class="hp-card-pair-zoom">
+                <picture>
+                  <source media="(prefers-color-scheme: dark)" type="image/png" srcset="/maps/routes/athiamiowee-the-warriors-path-through-kentucky/warriors-path-map-phone-dark.png" />
+                  <img src="/maps/routes/athiamiowee-the-warriors-path-through-kentucky/warriors-path-map-phone.webp" width="780" height="439" alt="Warriors' Path route across Kentucky." loading="lazy" decoding="async" />
+                </picture>
+              </span>
+            </span>
+            <span class="hp-card-pair-copy">
+              <h3 class="hp-card-pair-title">Route maps</h3>
+              <p class="hp-card-pair-deck">Follow six historic journeys across Kentucky.</p>
+            </span>
+          </a>
         </div>
-        </a>
         <div class="hp-map-strip-copy">
           <p class="hp-kicker">Map</p>
           <h2 id="hp-map-strip-title">Explore Kentucky’s history map</h2>
@@ -226,28 +246,6 @@
             <li>See approximate Native American territories and archaeological cultures beneath today’s roads.</li>
             <li>Tap any pin to read its marker or story. It works on your phone.</li>
           </ul>
-        </div>
-        <div class="hp-map-cards">
-          <a class="hp-map-card hp-history-map" href="#map" aria-label="Open the history map: Every Historical Society marker in Kentucky">
-            <picture>
-              <source media="(prefers-color-scheme: dark)" type="image/webp" />
-              <img alt="" width="640" height="400" loading="lazy" decoding="async" />
-            </picture>
-            <span class="hp-map-card-copy">
-              <h3 class="hp-map-card-title">Open the history map</h3>
-              <p class="hp-map-card-deck">Every Historical Society marker in Kentucky</p>
-            </span>
-          </a>
-          <a class="hp-map-routes" href="/routes/" aria-label="Route maps: Follow six historic routes across Kentucky">
-            <picture>
-              <source media="(prefers-color-scheme: dark)" type="image/webp" />
-              <img alt="" width="640" height="400" loading="lazy" decoding="async" />
-            </picture>
-            <span class="hp-map-card-copy">
-              <h3 class="hp-map-card-title">Route maps</h3>
-              <p class="hp-map-card-deck">Follow six historic routes across Kentucky</p>
-            </span>
-          </a>
         </div>
         <script type="module">
           import { paintHomeMapCards } from '/src/route-card-art.js'

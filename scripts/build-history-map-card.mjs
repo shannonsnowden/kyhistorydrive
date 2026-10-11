@@ -1,27 +1,23 @@
 /**
- * Homepage "Open the history map" card.
+ * Plot every marker onto the homepage county-map SVGs.
  *
- * Reuses the Kentucky outline and county paths from the map strip SVGs
- * (Census cartographic boundaries, Kentucky Bend included) and plots every
- * marker in public/data/markers.geojson with the same EPSG:3089 projection
- * the strip uses. Writes a light and a dark file. SVG when the drawing is
- * about 60KB or under; WebP otherwise. Run from `npm run build` so a new
- * marker shows up on the next build.
+ * The outline and county lines stay the ones in
+ * public/brand/ky-map-strip-counties.svg and its light twin (Census
+ * cartographic boundaries, Kentucky Bend included). Dots are placed with the
+ * same EPSG:3089 fit the strip’s control markers use. Run from `npm run dev`
+ * and `npm run build` so a new marker shows up on the next build.
+ *
+ * Each dot is r=1.25, no stroke, opacity .6. Dark fill is --heading #E8D5A8.
+ * Light fill is --accent-deep #6E4214.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import sharp from 'sharp'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const STRIP_SVG = path.join(ROOT, 'public/brand/ky-map-strip-counties.svg')
+const DARK_SVG = path.join(ROOT, 'public/brand/ky-map-strip-counties.svg')
+const LIGHT_SVG = path.join(ROOT, 'public/brand/ky-map-strip-counties-light.svg')
 const MARKERS = path.join(ROOT, 'public/data/markers.geojson')
-const OUT_DIR = path.join(ROOT, 'public/brand')
-const META_PATH = path.join(ROOT, 'src/history-map-card.generated.js')
-const SVG_LIMIT = 60 * 1024
-const CARD_W = 640
-const CARD_H = 400
-const SRC_W = 1000
 
 const A = 6378137
 const F = 1 / 298.257222101
@@ -61,47 +57,25 @@ function assertProjection() {
   if (drift > 1) throw new Error(`EPSG:3089 check failed (${drift.toFixed(2)} m)`)
 }
 
-function parsePath(d) {
-  const rings = []
-  for (const part of d.split(/Z/i)) {
-    const nums = part.match(/-?\d+(?:\.\d+)?/g)
-    if (!nums || nums.length < 6) continue
-    const pts = []
-    for (let i = 0; i + 1 < nums.length; i += 2) pts.push([Number(nums[i]), Number(nums[i + 1])])
-    if (pts.length >= 3) rings.push(pts)
-  }
-  return rings
-}
-
-function pointInRing(x, y, ring) {
-  let inside = false
-  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-    const xi = ring[i][0]
-    const yi = ring[i][1]
-    const xj = ring[j][0]
-    const yj = ring[j][1]
-    const intersect = (yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi
-    if (intersect) inside = !inside
-  }
-  return inside
-}
-
-function inRings(x, y, rings) {
-  let hits = 0
-  for (const ring of rings) {
-    if (pointInRing(x, y, ring)) hits += 1
-  }
-  return hits % 2 === 1
-}
-
-function nearRings(x, y, rings, pad) {
-  if (inRings(x, y, rings)) return true
-  for (let a = 0; a < 8; a++) {
-    const t = (a / 8) * Math.PI * 2
-    if (inRings(x + Math.cos(t) * pad, y + Math.sin(t) * pad, rings)) return true
-  }
-  return false
-}
+/** Control dots from the strip, kept so a later run can refit after the circles are replaced. */
+const CONTROL = [
+  { x: 89.6, y: 396.9, title: 'New Madrid Earthquake, Fulton County' },
+  { x: 161.5, y: 316.6, title: 'Wilmington, McCracken County' },
+  { x: 261.6, y: 368.5, title: 'Upper Donaldson School, Trigg County' },
+  { x: 511.1, y: 378.3, title: 'Tompkinsville National Cemetery, Monroe County' },
+  { x: 537.2, y: 126.4, title: 'Woodland Farm, Oldham County' },
+  { x: 549.0, y: 273.9, title: 'Sanders Tavern, Taylor County' },
+  { x: 626.6, y: 35.5, title: 'Crash of AAFlight 383, Boone County' },
+  { x: 629.8, y: 338.1, title: 'Local Humanitarian, Metcalfe County' },
+  { x: 634.8, y: 223.0, title: "Sawyier's Inspiration, Jessamine County" },
+  { x: 703.1, y: 128.4, title: 'Patriot-Pioneer, Nicholas County' },
+  { x: 738.6, y: 388.3, title: 'Middlesboro Golf Club, Bell County' },
+  { x: 775.1, y: 252.9, title: 'Breathitt County, Breathitt County' },
+  { x: 822.0, y: 83.0, title: 'Enterprise Furnace, Greenup County' },
+  { x: 831.1, y: 335.8, title: 'Lynch, Harlan County' },
+  { x: 854.0, y: 176.5, title: 'Indian Creek Baptist Church, Harrison County' },
+  { x: 915.8, y: 257.2, title: 'Frank and Nancy McCoy Phillips, Pike County' },
+]
 
 function fitAxis(src, dst) {
   const n = src.length
@@ -122,20 +96,12 @@ function fitAxis(src, dst) {
   return { scale, offset }
 }
 
-function stripGeometry(svg) {
-  const fill = svg.match(/class="hp-ky-fill" d="([^"]+)"/)
-  const counties = svg.match(/class="hp-ky-counties" d="([^"]+)"/)
-  const view = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/)
-  if (!fill || !counties || !view) throw new Error('map strip SVG is missing the state or county paths')
-  const srcW = Number(view[1])
-  const srcH = Number(view[2])
-  if (srcW !== SRC_W) throw new Error(`map strip width ${srcW} is not ${SRC_W}`)
+function liveControl(svg) {
   const dots = []
   const re = /<circle class="hp-ky-markers" cx="([\d.]+)" cy="([\d.]+)" r="[\d.]+"><title>([^<]*)<\/title>/g
   let m
   while ((m = re.exec(svg))) dots.push({ x: Number(m[1]), y: Number(m[2]), title: m[3] })
-  if (dots.length < 8) throw new Error(`map strip has ${dots.length} control markers; need at least 8`)
-  return { fill: fill[1], counties: counties[1], srcW, srcH, dots }
+  return dots.length >= 8 ? dots : null
 }
 
 function markerIndex(geo) {
@@ -176,142 +142,73 @@ function mapFrame(control, byLabel) {
   return { xFit, yFit, max }
 }
 
-function toCard(x, y, place) {
-  return [x * place.scale + place.tx, y * place.scale + place.ty]
-}
-
-/** Path commands are M/L/Z with x y pairs. Rewrite every coordinate into the card. */
-function scalePath(d, place) {
-  return d.replace(/(-?\d+(?:\.\d+)?)[\s,]+(-?\d+(?:\.\d+)?)/g, (_, xs, ys) => {
-    const [x, y] = toCard(Number(xs), Number(ys), place)
-    return `${x.toFixed(1)} ${y.toFixed(1)}`
-  })
-}
-
-const PALETTES = {
-  dark: { paper: '#1a241c', land: '#5a3d22', ink: '#e8d5a8', dot: '#e8d5a8' },
-  light: { paper: '#f4ead6', land: '#e4d3ae', ink: '#6e4214', dot: '#6e4214' },
-}
-
-function cardSvg({ fill, counties, dots, palette }) {
-  const circles = dots
-    .map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.7" fill="${palette.dot}"/>`)
-    .join('')
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${CARD_W} ${CARD_H}" width="${CARD_W}" height="${CARD_H}">
-  <rect width="${CARD_W}" height="${CARD_H}" fill="${palette.paper}"/>
-  <path fill="${palette.land}" d="${fill}"/>
-  <path fill="none" stroke="${palette.ink}" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" opacity="0.55" d="${counties}"/>
-  <path fill="none" stroke="${palette.ink}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" d="${fill}"/>
-  ${circles}
-</svg>
-`
-}
-
-function writeMeta(type) {
-  const ext = type === 'image/svg+xml' ? 'svg' : 'webp'
-  const body = `/** Generated by scripts/build-history-map-card.mjs. Do not edit. */
-export const HISTORY_MAP_CARD = {
-  light: '/brand/ky-history-map-card-light.${ext}',
-  dark: '/brand/ky-history-map-card-dark.${ext}',
-  type: '${type}',
-  width: ${CARD_W},
-  height: ${CARD_H},
-}
-`
-  fs.writeFileSync(META_PATH, body)
-}
-
-function removeStale(ext) {
-  for (const theme of ['light', 'dark']) {
-    const other = ext === 'svg' ? 'webp' : 'svg'
-    const file = path.join(OUT_DIR, `ky-history-map-card-${theme}.${other}`)
-    if (fs.existsSync(file)) fs.unlinkSync(file)
+function assertBend(svg) {
+  const fill = svg.match(/class="hp-ky-fill" d="([^"]+)"/)
+  if (!fill) throw new Error('map strip SVG is missing the state outline')
+  const parts = fill[1].split(/Z/i).filter((part) => part.trim())
+  if (parts.length < 2) throw new Error('Kentucky Bend outline is missing from the map strip')
+  const bend = parts[parts.length - 1].match(/-?\d+(?:\.\d+)?/g) || []
+  let minX = Infinity
+  let maxX = -Infinity
+  for (let i = 0; i + 1 < bend.length; i += 2) {
+    const x = Number(bend[i])
+    if (x < minX) minX = x
+    if (x > maxX) maxX = x
   }
+  if (!(maxX - minX < 40)) throw new Error('Kentucky Bend outline is missing from the map strip')
 }
 
-async function emit(theme, svg) {
-  const bytes = Buffer.byteLength(svg)
-  return { theme, bytes, svg }
-}
-
-async function main() {
-  assertProjection()
-  const svgText = fs.readFileSync(STRIP_SVG, 'utf8')
-  const geo = JSON.parse(fs.readFileSync(MARKERS, 'utf8'))
-  const strip = stripGeometry(svgText)
-  const byLabel = markerIndex(geo)
-  const frame = mapFrame(strip.dots, byLabel)
-  const pad = 12
-  const scale = Math.min((CARD_W - pad * 2) / strip.srcW, (CARD_H - pad * 2) / strip.srcH)
-  const place = {
-    scale,
-    tx: (CARD_W - strip.srcW * scale) / 2,
-    ty: (CARD_H - strip.srcH * scale) / 2,
-  }
-  const fill = scalePath(strip.fill, place)
-  const counties = scalePath(strip.counties, place)
-  const stateRings = parsePath(fill)
-  const bend = stateRings.filter((ring) => {
-    let minX = Infinity
-    let maxX = -Infinity
-    for (const [x] of ring) {
-      if (x < minX) minX = x
-      if (x > maxX) maxX = x
-    }
-    return maxX - minX < 40
-  })
-  if (!bend.length) throw new Error('Kentucky Bend outline is missing from the card')
+function markerDots(geo, frame) {
   const dots = []
-  let outside = 0
   for (const feature of geo.features || []) {
     const pair = feature.geometry?.coordinates
     if (!pair || pair.length < 2 || !Number.isFinite(pair[0]) || !Number.isFinite(pair[1])) continue
+    if (feature.geometry?.type && feature.geometry.type !== 'Point') continue
     const [mx, my] = project(pair[0], pair[1])
-    const sx = frame.xFit.scale * mx + frame.xFit.offset
-    const sy = frame.yFit.scale * my + frame.yFit.offset
-    const [x, y] = toCard(sx, sy, place)
-    // A few Ohio-river markers sit just outside the simplified shore. 8px on the card brings them back onto land.
-    if (nearRings(x, y, stateRings, 8)) dots.push([x, y])
-    else outside += 1
+    const x = frame.xFit.scale * mx + frame.xFit.offset
+    const y = frame.yFit.scale * my + frame.yFit.offset
+    dots.push([x, y])
   }
-  if (dots.length < 1000) throw new Error(`only ${dots.length} markers landed on Kentucky`)
-  const drawn = []
-  for (const theme of ['dark', 'light']) {
-    drawn.push(await emit(theme, cardSvg({ fill, counties, dots, palette: PALETTES[theme] })))
-  }
-  const largest = Math.max(...drawn.map((item) => item.bytes))
-  fs.mkdirSync(OUT_DIR, { recursive: true })
-  let type = 'image/svg+xml'
-  let ext = 'svg'
-  if (largest > SVG_LIMIT) {
-    type = 'image/webp'
-    ext = 'webp'
-    for (const item of drawn) {
-      const webp = await sharp(Buffer.from(item.svg), { density: 144 })
-        .webp({ quality: 70, effort: 6, smartSubsample: true })
-        .toBuffer()
-      const meta = await sharp(webp).metadata()
-      if (meta.width !== CARD_W * 2 || meta.height !== CARD_H * 2) {
-        throw new Error(`card raster is ${meta.width}x${meta.height}, expected ${CARD_W * 2}x${CARD_H * 2}`)
-      }
-      fs.writeFileSync(path.join(OUT_DIR, `ky-history-map-card-${item.theme}.webp`), webp)
-      item.outBytes = webp.length
-    }
-  } else {
-    for (const item of drawn) {
-      fs.writeFileSync(path.join(OUT_DIR, `ky-history-map-card-${item.theme}.svg`), item.svg)
-      item.outBytes = item.bytes
-    }
-  }
-  removeStale(ext)
-  writeMeta(type)
-  console.log(`history map card ${ext} (${type}), svg ${largest} bytes, fit ${frame.max.toFixed(3)} px`)
-  console.log(`markers on Kentucky ${dots.length}, off the outline ${outside}, bend rings ${bend.length}`)
-  for (const item of drawn) console.log(`  ${item.theme} ${item.outBytes} bytes`)
+  return dots
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+function circles(dots) {
+  const lines = dots.map(
+    ([x, y]) => `  <circle class="hp-ky-markers" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.25"/>`,
+  )
+  return `  <!-- Marker dots from public/data/markers.geojson. Generated by scripts/build-history-map-card.mjs. -->\n${lines.join('\n')}\n`
+}
+
+function rewrite(svg, markerRule, dotMarkup) {
+  const stripped = svg
+    .replace(/\s*<!-- Marker dots from public\/data\/markers\.geojson\. Generated by scripts\/build-history-map-card\.mjs\. -->\s*/g, '\n')
+    .replace(/<circle class="hp-ky-markers"[\s\S]*?\/>\s*/g, '')
+    .replace(/<circle class="hp-ky-markers"[\s\S]*?<\/circle>\s*/g, '')
+  if (!stripped.includes('.hp-ky-markers')) throw new Error('map strip SVG is missing the marker style')
+  const styled = stripped.replace(/\.hp-ky-markers\s*\{[^}]*\}/, markerRule)
+  if (!styled.includes('</svg>')) throw new Error('map strip SVG is missing a closing tag')
+  return styled.replace('</svg>', `${dotMarkup}</svg>`)
+}
+
+function main() {
+  assertProjection()
+  const dark = fs.readFileSync(DARK_SVG, 'utf8')
+  const light = fs.readFileSync(LIGHT_SVG, 'utf8')
+  assertBend(dark)
+  assertBend(light)
+  const geo = JSON.parse(fs.readFileSync(MARKERS, 'utf8'))
+  const control = liveControl(dark) || CONTROL
+  const frame = mapFrame(control, markerIndex(geo))
+  const dots = markerDots(geo, frame)
+  if (dots.length < 1900) throw new Error(`only ${dots.length} markers were plotted; expected about 1,921`)
+  const markup = circles(dots)
+  const darkOut = rewrite(dark, '.hp-ky-markers { fill: #E8D5A8; stroke: none; opacity: .6; }', markup)
+  const lightOut = rewrite(light, '.hp-ky-markers { fill: #6E4214; stroke: none; opacity: .6; }', markup)
+  fs.writeFileSync(DARK_SVG, darkOut)
+  fs.writeFileSync(LIGHT_SVG, lightOut)
+  console.log(
+    `history map dots ${dots.length}, fit ${frame.max.toFixed(3)} px, dark ${Buffer.byteLength(darkOut)} bytes, light ${Buffer.byteLength(lightOut)} bytes`,
+  )
+}
+
+main()

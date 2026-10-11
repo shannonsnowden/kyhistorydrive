@@ -1931,40 +1931,6 @@ html[data-hp-theme="light"] .era-other {
   align-items: center;
   padding: 1.15rem clamp(1.25rem, 5vw, 4rem) 0.25rem;
 }
-.hp-map-strip > a[href="#map"] {
-  display: block;
-  min-width: 0;
-  color: inherit;
-  text-decoration: none;
-  border-radius: 14px;
-}
-.hp-map-strip-figure {
-  position: relative;
-  min-width: 0;
-}
-.hp-map-strip-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  aspect-ratio: 1000 / 431.7;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: #1a241c;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-html[data-hp-theme="light"] .hp-map-strip-img {
-  background: #f4ead6;
-}
-.hp-map-strip > a[href="#map"]:hover .hp-map-strip-img,
-.hp-map-strip > a[href="#map"]:focus-within .hp-map-strip-img {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
-}
-@media (prefers-reduced-motion: reduce) {
-  .hp-map-strip-img {
-    transition: none;
-  }
-}
 .hp-map-seal {
   position: absolute;
   z-index: 1;
@@ -3078,84 +3044,95 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   height: 100%;
   min-height: 100%;
 }
-/* Matched pair: history map and route maps. Same surface as .route-card. */
-.hp-map-cards {
-  grid-column: 1 / -1;
+/* Replaces the map-strip figure. Equal pair beside the heading and copy. */
+.hp-card-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.2rem;
   align-items: stretch;
-  margin: 0.15rem 0 0.85rem;
+  min-width: 0;
 }
-.hp-map-card,
-.hp-map-routes {
+.hp-card-pair > a {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  height: 100%;
   background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: none;
   color: inherit;
   text-decoration: none;
   overflow: hidden;
-  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
 }
-.hp-map-card picture,
-.hp-map-routes picture {
+.hp-card-pair-media {
+  position: relative;
   display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   background: var(--surface);
 }
-.hp-map-card img,
-.hp-map-routes img {
+.hp-card-pair-zoom {
+  position: absolute;
+  inset: 0;
+  transition: transform 200ms ease;
+}
+.hp-card-pair-zoom > img,
+.hp-card-pair-zoom > picture:not(.hp-map-seal),
+.hp-card-pair-zoom > picture:not(.hp-map-seal) img {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 640 / 400;
-  object-fit: cover;
+  height: 100%;
+}
+.hp-map-card .hp-card-pair-zoom > img {
+  object-fit: contain;
   background: var(--surface);
 }
-.hp-map-card-copy {
+.hp-map-routes .hp-card-pair-zoom img {
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+.hp-card-pair-copy {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  padding: 0.75rem 0.85rem 0.85rem;
+  padding: 0.95rem 1rem 1.1rem;
 }
-.hp-map-card-title {
+.hp-card-pair-title {
   margin: 0;
   color: var(--heading);
   font-size: 1.15rem;
   line-height: 1.25;
 }
-.hp-map-card-deck {
+.hp-card-pair-deck {
   margin: 0;
   color: var(--muted);
   font-size: 0.92rem;
-  line-height: 1.35;
+  line-height: 1.45;
 }
-.hp-map-card:hover,
-.hp-map-routes:hover {
-  transform: translateY(-3px);
+.hp-card-pair > a:hover {
   border-color: var(--accent);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
 }
-.hp-map-card:focus-visible,
-.hp-map-routes:focus-visible {
+.hp-card-pair > a:hover .hp-card-pair-zoom {
+  transform: scale(1.02);
+}
+.hp-card-pair > a:focus-visible {
   outline: 3px solid var(--focus-ring);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 @media (max-width: 700px) {
-  .hp-map-cards {
+  .hp-card-pair {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hp-map-card,
-  .hp-map-routes {
+  .hp-card-pair > a,
+  .hp-card-pair-zoom {
     transition: none;
   }
-  .hp-map-card:hover,
-  .hp-map-routes:hover {
+  .hp-card-pair > a:hover .hp-card-pair-zoom {
     transform: none;
   }
 }
