@@ -4,6 +4,7 @@
  * `khd-home-preview-theme` key so earlier visits stay in sync.
  */
 import { applyRouteMapTheme } from './route-maps.js'
+import { paintRouteMapsCard } from './route-card-art.js'
 
 export const THEME_KEY = 'khd-theme'
 export const THEME_KEY_LEGACY = 'khd-home-preview-theme'
@@ -55,6 +56,7 @@ export function applyTheme(theme, { persist = true } = {}) {
   document.documentElement.setAttribute(THEME_ATTR, next)
   applyRouteMapTheme(next)
   syncMapStrip(next)
+  paintRouteMapsCard()
   if (persist) {
     try {
       localStorage.setItem(THEME_KEY, next)

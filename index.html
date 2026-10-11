@@ -227,7 +227,20 @@
             <li>Tap any pin to read its marker or story. It works on your phone.</li>
           </ul>
           <a class="btn hp-cta hp-map-cta" href="#map">Open the history map</a>
-          <p class="hp-map-routes"><a href="/routes/">Route maps</a></p>
+          <a class="hp-map-routes" href="/routes/" aria-label="Route maps: Follow six historic routes across Kentucky">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" type="image/webp" />
+              <img alt="" width="640" height="400" loading="lazy" decoding="async" />
+            </picture>
+            <span class="hp-map-routes-copy">
+              <h3 class="hp-map-routes-title">Route maps</h3>
+              <p class="hp-map-routes-deck">Follow six historic routes across Kentucky</p>
+            </span>
+          </a>
+          <script type="module">
+            import { paintRouteMapsCard } from '/src/route-card-art.js'
+            paintRouteMapsCard()
+          </script>
         </div>
       </section>
 
