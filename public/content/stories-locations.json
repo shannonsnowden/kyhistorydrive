@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T09:22:05.763Z",
+  "generatedAt": "2026-10-11T09:39:41.101Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
@@ -502,7 +502,7 @@
       "lon": -82.637,
       "mapConfidence": "override",
       "matchedPlace": "Pound Gap, Pine Mountain (Kentucky side, near Jenkins)",
-      "historyId": null
+      "historyId": "pound-gap-pine-mountain-letcher-1750-1864"
     },
     "thomas-walker-and-cumberland-gap": {
       "slug": "thomas-walker-and-cumberland-gap",
@@ -678,7 +678,7 @@
       "lon": -85.7585,
       "mapConfidence": "override",
       "matchedPlace": "Mann’s Lick saltworks (approximate, north of Fairdale)",
-      "historyId": null
+      "historyId": "manns-lick-fairdale-jefferson-1773-1830"
     },
     "mcafee-station-on-the-salt-river": {
       "slug": "mcafee-station-on-the-salt-river",
@@ -1390,7 +1390,7 @@
       "lon": -83.76027778,
       "mapConfidence": "override",
       "matchedPlace": "Owingsville (Bath County seat)",
-      "historyId": null
+      "historyId": "owingsville-bath-1795-1811"
     },
     "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
       "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
@@ -1414,7 +1414,7 @@
       "lon": -84.88117,
       "mapConfidence": "override",
       "matchedPlace": "Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house)",
-      "historyId": null
+      "historyId": "liberty-hall-john-brown-frankfort-franklin-1796-1837"
     },
     "augusta-on-the-ohio-1797": {
       "slug": "augusta-on-the-ohio-1797",
@@ -1510,7 +1510,7 @@
       "lon": -85.7075,
       "mapConfidence": "override",
       "matchedPlace": "Old Mulkey Meetinghouse State Historic Site, Tompkinsville",
-      "historyId": null
+      "historyId": "old-mulkey-meetinghouse-monroe-1804-1856"
     },
     "piankashaw-claims-on-the-ohio-wabash": {
       "slug": "piankashaw-claims-on-the-ohio-wabash",
@@ -1742,7 +1742,7 @@
       "lon": -83.60777778,
       "mapConfidence": "override",
       "matchedPlace": "Red River Gorge Geological Area",
-      "historyId": null
+      "historyId": "red-river-gorge-menifee-1962-1993"
     },
     "big-bone-lick-older-cycle": {
       "slug": "big-bone-lick-older-cycle",
