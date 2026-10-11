@@ -1,7 +1,8 @@
 /**
- * Homepage Route maps card.
+ * Homepage Route maps thumbnail.
  * Story Studio final art lives in public/maps/homepage-card/. See NOTES.md there.
  * Light and dark, each as WebP with a JPEG fallback, at 1x and 2x.
+ * The image alt stays empty: the button's accessible name is the visible label.
  */
 export const ROUTE_MAPS_CARD_ART = '/maps/homepage-card/route-maps-card'
 
@@ -39,7 +40,7 @@ function paintPicture(picture) {
   img.srcset = pair('light', 'jpg')
   img.width = ROUTE_MAPS_CARD_WIDTH
   img.height = ROUTE_MAPS_CARD_HEIGHT
-  img.alt = ROUTE_MAPS_CARD_ALT
+  img.alt = ''
   img.loading = 'lazy'
   img.decoding = 'async'
   img.remove()

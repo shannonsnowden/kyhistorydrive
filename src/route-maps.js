@@ -454,10 +454,26 @@ export function routeMapJsonLd(route, { canonical, title }) {
 const PHONE_MQ = '(max-width: 699px)'
 const DESK_MQ = '(min-width: 700px)'
 
+function paintStoryPinPictures(mode) {
+  document.querySelectorAll('picture.story-pin-picture').forEach((pic) => {
+    pic.querySelectorAll('source[data-theme]').forEach((src) => {
+      const role = src.getAttribute('data-theme')
+      src.media = role === mode ? '(min-width: 0px)' : 'not all'
+    })
+    const img = pic.querySelector('img')
+    if (!img) return
+    const next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
+    if (next) img.setAttribute('src', next)
+    img.remove()
+    pic.appendChild(img)
+  })
+}
+
 /** Follow the site theme. The picture markup still carries prefers-color-scheme for no-JS. */
 export function applyRouteMapTheme(theme) {
   if (typeof document === 'undefined') return
   const mode = theme === 'light' ? 'light' : 'dark'
+  paintStoryPinPictures(mode)
   document.querySelectorAll('picture.route-map-picture').forEach((pic) => {
     pic.querySelectorAll('source[data-theme]').forEach((src) => {
       const role = src.getAttribute('data-theme')
@@ -488,6 +504,18 @@ export function routeMapThemeScript() {
         var desk = '(min-width: 700px)'
         function apply(theme) {
           var mode = theme === 'light' ? 'light' : 'dark'
+          document.querySelectorAll('picture.story-pin-picture').forEach(function (pic) {
+            pic.querySelectorAll('source[data-theme]').forEach(function (src) {
+              var role = src.getAttribute('data-theme')
+              src.media = role === mode ? '(min-width: 0px)' : 'not all'
+            })
+            var img = pic.querySelector('img')
+            if (!img) return
+            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
+            if (next) img.setAttribute('src', next)
+            img.remove()
+            pic.appendChild(img)
+          })
           document.querySelectorAll('picture.route-map-picture').forEach(function (pic) {
             pic.querySelectorAll('source[data-theme]').forEach(function (src) {
               var role = src.getAttribute('data-theme')

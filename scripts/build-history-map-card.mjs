@@ -12,7 +12,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DARK_SVG = path.join(ROOT, 'public/brand/ky-map-strip-counties.svg')
@@ -190,6 +190,19 @@ function rewrite(svg, markerRule, dotMarkup) {
   return styled.replace('</svg>', `${dotMarkup}</svg>`)
 }
 
+/** Outline path plus the EPSG:3089 fit, for the per-story pin thumbnails. */
+export function loadMapFrame() {
+  assertProjection()
+  const dark = fs.readFileSync(DARK_SVG, 'utf8')
+  assertBend(dark)
+  const fill = dark.match(/class="hp-ky-fill" d="([^"]+)"/)
+  if (!fill) throw new Error('map strip SVG is missing the state outline')
+  const geo = JSON.parse(fs.readFileSync(MARKERS, 'utf8'))
+  const control = liveControl(dark) || CONTROL
+  const frame = mapFrame(control, markerIndex(geo))
+  return { d: fill[1], viewBox: '0 0 1000 431.7', frame, project }
+}
+
 function main() {
   assertProjection()
   const dark = fs.readFileSync(DARK_SVG, 'utf8')
@@ -211,4 +224,5 @@ function main() {
   )
 }
 
-main()
+const entry = process.argv[1]
+if (entry && import.meta.url === pathToFileURL(path.resolve(entry)).href) main()

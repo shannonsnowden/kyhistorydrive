@@ -778,6 +778,58 @@ a.btn { text-decoration: none; display: inline-block; }
   display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center;
   margin-top: 0.75rem;
 }
+.static-cta { align-items: center; }
+.story-pin {
+  display: inline-flex;
+  flex-direction: column;
+  width: 220px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: none;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  vertical-align: top;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.story-pin picture {
+  display: block;
+  width: 220px;
+  height: 95px;
+  overflow: hidden;
+  background: #1a241c;
+}
+html[data-hp-theme="light"] .story-pin picture { background: #f4ead6; }
+.story-pin img {
+  display: block;
+  width: 220px;
+  height: 95px;
+  object-fit: contain;
+  transition: transform 200ms ease;
+}
+.story-pin span {
+  display: block;
+  padding: 0.4rem 0.65rem 0.5rem;
+  color: var(--heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
+.story-pin:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+.story-pin:hover img { transform: scale(1.02); }
+.story-pin:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-pin,
+  .story-pin img { transition: none; }
+  .story-pin:hover img { transform: none; }
+}
 .story-read-link {
   font-size: 0.9rem; font-weight: 600; text-decoration: none;
 }
@@ -1931,6 +1983,40 @@ html[data-hp-theme="light"] .era-other {
   align-items: center;
   padding: 1.15rem clamp(1.25rem, 5vw, 4rem) 0.25rem;
 }
+.hp-map-strip > a[href="#map"] {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 14px;
+}
+.hp-map-strip-figure {
+  position: relative;
+  min-width: 0;
+}
+.hp-map-strip-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1000 / 431.7;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #1a241c;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+html[data-hp-theme="light"] .hp-map-strip-img {
+  background: #f4ead6;
+}
+.hp-map-strip > a[href="#map"]:hover .hp-map-strip-img,
+.hp-map-strip > a[href="#map"]:focus-within .hp-map-strip-img {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-map-strip-img {
+    transition: none;
+  }
+}
 .hp-map-seal {
   position: absolute;
   z-index: 1;
@@ -3044,19 +3130,21 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   height: 100%;
   min-height: 100%;
 }
-/* Replaces the map-strip figure. Equal pair beside the heading and copy. */
-.hp-card-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+/* Compact map buttons under the restored strip. About 296px wide, capped at 320px. */
+.hp-thumb-row {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
   align-items: stretch;
-  min-width: 0;
+  margin-top: 0.15rem;
 }
-.hp-card-pair > a {
+.hp-thumb-row > a {
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  height: 100%;
+  flex: 0 0 18.5rem;
+  width: 18.5rem;
+  max-width: 20rem;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -3066,73 +3154,60 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   overflow: hidden;
   transition: border-color 200ms ease, box-shadow 200ms ease;
 }
-.hp-card-pair-media {
-  position: relative;
+.hp-thumb-zoom {
   display: block;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 600 / 340;
   overflow: hidden;
   background: var(--surface);
 }
-.hp-card-pair-zoom {
-  position: absolute;
-  inset: 0;
-  transition: transform 200ms ease;
-}
-.hp-card-pair-zoom > img,
-.hp-card-pair-zoom > picture:not(.hp-map-seal),
-.hp-card-pair-zoom > picture:not(.hp-map-seal) img {
+.hp-thumb-zoom > img,
+.hp-thumb-zoom > picture,
+.hp-thumb-zoom > picture img {
   display: block;
   width: 100%;
   height: 100%;
+  transition: transform 200ms ease;
 }
-.hp-map-card .hp-card-pair-zoom > img {
+.hp-thumb .hp-thumb-zoom > img {
   object-fit: contain;
   background: var(--surface);
 }
-.hp-map-routes .hp-card-pair-zoom img {
+.hp-map-routes .hp-thumb-zoom img {
   object-fit: cover;
   object-position: 50% 45%;
 }
-.hp-card-pair-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.95rem 1rem 1.1rem;
-}
-.hp-card-pair-title {
-  margin: 0;
+.hp-thumb-label {
+  display: block;
+  padding: 0.55rem 0.75rem 0.65rem;
   color: var(--heading);
-  font-size: 1.15rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   line-height: 1.25;
 }
-.hp-card-pair-deck {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.45;
-}
-.hp-card-pair > a:hover {
+.hp-thumb-row > a:hover {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
 }
-.hp-card-pair > a:hover .hp-card-pair-zoom {
+.hp-thumb-row > a:hover .hp-thumb-zoom img {
   transform: scale(1.02);
 }
-.hp-card-pair > a:focus-visible {
+.hp-thumb-row > a:focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 @media (max-width: 700px) {
-  .hp-card-pair {
-    grid-template-columns: 1fr;
+  .hp-thumb-row { flex-direction: column; }
+  .hp-thumb-row > a {
+    flex: none;
+    width: min(100%, 20rem);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hp-card-pair > a,
-  .hp-card-pair-zoom {
+  .hp-thumb-row > a,
+  .hp-thumb-zoom img {
     transition: none;
   }
-  .hp-card-pair > a:hover .hp-card-pair-zoom {
+  .hp-thumb-row > a:hover .hp-thumb-zoom img {
     transform: none;
   }
 }

@@ -187,58 +187,36 @@
         <p class="visually-hidden">Loading stories…</p>
       </section>
 
-      <!-- Static pictures only. The interactive marker map is the #map route, not a second map on this page. -->
+      <!-- Static picture only. The interactive marker map is the #map route, not a second map on this page. -->
       <section class="hp-map-strip" aria-labelledby="hp-map-strip-title">
-        <div class="hp-card-pair">
-          <a class="hp-map-card" href="#map">
-            <span class="hp-card-pair-media">
-              <span class="hp-card-pair-zoom">
-                <img
-                  id="hpMapStripImg"
-                  src="/brand/ky-map-strip-counties.svg"
-                  width="1000"
-                  height="432"
-                  alt="Kentucky county map with historical marker dots."
-                  decoding="async"
-                />
-                <script>
-                  (function () {
-                    var img = document.getElementById('hpMapStripImg')
-                    if (!img) return
-                    var light = document.documentElement.getAttribute('data-hp-theme') === 'light'
-                    var next = light ? '/brand/ky-map-strip-counties-light.svg' : '/brand/ky-map-strip-counties.svg'
-                    if (img.getAttribute('src') !== next) img.src = next
-                    img.loading = 'eager'
-                  })()
-                </script>
-                <picture class="hp-map-seal">
-                  <source type="image/avif" srcset="/brand/khd-map-seal.avif" />
-                  <img src="/brand/khd-map-seal.webp" width="576" height="576" alt="" loading="lazy" decoding="async" />
-                </picture>
-              </span>
-            </span>
-            <span class="hp-card-pair-copy">
-              <h3 class="hp-card-pair-title">Open the history map</h3>
-              <p class="hp-card-pair-deck">Every Kentucky Historical Society marker, plus layers.</p>
-            </span>
-          </a>
-          <a class="hp-map-routes" href="/routes/">
-            <span class="hp-card-pair-media">
-              <span class="hp-card-pair-zoom">
-                <picture>
-                  <source data-theme="dark" type="image/webp" media="(prefers-color-scheme: dark)" srcset="/maps/homepage-card/route-maps-card-dark.webp 1x, /maps/homepage-card/route-maps-card-dark@2x.webp 2x" />
-                  <source data-theme="dark" type="image/jpeg" media="(prefers-color-scheme: dark)" srcset="/maps/homepage-card/route-maps-card-dark.jpg 1x, /maps/homepage-card/route-maps-card-dark@2x.jpg 2x" />
-                  <source data-theme="light" type="image/webp" srcset="/maps/homepage-card/route-maps-card-light.webp 1x, /maps/homepage-card/route-maps-card-light@2x.webp 2x" />
-                  <img src="/maps/homepage-card/route-maps-card-light.jpg" srcset="/maps/homepage-card/route-maps-card-light.jpg 1x, /maps/homepage-card/route-maps-card-light@2x.jpg 2x" width="600" height="340" alt="Antique parchment map of the Warriors' Path in red, running south through eastern Kentucky past the Kentucky River ford and Flat Lick to Cumberland Gap." loading="lazy" decoding="async" />
-                </picture>
-              </span>
-            </span>
-            <span class="hp-card-pair-copy">
-              <h3 class="hp-card-pair-title">Route maps</h3>
-              <p class="hp-card-pair-deck">Follow six historic journeys across Kentucky.</p>
-            </span>
-          </a>
+        <a href="#map" tabindex="-1" aria-hidden="true">
+        <div class="hp-map-strip-figure">
+        <img
+          id="hpMapStripImg"
+          class="hp-map-strip-img"
+          src="/brand/ky-map-strip-counties.svg"
+          width="1000"
+          height="432"
+          alt="Kentucky with county lines and historical marker dots, including the Kentucky Bend exclave of Fulton County."
+          decoding="async"
+          loading="lazy"
+        />
+        <script>
+          (function () {
+            var img = document.getElementById('hpMapStripImg')
+            if (!img) return
+            var light = document.documentElement.getAttribute('data-hp-theme') === 'light'
+            var next = light ? '/brand/ky-map-strip-counties-light.svg' : '/brand/ky-map-strip-counties.svg'
+            if (img.getAttribute('src') !== next) img.src = next
+            img.loading = 'eager'
+          })()
+        </script>
+        <picture class="hp-map-seal">
+          <source type="image/avif" srcset="/brand/khd-map-seal.avif" />
+          <img src="/brand/khd-map-seal.webp" width="576" height="576" alt="" loading="lazy" decoding="async" />
+        </picture>
         </div>
+        </a>
         <div class="hp-map-strip-copy">
           <p class="hp-kicker">Map</p>
           <h2 id="hp-map-strip-title">Explore Kentucky’s history map</h2>
@@ -249,6 +227,41 @@
             <li>Tap any pin to read its marker or story. It works on your phone.</li>
           </ul>
         </div>
+        <div class="hp-thumb-row">
+          <a class="hp-thumb" href="#map">
+            <span class="hp-thumb-zoom">
+              <img
+                class="hp-ky-strip"
+                src="/brand/ky-map-strip-counties.svg"
+                width="1000"
+                height="432"
+                alt=""
+                decoding="async"
+              />
+            </span>
+            <span class="hp-thumb-label">Open history map</span>
+          </a>
+          <a class="hp-map-routes" href="/routes/">
+            <span class="hp-thumb-zoom">
+              <picture>
+                <source data-theme="dark" type="image/webp" media="(prefers-color-scheme: dark)" srcset="/maps/homepage-card/route-maps-card-dark.webp 1x, /maps/homepage-card/route-maps-card-dark@2x.webp 2x" />
+                <source data-theme="dark" type="image/jpeg" media="(prefers-color-scheme: dark)" srcset="/maps/homepage-card/route-maps-card-dark.jpg 1x, /maps/homepage-card/route-maps-card-dark@2x.jpg 2x" />
+                <source data-theme="light" type="image/webp" srcset="/maps/homepage-card/route-maps-card-light.webp 1x, /maps/homepage-card/route-maps-card-light@2x.webp 2x" />
+                <img src="/maps/homepage-card/route-maps-card-light.jpg" srcset="/maps/homepage-card/route-maps-card-light.jpg 1x, /maps/homepage-card/route-maps-card-light@2x.jpg 2x" width="600" height="340" alt="" loading="lazy" decoding="async" />
+              </picture>
+            </span>
+            <span class="hp-thumb-label">Route maps</span>
+          </a>
+        </div>
+        <script>
+          (function () {
+            var light = document.documentElement.getAttribute('data-hp-theme') === 'light'
+            var next = light ? '/brand/ky-map-strip-counties-light.svg' : '/brand/ky-map-strip-counties.svg'
+            document.querySelectorAll('.hp-ky-strip').forEach(function (img) {
+              if (img.getAttribute('src') !== next) img.src = next
+            })
+          })()
+        </script>
         <script type="module">
           import { paintHomeMapCards } from '/src/route-card-art.js'
           paintHomeMapCards()

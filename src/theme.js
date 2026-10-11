@@ -43,12 +43,12 @@ const MAP_STRIP_SRC = {
 }
 
 function syncMapStrip(theme) {
-  const img = document.getElementById('hpMapStripImg')
-  if (!img) return
   const next = theme === 'light' ? MAP_STRIP_SRC.light : MAP_STRIP_SRC.dark
-  const current = img.getAttribute('src') || ''
-  if (current === next || current.endsWith(next)) return
-  img.src = next
+  document.querySelectorAll('#hpMapStripImg, .hp-ky-strip').forEach((img) => {
+    const current = img.getAttribute('src') || ''
+    if (current === next || current.endsWith(next)) return
+    img.src = next
+  })
 }
 
 export function applyTheme(theme, { persist = true } = {}) {
