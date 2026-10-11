@@ -9,6 +9,7 @@ import { initThemeToggle } from './theme.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
+import { applyRouteMapTheme, routeMapSectionHtml } from './route-maps.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -3039,6 +3040,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             }
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
+          ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
           ${extras}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
@@ -3061,6 +3063,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const summaryEl = reader.querySelector('.story-summary')
     if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)
+    applyRouteMapTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
     mountStoryTerritory(reader, meta)
     if (rowItem) {
       // In place: never jump to the bottom of the list. Only nudge if the story start is off-screen.

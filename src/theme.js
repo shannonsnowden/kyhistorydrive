@@ -3,6 +3,8 @@
  * Preference is stored in `khd-theme` and mirrored to the legacy
  * `khd-home-preview-theme` key so earlier visits stay in sync.
  */
+import { applyRouteMapTheme } from './route-maps.js'
+
 export const THEME_KEY = 'khd-theme'
 export const THEME_KEY_LEGACY = 'khd-home-preview-theme'
 export const THEME_ATTR = 'data-hp-theme'
@@ -51,6 +53,7 @@ function syncMapStrip(theme) {
 export function applyTheme(theme, { persist = true } = {}) {
   const next = theme === 'light' ? 'light' : 'dark'
   document.documentElement.setAttribute(THEME_ATTR, next)
+  applyRouteMapTheme(next)
   syncMapStrip(next)
   if (persist) {
     try {
