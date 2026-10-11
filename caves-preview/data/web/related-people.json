@@ -1,0 +1,1248 @@
+{
+ "_note": "Web-only cross-links. \"people\": name -> story slug (first mention per story is linked; case-sensitive). \"related\": story slug -> [{slug,label}]. Every pair is stated in that story’s own text. Add rows here; no story text is edited. Full-site pass 2026-10-05.",
+ "people": {
+  "Nonhelema": "nonhelema",
+  "Hugh McGary": "hugh-mcgary-the-blue-licks-hothead",
+  "McGary": "hugh-mcgary-the-blue-licks-hothead",
+  "Benjamin Logan": "benjamin-logan",
+  "George Rogers Clark": "george-rogers-clark",
+  "Richard Henderson": "richard-henderson",
+  "Isaac Shelby": "isaac-shelby-old-kings-mountain",
+  "Levi Todd": "levi-todd-lexington-co-founder",
+  "John Todd": "col-john-todd-of-lexington",
+  "John Floyd": "john-floyd",
+  "Squire Boone": "squire-boones-painted-stone",
+  "John Finley": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+  "Hancock Taylor": "hancock-taylor-fincastle-surveyor",
+  "John Holder": "col-john-holder-at-lower-howards-creek",
+  "John Hardin": "col-john-hardin-of-pleasant-run",
+  "Stephen Trigg": "col-stephen-trigg-of-viney-grove",
+  "John Filson": "john-filson-kentucke-1784",
+  "William Christian": "william-christian-of-beargrass",
+  "James Knox": "james-knox",
+  "Jacob Beam": "jacob-beam-on-hardin-creek",
+  "Lewis Craig": "the-travelling-church-1781",
+  "John Strode": "capt-john-strode-of-strodes-station",
+  "Henry Bird": "ojibwe-on-birds-war-road",
+  "Dragging Canoe": "chickamauga-cherokee",
+  "Charles Scott": "gen-charles-scott-and-petersburg",
+  "Daniel Trabue": "daniel-trabue-of-columbia",
+  "James Wilkinson": "gen-james-wilkinson-kentuckys-agent-13",
+  "John Bradford": "john-bradford-and-the-kentucke-gazette",
+  "Cornstalk": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+  "Esther Whitley": "esther-whitley-over-the-cumberlands-1775",
+  "Simon Girty": "simon-girty-interpreter-at-bryan-station-1782",
+  "Little Turtle": "little-turtle-and-hardins-defeat-1790"
+ },
+ "skip": {
+  "Richard Henderson": [
+   "henderson-at-red-banks"
+  ]
+ },
+ "related": {
+  "nonhelema": [
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Family: her brother Cornstalk led the Shawnee delegation here"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: named in her story as the man who killed her husband Moluntha in 1786"
+   },
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: Logan’s 1786 militia raid struck her Ohio village"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Same event: McGary killed Moluntha in 1786"
+   },
+   {
+    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "label": "Same place: she held influence at Lower Shawneetown"
+   },
+   {
+    "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+    "label": "Same family: her brother Cornstalk has his own story"
+   }
+  ],
+  "treaty-of-camp-charlotte-1774": [
+   {
+    "slug": "nonhelema",
+    "label": "Family: Cornstalk’s sister Nonhelema was a Shawnee chief and diplomat"
+   },
+   {
+    "slug": "isaac-shelby-old-kings-mountain",
+    "label": "Same event: Isaac Shelby fought at Point Pleasant in Lord Dunmore’s War"
+   },
+   {
+    "slug": "richard-henderson",
+    "label": "Same person: Richard Henderson’s separate 1775 Transylvania purchase"
+   },
+   {
+    "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+    "label": "Same person: Cornstalk, who led the Shawnees at Point Pleasant and Camp Charlotte, has his own story"
+   }
+  ],
+  "hugh-mcgary-the-blue-licks-hothead": [
+   {
+    "slug": "nonhelema",
+    "label": "Same event: Moluntha, husband of Nonhelema, was killed in the 1786 raid"
+   },
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: McGary served on Logan’s 1786 Ohio raid"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Another story about Hugh McGary"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Same event: served under Col. John Todd at Blue Licks"
+   }
+  ],
+  "benjamin-logan": [
+   {
+    "slug": "nonhelema",
+    "label": "Same event: the 1786 raid on Nonhelema’s Ohio village"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: McGary served on Logan’s 1786 Ohio raid"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Same event: McGary served on this raid"
+   },
+   {
+    "slug": "stanford-from-st-asaph",
+    "label": "Same place: Logan’s Station (St. Asaph), near present Stanford"
+   },
+   {
+    "slug": "daniel-trabue-of-columbia",
+    "label": "Same place: Daniel Trabue, who served at Logan’s Fort and wrote about it, has his own story"
+   }
+  ],
+  "hugh-mcgary-the-hothead-major": [
+   {
+    "slug": "nonhelema",
+    "label": "Same event: killed Moluntha, Nonhelema’s husband, in 1786"
+   },
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: Logan’s Mad River raid, 1786"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Another story about Hugh McGary"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   }
+  ],
+  "battle-of-blue-licks": [
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: Hugh McGary commanded the center at Blue Licks"
+   },
+   {
+    "slug": "hugh-mcgary-the-hothead-major",
+    "label": "Same event: Hugh McGary dared the militia across the Licking at Blue Licks"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Same event: Col. John Todd was killed at Blue Licks"
+   },
+   {
+    "slug": "levi-todd-lexington-co-founder",
+    "label": "Same event: Levi Todd fought at Blue Licks, where his brother John was killed"
+   },
+   {
+    "slug": "col-stephen-trigg-of-viney-grove",
+    "label": "Same event: Col. Stephen Trigg commanded the right wing and was killed at Blue Licks"
+   },
+   {
+    "slug": "maj-silas-harlan",
+    "label": "Same event: Maj. Silas Harlan fell at Blue Licks"
+   },
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: Militia pursued the raiders from Bryan Station to Blue Licks three days later"
+   },
+   {
+    "slug": "wyandot-on-kentuckys-northern-frontier",
+    "label": "Same event: Wyandot warriors were in the ambush"
+   }
+  ],
+  "col-john-todd-of-lexington": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "hugh-mcgary-the-blue-licks-hothead",
+    "label": "Same event: Hugh McGary commanded under Todd at Blue Licks"
+   },
+   {
+    "slug": "levi-todd-lexington-co-founder",
+    "label": "Family: his brother Levi Todd co-founded Lexington"
+   },
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: led the pursuit after Bryan Station’s siege"
+   },
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: rode with George Rogers Clark to Kaskaskia and Vincennes"
+   }
+  ],
+  "levi-todd-lexington-co-founder": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Family: his brother, killed at Blue Licks"
+   },
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: led a relief column toward Bryan Station"
+   },
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: rode with George Rogers Clark’s Illinois campaign"
+   }
+  ],
+  "col-stephen-trigg-of-viney-grove": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   }
+  ],
+  "maj-silas-harlan": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: commanded spies in George Rogers Clark’s Illinois campaign"
+   }
+  ],
+  "bryan-station-siege-august-1782": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Battle of Blue Licks, August 1782"
+   },
+   {
+    "slug": "levi-todd-lexington-co-founder",
+    "label": "Same event: Levi Todd led a relief column toward the station"
+   },
+   {
+    "slug": "wyandot-on-kentuckys-northern-frontier",
+    "label": "Same event: Wyandot warriors joined the August 1782 siege"
+   },
+   {
+    "slug": "simon-girty-interpreter-at-bryan-station-1782",
+    "label": "Same person: Simon Girty, who came with the attackers, has his own story"
+   }
+  ],
+  "jack-jouett-kentuckys-midnight-rider": [
+   {
+    "slug": "capt-jack-jouett",
+    "label": "Another story about Jack Jouett"
+   }
+  ],
+  "capt-jack-jouett": [
+   {
+    "slug": "jack-jouett-kentuckys-midnight-rider",
+    "label": "Another story about Jack Jouett"
+   }
+  ],
+  "squire-boones-painted-stone": [
+   {
+    "slug": "shelbyville",
+    "label": "Same place: Squire Boone’s station stood near present Shelbyville"
+   }
+  ],
+  "shelbyville": [
+   {
+    "slug": "squire-boones-painted-stone",
+    "label": "Same place: Squire Boone’s Painted Stone Station was the earlier foothold nearby"
+   },
+   {
+    "slug": "isaac-shelby-old-kings-mountain",
+    "label": "Same person: Shelby County was named for Isaac Shelby"
+   }
+  ],
+  "hancock-taylor-fincastle-surveyor": [
+   {
+    "slug": "leestown",
+    "label": "Same event: Hancock Taylor surveyed the Kentucky River crossing in 1773"
+   },
+   {
+    "slug": "falls-of-the-ohio",
+    "label": "Same place: at the Falls of the Ohio in 1769"
+   }
+  ],
+  "leestown": [
+   {
+    "slug": "hancock-taylor-fincastle-surveyor",
+    "label": "Same event: Hancock Taylor’s 1773 survey"
+   },
+   {
+    "slug": "mcafee-station-on-the-salt-river",
+    "label": "Same people: the McAfee company surveyed this crossing with Hancock Taylor in 1773"
+   }
+  ],
+  "john-finley-the-trader-who-put-kentucky-on-boones-map": [
+   {
+    "slug": "odawa-raid-at-eskippakithiki-1753",
+    "label": "Same event: Finley’s store at Eskippakithiki was hit in 1753"
+   },
+   {
+    "slug": "pilot-knob-boones-overlook-1769",
+    "label": "Same event: the traditional June 1769 view of the Bluegrass from Pilot Knob"
+   },
+   {
+    "slug": "athiamiowee-the-warriors-path-through-kentucky",
+    "label": "Same place: Finley and Boone used the Warriors’ Path in 1769"
+   }
+  ],
+  "odawa-raid-at-eskippakithiki-1753": [
+   {
+    "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "label": "Same event: John Finley kept a store at the town"
+   },
+   {
+    "slug": "athiamiowee-the-warriors-path-through-kentucky",
+    "label": "Same place: Eskippakithiki stood on the Warriors’ Path"
+   }
+  ],
+  "isaac-shelby-old-kings-mountain": [
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: Lord Dunmore’s War (Point Pleasant, 1774)"
+   }
+  ],
+  "henderson-at-red-banks": [
+   {
+    "slug": "richard-henderson",
+    "label": "Same person: Richard Henderson & Company held the Red Banks grant"
+   }
+  ],
+  "richard-henderson": [
+   {
+    "slug": "henderson-at-red-banks",
+    "label": "Same place: Red Banks lay on the Henderson & Company grant"
+   },
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: bought Transylvania land from the Cherokee, 1775"
+   },
+   {
+    "slug": "chickamauga-cherokee",
+    "label": "Same event: Dragging Canoe opposed the Sycamore Shoals sale"
+   }
+  ],
+  "william-hoy-and-hoys-station": [
+   {
+    "slug": "col-john-holder-at-lower-howards-creek",
+    "label": "Same person: John Holder, who led the August 1782 pursuit of the captors; his Boonesborough and Kentucky River career has its own story"
+   },
+   {
+    "slug": "wyandot-on-kentuckys-northern-frontier",
+    "label": "Same people: Wyandot warriors captured Jones Hoy and Jack Calloway in 1782"
+   }
+  ],
+  "col-john-holder-at-lower-howards-creek": [
+   {
+    "slug": "william-hoy-and-hoys-station",
+    "label": "Same event: Holder led the August 1782 pursuit of the Wyandot band holding Jones Hoy and Jack Calloway"
+   },
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: fought under George Rogers Clark"
+   }
+  ],
+  "col-john-hardin-of-pleasant-run": [
+   {
+    "slug": "benjamin-logan",
+    "label": "Family: Hardin’s son Martin D. Hardin married Logan’s daughter Ann"
+   },
+   {
+    "slug": "mascouten-fire-nation-on-the-wabash",
+    "label": "Same event: Hardin led a detachment in Gen. Charles Scott’s 1791 Wabash raid"
+   },
+   {
+    "slug": "kickapoo-on-the-kentucky-frontier",
+    "label": "Same event: led militia against a Kickapoo village on Scott’s 1791 Wabash raid"
+   },
+   {
+    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+    "label": "Same event: Gen. Charles Scott’s 1791 Wabash campaign"
+   },
+   {
+    "slug": "gen-james-wilkinson-kentuckys-agent-13",
+    "label": "Same person: Gen. James Wilkinson, who sent Hardin on his last errand, has his own story"
+   },
+   {
+    "slug": "little-turtle-and-hardins-defeat-1790",
+    "label": "Same event: Little Turtle and Hardin’s Defeat, 1790, has its own story"
+   }
+  ],
+  "mascouten-fire-nation-on-the-wabash": [
+   {
+    "slug": "col-john-hardin-of-pleasant-run",
+    "label": "Same person: Col. John Hardin, who led a detachment in the 1791 raid, has his own story"
+   },
+   {
+    "slug": "kickapoo-on-the-kentucky-frontier",
+    "label": "Same event: Scott’s 1791 report names a Kickapoo town on the Wabash"
+   },
+   {
+    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+    "label": "Same event: Gen. Charles Scott’s June 1791 Wabash raid"
+   }
+  ],
+  "carrollton-from-port-william": [
+   {
+    "slug": "the-travelling-church-1781",
+    "label": "Family: town founder Benjamin Craig came to Kentucky with the Traveling Church led by his brother Lewis Craig"
+   },
+   {
+    "slug": "gen-charles-scott-and-petersburg",
+    "label": "Same person: Gen. Charles Scott, who built the 1789 blockhouse, has his own story"
+   }
+  ],
+  "rowlandton-mound-site-15mcn3-paducah": [
+   {
+    "slug": "twin-mounds-site",
+    "label": "Same argument: Twin Mounds was also once called a Kincaid outpost"
+   },
+   {
+    "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+    "label": "Compared: Rowlandton is roughly the size of Wickliffe Mounds"
+   },
+   {
+    "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
+    "label": "Same argument: grouped with Tolu as a supposed Kincaid outpost"
+   }
+  ],
+  "adams-site-15fu4": [
+   {
+    "slug": "adams-site-mississippian-town-near-hickman",
+    "label": "Another story about the Adams Site (15Fu4)"
+   },
+   {
+    "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+    "label": "Same place: a sister Mississippian border town"
+   }
+  ],
+  "adams-site-mississippian-town-near-hickman": [
+   {
+    "slug": "adams-site-15fu4",
+    "label": "Another story about the Adams Site (15Fu4)"
+   }
+  ],
+  "bland-w-ballard-of-tick-creek": [
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: scouted for George Rogers Clark in 1780 and 1786"
+   }
+  ],
+  "blue-jacket-weyapiersenwah": [
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: Logan’s 1786 militia expedition burned his town"
+   },
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: fought at Point Pleasant in Lord Dunmore’s War"
+   }
+  ],
+  "bowling-green-takes-shape-on-the-barren-1798": [
+   {
+    "slug": "louisville-nashville-railroad-opens-the-interior",
+    "label": "Same place: later a hub on the Louisville & Nashville"
+   }
+  ],
+  "bullitts-lick-kentuckys-first-industry": [
+   {
+    "slug": "william-christian-of-beargrass",
+    "label": "Same person: surveyed in 1773 for Col. William Christian"
+   },
+   {
+    "slug": "shepherdsville-on-salt-river",
+    "label": "Same place: Shepherdsville grew on the road to the lick"
+   },
+   {
+    "slug": "manns-lick-louisvilles-salt-town",
+    "label": "Same industry: Mann’s Lick, the smaller saltworks near Louisville"
+   }
+  ],
+  "capt-james-estill-estills-defeat": [
+   {
+    "slug": "mount-sterling-little-mountain-town",
+    "label": "Same place: the fight was at Little Mountain Creek, near present Mount Sterling"
+   },
+   {
+    "slug": "wyandot-on-kentuckys-northern-frontier",
+    "label": "Same people: a Wyandot raiding party"
+   }
+  ],
+  "capt-john-strode-of-strodes-station": [
+   {
+    "slug": "winchester-clark-county-seat",
+    "label": "Same place: Clark County’s first court met at his station"
+   }
+  ],
+  "capt-nathaniel-hart": [
+   {
+    "slug": "isaac-shelby-old-kings-mountain",
+    "label": "Family: his daughter Susannah married Isaac Shelby"
+   }
+  ],
+  "chickamauga-cherokee": [
+   {
+    "slug": "chickamauga-cherokee-hold-the-southern-flank",
+    "label": "Another story about the Chickamauga Cherokee"
+   },
+   {
+    "slug": "richard-henderson",
+    "label": "Same event: the 1775 Treaty of Sycamore Shoals"
+   }
+  ],
+  "chickamauga-cherokee-hold-the-southern-flank": [
+   {
+    "slug": "chickamauga-cherokee",
+    "label": "Another story about the Chickamauga Cherokee"
+   },
+   {
+    "slug": "richard-henderson",
+    "label": "Same event: the 1775 Treaty of Sycamore Shoals"
+   }
+  ],
+  "chickasaw-hunting-grounds": [
+   {
+    "slug": "isaac-shelby-old-kings-mountain",
+    "label": "Same person: Isaac Shelby negotiated the 1818 Jackson Purchase"
+   }
+  ],
+  "christopher-gist-1750-51": [
+   {
+    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "label": "Same place: Shawnee at Lower Shawneetown warned him off the Falls"
+   },
+   {
+    "slug": "falls-of-the-ohio",
+    "label": "Same place: warned off the Falls in 1751"
+   },
+   {
+    "slug": "treaty-of-logstown-1752",
+    "label": "Same person: Gist represented the Ohio Company at the 1752 Logstown treaty"
+   },
+   {
+    "slug": "pine-mountain-and-pound-gap",
+    "label": "Same place: the Kentucky Historical Society credits Gist with finding the Pound Gap route"
+   }
+  ],
+  "cleek-mccabe-fort-ancient-village": [
+   {
+    "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
+    "label": "Another story about Cleek-McCabe"
+   }
+  ],
+  "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": [
+   {
+    "slug": "cleek-mccabe-fort-ancient-village",
+    "label": "Another story about Cleek-McCabe"
+   }
+  ],
+  "cloudsplitter-rockshelter-menifee-county": [
+   {
+    "slug": "newt-kash-hollow-15mf1",
+    "label": "Same place: neighboring Red River Gorge shelter"
+   },
+   {
+    "slug": "red-river-gorge-arches-and-the-dam-fight",
+    "label": "Same place: the Red River Gorge and its dam fight"
+   }
+  ],
+  "col-john-bowman-at-old-chillicothe": [
+   {
+    "slug": "benjamin-logan",
+    "label": "Same event: Benjamin Logan rode on the 1779 attack"
+   },
+   {
+    "slug": "levi-todd-lexington-co-founder",
+    "label": "Same event: Levi Todd rode on the 1779 attack"
+   },
+   {
+    "slug": "shawnee-chillicothe-divisions",
+    "label": "Same place: Old Chillicothe, a Shawnee Chillicothe town"
+   }
+  ],
+  "col-robert-patterson-builds-lexington": [
+   {
+    "slug": "john-filson-kentucke-1784",
+    "label": "Same person: partnered with John Filson to found Losantiville in 1788"
+   }
+  ],
+  "col-william-russell-iii": [
+   {
+    "slug": "isaac-shelby-old-kings-mountain",
+    "label": "Same event: served at Kings Mountain, 1780"
+   },
+   {
+    "slug": "russellville-from-big-boiling-spring-to-county-seat",
+    "label": "Same family: the town named for his father has its own story"
+   }
+  ],
+  "delaware-lenape-in-the-1780-kentucky-raids": [
+   {
+    "slug": "ojibwe-on-birds-war-road",
+    "label": "Same event: Capt. Henry Bird’s 1780 column up the Licking"
+   }
+  ],
+  "diamond-caverns-decorated-limestone": [
+   {
+    "slug": "mammoth-cave-saltpeter",
+    "label": "Same place: the same karst country as Mammoth Cave"
+   }
+  ],
+  "dover-mound-mason-county": [
+   {
+    "slug": "mount-horeb-earthworks",
+    "label": "Same place: the same Adena world as Mount Horeb"
+   }
+  ],
+  "drennon-springs-salt-works": [
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: the springs were patented to George Rogers Clark in 1785"
+   }
+  ],
+  "edward-worthington-at-worthingtons-fort": [
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: captain and paymaster under George Rogers Clark at Vincennes"
+   },
+   {
+    "slug": "mingo-camps-south-of-the-ohio",
+    "label": "Same people: wounded by Mingo warriors under Pluggy at McClelland’s Station"
+   }
+  ],
+  "egushawa-and-the-odawa-in-kentuckys-war-years": [
+   {
+    "slug": "ojibwe-on-birds-war-road",
+    "label": "Same event: led an Ottawa contingent with Capt. Henry Bird’s 1780 invasion"
+   }
+  ],
+  "erie-the-cat-nation": [
+   {
+    "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
+    "label": "Another story about the Erie (Cat Nation)"
+   }
+  ],
+  "erie-the-cat-nation-cleared-from-the-lake-shore": [
+   {
+    "slug": "erie-the-cat-nation",
+    "label": "Another story about the Erie (Cat Nation)"
+   }
+  ],
+  "falls-of-the-ohio": [
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: George Rogers Clark staged from Corn Island here in 1778"
+   }
+  ],
+  "falmouth-at-the-licking-forks": [
+   {
+    "slug": "ojibwe-on-birds-war-road",
+    "label": "Same event: Capt. Henry Bird’s 1780 expedition passed the Licking forks"
+   },
+   {
+    "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
+    "label": "Same event: Bird’s column was headed for Ruddell’s and Martin’s stations"
+   }
+  ],
+  "george-rogers-clark": [
+   {
+    "slug": "falls-of-the-ohio",
+    "label": "Same place: staged at Corn Island in the Falls of the Ohio, 1778"
+   }
+  ],
+  "hansen-site-15gp14": [
+   {
+    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "label": "Same place: on the terrace just upstream from Lower Shawneetown"
+   },
+   {
+    "slug": "old-fort-earthworks-15gp1-greenup-county",
+    "label": "Same place: the Hopewell Old Fort Earthworks stand nearby"
+   }
+  ],
+  "henry-skaggs-green-river-long-hunter": [
+   {
+    "slug": "james-knox",
+    "label": "Same person: hunted the Green River country with James Knox"
+   }
+  ],
+  "isaac-ruddell-and-the-guns-at-ruddells-station": [
+   {
+    "slug": "ojibwe-on-birds-war-road",
+    "label": "Same event: Capt. Henry Bird’s 1780 invasion forced the station’s surrender"
+   }
+  ],
+  "jacob-beam-on-hardin-creek": [
+   {
+    "slug": "jacob-beam-sells-old-jakes-first-barrel",
+    "label": "Another story about Jacob Beam"
+   }
+  ],
+  "jacob-beam-sells-old-jakes-first-barrel": [
+   {
+    "slug": "jacob-beam-on-hardin-creek",
+    "label": "Another story about Jacob Beam"
+   }
+  ],
+  "john-floyd": [
+   {
+    "slug": "bullitts-lick-kentuckys-first-industry",
+    "label": "Same place: killed riding toward Bullitt’s Lick"
+   }
+  ],
+  "kickapoo-on-the-kentucky-frontier": [
+   {
+    "slug": "mascouten-fire-nation-on-the-wabash",
+    "label": "Same people: Kickapoo and Mascouten moved into west-central Indiana together"
+   },
+   {
+    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+    "label": "Same event: Brig. Gen. Charles Scott’s June 1791 Wabash raid"
+   }
+  ],
+  "lawrenceburg-from-kaufmans-station": [
+   {
+    "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
+    "label": "Another story about Lawrenceburg and Kaufman’s Station"
+   }
+  ],
+  "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": [
+   {
+    "slug": "lawrenceburg-from-kaufmans-station",
+    "label": "Another story about Lawrenceburg and Kaufman’s Station"
+   }
+  ],
+  "louisville-and-portland-canal": [
+   {
+    "slug": "falls-of-the-ohio",
+    "label": "Same place: built to pass the Falls of the Ohio"
+   }
+  ],
+  "maj-joseph-bowman": [
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: Clark’s second-in-command on the Illinois campaign"
+   }
+  ],
+  "mary-draper-ingles-escapes-through-kentucky-1755": [
+   {
+    "slug": "big-bone-lick-older-cycle",
+    "label": "Same place: put to work at the salt camp at Big Bone Lick"
+   }
+  ],
+  "michael-stoner-german-long-hunter": [
+   {
+    "slug": "falls-of-the-ohio",
+    "label": "Same place: the 1774 warning ride passed the Falls of the Ohio"
+   },
+   {
+    "slug": "pine-mountain-and-pound-gap",
+    "label": "Same place: Stoner and Boone crossed Pound Gap in 1774"
+   }
+  ],
+  "mingo-camps-south-of-the-ohio": [
+   {
+    "slug": "treaty-of-fort-stanwix-1768",
+    "label": "Same event: the 1768 Fort Stanwix deed left hunting rights south of the Ohio"
+   }
+  ],
+  "muir-site-15js86": [
+   {
+    "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+    "label": "Another story about the Muir site"
+   }
+  ],
+  "muir-site-early-fort-ancient-on-a-jessamine-ridge": [
+   {
+    "slug": "muir-site-15js86",
+    "label": "Another story about the Muir site"
+   }
+  ],
+  "owensboro-yellow-banks": [
+   {
+    "slug": "yellow-banks-becomes-owensboro",
+    "label": "Another story about Yellow Banks / Owensboro"
+   }
+  ],
+  "yellow-banks-becomes-owensboro": [
+   {
+    "slug": "owensboro-yellow-banks",
+    "label": "Another story about Yellow Banks / Owensboro"
+   }
+  ],
+  "paducah-at-the-tennessee-mouth": [
+   {
+    "slug": "chickasaw-hunting-grounds",
+    "label": "Same event: the 1818 Jackson Purchase opened this Chickasaw land"
+   }
+  ],
+  "peter-village-enclosure-15fa166": [
+   {
+    "slug": "peter-village-early-woodland-enclosure-near-lexington",
+    "label": "Another story about Peter Village"
+   },
+   {
+    "slug": "mount-horeb-earthworks",
+    "label": "Same place: part of the Mount Horeb earthwork complex"
+   }
+  ],
+  "peter-village-early-woodland-enclosure-near-lexington": [
+   {
+    "slug": "peter-village-enclosure-15fa166",
+    "label": "Another story about Peter Village"
+   },
+   {
+    "slug": "mount-horeb-earthworks",
+    "label": "Same place: sits near the Mount Horeb circle"
+   }
+  ],
+  "piankashaw-claims-on-the-ohio-wabash": [
+   {
+    "slug": "falls-of-the-ohio",
+    "label": "Same place: the Falls are the east end of the ceded tract"
+   }
+  ],
+  "potawatomi-fire-keepers-and-the-ohio-valley-wars": [
+   {
+    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+    "label": "Same event: Scott and Wilkinson struck Ouiatenon in June 1791"
+   },
+   {
+    "slug": "kickapoo-on-the-kentucky-frontier",
+    "label": "Same event: the June 1791 columns struck Kickapoo villages"
+   }
+  ],
+  "read-shell-midden-15bt10-butler-county": [
+   {
+    "slug": "indian-knoll-on-the-green-river",
+    "label": "Same place: the same Green River mussel-shoal shell middens"
+   },
+   {
+    "slug": "carlston-annis-shell-mound",
+    "label": "Same place: the same Green River mussel-shoal shell middens"
+   },
+   {
+    "slug": "ward-site-15mcl11-mclean-county",
+    "label": "Same place: the same Green River mussel-shoal shell middens"
+   }
+  ],
+  "saltpeter-cave-at-carter-caves": [
+   {
+    "slug": "carter-caves-cascade-falls",
+    "label": "Same place: in Carter Caves State Resort Park"
+   }
+  ],
+  "salts-cave-15ht4": [
+   {
+    "slug": "mammoth-cave-saltpeter",
+    "label": "Same place: a passage inside Mammoth Cave"
+   }
+  ],
+  "shawnee-chillicothe-divisions": [
+   {
+    "slug": "col-john-bowman-at-old-chillicothe",
+    "label": "Same place: Old Chillicothe on the Little Miami"
+   },
+   {
+    "slug": "ojibwe-on-birds-war-road",
+    "label": "Same event: Clark burned the town in 1780 after Bird’s invasion"
+   }
+  ],
+  "shepherdsville-on-salt-river": [
+   {
+    "slug": "bullitts-lick-kentuckys-first-industry",
+    "label": "Same place: where the road to Bullitt’s Lick crossed Salt River"
+   }
+  ],
+  "springfield-founding-and-washington-county-seat": [
+   {
+    "slug": "springfield-first-county-seat-after-statehood",
+    "label": "Another story about Springfield"
+   }
+  ],
+  "springfield-first-county-seat-after-statehood": [
+   {
+    "slug": "springfield-founding-and-washington-county-seat",
+    "label": "Another story about Springfield"
+   }
+  ],
+  "stanford-from-st-asaph": [
+   {
+    "slug": "benjamin-logan",
+    "label": "Same person: Benjamin Logan planted St. Asaph here in 1775"
+   },
+   {
+    "slug": "john-floyd",
+    "label": "Same person: John Floyd’s survey party camped here with Logan"
+   }
+  ],
+  "tolu-site-mississippian-mounds-on-the-lower-ohio": [
+   {
+    "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+    "label": "Same place: the Angel-phase Kincaid set, with Wickliffe"
+   }
+  ],
+  "treaties-of-hard-labour-and-lochaber": [
+   {
+    "slug": "treaty-of-fort-stanwix-1768",
+    "label": "Same event: Hard Labour and the Fort Stanwix cession, three weeks apart"
+   }
+  ],
+  "treaty-of-fort-stanwix-1768": [
+   {
+    "slug": "treaties-of-hard-labour-and-lochaber",
+    "label": "Same event: the Cherokee signed Hard Labour three weeks earlier; Lochaber followed"
+   },
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: the Shawnee contested the cession until Camp Charlotte in 1774"
+   }
+  ],
+  "twin-mounds-site": [
+   {
+    "slug": "wickliffe-mounds-mississippian-village-ballard-county",
+    "label": "Same place: contemporary with Wickliffe Mounds"
+   }
+  ],
+  "ward-site-15mcl11-mclean-county": [
+   {
+    "slug": "indian-knoll-on-the-green-river",
+    "label": "Same place: the same Green River shell-midden series"
+   },
+   {
+    "slug": "carlston-annis-shell-mound",
+    "label": "Same place: the same Green River shell-midden series"
+   }
+  ],
+  "wea-waayaahtanwa-on-the-wabash": [
+   {
+    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+    "label": "Same place: Wea towns at Ouiatenon"
+   }
+  ],
+  "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": [
+   {
+    "slug": "wea-waayaahtanwa-on-the-wabash",
+    "label": "Another story about the Wea"
+   },
+   {
+    "slug": "kickapoo-on-the-kentucky-frontier",
+    "label": "Same event: Scott’s June 1791 raid burned Kickapoo towns"
+   },
+   {
+    "slug": "gen-charles-scott-and-petersburg",
+    "label": "Same person: Gen. Charles Scott, who led the raid, has his own story"
+   }
+  ],
+  "william-calks-1775-journal": [
+   {
+    "slug": "richard-henderson",
+    "label": "Same event: met Henderson’s Transylvania party on the 1775 road"
+   }
+  ],
+  "winchester-clark-county-seat": [
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same person: Clark County was named for George Rogers Clark"
+   },
+   {
+    "slug": "capt-john-strode-of-strodes-station",
+    "label": "Same place: the first court met at John Strode’s station"
+   }
+  ],
+  "wyandot-on-kentuckys-northern-frontier": [
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: helped spring the ambush at Blue Licks"
+   },
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: fought at the Siege of Bryan Station"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Same event: Col. John Todd was killed at Blue Licks"
+   },
+   {
+    "slug": "col-stephen-trigg-of-viney-grove",
+    "label": "Same event: Col. Stephen Trigg was killed at Blue Licks"
+   }
+  ],
+  "gen-charles-scott-and-petersburg": [
+   {
+    "slug": "frankfort-franks-ford-becomes-the-capital",
+    "label": "Same event: Frankfort beat Scott’s Petersburg for the 1792 state capital"
+   },
+   {
+    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+    "label": "Same event: Scott led the 1791 mounted raid on the Wea towns"
+   }
+  ],
+  "flemingsburg-stocktons-town": [
+   {
+    "slug": "capt-john-strode-of-strodes-station",
+    "label": "Same place: George Stockton was living at Strode’s Station when he raised his first crop in 1786"
+   }
+  ],
+  "frederick-stitzels-barrel-racks-1879": [
+   {
+    "slug": "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
+    "label": "Compared: the next big change, the Bottled-in-Bond Act, came in 1897"
+   }
+  ],
+  "treaty-of-greenville-1795-the-line-to-the-kentucky-river": [
+   {
+    "slug": "blue-jacket-weyapiersenwah",
+    "label": "Same person: Blue Jacket urged the nations to accept the treaty"
+   },
+   {
+    "slug": "carrollton-from-port-william",
+    "label": "Same place: the treaty line reached the Ohio opposite the mouth of the Kentucky River, at Carrollton"
+   }
+  ],
+  "jeptha-knob-shelby-countys-buried-crater": [
+   {
+    "slug": "shelbyville",
+    "label": "Same county: the knob rises about eight miles east of Shelbyville"
+   }
+  ],
+  "daniel-trabue-of-columbia": [
+   {
+    "slug": "benjamin-logan",
+    "label": "Same place: Trabue spent part of his first Kentucky years at Logan’s Fort"
+   }
+  ],
+  "russellville-from-big-boiling-spring-to-county-seat": [
+   {
+    "slug": "col-william-russell-iii",
+    "label": "Same family: Russellville is named for his father, Gen. William Russell"
+   },
+   {
+    "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
+    "label": "Same event: the 1801 Cane Ridge camp meeting followed McGready’s Logan County revival"
+   }
+  ],
+  "pilot-knob-boones-overlook-1769": [
+   {
+    "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "label": "Same person: John Finley, who by tradition stood on Pilot Knob with Boone, has his own story"
+   }
+  ],
+  "gen-james-wilkinson-kentuckys-agent-13": [
+   {
+    "slug": "frankfort-franks-ford-becomes-the-capital",
+    "label": "Same place: Wilkinson laid out Frankfort in 1786"
+   },
+   {
+    "slug": "col-john-hardin-of-pleasant-run",
+    "label": "Same event: Wilkinson sent Hardin on the 1792 peace errand that cost his life"
+   }
+  ],
+  "frankfort-franks-ford-becomes-the-capital": [
+   {
+    "slug": "gen-james-wilkinson-kentuckys-agent-13",
+    "label": "Same person: Gen. James Wilkinson, who laid out the town, has his own story"
+   },
+   {
+    "slug": "liberty-hall-john-browns-frankfort-house",
+    "label": "Same place: Liberty Hall, John Brown’s Frankfort house of 1796–1800"
+   }
+  ],
+  "athiamiowee-the-warriors-path-through-kentucky": [
+   {
+    "slug": "odawa-raid-at-eskippakithiki-1753",
+    "label": "Same place: the path ran past the Shawnee town of Eskippakithiki"
+   },
+   {
+    "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "label": "Same person: Finley followed the path with Boone in 1769"
+   }
+  ],
+  "old-fort-earthworks-15gp1-greenup-county": [
+   {
+    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "label": "Same place: Lower Shawneetown later stood within the same archaeological district"
+   },
+   {
+    "slug": "hansen-site-15gp14",
+    "label": "Same place: another site in the Lower Shawneetown district near South Portsmouth"
+   }
+  ],
+  "lower-shawneetown-at-the-scioto-mouth": [
+   {
+    "slug": "old-fort-earthworks-15gp1-greenup-county",
+    "label": "Same place: the Hopewell Old Fort Earthworks stand nearby"
+   }
+  ],
+  "cane-ridge-meeting-house-and-the-1801-camp-meeting": [
+   {
+    "slug": "russellville-from-big-boiling-spring-to-county-seat",
+    "label": "Same event: McGready’s 1800 Logan County camp meeting came the year before Cane Ridge"
+   }
+  ],
+  "treaty-of-logstown-1752": [
+   {
+    "slug": "christopher-gist-1750-51",
+    "label": "Same person: Christopher Gist, who spoke for the Ohio Company at Logstown, has his own story"
+   }
+  ],
+  "carlisle-kincarts-peach-orchard-county-seat": [
+   {
+    "slug": "nicholasville-takes-shape",
+    "label": "Same person: both Nicholas County and Nicholasville are named for George Nicholas"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same place: Nicholas County’s court first met at Lower Blue Licks"
+   }
+  ],
+  "nicholasville-takes-shape": [
+   {
+    "slug": "carlisle-kincarts-peach-orchard-county-seat",
+    "label": "Same person: Nicholas County, whose seat is Carlisle, is also named for George Nicholas"
+   }
+  ],
+  "kentucky-association-1826-lexington-race-course": [
+   {
+    "slug": "phosphatic-limestone-and-horse-country",
+    "label": "Same series: the previous Horse series chapter, on Bluegrass soils and the first horse settlers"
+   }
+  ],
+  "phosphatic-limestone-and-horse-country": [
+   {
+    "slug": "kentucky-association-1826-lexington-race-course",
+    "label": "Same series: the next Horse series chapter, the Kentucky Association of 1826"
+   }
+  ],
+  "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": [
+   {
+    "slug": "treaty-of-camp-charlotte-1774",
+    "label": "Same event: the Camp Charlotte peace Cornstalk made after Point Pleasant"
+   },
+   {
+    "slug": "nonhelema",
+    "label": "Same family: Nonhelema was Cornstalk’s sister"
+   }
+  ],
+  "esther-whitley-over-the-cumberlands-1775": [
+   {
+    "slug": "william-whitley-sportsmans-hill",
+    "label": "Same family: her husband William Whitley and their house, Sportsman’s Hill"
+   }
+  ],
+  "william-whitley-sportsmans-hill": [
+   {
+    "slug": "esther-whitley-over-the-cumberlands-1775",
+    "label": "Same family: Esther Whitley, who came over the Cumberlands with William in 1775"
+   }
+  ],
+  "pine-mountain-and-pound-gap": [
+   {
+    "slug": "christopher-gist-1750-51",
+    "label": "Same person: Christopher Gist, credited with finding the Pound Gap route in 1751"
+   },
+   {
+    "slug": "michael-stoner-german-long-hunter",
+    "label": "Same person: Michael Stoner crossed Pound Gap with Daniel Boone in 1774"
+   }
+  ],
+  "liberty-hall-john-browns-frankfort-house": [
+   {
+    "slug": "gen-james-wilkinson-kentuckys-agent-13",
+    "label": "Same person: James Wilkinson laid out the Frankfort streets around Liberty Hall"
+   },
+   {
+    "slug": "frankfort-franks-ford-becomes-the-capital",
+    "label": "Same place: Frankfort, the new capital where John Brown built"
+   }
+  ],
+  "simon-girty-interpreter-at-bryan-station-1782": [
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: the August 1782 siege of Bryan Station"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Caldwell’s force routed the Kentuckians at Blue Licks days later"
+   },
+   {
+    "slug": "blue-jacket-weyapiersenwah",
+    "label": "Same event: Blue Jacket led the Shawnee warriors at Bryan Station"
+   }
+  ],
+  "little-turtle-and-hardins-defeat-1790": [
+   {
+    "slug": "col-john-hardin-of-pleasant-run",
+    "label": "Same person: Col. John Hardin, whose patrol was ambushed at the Eel River in 1790"
+   },
+   {
+    "slug": "blue-jacket-weyapiersenwah",
+    "label": "Same event: Blue Jacket fought beside Little Turtle against Harmar and St. Clair"
+   },
+   {
+    "slug": "gen-charles-scott-and-petersburg",
+    "label": "Same event: Charles Scott’s son was killed in Hardin’s Defeat"
+   },
+   {
+    "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+    "label": "Same event: Little Turtle signed the 1795 Treaty of Greenville"
+   }
+  ],
+  "manns-lick-louisvilles-salt-town": [
+   {
+    "slug": "bullitts-lick-kentuckys-first-industry",
+    "label": "Same industry: Joseph Brooks worked at Bullitt’s Lick before Mann’s Lick"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Same person: Col. John Todd was granted the lick in 1780"
+   }
+  ],
+  "red-river-gorge-arches-and-the-dam-fight": [
+   {
+    "slug": "natural-bridge-sandstone-arch",
+    "label": "Same place: Natural Bridge State Park adjoins the gorge"
+   },
+   {
+    "slug": "cloudsplitter-rockshelter-menifee-county",
+    "label": "Same place: Cloudsplitter is one of the gorge’s rock shelters"
+   }
+  ],
+  "natural-bridge-sandstone-arch": [
+   {
+    "slug": "red-river-gorge-arches-and-the-dam-fight",
+    "label": "Same place: the Red River Gorge and its dam fight"
+   }
+  ]
+ }
+}

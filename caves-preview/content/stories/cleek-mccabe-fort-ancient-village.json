@@ -1,0 +1,26 @@
+{
+  "slug": "cleek-mccabe-fort-ancient-village",
+  "title": "Cleek-McCabe Fort Ancient village",
+  "publishedDate": "2026-09-10",
+  "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
+  "bodyMarkdown": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza, with burial mounds on the east and west. University of Kentucky crews in the late 1930s dug the western mound and found three successive roofless public structures stacked on the same spot—first a 43-foot circle, then rectangles up to 56 by 95 feet—plus a central ceremonial pole, rock “pavements,” and guilloche-incised jars that tie the site to neighbors in SW Ohio and SE Indiana. The eastern mound still stands.\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx)",
+  "yearStart": 1200,
+  "yearEnd": 1300,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology",
+    "frontier-war",
+    "salt"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-09-10",
+  "territory": {
+    "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+    "nation": "Fort Ancient (archaeological culture)",
+    "yearStart": 1200,
+    "yearEnd": 1300,
+    "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+  }
+}
