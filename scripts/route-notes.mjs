@@ -8,8 +8,9 @@
 export function parseSingleCoordinate(cell) {
   const raw = String(cell || '').trim()
   if (!raw || raw === '—' || raw === '-') return null
-  if (raw.includes(';') || raw.includes('→') || /\bto\b/i.test(raw)) return null
+  // Parenthetical notes ("rounded to 0.1°, protected site") are not a second point.
   const withoutNotes = raw.replace(/\([^)]*\)/g, ' ')
+  if (withoutNotes.includes(';') || withoutNotes.includes('→') || /\bto\b/i.test(withoutNotes)) return null
   if (/\d\s*[–—]\s*\d/.test(withoutNotes)) return null
   if (/\d\s+-\s+\d/.test(withoutNotes)) return null
   const match = withoutNotes.match(/(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)/)

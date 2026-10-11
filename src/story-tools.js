@@ -203,7 +203,7 @@ export function correctionUrl({ title, url }) {
 
 export function correctionHtml({ title, url }) {
   const href = correctionUrl({ title, url })
-  return `<p class="story-correction"><a class="story-correction-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer">Report a correction<span class="visually-hidden"> for ${esc(title || 'this story')} (opens in a new tab)</span></a></p>`
+  return `<p class="story-correction"><a class="story-correction-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer nofollow">Report a correction<span class="visually-hidden"> for ${esc(title || 'this story')} (opens in a new tab)</span></a></p>`
 }
 
 const EARTH_MILES = 3958.7613

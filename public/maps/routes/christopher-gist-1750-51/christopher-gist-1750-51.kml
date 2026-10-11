@@ -16,7 +16,7 @@
     <Placemark>
       <name>Lower Shawneetown (&quot;Shannoah Town&quot;), mouth of the Scioto</name>
       <description>Portsmouth OH / South Portsmouth KY. Scioto Co., OH / Greenup Co., KY. Approximate.</description>
-      <Point><coordinates>-82.99,38.73,0</coordinates></Point>
+      <Point><coordinates>-83.0,38.7,0</coordinates></Point>
     </Placemark>
     <Placemark>
       <name>Pickawillany (Twightwee town), Great Miami</name>
@@ -68,7 +68,7 @@
       <description>Approximate waypoints for Christopher Gist, 1750–51. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/christopher-gist-1750-51/</description>
       <LineString>
         <tessellate>1</tessellate>
-        <coordinates>-78.55,39.60,0 -81.86,40.27,0 -82.99,38.73,0 -84.24,40.18,0 -83.0,38.71,0 -84.70,38.55,0 -84.78,38.33,0 -81.20,37.33,0 -80.85,37.56,0 -80.53,37.36,0 -80.35,37.18,0 -80.55,36.12,0</coordinates>
+        <coordinates>-78.55,39.60,0 -81.86,40.27,0 -83.0,38.7,0 -84.24,40.18,0 -83.0,38.71,0 -84.70,38.55,0 -84.78,38.33,0 -81.20,37.33,0 -80.85,37.56,0 -80.53,37.36,0 -80.35,37.18,0 -80.55,36.12,0</coordinates>
       </LineString>
     </Placemark>
   </Document>

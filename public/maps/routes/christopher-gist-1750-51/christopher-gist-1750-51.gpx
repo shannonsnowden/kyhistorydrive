@@ -13,7 +13,7 @@
     <name>Wyandot town on the Muskingum</name>
     <desc>Coshocton. Coshocton Co., OH. Approximate.</desc>
   </wpt>
-  <wpt lat="38.73" lon="-82.99">
+  <wpt lat="38.7" lon="-83.0">
     <name>Lower Shawneetown (&quot;Shannoah Town&quot;), mouth of the Scioto</name>
     <desc>Portsmouth OH / South Portsmouth KY. Scioto Co., OH / Greenup Co., KY. Approximate.</desc>
   </wpt>
@@ -64,7 +64,7 @@
       <name>Wyandot town on the Muskingum</name>
       <desc>Coshocton. Coshocton Co., OH. Approximate.</desc>
     </rtept>
-    <rtept lat="38.73" lon="-82.99">
+    <rtept lat="38.7" lon="-83.0">
       <name>Lower Shawneetown (&quot;Shannoah Town&quot;), mouth of the Scioto</name>
       <desc>Portsmouth OH / South Portsmouth KY. Scioto Co., OH / Greenup Co., KY. Approximate.</desc>
     </rtept>

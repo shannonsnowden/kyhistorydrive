@@ -6,7 +6,7 @@
     <Placemark>
       <name>Lower Shawneetown (Ohio crossing, mouth of the Scioto)</name>
       <description>South Portsmouth / Fullerton (opposite Portsmouth OH). Greenup Co., KY (&amp; Scioto Co., OH). Approximate.</description>
-      <Point><coordinates>-83.107,38.677,0</coordinates></Point>
+      <Point><coordinates>-83.1,38.7,0</coordinates></Point>
     </Placemark>
     <Placemark>
       <name>Scioto prong via Slate Creek country</name>
@@ -16,7 +16,7 @@
     <Placemark>
       <name>Eskippakithiki (Indian Old Fields)</name>
       <description>Indian Fields, ~10 mi E of Winchester. Clark Co., KY. Approximate.</description>
-      <Point><coordinates>-84.000,37.946,0</coordinates></Point>
+      <Point><coordinates>-84.0,37.9,0</coordinates></Point>
     </Placemark>
     <Placemark>
       <name>Red River crossing (near Kentucky River junction)</name>
@@ -63,7 +63,7 @@
       <description>Approximate waypoints for Athiamiowee: the Warriors’ Path through Kentucky. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/athiamiowee-the-warriors-path-through-kentucky/</description>
       <LineString>
         <tessellate>1</tessellate>
-        <coordinates>-83.107,38.677,0 -83.566,38.137,0 -84.000,37.946,0 -84.02,37.84,0 -83.97,37.69,0 -83.94,37.40,0 -83.76,37.15,0 -83.771,36.838,0 -83.693,36.749,0 -83.674,36.604,0 -84.13,35.53,0</coordinates>
+        <coordinates>-83.1,38.7,0 -83.566,38.137,0 -84.0,37.9,0 -84.02,37.84,0 -83.97,37.69,0 -83.94,37.40,0 -83.76,37.15,0 -83.771,36.838,0 -83.693,36.749,0 -83.674,36.604,0 -84.13,35.53,0</coordinates>
       </LineString>
     </Placemark>
   </Document>

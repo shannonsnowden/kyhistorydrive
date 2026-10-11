@@ -3,13 +3,18 @@
  * correction links, and NOTES.md waypoint parsing.
  */
 import assert from 'node:assert/strict'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { parseRouteNotes, parseSingleCoordinate } from './route-notes.mjs'
+import { isProtectedWaypoint, roundProtectedWaypoint } from './protected-waypoints.mjs'
+import { modifiedFromProseHistory, textRevisionForFile } from './story-dates.mjs'
 import {
   CITE_AUTHOR_FALLBACK,
   SITE_NAME,
   accessedPhrase,
   buildCitation,
   citeBoxHtml,
+  correctionHtml,
   correctionUrl,
   formatMiles,
   haversineMiles,
@@ -45,7 +50,29 @@ coord('≈37.5–37.6, -84.26', null)
 coord('40.45, -80.00; 40.60, -80.24', null)
 coord('38.03, -78.86 → 38.08, -78.24', null)
 coord('≈38.1 → 37.15, -84.45 to -82.6', null)
+coord('38.7, -83.1 (rounded to 0.1°, protected site)', [38.7, -83.1])
+coord('38.7, -83.0 (rounded to 0.1°, protected site)', [38.7, -83])
 coord('', null)
+
+const protectedNames = ['Lower Shawneetown', 'Eskippakithiki', 'Indian Old Fields']
+const shawnee = roundProtectedWaypoint(
+  { name: 'Lower Shawneetown (Ohio crossing)', place: 'South Portsmouth', lat: 38.7, lon: -83.1, latText: '38.7', lonText: '-83.1' },
+  protectedNames,
+)
+assert.equal(shawnee.latText, '38.7')
+assert.equal(shawnee.lonText, '-83.1')
+const eski = roundProtectedWaypoint(
+  { name: 'Eskippakithiki (Indian Old Fields)', place: 'Indian Fields', lat: 37.946, lon: -84, latText: '37.946', lonText: '-84.000' },
+  protectedNames,
+)
+assert.equal(eski.latText, '37.9')
+assert.equal(eski.lonText, '-84.0')
+const gap = roundProtectedWaypoint(
+  { name: 'Cumberland Gap', place: 'Middlesboro', lat: 36.604, lon: -83.674, latText: '36.604', lonText: '-83.674' },
+  protectedNames,
+)
+assert.equal(gap.latText, '36.604')
+assert.equal(isProtectedWaypoint(gap, protectedNames), false)
 
 const notes = `# Title
 
@@ -133,6 +160,32 @@ assert.equal(issue.searchParams.get('labels'), 'correction')
 assert.match(issue.searchParams.get('title'), /Battle of Blue Licks/)
 assert.match(issue.searchParams.get('body'), /https:\/\/kyhistorydrive\.com\/stories\/battle-of-blue-licks\//)
 assert.doesNotMatch(href, /contact@|mailto:/i)
+const correction = correctionHtml({ title: 'Battle of Blue Licks', url: fields.url })
+assert.match(correction, /rel="noopener noreferrer nofollow"/)
+assert.match(correction, /target="_blank"/)
+assert.doesNotMatch(correction, /mailto:|contact@/i)
+
+assert.equal(
+  modifiedFromProseHistory([
+    { date: '2026-10-11', prose: 'Same words.' },
+    { date: '2026-10-04', prose: 'Same words.' },
+  ]).modified,
+  '2026-10-04',
+)
+assert.equal(
+  modifiedFromProseHistory([
+    { date: '2026-10-11', prose: 'New sentence.' },
+    { date: '2026-10-04', prose: 'Old sentence.' },
+  ]).modified,
+  '2026-10-11',
+)
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const camp = textRevisionForFile(root, 'public/content/stories/camp-nelson-jessamine-county.json')
+assert.equal(camp.published, '2026-10-04')
+assert.equal(camp.modified, '2026-10-04')
+const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
+assert.equal(mantle.published, '2026-10-09')
+assert.equal(mantle.modified, '2026-10-09')
 
 const credit = photoCreditModel({
   image_url: '/photo.jpg',

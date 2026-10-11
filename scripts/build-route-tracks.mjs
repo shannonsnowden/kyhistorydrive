@@ -6,6 +6,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseRouteNotes } from './route-notes.mjs'
+import { decimalPlaces, isProtectedWaypoint, protectedPlaceNames, roundProtectedWaypoint } from './protected-waypoints.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const routesRoot = path.join(root, 'public/maps/routes')
@@ -125,6 +126,8 @@ function main() {
     throw new Error(`route tracks: expected 6 NOTES.md routes, found ${slugs.length}`)
   }
   const meta = {}
+  const protectedNames = protectedPlaceNames(root)
+  const leaked = ['38.677', '-83.107', '37.946']
   for (const slug of slugs) {
     const notes = fs.readFileSync(path.join(routesRoot, slug, 'NOTES.md'), 'utf8')
     const parsed = parseRouteNotes(notes)
@@ -132,10 +135,14 @@ function main() {
     if (!parsed.approximate) {
       throw new Error(`route tracks: ${slug} waypoint heading does not say approximate`)
     }
-    for (const point of parsed.points) {
+    const points = parsed.points.map((point) => roundProtectedWaypoint(point, protectedNames))
+    for (const point of points) {
       if (!point.approximate) throw new Error(`route tracks: ${slug} point is not marked approximate`)
       if (/-?\d+\.\d{5,}/.test(`${point.latText},${point.lonText}`)) {
         throw new Error(`route tracks: ${slug} coordinate is tighter than the notes table`)
+      }
+      if (isProtectedWaypoint(point, protectedNames) && (decimalPlaces(point.latText) > 1 || decimalPlaces(point.lonText) > 1)) {
+        throw new Error(`route tracks: ${slug} protected waypoint ${point.name} is tighter than 0.1°`)
       }
     }
     const title = storyTitle(slug)
@@ -143,8 +150,15 @@ function main() {
     const gpxName = `${slug}.gpx`
     const kmlName = `${slug}.kml`
     const dir = path.join(routesRoot, slug)
-    fs.writeFileSync(path.join(dir, gpxName), gpxDocument({ title, url, approximate: true, points: parsed.points }))
-    fs.writeFileSync(path.join(dir, kmlName), kmlDocument({ title, url, approximate: true, points: parsed.points }))
+    const gpx = gpxDocument({ title, url, approximate: true, points })
+    const kml = kmlDocument({ title, url, approximate: true, points })
+    for (const token of leaked) {
+      if (gpx.includes(token) || kml.includes(token)) {
+        throw new Error(`route tracks: ${slug} still publishes ${token}`)
+      }
+    }
+    fs.writeFileSync(path.join(dir, gpxName), gpx)
+    fs.writeFileSync(path.join(dir, kmlName), kml)
     meta[slug] = {
       gpx: `/maps/routes/${slug}/${gpxName}`,
       kml: `/maps/routes/${slug}/${kmlName}`,

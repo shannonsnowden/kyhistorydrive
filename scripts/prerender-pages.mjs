@@ -29,7 +29,7 @@ import {
 } from './gtag-snippet.mjs'
 import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
-import { gitFileDates } from './story-dates.mjs'
+import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
 import {
   citeBootScript,
   citeBoxHtml,
@@ -104,10 +104,11 @@ class PrerenderPages {
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
     const dates = PrerenderPages.gitFileDates(root)
+    const textDates = gitStoryTextDates(root)
     for (const story of stories) {
       const file = `public/content/stories/${story.slug}.json`
       story.created = dates.created.get(file) || ''
-      story.gitModified = dates.lastmod.get(file) || ''
+      story.gitModified = textDates.modified.get(file) || story.created
       story.lastmod = PrerenderPages.storyLastmod(story, dates.lastmod)
     }
     const homeLast = stories.reduce(
@@ -406,7 +407,8 @@ class PrerenderPages {
   }
 
   /**
-   * Published is the story file's first git commit. Last revised is the last commit.
+   * Published is the story file's first git commit.
+   * Last revised is the last commit that changed that story's text.
    * A missing git date stays empty. Never today, and never a story brief date.
    */
   static articleDates(story) {
@@ -415,7 +417,7 @@ class PrerenderPages {
       throw new Error(`prerender: ${story.slug} published date is not the git first commit`)
     }
     if (story.gitModified && dates.modified !== story.gitModified) {
-      throw new Error(`prerender: ${story.slug} revised date is not the git last commit`)
+      throw new Error(`prerender: ${story.slug} revised date is not the last story-text commit`)
     }
     if (!dates.published && !dates.modified) {
       throw new Error(`prerender: ${story.slug} has no git date`)
@@ -1656,7 +1658,7 @@ class PrerenderPages {
     }
     const expectedDates = PrerenderPages.articleDates(story)
     if ((article?.datePublished || '') !== expectedDates.published || (article?.dateModified || '') !== expectedDates.modified) {
-      throw new Error(`prerender: ${urlPath} Article dates are not the git first and last commit`)
+      throw new Error(`prerender: ${urlPath} Article dates are not the git first commit and last story-text commit`)
     }
     if (story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
       throw new Error(`prerender: ${urlPath} published date is a story field, not the git first commit`)
@@ -1685,7 +1687,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} citation is missing the last revised date`)
     }
     const correction = html.match(/<a class="story-correction-link"[^>]*>/)
-    if (!correction || !correction[0].includes('target="_blank"') || !correction[0].includes('rel="noopener noreferrer"')) {
+    const rel = correction ? correction[0].match(/\brel="([^"]*)"/) : null
+    const relValue = rel ? rel[1] : ''
+    if (!correction || !correction[0].includes('target="_blank"') || !/\bnoopener\b/.test(relValue) || !/\bnoreferrer\b/.test(relValue) || !/\bnofollow\b/.test(relValue)) {
       throw new Error(`prerender: ${urlPath} correction link must open in a new tab`)
     }
     if (!correction[0].includes('https://github.com/shannonsnowden/kyhistorydrive/issues/new?') || !correction[0].includes('labels=correction')) {
