@@ -1148,7 +1148,6 @@ class PrerenderPages {
           summary: filmDescription,
           headingLevel: 2,
           moreHtml: '<a href="/videos/">All videos</a>',
-          transcript: PrerenderPages.transcriptForFilm(film),
         })
       : ''
     const main = `<article class="story-reader-layout static-story${film ? ' has-film' : ''}">
@@ -1368,16 +1367,8 @@ class PrerenderPages {
     if (!film) return
     const filmDescription = filmDescriptionFromPlain(PrerenderPages.plainText(story.bodyMarkdown))
     PrerenderPages.assertFilmEmbed(html, film, filmDescription, urlPath)
-    const transcript = PrerenderPages.transcriptForFilm(film)
-    if (!html.includes('<details class="film-transcript"><summary>Transcript</summary><pre>')) {
-      throw new Error(`prerender: ${urlPath} is missing the collapsible transcript`)
-    }
-    const firstLine = transcript.split('\n')[0]
-    if (!firstLine || !html.includes(PrerenderPages.escapeHtml(firstLine))) {
-      throw new Error(`prerender: ${urlPath} transcript does not include the first caption line`)
-    }
-    if ((transcript.match(/\n/g) || []).length < 10) {
-      throw new Error(`prerender: ${urlPath} transcript is too short`)
+    if (/<summary>\s*Transcript\s*<\/summary>|class="film-transcript"/.test(html)) {
+      throw new Error(`prerender: ${urlPath} publishes a transcript`)
     }
     if (story.photo?.image_url) {
       if (!html.includes('data-lcp="story-photo"') || !html.includes('fetchpriority="high"') || !html.includes('loading="eager"')) {
@@ -1395,64 +1386,6 @@ class PrerenderPages {
 
   static filmPlain(story) {
     return filmDescriptionFromPlain(PrerenderPages.plainText(story.bodyMarkdown))
-  }
-
-  /** Start time from a VTT timestamp, as m:ss or h:mm:ss, without milliseconds. */
-  static vttClock(stamp) {
-    const parts = String(stamp || '').split(':')
-    const seconds = Math.floor(Number(parts.at(-1)) || 0)
-    const minutes = Number(parts.at(-2)) || 0
-    const hours = parts.length > 2 ? Number(parts[0]) || 0 : 0
-    const ss = String(seconds).padStart(2, '0')
-    if (hours) return `${hours}:${String(minutes).padStart(2, '0')}:${ss}`
-    return `${minutes}:${ss}`
-  }
-
-  /**
-   * Plain-text transcript from a WebVTT file. Each kept cue is one line:
-   * timestamp, then the cue text. Wrapped lines are joined, tags are removed,
-   * and a cue whose text repeats an earlier cue is dropped.
-   */
-  static transcriptFromVtt(vtt) {
-    const blocks = String(vtt || '')
-      .replace(/^\uFEFF/, '')
-      .replace(/\r\n/g, '\n')
-      .split(/\n{2,}/)
-    const seen = new Set()
-    const lines = []
-    for (const block of blocks) {
-      const rows = block.split('\n').map((row) => row.trim()).filter(Boolean)
-      if (!rows.length || /^(WEBVTT|NOTE|STYLE|REGION)\b/i.test(rows[0])) continue
-      const timeIdx = rows.findIndex((row) => row.includes('-->'))
-      if (timeIdx < 0) continue
-      const stamp = rows[timeIdx].match(/^((?:\d{2}:)?\d{2}:\d{2}\.\d+)/)
-      if (!stamp) continue
-      const cue = rows
-        .slice(timeIdx + 1)
-        .join(' ')
-        .replace(/<[^>]+>/g, '')
-        .replace(/&nbsp;/gi, ' ')
-        .replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/\s+/g, ' ')
-        .trim()
-      if (!cue || seen.has(cue)) continue
-      seen.add(cue)
-      lines.push(`${PrerenderPages.vttClock(stamp[1])} ${cue}`)
-    }
-    return lines.join('\n')
-  }
-
-  static transcriptForFilm(film) {
-    const rel = String(film?.captions || '').replace(/^\//, '')
-    const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', rel)
-    if (!rel || !fs.existsSync(file)) {
-      throw new Error(`prerender: ${film?.id || 'film'} captions file is missing`)
-    }
-    const transcript = PrerenderPages.transcriptFromVtt(fs.readFileSync(file, 'utf8'))
-    if (!transcript) throw new Error(`prerender: ${film.id} transcript is empty`)
-    return transcript
   }
 
   static videosPage(films, stories, cssHrefs) {
@@ -1615,8 +1548,8 @@ class PrerenderPages {
     if (html.includes('"@type":"VideoObject"') || /<video\b/i.test(html)) {
       throw new Error('prerender: /videos/ embeds a film; the story page is the watch page')
     }
-    if (html.includes('<summary>Transcript</summary>')) {
-      throw new Error('prerender: /videos/ includes a transcript; that belongs on the story page')
+    if (/<summary>\s*Transcript\s*<\/summary>|class="film-transcript"/.test(html)) {
+      throw new Error('prerender: /videos/ publishes a transcript')
     }
     for (const film of films) {
       const story = stories.find((item) => item.slug === film.storySlug)
