@@ -15,7 +15,6 @@
  * Years written here are yearStart/yearEnd (occupation or event). Archaeological
  * pins are never printed. MapLibre is not included.
  */
-import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -30,6 +29,17 @@ import {
 } from './gtag-snippet.mjs'
 import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
+import { gitFileDates } from './story-dates.mjs'
+import {
+  citeBootScript,
+  citeBoxHtml,
+  correctionHtml,
+  nearbyHtml,
+  nearbyStories,
+  photoCreditHtml,
+  resolveArticleDates,
+  storyCanonicalUrl,
+} from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
   ROUTE_MAPS,
@@ -94,6 +104,7 @@ class PrerenderPages {
     for (const story of stories) {
       const file = `public/content/stories/${story.slug}.json`
       story.created = dates.created.get(file) || ''
+      story.gitModified = dates.lastmod.get(file) || ''
       story.lastmod = PrerenderPages.storyLastmod(story, dates.lastmod)
     }
     const homeLast = stories.reduce(
@@ -129,7 +140,7 @@ class PrerenderPages {
       const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
       const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers)
       PrerenderPages.assertPage(html, story, urlPath)
-      PrerenderPages.assertStory(html, story, description)
+      PrerenderPages.assertStory(html, story, description, stories)
       PrerenderPages.writePage(dist, urlPath, html)
       const route = routeBySlug(story.slug)
       const images = route
@@ -391,14 +402,16 @@ class PrerenderPages {
     return (stories || []).filter((story) => PrerenderPages.isLiveStory(story, today))
   }
 
-  /** publishedDate when the file has one; otherwise the story file's first git commit date. */
+  /**
+   * Published and modified dates from the story record when it has them,
+   * otherwise the story file's first and last git commit dates. Never today.
+   */
   static articleDates(story) {
-    const published = PrerenderPages.isoDate(story.publishedDate) || PrerenderPages.isoDate(story.created)
-    const modified = PrerenderPages.isoDate(story.lastmod) || published
-    if (!published || !modified) {
+    const dates = resolveArticleDates(story, { published: story.created, modified: story.gitModified })
+    if (!dates.published || !dates.modified) {
       throw new Error(`prerender: ${story.slug} is missing datePublished or dateModified`)
     }
-    return { published, modified }
+    return dates
   }
 
   /** History pin, or a tag that is itself a layer id. Otherwise the story has no layer page. */
@@ -581,29 +594,7 @@ class PrerenderPages {
 
   /** Newest commit date per file, and the first commit date (oldest) for datePublished. */
   static gitFileDates(root) {
-    const lastmod = new Map()
-    const created = new Map()
-    try {
-      const out = execFileSync('git', ['log', '--name-only', '--pretty=format:%cs'], {
-        cwd: root,
-        encoding: 'utf8',
-        maxBuffer: 64 * 1024 * 1024,
-      })
-      let date = ''
-      for (const line of out.split('\n')) {
-        if (!line) continue
-        if (/^\d{4}-\d{2}-\d{2}$/.test(line)) {
-          date = line
-          continue
-        }
-        if (!date) continue
-        if (!lastmod.has(line)) lastmod.set(line, date)
-        created.set(line, date)
-      }
-    } catch (err) {
-      console.warn(`prerender: git dates unavailable (${err.message})`)
-    }
-    return { lastmod, created }
+    return gitFileDates(root)
   }
 
   static laterDate(a, b) {
@@ -884,8 +875,6 @@ class PrerenderPages {
   static storyCreditHtml(photo, title, { priority = false } = {}) {
     if (!photo?.image_url) return ''
     const caption = PrerenderPages.escapeHtml(PrerenderPages.photoAlt(photo, title))
-    const sourceLabel = PrerenderPages.escapeHtml(photo.source_label || photo.credit || '')
-    const attribution = PrerenderPages.escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
     const year = photo.year ? ` <span class="muted">(${PrerenderPages.escapeHtml(String(photo.year))})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
     const img = PrerenderPages.escapeHtml(photo.image_url)
@@ -901,7 +890,7 @@ class PrerenderPages {
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year}</p>
-      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>
+      ${photoCreditHtml(photo)}
     </aside>`
   }
 
@@ -1277,7 +1266,16 @@ class PrerenderPages {
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
+          ${nearbyHtml(story, all)}
           ${PrerenderPages.relatedHtml(story, all)}
+          ${citeBoxHtml({
+            title: story.title,
+            url: storyCanonicalUrl(story.slug),
+            published: PrerenderPages.articleDates(story).published,
+            modified: PrerenderPages.articleDates(story).modified,
+          })}
+          ${correctionHtml({ title: story.title, url: storyCanonicalUrl(story.slug) })}
+          ${citeBootScript()}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
             ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
@@ -1526,6 +1524,14 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} Article image is missing the route map`)
     }
     if (!html.includes('href="/routes/"')) throw new Error(`prerender: ${urlPath} does not link to /routes/`)
+    const gpx = `/maps/routes/${route.slug}/${route.slug}.gpx`
+    const kml = `/maps/routes/${route.slug}/${route.slug}.kml`
+    if (!block.includes(`href="${gpx}"`) || !block.includes(`href="${kml}"`)) {
+      throw new Error(`prerender: ${urlPath} is missing the GPX or KML download`)
+    }
+    if (!block.includes('Download GPX (approximate)') || !block.includes('Download KML (approximate)')) {
+      throw new Error(`prerender: ${urlPath} route download is not marked approximate`)
+    }
   }
 
   static assertRoutes(html, stories) {
@@ -1553,7 +1559,7 @@ class PrerenderPages {
     }
   }
 
-  static assertStory(html, story, description) {
+  static assertStory(html, story, description, all = []) {
     const urlPath = `/stories/${story.slug}/`
     PrerenderPages.assertStoryMeta(description, PrerenderPages.storyDescriptionSource(story), urlPath)
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
@@ -1593,8 +1599,58 @@ class PrerenderPages {
     if (article?.contentLocation?.['@id'] !== placeId || article.contentLocation.name) {
       throw new Error(`prerender: ${urlPath} contentLocation is not a Place @id`)
     }
-    if (!PrerenderPages.isoDate(article?.datePublished) || !PrerenderPages.isoDate(article?.dateModified)) {
-      throw new Error(`prerender: ${urlPath} Article is missing datePublished or dateModified`)
+    const expectedDates = PrerenderPages.articleDates(story)
+    if (article?.datePublished !== expectedDates.published || article?.dateModified !== expectedDates.modified) {
+      throw new Error(`prerender: ${urlPath} Article dates are not the story or git dates`)
+    }
+    if (!html.includes(`datetime="${expectedDates.published}"`)) {
+      throw new Error(`prerender: ${urlPath} citation is missing the published date`)
+    }
+    if (expectedDates.modified !== expectedDates.published && !html.includes(`datetime="${expectedDates.modified}"`)) {
+      throw new Error(`prerender: ${urlPath} citation is missing the modified date`)
+    }
+    const cite = html.match(/<section class="cite-story"[\s\S]*?<\/section>/)
+    if (!cite || !cite[0].includes('data-cite-copy="chicago"') || !cite[0].includes('data-cite-copy="mla"')) {
+      throw new Error(`prerender: ${urlPath} is missing the citation box`)
+    }
+    if (!cite[0].includes(PrerenderPages.escapeHtml(storyCanonicalUrl(story.slug))) || !cite[0].includes('Kentucky History Drive')) {
+      throw new Error(`prerender: ${urlPath} citation is missing the site or URL`)
+    }
+    if (!cite[0].includes(PrerenderPages.escapeHtml(story.title))) {
+      throw new Error(`prerender: ${urlPath} citation is missing the story title`)
+    }
+    if (/Accessed/.test(cite[0])) {
+      throw new Error(`prerender: ${urlPath} baked in an access date`)
+    }
+    const correction = html.match(/<a class="story-correction-link"[^>]*>/)
+    if (!correction || !correction[0].includes('target="_blank"') || !correction[0].includes('rel="noopener noreferrer"')) {
+      throw new Error(`prerender: ${urlPath} correction link must open in a new tab`)
+    }
+    if (!correction[0].includes('https://github.com/shannonsnowden/kyhistorydrive/issues/new?') || !correction[0].includes('labels=correction')) {
+      throw new Error(`prerender: ${urlPath} correction link is not a labeled GitHub issue`)
+    }
+    if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
+    const near = nearbyStories(story, all)
+    const nearbyNav = html.match(/<nav class="story-nearby"[\s\S]*?<\/nav>/)
+    if (!PrerenderPages.publicGeo(story) && nearbyNav) {
+      throw new Error(`prerender: ${urlPath} shows nearby stories without a public pin`)
+    }
+    if (near.length >= 3) {
+      const nearbyCount = nearbyNav ? (nearbyNav[0].match(/href="\/stories\//g) || []).length : 0
+      if (nearbyCount < 3 || nearbyCount > 5 || !nearbyNav[0].includes('miles')) {
+        throw new Error(`prerender: ${urlPath} has ${nearbyCount} nearby story links`)
+      }
+    } else if (nearbyNav) {
+      throw new Error(`prerender: ${urlPath} shows nearby stories without 3 coordinates`)
+    }
+    if (story.photo?.image_url) {
+      if (!html.includes('class="story-sidebar-photo-attr story-photo-credit"')) {
+        throw new Error(`prerender: ${urlPath} story photo is missing its credit line`)
+      }
+      const sourceUrl = story.photo.source_url || ''
+      if (sourceUrl && !html.includes(PrerenderPages.escapeHtml(sourceUrl))) {
+        throw new Error(`prerender: ${urlPath} photo credit is missing its source link`)
+      }
     }
     const items = crumbs?.itemListElement || []
     if (items.some((item) => String(item.item || '').includes('/#timeline'))) {

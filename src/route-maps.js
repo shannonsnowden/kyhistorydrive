@@ -3,6 +3,8 @@
  * public/maps/routes/<slug>/NOTES.md. Coordinates are included only when
  * that file gives one latitude/longitude pair.
  */
+import { ROUTE_TRACKS } from './route-track-meta.js'
+
 export const SITE = 'https://kyhistorydrive.com'
 export const ORG_ID = `${SITE}/#organization`
 
@@ -265,6 +267,9 @@ for (const route of ROUTE_MAPS) {
   if (route.slug === 'mantle-rock-and-the-trail-of-tears' && !route.sentence.includes('Northern Route')) {
     throw new Error('Mantle Rock route must use the NPS name Northern Route')
   }
+  if (!ROUTE_TRACKS[route.slug]?.gpx || !ROUTE_TRACKS[route.slug]?.kml) {
+    throw new Error(`route map ${route.slug} is missing GPX/KML from NOTES.md`)
+  }
   for (const stop of route.stops) {
     if (!stop.geo) continue
     for (const n of stop.geo) {
@@ -348,6 +353,16 @@ function phoneCropNote(route) {
   return `<p class="route-map-phone-note">Kentucky leg shown — <a class="route-map-full-link" href="${esc(light)}" data-href-light="${esc(light)}" data-href-dark="${esc(dark)}">view full route</a></p>`
 }
 
+function downloadsHtml(route) {
+  const meta = ROUTE_TRACKS[route.slug]
+  if (!meta?.gpx || !meta?.kml) return ''
+  const approx = meta.approximate ? ' (approximate)' : ''
+  return `<p class="route-downloads">
+      <a class="btn ghost small" href="${esc(meta.gpx)}" download>Download GPX${approx}</a>
+      <a class="btn ghost small" href="${esc(meta.kml)}" download>Download KML${approx}</a>
+    </p>`
+}
+
 function stopsHtml(route) {
   const items = route.stops
     .map((stop) => {
@@ -374,6 +389,7 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
           ${phoneCropNote(route)}
         </figcaption>
       </figure>
+      ${downloadsHtml(route)}
       ${stopsHtml(route)}
       ${note}
       <p class="route-sources muted">${esc(route.sources)}</p>

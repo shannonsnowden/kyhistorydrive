@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Athiamiowee: the Warriors’ Path through Kentucky (approximate)</name>
+    <desc>Approximate waypoints for Athiamiowee: the Warriors’ Path through Kentucky. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/athiamiowee-the-warriors-path-through-kentucky/</desc>
+    <link href="https://kyhistorydrive.com/stories/athiamiowee-the-warriors-path-through-kentucky/"><text>Athiamiowee: the Warriors’ Path through Kentucky</text></link>
+  </metadata>
+  <wpt lat="38.677" lon="-83.107">
+    <name>Lower Shawneetown (Ohio crossing, mouth of the Scioto)</name>
+    <desc>South Portsmouth / Fullerton (opposite Portsmouth OH). Greenup Co., KY (&amp; Scioto Co., OH). Approximate.</desc>
+  </wpt>
+  <wpt lat="38.137" lon="-83.566">
+    <name>Scioto prong via Slate Creek country</name>
+    <desc>near Olive Hill / Mount Sterling area. Carter–Bath–Montgomery cos., KY. Approximate. Conjectural.</desc>
+  </wpt>
+  <wpt lat="37.946" lon="-84.000">
+    <name>Eskippakithiki (Indian Old Fields)</name>
+    <desc>Indian Fields, ~10 mi E of Winchester. Clark Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.84" lon="-84.02">
+    <name>Red River crossing (near Kentucky River junction)</name>
+    <desc>near Clay City / Lulbegrud Creek. Clark–Powell–Estill cos., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.69" lon="-83.97">
+    <name>Kentucky River ford (Station Camp Creek)</name>
+    <desc>Irvine. Estill Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.40" lon="-83.94">
+    <name>War Fork / Sand Gap (KHS marker #697)</name>
+    <desc>Gray Hawk (marker on US 421). Jackson Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.15" lon="-83.76">
+    <name>Goose Creek</name>
+    <desc>Manchester. Clay Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="36.838" lon="-83.771">
+    <name>Flat Lick</name>
+    <desc>Flat Lick. Knox Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="36.749" lon="-83.693">
+    <name>Cumberland Ford</name>
+    <desc>Pineville. Bell Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="36.604" lon="-83.674">
+    <name>Cumberland Gap</name>
+    <desc>Middlesboro KY / Cumberland Gap TN. Bell Co., KY; Claiborne Co., TN; Lee Co., VA. Approximate.</desc>
+  </wpt>
+  <wpt lat="35.53" lon="-84.13">
+    <name>Overhill Cherokee towns (Chota)</name>
+    <desc>near Vonore, Little Tennessee River (Tellico Lake). Monroe Co., TN. Approximate. Conjectural.</desc>
+  </wpt>
+  <rte>
+    <name>Athiamiowee: the Warriors’ Path through Kentucky (approximate)</name>
+    <desc>Approximate waypoints for Athiamiowee: the Warriors’ Path through Kentucky. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/athiamiowee-the-warriors-path-through-kentucky/</desc>
+    <rtept lat="38.677" lon="-83.107">
+      <name>Lower Shawneetown (Ohio crossing, mouth of the Scioto)</name>
+      <desc>South Portsmouth / Fullerton (opposite Portsmouth OH). Greenup Co., KY (&amp; Scioto Co., OH). Approximate.</desc>
+    </rtept>
+    <rtept lat="38.137" lon="-83.566">
+      <name>Scioto prong via Slate Creek country</name>
+      <desc>near Olive Hill / Mount Sterling area. Carter–Bath–Montgomery cos., KY. Approximate. Conjectural.</desc>
+    </rtept>
+    <rtept lat="37.946" lon="-84.000">
+      <name>Eskippakithiki (Indian Old Fields)</name>
+      <desc>Indian Fields, ~10 mi E of Winchester. Clark Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.84" lon="-84.02">
+      <name>Red River crossing (near Kentucky River junction)</name>
+      <desc>near Clay City / Lulbegrud Creek. Clark–Powell–Estill cos., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.69" lon="-83.97">
+      <name>Kentucky River ford (Station Camp Creek)</name>
+      <desc>Irvine. Estill Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.40" lon="-83.94">
+      <name>War Fork / Sand Gap (KHS marker #697)</name>
+      <desc>Gray Hawk (marker on US 421). Jackson Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.15" lon="-83.76">
+      <name>Goose Creek</name>
+      <desc>Manchester. Clay Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="36.838" lon="-83.771">
+      <name>Flat Lick</name>
+      <desc>Flat Lick. Knox Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="36.749" lon="-83.693">
+      <name>Cumberland Ford</name>
+      <desc>Pineville. Bell Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="36.604" lon="-83.674">
+      <name>Cumberland Gap</name>
+      <desc>Middlesboro KY / Cumberland Gap TN. Bell Co., KY; Claiborne Co., TN; Lee Co., VA. Approximate.</desc>
+    </rtept>
+    <rtept lat="35.53" lon="-84.13">
+      <name>Overhill Cherokee towns (Chota)</name>
+      <desc>near Vonore, Little Tennessee River (Tellico Lake). Monroe Co., TN. Approximate. Conjectural.</desc>
+    </rtept>
+  </rte>
+</gpx>

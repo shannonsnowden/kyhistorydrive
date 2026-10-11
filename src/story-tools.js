@@ -1,0 +1,435 @@
+/**
+ * Story-page tools shared by prerendered /stories/ pages and the hash reader.
+ * Dates passed in here are already resolved. This module never invents one.
+ */
+
+export const SITE_NAME = 'Kentucky History Drive'
+export const SITE_AUTHOR = 'Shannon Snowden'
+export const SITE_ORIGIN = 'https://kyhistorydrive.com'
+export const CORRECTION_REPO = 'shannonsnowden/kyhistorydrive'
+
+const CHICAGO_MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+]
+const MLA_MONTHS = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.']
+
+const esc = (s) =>
+  String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+
+export function isoDate(value) {
+  const match = /^(\d{4}-\d{2}-\d{2})(?:$|T)/.exec(String(value || '').trim())
+  return match ? match[1] : ''
+}
+
+/** A date written on the story record. Git dates are not consulted here. */
+export function explicitPublished(story) {
+  return isoDate(story?.publishedDate) || isoDate(story?.datePublished) || isoDate(story?.briefDate) || ''
+}
+
+export function explicitModified(story) {
+  return (
+    isoDate(story?.modifiedDate) ||
+    isoDate(story?.dateModified) ||
+    isoDate(story?.updatedDate) ||
+    isoDate(story?.revisedDate) ||
+    isoDate(story?.lastModified) ||
+    ''
+  )
+}
+
+/**
+ * Published: story data, otherwise the file's first git commit.
+ * Modified: story data, otherwise the file's last git commit.
+ * Empty string when neither source has a real date.
+ */
+export function resolveArticleDates(story, fallback = {}) {
+  return {
+    published: explicitPublished(story) || isoDate(fallback.published) || isoDate(fallback.created) || '',
+    modified: explicitModified(story) || isoDate(fallback.modified) || '',
+  }
+}
+
+export function storyCanonicalUrl(slug) {
+  return `${SITE_ORIGIN}/stories/${encodeURIComponent(slug)}/`
+}
+
+function parseIsoParts(iso) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '')
+  if (!match) return null
+  const month = Number(match[2])
+  const day = Number(match[3])
+  if (month < 1 || month > 12 || day < 1 || day > 31) return null
+  return { year: Number(match[1]), month, day }
+}
+
+export function formatChicagoDate(iso) {
+  const parts = parseIsoParts(iso)
+  if (!parts) return ''
+  return `${CHICAGO_MONTHS[parts.month - 1]} ${parts.day}, ${parts.year}`
+}
+
+export function formatMlaDate(iso) {
+  const parts = parseIsoParts(iso)
+  if (!parts) return ''
+  return `${parts.day} ${MLA_MONTHS[parts.month - 1]} ${parts.year}`
+}
+
+function chicagoAuthor(name) {
+  const parts = String(name || '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+  if (parts.length < 2) return parts[0] || ''
+  const last = parts.pop()
+  return `${last}, ${parts.join(' ')}`
+}
+
+function quotedTitle(title) {
+  const text = String(title || '').trim()
+  if (!text) return '""'
+  if (/[.!?]$/.test(text)) return `"${text}"`
+  return `"${text}."`
+}
+
+function dateSentences(published, modified) {
+  const pub = formatChicagoDate(published)
+  const mod = formatChicagoDate(modified)
+  if (pub && mod && published !== modified) return `Published ${pub}. Last modified ${mod}.`
+  if (pub) return `${pub}.`
+  if (mod) return `Last modified ${mod}.`
+  return ''
+}
+
+function mlaDateClause(published, modified) {
+  const pub = formatMlaDate(published)
+  const mod = formatMlaDate(modified)
+  if (pub && mod && published !== modified) return `published ${pub}, last modified ${mod},`
+  if (pub) return `${pub},`
+  if (mod) return `last modified ${mod},`
+  return ''
+}
+
+/** Citation text without the access date. The access date is filled in the browser. */
+export function buildCitation(style, { title, published, modified, url } = {}) {
+  const author = `${chicagoAuthor(SITE_AUTHOR)}.`
+  const quoted = quotedTitle(title)
+  const link = String(url || '').trim()
+  if (style === 'mla') {
+    const dates = mlaDateClause(published, modified)
+    const tail = dates ? `${SITE_NAME}, ${dates} ${link}.` : `${SITE_NAME}, ${link}.`
+    const plain = `${author} ${quoted} ${tail}`.replace(/\s+/g, ' ').trim()
+    const html = `${esc(author)} ${esc(quoted)} <em>${esc(SITE_NAME)}</em>${esc(tail.slice(SITE_NAME.length))}`
+      .replace(/\s+/g, ' ')
+      .trim()
+    return { plain, html }
+  }
+  const dates = dateSentences(published, modified)
+  const plain = [author, quoted, `${SITE_NAME}.`, dates, link].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim()
+  const ended = /[.!?]$/.test(plain) ? plain : `${plain}.`
+  return { plain: ended, html: esc(ended) }
+}
+
+export function accessedPhrase(style, date = new Date()) {
+  const day = date.getDate()
+  const year = date.getFullYear()
+  if (style === 'mla') return `Accessed ${day} ${MLA_MONTHS[date.getMonth()]} ${year}.`
+  return `Accessed ${CHICAGO_MONTHS[date.getMonth()]} ${day}, ${year}.`
+}
+
+function dateMetaHtml(published, modified) {
+  const bits = []
+  if (published && formatChicagoDate(published)) {
+    bits.push(`Published <time datetime="${esc(published)}">${esc(formatChicagoDate(published))}</time>`)
+  }
+  if (modified && modified !== published && formatChicagoDate(modified)) {
+    bits.push(`Last modified <time datetime="${esc(modified)}">${esc(formatChicagoDate(modified))}</time>`)
+  }
+  if (!bits.length) return ''
+  return `<p class="cite-dates">${bits.join('. ')}.</p>`
+}
+
+export function citeBoxHtml({ title, url, published = '', modified = '', headingLevel = 2 } = {}) {
+  const level = headingLevel === 3 ? 3 : 2
+  const fields = { title, published, modified, url }
+  const chicago = buildCitation('chicago', fields)
+  const mla = buildCitation('mla', fields)
+  const entry = (style, label, citation) => `<div class="cite-entry">
+      <p class="cite-label" id="cite-${style}-label">${label}</p>
+      <p class="cite-text" id="cite-${style}-text">${citation.html}</p>
+      <p class="cite-accessed" data-cite-accessed="${style}"></p>
+      <button type="button" class="btn ghost small cite-copy" data-cite-copy="${style}" aria-label="Copy ${label} citation">Copy</button>
+    </div>`
+  return `<section class="cite-story" data-cite aria-labelledby="cite-story-heading">
+      <h${level} id="cite-story-heading">Cite this story</h${level}>
+      ${dateMetaHtml(published, modified)}
+      ${entry('chicago', 'Chicago', chicago)}
+      ${entry('mla', 'MLA', mla)}
+    </section>`
+}
+
+export function correctionUrl({ title, url }) {
+  const params = new URLSearchParams({
+    labels: 'correction',
+    title: `Correction: ${title || 'Story'}`,
+    body: `Story: ${title || ''}\nURL: ${url || ''}\n\nWhat should be corrected?\n\n`,
+  })
+  return `https://github.com/${CORRECTION_REPO}/issues/new?${params.toString()}`
+}
+
+export function correctionHtml({ title, url }) {
+  const href = correctionUrl({ title, url })
+  return `<p class="story-correction"><a class="story-correction-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer">Report a correction<span class="visually-hidden"> for ${esc(title || 'this story')} (opens in a new tab)</span></a></p>`
+}
+
+const EARTH_MILES = 3958.7613
+
+export function haversineMiles(lat1, lon1, lat2, lon2) {
+  const toRad = (d) => (d * Math.PI) / 180
+  const dLat = toRad(lat2 - lat1)
+  const dLon = toRad(lon2 - lon1)
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2
+  return 2 * EARTH_MILES * Math.asin(Math.min(1, Math.sqrt(a)))
+}
+
+export function formatMiles(miles) {
+  if (!Number.isFinite(miles) || miles < 0) return ''
+  if (miles < 0.1) return 'less than 0.1 miles'
+  return `${(Math.round(miles * 10) / 10).toFixed(1)} miles`
+}
+
+function finiteCoord(value) {
+  if (value == null || value === '') return null
+  const n = Number(value)
+  return Number.isFinite(n) ? n : null
+}
+
+/** 3 to 5 nearest other stories that have coordinates. Empty when this story has no pin. */
+export function nearbyStories(story, all, { limit = 5 } = {}) {
+  const lat = finiteCoord(story?.lat)
+  const lon = finiteCoord(story?.lon)
+  if (lat == null || lon == null || Math.abs(lat) > 90 || Math.abs(lon) > 180) return []
+  if (lat === 0 && lon === 0) return []
+  const rows = []
+  for (const other of all || []) {
+    if (!other?.slug || other.slug === story.slug || !other.title) continue
+    const olat = finiteCoord(other.lat)
+    const olon = finiteCoord(other.lon)
+    if (olat == null || olon == null || Math.abs(olat) > 90 || Math.abs(olon) > 180) continue
+    if (olat === 0 && olon === 0) continue
+    rows.push({
+      slug: other.slug,
+      title: other.title,
+      miles: haversineMiles(lat, lon, olat, olon),
+    })
+  }
+  rows.sort((a, b) => a.miles - b.miles || a.title.localeCompare(b.title))
+  const cap = Math.min(5, Math.max(3, limit))
+  return rows.slice(0, cap)
+}
+
+export function nearbyHtml(story, all, { headingLevel = 2 } = {}) {
+  const near = nearbyStories(story, all)
+  if (near.length < 3) return ''
+  const level = headingLevel === 3 ? 3 : 2
+  const items = near
+    .map((row) => {
+      const href = `/stories/${encodeURIComponent(row.slug)}/`
+      return `<li><a href="${esc(href)}">${esc(row.title)}</a> <span class="muted">${esc(formatMiles(row.miles))}</span></li>`
+    })
+    .join('')
+  return `<nav class="story-nearby" aria-labelledby="nearby-stories-heading"><h${level} id="nearby-stories-heading">Nearby</h${level}><ul>${items}</ul></nav>`
+}
+
+const LICENSE_RE = /public domain|\bcc0\b|\bcc[-\s]?by\b|\bgfdl\b|copyright|all rights reserved/i
+
+function isLicenseText(value) {
+  return LICENSE_RE.test(String(value || ''))
+}
+
+/** Photographer or source, license, and link, taken only from fields already on the photo. */
+export function photoCreditModel(photo) {
+  if (!photo?.image_url && !photo?.source_url && !photo?.attribution && !photo?.credit) return null
+  const sourceUrl = String(photo.source_url || '').trim()
+  const licenseUrl = /^https?:\/\//i.test(photo.license_url || '') ? String(photo.license_url).trim() : ''
+  const sourceLabel = String(photo.source_label || photo.source || '').trim()
+  const parts = String(photo.attribution || '')
+    .split(/\s+·\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+  const isSource = (part) => {
+    if (!part || !sourceLabel) return false
+    const text = part.toLowerCase()
+    const label = sourceLabel.toLowerCase()
+    return text === label || text.includes(label)
+  }
+  let photographer = String(photo.photographer || photo.credit || '').trim()
+  if (photographer && sourceLabel && photographer.toLowerCase() === sourceLabel.toLowerCase()) photographer = ''
+  let license = String(photo.license || '').trim()
+  if (!license) license = parts.find((part) => isLicenseText(part)) || ''
+  if (!photographer) {
+    photographer = parts.find((part) => part !== license && !isLicenseText(part) && !isSource(part)) || ''
+  }
+  const extras = parts.filter(
+    (part) => part !== photographer && part !== license && !isSource(part) && !isLicenseText(part),
+  )
+  const collection = String(photo.collection || '').trim()
+  if (collection && collection !== photographer && !isSource(collection) && !extras.includes(collection)) {
+    extras.unshift(collection)
+  }
+  const source = sourceLabel || parts.find((part) => isSource(part)) || ''
+  if (!photographer && !source && !license && !extras.length) return null
+  return { photographer, extras, source, sourceUrl, license, licenseUrl }
+}
+
+function externalLink(href, label) {
+  return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`
+}
+
+export function photoCreditHtml(photo, { block = true } = {}) {
+  const model = photoCreditModel(photo)
+  if (!model) return ''
+  const chunks = []
+  if (model.photographer) chunks.push(esc(model.photographer))
+  for (const extra of model.extras) chunks.push(esc(extra))
+  if (model.source) {
+    chunks.push(model.sourceUrl ? externalLink(model.sourceUrl, model.source) : esc(model.source))
+  } else if (model.sourceUrl) {
+    chunks.push(externalLink(model.sourceUrl, 'Source'))
+  }
+  if (!chunks.length && !model.license) return ''
+  let inner = chunks.length ? `Photo: ${chunks.join('. ')}` : 'Photo'
+  if (model.license) {
+    const license = model.licenseUrl ? externalLink(model.licenseUrl, model.license) : esc(model.license)
+    inner += `. License: ${license}`
+  }
+  inner += '.'
+  if (block) return `<p class="story-sidebar-photo-attr story-photo-credit">${inner}</p>`
+  return `<span class="historic-photo-attr story-photo-credit">${inner}</span>`
+}
+
+export function wireCiteBoxes(root = typeof document !== 'undefined' ? document : null) {
+  if (!root?.querySelectorAll) return
+  const now = new Date()
+  root.querySelectorAll('[data-cite]').forEach((box) => {
+    box.querySelectorAll('[data-cite-accessed]').forEach((el) => {
+      const style = el.getAttribute('data-cite-accessed') === 'mla' ? 'mla' : 'chicago'
+      el.textContent = accessedPhrase(style, now)
+    })
+    box.querySelectorAll('[data-cite-copy]').forEach((button) => {
+      if (button.dataset.citeWired === '1') return
+      button.dataset.citeWired = '1'
+      button.addEventListener('click', () => {
+        const entry = button.closest('.cite-entry')
+        const text = entry?.querySelector('.cite-text')?.textContent?.trim() || ''
+        const accessed = entry?.querySelector('.cite-accessed')?.textContent?.trim() || ''
+        const full = [text, accessed].filter(Boolean).join(' ')
+        const done = () => {
+          button.textContent = 'Copied'
+          window.setTimeout(() => {
+            button.textContent = 'Copy'
+          }, 2000)
+        }
+        const fallback = () => {
+          const area = document.createElement('textarea')
+          area.value = full
+          area.setAttribute('readonly', '')
+          area.style.position = 'fixed'
+          area.style.top = '0'
+          area.style.left = '-9999px'
+          document.body.appendChild(area)
+          area.select()
+          try {
+            document.execCommand('copy')
+          } catch {
+            /* the citation is still selectable on the page */
+          }
+          area.remove()
+        }
+        if (navigator.clipboard?.writeText) {
+          navigator.clipboard.writeText(full).then(done).catch(() => {
+            fallback()
+            done()
+          })
+        } else {
+          fallback()
+          done()
+        }
+      })
+    })
+  })
+}
+
+/** Runs as soon as the story markup above it has been parsed. Fills only the access date. */
+export function citeBootScript() {
+  const chicago = JSON.stringify(CHICAGO_MONTHS)
+  const mla = JSON.stringify(MLA_MONTHS)
+  return `<script>
+    (function () {
+      var CHICAGO = ${chicago};
+      var MLA = ${mla};
+      function phrase(style, date) {
+        if (style === 'mla') return 'Accessed ' + date.getDate() + ' ' + MLA[date.getMonth()] + ' ' + date.getFullYear() + '.';
+        return 'Accessed ' + CHICAGO[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear() + '.';
+      }
+      function fallback(full) {
+        var area = document.createElement('textarea');
+        area.value = full;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.top = '0';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        area.remove();
+      }
+      function fill(root) {
+        var now = new Date();
+        root.querySelectorAll('[data-cite]').forEach(function (box) {
+          box.querySelectorAll('[data-cite-accessed]').forEach(function (el) {
+            var style = el.getAttribute('data-cite-accessed') === 'mla' ? 'mla' : 'chicago';
+            el.textContent = phrase(style, now);
+          });
+          box.querySelectorAll('[data-cite-copy]').forEach(function (button) {
+            if (button.getAttribute('data-cite-wired') === '1') return;
+            button.setAttribute('data-cite-wired', '1');
+            button.addEventListener('click', function () {
+              var entry = button.closest('.cite-entry');
+              var text = entry && entry.querySelector('.cite-text') ? entry.querySelector('.cite-text').textContent.trim() : '';
+              var accessed = entry && entry.querySelector('.cite-accessed') ? entry.querySelector('.cite-accessed').textContent.trim() : '';
+              var full = [text, accessed].filter(Boolean).join(' ');
+              var done = function () {
+                button.textContent = 'Copied';
+                window.setTimeout(function () { button.textContent = 'Copy'; }, 2000);
+              };
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(full).then(done).catch(function () { fallback(full); done(); });
+              } else {
+                fallback(full);
+                done();
+              }
+            });
+          });
+        });
+      }
+      fill(document);
+    })();
+  </script>`
+}
