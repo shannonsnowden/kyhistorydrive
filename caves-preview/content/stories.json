@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T15:36:48.222Z",
+  "generatedAt": "2026-10-11T15:36:36.717Z",
   "count": 230,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -72,7 +72,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-28",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
+        "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
         "title": "Sandstone cliffs in the Red River Gorge Geological Area",
         "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
         "source_label": "Wikimedia Commons",
@@ -207,7 +207,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-30",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/dover-mound-mason-county.jpg",
+        "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
         "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
         "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
         "source_label": "Wikimedia Commons",
@@ -215,7 +215,7 @@
         "year": 2009
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -500,
         "yearEnd": 250,
@@ -242,7 +242,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-05",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -500,
         "yearEnd": 250,
@@ -269,7 +269,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-02",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -500,
         "yearEnd": 250,
@@ -296,7 +296,7 @@
       "source": "ky-history",
       "briefDate": "2026-08-30",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -500,
         "yearEnd": 250,
@@ -323,7 +323,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-11",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -300,
         "yearEnd": -200,
@@ -351,7 +351,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-22",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
+        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
         "title": "Peter Village enclosure (Squier & Davis 1848)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
         "source_label": "Wikimedia Commons",
@@ -359,7 +359,7 @@
         "year": 1848
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -300,
         "yearEnd": -200,
@@ -389,7 +389,7 @@
       "briefDate": "2026-10-08",
       "county": "Greenup",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
+        "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
         "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
@@ -418,7 +418,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-06",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -150,
         "yearEnd": 1,
@@ -467,7 +467,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-07",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
         "yearStart": -500,
         "yearEnd": 250,
@@ -496,7 +496,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-15",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1000,
         "yearEnd": 1200,
@@ -511,9 +511,9 @@
       "slug": "page-site-lost-city-15lo1",
       "title": "Page Site / “Lost City” (15LO1)",
       "publishedDate": "2026-09-12",
-      "summary": "Above the Mud River east of Lewisburg in Logan County sits the Page Site, a major Mississippian mound-and-ossuary complex (roughly A.D. 1000–1600) excavated by William S. Webb…",
+      "summary": "Above the Mud River east of Lewisburg in Logan County sits the Page Site (15LO1), a major Mississippian mound site…",
       "yearStart": 1000,
-      "yearEnd": 1600,
+      "yearEnd": null,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -523,7 +523,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-12",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1000,
         "yearEnd": 1100,
@@ -553,7 +553,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-25",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
+        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
         "title": "Main Street, Nicholasville",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
@@ -561,7 +561,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1010,
         "yearEnd": 1255,
@@ -589,7 +589,7 @@
       "briefDate": "2026-09-16",
       "county": "Fulton",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1100,
         "yearEnd": 1500,
@@ -617,7 +617,7 @@
       "briefDate": "2026-09-21",
       "county": "Fulton",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
+        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
         "title": "Hickman Carnegie Library, Fulton County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
@@ -625,7 +625,7 @@
         "year": 2013
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1100,
         "yearEnd": 1500,
@@ -653,7 +653,7 @@
       "briefDate": "2026-10-05",
       "county": "McCracken",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
+        "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
         "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
         "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
         "source_label": "Wikimedia Commons",
@@ -681,7 +681,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-19",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1100,
         "yearEnd": 1300,
@@ -708,7 +708,7 @@
       "source": "ky-history",
       "briefDate": "2026-08-27",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1100,
         "yearEnd": 1350,
@@ -736,7 +736,7 @@
       "briefDate": "2026-10-04",
       "county": "Hopkins",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
+        "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
         "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
         "source_label": "Wikimedia Commons",
@@ -767,7 +767,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-24",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
+        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
         "title": "Paris, Bourbon County (nearest city to Buckner Site)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -775,7 +775,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1200,
         "yearEnd": 1550,
@@ -804,7 +804,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-10",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1200,
         "yearEnd": 1300,
@@ -833,7 +833,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-25",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
+        "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
         "title": "Boone County Courthouse, Burlington",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
@@ -841,7 +841,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1200,
         "yearEnd": 1300,
@@ -869,7 +869,7 @@
       "briefDate": "2026-10-01",
       "county": "Knox",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/croley-evans-site.jpg",
+        "image_url": "/content/photos/stories/croley-evans-site.jpg",
         "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
         "source_label": "Wikimedia Commons",
@@ -877,7 +877,7 @@
         "year": 2010
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1200,
         "yearEnd": 1450,
@@ -904,7 +904,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-08",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1000,
         "yearEnd": 1300,
@@ -931,7 +931,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-29",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
+        "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
         "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
         "source_label": "Wikimedia Commons",
@@ -939,7 +939,7 @@
         "year": 2011
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1200,
         "yearEnd": 1550,
@@ -967,7 +967,7 @@
       "briefDate": "2026-09-23",
       "county": "Crittenden",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
+        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
         "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
         "source_label": "Wikimedia Commons",
@@ -975,7 +975,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1200,
         "yearEnd": 1450,
@@ -1003,7 +1003,7 @@
       "briefDate": "2026-10-02",
       "county": "Ballard",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/twin-mounds-site.jpg",
+        "image_url": "/content/photos/stories/twin-mounds-site.jpg",
         "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
         "source_label": "Wikimedia Commons",
@@ -1011,7 +1011,7 @@
         "year": 2010
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1200,
         "yearEnd": 1450,
@@ -1039,7 +1039,7 @@
       "briefDate": "2026-09-17",
       "county": "Butler",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
         "yearStart": 1300,
         "yearEnd": 1350,
@@ -1068,7 +1068,7 @@
       "source": "ky-history",
       "briefDate": "2026-08-31",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1300,
         "yearEnd": 1650,
@@ -1097,7 +1097,7 @@
       "briefDate": "2026-10-03",
       "county": "Pike",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/slone-site-15pi11-pike-county.jpg",
+        "image_url": "/content/photos/stories/slone-site-15pi11-pike-county.jpg",
         "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
         "source_label": "Wikimedia Commons",
@@ -1127,7 +1127,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-09",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1400,
         "yearEnd": 1750,
@@ -1154,7 +1154,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-27",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/slack-farm-15un28-union-county.jpg",
+        "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
         "title": "Ohio River at Uniontown, Union County — the floodplain setting of Slack Farm",
         "source_url": "https://commons.wikimedia.org/wiki/File:Uniontown-Ohio-River-ky.jpg",
         "source_label": "Wikimedia Commons",
@@ -1182,7 +1182,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-26",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
+        "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
         "title": "Estill County Courthouse, Irvine",
         "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
@@ -1190,7 +1190,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1400,
         "yearEnd": 1450,
@@ -1218,7 +1218,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-04",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
         "yearStart": 1550,
         "yearEnd": 1650,
@@ -1246,7 +1246,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-24",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
+        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
         "title": "Erie / Cat Nation territory (historical map)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
         "source_label": "Wikimedia Commons",
@@ -1273,7 +1273,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-11",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
+        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
         "title": "Erie / Cat Nation territory (historical map)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
         "source_label": "Wikimedia Commons",
@@ -1302,7 +1302,7 @@
       "briefDate": "2026-10-01",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/moneton.jpg",
+        "image_url": "/content/photos/stories/moneton.jpg",
         "title": "Kanawha River south of Charleston, West Virginia — Moneton homeland on Kentucky’s eastern approaches, not a Kentucky village site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Kanawha_River_S_Charleston_WV1.jpg",
         "source_label": "Wikimedia Commons",
@@ -1329,7 +1329,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-17",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
+        "ref": "/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
         "nation": "Tutelo (Yesah, Totero)",
         "yearStart": 1671,
         "yearEnd": 1779,
@@ -1358,7 +1358,7 @@
       "briefDate": "2026-09-04",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
+        "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
         "nation": "Mosopelea (Ofo, Ofogoula)",
         "yearStart": 1673,
         "yearEnd": 1784,
@@ -1389,7 +1389,7 @@
       "briefDate": "2026-10-08",
       "county": "Jackson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/athiamiowee-the-warriors-path-through-kentucky.jpg",
+        "image_url": "/content/photos/stories/athiamiowee-the-warriors-path-through-kentucky.jpg",
         "title": "The saddle of Cumberland Gap, where the Warriors’ Path entered Kentucky (photographed 2020)—a modern view of the gap, not the trail itself",
         "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Gap_Height_of_Land.jpg",
         "source_label": "Wikimedia Commons",
@@ -1633,7 +1633,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-22",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
+        "image_url": "/content/photos/stories/delaware-winter-camps-on-kentucky-ground.jpg",
         "title": "Three Delaware Indians (George Catlin)",
         "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
         "source_label": "Wikimedia Commons",
@@ -1641,7 +1641,7 @@
         "year": 1861
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+        "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
         "nation": "Delaware (Lenape)",
         "yearStart": 1750,
         "yearEnd": 1775,
@@ -1671,7 +1671,7 @@
       "briefDate": "2026-09-06",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+        "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
         "nation": "Miami (with Wea and Piankashaw)",
         "yearStart": 1750,
         "yearEnd": 1795,
@@ -1699,7 +1699,7 @@
       "source": "ky-history",
       "briefDate": "2026-10-02",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/nonhelema.jpg",
+        "image_url": "/content/photos/stories/nonhelema.jpg",
         "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
         "source_label": "Wikimedia Commons",
@@ -1707,7 +1707,7 @@
         "year": 2019
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
         "nation": "Shawnee",
         "presenceLabel": "Shawnee leader, no mapped area"
       },
@@ -1735,7 +1735,7 @@
       "briefDate": "2026-10-10",
       "county": "Letcher",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/pine-mountain-and-pound-gap.jpg",
+        "image_url": "/content/photos/stories/pine-mountain-and-pound-gap.jpg",
         "title": "Looking west along U.S. 23 into the cut atop Pound Gap (photographed 2014)",
         "source_url": "https://commons.wikimedia.org/wiki/File:US23_cut_at_Pound_Gap.jpg",
         "source_label": "Wikimedia Commons",
@@ -1806,7 +1806,7 @@
       "briefDate": "2026-09-22",
       "county": "Clark",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
+        "image_url": "/content/photos/stories/john-finley-the-trader-who-put-kentucky-on-boones-trail.jpg",
         "title": "Daniel Boone escorting settlers through the Cumberland Gap (Bingham)",
         "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
         "source_label": "Wikimedia Commons",
@@ -1879,7 +1879,7 @@
       "briefDate": "2026-10-09",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/treaty-of-logstown-1752.jpg",
+        "image_url": "/content/photos/stories/treaty-of-logstown-1752.jpg",
         "title": "Pennsylvania historical marker for Logstown near Ambridge, Beaver County (photographed 2009)—a modern marker near the site, not the town itself",
         "source_url": "https://commons.wikimedia.org/wiki/File:Logstown2.jpg",
         "source_label": "Wikimedia Commons",
@@ -1930,7 +1930,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-29",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/mary-draper-ingles-escapes-through-kentucky-1755.jpg",
+        "image_url": "/content/photos/stories/mary-draper-ingles-escapes-through-kentucky-1755.jpg",
         "title": "Big Bone Lick State Park entrance sign, Boone County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Bigbonelick.jpg",
         "source_label": "Wikimedia Commons",
@@ -2022,7 +2022,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-01",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
         "nation": "Cherokee",
         "yearStart": 1768,
         "yearEnd": 1771,
@@ -2053,7 +2053,7 @@
       "briefDate": "2026-08-31",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+        "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
         "nation": "Six Nations",
         "yearStart": 1768,
         "yearEnd": 1784,
@@ -2124,7 +2124,7 @@
       "briefDate": "2026-10-07",
       "county": "Powell",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/pilot-knob-boones-overlook-1769.jpg",
+        "image_url": "/content/photos/stories/pilot-knob-boones-overlook-1769.jpg",
         "title": "Pilot Knob State Nature Preserve, Powell County (uploaded 2008)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Pilot_Knob_Photo.jpg",
         "source_label": "Wikimedia Commons",
@@ -2153,7 +2153,7 @@
       "briefDate": "2026-10-01",
       "county": "Green",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/james-knox.jpg",
+        "image_url": "/content/photos/stories/james-knox.jpg",
         "title": "Longhunter reenactment (Natural Tunnel State Park, Virginia) — representative of the long-hunter kit, not a portrait of James Knox",
         "source_url": "https://commons.wikimedia.org/wiki/File:NT_Reenactment-_longhunter_(15193433686).jpg",
         "source_label": "Wikimedia Commons",
@@ -2183,7 +2183,7 @@
       "briefDate": "2026-09-15",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/mingo-presence-ohio-and-kentucky.json",
+        "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
         "nation": "Mingo",
         "yearStart": 1770,
         "yearEnd": 1776,
@@ -2278,7 +2278,7 @@
       "briefDate": "2026-10-11",
       "county": "Jefferson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/manns-lick-louisvilles-salt-town.jpg",
+        "image_url": "/content/photos/stories/manns-lick-louisvilles-salt-town.jpg",
         "title": "Bee Lick Creek (photographed 2005), a nearby landscape in Jefferson Memorial Forest; no historic image of Mann’s Lick is known",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jefferson_Memorial_Forest-Bee_Lick_Creek.jpg",
         "source_label": "Wikimedia Commons",
@@ -2310,7 +2310,7 @@
       "briefDate": "2026-10-03",
       "county": "Mercer",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
+        "image_url": "/content/photos/stories/mcafee-station-on-the-salt-river.jpg",
         "title": "New Providence Presbyterian Church near Salvisa — grew from the McAfee Station community (1785)",
         "source_url": "https://commons.wikimedia.org/wiki/File:New_Providence_Presbyterian_Church.JPG",
         "source_label": "Wikimedia Commons",
@@ -2340,7 +2340,7 @@
       "briefDate": "2026-10-10",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg",
+        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg",
         "title": "Cornstalk as imagined in John Frost’s 1872 pictorial history of the Indians (cropped engraving, not a life portrait)",
         "source_url": "https://commons.wikimedia.org/wiki/File:1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg",
         "source_label": "Wikimedia Commons",
@@ -2412,7 +2412,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-20",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
         "nation": "Shawnee",
         "yearStart": 1735,
         "yearEnd": 1795,
@@ -2442,7 +2442,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-03",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+        "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
         "nation": "Shawnee",
         "yearStart": 1735,
         "yearEnd": 1795,
@@ -2471,7 +2471,7 @@
       "briefDate": "2026-09-21",
       "county": "Mercer",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
+        "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
         "title": "Old Fort Harrod reconstruction, Harrodsburg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
         "source_label": "Wikimedia Commons",
@@ -2521,7 +2521,7 @@
       "briefDate": "2026-10-10",
       "county": "Lincoln",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg",
+        "image_url": "/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg",
         "title": "The William Whitley House near Crab Orchard (photographed 2019), Esther Whitley’s home; no portrait of her is known to the site",
         "source_url": "https://commons.wikimedia.org/wiki/File:William_Whitley_House_—_Lincoln_County,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -2550,7 +2550,7 @@
       "briefDate": "2026-09-30",
       "county": "Fayette",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/levi-todd-lexington-co-founder.jpg",
+        "image_url": "/content/photos/stories/levi-todd-lexington-co-founder.jpg",
         "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
         "source_label": "Wikimedia Commons",
@@ -2684,7 +2684,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
         "nation": "Cherokee",
         "yearStart": 1777,
         "yearEnd": 1794,
@@ -2713,7 +2713,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-23",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
+        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
         "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
         "source_label": "Wikimedia Commons",
@@ -2724,7 +2724,7 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
         "nation": "Cherokee",
         "yearStart": 1777,
         "yearEnd": 1794,
@@ -2775,7 +2775,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-22",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
+        "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
         "title": "Washington County Courthouse, Springfield",
         "source_url": "https://commons.wikimedia.org/wiki/File:Washington_county_courthouse.jpg",
         "source_label": "Wikimedia Commons",
@@ -2826,7 +2826,7 @@
       "briefDate": "2026-10-07",
       "county": "Adair",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/daniel-trabue-of-columbia.jpg",
+        "image_url": "/content/photos/stories/daniel-trabue-of-columbia.jpg",
         "title": "Daniel Trabue House, Columbia, built 1823 (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:DANIEL_TRABUE_HOUSE.jpg",
         "source_label": "Wikimedia Commons",
@@ -2858,7 +2858,7 @@
       "briefDate": "2026-09-10",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+        "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
         "nation": "Delaware (Lenape)",
         "yearStart": 1778,
         "yearEnd": 1795,
@@ -2928,7 +2928,7 @@
       "briefDate": "2026-09-16",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
+        "ref": "/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
         "nation": "Illinois Confederation (Kaskaskia, Cahokia)",
         "yearStart": 1778,
         "yearEnd": 1803,
@@ -2957,7 +2957,7 @@
       "briefDate": "2026-10-11",
       "county": "Fayette",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg",
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg",
         "title": "Simon Girty in an uncredited artist’s rendering published in 1905 (not a life portrait)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Simon_Girty.png",
         "source_label": "Wikimedia Commons",
@@ -3028,7 +3028,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-27",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/edward-worthington-at-worthingtons-fort.jpg",
+        "image_url": "/content/photos/stories/edward-worthington-at-worthingtons-fort.jpg",
         "title": "Fort Jefferson Hill above the Ohio–Mississippi confluence, Wickliffe",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort-Jefferson-Memorial-Cross-at-the-Confluence-ky.jpg",
         "source_label": "Wikimedia Commons",
@@ -3058,7 +3058,7 @@
       "briefDate": "2026-09-25",
       "county": "Mercer",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
         "title": "Blue Licks Battlefield monument",
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
@@ -3088,7 +3088,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-22",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
+        "image_url": "/content/photos/stories/isaac-ruddell-and-the-guns-at-ruddell-s-station.jpg",
         "title": "Downtown Cynthiana, Harrison County (near Ruddell’s Station)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Cynthiana_on_Main_Street.jpg",
         "source_label": "Wikimedia Commons",
@@ -3161,7 +3161,7 @@
       "briefDate": "2026-09-28",
       "county": "Bourbon",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
+        "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
         "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
@@ -3233,7 +3233,7 @@
       "briefDate": "2026-10-08",
       "county": "Larue",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/hodgenville-from-hodgens-mill-to-county-seat.jpg",
+        "image_url": "/content/photos/stories/hodgenville-from-hodgens-mill-to-county-seat.jpg",
         "title": "Hodgenville town square (photographed 2008)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hodgenville_KY_Town_Square.jpg",
         "source_label": "Wikimedia Commons",
@@ -3304,7 +3304,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-21",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
+        "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
         "title": "Anderson County Courthouse, Lawrenceburg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
         "source_label": "Wikimedia Commons",
@@ -3335,7 +3335,7 @@
       "briefDate": "2026-09-19",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
+        "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
         "nation": "Ojibwe (Chippewa) and Odawa",
         "yearStart": 1780,
         "yearEnd": 1780,
@@ -3364,7 +3364,7 @@
       "briefDate": "2026-10-02",
       "county": "Fayette",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/phosphatic-limestone-and-horse-country.jpg",
+        "image_url": "/content/photos/stories/phosphatic-limestone-and-horse-country.jpg",
         "title": "Horses on Inner Bluegrass pasture, Lexington–Fayette County (phosphatic limestone soils)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Horses_with_tall_building_in_background_in_Lexington-Fayette_County,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -3455,7 +3455,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-23",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
+        "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
         "title": "Jack Jouett House Historic Site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jack_J_002.jpg",
         "source_label": "Wikimedia Commons",
@@ -3484,7 +3484,7 @@
       "briefDate": "2026-09-27",
       "county": "Garrard",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/the-travelling-church-1781.jpg",
+        "image_url": "/content/photos/stories/the-travelling-church-1781.jpg",
         "title": "Travelling Church, 1781 memorial below the Gilbert's Creek hilltop church site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Roadside_marker_with_hilltop_church_site_behind.JPG",
         "source_label": "Wikimedia Commons",
@@ -3513,7 +3513,7 @@
       "briefDate": "2026-10-04",
       "county": "Madison",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/william-hoy-and-hoys-station.jpg",
+        "image_url": "/content/photos/stories/william-hoy-and-hoys-station.jpg",
         "title": "Reconstructed Fort Boonesborough, Madison County—a stand-in for an early Madison County station; not Hoy’s Station",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_reproduction,_KY,_US_(03).jpg",
         "source_label": "Wikimedia Commons",
@@ -3565,7 +3565,7 @@
       "briefDate": "2026-09-30",
       "county": "Fayette",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/bryan-station-siege-august-1782.jpg",
+        "image_url": "/content/photos/stories/bryan-station-siege-august-1782.jpg",
         "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
@@ -3614,7 +3614,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-26",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
+        "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
         "title": "Fort Boonesborough State Park",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_State_Park_-_October_2023_-_Sarah_Stierch_01.jpg",
         "source_label": "Wikimedia Commons",
@@ -3645,7 +3645,7 @@
       "briefDate": "2026-09-14",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+        "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
         "nation": "Wyandot",
         "yearStart": 1780,
         "yearEnd": 1782,
@@ -3672,7 +3672,7 @@
       "briefDate": "2026-10-02",
       "county": "Franklin",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/harry-innes.jpg",
+        "image_url": "/content/photos/stories/harry-innes.jpg",
         "title": "Frankfort Cemetery — burial place of Judge Harry Innes (first U.S. district judge for Kentucky)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Frankfort_Cemetery;_Frankfort,_Kentucky.JPG",
         "source_label": "Wikimedia Commons",
@@ -3744,7 +3744,7 @@
       "briefDate": "2026-10-08",
       "county": "Franklin",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
         "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
         "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
         "source_label": "Wikimedia Commons",
@@ -3794,7 +3794,7 @@
       "briefDate": "2026-10-06",
       "county": "Clark",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
         "title": "Gen. Charles Scott (portrait, published 1907)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
         "source_label": "Wikimedia Commons",
@@ -3842,7 +3842,7 @@
       "briefDate": "2026-10-03",
       "county": "Mason",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/washington-mason-county.jpg",
+        "image_url": "/content/photos/stories/washington-mason-county.jpg",
         "title": "Paxton Inn in Old Washington (Washington Historic District, now Maysville)",
         "source_url": "https://commons.wikimedia.org/wiki/File:PaxtonInn.jpg",
         "source_label": "Wikimedia Commons",
@@ -3871,7 +3871,7 @@
       "briefDate": "2026-10-05",
       "county": "Washington",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/col-john-hardin-of-pleasant-run.jpg",
+        "image_url": "/content/photos/stories/col-john-hardin-of-pleasant-run.jpg",
         "title": "Washington County Courthouse, Springfield (HABS photo, 1940)—built 1816, after Hardin’s death; a county stand-in, not his homestead",
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
@@ -3903,7 +3903,7 @@
       "briefDate": "2026-10-03",
       "county": "Mason",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
+        "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
         "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
@@ -3932,7 +3932,7 @@
       "briefDate": "2026-10-06",
       "county": "Fleming",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/flemingsburg-stocktons-town.jpg",
+        "image_url": "/content/photos/stories/flemingsburg-stocktons-town.jpg",
         "title": "Fleming County Courthouse, Flemingsburg (photographed 2007)—a later courthouse on the county seat Stockton laid out",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fleming_County,_Kentucky_courthouse_2.jpg",
         "source_label": "Wikimedia Commons",
@@ -3962,7 +3962,7 @@
       "briefDate": "2026-10-09",
       "county": "Fayette",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
         "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
         "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
         "source_label": "Wikimedia Commons",
@@ -4012,7 +4012,7 @@
       "briefDate": "2026-09-24",
       "county": "Johnson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/jenny-wileys-captivity-and-escape.jpg",
+        "image_url": "/content/photos/stories/jenny-wileys-captivity-and-escape.jpg",
         "title": "Dewey Lake at Jenny Wiley State Resort Park",
         "source_url": "https://commons.wikimedia.org/wiki/File:Dewey_Lake_fall.jpg",
         "source_label": "Wikimedia Commons",
@@ -4041,7 +4041,7 @@
       "briefDate": "2026-09-26",
       "county": "Marion",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/lebanon-cedars-meeting-house-county-seat.jpg",
+        "image_url": "/content/photos/stories/lebanon-cedars-meeting-house-county-seat.jpg",
         "title": "Marion County Courthouse, Lebanon",
         "source_url": "https://commons.wikimedia.org/wiki/File:Marion_County_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
@@ -4115,7 +4115,7 @@
       "briefDate": "2026-10-11",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg",
+        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg",
         "title": "Little Turtle, a lithograph after a lost portrait (circa 1798 original)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Little_Turtle.jpg",
         "source_label": "Wikimedia Commons",
@@ -4166,7 +4166,7 @@
       "briefDate": "2026-10-07",
       "county": "Logan",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/russellville-from-big-boiling-spring-to-county-seat.jpg",
+        "image_url": "/content/photos/stories/russellville-from-big-boiling-spring-to-county-seat.jpg",
         "title": "Logan County Courthouse, Russellville (photographed 2008)—a later courthouse on the county seat, not the 1790s town",
         "source_url": "https://commons.wikimedia.org/wiki/File:Logan_County_courthouse_Kentucky.JPG",
         "source_label": "Wikimedia Commons",
@@ -4196,7 +4196,7 @@
       "briefDate": "2026-10-08",
       "county": "Bourbon",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting.jpg",
+        "image_url": "/content/photos/stories/cane-ridge-meeting-house-and-the-1801-camp-meeting.jpg",
         "title": "Cane Ridge Meeting House, Historic American Buildings Survey photo by Theodore Webb, Feb. 7, 1934, before the stone shelter was built",
         "source_url": "https://commons.wikimedia.org/wiki/File:Cane_Ridge_Meeting_House,_Little_Rock_Road,_Paris_vicinity_(Bourbon_County,_Kentucky).jpg",
         "source_label": "Wikimedia Commons",
@@ -4226,7 +4226,7 @@
       "briefDate": "2026-09-28",
       "county": "Mason",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/capt-william-hubbells-ohio-flatboat-stand-1791.jpg",
+        "image_url": "/content/photos/stories/capt-william-hubbells-ohio-flatboat-stand-1791.jpg",
         "title": "Maysville (old Limestone landing) seen across the Ohio River from Aberdeen, Ohio",
         "source_url": "https://commons.wikimedia.org/wiki/File:Maysville-from-Aberdeen-kyoh.jpg",
         "source_label": "Wikimedia Commons",
@@ -4254,7 +4254,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-09",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+        "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
         "nation": "Kickapoo (with Mascouten)",
         "yearStart": 1740,
         "yearEnd": 1791,
@@ -4285,7 +4285,7 @@
       "briefDate": "2026-09-21",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
+        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
         "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
         "source_label": "Wikimedia Commons",
@@ -4314,7 +4314,7 @@
       "briefDate": "2026-10-05",
       "county": "Carroll",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/carrollton-from-port-william.jpg",
+        "image_url": "/content/photos/stories/carrollton-from-port-william.jpg",
         "title": "Richard Masterson House, Carrollton—where the first Gallatin County court met in 1799 (photographed 2013)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Richard_Masterson_House_at_Carrollton.jpg",
         "source_label": "Wikimedia Commons",
@@ -4343,7 +4343,7 @@
       "briefDate": "2026-09-08",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+        "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
         "nation": "Kickapoo (with Mascouten)",
         "yearStart": 1775,
         "yearEnd": 1795,
@@ -4456,7 +4456,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-26",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/falmouth-at-the-licking-forks.jpg",
+        "image_url": "/content/photos/stories/falmouth-at-the-licking-forks.jpg",
         "title": "Pendleton County Courthouse, Falmouth",
         "source_url": "https://commons.wikimedia.org/wiki/File:Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
         "source_label": "Wikimedia Commons",
@@ -4507,7 +4507,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-23",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
+        "image_url": "/content/photos/stories/simpsonville-takes-shape-on-the-louisville-road.jpg",
         "title": "Bank of Simpsonville Building (1902)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
@@ -4536,7 +4536,7 @@
       "briefDate": "2026-09-10",
       "county": "Washington",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
+        "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
         "title": "Jim Beam White Label",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
@@ -4565,7 +4565,7 @@
       "briefDate": "2026-09-24",
       "county": "Washington",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
+        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
         "title": "Jim Beam White Label",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
@@ -4595,7 +4595,7 @@
       "briefDate": "2026-10-11",
       "county": "Bath",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/owingsville-a-town-named-on-a-wager.jpg",
+        "image_url": "/content/photos/stories/owingsville-a-town-named-on-a-wager.jpg",
         "title": "Downtown Owingsville (photographed 2007)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Owingsville,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -4625,7 +4625,7 @@
       "briefDate": "2026-10-06",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/treaty-of-greenville-1795-the-line-to-the-kentucky-river.jpg",
+        "image_url": "/content/photos/stories/treaty-of-greenville-1795-the-line-to-the-kentucky-river.jpg",
         "title": "Painting of the Treaty of Greenville, 1795, made around the time of the treaty",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
@@ -4674,7 +4674,7 @@
       "briefDate": "2026-10-10",
       "county": "Franklin",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg",
+        "image_url": "/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg",
         "title": "Front of Liberty Hall, Frankfort (photographed 2018)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Liberty_Hall_—_Frankfort,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -4703,7 +4703,7 @@
       "briefDate": "2026-09-28",
       "county": "Bracken",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/augusta-on-the-ohio-1797.jpg",
+        "image_url": "/content/photos/stories/augusta-on-the-ohio-1797.jpg",
         "title": "Augusta's Ohio River frontage seen from the river",
         "source_url": "https://commons.wikimedia.org/wiki/File:Augustariverline.jpg",
         "source_label": "Wikimedia Commons",
@@ -4732,7 +4732,7 @@
       "briefDate": "2026-10-02",
       "county": "Christian",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/hopkinsville.jpg",
+        "image_url": "/content/photos/stories/hopkinsville.jpg",
         "title": "Christian County Courthouse, Hopkinsville (county seat since the 1797 Wood donation / 1804 renaming)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Christian_County_courthouse_Kentucky.JPG",
         "source_label": "Wikimedia Commons",
@@ -4761,7 +4761,7 @@
       "briefDate": "2026-09-17",
       "county": "Daviess",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/owensboro-yellow-banks.jpg",
+        "image_url": "/content/photos/stories/owensboro-yellow-banks.jpg",
         "title": "Second Street, Owensboro",
         "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
         "source_label": "Wikimedia Commons",
@@ -4789,7 +4789,7 @@
       "briefDate": "2026-09-24",
       "county": "Daviess",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
+        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
         "title": "Second Street, Owensboro",
         "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
         "source_label": "Wikimedia Commons",
@@ -4818,7 +4818,7 @@
       "briefDate": "2026-09-29",
       "county": "Warren",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/bowling-green-takes-shape-on-the-barren-1798.jpg",
+        "image_url": "/content/photos/stories/bowling-green-takes-shape-on-the-barren-1798.jpg",
         "title": "Fountain Square Park, downtown Bowling Green",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fountain_Square_Park,_Bowling_Green,_Kentucky.JPG",
         "source_label": "Wikimedia Commons",
@@ -4866,7 +4866,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-30",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/new-castle-henry-county-seat.jpg",
+        "image_url": "/content/photos/stories/new-castle-henry-county-seat.jpg",
         "title": "Henry County courthouse, New Castle",
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
@@ -4915,7 +4915,7 @@
       "briefDate": "2026-10-09",
       "county": "Nicholas",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg",
+        "image_url": "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg",
         "title": "Nicholas County Courthouse, Carlisle (photographed 2007), the third courthouse on the 1816 site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
@@ -4964,7 +4964,7 @@
       "source": "ky-history",
       "briefDate": "2026-10-01",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/somerset.jpg",
+        "image_url": "/content/photos/stories/somerset.jpg",
         "title": "Pulaski County courthouse, Somerset",
         "source_url": "https://commons.wikimedia.org/wiki/File:Pulaski_County_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
@@ -4994,7 +4994,7 @@
       "briefDate": "2026-10-10",
       "county": "Monroe",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/old-mulkey-meetinghouse-1804.jpg",
+        "image_url": "/content/photos/stories/old-mulkey-meetinghouse-1804.jpg",
         "title": "The Old Mulkey Meeting House near Tompkinsville (photographed 2010)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Old-mulkey-meeting-house-ky1.jpg",
         "source_label": "Wikimedia Commons",
@@ -5024,7 +5024,7 @@
       "briefDate": "2026-09-07",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+        "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
         "nation": "Miami (with Wea and Piankashaw)",
         "yearStart": 1804,
         "yearEnd": 1805,
@@ -5052,7 +5052,7 @@
       "briefDate": "2026-10-04",
       "county": "Mercer",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/shaker-village-of-pleasant-hill.jpg",
+        "image_url": "/content/photos/stories/shaker-village-of-pleasant-hill.jpg",
         "title": "Buildings at Shaker Village of Pleasant Hill, Mercer County (photographed 2007)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Shaker_Village_at_Pleasant_Hill_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -5082,7 +5082,7 @@
       "briefDate": "2026-10-05",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/tellico-cession-1805-south-of-the-cumberland.jpg",
+        "image_url": "/content/photos/stories/tellico-cession-1805-south-of-the-cumberland.jpg",
         "title": "Bridge over the Cumberland River at Williamsburg, Whitley County (HAER survey photo)—the river that bounded the 1805 cession in Kentucky; a modern stand-in",
         "source_url": "https://commons.wikimedia.org/wiki/File:GENERAL_VIEW_OF_BRIDGE_-_Williamsburg_Bridge,_Spanning_Cumberland_River,_Williamsburg,_Whitley_County,_KY_HAER_KY,118-WILBU,1-1.tif",
         "source_label": "Wikimedia Commons",
@@ -5110,7 +5110,7 @@
       "briefDate": "2026-09-28",
       "county": "Boyle",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/ephraim-mcdowell-jane-todd-crawford-1809.jpg",
+        "image_url": "/content/photos/stories/ephraim-mcdowell-jane-todd-crawford-1809.jpg",
         "title": "Ephraim McDowell House (with apothecary wing), South Second Street, Danville",
         "source_url": "https://commons.wikimedia.org/wiki/File:Ephraim_McDowell_House_%E2%80%94_Danville,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -5161,7 +5161,7 @@
       "briefDate": "2026-10-01",
       "county": "Edmonson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/mammoth-cave-saltpeter.jpg",
+        "image_url": "/content/photos/stories/mammoth-cave-saltpeter.jpg",
         "title": "Saltpeter mining remnants inside Mammoth Cave (War of 1812-era industrial works near Historic Entrance / Rotunda)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Saltpeter_Mine.jpg",
         "source_label": "Wikimedia Commons",
@@ -5190,7 +5190,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-23",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
+        "image_url": "/content/photos/stories/saltpeter-cave-at-carter-caves.jpg",
         "title": "Saltpeter Cave, Carter Caves State Resort Park",
         "source_url": "https://commons.wikimedia.org/wiki/File:Carter_Caves_Saltpeter_Cave.JPG",
         "source_label": "Wikimedia Commons",
@@ -5240,7 +5240,7 @@
       "briefDate": "2026-08-28",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/chickasaw-hunting-grounds.json",
+        "ref": "/data/web/territories/chickasaw-hunting-grounds.json",
         "nation": "Chickasaw",
         "yearStart": 1780,
         "yearEnd": 1818,
@@ -5269,7 +5269,7 @@
       "briefDate": "2026-10-07",
       "county": "Muhlenberg",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/mclean-drift-bank-kentuckys-first-commercial-coal-mine.jpg",
+        "image_url": "/content/photos/stories/mclean-drift-bank-kentuckys-first-commercial-coal-mine.jpg",
         "title": "TVA’s Paradise Fossil Plant on the old town site (undated TVA photo)—a stand-in, not the 1820 mine",
         "source_url": "https://commons.wikimedia.org/wiki/File:Paradise_Fossil_Plant.jpg",
         "source_label": "Wikimedia Commons",
@@ -5299,7 +5299,7 @@
       "briefDate": "2026-10-09",
       "county": "Fayette",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/kentucky-association-1826-lexington-race-course.jpg",
+        "image_url": "/content/photos/stories/kentucky-association-1826-lexington-race-course.jpg",
         "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
         "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
         "source_label": "Wikimedia Commons",
@@ -5328,7 +5328,7 @@
       "briefDate": "2026-10-04",
       "county": "Jefferson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/louisville-and-portland-canal.jpg",
+        "image_url": "/content/photos/stories/louisville-and-portland-canal.jpg",
         "title": "Coal barge tow in the Louisville and Portland Canal today—modern traffic on the 1830 canal route, not a period view",
         "source_url": "https://commons.wikimedia.org/wiki/File:Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
         "source_label": "Wikimedia Commons",
@@ -5358,7 +5358,7 @@
       "briefDate": "2026-09-27",
       "county": "McCracken",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/paducah-at-the-tennessee-mouth.jpg",
+        "image_url": "/content/photos/stories/paducah-at-the-tennessee-mouth.jpg",
         "title": "Broadway, downtown Paducah",
         "source_url": "https://commons.wikimedia.org/wiki/File:Broadway_-_Paducah,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -5434,7 +5434,7 @@
       "briefDate": "2026-10-09",
       "county": "Livingston",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg",
+        "image_url": "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg",
         "title": "The sandstone arch at Mantle Rock, Livingston County (photographed 2018)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Mantle_Rock,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
@@ -5463,7 +5463,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-25",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/bagdad-how-a-shelby-county-rail-stop-took-over-consolation.jpg",
+        "image_url": "/content/photos/stories/bagdad-how-a-shelby-county-rail-stop-took-over-consolation.jpg",
         "title": "Bagdad Roller Mills",
         "source_url": "https://www.bagdadrollermillsfeed.com/about-bagdad-feeds/our-history/",
         "source_label": "Bagdad Roller Mills Inc.",
@@ -5493,7 +5493,7 @@
       "briefDate": "2026-10-03",
       "county": "Jefferson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/louisville-nashville-railroad-opens-the-interior.jpg",
+        "image_url": "/content/photos/stories/louisville-nashville-railroad-opens-the-interior.jpg",
         "title": "Louisville Union Station (L&N), 1000 West Broadway — later passenger terminal on the Old Reliable’s Louisville end",
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
@@ -5522,7 +5522,7 @@
       "briefDate": "2026-09-21",
       "county": "Nelson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
+        "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
         "title": "Main Street (KY 48), Fairfield, Nelson County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
         "source_label": "Wikimedia Commons",
@@ -5573,7 +5573,7 @@
       "briefDate": "2026-10-04",
       "county": "Jessamine",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/camp-nelson-jessamine-county.jpg",
+        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
         "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
         "source_label": "Wikimedia Commons",
@@ -5602,7 +5602,7 @@
       "briefDate": "2026-10-06",
       "county": "Jefferson",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/frederick-stitzels-barrel-racks-1879.jpg",
+        "image_url": "/content/photos/stories/frederick-stitzels-barrel-racks-1879.jpg",
         "title": "Stitzel-Weller Distillery in Shively (photographed 2017)—opened 1935, a later stand-in, not Stitzel’s 1879 warehouse",
         "source_url": "https://commons.wikimedia.org/wiki/File:Stitzel-Weller_Distillery_1_(cropped).jpg",
         "source_label": "Wikimedia Commons",
@@ -5631,7 +5631,7 @@
       "briefDate": "2026-10-06",
       "county": "Shelby",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/jeptha-knob-relief.jpg",
+        "image_url": "/content/photos/stories/jeptha-knob-relief.jpg",
         "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
         "source_url": "https://apps.nationalmap.gov/3depdem/",
         "source_label": "USGS 3D Elevation Program",
@@ -5660,7 +5660,7 @@
       "briefDate": "2026-10-05",
       "county": "Hart",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/hidden-river-cave-under-horse-cave.jpg",
+        "image_url": "/content/photos/stories/hidden-river-cave-under-horse-cave.jpg",
         "title": "The sinkhole entrance to Hidden River Cave in Horse Cave (photographed 2022)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
         "source_label": "Wikimedia Commons",
@@ -5689,7 +5689,7 @@
       "briefDate": "2026-09-29",
       "county": "Franklin",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
+        "image_url": "/content/photos/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897.jpg",
         "title": "Old Taylor Distillery (E.H. Taylor Jr.'s castle distillery), Millville",
         "source_url": "https://commons.wikimedia.org/wiki/File:OldTaylorDistillerCastleRuined.jpg",
         "source_label": "Wikimedia Commons",
@@ -5783,7 +5783,7 @@
       "briefDate": "2026-10-11",
       "county": "Menifee",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/red-river-gorge-arches-and-the-dam-fight.jpg",
+        "image_url": "/content/photos/stories/red-river-gorge-arches-and-the-dam-fight.jpg",
         "title": "Chimney Top Rock in the Red River Gorge, seen from Half Moon (photographed 2006)",
         "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Chimney_Top_Rock.JPG",
         "source_label": "Wikimedia Commons",
@@ -5834,7 +5834,7 @@
       "briefDate": "2026-08-27",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+        "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
         "nation": "Six Nations (Haudenosaunee)",
         "presenceLabel": "Conquest claim, no mapped area"
       },
@@ -5942,7 +5942,7 @@
       "briefDate": "2026-09-26",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/osage-memory-of-the-ohio-valley.jpg",
+        "image_url": "/content/photos/stories/osage-memory-of-the-ohio-valley.jpg",
         "title": "Osage delegation to Washington, D.C.",
         "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
         "source_label": "Wikimedia Commons",
@@ -5950,7 +5950,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
+        "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
         "nation": "Osage (Wazhazhe, Ni-U-Kon-Ska)",
         "yearStart": 1673,
         "yearEnd": 1823,
@@ -5980,7 +5980,7 @@
       "briefDate": "2026-09-27",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/potawatomi-fire-keepers-and-the-ohio-valley-wars.gif",
+        "image_url": "/content/photos/stories/potawatomi-fire-keepers-and-the-ohio-valley-wars.gif",
         "title": "Potawatomi group, c. 1920",
         "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
         "source_label": "Wikimedia Commons",
@@ -5988,7 +5988,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+        "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
         "nation": "Potawatomi",
         "yearStart": 1640,
         "yearEnd": 1809,
@@ -6017,7 +6017,7 @@
       "briefDate": "2026-09-29",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/quapaw-the-downstream-people-of-the-ohio-valley.jpg",
+        "image_url": "/content/photos/stories/quapaw-the-downstream-people-of-the-ohio-valley.jpg",
         "title": "Quapaw ceramic bottle, 14th–17th century",
         "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_1990.156.2.jpeg",
         "source_label": "Wikimedia Commons",
@@ -6047,7 +6047,7 @@
       "briefDate": "2026-10-07",
       "county": "Clay",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
+        "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
         "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
         "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
         "source_label": "Wikimedia Commons",
@@ -6076,7 +6076,7 @@
       "briefDate": "2026-09-30",
       "county": "",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/susquehannock-and-the-ohio-valley-door.jpg",
+        "image_url": "/content/photos/stories/susquehannock-and-the-ohio-valley-door.jpg",
         "title": "Susquehannock artifacts on display, State Museum of Pennsylvania (Harrisburg) — Susquehannock homeland, not a Kentucky site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Susquehannock_Artifacts_PA_State_Museum.JPG",
         "source_label": "Wikimedia Commons",
@@ -6084,7 +6084,7 @@
         "year": 2007
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
+        "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
         "nation": "Susquehannock (Conestoga)",
         "yearStart": 1550,
         "yearEnd": 1763,
@@ -6113,7 +6113,7 @@
       "source": "ky-history",
       "briefDate": "2026-09-25",
       "photo": {
-        "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow.jpg",
+        "image_url": "/content/photos/stories/wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow.jpg",
         "title": "Wilderness Road, Richmond, Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wilderness_Road_in_Richmond_-_October_2023_-_Sarah_Stierch.jpg",
         "source_label": "Wikimedia Commons",
@@ -6121,7 +6121,7 @@
         "year": null
       },
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+        "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
         "nation": "Wyandot",
         "presenceLabel": "Place name, no mapped territory"
       },
@@ -6147,7 +6147,7 @@
       "briefDate": "2026-09-05",
       "county": "",
       "territory": {
-        "ref": "/kyhistorydrive/caves-preview/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
+        "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
         "nation": "Yuchi (Euchee, Uchi)",
         "yearStart": 1567,
         "yearEnd": 1836,

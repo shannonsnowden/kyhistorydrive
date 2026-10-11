@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-25",
   "photo": {
-    "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
+    "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
     "title": "Boone County Courthouse, Burlington",
     "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
     "source_label": "Wikimedia Commons",
@@ -25,7 +25,7 @@
     "year": null
   },
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/fort-ancient-farming-villages.json",
+    "ref": "/data/web/territories/fort-ancient-farming-villages.json",
     "nation": "Fort Ancient (archaeological culture)",
     "yearStart": 1200,
     "yearEnd": 1300,

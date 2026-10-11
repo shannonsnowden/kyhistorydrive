@@ -19,7 +19,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-10",
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+    "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
     "nation": "Delaware (Lenape)",
     "yearStart": 1778,
     "yearEnd": 1795,

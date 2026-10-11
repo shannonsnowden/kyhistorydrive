@@ -18,7 +18,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-14",
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+    "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
     "nation": "Wyandot",
     "yearStart": 1780,
     "yearEnd": 1782,

@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-10-01",
   "photo": {
-    "image_url": "/kyhistorydrive/caves-preview/content/photos/stories/croley-evans-site.jpg",
+    "image_url": "/content/photos/stories/croley-evans-site.jpg",
     "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
     "source_label": "Wikimedia Commons",
@@ -24,7 +24,7 @@
     "year": 2010
   },
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/mississippian-western-kentucky-towns.json",
+    "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
     "nation": "Mississippian, western Kentucky (archaeological culture)",
     "yearStart": 1200,
     "yearEnd": 1450,

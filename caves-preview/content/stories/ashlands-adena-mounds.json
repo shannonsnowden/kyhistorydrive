@@ -15,7 +15,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-02",
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/adena-mounds-and-earthworks.json",
+    "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
     "nation": "Adena (archaeological culture)",
     "yearStart": -500,
     "yearEnd": 250,

@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-08-27",
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+    "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
     "nation": "Six Nations (Haudenosaunee)",
     "presenceLabel": "Conquest claim, no mapped area"
   }

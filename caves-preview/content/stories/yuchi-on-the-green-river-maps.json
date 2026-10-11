@@ -16,7 +16,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-05",
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
+    "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
     "nation": "Yuchi (Euchee, Uchi)",
     "yearStart": 1567,
     "yearEnd": 1836,

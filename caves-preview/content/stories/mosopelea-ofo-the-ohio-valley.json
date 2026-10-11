@@ -17,7 +17,7 @@
   "source": "ky-history",
   "briefDate": "2026-09-04",
   "territory": {
-    "ref": "/kyhistorydrive/caves-preview/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
+    "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
     "nation": "Mosopelea (Ofo, Ofogoula)",
     "yearStart": 1673,
     "yearEnd": 1784,
