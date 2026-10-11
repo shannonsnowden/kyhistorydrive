@@ -836,7 +836,7 @@ html[data-hp-theme="light"] .era-other {
 .timeline-list > li { min-width: 0; }
 .story-body p { margin: 0.75rem 0; }
 .cite-story {
-  margin-top: 1.75rem;
+  margin-top: 1rem;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--panel);
@@ -884,11 +884,16 @@ html[data-hp-theme="light"] .era-other {
   min-height: 1.45em;
   color: var(--muted);
 }
-.cite-copy {
+.btn.cite-copy {
   grid-column: 2;
   grid-row: 1 / span 3;
   align-self: start;
   min-width: 5.75rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.85rem;
   text-align: center;
 }
 .cite-copy:focus-visible,
@@ -897,19 +902,41 @@ html[data-hp-theme="light"] .era-other {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
-.story-nearby { margin-top: 1.75rem; }
-.story-nearby ul { list-style: none; margin: 0; padding: 0; }
-.story-nearby li { margin: 0 0 0.45rem; line-height: 1.45; overflow-wrap: anywhere; }
-.story-nearby a { color: var(--accent); }
+.story-nearby { margin-top: 1rem; }
+.story-nearby ul,
+.static-related ul { list-style: none; margin: 0; padding: 0; }
+.story-nearby li,
+.static-related li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.05rem;
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.story-nearby a,
+.static-related a { color: var(--accent); }
+.nearby-kind,
+.nearby-detail,
+.nearby-miles { display: block; color: var(--muted); font-size: 0.92rem; }
 .story-correction { margin: 1.25rem 0 0; }
+.story-correction-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 0.15rem;
+}
 .story-photo-credit a { color: var(--accent); }
 .route-downloads {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
   margin: 0.15rem 0 0.85rem;
 }
 .route-downloads a.btn { text-decoration: none; }
+.route-downloads-hint { color: var(--muted); font-size: 0.92rem; }
 @media (max-width: 700px) {
   .cite-entry { grid-template-columns: minmax(0, 1fr); }
   .cite-copy { grid-column: 1; grid-row: 4; justify-self: start; }
@@ -3206,6 +3233,12 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-links ul { list-style: none; margin: 0; padding: 0; }
 .route-links li { margin: 0 0 0.4rem; }
 .route-index-link { margin: 0.8rem 0 0; }
+.route-index-link a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 0;
+}
 .route-index-list { list-style: none; margin: 1rem 0 0; padding: 0; }
 .route-card {
   display: grid;

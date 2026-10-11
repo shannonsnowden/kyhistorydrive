@@ -10,7 +10,7 @@ import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProt
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
-import { applyRouteMapTheme, routeMapSectionHtml } from './route-maps.js'
+import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
 import {
   citeBoxHtml,
   correctionHtml,
@@ -3083,7 +3083,16 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           ${nearbyHtml(
             { slug: meta.slug, title: s.title, lat: meta.lat ?? s.lat, lon: meta.lon ?? s.lon },
             storyIndex.stories,
-            { headingLevel: 3, markers: markerRecords(markerFeatures) },
+            {
+              headingLevel: 3,
+              markers: markerRecords(markerFeatures),
+              limit: 3,
+              excludeSlugs: [
+                ...(relatedData?.related?.[meta.slug] || []).map((item) => item.slug),
+                ...(routeBySlug(meta.slug)?.relatedStories || []),
+              ],
+              excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
+            },
           )}
           ${citeBoxHtml({
             title: s.title,

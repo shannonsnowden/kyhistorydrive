@@ -1,7 +1,7 @@
 /**
- * Real published and modified dates for each story file.
- * Story fields win. Otherwise the file's first and last git commit dates.
- * Nothing here uses today's date.
+ * Real published and last-revised dates for each story file.
+ * Published is the first git commit. Last revised is the last git commit.
+ * Nothing here uses today's date or a story brief date.
  */
 import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'

@@ -360,6 +360,7 @@ function downloadsHtml(route) {
   return `<p class="route-downloads">
       <a class="btn ghost small" href="${esc(meta.gpx)}" download>Download GPX${approx}</a>
       <a class="btn ghost small" href="${esc(meta.kml)}" download>Download KML${approx}</a>
+      <span class="route-downloads-hint">for GPS and map apps</span>
     </p>`
 }
 

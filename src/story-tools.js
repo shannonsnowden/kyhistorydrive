@@ -5,6 +5,7 @@
 
 export const SITE_NAME = 'Kentucky History Drive'
 export const SITE_AUTHOR = 'Shannon Snowden'
+export const CITE_AUTHOR_FALLBACK = 'KY History Drive'
 export const SITE_ORIGIN = 'https://kyhistorydrive.com'
 export const CORRECTION_REPO = 'shannonsnowden/kyhistorydrive'
 
@@ -53,14 +54,14 @@ export function explicitModified(story) {
 }
 
 /**
- * Published: story data, otherwise the file's first git commit.
- * Modified: story data, otherwise the file's last git commit.
- * Empty string when neither source has a real date.
+ * Published is the story file's first git commit. Last revised is its last git commit.
+ * Story fields are not used: a brief or backfilled date is not a publication date.
+ * Empty string when that git date is missing. Never today's date.
  */
-export function resolveArticleDates(story, fallback = {}) {
+export function resolveArticleDates(_story, fallback = {}) {
   return {
-    published: explicitPublished(story) || isoDate(fallback.published) || isoDate(fallback.created) || '',
-    modified: explicitModified(story) || isoDate(fallback.modified) || '',
+    published: isoDate(fallback.published) || isoDate(fallback.created) || '',
+    modified: isoDate(fallback.modified) || '',
   }
 }
 
@@ -99,6 +100,14 @@ function chicagoAuthor(name) {
   return `${last}, ${parts.join(' ')}`
 }
 
+/** A person is inverted for Chicago and MLA. A missing name stays the organization. */
+function authorCredit(name) {
+  if (name == null) name = SITE_AUTHOR
+  const text = String(name).trim()
+  if (!text || text === CITE_AUTHOR_FALLBACK || text === SITE_NAME) return CITE_AUTHOR_FALLBACK
+  return chicagoAuthor(text) || CITE_AUTHOR_FALLBACK
+}
+
 function quotedTitle(title) {
   const text = String(title || '').trim()
   if (!text) return '""'
@@ -109,24 +118,25 @@ function quotedTitle(title) {
 function dateSentences(published, modified) {
   const pub = formatChicagoDate(published)
   const mod = formatChicagoDate(modified)
-  if (pub && mod && published !== modified) return `Published ${pub}. Last modified ${mod}.`
-  if (pub) return `${pub}.`
-  if (mod) return `Last modified ${mod}.`
-  return ''
+  const bits = []
+  if (pub) bits.push(`Published ${pub}.`)
+  if (mod) bits.push(`Last revised ${mod}.`)
+  return bits.join(' ')
 }
 
 function mlaDateClause(published, modified) {
   const pub = formatMlaDate(published)
   const mod = formatMlaDate(modified)
-  if (pub && mod && published !== modified) return `published ${pub}, last modified ${mod},`
-  if (pub) return `${pub},`
-  if (mod) return `last modified ${mod},`
-  return ''
+  const bits = []
+  if (pub) bits.push(`published ${pub}`)
+  if (mod) bits.push(`last revised ${mod}`)
+  if (!bits.length) return ''
+  return `${bits.join(', ')},`
 }
 
 /** Citation text without the access date. The access date is filled in the browser. */
-export function buildCitation(style, { title, published, modified, url } = {}) {
-  const author = `${chicagoAuthor(SITE_AUTHOR)}.`
+export function buildCitation(style, { title, published, modified, url, author: authorName } = {}) {
+  const author = `${authorCredit(authorName)}.`
   const quoted = quotedTitle(title)
   const link = String(url || '').trim()
   if (style === 'mla') {
@@ -156,8 +166,8 @@ function dateMetaHtml(published, modified) {
   if (published && formatChicagoDate(published)) {
     bits.push(`Published <time datetime="${esc(published)}">${esc(formatChicagoDate(published))}</time>`)
   }
-  if (modified && modified !== published && formatChicagoDate(modified)) {
-    bits.push(`Last modified <time datetime="${esc(modified)}">${esc(formatChicagoDate(modified))}</time>`)
+  if (modified && formatChicagoDate(modified)) {
+    bits.push(`Last revised <time datetime="${esc(modified)}">${esc(formatChicagoDate(modified))}</time>`)
   }
   if (!bits.length) return ''
   return `<p class="cite-dates">${bits.join('. ')}.</p>`
@@ -237,12 +247,13 @@ function nearestCap(limit) {
 }
 
 /** 3 to 5 nearest other stories that have coordinates. Empty when this story has no pin. */
-export function nearbyStories(story, all, { limit = 5 } = {}) {
+export function nearbyStories(story, all, { limit = 5, excludeSlugs = [] } = {}) {
   const origin = storyOrigin(story)
   if (!origin) return []
+  const skip = new Set(excludeSlugs || [])
   const rows = []
   for (const other of all || []) {
-    if (!other?.slug || other.slug === story.slug || !other.title) continue
+    if (!other?.slug || other.slug === story.slug || !other.title || skip.has(other.slug)) continue
     const olat = finiteCoord(other.lat)
     const olon = finiteCoord(other.lon)
     if (!validPin(olat, olon)) continue
@@ -278,14 +289,15 @@ export function markerMapHref(id) {
 }
 
 /** 3 to 5 nearest historical markers. Empty when this story has no pin. */
-export function nearbyMarkers(story, markers, { limit = 5 } = {}) {
+export function nearbyMarkers(story, markers, { limit = 5, excludeMarkerIds = [] } = {}) {
   const origin = storyOrigin(story)
   if (!origin) return []
+  const skip = new Set((excludeMarkerIds || []).map((id) => String(id)))
   const rows = []
   for (const marker of markers || []) {
     const id = marker?.id ?? marker?.marker_number
     const title = marker?.title || marker?.name
-    if (id == null || String(id).trim() === '' || !title) continue
+    if (id == null || String(id).trim() === '' || !title || skip.has(String(id))) continue
     const lat = finiteCoord(marker.lat ?? marker.latitude)
     const lon = finiteCoord(marker.lon ?? marker.longitude)
     if (!validPin(lat, lon)) continue
@@ -304,9 +316,9 @@ export function nearbyMarkers(story, markers, { limit = 5 } = {}) {
  * Up to five nearest stories and up to five nearest historical markers,
  * one list, nearest first. Stories stay on /stories/<slug>/.
  */
-export function nearbyPlaces(story, all, markers, { limit = 5 } = {}) {
-  const storiesNear = nearbyStories(story, all, { limit })
-  const markersNear = nearbyMarkers(story, markers, { limit })
+export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = [], excludeMarkerIds = [] } = {}) {
+  const storiesNear = nearbyStories(story, all, { limit, excludeSlugs })
+  const markersNear = nearbyMarkers(story, markers, { limit, excludeMarkerIds })
   const rows = [
     ...(storiesNear.length >= 3 ? storiesNear : []),
     ...(markersNear.length >= 3 ? markersNear : []),
@@ -315,21 +327,31 @@ export function nearbyPlaces(story, all, markers, { limit = 5 } = {}) {
   return rows
 }
 
-export function nearbyHtml(story, all, { headingLevel = 2, markers = [] } = {}) {
-  const near = nearbyPlaces(story, all, markers)
+function nearbyRowHtml(row) {
+  const kind = row.kind === 'marker' ? 'Historical marker' : 'Story'
+  const href = row.kind === 'marker' ? markerMapHref(row.id) : `/stories/${encodeURIComponent(row.slug)}/`
+  const kindText = row.detail ? `${kind} · ${row.detail}` : kind
+  const miles = row.related ? '' : formatMiles(row.miles)
+  const milesHtml = miles ? `<span class="nearby-miles">${esc(miles)}</span>` : ''
+  const liClass = row.related ? 'related-story' : 'nearby-place'
+  return `<li class="${liClass}"><a href="${esc(href)}">${esc(row.title)}</a><span class="nearby-kind">${esc(kindText)}</span>${milesHtml}</li>`
+}
+
+export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5 } = {}) {
+  const near = nearbyPlaces(story, all, markers, { excludeSlugs, excludeMarkerIds, limit })
   if (!near.length) return ''
   const level = headingLevel === 3 ? 3 : 2
-  const items = near
-    .map((row) => {
-      if (row.kind === 'marker') {
-        const href = markerMapHref(row.id)
-        return `<li><a href="${esc(href)}">${esc(row.title)}</a> <span class="muted">Historical marker, ${esc(formatMiles(row.miles))}</span></li>`
-      }
-      const href = `/stories/${encodeURIComponent(row.slug)}/`
-      return `<li><a href="${esc(href)}">${esc(row.title)}</a> <span class="muted">${esc(formatMiles(row.miles))}</span></li>`
-    })
-    .join('')
+  const items = near.map((row) => nearbyRowHtml(row)).join('')
   return `<nav class="story-nearby" aria-labelledby="nearby-stories-heading"><h${level} id="nearby-stories-heading">Nearby</h${level}><ul>${items}</ul></nav>`
+}
+
+/** Related stories first, then nearby places that are not already listed. */
+export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2 } = {}) {
+  const rows = [...(related || []), ...(nearby || [])]
+  if (!rows.length) return ''
+  const level = headingLevel === 3 ? 3 : 2
+  const items = rows.map((row) => nearbyRowHtml(row)).join('')
+  return `<nav class="static-related story-nearby" aria-labelledby="related-nearby-heading"><h${level} id="related-nearby-heading">Related and nearby</h${level}><ul>${items}</ul></nav>`
 }
 
 const LICENSE_RE = /public domain|\bcc0\b|\bcc[-\s]?by\b|\bgfdl\b|copyright|all rights reserved/i

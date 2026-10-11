@@ -5,6 +5,7 @@
 import assert from 'node:assert/strict'
 import { parseRouteNotes, parseSingleCoordinate } from './route-notes.mjs'
 import {
+  CITE_AUTHOR_FALLBACK,
   SITE_NAME,
   accessedPhrase,
   buildCitation,
@@ -17,6 +18,7 @@ import {
   nearbyMarkers,
   nearbyPlaces,
   nearbyStories,
+  relatedAndNearbyHtml,
   photoCreditHtml,
   photoCreditModel,
   resolveArticleDates,
@@ -79,15 +81,27 @@ for (const citation of [chicago, mla]) {
   assert.match(citation.plain, /https:\/\/kyhistorydrive\.com\/stories\/battle-of-blue-licks\//)
   assert.doesNotMatch(citation.plain, /Accessed/)
 }
+assert.match(chicago.plain, /Snowden, Shannon/)
 assert.match(chicago.plain, /Published August 30, 2026/)
-assert.match(chicago.plain, /Last modified October 5, 2026/)
+assert.match(chicago.plain, /Last revised October 5, 2026/)
 assert.match(mla.plain, /published 30 Aug\. 2026/)
-assert.match(mla.plain, /last modified 5 Oct\. 2026/)
+assert.match(mla.plain, /last revised 5 Oct\. 2026/)
 assert.match(mla.html, /<em>Kentucky History Drive<\/em>/)
 
 const same = buildCitation('chicago', { ...fields, modified: fields.published })
-assert.doesNotMatch(same.plain, /Last modified/)
-assert.match(same.plain, /August 30, 2026/)
+assert.match(same.plain, /Published August 30, 2026/)
+assert.match(same.plain, /Last revised August 30, 2026/)
+
+const revisedOnly = buildCitation('chicago', { ...fields, published: '' })
+assert.match(revisedOnly.plain, /Last revised October 5, 2026/)
+assert.doesNotMatch(revisedOnly.plain, /Published/)
+const revisedMla = buildCitation('mla', { ...fields, published: '' })
+assert.match(revisedMla.plain, /last revised 5 Oct\. 2026/)
+assert.doesNotMatch(revisedMla.plain, /published/)
+
+const org = buildCitation('chicago', { ...fields, author: '' })
+assert.match(org.plain, new RegExp(`^${CITE_AUTHOR_FALLBACK}\\.`))
+assert.doesNotMatch(org.plain, /Drive, KY/)
 
 const box = citeBoxHtml(fields)
 assert.match(box, /Cite this story/)
@@ -102,13 +116,15 @@ assert.equal(accessedPhrase('mla', new Date(2026, 9, 11)), 'Accessed 11 Oct. 202
 const emptyDates = resolveArticleDates({ title: 'No dates' }, {})
 assert.equal(emptyDates.published, '')
 assert.equal(emptyDates.modified, '')
-const fromStory = resolveArticleDates(
-  { publishedDate: '2026-08-30', modifiedDate: '2026-09-01' },
+const storyFieldLoses = resolveArticleDates(
+  { publishedDate: '2026-08-30', briefDate: '2026-08-30', modifiedDate: '2026-09-01' },
   { published: '2020-01-01', modified: '2020-01-02' },
 )
-assert.deepEqual(fromStory, { published: '2026-08-30', modified: '2026-09-01' })
+assert.deepEqual(storyFieldLoses, { published: '2020-01-01', modified: '2020-01-02' })
 const fromGit = resolveArticleDates({ title: 'Git only' }, { published: '2026-08-01', modified: '2026-08-02' })
 assert.deepEqual(fromGit, { published: '2026-08-01', modified: '2026-08-02' })
+const revisedGitOnly = resolveArticleDates({ publishedDate: '2026-08-30' }, { modified: '2026-10-05' })
+assert.deepEqual(revisedGitOnly, { published: '', modified: '2026-10-05' })
 
 const href = correctionUrl({ title: 'Battle of Blue Licks', url: fields.url })
 const issue = new URL(href)
@@ -200,10 +216,31 @@ assert.equal(nearbyMarkers({ slug: 'x', title: 'X' }, markerRows).length, 0)
 const nearby = nearbyHtml(origin, storyRows, { markers: markerRows })
 assert.match(nearby, /href="\/stories\/near-story\/"/)
 assert.match(nearby, /href="\/#map\/markers\/1"/)
-assert.match(nearby, /Historical marker,/)
+assert.match(nearby, /<span class="nearby-kind">Historical marker<\/span>/)
+assert.match(nearby, /<span class="nearby-kind">Story<\/span>/)
+assert.match(nearby, /<span class="nearby-miles">/)
+assert.doesNotMatch(nearby, /Historical marker,/)
 assert.doesNotMatch(nearby, /href="\/#timeline\/|href="\/#map\/stories\//)
 assert.ok(nearby.indexOf('Close marker') < nearby.indexOf('Near story'))
 assert.ok(nearby.indexOf('Near story') < nearby.indexOf('Mid marker'))
 assert.equal(nearbyHtml({ slug: 'none', title: 'None' }, storyRows, { markers: markerRows }), '')
+
+const moreMarkers = [...markerRows, { id: '4', title: 'Extra marker', lat: 38.5, lon: -85 }]
+const moreStories = [...storyRows, { slug: 'extra-story', title: 'Extra story', lat: 38.8, lon: -85 }]
+const excluded = nearbyPlaces(origin, moreStories, moreMarkers, { excludeMarkerIds: ['1'], excludeSlugs: ['near-story'] })
+assert.equal(excluded.some((row) => row.id === '1' || row.slug === 'near-story'), false)
+assert.equal(excluded.some((row) => row.id === '4'), true)
+assert.ok(excluded.findIndex((row) => row.kind === 'marker') < excluded.findIndex((row) => row.slug === 'mid-story'))
+
+const merged = relatedAndNearbyHtml(
+  [{ kind: 'story', related: true, slug: 'rel', title: 'Related one', detail: 'Jessamine County' }],
+  [{ kind: 'marker', id: '9', title: 'A marker', miles: 1.2 }],
+)
+assert.match(merged, /Related and nearby/)
+assert.match(merged, /class="related-story"/)
+assert.match(merged, /nearby-kind">Story · Jessamine County</)
+assert.match(merged, /nearby-kind">Historical marker</)
+assert.match(merged, /nearby-miles">1.2 miles</)
+assert.ok(merged.indexOf('Related one') < merged.indexOf('A marker'))
 
 console.log('story quick wins: ok')
