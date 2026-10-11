@@ -33,7 +33,7 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 Plain and specific. Place first ("On the Green River's Big Bend in Butler County…"), dates and site numbers up front, short sentences. Call areas approximate when they are approximate. No hype.
 
 ## Visual system
-**Palette decision (Shannon, Oct 2026): green and amber stay.** Navy and gold appear only in the seals. The UI never uses seal navy.
+**Palette: green and amber, final (Shannon, 2026-10-11).** Navy and gold stay only in the seals. The UI never uses seal navy.
 
 **Color tokens** (`src/styles.css`; use the variables, never raw hex):
 | Token | Role | Dark | Light |
