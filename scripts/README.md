@@ -31,9 +31,11 @@ When `ky-history.json` is loaded, each History entry is canonicalized before it 
 
 ## Pin rounding for looting-sensitive sites (`scripts/pin-rounding.json`, #141)
 
+Since 2026-10-11 the rule rounds to 0.1° and also writes `public/data/web/protected-pins.json` (story slugs + History ids of every generalized pin, web-only). The map popup shows an "Approximate location ... to protect the archaeological site" note for those ids (`src/protected-pins.js`, kill switch `PROTECTED_PIN_NOTE_ENABLED`).
+
 Archaeological site pins are published generalized: tier A sites use a county-level point, tier B sites are rounded to 2 decimals (about 1 km). Those exact public values are entries in `story-overrides.json` (reason "Looting-sensitive site, public coordinate generalized (#141)"), so a rebuild or a re-ingested pack re-applies them.
 
-`pin-rounding.json` is a generic rule that covers future daily ingests with no manual step: after the overrides, `apply-story-overrides.mjs` rounds to `decimals` (2) the pin of every story with era `prehistoric` or tag `archaeology` that has more decimals than that, in every copy (story index, locations, both GeoJSON files, History layer, `ky-history.json`, both search indexes). The step is reported as `pin-rounding: N ... rounded: slugs`. It reaches History entries through the story's `historyId` and never touches stories that are not prehistoric/archaeological.
+`pin-rounding.json` is a generic rule that covers future daily ingests with no manual step: after the overrides, `apply-story-overrides.mjs` rounds to `decimals` (1 = 0.1°, about 10 km; 2 before 2026-10-11) the pin of every story with era `prehistoric` or tag `archaeology` that has more decimals than that, in every copy (story index, locations, both GeoJSON files, History layer, `ky-history.json`, both search indexes). The step is reported as `pin-rounding: N ... rounded: slugs`. It reaches History entries through the story's `historyId` and never touches stories that are not prehistoric/archaeological.
 
 Exempt (never rounded): `skipSlugs` / `skipHistoryIds` in `pin-rounding.json`, which holds the tier C public sites (parks, caves, towns, museums) and the already county-level sites. To exempt a new public site, add its story slug and its History id to those two lists. To generalize a new site more coarsely than 2 decimals (county centroid), add an override entry instead.
 

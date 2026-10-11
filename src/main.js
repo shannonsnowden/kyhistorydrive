@@ -6,6 +6,7 @@ import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
+import { loadProtectedPins, protectedPinNoteHtml } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
@@ -1524,6 +1525,8 @@ function placeDetailExtrasHtml({
 }
 
 
+loadProtectedPins()
+
 function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   const name = p.name || p.title || 'Untitled'
   const metaBits = []
@@ -1593,6 +1596,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
       <h3>${escapeHtml(name)}</h3>
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
+      ${protectedPinNoteHtml(p.id || p.historyId || p.slug)}
       ${descHtml}
       ${relatedHtml || ''}
       ${sourcesHtml}
