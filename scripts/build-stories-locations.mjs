@@ -871,6 +871,32 @@ const MANUAL_OVERRIDES = {
     lon: -84.88117,
     confidence: 'override',
   },
+  // 2026-10-11 brief (no swaps; Little Turtle intentionally unpinned: 1790 battles in Indiana; Simon Girty shares the Bryan Station siege pin)
+  'simon-girty-interpreter-at-bryan-station-1782': {
+    matchName: "Bryan Station siege site",
+    lat: 38.07586667,
+    lon: -84.41529167,
+    confidence: 'override',
+  },
+  'owingsville-a-town-named-on-a-wager': {
+    matchName: "Owingsville (Bath County seat)",
+    lat: 38.13638889,
+    lon: -83.76027778,
+    confidence: 'override',
+  },
+  'manns-lick-louisvilles-salt-town': {
+    matchName: "Mann’s Lick saltworks (approximate, north of Fairdale)",
+    lat: 38.121,
+    lon: -85.7585,
+    confidence: 'override',
+  },
+  'little-turtle-and-hardins-defeat-1790': {},
+  'red-river-gorge-arches-and-the-dam-fight': {
+    matchName: "Red River Gorge Geological Area",
+    lat: 37.83388889,
+    lon: -83.60777778,
+    confidence: 'override',
+  },
 }
 
 

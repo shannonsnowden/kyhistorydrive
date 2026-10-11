@@ -30,7 +30,9 @@
   "James Wilkinson": "gen-james-wilkinson-kentuckys-agent-13",
   "John Bradford": "john-bradford-and-the-kentucke-gazette",
   "Cornstalk": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
-  "Esther Whitley": "esther-whitley-over-the-cumberlands-1775"
+  "Esther Whitley": "esther-whitley-over-the-cumberlands-1775",
+  "Simon Girty": "simon-girty-interpreter-at-bryan-station-1782",
+  "Little Turtle": "little-turtle-and-hardins-defeat-1790"
  },
  "skip": {
   "Richard Henderson": [
@@ -246,6 +248,10 @@
    {
     "slug": "wyandot-on-kentuckys-northern-frontier",
     "label": "Same event: Wyandot warriors joined the August 1782 siege"
+   },
+   {
+    "slug": "simon-girty-interpreter-at-bryan-station-1782",
+    "label": "Same person: Simon Girty, who came with the attackers, has his own story"
    }
   ],
   "jack-jouett-kentuckys-midnight-rider": [
@@ -386,6 +392,10 @@
    {
     "slug": "gen-james-wilkinson-kentuckys-agent-13",
     "label": "Same person: Gen. James Wilkinson, who sent Hardin on his last errand, has his own story"
+   },
+   {
+    "slug": "little-turtle-and-hardins-defeat-1790",
+    "label": "Same event: Little Turtle and Hardin’s Defeat, 1790, has its own story"
    }
   ],
   "mascouten-fire-nation-on-the-wabash": [
@@ -472,6 +482,10 @@
    {
     "slug": "shepherdsville-on-salt-river",
     "label": "Same place: Shepherdsville grew on the road to the lick"
+   },
+   {
+    "slug": "manns-lick-louisvilles-salt-town",
+    "label": "Same industry: Mann’s Lick, the smaller saltworks near Louisville"
    }
   ],
   "capt-james-estill-estills-defeat": [
@@ -556,6 +570,10 @@
    {
     "slug": "newt-kash-hollow-15mf1",
     "label": "Same place: neighboring Red River Gorge shelter"
+   },
+   {
+    "slug": "red-river-gorge-arches-and-the-dam-fight",
+    "label": "Same place: the Red River Gorge and its dam fight"
    }
   ],
   "col-john-bowman-at-old-chillicothe": [
@@ -1166,6 +1184,64 @@
    {
     "slug": "frankfort-franks-ford-becomes-the-capital",
     "label": "Same place: Frankfort, the new capital where John Brown built"
+   }
+  ],
+  "simon-girty-interpreter-at-bryan-station-1782": [
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same event: the August 1782 siege of Bryan Station"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same event: Caldwell’s force routed the Kentuckians at Blue Licks days later"
+   },
+   {
+    "slug": "blue-jacket-weyapiersenwah",
+    "label": "Same event: Blue Jacket led the Shawnee warriors at Bryan Station"
+   }
+  ],
+  "little-turtle-and-hardins-defeat-1790": [
+   {
+    "slug": "col-john-hardin-of-pleasant-run",
+    "label": "Same person: Col. John Hardin, whose patrol was ambushed at the Eel River in 1790"
+   },
+   {
+    "slug": "blue-jacket-weyapiersenwah",
+    "label": "Same event: Blue Jacket fought beside Little Turtle against Harmar and St. Clair"
+   },
+   {
+    "slug": "gen-charles-scott-and-petersburg",
+    "label": "Same event: Charles Scott’s son was killed in Hardin’s Defeat"
+   },
+   {
+    "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+    "label": "Same event: Little Turtle signed the 1795 Treaty of Greenville"
+   }
+  ],
+  "manns-lick-louisvilles-salt-town": [
+   {
+    "slug": "bullitts-lick-kentuckys-first-industry",
+    "label": "Same industry: Joseph Brooks worked at Bullitt’s Lick before Mann’s Lick"
+   },
+   {
+    "slug": "col-john-todd-of-lexington",
+    "label": "Same person: Col. John Todd was granted the lick in 1780"
+   }
+  ],
+  "red-river-gorge-arches-and-the-dam-fight": [
+   {
+    "slug": "natural-bridge-sandstone-arch",
+    "label": "Same place: Natural Bridge State Park adjoins the gorge"
+   },
+   {
+    "slug": "cloudsplitter-rockshelter-menifee-county",
+    "label": "Same place: Cloudsplitter is one of the gorge’s rock shelters"
+   }
+  ],
+  "natural-bridge-sandstone-arch": [
+   {
+    "slug": "red-river-gorge-arches-and-the-dam-fight",
+    "label": "Same place: the Red River Gorge and its dam fight"
    }
   ]
  }

@@ -1,120 +1,102 @@
 {
-  "generatedAt": "2026-10-10T09:24:02.948Z",
+  "generatedAt": "2026-10-11T09:22:50.491Z",
   "maxBytes": 204800,
   "images": {
-    "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg": {
-      "sha256": "5a46d9ed249ab699abc474916df7a2776baeedcf7cc9ef952a1d92c4cb154390",
-      "width": 489,
-      "height": 522,
+    "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg": {
+      "sha256": "5b021a33aa9a9dc0b6e7000c2187ee4bd6408acee04d2fa10714bfb533bb1e9e",
+      "width": 547,
+      "height": 734,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-489.avif",
-          "w": 489
+          "src": "/content/photos/opt/stories/simon-girty-interpreter-at-bryan-station-1782-547.avif",
+          "w": 547
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-489.webp",
-          "w": 489
+          "src": "/content/photos/opt/stories/simon-girty-interpreter-at-bryan-station-1782-547.webp",
+          "w": 547
         }
       ]
     },
-    "/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg": {
-      "sha256": "1190772243bdfbedff8587913408db19af15fb667c920e0ffd0fe30f96b07a77",
+    "/content/photos/stories/owingsville-a-town-named-on-a-wager.jpg": {
+      "sha256": "d497346d5e40df0140d89c64577b957c78600a406afabad5bce6f8cc84edff0d",
       "width": 1280,
-      "height": 919,
+      "height": 960,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-800.avif",
+          "src": "/content/photos/opt/stories/owingsville-a-town-named-on-a-wager-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-1280.avif",
+          "src": "/content/photos/opt/stories/owingsville-a-town-named-on-a-wager-1280.avif",
           "w": 1280
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-800.webp",
+          "src": "/content/photos/opt/stories/owingsville-a-town-named-on-a-wager-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-1088.webp",
-          "w": 1088
-        }
-      ]
-    },
-    "/content/photos/stories/pine-mountain-and-pound-gap.jpg": {
-      "sha256": "1cfb3a384ac0402325b87c6b410a49accba21bdf7dd6490c22760aac2a2714bc",
-      "width": 1280,
-      "height": 851,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-1280.avif",
-          "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/pine-mountain-and-pound-gap-1280.webp",
+          "src": "/content/photos/opt/stories/owingsville-a-town-named-on-a-wager-1280.webp",
           "w": 1280
         }
       ]
     },
-    "/content/photos/stories/old-mulkey-meetinghouse-1804.jpg": {
-      "sha256": "bc4d3ee832c8ae0bfccdcae9b66140ab7ea119a2472a7674d5ff7df2afb68091",
+    "/content/photos/stories/manns-lick-louisvilles-salt-town.jpg": {
+      "sha256": "283bb6825d7fba24d2fbfe33a2e2a2366d7210a98e508051e2f5a72fde4f5245",
       "width": 1280,
-      "height": 721,
+      "height": 964,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-800.avif",
+          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-1280.avif",
+          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-1280.avif",
           "w": 1280
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-800.webp",
+          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/old-mulkey-meetinghouse-1804-1088.webp",
-          "w": 1088
+          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-1280.webp",
+          "w": 1280
         }
       ]
     },
-    "/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg": {
-      "sha256": "0a8a405d6a0d246bc899cc9a8cfca85de32134220b175fb0bb28b33570178c03",
+    "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg": {
+      "sha256": "355866e1ecf5b394eff33c38f2c89394dc32b7355849e887a71e282408ad964c",
+      "width": 332,
+      "height": 441,
+      "avif": [],
+      "webp": []
+    },
+    "/content/photos/stories/red-river-gorge-arches-and-the-dam-fight.jpg": {
+      "sha256": "16beea47cbb66199bd04a1020b7a482906efff6e906c7ffe14db6541b879560e",
       "width": 1280,
-      "height": 876,
+      "height": 960,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-800.avif",
+          "src": "/content/photos/opt/stories/red-river-gorge-arches-and-the-dam-fight-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-1280.avif",
+          "src": "/content/photos/opt/stories/red-river-gorge-arches-and-the-dam-fight-1280.avif",
           "w": 1280
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-800.webp",
+          "src": "/content/photos/opt/stories/red-river-gorge-arches-and-the-dam-fight-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-1280.webp",
+          "src": "/content/photos/opt/stories/red-river-gorge-arches-and-the-dam-fight-1280.webp",
           "w": 1280
         }
       ]
@@ -144,77 +126,77 @@
         }
       ]
     },
-    "/content/photos/stories/mantle-rock-and-the-trail-of-tears.jpg": {
-      "sha256": "7c59a9cb1696437a27d936cf05ea2423a4f080b509563267a2dd7dc0c329e790",
+    "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg": {
+      "sha256": "5a46d9ed249ab699abc474916df7a2776baeedcf7cc9ef952a1d92c4cb154390",
+      "width": 489,
+      "height": 522,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-489.avif",
+          "w": 489
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph-489.webp",
+          "w": 489
+        }
+      ]
+    },
+    "/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg": {
+      "sha256": "1190772243bdfbedff8587913408db19af15fb667c920e0ffd0fe30f96b07a77",
       "width": 1280,
-      "height": 854,
+      "height": 919,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-480.avif",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-480.avif",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-720.avif",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-720.avif",
           "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-480.webp",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-480.webp",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/mantle-rock-and-the-trail-of-tears-720.webp",
+          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-720.webp",
           "w": 720
         }
       ]
     },
-    "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg": {
-      "sha256": "f3d2fc011cd9ff5f65c4687a30cbc2271a3c8896511b14fb6a2ff58a6d2ae46d",
-      "width": 1087,
-      "height": 1369,
+    "/content/photos/stories/liberty-hall-john-browns-frankfort-house.jpg": {
+      "sha256": "0a8a405d6a0d246bc899cc9a8cfca85de32134220b175fb0bb28b33570178c03",
+      "width": 1280,
+      "height": 876,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-480.avif",
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-480.avif",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-720.avif",
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-720.avif",
           "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-480.webp",
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-480.webp",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/gen-james-wilkinson-kentuckys-agent-13-720.webp",
-          "w": 720
-        }
-      ]
-    },
-    "/content/photos/stories/carlisle-kincarts-peach-orchard-county-seat.jpg": {
-      "sha256": "f7addbdd464b71b6b4a27b54963146348a79b38a1c7353dda72aed9bc28c902d",
-      "width": 1024,
-      "height": 1365,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/carlisle-kincarts-peach-orchard-county-seat-720.webp",
+          "src": "/content/photos/opt/stories/liberty-hall-john-browns-frankfort-house-720.webp",
           "w": 720
         }
       ]
