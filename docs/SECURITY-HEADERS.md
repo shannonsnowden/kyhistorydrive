@@ -2,12 +2,11 @@
 
 Amplify Hosting attaches these response headers at the CloudFront edge. They are not set by Vite, and they do not change page layout, so they do not add cumulative layout shift.
 
-The same `customHeaders` list is in two files, and the build fails if the lists diverge:
+The headers live only in `customHttp.yml`. That is the file Amplify Hosting applies at the CloudFront edge, and it overrides headers typed into the console. `amplify.yml` does not repeat them. It keeps the build spec and the rewrite rules, including the `/about` → `/about/` 301.
 
-- `customHttp.yml` is the file current Amplify Hosting applies. It overrides headers typed into the Amplify console.
-- `amplify.yml` carries that same list beside the existing rewrite rules, including the `/about` → `/about/` 301.
+The build fails if `amplify.yml` gains a `customHeaders` block, or if `customHttp.yml` drops a security header.
 
-Cache-Control, CORS, and Content-Type rules that were already on `/data/app/*.json`, `ads.txt`, `robots.txt`, the sitemaps, `/privacy`, `/about`, `/videos`, and caption `.vtt` files are unchanged. Security headers are repeated on every pattern, including `**`. A more specific pattern is its own edge behavior and does not inherit `**`.
+Cache-Control, CORS, and Content-Type rules that were already on `/data/app/*.json`, `ads.txt`, `robots.txt`, the sitemaps, `/privacy`, `/about`, `/videos`, and caption `.vtt` files are unchanged. `/feed.xml` is `application/rss+xml; charset=utf-8`. Security headers are repeated on every pattern, including `**` and `/feed.xml`. A more specific pattern is its own edge behavior and does not inherit `**`.
 
 `Content-Security-Policy-Report-Only` reports violations in the browser console. It does not block a script, image, map tile, film, or ad. There is no enforcing `Content-Security-Policy` header.
 

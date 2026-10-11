@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Fails the build when amplify.yml and customHttp.yml drift apart or drop
- * a security header. The /about 301 stays in amplify.yml customRules.
+ * Fails the build when customHttp.yml drops a security header or the
+ * /feed.xml RSS type, or when amplify.yml grows a duplicate customHeaders
+ * block. The /about 301 stays in amplify.yml customRules.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -32,13 +33,8 @@ function headerBlock(text, name) {
 
 const amplify = read('amplify.yml')
 const customHttp = read('customHttp.yml')
-const amplifyHeaders = headerBlock(amplify, 'amplify.yml')
-const customHeaders = headerBlock(customHttp, 'customHttp.yml')
-if (amplifyHeaders && customHeaders && amplifyHeaders !== customHeaders) {
-  fail('amplify.yml and customHttp.yml customHeaders lists differ')
-}
-
-const block = amplifyHeaders || ''
+if (amplify.includes('customHeaders:')) fail('amplify.yml must not contain customHeaders; headers live only in customHttp.yml')
+const block = headerBlock(customHttp, 'customHttp.yml')
 const required = [
   "key: 'Strict-Transport-Security'",
   "value: 'max-age=31536000; includeSubDomains'",
@@ -96,8 +92,21 @@ if (/key:\s*'Content-Security-Policy'\s*$/m.test(block)) {
 const about = /source:\s*'\/about'\s*\n\s*target:\s*'\/about\/'\s*\n\s*status:\s*'301'/
 if (!about.test(amplify)) fail('amplify.yml is missing the /about 301')
 
+const feedAt = customHttp.indexOf("pattern: '/feed.xml'")
+if (feedAt === -1) fail('customHttp.yml is missing /feed.xml')
+else {
+  const next = customHttp.indexOf('\n  - pattern:', feedAt + 10)
+  const feed = customHttp.slice(feedAt, next === -1 ? undefined : next)
+  if (!feed.includes("value: 'application/rss+xml; charset=utf-8'")) {
+    fail('/feed.xml is not application/rss+xml; charset=utf-8')
+  }
+  if (!feed.includes("key: 'Strict-Transport-Security'") || !feed.includes("key: 'Content-Security-Policy-Report-Only'")) {
+    fail('/feed.xml pattern drops the security headers')
+  }
+}
+
 if (failures.length) {
   console.error(`check-security-headers: ${failures.length} problem(s)`)
   process.exit(1)
 }
-console.log('check-security-headers: amplify.yml and customHttp.yml match')
+console.log('check-security-headers: customHttp.yml has the headers; amplify.yml keeps the /about 301')
