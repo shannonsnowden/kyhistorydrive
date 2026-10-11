@@ -18,9 +18,14 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 - **iPhone app (coming soon)**: OTA data from `public/data/app/ky-history-manifest.json`. Bump `data_version` when that data changes.
 
 ## Standards
-- **Sourcing**: history.ky.gov first, then HMdb, then Wikipedia. Link the page for the specific topic, not a homepage.
+- **Sourcing**: Primary or official sources first: history.ky.gov (KHS markers), then state and federal archives (KDLA, NARA, LOC/Chronicling America), then HMdb, then peer-reviewed or reputable published histories, with Wikipedia last as a pointer, never the only source. Link the page for the specific item, never a homepage.
+- **Claims**: Every factual claim a reader could question (dates, names, numbers, quotes) traces to at least one linked source in Learn more.
+- **Disagreement**: When sources disagree, the story says so plainly.
+- **Oral history**: Family tradition and oral history are labeled as such.
+- **Living people**: no personal details.
+- **Cite this story**: use the Chicago or MLA format with author or "KY History Drive", title, site, URL, published date, last revised date and accessed date. The published date comes from the real git first-commit date. Never invent dates; when there's no reliable date, show only "Last revised".
 - **Paragraphs**: 2 to 4 sentences. No walls of text.
-- **Photos**: real photos only, licensed and attributed. No AI images presented as photos; Story Studio illustrations allowed when labeled and credited. (pending Shannon's OK) When a photo is not from the story's period, caption it as a "later view".
+- **Photos**: Use real archival photos when they exist; use AI images or illustrations where none exist or where they serve the story better. Every AI image is visibly labeled "AI illustration" with a credit, and is never passed off as a real photo. (Approved by Shannon 2026-10-11.) When a photo is not from the story's period, caption it as a "later view".
 - **Fairness** (Shannon, 2026-10-11): Every story must be fair to the Shawnee and to every people it covers. Present Native nations, settlers and all groups with balance, using their own perspectives and names where sources allow, and avoid one-sided framing.
 - **Native nations**: every new story gets a territory map, or a tag only when the source is oral tradition. Archaeological cultures get a shape only when sources place them in an area. Timeline map pages exist only when the map shows real change over time. Never remove panel layers. Outside tribal review was skipped; stories rely on cited sources.
 
@@ -62,7 +67,7 @@ Plain and specific. Place first ("On the Green River's Big Bend in Butler County
 
 **Motion:** transitions only (150 to 350ms, ease), with no autoplay movement that can't be paused. Under `prefers-reduced-motion: reduce`, transitions and transforms are off, and state shows through color and border only.
 
-**Images:** real photos only, licensed and credited on the page. No AI images. Served from the repo as AVIF with a WebP fallback, using `srcset` and `width`/`height` set (no CLS), with `loading="lazy"` below the fold. Out-of-period photos are captioned "later view". If there's no good match, there's no photo, never a filler.
+**Images:** Prefer real archival photos when they exist; AI images or illustrations are allowed when none exist or when they serve the story better. Every AI image is visibly labeled "AI illustration" with a credit, and is never passed off as a real photo. Served from the repo as AVIF with a WebP fallback, using `srcset` and `width`/`height` set (no CLS), with `loading="lazy"` below the fold. Out-of-period photos are captioned "later view". If there's no good match and no labeled illustration, there's no image, never a filler.
 
 **Header and seal:** three seals rotate (`khd-logo`, `-c`, `-c2`). The seal is picked before first paint. It gets a 2px gold border, a navy outline on the light header and a dark outline on the dark header. The header stays one row from 701 to 1400px and is opaque on phones (including the open menu). The seal is never recolored, stretched or used on its own as a UI color source.
 
@@ -85,7 +90,7 @@ Plain and specific. Place first ("On the Green River's Big Bend in Butler County
 4. Targets 44px or larger. `aria-pressed`/`aria-expanded` on toggles.
 5. Reduced-motion checked.
 6. No layout shift from images, ads or the signed-in UI.
-7. Photos are real, credited and relevant (the right place and period).
+7. Photos are archival when available; AI images are labeled "AI illustration", credited and relevant (the right place and period).
 8. Header on one row at 1280. The phone menu is opaque.
 9. Copy fits without pushing the primary CTA below the first screen on a 390 phone.
 
@@ -126,5 +131,5 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 | AI Search Visibility | Pending |
 | KY History | Pending |
 | Story Studio | Agreed (with edits, 2026-10-11) |
-| Research Bot | Pending |
+| Research Bot | Agreed (with edits, 2026-10-11) |
 | KY Website Editor | Agreed (author, 2026-10-11) |
