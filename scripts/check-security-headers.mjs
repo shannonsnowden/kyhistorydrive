@@ -74,6 +74,19 @@ for (const needle of required) {
   if (!block.includes(needle)) fail(`missing ${needle}`)
 }
 
+const csp = block.match(/Content-Security-Policy-Report-Only'\n\s*value: "([^"]+)"/)
+if (!csp) fail('could not read the report-only policy')
+else {
+  const policy = csp[1]
+  if (policy.length > 1783) fail(`CSP value is ${policy.length} characters; CloudFront custom headers stop at 1783`)
+  for (const directive of ['script-src', 'img-src', 'frame-src', 'connect-src']) {
+    const part = policy.split('; ').find((item) => item.startsWith(`${directive} `))
+    if (!part || !part.includes('https://*.adtrafficquality.google')) {
+      fail(`${directive} is missing https://*.adtrafficquality.google`)
+    }
+  }
+}
+
 if (/preload/.test(block)) fail('HSTS must not include preload')
 if (/geolocation=\(self\)/.test(block)) fail('geolocation=(self) is set, but the site does not use geolocation')
 if (/key:\s*'Content-Security-Policy'\s*$/m.test(block)) {

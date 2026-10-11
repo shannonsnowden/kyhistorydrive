@@ -63,6 +63,7 @@ A host written as `https://*.example.com` matches one subdomain label (`www`, `r
 | `https://googleads.g.doubleclick.net` | Ad scripts that run with the ad frame. |
 | `https://*.gstatic.com` | Static scripts those tags load from `www.gstatic.com`. |
 | `https://adservice.google.com` | AdSense ad-service script. |
+| `https://*.adtrafficquality.google` | Ad-quality scripts the AdSense tag loads from `ep1.adtrafficquality.google` and `ep2.adtrafficquality.google`. Report-only violations named these scripts. |
 
 ### Styles (`style-src`)
 
@@ -83,6 +84,7 @@ A host written as `https://*.example.com` matches one subdomain label (`www`, `r
 | `https://*.gstatic.com` | Ad and CMP images. |
 | `https://fundingchoicesmessages.google.com` | CMP message images. |
 | `https://www.google.com` | Images the Google tag and ad frames request from www. |
+| `https://*.adtrafficquality.google` | Ad-quality images from `ep1.adtrafficquality.google` and `ep2.adtrafficquality.google`. Report-only violations named these images. |
 | `https://basemaps.cartocdn.com` and `https://*.basemaps.cartocdn.com` | CARTO Voyager. Raster tiles, when `VITE_CARTO_API_KEY` is set, are `a.basemaps.cartocdn.com`, `b`, and `c`. The vector style's sprite is `tiles.basemaps.cartocdn.com`. There is no separate CARTO API host in the source. The API key is a query parameter on those tile URLs. |
 | `https://upload.wikimedia.org` | Thumbnails returned by the Wikipedia REST summary API and the Commons API, then used as `<img src>`. |
 | `https://media.historypin.org` | Historic-photo grids. `public/data/historic-photos.json` and `public/data/site-historic-photos.json` still hotlink this host. |
@@ -102,7 +104,7 @@ A host written as `https://*.example.com` matches one subdomain label (`www`, `r
 | `https://fundingchoicesmessages.google.com` | CMP configuration. |
 | `https://adservice.google.com` | Ad service requests. |
 | `https://*.gstatic.com` | Includes `csi.gstatic.com`, which the ad tag calls. |
-| `https://*.adtrafficquality.google` | Ad traffic-quality calls from `ep1.adtrafficquality.google` and `ep2.adtrafficquality.google`. |
+| `https://*.adtrafficquality.google` | Ad-quality requests from `ep1.adtrafficquality.google` and `ep2.adtrafficquality.google`. |
 | `https://www.google.com` | Google tag collect requests that go to www. |
 | `https://basemaps.cartocdn.com` and `https://*.basemaps.cartocdn.com` | Voyager `style.json`, `tiles.json`, vector tiles (`tiles-a` through `tiles-d.basemaps.cartocdn.com`), and glyph `.pbf` files. Same CARTO hosts as the images. No `api.carto.com` call. |
 | `https://en.wikipedia.org` | `api/rest_v1/page/summary` when a story looks up a Wikipedia thumbnail. |
@@ -124,7 +126,7 @@ A host written as `https://*.example.com` matches one subdomain label (`www`, `r
 | `https://*.googlesyndication.com` | Ad frames on `pagead2.googlesyndication.com` and `tpc.googlesyndication.com`, including the sodar frame. |
 | `https://fundingchoicesmessages.google.com` | The Funding Choices / CMP consent iframe. |
 | `https://www.google.com` | Ad frames Google serves from www. |
-| `https://*.adtrafficquality.google` | Ad traffic-quality frames (`ep1`, `ep2`). |
+| `https://*.adtrafficquality.google` | Ad-quality frames from `ep1.adtrafficquality.google` and `ep2.adtrafficquality.google`. |
 
 ### Workers and document limits
 
