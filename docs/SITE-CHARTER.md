@@ -27,11 +27,58 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 Plain and specific. Place first ("On the Green River's Big Bend in Butler County…"), dates and site numbers up front, short sentences. Call areas approximate when they are approximate. No hype.
 
 ## Visual system
-- **Brand**: three seals in `public/brand/` rotate in the header (`khd-logo`, `-c`, `-c2`, chosen in `index.html`). They use Kentucky flag navy (about `#002F6B`) and gold (about `#D6AE37` to `#F8C028`) on cream or black, with "Kentucky History Drive", "History is all around us." and a road, a marker and crossed muskets.
-- **UI colors** (`src/styles.css`, "Bluegrass green, thoroughbred leather, bourbon amber"). Dark theme: bg `#101812`, panel `#1A241C`, text `#F3EAD8`, accent `#C9893A`, heading `#E8D5A8`. Light theme: bg `#F3EAD8`, text `#1A241C`, accent `#9A5F1C`, heading `#3D2A12`. Note that the UI is green and amber, not the seals' navy and gold.
-- **Type**: system sans (`"Segoe UI", system-ui, -apple-system`). Territory maps use a Bookman serif stack (`"Bookman Old Style", "URW Bookman", C059, Georgia`), set in uppercase with letter spacing.
-- **Map style**: MapLibre GL with the CARTO Voyager basemap (OSM data). Each layer has its own pin color (Markers `#E87722`). Territory maps are SVG on parchment (`#EFE3C4`) with ink `#2A1D10` and rivers `#8FBDD6`.
-- **House illustration style**: owned by Story Studio, to be filled in.
+**Palette decision (Shannon, Oct 2026): green and amber stay.** Navy and gold appear only in the seals. The UI never uses seal navy.
+
+**Color tokens** (`src/styles.css`; use the variables, never raw hex):
+| Token | Role | Dark | Light |
+|---|---|---|---|
+| `--bg` | page | #101812 | #F3EAD8 |
+| `--panel` | cards | #1A241C | #FFFDF6 |
+| `--surface` | insets, image wells | #141C16 | #E8DFCC |
+| `--text` | body | #F3EAD8 | #1A241C |
+| `--muted` | secondary text | #A8B59C | #52604C |
+| `--heading` | headings | #E8D5A8 | #3D2A12 |
+| `--accent` | links, CTAs, hover borders | #C9893A | #85500F |
+| `--accent-deep` | pressed or hover fill | #8B5A2B | #6E4214 |
+| `--ink-on-gold` | text on accent fills | #1A140C | #FFFDF6 |
+| `--line` | borders | #2E4034 | #D3C4A6 |
+| `--chip` / `--chip-active` | chips | #243628 / #C9893A | #E7DFCC / #C9893A |
+| `--focus-ring` | focus outline | #F6EDD8 | #3D2A12 |
+
+**Contrast:** body text and UI text are WCAG AA at minimum (4.5:1, or 3:1 for 18.66px bold / 24px and up). Focus rings and control borders are 3:1. A new token pair must have its ratio checked in the PR.
+
+**Themes:** light and dark are equal citizens (`html[data-hp-theme]`). Ship and screenshot both.
+
+**Type:** system sans (`"Segoe UI", system-ui, -apple-system`) for UI and body text. Bookman serif stack only on territory maps. De-facto scale: 0.75 / 0.82 / 0.92 / 1 / 1.15 / 1.35 to 1.8 (clamp) / 2 to 3.4rem (clamp). Body line-height is 1.45 to 1.5. Don't add new sizes.
+
+**Spacing:** steps of 0.35 / 0.5 / 0.75 / 1 / 1.25 / 1.75rem. Section gutters are `clamp(1.25rem, 5vw, 4rem)`.
+
+**Cards:** `background: var(--panel)`, `1px solid var(--line)`, `border-radius: 14px` (12px for story-list cards, 8px for controls, 999px for pills). No resting shadow. On hover: `border-color: var(--accent)`, and the shadow is `0 0 0 1px var(--accent), 0 8px 22px rgba(0,0,0,.28)` (dark) or `0 8px 22px rgba(40,28,12,.08)` (light). Hover never moves the layout.
+
+**Focus:** `outline: 3px solid var(--focus-ring); outline-offset: 2px` on every interactive element. The hero uses the cream `#F6EDD8` ring on photos. Never remove an outline without a replacement.
+
+**Tap targets:** at least 44×44px. Primary CTAs are 48px tall.
+
+**Motion:** transitions only (150 to 350ms, ease), with no autoplay movement that can't be paused. Under `prefers-reduced-motion: reduce`, transitions and transforms are off, and state shows through color and border only.
+
+**Images:** real photos only, licensed and credited on the page. No AI images. Served from the repo as AVIF with a WebP fallback, using `srcset` and `width`/`height` set (no CLS), with `loading="lazy"` below the fold. Out-of-period photos are captioned "later view". If there's no good match, there's no photo, never a filler.
+
+**Header and seal:** three seals rotate (`khd-logo`, `-c`, `-c2`). The seal is picked before first paint. It gets a 2px gold border, a navy outline on the light header and a dark outline on the dark header. The header stays one row from 701 to 1400px and is opaque on phones (including the open menu). The seal is never recolored, stretched or used on its own as a UI color source.
+
+**Maps:** MapLibre with the CARTO Voyager basemap. Each layer has its own pin color (Markers #E87722). Territory maps are SVG on parchment #EFE3C4 with ink #2A1D10 and rivers #8FBDD6. Approximate areas are labeled approximate.
+
+**Route maps (Story Studio):** the site palette, plus a phone-specific art file (not a downscale) with labels about 24px tall at 390. A legend and credit line go under the map on the page. Light and dark variants. No labels clipped or overlapping.
+
+**Design review checklist (Critiquito, every visible PR):**
+1. Screenshots at 1440, 1280 and 390, light and dark.
+2. Tokens only, and every new color pair checked for AA.
+3. Focus ring visible. Tab order makes sense, with no duplicate tab stops.
+4. Targets 44px or larger. `aria-pressed`/`aria-expanded` on toggles.
+5. Reduced-motion checked.
+6. No layout shift from images, ads or the signed-in UI.
+7. Photos are real, credited and relevant (the right place and period).
+8. Header on one row at 1280. The phone menu is opaque.
+9. Copy fits without pushing the primary CTA below the first screen on a 390 phone.
 
 ## Navigation
 Header: logo (goes Home), search, Today's stories, Home, Map, Timeline, About, iPhone app (coming soon), and a light/dark toggle. Story pages: breadcrumb, "Learn more" sources, related stories, "Open on the timeline" and "Open on the map". Footer: About, Videos, Route maps, Privacy.
@@ -64,7 +111,7 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 | Bot | Status |
 |---|---|
 | Lingxi's Engineer Bot | Agreed (with edits, 2026-10-11) |
-| Critiquito | Pending |
+| Critiquito | Agreed (with edits, 2026-10-11) |
 | SEO & AEO Desk | Pending |
 | Security Watch | Agreed (with edit, 2026-10-11) |
 | AI Search Visibility | Pending |
