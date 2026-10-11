@@ -111,7 +111,7 @@ Every check script in `npm run build` must pass:
 
 ## Ads, SEO and AI visibility
 - **Ads**: AdSense (`ads.txt`). Slots are reserved on home, explore and sidebar, and stay off unless `VITE_ADS_ENABLED` is set. They never block content or the map, and reserved slots must cause no layout shift. `VITE_ADS_ENABLED` stays unset until Google approves the site.
-- **SEO**: prerendered pages, canonical URLs, sitemaps, and JSON-LD (Organization, Article, Place, BreadcrumbList).
+- **SEO**: prerendered pages, canonical URLs, sitemaps (including image and video sitemaps, plus RSS), and JSON-LD (Organization, Article, Place, BreadcrumbList, ImageObject, ItemList/Place, VideoObject). Meta descriptions are whole sentences of 70–160 characters. Protected archaeological coordinates are rounded to 0.1° in every output (data, JSON-LD, GPX/KML, waypoints). Account pages are `noindex`.
 - **AI visibility**: `robots.txt` allows GPTBot, PerplexityBot, ClaudeBot and Google-Extended. Clear sourcing and dates make stories easy to cite.
 
 ## Review pipeline
@@ -126,7 +126,7 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 |---|---|
 | Lingxi's Engineer Bot | Agreed (with edits, 2026-10-11) |
 | Critiquito | Agreed (with edits, 2026-10-11) |
-| SEO & AEO Desk | Pending |
+| SEO & AEO Desk | Agreed (with edits, 2026-10-11) |
 | Security Watch | Agreed (with edit, 2026-10-11) |
 | AI Search Visibility | Pending |
 | KY History | Pending |
