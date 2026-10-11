@@ -12,6 +12,10 @@ import {
   correctionUrl,
   formatMiles,
   haversineMiles,
+  markerMapHref,
+  nearbyHtml,
+  nearbyMarkers,
+  nearbyPlaces,
   nearbyStories,
   photoCreditHtml,
   photoCreditModel,
@@ -167,5 +171,39 @@ assert.match(formatMiles(near[0].miles), /miles/)
 assert.equal(nearbyStories({ slug: 'x', title: 'X' }, near).length, 0)
 assert.equal(nearbyStories({ slug: 'null-pin', title: 'Null', lat: null, lon: null }, near).length, 0)
 assert.equal(nearbyStories({ slug: 'zero-pin', title: 'Zero', lat: 0, lon: 0 }, near).length, 0)
+
+const origin = { slug: 'here', title: 'Here', lat: 38, lon: -85 }
+const storyRows = [
+  origin,
+  { slug: 'near-story', title: 'Near story', lat: 38.02, lon: -85 },
+  { slug: 'mid-story', title: 'Mid story', lat: 38.05, lon: -85 },
+  { slug: 'far-story', title: 'Far story', lat: 38.2, lon: -85 },
+]
+const markerRows = [
+  { id: '1', title: 'Close marker', lat: 38.005, lon: -85 },
+  { id: '2', title: 'Mid marker', lat: 38.04, lon: -85 },
+  { id: '3', title: 'Far marker', lat: 38.3, lon: -85 },
+  { id: 'skip', title: 'No pin', lat: null, lon: null },
+  { id: 'zero', title: 'Zero', lat: 0, lon: 0 },
+]
+const places = nearbyPlaces(origin, storyRows, markerRows)
+assert.deepEqual(places.map((row) => row.title), [
+  'Close marker',
+  'Near story',
+  'Mid marker',
+  'Mid story',
+  'Far story',
+  'Far marker',
+])
+assert.equal(markerMapHref('1610'), '/#map/markers/1610')
+assert.equal(nearbyMarkers({ slug: 'x', title: 'X' }, markerRows).length, 0)
+const nearby = nearbyHtml(origin, storyRows, { markers: markerRows })
+assert.match(nearby, /href="\/stories\/near-story\/"/)
+assert.match(nearby, /href="\/#map\/markers\/1"/)
+assert.match(nearby, /Historical marker,/)
+assert.doesNotMatch(nearby, /href="\/#timeline\/|href="\/#map\/stories\//)
+assert.ok(nearby.indexOf('Close marker') < nearby.indexOf('Near story'))
+assert.ok(nearby.indexOf('Near story') < nearby.indexOf('Mid marker'))
+assert.equal(nearbyHtml({ slug: 'none', title: 'None' }, storyRows, { markers: markerRows }), '')
 
 console.log('story quick wins: ok')

@@ -14,6 +14,7 @@ import { applyRouteMapTheme, routeMapSectionHtml } from './route-maps.js'
 import {
   citeBoxHtml,
   correctionHtml,
+  markerRecords,
   nearbyHtml,
   photoCreditHtml,
   resolveArticleDates,
@@ -2961,6 +2962,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     el.classList.toggle('selected', el.dataset.slug === meta.slug)
   })
   try {
+    const markerFeaturesPromise = loadLayerFeatures('markers')
     await loadHistoricPhotoData()
     const s = await loadStoryBody(meta.slug)
     let historyId = meta.historyId || null
@@ -3023,6 +3025,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     })
     const relatedData = await loadRelatedPeople()
     const storyIndex = await loadStories()
+    const markerFeatures = await markerFeaturesPromise
     const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
     const dateFile = (await loadStoryDates())[meta.slug] || {}
     const articleDates = resolveArticleDates(s, dateFile)
@@ -3080,7 +3083,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           ${nearbyHtml(
             { slug: meta.slug, title: s.title, lat: meta.lat ?? s.lat, lon: meta.lon ?? s.lon },
             storyIndex.stories,
-            { headingLevel: 3 },
+            { headingLevel: 3, markers: markerRecords(markerFeatures) },
           )}
           ${citeBoxHtml({
             title: s.title,

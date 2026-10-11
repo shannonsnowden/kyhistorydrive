@@ -34,8 +34,8 @@ import {
   citeBootScript,
   citeBoxHtml,
   correctionHtml,
+  markerRecords,
   nearbyHtml,
-  nearbyStories,
   photoCreditHtml,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -98,6 +98,7 @@ class PrerenderPages {
     PrerenderPages.configureMarked()
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
     const stories = PrerenderPages.liveStories(PrerenderPages.loadStories(root))
+    const markers = PrerenderPages.loadHistoricalMarkers(root)
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
     const dates = PrerenderPages.gitFileDates(root)
@@ -138,9 +139,9 @@ class PrerenderPages {
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
-      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers)
+      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers)
       PrerenderPages.assertPage(html, story, urlPath)
-      PrerenderPages.assertStory(html, story, description, stories)
+      PrerenderPages.assertStory(html, story, description, stories, markers)
       PrerenderPages.writePage(dist, urlPath, html)
       const route = routeBySlug(story.slug)
       const images = route
@@ -1211,7 +1212,18 @@ class PrerenderPages {
       .join('')}</nav>`
   }
 
-  static storyPage(story, all, cssHrefs, layers) {
+  static loadHistoricalMarkers(root) {
+    const file = path.join(root, 'public/data/markers.geojson')
+    const collection = PrerenderPages.readJson(file)
+    const markers = markerRecords(collection.features)
+    const ids = new Set(markers.map((marker) => marker.id))
+    if (markers.length < 3 || ids.size !== markers.length) {
+      throw new Error(`prerender: expected unique historical markers, found ${markers.length}`)
+    }
+    return markers
+  }
+
+  static storyPage(story, all, cssHrefs, layers, markers = []) {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
@@ -1266,7 +1278,7 @@ class PrerenderPages {
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
-          ${nearbyHtml(story, all)}
+          ${nearbyHtml(story, all, { markers })}
           ${PrerenderPages.relatedHtml(story, all)}
           ${citeBoxHtml({
             title: story.title,
@@ -1559,7 +1571,7 @@ class PrerenderPages {
     }
   }
 
-  static assertStory(html, story, description, all = []) {
+  static assertStory(html, story, description, all = [], markers = []) {
     const urlPath = `/stories/${story.slug}/`
     PrerenderPages.assertStoryMeta(description, PrerenderPages.storyDescriptionSource(story), urlPath)
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
@@ -1630,18 +1642,25 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} correction link is not a labeled GitHub issue`)
     }
     if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
-    const near = nearbyStories(story, all)
+    const nearbyExpected = nearbyHtml(story, all, { markers })
     const nearbyNav = html.match(/<nav class="story-nearby"[\s\S]*?<\/nav>/)
-    if (!PrerenderPages.publicGeo(story) && nearbyNav) {
-      throw new Error(`prerender: ${urlPath} shows nearby stories without a public pin`)
-    }
-    if (near.length >= 3) {
-      const nearbyCount = nearbyNav ? (nearbyNav[0].match(/href="\/stories\//g) || []).length : 0
-      if (nearbyCount < 3 || nearbyCount > 5 || !nearbyNav[0].includes('miles')) {
-        throw new Error(`prerender: ${urlPath} has ${nearbyCount} nearby story links`)
+    if (nearbyExpected) {
+      if (!nearbyNav || nearbyNav[0] !== nearbyExpected) {
+        throw new Error(`prerender: ${urlPath} nearby list is missing stories or markers`)
+      }
+      const storyLinks = nearbyNav[0].match(/href="\/stories\/[^"]+\/"/g) || []
+      const markerLinks = nearbyNav[0].match(/href="\/#map\/markers\/[^"]+"/g) || []
+      if (storyLinks.length < 3 || storyLinks.length > 5) {
+        throw new Error(`prerender: ${urlPath} has ${storyLinks.length} nearby story links`)
+      }
+      if (markerLinks.length < 3 || markerLinks.length > 5 || !nearbyNav[0].includes('Historical marker')) {
+        throw new Error(`prerender: ${urlPath} has ${markerLinks.length} nearby marker links`)
+      }
+      if (/href="\/#(?:map\/stories|timeline)\//.test(nearbyNav[0])) {
+        throw new Error(`prerender: ${urlPath} nearby stories are not crawlable pages`)
       }
     } else if (nearbyNav) {
-      throw new Error(`prerender: ${urlPath} shows nearby stories without 3 coordinates`)
+      throw new Error(`prerender: ${urlPath} shows a nearby list without a public pin`)
     }
     if (story.photo?.image_url) {
       if (!html.includes('class="story-sidebar-photo-attr story-photo-credit"')) {

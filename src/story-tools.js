@@ -220,36 +220,111 @@ function finiteCoord(value) {
   return Number.isFinite(n) ? n : null
 }
 
-/** 3 to 5 nearest other stories that have coordinates. Empty when this story has no pin. */
-export function nearbyStories(story, all, { limit = 5 } = {}) {
+function storyOrigin(story) {
   const lat = finiteCoord(story?.lat)
   const lon = finiteCoord(story?.lon)
-  if (lat == null || lon == null || Math.abs(lat) > 90 || Math.abs(lon) > 180) return []
-  if (lat === 0 && lon === 0) return []
+  if (lat == null || lon == null || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
+  if (lat === 0 && lon === 0) return null
+  return { lat, lon }
+}
+
+function validPin(lat, lon) {
+  return lat != null && lon != null && Math.abs(lat) <= 90 && Math.abs(lon) <= 180 && !(lat === 0 && lon === 0)
+}
+
+function nearestCap(limit) {
+  return Math.min(5, Math.max(3, limit))
+}
+
+/** 3 to 5 nearest other stories that have coordinates. Empty when this story has no pin. */
+export function nearbyStories(story, all, { limit = 5 } = {}) {
+  const origin = storyOrigin(story)
+  if (!origin) return []
   const rows = []
   for (const other of all || []) {
     if (!other?.slug || other.slug === story.slug || !other.title) continue
     const olat = finiteCoord(other.lat)
     const olon = finiteCoord(other.lon)
-    if (olat == null || olon == null || Math.abs(olat) > 90 || Math.abs(olon) > 180) continue
-    if (olat === 0 && olon === 0) continue
+    if (!validPin(olat, olon)) continue
     rows.push({
+      kind: 'story',
       slug: other.slug,
       title: other.title,
-      miles: haversineMiles(lat, lon, olat, olon),
+      miles: haversineMiles(origin.lat, origin.lon, olat, olon),
     })
   }
   rows.sort((a, b) => a.miles - b.miles || a.title.localeCompare(b.title))
-  const cap = Math.min(5, Math.max(3, limit))
-  return rows.slice(0, cap)
+  return rows.slice(0, nearestCap(limit))
 }
 
-export function nearbyHtml(story, all, { headingLevel = 2 } = {}) {
-  const near = nearbyStories(story, all)
-  if (near.length < 3) return ''
+/** Compact {id, title, lat, lon} rows from marker GeoJSON features. */
+export function markerRecords(features) {
+  const rows = []
+  for (const feature of features || []) {
+    const props = feature?.properties || feature || {}
+    const coords = feature?.geometry?.coordinates
+    const lat = Array.isArray(coords) ? coords[1] : props.lat ?? props.latitude
+    const lon = Array.isArray(coords) ? coords[0] : props.lon ?? props.longitude
+    const id = props.marker_number ?? props.id
+    const title = props.title || props.name
+    if (id == null || String(id).trim() === '' || !title) continue
+    rows.push({ id: String(id), title: String(title), lat, lon })
+  }
+  return rows
+}
+
+export function markerMapHref(id) {
+  return `/#map/markers/${encodeURIComponent(String(id))}`
+}
+
+/** 3 to 5 nearest historical markers. Empty when this story has no pin. */
+export function nearbyMarkers(story, markers, { limit = 5 } = {}) {
+  const origin = storyOrigin(story)
+  if (!origin) return []
+  const rows = []
+  for (const marker of markers || []) {
+    const id = marker?.id ?? marker?.marker_number
+    const title = marker?.title || marker?.name
+    if (id == null || String(id).trim() === '' || !title) continue
+    const lat = finiteCoord(marker.lat ?? marker.latitude)
+    const lon = finiteCoord(marker.lon ?? marker.longitude)
+    if (!validPin(lat, lon)) continue
+    rows.push({
+      kind: 'marker',
+      id: String(id),
+      title: String(title),
+      miles: haversineMiles(origin.lat, origin.lon, lat, lon),
+    })
+  }
+  rows.sort((a, b) => a.miles - b.miles || a.title.localeCompare(b.title) || a.id.localeCompare(b.id))
+  return rows.slice(0, nearestCap(limit))
+}
+
+/**
+ * Up to five nearest stories and up to five nearest historical markers,
+ * one list, nearest first. Stories stay on /stories/<slug>/.
+ */
+export function nearbyPlaces(story, all, markers, { limit = 5 } = {}) {
+  const storiesNear = nearbyStories(story, all, { limit })
+  const markersNear = nearbyMarkers(story, markers, { limit })
+  const rows = [
+    ...(storiesNear.length >= 3 ? storiesNear : []),
+    ...(markersNear.length >= 3 ? markersNear : []),
+  ]
+  rows.sort((a, b) => a.miles - b.miles || a.title.localeCompare(b.title) || a.kind.localeCompare(b.kind))
+  return rows
+}
+
+export function nearbyHtml(story, all, { headingLevel = 2, markers = [] } = {}) {
+  const near = nearbyPlaces(story, all, markers)
+  if (!near.length) return ''
   const level = headingLevel === 3 ? 3 : 2
   const items = near
     .map((row) => {
+      if (row.kind === 'marker') {
+        const href = markerMapHref(row.id)
+        return `<li><a href="${esc(href)}">${esc(row.title)}</a> <span class="muted">Historical marker, ${esc(formatMiles(row.miles))}</span></li>`
+      }
       const href = `/stories/${encodeURIComponent(row.slug)}/`
       return `<li><a href="${esc(href)}">${esc(row.title)}</a> <span class="muted">${esc(formatMiles(row.miles))}</span></li>`
     })
