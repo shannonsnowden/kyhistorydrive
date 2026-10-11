@@ -28,6 +28,13 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 - **Photos**: Use real archival photos when they exist; use AI images or illustrations where none exist or where they serve the story better. Every AI image is visibly labeled "AI illustration" with a credit, and is never passed off as a real photo. (Approved by Shannon 2026-10-11.) When a photo is not from the story's period, caption it as a "later view".
 - **Fairness** (Shannon, 2026-10-11): Every story must be fair to the Shawnee and to every people it covers. Present Native nations, settlers and all groups with balance, using their own perspectives and names where sources allow, and avoid one-sided framing.
 - **Native nations**: every new story gets a territory map, or a tag only when the source is oral tradition. Archaeological cultures get a shape only when sources place them in an area. Timeline map pages exist only when the map shows real change over time. Never remove panel layers. Outside tribal review was skipped; stories rely on cited sources.
+- **Years**: event or occupation years only, never dig, WPA, NRHP or study dates. BCE years are stored as negative numbers. Use culture defaults when there's no date.
+- **Source links**: every source link must return 200. No Grokipedia or AI-generated pages, and no search-results pages. Soften or remove unsupported claims.
+- **No duplicates**: no repeats of stories already on the site. Swap the story and flag it.
+- **County, tags and era**: set County explicitly, and set tags and era by hand.
+- **Cultures vs tribes**: archaeological cultures are not tribes. Theme-only topics get no pin.
+- **Homepage**: homepage copy stays evergreen.
+- **Pin coordinates**: prehistoric pins rounded to 2 decimals; restricted (confidential) sites generalized further to 0.1° in every output (data, JSON-LD, GPX/KML, waypoints).
 
 ## Voice
 Plain and specific. Place first ("On the Green River's Big Bend in Butler County…"), dates and site numbers up front, short sentences. Call areas approximate when they are approximate. No hype.
@@ -111,7 +118,7 @@ Every check script in `npm run build` must pass:
 
 ## Ads, SEO and AI visibility
 - **Ads**: AdSense (`ads.txt`). Slots are reserved on home, explore and sidebar, and stay off unless `VITE_ADS_ENABLED` is set. They never block content or the map, and reserved slots must cause no layout shift. `VITE_ADS_ENABLED` stays unset until Google approves the site.
-- **SEO**: prerendered pages, canonical URLs, sitemaps (including image and video sitemaps, plus RSS), and JSON-LD (Organization, Article, Place, BreadcrumbList, ImageObject, ItemList/Place, VideoObject). Meta descriptions are whole sentences of 70–160 characters. Protected archaeological coordinates are rounded to 0.1° in every output (data, JSON-LD, GPX/KML, waypoints). Account pages are `noindex`.
+- **SEO**: prerendered pages, canonical URLs, sitemaps (including image and video sitemaps, plus RSS), and JSON-LD (Organization, Article, Place, BreadcrumbList, ImageObject, ItemList/Place, VideoObject). Meta descriptions are whole sentences of 70–160 characters. Prehistoric pins rounded to 2 decimals; restricted (confidential) sites generalized further to 0.1° in every output (data, JSON-LD, GPX/KML, waypoints). Account pages are `noindex`.
 - **AI visibility**: `robots.txt` allows GPTBot, PerplexityBot, ClaudeBot and Google-Extended. Clear sourcing and dates make stories easy to cite.
 
 ## Review pipeline
@@ -129,7 +136,7 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 | SEO & AEO Desk | Agreed (with edits, 2026-10-11) |
 | Security Watch | Agreed (with edit, 2026-10-11) |
 | AI Search Visibility | Pending |
-| KY History | Pending |
+| KY History | Agreed (with edits, 2026-10-11) |
 | Story Studio | Agreed (with edits, 2026-10-11) |
 | Research Bot | Agreed (with edits, 2026-10-11) |
 | KY Website Editor | Agreed (author, 2026-10-11) |
