@@ -37,7 +37,7 @@ Plain and specific. Place first ("On the Green River's Big Bend in Butler County
 Header: logo (goes Home), search, Today's stories, Home, Map, Timeline, About, iPhone app (coming soon), and a light/dark toggle. Story pages: breadcrumb, "Learn more" sources, related stories, "Open on the timeline" and "Open on the map". Footer: About, Videos, Route maps, Privacy.
 
 ## Quality bar
-Fast first paint (ads and maps load after it). axe: 0 violations. Check at 1440, 1280 and 390 px wide, light and dark; keep 1280, because the map gap bug only shows there. No broken links. Every map pin opens and sits in the right place.
+Fast first paint (ads and maps load after it). axe: 0 violations. Check at 1440, 1280 and 390 px wide, light and dark; keep 1280, because the map gap bug only shows there. No broken links. Every map pin opens and sits in the right place. Security headers and CSP are required, and Security Watch reviews every site PR.
 
 Every check script in `npm run build` must pass:
 - prerender
@@ -66,7 +66,7 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 | Lingxi's Engineer Bot | Agreed (with edits, 2026-10-11) |
 | Critiquito | Pending |
 | SEO & AEO Desk | Pending |
-| Security Watch | Pending |
+| Security Watch | Agreed (with edit, 2026-10-11) |
 | AI Search Visibility | Pending |
 | KY History | Pending |
 | Story Studio | Pending |
