@@ -250,6 +250,12 @@ export const RELATED_GROUPS = [
         href: 'https://history.ky.gov/stories-and-blogs',
       },
       {
+        name: 'KYGenWeb — Kentucky genealogy',
+        kind: 'Genealogy',
+        blurb: 'Free, volunteer-run Kentucky genealogy since the 1990s: county pages, cemetery records, biographies, old newspapers and county histories.',
+        href: 'https://kygenweb.net/',
+      },
+      {
         name: 'KHS — Kentucky’s long hunters',
         kind: 'Blog',
         blurb: 'Stories-and-blogs piece on pelts, profits, and the contested hunting ground before the stations.',
