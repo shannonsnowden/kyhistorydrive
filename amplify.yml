@@ -37,6 +37,10 @@ customRules:
   - source: '/home-preview/<*>'
     target: '/'
     status: '301'
+  # Old Warriors' Path map filenames stay reachable after the story-slug rename.
+  - source: '/maps/routes/athiamiowee-the-warriors-path-through-kentucky/warriors-path-map<*>'
+    target: '/maps/routes/athiamiowee-the-warriors-path-through-kentucky/athiamiowee-the-warriors-path-through-kentucky<*>'
+    status: '301'
   - source: '/privacy'
     target: '/privacy/index.html'
     status: '200'

@@ -14,6 +14,13 @@ const dist = path.join(root, 'dist')
 const stories = PrerenderPages.loadStories(root)
 const problems = []
 
+const abbrevSample =
+  'He met Col. Boone and Gen. Scott c. AD 1750, with Capt. Bird, Lt. Col. Todd, near St. Asaph and Mt. Sterling, where Dr. Walker and Rev. Metcalf joined Baker Jr. and Baker Sr. at camp. Then he left.'
+const abbrevSentences = PrerenderPages.splitSentences(abbrevSample)
+if (abbrevSentences.length !== 2 || /\b(?:Col|Gen|Capt|Lt|St|Mt|Dr|Jr|Sr|Rev|c)\.$/.test(abbrevSentences[0])) {
+  problems.push('check-story-descriptions: sentence splitter still stops on Col., Gen., c., Capt., Lt., St., Mt., Dr., Jr., Sr., or Rev.')
+}
+
 for (const story of stories) {
   const urlPath = `/stories/${story.slug}/`
   const source = PrerenderPages.storyDescriptionSource(story)

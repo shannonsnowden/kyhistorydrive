@@ -317,7 +317,7 @@ class PrerenderPages {
     const out = []
     let buf = ''
     const abbrev = (s) =>
-      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
         s.trimEnd(),
       ) ||
       /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
@@ -1246,8 +1246,8 @@ class PrerenderPages {
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const route = routeBySlug(story.slug)
-    const ogImage = route ? absoluteUrl(route.files.fullPng) : image
-    const ogAlt = route ? route.alt : imageAlt
+    const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
+    const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
     const filmDescription = film ? filmDescriptionFromPlain(bodyPlain) : ''
     const filmHtml = film
@@ -1292,8 +1292,8 @@ class PrerenderPages {
       cssHrefs,
       image: ogImage,
       imageAlt: ogAlt,
-      imageWidth: route ? 1600 : 0,
-      imageHeight: route ? 900 : 0,
+      imageWidth: !photo && route ? 1600 : 0,
+      imageHeight: !photo && route ? 900 : 0,
       jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
       main,
       rss: true,
@@ -1625,9 +1625,10 @@ class PrerenderPages {
     }
     const photo = story.photo?.image_url ? PrerenderPages.photoAbsolute(story.photo.image_url) : ''
     const route = routeBySlug(story.slug)
-    const expectedImage = route ? absoluteUrl(route.files.fullPng) : photo || PrerenderPages.LOGO
+    const expectedImage = photo || (route ? absoluteUrl(route.files.fullPng) : PrerenderPages.LOGO)
+    const expectedKind = photo ? 'story photo' : route ? '1600 route map' : 'story photo or logo fallback'
     if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
-      throw new Error(`prerender: ${urlPath} og:image is not the ${route ? '1600 route map' : 'story photo or logo fallback'}`)
+      throw new Error(`prerender: ${urlPath} og:image is not the ${expectedKind}`)
     }
     if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} twitter:image is missing`)
