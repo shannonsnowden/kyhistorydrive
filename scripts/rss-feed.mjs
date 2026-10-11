@@ -3,9 +3,12 @@
  * Build-time RSS 2.0.
  *
  * /feed.xml is the newest stories (the date the story file was added to the
- * site, git first-commit, else publishedDate), capped at 50. Each item links
- * to the prerendered /stories/<slug>/ page, uses one whole sentence, and
- * carries an enclosure plus media:content when the story has a local photo.
+ * site, git first-commit, else publishedDate), about 50 items. The six route
+ * stories are always included, even when they fall outside that window. Each
+ * item links to the prerendered /stories/<slug>/ page and uses one whole
+ * sentence. A route story uses its route-map sentence and the route-map PNG
+ * (the same image the story page uses for Open Graph). Other stories carry
+ * an enclosure plus media:content when they have a local photo.
  *
  * /layers/history/feed.xml and /layers/good-eats/feed.xml are written only
  * when every item in that layer has a stable on-site URL (a real /stories/
@@ -15,6 +18,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { ROUTE_MAPS, routeBySlug } from '../src/route-maps.js'
 import { PrerenderPages } from './prerender-pages.mjs'
 
 const SITE = 'https://kyhistorydrive.com'
@@ -98,8 +102,7 @@ function storySentence(story) {
   )
 }
 
-function storyImage(root, photo) {
-  const url = photo?.image_url
+function localImage(root, url) {
   if (!url || String(url).includes('..')) return null
   if (/^https?:\/\//i.test(url)) {
     return { url, type: mime(url), length: null }
@@ -111,6 +114,39 @@ function storyImage(root, photo) {
   if (!length) return null
   const abs = `${SITE}${url.startsWith('/') ? url : `/${url}`}`
   return { url: abs, type: mime(url), length }
+}
+
+function storyImage(root, photo) {
+  return localImage(root, photo?.image_url)
+}
+
+function routeImage(root, route) {
+  const image = localImage(root, route?.files?.fullPng)
+  if (!image || image.type !== 'image/png' || !Number.isInteger(image.length)) return null
+  return image
+}
+
+function byNewest(a, b) {
+  return b.added.localeCompare(a.added) || a.slug.localeCompare(b.slug)
+}
+
+function assertRouteItems(items) {
+  const bySlug = new Map(items.map((item) => [item.slug, item]))
+  for (const route of ROUTE_MAPS) {
+    const item = bySlug.get(route.slug)
+    const sentence = clean(route.sentence)
+    const imageUrl = `${SITE}${route.files.fullPng}`
+    if (!item) throw new Error(`rss: route story ${route.slug} is missing from the feed`)
+    if (!isWholeSentence(sentence) || item.description !== sentence) {
+      throw new Error(`rss: route story ${route.slug} description is not the route-map sentence`)
+    }
+    if (item.link !== `${SITE}/stories/${route.slug}/`) {
+      throw new Error(`rss: route story ${route.slug} link is not the story page`)
+    }
+    if (item.image?.url !== imageUrl || item.image?.type !== 'image/png' || !Number.isInteger(item.image?.length)) {
+      throw new Error(`rss: route story ${route.slug} image is not the route-map PNG`)
+    }
+  }
 }
 
 /** On-site story permalink only. Fragments and third-party sites are not stable item URLs. */
@@ -172,8 +208,10 @@ export function planStoryItems(root) {
   const dropped = []
   for (const story of stories) {
     const file = `public/content/stories/${story.slug}.json`
+    const route = routeBySlug(story.slug)
     const added = dates.created.get(file) || PrerenderPages.isoDate(story.publishedDate) || ''
-    const description = storySentence(story)
+    const routeSentence = route ? clean(route.sentence) : ''
+    const description = isWholeSentence(routeSentence) ? routeSentence : storySentence(story)
     if (!added || !description || !clean(story.title)) {
       dropped.push(story.slug)
       continue
@@ -185,12 +223,18 @@ export function planStoryItems(root) {
       description,
       added,
       pubDate: rfc822(added),
-      image: storyImage(root, story.photo),
+      image: route ? routeImage(root, route) : storyImage(root, story.photo),
+      route: Boolean(route),
     })
   }
-  ranked.sort((a, b) => b.added.localeCompare(a.added) || a.slug.localeCompare(b.slug))
+  ranked.sort(byNewest)
+  const newest = ranked.slice(0, FEED_ITEM_LIMIT)
+  const included = new Set(newest.map((item) => item.slug))
+  const pinned = ranked.filter((item) => item.route && !included.has(item.slug))
+  const items = newest.concat(pinned).sort(byNewest)
+  assertRouteItems(items)
   return {
-    items: ranked.slice(0, FEED_ITEM_LIMIT),
+    items,
     eligible: ranked.length,
     dropped,
     slugs: new Set(stories.map((story) => story.slug)),

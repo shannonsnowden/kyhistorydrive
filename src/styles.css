@@ -42,6 +42,9 @@ html[data-hp-theme="dark"] {
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--text); }
+/* Reserve the sticky timeline jump bar when it is open, so scroll-into-view
+   stops above it. --timeline-jump-h is 0 while the bar is hidden. */
+html { scroll-padding-bottom: calc(var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px)); }
 /* Author display rules must not override the hidden attribute (map-section uses display:grid) */
 [hidden] { display: none !important; }
 a { color: var(--accent); }
@@ -677,7 +680,10 @@ a.btn { text-decoration: none; display: inline-block; }
 .stories-list { display: grid; gap: 0.75rem; }
 .story-reader {
   margin-top: 1.15rem;
-  padding: 1.1rem 1.15rem 1.35rem;
+  /* Bottom padding matches the sticky Home/Filters/Stories/Top/Reset bar
+     (its height plus the gap it floats above the viewport) so the last
+     lines stay above the bar at every width. */
+  padding: 1.1rem 1.15rem calc(1.35rem + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -877,14 +883,16 @@ html[data-hp-theme="light"] .era-other {
 
 /* MapLibre popup next to pin */
 .ky-popup .maplibregl-popup-content {
+  position: relative;
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--line);
   border-radius: 10px;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
   padding: 0.75rem 0.85rem 0.85rem;
-  max-width: min(92vw, 480px);
-  width: max-content;
+  max-width: 100%;
+  width: auto;
+  box-sizing: border-box;
 }
 .ky-popup .maplibregl-popup-close-button {
   color: var(--muted);
@@ -898,9 +906,11 @@ html[data-hp-theme="light"] .era-other {
 }
 .map-popup h3 {
   margin: 0.2rem 0 0.35rem;
+  padding-right: 1.4rem;
   font-size: 1.05rem;
   color: var(--heading);
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 .map-popup .meta {
   color: var(--muted);
@@ -1124,19 +1134,38 @@ html[data-hp-theme="light"] .era-other {
   overscroll-behavior: contain;
   touch-action: pan-y;
 }
+/* Fade sits on the card shell, not in the scroll flow, and is removed at the end. */
+.ky-popup.has-more .maplibregl-popup-content::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.5rem;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(to bottom, transparent, var(--panel) 82%);
+  pointer-events: none;
+}
 .ky-popup.maplibregl-popup {
   z-index: 5;
 }
 .map-popup .popup-full-text {
-  white-space: pre-wrap;
+  white-space: normal;
   font-size: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.5;
   margin: 0.5rem 0 0.65rem;
   max-height: none;
   overflow: visible;
   display: block;
   -webkit-line-clamp: unset;
 }
+.map-popup .popup-full-text p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.map-popup .popup-full-text p:last-child { margin-bottom: 0; }
 .historic-photos { margin-top: 0.75rem; }
 .historic-photos-label {
   font-size: 0.72rem;
@@ -1369,6 +1398,11 @@ html[data-hp-theme="light"] .era-other {
     flex-direction: column;
   }
   .static-story .story-intro { order: 1; }
+  .static-story.has-film .film-block {
+    order: 4;
+    width: 100%;
+    min-width: 0;
+  }
   .static-story .story-sidebar-photo {
     order: 2;
     position: static;
@@ -1387,10 +1421,12 @@ html[data-hp-theme="light"] .era-other {
 }
 
 /* Film embed. 16:9 is reserved before the poster arrives so the story photo stays put.
-   On a film story the photo column matches the player column: a 4:3 photo is a larger
-   box than the 16:9 player, so the photo remains the largest image. */
+   At wide widths the player spans the article, above the photo. */
 .film-block {
   margin: 1.25rem 0 0.5rem;
+  /* nowrap on the summary must not stretch a flex/grid item to the full sentence. */
+  min-width: 0;
+  max-width: 100%;
 }
 .film-title {
   margin: 0 0 0.4rem;
@@ -1401,6 +1437,10 @@ html[data-hp-theme="light"] .era-other {
 .film-summary {
   margin: 0 0 0.35rem;
   line-height: 1.5;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .film-runtime,
 .film-credit,
@@ -1409,11 +1449,31 @@ html[data-hp-theme="light"] .era-other {
   color: var(--muted);
   font-size: 0.85rem;
 }
+.film-transcript {
+  margin: 0.85rem 0 0;
+}
+.film-transcript summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--heading);
+}
+.film-transcript summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.film-transcript pre {
+  margin: 0.65rem 0 0;
+  white-space: pre-wrap;
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
 .film-credit {
   margin-top: 0.55rem;
   color: var(--text);
 }
 .film-frame {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   margin-top: 0.75rem;
@@ -1429,19 +1489,72 @@ html[data-hp-theme="light"] .era-other {
   object-fit: contain;
   background: #000;
 }
+.film-cc {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 3.15rem;
+  z-index: 2;
+  min-width: 2.5rem;
+  min-height: 2rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 6px;
+  background: rgba(12, 18, 14, 0.72);
+  color: #fff;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.film-cc.is-on,
+.film-cc[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1a140c;
+}
+.film-cc:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 @media (min-width: 901px) {
-  /* Wider photo column so the 4:3 story picture outranks the lead paragraph and the 16:9 player. */
+  /* Player spans the article, above the photo. The text stays in the column beside the photo. */
   main.static-read:has(.static-story.has-film) {
     max-width: 72rem;
   }
   .static-story.has-film.story-reader-layout:has(.story-sidebar-photo) {
-    grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1.18fr);
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 380px);
+  }
+  .static-story.has-film .film-block,
+  .story-reader.has-film .film-block {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-top: 0;
+  }
+  .static-story.has-film .story-intro {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .static-story.has-film .story-reader-main {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .static-story.has-film .story-sidebar-photo {
+    grid-column: 2;
+    grid-row: 2 / span 2;
   }
   .story-reader.has-film .story-reader-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 380px);
+  }
+  .story-reader.has-film .story-reader-main {
+    grid-column: 1;
+    grid-row: 2;
   }
   .story-reader.has-film .story-sidebar-photo {
-    position: static;
+    grid-column: 2;
+    grid-row: 2;
+    position: sticky;
+    top: 4.25rem;
     margin-top: 0;
   }
   .static-story.has-film .story-sidebar-photo-frame img,
@@ -1466,6 +1579,48 @@ html[data-hp-theme="light"] .era-other {
     aspect-ratio: 16 / 10;
   }
 }
+.videos-page .story-head h1,
+.videos-page .film-block,
+.static-story .film-block {
+  scroll-margin-top: 11rem;
+}
+@media (max-width: 600px) {
+  .videos-page .story-head h1,
+  .videos-page .film-block,
+  .static-story .film-block {
+    scroll-margin-top: 4.75rem;
+  }
+}
+.film-card {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  color: inherit;
+  text-decoration: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.film-card:hover,
+.film-card:focus-visible {
+  border-color: var(--accent);
+}
+.film-card-poster {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #0c120e;
+}
+.film-card .film-title,
+.film-card .film-summary,
+.film-card .film-runtime {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.film-card .film-title { margin-top: 0.85rem; }
+.film-card .film-runtime { margin-bottom: 1rem; }
 .film-list {
   display: grid;
   gap: 2rem;
@@ -2922,6 +3077,54 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   width: 100%;
   height: 100%;
   min-height: 100%;
+}
+.hp-map-routes { margin: 0.75rem 0 0; }
+.route-map { margin: 1.75rem 0 0.5rem; }
+.story-reader-layout > .route-map,
+.story-reader-main .route-map { min-width: 0; }
+.route-map h2,
+.route-map h3 { color: var(--heading); }
+.route-map h2 { font-size: 1.35rem; margin: 0 0 0.5rem; }
+.route-map h3 { font-size: 1.05rem; margin: 1rem 0 0.4rem; }
+.route-summary { margin: 0 0 0.75rem; line-height: 1.5; }
+.route-map-figure { margin: 0.75rem 0 0.35rem; }
+.route-map-picture { display: block; }
+.route-map-picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.route-map-caption { margin: 0.4rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+.route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
+.route-waypoints li { margin: 0 0 0.35rem; }
+.route-sources { margin: 0.35rem 0 0.85rem; }
+.route-links ul { list-style: none; margin: 0; padding: 0; }
+.route-links li { margin: 0 0 0.4rem; }
+.route-index-link { margin: 0.8rem 0 0; }
+.route-index-list { list-style: none; margin: 1rem 0 0; padding: 0; }
+.route-card {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
+  margin: 0 0 0.85rem;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  color: inherit;
+  text-decoration: none;
+}
+.route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
+.route-card p { margin: 0; }
+.route-card:hover,
+.route-card:focus-visible { border-color: var(--accent); }
+@media (max-width: 700px) {
+  .route-card { grid-template-columns: 1fr; }
 }
 .story-sidebar-col { min-width: 0; }
 .story-sidebar-col .story-sidebar-photo { position: static; }

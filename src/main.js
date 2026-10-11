@@ -8,7 +8,8 @@ import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related
 import { initThemeToggle } from './theme.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
-import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml } from './films.js'
+import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
+import { applyRouteMapTheme, routeMapSectionHtml } from './route-maps.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -30,27 +31,36 @@ import {
   CULTURE_EDGE,
 } from './territory.js'
 
-/** CARTO Voyager raster (OSM data). Requires VITE_CARTO_API_KEY at build time. */
+/**
+ * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
+ * build time and which is never committed. Since 25 Sep 2026 a raster request
+ * without a key is the "API KEY REQUIRED" placeholder, not a map.
+ * Vector Voyager (basemaps.cartocdn.com/gl/voyager-gl-style) still loads with
+ * no key, so dev and preview use that and screenshots stay clean.
+ */
 const CARTO_KEY = (import.meta.env.VITE_CARTO_API_KEY || '').trim()
-const cartoTile = (host) => {
-  const base = `https://${host}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png`
-  return CARTO_KEY ? `${base}?key=${encodeURIComponent(CARTO_KEY)}` : base
+const CARTO_VECTOR_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json'
+
+function cartoRasterStyle(key) {
+  const tile = (host) =>
+    `https://${host}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png?key=${encodeURIComponent(key)}`
+  return {
+    version: 8,
+    name: 'OSM Voyager',
+    sources: {
+      osm: {
+        type: 'raster',
+        tiles: [tile('a'), tile('b'), tile('c')],
+        tileSize: 256,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      },
+    },
+    layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
+  }
 }
 
-const OSM_STYLE = {
-  version: 8,
-  name: 'OSM Voyager',
-  sources: {
-    osm: {
-      type: 'raster',
-      tiles: [cartoTile('a'), cartoTile('b'), cartoTile('c')],
-      tileSize: 256,
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    },
-  },
-  layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
-}
+const OSM_STYLE = CARTO_KEY ? cartoRasterStyle(CARTO_KEY) : CARTO_VECTOR_STYLE
 
 
 // Statewide Kentucky (not Bagdad close-up)
@@ -1529,6 +1539,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   if (p.category) metaBits.push(p.category)
   if (p.war) metaBits.push(p.war)
   const desc = stripSourceAttribution(p.inscription || p.history || p.description || p.location_text || '')
+  const descHtml = popupParagraphsHtml(desc)
   const href = p.source_url || p.website || null
   const linkLabel = p.source_url ? 'history.ky.gov' : isWikipediaUrl(href) ? 'Wikipedia' : 'Website'
   // Research URLs also appear under Learn more — don't show the same link twice.
@@ -1582,7 +1593,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
       <h3>${escapeHtml(name)}</h3>
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
-      ${desc ? `<div class="popup-full-text">${linkifyPlainUrls(escapeHtml(desc))}</div>` : ''}
+      ${descHtml}
       ${relatedHtml || ''}
       ${sourcesHtml}
       ${link}
@@ -1592,40 +1603,140 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
 }
 
 
+/** Paragraph breaks from the editor stay as separate paragraphs inside the card. */
+function popupParagraphsHtml(desc) {
+  const text = String(desc || '').trim()
+  if (!text) return ''
+  const blocks = text.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean)
+  const paragraphs = (blocks.length ? blocks : [text]).map((block) => {
+    const html = linkifyPlainUrls(escapeHtml(block)).replace(/\n/g, '<br>')
+    return `<p>${html}</p>`
+  })
+  return `<div class="popup-full-text">${paragraphs.join('')}</div>`
+}
+
+function lngLatPair(lngLat) {
+  if (Array.isArray(lngLat)) return [Number(lngLat[0]), Number(lngLat[1])]
+  return [Number(lngLat.lng ?? lngLat.lon), Number(lngLat.lat)]
+}
+
+function waitForCamera(targetMap, timeout = 4000) {
+  return new Promise((resolve) => {
+    if (!targetMap?.isMoving?.()) {
+      resolve()
+      return
+    }
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      targetMap.off('moveend', finish)
+      resolve()
+    }
+    targetMap.once('moveend', finish)
+    setTimeout(finish, timeout)
+  })
+}
+
+/**
+ * Wide maps: park the pin near the top so the card opens under it and related
+ * stories stay inside the map. Narrow maps: slide the pin sideways so a
+ * centered card does not run off the left or right edge.
+ */
+async function nudgeCameraForPopup(targetMap, lngLat) {
+  if (!targetMap?.project || !targetMap.getContainer?.() || !lngLat) return
+  await waitForCamera(targetMap)
+  const el = targetMap.getContainer()
+  const w = el.clientWidth
+  const h = el.clientHeight
+  if (!w || !h) return
+  const pt = targetMap.project(lngLatPair(lngLat))
+  let dx = 0
+  let dy = 0
+  if (w >= 700 && h >= 420) {
+    const targetY = Math.round(Math.min(112, Math.max(72, h * 0.16)))
+    if (pt.y > targetY + 28) dy = pt.y - targetY
+  }
+  if (w < 760) {
+    const boxW = Math.min(460, Math.max(200, w - 16))
+    const left = pt.x - boxW / 2
+    const right = left + boxW
+    if (left < 8) dx = left - 8
+    else if (right > w - 8) dx = right - (w - 8)
+  }
+  if (!dx && !dy) return
+  const c = targetMap.project(targetMap.getCenter())
+  const next = targetMap.unproject([c.x + dx, c.y + dy])
+  await new Promise((resolve) => {
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      targetMap.off('moveend', finish)
+      resolve()
+    }
+    targetMap.once('moveend', finish)
+    targetMap.easeTo({ center: next, duration: 280, essential: true })
+    setTimeout(finish, 800)
+  })
+}
+
 /** Pick popup anchor + max height so content stays inside the map canvas. */
 function popupPlacement(targetMap, lngLat) {
   const el = targetMap?.getContainer?.()
   if (!el || !lngLat) {
-    return { anchor: 'bottom', maxHeightPx: 420, maxWidth: 'min(92vw, 480px)' }
+    return { anchor: 'top', maxHeightPx: 420, maxWidth: '440px' }
   }
-  const pt = Array.isArray(lngLat)
-    ? targetMap.project(lngLat)
-    : targetMap.project([lngLat.lng ?? lngLat.lon, lngLat.lat])
+  const pt = targetMap.project(lngLatPair(lngLat))
   const w = el.clientWidth
   const h = el.clientHeight
-  const pad = 12
+  const pad = 10
+  const popupW = Math.min(460, Math.max(200, w - pad * 2))
   const spaceAbove = Math.max(0, pt.y - pad)
   const spaceBelow = Math.max(0, h - pt.y - pad)
-  const spaceLeft = Math.max(0, pt.x - pad)
-  const spaceRight = Math.max(0, w - pt.x - pad)
-
-  // Prefer the vertical side with more room (lower pins → open upward)
-  const openUp = spaceAbove >= spaceBelow
+  // After the wide-map nudge the pin sits near the top, so the card opens below it.
+  const openUp = w >= 700 ? spaceBelow < 160 && spaceAbove > spaceBelow : spaceAbove > spaceBelow
   let anchor = openUp ? 'bottom' : 'top'
-  let avail = openUp ? spaceAbove : spaceBelow
-
-  // Nudge horizontally when near left/right edges
-  const nearLeft = spaceLeft < 140
-  const nearRight = spaceRight < 140
-  if (nearLeft && !nearRight) {
+  const half = popupW / 2
+  if (pt.x - half < pad && w - pt.x > pad + 160) {
     anchor = openUp ? 'bottom-left' : 'top-left'
-  } else if (nearRight && !nearLeft) {
+  } else if (pt.x + half > w - pad && pt.x > pad + 160) {
     anchor = openUp ? 'bottom-right' : 'top-right'
   }
+  const avail = openUp ? spaceAbove : spaceBelow
+  // Tip, offset, and a margin so the card stays inside the map, clear of the
+  // site header above the canvas and the footer below it.
+  const maxHeightPx = Math.max(120, Math.min(560, Math.floor(avail - 36)))
+  return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px` }
+}
 
-  // Leave room for tip + close control; keep a usable scroll area
-  const maxHeightPx = Math.max(140, Math.min(Math.floor(avail - 28), Math.floor(h * 0.72), 560))
-  return { anchor, maxHeightPx, maxWidth: 'min(92vw, 480px)' }
+function syncPopupFade(scroller) {
+  if (!scroller) return
+  const more = scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight > 12
+  scroller.closest('.ky-popup')?.classList.toggle('has-more', more)
+}
+
+/** If the card still sticks out of the map, shorten it or shift it back on screen. */
+function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
+  const mapRect = targetMap.getContainer().getBoundingClientRect()
+  const rect = popupEl.getBoundingClientRect()
+  let overflowY = 0
+  if (rect.bottom > mapRect.bottom - 6) overflowY = Math.max(overflowY, rect.bottom - (mapRect.bottom - 6))
+  if (rect.top < mapRect.top + 6) overflowY = Math.max(overflowY, mapRect.top + 6 - rect.top)
+  if (overflowY > 1 && scroller) {
+    const next = Math.max(120, Math.floor(scroller.clientHeight - overflowY - 2))
+    scroller.style.maxHeight = `${next}px`
+  }
+  const again = popupEl.getBoundingClientRect()
+  let shiftX = 0
+  if (again.left < mapRect.left + 4) shiftX = mapRect.left + 4 - again.left
+  else if (again.right > mapRect.right - 4) shiftX = mapRect.right - 4 - again.right
+  if (shiftX && popup?.setOffset) {
+    const current = popup.getOffset?.()
+    const ox = current && typeof current.x === 'number' ? current.x : 0
+    const oy = current && typeof current.y === 'number' ? current.y : 14
+    popup.setOffset([ox + shiftX, oy])
+  }
 }
 
 let historyIdToSlugCache = null
@@ -1691,6 +1802,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (targetMap === map && shareHash.startsWith('#map/')) {
     history.replaceState(null, '', shareHash)
   }
+  await nudgeCameraForPopup(targetMap, coords)
   const place = popupPlacement(targetMap, coords)
   activePopup = new maplibregl.Popup({
     closeButton: true,
@@ -1729,6 +1841,12 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
       maxH = Math.max(120, Math.floor(place.maxHeightPx - chrome))
     }
     scroller.style.maxHeight = `${maxH}px`
+    scroller.addEventListener('scroll', () => syncPopupFade(scroller), { passive: true })
+    syncPopupFade(scroller)
+    requestAnimationFrame(() => {
+      fitPopupInsideMap(targetMap, activePopup, popupEl, scroller)
+      syncPopupFade(scroller)
+    })
   }
   wireShareButtons(popupEl)
   activePopup.on('close', () => {
@@ -2922,7 +3040,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             }
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
-          ${filmHtml}
+          ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
           ${extras}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
@@ -2934,15 +3052,18 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
         ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: Boolean(film) })}
+        ${filmHtml}
       </div>
       ${timelineReaderBarHtml('bottom')}
     `
+    wireFilmCaptions(reader)
     const sidebar = reader.querySelector('.story-sidebar-photo')
     if (sidebar) AdSlot.mount(sidebar, 'sidebar')
     linkPeopleInBody(reader.querySelector('.story-body'), relatedData, meta.slug, relTitleFor)
     const summaryEl = reader.querySelector('.story-summary')
     if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)
+    applyRouteMapTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
     mountStoryTerritory(reader, meta)
     if (rowItem) {
       // In place: never jump to the bottom of the list. Only nudge if the story start is off-screen.
@@ -3067,7 +3188,29 @@ function storyMatchesFilters(s) {
   return true
 }
 
+function syncTimelineJumpPad() {
+  const bar = document.getElementById('timelineReaderJump')
+  const shown = bar && !bar.hidden
+  const h = shown ? Math.ceil(bar.getBoundingClientRect().height) : 0
+  // The bar is sticky with bottom: 0.85rem, so it covers its height plus that offset.
+  const gap = shown ? Math.ceil(parseFloat(getComputedStyle(bar).bottom) || 0) + 8 : 0
+  document.documentElement.style.setProperty('--timeline-jump-h', `${h}px`)
+  document.documentElement.style.setProperty('--timeline-jump-gap', `${gap}px`)
+}
+
+function watchTimelineJumpPad() {
+  const bar = document.getElementById('timelineReaderJump')
+  if (!bar || bar.dataset.padWatch) return
+  bar.dataset.padWatch = '1'
+  const sync = () => syncTimelineJumpPad()
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(sync).observe(bar)
+  new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
+  window.addEventListener('resize', sync)
+  sync()
+}
+
 function setupTimelineJumpControls() {
+  watchTimelineJumpPad()
   const wire = (id, target) => {
     const btn = document.getElementById(id)
     if (!btn || btn.dataset.ready) return

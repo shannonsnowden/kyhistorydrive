@@ -7,6 +7,32 @@ import { contactLineHtml } from './scripts/contact-reveal.mjs'
 
 const root = dirname(fileURLToPath(import.meta.url))
 
+/** Chrome only treats a track as captions when the file is served as WebVTT. */
+function vttMime() {
+  const set = (req, res, next) => {
+    const path = (req.url || '').split('?')[0]
+    if (path.endsWith('.vtt')) {
+      const write = res.setHeader
+      res.setHeader = function (name, value) {
+        if (String(name).toLowerCase() === 'content-type') {
+          return write.call(this, name, 'text/vtt; charset=utf-8')
+        }
+        return write.call(this, name, value)
+      }
+    }
+    next()
+  }
+  return {
+    name: 'vtt-mime',
+    configureServer(server) {
+      server.middlewares.use(set)
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(set)
+    },
+  }
+}
+
 /** `/privacy` rewrites to the page. `/about` redirects to `/about/`, which serves the page. */
 function privacyPath() {
   const rewrite = (req, res, next) => {
@@ -44,6 +70,7 @@ function privacyPath() {
 export default defineConfig({
   base: '/',
   plugins: [
+    vttMime(),
     privacyPath(),
     {
       name: 'khd-gtag',
