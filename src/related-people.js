@@ -1,4 +1,4 @@
-import { portraitAlt } from './portrait-captions.js'
+import { portraitAlt, creditWithCaption } from './portrait-captions.js'
 
 export { portraitAlt }
 
@@ -134,4 +134,61 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
       break
     }
   }
+}
+
+// ---- Story subject portrait (static /stories/ pages and the map app reader share this) ----
+
+const SAFE_PORTRAIT = { webp: /^\/people\/portraits\/[\w.-]+\.webp$/, jpg: /^\/people\/portraits\/[\w.-]+\.jpg$/ }
+
+/** True when both files are self-hosted portraits (same rule for webp and jpg). */
+export function hasSafePortrait(person) {
+  return SAFE_PORTRAIT.webp.test(String(person?.image?.webp || '')) && SAFE_PORTRAIT.jpg.test(String(person?.image?.jpg || ''))
+}
+
+const commonsFile = (u) =>
+  decodeURIComponent(String(u || '').split('?')[0].split('/').pop() || '')
+    .replace(/^File:/, '')
+    .replace(/_/g, ' ')
+    .toLowerCase()
+
+/**
+ * Main subject of a story: related-people.json maps the person's name to this story, or a
+ * people.json story slug equals (or starts with) the person id. More than one match → skip.
+ * Also skipped when the story photo (sidebar) is the same Commons file as the portrait.
+ * Returns { person, reason }.
+ */
+export function storySubject(relatedData, people, story) {
+  const slug = story?.slug
+  if (!slug || !Array.isArray(people)) return { person: null, reason: '' }
+  const withImage = people.filter(hasSafePortrait)
+  const hits = new Map()
+  for (const [name, target] of Object.entries(relatedData?.people || {})) {
+    if (target !== slug) continue
+    const p = withImage.find((x) => normName(x.name) === normName(name)) || withImage.find((x) => normName(x.name) === rankless(name))
+    if (p) hits.set(p.id, p)
+  }
+  for (const p of withImage) {
+    if ((p.stories || []).some((s) => s === slug && (s === p.id || s.startsWith(`${p.id}-`)))) hits.set(p.id, p)
+  }
+  if (!hits.size) return { person: null, reason: '' }
+  if (hits.size > 1) return { person: null, reason: `ambiguous: ${[...hits.keys()].join('/')}` }
+  const person = [...hits.values()][0]
+  const photoFile = commonsFile(story.photo?.source_url)
+  if (photoFile && person.sourceFile && photoFile === String(person.sourceFile).replace(/_/g, ' ').toLowerCase()) {
+    return { person: null, reason: `${person.id}: same image already in the Photos sidebar`, sidebarSame: person }
+  }
+  return { person, reason: '' }
+}
+
+/** Newspaper-style portrait floated right of the first paragraph; name-first caption with credit. */
+export function storyPortraitHtml(person) {
+  if (!person || !hasSafePortrait(person)) return ''
+  const credit = person.ai ? `AI illustration · ${person.credit || 'Kentucky History Drive'}` : creditWithCaption(person, person.credit || '')
+  return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${esc(credit)}</span></figcaption></figure>`
+}
+
+/** Small round headshot beside the story title (alt text only, no badge). */
+export function titleHeadshotHtml(person) {
+  if (!person || !hasSafePortrait(person)) return ''
+  return `<picture class="story-title-headshot"><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="40" height="40" alt="${esc(portraitAlt(person))}" decoding="async"></picture>`
 }

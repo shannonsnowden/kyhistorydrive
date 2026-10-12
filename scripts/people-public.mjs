@@ -194,7 +194,15 @@ export function publicRecord(person, image, ai) {
     license,
     licenseUrl: ai ? null : shippedLicenseUrl(person),
     stories,
+    // Commons file name only (not the page URL), so story pages can avoid showing the same
+    // image twice (portrait + Photos sidebar). Null for AI illustrations.
+    sourceFile: ai ? null : commonsFileName(person.sourcePage),
   }
+}
+
+function commonsFileName(url) {
+  const m = /\/wiki\/File:([^?#]+)$/.exec(String(url || ''))
+  return m ? decodeURIComponent(m[1]).replace(/_/g, ' ') : null
 }
 
 export function assertPublicPeople(data) {

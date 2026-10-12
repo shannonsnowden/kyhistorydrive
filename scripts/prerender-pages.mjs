@@ -56,8 +56,7 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
-import { portraitsByStorySlug, relatedBlockHtml, portraitAlt } from '../src/related-people.js'
-import { creditWithCaption } from '../src/portrait-captions.js'
+import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml, titleHeadshotHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 
@@ -1376,7 +1375,12 @@ class PrerenderPages {
           <header class="story-head">
             <p class="static-kicker">Timeline story</p>
             <p class="story-card-meta">${metaBits.map((bit) => `<span>${PrerenderPages.escapeHtml(bit)}</span>`).join(' · ')}</p>
-            <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
+            ${(() => {
+              const pick = PrerenderPages.storyPortrait(story, relatedBundle)
+              const shot = titleHeadshotHtml(pick.person || pick.sidebarSame)
+              const h1 = `<h1>${PrerenderPages.escapeHtml(story.title)}</h1>`
+              return shot ? `<div class="story-title-row">${shot}${h1}</div>` : h1
+            })()}
             ${lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''}
           </header>
         </div>
@@ -2112,53 +2116,14 @@ class PrerenderPages {
     return { data, people, portraits: portraitsByStorySlug(data, people.people) }
   }
 
-  /**
-   * Main subject of a story, for the inline portrait. Uses the same data as the 36px headshots:
-   * related-people.json name → own story, or a people.json story slug equal to (or starting with)
-   * the person id. More than one match → skip (no guessing). Skipped too when the sidebar
-   * already shows the same Commons file.
-   */
+  /** Main subject (shared rule in src/related-people.js storySubject). */
   static storyPortrait(story, bundle) {
     if (!bundle?.people?.people) return { person: null, reason: '' }
-    const slug = story.slug
-    // Both sources must be self-hosted portraits (same safe-URL rule for webp and jpg).
-    const safe = (u) => /^\/people\/portraits\/[\w.-]+\.(?:webp|jpg)$/.test(String(u || ''))
-    const withImage = bundle.people.people.filter((p) => safe(p?.image?.jpg) && safe(p?.image?.webp))
-    const norm = (v) => String(v || '').toLowerCase().replace(/\s+/g, ' ').trim()
-    const rankless = (v) => norm(v).replace(/^(col|colonel|gen|general|maj|major|capt|captain|dr|sir|rev)\.?\s+/, '')
-    const hits = new Map()
-    for (const [name, target] of Object.entries(bundle.data?.people || {})) {
-      if (target !== slug) continue
-      const p = withImage.find((x) => norm(x.name) === norm(name)) || withImage.find((x) => norm(x.name) === rankless(name))
-      if (p) hits.set(p.id, p)
-    }
-    for (const p of withImage) {
-      if ((p.stories || []).some((s) => s === slug && (s === p.id || s.startsWith(`${p.id}-`)))) hits.set(p.id, p)
-    }
-    if (!hits.size) return { person: null, reason: '' }
-    if (hits.size > 1) return { person: null, reason: `ambiguous: ${[...hits.keys()].join('/')}` }
-    const person = [...hits.values()][0]
-    const src = (bundle.sourcePeople || []).find((p) => p.id === person.id)
-    const file = (u) => decodeURIComponent(String(u || '').split('?')[0].split('/').pop() || '').replace(/^File:/, '').toLowerCase()
-    const photoUrl = story.photo?.source_url
-    if (photoUrl && src?.sourcePage && file(photoUrl) === file(src.sourcePage)) {
-      return { person: null, reason: `${person.id}: same image already in the Photos sidebar` }
-    }
-    return { person, reason: '' }
+    return storySubject(bundle.data, bundle.people.people, story)
   }
 
-  /** Newspaper-style portrait floated right of the first paragraph; caption keeps the credit. */
   static storyPortraitHtml(person) {
-    if (!person) return ''
-    if (!/^\/people\/portraits\/[\w.-]+\.webp$/.test(person.image?.webp || '') || !/^\/people\/portraits\/[\w.-]+\.jpg$/.test(person.image?.jpg || '')) return ''
-    const esc = PrerenderPages.escapeHtml
-    const credit = person.ai
-      ? `AI illustration · ${person.credit || 'Kentucky History Drive'}`
-      : creditWithCaption(person, person.credit || '')
-    return `<figure class="story-portrait">
-            <picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" decoding="async"></picture>
-            <figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${esc(credit)}</span></figcaption>
-          </figure>`
+    return storyPortraitHtml(person)
   }
 
   static relatedPeopleSection(story, all, relatedBundle) {
