@@ -1031,7 +1031,9 @@ html[data-hp-theme="light"] .era-other {
 }
 @media (min-width: 720px) {
   .related-list {
-    grid-template-columns: repeat(2, 1fr);
+    /* minmax(0, 1fr) lets a long title wrap inside the column instead of
+       stretching the card and getting clipped at the story column edge. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
 }
@@ -1096,6 +1098,10 @@ a.related-card:focus-visible {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   overflow: hidden;
+  max-width: 100%;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
   color: var(--accent);
   font-weight: 600;
   font-size: 1.05rem;

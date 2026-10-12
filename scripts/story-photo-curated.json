@@ -242,7 +242,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Nyttend · Wikimedia Commons · Public domain",
-    "year": null
+    "year": null,
+    "cardThumb": false
   },
   "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
     "ext": "jpg",

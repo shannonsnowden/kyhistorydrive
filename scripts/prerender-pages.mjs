@@ -1116,7 +1116,7 @@ class PrerenderPages {
 `
   }
 
-  /** Specific subject tags, then county, then distance. Title is only a tiebreak. */
+  /** Two or more specific tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
     return pickRelatedStories(story, all, excludeSlugs)
   }
@@ -1722,7 +1722,7 @@ class PrerenderPages {
     const relatedSlugs = [...related[0].matchAll(/<li class="related-story">[\s\S]*?href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
     const expectedRelated = PrerenderPages.relatedStories(story, all, routeForNearby?.relatedStories || []).map((item) => item.slug)
     if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
-      throw new Error(`prerender: ${urlPath} related stories are not ranked by subject tags, county, then distance`)
+      throw new Error(`prerender: ${urlPath} related stories are not ranked by two or more subject tags, then county, then distance`)
     }
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
