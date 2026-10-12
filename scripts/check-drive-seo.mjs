@@ -13,7 +13,9 @@ import path from 'node:path'
 const i = process.argv.indexOf('--dist')
 const dist = path.resolve(i > 0 ? process.argv[i + 1] : 'dist')
 const root = path.join(dist, 'drives')
-const decode = (s) => s.replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').trim()
+const ENT = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#x27;': "'", '&#39;': "'" }
+// One-pass entity decode, used only to measure lengths.
+const decode = (s) => s.replace(/&(?:amp|lt|gt|quot|#x27|#39);/g, (m) => ENT[m]).trim()
 const sitemap = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8')
 const errors = []
 const seenT = new Map(), seenD = new Map()

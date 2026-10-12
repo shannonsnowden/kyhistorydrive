@@ -59,7 +59,15 @@ Object.assign(DESCS, {
   'wild-turkey-loop-2': "From the Ripys' 1891 distillery at Tyrone to Lawrenceburg's Kaufman's Station and Shaker Village of Pleasant Hill, home to a Shaker community from 1806 to 1910.",
 })
 
-const decode = (s) => String(s).replace(/<[^>]+>/g, '').replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()
+// Page text -> plain text. Entities are decoded in one pass (so "&amp;lt;" stays "&lt;"), then tags are
+// stripped repeatedly until nothing changes, so no tag can survive by being split across a strip.
+// Every result is re-escaped with esc() / escText() or serialized by ld() before it reaches HTML.
+const ENT = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#x27;': "'", '&#39;': "'" }
+function decode(s) {
+  let out = String(s).replace(/&(?:amp|lt|gt|quot|#x27|#39);/g, (m) => ENT[m])
+  for (let prev; prev !== out;) { prev = out; out = out.replace(/<[^<>]*>/g, '') }
+  return out.replace(/[<>]/g, '').replace(/\s+/g, ' ').trim()
+}
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;' }[c]))
 const escText = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
 const ld = (o) => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`
