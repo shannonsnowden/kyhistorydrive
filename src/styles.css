@@ -1799,6 +1799,8 @@ html[data-hp-theme="light"] .era-other {
   aspect-ratio: 1;
   border-radius: 50%;
   background: transparent;
+  /* 2px of the card background between the accent ring and the artwork's gold rim. */
+  padding: 2px;
   border: 2px solid var(--accent);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -2682,6 +2684,8 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 .brand-logo,
 .hp-page .brand-logo {
   background: transparent;
+  /* 2px of the header background between the accent ring and the artwork's gold rim. */
+  padding: 2px;
   border: 2px solid var(--accent);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
