@@ -501,6 +501,30 @@ export function routeMapJsonLd(route, { canonical, title }) {
 const PHONE_MQ = '(max-width: 699px)'
 const DESK_MQ = '(min-width: 700px)'
 
+/**
+ * http(s) on this site or the current page, or a relative path.
+ * Rejects javascript:, data:, and protocol-relative URLs.
+ * Self-contained so the no-module theme script can embed the same function.
+ */
+export function safeAssetUrl(value) {
+  const raw = typeof value === 'string' ? value.trim() : ''
+  if (!raw || /[\u0000-\u001f\u007f\\<>"'`]/.test(raw)) return ''
+  if (raw.startsWith('//')) return ''
+  let parsed
+  try {
+    parsed = new URL(raw, 'https://kyhistorydrive.com')
+  } catch {
+    return ''
+  }
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return ''
+  const allowedOrigins = ['https://kyhistorydrive.com', 'http://kyhistorydrive.com']
+  const pageOrigin = typeof location !== 'undefined' && location.origin ? location.origin : ''
+  const allowed = allowedOrigins.includes(parsed.origin) || (pageOrigin !== '' && parsed.origin === pageOrigin)
+  if (!allowed) return ''
+  if (!/^[a-z][a-z0-9+.-]*:/i.test(raw)) return raw
+  return parsed.href
+}
+
 function paintStoryPinPictures(mode) {
   document.querySelectorAll('picture.story-pin-picture').forEach((pic) => {
     pic.querySelectorAll('source[data-theme]').forEach((src) => {
@@ -509,8 +533,10 @@ function paintStoryPinPictures(mode) {
     })
     const img = pic.querySelector('img')
     if (!img) return
-    const next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-    if (next) img.setAttribute('src', next)
+    const next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+    }
     img.remove()
     pic.appendChild(img)
   })
@@ -533,20 +559,25 @@ export function applyRouteMapTheme(theme) {
     })
     const img = pic.querySelector('img')
     if (!img) return
-    const next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-    if (next) img.setAttribute('src', next)
+    const next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+    }
     img.remove()
     pic.appendChild(img)
   })
   document.querySelectorAll('a.route-map-full-link').forEach((link) => {
-    const next = link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light')
-    if (next) link.setAttribute('href', next)
+    const next = safeAssetUrl(link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) link.setAttribute('href', next)
+    }
   })
 }
 
 export function routeMapThemeScript() {
   return `<script>
       (function () {
+        ${safeAssetUrl.toString()}
         var phone = '(max-width: 699px)'
         var desk = '(min-width: 700px)'
         function apply(theme) {
@@ -558,8 +589,10 @@ export function routeMapThemeScript() {
             })
             var img = pic.querySelector('img')
             if (!img) return
-            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-            if (next) img.setAttribute('src', next)
+            var next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+            }
             img.remove()
             pic.appendChild(img)
           })
@@ -572,14 +605,18 @@ export function routeMapThemeScript() {
             })
             var img = pic.querySelector('img')
             if (!img) return
-            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-            if (next) img.setAttribute('src', next)
+            var next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+            }
             img.remove()
             pic.appendChild(img)
           })
           document.querySelectorAll('a.route-map-full-link').forEach(function (link) {
-            var next = link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light')
-            if (next) link.setAttribute('href', next)
+            var next = safeAssetUrl(link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) link.setAttribute('href', next)
+            }
           })
         }
         function run() { apply(document.documentElement.getAttribute('data-hp-theme') || 'dark') }
