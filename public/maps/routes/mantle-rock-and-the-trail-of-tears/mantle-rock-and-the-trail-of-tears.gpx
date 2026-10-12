@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Mantle Rock and the Trail of Tears, 1838–39 (approximate)</name>
+    <desc>Approximate waypoints for Mantle Rock and the Trail of Tears, 1838–39. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/mantle-rock-and-the-trail-of-tears/</desc>
+    <link href="https://kyhistorydrive.com/stories/mantle-rock-and-the-trail-of-tears/"><text>Mantle Rock and the Trail of Tears, 1838–39</text></link>
+  </metadata>
+  <wpt lat="36.64" lon="-87.17">
+    <name>Enters Kentucky on the Port Royal Road (Gray's Inn camp)</name>
+    <desc>near Guthrie. Todd Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="36.857" lon="-87.493">
+    <name>Hopkinsville camp, rations; burials of Chiefs Whitepath and Fly Smith (Trail of Tears Commemorative Park)</name>
+    <desc>Hopkinsville. Christian Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.109" lon="-87.882">
+    <name>Big Spring camp</name>
+    <desc>Princeton. Caldwell Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.264" lon="-88.243">
+    <name>Salem (Salem–Golconda Road begins)</name>
+    <desc>Salem. Livingston Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.360" lon="-88.432">
+    <name>Mantle Rock (winter camps strung along the road)</name>
+    <desc>near Joy, off KY 133. Livingston Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.372" lon="-88.476">
+    <name>Berry's Ferry, Ohio River crossing</name>
+    <desc>opposite Golconda, IL (near Rondeau Island). Livingston Co., KY / Pope Co., IL. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.4" lon="-89.47">
+    <name>Mississippi crossing (Green's / Willard's ferries area)</name>
+    <desc>near Cape Girardeau, MO. Union/Alexander Co., IL – Cape Girardeau Co., MO. Approximate.</desc>
+  </wpt>
+  <rte>
+    <name>Mantle Rock and the Trail of Tears, 1838–39 (approximate)</name>
+    <desc>Approximate waypoints for Mantle Rock and the Trail of Tears, 1838–39. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/mantle-rock-and-the-trail-of-tears/</desc>
+    <rtept lat="36.64" lon="-87.17">
+      <name>Enters Kentucky on the Port Royal Road (Gray's Inn camp)</name>
+      <desc>near Guthrie. Todd Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="36.857" lon="-87.493">
+      <name>Hopkinsville camp, rations; burials of Chiefs Whitepath and Fly Smith (Trail of Tears Commemorative Park)</name>
+      <desc>Hopkinsville. Christian Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.109" lon="-87.882">
+      <name>Big Spring camp</name>
+      <desc>Princeton. Caldwell Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.264" lon="-88.243">
+      <name>Salem (Salem–Golconda Road begins)</name>
+      <desc>Salem. Livingston Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.360" lon="-88.432">
+      <name>Mantle Rock (winter camps strung along the road)</name>
+      <desc>near Joy, off KY 133. Livingston Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.372" lon="-88.476">
+      <name>Berry's Ferry, Ohio River crossing</name>
+      <desc>opposite Golconda, IL (near Rondeau Island). Livingston Co., KY / Pope Co., IL. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.4" lon="-89.47">
+      <name>Mississippi crossing (Green's / Willard's ferries area)</name>
+      <desc>near Cape Girardeau, MO. Union/Alexander Co., IL – Cape Girardeau Co., MO. Approximate.</desc>
+    </rtept>
+  </rte>
+</gpx>

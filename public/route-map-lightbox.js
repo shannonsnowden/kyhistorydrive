@@ -45,16 +45,50 @@
     return document.documentElement.getAttribute('data-hp-theme') === 'light' ? 'light' : 'dark'
   }
 
+  function safeAssetUrl(value) {
+    var raw = typeof value === 'string' ? value.trim() : ''
+    if (!raw || /[\u0000-\u001f\u007f\\<>"'`]/.test(raw)) return ''
+    if (raw.startsWith('//')) return ''
+    var parsed
+    try {
+      parsed = new URL(raw, 'https://kyhistorydrive.com')
+    } catch (err) {
+      return ''
+    }
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return ''
+    var allowedOrigins = ['https://kyhistorydrive.com', 'http://kyhistorydrive.com']
+    var pageOrigin = typeof location !== 'undefined' && location.origin ? location.origin : ''
+    var allowed = allowedOrigins.indexOf(parsed.origin) !== -1 || (pageOrigin !== '' && parsed.origin === pageOrigin)
+    if (!allowed) return ''
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(raw)) return raw
+    return parsed.href
+  }
+
+  function zoomUrl(value) {
+    var next = safeAssetUrl(value)
+    if (next) {
+      if (!/["&<>]/.test(next)) return next
+    }
+    return ''
+  }
+
   function zoomChain(frame) {
     var mode = themeMode()
     var urls = []
     ;['avif', 'webp'].forEach(function (ext) {
-      var url = frame.getAttribute('data-zoom-' + mode + '-' + ext) || ''
+      var url = zoomUrl(frame.getAttribute('data-zoom-' + mode + '-' + ext) || '')
       if (url && urls.indexOf(url) === -1) urls.push(url)
     })
-    var fallback = frame.getAttribute('data-fallback') || ''
+    var fallback = zoomUrl(frame.getAttribute('data-fallback') || '')
     if (fallback && urls.indexOf(fallback) === -1) urls.push(fallback)
     return urls
+  }
+
+  function setZoomSrc(url) {
+    var next = safeAssetUrl(url)
+    if (next) {
+      if (!/["&<>]/.test(next)) img.src = next
+    }
   }
 
   function makeButton(label, className, extra) {
@@ -502,7 +536,7 @@
       if (gen !== loadGen) return
       index += 1
       if (index < urls.length) {
-        img.src = urls[index]
+        setZoomSrc(urls[index])
         return
       }
       dialog.setAttribute('aria-busy', 'false')
@@ -519,7 +553,7 @@
       ok()
       return
     }
-    img.src = urls[0]
+    setZoomSrc(urls[0])
   }
 
   function open(frame, opener) {

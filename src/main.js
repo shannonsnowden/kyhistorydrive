@@ -15,7 +15,17 @@ import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProt
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
-import { applyRouteMapTheme, routeMapSectionHtml } from './route-maps.js'
+import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
+import {
+  citeBoxHtml,
+  correctionHtml,
+  markerRecords,
+  nearbyHtml,
+  photoCreditHtml,
+  resolveArticleDates,
+  storyCanonicalUrl,
+  wireCiteBoxes,
+} from './story-tools.js'
 import { storyPinLinkHtml } from './story-pin.js'
 import './territory.css'
 import {
@@ -1154,14 +1164,21 @@ function photosHtml(photos) {
     .map((p) => {
       const title = escapeHtml(p.title || 'Historic photo')
       const year = p.year ? escapeHtml(String(p.year)) : ''
-      const credit = escapeHtml(p.attribution || p.source_label || p.credit || '')
       const href = escapeHtml(p.source_url || p.image_url)
       const img = escapeHtml(p.image_url)
-      return `<a class="historic-photo-card" href="${href}" target="_blank" rel="noopener noreferrer">
-        <img src="${img}" alt="${title}" loading="lazy" />
-        <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
-        ${credit ? `<span class="historic-photo-attr">Source: ${credit}</span>` : ''}
-      </a>`
+      const creditLine = photoCreditHtml(p, { block: false })
+      const label = escapeHtml(
+        `Open ${p.source_label || p.source || p.credit || 'photo source'}: ${p.title || 'historic photo'} (opens in a new tab)`,
+      )
+      return `<figure class="historic-photo-card">
+        <a href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}">
+          <img src="${img}" alt="${title}" loading="lazy" />
+        </a>
+        <figcaption>
+          <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
+          ${creditLine}
+        </figcaption>
+      </figure>`
     })
     .join('')
   return `<div class="historic-photos"><div class="historic-photos-label">Historic photos</div><div class="historic-photos-grid">${cards}</div></div>`
@@ -1250,9 +1267,13 @@ function wikipediaTitleFromUrl(url) {
 }
 
 function stripHtmlCredits(html) {
-  return String(html || '')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
+  let text = String(html || '').replace(/<br\s*\/?>/gi, ' ')
+  let prev
+  do {
+    prev = text
+    text = text.replace(/<[^>]+>/g, '')
+  } while (text !== prev)
+  return text
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
@@ -1526,8 +1547,6 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
 function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
-  const sourceLabel = escapeHtml(photo.source_label || photo.credit || '')
-  const attribution = escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
   const year = photo.year ? escapeHtml(String(photo.year)) : ''
 
   const bits = [
@@ -1562,7 +1581,7 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
-      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>`
+      ${photoCreditHtml(photo)}`
   } else {
     thumb = `<p class="story-sidebar-photo-attr muted">No matching thumbnail yet — use a source link above.</p>`
   }
@@ -2719,6 +2738,16 @@ async function loadStoryBody(slug) {
   return res.json()
 }
 
+let storyDatesCache = null
+async function loadStoryDates() {
+  if (!storyDatesCache) {
+    storyDatesCache = fetch('/content/story-dates.json')
+      .then((res) => (res.ok ? res.json() : {}))
+      .catch(() => ({}))
+  }
+  return storyDatesCache
+}
+
 function primaryStoryTag(story) {
   const tags = story.tags || []
   const skip = new Set(['kentucky', 'ky'])
@@ -2984,7 +3013,9 @@ function timelineHeaderOffset() {
 
 function timelineItemFor(slug) {
   if (!slug) return null
-  const esc = window.CSS?.escape ? window.CSS.escape(slug) : String(slug).replace(/"/g, '\\"')
+  const esc = window.CSS?.escape
+    ? window.CSS.escape(slug)
+    : String(slug).replace(/\\/g, '\\\\').replace(/"/g, '\\"')
   return document.querySelector(`#timelineList .timeline-item[data-slug="${esc}"]`)
 }
 
@@ -3096,6 +3127,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     el.classList.toggle('selected', el.dataset.slug === meta.slug)
   })
   try {
+    const markerFeaturesPromise = loadLayerFeatures('markers')
     await loadHistoricPhotoData()
     const s = await loadStoryBody(meta.slug)
     let historyId = meta.historyId || null
@@ -3166,7 +3198,12 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       storyPhoto: s.photo || null,
     })
     const relatedData = await loadRelatedPeople()
-    const relTitles = Object.fromEntries(((await loadStories()).stories || []).map((x) => [x.slug, x.title]))
+    const storyIndex = await loadStories()
+    const markerFeatures = await markerFeaturesPromise
+    const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
+    const dateFile = (await loadStoryDates())[meta.slug] || {}
+    const articleDates = resolveArticleDates(s, dateFile)
+    const canonical = storyCanonicalUrl(meta.slug)
     const relTitleFor = (sl) => relTitles[sl]
     const sidebarPhoto = await resolveStorySidebarPhoto({
       title: s.title,
@@ -3211,6 +3248,28 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
           ${extras}
+          ${nearbyHtml(
+            { slug: meta.slug, title: s.title, lat: meta.lat ?? s.lat, lon: meta.lon ?? s.lon },
+            storyIndex.stories,
+            {
+              headingLevel: 3,
+              markers: markerRecords(markerFeatures),
+              limit: 3,
+              excludeSlugs: [
+                ...(relatedData?.related?.[meta.slug] || []).map((item) => item.slug),
+                ...(routeBySlug(meta.slug)?.relatedStories || []),
+              ],
+              excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
+            },
+          )}
+          ${citeBoxHtml({
+            title: s.title,
+            url: canonical,
+            published: articleDates.published,
+            modified: articleDates.modified,
+            headingLevel: 3,
+          })}
+          ${correctionHtml({ title: s.title, url: canonical })}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
           ${
             mapHash
@@ -3231,6 +3290,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const summaryEl = reader.querySelector('.story-summary')
     if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)
+    wireCiteBoxes(reader)
     applyRouteMapTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
     mountStoryTerritory(reader, meta)
     if (rowItem) {
