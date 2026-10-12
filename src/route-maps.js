@@ -34,7 +34,7 @@ const wp = (where, stop, geo = null, conjectural = false) => ({ where, stop, geo
 export const ROUTE_MAPS = [
   {
     slug: 'athiamiowee-the-warriors-path-through-kentucky',
-    base: 'warriors-path-map',
+    base: 'athiamiowee-the-warriors-path-through-kentucky',
     phoneCrop: true,
     era: 'before 1674 to the 1770s',
     alt: "Map of the Warriors' Path from the Ohio River at the Scioto south past Eskippakithiki to Cumberland Gap and Cherokee towns.",
@@ -122,7 +122,7 @@ export const ROUTE_MAPS = [
     caption:
       'Solid: route north of the Ohio (approximate) · Dotted: Kentucky and return (conjectural) · Light dashes: side trip to Pickawillany. Map: Kentucky History Drive.',
     sentence:
-      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Kentucky River and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
+      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Red River, which he called the little Cuttaway, and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
     distance:
       'About 350 miles from Old Town to Lower Shawneetown, 250 for the Pickawillany round trip, and about 480 from Lower Shawneetown through Kentucky to the Yadkin, measured on the map line.',
     stopsLabel: 'Approximate stops, in order of travel',
@@ -138,7 +138,7 @@ export const ROUTE_MAPS = [
       wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.71, -83]),
       wp('Lewis, Mason, and Bracken counties, Kentucky', 'down the southeast side of the Ohio', null, true),
       wp('near Grant and Owen counties, Kentucky', 'lower Salt Lick Creek, disputed', [38.55, -84.7], true),
-      wp('Kentucky River below Frankfort, Owen, Henry, and Franklin counties, Kentucky', 'little Cuttaway', [38.33, -84.78], true),
+      wp('Red River near Clay City, Clark, Powell, and Estill counties, Kentucky', 'little Cuttaway (Red River)', [37.84, -84.02], true),
       wp('Bluegrass edge to the eastern Kentucky coalfield, Clark and Powell counties to Letcher County, Kentucky, and Wise County, Virginia', 'southeast through the mountains', null, true),
       wp('Bluefield–Princeton area, Mercer County, West Virginia, and Tazewell County, Virginia', 'Bluestone River', [37.33, -81.2], true),
       wp('near Hinton, Summers County, West Virginia', 'New River', [37.56, -80.85], true),

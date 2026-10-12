@@ -1,112 +1,129 @@
 #!/usr/bin/env node
 /**
- * Fails the build when customHttp.yml drops a security header or the
- * /feed.xml RSS type, or when amplify.yml grows a duplicate customHeaders
- * block. The /about 301 stays in amplify.yml customRules.
+ * Fails the build when a customHttp.yml pattern drops one of the six security
+ * headers or changes its value. Specific Amplify patterns do not inherit '**',
+ * so each block is checked on its own. Fixtures prove a weakened HSTS max-age
+ * in one block, and a /feed.xml block missing X-Frame-Options, both fail.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const failures = []
-const fail = (msg) => {
-  failures.push(msg)
-  console.error(`check-security-headers: ${msg}`)
+const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+export const SECURITY_HEADERS = [
+  ['Strict-Transport-Security', 'max-age=31536000; includeSubDomains'],
+  ['X-Content-Type-Options', 'nosniff'],
+  ['Referrer-Policy', 'strict-origin-when-cross-origin'],
+  ['Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'],
+  ['X-Frame-Options', 'SAMEORIGIN'],
+  ['Content-Security-Policy-Report-Only', CSP],
+]
+
+export function patternBlocks(text) {
+  const start = text.indexOf('customHeaders:\n')
+  if (start === -1) return []
+  let body = text.slice(start)
+  const magazine = body.indexOf('\n# Magazine homepage')
+  if (magazine !== -1) body = body.slice(0, magazine)
+  return body.split('\n  - pattern:').slice(1).map((part) => {
+    const nl = part.indexOf('\n')
+    const pattern = (nl === -1 ? part : part.slice(0, nl)).trim()
+    return { pattern, text: part }
+  })
+}
+
+function headerValues(block, key) {
+  const re = new RegExp(`- key: '${key}'\\n\\s*value: (?:'([^']*)'|"([^"]*)")`, 'g')
+  const values = []
+  for (const match of block.matchAll(re)) values.push(match[1] ?? match[2])
+  return values
+}
+
+/** Problems for the six exact security headers. Empty means every block is complete. */
+export function checkPatternBlocks(text) {
+  const blocks = patternBlocks(text)
+  if (!blocks.length) return ['customHttp has no pattern blocks']
+  const problems = []
+  for (const { pattern, text: block } of blocks) {
+    const where = pattern || '(unnamed pattern)'
+    for (const [key, expected] of SECURITY_HEADERS) {
+      const values = headerValues(block, key)
+      if (values.length === 0) problems.push(`${where} is missing ${key}`)
+      else if (values.length !== 1 || values[0] !== expected) {
+        problems.push(`${where} ${key} is ${JSON.stringify(values[0])}, expected ${JSON.stringify(expected)}`)
+      }
+    }
+    const policy = headerValues(block, 'Content-Security-Policy-Report-Only')[0]
+    if (policy && policy.length > 1783) {
+      problems.push(`${where} CSP value is ${policy.length} characters; CloudFront custom headers stop at 1783`)
+    }
+  }
+  return problems
 }
 
 function read(name) {
   return fs.readFileSync(path.join(root, name), 'utf8')
 }
 
-function headerBlock(text, name) {
-  const start = text.indexOf('customHeaders:\n')
-  if (start === -1) {
-    fail(`${name} has no customHeaders block`)
-    return ''
+function runFixtures() {
+  const hsts = checkPatternBlocks(read('scripts/fixtures/security-headers/hsts-max-age-300.yml'))
+  const hstsHit = hsts.filter((problem) => problem.includes("'/data/layers/**'") && problem.includes('Strict-Transport-Security') && problem.includes('max-age=300'))
+  if (hstsHit.length !== 1 || hsts.length !== 1) {
+    throw new Error(`fixture hsts-max-age-300: expected one HSTS failure, got ${JSON.stringify(hsts)}`)
   }
-  let block = text.slice(start)
-  const magazine = block.indexOf('\n# Magazine homepage')
-  if (magazine !== -1) block = block.slice(0, magazine)
-  return block.trim()
-}
-
-const amplify = read('amplify.yml')
-const customHttp = read('customHttp.yml')
-if (amplify.includes('customHeaders:')) fail('amplify.yml must not contain customHeaders; headers live only in customHttp.yml')
-const block = headerBlock(customHttp, 'customHttp.yml')
-const required = [
-  "key: 'Strict-Transport-Security'",
-  "value: 'max-age=31536000; includeSubDomains'",
-  "key: 'X-Content-Type-Options'",
-  "value: 'nosniff'",
-  "key: 'Referrer-Policy'",
-  "value: 'strict-origin-when-cross-origin'",
-  "key: 'Permissions-Policy'",
-  "value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'",
-  "key: 'X-Frame-Options'",
-  "value: 'SAMEORIGIN'",
-  "key: 'Content-Security-Policy-Report-Only'",
-  "frame-ancestors 'self'",
-  "object-src 'none'",
-  'https://*.googletagmanager.com',
-  'https://*.google-analytics.com',
-  'https://region1.google-analytics.com',
-  'https://pagead2.googlesyndication.com',
-  'https://fundingchoicesmessages.google.com',
-  'https://*.googlesyndication.com',
-  'https://*.g.doubleclick.net',
-  'https://*.adtrafficquality.google',
-  'https://basemaps.cartocdn.com',
-  'https://*.basemaps.cartocdn.com',
-  'https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com',
-  'https://upload.wikimedia.org',
-  'https://media.historypin.org',
-  'https://en.wikipedia.org',
-  'https://commons.wikimedia.org',
-  "value: 'public, max-age=0, s-maxage=60, must-revalidate'",
-]
-for (const needle of required) {
-  if (!block.includes(needle)) fail(`missing ${needle}`)
-}
-
-const csp = block.match(/Content-Security-Policy-Report-Only'\n\s*value: "([^"]+)"/)
-if (!csp) fail('could not read the report-only policy')
-else {
-  const policy = csp[1]
-  if (policy.length > 1783) fail(`CSP value is ${policy.length} characters; CloudFront custom headers stop at 1783`)
-  for (const directive of ['script-src', 'img-src', 'frame-src', 'connect-src']) {
-    const part = policy.split('; ').find((item) => item.startsWith(`${directive} `))
-    if (!part || !part.includes('https://*.adtrafficquality.google')) {
-      fail(`${directive} is missing https://*.adtrafficquality.google`)
-    }
+  const feed = checkPatternBlocks(read('scripts/fixtures/security-headers/feed-missing-x-frame-options.yml'))
+  const feedHit = feed.filter((problem) => problem.includes("'/feed.xml'") && problem.includes('missing X-Frame-Options'))
+  if (feedHit.length !== 1 || feed.length !== 1) {
+    throw new Error(`fixture feed-missing-x-frame-options: expected one missing X-Frame-Options, got ${JSON.stringify(feed)}`)
   }
+  const valid = checkPatternBlocks(read('scripts/fixtures/security-headers/valid.yml'))
+  if (valid.length) throw new Error(`fixture valid.yml should pass: ${valid.join('; ')}`)
 }
 
-if (/preload/.test(block)) fail('HSTS must not include preload')
-if (/geolocation=\(self\)/.test(block)) fail('geolocation=(self) is set, but the site does not use geolocation')
-if (/key:\s*'Content-Security-Policy'\s*$/m.test(block)) {
-  fail('enforcing Content-Security-Policy is present; this baseline is report-only')
-}
+function main() {
+  const failures = []
+  const fail = (msg) => {
+    failures.push(msg)
+    console.error(`check-security-headers: ${msg}`)
+  }
+  try {
+    runFixtures()
+  } catch (err) {
+    fail(err.message)
+  }
 
-const about = /source:\s*'\/about'\s*\n\s*target:\s*'\/about\/'\s*\n\s*status:\s*'301'/
-if (!about.test(amplify)) fail('amplify.yml is missing the /about 301')
+  const amplify = read('amplify.yml')
+  const customHttp = read('customHttp.yml')
+  if (amplify.includes('customHeaders:')) fail('amplify.yml must not contain customHeaders; headers live only in customHttp.yml')
+  for (const problem of checkPatternBlocks(customHttp)) fail(problem)
 
-const feedAt = customHttp.indexOf("pattern: '/feed.xml'")
-if (feedAt === -1) fail('customHttp.yml is missing /feed.xml')
-else {
-  const next = customHttp.indexOf('\n  - pattern:', feedAt + 10)
-  const feed = customHttp.slice(feedAt, next === -1 ? undefined : next)
-  if (!feed.includes("value: 'application/rss+xml; charset=utf-8'")) {
+  if (/preload/.test(customHttp)) fail('HSTS must not include preload')
+  if (/geolocation=\(self\)/.test(customHttp)) fail('geolocation=(self) is set, but the site does not use geolocation')
+  if (/key:\s*'Content-Security-Policy'\s*$/m.test(customHttp)) {
+    fail('enforcing Content-Security-Policy is present; this baseline is report-only')
+  }
+  if (!customHttp.includes("value: 'public, max-age=0, s-maxage=60, must-revalidate'")) {
+    fail('missing value: \'public, max-age=0, s-maxage=60, must-revalidate\'')
+  }
+
+  const about = /source:\s*'\/about'\s*\n\s*target:\s*'\/about\/'\s*\n\s*status:\s*'301'/
+  if (!about.test(amplify)) fail('amplify.yml is missing the /about 301')
+
+  const blocks = patternBlocks(customHttp)
+  const feed = blocks.find((block) => block.pattern === "'/feed.xml'")
+  if (!feed) fail('customHttp.yml is missing /feed.xml')
+  else if (!feed.text.includes("value: 'application/rss+xml; charset=utf-8'")) {
     fail('/feed.xml is not application/rss+xml; charset=utf-8')
   }
-  if (!feed.includes("key: 'Strict-Transport-Security'") || !feed.includes("key: 'Content-Security-Policy-Report-Only'")) {
-    fail('/feed.xml pattern drops the security headers')
+
+  if (failures.length) {
+    console.error(`check-security-headers: ${failures.length} problem(s)`)
+    process.exit(1)
   }
+  console.log(`check-security-headers: ${blocks.length} patterns each have the six security headers; fixtures caught a weak HSTS block and a /feed.xml block missing X-Frame-Options`)
 }
 
-if (failures.length) {
-  console.error(`check-security-headers: ${failures.length} problem(s)`)
-  process.exit(1)
-}
-console.log('check-security-headers: customHttp.yml has the headers; amplify.yml keeps the /about 301')
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+if (isMain) main()
