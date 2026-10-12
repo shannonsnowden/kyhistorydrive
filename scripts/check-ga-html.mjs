@@ -16,6 +16,8 @@ function htmlFiles(dir, out = []) {
   if (!fs.existsSync(dir)) return out
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
     const file = path.join(dir, ent.name)
+    // Preview branch only: /drive-preview/ is analytics-free by design (location privacy).
+    if (ent.isDirectory() && path.relative(dist, file) === 'drive-preview') continue
     if (ent.isDirectory()) htmlFiles(file, out)
     else if (ent.name.endsWith('.html')) out.push(file)
   }

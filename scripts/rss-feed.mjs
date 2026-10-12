@@ -382,6 +382,8 @@ function syncRobots(dist, plan) {
   const file = path.join(dist, 'robots.txt')
   if (!fs.existsSync(file)) throw new Error('rss: dist/robots.txt is missing (vite build copies public/robots.txt)')
   let text = fs.readFileSync(file, 'utf8')
+  // Preview branch (mockup/licking-valley-drive only): a block-all robots.txt is kept as-is.
+  if (/^Disallow: \/\s*$/m.test(text) && !/^Allow:/m.test(text)) return
   if (!text.includes('Allow: /feed.xml')) {
     text = text.replaceAll('Allow: /\n', 'Allow: /\nAllow: /feed.xml\n')
   }
@@ -729,6 +731,8 @@ function validateHtml(dist) {
 
 function validateRobots(dist, plan) {
   const text = fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8')
+  // Preview branch (mockup/licking-valley-drive only): a block-all robots.txt is kept as-is.
+  if (/^Disallow: \/\s*$/m.test(text) && !/^Allow:/m.test(text)) return
   if (!text.includes('Allow: /feed.xml')) throw new Error('rss: robots.txt is missing Allow: /feed.xml')
   for (const layer of plan.layers) {
     const line = `Allow: ${layer.outPath}`
