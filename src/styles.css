@@ -1767,8 +1767,7 @@ html[data-hp-theme="light"] .era-other {
 
 
 /* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2).
-   Light-mode decorative ring is amber via --accent. Dark mode keeps the #194 gold ring.
-   Navy stays inside the seal artwork (and the header logo ring), not this border. */
+   Decorative rings use --accent in both themes. Navy stays inside the seal artwork. */
 .about-seals {
   margin: 0.5rem 0 1.5rem;
   padding: 1.1rem 1rem 1rem;
@@ -1800,7 +1799,7 @@ html[data-hp-theme="light"] .era-other {
   aspect-ratio: 1;
   border-radius: 50%;
   background: transparent;
-  border: 2px solid #c9a227;
+  border: 2px solid var(--accent);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 html[data-hp-theme="light"] .about-seal {
@@ -2679,16 +2678,16 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 }
 /* Header seal rotates per page load between khd-logo.png (black), khd-logo-c.png (cream center,
    navy band) and khd-logo-c2.png (cream center, gold rim edge). Inline script after #brandLogo; the
-   localStorage counter is khd-logo-n. One gold border and shadow suit all three on both headers. */
+   localStorage counter is khd-logo-n. The ring is --accent in both themes. */
 .brand-logo,
 .hp-page .brand-logo {
   background: transparent;
-  border: 2px solid #c9a227;
+  border: 2px solid var(--accent);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 html[data-hp-theme="light"] .brand-logo,
 html[data-hp-theme="light"] .hp-page .brand-logo {
-  border: 2px solid #0b2a5b;
+  border: 2px solid var(--accent);
   box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
 }
 @media (min-width: 1024px) {

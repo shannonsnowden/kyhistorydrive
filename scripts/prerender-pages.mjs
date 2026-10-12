@@ -137,6 +137,15 @@ class PrerenderPages {
     if (aboutHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(aboutHtml)) {
       throw new Error('prerender: about page includes the plain contact address')
     }
+    const aboutH1 = [...aboutHtml.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)].map((match) =>
+      match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
+    )
+    if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
+      throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
+    }
+    if (!aboutHtml.includes('<h2 class="about-page-title">Kentucky History Drive</h2>')) {
+      throw new Error('prerender: /about/ should demote the duplicate title to an h2')
+    }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
       loc: `${PrerenderPages.SITE}/about/`,
@@ -1036,7 +1045,7 @@ class PrerenderPages {
     <style>
       .static-read { max-width: 52rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
       .static-kicker { margin: 0 0 0.35rem; color: var(--accent); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
-      .story-head h1 { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
+      .story-head h1, .about-page-title { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
       .story-lead { font-size: 1.125rem; line-height: 1.5; margin: 0 0 1rem; }
       .story-crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0 0 0.85rem; font-size: 0.85rem; color: var(--muted); }
       .story-crumbs a { color: var(--accent); text-decoration: none; }
@@ -2033,7 +2042,7 @@ ${rows.join('\n')}
         </nav>
         <header class="story-head">
           <p class="static-kicker">About</p>
-          <h1>Kentucky History Drive</h1>
+          <h2 class="about-page-title">Kentucky History Drive</h2>
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
         <figure class="about-seals" aria-labelledby="aboutSealsTitle">
