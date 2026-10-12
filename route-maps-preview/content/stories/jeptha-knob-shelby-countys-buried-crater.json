@@ -1,0 +1,26 @@
+{
+  "slug": "jeptha-knob-shelby-countys-buried-crater",
+  "title": "Jeptha Knob, Shelby County’s buried crater",
+  "publishedDate": "2026-10-06",
+  "summary": "About eight miles east of Shelbyville near Clay Village, Jeptha Knob rises some 300 feet above the surrounding farmland and is the highest point in the Bluegrass.…",
+  "bodyMarkdown": "About eight miles east of Shelbyville near Clay Village, Jeptha Knob rises some 300 feet above the surrounding farmland and is the highest point in the Bluegrass. Underneath is a circular structure nearly three miles across: a core of uplifted, shattered Ordovician limestone and shale ringed by concentric and radial faults, later buried under flat-lying Silurian rock. William Linney of the Kentucky Geological Survey first described it in 1887, and Walter Bucher mapped it in 1925 and called it \"cryptovolcanic,\" the word still on its roadside marker.\n\nMost geologists now suspect a meteorite or comet strike around the end of the Ordovician, roughly 440 million years ago, and unusually high iridium in its broken rock points that way, but it isn't on the official list of impact craters because no shatter cones or coesite have been found. The knob is on private land. The years on this story are the human ones, from Linney’s 1887 report to Bucher’s 1925 map.\n\nThe map pin marks the Kentucky Historical Society’s Jeptha’s Knob marker at Clay Village; the knob itself is private.\nSource: [https://www.uky.edu/KGS/geoky/fieldtrip/2005%20AIPG%20Guidebooks/JepthaKnob.pdf](https://www.uky.edu/KGS/geoky/fieldtrip/2005%20AIPG%20Guidebooks/JepthaKnob.pdf)\nSource: [https://pubs.usgs.gov/publication/pp1151B](https://pubs.usgs.gov/publication/pp1151B)\nSource: [https://history.ky.gov/markers/jepthas-knob](https://history.ky.gov/markers/jepthas-knob)\nSource: [https://en.wikipedia.org/wiki/Jeptha_Knob](https://en.wikipedia.org/wiki/Jeptha_Knob)",
+  "yearStart": 1887,
+  "yearEnd": 1925,
+  "era": "other",
+  "tags": [
+    "other",
+    "kentucky",
+    "geology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-06",
+  "photo": {
+    "image_url": "/kyhistorydrive/route-maps-preview/content/photos/stories/jeptha-knob-relief.jpg",
+    "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
+    "source_url": "https://apps.nationalmap.gov/3depdem/",
+    "source_label": "USGS 3D Elevation Program",
+    "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
+    "year": 2026
+  },
+  "county": "Shelby"
+}

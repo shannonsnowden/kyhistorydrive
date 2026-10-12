@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>George Rogers Clark (approximate)</name>
+    <desc>Approximate waypoints for George Rogers Clark. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/george-rogers-clark/</desc>
+    <link href="https://kyhistorydrive.com/stories/george-rogers-clark/"><text>George Rogers Clark</text></link>
+  </metadata>
+  <wpt lat="38.27" lon="-85.77">
+    <name>Corn Island camp, Falls of the Ohio; boats leave during the eclipse</name>
+    <desc>Louisville waterfront (island quarried away). Jefferson Co., KY. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.148" lon="-88.707">
+    <name>Fort Massac (abandoned French fort); boats hidden</name>
+    <desc>Fort Massac State Park, Metropolis. Massac Co., IL. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.92" lon="-89.91">
+    <name>Kaskaskia taken without a shot</name>
+    <desc>old Kaskaskia (now cut off by the Mississippi; Kaskaskia Island) / Fort Kaskaskia SHS near Ellis Grove. Randolph Co., IL. Approximate.</desc>
+  </wpt>
+  <wpt lat="38.571" lon="-90.190">
+    <name>Cahokia (Bowman's detachment)</name>
+    <desc>Cahokia Heights. St. Clair Co., IL. Approximate.</desc>
+  </wpt>
+  <wpt lat="38.679" lon="-87.535">
+    <name>Vincennes declares for Virginia (Gibault &amp; Helm)</name>
+    <desc>Vincennes. Knox Co., IN. Approximate.</desc>
+  </wpt>
+  <wpt lat="37.92" lon="-89.91">
+    <name>winter march leaves Kaskaskia</name>
+    <desc>Kaskaskia. Randolph Co., IL. Approximate.</desc>
+  </wpt>
+  <wpt lat="38.62" lon="-88.27">
+    <name>Little Wabash crossings (forks flooded, ~5 miles of water)</name>
+    <desc>near Clay City / Flora. Clay Co., IL. Approximate.</desc>
+  </wpt>
+  <wpt lat="38.60" lon="-87.66">
+    <name>Embarras River and the drowned lands opposite Vincennes</name>
+    <desc>near Lawrenceville / St. Francisville. Lawrence Co., IL. Approximate.</desc>
+  </wpt>
+  <wpt lat="38.679" lon="-87.535">
+    <name>Vincennes, Fort Sackville surrendered by Hamilton</name>
+    <desc>George Rogers Clark NHP. Knox Co., IN. Approximate.</desc>
+  </wpt>
+  <rte>
+    <name>George Rogers Clark (approximate)</name>
+    <desc>Approximate waypoints for George Rogers Clark. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/george-rogers-clark/</desc>
+    <rtept lat="38.27" lon="-85.77">
+      <name>Corn Island camp, Falls of the Ohio; boats leave during the eclipse</name>
+      <desc>Louisville waterfront (island quarried away). Jefferson Co., KY. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.148" lon="-88.707">
+      <name>Fort Massac (abandoned French fort); boats hidden</name>
+      <desc>Fort Massac State Park, Metropolis. Massac Co., IL. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.92" lon="-89.91">
+      <name>Kaskaskia taken without a shot</name>
+      <desc>old Kaskaskia (now cut off by the Mississippi; Kaskaskia Island) / Fort Kaskaskia SHS near Ellis Grove. Randolph Co., IL. Approximate.</desc>
+    </rtept>
+    <rtept lat="38.571" lon="-90.190">
+      <name>Cahokia (Bowman's detachment)</name>
+      <desc>Cahokia Heights. St. Clair Co., IL. Approximate.</desc>
+    </rtept>
+    <rtept lat="38.679" lon="-87.535">
+      <name>Vincennes declares for Virginia (Gibault &amp; Helm)</name>
+      <desc>Vincennes. Knox Co., IN. Approximate.</desc>
+    </rtept>
+    <rtept lat="37.92" lon="-89.91">
+      <name>winter march leaves Kaskaskia</name>
+      <desc>Kaskaskia. Randolph Co., IL. Approximate.</desc>
+    </rtept>
+    <rtept lat="38.62" lon="-88.27">
+      <name>Little Wabash crossings (forks flooded, ~5 miles of water)</name>
+      <desc>near Clay City / Flora. Clay Co., IL. Approximate.</desc>
+    </rtept>
+    <rtept lat="38.60" lon="-87.66">
+      <name>Embarras River and the drowned lands opposite Vincennes</name>
+      <desc>near Lawrenceville / St. Francisville. Lawrence Co., IL. Approximate.</desc>
+    </rtept>
+    <rtept lat="38.679" lon="-87.535">
+      <name>Vincennes, Fort Sackville surrendered by Hamilton</name>
+      <desc>George Rogers Clark NHP. Knox Co., IN. Approximate.</desc>
+    </rtept>
+  </rte>
+</gpx>
