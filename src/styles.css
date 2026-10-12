@@ -463,7 +463,7 @@ a#siteSearchInput {
 #about, #app {
   scroll-margin-top: 0;
 }
-.about-logo-block {
+.about-seals {
   scroll-margin-top: 0;
 }
 .panel-wide { padding: 1.5rem 1.25rem; max-width: 64rem; margin: 0 auto; }
@@ -947,9 +947,7 @@ html[data-hp-theme="light"] .era-other {
   padding: 0.85rem 1rem 1rem;
 }
 .cite-story h2,
-.cite-story h3,
-.story-nearby h2,
-.story-nearby h3 {
+.cite-story h3 {
   font-size: 1.2rem;
   margin: 0 0 0.55rem;
   color: var(--heading);
@@ -1006,24 +1004,164 @@ html[data-hp-theme="light"] .era-other {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
-.story-nearby { margin-top: 1rem; }
-.story-nearby ul,
-.static-related ul { list-style: none; margin: 0; padding: 0; }
-.story-nearby li,
-.static-related li {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.05rem;
-  margin: 0 0 0.35rem;
-  line-height: 1.35;
-  overflow-wrap: anywhere;
+.story-nearby,
+.static-related { margin: 0; max-width: 100%; }
+.story-nearby > h2,
+.story-nearby > h3,
+.static-related > h2,
+.static-related > h3 {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin: 2rem 0 0.75rem;
+  color: var(--heading);
 }
-.story-nearby a,
-.static-related a { color: var(--accent); }
+.related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 100%;
+}
+@media (min-width: 720px) {
+  .related-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+.related-list > li {
+  display: flex;
+  margin: 0;
+  min-width: 0;
+}
+a.related-card {
+  display: grid;
+  flex: 1 1 auto;
+  width: 100%;
+  grid-template-columns: 56px minmax(0, 1fr) 20px;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  min-height: 72px;
+  min-width: 0;
+  box-sizing: border-box;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: none;
+  color: inherit;
+  text-decoration: none;
+}
+a.related-card:hover {
+  border-color: var(--accent);
+  background: var(--panel);
+  text-decoration: none;
+}
+a.related-card:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.related-card-media {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+}
+.related-card-img {
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.related-card-pin { color: var(--accent); }
+.related-card-pin-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.related-card-copy { min-width: 0; }
+.related-card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  text-decoration: none;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+a.related-card:hover .related-card-title,
+a.related-card:focus-visible .related-card-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.related-card-meta {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
 .nearby-kind,
-.nearby-detail,
-.nearby-miles { display: block; color: var(--muted); font-size: 0.92rem; }
+.nearby-miles { color: inherit; font-size: inherit; }
+.related-card-chevron {
+  display: block;
+  width: 16px;
+  height: 16px;
+  justify-self: end;
+  color: var(--muted);
+  transition: transform 160ms ease, color 160ms ease;
+}
+a.related-card:hover .related-card-chevron {
+  transform: translateX(2px);
+  color: var(--accent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .related-card-chevron { transition: none; }
+  a.related-card:hover .related-card-chevron { transform: none; }
+}
+.learn-more-list {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  font-size: 1rem;
+}
+.learn-more-list li { margin: 0 0 0.4rem; }
+.learn-more-list a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.learn-more-list a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.external-icon {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.28rem;
+  vertical-align: -0.12em;
+}
 .story-correction { margin: 1.25rem 0 0; }
 .story-correction-link {
   display: inline-flex;
@@ -1221,7 +1359,6 @@ html[data-hp-theme="light"] .era-other {
 .about-app-data {
   font-size: 0.75rem;
   margin-top: 2.25rem;
-  opacity: 0.65;
 }
 
 .hero-welcome {
@@ -1476,6 +1613,12 @@ html[data-hp-theme="light"] .era-other {
   margin: 0.25rem 0 0;
   padding-left: 1.1rem;
   font-size: 0.88rem;
+}
+.popup-research .learn-more-list {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  font-size: 1rem;
 }
 .popup-hint { font-size: 0.8rem; margin-top: 0.75rem; }
 .popup-links-block { margin-top: 0.5rem; }
@@ -1893,47 +2036,60 @@ html[data-hp-theme="light"] .era-other {
 }
 
 
-.about-logo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
+/* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2).
+   Dark ring is the existing gold #c9a227. Light ring is the existing navy #0b2a5b.
+   2px of transparent padding shows the card background between the ring and the artwork. */
+.about-seals {
   margin: 0.5rem 0 1.5rem;
-  padding: 1.25rem 1rem;
-  background: #0a0a0a;
+  padding: 1.1rem 1rem 1rem;
+  background: var(--surface);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
   border-radius: 14px;
-  box-shadow: inset 0 0 0 1px rgba(201, 137, 58, 0.15);
 }
-.about-logo {
-  width: min(360px, 88vw);
-  height: auto;
-  border-radius: 50%;
-  background: #000;
-  display: block;
-}
-.about-logo-caption {
-  margin: 0;
-  font-size: 0.85rem;
+.about-seals-title {
+  margin: 0 0 0.85rem;
+  font-size: 1.05rem;
+  color: var(--heading);
   text-align: center;
-  color: #E8DCC0;
 }
-@media (max-width: 600px) {
-  .about-logo-block {
-    max-height: 240px;
-    box-sizing: border-box;
-    overflow: hidden;
-    justify-content: center;
-    padding: 0.65rem 0.75rem;
-    gap: 0.4rem;
-  }
-  .about-logo {
-    width: auto;
-    max-width: min(200px, 70vw);
-    max-height: 168px;
-    height: auto;
-  }
+.about-seals-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
 }
+.about-seals-list li { margin: 0; }
+.about-seal {
+  display: block;
+  width: clamp(120px, 14vw, 160px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  /* 2px of the card background between the ring and the artwork's gold rim. */
+  padding: 2px;
+  border: 2px solid #c9a227;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+html[data-hp-theme="light"] .about-seal {
+  border: 2px solid #0b2a5b;
+  box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
+}
+.about-seals-caption {
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  text-align: center;
+  color: var(--muted);
+}
+@media (max-width: 479px) {
+  .about-seals-list { flex-direction: column; align-items: center; gap: 0.9rem; }
+  .about-seal { width: 132px; }
+}
+
 
 
 .share-row {
@@ -2795,10 +2951,12 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 }
 /* Header seal rotates per page load between khd-logo.png (black), khd-logo-c.png (cream center,
    navy band) and khd-logo-c2.png (cream center, gold rim edge). Inline script after #brandLogo; the
-   localStorage counter is khd-logo-n. One gold border and shadow suit all three on both headers. */
+   localStorage counter is khd-logo-n. Dark ring is gold #c9a227; light ring is navy #0b2a5b. */
 .brand-logo,
 .hp-page .brand-logo {
   background: transparent;
+  /* 2px of the header background between the ring and the artwork's gold rim. */
+  padding: 2px;
   border: 2px solid #c9a227;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -3416,6 +3574,9 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   font-size: 0.78rem;
   line-height: 1.15;
   white-space: nowrap;
+}
+.hp-map-routes .hp-thumb-label {
+  white-space: normal;
 }
 .hp-thumb-row > a:hover {
   border-color: var(--accent);

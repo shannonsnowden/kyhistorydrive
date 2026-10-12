@@ -327,22 +327,84 @@ export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = []
   return rows
 }
 
-function nearbyRowHtml(row) {
+const COUNTY_DISPLAY = { Larue: 'LaRue' }
+
+export function countyLong(county) {
+  const raw = String(county || '').trim()
+  if (!raw) return ''
+  const name = COUNTY_DISPLAY[raw] || raw
+  if (name.includes(',')) return name
+  return `${name} County`
+}
+
+/** Year span for a card meta line: en dash, no spaces. */
+export function compactYearRange(start, end) {
+  const fmt = (year) => {
+    if (year == null || year === '' || Number.isNaN(Number(year))) return ''
+    const n = Number(year)
+    if (n < 0) return `${Math.abs(n)} BCE`
+    return String(n)
+  }
+  const hasStart = start != null && start !== ''
+  const hasEnd = end != null && end !== ''
+  if (!hasStart && !hasEnd) return ''
+  if (hasStart && hasEnd && Number(start) !== Number(end)) {
+    const cross = Number(start) < 0 && Number(end) > 0 ? ' CE' : ''
+    return `${fmt(start)}\u2013${fmt(end)}${cross}`
+  }
+  return fmt(hasStart ? start : end)
+}
+
+export function storyDetail(story) {
+  return [countyLong(story?.county), compactYearRange(story?.yearStart, story?.yearEnd)].filter(Boolean).join(' · ')
+}
+
+/** 112px opt/ crop used as the 2× source for a 56px card thumbnail. */
+export function storyThumbSrc(story) {
+  const url = String(story?.photo?.image_url || '')
+  if (!url.startsWith('/content/photos/')) return ''
+  const base = url.split('/').pop().replace(/\.[^.]+$/, '')
+  if (!base || base.includes('..') || base.includes('/')) return ''
+  return `/content/photos/opt/stories/${base}-112.webp`
+}
+
+const PIN_ICON = `<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 5.7 10.9 6.4 11.55a.5.5 0 0 0 .7 0c.7-.65 6.4-6.49 6.4-11.55A6.75 6.75 0 0 0 12 2.25zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`
+
+const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.25 10.75 8 6 12.75" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+
+function cardMediaHtml(row) {
+  if (row.kind !== 'marker' && row.thumb) {
+    const src = esc(row.thumb)
+    return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
+  }
+  return `<span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span>`
+}
+
+function cardMetaHtml(row) {
   const kind = row.kind === 'marker' ? 'Historical marker' : 'Story'
-  const href = row.kind === 'marker' ? markerMapHref(row.id) : `/stories/${encodeURIComponent(row.slug)}/`
-  const kindText = row.detail ? `${kind} · ${row.detail}` : kind
+  const bits = [`<span class="nearby-kind">${esc(kind)}</span>`]
+  if (row.detail) bits.push(esc(row.detail))
   const miles = row.related ? '' : formatMiles(row.miles)
-  const milesHtml = miles ? `<span class="nearby-miles">${esc(miles)}</span>` : ''
+  if (miles) bits.push(`<span class="nearby-miles">${esc(miles)}</span>`)
+  return bits.join(' · ')
+}
+
+function nearbyRowHtml(row) {
+  const href = row.kind === 'marker' ? markerMapHref(row.id) : `/stories/${encodeURIComponent(row.slug)}/`
   const liClass = row.related ? 'related-story' : 'nearby-place'
-  return `<li class="${liClass}"><a href="${esc(href)}">${esc(row.title)}</a><span class="nearby-kind">${esc(kindText)}</span>${milesHtml}</li>`
+  return `<li class="${liClass}"><a class="related-card" href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span></span>${CHEVRON_ICON}</a></li>`
+}
+
+function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby' } = {}) {
+  if (!rows?.length) return ''
+  const level = headingLevel === 3 ? 3 : 2
+  const items = rows.map((row) => nearbyRowHtml(row)).join('')
+  return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list">${items}</ul></nav>`
 }
 
 export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5 } = {}) {
   const near = nearbyPlaces(story, all, markers, { excludeSlugs, excludeMarkerIds, limit })
-  if (!near.length) return ''
-  const level = headingLevel === 3 ? 3 : 2
-  const items = near.map((row) => nearbyRowHtml(row)).join('')
-  return `<nav class="story-nearby" aria-labelledby="nearby-stories-heading"><h${level} id="nearby-stories-heading">Nearby</h${level}><ul>${items}</ul></nav>`
+  return relatedListHtml(near, { heading: 'Nearby', headingId: 'nearby-stories-heading', headingLevel })
 }
 
 /**
@@ -428,10 +490,197 @@ export function pickRelatedStories(story, all, excludeSlugs = []) {
 /** Related stories first, then nearby places that are not already listed. */
 export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2 } = {}) {
   const rows = [...(related || []), ...(nearby || [])]
+  return relatedListHtml(rows, {
+    heading: 'Related and nearby',
+    headingId: 'related-nearby-heading',
+    headingLevel,
+    navClass: 'static-related story-nearby',
+  })
+}
+
+/** The story-page list: related stories, then nearby stories and markers. */
+export function relatedAndNearbyForStory(
+  story,
+  all,
+  markers,
+  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc } = {},
+) {
+  const related = pickRelatedStories(story, all, excludeSlugs)
+  const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
+  const relatedRows = related.map((other) => ({
+    kind: 'story',
+    related: true,
+    slug: other.slug,
+    title: other.title,
+    detail: storyDetail(other),
+    thumb: thumbFor(other) || '',
+  }))
+  const nearby = nearbyPlaces(story, all, markers, {
+    limit,
+    excludeSlugs: [...excludeSlugs, ...related.map((item) => item.slug)],
+    excludeMarkerIds,
+  }).map((row) => {
+    if (row.kind !== 'story') return { ...row, thumb: '' }
+    const other = bySlug.get(row.slug)
+    return {
+      ...row,
+      title: other?.title || row.title,
+      detail: other ? storyDetail(other) : '',
+      thumb: other ? thumbFor(other) || '' : '',
+    }
+  })
+  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel })
+}
+
+const SOURCE_BY_DOMAIN = [
+  ['wikipedia.org', 'Wikipedia'],
+  ['explorekyhistory.ky.gov', 'ExploreKYHistory'],
+  ['history.ky.gov', 'Kentucky Historical Society'],
+  ['archaeology.ky.gov', 'Kentucky Archaeology'],
+  ['parks.ky.gov', 'Kentucky State Parks'],
+  ['nps.gov', 'NPS.gov'],
+  ['grokipedia.com', 'Grokipedia'],
+]
+
+const GENERIC_LINK_LABELS = new Set([
+  'wikipedia',
+  'source',
+  'website',
+  'national park service',
+  'nps.gov',
+  'kentucky historical society',
+  'explorekyhistory',
+  'kentucky archaeology',
+  'kentucky state parks',
+  'grokipedia',
+])
+
+export function sourceNameForUrl(url) {
+  let host = ''
+  try {
+    host = new URL(String(url || '')).hostname.toLowerCase().replace(/^www\./, '')
+  } catch {
+    return ''
+  }
+  for (const [domain, name] of SOURCE_BY_DOMAIN) {
+    if (host === domain || host.endsWith(`.${domain}`)) return name
+  }
+  return host
+}
+
+/** Wikipedia article title from the /wiki/ slug. Underscores become spaces. */
+export function wikipediaTitleFromUrl(url) {
+  let parsed
+  try {
+    parsed = new URL(String(url || ''))
+  } catch {
+    return ''
+  }
+  const host = parsed.hostname.toLowerCase().replace(/^www\./, '')
+  if (host !== 'wikipedia.org' && !host.endsWith('.wikipedia.org')) return ''
+  const parts = parsed.pathname.split('/').filter(Boolean)
+  const wiki = parts.indexOf('wiki')
+  const slug = wiki >= 0 ? parts[wiki + 1] : ''
+  if (!slug || slug === 'Special:Search') return ''
+  let title = slug
+  try {
+    title = decodeURIComponent(slug)
+  } catch {
+    /* keep the raw slug */
+  }
+  return title.replace(/_/g, ' ').replace(/\s+/g, ' ').trim()
+}
+
+function humanPathTitle(url) {
+  let parsed
+  try {
+    parsed = new URL(String(url || ''))
+  } catch {
+    return ''
+  }
+  const parts = parsed.pathname.split('/').filter(Boolean)
+  if (!parts.length) return ''
+  let seg = parts[parts.length - 1]
+  if (/^(index|default|assetdetail)$/i.test(seg) && parts.length > 1) seg = parts[parts.length - 2]
+  try {
+    seg = decodeURIComponent(seg)
+  } catch {
+    /* keep */
+  }
+  seg = seg.replace(/\.(html?|aspx|php|pdf)$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
+  if (!seg || /^\d+$/.test(seg)) return ''
+  return seg
+}
+
+/** '{page title} on {Source}', e.g. Great Saltpetre Cave on Wikipedia. */
+export function learnMoreLinkText(url, linkText = '', storyTitle = '') {
+  const source = sourceNameForUrl(url) || 'Source'
+  const wiki = wikipediaTitleFromUrl(url)
+  const raw = String(linkText || '').trim()
+  const usableLabel = raw && !/^https?:\/\//i.test(raw) && !GENERIC_LINK_LABELS.has(raw.toLowerCase())
+  const page = wiki || (usableLabel ? raw : '') || humanPathTitle(url) || String(storyTitle || '').trim()
+  if (!page || page.toLowerCase() === source.toLowerCase()) return page || source
+  return `${page} on ${source}`
+}
+
+function markdownLinks(text) {
+  const links = []
+  const s = String(text || '')
+  const startRe = /\[([^\]]*)\]\(/g
+  let match
+  while ((match = startRe.exec(s))) {
+    const start = match.index + match[0].length
+    let i = start
+    let depth = 1
+    while (i < s.length && depth > 0) {
+      if (s[i] === '(') depth += 1
+      else if (s[i] === ')') depth -= 1
+      if (depth > 0) i += 1
+    }
+    const url = s.slice(start, i).trim()
+    if (/^https?:\/\//i.test(url)) links.push({ label: match[1] || '', url })
+  }
+  return links
+}
+
+function bareHttpUrls(text) {
+  return [...String(text || '').matchAll(/https?:\/\/[^\s<>\]]+/gi)].map((match) =>
+    match[0].replace(/[.,;:]+$/g, ''),
+  )
+}
+
+export function learnMoreItemsFromMarkdown(markdown) {
+  const lines = String(markdown || '').match(/^[ \t]*source:[ \t]*.+$/gim) || []
+  const items = []
+  const seen = new Set()
+  for (const line of lines) {
+    const text = line.replace(/^[ \t]*source:[ \t]*/i, '').trim()
+    const linked = markdownLinks(text)
+    const found = linked.length ? linked : bareHttpUrls(text).map((url) => ({ label: '', url }))
+    for (const link of found) {
+      const url = String(link.url || '').trim()
+      if (!/^https?:\/\//i.test(url) || seen.has(url)) continue
+      seen.add(url)
+      items.push({ url, linkText: link.label || '', label: link.label || '' })
+    }
+  }
+  return items
+}
+
+const EXTERNAL_ICON = `<svg class="external-icon" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6.2 3.5H3.5v9h9V9.8M8.2 3.5h4.3v4.3M12.3 3.7 7.2 8.8"/></svg>`
+
+export function learnMoreAnchorHtml(url, linkText = '', storyTitle = '') {
+  const text = learnMoreLinkText(url, linkText, storyTitle)
+  return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(text)}${EXTERNAL_ICON}<span class="visually-hidden"> (opens in a new tab)</span></a>`
+}
+
+export function learnMoreBlockHtml(items, { storyTitle = '' } = {}) {
+  const rows = items || []
   if (!rows.length) return ''
-  const level = headingLevel === 3 ? 3 : 2
-  const items = rows.map((row) => nearbyRowHtml(row)).join('')
-  return `<nav class="static-related story-nearby" aria-labelledby="related-nearby-heading"><h${level} id="related-nearby-heading">Related and nearby</h${level}><ul>${items}</ul></nav>`
+  const lis = rows
+    .map((item) => `<li>${learnMoreAnchorHtml(item.url, item.linkText || item.label || '', storyTitle)}</li>`)
+    .join('')
+  return `<div class="popup-research learn-more"><div class="historic-photos-label">Learn more</div><ul class="research-list learn-more-list">${lis}</ul></div>`
 }
 
 const LICENSE_RE = /public domain|\bcc0\b|\bcc[-\s]?by\b|\bgfdl\b|copyright|all rights reserved/i

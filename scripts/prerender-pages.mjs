@@ -34,14 +34,16 @@ import {
   citeBootScript,
   citeBoxHtml,
   correctionHtml,
-  haversineMiles,
+  learnMoreBlockHtml,
+  learnMoreItemsFromMarkdown,
   markerRecords,
   nearbyPlaces,
   photoCreditHtml,
   pickRelatedStories,
-  relatedAndNearbyHtml,
+  relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
+  storyThumbSrc,
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
@@ -152,6 +154,15 @@ class PrerenderPages {
     }
     if (aboutHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(aboutHtml)) {
       throw new Error('prerender: about page includes the plain contact address')
+    }
+    const aboutH1 = [...aboutHtml.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)].map((match) =>
+      match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
+    )
+    if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
+      throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
+    }
+    if (!aboutHtml.includes('<h2 class="about-page-title">Kentucky History Drive</h2>')) {
+      throw new Error('prerender: /about/ should demote the duplicate title to an h2')
     }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
@@ -949,14 +960,16 @@ class PrerenderPages {
     </figure>`
   }
 
-  static learnMoreHtml(markdown) {
-    const lines = String(markdown || '').match(/^[ \t]*source:[ \t]*.+$/gim) || []
-    const items = lines
-      .map((line) => String(line).replace(/^[ \t]*source:[ \t]*/i, '').trim())
-      .filter(Boolean)
-      .map((text) => `<li>${marked.parseInline(text)}</li>`)
-    if (!items.length) return ''
-    return `<div class="popup-research"><div class="historic-photos-label">Learn more</div><ul class="research-list">${items.join('')}</ul></div>`
+  static learnMoreHtml(markdown, storyTitle = '') {
+    return learnMoreBlockHtml(learnMoreItemsFromMarkdown(markdown), { storyTitle })
+  }
+
+  /** 112px opt thumbnail when the build has written it. Otherwise the card uses the pin tile. */
+  static existingThumb(story) {
+    const src = storyThumbSrc(story)
+    if (!src) return ''
+    const abs = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', src.replace(/^\//, ''))
+    return fs.existsSync(abs) ? src : ''
   }
 
   static storyMapHref(story) {
@@ -1037,18 +1050,11 @@ class PrerenderPages {
     <style>
       .static-read { max-width: 52rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
       .static-kicker { margin: 0 0 0.35rem; color: var(--accent); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
-      .story-head h1 { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
+      .story-head h1, .about-page-title { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
       .story-lead { font-size: 1.125rem; line-height: 1.5; margin: 0 0 1rem; }
       .story-crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0 0 0.85rem; font-size: 0.85rem; color: var(--muted); }
       .story-crumbs a { color: var(--accent); text-decoration: none; }
       .story-crumbs [aria-current="page"] { color: var(--text); }
-      .static-related { margin-top: 1rem; }
-      .static-related h2 { font-size: 1.2rem; margin: 0 0 0.45rem; color: var(--heading); }
-      .static-related ul { list-style: none; margin: 0; padding: 0; }
-      .static-related li { margin: 0 0 0.25rem; }
-      .route-map a.related-card { display: grid; grid-template-columns: 56px minmax(0, 1fr) 20px; gap: 0.7rem; align-items: center; min-height: 72px; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; color: inherit; text-decoration: none; }
-      .route-map .related-card-copy { min-width: 0; }
-      .route-map .related-card-title { color: var(--accent); font-weight: 600; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; line-height: 1.3; word-break: normal; overflow-wrap: break-word; }
       .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
@@ -1107,7 +1113,7 @@ class PrerenderPages {
       <span>kyhistorydrive.com</span>
       <a href="/about/">About</a>
       <a href="/videos/">Videos</a>
-      <a href="/routes/">Route maps</a>
+      <a href="/routes/">Kentucky history route maps</a>
       <a href="/privacy/">Privacy</a>
       ${privacyChoicesLinkHtml()}
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
@@ -1139,44 +1145,12 @@ class PrerenderPages {
     const route = routeBySlug(story.slug)
     const routeSlugs = route?.relatedStories || []
     const routeMarkerIds = (route?.markers || []).map((marker) => String(marker.number))
-    const related = PrerenderPages.relatedStories(story, all, routeSlugs)
-    const originLat = Number(story.lat)
-    const originLon = Number(story.lon)
-    const originOk =
-      story.lat != null &&
-      story.lon != null &&
-      Number.isFinite(originLat) &&
-      Number.isFinite(originLon) &&
-      !(originLat === 0 && originLon === 0)
-    const relatedRows = related.map((other) => {
-      const bits = [
-        other.county ? PrerenderPages.countyLabel(other.county, true) : '',
-        PrerenderPages.formatYearRange(other.yearStart, other.yearEnd),
-      ].filter(Boolean)
-      const otherLat = Number(other.lat)
-      const otherLon = Number(other.lon)
-      const otherOk =
-        other.lat != null &&
-        other.lon != null &&
-        Number.isFinite(otherLat) &&
-        Number.isFinite(otherLon) &&
-        !(otherLat === 0 && otherLon === 0)
-      const miles = originOk && otherOk ? haversineMiles(originLat, originLon, otherLat, otherLon) : null
-      return {
-        kind: 'story',
-        related: true,
-        slug: other.slug,
-        title: other.title,
-        detail: bits.join(' · '),
-        miles,
-      }
-    })
-    const nearby = nearbyPlaces(story, all, markers, {
-      limit: 3,
-      excludeSlugs: [...routeSlugs, ...related.map((item) => item.slug)],
+    return relatedAndNearbyForStory(story, all, markers, {
+      excludeSlugs: routeSlugs,
       excludeMarkerIds: routeMarkerIds,
+      limit: 3,
+      thumbFor: (item) => PrerenderPages.existingThumb(item),
     })
-    return relatedAndNearbyHtml(relatedRows, nearby)
   }
 
   static storyJsonLd(story, description, image, imageAlt, layer) {
@@ -1342,7 +1316,7 @@ class PrerenderPages {
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
             describe: describeStory,
           })}
-          ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
+          ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
           ${PrerenderPages.relatedAndNearbySection(story, all, markers)}
           ${citeBoxHtml({
             title: story.title,
@@ -1684,6 +1658,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} Article image is missing the route map`)
     }
     if (!html.includes('href="/routes/"')) throw new Error(`prerender: ${urlPath} does not link to /routes/`)
+    if (!block.includes('>Kentucky history route maps<')) {
+      throw new Error(`prerender: ${urlPath} is missing the Kentucky history route maps anchor`)
+    }
     const gpx = `/maps/routes/${route.slug}/${route.slug}.gpx`
     const kml = `/maps/routes/${route.slug}/${route.slug}.kml`
     if (!block.includes(`href="${gpx}"`) || !block.includes(`href="${kml}"`)) {
@@ -1700,6 +1677,9 @@ class PrerenderPages {
   static assertRoutes(html, stories) {
     if (!html.includes('<h1>Route maps</h1>')) throw new Error('prerender: /routes/ is missing its heading')
     if (!html.includes('href="/routes/"')) throw new Error('prerender: /routes/ footer link is missing')
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: /routes/ is missing the Kentucky history route maps anchor')
+    }
     if (!html.includes('Northern Route') || /Benge-Drane|\bDrane\b/.test(html)) {
       throw new Error('prerender: /routes/ must use the NPS name Northern Route')
     }
@@ -1747,6 +1727,19 @@ class PrerenderPages {
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
     if (!related || !related[0].includes('Related and nearby') || relatedCount < 3 || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
+    }
+    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related and nearby<\/h2>/.test(related[0])) {
+      throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
+    }
+    const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
+    if (learnMore) {
+      const labels = [...learnMore[0].matchAll(/<a [^>]*>([^<]+)/g)].map((match) => match[1].trim())
+      if (!labels.length || labels.some((label) => /^https?:/i.test(label))) {
+        throw new Error(`prerender: ${urlPath} Learn more link is not a readable label`)
+      }
+      if (!learnMore[0].includes('class="external-icon"') || !learnMore[0].includes('opens in a new tab')) {
+        throw new Error(`prerender: ${urlPath} Learn more link is missing its external icon or new-tab hint`)
+      }
     }
     if ((related[0].match(/<li class="related-story">[\s\S]*?<\/li>/g) || []).some((item) => !item.includes('>Story'))) {
       throw new Error(`prerender: ${urlPath} related story is missing its Story label`)
@@ -2233,13 +2226,18 @@ ${rows.join('\n')}
         </nav>
         <header class="story-head">
           <p class="static-kicker">About</p>
-          <h1>Kentucky History Drive</h1>
+          <h2 class="about-page-title">Kentucky History Drive</h2>
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
-        <div class="about-logo-block">
-          <img class="about-logo" src="/brand/khd-logo-512.png" width="360" height="360" alt="Kentucky History Drive seal — muskets, historical marker, and road to kyhistorydrive.com" />
-          <p class="about-logo-caption muted">Official Kentucky History Drive seal</p>
-        </div>
+        <figure class="about-seals" aria-labelledby="aboutSealsTitle">
+          <h2 class="about-seals-title" id="aboutSealsTitle">Our seals</h2>
+          <ul class="about-seals-list">
+            <li><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></li>
+            <li><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></li>
+            <li><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></li>
+          </ul>
+          <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit.</figcaption>
+        </figure>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
         <h2>Author</h2>
@@ -2312,7 +2310,7 @@ ${rows.join('\n')}
               <h2>Map layers</h2>
               <ul class="crawl-list">${layerLinks}</ul>
             </section>
-            <p><a href="/routes/">Route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
+            <p><a href="/routes/">Kentucky history route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
           </div>
         </details>
       </nav>`
@@ -2344,6 +2342,9 @@ ${rows.join('\n')}
     const routeLinks = (html.match(/href="\/routes\/"/g) || []).length
     if (!html.includes('class="hp-map-routes"') || routeLinks < 3) {
       throw new Error('prerender: homepage is missing the route maps link in the page, footer, or directory')
+    }
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: homepage is missing the Kentucky history route maps anchor')
     }
     fs.writeFileSync(file, html)
   }

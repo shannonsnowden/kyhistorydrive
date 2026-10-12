@@ -462,7 +462,7 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
       ${note}
       <p class="route-sources muted">${esc(route.sources)}</p>
       ${linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel: level })}
-      <p class="route-index-link"><a href="/routes/">All route maps</a></p>
+      <p class="route-index-link"><a href="/routes/">Kentucky history route maps</a></p>
     </section>`
 }
 
