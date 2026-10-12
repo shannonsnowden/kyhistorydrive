@@ -3344,6 +3344,8 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-summary { margin: 0 0 0.75rem; line-height: 1.5; }
 .route-map-figure { margin: 0.75rem 0 0.35rem; }
 .route-map-picture { display: block; }
+.route-map-zoom { position: relative; display: block; min-width: 0; }
+.route-map-zoom img { cursor: zoom-in; }
 .route-map-picture img {
   display: block;
   width: 100%;
@@ -3353,12 +3355,44 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   border: 1px solid var(--line);
   border-radius: 12px;
 }
+.route-map-expand {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--heading);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+.route-map-expand-icon { display: block; flex: none; }
+.route-map-expand:hover,
+.route-map-expand:focus-visible { border-color: var(--heading); }
+.route-map-expand:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 .route-map-caption { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+.route-map-caption-phone { display: none; margin: 0.4rem 0 0; }
 .route-map-figure figcaption { margin: 0 0 0.85rem; }
 .route-map-phone-note { display: none; margin: 0.35rem 0 0; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
 .route-map-phone-note a { color: var(--accent); }
 @media (max-width: 699px) {
   .route-map-phone-note { display: block; }
+  .has-phone-caption .route-map-caption-desk { display: none; }
+  .route-map-caption-phone { display: block; }
 }
 .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
 .route-waypoints li { margin: 0 0 0.35rem; }
@@ -3382,10 +3416,148 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 }
 .route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
 .route-card p { margin: 0; }
+.route-card-link {
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
 .route-card:hover,
-.route-card:focus-visible { border-color: var(--accent); }
+.route-card:focus-within { border-color: var(--accent); }
+.route-card-link:hover h2,
+.route-card-link:focus-visible h2 { color: var(--accent); }
 @media (max-width: 700px) {
   .route-card { grid-template-columns: 1fr; }
+}
+html.route-lightbox-open { overflow: hidden; }
+.route-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+.route-lightbox[hidden] { display: none !important; }
+.route-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(61, 42, 18, 0.92);
+}
+html[data-hp-theme="dark"] .route-lightbox-backdrop {
+  background: rgba(4, 8, 6, 0.94);
+}
+.route-lightbox-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: none;
+  justify-content: flex-end;
+  align-items: center;
+  padding: max(0.55rem, env(safe-area-inset-top)) 0.75rem 0.55rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+.route-lightbox-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.route-lightbox-btn {
+  min-height: 44px;
+  min-width: 44px;
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--heading);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+.route-lightbox-btn:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.route-lightbox-stage {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.route-lightbox-stage.is-panning { cursor: grabbing; }
+.route-lightbox-canvas {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.85rem;
+  bottom: max(0.85rem, env(safe-area-inset-bottom));
+  left: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+}
+.route-lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #f4efe4;
+  border-radius: 8px;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+}
+.route-lightbox-img.is-ready { opacity: 1; }
+.route-lightbox-status {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  color: #f6edd8;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.route-lightbox-status[hidden] { display: none !important; }
+.route-lightbox-spinner {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 3px solid rgba(246, 237, 216, 0.35);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.route-lightbox-spinner[hidden] { display: none !important; }
+@media (prefers-reduced-motion: no-preference) {
+  .route-lightbox.is-open { animation: route-lightbox-in 160ms ease; }
+  .route-lightbox-canvas.is-anim { transition: transform 180ms ease; }
+  .route-lightbox-img { transition: opacity 120ms linear; }
+  .route-lightbox-spinner { animation: route-lightbox-spin 0.7s linear infinite; border-top-color: #f6edd8; }
+}
+@keyframes route-lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes route-lightbox-spin {
+  to { transform: translateY(0) rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-lightbox,
+  .route-lightbox-canvas,
+  .route-lightbox-img,
+  .route-lightbox-spinner {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 .story-sidebar-col { min-width: 0; }
 .story-sidebar-col .story-sidebar-photo { position: static; }
