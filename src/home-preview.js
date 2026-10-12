@@ -15,7 +15,6 @@ import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
-import { HeroCarousel } from './hero-carousel.js'
 import { HomepageStructure } from './homepage-structure.js'
 
 function escapeHtml(s) {
@@ -254,38 +253,58 @@ function prefersReducedMotion() {
   return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
 }
 
-function renderHeroSlide(story, index) {
-  const titleId = index === 0 ? 'hp-hero-title' : `hp-hero-title-${index}`
+function placeCaption(story) {
+  const place = String(story?.place || '').trim()
+  const year = storyYearLabel(story?.yearStart)
+  let county = ''
+  const m = place.match(/([A-Za-z .'-]+?\s+County)\b/)
+  if (m) county = m[1].replace(/\s+/g, ' ').trim()
+  else if (/County seat/i.test(place)) {
+    const seat = place.match(/([A-Za-z .'-]+)\s*\(/)
+    county = seat ? seat[1].trim() : place
+  } else if (place) {
+    // Prefer a short place label over the era kicker "Featured story".
+    county = place.split(/[,(]/)[0].trim()
+  }
+  if (county && year) return `${county} · ${year}`
+  if (county) return county
+  if (year) return year
+  return eraLabel(story?.era)
+}
+
+function cardAlt(story) {
+  const title = String(story?.photo?.title || story?.title || '').trim()
+  return title || 'Kentucky history story'
+}
+
+function renderLeadStory(story) {
+  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
+  const alt = cardAlt(story)
   const img = usablePhoto(story.photo)
     ? responsivePicture({
         src: story.photo.image_url,
-        alt: story.photo.title || story.title,
+        alt,
         className: 'hp-mag-hero-img',
-        loading: index === 0 ? 'eager' : 'lazy',
-        fetchPriority: index === 0 ? 'high' : '',
-        sizes: '100vw',
+        loading: 'eager',
+        fetchPriority: 'high',
+        sizes: '(max-width: 900px) 100vw, 66vw',
       })
     : ''
   const credit = photoCredit(story.photo)
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
-  return `<article
-      class="hp-hero-slide${index === 0 ? ' is-active' : ''}"
-      data-hero-index="${index}"
-      aria-hidden="${index === 0 ? 'false' : 'true'}"
-      ${index === 0 ? '' : 'inert'}
-    >
-      <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade"></div></div>
+  return `<article class="hp-lead-story">
+      <a class="hp-lead-media-link" href="${escapeHtml(href)}">
+        <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade" aria-hidden="true"></div></div>
+        <h2 id="hp-hero-title" class="hp-lead-title">${escapeHtml(story.title)}</h2>
+      </a>
       <div class="hp-mag-hero-copy">
-        <p class="hp-kicker">Featured story</p>
-        <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(storyYearLabel(story.yearStart))}` : ''}</p>
-        <h2 id="${titleId}" class="hp-fit">${escapeHtml(story.title)}</h2>
-        <p class="hp-hero-deck hp-fit">${escapeHtml(heroDeckText(story))}</p>
+        <p class="hp-hero-eyebrow">${escapeHtml(placeCaption(story))}</p>
+        <p class="hp-hero-deck">${escapeHtml(heroDeckText(story))}</p>
         <div class="hp-cta-row">
           <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
           ${
             storyMapHref(story)
               ? `<a class="btn hp-cta" href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
-              : `<a class="btn hp-cta" href="/#timeline">All stories</a>`
+              : ''
           }
         </div>
         ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
@@ -293,29 +312,77 @@ function renderHeroSlide(story, index) {
     </article>`
 }
 
-function renderHeroControls(slides) {
-  if (slides.length < 2) return ''
-  const dots = slides
-    .map((story, i) => {
-      const label = `Show story ${i + 1} of ${slides.length}: ${story.title}`
-      return `<button type="button" class="hp-hero-dot${i === 0 ? ' is-active' : ''}" data-hero-to="${i}" aria-label="${escapeHtml(label)}" aria-current="${i === 0 ? 'true' : 'false'}"></button>`
-    })
-    .join('')
-  return `<div class="hp-hero-controls">
-      <button type="button" class="hp-hero-nav" data-hero-dir="-1" aria-label="Previous story">‹</button>
-      <div class="hp-hero-dots" role="group" aria-label="Featured stories">${dots}</div>
-      <button type="button" class="hp-hero-playback" data-hero-playback aria-pressed="false">Play</button>
-      <button type="button" class="hp-hero-nav" data-hero-dir="1" aria-label="Next story">›</button>
-    </div>
-    <p class="visually-hidden" id="hpHeroStatus" aria-live="polite"></p>`
+function renderRailCard(story) {
+  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
+  const alt = cardAlt(story)
+  const img = usablePhoto(story.photo)
+    ? responsivePicture({
+        src: story.photo.image_url,
+        alt,
+        className: 'hp-rail-card-img',
+        loading: 'lazy',
+        sizes: '116px',
+        width: 116,
+        height: 96,
+      })
+    : `<span class="hp-rail-card-ph" aria-hidden="true"></span>`
+  return `<a class="hp-rail-card" href="${escapeHtml(href)}">
+      ${img}
+      <span class="hp-rail-card-copy">
+        <h3 class="hp-rail-card-title">${escapeHtml(story.title)}</h3>
+        <small class="hp-rail-card-meta">${escapeHtml(placeCaption(story))}</small>
+      </span>
+    </a>`
 }
 
-function initHeroRotator(root, slides) {
-  HeroCarousel.mount(root, slides)
+function renderSwipeCard(story) {
+  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
+  const alt = cardAlt(story)
+  const img = usablePhoto(story.photo)
+    ? responsivePicture({
+        src: story.photo.image_url,
+        alt,
+        className: 'hp-swipe-card-img',
+        loading: 'lazy',
+        sizes: '150px',
+        width: 150,
+        height: 90,
+      })
+    : `<span class="hp-swipe-card-ph" aria-hidden="true"></span>`
+  return `<li class="hp-swipe-card">
+      <a class="hp-swipe-card-link" href="${escapeHtml(href)}">
+        ${img}
+        <h3 class="hp-swipe-card-title">${escapeHtml(story.title)}</h3>
+        <small class="hp-swipe-card-meta">${escapeHtml(placeCaption(story))}</small>
+      </a>
+    </li>`
+}
+
+function preloadLeadImage(story) {
+  if (!usablePhoto(story?.photo)) return
+  const src = story.photo.image_url
+  const existing = document.getElementById('hpLeadPreload')
+  if (existing) existing.remove()
+  const link = document.createElement('link')
+  link.id = 'hpLeadPreload'
+  link.rel = 'preload'
+  link.as = 'image'
+  link.href = src
+  link.fetchPriority = 'high'
+  // If responsive variants exist on the rendered picture, mirror imagesrcset from the first webp source.
+  const pic = document.querySelector('#hpHero picture source[type="image/webp"]')
+  if (pic?.getAttribute('srcset')) {
+    link.setAttribute('imagesrcset', pic.getAttribute('srcset'))
+    const sizes = pic.getAttribute('sizes') || '(max-width: 900px) 100vw, 66vw'
+    link.setAttribute('imagesizes', sizes)
+  }
+  document.head.appendChild(link)
 }
 
 function renderHero(pack) {
   const root = document.getElementById('hpHero')
+  const rail = document.getElementById('hpStoryRail')
+  const swipe = document.getElementById('hpStorySwipe')
   if (!root) return
   const slides = heroSlides(pack)
   if (!slides.length) {
@@ -328,18 +395,22 @@ function renderHero(pack) {
         <a class="btn hp-cta" href="/#timeline">Timeline</a>
       </div>
     </div>`
+    if (rail) rail.innerHTML = ''
+    if (swipe) swipe.innerHTML = ''
     root.removeAttribute('aria-busy')
     return
   }
-  root.innerHTML = `
-    <div class="hp-hero-viewport">
-      ${slides.map((story, i) => renderHeroSlide(story, i)).join('')}
-    </div>
-    ${renderHeroControls(slides)}`
+  const lead = slides[0]
+  const more = slides.slice(1, 5)
+  root.innerHTML = renderLeadStory(lead)
   root.removeAttribute('aria-busy')
+  if (rail) rail.innerHTML = more.map(renderRailCard).join('')
+  if (swipe) swipe.innerHTML = more.map(renderSwipeCard).join('')
   markPortraitHeroImages(root)
   fitHomeText()
-  initHeroRotator(root, slides)
+  // Preload after picture sources exist in the DOM.
+  requestAnimationFrame(() => preloadLeadImage(lead))
+  // No auto-rotation: the former carousel controls are gone.
 }
 
 /**
