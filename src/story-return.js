@@ -393,6 +393,24 @@ function placeStoryReturn(btn) {
     ['.maplibregl-ctrl-bottom-right, .maplibregl-ctrl-bottom-left, .maplibregl-ctrl-attrib', 8],
     ['.full-state-fab', 8],
   ]
+  const tip = root.querySelector('.maplibregl-popup-tip')
+  if (tip) {
+    const rect = tip.getBoundingClientRect()
+    if (rect.width >= 2 && rect.height >= 2) {
+      // The marker sits just past the tip. Do not park the pill on that dot.
+      obstacles.push({
+        rect: {
+          left: rect.left - 18,
+          top: rect.top,
+          right: rect.right + 18,
+          bottom: rect.bottom + 40,
+          width: rect.width + 36,
+          height: rect.height + 40,
+        },
+        weight: 14,
+      })
+    }
+  }
   for (const [sel, weight] of groups) {
     root.querySelectorAll(sel).forEach((el) => {
       if (el === btn || el.closest('[hidden]')) return
@@ -432,7 +450,7 @@ function placeStoryReturn(btn) {
       if (top < viewTop || top > yMax + 1) continue
       for (const left of xSteps) push(top, left)
     }
-    const gap = 8
+    const gap = 10
     for (const item of obstacles) {
       const above = Math.max(viewTop, item.rect.top - gap - height)
       if (above + height <= item.rect.top - 2 && above + height <= viewBottom - 2) {
@@ -463,7 +481,7 @@ function placeStoryReturn(btn) {
     if (box.bottom > window.innerHeight - 4) score += 50000
     if (box.left < 0 || box.right > window.innerWidth) score += 50000
     for (const item of obstacles) {
-      const pad = 6
+      const pad = 10
       const w = Math.max(0, Math.min(box.right, item.rect.right + pad) - Math.max(box.left, item.rect.left - pad))
       const h = Math.max(0, Math.min(box.bottom, item.rect.bottom + pad) - Math.max(box.top, item.rect.top - pad))
       score += w * h * item.weight

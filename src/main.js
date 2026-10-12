@@ -1799,7 +1799,15 @@ function popupPlacement(targetMap, lngLat) {
   const w = el.clientWidth
   const h = el.clientHeight
   const pad = 10
-  const popupW = Math.min(460, Math.max(200, w - pad * 2))
+  let popupW = Math.min(460, Math.max(200, w - pad * 2))
+  if (w < 700) {
+    // Phone cards stay narrow enough to clear the top-right zoom and compass
+    // column (10px margin, 32px buttons, 14px gap) without a sideways shift
+    // that would pull a centered tip off its pin.
+    const rightLimit = w - 56
+    const half = Math.min(pt.x - 12, rightLimit - pt.x)
+    if (half >= 96) popupW = Math.min(popupW, Math.floor(half * 2))
+  }
   const spaceAbove = Math.max(0, pt.y - pad)
   const spaceBelow = Math.max(0, h - pt.y - pad)
   // Wide maps: after the top nudge the card opens below the pin. Narrow maps:
@@ -1848,6 +1856,7 @@ function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
   let shiftX = 0
   if (again.left < mapRect.left + 4) shiftX = mapRect.left + 4 - again.left
   else if (again.right > mapRect.right - 4) shiftX = mapRect.right - 4 - again.right
+  clearPopupForStoryReturn(popupEl, scroller)
   if (shiftX && popup?.setOffset) {
     const current = popup.getOffset?.()
     let ox = 0
@@ -1867,6 +1876,27 @@ function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
     const openUp = cls.includes('anchor-bottom')
     popup.setOffset([ox + shiftX, openUp ? -gap : gap])
   }
+}
+
+/**
+ * On a phone, leave a 10px gap under the Back to story pill so a tall card
+ * does not fill the canvas and push that pill down onto the pin.
+ */
+function clearPopupForStoryReturn(popupEl, scroller) {
+  const btn = document.getElementById('storyReturn')
+  if (!btn || btn.hidden || !popupEl || !scroller) return
+  const canvas = document.getElementById('mapCanvas')
+  if (!canvas) return
+  const canvasRect = canvas.getBoundingClientRect()
+  if (canvasRect.width >= 700 || canvasRect.width < 2) return
+  const headerBottom = document.querySelector('header.top')?.getBoundingClientRect().bottom || 0
+  const visibleTop = Math.max(canvasRect.top, headerBottom)
+  const ceiling = visibleTop + 10 + (btn.offsetHeight || 44) + 10
+  const popupTop = popupEl.getBoundingClientRect().top
+  const overflow = ceiling - popupTop
+  if (overflow <= 1) return
+  const next = Math.max(88, Math.floor(scroller.clientHeight - overflow))
+  if (next < scroller.clientHeight - 1) scroller.style.maxHeight = `${next}px`
 }
 
 let historyIdToSlugCache = null
@@ -1979,6 +2009,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
       }
     }
     scroller.style.maxHeight = `${maxH}px`
+    clearPopupForStoryReturn(popupEl, scroller)
     scroller.addEventListener('scroll', () => syncPopupFade(scroller), { passive: true })
     syncPopupFade(scroller)
     requestAnimationFrame(() => {
@@ -1999,18 +2030,27 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   })
 }
 
+/** Feature list for a GeoJSON source. MapLibre 6 stores it on `_data.geojson`. */
+function sourceFeatureList(src) {
+  const data = src?._data
+  if (!data || typeof data !== 'object') return null
+  if (Array.isArray(data.features)) return data.features
+  if (data.geojson && Array.isArray(data.geojson.features)) return data.geojson.features
+  return null
+}
+
 function updateStats() {
   const statsEl = document.getElementById('stats')
   if (!statsEl || !map) return
   const bits = []
   for (const def of DATA_LAYERS) {
     if (!layerVisibility[def.id]) continue
-    const src = map.getSource(def.id)
-    if (!src?._data?.features) continue
+    const feats = sourceFeatureList(map.getSource(def.id))
+    if (!feats) continue
     // Don't count cross-listed copies hidden because their home layer is on.
-    const n = src._data.features.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
+    const n = feats.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
     if (def.statsText) {
-      bits.push(def.statsText(src._data.features))
+      bits.push(def.statsText(feats))
       continue
     }
     bits.push(`${n.toLocaleString()} ${def.label}`)
@@ -2552,16 +2592,15 @@ function updateTimelineMapCounts() {
   let total = 0
   for (const def of DATA_LAYERS) {
     if (!timelineLayerVisibility[def.id]) continue
-    const src = timelineMap.getSource(def.id)
-    const feats = src?._data?.features
+    const feats = sourceFeatureList(timelineMap.getSource(def.id))
     if (!feats) continue
     const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
     if (n) {
       if (def.statsText) {
-      bits.push(def.statsText(src._data.features))
-      continue
-    }
-    bits.push(`${n.toLocaleString()} ${def.label}`)
+        bits.push(def.statsText(feats))
+        continue
+      }
+      bits.push(`${n.toLocaleString()} ${def.label}`)
       total += n
     }
   }
