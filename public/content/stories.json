@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-12T10:24:20.439Z",
-  "count": 235,
+  "generatedAt": "2026-10-12T10:45:50.707Z",
+  "count": 236,
   "briefDateRange": {
     "start": "2026-08-27",
     "end": "2026-10-12"
@@ -5691,6 +5691,38 @@
       "lon": -86.0626,
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
+    },
+    {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "title": "Camp Nelson and Kentucky’s U.S. Colored Troops",
+      "publishedDate": "2026-10-12",
+      "summary": "President Lincoln’s Emancipation Proclamation of Jan.",
+      "yearStart": 1863,
+      "yearEnd": 1866,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "civil-war",
+        "usct",
+        "african-american",
+        "emancipation"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864
+      },
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson USCT recruiting and training center"
     },
     {
       "slug": "camp-nelson-jessamine-county",
