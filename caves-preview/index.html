@@ -8,6 +8,7 @@
     <title>Kentucky History Drive</title>
     <meta name="description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. An iPhone app is coming soon." />
     <link rel="canonical" href="https://kyhistorydrive.com/" />
+    <link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="https://kyhistorydrive.com/feed.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kentucky History Drive" />
     <meta property="og:locale" content="en_US" />
@@ -186,9 +187,9 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-83G4SBQKT1"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
-    <script type="module" crossorigin src="/kyhistorydrive/caves-preview/assets/main-9Pwgz1jG.js"></script>
+    <script type="module" crossorigin src="/kyhistorydrive/caves-preview/assets/main-CyncVUpT.js"></script>
     <link rel="stylesheet" crossorigin href="/kyhistorydrive/caves-preview/assets/main-DQniydgm.css">
-    <link rel="stylesheet" crossorigin href="/kyhistorydrive/caves-preview/assets/styles-Dt93ElGl.css">
+    <link rel="stylesheet" crossorigin href="/kyhistorydrive/caves-preview/assets/styles-DYlE7Qvk.css">
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -309,7 +310,7 @@
 
       <!-- Static picture only. The interactive marker map is the #map route, not a second map on this page. -->
       <section class="hp-map-strip" aria-labelledby="hp-map-strip-title">
-        <a href="#map" tabindex="-1" aria-hidden="true">
+        <a href="#map" tabindex="-1" aria-label="Open the history map">
         <div class="hp-map-strip-figure">
         <img
           id="hpMapStripImg"
@@ -574,7 +575,7 @@
       function openChoices(e) {
         if (window.__khdLoadAds) window.__khdLoadAds();
         if (!revocationReady()) {
-          if (location.pathname.indexOf('/kyhistorydrive/caves-preview/privacy') === 0) e.preventDefault();
+          if (location.pathname.indexOf('/privacy') === 0) e.preventDefault();
           return;
         }
         e.preventDefault();

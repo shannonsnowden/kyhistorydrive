@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T15:36:36.717Z",
+  "generatedAt": "2026-10-12T01:39:14.527Z",
   "count": 230,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -30,8 +30,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-03",
-      "lat": 37.21,
-      "lon": -86.68,
+      "lat": 37.2,
+      "lon": -86.7,
       "mapConfidence": "exact",
       "matchedPlace": "Carlston Annis Shell Mound"
     },
@@ -51,8 +51,8 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Ohio",
-      "lat": 37.48,
-      "lon": -86.84,
+      "lat": 37.5,
+      "lon": -86.8,
       "mapConfidence": "override",
       "matchedPlace": "Chiggerville (15Oh1)"
     },
@@ -79,8 +79,8 @@
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2007
       },
-      "lat": 37.94,
-      "lon": -83.59,
+      "lat": 37.9,
+      "lon": -83.6,
       "mapConfidence": "override",
       "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)"
     },
@@ -101,8 +101,8 @@
       "source": "ky-history",
       "briefDate": "2026-08-29",
       "county": "Ohio",
-      "lat": 37.48,
-      "lon": -86.84,
+      "lat": 37.5,
+      "lon": -86.8,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Indian Knoll"
     },
@@ -121,8 +121,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-14",
-      "lat": 37.21,
-      "lon": -86.68,
+      "lat": 37.2,
+      "lon": -86.7,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Read Shell Midden (15Bt10)"
     },
@@ -164,8 +164,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-20",
-      "lat": 38.56,
-      "lon": -82.93,
+      "lat": 38.6,
+      "lon": -82.9,
       "mapConfidence": "override",
       "matchedPlace": "Hansen Site (15GP14)"
     },
@@ -186,8 +186,8 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Hart, Edmonson counties",
-      "lat": 37.31,
-      "lon": -85.88,
+      "lat": 37.3,
+      "lon": -85.9,
       "mapConfidence": "override",
       "matchedPlace": "Salts Cave (15Ht4)"
     },
@@ -221,8 +221,8 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.76,
-      "lon": -83.88,
+      "lat": 38.7,
+      "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)"
     },
@@ -329,7 +329,7 @@
         "yearEnd": -200,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.05,
+      "lat": 38,
       "lon": -84.5,
       "mapConfidence": "exact",
       "matchedPlace": "Peter Village enclosure (15Fa166)"
@@ -365,7 +365,7 @@
         "yearEnd": -200,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.05,
+      "lat": 38,
       "lon": -84.5,
       "mapConfidence": "override",
       "matchedPlace": "Peter Village enclosure (15Fa166)"
@@ -396,8 +396,8 @@
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2012
       },
-      "lat": 38.72,
-      "lon": -83.02,
+      "lat": 38.7,
+      "lon": -83,
       "mapConfidence": "override",
       "matchedPlace": "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)"
     },
@@ -424,8 +424,8 @@
         "yearEnd": 1,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 39.09,
-      "lon": -84.71,
+      "lat": 39.1,
+      "lon": -84.7,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Robbins Mounds (Boone County Adena)"
     },
@@ -473,8 +473,8 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.06,
-      "lon": -83.94,
+      "lat": 38.1,
+      "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
@@ -502,8 +502,8 @@
         "yearEnd": 1200,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.87,
-      "lon": -84.58,
+      "lat": 37.9,
+      "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Muir Site (15Js86)"
     },
@@ -567,8 +567,8 @@
         "yearEnd": 1255,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.87,
-      "lon": -84.58,
+      "lat": 37.9,
+      "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Muir Site (15Js86)"
     },
@@ -595,8 +595,8 @@
         "yearEnd": 1500,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.55,
-      "lon": -89.19,
+      "lat": 36.5,
+      "lon": -89.2,
       "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)"
     },
@@ -631,8 +631,8 @@
         "yearEnd": 1500,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.55,
-      "lon": -89.19,
+      "lat": 36.5,
+      "lon": -89.2,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)"
     },
@@ -660,8 +660,8 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2003
       },
-      "lat": 37.1,
-      "lon": -88.64,
+      "lat": 37,
+      "lon": -88.6,
       "mapConfidence": "override",
       "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah"
     },
@@ -687,8 +687,8 @@
         "yearEnd": 1300,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.89,
-      "lon": -89.09,
+      "lat": 36.9,
+      "lon": -89.1,
       "mapConfidence": "override",
       "matchedPlace": "Turk Site (15Ce6)"
     },
@@ -743,8 +743,8 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
       },
-      "lat": 37.32,
-      "lon": -87.52,
+      "lat": 37.3,
+      "lon": -87.5,
       "mapConfidence": "override",
       "matchedPlace": "Andalex Village (15Hk22), Hopkins County"
     },
@@ -782,7 +782,7 @@
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
       "lat": 38.2,
-      "lon": -84.21,
+      "lon": -84.2,
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)"
     },
@@ -810,8 +810,8 @@
         "yearEnd": 1300,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.96,
-      "lon": -84.74,
+      "lat": 39,
+      "lon": -84.7,
       "mapConfidence": "exact",
       "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
@@ -847,8 +847,8 @@
         "yearEnd": 1300,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.96,
-      "lon": -84.74,
+      "lat": 39,
+      "lon": -84.7,
       "mapConfidence": "override",
       "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
@@ -945,8 +945,8 @@
         "yearEnd": 1550,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.29,
-      "lon": -84.58,
+      "lat": 38.3,
+      "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)"
     },
@@ -981,8 +981,8 @@
         "yearEnd": 1450,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.44,
-      "lon": -88.25,
+      "lat": 37.4,
+      "lon": -88.2,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Tolu Site (15Cn1)"
     },
@@ -1017,8 +1017,8 @@
         "yearEnd": 1450,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.07,
-      "lon": -89.14,
+      "lat": 37.1,
+      "lon": -89.1,
       "mapConfidence": "override",
       "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)"
     },
@@ -1045,8 +1045,8 @@
         "yearEnd": 1350,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.21,
-      "lon": -86.68,
+      "lat": 37.2,
+      "lon": -86.7,
       "mapConfidence": "override",
       "matchedPlace": "Annis Mound & Village (15Bt2)"
     },
@@ -1074,8 +1074,8 @@
         "yearEnd": 1650,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.59,
-      "lon": -83.83,
+      "lat": 38.6,
+      "lon": -83.8,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Fox Farm Fort Ancient"
     },
@@ -1104,8 +1104,8 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
       },
-      "lat": 37.41,
-      "lon": -82.33,
+      "lat": 37.4,
+      "lon": -82.3,
       "mapConfidence": "override",
       "matchedPlace": "Slone Site (15Pi11), Pike County"
     },
@@ -1133,8 +1133,8 @@
         "yearEnd": 1750,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.73,
-      "lon": -84.28,
+      "lat": 37.7,
+      "lon": -84.3,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient"
     },
@@ -1161,8 +1161,8 @@
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2020
       },
-      "lat": 37.66,
-      "lon": -87.95,
+      "lat": 37.7,
+      "lon": -88,
       "mapConfidence": "override",
       "matchedPlace": "Slack Farm (15Un28) Caborn-Welborn village"
     },
@@ -1196,8 +1196,8 @@
         "yearEnd": 1450,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.69,
-      "lon": -83.96,
+      "lat": 37.7,
+      "lon": -84,
       "mapConfidence": "override",
       "matchedPlace": "Sweet Lick Knob Fort Ancient public building"
     },
@@ -1224,8 +1224,8 @@
         "yearEnd": 1650,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.56,
-      "lon": -82.93,
+      "lat": 38.6,
+      "lon": -82.9,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Hardin Village Fort Ancient"
     },
@@ -1784,8 +1784,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-29",
-      "lat": 38.73,
-      "lon": -83.01,
+      "lat": 38.7,
+      "lon": -83,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Lower Shawneetown"
     },
@@ -5920,8 +5920,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-15",
-      "lat": 37.94,
-      "lon": -83.59,
+      "lat": 37.9,
+      "lon": -83.6,
       "mapConfidence": "override",
       "matchedPlace": "Newt Kash Hollow (15Mf1)"
     },
@@ -6054,8 +6054,8 @@
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
         "year": 1988
       },
-      "lat": 37.16,
-      "lon": -83.76,
+      "lat": 37.2,
+      "lon": -83.8,
       "mapConfidence": "override",
       "matchedPlace": "Red Bird River Petroglyphs, original site near Eriline (15CY51)"
     },
