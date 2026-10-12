@@ -15,6 +15,8 @@ Built 2026-10-10 by Story Studio with `make_warriors_path_map.py` (reuses `/work
 
 Site file names per route-map SEO spec: `/content/maps/athiamiowee-the-warriors-path-through-kentucky-route-map.{avif,webp,jpg}` (rename on import; JPEG fallback ≤1600 px).
 
+The previous `warriors-path-map-*` files stay in this folder as unreferenced copies so old links still resolve. Amplify is not applying `customRules` redirects. Delete the copies once a console redirect is in place.
+
 ## Era of use
 Used by Native nations long before Europeans arrived (an old game trail); first recorded by a European in 1674 (Gabriel Arthur); named the "Warriors' Path" by English speakers by the 1750s; used by Walker (1750), Gist (1751), Finley and Boone (1769); absorbed into pioneer roads in the 1770s–80s. Caption years: "before 1674 to the 1770s".
 
