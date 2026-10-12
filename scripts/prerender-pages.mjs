@@ -2113,7 +2113,9 @@ class PrerenderPages {
   static storyPortrait(story, bundle) {
     if (!bundle?.people?.people) return { person: null, reason: '' }
     const slug = story.slug
-    const withImage = bundle.people.people.filter((p) => String(p?.image?.jpg || '').startsWith('/people/portraits/'))
+    // Both sources must be self-hosted portraits (same safe-URL rule for webp and jpg).
+    const safe = (u) => /^\/people\/portraits\/[\w.-]+\.(?:webp|jpg)$/.test(String(u || ''))
+    const withImage = bundle.people.people.filter((p) => safe(p?.image?.jpg) && safe(p?.image?.webp))
     const norm = (v) => String(v || '').toLowerCase().replace(/\s+/g, ' ').trim()
     const rankless = (v) => norm(v).replace(/^(col|colonel|gen|general|maj|major|capt|captain|dr|sir|rev)\.?\s+/, '')
     const hits = new Map()
@@ -2140,6 +2142,7 @@ class PrerenderPages {
   /** Newspaper-style portrait floated right of the first paragraph; caption keeps the credit. */
   static storyPortraitHtml(person) {
     if (!person) return ''
+    if (!/^\/people\/portraits\/[\w.-]+\.webp$/.test(person.image?.webp || '') || !/^\/people\/portraits\/[\w.-]+\.jpg$/.test(person.image?.jpg || '')) return ''
     const esc = PrerenderPages.escapeHtml
     const credit = person.ai
       ? `AI illustration · ${person.credit || 'Kentucky History Drive'}`
