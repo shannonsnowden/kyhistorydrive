@@ -13,7 +13,7 @@ import fs from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { extractPairs, hashPair } from './lib/coord-pairs.mjs'
 
-const COMMITS = ['dce2127', '051f0e0', '7dfe914'] // #221: rounding, leak fixes, source rounding
+const COMMITS = ['dce2127', '051f0e0', '7dfe914', 'b7070bd'] // #221: rounding, leak fixes, source rounding; #226: Eskippakithiki
 const HISTORY_FILES = ['public/data/layers/stories.geojson', 'public/data/layers/history.geojson', 'public/data/app/ky-history.json', 'public/content/stories-locations.json']
 const git = (...a) => execFileSync('git', a, { encoding: 'utf8', maxBuffer: 1 << 30, stdio: ['ignore', 'pipe', 'ignore'] })
 const show = (rev, f) => { try { return git('show', `${rev}:${f}`) } catch { return '' } }
