@@ -4522,13 +4522,12 @@ document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('clic
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
-/** About seal is 402KB and hidden on first load. Fetch it only when About opens. */
+/** About seals (the black one is 402KB) are hidden on first load. Fetch them only when About opens. */
 function revealAboutSeal() {
-  const img = document.querySelector('#about img.about-logo')
-  if (!img || img.getAttribute('src')) return
-  const src = img.dataset.src
-  if (!src) return
-  img.src = src
+  document.querySelectorAll('#about img.about-seal[data-src]').forEach((img) => {
+    if (img.getAttribute('src')) return
+    img.src = img.dataset.src
+  })
 }
 
 document.querySelector('a.skip-link')?.addEventListener('click', (e) => {
