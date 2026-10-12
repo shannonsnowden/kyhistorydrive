@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T09:47:38.299Z",
+  "generatedAt": "2026-10-12T10:00:37.194Z",
   "count": 235,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -1078,36 +1078,6 @@
       "lon": -83.8,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Fox Farm Fort Ancient"
-    },
-    {
-      "slug": "tinsley-hill-15ly18-lyon-county",
-      "title": "Tinsley Hill: Mississippian town under Lake Barkley",
-      "publishedDate": "2026-10-12",
-      "summary": "On the Cumberland in Lyon County, Tinsley Hill (15Ly18) was a late Mississippian town with two mounds, a village, and a stone-box cemetery.…",
-      "yearStart": 1300,
-      "yearEnd": 1450,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "mississippian",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-10-12",
-      "county": "Lyon",
-      "photo": {
-        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
-        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
-        "year": null
-      },
-      "lat": 37,
-      "lon": -88,
-      "mapConfidence": "override",
-      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)"
     },
     {
       "slug": "slone-site-15pi11-pike-county",
@@ -2842,7 +2812,7 @@
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
       "title": "Blackfish, Chillicothe war chief",
       "publishedDate": "2026-10-12",
-      "summary": "Blackfish (c. 1729–1779), Cot-ta-wa-ma-go or Mkah-day-way-may-qua in Shawnee, was war chief of the Chillicothe division.…",
+      "summary": "Blackfish (c. 1729–1779), war chief of the Chillicothe Shawnee, refused to give up Kentucky hunting ground after Dunmore’s War.",
       "yearStart": 1778,
       "yearEnd": 1779,
       "era": "native",
@@ -3201,6 +3171,36 @@
       "lon": -85.4665,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bardstown Founding"
+    },
+    {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "title": "Capt. Robert Johnson and Big Crossing Station",
+      "publishedDate": "2026-10-12",
+      "summary": "Robert Johnson (1745–1815) founded Johnson’s Station in 1783 at the bison ford on Elkhorn Creek in Scott County, the place called Great Crossing.",
+      "yearStart": 1780,
+      "yearEnd": 1815,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "settlement",
+        "scott-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Scott",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "lat": 38.21444444,
+      "lon": -84.60527778,
+      "mapConfidence": "override",
+      "matchedPlace": "Big Crossing Station / Great Crossing"
     },
     {
       "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
@@ -3715,36 +3715,6 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
-    },
-    {
-      "slug": "capt-robert-johnson-and-big-crossing-station",
-      "title": "Capt. Robert Johnson and Big Crossing Station",
-      "publishedDate": "2026-10-12",
-      "summary": "Robert Johnson (1745–1815) came from Orange County, Virginia, bought part of Col. John Floyd’s 1774 North Elkhorn survey, and first reached Kentucky in 1779.…",
-      "yearStart": 1783,
-      "yearEnd": 1815,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "settlement",
-        "scott-county"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-10-12",
-      "county": "Scott",
-      "photo": {
-        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
-        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
-      },
-      "lat": 38.21444444,
-      "lon": -84.60527778,
-      "mapConfidence": "override",
-      "matchedPlace": "Big Crossing Station / Great Crossing"
     },
     {
       "slug": "harry-innes",
@@ -4992,7 +4962,7 @@
       "slug": "burlington-boone-county-seat",
       "title": "Burlington: from Craig’s Camp to Boone’s seat",
       "publishedDate": "2026-10-12",
-      "summary": "Boone County’s first court met June 17, 1799, at William Cave’s house in North Bend Bottoms and fixed the seat on 74 acres at the headwaters of Allens Fork—Craig’s Camp.…",
+      "summary": "In June 1799 Boone County’s first court fixed the county seat at Craig’s Camp, 74 acres at the headwaters of Allens Fork.",
       "yearStart": 1799,
       "yearEnd": 1816,
       "era": "early-commonwealth",
@@ -5067,6 +5037,36 @@
       "lon": -85.3441,
       "mapConfidence": "override",
       "matchedPlace": "Taylorsville"
+    },
+    {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "title": "Campbellsville: from Andrew Campbell’s lots to a county seat",
+      "publishedDate": "2026-10-12",
+      "summary": "Andrew Campbell of Augusta County, Virginia, was selling lots and keeping a gristmill and a tavern by 1814, and the legislature established Campbellsville in 1817.",
+      "yearStart": 1800,
+      "yearEnd": 1848,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "towns",
+        "taylor-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Taylor",
+      "photo": {
+        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2017
+      },
+      "lat": 37.34583333,
+      "lon": -85.34555556,
+      "mapConfidence": "override",
+      "matchedPlace": "Campbellsville (Taylor County seat)"
     },
     {
       "slug": "somerset",
@@ -5321,36 +5321,6 @@
       "lon": -83.1233,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)"
-    },
-    {
-      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
-      "title": "Campbellsville: from Buckhorn Creek lots to a county seat",
-      "publishedDate": "2026-10-12",
-      "summary": "Andrew Campbell of Augusta County, Virginia, was selling lots on Buckhorn Creek, a Green River tributary, by 1814.…",
-      "yearStart": 1814,
-      "yearEnd": 1848,
-      "era": "early-commonwealth",
-      "tags": [
-        "early-commonwealth",
-        "kentucky",
-        "towns",
-        "taylor-county"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-10-12",
-      "county": "Taylor",
-      "photo": {
-        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
-        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2017
-      },
-      "lat": 37.34583333,
-      "lon": -85.34555556,
-      "mapConfidence": "override",
-      "matchedPlace": "Campbellsville (Taylor County seat)"
     },
     {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
@@ -6245,6 +6215,36 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "title": "Tinsley Hill: Mississippian town under Lake Barkley",
+      "publishedDate": "2026-10-12",
+      "summary": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village on the Cumberland.",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Lyon",
+      "photo": {
+        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+        "year": null
+      },
+      "lat": 37,
+      "lon": -88,
+      "mapConfidence": "override",
+      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)"
     },
     {
       "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",

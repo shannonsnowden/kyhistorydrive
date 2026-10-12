@@ -194,6 +194,17 @@ assert.notEqual(
   `quote froze on ${todayQuote.slug} when the pack date changed from ${previous} to ${latest}`,
 )
 assert.notEqual(todayQuote.slug, mirrorSlug, 'quote reused the hero sentence stored in home-preview.json')
+const gorge =
+  'The Red River Gorge is a canyon system on the Red River in east-central Kentucky, part of the Pottsville Escarpment, carved over millions of years by erosion and weathering into high sandstone cliffs, rock shelters, waterfalls, and natural bridges.'
+const gorgeDeck = HomepageStructure.heroDeck({ quote: gorge })
+assert.equal(gorgeDeck, gorge, 'long first sentence must stay whole')
+assert.equal(gorgeDeck.includes('…'), false)
+assert.ok(gorgeDeck.endsWith('.'))
+const words = gorgeDeck.split(/\s+/).filter(Boolean)
+assert.ok(words.length > 30 && words.length <= 60, `expected a long full sentence, got ${words.length} words`)
+const overCap = `${Array.from({ length: 69 }, () => 'word').join(' ')} bridges.`
+assert.equal(HomepageStructure.capWords(overCap), overCap)
+assert.equal(overCap.includes('…'), false)
 console.log(
   `homepage quote ${latest}: ${todayQuote.slug} (${todayQuote.title}); ${previous}: ${previousQuote.slug}`,
 )
