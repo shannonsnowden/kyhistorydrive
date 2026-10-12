@@ -106,7 +106,7 @@ function quoteFromStory(story) {
   }
 }
 
-/** Hero overlay: about 25 words, on a sentence or word break. Display only. */
+/** Hero overlay: the full first sentence. A finished sentence is not cut with an ellipsis. */
 function heroDeckText(story) {
   // Build-time copy (scripts/build-home-preview.mjs) when present; same rules at runtime otherwise.
   if (story?.heroDeck) return story.heroDeck

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-12T10:12:39.363Z",
-  "count": 230,
+  "generatedAt": "2026-10-12T10:24:20.439Z",
+  "count": 235,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-11"
+    "end": "2026-10-12"
   },
   "eras": [
     "early-commonwealth",
@@ -2819,6 +2819,36 @@
       "matchedPlace": "Springfield"
     },
     {
+      "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+      "title": "Blackfish, Chillicothe war chief",
+      "publishedDate": "2026-10-12",
+      "summary": "Blackfish (c. 1729–1779), war chief of the Chillicothe Shawnee, refused to give up Kentucky hunting ground after Dunmore’s War.",
+      "yearStart": 1778,
+      "yearEnd": 1779,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "shawnee",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Madison",
+      "photo": {
+        "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
+        "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "year": 1887
+      },
+      "lat": 37.89977778,
+      "lon": -84.26566667,
+      "mapConfidence": "override",
+      "matchedPlace": "Siege of Boonesborough (Sept 1778)"
+    },
+    {
       "slug": "daniel-trabue-of-columbia",
       "title": "Daniel Trabue, the pioneer who wrote it all down",
       "publishedDate": "2026-10-07",
@@ -3152,6 +3182,36 @@
       "lon": -85.4665,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bardstown Founding"
+    },
+    {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "title": "Capt. Robert Johnson and Big Crossing Station",
+      "publishedDate": "2026-10-12",
+      "summary": "Robert Johnson (1745–1815) founded Johnson’s Station in 1783 at the bison ford on Elkhorn Creek in Scott County, the place called Great Crossing.",
+      "yearStart": 1780,
+      "yearEnd": 1815,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "settlement",
+        "scott-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Scott",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "lat": 38.21444444,
+      "lon": -84.60527778,
+      "mapConfidence": "override",
+      "matchedPlace": "Big Crossing Station / Great Crossing"
     },
     {
       "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
@@ -4910,6 +4970,36 @@
       "matchedPlace": "Richmond Founding"
     },
     {
+      "slug": "burlington-boone-county-seat",
+      "title": "Burlington: from Craig’s Camp to Boone’s seat",
+      "publishedDate": "2026-10-12",
+      "summary": "In June 1799 Boone County’s first court fixed the county seat at Craig’s Camp, 74 acres at the headwaters of Allens Fork.",
+      "yearStart": 1799,
+      "yearEnd": 1816,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "towns",
+        "boone-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Boone",
+      "photo": {
+        "image_url": "/content/photos/stories/burlington-boone-county-seat.jpg",
+        "title": "Boone County Courthouse, Burlington (photographed 2020)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC0",
+        "year": 2020
+      },
+      "lat": 39.02222222,
+      "lon": -84.72166667,
+      "mapConfidence": "override",
+      "matchedPlace": "Burlington (Boone County seat)"
+    },
+    {
       "slug": "carlisle-kincarts-peach-orchard-county-seat",
       "title": "Carlisle: a county seat in Kincart’s peach orchard",
       "publishedDate": "2026-10-09",
@@ -4958,6 +5048,36 @@
       "lon": -85.3441,
       "mapConfidence": "override",
       "matchedPlace": "Taylorsville"
+    },
+    {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "title": "Campbellsville: from Andrew Campbell’s lots to a county seat",
+      "publishedDate": "2026-10-12",
+      "summary": "Andrew Campbell of Augusta County, Virginia, was selling lots and keeping a gristmill and a tavern by 1814, and the legislature established Campbellsville in 1817.",
+      "yearStart": 1800,
+      "yearEnd": 1848,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "towns",
+        "taylor-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Taylor",
+      "photo": {
+        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2017
+      },
+      "lat": 37.34583333,
+      "lon": -85.34555556,
+      "mapConfidence": "override",
+      "matchedPlace": "Campbellsville (Taylor County seat)"
     },
     {
       "slug": "somerset",
@@ -6117,6 +6237,36 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "title": "Tinsley Hill: Mississippian town under Lake Barkley",
+      "publishedDate": "2026-10-12",
+      "summary": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village on the Cumberland.",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Lyon",
+      "photo": {
+        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+        "year": null
+      },
+      "lat": 37,
+      "lon": -88,
+      "mapConfidence": "override",
+      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)"
     },
     {
       "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
