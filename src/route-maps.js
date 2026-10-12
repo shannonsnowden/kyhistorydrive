@@ -40,7 +40,7 @@ const wp = (where, stop, geo = null, conjectural = false) => ({ where, stop, geo
 export const ROUTE_MAPS = [
   {
     slug: 'athiamiowee-the-warriors-path-through-kentucky',
-    base: 'warriors-path-map',
+    base: 'athiamiowee-the-warriors-path-through-kentucky',
     zoomStem: 'warriors-path',
     phoneCrop: true,
     era: 'before 1674 to the 1770s',
@@ -132,7 +132,7 @@ export const ROUTE_MAPS = [
     phoneCaption:
       'Dotted: Kentucky and return (conjectural); the return is not shown in this crop. Map: Kentucky History Drive.',
     sentence:
-      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Kentucky River and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
+      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Red River, which he called the little Cuttaway, and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
     distance:
       'About 350 miles from Old Town to Lower Shawneetown, 250 for the Pickawillany round trip, and about 480 from Lower Shawneetown through Kentucky to the Yadkin, measured on the map line.',
     stopsLabel: 'Approximate stops, in order of travel',
@@ -148,7 +148,7 @@ export const ROUTE_MAPS = [
       wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.71, -83]),
       wp('Lewis, Mason, and Bracken counties, Kentucky', 'down the southeast side of the Ohio', null, true),
       wp('near Grant and Owen counties, Kentucky', 'lower Salt Lick Creek, disputed', [38.55, -84.7], true),
-      wp('Kentucky River below Frankfort, Owen, Henry, and Franklin counties, Kentucky', 'little Cuttaway', [38.33, -84.78], true),
+      wp('Red River near Clay City, Clark, Powell, and Estill counties, Kentucky', 'little Cuttaway (Red River)', [37.84, -84.02], true),
       wp('Bluegrass edge to the eastern Kentucky coalfield, Clark and Powell counties to Letcher County, Kentucky, and Wise County, Virginia', 'southeast through the mountains', null, true),
       wp('Bluefield–Princeton area, Mercer County, West Virginia, and Tazewell County, Virginia', 'Bluestone River', [37.33, -81.2], true),
       wp('near Hinton, Summers County, West Virginia', 'New River', [37.56, -80.85], true),
@@ -484,10 +484,26 @@ export function routeMapJsonLd(route, { canonical, title }) {
 const PHONE_MQ = '(max-width: 699px)'
 const DESK_MQ = '(min-width: 700px)'
 
+function paintStoryPinPictures(mode) {
+  document.querySelectorAll('picture.story-pin-picture').forEach((pic) => {
+    pic.querySelectorAll('source[data-theme]').forEach((src) => {
+      const role = src.getAttribute('data-theme')
+      src.media = role === mode ? '(min-width: 0px)' : 'not all'
+    })
+    const img = pic.querySelector('img')
+    if (!img) return
+    const next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
+    if (next) img.setAttribute('src', next)
+    img.remove()
+    pic.appendChild(img)
+  })
+}
+
 /** Follow the site theme. The picture markup still carries prefers-color-scheme for no-JS. */
 export function applyRouteMapTheme(theme) {
   if (typeof document === 'undefined') return
   const mode = theme === 'light' ? 'light' : 'dark'
+  paintStoryPinPictures(mode)
   document.querySelectorAll('picture.route-map-picture').forEach((pic) => {
     pic.querySelectorAll('source[data-theme]').forEach((src) => {
       const role = src.getAttribute('data-theme')
@@ -518,6 +534,18 @@ export function routeMapThemeScript() {
         var desk = '(min-width: 700px)'
         function apply(theme) {
           var mode = theme === 'light' ? 'light' : 'dark'
+          document.querySelectorAll('picture.story-pin-picture').forEach(function (pic) {
+            pic.querySelectorAll('source[data-theme]').forEach(function (src) {
+              var role = src.getAttribute('data-theme')
+              src.media = role === mode ? '(min-width: 0px)' : 'not all'
+            })
+            var img = pic.querySelector('img')
+            if (!img) return
+            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
+            if (next) img.setAttribute('src', next)
+            img.remove()
+            pic.appendChild(img)
+          })
           document.querySelectorAll('picture.route-map-picture').forEach(function (pic) {
             pic.querySelectorAll('source[data-theme]').forEach(function (src) {
               var role = src.getAttribute('data-theme')

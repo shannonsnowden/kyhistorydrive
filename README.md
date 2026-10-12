@@ -77,7 +77,7 @@ Amplify `preBuild` runs `sync-app-data`, which validates and publishes the commi
 
 `SYNC_FROM_MARKERS=1` is a legacy/migration override only. With that opt-in, `KY_MARKERS_DRIVE_DIR` or `KY_MARKERS_DRIVE_GITHUB_TOKEN` (also `GH_TOKEN` / `GITHUB_TOKEN`) can overwrite `public/data/app/` from the iOS repo. Leave it unset for daily deploys.
 
-`customHttp.yml` sets short CloudFront cache (`max-age=0`, `s-maxage=60`) and CORS (`Access-Control-Allow-Origin: *`) on `/data/app/*.json` so version bumps are not stuck behind Amplify’s default 1-year CDN cache. Native iOS URLSession does not need CORS; it is there for completeness.
+`customHttp.yml` sets short CloudFront cache (`max-age=0`, `s-maxage=60`) and CORS (`Access-Control-Allow-Origin: *`) on `/data/app/*.json` so version bumps are not stuck behind Amplify’s default 1-year CDN cache. Native iOS URLSession does not need CORS; it is there for completeness. The same file is the only copy of the security headers, including a report-only Content-Security-Policy, and it serves `/feed.xml` as `application/rss+xml`. `amplify.yml` does not repeat the headers. It keeps the `/about` 301 with the other rewrites. See `docs/SECURITY-HEADERS.md`.
 
 ### iOS App Store / TestFlight cut
 
@@ -117,7 +117,7 @@ npm run preview
 ## AWS Amplify + Route53
 
 1. Amplify Hosting → **Host web app** → connect GitHub repo `shannonsnowden/kyhistorydrive`
-2. Build settings use root `amplify.yml` (`npm ci` → `npm run sync-app-data` → `npm run build`, artifact `dist`). `sync-app-data` publishes committed `public/data/app/`. Do not set `SYNC_FROM_MARKERS` on Amplify. Cache/CORS for `/data/app/*.json` is in `customHttp.yml`.
+2. Build settings use root `amplify.yml` (`npm ci` → `npm run sync-app-data` → `npm run build`, artifact `dist`). `sync-app-data` publishes committed `public/data/app/`. Do not set `SYNC_FROM_MARKERS` on Amplify. Cache/CORS for `/data/app/*.json`, the `/feed.xml` RSS content type, and the security headers are only in `customHttp.yml`.
 3. When **kyhistorydrive.com** is live in Route53, Amplify → Domain management → add `kyhistorydrive.com` (+ `www` if desired)
 4. Amplify will ask for Route53 DNS records (or provide CNAME/ALIAS to paste into the hosted zone)
 

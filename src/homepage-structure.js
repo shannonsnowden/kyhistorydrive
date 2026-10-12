@@ -9,10 +9,12 @@
  */
 export class HomepageStructure {
   static ERA_ORDER = ['prehistoric', 'native', 'frontier', 'early-commonwealth', 'other']
-  /** About 25 words. A sentence a few words longer stays whole. */
-  static HERO_WORD_CAP = 25
-  static HERO_WORD_SLACK = 5
-  /** A longer sentence is cut at the last clause break (comma, semicolon, dash) in this word range. */
+  /**
+   * A finished first sentence is kept whole through about 60 words, and past
+   * that too. Hero copy must not stop mid-sentence with an ellipsis.
+   */
+  static HERO_WORD_CAP = 60
+  /** Only fragments with no sentence ending use a clause or word cut. */
   static HERO_CLAUSE_MIN = 12
   static HERO_CLAUSE_MAX = 30
   /** First page of the default Explore tab, at the widest page size. */
@@ -87,8 +89,10 @@ export class HomepageStructure {
   }
 
   /**
-   * Hero overlay copy: one sentence, about 25 words, broken on a sentence
-   * or a word. Does not rewrite the stored story.
+   * Hero overlay copy: the complete first sentence. A finished sentence is
+   * never cut mid-sentence with an ellipsis, including long openers up to
+   * about 60 words and beyond. Does not rewrite the stored story.
+   * Text with no sentence ending still breaks on a clause or a word.
    */
   static capWords(text, limit = HomepageStructure.HERO_WORD_CAP) {
     const clean = String(text || '').replace(/\s+/g, ' ').trim()
@@ -108,10 +112,11 @@ export class HomepageStructure {
       first += next
     }
     first = first.trim()
+    // Keep through the first period. Do not ellipsize a finished sentence.
+    if (/[.!?]["'”’)\]]*$/.test(first)) return first
     const words = first.split(/\s+/).filter(Boolean)
-    if (words.length <= limit + HomepageStructure.HERO_WORD_SLACK) return first
-    // Prefer a clean clause: the last word ending in , ; : or followed by a dash, within range.
-    // Never splits after an abbreviation or initial ("Col.", "John C.").
+    if (words.length <= limit) return first
+    // No sentence end: clause break, then a word break.
     for (let i = Math.min(words.length - 1, HomepageStructure.HERO_CLAUSE_MAX) - 1; i >= HomepageStructure.HERO_CLAUSE_MIN - 1; i--) {
       const w = words[i]
       const dashNext = /^[—–-]{1,2}$/.test(words[i + 1] || '')

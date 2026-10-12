@@ -40,6 +40,7 @@ import {
   routeMapThemeScript,
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
+import { storyPinLinkHtml } from '../src/story-pin.js'
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
@@ -327,7 +328,7 @@ class PrerenderPages {
     const out = []
     let buf = ''
     const abbrev = (s) =>
-      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
         s.trimEnd(),
       ) ||
       /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
@@ -1034,7 +1035,7 @@ class PrerenderPages {
       .static-related h2 { font-size: 1.2rem; margin: 0 0 0.55rem; color: var(--heading); }
       .static-related ul { list-style: none; margin: 0; padding: 0; }
       .static-related li { margin: 0 0 0.45rem; }
-      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
       .foot a { color: var(--accent); }
@@ -1260,13 +1261,22 @@ class PrerenderPages {
       lead,
     )
     const mapHref = PrerenderPages.storyMapHref(story)
+    const pinHtml =
+      mapHref && PrerenderPages.publicGeo(story)
+        ? storyPinLinkHtml({ href: mapHref, title: story.title, slug: story.slug })
+        : ''
+    const mapControl = pinHtml
+      ? pinHtml
+      : mapHref
+        ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>`
+        : ''
     const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const route = routeBySlug(story.slug)
-    const ogImage = route ? absoluteUrl(route.files.fullPng) : image
-    const ogAlt = route ? route.alt : imageAlt
+    const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
+    const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
     const filmDescription = film ? filmDescriptionFromPlain(bodyPlain) : ''
     const filmHtml = film
@@ -1299,7 +1309,7 @@ class PrerenderPages {
           ${PrerenderPages.relatedHtml(story, all)}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
-            ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
+            ${mapControl}
           </div>
         </div>
         ${filmHtml}
@@ -1311,8 +1321,8 @@ class PrerenderPages {
       cssHrefs,
       image: ogImage,
       imageAlt: ogAlt,
-      imageWidth: route ? 1600 : 0,
-      imageHeight: route ? 900 : 0,
+      imageWidth: !photo && route ? 1600 : 0,
+      imageHeight: !photo && route ? 900 : 0,
       jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
       routeLightbox: Boolean(route),
       main,
@@ -1680,9 +1690,10 @@ class PrerenderPages {
     }
     const photo = story.photo?.image_url ? PrerenderPages.photoAbsolute(story.photo.image_url) : ''
     const route = routeBySlug(story.slug)
-    const expectedImage = route ? absoluteUrl(route.files.fullPng) : photo || PrerenderPages.LOGO
+    const expectedImage = photo || (route ? absoluteUrl(route.files.fullPng) : PrerenderPages.LOGO)
+    const expectedKind = photo ? 'story photo' : route ? '1600 route map' : 'story photo or logo fallback'
     if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
-      throw new Error(`prerender: ${urlPath} og:image is not the ${route ? '1600 route map' : 'story photo or logo fallback'}`)
+      throw new Error(`prerender: ${urlPath} og:image is not the ${expectedKind}`)
     }
     if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} twitter:image is missing`)
