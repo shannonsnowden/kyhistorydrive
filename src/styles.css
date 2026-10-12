@@ -4836,3 +4836,33 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     max-width: 26rem;
   }
 }
+
+/* #262: phone swipe titles show up to 3 lines with no ellipsis; the row's fixed
+   height grows to fit (still reserved in CSS, not set by JS). */
+.hp-story-swipe { height: 208px; }
+.hp-swipe-card-title {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  max-height: calc(0.9rem * 1.25 * 3);
+}
+/* 1280: lead capped at 440px tall; the photo covers that box. */
+@media (min-width: 901px) {
+  .hp-lead-grid > .hp-mag-hero {
+    min-height: 0 !important;
+    height: 440px !important;
+    max-height: 440px !important;
+    align-self: start;
+  }
+  .hp-lead-grid > .hp-mag-hero > .hp-lead-story {
+    height: 440px;
+    min-height: 0;
+    max-height: 440px;
+  }
+  .hp-lead-media-link .hp-mag-hero-img,
+  .hp-lead-media-link picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
