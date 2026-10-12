@@ -3296,5 +3296,119 @@
       "attribution": "Mrherbalwarrior · Wikimedia Commons · CC BY 3.0",
       "year": 2006
     }
+  },
+  {
+    "id": "great-crossing-scott-1783-1815",
+    "name": "Big Crossing Station / Great Crossing",
+    "subtitle": "Scott County · buffalo ford on North Elkhorn · founded 1783 by Capt. Robert Johnson · Great Crossing Baptist Church",
+    "latitude": 38.21444444,
+    "longitude": -84.60527778,
+    "history": "Robert Johnson (1745–1815) came from Orange County, Virginia, bought part of Col. John Floyd’s 1774 North Elkhorn survey, and first reached Kentucky in 1779. After a season on Beargrass and time at Bryan’s Station—where tradition holds his wife Jemima Suggett Johnson led the women to the spring before the August 1782 siege—he founded Big Crossing Station in 1783 at the buffalo ford on North Elkhorn, about two miles west of today’s Georgetown.\n\nIt was Scott County’s first permanent settlement, picketed in, with a horse mill and then a water mill by 1784. Johnson sat in the Virginia Assembly for Fayette, surveyed widely, helped defend the frontier through the early 1790s, served in both Kentucky constitutional conventions (1792 and 1799), and with Jemima donated land for Great Crossing Baptist Church.\n\nThree of their sons sat in Congress in 1825; Richard M. Johnson became vice president in 1837. Robert and Jemima are buried in the church cemetery at Great Crossing. The map pin is Great Crossing on North Elkhorn.",
+    "source_date": "2026-10-12",
+    "geocode_source": "wikipedia-great-crossing",
+    "geocode_note": "Wikipedia coordinate for Great Crossing, Kentucky (38.21444444, -84.60527778). Years 1783 (Big Crossing Station founded)–1815 (Robert Johnson’s death).",
+    "category": "settlement",
+    "website": "https://en.wikipedia.org/wiki/Great_Crossing,_Kentucky",
+    "year_start": 1783,
+    "year_end": 1815,
+    "photo": {
+      "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+      "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+      "source_label": "Wikimedia Commons",
+      "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2007
+    }
+  },
+  {
+    "id": "campbellsville-taylor-1814-1848",
+    "name": "Campbellsville (Taylor County seat)",
+    "subtitle": "Taylor County · Buckhorn Creek / Green River · town established 1817 · county seat 1848",
+    "latitude": 37.34583333,
+    "longitude": -85.34555556,
+    "history": "Andrew Campbell of Augusta County, Virginia, was selling lots on Buckhorn Creek, a Green River tributary, by 1814. He built a gristmill and a tavern, and with brothers Adam, Michael, James, and David pushed a town that the Kentucky General Assembly established on Jan. 3, 1817, still then in Green County.\n\nA post office opened the day before with Pleasant Kirtley as postmaster; by 1820 the plat showed about 85 lots around a public square. When Taylor County was cut from Green in 1848—Kentucky’s 100th county, named for Gen. Zachary Taylor—Campbellsville became the seat, and the square was sold to the county for a dollar for the first courthouse.\n\nThe town sits near the state’s claimed geographic center and remains the Taylor County hub. The map pin marks the town.",
+    "source_date": "2026-10-12",
+    "geocode_source": "wikipedia-campbellsville",
+    "geocode_note": "Wikipedia coordinate for Campbellsville (37.34583333, -85.34555556). Years 1814 (lots on Buckhorn Creek)–1848 (Taylor County seat).",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Campbellsville,_Kentucky",
+    "year_start": 1814,
+    "year_end": 1848,
+    "photo": {
+      "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+      "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "year": 2017
+    }
+  },
+  {
+    "id": "boonesborough-siege-blackfish-1778",
+    "name": "Siege of Boonesborough (Sept 1778)",
+    "subtitle": "Madison County · Fort Boonesborough · Blackfish (Cot-ta-wa-ma-go) · eleven-day Shawnee siege",
+    "latitude": 37.89977778,
+    "longitude": -84.26566667,
+    "history": "Blackfish (c. 1729–1779), Cot-ta-wa-ma-go or Mkah-day-way-may-qua in Shawnee, was war chief of the Chillicothe division. After Cornstalk’s murder at Fort Randolph in November 1777, he led British-allied Shawnee pressure on the Kentucky stations—defending Shawnee hunting grounds south of the Ohio that settlers were claiming under Virginia patents the Shawnee had never consented to give up.\n\nIn February 1778 his party took Daniel Boone and the Blue Licks saltmakers; Boone was adopted as Sheltowee (“Big Turtle”) and held about four months before escaping to warn Boonesborough. That September Blackfish brought several hundred Shawnee and allied warriors, with British supplies, against the fort in an eleven-day siege that failed.\n\nIn May 1779 Col. John Bowman’s Kentucky militia struck Chillicothe (near present Xenia, Ohio); Blackfish helped drive them off but took a leg wound that turned septic and killed him later that year—removing one of the Shawnee’s toughest field leaders just as the Ohio Valley war intensified. The map pin is the Boonesborough siege site.",
+    "source_date": "2026-10-12",
+    "geocode_source": "wikipedia-siege-of-boonesborough",
+    "geocode_note": "Wikipedia coordinate for the Siege of Boonesborough (37.89977778, -84.26566667). Years 1778 (Boone capture and September siege)–1779 (Blackfish’s death after Bowman’s Chillicothe raid).",
+    "category": "battle",
+    "website": "https://en.wikipedia.org/wiki/Siege_of_Boonesborough",
+    "year_start": 1778,
+    "year_end": 1779,
+    "photo": {
+      "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
+      "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+      "year": 1887
+    }
+  },
+  {
+    "id": "tinsley-hill-15ly18-lyon-1300-1450",
+    "name": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
+    "subtitle": "Lyon County · late Mississippian town · Tinsley Hill Phase ~AD 1300–1450 · inundated by Lake Barkley",
+    "latitude": 37.0,
+    "longitude": -88.0,
+    "history": "On the Cumberland in Lyon County, Tinsley Hill (15Ly18) was a late Mississippian town with two mounds, a village, and a stone-box cemetery. Douglas W. Schwartz excavated the cemetery in 1958–60 for the University of Kentucky; R. Berle Clay dug the village in 1960 and 1962 under the Inter-Agency Archaeological Salvage Program before Lake Barkley rose.\n\nThe cemetery alone yielded remains of well over a hundred people and hundreds of associated objects. Ceramics from the later occupation define the Tinsley Hill Phase, dated roughly AD 1300–1450 in the lower Tennessee–Cumberland sequence—farmers and town-builders on western Kentucky ground centuries before the first English surveys.\n\nThe site now lies under Lake Barkley; the map pin is a generalized public point for the inundated Lyon County stretch of the Cumberland, not an exact site coordinate.",
+    "source_date": "2026-10-12",
+    "geocode_source": "generalized-lyon-lake-barkley",
+    "geocode_note": "Generalized to 0.1° (37.0, -88.0) for the inundated Lyon County Cumberland / Lake Barkley area near Tinsley Hollow; exact site coordinates are not published here. Occupation years AD 1300–1450 (Tinsley Hill Phase), not excavation dates.",
+    "category": "archaeology",
+    "website": "https://core.tdar.org/document/176640/tinsley-hill-site-a-late-prehistoric-stone-grave-cemetery-in-lyon-county-kentucky",
+    "year_start": 1300,
+    "year_end": 1450,
+    "photo": {
+      "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+      "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain"
+    }
+  },
+  {
+    "id": "burlington-boone-1799-1816",
+    "name": "Burlington (Boone County seat)",
+    "subtitle": "Boone County · Craig’s Camp / Wilmington 1800 · renamed Burlington 1816 · unincorporated county seat",
+    "latitude": 39.02222222,
+    "longitude": -84.72166667,
+    "history": "Boone County’s first court met June 17, 1799, at William Cave’s house in North Bend Bottoms and fixed the seat on 74 acres at the headwaters of Allens Fork—Craig’s Camp, named for John Hawkins Craig. On Oct. 20, 1800, Craig and Robert Johnson established a town there called Wilmington; court sat in a log courthouse by January 1801, and Moses Scott platted the grid around a central Public Square that September.\n\nThe U.S. Post Office asked for a rename in 1816 to avoid another Wilmington, and Burlington stuck. The 1889 Renaissance Revival courthouse still serves; the historic district landed on the National Register in 1979.\n\nBurlington later lost its city charter and remains one of Kentucky’s two unincorporated county seats, still the place for courts, clerk, and jail in Boone County. The map pin marks the town.",
+    "source_date": "2026-10-12",
+    "geocode_source": "wikipedia-burlington-ky",
+    "geocode_note": "Wikipedia coordinate for Burlington, Kentucky (39.02222222, -84.72166667). Years 1799 (first Boone County court / seat fixed)–1816 (renamed Burlington).",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Burlington,_Kentucky",
+    "year_start": 1799,
+    "year_end": 1816,
+    "photo": {
+      "image_url": "/content/photos/stories/burlington-boone-county-seat.jpg",
+      "title": "Boone County Courthouse, Burlington (photographed 2020)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "w_lemay · Wikimedia Commons · CC0",
+      "year": 2020
+    }
   }
 ]

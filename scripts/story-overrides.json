@@ -735,6 +735,56 @@
           "new": "August 21, 1931.\nSource: [Cumberland Falls State Resort Park history (Kentucky State Parks, archived)](https://web.archive.org/web/20150604135131/http://parks.ky.gov/parks/resortparks/cumberland-falls/history.aspx)\nSource: [Cumberland Falls (Wikipedia)](https://en.wikipedia.org/wiki/Cumberland_Falls)"
         }
       ]
+    },
+    "capt-robert-johnson-and-big-crossing-station": {
+      "reason": "Wikipedia coordinate for Great Crossing, Kentucky (38.21444444, -84.60527778). Years 1783 (Big Crossing Station founded)–1815 (Robert Johnson’s death). County Scott.",
+      "date": "2026-10-12",
+      "historyId": "great-crossing-scott-1783-1815",
+      "lat": 38.21444444,
+      "lon": -84.60527778,
+      "yearStart": 1783,
+      "yearEnd": 1815,
+      "county": "Scott"
+    },
+    "campbellsville-from-buckhorn-creek-to-county-seat": {
+      "reason": "Wikipedia coordinate for Campbellsville (37.34583333, -85.34555556). Years 1814 (lots on Buckhorn Creek)–1848 (Taylor County seat). County Taylor.",
+      "date": "2026-10-12",
+      "historyId": "campbellsville-taylor-1814-1848",
+      "lat": 37.34583333,
+      "lon": -85.34555556,
+      "yearStart": 1814,
+      "yearEnd": 1848,
+      "county": "Taylor"
+    },
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
+      "reason": "Wikipedia coordinate for the Siege of Boonesborough (37.89977778, -84.26566667). Years 1778–1779. County Madison.",
+      "date": "2026-10-12",
+      "historyId": "boonesborough-siege-blackfish-1778",
+      "lat": 37.89977778,
+      "lon": -84.26566667,
+      "yearStart": 1778,
+      "yearEnd": 1779,
+      "county": "Madison"
+    },
+    "tinsley-hill-15ly18-lyon-county": {
+      "reason": "Generalized to 0.1° (37.0, -88.0) for inundated Lyon County / Lake Barkley area; occupation years 1300–1450 (not excavation). County Lyon.",
+      "date": "2026-10-12",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450",
+      "lat": 37.0,
+      "lon": -88.0,
+      "yearStart": 1300,
+      "yearEnd": 1450,
+      "county": "Lyon"
+    },
+    "burlington-boone-county-seat": {
+      "reason": "Wikipedia coordinate for Burlington, Kentucky (39.02222222, -84.72166667). Years 1799–1816. County Boone.",
+      "date": "2026-10-12",
+      "historyId": "burlington-boone-1799-1816",
+      "lat": 39.02222222,
+      "lon": -84.72166667,
+      "yearStart": 1799,
+      "yearEnd": 1816,
+      "county": "Boone"
     }
   }
 }

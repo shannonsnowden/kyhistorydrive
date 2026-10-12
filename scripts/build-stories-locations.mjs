@@ -897,6 +897,37 @@ const MANUAL_OVERRIDES = {
     lon: -83.60777778,
     confidence: 'override',
   },
+  // 2026-10-12 brief (no swaps; all five pinned — Blackfish at Boonesborough siege; Tinsley Hill generalized 0.1°)
+  'capt-robert-johnson-and-big-crossing-station': {
+    matchName: "Big Crossing Station / Great Crossing",
+    lat: 38.21444444,
+    lon: -84.60527778,
+    confidence: 'override',
+  },
+  'campbellsville-from-buckhorn-creek-to-county-seat': {
+    matchName: "Campbellsville (Taylor County seat)",
+    lat: 37.34583333,
+    lon: -85.34555556,
+    confidence: 'override',
+  },
+  'blackfish-cot-ta-wa-ma-go-chillicothe-war-chief': {
+    matchName: "Siege of Boonesborough (Sept 1778)",
+    lat: 37.89977778,
+    lon: -84.26566667,
+    confidence: 'override',
+  },
+  'tinsley-hill-15ly18-lyon-county': {
+    matchName: "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
+    lat: 37.0,
+    lon: -88.0,
+    confidence: 'override',
+  },
+  'burlington-boone-county-seat': {
+    matchName: "Burlington (Boone County seat)",
+    lat: 39.02222222,
+    lon: -84.72166667,
+    confidence: 'override',
+  },
 }
 
 

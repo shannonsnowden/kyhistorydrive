@@ -1,0 +1,27 @@
+{
+  "slug": "tinsley-hill-15ly18-lyon-county",
+  "title": "Tinsley Hill: Mississippian town under Lake Barkley",
+  "publishedDate": "2026-10-12",
+  "summary": "On the Cumberland in Lyon County, Tinsley Hill (15Ly18) was a late Mississippian town with two mounds, a village, and a stone-box cemetery.…",
+  "bodyMarkdown": "On the Cumberland in Lyon County, Tinsley Hill (15Ly18) was a late Mississippian town with two mounds, a village, and a stone-box cemetery. Douglas W. Schwartz excavated the cemetery in 1958–60 for the University of Kentucky; R. Berle Clay dug the village in 1960 and 1962 under the Inter-Agency Archaeological Salvage Program before Lake Barkley rose.\n\nThe cemetery alone yielded remains of well over a hundred people and hundreds of associated objects. Ceramics from the later occupation define the Tinsley Hill Phase, dated roughly AD 1300–1450 in the lower Tennessee–Cumberland sequence—farmers and town-builders on western Kentucky ground centuries before the first English surveys.\n\nThe site now lies under Lake Barkley; the map pin is a generalized public point for the inundated Lyon County stretch of the Cumberland, not an exact site coordinate.\nSource: [https://core.tdar.org/document/176640/tinsley-hill-site-a-late-prehistoric-stone-grave-cemetery-in-lyon-county-kentucky](https://core.tdar.org/document/176640/tinsley-hill-site-a-late-prehistoric-stone-grave-cemetery-in-lyon-county-kentucky)\nSource: [https://core.tdar.org/document/176642/tinsley-hill-village-1962-a-project-of-the-inter-agency-archaeological-and-paleontological-salvage-program](https://core.tdar.org/document/176642/tinsley-hill-village-1962-a-project-of-the-inter-agency-archaeological-and-paleontological-salvage-program)",
+  "yearStart": 1300,
+  "yearEnd": 1450,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "mississippian",
+    "archaeology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-12",
+  "photo": {
+    "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+    "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+    "year": null
+  },
+  "county": "Lyon"
+}

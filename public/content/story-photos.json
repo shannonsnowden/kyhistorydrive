@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T09:39:41.845Z",
+  "generatedAt": "2026-10-12T09:47:39.719Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -73,6 +73,18 @@
         "year": null
       }
     },
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
+      "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+      "historyId": "boonesborough-siege-blackfish-1778",
+      "photo": {
+        "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
+        "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "year": 1887
+      }
+    },
     "blue-jacket-weyapiersenwah": {
       "slug": "blue-jacket-weyapiersenwah",
       "historyId": "blue-jacket-limestone-negotiation-1787-1788",
@@ -121,6 +133,18 @@
         "year": null
       }
     },
+    "burlington-boone-county-seat": {
+      "slug": "burlington-boone-county-seat",
+      "historyId": "burlington-boone-1799-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/burlington-boone-county-seat.jpg",
+        "title": "Boone County Courthouse, Burlington (photographed 2020)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC0",
+        "year": 2020
+      }
+    },
     "camp-nelson-jessamine-county": {
       "slug": "camp-nelson-jessamine-county",
       "historyId": "camp-nelson-jessamine-1863-1865",
@@ -133,6 +157,18 @@
         "year": 2022
       }
     },
+    "campbellsville-from-buckhorn-creek-to-county-seat": {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "historyId": "campbellsville-taylor-1814-1848",
+      "photo": {
+        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2017
+      }
+    },
     "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
       "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
       "historyId": "cane-ridge-meeting-house-bourbon-1791-1804",
@@ -143,6 +179,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
         "year": 1934
+      }
+    },
+    "capt-robert-johnson-and-big-crossing-station": {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "historyId": "great-crossing-scott-1783-1815",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
@@ -1192,6 +1240,18 @@
         "year": 2011
       }
     },
+    "tinsley-hill-15ly18-lyon-county": {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450",
+      "photo": {
+        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+        "year": null
+      }
+    },
     "tolu-site-mississippian-mounds-on-the-lower-ohio": {
       "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
       "historyId": "tolu-site-15cn1-crittenden-county",
@@ -1362,6 +1422,18 @@
         "year": null
       }
     },
+    "boonesborough-siege-blackfish-1778": {
+      "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+      "historyId": "boonesborough-siege-blackfish-1778",
+      "photo": {
+        "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
+        "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "year": 1887
+      }
+    },
     "blue-jacket-limestone-negotiation-1787-1788": {
       "slug": "blue-jacket-weyapiersenwah",
       "historyId": "blue-jacket-limestone-negotiation-1787-1788",
@@ -1410,6 +1482,18 @@
         "year": null
       }
     },
+    "burlington-boone-1799-1816": {
+      "slug": "burlington-boone-county-seat",
+      "historyId": "burlington-boone-1799-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/burlington-boone-county-seat.jpg",
+        "title": "Boone County Courthouse, Burlington (photographed 2020)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC0",
+        "year": 2020
+      }
+    },
     "camp-nelson-jessamine-1863-1865": {
       "slug": "camp-nelson-jessamine-county",
       "historyId": "camp-nelson-jessamine-1863-1865",
@@ -1422,6 +1506,18 @@
         "year": 2022
       }
     },
+    "campbellsville-taylor-1814-1848": {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "historyId": "campbellsville-taylor-1814-1848",
+      "photo": {
+        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2017
+      }
+    },
     "cane-ridge-meeting-house-bourbon-1791-1804": {
       "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
       "historyId": "cane-ridge-meeting-house-bourbon-1791-1804",
@@ -1432,6 +1528,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
         "year": 1934
+      }
+    },
+    "great-crossing-scott-1783-1815": {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "historyId": "great-crossing-scott-1783-1815",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "hubbell-flatboat-fight-limestone-1791": {
@@ -2260,6 +2368,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2011
+      }
+    },
+    "tinsley-hill-15ly18-lyon-1300-1450": {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450",
+      "photo": {
+        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+        "year": null
       }
     },
     "tolu-site-15cn1-crittenden-county": {
