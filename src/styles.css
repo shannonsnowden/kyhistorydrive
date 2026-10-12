@@ -4431,3 +4431,14 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     flex: 0 0 auto;
   }
 }
+
+/* #261: one subheading. Desktop shows it beside the seal and hides the band below;
+   phones hide the header line and keep the band. */
+@media (min-width: 601px) {
+  body.hp-page .hp-value { display: none; }
+  body.hp-page .site-header .brand-subhead {
+    font-size: 0.9rem;
+    line-height: 1.35;
+    max-width: 26rem;
+  }
+}
