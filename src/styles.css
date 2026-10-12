@@ -1767,7 +1767,8 @@ html[data-hp-theme="light"] .era-other {
 
 
 /* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2).
-   Decorative rings use --accent in both themes. Navy stays inside the seal artwork. */
+   Dark ring is the existing gold #c9a227. Light ring is the existing navy #0b2a5b.
+   2px of transparent padding shows the card background between the ring and the artwork. */
 .about-seals {
   margin: 0.5rem 0 1.5rem;
   padding: 1.1rem 1rem 1rem;
@@ -1799,13 +1800,13 @@ html[data-hp-theme="light"] .era-other {
   aspect-ratio: 1;
   border-radius: 50%;
   background: transparent;
-  /* 2px of the card background between the accent ring and the artwork's gold rim. */
+  /* 2px of the card background between the ring and the artwork's gold rim. */
   padding: 2px;
-  border: 2px solid var(--accent);
+  border: 2px solid #c9a227;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 html[data-hp-theme="light"] .about-seal {
-  border: 2px solid var(--accent);
+  border: 2px solid #0b2a5b;
   box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
 }
 .about-seals-caption {
@@ -2680,18 +2681,18 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 }
 /* Header seal rotates per page load between khd-logo.png (black), khd-logo-c.png (cream center,
    navy band) and khd-logo-c2.png (cream center, gold rim edge). Inline script after #brandLogo; the
-   localStorage counter is khd-logo-n. The ring is --accent in both themes. */
+   localStorage counter is khd-logo-n. Dark ring is gold #c9a227; light ring is navy #0b2a5b. */
 .brand-logo,
 .hp-page .brand-logo {
   background: transparent;
-  /* 2px of the header background between the accent ring and the artwork's gold rim. */
+  /* 2px of the header background between the ring and the artwork's gold rim. */
   padding: 2px;
-  border: 2px solid var(--accent);
+  border: 2px solid #c9a227;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 html[data-hp-theme="light"] .brand-logo,
 html[data-hp-theme="light"] .hp-page .brand-logo {
-  border: 2px solid var(--accent);
+  border: 2px solid #0b2a5b;
   box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
 }
 @media (min-width: 1024px) {
