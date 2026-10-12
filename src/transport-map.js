@@ -44,6 +44,7 @@ const ATTRIBUTION =
 let map = null
 let bootPromise = null
 let sources = null
+let sections = null
 let fitted = false
 const sourceById = new Map()
 
@@ -73,18 +74,29 @@ export function transportYearFilter(year) {
   ]
 }
 
-function swatchColor(id, kind, theme) {
-  const c = COLORS[theme]
-  if (id === 'lexington-ohio') return c.lo
-  if (id === 'ln-main') return c.ln
-  if (id === 'cs-north' || id === 'cs-south') return c.cs
-  if (kind === 'bridge') return c.bridge
-  return c.parkway
+export const ERA_COLORS = [
+  [1830, '#e8b341'],
+  [1850, '#d68f27'],
+  [1870, '#bb6f1c'],
+  [1880, '#a35a18'],
+  [1960, '#86391a'],
+  [1970, '#5f2314'],
+]
+
+function eraColorFor(year) {
+  let color = ERA_COLORS[0][1]
+  for (const [d, c] of ERA_COLORS) if (year >= d) color = c
+  return color
 }
 
-function railColorExpr(theme) {
-  const c = COLORS[theme]
-  return ['match', ['get', 'id'], 'lexington-ohio', c.lo, 'ln-main', c.ln, 'cs-north', c.cs, 'cs-south', c.cs, c.ln]
+function eraColorExpr() {
+  const expr = ['step', ['get', 'opened'], ERA_COLORS[0][1]]
+  for (const [d, c] of ERA_COLORS.slice(1)) expr.push(d, c)
+  return expr
+}
+
+function futureFilter(year) {
+  return ['>', ['get', 'opened'], year]
 }
 
 async function fetchJson(url) {
@@ -93,7 +105,7 @@ async function fetchJson(url) {
   return res.json()
 }
 
-function styleFor(theme, ky, rail, roads) {
+function styleFor(theme, ky, rail, roads, counties, secs) {
   const c = COLORS[theme]
   return {
     version: 8,
@@ -102,6 +114,8 @@ function styleFor(theme, ky, rail, roads) {
       kentucky: { type: 'geojson', data: ky },
       rail: { type: 'geojson', data: rail },
       parkways: { type: 'geojson', data: roads },
+      counties: { type: 'geojson', data: counties },
+      sections: { type: 'geojson', data: secs },
     },
     layers: [
       { id: 'bg', type: 'background', paint: { 'background-color': c.bg } },
@@ -113,42 +127,33 @@ function styleFor(theme, ky, rail, roads) {
         paint: { 'line-color': c.landLine, 'line-width': 1.4 },
       },
       {
-        id: 'parkway-casing',
+        id: 'county-line',
         type: 'line',
-        source: 'parkways',
-        filter: transportYearFilter(DEFAULT_YEAR),
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': c.casing, 'line-width': 4.6 },
+        source: 'counties',
+        paint: { 'line-color': '#8a7f6a', 'line-width': 0.6, 'line-opacity': 0.55 },
       },
       {
-        id: 'parkway-line',
+        id: 'sec-future',
         type: 'line',
-        source: 'parkways',
-        filter: transportYearFilter(DEFAULT_YEAR),
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': c.parkway, 'line-width': 2.4 },
+        source: 'sections',
+        filter: futureFilter(DEFAULT_YEAR),
+        paint: { 'line-color': '#8a7f6a', 'line-width': 1.6, 'line-opacity': 0.55, 'line-dasharray': [2, 2] },
       },
       {
-        id: 'rail-casing',
+        id: 'sec-casing',
         type: 'line',
-        source: 'rail',
+        source: 'sections',
         filter: transportYearFilter(DEFAULT_YEAR),
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: {
-          'line-color': c.casing,
-          'line-width': ['match', ['get', 'id'], 'lexington-ohio', 6.2, 4.8],
-        },
+        paint: { 'line-color': c.casing, 'line-width': ['match', ['get', 'kind'], 'parkway', 4.4, 5.2] },
       },
       {
-        id: 'rail-line',
+        id: 'sec-line',
         type: 'line',
-        source: 'rail',
+        source: 'sections',
         filter: transportYearFilter(DEFAULT_YEAR),
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: {
-          'line-color': railColorExpr(theme),
-          'line-width': ['match', ['get', 'id'], 'lexington-ohio', 3.6, 2.6],
-        },
+        paint: { 'line-color': eraColorExpr(), 'line-width': ['match', ['get', 'kind'], 'parkway', 2.4, 3] },
       },
       {
         id: 'bridge-circle',
@@ -173,19 +178,17 @@ function applyColors() {
   map.setPaintProperty('bg', 'background-color', c.bg)
   map.setPaintProperty('land', 'fill-color', c.land)
   map.setPaintProperty('land-line', 'line-color', c.landLine)
-  map.setPaintProperty('parkway-casing', 'line-color', c.casing)
-  map.setPaintProperty('parkway-line', 'line-color', c.parkway)
-  map.setPaintProperty('rail-casing', 'line-color', c.casing)
-  map.setPaintProperty('rail-line', 'line-color', railColorExpr(theme))
+  map.setPaintProperty('sec-casing', 'line-color', c.casing)
   map.setPaintProperty('bridge-circle', 'circle-color', c.bridge)
   map.setPaintProperty('bridge-circle', 'circle-stroke-color', c.bridgeStroke)
 }
 
 function applyYear(year) {
   const filter = transportYearFilter(year)
-  for (const id of ['rail-casing', 'rail-line', 'parkway-casing', 'parkway-line']) {
+  for (const id of ['sec-casing', 'sec-line']) {
     if (map.getLayer(id)) map.setFilter(id, filter)
   }
+  if (map.getLayer('sec-future')) map.setFilter('sec-future', futureFilter(year))
   const bridge = ['all', filter, ['==', ['get', 'kind'], 'bridge']]
   if (map.getLayer('bridge-circle')) map.setFilter('bridge-circle', bridge)
   const section = document.getElementById('transport')
@@ -206,28 +209,31 @@ function applyYear(year) {
 
 function renderLegend(year) {
   const list = document.getElementById('transportLegend')
-  if (!list || !sources) return
-  const theme = themeName()
+  if (!list || !sections) return
+  let html = '<p class="transport-legend-label">Completed by decade</p><ul class="transport-era-list">'
+  for (const [d, c] of ERA_COLORS) {
+    html += `<li><i class="transport-swatch" style="background:${esc(c)}" aria-hidden="true"></i>${esc(d)}s</li>`
+  }
+  html += '<li><i class="transport-swatch is-future-swatch" aria-hidden="true"></i>Not yet open</li></ul>'
   const groups = [
-    ['rail', 'Railroads'],
+    ['rail', 'Railroad sections'],
     ['parkway', 'Parkways'],
   ]
-  const features = sources.features || []
-  let html = ''
   for (const [kind, label] of groups) {
-    const items = features.filter((f) => (kind === 'rail' ? f.kind !== 'parkway' : f.kind === 'parkway'))
-    if (!items.length) continue
+    const items = sections.features.map((f) => f.properties).filter((f) => f.kind === kind)
+    const seen = new Set()
     html += `<p class="transport-legend-label">${esc(label)}</p><ul class="transport-legend-list">`
     for (const f of items) {
-      const on = f.opened <= year && (f.closed == null || f.closed > year)
-      const color = swatchColor(f.id, f.kind, theme)
-      const shape = f.kind === 'bridge' ? ' is-bridge' : ''
+      if (seen.has(f.route + f.name)) continue
+      seen.add(f.route + f.name)
+      const on = f.opened <= year
+      const title = kind === 'rail' ? `${f.routeName}: ${f.name}` : f.routeName
       html += `<li class="${on ? 'is-on' : 'is-future'}">
           <button type="button" data-year="${esc(f.opened)}">
-          <i class="transport-swatch${shape}" style="background:${esc(color)}" aria-hidden="true"></i>
-          <span class="transport-legend-name">${esc(f.name)}</span>
-          <span class="transport-legend-year">${esc(f.openedLabel || f.opened)}</span>
-          <span class="transport-badge">Provisional</span>
+          <i class="transport-swatch" style="background:${esc(eraColorFor(f.opened))}" aria-hidden="true"></i>
+          <span class="transport-legend-name">${esc(title)}</span>
+          <span class="transport-legend-year">${esc(f.opened)}</span>
+          <span class="transport-badge">${f.dateSourced ? 'Provisional' : 'Unsourced'}</span>
         </button>
       </li>`
     }
@@ -245,16 +251,23 @@ function writeHash(year) {
 }
 
 function popupHtml(props) {
-  const meta = sourceById.get(props.id)
-  const label = meta?.openedLabel || props.opened
-  const summary = meta?.summary || ''
-  const kind = props.kind === 'parkway' ? 'Parkway' : props.kind === 'bridge' ? 'Bridge' : 'Railroad'
+  if (props.kind === 'bridge') {
+    const meta = sourceById.get(props.id)
+    return `<div class="transport-popup-card">
+    <p class="transport-popup-kicker">Bridge · provisional date</p>
+    <h3>${esc(props.name)}</h3>
+    <p class="transport-popup-year">Opened ${esc(meta?.openedLabel || props.opened)}</p>
+  </div>`
+  }
+  const kind = props.kind === 'parkway' ? 'Parkway' : 'Railroad section'
+  const src = String(props.source || '')
+  const link = /^https:\/\//.test(src) ? `<a href="${esc(src)}" target="_blank" rel="noopener noreferrer nofollow">Source</a>` : ''
   return `<div class="transport-popup-card">
     <p class="transport-popup-kicker">${esc(kind)} · provisional date</p>
-    <h3>${esc(props.name)}</h3>
-    <p class="transport-popup-year">Opened ${esc(label)}</p>
-    ${summary ? `<p>${esc(summary)}</p>` : ''}
-    <p class="transport-popup-note">Provisional. Research Bot is still confirming this date.</p>
+    <h3>${esc(props.routeName)}</h3>
+    <p>${esc(props.name)}</p>
+    <p class="transport-popup-year">Opened ${esc(props.opened)}</p>
+    <p class="transport-popup-note">${String(props.dateSourced) === 'true' ? 'Provisional. Research Bot is still confirming this date.' : 'Date not yet sourced for this section.'} ${link}</p>
   </div>`
 }
 
@@ -269,7 +282,7 @@ function onLineClick(e) {
 }
 
 function wireMap() {
-  for (const id of ['rail-line', 'parkway-line', 'bridge-circle']) {
+  for (const id of ['sec-line', 'bridge-circle']) {
     map.on('mouseenter', id, () => {
       map.getCanvas().style.cursor = 'pointer'
     })
@@ -283,12 +296,16 @@ function wireMap() {
 }
 
 async function boot() {
-  const [rail, roads, ky, src] = await Promise.all([
+  const [rail, roads, ky, src, counties, secs, labels] = await Promise.all([
     fetchJson('/maps/transport/rail.geojson'),
-    fetchJson('/maps/transport/parkways.geojson'),
+    { type: 'FeatureCollection', features: [] },
     fetchJson('/data/kentucky-outline.geojson'),
     fetchJson('/maps/transport/sources.json'),
+    fetchJson('/maps/transport/county-lines.geojson'),
+    fetchJson('/maps/transport/sections.geojson'),
+    fetchJson('/maps/transport/county-labels.geojson'),
   ])
+  sections = secs
   sources = src
   sourceById.clear()
   for (const f of src.features || []) sourceById.set(f.id, f)
@@ -296,7 +313,7 @@ async function boot() {
   if (!container) throw new Error('transport map container missing')
   map = new maplibregl.Map({
     container,
-    style: styleFor(themeName(), ky, rail, roads),
+    style: styleFor(themeName(), ky, rail, roads, counties, secs),
     center: [-85.9, 37.6],
     zoom: 6,
     attributionControl: false,
@@ -304,6 +321,7 @@ async function boot() {
   })
   wireMap()
   await new Promise((resolve) => map.once('load', resolve))
+  addCountyLabels(labels)
   const observer = new MutationObserver(() => {
     applyColors()
     const year = Number(document.getElementById('transport')?.dataset.year || DEFAULT_YEAR)
@@ -343,6 +361,26 @@ async function boot() {
   window.addEventListener('resize', () => {
     if (map) map.resize()
   })
+}
+
+const COUNTY_LABEL_ZOOM = 8.5
+function addCountyLabels(labels) {
+  const markers = (labels.features || []).map((f) => {
+    const el = document.createElement('span')
+    el.className = 'transport-county-label'
+    el.textContent = f.properties.NAME
+    el.setAttribute('aria-hidden', 'true')
+    return new maplibregl.Marker({ element: el }).setLngLat(f.geometry.coordinates)
+  })
+  let shown = false
+  const sync = () => {
+    const want = map.getZoom() >= COUNTY_LABEL_ZOOM
+    if (want === shown) return
+    shown = want
+    for (const m of markers) want ? m.addTo(map) : m.remove()
+  }
+  map.on('zoomend', sync)
+  sync()
 }
 
 export async function showTransport(yearInput) {

@@ -247,5 +247,21 @@
       "summary": "Cumberland Parkway, Somerset to I-65. Provisional completion 1973 (sections from 1972).",
       "selection": "NTAD National Highway System, STFIPS 21, LNAME Cumberland Pkwy."
     }
-  ]
+  ],
+  "v2": {
+    "counties": {
+      "files": [
+        "/maps/transport/county-lines.geojson",
+        "/maps/transport/county-labels.geojson"
+      ],
+      "source": "US Census Bureau 2023 Cartographic Boundary File, counties 1:500,000 (cb_2023_us_county_500k), public domain",
+      "url": "https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip",
+      "process": "Filtered to STATEFP 21 (120 counties), mapshaper simplify 8% keep-shapes, interior lines only; labels are inner points."
+    },
+    "sections": {
+      "file": "/maps/transport/sections.geojson",
+      "note": "Each route split into opening sections. Every date is provisional; dateSourced:false marks sections whose opening year is not yet sourced. Frankfort-Louisville geometry is the modern USDOT/BTS NTAD rail line (public domain)."
+    },
+    "eraColors": "Line color steps by completion decade, light amber (1830s) to deep red-brown (1970s). Sections not yet open at the slider year are drawn faint and dashed."
+  }
 }
