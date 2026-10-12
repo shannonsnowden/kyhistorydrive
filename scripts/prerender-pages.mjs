@@ -34,14 +34,16 @@ import {
   citeBootScript,
   citeBoxHtml,
   correctionHtml,
-  haversineMiles,
+  learnMoreBlockHtml,
+  learnMoreItemsFromMarkdown,
   markerRecords,
   nearbyPlaces,
   photoCreditHtml,
   pickRelatedStories,
-  relatedAndNearbyHtml,
+  relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
+  storyThumbSrc,
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
@@ -949,14 +951,16 @@ class PrerenderPages {
     </figure>`
   }
 
-  static learnMoreHtml(markdown) {
-    const lines = String(markdown || '').match(/^[ \t]*source:[ \t]*.+$/gim) || []
-    const items = lines
-      .map((line) => String(line).replace(/^[ \t]*source:[ \t]*/i, '').trim())
-      .filter(Boolean)
-      .map((text) => `<li>${marked.parseInline(text)}</li>`)
-    if (!items.length) return ''
-    return `<div class="popup-research"><div class="historic-photos-label">Learn more</div><ul class="research-list">${items.join('')}</ul></div>`
+  static learnMoreHtml(markdown, storyTitle = '') {
+    return learnMoreBlockHtml(learnMoreItemsFromMarkdown(markdown), { storyTitle })
+  }
+
+  /** 112px opt thumbnail when the build has written it. Otherwise the card uses the pin tile. */
+  static existingThumb(story) {
+    const src = storyThumbSrc(story)
+    if (!src) return ''
+    const abs = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', src.replace(/^\//, ''))
+    return fs.existsSync(abs) ? src : ''
   }
 
   static storyMapHref(story) {
@@ -1042,10 +1046,6 @@ class PrerenderPages {
       .story-crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0 0 0.85rem; font-size: 0.85rem; color: var(--muted); }
       .story-crumbs a { color: var(--accent); text-decoration: none; }
       .story-crumbs [aria-current="page"] { color: var(--text); }
-      .static-related { margin-top: 1rem; }
-      .static-related h2 { font-size: 1.2rem; margin: 0 0 0.45rem; color: var(--heading); }
-      .static-related ul { list-style: none; margin: 0; padding: 0; }
-      .static-related li { margin: 0 0 0.25rem; }
       .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
@@ -1125,44 +1125,12 @@ class PrerenderPages {
     const route = routeBySlug(story.slug)
     const routeSlugs = route?.relatedStories || []
     const routeMarkerIds = (route?.markers || []).map((marker) => String(marker.number))
-    const related = PrerenderPages.relatedStories(story, all, routeSlugs)
-    const originLat = Number(story.lat)
-    const originLon = Number(story.lon)
-    const originOk =
-      story.lat != null &&
-      story.lon != null &&
-      Number.isFinite(originLat) &&
-      Number.isFinite(originLon) &&
-      !(originLat === 0 && originLon === 0)
-    const relatedRows = related.map((other) => {
-      const bits = [
-        other.county ? PrerenderPages.countyLabel(other.county, true) : '',
-        PrerenderPages.formatYearRange(other.yearStart, other.yearEnd),
-      ].filter(Boolean)
-      const otherLat = Number(other.lat)
-      const otherLon = Number(other.lon)
-      const otherOk =
-        other.lat != null &&
-        other.lon != null &&
-        Number.isFinite(otherLat) &&
-        Number.isFinite(otherLon) &&
-        !(otherLat === 0 && otherLon === 0)
-      const miles = originOk && otherOk ? haversineMiles(originLat, originLon, otherLat, otherLon) : null
-      return {
-        kind: 'story',
-        related: true,
-        slug: other.slug,
-        title: other.title,
-        detail: bits.join(' · '),
-        miles,
-      }
-    })
-    const nearby = nearbyPlaces(story, all, markers, {
-      limit: 3,
-      excludeSlugs: [...routeSlugs, ...related.map((item) => item.slug)],
+    return relatedAndNearbyForStory(story, all, markers, {
+      excludeSlugs: routeSlugs,
       excludeMarkerIds: routeMarkerIds,
+      limit: 3,
+      thumbFor: (item) => PrerenderPages.existingThumb(item),
     })
-    return relatedAndNearbyHtml(relatedRows, nearby)
   }
 
   static storyJsonLd(story, description, image, imageAlt, layer) {
@@ -1322,7 +1290,7 @@ class PrerenderPages {
             linkMode: 'story',
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
           })}
-          ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
+          ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
           ${PrerenderPages.relatedAndNearbySection(story, all, markers)}
           ${citeBoxHtml({
             title: story.title,
@@ -1668,6 +1636,19 @@ class PrerenderPages {
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
     if (!related || !related[0].includes('Related and nearby') || relatedCount < 3 || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
+    }
+    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related and nearby<\/h2>/.test(related[0])) {
+      throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
+    }
+    const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
+    if (learnMore) {
+      const labels = [...learnMore[0].matchAll(/<a [^>]*>([^<]+)/g)].map((match) => match[1].trim())
+      if (!labels.length || labels.some((label) => /^https?:/i.test(label))) {
+        throw new Error(`prerender: ${urlPath} Learn more link is not a readable label`)
+      }
+      if (!learnMore[0].includes('class="external-icon"') || !learnMore[0].includes('opens in a new tab')) {
+        throw new Error(`prerender: ${urlPath} Learn more link is missing its external icon or new-tab hint`)
+      }
     }
     if ((related[0].match(/<li class="related-story">[\s\S]*?<\/li>/g) || []).some((item) => !item.includes('>Story'))) {
       throw new Error(`prerender: ${urlPath} related story is missing its Story label`)
