@@ -18,7 +18,7 @@ maplibregl.setWorkerUrl(maplibreWorkerUrl)
 const ROAD_FACTOR = 1.3
 const MPH = 40
 const DWELL = 10 // minutes at each stop
-const MAX_STOPS = { 60: 3, 120: 6 }
+const MAX_STOPS = { 60: 3, 120: 10 }
 
 const $ = (id) => document.getElementById(id)
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
@@ -28,7 +28,13 @@ const root = document.documentElement
 const q = new URLSearchParams(location.search).get('theme')
 const setTheme = (t) => { root.dataset.hpTheme = t; $('themeBtn').setAttribute('aria-pressed', String(t === 'dark')); $('themeBtn').textContent = t === 'dark' ? 'Light mode' : 'Dark mode' }
 setTheme(q === 'dark' || q === 'light' ? q : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-$('themeBtn').addEventListener('click', () => setTheme(root.dataset.hpTheme === 'dark' ? 'light' : 'dark'))
+const styleFor = (t) => `https://basemaps.cartocdn.com/gl/${t === 'dark' ? 'dark-matter' : 'voyager'}-gl-style/style.json`
+let map = null
+let last = null
+$('themeBtn').addEventListener('click', () => {
+  setTheme(root.dataset.hpTheme === 'dark' ? 'light' : 'dark')
+  if (map) { map.setStyle(styleFor(root.dataset.hpTheme)); map.once('style.load', () => last && draw(...last)) }
+})
 
 function miles(a, b) {
   const R = 3958.8, r = Math.PI / 180
@@ -87,9 +93,9 @@ const loadPlaces = async () => {
 $('town').addEventListener('focus', loadPlaces, { once: true })
 
 // Basemap (same keyless CARTO vector style the dev site uses; fixed local credits).
-const map = new maplibregl.Map({
+map = new maplibregl.Map({
   container: 'map',
-  style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
+  style: styleFor(root.dataset.hpTheme),
   center: [-85.3, 37.8],
   zoom: 6.2,
   attributionControl: false,
@@ -104,6 +110,7 @@ const mapReady = new Promise((res) => map.on('load', res))
 let markers = []
 
 async function draw(start, order) {
+  last = [start, order]
   await mapReady
   markers.forEach((m) => m.remove())
   markers = []
@@ -120,7 +127,7 @@ async function draw(start, order) {
   if (map.getSource('loop')) map.getSource('loop').setData(gj)
   else {
     map.addSource('loop', { type: 'geojson', data: gj })
-    map.addLayer({ id: 'loop-under', type: 'line', source: 'loop', paint: { 'line-color': '#fffdf6', 'line-width': 6, 'line-opacity': 0.9 } })
+    map.addLayer({ id: 'loop-under', type: 'line', source: 'loop', paint: { 'line-color': root.dataset.hpTheme === 'dark' ? '#101812' : '#fffdf6', 'line-width': 6, 'line-opacity': 0.9 } })
     map.addLayer({ id: 'loop', type: 'line', source: 'loop', paint: { 'line-color': '#c9893a', 'line-width': 3.5, 'line-dasharray': [2, 1.5] } })
   }
   pin('start', '★', [start.lon, start.lat], 'Start')
