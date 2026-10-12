@@ -111,3 +111,10 @@ ol.stops>li.on{background:var(--hl)}
   .leg-head{grid-template-columns:1fr 1fr}
   .leg-label{grid-column:1/-1}
 }
+
+/* phase 1c */
+.ask-q{font:800 clamp(1.4rem,3vw,2rem)/1.2 "Segoe UI",system-ui,-apple-system,sans-serif;letter-spacing:-.01em}
+.leg-label{display:block}
+.leg-sub{display:block;font-size:14px;font-weight:500;color:var(--muted);padding-left:1.1rem}
+.legs-how{margin-top:8px}
+.legs-how p{font-size:14px}

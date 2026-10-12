@@ -88,8 +88,25 @@ export function planLoop(start, stops, budget) {
     cur += best.add
     pool = pool.filter((p) => p !== best.s && miles(p, best.s) > 0.15)
   }
+  order = twoOpt(start, order)
   const c = loopCost(start, order)
   return { order, mi: c.mi, min: c.min + (order.length ? BREAK_BY[budget] || 0 : 0) }
+}
+/** 2-opt on the closed loop start → stops → start: reverse segments while that shortens it, so the loop doesn't cross itself. */
+export function twoOpt(start, order) {
+  const r = [start, ...order, start]
+  const d = (a, b) => miles(a, b)
+  let improved = true, guard = 0
+  while (improved && guard++ < 200) {
+    improved = false
+    for (let i = 1; i < r.length - 2; i++) {
+      for (let k = i + 1; k < r.length - 1; k++) {
+        const delta = d(r[i - 1], r[k]) + d(r[i], r[k + 1]) - d(r[i - 1], r[i]) - d(r[k], r[k + 1])
+        if (delta < -1e-9) { const seg = r.slice(i, k + 1).reverse(); r.splice(i, seg.length, ...seg); improved = true }
+      }
+    }
+  }
+  return r.slice(1, -1)
 }
 const fmt = (m) => (m >= 60 ? `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min` : `${Math.max(1, Math.round(m))} min`)
 const legText = (mi) => (mi < 0.5 ? 'Under half a mile, about 1 min' : `About ${mi < 1.5 ? 1 : Math.round(mi)} mi, ${fmt(driveMin(mi))}`)
@@ -143,15 +160,24 @@ async function main() {
     const line = order.length ? [[start.lon, start.lat], ...order.map((s) => [s.lon, s.lat]), [start.lon, start.lat]] : []
     map.getSource('loop').setData({ type: 'FeatureCollection', features: line.length ? [{ type: 'Feature', geometry: { type: 'LineString', coordinates: line }, properties: {} }] : [] })
     if (!order.length) return
+    // Spread pins that sit on top of each other (and of the start) so every number is visible.
+    const placed = []
+    const offsetFor = (pt) => {
+      const c = placed.filter((q) => miles(q, pt) < 0.25).length
+      placed.push(pt)
+      return c ? [16 * c, -16 * c] : [0, 0]
+    }
     const el = document.createElement('div')
     el.className = 'pin start'; el.textContent = '★'; el.setAttribute('aria-hidden', 'true')
-    markers.push(new maplibregl.Marker({ element: el }).setLngLat([start.lon, start.lat]).addTo(map))
+    const near = order.some((s) => miles(s, start) < 0.25)
+    placed.push(start)
+    markers.push(new maplibregl.Marker({ element: el, offset: near ? [-20, 18] : [0, 0] }).setLngLat([start.lon, start.lat]).addTo(map))
     order.forEach((s, i) => {
       const m = document.createElement('div')
       m.className = 'pin'; m.textContent = String(i + 1); m.title = `${i + 1}. ${s.n}`; m.dataset.i = String(i)
       m.setAttribute('aria-hidden', 'true')
       m.addEventListener('click', () => { const row = document.querySelector(`#stops li[data-i="${i}"]`); if (row) { row.scrollIntoView({ block: 'center', behavior: 'smooth' }); hl(i) } })
-      markers.push(new maplibregl.Marker({ element: m }).setLngLat([s.lon, s.lat]).addTo(map))
+      markers.push(new maplibregl.Marker({ element: m, offset: offsetFor(s) }).setLngLat([s.lon, s.lat]).addTo(map))
     })
     const b = new maplibregl.LngLatBounds()
     line.forEach((c) => b.extend(c))
@@ -219,11 +245,12 @@ async function main() {
           <p class="stop-meta"><span class="tag">${esc(data.kinds[s.k])}</span>${s.c ? esc(s.c) + ' · ' : ''}${legText(d)} from the ${i ? 'last stop' : 'start'}</p></div>
           <div class="row-links">${story}<a href="${stopUrl(s)}" target="_blank" rel="noopener noreferrer" aria-label="Directions to ${esc(s.n)}">Directions</a></div></li>`
       }).join('')
-      const label = N > 1 ? `Leg ${k + 1} · stops ${k ? first - 1 : 1}–${lastNo} · about ${fmt(legMin)}` : `Stops 1–${lastNo} · about ${fmt(legMin)}`
-      html += `<details class="legbox" data-k="${k}"${k === 0 ? ' open' : ''}><summary class="leg-head"><span class="leg-label">${label}</span><span class="leg-btns">${btns}</span></summary><ol class="stops">${rows}</ol></details>`
+      const label = N > 1 ? `Leg ${k + 1} · ${first === lastNo ? `stop ${first}` : `stops ${first}–${lastNo}`} · about ${fmt(legMin)}` : `Stops 1–${lastNo} · about ${fmt(legMin)}`
+      const sub = k ? `<span class="leg-sub">Starts at stop ${first - 1}</span>` : ''
+      html += `<details class="legbox" data-k="${k}"${k === 0 ? ' open' : ''}><summary class="leg-head"><span class="leg-label">${label}${sub}</span><span class="leg-btns">${btns}</span></summary><ol class="stops">${rows}</ol></details>`
     }
     html += `<ol class="stops"><li><span class="num end" aria-hidden="true">↩</span><div><p class="stop-name">Back to ${esc(start.label)}</p><p class="stop-meta">${legText(roadMi(prev, start))}</p></div></li></ol>`
-    html += `<p class="note">Your maps app starts from wherever you are; we never send it your starting point.${N > 1 ? ' Each leg starts at the last stop of the leg before.' : ''} Legs are 4 stops so Apple Maps and Google Maps open the same stops.</p>`
+    html += `<details class="how legs-how"><summary>How legs work</summary><p>Your maps app starts from wherever you are; we never send it your starting point.${N > 1 ? ' Each leg after the first starts at the last stop of the leg before.' : ''} Legs are 4 stops so Apple Maps and Google Maps open the same stops.</p></details>`
     $('stops').innerHTML = html
     // Buttons inside <summary> must not toggle the leg.
     document.querySelectorAll('.leg-btns a').forEach((a) => a.addEventListener('click', (e) => e.stopPropagation()))
