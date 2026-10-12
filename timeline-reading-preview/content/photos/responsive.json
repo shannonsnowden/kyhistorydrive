@@ -1,0 +1,215 @@
+{
+  "generatedAt": "2026-10-12T11:33:48.559Z",
+  "maxBytes": 204800,
+  "images": {
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg": {
+      "sha256": "3a19e447b6cb84306240876b3a85138ce1350c69c0a793b4bee5a0bfe858cf6e",
+      "width": 1920,
+      "height": 1260,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg": {
+      "sha256": "2ceadbade574c8fd6c68b205fe5047f0ce9b79868542cc6a76813a31a37eb1a6",
+      "width": 1920,
+      "height": 1277,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg": {
+      "sha256": "843d12d545ba54f077a18b4bf5929c39da6f16b53e7ed39f6bf226083a48eb19",
+      "width": 496,
+      "height": 746,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.avif",
+          "w": 496
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.webp",
+          "w": 496
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg": {
+      "sha256": "66b523814feb6ff8f99652e191b016ff5bdbe139eaf116729714f1b5d86e3619",
+      "width": 1500,
+      "height": 1000,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-1500.avif",
+          "w": 1500
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-1500.webp",
+          "w": 1500
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/burlington-boone-county-seat.jpg": {
+      "sha256": "fbbc65db2c296186ef3aaa6f731ca704ff02c9b09b763b819261ba603f21be12",
+      "width": 1920,
+      "height": 1440,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/burlington-boone-county-seat-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/burlington-boone-county-seat-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/burlington-boone-county-seat-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/burlington-boone-county-seat-1156.webp",
+          "w": 1156
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg": {
+      "sha256": "a53f23a7da4011975359e716ca9223354200ef593a411cce494df00c5d3f8ef4",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg": {
+      "sha256": "355866e1ecf5b394eff33c38f2c89394dc32b7355849e887a71e282408ad964c",
+      "width": 332,
+      "height": 441,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790-332.avif",
+          "w": 332
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790-332.webp",
+          "w": 332
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg": {
+      "sha256": "1190772243bdfbedff8587913408db19af15fb667c920e0ffd0fe30f96b07a77",
+      "width": 1280,
+      "height": 919,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/kyhistorydrive/timeline-reading-preview/content/photos/stories/manns-lick-louisvilles-salt-town.jpg": {
+      "sha256": "283bb6825d7fba24d2fbfe33a2e2a2366d7210a98e508051e2f5a72fde4f5245",
+      "width": 1280,
+      "height": 964,
+      "avif": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/manns-lick-louisvilles-salt-town-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/manns-lick-louisvilles-salt-town-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/manns-lick-louisvilles-salt-town-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/kyhistorydrive/timeline-reading-preview/content/photos/opt/stories/manns-lick-louisvilles-salt-town-720.webp",
+          "w": 720
+        }
+      ]
+    }
+  }
+}

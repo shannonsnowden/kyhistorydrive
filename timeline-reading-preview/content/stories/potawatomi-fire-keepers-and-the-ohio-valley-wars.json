@@ -1,0 +1,35 @@
+{
+  "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
+  "title": "Potawatomi fire-keepers and the Ohio Valley wars",
+  "publishedDate": "2026-09-27",
+  "summary": "The Potawatomi (Bodéwadmi, \"keepers of the fire\") were the youngest sibling of the Anishinaabe Council of Three Fires. In the Beaver Wars they fought as French-allied…",
+  "bodyMarkdown": "The Potawatomi (Bodéwadmi, \"keepers of the fire\") were the youngest sibling of the Anishinaabe Council of Three Fires. In the Beaver Wars they fought as French-allied Algonquians against Haudenosaunee expansion that emptied much of the mid-Ohio Valley into contested hunting ground. A century later Potawatomi warriors stood in the Northwest Indian Confederacy.\n\nIn June 1791 Kentucky militia columns under Brig. Gen. Charles Scott and Lt. Col. James Wilkinson struck Kickapoo villages, Ouiatenon (a Wea town) and Kenapacomaqua on the Eel River, all north of the Ohio, to blunt raids on Bluegrass stations; Scott’s report names no Potawatomi town. The same wars that cleared and recontested the Ohio Valley’s hunting grounds pulled Great Lakes fire-keepers into Kentucky's frontier story.\nSource: [Potawatomi (Wikipedia)](https://en.wikipedia.org/wiki/Potawatomi)\nSource: [The Potawatomi (Illinois State Museum, Midewin exhibit)](https://museum.state.il.us/exhibits/midewin/potowatomi.html)\nSource: [Scott’s Wabash Expedition, 1791: Scott’s report (Project Gutenberg)](https://www.gutenberg.org/files/64829/64829-h/64829-h.htm)\nSource: [Ouiatenon (Wikipedia)](https://en.wikipedia.org/wiki/Ouiatenon)",
+  "yearStart": null,
+  "yearEnd": null,
+  "era": "native",
+  "county": "",
+  "tags": [
+    "native",
+    "kentucky",
+    "native-history",
+    "frontier-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-09-27",
+  "photo": {
+    "image_url": "/kyhistorydrive/timeline-reading-preview/content/photos/stories/potawatomi-fire-keepers-and-the-ohio-valley-wars.gif",
+    "title": "Potawatomi group, c. 1920",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Unknown · Wikimedia Commons · Public domain",
+    "year": null
+  },
+  "territory": {
+    "ref": "/kyhistorydrive/timeline-reading-preview/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+    "nation": "Potawatomi",
+    "yearStart": 1640,
+    "yearEnd": 1809,
+    "presenceLabel": "Potawatomi town or homeland area (general)",
+    "approxStart": true
+  }
+}

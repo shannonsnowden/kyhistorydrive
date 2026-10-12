@@ -1,0 +1,24 @@
+{
+  "slug": "ashlands-adena-mounds",
+  "title": "Ashland's Adena mounds",
+  "publishedDate": "2026-09-02",
+  "summary": "Six conical Adena burial mounds survive in Ashland's Central Park, roughly 15–20 feet across and 4–6 feet high in a slight curve. A 1930s survey said no Kentucky city held…",
+  "bodyMarkdown": "Six conical Adena burial mounds survive in Ashland's Central Park, roughly 15–20 feet across and 4–6 feet high in a slight curve. A 1930s survey said no Kentucky city held more prehistoric evidence than Ashland, though many other local mounds were leveled for streets and buildings. The mounds mark Woodland mound-builder presence along the Ohio centuries before historic tribes.\nSource: [https://explorekyhistory.ky.gov/items/show/595](https://explorekyhistory.ky.gov/items/show/595)\nSource: [https://en.wikipedia.org/wiki/Adena_culture](https://en.wikipedia.org/wiki/Adena_culture)",
+  "yearStart": -500,
+  "yearEnd": 250,
+  "era": "prehistoric",
+  "tags": [
+    "prehistoric",
+    "kentucky",
+    "archaeology"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-09-02",
+  "territory": {
+    "ref": "/kyhistorydrive/timeline-reading-preview/data/web/territories/adena-mounds-and-earthworks.json",
+    "nation": "Adena (archaeological culture)",
+    "yearStart": -500,
+    "yearEnd": 250,
+    "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+  }
+}
