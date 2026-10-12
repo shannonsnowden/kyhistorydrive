@@ -37,6 +37,13 @@ customRules:
   - source: '/home-preview/<*>'
     target: '/'
     status: '301'
+  # Merged Erie stories (tribe cleanup #256): old slug 301s to the kept story.
+  - source: '/stories/erie-the-cat-nation-cleared-from-the-lake-shore'
+    target: '/stories/erie-the-cat-nation/'
+    status: '301'
+  - source: '/stories/erie-the-cat-nation-cleared-from-the-lake-shore/'
+    target: '/stories/erie-the-cat-nation/'
+    status: '301'
   - source: '/privacy'
     target: '/privacy/index.html'
     status: '200'

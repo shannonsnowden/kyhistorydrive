@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-12T13:28:26.909Z",
-  "count": 235,
+  "generatedAt": "2026-10-12T15:07:23.306Z",
+  "count": 234,
   "briefDateRange": {
     "start": "2026-08-27",
     "end": "2026-10-12"
@@ -1256,41 +1256,12 @@
       "matchedPlace": null
     },
     {
-      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
-      "title": "Erie — the Cat Nation cleared from the lake shore",
-      "publishedDate": "2026-09-24",
-      "summary": "The Erie (Erielhénon, “people of the long tail”), called la Nation du Chat by the French, were an Iroquoian people of fortified maize villages along southern Lake Erie. In the…",
-      "yearStart": 1654,
-      "yearEnd": 1656,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-24",
-      "photo": {
-        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
-        "title": "Erie / Cat Nation territory (historical map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
       "slug": "erie-the-cat-nation",
       "title": "Erie, the Cat Nation",
       "publishedDate": "2026-09-11",
-      "summary": "South of Lake Erie, the Eriehronon—“People of the Long Tail,” called La Nation du Chat by the French—farmed and traded until Haudenosaunee armies smashed their confederacy in…",
+      "summary": "The Erie were an Iroquoian people whose homeland lay south of Lake Erie. The Haudenosaunee dispersed them around 1654–57.",
       "yearStart": 1654,
-      "yearEnd": 1656,
+      "yearEnd": 1657,
       "era": "native",
       "tags": [
         "native",

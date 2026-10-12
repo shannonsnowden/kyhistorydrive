@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T09:47:39.719Z",
+  "generatedAt": "2026-10-12T15:07:36.252Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -398,18 +398,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2020
-      }
-    },
-    "erie-the-cat-nation-cleared-from-the-lake-shore": {
-      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
-        "title": "Erie / Cat Nation territory (historical map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
       }
     },
     "erie-the-cat-nation": {
