@@ -849,9 +849,17 @@ function placeStoryTimeline(nav) {
 
 let timelineResizeBound = false
 
+function syncStoryHeaderOffset() {
+  const header = document.querySelector('header.site-header')
+  if (!header) return
+  const height = Math.ceil(header.getBoundingClientRect().height)
+  if (height > 0) document.documentElement.style.setProperty('--story-header-h', `${height}px`)
+}
+
 /** The list ships open. This collapses it at ≤600px and, in the hash reader, parks it in the sidebar at ≥901px. */
 export function wireStoryTimelines(root = typeof document !== 'undefined' ? document : null) {
   if (!root?.querySelectorAll || typeof window === 'undefined') return
+  syncStoryHeaderOffset()
   root.querySelectorAll('.story-timeline').forEach((nav) => {
     placeStoryTimeline(nav)
     if (nav.dataset.timelineReady === '1') return
@@ -870,6 +878,7 @@ export function wireStoryTimelines(root = typeof document !== 'undefined' ? docu
   window.addEventListener('resize', () => {
     const nextLayout = window.matchMedia('(min-width: 901px)').matches
     const nextOpen = window.matchMedia('(min-width: 601px)').matches
+    syncStoryHeaderOffset()
     document.querySelectorAll('.story-timeline').forEach((nav) => {
       if (nextLayout !== layoutWide) placeStoryTimeline(nav)
       if (nextOpen !== openWide) setTimelineOpen(nav, nextOpen)
@@ -884,6 +893,12 @@ export function timelineBootScript() {
   return `<script>
     (function () {
       var OPEN_AT = 601;
+      function syncHeader() {
+        var header = document.querySelector('header.site-header');
+        if (!header) return;
+        var height = Math.ceil(header.getBoundingClientRect().height);
+        if (height > 0) document.documentElement.style.setProperty('--story-header-h', height + 'px');
+      }
       function setOpen(nav, open) {
         var button = nav.querySelector('.story-timeline-toggle');
         var list = nav.querySelector('.st-list');
@@ -902,10 +917,12 @@ export function timelineBootScript() {
           setOpen(nav, button.getAttribute('aria-expanded') !== 'true');
         });
       }
+      syncHeader();
       document.querySelectorAll('.story-timeline').forEach(wire);
       var openWide = window.matchMedia('(min-width: ' + OPEN_AT + 'px)').matches;
       window.addEventListener('resize', function () {
         var next = window.matchMedia('(min-width: ' + OPEN_AT + 'px)').matches;
+        syncHeader();
         if (next === openWide) return;
         openWide = next;
         document.querySelectorAll('.story-timeline').forEach(function (nav) { setOpen(nav, next); });

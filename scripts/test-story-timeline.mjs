@@ -136,6 +136,10 @@ for (const slug of ['bardstown', 'benjamin-logan', 'carlston-annis-shell-mound']
 
 const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8')
 assert.match(css, /\.st-link:focus-visible/)
+assert.match(css, /position:\s*sticky/)
+assert.match(css, /top:\s*calc\(var\(--story-header-h, 78px\) \+ 12px\)/)
+assert.match(css, /\.st-date[\s\S]*text-align:\s*left/)
+assert.match(css, /line-clamp:\s*2/)
 assert.match(css, /\.st-pin:focus-visible/)
 assert.match(css, /\.story-timeline-toggle:focus-visible/)
 assert.match(css, /min-height:\s*44px/)
