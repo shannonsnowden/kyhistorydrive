@@ -3972,6 +3972,11 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
 .route-lightbox.is-seal .route-lightbox-img {
   background: transparent;
   border-radius: 50%;
+  /* Never paint larger than the seal master's native pixels (512). */
+  max-width: min(90vw, 512px);
+  max-height: min(90vh, 512px);
+  width: auto;
+  height: auto;
 }
 .route-lightbox-overlay {
   position: absolute;

@@ -1,7 +1,7 @@
 /**
  * Full-screen viewer for route maps and the About seals.
  * Route zoom art loads only after a map is opened: theme-matched AVIF, then WebP,
- * then the 1600 WebP. About seals open their full-resolution PNG in the same view.
+ * then the 1600 WebP. About seals open their native-resolution WebP in the same view (never larger than the master).
  * Gestures are pointer, wheel, and double-click — no library.
  */
 ;(function () {
@@ -316,17 +316,9 @@
     return next
   }
 
-  /** Seals are square and smaller than the stage. Open them as large as the canvas allows. */
+  /** Seals stay at their laid-out (native-capped) size — never transform-upscale past 1:1. */
   function containScale() {
-    var laidW = img.clientWidth
-    var laidH = img.clientHeight
-    var cw = canvas.clientWidth
-    var ch = canvas.clientHeight
-    if (!laidW || !laidH || !cw || !ch) return 1
-    var next = Math.min(cw / laidW, ch / laidH)
-    if (!(next > 1)) return 1
-    if (next > MAX_SCALE) return MAX_SCALE
-    return next
+    return 1
   }
 
   function initialScale() {
@@ -556,6 +548,14 @@
       if (gen !== loadGen) return
       dialog.setAttribute('aria-busy', 'false')
       statusEl.hidden = true
+      if (noun === 'seal' && img.naturalWidth) {
+        var native = img.naturalWidth
+        img.style.maxWidth = 'min(90vw, ' + native + 'px)'
+        img.style.maxHeight = 'min(90vh, ' + native + 'px)'
+      } else {
+        img.style.maxWidth = ''
+        img.style.maxHeight = ''
+      }
       window.requestAnimationFrame(function () {
         if (gen !== loadGen) return
         if (!gestured) {
