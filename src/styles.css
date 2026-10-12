@@ -43,8 +43,13 @@ html[data-hp-theme="dark"] {
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--text); }
 /* Reserve the sticky timeline jump bar when it is open, so scroll-into-view
-   stops above it. --timeline-jump-h is 0 while the bar is hidden. */
+   stops above it. --timeline-jump-h is 0 while the bar is hidden.
+   With a story open, also keep about 80px (plus the home-indicator inset)
+   so the last lines can sit clear of the floating bar. */
 html { scroll-padding-bottom: calc(var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px)); }
+html:has(#timelineReaderJump:not([hidden])) {
+  scroll-padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px) + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
+}
 /* Author display rules must not override the hidden attribute (map-section uses display:grid) */
 [hidden] { display: none !important; }
 a { color: var(--accent); }
@@ -463,7 +468,7 @@ a#siteSearchInput {
 #about, #app {
   scroll-margin-top: 0;
 }
-.about-logo-block {
+.about-seals {
   scroll-margin-top: 0;
 }
 .panel-wide { padding: 1.5rem 1.25rem; max-width: 64rem; margin: 0 auto; }
@@ -691,10 +696,10 @@ a.btn { text-decoration: none; display: inline-block; }
 .stories-list { display: grid; gap: 0.75rem; }
 .story-reader {
   margin-top: 1.15rem;
-  /* Bottom padding matches the sticky Home/Filters/Stories/Top/Reset bar
-     (its height plus the gap it floats above the viewport) so the last
-     lines stay above the bar at every width. */
-  padding: 1.1rem 1.15rem calc(1.35rem + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
+  /* 80px plus the home-indicator inset sits above the floating
+     Home/Filters/Stories/Top/Reset bar (its height and the gap it floats
+     above the viewport) so the last lines can scroll clear of it. */
+  padding: 1.1rem 1.15rem calc(80px + env(safe-area-inset-bottom, 0px) + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -932,7 +937,7 @@ html[data-hp-theme="light"] .era-other {
 .back-link { font-size: 0.9rem; text-decoration: none; }
 .story-detail { background: var(--panel); border-radius: 12px; padding: 1.25rem 1.4rem; border: 1px solid var(--line); }
 .story-head h2 { margin: 0.4rem 0 0.5rem; color: var(--heading); }
-.story-body { line-height: 1.6; font-size: 1.02rem; }
+.story-body { line-height: 1.6; font-size: 1.02rem; max-width: 70ch; }
 .story-body { overflow-wrap: anywhere; }
 .story-body a { word-break: break-word; overflow-wrap: anywhere; }
 .story-reader-main, .story-reader-layout > * { min-width: 0; }
@@ -1101,6 +1106,8 @@ a.related-card:focus-visible {
   font-size: 1.05rem;
   line-height: 1.25;
   text-decoration: none;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 a.related-card:hover .related-card-title,
 a.related-card:focus-visible .related-card-title {
@@ -1417,7 +1424,6 @@ a.related-card:hover .related-card-chevron {
 .about-app-data {
   font-size: 0.75rem;
   margin-top: 2.25rem;
-  opacity: 0.65;
 }
 
 .hero-welcome {
@@ -1474,7 +1480,7 @@ a.related-card:hover .related-card-chevron {
   border-right: 1px solid var(--line);
   background: var(--bg);
 }
-.timeline-main .panel-head h2 { margin: 0 0 0.25rem; color: var(--heading); }
+.timeline-read-bar h2 { margin: 0; color: var(--heading); font-size: 1.35rem; line-height: 1.2; }
 .timeline-layer-toggles {
   margin: 0.75rem 0 0.35rem;
   display: grid;
@@ -2095,47 +2101,80 @@ a.related-card:hover .related-card-chevron {
 }
 
 
-.about-logo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
+/* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2).
+   Dark ring is the existing gold #c9a227. Light ring is the existing navy #0b2a5b.
+   2px of transparent padding shows the card background between the ring and the artwork. */
+.about-seals {
   margin: 0.5rem 0 1.5rem;
-  padding: 1.25rem 1rem;
-  background: #0a0a0a;
+  padding: 1.1rem 1rem 1rem;
+  background: var(--surface);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
   border-radius: 14px;
-  box-shadow: inset 0 0 0 1px rgba(201, 137, 58, 0.15);
 }
-.about-logo {
-  width: min(360px, 88vw);
-  height: auto;
-  border-radius: 50%;
-  background: #000;
-  display: block;
-}
-.about-logo-caption {
-  margin: 0;
-  font-size: 0.85rem;
+.about-seals-title {
+  margin: 0 0 0.85rem;
+  font-size: 1.05rem;
+  color: var(--heading);
   text-align: center;
-  color: #E8DCC0;
 }
-@media (max-width: 600px) {
-  .about-logo-block {
-    max-height: 240px;
-    box-sizing: border-box;
-    overflow: hidden;
-    justify-content: center;
-    padding: 0.65rem 0.75rem;
-    gap: 0.4rem;
-  }
-  .about-logo {
-    width: auto;
-    max-width: min(200px, 70vw);
-    max-height: 168px;
-    height: auto;
-  }
+.about-seals-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
 }
+.about-seals-list li { margin: 0; }
+.about-seal {
+  display: block;
+  width: clamp(120px, 14vw, 160px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  /* 2px of the card background between the ring and the artwork's gold rim. */
+  padding: 2px;
+  border: 2px solid #c9a227;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+html[data-hp-theme="light"] .about-seal {
+  border: 2px solid #0b2a5b;
+  box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
+}
+.about-seal-btn {
+  appearance: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0;
+  line-height: 0;
+  color: inherit;
+  cursor: zoom-in;
+  border-radius: 50%;
+  vertical-align: top;
+  touch-action: manipulation;
+}
+.about-seal-btn:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+.about-seals-caption {
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  text-align: center;
+  color: var(--muted);
+}
+@media (max-width: 479px) {
+  .about-seals-list { flex-direction: column; align-items: center; gap: 0.9rem; }
+  .about-seal { width: 132px; }
+}
+
 
 
 .share-row {
@@ -2997,10 +3036,12 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 }
 /* Header seal rotates per page load between khd-logo.png (black), khd-logo-c.png (cream center,
    navy band) and khd-logo-c2.png (cream center, gold rim edge). Inline script after #brandLogo; the
-   localStorage counter is khd-logo-n. One gold border and shadow suit all three on both headers. */
+   localStorage counter is khd-logo-n. Dark ring is gold #c9a227; light ring is navy #0b2a5b. */
 .brand-logo,
 .hp-page .brand-logo {
   background: transparent;
+  /* 2px of the header background between the ring and the artwork's gold rim. */
+  padding: 2px;
   border: 2px solid #c9a227;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -3619,6 +3660,9 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   line-height: 1.15;
   white-space: nowrap;
 }
+.hp-map-routes .hp-thumb-label {
+  white-space: normal;
+}
 .hp-thumb-row > a:hover {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
@@ -3673,7 +3717,30 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-map-figure { margin: 0.75rem 0 0.35rem; }
 .route-map-picture { display: block; }
 .route-map-zoom { position: relative; display: block; min-width: 0; }
-.route-map-zoom img { cursor: zoom-in; }
+.route-map-open {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.route-map-open:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+.route-map-art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  line-height: 0;
+}
 .route-map-picture img {
   display: block;
   width: 100%;
@@ -3683,11 +3750,84 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   border: 1px solid var(--line);
   border-radius: 12px;
 }
+.route-map-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+}
+.route-map-overlay[data-frame="desk-light"] { display: block; }
+html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-light"] { display: none; }
+html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display: block; }
+@media (max-width: 699px) {
+  .route-map-overlay[data-frame="desk-light"],
+  .route-map-overlay[data-frame="desk-dark"],
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-light"],
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display: none; }
+  .route-map-overlay[data-frame="phone-light"] { display: block; }
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-light"] { display: none; }
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-dark"] { display: block; }
+}
+.route-map-overlay[data-frame="zoom-dark"] { display: none; }
+.route-stop {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border: 2px solid var(--heading);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--ink-on-gold);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.route-stop::before { content: attr(data-n); }
+.route-stop-conjectural {
+  border: none;
+  border-radius: 0;
+  background: var(--panel);
+  color: var(--heading);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: drop-shadow(0 0 0.6px var(--heading));
+}
+.route-stop-cluster {
+  width: auto;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 999px;
+  clip-path: none;
+}
+.route-marker-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.route-legend-hex {
+  display: inline-block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--panel);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: drop-shadow(0 0 0.6px var(--heading));
+}
 .route-map-expand {
   position: absolute;
   top: 0.55rem;
   right: 0.55rem;
-  z-index: 1;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -3725,8 +3865,50 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
 .route-waypoints li { margin: 0 0 0.35rem; }
 .route-sources { margin: 0.35rem 0 0.85rem; }
-.route-links ul { list-style: none; margin: 0; padding: 0; }
-.route-links li { margin: 0 0 0.4rem; }
+.route-map .route-links { margin: 0.5rem 0 0; }
+.route-map .route-links > h2,
+.route-map .route-links > h3 { margin: 1.25rem 0 0.75rem; }
+.route-map .related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+@media (min-width: 720px) {
+  .route-map .related-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.route-map .related-list > li { margin: 0; min-width: 0; }
+.route-map a.related-card {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 20px;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 72px;
+  padding: 0.7rem 0.85rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+.route-map a.related-card:hover { border-color: var(--accent); }
+.route-map .related-card-media { display: grid; place-items: center; width: 56px; height: 56px; }
+.route-map .related-card-pin,
+.route-map .related-card-title { color: var(--accent); }
+.route-map .related-card-copy { min-width: 0; }
+.route-map .related-card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-weight: 600;
+  line-height: 1.3;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+.route-map .related-card-meta { display: block; margin-top: 0.15rem; color: var(--muted); font-size: 0.9rem; }
+.route-map .related-card-chevron { justify-self: end; color: var(--muted); }
 .route-index-link { margin: 0.8rem 0 0; }
 .route-index-link a {
   display: inline-flex;
@@ -3822,6 +4004,7 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
 }
 .route-lightbox-stage.is-panning { cursor: grabbing; }
 .route-lightbox-canvas {
+  --map-scale: 1;
   position: absolute;
   top: 0.35rem;
   right: 0.85rem;
@@ -3846,6 +4029,38 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   opacity: 0;
 }
 .route-lightbox-img.is-ready { opacity: 1; }
+.route-lightbox.is-seal .route-lightbox-img {
+  background: transparent;
+  border-radius: 50%;
+  /* Never paint larger than the seal master's native pixels (512). */
+  max-width: min(90vw, 512px);
+  max-height: min(90vh, 512px);
+  width: auto;
+  height: auto;
+}
+.route-lightbox-overlay {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+.route-lightbox-img.is-ready ~ .route-lightbox-overlay { opacity: 1; }
+.route-lightbox-overlay .route-map-overlay {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+}
+.route-lightbox-overlay .route-stop {
+  width: calc(26px / var(--map-scale));
+  height: calc(26px / var(--map-scale));
+  border-width: calc(2px / var(--map-scale));
+  font-size: calc(12px / var(--map-scale));
+  box-shadow: 0 calc(1px / var(--map-scale)) calc(2px / var(--map-scale)) rgba(0, 0, 0, 0.35);
+}
+.route-lightbox-overlay .route-stop-cluster {
+  min-width: calc(26px / var(--map-scale));
+  padding: 0 calc(7px / var(--map-scale));
+}
 .route-lightbox-status {
   position: absolute;
   left: 50%;
@@ -3899,3 +4114,211 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   .story-sidebar-col { order: -1; max-width: 280px; }
   .ad-slot--sidebar { display: none !important; }
 }
+
+/* Timeline reading width: story pane full width, map slides away.
+   Column change is a width animation; the map pane moves with translate3d. */
+.timeline-read-bar {
+  position: sticky;
+  top: var(--tl-sticky-top, 4.75rem);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: -1rem -1.15rem 0.85rem;
+  padding: 0.5rem 1.15rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.timeline-main .timeline-stories-toolbar {
+  top: calc(var(--tl-sticky-top, 4.75rem) + var(--tl-readbar-h, 3.4rem) + 0.35rem);
+}
+.timeline-read-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid #2f5a48;
+  background: #1e3b2f;
+  color: #f3ead8;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.timeline-read-toggle-ico {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  display: block;
+}
+.timeline-read-label { display: none; }
+.timeline-read-label-hide,
+.timeline-read-label-show { display: none; }
+.timeline-read-toggle[aria-expanded="true"] .timeline-read-label-hide { display: inline; }
+.timeline-read-toggle[aria-expanded="false"] .timeline-read-label-show { display: inline; }
+.timeline-read-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+/* Amber marks reading mode (map hidden). aria-expanded stays tied to the map. */
+.timeline-layout.is-reading-wide .timeline-read-toggle {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+.timeline-layout.is-reading-wide .timeline-read-toggle:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+.timeline-read-toggle:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+html[data-hp-theme="light"] .timeline-read-toggle {
+  background: color-mix(in srgb, #1e3b2f 18%, var(--chip));
+  border-color: color-mix(in srgb, #1e3b2f 42%, var(--line));
+  color: var(--text);
+}
+html[data-hp-theme="light"] .timeline-read-toggle:hover,
+html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-toggle {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-toggle:hover {
+  background: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+@media (min-width: 901px) {
+  .timeline-layout {
+    grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+    transition: grid-template-columns 340ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  }
+  .timeline-main,
+  .timeline-map-pane {
+    min-width: 0;
+  }
+  .timeline-main {
+    transition: border-right-color 340ms ease;
+  }
+  .timeline-map-pane {
+    transform: translate3d(0, 0, 0);
+    transition: transform 340ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  }
+  .timeline-layout.is-reading-anim .timeline-map-pane,
+  .timeline-layout.is-reading-wide .timeline-map-pane {
+    overflow: hidden;
+  }
+  .timeline-layout.is-reading-anim .timeline-map-pane {
+    will-change: transform;
+  }
+  .timeline-layout.is-reading-wide {
+    grid-template-columns: minmax(0, 100%) minmax(0, 0%);
+  }
+  .timeline-layout.is-reading-wide .timeline-map-pane {
+    transform: translate3d(100%, 0, 0);
+    pointer-events: none;
+  }
+  .timeline-layout.is-reading-wide .timeline-main {
+    border-right-color: transparent;
+  }
+}
+@media (max-width: 900px) {
+  .timeline-section .timeline-map-pane {
+    overflow: hidden;
+    max-height: var(--tl-map-open-h, 70vh);
+    transform: translate3d(0, 0, 0);
+    transition:
+      transform 340ms cubic-bezier(0.22, 0.8, 0.2, 1),
+      max-height 340ms cubic-bezier(0.22, 0.8, 0.2, 1),
+      min-height 340ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  }
+  .timeline-layout.is-reading-wide .timeline-map-pane {
+    max-height: 0;
+    min-height: 0;
+    transform: translate3d(0, 24px, 0);
+    pointer-events: none;
+    border-bottom-width: 0;
+  }
+  .timeline-layout.is-reading-wide .timeline-main {
+    border-bottom-color: transparent;
+  }
+}
+/* Reading mode: center a column whose story text is at most 70ch.
+   The extra 2.6rem is the story card's horizontal padding and border, so the
+   body itself — not the card — is the 70ch measure. The sticky bar stays full width.
+   The photo stacks so it doesn't eat the line. */
+.timeline-layout.is-reading-wide .timeline-main > :not(.timeline-read-bar) {
+  width: min(100%, calc(70ch + 2.6rem));
+  max-width: calc(70ch + 2.6rem);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+.timeline-layout.is-reading-wide .story-body {
+  max-width: 70ch;
+}
+.timeline-layout.is-reading-wide .story-reader .story-reader-layout,
+.timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+.timeline-layout.is-reading-wide .story-reader .story-sidebar-photo {
+  position: static;
+  order: -1;
+  margin-top: 0;
+  max-width: 280px;
+}
+.timeline-layout.is-reading-instant,
+.timeline-layout.is-reading-instant .timeline-map-pane,
+.timeline-layout.is-reading-instant .timeline-main {
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-layout,
+  .timeline-layout .timeline-map-pane,
+  .timeline-layout .timeline-main {
+    transition: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .timeline-read-toggle {
+    background: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+  }
+  .timeline-read-toggle:focus-visible {
+    outline: 3px solid Highlight;
+  }
+}
+
+/* Tap-to-enlarge cue on the About seals (Critiquito batch 2) */
+.about-seal-btn { position: relative; }
+.about-seal-btn::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9893a' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 18px no-repeat;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+html[data-hp-theme="light"] .about-seal-btn::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2385500f' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E");
+}
+.about-seals-hint { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
