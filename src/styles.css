@@ -4895,3 +4895,31 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   .hp-rail-card-title { font-size: 0.95rem; line-height: 1.25; }
   .hp-rail-all { margin-top: 0; padding: 0.15rem 0 0; line-height: 1.3; }
 }
+
+/* Homepage container: one content width + gutter shared by every homepage band, so
+   left/right content edges line up at 1280, 1440 and 1920. Backgrounds stay full-bleed;
+   only the inner padding changes. Phones (≤900px) keep their own spacing. */
+:root {
+  --page-max: 1360px;
+  --page-gutter: clamp(1.25rem, 5vw, 4rem);
+  --page-pad: max(var(--page-gutter), calc((100% - var(--page-max)) / 2));
+}
+@media (min-width: 901px) {
+  body.hp-page .site-header,
+  body.hp-page .site-header.top {
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+  body.hp-page .hp-lead-block,
+  body.hp-page .hp-map-strip,
+  body.hp-page .hp-section,
+  body.hp-page .hp-mag-quote,
+  body.hp-page footer.foot {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+    box-sizing: border-box;
+  }
+}
