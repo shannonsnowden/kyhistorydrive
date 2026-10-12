@@ -6,14 +6,16 @@ Built 2026-10-10 by Story Studio with `make_warriors_path_map.py` (reuses `/work
 ## Files
 | file | size | use |
 |---|---|---|
-| warriors-path-map-master-3840.png | 3840x2160 | video master / library copy |
-| warriors-path-map.png / .webp | 1600x900 | site full size |
-| warriors-path-map-web.webp | 960x540, ~109 KB | inline web |
-| warriors-path-map-390.png | 390x219 | phone legibility check |
-| warriors-path-map-dark.png / .webp, -dark-390.png | 1600x1080 / 390 | map on the site's dark background (#101812 bg, #1a241c panel, #2e4034 line, #f6edd8 focus frame, #e8d5a8 heading, #c9893a accent, #a8b59c caption, from src/styles.css) |
+| athiamiowee-the-warriors-path-through-kentucky-master-3840.png | 3840x2160 | video master / library copy |
+| athiamiowee-the-warriors-path-through-kentucky.png / .webp | 1600x900 | site full size |
+| athiamiowee-the-warriors-path-through-kentucky-web.webp | 960x540, ~109 KB | inline web |
+| athiamiowee-the-warriors-path-through-kentucky-390.png | 390x219 | phone legibility check |
+| athiamiowee-the-warriors-path-through-kentucky-dark.png / .webp, -dark-390.png | 1600x1080 / 390 | map on the site's dark background (#101812 bg, #1a241c panel, #2e4034 line, #f6edd8 focus frame, #e8d5a8 heading, #c9893a accent, #a8b59c caption, from src/styles.css) |
 | kygeonet-warriors-path.json | – | route geometry used (KYGeoNet layer 1, 'Warriors Path*' features) |
 
 Site file names per route-map SEO spec: `/content/maps/athiamiowee-the-warriors-path-through-kentucky-route-map.{avif,webp,jpg}` (rename on import; JPEG fallback ≤1600 px).
+
+The previous `warriors-path-map-*` files stay in this folder as unreferenced copies so old links still resolve. Amplify is not applying `customRules` redirects. Delete the copies once a console redirect is in place.
 
 ## Era of use
 Used by Native nations long before Europeans arrived (an old game trail); first recorded by a European in 1674 (Gabriel Arthur); named the "Warriors' Path" by English speakers by the 1750s; used by Walker (1750), Gist (1751), Finley and Boone (1769); absorbed into pioneer roads in the 1770s–80s. Caption years: "before 1674 to the 1770s".
@@ -69,10 +71,10 @@ Suggested caption: "Route of the Warriors' Path (Athiamiowee), before 1674 to th
 (Items 7–9 cited from bibliographic records; not re-read online in this pass.)
 
 ## v2 design pass (2026-10-11, Critiquito fixes)
-- **Phone art (new):** `warriors-path-map-phone.png` / `.webp` (780x439, 2x for a 390 CSS-px slot). It's a Kentucky-focused crop with only these stops: Lower Shawneetown, Eskippakithiki, Kentucky R. ford, War Fork, Cumberland Ford, Cumberland Gap. Labels are 118 px at 3840, which is 24 px at 780. Sub-labels, towns, river labels, the legend and the credits are dropped. `warriors-path-map-390.png` is now made from the phone art. Dark-frame version: `warriors-path-map-phone-dark.png`; `warriors-path-map-dark-390.png` is made from that. Serve it with `<picture><source media="(max-width: 600px)" srcset="…-phone.webp">`.
+- **Phone art (new):** `athiamiowee-the-warriors-path-through-kentucky-phone.png` / `.webp` (780x439, 2x for a 390 CSS-px slot). It's a Kentucky-focused crop with only these stops: Lower Shawneetown, Eskippakithiki, Kentucky R. ford, War Fork, Cumberland Ford, Cumberland Gap. Labels are 118 px at 3840, which is 24 px at 780. Sub-labels, towns, river labels, the legend and the credits are dropped. `athiamiowee-the-warriors-path-through-kentucky-390.png` is now made from the phone art. Dark-frame version: `athiamiowee-the-warriors-path-through-kentucky-phone-dark.png`; `athiamiowee-the-warriors-path-through-kentucky-dark-390.png` is made from that. Serve it with `<picture><source media="(max-width: 600px)" srcset="…-phone.webp">`.
 - **Credits and scale:** the credit line and the "Statute Miles" scale bar now sit on a solid parchment strip at the bottom of the frame. All labels, the cartouche, the legend and the strip are drawn above the burned edge and vignette, and labels are kept out of the outer edge.
 - **Line styles:** conjectural / approximate segments are now **red dots**. Branches and other routes are **lighter, muted-red dashes**. Approximate points are red rings with a parchment fill, so a line passing through one no longer overprints it.
-- **Dark version:** `warriors-path-map-dark.png/.webp` no longer has the frame heading or "Route map" line. The map's own cartouche is the only title. The caption under the map is kept at 1600 only; on the page, render it as HTML text.
+- **Dark version:** `athiamiowee-the-warriors-path-through-kentucky-dark.png/.webp` no longer has the frame heading or "Route map" line. The map's own cartouche is the only title. The caption under the map is kept at 1600 only; on the page, render it as HTML text.
 
 ## Legend (for the page HTML, under the phone art)
 - solid red line: Warriors’ Path (approx. route)

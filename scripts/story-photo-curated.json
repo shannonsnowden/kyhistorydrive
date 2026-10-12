@@ -1051,5 +1051,54 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Mrherbalwarrior · Wikimedia Commons · CC BY 3.0",
     "year": 2006
+  },
+  "capt-robert-johnson-and-big-crossing-station": {
+    "ext": "jpg",
+    "commonsFile": "Downtown_Georgetown_Kentucky.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Downtown_Georgetown_Kentucky.JPG?width=1280",
+    "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007
+  },
+  "campbellsville-from-buckhorn-creek-to-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Taylor_County_Courthouse,_Campbellsville.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Taylor_County_Courthouse,_Campbellsville.jpg?width=1280",
+    "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": 2017
+  },
+  "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
+    "ext": "jpg",
+    "commonsFile": "Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper's_Weekly_June_1887.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg?width=1280",
+    "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+    "year": 1887
+  },
+  "tinsley-hill-15ly18-lyon-county": {
+    "ext": "jpg",
+    "commonsFile": "Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kentucky_and_Barkley_Lakes_aerial_view.jpg?width=1280",
+    "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain"
+  },
+  "burlington-boone-county-seat": {
+    "ext": "jpg",
+    "commonsFile": "Boone_County_Courthouse,_Burlington,_KY.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Boone_County_Courthouse,_Burlington,_KY.jpg?width=1280",
+    "title": "Boone County Courthouse, Burlington (photographed 2020)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "w_lemay · Wikimedia Commons · CC0",
+    "year": 2020
   }
 }
