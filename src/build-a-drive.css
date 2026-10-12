@@ -122,3 +122,11 @@ ol.stops>li.on{background:var(--hl)}
 /* phase 1d */
 .seg label{white-space:nowrap}
 @media (max-width:860px){.seg label{padding:0 8px;font-size:15px}.sticky-bar .btn-maps{font-size:15px;padding:0 8px}.bar-label{white-space:nowrap}}
+
+/* Mockup: drive theme icons (existing layer icons only) */
+.kicon{display:inline-block;width:16px;height:16px;margin:0 4px -3px 0;object-fit:contain;font-size:13px;line-height:16px}
+.tag:has(.kicon){padding-left:4px}
+[data-hp-theme=dark] img.kicon,[data-hp-theme=dark] .klegend img{background:#f3ead8;border-radius:50%}
+.klegend{list-style:none;display:flex;flex-wrap:wrap;gap:4px 12px;margin:0 0 10px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;font-size:12px;color:var(--muted)}
+.klegend li{display:flex;align-items:center;gap:4px}
+.klegend img{width:16px;height:16px;object-fit:contain}
