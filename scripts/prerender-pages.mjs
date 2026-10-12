@@ -39,6 +39,7 @@ import {
   markerRecords,
   nearbyPlaces,
   photoCreditHtml,
+  pickRelatedStories,
   relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -1085,6 +1086,11 @@ class PrerenderPages {
 `
   }
 
+  /** Shared tags, then era overlap, then county, then distance. Title is only a tiebreak. */
+  static relatedStories(story, all, excludeSlugs = []) {
+    return pickRelatedStories(story, all, excludeSlugs)
+  }
+
   static relatedAndNearbySection(story, all, markers) {
     const route = routeBySlug(story.slug)
     const routeSlugs = route?.relatedStories || []
@@ -1639,6 +1645,10 @@ class PrerenderPages {
     if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
     const routeForNearby = routeBySlug(story.slug)
     const relatedSlugs = [...related[0].matchAll(/<li class="related-story">[\s\S]*?href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
+    const expectedRelated = PrerenderPages.relatedStories(story, all, routeForNearby?.relatedStories || []).map((item) => item.slug)
+    if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
+      throw new Error(`prerender: ${urlPath} related stories are not ranked by tags, era, county, then distance`)
+    }
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
       excludeSlugs: [...(routeForNearby?.relatedStories || []), ...relatedSlugs],

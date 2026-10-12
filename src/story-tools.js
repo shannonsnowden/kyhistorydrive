@@ -368,49 +368,6 @@ export function storyThumbSrc(story) {
   return `/content/photos/opt/stories/${base}-112.webp`
 }
 
-/**
- * Same ranking the prerendered story pages use: era, county, territory, shared tags.
- * Three to five other stories.
- */
-export function pickRelatedStories(story, all, excludeSlugs = []) {
-  const skip = new Set(excludeSlugs || [])
-  const generic = new Set(['kentucky', 'other', 'prehistoric', 'native', 'frontier', 'early-commonwealth', story?.era])
-  const tags = new Set((story?.tags || []).filter((tag) => tag && !generic.has(tag)))
-  const ranked = []
-  for (const other of all || []) {
-    if (!other?.slug || other.slug === story?.slug || skip.has(other.slug)) continue
-    let score = 0
-    if (story?.era && other.era === story.era) score += 3
-    if (story?.county && other.county && other.county === story.county) score += 4
-    if (story?.territoryNation && other.territoryNation && other.territoryNation === story.territoryNation) score += 3
-    const shared = (other.tags || []).filter((tag) => tags.has(tag)).length
-    if (shared) score += Math.min(4, shared * 2)
-    if (score > 0) ranked.push({ other, score })
-  }
-  ranked.sort((a, b) => b.score - a.score || String(a.other.title || '').localeCompare(String(b.other.title || '')))
-  const picked = []
-  const seen = new Set()
-  const take = (item) => {
-    if (!item?.slug || item.slug === story?.slug || skip.has(item.slug) || seen.has(item.slug) || picked.length >= 5) return
-    seen.add(item.slug)
-    picked.push(item)
-  }
-  for (const row of ranked) take(row.other)
-  if (picked.length < 3) {
-    for (const other of all || []) {
-      if (other?.era === story?.era) take(other)
-      if (picked.length >= 3) break
-    }
-  }
-  if (picked.length < 3) {
-    for (const other of all || []) {
-      take(other)
-      if (picked.length >= 3) break
-    }
-  }
-  return picked.slice(0, 5)
-}
-
 const PIN_ICON = `<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 5.7 10.9 6.4 11.55a.5.5 0 0 0 .7 0c.7-.65 6.4-6.49 6.4-11.55A6.75 6.75 0 0 0 12 2.25zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`
 
 const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.25 10.75 8 6 12.75" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>`
@@ -448,6 +405,92 @@ function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass 
 export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5 } = {}) {
   const near = nearbyPlaces(story, all, markers, { excludeSlugs, excludeMarkerIds, limit })
   return relatedListHtml(near, { heading: 'Nearby', headingId: 'nearby-stories-heading', headingLevel })
+}
+
+const GENERIC_RELATED_TAGS = new Set([
+  'kentucky',
+  'other',
+  'prehistoric',
+  'native',
+  'frontier',
+  'early-commonwealth',
+])
+
+function specificTags(story) {
+  const era = story?.era
+  return (story?.tags || []).filter((tag) => tag && tag !== era && !GENERIC_RELATED_TAGS.has(tag))
+}
+
+function sharedTagCount(story, other) {
+  const tags = new Set(specificTags(story))
+  if (!tags.size) return 0
+  return specificTags(other).filter((tag) => tags.has(tag)).length
+}
+
+function yearSpan(story) {
+  const start = Number(story?.yearStart)
+  const end = Number(story?.yearEnd)
+  const startOk = Number.isFinite(start)
+  const endOk = Number.isFinite(end)
+  if (!startOk && !endOk) return null
+  const a = startOk ? start : end
+  const b = endOk ? end : start
+  return [Math.min(a, b), Math.max(a, b)]
+}
+
+/** Years the two stories share. A matching era label counts as 1 only when a year span is missing. */
+export function eraOverlapYears(story, other) {
+  const a = yearSpan(story)
+  const b = yearSpan(other)
+  if (!a || !b) return story?.era && story.era === other?.era ? 1 : 0
+  const start = Math.max(a[0], b[0])
+  const end = Math.min(a[1], b[1])
+  return end >= start ? end - start + 1 : 0
+}
+
+function countyKey(story) {
+  return String(story?.county || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+county$/, '')
+}
+
+function sameCounty(story, other) {
+  const a = countyKey(story)
+  const b = countyKey(other)
+  return Boolean(a && b && a === b)
+}
+
+function relatedMiles(story, other) {
+  const origin = storyOrigin(story)
+  const lat = finiteCoord(other?.lat)
+  const lon = finiteCoord(other?.lon)
+  if (!origin || !validPin(lat, lon)) return Number.POSITIVE_INFINITY
+  return haversineMiles(origin.lat, origin.lon, lat, lon)
+}
+
+/**
+ * Three to five other stories.
+ * Order: more shared subject tags, then more years of overlap, then the same county,
+ * then nearer, then title. Alphabetical order is only the last tiebreak.
+ */
+export function pickRelatedStories(story, all, excludeSlugs = []) {
+  const skip = new Set(excludeSlugs || [])
+  const pool = (all || []).filter(
+    (other) => other?.slug && other.slug !== story?.slug && other.title && !skip.has(other.slug),
+  )
+  pool.sort((a, b) => {
+    const tagDelta = sharedTagCount(story, b) - sharedTagCount(story, a)
+    if (tagDelta) return tagDelta
+    const eraDelta = eraOverlapYears(story, b) - eraOverlapYears(story, a)
+    if (eraDelta) return eraDelta
+    const countyDelta = Number(sameCounty(story, b)) - Number(sameCounty(story, a))
+    if (countyDelta) return countyDelta
+    const milesDelta = relatedMiles(story, a) - relatedMiles(story, b)
+    if (milesDelta) return milesDelta
+    return String(a.title).localeCompare(String(b.title)) || String(a.slug).localeCompare(String(b.slug))
+  })
+  return pool.slice(0, Math.min(5, pool.length))
 }
 
 /** Related stories first, then nearby places that are not already listed. */
