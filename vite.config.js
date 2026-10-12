@@ -87,6 +87,8 @@ export default defineConfig({
             html = html.replace('<!-- khd-privacy-choices -->', privacyChoicesBootHtml())
           }
           html = html.replace(/<!-- khd-contact-line\s+([\s\S]*?)\s*-->/g, (_, lead) => contactLineHtml(lead.trim()))
+          // Preview branch only: drive-preview pages are analytics-free by design (location privacy).
+          if (html.includes('<!-- khd-no-analytics -->')) return html
           return injectGtagHead(html)
         },
       },
@@ -101,6 +103,7 @@ export default defineConfig({
         main: resolve(root, 'index.html'),
         homePreview: resolve(root, 'home-preview/index.html'),
         privacy: resolve(root, 'privacy/index.html'),
+        buildDrive: resolve(root, 'drive-preview/build/index.html'),
       },
     },
   },

@@ -1,0 +1,11 @@
+{
+  "comment": "Stops on private land (marker only, no directions). Build your own drive never suggests these. Mockup branch list; add ids/slugs as drive batches arrive. Any stop within 0.5 mi of a listed point is dropped too (stories pinned at the same site).",
+  "ids": [
+    "ruddles-station",
+    "martins-station",
+    "ruddells-station-harrison-county",
+    "martins-station-egushawa-odawa-1780",
+    "isaac-ruddell-and-the-guns-at-ruddells-station",
+    "egushawa-and-the-odawa-in-kentuckys-war-years"
+  ]
+}
