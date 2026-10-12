@@ -1,3 +1,7 @@
+import { portraitAlt } from './portrait-captions.js'
+
+export { portraitAlt }
+
 // Web-only cross-links between stories. Data: /data/web/related-people.json (no story text is edited).
 // Portraits: /data/people.json, built from the research file. Images are self-hosted.
 let cache = null
@@ -63,10 +67,6 @@ export function portraitsByStorySlug(relatedData, people) {
     }
   }
   return map
-}
-
-export function portraitAlt(person) {
-  return person?.ai ? `AI illustration of ${person.name}` : `Portrait of ${person.name}`
 }
 
 /** Round headshot, or '' when there is no local image. width/height stay in the 32–40px range. */

@@ -644,10 +644,13 @@
       "id": "cornstalk",
       "name": "Cornstalk",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/cornstalk-512.webp",
+        "jpg": "/people/portraits/cornstalk-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. John Frost, L.L. D. is the author of the book; illustrator is not identified. · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
         "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
@@ -726,10 +729,13 @@
       "id": "simon-girty",
       "name": "Simon Girty",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/simon-girty-512.webp",
+        "jpg": "/people/portraits/simon-girty-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. Artist uncredited · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "bryan-station-siege-august-1782",
         "simon-girty-interpreter-at-bryan-station-1782"
@@ -739,10 +745,13 @@
       "id": "little-turtle",
       "name": "Little Turtle",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/little-turtle-512.webp",
+        "jpg": "/people/portraits/little-turtle-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. Unknown artist · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "blue-jacket-weyapiersenwah",
         "col-john-hardin-of-pleasant-run",
@@ -957,10 +966,13 @@
       "id": "christopher-gist",
       "name": "Christopher Gist",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/christopher-gist-512.webp",
+        "jpg": "/people/portraits/christopher-gist-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. Up-loaded by David McCoy--no name associated with art · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "athiamiowee-the-warriors-path-through-kentucky",
         "christopher-gist-1750-51",
@@ -1217,7 +1229,7 @@
         "webp": "/people/portraits/robert-patterson-512.webp",
         "jpg": "/people/portraits/robert-patterson-512.jpg"
       },
-      "credit": "engraved by Chas B Hall · Public domain · via Wikimedia Commons",
+      "credit": "Attributed portrait. engraved by Chas B Hall · Public domain · via Wikimedia Commons",
       "ai": false,
       "license": "Public domain",
       "stories": [
@@ -2132,10 +2144,13 @@
       "id": "thomas-lincoln",
       "name": "Thomas Lincoln",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/thomas-lincoln-512.webp",
+        "jpg": "/people/portraits/thomas-lincoln-512.jpg"
+      },
+      "credit": "Attributed portrait. Unknown artist · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "springfield-founding-and-washington-county-seat"
       ]
@@ -3413,10 +3428,13 @@
       "id": "attakullakulla",
       "name": "Attakullakulla",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/attakullakulla-512.webp",
+        "jpg": "/people/portraits/attakullakulla-512.jpg"
+      },
+      "credit": "Detail from a group scene. Engraved by Isaac Basire (1704 – 1768) After a painting by Markham 1740 – 1760 · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "richard-henderson",
         "treaties-of-hard-labour-and-lochaber"
@@ -3474,10 +3492,13 @@
       "id": "john-jolly",
       "name": "John Jolly",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/john-jolly-512.webp",
+        "jpg": "/people/portraits/john-jolly-512.jpg"
+      },
+      "credit": "Attributed portrait. George Catlin · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "tellico-cession-1805-south-of-the-cumberland"
       ]
@@ -3636,10 +3657,13 @@
       "id": "alexander-mckee",
       "name": "Alexander McKee",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/alexander-mckee-512.webp",
+        "jpg": "/people/portraits/alexander-mckee-512.jpg"
+      },
+      "credit": "Detail from a group scene. Lewis Foy (1757–1825) · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "simon-girty-interpreter-at-bryan-station-1782"
       ]
@@ -3648,10 +3672,13 @@
       "id": "matthew-elliott",
       "name": "Matthew Elliott",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/matthew-elliott-512.webp",
+        "jpg": "/people/portraits/matthew-elliott-512.jpg"
+      },
+      "credit": "Detail from a group scene. Lewis Foy (1757–1825) · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "simon-girty-interpreter-at-bryan-station-1782"
       ]
@@ -3664,7 +3691,7 @@
         "webp": "/people/portraits/henry-hamilton-512.webp",
         "jpg": "/people/portraits/henry-hamilton-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "credit": "Attributed portrait. Unknown artist · Public domain · via Wikimedia Commons",
       "ai": false,
       "license": "Public domain",
       "stories": [
@@ -3841,10 +3868,13 @@
       "id": "la-salle",
       "name": "René-Robert Cavelier, Sieur de La Salle",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/la-salle-512.webp",
+        "jpg": "/people/portraits/la-salle-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. Charles André Waltner (1846-1925) · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "mosopelea-ofo-the-ohio-valley"
       ]
@@ -3865,10 +3895,13 @@
       "id": "john-lawson",
       "name": "John Lawson",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/john-lawson-512.webp",
+        "jpg": "/people/portraits/john-lawson-512.jpg"
+      },
+      "credit": "Attributed portrait. Godfrey Kneller · Public domain · via Wikimedia Commons",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "stories": [
         "tutelo-the-totteroy"
       ]

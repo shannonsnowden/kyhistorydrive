@@ -4,6 +4,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { PORTRAIT_CAPTIONS, creditWithCaption } from '../src/portrait-captions.js'
 
 export const AI_CREDIT = 'Kentucky History Drive'
 export const AI_LICENSE = 'Original AI illustration'
@@ -14,11 +15,13 @@ export const PUBLIC_PEOPLE = 'public/data/people.json'
  * Never ship a headshot for these ids.
  * Lomax: the Commons file is Confederate general Lunsford L. Lomax, a different man.
  * Marshall: HMarshall.jpg is Confederate general Humphrey Marshall, the grandson.
+ * Crow: the Commons file is a 2024 upload with no historical source.
  * Briscoe was an infant landowner. Harrison is unidentified. Stitzel’s photo rights are unknown.
  */
 export const NO_PORTRAIT_IDS = [
   'lunsford-lomax',
   'humphrey-marshall',
+  'james-c-crow',
   'hezekiah-briscoe',
   'benjamin-harrison-col',
   'frederick-stitzel',
@@ -100,6 +103,11 @@ export function isVerifiedFree(person) {
   return Boolean(person?.freeToUse && person?.verified && person?.image && isClearFreeLicense(person.license))
 }
 
+/** Doubtful likenesses that still ship, with a caption caveat. The license must be clear. */
+export function isCaptionedFree(person) {
+  return Boolean(PORTRAIT_CAPTIONS[person?.id] && person?.image && isClearFreeLicense(person.license))
+}
+
 export function findAiPortrait(id, dir) {
   if (!fs.existsSync(dir)) return null
   const versions = new Map()
@@ -159,7 +167,7 @@ export function publicRecord(person, image, ai) {
       stories,
     }
   }
-  const credit = person.credit || (ai ? AI_CREDIT : '')
+  const credit = creditWithCaption(person, person.credit || (ai ? AI_CREDIT : ''))
   const license = person.license || (ai ? AI_LICENSE : '')
   if (!credit || !license) {
     throw new Error(`people: ${person.id} has an image without a credit and license`)

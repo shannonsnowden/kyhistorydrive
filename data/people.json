@@ -2763,16 +2763,16 @@
       ],
       "role": "Physician-distiller, sour mash",
       "native": false,
-      "likeness": "doubtful",
+      "likeness": "none-known",
       "timing": null,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/James_C._Crow2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "sourcePage": "https://commons.wikimedia.org/wiki/File:James_C._Crow2.jpg",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "credit": "Shckwv · CC BY-SA 4.0 · via Wikimedia Commons",
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
       "freeToUse": false,
       "verified": false,
-      "notes": "Commons image is a 2024 \"own work\" upload with no documented historical source; no verified likeness of Crow is known."
+      "notes": "Commons file James_C._Crow2.jpg is a 2024 upload with no documented historical source. No headshot."
     },
     {
       "id": "oscar-pepper",

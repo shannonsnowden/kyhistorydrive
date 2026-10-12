@@ -56,7 +56,7 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
-import { portraitsByStorySlug, relatedBlockHtml } from '../src/related-people.js'
+import { portraitsByStorySlug, relatedBlockHtml, portraitAlt } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 
 /** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
@@ -1659,7 +1659,7 @@ class PrerenderPages {
         if (!img.includes('loading="lazy"') || !img.includes('width="36"') || !img.includes('height="36"')) {
           throw new Error(`prerender: ${urlPath} headshot is missing lazy loading or 36px dimensions`)
         }
-        if (!/alt="(?:Portrait of |AI illustration of )[^"]+"/.test(img)) {
+        if (!/alt="(?:Attributed portrait of |Imagined posthumous portrait of |Detail from a group scene of |Portrait of |AI illustration of )[^"]+"/.test(img)) {
           throw new Error(`prerender: ${urlPath} headshot alt text is missing the person`)
         }
         if (!/src="\/people\/portraits\/[^"]+\.jpg"/.test(img) || /https?:/i.test(img)) {
@@ -1991,7 +1991,7 @@ class PrerenderPages {
     const storyList = stories ? `<ul class="people-stories">${stories}</ul>` : ''
     let media
     if (person.image) {
-      const alt = person.ai ? `AI illustration of ${person.name}` : `Portrait of ${person.name}`
+      const alt = portraitAlt(person)
       media = `<picture class="people-photo"><source srcset="${PrerenderPages.escapeHtml(person.image.webp)}" type="image/webp"><img src="${PrerenderPages.escapeHtml(person.image.jpg)}" width="512" height="512" alt="${PrerenderPages.escapeHtml(alt)}" loading="lazy" decoding="async"></picture>`
     } else {
       media = `<div class="people-fallback" aria-hidden="true">${PrerenderPages.peopleSilhouette()}<span class="people-initials">${PrerenderPages.escapeHtml(initials(person.name))}</span></div>`
@@ -2085,7 +2085,7 @@ class PrerenderPages {
     }
     if (!html.includes('class="people-fallback"')) throw new Error('prerender: /people/ is missing a placeholder')
     for (const person of illustrated) {
-      const alt = person.ai ? `AI illustration of ${person.name}` : `Portrait of ${person.name}`
+      const alt = portraitAlt(person)
       if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
         throw new Error(`prerender: /people/ is missing alt text for ${person.id}`)
       }

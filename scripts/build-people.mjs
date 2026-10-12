@@ -17,6 +17,7 @@ import {
   assertPublicPeople,
   diskPath,
   findAiPortrait,
+  isCaptionedFree,
   isClearFreeLicense,
   isVerifiedFree,
   portraitFilesReady,
@@ -202,7 +203,7 @@ async function main() {
       })
       continue
     }
-    if (!isVerifiedFree(person)) continue
+    if (!isVerifiedFree(person) && !isCaptionedFree(person)) continue
     if (aiIds.has(person.id)) continue
     realCandidates.push(person)
   }
