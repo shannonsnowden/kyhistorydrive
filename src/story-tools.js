@@ -334,7 +334,8 @@ function nearbyRowHtml(row) {
   const miles = row.related ? '' : formatMiles(row.miles)
   const milesHtml = miles ? `<span class="nearby-miles">${esc(miles)}</span>` : ''
   const liClass = row.related ? 'related-story' : 'nearby-place'
-  return `<li class="${liClass}"><a href="${esc(href)}">${esc(row.title)}</a><span class="nearby-kind">${esc(kindText)}</span>${milesHtml}</li>`
+  const mapAttr = row.kind === 'marker' ? ' data-story-map' : ''
+  return `<li class="${liClass}"><a${mapAttr} href="${esc(href)}">${esc(row.title)}</a><span class="nearby-kind">${esc(kindText)}</span>${milesHtml}</li>`
 }
 
 export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5 } = {}) {

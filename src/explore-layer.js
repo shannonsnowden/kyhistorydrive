@@ -210,7 +210,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
     const deckText = HomepageStructure.deckText(item.deck)
     const deck = deckText ? `<p class="exp-deck">${esc(deckText)}</p>` : '<p class="exp-deck"></p>'
     const map = item.mapHref
-      ? `<a class="exp-sec" href="${esc(item.mapHref)}" aria-label="${esc(item.title)} on the map">On the map</a>`
+      ? `<a class="exp-sec" data-story-map href="${esc(item.mapHref)}" aria-label="${esc(item.title)} on the map">On the map</a>`
       : ''
     return `<article class="exp-card" data-key="${esc(item.key)}">
       <a class="exp-media" href="${esc(item.href)}" aria-label="Read: ${esc(item.title)}" tabindex="-1">${responsivePicture({

@@ -54,6 +54,7 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
+import { staticPageBootHtml } from '../src/story-return.js'
 
 /** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
 export function preloadsPoster(html, poster) {
@@ -1073,8 +1074,10 @@ class PrerenderPages {
       .route-links li { margin: 0 0 0.4rem; }
       .route-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 0.85rem; align-items: center; margin: 0 0 0.85rem; padding: 0.65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: inherit; text-decoration: none; }
       .route-card-link { color: inherit; text-decoration: none; }
+      .route-card-copy { min-width: 0; }
       .route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
       .route-card p { margin: 0; }
+      .route-card-map { display: inline-flex; align-items: center; margin-top: 0.55rem; min-height: 44px; }
       @media (max-width: 700px) { .place-list { columns: 1; } .route-card { grid-template-columns: 1fr; } }
     </style>
     <script>
@@ -1108,6 +1111,7 @@ class PrerenderPages {
     </footer>
     ${deferredAdsenseLoaderHtml()}
     ${privacyChoicesBootHtml()}
+    ${staticPageBootHtml()}
     ${PrerenderPages.siteChromeScript()}
     ${routeMapThemeScript()}
     ${routeLightbox ? '<script src="/route-map-lightbox.js" defer></script>' : ''}
@@ -1285,7 +1289,7 @@ class PrerenderPages {
     const mapControl = pinHtml
       ? pinHtml
       : mapHref
-        ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>`
+        ? `<a class="btn ghost" data-story-map href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>`
         : ''
     const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
     const photo = story.photo?.image_url ? story.photo : null
@@ -1364,7 +1368,10 @@ class PrerenderPages {
       'Approximate route maps for six Kentucky history stories, with the stops and the story for each path.',
     )
     const canonical = `${PrerenderPages.SITE}/routes/`
-    const main = routesIndexArticleHtml(titleFor)
+    const main = routesIndexArticleHtml(titleFor, (slug) => {
+      const story = stories.find((item) => item.slug === slug)
+      return story ? PrerenderPages.storyMapHref(story) : ''
+    })
     const list = {
       '@type': 'ItemList',
       '@id': `${canonical}#routes`,

@@ -284,7 +284,7 @@ function renderHeroSlide(story, index) {
           <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
           ${
             storyMapHref(story)
-              ? `<a class="btn hp-cta" href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
+              ? `<a class="btn hp-cta" data-story-map href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
               : `<a class="btn hp-cta" href="/#timeline">All stories</a>`
           }
         </div>
@@ -388,7 +388,7 @@ function renderFeatures(pack) {
       const credit = photoCredit(item.photo)
       const mapHref = storyMapHref(item)
       const cta = mapHref
-        ? `<a class="hp-layer-cta" href="${escapeHtml(mapHref)}">Open on the map</a>`
+        ? `<a class="hp-layer-cta" data-story-map href="${escapeHtml(mapHref)}">Open on the map</a>`
         : `<a class="hp-layer-cta" href="${escapeHtml(item.href)}">Read the story</a>`
       return `<article class="hp-feature${hasPhoto ? '' : ' hp-feature--no-photo'}">
         ${media}

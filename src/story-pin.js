@@ -22,5 +22,5 @@ export function storyPinLinkHtml({ href, title, slug }) {
   const light = `/brand/story-pins/${slug}-light.svg`
   const dark = `/brand/story-pins/${slug}-dark.svg`
   const name = `Open on the map: ${title}`
-  return `<a class="story-pin" href="${esc(href)}" aria-label="${esc(name)}"><picture class="story-pin-picture"><source data-theme="dark" type="image/svg+xml" media="(prefers-color-scheme: dark)" srcset="${dark}" /><img src="${light}" data-src-light="${light}" data-src-dark="${dark}" width="${STORY_PIN_WIDTH}" height="${STORY_PIN_HEIGHT}" alt="" decoding="async" /></picture><span>Open on the map</span></a>`
+  return `<a class="story-pin" data-story-map href="${esc(href)}" aria-label="${esc(name)}"><picture class="story-pin-picture"><source data-theme="dark" type="image/svg+xml" media="(prefers-color-scheme: dark)" srcset="${dark}" /><img src="${light}" data-src-light="${light}" data-src-dark="${dark}" width="${STORY_PIN_WIDTH}" height="${STORY_PIN_HEIGHT}" alt="" decoding="async" /></picture><span>Open on the map</span></a>`
 }

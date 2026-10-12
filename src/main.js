@@ -27,6 +27,13 @@ import {
   wireCiteBoxes,
 } from './story-tools.js'
 import { storyPinLinkHtml } from './story-pin.js'
+import {
+  consumeScrollRestore,
+  historyStateWithReturn,
+  installStoryReturn,
+  syncStoryReturn,
+  territoryBackHtml,
+} from './story-return.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -348,8 +355,8 @@ function goHome() {
 }
 
 /** Clean map view at `/#map`. Clear stale ?d= share params. */
-function goHomeMap() {
-  history.replaceState(null, '', `${location.pathname}#map`)
+function goHomeMap({ keepReturn = false } = {}) {
+  history.replaceState(keepReturn ? historyStateWithReturn() : null, '', `${location.pathname}#map`)
   applyRoute().catch(console.error)
 }
 
@@ -1916,7 +1923,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   const shareHash = placeShareHash(layerId, props)
   // Keep a shareable deep link in the address bar (home map only)
   if (targetMap === map && shareHash.startsWith('#map/')) {
-    history.replaceState(null, '', shareHash)
+    history.replaceState(historyStateWithReturn(), '', shareHash)
   }
   await nudgeCameraForPopup(targetMap, coords)
   const place = popupPlacement(targetMap, coords)
@@ -1970,15 +1977,18 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     requestAnimationFrame(() => {
       fitPopupInsideMap(targetMap, activePopup, popupEl, scroller)
       syncPopupFade(scroller)
+      syncStoryReturn()
     })
   }
   wireShareButtons(popupEl)
+  syncStoryReturn()
   activePopup.on('close', () => {
     if (activePopup) activePopup = null
     // Clear place deep link when popup closes on home map
     if (targetMap === map && parseHash().view === 'map' && parseHash().placeId) {
-      history.replaceState(null, '', '#map')
+      history.replaceState(historyStateWithReturn(), '', '#map')
     }
+    syncStoryReturn()
   })
 }
 
@@ -3185,7 +3195,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const mapControl = pinHtml
       ? pinHtml
       : mapHash
-        ? `<a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>`
+        ? `<a class="btn" data-story-map href="/${escapeHtml(mapHash)}">Open on the map</a>`
         : ''
     const extras = placeDetailExtrasHtml({
       lat: meta.lat ?? s.lat,
@@ -4307,7 +4317,7 @@ async function setupTerritoryMapControl() {
           })
           .catch(console.error)
       }
-      else goHomeMap()
+      else goHomeMap({ keepReturn: true })
     }
   }
   box.addEventListener('change', onChange)
@@ -4343,12 +4353,11 @@ async function showTerritoryMapView(slug) {
   territoryView = { slug, focalId: nation?.id || null, handle }
   const nav = document.createElement('p')
   nav.className = 'terr-back muted'
-  nav.style.margin = '.2rem .9rem .8rem'
-  nav.innerHTML = `${layerOnly ? '' : `<a href="/#timeline/${encodeURIComponent(slug)}">← Back to the story</a> · `}<a href="/#map" data-terr-exit>Back to the full map</a>`
+  nav.innerHTML = `${territoryBackHtml(layerOnly ? '' : slug)}<a href="/#map" data-terr-exit>Back to the full map</a>`
   host.appendChild(nav)
   nav.querySelector('[data-terr-exit]').addEventListener('click', (e) => {
     e.preventDefault()
-    goHomeMap()
+    goHomeMap({ keepReturn: true })
   })
   syncNationRows()
   await refreshTerritoryOthers()
@@ -4371,7 +4380,17 @@ function setActiveNav(view) {
   })
 }
 
+function restoreWindowScroll(y) {
+  const apply = () => window.scrollTo({ top: y, left: 0, behavior: 'auto' })
+  apply()
+  requestAnimationFrame(apply)
+  setTimeout(apply, 50)
+  setTimeout(apply, 180)
+  setTimeout(apply, 420)
+}
+
 async function applyRoute() {
+  const savedScroll = consumeScrollRestore()
   const { view, slug } = parseHash()
   document.querySelectorAll('.view').forEach((el) => {
     const v = el.dataset.view
@@ -4406,13 +4425,13 @@ async function applyRoute() {
           const slug = territoryRouteSlug()
           const meta = slug ? (await loadStories()).stories.find((x) => x.slug === slug) : null
           const pinHash = meta && meta.lat != null && meta.lon != null ? `#map/stories/${encodeURIComponent(slug)}` : '#map'
-          history.replaceState(null, '', `${location.pathname}${pinHash}`)
+          history.replaceState(historyStateWithReturn(), '', `${location.pathname}${pinHash}`)
           applyRoute().catch(console.error)
         }
       })
       .catch((err) => {
         console.error(err)
-        history.replaceState(null, '', `${location.pathname}#map`)
+        history.replaceState(historyStateWithReturn(), '', `${location.pathname}#map`)
         applyRoute().catch(console.error)
       })
     requestAnimationFrame(scrollPageToTop)
@@ -4467,16 +4486,22 @@ async function applyRoute() {
       }
       return true
     }
-    requestAnimationFrame(() => {
-      if (slug) {
-        if (scrollToStoryDetail()) return
-        window.setTimeout(() => {
-          if (!scrollToStoryDetail()) scrollTimelineToFilters()
-        }, 100)
-        return
-      }
-      scrollTimelineToFilters()
-    })
+    if (savedScroll != null) {
+      restoreWindowScroll(savedScroll)
+    } else {
+      requestAnimationFrame(() => {
+        if (slug) {
+          if (scrollToStoryDetail()) return
+          window.setTimeout(() => {
+            if (!scrollToStoryDetail()) scrollTimelineToFilters()
+          }, 100)
+          return
+        }
+        scrollTimelineToFilters()
+      })
+    }
+  } else if (savedScroll != null && (view === 'home' || view === 'about' || view === 'app' || view === 'resources')) {
+    restoreWindowScroll(savedScroll)
   } else if (view === 'home' && parseHash().explore) {
     // #explore/...: explore-layer.js scrolls to the section; do not pin to the top
   } else if (view === 'home' || view === 'about' || view === 'app' || view === 'resources') {
@@ -4491,6 +4516,7 @@ async function applyRoute() {
     setTimeout(pinTop, 50)
     setTimeout(pinTop, 150)
   }
+  syncStoryReturn()
 }
 
 window.addEventListener('hashchange', () => {
@@ -4551,6 +4577,11 @@ document.querySelector('#mainNav a[data-route="map"]')?.addEventListener('click'
   goHomeMap()
 })
 
+installStoryReturn({
+  onNavigate: () => applyRoute().catch(console.error),
+  isMapView: () => parseHash().view === 'map',
+  isTerritory: () => Boolean(territoryRouteSlug()),
+})
 syncDeepLinkFromQuery()
 ensureHomeHash()
 initThemeToggle()
