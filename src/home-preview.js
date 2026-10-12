@@ -112,6 +112,7 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
       summary: full.summary || meta.summary || '',
       era: full.era || meta.era || '',
       yearStart: full.yearStart ?? meta.yearStart ?? null,
+      county: full.county || meta.county || null,
       briefDate,
       href: `/#timeline/${encodeURIComponent(slug)}`,
       place: loc.matchedPlace || null,
@@ -205,6 +206,14 @@ function renderHero(pack) {
   }
   const lead = slides[0]
   const more = slides.slice(1, 5)
+  // The build wrote the lead + cards into index.html (scripts/prerender-home-hero.mjs).
+  // Keep that markup: no lead image swap on load, even if newer data picks a different lead.
+  if (root.querySelector('.hp-lead-story')) {
+    root.removeAttribute('aria-busy')
+    markPortraitHeroImages(root)
+    fitHomeText()
+    return
+  }
   root.innerHTML = renderLeadStory(lead)
   root.removeAttribute('aria-busy')
   if (rail) rail.innerHTML = more.map(renderRailCard).join('')

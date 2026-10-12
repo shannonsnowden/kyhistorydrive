@@ -4809,3 +4809,20 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     min-height: 0;
   }
 }
+/* 1280: the lead fills the full row height (no empty band under it when the side list
+   is taller), and the map strip below spans both columns on the same grid edges. */
+@media (min-width: 901px) {
+  .hp-lead-grid > .hp-mag-hero {
+    height: auto !important;
+    min-height: 440px !important;
+    max-height: none !important;
+    align-self: stretch;
+  }
+  .hp-lead-grid > .hp-mag-hero > .hp-lead-story { height: 100%; }
+  .hp-page .hp-map-strip {
+    max-width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}

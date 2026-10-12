@@ -82,10 +82,27 @@ export function heroDeckText(story) {
   return HomepageStructure.capWords(stripped)
 }
 
+/**
+ * Same-origin path only: must start with exactly one "/" and contain no backslash or
+ * control/space characters. Rejects "//host", "/\\host", "javascript:", "https://…". Returns '' otherwise.
+ */
+export function safeLocalUrl(url) {
+  const u = typeof url === 'string' ? url : ''
+  if (!u.startsWith('/') || u.startsWith('//')) return ''
+  if (/[\\\s\u0000-\u001f\u007f]/.test(u)) return ''
+  return u
+}
+
+/** The story photo only when its URL is a safe same-origin path. */
+function localPhoto(story) {
+  const p = usablePhoto(story?.photo)
+  return p && safeLocalUrl(p.image_url) ? p : null
+}
+
 /** Home-map deep link for a pin-backed story. Does not invent coordinates. */
 export function storyMapHref(item) {
   if (!item) return null
-  if (item.mapHref) return item.mapHref
+  if (item.mapHref) return safeLocalUrl(item.mapHref) || null
   if (item.historyId) return `/#map/history/${encodeURIComponent(item.historyId)}`
   if (item.lat != null && item.lon != null && item.slug) {
     return `/#map/stories/${encodeURIComponent(item.slug)}`
@@ -119,7 +136,19 @@ export function photoCredit(photo) {
   const year = photo.year ? ` · ${photo.year}` : ''
   return label ? `${label}${year}` : ''
 }
+/** Crawlable story page (/stories/<slug>/), never the #timeline hash route. */
+export function storyPageHref(story) {
+  if (story?.slug) return `/stories/${encodeURIComponent(story.slug)}/`
+  return safeLocalUrl(story?.href) || '/#timeline'
+}
+
 export function placeCaption(story) {
+  const dataCounty = String(story?.county || '').trim()
+  if (dataCounty) {
+    const c = /county$/i.test(dataCounty) ? dataCounty : `${dataCounty} County`
+    const y = storyYearLabel(story?.yearStart)
+    return y ? `${c} · ${y}` : c
+  }
   const place = String(story?.place || '').trim()
   const year = storyYearLabel(story?.yearStart)
   let county = ''
@@ -148,9 +177,9 @@ export function cardAlt(story) {
 }
 
 export function renderLeadStory(story) {
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
+  const href = storyPageHref(story)
   const alt = cardAlt(story)
-  const img = usablePhoto(story.photo)
+  const img = localPhoto(story)
     ? responsivePicture({
         src: story.photo.image_url,
         alt,
@@ -183,9 +212,9 @@ export function renderLeadStory(story) {
 }
 
 export function renderRailCard(story) {
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
+  const href = storyPageHref(story)
   const alt = cardAlt(story)
-  const img = usablePhoto(story.photo)
+  const img = localPhoto(story)
     ? responsivePicture({
         src: story.photo.image_url,
         alt,
@@ -206,9 +235,9 @@ export function renderRailCard(story) {
 }
 
 export function renderSwipeCard(story) {
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
+  const href = storyPageHref(story)
   const alt = cardAlt(story)
-  const img = usablePhoto(story.photo)
+  const img = localPhoto(story)
     ? responsivePicture({
         src: story.photo.image_url,
         alt,
@@ -233,12 +262,14 @@ export const LEAD_SIZES = '(max-width: 900px) 100vw, 66vw'
 
 /** <link rel=preload> for the lead image, written into <head> at build time. */
 export function leadPreloadTag(story) {
-  if (!usablePhoto(story?.photo)) return ''
+  if (!localPhoto(story)) return ''
   const src = story.photo.image_url
   const set = responsiveSources(src)
-  const best = set.webp || set.avif
+  // Match the first <source> the <picture> offers (AVIF, then WebP) so the browser
+  // fetches the preloaded file once instead of a preload plus a different format.
+  const best = set.avif || set.webp
   const extra = best
-    ? ` imagesrcset="${escapeHtml(best)}" imagesizes="${escapeHtml(LEAD_SIZES)}" type="${set.webp ? 'image/webp' : 'image/avif'}"`
+    ? ` imagesrcset="${escapeHtml(best)}" imagesizes="${escapeHtml(LEAD_SIZES)}" type="${set.avif ? 'image/avif' : 'image/webp'}"`
     : ''
   return `<link id="hpLeadPreload" rel="preload" as="image" href="${escapeHtml(src)}" fetchpriority="high"${extra} />`
 }
