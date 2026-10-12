@@ -1708,12 +1708,11 @@ class PrerenderPages {
     for (const anchor of anchors) {
       const attrs = anchor[1]
       const href = (attrs.match(/\bhref="([^"]*)"/) || [])[1] || ''
-      if (!href || href.startsWith('javascript:') || href.startsWith('data:') || href.startsWith('//')) {
-        throw new Error(`prerender: ${urlPath} has an unsafe story link`)
-      }
       const external = /^https?:\/\//i.test(href)
       const site = href.startsWith('/') || href.startsWith('#')
-      if (!external && !site) throw new Error(`prerender: ${urlPath} link ${href} is not http(s) or site-relative`)
+      if (!href || (!external && !site)) {
+        throw new Error(`prerender: ${urlPath} link is not http(s) or site-relative`)
+      }
       if (external) {
         if (!attrs.includes('target="_blank"') || !attrs.includes('rel="noopener"')) {
           throw new Error(`prerender: ${urlPath} external link is missing rel=noopener or target=_blank`)
@@ -1769,8 +1768,12 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} still renders the markdown glance table`)
       }
       const glance = html.match(/<table class="story-glance">[\s\S]*?<\/table>/)
-      if (!glance || /javascript:|\btarget=/.test(glance[0])) {
+      if (!glance || /\btarget=/.test(glance[0])) {
         throw new Error(`prerender: ${urlPath} glance table has an unsafe link`)
+      }
+      const glanceHrefs = [...glance[0].matchAll(/\bhref="([^"]*)"/g)].map((match) => match[1])
+      if (glanceHrefs.some((href) => !href.startsWith('/') && !href.startsWith('#'))) {
+        throw new Error(`prerender: ${urlPath} glance table link is not site-relative`)
       }
     }
     if (notes) {
