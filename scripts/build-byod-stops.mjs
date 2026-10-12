@@ -30,6 +30,7 @@ for (const layer of ['stories', 'history', 'war']) for (const f of L(layer)) if 
 const CAVE_ALLOW = new Set([
   'diamond-caverns-decorated-limestone', // Security Watch OK 2026-10-12: visitor center on Mammoth Cave Pkwy, 37.1166,-86.0630
 ])
+const CAVE_PIN = { 'diamond-caverns-decorated-limestone': [37.1166, -86.063] } // visitor center, not the story pin
 const isCave = (name) => /\bcave(s|rns?)?\b|\bcavern/i.test(name || '') && !/cave hill/i.test(name || '')
 // One predicate for the filter AND the self-check (fail closed).
 const ARCH = new Set(), COUNTY = new Set(), ROUNDED = new Set()
@@ -63,7 +64,8 @@ for (const layer of Object.keys(LAYERS)) {
     const ids = [p.id, p.slug].filter(Boolean)
     const why = unsafeWhy(ids, [lon, lat], p.title || p.name) || (dec(lat) < 3 || dec(lon) < 3 ? 'rounded' : null)
     if (why) { excluded[why]++; continue }
-    const s = { id: p.id, n: p.title || p.name, k: layer, lat: +lat.toFixed(4), lon: +lon.toFixed(4), w: WEIGHT[layer] }
+    const pin = CAVE_PIN[p.id] || [lat, lon]
+    const s = { id: p.id, n: p.title || p.name, k: layer, lat: +pin[0].toFixed(4), lon: +pin[1].toFixed(4), w: WEIGHT[layer] }
     if (layer === 'stories') s.slug = p.slug
     if (p.city) s.c = p.city
     out.push(s)
