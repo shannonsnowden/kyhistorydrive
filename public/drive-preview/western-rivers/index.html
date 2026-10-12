@@ -86,13 +86,13 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"mantle-rock-and-the-trail-of-tears", name:"Mantle Rock Preserve", lat:37.3605167, lon:-88.4229667,
+  { id:"mantle-rock-and-the-trail-of-tears", name:"Mantle Rock Preserve", lat:37.3605, lon:-88.423,
     flags:[], onMap:"story:mantle-rock-and-the-trail-of-tears",
     access:"The Nature Conservancy preserve; trail open daylight hours.", when:"Winter 1838–39",
     note:"During the winter of 1838–39 Cherokees forced west on the Trail of Tears sheltered under this sandstone arch while the icy Ohio blocked ferries; many died here. The arch was also a campsite for much earlier Native people.",
     sources:[["KHS marker #1675: Mantle Rock", "https://history.ky.gov/markers/mantle-rock-12-mile"], ["NPS: Mantle Rock and the Trail of Tears", "https://www.nps.gov/articles/000/mantle-rock-preserve-and-the-trail-of-tears.htm"], ["The Nature Conservancy: Mantle Rock", "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/mantle-rock-preserve/"]],
     stories:[["mantle-rock-and-the-trail-of-tears", "Mantle Rock and the Trail of Tears, 1838–39"]] },
-  { id:"lloyd-tilghman-house", name:"Lloyd Tilghman House & Civil War Museum (Paducah)", lat:37.0722435, lon:-88.6307446,
+  { id:"lloyd-tilghman-house", name:"Lloyd Tilghman House & Civil War Museum (Paducah)", lat:37.0722, lon:-88.6307,
     flags:["limited"], onMap:"museums:lloyd-tilghman-house",
     access:"Museum; limited hours.", when:"Civil War era",
     note:"The Paducah home of Lloyd Tilghman, later a Confederate general, now a Civil War museum.",
@@ -104,13 +104,13 @@ const STOPS = [
     note:"A Mississippian-culture town near the Ohio–Mississippi confluence, linked to the Angel phase; the state park service runs a museum at the site.",
     sources:[["Wikipedia: Wickliffe Mounds", "https://en.wikipedia.org/wiki/Wickliffe_Mounds"], ["Kentucky State Parks: Wickliffe Mounds", "https://parks.ky.gov/wickliffe/parks/historic/wickliffe-mounds-state-historic-site"]],
     stories:[["wickliffe-mounds-mississippian-village-ballard-county", "Wickliffe Mounds Mississippian village Ballard County"]] },
-  { id:"fort-jefferson-ballard-1780", name:"Fort Jefferson Memorial Cross (approximate fort site)", lat:36.95310833, lon:-89.08979167,
+  { id:"fort-jefferson-ballard-1780", name:"Fort Jefferson Memorial Cross (approximate fort site)", lat:36.9531, lon:-89.0898,
     flags:["marker"], onMap:"hist:fort-jefferson-ballard-1780 (approximate)",
     access:"Memorial cross park and marker; the exact fort site is approximate.", when:"Built 1780",
     note:"Virginia's small stockade at the mouth of the Ohio, built in 1780 by George Rogers Clark's Illinois Battalion; it was abandoned in June 1781.",
     sources:[["Wikipedia: Fort Jefferson (Kentucky)", "https://en.wikipedia.org/wiki/Fort_Jefferson_(Kentucky)"]],
     stories:[] },
-  { id:"columbus-belmont", name:"Columbus-Belmont State Park", lat:36.7672266, lon:-89.1105878,
+  { id:"columbus-belmont", name:"Columbus-Belmont State Park", lat:36.7672, lon:-89.1106,
     flags:["limited"], onMap:"war-sites:columbus-belmont",
     access:"State park; museum seasonal.", when:"Fortified 1861",
     note:"Site of a Confederate fortification on the Mississippi, with a great chain stretched across the river to Belmont, Missouri, to block Union gunboats; the park remembers actions at Columbus and Belmont.",
@@ -130,7 +130,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

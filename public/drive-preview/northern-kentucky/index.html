@@ -98,17 +98,17 @@ const STOPS = [
     note:"Burlington became the seat of Boone County in 1799.",
     sources:[["Wikipedia: Burlington, Kentucky", "https://en.wikipedia.org/wiki/Burlington,_Kentucky"]],
     stories:[] },
-  { id:"dinsmore-homestead", name:"Dinsmore Homestead", lat:39.00083, lon:-84.81361,
+  { id:"dinsmore-homestead", name:"Dinsmore Homestead", lat:39.0008, lon:-84.8136,
     flags:["paid", "limited"], onMap:"museums:dinsmore-homestead",
     access:"Historic house; tours seasonal, admission charged.", when:"House 1842",
     note:"The Dinsmore family settled here in 1842 and, with the help of slave labor, raised sheep and grew grapes and willows for a basket business run by German immigrants; the house keeps its original furnishings.",
     sources:[["Wikipedia: Dinsmore Homestead", "https://en.wikipedia.org/wiki/Dinsmore_Homestead"]],
     stories:[] },
-  { id:"james-ramage-civil-war-museum", name:"Battery Hooper Park (former Ramage Civil War Museum)", lat:39.0338, lon:-84.5291,
-    flags:[], onMap:"museums:james-ramage-civil-war-museum (listed as museum; now closed)",
-    access:"City park; museum closed.", when:"Defenses of 1862",
-    note:"Site of Hooper Battery, part of the defenses built when Confederates pushed toward Cincinnati in 1862. The James A. Ramage Civil War Museum here was closed by the mayor on Aug. 25, 2021, and the city council made the closure permanent; the park remains open.",
-    sources:[["Wikipedia: James A. Ramage Civil War Museum", "https://en.wikipedia.org/wiki/James_A._Ramage_Civil_War_Museum"], ["LINK nky: Ft. Wright votes to shutter museum (Sept. 2021)", "https://linknky.com/news/2021/09/03/confrontational-meeting-ft-wright-votes-shutter-museum-disband-board-0/"]],
+  { id:"battery-hooper-park", name:"Battery Hooper Park (Fort Wright)", lat:39.0556, lon:-84.5272,
+    flags:[], onMap:null,
+    access:"City park at 1402 Highland Pike; open daily.", when:"Built 1862",
+    note:"Hooper Battery was a hilltop artillery earthwork built in 1862, one of the Union defenses of Cincinnati raised in Northern Kentucky when Confederate forces advanced toward the city. The restored battery is now the centerpiece of a city park.",
+    sources:[["City of Fort Wright: Battery Hooper Park history", "https://www.fortwrightky.gov/services/parks-recreation/battery-hooper-park-history/"], ["Wikipedia: Hooper Battery", "https://en.wikipedia.org/wiki/Battery_Hooper"]],
     stories:[] },
   { id:"roebling-suspension-bridge", name:"John A. Roebling Suspension Bridge", lat:39.0929, lon:-84.5099,
     flags:[], onMap:"national-sites:roebling-suspension-bridge",
@@ -130,7 +130,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

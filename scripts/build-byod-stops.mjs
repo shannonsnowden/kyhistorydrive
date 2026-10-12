@@ -82,7 +82,12 @@ for (const slug of fs.readdirSync(DP)) {
   const m = fs.readFileSync(file, 'utf8').match(/const STOPS = (\[[\s\S]*?\n\])/)
   if (!m) continue
   const stops = new Function(`return ${m[1]}`)()
+  // Raw literals, so precision is judged as written (38.5500 counts as 4 decimals).
+  const raw = new Map([...m[1].matchAll(/id:"([^"]+)", name:"[^"]*", lat:(-?[\d.]+), lon:(-?[\d.]+)/g)].map((x) => [x[1], [x[2], x[3]]]))
   for (const s of stops) {
+    const [rl, rn] = raw.get(s.id) || [String(s.lat), String(s.lon)]
+    const rd = Math.min(dec(rl), dec(rn)), rx = Math.max(dec(rl), dec(rn))
+    if (!s.private && !s.approx && (rd < 3 || rx > 4)) bad.push(`drive page ${slug}: ${s.id} public stop must have 3-4 decimals, has ${rl},${rn}`)
     const ids = [s.id, ...String(s.onMap || '').split(';').map((x) => x.trim().split(':')[1]?.split(' ')[0]).filter(Boolean)]
     // Linked story slugs count for protected/archaeology/county (a stop told through an archaeological
     // story is that site), but not for private land (a distillery may link a story set on a nearby farm).

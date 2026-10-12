@@ -75,7 +75,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
       <h2 id="stops-h">Stops</h2>
       <ol class="stops" id="stops"></ol>
       <div class="go" id="go"></div>
-      <p class="note">Directions cover the public stops only. Tebbs Bend Battlefield, Rowlett&#x27;s Station marker (KHS #1504): private property; view from public roads only. Access, fees and hours are general; verify before visiting.</p>
+      <p class="note">Directions cover the public stops only. Access, fees and hours are general; verify before visiting.</p>
     </section>
     <figure class="card map" style="margin:0">
       <h2>Route map</h2>
@@ -92,8 +92,8 @@ const STOPS = [
     note:"On January 19, 1862, Union troops under George H. Thomas defeated Confederates under George Crittenden; Gen. Felix Zollicoffer was killed.",
     sources:[["Wikipedia: Battle of Mill Springs", "https://en.wikipedia.org/wiki/Battle_of_Mill_Springs"], ["NPS: Mill Springs Battlefield", "https://www.nps.gov/misp/"]],
     stories:[] },
-  { id:"tebbs-bend", name:"Tebbs Bend Battlefield", lat:37.24, lon:-85.35, private:true,
-    flags:["private", "marker"], onMap:"war-sites:tebbs-bend",
+  { id:"tebbs-bend", name:"Tebbs Bend Battlefield", lat:37.2378, lon:-85.3536,
+    flags:["marker"], onMap:"war-sites:tebbs-bend",
     access:"Driving tour and markers; parts of the field are private.", when:"July 4, 1863",
     note:"On July 4, 1863, about 200 men of the 25th Michigan under Col. Orlando H. Moore held the Green River crossing against John Hunt Morgan's cavalry.",
     sources:[["Wikipedia: Battle of Tebbs Bend", "https://en.wikipedia.org/wiki/Battle_of_Tebbs_Bend"], ["American Battlefield Trust: Tebbs Bend", "https://www.battlefields.org/visit/battlefields/tebbs-bend"]],
@@ -110,8 +110,8 @@ const STOPS = [
     note:"Confederates under Braxton Bragg's army besieged the Union garrison guarding the L&N bridge over the Green River; Col. John T. Wilder surrendered on September 17, 1862. The preserve also protects earthworks and the Woodson house.",
     sources:[["Wikipedia: Battle of Munfordville", "https://en.wikipedia.org/wiki/Battle_of_Munfordville"], ["Visit Munfordville: Battle for the Bridge", "https://www.visitmunfordville.com/battle-for-the-bridge"]],
     stories:[] },
-  { id:"rowletts-station", name:"Rowlett's Station marker (KHS #1504)", lat:37.27, lon:-85.9, private:true,
-    flags:["marker", "private"], onMap:"war-sites:rowletts-station",
+  { id:"rowletts-station", name:"Rowlett's Station marker (KHS #1504)", lat:37.2704, lon:-85.8991,
+    flags:["marker"], onMap:"war-sites:rowletts-station",
     access:"Roadside marker on US 31-W; battlefield is private land.", when:"Dec. 17, 1861",
     note:"On December 17, 1861, Col. B. F. Terry of the 8th Texas Cavalry was killed leading a charge against the 32nd Indiana under Col. August Willich.",
     sources:[["KHS marker #1504", "https://history.ky.gov/markers/battle-of-rowletts-station"]],
@@ -136,7 +136,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

@@ -86,19 +86,19 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"old-fort-harrod", name:"Old Fort Harrod State Park", lat:37.7619646, lon:-84.8485383,
+  { id:"old-fort-harrod", name:"Old Fort Harrod State Park", lat:37.762, lon:-84.8485,
     flags:["paid", "limited"], onMap:"war-sites:old-fort-harrod; state-parks:old-fort-harrod-state-park",
     access:"State park; admission charged for the fort, seasonal hours.", when:"Founded 1774",
     note:"Commemorates James Harrod's 1774 settlement at Harrodsburg, with a reconstructed fort and pioneer cemetery.",
     sources:[["Wikipedia: Fort Harrod", "https://en.wikipedia.org/wiki/Fort_Harrod"], ["Kentucky State Parks: Old Fort Harrod", "https://parks.ky.gov/harrodsburg/parks/historic/old-fort-harrod-state-park"]],
     stories:[["maj-joseph-bowman", "Maj. Joseph Bowman"], ["ann-mcginty-and-kentuckys-first-spinning-wheel", "Ann McGinty and Kentucky's first spinning wheel"]] },
-  { id:"mcconnell-springs", name:"McConnell Springs", lat:38.0549267, lon:-84.5277229,
+  { id:"mcconnell-springs", name:"McConnell Springs", lat:38.0549, lon:-84.5277,
     flags:[], onMap:"war-sites:mcconnell-springs; story:lexington-named",
     access:"Free city park and nature area.", when:"Named June 1775",
     note:"In early June 1775 William McConnell's party camped here and named the site Lexington after news of the April 19, 1775 battle; permanent settlement came in 1779.",
     sources:[["KHS marker #554: Lexington Named", "https://history.ky.gov/markers/lexington-named"], ["LFUCG: McConnell Springs Park", "https://www.lexingtonky.gov/playing/parks-natural-areas/natural-areas/mcconnell-springs-park"]],
     stories:[["lexington-named", "Lexington named"], ["col-robert-patterson-builds-lexington", "Col. Robert Patterson builds Lexington"]] },
-  { id:"bryans-station", name:"Bryan's Station Memorial", lat:38.0767439, lon:-84.4113249,
+  { id:"bryans-station", name:"Bryan's Station Memorial", lat:38.0767, lon:-84.4113,
     flags:["marker"], onMap:"war-sites:bryans-station; story:bryan-station-siege-august-1782",
     access:"Roadside memorial wall on Bryan Station Road; surrounding land is private.", when:"Siege Aug. 15–16, 1782",
     note:"Fortified in 1779. On Aug. 15, 1782, Capt. William Caldwell led Shawnee and Delaware warriors and Canadian Rangers against the station; the next day they burned crops, killed livestock and withdrew toward Blue Licks.",
@@ -110,7 +110,7 @@ const STOPS = [
     note:"John Strode built Strode's Station in 1779, the largest fortified settlement in early Clark County; it was attacked in 1781, when two men were killed.",
     sources:[["KHS marker #1047: Capt. John Strode", "https://history.ky.gov/markers/capt-john-strode"], ["HMdb: Capt. John Strode", "https://www.hmdb.org/m.asp?m=159696"]],
     stories:[["capt-john-strode-of-strodes-station", "Capt. John Strode of Strode's Station"]] },
-  { id:"holders-station-lower-howards-creek", name:"Lower Howard's Creek Nature & Heritage Preserve (Holder's Station area)", lat:37.918134, lon:-84.272709,
+  { id:"holders-station-lower-howards-creek", name:"Lower Howard's Creek Nature & Heritage Preserve (Holder's Station area)", lat:37.9181, lon:-84.2727,
     flags:["limited"], onMap:"hist:holders-station-lower-howards-creek; story:col-john-holder-at-lower-howards-creek",
     access:"Nature preserve; check access and hours before visiting.", when:"Station 1782",
     note:"Col. John Holder, who had commanded Fort Boonesborough in 1779, built Holder's Station near the mouth of Lower Howard's Creek in 1782; much of the valley is now a nature and heritage preserve.",
@@ -130,7 +130,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

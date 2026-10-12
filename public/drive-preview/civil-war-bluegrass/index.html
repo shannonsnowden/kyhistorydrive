@@ -98,7 +98,7 @@ const STOPS = [
     note:"Maj. Gen. William Nelson set up the first Union recruiting camp south of the Ohio River here in August 1861, on Richard M. Robinson's farm; the camp later moved to Camp Nelson.",
     sources:[["KHS marker #1750: Camp Dick Robinson", "https://history.ky.gov/markers/camp-dick-robinson"], ["Wikipedia: Camp Dick Robinson", "https://en.wikipedia.org/wiki/Camp_Dick_Robinson"]],
     stories:[] },
-  { id:"camp-nelson-nm", name:"Camp Nelson National Monument", lat:37.7903557, lon:-84.5985048,
+  { id:"camp-nelson-nm", name:"Camp Nelson National Monument", lat:37.7904, lon:-84.5985,
     flags:[], onMap:"war-sites:camp-nelson-nm; national-sites:camp-nelson-national-monument; story:camp-nelson-jessamine-county",
     access:"National Park Service site; free. The national cemetery is next door.", when:"Depot from April 1863",
     note:"Established as a fortified Union supply depot in April 1863, Camp Nelson became a large recruitment and training center for U.S. Colored Troops and a refugee camp for their families.",
@@ -110,7 +110,7 @@ const STOPS = [
     note:"Gen. Edmund Kirby Smith's Confederate Army of Kentucky defeated Union forces here in August 1862; days later, on Sept. 2, Frankfort fell to Confederate forces.",
     sources:[["American Battlefield Trust: Richmond", "https://www.battlefields.org/learn/civil-war/battles/richmond"], ["Wikipedia: Battle of Richmond", "https://en.wikipedia.org/wiki/Battle_of_Richmond"]],
     stories:[] },
-  { id:"hunt-morgan-house", name:"Hunt-Morgan House (Hopemont)", lat:38.0501234, lon:-84.4961086,
+  { id:"hunt-morgan-house", name:"Hunt-Morgan House (Hopemont)", lat:38.0501, lon:-84.4961,
     flags:["paid", "limited"], onMap:"war-sites:hunt-morgan-house",
     access:"Blue Grass Trust house museum; guided tours with admission, set hours.", when:"Built 1814",
     note:"Built in 1814 by John Wesley Hunt; it was later the family home of Confederate Brig. Gen. John Hunt Morgan and the birthplace of geneticist Thomas Hunt Morgan.",
@@ -130,7 +130,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

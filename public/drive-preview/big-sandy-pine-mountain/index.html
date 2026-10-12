@@ -86,13 +86,13 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"pound-gap-pine-mountain-letcher-1750-1864", name:"Pound Gap, Pine Mountain (KHS #510)", lat:37.1548257, lon:-82.6326561,
+  { id:"pound-gap-pine-mountain-letcher-1750-1864", name:"Pound Gap, Pine Mountain (KHS #510)", lat:37.1548, lon:-82.6327,
     flags:["marker"], onMap:"hist:pound-gap-pine-mountain-letcher-1750-1864",
     access:"US 23 roadside marker at the state line.", when:"1751; 1862; 1864",
     note:"Christopher Gist passed here in 1751. On March 16, 1862, James Garfield's Union troops drove Confederates from the gap; in June 1864 Morgan's raiders came through on their last Kentucky raid.",
     sources:[["KHS marker #510: Pound Gap", "https://history.ky.gov/markers/pound-gap"], ["Wikipedia: Pound Gap", "https://en.wikipedia.org/wiki/Pound_Gap"]],
     stories:[] },
-  { id:"big-sandy-heritage-center", name:"Big Sandy Heritage Center Museum (Pikeville)", lat:37.47915, lon:-82.51976,
+  { id:"big-sandy-heritage-center", name:"Big Sandy Heritage Center Museum (Pikeville)", lat:37.4791, lon:-82.5198,
     flags:["limited"], onMap:"museums:big-sandy-heritage-center",
     access:"Museum; check hours.", when:"Regional museum",
     note:"The upper Big Sandy Valley's largest collection of historical artifacts, with an archive of books, papers and photographs.",
@@ -104,7 +104,7 @@ const STOPS = [
     note:"On November 8, 1861, Union troops under Gen. William Nelson defeated Confederates under Capt. Andrew Jackson May; the Confederates withdrew from Pikeville the next day.",
     sources:[["KHS marker #164: Battle of Ivy Mountain", "https://history.ky.gov/markers/battle-of-ivy-mountain"], ["Wikipedia: Big Sandy Expedition", "https://en.wikipedia.org/wiki/Big_Sandy_Expedition"]],
     stories:[] },
-  { id:"middle-creek-battlefield", name:"Middle Creek National Battlefield", lat:37.6509083, lon:-82.8135374,
+  { id:"middle-creek-battlefield", name:"Middle Creek National Battlefield", lat:37.6509, lon:-82.8135,
     flags:[], onMap:"war-sites:middle-creek-battlefield",
     access:"Battlefield park with walking trails.", when:"Jan. 10, 1862",
     note:"Fought January 10, 1862; the only battle personally commanded by James A. Garfield, then a Union colonel.",
@@ -136,7 +136,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

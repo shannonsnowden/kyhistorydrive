@@ -86,25 +86,25 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"buffalo-trace", name:"Buffalo Trace Distillery (George T. Stagg Distillery)", lat:38.2157433, lon:-84.8690507,
+  { id:"buffalo-trace", name:"Buffalo Trace Distillery (George T. Stagg Distillery)", lat:38.2157, lon:-84.8691,
     flags:["reservation"], onMap:"national-sites:buffalo-trace-stagg; distilleries:buffalo-trace",
     access:"Working distillery; visitor tours by reservation.", when:"NHL 2013",
     note:"Designated a National Historic Landmark in 2013 under the George T. Stagg Distillery name; it was allowed to keep operating during Prohibition to make whiskey for \"medicinal purposes.\"",
     sources:[["Wikipedia: Buffalo Trace Distillery", "https://en.wikipedia.org/wiki/Buffalo_Trace_Distillery"], ["Buffalo Trace Distillery", "https://www.buffalotracedistillery.com/"]],
     stories:[] },
-  { id:"castle-key", name:"Castle & Key (Old Taylor Distillery)", lat:38.1466899, lon:-84.832567,
+  { id:"castle-key", name:"Castle & Key (Old Taylor Distillery)", lat:38.1467, lon:-84.8326,
     flags:["paid", "reservation"], onMap:"distilleries:castle-key; hist:old-taylor-distillery-bottled-in-bond-1897",
     access:"Working distillery; tours and tastings by reservation, fees apply.", when:"Founded 1887",
     note:"Col. E.H. Taylor Jr. founded the distillery in 1887; the restored grounds are now Castle & Key.",
     sources:[["Castle & Key", "https://castleandkey.com"]],
     stories:[["e-h-taylor-jr-and-the-bottled-in-bond-act-1897", "E.H. Taylor Jr. and the Bottled-in-Bond Act, 1897"]] },
-  { id:"glenns-creek", name:"Glenns Creek Distilling (former Old Crow Distillery)", lat:38.146348, lon:-84.8458183,
+  { id:"glenns-creek", name:"Glenns Creek Distilling (former Old Crow Distillery)", lat:38.1463, lon:-84.8458,
     flags:["limited", "paid"], onMap:"distilleries:glenns-creek",
     access:"Small working distillery; check hours before visiting.", when:"Opened 2013",
     note:"Glenns Creek Distillery began operating in 2013 in part of the former Old Crow Distillery.",
     sources:[["Wikipedia: Old Crow", "https://en.wikipedia.org/wiki/Old_Crow"], ["Glenns Creek Distilling", "https://glennscreekdistillery.com/"]],
     stories:[["james-crow-on-glenns-creek", "James Crow on Glenn's Creek"]] },
-  { id:"woodford-reserve", name:"Woodford Reserve (Old Oscar Pepper Distillery)", lat:38.1132808, lon:-84.8135359,
+  { id:"woodford-reserve", name:"Woodford Reserve (Old Oscar Pepper Distillery)", lat:38.1133, lon:-84.8135,
     flags:["paid", "reservation"], onMap:"national-sites:woodford-reserve-labrot-graham; distilleries:woodford-reserve",
     access:"Working distillery; tours by reservation, fees apply.", when:"NHL district",
     note:"Elijah Pepper's distillery, later the Oscar Pepper Distillery, where James C. Crow worked in the mid-1800s on sour mash and barrel-aging methods; a National Historic Landmark.",
@@ -124,7 +124,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

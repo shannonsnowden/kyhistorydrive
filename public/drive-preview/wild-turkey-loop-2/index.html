@@ -86,19 +86,19 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"wild-turkey", name:"Wild Turkey Distillery", lat:38.0422958, lon:-84.8505486,
+  { id:"wild-turkey", name:"Wild Turkey Distillery", lat:38.0423, lon:-84.8505,
     flags:["paid", "reservation"], onMap:"distilleries:wild-turkey",
     access:"Working distillery; tours by reservation, fees apply.", when:"Ripy distillery 1891",
     note:"In 1891 Thomas Ripy built the Old Hickory Distillery at Tyrone near Lawrenceburg; the Ripy family rebuilt after Prohibition, and the Wild Turkey brand dates to 1940.",
     sources:[["Wikipedia: Wild Turkey (bourbon)", "https://en.wikipedia.org/wiki/Wild_Turkey_(bourbon)"], ["Wild Turkey", "https://wildturkeybourbon.com"]],
     stories:[] },
-  { id:"anderson-county-history-museum", name:"Anderson County History Museum", lat:38.0386487, lon:-84.8912,
+  { id:"anderson-county-history-museum", name:"Anderson County History Museum", lat:38.0386, lon:-84.8912,
     flags:["limited"], onMap:"museums:anderson-county-history-museum",
     access:"Free museum; limited open days, otherwise by appointment.", when:"Carnegie library 1908",
     note:"Lawrenceburg was first settled in the early 1780s by German immigrant Jacob Kaufman as Kaufman's (Coffman's) Station; the county museum tells the story from settlement on.",
     sources:[["Wikipedia: Lawrenceburg, Kentucky", "https://en.wikipedia.org/wiki/Lawrenceburg,_Kentucky"], ["Visit Lawrenceburg: Anderson County History Museum", "https://visitlawrenceburgky.com/listing/anderson-county-history-museum/"]],
     stories:[["lawrenceburg-from-kaufmans-station-to-anderson-county-seat", "Lawrenceburg: from Kaufman's Station to Anderson County seat"]] },
-  { id:"shaker-village-pleasant-hill", name:"Shaker Village of Pleasant Hill", lat:37.8188327, lon:-84.7384129,
+  { id:"shaker-village-pleasant-hill", name:"Shaker Village of Pleasant Hill", lat:37.8188, lon:-84.7384,
     flags:["paid", "limited"], onMap:"national-sites:shaker-village-pleasant-hill; museums:shaker-village-pleasant-hill",
     access:"Nonprofit historic site; admission charged, many buildings open seasonally.", when:"Covenant 1806",
     note:"Mercer County converts joined the Shakers in 1805; 44 Believers signed the first family covenant in 1806. As pacifists the Shakers refused to bear arms in the Civil War; the society closed in 1910 and the last Shaker died in 1923.",
@@ -118,7 +118,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

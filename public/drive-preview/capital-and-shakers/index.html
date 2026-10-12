@@ -86,13 +86,13 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"old-state-capitol", name:"Old State Capitol", lat:38.2001455, lon:-84.8762516,
+  { id:"old-state-capitol", name:"Old State Capitol", lat:38.2001, lon:-84.8763,
     flags:["paid", "limited"], onMap:"museums:old-state-capitol; national-sites:old-state-house",
     access:"Kentucky Historical Society site; open on set days, admission charged for tours.", when:"Legislature 1830–1910",
     note:"Gideon Shryock's Greek Revival capitol housed the Kentucky General Assembly from 1830 to 1910 and has been a Kentucky Historical Society museum since 1920.",
     sources:[["Kentucky Historical Society: Old State Capitol", "https://history.ky.gov/visit/old-state-capitol-experience"], ["Wikipedia: Old State Capitol (Kentucky)", "https://en.wikipedia.org/wiki/Old_State_Capitol_(Kentucky)"]],
     stories:[["frankfort-franks-ford-becomes-the-capital", "Frankfort: Frank's Ford becomes the capital"]] },
-  { id:"liberty-hall-historic-site", name:"Liberty Hall Historic Site", lat:38.1990715, lon:-84.8817923,
+  { id:"liberty-hall-historic-site", name:"Liberty Hall Historic Site", lat:38.1991, lon:-84.8818,
     flags:["paid", "limited"], onMap:"museums:liberty-hall-historic-site; national-sites:liberty-hall",
     access:"Guided house tours on a seasonal schedule; admission charged.", when:"Built 1796–1800",
     note:"Senator John Brown built Liberty Hall in 1796–1800; it was designated a National Historic Landmark in 1971.",
@@ -104,7 +104,7 @@ const STOPS = [
     note:"Scottish physician James C. Crow worked at Oscar Pepper's Glenn's Creek distillery from the 1830s, refining sour-mash methods; the site is now Woodford Reserve.",
     sources:[["Wikipedia: James C. Crow", "https://en.wikipedia.org/wiki/James_C._Crow"], ["Wikipedia: Woodford Reserve", "https://en.wikipedia.org/wiki/Woodford_Reserve"]],
     stories:[["james-crow-on-glenns-creek", "James Crow on Glenn's Creek"]] },
-  { id:"shaker-village-pleasant-hill", name:"Shaker Village of Pleasant Hill", lat:37.8188327, lon:-84.7384129,
+  { id:"shaker-village-pleasant-hill", name:"Shaker Village of Pleasant Hill", lat:37.8188, lon:-84.7384,
     flags:["paid", "limited"], onMap:"national-sites:shaker-village-pleasant-hill; museums:shaker-village-pleasant-hill",
     access:"Nonprofit historic site; admission charged, many buildings open seasonally.", when:"Covenant 1806",
     note:"Mercer County converts joined the Shakers in 1805; 44 Believers signed the first family covenant in 1806. As pacifists the Shakers refused to bear arms in the Civil War; the society closed in 1910 and the last Shaker died in 1923.",
@@ -130,7 +130,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

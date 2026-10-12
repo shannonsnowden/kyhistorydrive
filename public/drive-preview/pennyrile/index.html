@@ -86,13 +86,13 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"pennyroyal-area-museum", name:"Pennyroyal Area Museum (Hopkinsville)", lat:36.8483865, lon:-87.4675963,
+  { id:"pennyroyal-area-museum", name:"Pennyroyal Area Museum (Hopkinsville)", lat:36.8484, lon:-87.4676,
     flags:["paid", "limited"], onMap:"museums:pennyroyal-area-museum; story:hopkinsville",
     access:"Paid admission; Tue–Sat hours.", when:"Town seated 1797",
     note:"Hopkinsville's history museum, opened in 1976 in the old downtown post office; its exhibits include the Black Patch tobacco wars and the Night Riders. The town, named for Gen. Samuel Hopkins, began on land donated by Bartholomew Wood.",
     sources:[["Museums of Historic Hopkinsville-Christian County: About", "https://www.museumsofhopkinsville.org/about-us/"], ["Museums of Historic Hopkinsville-Christian County", "https://www.museumsofhopkinsville.org/"], ["KHS marker #717: Gen. Samuel Hopkins", "https://history.ky.gov/markers/gen-samuel-hopkins"], ["Wikipedia: Hopkinsville, Kentucky", "https://en.wikipedia.org/wiki/Hopkinsville,_Kentucky"]],
     stories:[["hopkinsville", "Hopkinsville"]] },
-  { id:"jefferson-davis-monument-war", name:"Jefferson Davis State Historic Site (Fairview)", lat:36.84194444, lon:-87.30055556,
+  { id:"jefferson-davis-monument-war", name:"Jefferson Davis State Historic Site (Fairview)", lat:36.8419, lon:-87.3006,
     flags:["paid", "limited"], onMap:"war-sites:jefferson-davis-monument-war",
     access:"State historic site; elevator seasonal, fee.", when:"Born 1808",
     note:"A 351-foot concrete obelisk at the birthplace of Jefferson Davis, president of the Confederacy.",
@@ -104,13 +104,13 @@ const STOPS = [
     note:"The Logan County seat grew from a spring known as Big Boiling Spring; its 50-block historic district centers on the commercial corridor rather than the courthouse.",
     sources:[["Wikipedia: Russellville Historic District", "https://en.wikipedia.org/wiki/Russellville_Historic_District"], ["Wikipedia: Russellville, Kentucky", "https://en.wikipedia.org/wiki/Russellville,_Kentucky"]],
     stories:[["russellville-from-big-boiling-spring-to-county-seat", "Russellville: from Big Boiling Spring to a county seat"]] },
-  { id:"red-river-meetinghouse-cemetery", name:"Red River Meeting House and cemetery", lat:36.72111111, lon:-86.81472222,
+  { id:"red-river-meetinghouse-cemetery", name:"Red River Meeting House and cemetery", lat:36.7211, lon:-86.8147,
     flags:["limited"], onMap:"historic-cemeteries:red-river-meetinghouse-cemetery",
     access:"Grounds open; building by appointment.", when:"June 1800",
     note:"Presbyterian minister James McGready organized the camp meeting here on June 13–17, 1800, counted as the first religious camp meeting in the U.S. and a start of the Second Great Awakening. The meeting house is a reconstruction.",
     sources:[["Wikipedia: Red River Meeting House", "https://en.wikipedia.org/wiki/Red_River_Meeting_House"]],
     stories:[] },
-  { id:"octagon-hall-museum", name:"Octagon Hall Museum (Franklin)", lat:36.80694444, lon:-86.55694444,
+  { id:"octagon-hall-museum", name:"Octagon Hall Museum (Franklin)", lat:36.8069, lon:-86.5569,
     flags:["paid", "limited"], onMap:"museums:octagon-hall-museum",
     access:"Museum; limited hours, admission.", when:"Completed c. 1860",
     note:"An eight-sided house built by Andrew Jackson Caldwell near Franklin, completed around 1860, with a detached summer kitchen; listed on the National Register in 1980.",
@@ -130,7 +130,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'

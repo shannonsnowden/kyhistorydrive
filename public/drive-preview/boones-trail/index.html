@@ -86,31 +86,31 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 const STOPS = [
-  { id:"cumberland-gap-nhp", name:"Cumberland Gap National Historical Park", lat:36.6027474, lon:-83.6953389,
+  { id:"cumberland-gap-nhp", name:"Cumberland Gap National Historical Park", lat:36.6027, lon:-83.6953,
     flags:[], onMap:"national-sites:cumberland-gap-nhp; story:thomas-walker-and-cumberland-gap",
     access:"National Park Service site; free.", when:"Walker 1750; Boone 1775",
     note:"The natural gap in the Appalachians where Kentucky, Tennessee and Virginia meet. Dr. Thomas Walker recorded it in April 1750, following an Indian road; Daniel Boone's frontiersmen opened the path, and settlers on the Wilderness Road later passed through it.",
     sources:[["Wikipedia: Cumberland Gap National Historical Park", "https://en.wikipedia.org/wiki/Cumberland_Gap_National_Historical_Park"], ["NPS: Cumberland Gap", "https://www.nps.gov/cuga/"], ["Wikipedia: Cumberland Gap", "https://en.wikipedia.org/wiki/Cumberland_Gap"], ["Wikipedia: Thomas Walker (explorer)", "https://en.wikipedia.org/wiki/Thomas_Walker_(explorer)"]],
     stories:[["thomas-walker-and-cumberland-gap", "Thomas Walker and Cumberland Gap"]] },
-  { id:"dr-thomas-walker-state-historic-site", name:"Dr. Thomas Walker State Historic Site", lat:36.83916667, lon:-83.91916667,
+  { id:"dr-thomas-walker-state-historic-site", name:"Dr. Thomas Walker State Historic Site", lat:36.8392, lon:-83.9192,
     flags:[], onMap:"state-parks:dr-thomas-walker-state-historic-site",
     access:"State historic site; grounds open.", when:"Cabin 1750",
     note:"Marks where Thomas Walker built a cabin in 1750; a replica of \"the first house in Kentucky\" stands on the site, dedicated in 1931.",
     sources:[["Wikipedia: Dr. Thomas Walker State Historic Site", "https://en.wikipedia.org/wiki/Dr._Thomas_Walker_State_Historic_Site"]],
     stories:[] },
-  { id:"william-whitley-house", name:"William Whitley House State Historic Site", lat:37.46805556, lon:-84.55,
+  { id:"william-whitley-house", name:"William Whitley House State Historic Site", lat:37.4681, lon:-84.5500,
     flags:["limited"], onMap:"museums:william-whitley-house",
     access:"Historic site; seasonal hours.", when:"Built 1787–1794",
     note:"William and Esther Whitley's home near Crab Orchard, built as a fortress against attack between 1787 and 1794; often called Kentucky's first brick house. The grounds include Sportsman's Hill, an early racetrack.",
     sources:[["Wikipedia: William Whitley House State Historic Site", "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site"]],
     stories:[["william-whitley-sportsmans-hill", "William Whitley / Sportsman's Hill"], ["esther-whitley-over-the-cumberlands-1775", "Esther Whitley: over the Cumberlands in 1775"]] },
-  { id:"logans-station", name:"Logan's Station / St. Asaph (Stanford)", lat:37.5427356, lon:-84.6527882,
+  { id:"logans-station", name:"Logan's Station / St. Asaph (Stanford)", lat:37.5427, lon:-84.6528,
     flags:["marker"], onMap:"war-sites:logans-station; story:benjamin-logan",
     access:"Town park and marker area in Stanford; no reconstructed fort.", when:"Built 1775",
     note:"In 1775 Benjamin Logan left Boone's party and built Logan's Station (St. Asaph) by Buffalo Spring near present Stanford. Logan later helped secure Kentucky statehood.",
     sources:[["Wikipedia: Benjamin Logan", "https://en.wikipedia.org/wiki/Benjamin_Logan"], ["Wikipedia: Stanford, Kentucky", "https://en.wikipedia.org/wiki/Stanford,_Kentucky"]],
     stories:[["benjamin-logan", "Benjamin Logan"]] },
-  { id:"fort-boonesborough", name:"Fort Boonesborough State Park", lat:37.8974165, lon:-84.266814,
+  { id:"fort-boonesborough", name:"Fort Boonesborough State Park", lat:37.8974, lon:-84.2668,
     flags:["paid", "limited"], onMap:"war-sites:fort-boonesborough",
     access:"State park; fort exhibits have seasonal hours and admission.", when:"Founded April 1775",
     note:"Daniel Boone's party founded Boonesborough after crossing the Kentucky River in April 1775; the settlement was a major frontier outpost during the Revolution. The fort site is a National Historic Landmark.",
@@ -130,7 +130,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') + (s.flags||[]).filter(f => !(s.private && f==='private')).map(f => `<span class="tag${f==='private'?' warn':''}">${FL[f]||esc(f)}</span>`).join('')
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
-  const onmap = s.onMap ? `<p class="note">On our map: ${esc(s.onMap)}</p>` : '<p class="note">Not yet on our map.</p>'
+  const onmap = ''
   const links = s.stories.length
     ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
