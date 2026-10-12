@@ -21,7 +21,7 @@
     <name>Pickawillany (Twightwee town), Great Miami</name>
     <desc>Piqua. Miami Co., OH. Approximate.</desc>
   </wpt>
-  <wpt lat="38.71" lon="-83.0">
+  <wpt lat="38.7" lon="-83.0">
     <name>ferried over the Ohio into Kentucky</name>
     <desc>South Portsmouth. Greenup Co., KY. Approximate.</desc>
   </wpt>
@@ -72,7 +72,7 @@
       <name>Pickawillany (Twightwee town), Great Miami</name>
       <desc>Piqua. Miami Co., OH. Approximate.</desc>
     </rtept>
-    <rtept lat="38.71" lon="-83.0">
+    <rtept lat="38.7" lon="-83.0">
       <name>ferried over the Ohio into Kentucky</name>
       <desc>South Portsmouth. Greenup Co., KY. Approximate.</desc>
     </rtept>
