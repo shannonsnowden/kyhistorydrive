@@ -73,6 +73,7 @@ const keyCases = [
   ['keyed-pair-clean-twin', keyedClean, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
   ['keyed-no-key-local-skips', keyed, {}, 0],
   ['keyed-no-key-amplify-fails-closed', keyedClean, { AWS_APP_ID: 'd123test' }, 1],
+  ['keyed-no-key-amplify-branch-fails-closed', keyedClean, { AWS_BRANCH: 'main' }, 1],
   ['keyed-wrong-key-fails', keyedClean, { PROTECTED_COORDS_KEY: 'wrong-key' }, 1],
 ]
 for (const [name, d, env, want] of keyCases) {

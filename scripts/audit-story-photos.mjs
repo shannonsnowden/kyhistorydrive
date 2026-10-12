@@ -22,6 +22,17 @@ const outDir = join(ROOT, 'tmp')
 const outJson = join(outDir, 'story-photo-audit.json')
 const outMd = join(outDir, 'story-photo-audit.md')
 
+/** Remove HTML tags, including a tag reassembled by one pass (`<scr<script>ipt>`). */
+function stripTags(value) {
+  let text = String(value)
+  let prev
+  do {
+    prev = text
+    text = text.replace(/<[^>]+>/g, '')
+  } while (text !== prev)
+  return text
+}
+
 const STOP = new Set([
   'the', 'and', 'for', 'from', 'with', 'near', 'county', 'kentucky', 'ky',
   'his', 'her', 'its', 'who', 'was', 'were', 'that', 'this', 'into', 'onto',
@@ -239,9 +250,7 @@ async function tryCommonsBrief(title, placeHint) {
       if (!/^image\//.test(mime) || /svg\+xml|gif|tiff/i.test(mime)) continue
       const meta = info.extmetadata || {}
       const objectName =
-        String(meta.ObjectName?.value || '')
-          .replace(/<[^>]+>/g, '')
-          .trim() || String(page.title || '').replace(/^File:/, '')
+        stripTags(meta.ObjectName?.value || '').trim() || String(page.title || '').replace(/^File:/, '')
       const blob = `${objectName} ${page.title}`.toLowerCase()
       let score = 0
       const hits = []

@@ -11,6 +11,7 @@ import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
 import { applyRouteMapTheme, routeMapSectionHtml } from './route-maps.js'
+import { storyPinLinkHtml } from './story-pin.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -321,6 +322,17 @@ function storyPlaceHash({ historyId, slug, lat, lon } = {}) {
   if (historyId) return `#map/history/${encodeURIComponent(historyId)}`
   if (lat != null && lon != null && slug) return `#map/stories/${encodeURIComponent(slug)}`
   return null
+}
+
+/** Same public-pin rule as prerender. A history id alone is not enough for a thumbnail. */
+function publicStoryGeo(lat, lon) {
+  if (lat == null || lon == null || lat === '' || lon === '') return null
+  const la = Number(lat)
+  const lo = Number(lon)
+  if (!Number.isFinite(la) || !Number.isFinite(lo)) return null
+  if (Math.abs(la) > 90 || Math.abs(lo) > 180) return null
+  if (la === 0 && lo === 0) return null
+  return { lat: la, lon: lo }
 }
 
 let storiesLocationsCache = null
@@ -1185,9 +1197,13 @@ function wikipediaTitleFromUrl(url) {
 }
 
 function stripHtmlCredits(html) {
-  return String(html || '')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
+  let text = String(html || '').replace(/<br\s*\/?>/gi, ' ')
+  let prev
+  do {
+    prev = text
+    text = text.replace(/<[^>]+>/g, '')
+  } while (text !== prev)
+  return text
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
@@ -2934,7 +2950,9 @@ function timelineHeaderOffset() {
 
 function timelineItemFor(slug) {
   if (!slug) return null
-  const esc = window.CSS?.escape ? window.CSS.escape(slug) : String(slug).replace(/"/g, '\\"')
+  const esc = window.CSS?.escape
+    ? window.CSS.escape(slug)
+    : String(slug).replace(/\\/g, '\\\\').replace(/"/g, '\\"')
   return document.querySelector(`#timelineList .timeline-item[data-slug="${esc}"]`)
 }
 
@@ -3096,6 +3114,15 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
     })
+    const pinHtml =
+      mapHash && publicStoryGeo(meta.lat ?? s.lat, meta.lon ?? s.lon)
+        ? storyPinLinkHtml({ href: `/${mapHash}`, title: s.title, slug: meta.slug })
+        : ''
+    const mapControl = pinHtml
+      ? pinHtml
+      : mapHash
+        ? `<a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>`
+        : ''
     const extras = placeDetailExtrasHtml({
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
@@ -3146,13 +3173,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
             <div class="tags">${tags}</div>
-            ${
-              mapHash
-                ? `<div class="story-card-actions">
-              <a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>
-            </div>`
-                : ''
-            }
+            ${mapControl ? `<div class="story-card-actions">${mapControl}</div>` : ''}
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}

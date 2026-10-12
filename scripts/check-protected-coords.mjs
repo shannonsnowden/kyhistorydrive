@@ -12,7 +12,7 @@
  *    whose keyed hash (HMAC-SHA256, key in env PROTECTED_COORDS_KEY) is in scripts/protected-coords.hashes.json
  *    (known exact coordinates of the protected sites from git history; scripts/build-protected-coord-hashes.mjs)
  *    fails, whatever its label. Without the key the list cannot be reversed. No key: this step is skipped
- *    with a warning locally/CI, and fails closed in Amplify (AWS_APP_ID set).
+ *    with a warning locally/CI, and fails closed in Amplify (AWS_APP_ID or AWS_BRANCH set).
  * Records are matched by id/slug/historyId/storySlug(s), story URL, or a protected display name
  * (name/title/label, taken from the stories/history layers).
  * Fixtures: scripts/test-protected-coords.mjs.
@@ -28,9 +28,9 @@ const dist = path.resolve(argDist > 0 ? process.argv[argDist + 1] : 'dist')
 const argHashes = process.argv.indexOf('--hashes')
 const hashFile = argHashes > 0 ? process.argv[argHashes + 1] : path.join(path.dirname(fileURLToPath(import.meta.url)), 'protected-coords.hashes.json')
 // Keyed known-pair list: needs PROTECTED_COORDS_KEY. Missing key: skip this part with a warning,
-// except in Amplify (AWS_APP_ID set), where it fails closed. A key that does not match the list fails.
+// except in Amplify (AWS_APP_ID or AWS_BRANCH set), where it fails closed. A key that does not match the list fails.
 const KEY = process.env.PROTECTED_COORDS_KEY || ''
-const inAmplify = Boolean(process.env.AWS_APP_ID)
+const inAmplify = Boolean(process.env.AWS_APP_ID || process.env.AWS_BRANCH)
 const hashData = JSON.parse(fs.readFileSync(hashFile, 'utf8'))
 let knownHashes = new Set()
 if (!KEY) {
@@ -99,7 +99,10 @@ function walk(o, file, owner = null) {
 // Text files: a protected id followed within WINDOW chars (GPX/KML: also 200 before) by a fine KY lat/lon pair.
 const WINDOW = 400
 const PAIR = /(-?\d{2,3}\.\d+)["']?\s*[,\s]\s*(?:"?lon(?:gitude)?"?\s*[:=]\s*"?|lon=")?(-?\d{2,3}\.\d+)/g
-const idRe = new RegExp(`(?:^|[^a-z0-9-])(${[...ids, ...names.keys()].sort((x, y) => y.length - x.length).map((x) => x.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')).join('|')})(?![a-z0-9-])`, 'g')
+function escapeRegExp(value) {
+  return String(value).replace(/[\\^$.*+?()[\]{}|-]/g, '\\$&')
+}
+const idRe = new RegExp(`(?:^|[^a-z0-9-])(${[...ids, ...names.keys()].sort((x, y) => y.length - x.length).map((x) => escapeRegExp(x)).join('|')})(?![a-z0-9-])`, 'g')
 function textScan(text, file) {
   const gk = /\.(gpx|kml)$/.test(file)
   const gpx = file.endsWith('.gpx') // GPX puts <name> after the wpt lat/lon
