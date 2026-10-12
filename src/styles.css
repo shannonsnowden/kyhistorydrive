@@ -3515,7 +3515,9 @@ html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-light"] { display
 html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display: block; }
 @media (max-width: 699px) {
   .route-map-overlay[data-frame="desk-light"],
-  .route-map-overlay[data-frame="desk-dark"] { display: none; }
+  .route-map-overlay[data-frame="desk-dark"],
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-light"],
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display: none; }
   .route-map-overlay[data-frame="phone-light"] { display: block; }
   html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-light"] { display: none; }
   html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-dark"] { display: block; }
