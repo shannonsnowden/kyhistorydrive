@@ -1,0 +1,25 @@
+{
+  "slug": "somerset",
+  "title": "Somerset",
+  "publishedDate": "2026-10-01",
+  "summary": "Pulaski County needed a seat after its 1799 creation from Lincoln and Green. In 1801 the court laid out Somerset on forty acres donated by William Dodson, beside a dependable…",
+  "bodyMarkdown": "Pulaski County needed a seat after its 1799 creation from Lincoln and Green. In 1801 the court laid out Somerset on forty acres donated by William Dodson, beside a dependable spring whose path became the town’s busiest early street. Migrants from Somerset County, New Jersey, gave the place its name. Kentucky Historical Society Marker 1607 still marks the Old Town Spring—where locals joked that whoever drank would gain wisdom and always return.\nSource: [https://en.wikipedia.org/wiki/Somerset,_Kentucky](https://en.wikipedia.org/wiki/Somerset,_Kentucky)",
+  "yearStart": 1801,
+  "yearEnd": 1801,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "settlement"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-10-01",
+  "photo": {
+    "image_url": "/content/photos/stories/somerset.jpg",
+    "title": "Pulaski County courthouse, Somerset",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pulaski_County_Kentucky_courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": null
+  }
+}
