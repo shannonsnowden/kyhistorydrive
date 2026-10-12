@@ -55,6 +55,17 @@ import {
   routeMapThemeScript,
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
+import { storyPinLinkHtml } from '../src/story-pin.js'
+
+/** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
+export function preloadsPoster(html, poster) {
+  const re = /rel="preload"[^>]*/g
+  let match
+  while ((match = re.exec(html))) {
+    if (match[0].includes(poster)) return true
+  }
+  return false
+}
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
@@ -99,6 +110,16 @@ class PrerenderPages {
     const dist = path.resolve(PrerenderPages.arg(argv, '--dist') || path.join(root, 'dist'))
     if (!fs.existsSync(path.join(dist, 'index.html'))) {
       throw new Error(`prerender: ${dist}/index.html is missing; run vite build first`)
+    }
+    const lightboxJs = fs.readFileSync(path.join(dist, 'route-map-lightbox.js'), 'utf8')
+    if (/\beval\s*\(|\bnew Function\b|onclick\s*=|javascript:/.test(lightboxJs)) {
+      throw new Error('prerender: route map lightbox is not CSP-friendly')
+    }
+    if (!/data-zoom-' \+ mode \+ '-' \+ ext/.test(lightboxJs) || !lightboxJs.includes("'avif'") || !lightboxJs.includes("'webp'")) {
+      throw new Error('prerender: route map lightbox does not load theme-matched zoom art')
+    }
+    if (/3840|HIRES_WIDTH|-route-map-'/.test(lightboxJs)) {
+      throw new Error('prerender: route map lightbox still requests the old hi-res WebP')
     }
     PrerenderPages.configureMarked()
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
@@ -335,7 +356,7 @@ class PrerenderPages {
     const out = []
     let buf = ''
     const abbrev = (s) =>
-      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
         s.trimEnd(),
       ) ||
       /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
@@ -971,7 +992,7 @@ class PrerenderPages {
     return `<link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="${PrerenderPages.SITE}/feed.xml" />`
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', rss = false }) {
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', routeLightbox = false, rss = false }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
@@ -1025,7 +1046,7 @@ class PrerenderPages {
       .story-crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0 0 0.85rem; font-size: 0.85rem; color: var(--muted); }
       .story-crumbs a { color: var(--accent); text-decoration: none; }
       .story-crumbs [aria-current="page"] { color: var(--text); }
-      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
       .foot a { color: var(--accent); }
@@ -1035,15 +1056,23 @@ class PrerenderPages {
       .route-map h2, .route-map h3 { color: var(--heading); }
       .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
       .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
+      .route-map-zoom { position: relative; display: block; }
+      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; margin: 0; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+      .route-map-caption-phone { display: none; }
       .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
       .route-map-phone-note a { color: var(--accent); }
-      @media (max-width: 699px) { .route-map-phone-note { display: block; } }
+      @media (max-width: 699px) {
+        .route-map-phone-note { display: block; }
+        .has-phone-caption .route-map-caption-desk { display: none; }
+        .route-map-caption-phone { display: block; }
+      }
       .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
       .route-waypoints li { margin: 0 0 0.35rem; }
       .route-links ul, .route-index-list { list-style: none; margin: 0; padding: 0; }
       .route-links li { margin: 0 0 0.4rem; }
       .route-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 0.85rem; align-items: center; margin: 0 0 0.85rem; padding: 0.65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: inherit; text-decoration: none; }
+      .route-card-link { color: inherit; text-decoration: none; }
       .route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
       .route-card p { margin: 0; }
       @media (max-width: 700px) { .place-list { columns: 1; } .route-card { grid-template-columns: 1fr; } }
@@ -1081,12 +1110,13 @@ class PrerenderPages {
     ${privacyChoicesBootHtml()}
     ${PrerenderPages.siteChromeScript()}
     ${routeMapThemeScript()}
+    ${routeLightbox ? '<script src="/route-map-lightbox.js" defer></script>' : ''}
   </body>
 </html>
 `
   }
 
-  /** Shared tags, then era overlap, then county, then distance. Title is only a tiebreak. */
+  /** Specific subject tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
     return pickRelatedStories(story, all, excludeSlugs)
   }
@@ -1216,13 +1246,22 @@ class PrerenderPages {
       lead,
     )
     const mapHref = PrerenderPages.storyMapHref(story)
+    const pinHtml =
+      mapHref && PrerenderPages.publicGeo(story)
+        ? storyPinLinkHtml({ href: mapHref, title: story.title, slug: story.slug })
+        : ''
+    const mapControl = pinHtml
+      ? pinHtml
+      : mapHref
+        ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>`
+        : ''
     const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const route = routeBySlug(story.slug)
-    const ogImage = route ? absoluteUrl(route.files.fullPng) : image
-    const ogAlt = route ? route.alt : imageAlt
+    const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
+    const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
     const filmDescription = film ? filmDescriptionFromPlain(bodyPlain) : ''
     const filmHtml = film
@@ -1263,7 +1302,7 @@ class PrerenderPages {
           ${citeBootScript()}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
-            ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
+            ${mapControl}
           </div>
         </div>
         ${filmHtml}
@@ -1275,9 +1314,10 @@ class PrerenderPages {
       cssHrefs,
       image: ogImage,
       imageAlt: ogAlt,
-      imageWidth: route ? 1600 : 0,
-      imageHeight: route ? 900 : 0,
+      imageWidth: !photo && route ? 1600 : 0,
+      imageHeight: !photo && route ? 900 : 0,
       jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
+      routeLightbox: Boolean(route),
       main,
       rss: true,
     })
@@ -1328,6 +1368,7 @@ class PrerenderPages {
       imageAlt: 'Kentucky History Drive official seal',
       ogType: 'website',
       jsonLd,
+      routeLightbox: true,
       main,
     })
   }
@@ -1463,6 +1504,32 @@ class PrerenderPages {
     if (block.includes('3840') || block.includes('-master-')) {
       throw new Error(`prerender: ${urlPath} includes a 3840 master`)
     }
+    if (!block.includes('class="route-map-zoom"') || !block.includes('class="route-map-expand"') || !block.includes('>Expand<')) {
+      throw new Error(`prerender: ${urlPath} route map is missing the expand control`)
+    }
+    if (!block.includes(`data-route-slug="${route.slug}"`) || !block.includes(`data-fallback="${route.files.fullWebp}"`)) {
+      throw new Error(`prerender: ${urlPath} route map lightbox is missing its sources`)
+    }
+    for (const file of [route.files.zoomLightAvif, route.files.zoomLightWebp, route.files.zoomDarkAvif, route.files.zoomDarkWebp]) {
+      if (!block.includes(file)) throw new Error(`prerender: ${urlPath} route map is missing zoom art ${file}`)
+    }
+    if (route.phoneCaption) {
+      const phone = block.match(/class="route-map-caption route-map-caption-phone">([\s\S]*?)<\/p>/)
+      if (!phone || phone[1] !== PrerenderPages.escapeHtml(route.phoneCaption)) {
+        throw new Error(`prerender: ${urlPath} phone caption does not match the crop`)
+      }
+      if (route.slug === 'christopher-gist-1750-51' && /north of the Ohio|Pickawillany/.test(phone[1])) {
+        throw new Error(`prerender: ${urlPath} phone caption still describes the route north of the Ohio`)
+      }
+    } else if (block.includes('route-map-caption-phone')) {
+      throw new Error(`prerender: ${urlPath} has a phone caption the full route does not need`)
+    }
+    if (/onclick=|onerror=|onload=|javascript:/.test(block)) {
+      throw new Error(`prerender: ${urlPath} route map uses an inline event handler`)
+    }
+    if (!html.includes('src="/route-map-lightbox.js"')) {
+      throw new Error(`prerender: ${urlPath} is missing the route map lightbox script`)
+    }
     if (route.slug === 'mantle-rock-and-the-trail-of-tears') {
       if (!block.includes('Northern Route') || /Benge-Drane|\bDrane\b/.test(block)) {
         throw new Error(`prerender: ${urlPath} must use the NPS name Northern Route`)
@@ -1529,6 +1596,11 @@ class PrerenderPages {
       throw new Error('prerender: /routes/ must use the NPS name Northern Route')
     }
     if (html.includes('3840') || html.includes('-master-')) throw new Error('prerender: /routes/ includes a 3840 master')
+    if (!html.includes('src="/route-map-lightbox.js"')) throw new Error('prerender: /routes/ is missing the lightbox script')
+    if ((html.match(/class="route-map-expand"/g) || []).length !== ROUTE_MAPS.length) {
+      throw new Error('prerender: /routes/ is missing an expand control on each map')
+    }
+    if (/onclick=|javascript:/.test(html)) throw new Error('prerender: /routes/ uses an inline event handler')
     const cards = html.match(/class="route-card"/g) || []
     if (cards.length !== ROUTE_MAPS.length) {
       throw new Error(`prerender: /routes/ has ${cards.length} cards, expected ${ROUTE_MAPS.length}`)
@@ -1543,6 +1615,9 @@ class PrerenderPages {
       }
       if (!html.includes(route.files.webWebp) || !html.includes('loading="lazy"') || !html.includes('width="1600"')) {
         throw new Error(`prerender: /routes/ thumbnail for ${route.slug} is missing`)
+      }
+      if (!html.includes(route.files.phoneWebp) || !html.includes(route.files.phoneDarkWebp) || !html.includes('(max-width: 699px)')) {
+        throw new Error(`prerender: /routes/ thumbnail for ${route.slug} does not serve phone art under 700px`)
       }
     }
   }
@@ -1647,7 +1722,7 @@ class PrerenderPages {
     const relatedSlugs = [...related[0].matchAll(/<li class="related-story">[\s\S]*?href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
     const expectedRelated = PrerenderPages.relatedStories(story, all, routeForNearby?.relatedStories || []).map((item) => item.slug)
     if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
-      throw new Error(`prerender: ${urlPath} related stories are not ranked by tags, era, county, then distance`)
+      throw new Error(`prerender: ${urlPath} related stories are not ranked by subject tags, county, then distance`)
     }
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
@@ -1727,9 +1802,10 @@ class PrerenderPages {
     }
     const photo = story.photo?.image_url ? PrerenderPages.photoAbsolute(story.photo.image_url) : ''
     const route = routeBySlug(story.slug)
-    const expectedImage = route ? absoluteUrl(route.files.fullPng) : photo || PrerenderPages.LOGO
+    const expectedImage = photo || (route ? absoluteUrl(route.files.fullPng) : PrerenderPages.LOGO)
+    const expectedKind = photo ? 'story photo' : route ? '1600 route map' : 'story photo or logo fallback'
     if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
-      throw new Error(`prerender: ${urlPath} og:image is not the ${route ? '1600 route map' : 'story photo or logo fallback'}`)
+      throw new Error(`prerender: ${urlPath} og:image is not the ${expectedKind}`)
     }
     if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} twitter:image is missing`)
@@ -1770,8 +1846,7 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} story photo is lazy-loaded`)
       }
     }
-    const posterPreload = new RegExp(`rel="preload"[^>]*${film.poster.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`)
-    if (posterPreload.test(html)) {
+    if (preloadsPoster(html, film.poster)) {
       throw new Error(`prerender: ${urlPath} preloads the video poster`)
     }
   }
@@ -1810,14 +1885,17 @@ class PrerenderPages {
       if (timeIdx < 0) continue
       const stamp = rows[timeIdx].match(/^((?:\d{2}:)?\d{2}:\d{2}\.\d+)/)
       if (!stamp) continue
-      const cue = rows
-        .slice(timeIdx + 1)
-        .join(' ')
-        .replace(/<[^>]+>/g, '')
+      let cue = rows.slice(timeIdx + 1).join(' ')
+      let prev
+      do {
+        prev = cue
+        cue = cue.replace(/<[^>]+>/g, '')
+      } while (cue !== prev)
+      cue = cue
         .replace(/&nbsp;/gi, ' ')
-        .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, '&')
         .replace(/\s+/g, ' ')
         .trim()
       if (!cue || seen.has(cue)) continue
@@ -2155,6 +2233,9 @@ ${rows.join('\n')}
       throw new Error(`prerender: homepage ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
     if (!/<script type="module"/.test(html)) throw new Error('prerender: homepage lost the app bundle')
+    if (!html.includes('src="/route-map-lightbox.js"')) {
+      throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
+    }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')
     }
