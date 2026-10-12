@@ -5076,3 +5076,20 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 }
 .hp-map-strip li a:hover,
 .hp-map-strip li a:focus-visible { color: var(--heading); }
+/* AI-illustration headshots: small corner pill. Fixed colors so contrast holds in both themes
+   (white on #6e4214 ≈ 9:1); the ring uses the page surface so it separates from the photo. */
+.story-related .related-headshot-ai { position: relative; flex: 0 0 auto; display: inline-block; line-height: 0; margin-top: 0.12rem; }
+.story-related .related-headshot-ai > picture.related-headshot-frame { margin-top: 0; }
+.related-headshot-ai .ai-pill {
+  position: absolute;
+  right: -6px;
+  bottom: -3px;
+  padding: 1px 3px;
+  border-radius: 6px;
+  background: #6e4214;
+  color: #fff;
+  box-shadow: 0 0 0 1.5px var(--surface);
+  font: 700 9px/1.1 system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}

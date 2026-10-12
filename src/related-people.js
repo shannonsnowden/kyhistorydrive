@@ -74,7 +74,11 @@ export function headshotHtml(person, size = 36) {
   const ready = localPortrait(person)
   if (!ready) return ''
   const n = Number(size) === 32 || Number(size) === 40 ? Number(size) : 36
-  return `<picture class="related-headshot-frame"><source srcset="${esc(ready.image.webp)}" type="image/webp"><img class="related-headshot" src="${esc(ready.image.jpg)}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
+  const pic = `<picture class="related-headshot-frame"><source srcset="${esc(ready.image.webp)}" type="image/webp"><img class="related-headshot" src="${esc(ready.image.jpg)}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
+  if (ready.ai !== true) return pic
+  // AI illustrations (people.json "ai": true) carry a visible corner pill. The img alt already
+  // says "AI illustration of …", so the pill text is hidden from screen readers to avoid repeating it.
+  return `<span class="related-headshot-ai" title="AI illustration">${pic}<span class="ai-pill" aria-hidden="true">AI</span></span>`
 }
 
 // "Related people & stories" block (empty string when a story has no entries).

@@ -1803,6 +1803,11 @@ class PrerenderPages {
     if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
       throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
     }
+    if (peopleAside) {
+      const aiImgs = (peopleAside[0].match(/alt="AI illustration of /g) || []).length
+      const pills = (peopleAside[0].match(/<span class="ai-pill"[^>]*>AI<\/span>/g) || []).length
+      if (aiImgs !== pills) throw new Error(`prerender: ${urlPath} has ${aiImgs} AI headshots but ${pills} AI pills`)
+    }
     const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
     if (!related || !related[0].includes('Related and nearby') || relatedCount < 3 || relatedCount > 5) {
