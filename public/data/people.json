@@ -1526,13 +1526,10 @@
       "id": "humphrey-marshall",
       "name": "Humphrey Marshall",
       "dates": null,
-      "image": {
-        "webp": "/people/portraits/humphrey-marshall-512.webp",
-        "jpg": "/people/portraits/humphrey-marshall-512.jpg"
-      },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "image": null,
+      "credit": null,
       "ai": false,
-      "license": "Public domain",
+      "license": null,
       "stories": [
         "gen-james-wilkinson-kentuckys-agent-13",
         "harry-innes"

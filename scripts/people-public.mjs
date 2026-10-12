@@ -13,10 +13,12 @@ export const PUBLIC_PEOPLE = 'public/data/people.json'
 /**
  * Never ship a headshot for these ids.
  * Lomax: the Commons file is Confederate general Lunsford L. Lomax, a different man.
+ * Marshall: HMarshall.jpg is Confederate general Humphrey Marshall, the grandson.
  * Briscoe was an infant landowner. Harrison is unidentified. Stitzel’s photo rights are unknown.
  */
 export const NO_PORTRAIT_IDS = [
   'lunsford-lomax',
+  'humphrey-marshall',
   'hezekiah-briscoe',
   'benjamin-harrison-col',
   'frederick-stitzel',
