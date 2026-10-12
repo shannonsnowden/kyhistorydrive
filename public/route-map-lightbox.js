@@ -1,7 +1,8 @@
 /**
- * Full-screen viewer for route maps.
- * Zoom art loads only after a map is opened: theme-matched AVIF, then WebP,
- * then the 1600 WebP. Gestures are pointer, wheel, and double-click — no library.
+ * Full-screen viewer for route maps and the About seals.
+ * Route zoom art loads only after a map is opened: theme-matched AVIF, then WebP,
+ * then the 1600 WebP. About seals open their full-resolution PNG in the same view.
+ * Gestures are pointer, wheel, and double-click — no library.
  */
 ;(function () {
   if (window.__khdRouteLightbox) return
@@ -26,6 +27,7 @@
   var tx = 0
   var ty = 0
   var loadGen = 0
+  var noun = 'map'
   var gestured = false
   var pointers = new Map()
   var pinch = null
@@ -169,7 +171,7 @@
         return
       }
       var onImage = downOnImage || Boolean(e.target.closest && e.target.closest('.route-lightbox-img'))
-      if (onImage) return
+      if (onImage && imageHit(e)) return
       close()
     })
     stage.addEventListener(
@@ -202,7 +204,7 @@
     window.addEventListener('resize', function () {
       if (!dialog || dialog.hidden) return
       if (!gestured) {
-        scale = heightFitScale()
+        scale = initialScale()
         tx = 0
         ty = 0
       }
@@ -280,6 +282,17 @@
     apply(animate)
   }
 
+  /** A click on the bitmap counts. Seal artwork is circular, so the square corners are outside. */
+  function imageHit(e) {
+    if (noun !== 'seal') return true
+    var rect = img.getBoundingClientRect()
+    if (!rect.width || !rect.height) return true
+    var dx = e.clientX - (rect.left + rect.width / 2)
+    var dy = e.clientY - (rect.top + rect.height / 2)
+    var radius = Math.min(rect.width, rect.height) / 2
+    return dx * dx + dy * dy <= radius * radius
+  }
+
   /** Portrait phones letterbox a wide map. Open it tall enough to fill the stage. */
   function heightFitScale() {
     var phonePortrait = window.matchMedia('(max-width: 699px) and (orientation: portrait)').matches
@@ -295,6 +308,23 @@
     if (next < 1.05) return 1
     if (next > MAX_SCALE) return MAX_SCALE
     return next
+  }
+
+  /** Seals are square and smaller than the stage. Open them as large as the canvas allows. */
+  function containScale() {
+    var laidW = img.clientWidth
+    var laidH = img.clientHeight
+    var cw = canvas.clientWidth
+    var ch = canvas.clientHeight
+    if (!laidW || !laidH || !cw || !ch) return 1
+    var next = Math.min(cw / laidW, ch / laidH)
+    if (!(next > 1)) return 1
+    if (next > MAX_SCALE) return MAX_SCALE
+    return next
+  }
+
+  function initialScale() {
+    return noun === 'seal' ? containScale() : heightFitScale()
   }
 
   function toggleZoom(clientX, clientY) {
@@ -514,7 +544,7 @@
     var gen = ++loadGen
     var index = 0
     img.classList.remove('is-ready')
-    showStatus('Loading map', true)
+    showStatus(noun === 'seal' ? 'Loading seal' : 'Loading map', true)
     dialog.setAttribute('aria-busy', 'true')
     function ok() {
       if (gen !== loadGen) return
@@ -523,7 +553,7 @@
       window.requestAnimationFrame(function () {
         if (gen !== loadGen) return
         if (!gestured) {
-          scale = heightFitScale()
+          scale = initialScale()
           tx = 0
           ty = 0
         }
@@ -541,7 +571,7 @@
       }
       dialog.setAttribute('aria-busy', 'false')
       img.classList.remove('is-ready')
-      showStatus('Map could not be loaded.', false)
+      showStatus(noun === 'seal' ? 'Seal could not be loaded.' : 'Map could not be loaded.', false)
     }
     img.onload = ok
     img.onerror = fail
@@ -556,35 +586,62 @@
     setZoomSrc(urls[0])
   }
 
-  function open(frame, opener) {
-    var slug = frame.getAttribute('data-route-slug') || ''
-    if (!slug) return
+  function present(opts) {
     ensure()
-    openFrame = frame
-    var pic = frame.querySelector('img')
-    var label = (pic && pic.getAttribute('alt')) || 'Route map'
-    trigger = opener && opener.focus ? opener : frame.querySelector('.route-map-expand')
+    openFrame = opts.frame || null
+    noun = opts.noun === 'seal' ? 'seal' : 'map'
+    dialog.classList.toggle('is-seal', noun === 'seal')
+    trigger = opts.opener && opts.opener.focus ? opts.opener : null
     gestured = false
     scale = 1
     tx = 0
     ty = 0
     apply(false)
-    img.alt = label
-    dialog.setAttribute('aria-label', label)
+    img.alt = opts.label || (noun === 'seal' ? 'Seal' : 'Route map')
+    dialog.setAttribute('aria-label', img.alt)
     dialog.hidden = false
     dialog.classList.add('is-open')
     lockScroll()
     setInert(true)
     document.addEventListener('keydown', onKey, true)
     closeBtn.focus()
-    startLoad(zoomChain(frame))
+    startLoad(opts.urls || [])
+  }
+
+  function open(frame, opener) {
+    var slug = frame.getAttribute('data-route-slug') || ''
+    if (!slug) return
+    var pic = frame.querySelector('img')
+    var label = (pic && pic.getAttribute('alt')) || 'Route map'
+    present({
+      frame: frame,
+      noun: 'map',
+      label: label,
+      opener: opener && opener.focus ? opener : frame.querySelector('.route-map-expand'),
+      urls: zoomChain(frame),
+    })
+  }
+
+  function openSeal(button) {
+    var pic = button.querySelector('img')
+    var src = zoomUrl(button.getAttribute('data-full-src') || '')
+    if (!src && pic) src = zoomUrl(pic.getAttribute('src') || pic.getAttribute('data-src') || '')
+    var label = (pic && pic.getAttribute('alt')) || button.getAttribute('aria-label') || 'Seal'
+    present({
+      noun: 'seal',
+      label: label,
+      opener: button,
+      urls: src ? [src] : [],
+    })
   }
 
   function close() {
     if (!dialog || dialog.hidden) return
     openFrame = null
+    noun = 'map'
     loadGen += 1
     dialog.classList.remove('is-open')
+    dialog.classList.remove('is-seal')
     dialog.hidden = true
     dialog.removeAttribute('aria-busy')
     document.removeEventListener('keydown', onKey, true)
@@ -605,6 +662,12 @@
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-hp-theme'] })
 
   document.addEventListener('click', function (e) {
+    var seal = e.target.closest && e.target.closest('button.about-seal-btn')
+    if (seal) {
+      e.preventDefault()
+      openSeal(seal)
+      return
+    }
     var frame = e.target.closest && e.target.closest('.route-map-zoom')
     if (!frame) return
     var hit = e.target.closest('.route-map-expand, img, .route-map-picture')
