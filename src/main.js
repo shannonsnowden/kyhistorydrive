@@ -1,5 +1,10 @@
-import maplibregl from 'maplibre-gl'
+import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+
+// Vite bundles this module, so import.meta.url no longer points at maplibre-gl.mjs.
+// The worker has to be set before the first Map (MapLibre GL JS 6, bundler installs).
+maplibregl.setWorkerUrl(maplibreWorkerUrl)
 import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
@@ -64,8 +69,6 @@ function cartoRasterStyle(key) {
         type: 'raster',
         tiles: [tile('a'), tile('b'), tile('c')],
         tileSize: 256,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
       },
     },
     layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
@@ -74,10 +77,60 @@ function cartoRasterStyle(key) {
 
 const OSM_STYLE = CARTO_KEY ? cartoRasterStyle(CARTO_KEY) : CARTO_VECTOR_STYLE
 
+/**
+ * Map credits. MapLibre writes attribution from style and tile metadata as HTML
+ * (CVE-2026-85061, fixed in 6.4.1). Keep credits on this local string anyway:
+ * source metadata is cleared before the control reads it, so a remote style
+ * cannot supply the markup.
+ */
+const MAP_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>'
+
+function stripSourceAttributions(mapInstance) {
+  let sources
+  try {
+    sources = mapInstance.getStyle()?.sources
+  } catch {
+    return
+  }
+  if (!sources) return
+  for (const id of Object.keys(sources)) {
+    const source = mapInstance.getSource(id)
+    if (source && source.attribution) source.attribution = ''
+  }
+}
+
+function attachFixedAttribution(mapInstance) {
+  const scrub = () => stripSourceAttributions(mapInstance)
+  // Register before AttributionControl so metadata events clear source
+  // credits before the control copies them into innerHTML.
+  mapInstance.on('styledata', scrub)
+  mapInstance.on('sourcedata', scrub)
+  mapInstance.on('load', scrub)
+  scrub()
+  mapInstance.addControl(
+    new maplibregl.AttributionControl({
+      customAttribution: MAP_ATTRIBUTION,
+      compact: false,
+    }),
+  )
+}
 
 // Statewide Kentucky (not Bagdad close-up)
 const CENTER = [-85.76, 37.84]
 const START_ZOOM = 6.4
+
+function createBasemap(container) {
+  const mapInstance = new maplibregl.Map({
+    container,
+    style: OSM_STYLE,
+    center: CENTER,
+    zoom: START_ZOOM,
+    attributionControl: false,
+  })
+  attachFixedAttribution(mapInstance)
+  return mapInstance
+}
 const KY_BOUNDS = [
   [-89.58, 36.5], // SW
   [-81.97, 39.15], // NE
@@ -2274,12 +2327,7 @@ function initMap() {
     return
   }
   renderLayerToggles()
-  map = new maplibregl.Map({
-    container: 'mapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  map = createBasemap('mapCanvas')
   bindMapResize(map)
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
@@ -2498,12 +2546,7 @@ async function initTimelineMap() {
     })
     return
   }
-  timelineMap = new maplibregl.Map({
-    container: 'timelineMapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  timelineMap = createBasemap('timelineMapCanvas')
   timelineMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
   noteMapIdle(timelineMap)
   document.getElementById('timelineZoomFullState')?.addEventListener('click', () => {
@@ -2556,12 +2599,7 @@ function initStoriesMap() {
     requestAnimationFrame(() => storiesMap.resize())
     return
   }
-  storiesMap = new maplibregl.Map({
-    container: 'storiesMapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  storiesMap = createBasemap('storiesMapCanvas')
   storiesMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
   storiesMap.on('load', async () => {
     try {
