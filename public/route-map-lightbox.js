@@ -1,7 +1,8 @@
 /**
- * Full-screen viewer for route maps.
- * Zoom art loads only after a map is opened: theme-matched AVIF, then WebP,
- * then the 1600 WebP. Gestures are pointer, wheel, and double-click — no library.
+ * Full-screen viewer for route maps and the About seals.
+ * Route zoom art loads only after a map is opened: theme-matched AVIF, then WebP,
+ * then the 1600 WebP. About seals open their native-resolution WebP in the same view (never larger than the master).
+ * Gestures are pointer, wheel, and double-click — no library.
  */
 ;(function () {
   if (window.__khdRouteLightbox) return
@@ -13,6 +14,7 @@
   var stage = null
   var canvas = null
   var img = null
+  var overlayHost = null
   var statusEl = null
   var statusText = null
   var spinner = null
@@ -26,6 +28,7 @@
   var tx = 0
   var ty = 0
   var loadGen = 0
+  var noun = 'map'
   var gestured = false
   var pointers = new Map()
   var pinch = null
@@ -147,7 +150,10 @@
     img.alt = ''
     img.draggable = false
     img.decoding = 'async'
-    canvas.appendChild(img)
+    overlayHost = document.createElement('div')
+    overlayHost.className = 'route-lightbox-overlay'
+    overlayHost.setAttribute('aria-hidden', 'true')
+    canvas.append(img, overlayHost)
     stage.append(statusEl, canvas)
 
     dialog.append(backdrop, bar, stage)
@@ -168,8 +174,8 @@
         clicksToSwallow -= 1
         return
       }
-      var onImage = downOnImage || Boolean(e.target.closest && e.target.closest('.route-lightbox-img'))
-      if (onImage) return
+      var onImage = downOnImage || Boolean(e.target.closest && e.target.closest('.route-lightbox-img, .route-lightbox-overlay'))
+      if (onImage && imageHit(e)) return
       close()
     })
     stage.addEventListener(
@@ -202,12 +208,13 @@
     window.addEventListener('resize', function () {
       if (!dialog || dialog.hidden) return
       if (!gestured) {
-        scale = heightFitScale()
+        scale = initialScale()
         tx = 0
         ty = 0
       }
       clampPan()
       apply(false)
+      placeOverlay()
     })
   }
 
@@ -221,6 +228,7 @@
     var motion = Boolean(animate) && !reducedMotion()
     canvas.classList.toggle('is-anim', motion)
     canvas.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px) scale(' + scale.toFixed(4) + ')'
+    canvas.style.setProperty('--map-scale', scale.toFixed(4))
     if (motion) {
       window.setTimeout(function () {
         canvas.classList.remove('is-anim')
@@ -280,6 +288,17 @@
     apply(animate)
   }
 
+  /** A click on the bitmap counts. Seal artwork is circular, so the square corners are outside. */
+  function imageHit(e) {
+    if (noun !== 'seal') return true
+    var rect = img.getBoundingClientRect()
+    if (!rect.width || !rect.height) return true
+    var dx = e.clientX - (rect.left + rect.width / 2)
+    var dy = e.clientY - (rect.top + rect.height / 2)
+    var radius = Math.min(rect.width, rect.height) / 2
+    return dx * dx + dy * dy <= radius * radius
+  }
+
   /** Portrait phones letterbox a wide map. Open it tall enough to fill the stage. */
   function heightFitScale() {
     var phonePortrait = window.matchMedia('(max-width: 699px) and (orientation: portrait)').matches
@@ -297,6 +316,15 @@
     return next
   }
 
+  /** Seals stay at their laid-out (native-capped) size — never transform-upscale past 1:1. */
+  function containScale() {
+    return 1
+  }
+
+  function initialScale() {
+    return noun === 'seal' ? containScale() : heightFitScale()
+  }
+
   function toggleZoom(clientX, clientY) {
     if (scale > 1.05) resetView(true)
     else zoomAt(clientX, clientY, 2.5, true)
@@ -311,7 +339,7 @@
       })
       if (!pointers.size) pinch = null
     }
-    downOnImage = Boolean(e.target.closest && e.target.closest('.route-lightbox-img'))
+    downOnImage = Boolean(e.target.closest && e.target.closest('.route-lightbox-img, .route-lightbox-overlay'))
     try {
       stage.setPointerCapture(e.pointerId)
     } catch (err) {
@@ -514,21 +542,30 @@
     var gen = ++loadGen
     var index = 0
     img.classList.remove('is-ready')
-    showStatus('Loading map', true)
+    showStatus(noun === 'seal' ? 'Loading seal' : 'Loading map', true)
     dialog.setAttribute('aria-busy', 'true')
     function ok() {
       if (gen !== loadGen) return
       dialog.setAttribute('aria-busy', 'false')
       statusEl.hidden = true
+      if (noun === 'seal' && img.naturalWidth) {
+        var native = img.naturalWidth
+        img.style.maxWidth = 'min(90vw, ' + native + 'px)'
+        img.style.maxHeight = 'min(90vh, ' + native + 'px)'
+      } else {
+        img.style.maxWidth = ''
+        img.style.maxHeight = ''
+      }
       window.requestAnimationFrame(function () {
         if (gen !== loadGen) return
         if (!gestured) {
-          scale = heightFitScale()
+          scale = initialScale()
           tx = 0
           ty = 0
         }
         clampPan()
         apply(false)
+        placeOverlay()
         img.classList.add('is-ready')
       })
     }
@@ -541,7 +578,7 @@
       }
       dialog.setAttribute('aria-busy', 'false')
       img.classList.remove('is-ready')
-      showStatus('Map could not be loaded.', false)
+      showStatus(noun === 'seal' ? 'Seal could not be loaded.' : 'Map could not be loaded.', false)
     }
     img.onload = ok
     img.onerror = fail
@@ -556,35 +593,63 @@
     setZoomSrc(urls[0])
   }
 
-  function open(frame, opener) {
-    var slug = frame.getAttribute('data-route-slug') || ''
-    if (!slug) return
+  function present(opts) {
     ensure()
-    openFrame = frame
-    var pic = frame.querySelector('img')
-    var label = (pic && pic.getAttribute('alt')) || 'Route map'
-    trigger = opener && opener.focus ? opener : frame.querySelector('.route-map-expand')
+    openFrame = opts.frame || null
+    noun = opts.noun === 'seal' ? 'seal' : 'map'
+    dialog.classList.toggle('is-seal', noun === 'seal')
+    trigger = opts.opener && opts.opener.focus ? opts.opener : null
     gestured = false
     scale = 1
     tx = 0
     ty = 0
     apply(false)
-    img.alt = label
-    dialog.setAttribute('aria-label', label)
+    img.alt = opts.label || (noun === 'seal' ? 'Seal' : 'Route map')
+    dialog.setAttribute('aria-label', img.alt)
     dialog.hidden = false
     dialog.classList.add('is-open')
     lockScroll()
     setInert(true)
     document.addEventListener('keydown', onKey, true)
     closeBtn.focus()
-    startLoad(zoomChain(frame))
+    syncOverlay()
+    startLoad(opts.urls || [])
+  }
+
+  function open(frame, opener) {
+    var slug = frame.getAttribute('data-route-slug') || ''
+    if (!slug) return
+    var pic = frame.querySelector('img')
+    var label = (pic && pic.getAttribute('alt')) || 'Route map'
+    present({
+      frame: frame,
+      noun: 'map',
+      label: label,
+      opener: opener && opener.focus ? opener : frame.querySelector('.route-map-expand'),
+      urls: zoomChain(frame),
+    })
+  }
+
+  function openSeal(button) {
+    var pic = button.querySelector('img')
+    var src = zoomUrl(button.getAttribute('data-full-src') || '')
+    if (!src && pic) src = zoomUrl(pic.getAttribute('src') || pic.getAttribute('data-src') || '')
+    var label = (pic && pic.getAttribute('alt')) || button.getAttribute('aria-label') || 'Seal'
+    present({
+      noun: 'seal',
+      label: label,
+      opener: button,
+      urls: src ? [src] : [],
+    })
   }
 
   function close() {
     if (!dialog || dialog.hidden) return
     openFrame = null
+    noun = 'map'
     loadGen += 1
     dialog.classList.remove('is-open')
+    dialog.classList.remove('is-seal')
     dialog.hidden = true
     dialog.removeAttribute('aria-busy')
     document.removeEventListener('keydown', onKey, true)
@@ -599,18 +664,44 @@
     if (back && back.isConnected && back.focus) back.focus()
   }
 
+  function placeOverlay() {
+    if (!overlayHost || !img) return
+    overlayHost.style.left = img.offsetLeft + 'px'
+    overlayHost.style.top = img.offsetTop + 'px'
+    overlayHost.style.width = img.clientWidth + 'px'
+    overlayHost.style.height = img.clientHeight + 'px'
+  }
+
+  function syncOverlay() {
+    if (!overlayHost) return
+    overlayHost.replaceChildren()
+    if (!openFrame) return
+    var mode = document.documentElement.getAttribute('data-hp-theme') === 'light' ? 'light' : 'dark'
+    var slot = mode === 'dark' ? 'zoom-dark' : 'desk-light'
+    var src = openFrame.querySelector('.route-map-overlay[data-frame="' + slot + '"]')
+    if (!src) return
+    overlayHost.appendChild(src.cloneNode(true))
+    placeOverlay()
+  }
+
   new MutationObserver(function () {
     if (!dialog || dialog.hidden || !openFrame) return
+    syncOverlay()
     startLoad(zoomChain(openFrame))
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-hp-theme'] })
 
   document.addEventListener('click', function (e) {
+    var seal = e.target.closest && e.target.closest('button.about-seal-btn')
+    if (seal) {
+      e.preventDefault()
+      openSeal(seal)
+      return
+    }
     var frame = e.target.closest && e.target.closest('.route-map-zoom')
     if (!frame) return
-    var hit = e.target.closest('.route-map-expand, img, .route-map-picture')
+    var hit = e.target.closest && e.target.closest('.route-map-open, .route-map-expand')
     if (!hit || !frame.contains(hit)) return
     e.preventDefault()
-    var opener = hit.closest('.route-map-expand') || frame.querySelector('.route-map-expand')
-    open(frame, opener)
+    open(frame, hit)
   })
 })()

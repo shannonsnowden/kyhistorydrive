@@ -96,6 +96,9 @@ export default defineConfig({
     outDir: 'dist',
     // Published bundles stay unmapped. scripts/check-sourcemaps.mjs fails the build if dist contains a .map file.
     sourcemap: false,
+    // public/ is copied into dist, including NOTES.md and other authoring notes.
+    // scripts/strip-authoring-notes.mjs removes those after this step.
+    // scripts/check-authoring-notes.mjs fails the build if a .md file remains.
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),

@@ -164,6 +164,21 @@ class PrerenderPages {
     if (!aboutHtml.includes('<h2 class="about-page-title">Kentucky History Drive</h2>')) {
       throw new Error('prerender: /about/ should demote the duplicate title to an h2')
     }
+    if (!aboutHtml.includes('src="/route-map-lightbox.js"')) {
+      throw new Error('prerender: /about/ is missing the seal lightbox')
+    }
+    for (const label of [
+      'Enlarge original black edition seal',
+      'Enlarge navy edition seal',
+      'Enlarge gold-rim edition seal',
+    ]) {
+      if (!aboutHtml.includes(`aria-label="${label}"`) || !aboutHtml.includes(`<button type="button" class="about-seal-btn"`)) {
+        throw new Error(`prerender: /about/ is missing the ${label} button`)
+      }
+    }
+    if ((aboutHtml.match(/class="about-seal-btn"/g) || []).length !== 3) {
+      throw new Error('prerender: /about/ should have three seal buttons')
+    }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
       loc: `${PrerenderPages.SITE}/about/`,
@@ -1063,10 +1078,13 @@ class PrerenderPages {
       @media (max-width: 1400px) and (min-width: 601px) { .route-map { scroll-margin-top: 6.75rem; } }
       @media (max-width: 600px) { .route-map { scroll-margin-top: 4.25rem; } }
       .route-map h2, .route-map h3 { color: var(--heading); }
-      .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
+      .route-map-picture { display: block; }
       .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
       .route-map-zoom { position: relative; display: block; }
-      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; margin: 0; }
+      .route-map-open { display: block; width: 100%; margin: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: zoom-in; }
+      .route-map-art { position: relative; display: block; overflow: hidden; border-radius: 12px; }
+      .route-map-overlay { position: absolute; inset: 0; pointer-events: none; }
+      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 2; margin: 0; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
       .route-map-caption-phone { display: none; }
       .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
@@ -1110,7 +1128,7 @@ class PrerenderPages {
       <span>kyhistorydrive.com</span>
       <a href="/about/">About</a>
       <a href="/videos/">Videos</a>
-      <a href="/routes/">Route maps</a>
+      <a href="/routes/">Kentucky history route maps</a>
       <a href="/privacy/">Privacy</a>
       ${privacyChoicesLinkHtml()}
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
@@ -1128,6 +1146,14 @@ class PrerenderPages {
   /** Specific subject tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
     return pickRelatedStories(story, all, excludeSlugs)
+  }
+
+  static relatedCardMeta(story) {
+    const bits = ['Story']
+    if (story.county) bits.push(PrerenderPages.countyLabel(story.county, true))
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    if (years) bits.push(years)
+    return bits.join(' · ')
   }
 
   static relatedAndNearbySection(story, all, markers) {
@@ -1269,6 +1295,11 @@ class PrerenderPages {
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const route = routeBySlug(story.slug)
+    const describeStory = (slug) => {
+      const item = all.find((entry) => entry.slug === slug)
+      if (!item) return null
+      return { title: item.title, meta: PrerenderPages.relatedCardMeta(item) }
+    }
     const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
     const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
@@ -1298,6 +1329,7 @@ class PrerenderPages {
             headingLevel: 2,
             linkMode: 'story',
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
+            describe: describeStory,
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
           ${PrerenderPages.relatedAndNearbySection(story, all, markers)}
@@ -1451,7 +1483,7 @@ class PrerenderPages {
     if (gaProblems.length) {
       throw new Error(`prerender: ${urlPath} ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
-    if (!html.includes('class="top site-header"') || !html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
+    if (!html.includes('class="top site-header"') || html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
       throw new Error(`prerender: ${urlPath} is missing the shared homepage header`)
     }
     if (!html.includes('src="/brand/khd-logo.png"') || !html.includes("var B='/brand/'")) {
@@ -1516,6 +1548,59 @@ class PrerenderPages {
     if (!block.includes('class="route-map-zoom"') || !block.includes('class="route-map-expand"') || !block.includes('>Expand<')) {
       throw new Error(`prerender: ${urlPath} route map is missing the expand control`)
     }
+    if (!block.includes('class="route-map-open"') || !block.includes('aria-controls="route-map-lightbox"')) {
+      throw new Error(`prerender: ${urlPath} route map image is not a lightbox button`)
+    }
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark', 'phone-light', 'phone-dark']) {
+      if (!block.includes(`data-frame="${frame}"`)) {
+        throw new Error(`prerender: ${urlPath} route map is missing the ${frame} overlay`)
+      }
+    }
+    if (block.includes('class="route-ky-line"') || block.includes('class="route-ky"')) {
+      throw new Error(`prerender: ${urlPath} still draws a Kentucky outline that does not fit the painting`)
+    }
+    if (/class="route-map-open"[^>]*aria-label=/.test(block)) {
+      throw new Error(`prerender: ${urlPath} route map button aria-label replaces the image alt`)
+    }
+    if (!block.includes(`aria-describedby="route-map-hint-${route.slug}"`) || !block.includes('Opens a larger view of this map.')) {
+      throw new Error(`prerender: ${urlPath} route map image is missing its description`)
+    }
+    const geoStops = route.stops.flatMap((stop, index) => (stop.geo ? [index + 1] : []))
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark']) {
+      const slot = block.match(new RegExp(`data-frame="${frame}"[^>]*>([\\s\\S]*?)<\\/div>`))
+      const nums = slot ? [...slot[1].matchAll(/data-n="(\d+)"/g)].map((match) => Number(match[1])) : []
+      if (nums.join(',') !== geoStops.join(',')) {
+        throw new Error(`prerender: ${urlPath} ${frame} markers are ${nums.join(',')}, expected ${geoStops.join(',')}`)
+      }
+    }
+    if (/<span class="route-stop[^"]*"[^>]*>\s*\d/.test(block)) {
+      throw new Error(`prerender: ${urlPath} repeats stop numbers as overlay text`)
+    }
+    if (route.stops.some((stop) => stop.conjectural) && !block.includes('Hexagon: conjectural stop')) {
+      throw new Error(`prerender: ${urlPath} legend is missing the conjectural hexagon`)
+    }
+    const phone = block.match(/data-frame="phone-light"[^>]*>([\s\S]*?)<\/div>/)
+    const phoneBadges = phone ? (phone[1].match(/data-n="/g) || []).length : 0
+    if (phoneBadges > geoStops.length) {
+      throw new Error(`prerender: ${urlPath} phone overlay has more badges than stops`)
+    }
+    const links = block.match(/<nav class="route-links"[\s\S]*?<\/nav>/)
+    if (!links || !links[0].includes('class="related-card"') || !links[0].includes('>Related stories<')) {
+      throw new Error(`prerender: ${urlPath} route stories are not one card section`)
+    }
+    if (links[0].includes('Related stories and markers') || html.includes('Related stories and markers')) {
+      throw new Error(`prerender: ${urlPath} still has a separate markers section`)
+    }
+    for (const slug of route.relatedStories || []) {
+      if (!links[0].includes(`/stories/${slug}/`)) {
+        throw new Error(`prerender: ${urlPath} related stories omit ${slug}`)
+      }
+    }
+    for (const marker of route.markers || []) {
+      if (!links[0].includes(`/#map/markers/${marker.number}`)) {
+        throw new Error(`prerender: ${urlPath} related stories omit marker ${marker.number}`)
+      }
+    }
     if (!block.includes(`data-route-slug="${route.slug}"`) || !block.includes(`data-fallback="${route.files.fullWebp}"`)) {
       throw new Error(`prerender: ${urlPath} route map lightbox is missing its sources`)
     }
@@ -1568,6 +1653,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} waypoint ItemList does not match NOTES.md`)
     }
     list.itemListElement.forEach((item, index) => {
+      if (item.position !== index + 1) {
+        throw new Error(`prerender: ${urlPath} waypoint ${index + 1} JSON-LD position is ${item.position}`)
+      }
       const placeNode = item?.item
       if (placeNode?.['@type'] !== 'Place') throw new Error(`prerender: ${urlPath} waypoint ${index + 1} is not a Place`)
       const geo = route.stops[index].geo
@@ -1585,6 +1673,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} Article image is missing the route map`)
     }
     if (!html.includes('href="/routes/"')) throw new Error(`prerender: ${urlPath} does not link to /routes/`)
+    if (!block.includes('>Kentucky history route maps<')) {
+      throw new Error(`prerender: ${urlPath} is missing the Kentucky history route maps anchor`)
+    }
     const gpx = `/maps/routes/${route.slug}/${route.slug}.gpx`
     const kml = `/maps/routes/${route.slug}/${route.slug}.kml`
     if (!block.includes(`href="${gpx}"`) || !block.includes(`href="${kml}"`)) {
@@ -1601,6 +1692,9 @@ class PrerenderPages {
   static assertRoutes(html, stories) {
     if (!html.includes('<h1>Route maps</h1>')) throw new Error('prerender: /routes/ is missing its heading')
     if (!html.includes('href="/routes/"')) throw new Error('prerender: /routes/ footer link is missing')
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: /routes/ is missing the Kentucky history route maps anchor')
+    }
     if (!html.includes('Northern Route') || /Benge-Drane|\bDrane\b/.test(html)) {
       throw new Error('prerender: /routes/ must use the NPS name Northern Route')
     }
@@ -1608,6 +1702,9 @@ class PrerenderPages {
     if (!html.includes('src="/route-map-lightbox.js"')) throw new Error('prerender: /routes/ is missing the lightbox script')
     if ((html.match(/class="route-map-expand"/g) || []).length !== ROUTE_MAPS.length) {
       throw new Error('prerender: /routes/ is missing an expand control on each map')
+    }
+    if ((html.match(/class="route-map-open"/g) || []).length !== ROUTE_MAPS.length) {
+      throw new Error('prerender: /routes/ map images are not lightbox buttons')
     }
     if (/onclick=|javascript:/.test(html)) throw new Error('prerender: /routes/ uses an inline event handler')
     const cards = html.match(/class="route-card"/g) || []
@@ -2150,11 +2247,11 @@ ${rows.join('\n')}
         <figure class="about-seals" aria-labelledby="aboutSealsTitle">
           <h2 class="about-seals-title" id="aboutSealsTitle">Our seals</h2>
           <ul class="about-seals-list">
-            <li><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></li>
-            <li><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></li>
-            <li><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge original black edition seal" data-full-src="/brand/khd-logo-512.webp"><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></button></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge navy edition seal" data-full-src="/brand/khd-logo-c-512.webp"><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></button></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge gold-rim edition seal" data-full-src="/brand/khd-logo-c2-512.webp"><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></button></li>
           </ul>
-          <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit.</figcaption>
+          <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit. Tap a seal to enlarge it.</figcaption>
         </figure>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
@@ -2204,6 +2301,7 @@ ${rows.join('\n')}
       jsonLd,
       main,
       activeRoute: 'about',
+      routeLightbox: true,
     })
   }
 
@@ -2228,7 +2326,7 @@ ${rows.join('\n')}
               <h2>Map layers</h2>
               <ul class="crawl-list">${layerLinks}</ul>
             </section>
-            <p><a href="/routes/">Route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
+            <p><a href="/routes/">Kentucky history route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
           </div>
         </details>
       </nav>`
@@ -2250,6 +2348,15 @@ ${rows.join('\n')}
     if (!html.includes('src="/route-map-lightbox.js"')) {
       throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
     }
+    for (const label of [
+      'Enlarge original black edition seal',
+      'Enlarge navy edition seal',
+      'Enlarge gold-rim edition seal',
+    ]) {
+      if (!html.includes(`aria-label="${label}"`)) {
+        throw new Error(`prerender: homepage #about is missing the ${label} button`)
+      }
+    }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')
     }
@@ -2260,6 +2367,9 @@ ${rows.join('\n')}
     const routeLinks = (html.match(/href="\/routes\/"/g) || []).length
     if (!html.includes('class="hp-map-routes"') || routeLinks < 3) {
       throw new Error('prerender: homepage is missing the route maps link in the page, footer, or directory')
+    }
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: homepage is missing the Kentucky history route maps anchor')
     }
     fs.writeFileSync(file, html)
   }
