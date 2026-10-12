@@ -266,6 +266,9 @@ class PrerenderPages {
       loc: `${PrerenderPages.SITE}/privacy/`,
       lastmod: dates.lastmod.get('privacy/index.html') || '',
     })
+    // /timeline/ forwards to the /#timeline hash route. Amplify rules cannot target a #fragment,
+    // so this stub redirects in the browser. Deliberately not in the sitemap.
+    PrerenderPages.writePage(dist, '/timeline/', PrerenderPages.timelineRedirectHtml())
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
@@ -2546,6 +2549,27 @@ class PrerenderPages {
         throw new Error(`prerender: /videos/ is missing the summary for ${film.id}`)
       }
     }
+  }
+
+  /** Static /timeline/ stub: meta refresh + location.replace to /#timeline, with a visible link. */
+  static timelineRedirectHtml() {
+    return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+${gtagHeadHtml()}
+<title>Timeline · Kentucky History Drive</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="${PrerenderPages.SITE}/">
+<meta http-equiv="refresh" content="0; url=/#timeline">
+<script>location.replace('/#timeline')</script>
+</head>
+<body>
+<p>The timeline is at <a href="/#timeline">kyhistorydrive.com/#timeline</a>.</p>
+</body>
+</html>
+`
   }
 
   /** Google video sitemap for each page that embeds a film. */
