@@ -34,6 +34,12 @@ function assertSource() {
   if (!styles.includes('grid-template-columns: repeat(2, 1fr)')) {
     fail('related list is missing the two-column layout')
   }
+  if (!styles.includes('align-items: stretch') || !/\.related-card-meta \{[^}]*line-clamp:\s*2/.test(styles)) {
+    fail('related cards must stretch to one row height and clamp the meta line to 2 lines')
+  }
+  if (/@media \(max-width: 719px\) \{[^}]*\.related-card-meta \{[^}]*nowrap/.test(styles)) {
+    fail('related card meta must wrap instead of cutting the year with an ellipsis')
+  }
   if (!styles.includes('prefers-reduced-motion') || !styles.includes('translateX(2px)')) {
     fail('related card hover motion is missing')
   }

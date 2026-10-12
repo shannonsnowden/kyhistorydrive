@@ -920,6 +920,7 @@ html[data-hp-theme="light"] .era-other {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
+  align-items: stretch;
   gap: 0.6rem;
   width: 100%;
   max-width: 100%;
@@ -931,18 +932,21 @@ html[data-hp-theme="light"] .era-other {
   }
 }
 .related-list > li {
-  display: block;
+  display: flex;
   margin: 0;
   min-width: 0;
 }
 a.related-card {
   display: grid;
+  flex: 1 1 auto;
+  width: 100%;
   grid-template-columns: 56px minmax(0, 1fr) 20px;
   gap: 0.9rem;
   align-items: center;
   padding: 0.75rem 0.9rem;
   min-height: 72px;
   min-width: 0;
+  box-sizing: border-box;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -1001,7 +1005,11 @@ a.related-card:focus-visible .related-card-title {
   text-underline-offset: 3px;
 }
 .related-card-meta {
-  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
   margin-top: 0.15rem;
   color: var(--muted);
   font-size: 0.9rem;
@@ -1009,13 +1017,6 @@ a.related-card:focus-visible .related-card-title {
 }
 .nearby-kind,
 .nearby-miles { color: inherit; font-size: inherit; }
-@media (max-width: 719px) {
-  .related-card-meta {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
 .related-card-chevron {
   display: block;
   width: 16px;
