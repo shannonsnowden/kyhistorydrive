@@ -2036,10 +2036,15 @@ ${rows.join('\n')}
           <h1>Kentucky History Drive</h1>
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
-        <div class="about-logo-block">
-          <img class="about-logo" src="/brand/khd-logo-512.png" width="360" height="360" alt="Kentucky History Drive seal — muskets, historical marker, and road to kyhistorydrive.com" />
-          <p class="about-logo-caption muted">Official Kentucky History Drive seal</p>
-        </div>
+        <figure class="about-seals" aria-labelledby="aboutSealsTitle">
+          <h3 class="about-seals-title" id="aboutSealsTitle">Our seals</h3>
+          <ul class="about-seals-list">
+            <li><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></li>
+            <li><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></li>
+            <li><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></li>
+          </ul>
+          <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit.</figcaption>
+        </figure>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
         <h2>Author</h2>
