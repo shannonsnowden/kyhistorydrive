@@ -14,7 +14,6 @@
     "mount-horeb-earthworks",
     "mount-sterling-little-mountain-town",
     "natural-bridge-sandstone-arch",
-    "page-site-lost-city-15lo1",
     "paris-from-hopewell",
     "ward-site-15mcl11-mclean-county",
     "wickliffe-mounds-mississippian-village-ballard-county"
@@ -35,10 +34,11 @@
   ],
   "includeSlugs": [
     "odawa-raid-at-eskippakithiki-1753",
-    "john-finley-the-trader-who-put-kentucky-on-boones-map"
+    "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "page-site-lost-city-15lo1"
   ],
   "extraProtectedIds": [
     "s_eski"
   ],
-  "includeComment": "includeSlugs: protected regardless of era/tag (Eskippakithiki, Oct 11 2026: conservative default while KY History's opinion is pending; the John Finley story shares its Eskippakithiki pin and History id). extraProtectedIds: non-story ids (territory dots) added to protected-pins.json."
+  "includeComment": "includeSlugs: protected regardless of era/tag (Eskippakithiki, Oct 11 2026: conservative default while KY History's opinion is pending; the John Finley story shares its Eskippakithiki pin and History id). Page Site / Lost City (15LO1), Oct 12 2026: KY History says round to 0.1° and do not exempt. extraProtectedIds: non-story ids (territory dots) added to protected-pins.json."
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T09:47:38.735Z",
+  "generatedAt": "2026-10-12T10:05:04.497Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
@@ -162,8 +162,8 @@
     },
     "page-site-lost-city-15lo1": {
       "slug": "page-site-lost-city-15lo1",
-      "lat": 36.82461,
-      "lon": -86.84895,
+      "lat": 36.8,
+      "lon": -86.8,
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)",
       "historyId": null
@@ -530,8 +530,8 @@
     },
     "john-finley-the-trader-who-put-kentucky-on-boones-map": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
@@ -546,8 +546,8 @@
     },
     "odawa-raid-at-eskippakithiki-1753": {
       "slug": "odawa-raid-at-eskippakithiki-1753",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
