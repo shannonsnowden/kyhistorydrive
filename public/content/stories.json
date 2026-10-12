@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T10:24:20.439Z",
+  "generatedAt": "2026-10-12T12:40:00.632Z",
   "count": 235,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -3600,20 +3600,28 @@
       "slug": "battle-of-blue-licks",
       "title": "Battle of Blue Licks",
       "publishedDate": "2026-08-30",
-      "summary": "On August 19, 1782, about 182 Kentucky militia chasing Captain William Caldwell’s raiders walked into an ambush on a Licking River ridge in today’s Robertson County. Roughly 50…",
+      "summary": "On August 19, 1782, a British and Native force ambushed about 180 Kentucky militia at the Lower Blue Licks, the largest Revolutionary War battle fought in Kentucky.",
       "yearStart": 1782,
       "yearEnd": 1782,
-      "era": "native",
+      "era": "revolution",
       "tags": [
-        "native",
-        "kentucky",
-        "native-history",
+        "battle",
         "frontier-war",
-        "salt"
+        "american-revolution",
+        "kentucky",
+        "native-history"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-30",
       "county": "Robertson",
+      "photo": {
+        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+        "title": "Blue Licks Battlefield monument, dedicated 1928",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null
+      },
       "lat": 38.43443333333333,
       "lon": -83.99151666666667,
       "mapConfidence": "exact",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T09:47:39.719Z",
+  "generatedAt": "2026-10-12T12:40:06.989Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -70,6 +70,18 @@
         "source_url": "https://www.bagdadrollermillsfeed.com/about-bagdad-feeds/our-history/",
         "source_label": "Bagdad Roller Mills Inc.",
         "attribution": "Bagdad Roller Mills Inc. · company historic photo (early–mid 20th c., undated archival B&W)",
+        "year": null
+      }
+    },
+    "battle-of-blue-licks": {
+      "slug": "battle-of-blue-licks",
+      "historyId": "battle-of-blue-licks",
+      "photo": {
+        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+        "title": "Blue Licks Battlefield monument, dedicated 1928",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null
       }
     },
@@ -1419,6 +1431,18 @@
         "source_url": "https://www.bagdadrollermillsfeed.com/about-bagdad-feeds/our-history/",
         "source_label": "Bagdad Roller Mills Inc.",
         "attribution": "Bagdad Roller Mills Inc. · company historic photo (early–mid 20th c., undated archival B&W)",
+        "year": null
+      }
+    },
+    "battle-of-blue-licks": {
+      "slug": "battle-of-blue-licks",
+      "historyId": "battle-of-blue-licks",
+      "photo": {
+        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+        "title": "Blue Licks Battlefield monument, dedicated 1928",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null
       }
     },
