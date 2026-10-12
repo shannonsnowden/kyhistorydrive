@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T17:18:13.327Z",
+  "generatedAt": "2026-10-12T10:12:39.363Z",
   "count": 230,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -1925,7 +1925,8 @@
         "kentucky",
         "native-history",
         "frontier-war",
-        "salt"
+        "salt",
+        "salt-lick"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-29",
@@ -2207,7 +2208,8 @@
         "kentucky",
         "frontier-war",
         "town-founding",
-        "salt"
+        "salt",
+        "salt-lick"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-29",
@@ -2227,7 +2229,8 @@
       "tags": [
         "frontier",
         "kentucky",
-        "salt"
+        "salt",
+        "salt-lick"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-16",
@@ -2271,6 +2274,7 @@
         "early-commonwealth",
         "kentucky",
         "salt",
+        "salt-lick",
         "industry",
         "louisville"
       ],
@@ -2678,6 +2682,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
+        "trail-of-tears",
+        "removal",
         "treaty",
         "frontier-war"
       ],
@@ -2707,6 +2714,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
+        "trail-of-tears",
+        "removal",
         "treaty",
         "frontier-war"
       ],
@@ -2880,7 +2890,8 @@
       "tags": [
         "frontier",
         "kentucky",
-        "geology"
+        "geology",
+        "paleontology"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-28",
@@ -5076,6 +5087,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
+        "trail-of-tears",
+        "removal",
         "treaty"
       ],
       "source": "ky-history",
@@ -5427,7 +5441,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
         "trail-of-tears",
+        "removal",
         "natural-arch"
       ],
       "source": "ky-history",
@@ -5567,7 +5583,10 @@
       "tags": [
         "other",
         "kentucky",
-        "civil-war"
+        "civil-war",
+        "usct",
+        "african-american",
+        "emancipation"
       ],
       "source": "ky-history",
       "briefDate": "2026-10-04",
@@ -5807,7 +5826,10 @@
         "native",
         "kentucky",
         "native-history",
-        "salt"
+        "salt",
+        "salt-lick",
+        "paleontology",
+        "geology"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-27",

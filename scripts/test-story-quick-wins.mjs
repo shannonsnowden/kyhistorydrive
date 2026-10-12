@@ -24,7 +24,6 @@ import {
   nearbyMarkers,
   nearbyPlaces,
   nearbyStories,
-  eraOverlapYears,
   pickRelatedStories,
   relatedAndNearbyHtml,
   photoCreditHtml,
@@ -299,21 +298,11 @@ assert.match(merged, /nearby-kind">Historical marker</)
 assert.match(merged, /nearby-miles">1.2 miles</)
 assert.ok(merged.indexOf('Related one') < merged.indexOf('A marker'))
 
-assert.equal(
-  eraOverlapYears({ era: 'other', yearStart: 1863, yearEnd: 1865 }, { era: 'other', yearStart: 1850, yearEnd: 1861 }),
-  0,
-)
-assert.equal(
-  eraOverlapYears({ era: 'other', yearStart: 1863, yearEnd: 1865 }, { era: 'other', yearStart: 1864, yearEnd: 1864 }),
-  1,
-)
-assert.equal(eraOverlapYears({ era: 'native' }, { era: 'native' }), 1)
-
 const rankedHere = {
   slug: 'here',
   title: 'Here',
   era: 'other',
-  tags: ['other', 'kentucky', 'civil-war', 'battle'],
+  tags: ['other', 'kentucky', 'civil-war', 'usct'],
   yearStart: 1863,
   yearEnd: 1865,
   county: 'Jessamine',
@@ -326,12 +315,12 @@ const ranked = pickRelatedStories(rankedHere, [
     slug: 'two-tags',
     title: 'Zebra two tags',
     era: 'frontier',
-    tags: ['frontier', 'civil-war', 'battle'],
+    tags: ['frontier', 'civil-war', 'usct'],
     yearStart: 1700,
     yearEnd: 1701,
     county: 'Fayette',
-    lat: 39,
-    lon: -86,
+    lat: 40,
+    lon: -88,
   },
   {
     slug: 'one-tag',
@@ -340,20 +329,20 @@ const ranked = pickRelatedStories(rankedHere, [
     tags: ['other', 'kentucky', 'civil-war'],
     yearStart: 1863,
     yearEnd: 1865,
-    county: 'Jessamine',
-    lat: 37.79,
-    lon: -84.6,
-  },
-  {
-    slug: 'overlap',
-    title: 'Alpha overlap',
-    era: 'other',
-    tags: ['other', 'kentucky'],
-    yearStart: 1864,
-    yearEnd: 1864,
     county: 'Madison',
     lat: 37.8,
     lon: -84.61,
+  },
+  {
+    slug: 'broad-years',
+    title: 'Alpha long span',
+    era: 'other',
+    tags: ['other', 'kentucky', 'frontier', 'native-history'],
+    yearStart: 1800,
+    yearEnd: 1900,
+    county: 'Fayette',
+    lat: 37.791,
+    lon: -84.6,
   },
   {
     slug: 'county',
@@ -363,35 +352,24 @@ const ranked = pickRelatedStories(rankedHere, [
     yearStart: 1800,
     yearEnd: 1810,
     county: 'Jessamine County',
-    lat: 37.9,
-    lon: -84.2,
+    lat: 39,
+    lon: -86,
   },
   {
     slug: 'close',
     title: 'Zebra close',
     era: 'frontier',
     tags: ['frontier'],
-    yearStart: 1750,
-    yearEnd: 1751,
+    yearStart: 1864,
+    yearEnd: 1864,
     county: 'Boone',
     lat: 37.791,
     lon: -84.6,
   },
-  {
-    slug: 'far',
-    title: 'Alpha far',
-    era: 'frontier',
-    tags: ['frontier'],
-    yearStart: 1750,
-    yearEnd: 1751,
-    county: 'Boone',
-    lat: 39.2,
-    lon: -86.2,
-  },
 ])
 assert.deepEqual(
   ranked.map((story) => story.slug),
-  ['two-tags', 'one-tag', 'overlap', 'county', 'close'],
+  ['two-tags', 'one-tag', 'county', 'broad-years', 'close'],
 )
 const byDistance = pickRelatedStories(
   { slug: 'h', title: 'H', era: 'x', tags: [], yearStart: 1, yearEnd: 1, county: 'A', lat: 38, lon: -85 },
