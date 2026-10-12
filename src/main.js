@@ -2419,30 +2419,34 @@ function updateTimelineMapCounts() {
   const el = document.getElementById('timelineMapCounts')
   const meta = document.getElementById('timelineMapMeta')
   if (!el) return
-  if (!timelineMap || !timelineMapReady) {
+  // "All" is the unfiltered state: the map waits for an era or timeframe,
+  // so the "no places in this filter" line would be a false empty result.
+  if (!timelineMap || !timelineMapReady || !timelineHasActivePlaceFilter()) {
     el.textContent = ''
-    return
-  }
-  const bits = []
-  let total = 0
-  for (const def of DATA_LAYERS) {
-    if (!timelineLayerVisibility[def.id]) continue
-    const src = timelineMap.getSource(def.id)
-    const feats = src?._data?.features
-    if (!feats) continue
-    const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
-    if (n) {
-      if (def.statsText) {
-      bits.push(def.statsText(src._data.features))
-      continue
+    el.hidden = true
+  } else {
+    const bits = []
+    let total = 0
+    for (const def of DATA_LAYERS) {
+      if (!timelineLayerVisibility[def.id]) continue
+      const src = timelineMap.getSource(def.id)
+      const feats = src?._data?.features
+      if (!feats) continue
+      const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
+      if (n) {
+        if (def.statsText) {
+          bits.push(def.statsText(src._data.features))
+          continue
+        }
+        bits.push(`${n.toLocaleString()} ${def.label}`)
+        total += n
+      }
     }
-    bits.push(`${n.toLocaleString()} ${def.label}`)
-      total += n
-    }
+    el.hidden = false
+    el.textContent = bits.length
+      ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
+      : 'Map: no places in this filter (try another timeframe or era)'
   }
-  el.textContent = bits.length
-    ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
-    : 'Map: no places in this filter (try another timeframe or era)'
   if (meta && !pendingFocus) {
     const { yearMin, yearMax } = timelineState
     if (!timelineHasActivePlaceFilter()) {

@@ -3236,17 +3236,22 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   display: block;
 }
 .timeline-read-label { display: none; }
+.timeline-read-label-hide,
+.timeline-read-label-show { display: none; }
+.timeline-read-toggle[aria-expanded="true"] .timeline-read-label-hide { display: inline; }
+.timeline-read-toggle[aria-expanded="false"] .timeline-read-label-show { display: inline; }
 .timeline-read-toggle:hover {
   background: var(--accent);
   border-color: var(--accent-deep);
   color: var(--ink-on-gold);
 }
-.timeline-read-toggle[aria-expanded="true"] {
+/* Amber marks reading mode (map hidden). aria-expanded stays tied to the map. */
+.timeline-layout.is-reading-wide .timeline-read-toggle {
   background: var(--accent);
   border-color: var(--accent-deep);
   color: var(--ink-on-gold);
 }
-.timeline-read-toggle[aria-expanded="true"]:hover {
+.timeline-layout.is-reading-wide .timeline-read-toggle:hover {
   background: var(--accent-deep);
   border-color: var(--accent-deep);
   color: var(--ink-on-gold);
@@ -3261,18 +3266,16 @@ html[data-hp-theme="light"] .timeline-read-toggle {
   color: var(--text);
 }
 html[data-hp-theme="light"] .timeline-read-toggle:hover,
-html[data-hp-theme="light"] .timeline-read-toggle[aria-expanded="true"] {
+html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-toggle {
   background: var(--accent);
   border-color: var(--accent-deep);
   color: var(--ink-on-gold);
 }
-html[data-hp-theme="light"] .timeline-read-toggle[aria-expanded="true"]:hover {
+html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-toggle:hover {
   background: var(--accent-deep);
   color: var(--ink-on-gold);
 }
 @media (min-width: 901px) {
-  .timeline-read-toggle[aria-expanded="false"] .timeline-read-label-expand { display: inline; }
-  .timeline-read-toggle[aria-expanded="true"] .timeline-read-label-split { display: inline; }
   .timeline-layout {
     grid-template-columns: minmax(0, 52%) minmax(0, 48%);
     transition: grid-template-columns 340ms cubic-bezier(0.22, 0.8, 0.2, 1);
@@ -3307,8 +3310,6 @@ html[data-hp-theme="light"] .timeline-read-toggle[aria-expanded="true"]:hover {
   }
 }
 @media (max-width: 900px) {
-  .timeline-read-toggle[aria-expanded="false"] .timeline-read-label-hide { display: inline; }
-  .timeline-read-toggle[aria-expanded="true"] .timeline-read-label-show { display: inline; }
   .timeline-section .timeline-map-pane {
     overflow: hidden;
     max-height: var(--tl-map-open-h, 70vh);
@@ -3328,6 +3329,29 @@ html[data-hp-theme="light"] .timeline-read-toggle[aria-expanded="true"]:hover {
   .timeline-layout.is-reading-wide .timeline-main {
     border-bottom-color: transparent;
   }
+}
+/* Reading mode: center a column whose story text is at most 70ch.
+   The extra 2.6rem is the story card's horizontal padding and border, so the
+   body itself — not the card — is the 70ch measure. The sticky bar stays full width.
+   The photo stacks so it doesn't eat the line. */
+.timeline-layout.is-reading-wide .timeline-main > :not(.timeline-read-bar) {
+  width: min(100%, calc(70ch + 2.6rem));
+  max-width: calc(70ch + 2.6rem);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+.timeline-layout.is-reading-wide .story-body {
+  max-width: 70ch;
+}
+.timeline-layout.is-reading-wide .story-reader .story-reader-layout,
+.timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+.timeline-layout.is-reading-wide .story-reader .story-sidebar-photo {
+  position: static;
+  order: -1;
+  margin-top: 0;
+  max-width: 280px;
 }
 .timeline-layout.is-reading-instant,
 .timeline-layout.is-reading-instant .timeline-map-pane,

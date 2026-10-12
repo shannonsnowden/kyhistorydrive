@@ -98,8 +98,10 @@ export function initTimelineReading({ getMap } = {}) {
   }
 
   function syncButton() {
-    const wide = layout.classList.contains('is-reading-wide')
-    button.setAttribute('aria-expanded', wide ? 'true' : 'false')
+    // aria-expanded names the map pane (aria-controls), not the story.
+    // Map shown → expanded + "Hide map". Map hidden → collapsed + "Show map".
+    const mapShown = !layout.classList.contains('is-reading-wide')
+    button.setAttribute('aria-expanded', mapShown ? 'true' : 'false')
   }
 
   function syncMapA11y() {
