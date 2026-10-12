@@ -783,6 +783,16 @@
       "yearStart": 1799,
       "yearEnd": 1816,
       "county": "Boone"
+    },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "reason": "Distinct USCT-focused companion to camp-nelson-jessamine-county (2026-10-04). Pin NPS Camp Nelson visitor center (37.797005, -84.600577). Years 1863–1866. County Jessamine.",
+      "date": "2026-10-12",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "yearStart": 1863,
+      "yearEnd": 1866,
+      "county": "Jessamine"
     }
   }
 }
