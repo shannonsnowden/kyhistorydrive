@@ -22,6 +22,7 @@ export const SECURITY_HEADERS = [
 ]
 
 export const DRIVES_PATTERN = "'/drives/**'"
+export const DRIVES_PATTERNS = [DRIVES_PATTERN, "'/drives/'"]
 export const DRIVES_PERMISSIONS = 'camera=(), microphone=(), geolocation=(self), payment=(), usb=()'
 
 export function patternBlocks(text) {
@@ -54,7 +55,7 @@ export function checkPatternBlocks(text) {
     for (const [key, expected] of SECURITY_HEADERS) {
       const values = headerValues(block, key)
       // The one exception: /drives/** may allow geolocation for its own origin (opt-in "Use my location").
-      if (key === 'Permissions-Policy' && pattern === DRIVES_PATTERN) {
+      if (key === 'Permissions-Policy' && DRIVES_PATTERNS.includes(pattern)) {
         if (values.length !== 1 || values[0] !== DRIVES_PERMISSIONS) problems.push(`${where} Permissions-Policy is ${JSON.stringify(values[0])}, expected ${JSON.stringify(DRIVES_PERMISSIONS)}`)
         continue
       }
@@ -109,9 +110,9 @@ function main() {
 
   if (/preload/.test(customHttp)) fail('HSTS must not include preload')
   for (const { pattern, text } of patternBlocks(customHttp)) {
-    if (pattern !== DRIVES_PATTERN && /geolocation=\(self\)/.test(text)) fail(`${pattern} sets geolocation=(self); only ${DRIVES_PATTERN} may`)
+    if (!DRIVES_PATTERNS.includes(pattern) && /geolocation=\(self\)/.test(text)) fail(`${pattern} sets geolocation=(self); only ${DRIVES_PATTERNS.join(' and ')} may`)
   }
-  if (!patternBlocks(customHttp).some((b) => b.pattern === DRIVES_PATTERN)) fail(`customHttp.yml is missing ${DRIVES_PATTERN}`)
+  for (const want of DRIVES_PATTERNS) if (!patternBlocks(customHttp).some((b) => b.pattern === want)) fail(`customHttp.yml is missing ${want}`)
   if (/key:\s*'Content-Security-Policy'\s*$/m.test(customHttp)) {
     fail('enforcing Content-Security-Policy is present; this baseline is report-only')
   }

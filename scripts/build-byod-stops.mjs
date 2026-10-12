@@ -125,6 +125,14 @@ for (const slug of fs.readdirSync(DP)) {
   const m = fs.readFileSync(file, 'utf8').match(/const STOPS = (\[[\s\S]*?\n\])/)
   if (!m) continue
   const stops = new Function(`return ${m[1]}`)()
+  // JSON-LD: Place.geo by stop identifier. A sensitive, private or approximate stop may carry no geo
+  // finer than 0.1° (build-drive-pages emits none); a public stop's geo must match its STOPS entry.
+  const ldGeo = new Map()
+  for (const b of fs.readFileSync(file, 'utf8').matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    const j = JSON.parse(b[1])
+    for (const li of j?.itinerary?.itemListElement || []) if (li.item?.identifier) ldGeo.set(li.item.identifier, li.item.geo || null)
+  }
+  if (!ldGeo.size) bad.push(`drive page ${slug}: no TouristTrip JSON-LD itinerary`)
   // Raw literals, so precision is judged as written (38.5500 counts as 4 decimals).
   const raw = new Map([...m[1].matchAll(/id:"([^"]+)", name:"[^"]*", lat:(-?[\d.]+), lon:(-?[\d.]+)/g)].map((x) => [x[1], [x[2], x[3]]]))
   for (const s of stops) {
@@ -138,6 +146,10 @@ for (const slug of fs.readdirSync(DP)) {
     const storyWhy = ids.some((i) => CAVE_ALLOW.has(i)) ? null : unsafeWhy(storyIds, [0, 0])
     const why = unsafeWhy(ids, [s.lon, s.lat], s.name) || (s.private ? 'private' : null) || (storyWhy && storyWhy !== 'private' && storyWhy !== 'rounded' ? storyWhy : null)
     const d = Math.max(dec(s.lat), dec(s.lon))
+    const g = ldGeo.get(s.id)
+    if (!ldGeo.has(s.id)) bad.push(`drive page ${slug}: ${s.id} missing from JSON-LD itinerary`)
+    else if (g && (why || s.private || s.approx) && (dec(g.latitude) > 1 || dec(g.longitude) > 1)) bad.push(`drive page ${slug}: ${s.id} (${why || (s.private ? 'private' : 'approx')}) has exact JSON-LD geo ${g.latitude},${g.longitude}`)
+    else if (g && !(why || s.private || s.approx) && (g.latitude !== s.lat || g.longitude !== s.lon)) bad.push(`drive page ${slug}: ${s.id} JSON-LD geo does not match the stop`)
     if (!why) continue
     if (why === 'private' ? !(s.private && d <= 2) : !(s.approx && d <= 1)) bad.push(`drive page ${slug}: ${s.id} (${why}) at ${s.lat},${s.lon}`)
   }

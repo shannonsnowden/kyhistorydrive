@@ -270,7 +270,7 @@ class PrerenderPages {
     entries.push({ loc: `${PrerenderPages.SITE}/routes/`, lastmod: routesLast })
     // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
     for (const loc of PrerenderPages.drivePaths(root)) {
-      const src = loc === '/drives/build/' ? 'drives/build/index.html' : `public${loc}index.html`
+      const src = `public${loc}index.html`
       entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
     }
     entries.push({
@@ -2807,7 +2807,7 @@ ${rows.join('\n')}
     fs.writeFileSync(file, html)
   }
 
-  /** /drives/, /drives/build/, then every public/drives/<slug>/index.html in order. */
+  /** /drives/, then every public/drives/<slug>/index.html in order. */
   static drivePaths(root) {
     const dir = path.join(root, 'public/drives')
     if (!fs.existsSync(path.join(dir, 'index.html'))) return []
@@ -2815,7 +2815,8 @@ ${rows.join('\n')}
       .filter((d) => d.isDirectory() && fs.existsSync(path.join(dir, d.name, 'index.html')))
       .map((d) => d.name)
       .sort()
-    return ['/drives/', '/drives/build/', ...slugs.map((s) => `/drives/${s}/`)]
+    // /drives/build/ (the planner) is noindex,follow and stays out of the sitemap.
+    return ['/drives/', ...slugs.map((s) => `/drives/${s}/`)]
   }
 
   static writePage(dist, urlPath, html) {

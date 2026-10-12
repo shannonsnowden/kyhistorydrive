@@ -31,7 +31,7 @@ HSTS is one year and covers subdomains. It does not include `preload`. Do not ad
 
 `geolocation` is also disabled (`geolocation=()`). A search of `src/`, `public/`, and `scripts/` found no `geolocation`, `getCurrentPosition`, or `watchPosition` use. The map is a MapLibre view of Kentucky, not the visitor's GPS. If a later feature calls the Geolocation API, change this to `geolocation=(self)` before that feature ships.
 
-Exception: the drive pages and planner under `/drives/` offer an opt-in "Use my location" button, so the `'/drives/**'` pattern in `customHttp.yml` sets `geolocation=(self)`. Every other pattern keeps `geolocation=()`, and `check-security-headers.mjs` fails the build if any other pattern allows it or if `/drives/**` is missing. The position stays in the tab's memory: it is never stored, sent, or put in a URL or maps link.
+Exception: the drive pages and planner under `/drives/` offer an opt-in "Use my location" button, so the `'/drives/**'` and `'/drives/'` patterns in `customHttp.yml` set `geolocation=(self)`. Every other pattern keeps `geolocation=()`, and `check-security-headers.mjs` fails the build if any other pattern allows it or if either drives pattern is missing. The position stays in the tab's memory: it is never stored, sent, or put in a URL or maps link.
 
 ## What the page actually loads
 
