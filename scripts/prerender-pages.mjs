@@ -40,6 +40,7 @@ import {
   routeMapThemeScript,
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
+import { storyPinLinkHtml } from '../src/story-pin.js'
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
@@ -1024,7 +1025,7 @@ class PrerenderPages {
       .static-related h2 { font-size: 1.2rem; margin: 0 0 0.55rem; color: var(--heading); }
       .static-related ul { list-style: none; margin: 0; padding: 0; }
       .static-related li { margin: 0 0 0.45rem; }
-      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
       .foot a { color: var(--accent); }
@@ -1241,6 +1242,15 @@ class PrerenderPages {
       lead,
     )
     const mapHref = PrerenderPages.storyMapHref(story)
+    const pinHtml =
+      mapHref && PrerenderPages.publicGeo(story)
+        ? storyPinLinkHtml({ href: mapHref, title: story.title, slug: story.slug })
+        : ''
+    const mapControl = pinHtml
+      ? pinHtml
+      : mapHref
+        ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>`
+        : ''
     const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
@@ -1280,7 +1290,7 @@ class PrerenderPages {
           ${PrerenderPages.relatedHtml(story, all)}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
-            ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
+            ${mapControl}
           </div>
         </div>
         ${filmHtml}
