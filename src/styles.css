@@ -2365,11 +2365,14 @@ html[data-hp-theme="light"] .about-seal {
 .hp-mag-hero {
   position: relative;
   width: 100%;
-  min-height: min(88vh, 46rem);
+  min-height: 0;
+  height: 440px;
   display: flex;
   align-items: flex-end;
   color: #f3ead8;
   background: #101812;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .hp-value {
   margin: 0;
@@ -2379,6 +2382,303 @@ html[data-hp-theme="light"] .about-seal {
   line-height: 1.45;
   color: var(--heading);
 }
+/* Pitch: header brand-subhead on desktop, this band on phones (rule at the end). */
+
+/* —— Lead story + More Kentucky stories rail (no auto-rotation) —— */
+.hp-lead-block {
+  padding: 1.1rem clamp(1.25rem, 5vw, 4rem) 0.35rem;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+.hp-lead-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1.25rem 1.35rem;
+  align-items: stretch;
+}
+.hp-lead-story {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+}
+.hp-lead-media-link {
+  position: absolute;
+  inset: 0 0 8.75rem 0;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  z-index: 1;
+}
+.hp-lead-media-link .hp-mag-hero-media {
+  position: absolute;
+  inset: 0;
+}
+.hp-lead-media-link .hp-mag-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hp-lead-title {
+  position: absolute;
+  z-index: 2;
+  left: 1.15rem;
+  right: 1.15rem;
+  bottom: 0.85rem;
+  margin: 0;
+  color: #f6edd8;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
+}
+.hp-mag-hero .hp-mag-hero-copy {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem 1.15rem 1rem;
+  background: rgba(8, 12, 9, 0.78);
+  pointer-events: auto;
+}
+.hp-mag-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(8, 12, 9, 0.78) 0%,
+    rgba(8, 12, 9, 0.55) 42%,
+    rgba(8, 12, 9, 0.22) 70%,
+    rgba(8, 12, 9, 0.08) 100%
+  );
+}
+.hp-mag-hero .hp-hero-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #e8c988;
+}
+.hp-mag-hero .hp-hero-deck {
+  margin: 0 0 0.65rem;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  max-width: 46ch;
+  color: #f3ead8;
+}
+.hp-mag-hero .hp-cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.hp-mag-hero .hp-photo-credit {
+  margin: 0.55rem 0 0;
+  font-size: 0.72rem;
+  color: rgba(243, 234, 216, 0.75);
+}
+.hp-story-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.hp-more-stories-title {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hp-story-rail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.hp-rail-card {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  min-height: 96px;
+}
+.hp-rail-card:hover .hp-rail-card-title,
+.hp-rail-card:focus-visible .hp-rail-card-title { color: var(--accent); }
+.hp-rail-card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+.hp-rail-card img,
+.hp-rail-card .hp-rail-card-img,
+.hp-rail-card picture {
+  width: 116px;
+  height: 96px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+}
+.hp-rail-card picture img {
+  width: 116px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.hp-rail-card-ph {
+  width: 116px;
+  height: 96px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.hp-rail-card-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: var(--heading);
+}
+.hp-rail-card-meta {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.hp-story-swipe {
+  display: none;
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  gap: 0.65rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  height: 168px;
+  outline: none;
+}
+.hp-story-swipe:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+.hp-swipe-card {
+  flex: 0 0 150px;
+  width: 150px;
+  scroll-snap-align: start;
+  margin: 0;
+}
+.hp-swipe-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.hp-swipe-card-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.hp-swipe-card img,
+.hp-swipe-card picture,
+.hp-swipe-card .hp-swipe-card-img {
+  width: 150px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+}
+.hp-swipe-card picture img {
+  width: 150px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.hp-swipe-card-ph {
+  width: 150px;
+  height: 90px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.hp-swipe-card-title {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  color: var(--heading);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hp-swipe-card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.hp-all-stories {
+  margin: 0.75rem 0 0.15rem;
+  font-weight: 600;
+}
+.hp-all-stories a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.hp-all-stories a:hover,
+.hp-all-stories a:focus-visible { text-decoration: underline; }
+/* Hide legacy carousel chrome */
+.hp-hero-controls,
+.hp-hero-viewport { display: none !important; }
+@media (max-width: 900px) {
+  .hp-lead-grid { grid-template-columns: 1fr; }
+  .hp-mag-hero {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hp-lead-story {
+    position: relative;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Image+title stay linked; summary/CTAs sit below the image on phones. */
+  .hp-lead-media-link {
+    position: relative;
+    inset: auto;
+    display: block;
+    height: 220px;
+    flex: 0 0 220px;
+  }
+  .hp-lead-media-link .hp-mag-hero-media { inset: 0; }
+  .hp-lead-title {
+    bottom: 0.75rem;
+    font-size: 1.35rem;
+  }
+  .hp-mag-hero .hp-mag-hero-copy {
+    position: relative;
+    background: var(--panel, #162018);
+    color: var(--text);
+    padding: 0.85rem 0.15rem 0.35rem;
+  }
+  .hp-mag-hero .hp-hero-eyebrow { color: var(--accent); }
+  .hp-mag-hero .hp-hero-deck {
+    display: block;
+    color: var(--text);
+    margin-bottom: 0.7rem;
+  }
+  .hp-mag-hero .hp-photo-credit { color: var(--muted); }
+  .hp-story-rail { display: none; }
+  .hp-story-swipe { display: flex; }
+}
+
 .hp-hero-skeleton {
   position: relative;
   z-index: 1;
@@ -2495,8 +2795,7 @@ html[data-hp-theme="light"] .hp-map-seal {
   padding: 0.55rem 1.1rem;
 }
 .hp-hero-viewport {
-  position: absolute;
-  inset: 0;
+  display: none !important;
 }
 .hp-hero-slide {
   position: absolute;
@@ -2655,11 +2954,8 @@ html[data-hp-theme="light"] .hp-map-seal {
     object-position: 50% 0%;
   }
 }
-.hp-mag-hero-shade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(16, 24, 18, 0.12) 0%, rgba(16, 24, 18, 0.55) 48%, rgba(16, 24, 18, 0.88) 100%);
-}
+/* .hp-mag-hero-shade: see lead-block rules (~70% dark overlay) */
+
 .hp-mag-hero-media picture {
   position: absolute;
   inset: 0;
@@ -3235,10 +3531,11 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     height: var(--hp-logo, 84px);
   }
   body.hp-page .site-header .brand h1 {
-    font-size: 1.2rem;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
+    font-size: 1.15rem;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.2;
   }
   body.hp-page .site-header .tagline {
     display: block;
@@ -4432,6 +4729,103 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   }
 }
 
+/* #262 review fixes (Critiquito). */
+/* 1280: the lead title + kicker + summary stack from the bottom and grow upward,
+   so a 2-line title never runs under the kicker/summary. Title capped near 32px. */
+@media (min-width: 901px) {
+  .hp-lead-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hp-lead-media-link {
+    position: static;
+    inset: auto;
+    display: block;
+  }
+  .hp-lead-media-link .hp-mag-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hp-lead-title {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding: 3rem 1.15rem 0.35rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.15;
+    background: linear-gradient(to top, rgba(8, 12, 9, 0.78), rgba(8, 12, 9, 0));
+  }
+  .hp-mag-hero .hp-mag-hero-copy {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    height: auto;
+  }
+  .hp-mag-hero .hp-hero-deck {
+    height: auto;
+    overflow: visible;
+  }
+  .hp-all-stories { display: none; }
+}
+.hp-rail-all {
+  margin-top: 0.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.35rem 0;
+}
+.hp-rail-all:hover,
+.hp-rail-all:focus-visible { text-decoration: underline; }
+/* Phones/tablets: no big gap above the buttons; full-width centered buttons with 16px sides. */
+@media (max-width: 900px) {
+  .hp-mag-hero .hp-mag-hero-copy {
+    padding: 0.85rem 16px 0.5rem;
+  }
+  .hp-mag-hero .hp-hero-deck {
+    height: auto;
+    overflow: visible;
+    margin-bottom: 0.85rem;
+  }
+  .hp-mag-hero .hp-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+  .hp-mag-hero .hp-cta-row .hp-cta {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  /* Credit: full-opacity --muted for ≥4.5:1 on the light panel. */
+  .hp-mag-hero .hp-mag-hero-copy .hp-photo-credit {
+    color: var(--muted);
+    opacity: 1;
+    min-height: 0;
+  }
+}
+/* 1280: the lead fills the full row height (no empty band under it when the side list
+   is taller), and the map strip below spans both columns on the same grid edges. */
+@media (min-width: 901px) {
+  .hp-lead-grid > .hp-mag-hero {
+    height: auto !important;
+    min-height: 440px !important;
+    max-height: none !important;
+    align-self: stretch;
+  }
+  .hp-lead-grid > .hp-mag-hero > .hp-lead-story { height: 100%; }
+  .hp-page .hp-map-strip {
+    max-width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+
 /* #261: one subheading. Desktop shows it beside the seal and hides the band below;
    phones hide the header line and keep the band. */
 @media (min-width: 601px) {
@@ -4441,4 +4835,63 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     line-height: 1.35;
     max-width: 26rem;
   }
+}
+
+/* #262: phone swipe titles show up to 3 lines with no ellipsis; the row's fixed
+   height grows to fit (still reserved in CSS, not set by JS). */
+.hp-story-swipe { height: 208px; }
+.hp-swipe-card-title {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  max-height: calc(0.9rem * 1.25 * 3);
+}
+/* 1280: lead capped at 440px tall; the photo covers that box. */
+@media (min-width: 901px) {
+  .hp-lead-grid > .hp-mag-hero {
+    min-height: 0 !important;
+    height: 440px !important;
+    max-height: 440px !important;
+    align-self: start;
+  }
+  .hp-lead-grid > .hp-mag-hero > .hp-lead-story {
+    height: 440px;
+    min-height: 0;
+    max-height: 440px;
+  }
+  .hp-lead-media-link .hp-mag-hero-img,
+  .hp-lead-media-link picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* 1280: side list matches the 440px lead exactly — smaller thumbs (96×80, same ratio),
+   tighter gaps; the 4 cards spread to fill the column so there is no gap under either. */
+@media (min-width: 901px) {
+  .hp-lead-grid { align-items: start; }
+  .hp-story-rail {
+    height: 440px;
+    gap: 0.45rem;
+  }
+  .hp-story-rail-list {
+    flex: 1 1 auto;
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+  .hp-rail-card {
+    grid-template-columns: 96px 1fr;
+    gap: 0.65rem;
+    min-height: 80px;
+  }
+  .hp-rail-card picture,
+  .hp-rail-card picture img,
+  .hp-rail-card .hp-rail-card-img,
+  .hp-rail-card-ph {
+    width: 96px;
+    height: 80px;
+  }
+  .hp-rail-card-title { font-size: 0.95rem; line-height: 1.25; }
+  .hp-rail-all { margin-top: 0; padding: 0.15rem 0 0; line-height: 1.3; }
 }
