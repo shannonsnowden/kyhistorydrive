@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import {
   AI_IDS,
+  NO_PORTRAIT_IDS,
   PORTRAIT_DIR,
   PUBLIC_PEOPLE,
   assertLicenseRules,
@@ -167,6 +168,12 @@ async function main() {
   assertLicenseRules()
   sharp.cache(false)
   fs.mkdirSync(portraitDir, { recursive: true })
+  for (const id of NO_PORTRAIT_IDS) {
+    for (const ext of ['webp', 'jpg']) {
+      const file = path.join(portraitDir, `${id}-512.${ext}`)
+      if (fs.existsSync(file)) fs.unlinkSync(file)
+    }
+  }
   fs.mkdirSync(path.dirname(path.join(root, PUBLIC_PEOPLE)), { recursive: true })
   const people = sourcePeople()
   const skipped = []
@@ -174,6 +181,7 @@ async function main() {
   const realCandidates = []
 
   for (const person of people) {
+    if (NO_PORTRAIT_IDS.includes(person.id)) continue
     if (findAiPortrait(person.id, portraitDir)) continue
     const hasSource = Boolean(person.image)
     if (person.freeToUse && person.verified && hasSource && !isClearFreeLicense(person.license)) {
@@ -226,6 +234,7 @@ async function main() {
   }
 
   const records = people.map((person) => {
+    if (NO_PORTRAIT_IDS.includes(person.id)) return publicRecord(person, null, false)
     const aiImage = findAiPortrait(person.id, portraitDir)
     if (aiImage) {
       const credited = {

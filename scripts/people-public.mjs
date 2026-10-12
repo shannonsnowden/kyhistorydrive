@@ -10,6 +10,18 @@ export const AI_LICENSE = 'Original AI illustration'
 export const PORTRAIT_DIR = 'public/people/portraits'
 export const PUBLIC_PEOPLE = 'public/data/people.json'
 
+/**
+ * Never ship a headshot for these ids.
+ * Lomax: the Commons file is Confederate general Lunsford L. Lomax, a different man.
+ * Briscoe was an infant landowner. Harrison is unidentified. Stitzel’s photo rights are unknown.
+ */
+export const NO_PORTRAIT_IDS = [
+  'lunsford-lomax',
+  'hezekiah-briscoe',
+  'benjamin-harrison-col',
+  'frederick-stitzel',
+]
+
 /** Approved AI illustrations already in the repo. Dragging Canoe is v2. */
 export const AI_IDS = [
   'blackfish',
