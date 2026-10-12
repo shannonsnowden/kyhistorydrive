@@ -40,7 +40,7 @@ export function siteChromeScriptHtml() {
           document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
             var light = theme === 'light'
             btn.setAttribute('aria-pressed', light ? 'true' : 'false')
-            btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme')
+            btn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode')
             var label = btn.querySelector('.hp-theme-toggle-label')
             var icon = btn.querySelector('.hp-theme-toggle-icon')
             if (label) label.textContent = light ? 'Dark' : 'Light'
@@ -108,8 +108,9 @@ export function siteHeaderHtml(activeRoute = '') {
         ${item('home', '/', 'Home')}
         ${item('map', '/#map', 'Map')}
         ${item('timeline', '/#timeline', 'Timeline')}
+        ${item('people', '/people/', 'People')}
         ${item('about', '/about/', 'About')}
-        <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
           <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
           <span class="hp-theme-toggle-label">Light</span>
         </button>
