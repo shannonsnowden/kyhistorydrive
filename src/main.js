@@ -1684,11 +1684,9 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
     if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
   }
   if (w < 760) {
-    const boxW = Math.min(460, Math.max(200, w - 16))
-    const left = pt.x - boxW / 2
-    const right = left + boxW
-    if (left < 8) dx = left - 8
-    else if (right > w - 8) dx = right - (w - 8)
+    // Center the pin so an upward card can use a centered tip (not bottom-left).
+    const targetX = w / 2
+    if (Math.abs(pt.x - targetX) > 10) dx = pt.x - targetX
   }
   if (!dx && !dy) return
   const c = targetMap.project(targetMap.getCenter())
@@ -1711,7 +1709,7 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
 function popupPlacement(targetMap, lngLat) {
   const el = targetMap?.getContainer?.()
   if (!el || !lngLat) {
-    return { anchor: 'top', maxHeightPx: 420, maxWidth: '440px' }
+    return { anchor: 'top', maxHeightPx: 420, maxWidth: '440px', offset: 14 }
   }
   const pt = targetMap.project(lngLatPair(lngLat))
   const w = el.clientWidth
@@ -1728,16 +1726,19 @@ function popupPlacement(targetMap, lngLat) {
     : spaceBelow < 220 || spaceAbove > spaceBelow
   let anchor = openUp ? 'bottom' : 'top'
   const half = popupW / 2
-  if (pt.x - half < pad && w - pt.x > pad + 160) {
-    anchor = openUp ? 'bottom-left' : 'top-left'
-  } else if (pt.x + half > w - pad && pt.x > pad + 160) {
-    anchor = openUp ? 'bottom-right' : 'top-right'
+  // Corner tips only when opening downward. Upward cards stay tip-centered over
+  // the pin so the More pill and bottom edge do not sit on the marker (#213).
+  if (!openUp) {
+    if (pt.x - half < pad && w - pt.x > pad + 160) anchor = 'top-left'
+    else if (pt.x + half > w - pad && pt.x > pad + 160) anchor = 'top-right'
   }
   const avail = openUp ? spaceAbove : spaceBelow
   // Tip, offset, and a margin so the card stays inside the map, clear of the
   // site header above the canvas and the footer below it.
   const maxHeightPx = Math.max(w < 700 ? 96 : 120, Math.min(560, Math.floor(avail - 36)))
-  return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px` }
+  // Upward: clear the pin + protected ring (~12px) plus ~8px gap under the tip.
+  const offset = openUp ? 28 : 14
+  return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px`, offset }
 }
 
 function syncPopupFade(scroller) {
@@ -1765,9 +1766,22 @@ function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
   else if (again.right > mapRect.right - 4) shiftX = mapRect.right - 4 - again.right
   if (shiftX && popup?.setOffset) {
     const current = popup.getOffset?.()
-    const ox = current && typeof current.x === 'number' ? current.x : 0
-    const oy = current && typeof current.y === 'number' ? current.y : 14
-    popup.setOffset([ox + shiftX, oy])
+    let ox = 0
+    let gap = 14
+    if (typeof current === 'number') {
+      gap = current
+    } else if (Array.isArray(current)) {
+      ox = Number(current[0]) || 0
+      gap = Math.abs(Number(current[1]) || 14)
+    } else if (current && typeof current === 'object') {
+      if (typeof current.x === 'number') ox = current.x
+      if (typeof current.y === 'number') gap = Math.abs(current.y) || 14
+    }
+    // Point offsets are raw screen deltas (y+ is down). Numeric offsets move
+    // away from the pin, so upward (bottom*) anchors need a negative y.
+    const cls = popupEl?.className || ''
+    const openUp = cls.includes('anchor-bottom')
+    popup.setOffset([ox + shiftX, openUp ? -gap : gap])
   }
 }
 
@@ -1840,7 +1854,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     closeButton: true,
     closeOnClick: true,
     maxWidth: place.maxWidth,
-    offset: 14,
+    offset: place.offset ?? 14,
     anchor: place.anchor,
     className: 'ky-popup',
   })
