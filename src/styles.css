@@ -3199,17 +3199,21 @@ html.route-lightbox-open { overflow: hidden; }
 .route-lightbox-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(61, 42, 18, 0.55);
+  background: rgba(61, 42, 18, 0.92);
 }
 html[data-hp-theme="dark"] .route-lightbox-backdrop {
   background: rgba(4, 8, 6, 0.94);
 }
 .route-lightbox-bar {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
+  flex: none;
   justify-content: flex-end;
+  align-items: center;
   padding: max(0.55rem, env(safe-area-inset-top)) 0.75rem 0.55rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
 }
 .route-lightbox-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .route-lightbox-btn {

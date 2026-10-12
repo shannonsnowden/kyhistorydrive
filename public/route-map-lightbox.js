@@ -167,6 +167,11 @@
     })
     window.addEventListener('resize', function () {
       if (!dialog || dialog.hidden) return
+      if (!gestured) {
+        scale = heightFitScale()
+        tx = 0
+        ty = 0
+      }
       clampPan()
       apply(false)
     })
@@ -239,6 +244,23 @@
     tx = 0
     ty = 0
     apply(animate)
+  }
+
+  /** Portrait phones letterbox a wide map. Open it tall enough to fill the stage. */
+  function heightFitScale() {
+    var phonePortrait = window.matchMedia('(max-width: 699px) and (orientation: portrait)').matches
+    if (!phonePortrait) return 1
+    var nw = img.naturalWidth
+    var nh = img.naturalHeight
+    var cw = canvas.clientWidth
+    var ch = canvas.clientHeight
+    if (!nw || !nh || !cw || !ch) return 1
+    var laidHeight = nh * Math.min(cw / nw, ch / nh)
+    if (!laidHeight) return 1
+    var next = ch / laidHeight
+    if (next < 1.05) return 1
+    if (next > MAX_SCALE) return MAX_SCALE
+    return next
   }
 
   function toggleZoom(clientX, clientY) {
@@ -464,14 +486,17 @@
       if (gen !== loadGen) return
       dialog.setAttribute('aria-busy', 'false')
       statusEl.hidden = true
-      img.classList.add('is-ready')
-      if (!gestured) {
-        scale = 1
-        tx = 0
-        ty = 0
-      }
-      clampPan()
-      apply(false)
+      window.requestAnimationFrame(function () {
+        if (gen !== loadGen) return
+        if (!gestured) {
+          scale = heightFitScale()
+          tx = 0
+          ty = 0
+        }
+        clampPan()
+        apply(false)
+        img.classList.add('is-ready')
+      })
     }
     function fail() {
       if (gen !== loadGen) return
