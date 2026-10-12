@@ -3096,40 +3096,33 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
      and the control row stay on screen. */
   .hp-mag-hero { min-height: calc(100svh - 60px - 5.5rem); }
   .hp-mag-hero-copy {
-    /* Reserve a third credit line, then keep it above both control rows. */
+    /* Reserve a third credit line, then keep it above the 44px control row. */
     --hp-credit-lines: 3;
-    padding-bottom: calc(88px + 1.55rem);
+    padding-bottom: calc(44px + 1.6rem);
   }
-  /* ◀, dots, and ▶ stay on one row under the credit. Play sits on the row
-     above ▶ so six 44px dots still fit at 390px. */
+  /* One row under the credit: ◀, dots, Play, ▶. */
   .hp-hero-controls {
     left: 0.35rem;
     right: 0.35rem;
-    bottom: 0.4rem;
-    display: grid;
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
-    grid-template-rows: 44px 44px;
-    column-gap: 0;
-    row-gap: 0.35rem;
+    bottom: 0.45rem;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
+    gap: 0;
   }
-  .hp-hero-nav[data-hero-dir="-1"] { grid-column: 1; grid-row: 2; }
-  .hp-hero-nav[data-hero-dir="1"] { grid-column: 3; grid-row: 2; }
+  .hp-hero-nav,
   .hp-hero-playback {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: end;
-    width: 44px;
+    flex: 0 0 auto;
+  }
+  .hp-hero-playback {
     min-width: 44px;
     height: 44px;
-    padding: 0 0.1rem;
-    font-size: 0.68rem;
-    line-height: 1.05;
+    padding: 0 0.55rem;
+    font-size: 0.78rem;
     white-space: nowrap;
   }
   .hp-hero-dots {
-    grid-column: 2;
-    grid-row: 2;
+    flex: 1 1 auto;
     min-width: 0;
     overflow-x: auto;
     overscroll-behavior-x: contain;
@@ -3138,8 +3131,15 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     scrollbar-width: none;
   }
   .hp-hero-dots::-webkit-scrollbar { display: none; }
+  /* The painted dot stays 11px (::before). The button itself is a 44px tap
+     target, pulled together so the row fits at 390px. At 320px it may scroll. */
   .hp-hero-dot {
-    flex: 0 0 44px;
+    box-sizing: content-box;
+    flex: 0 0 auto;
+    width: 11px;
+    height: 11px;
+    padding: 16.5px;
+    margin-inline: -8px;
     scroll-snap-align: center;
   }
 }
