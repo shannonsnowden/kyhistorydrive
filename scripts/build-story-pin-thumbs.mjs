@@ -16,8 +16,8 @@ const LOCATIONS = path.join(ROOT, 'public/content/stories-locations.json')
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 const THEMES = {
-  light: { paper: '#f4ead6', land: '#e4d3ae', edge: '#6e4214', pin: '#85500f', ring: '#fffdf6' },
-  dark: { paper: '#1a241c', land: '#5a3d22', edge: '#e8d5a8', pin: '#c9893a', ring: '#1a241c' },
+  light: { paper: '#f4ead6', land: '#e4d3ae', edge: '#6e4214', pin: '#e0941f', ring: '#fff6e4' },
+  dark: { paper: '#1a241c', land: '#5a3d22', edge: '#e8d5a8', pin: '#f0a83a', ring: '#fff6e4' },
 }
 
 function publicGeo(lat, lon) {
@@ -54,7 +54,7 @@ function svgFor(theme, d, viewBox, x, y) {
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">` +
     `<rect width="1000" height="431.7" fill="${color.paper}"/>` +
     `<path fill="${color.land}" stroke="${color.edge}" stroke-width="8" stroke-linejoin="round" fill-rule="evenodd" d="${d}"/>` +
-    `<circle cx="${x}" cy="${y}" r="32" fill="${color.pin}" stroke="${color.ring}" stroke-width="10"/>` +
+    `<circle cx="${x}" cy="${y}" r="78" fill="${color.pin}" stroke="${color.ring}" stroke-width="18"/>` +
     `</svg>\n`
   )
 }

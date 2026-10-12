@@ -790,13 +790,36 @@ a.btn { text-decoration: none; display: inline-block; }
   margin-top: 0.75rem;
 }
 .static-cta { align-items: center; }
+.static-cta:has(.story-pin) {
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+}
 .static-cta:has(.story-pin) > .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
   height: 64px;
   min-height: 64px;
-  padding: 0 1rem;
+  min-width: 44px;
+  padding: 0 0.7rem;
   border-radius: 999px;
+  text-align: center;
+  line-height: 1.15;
+}
+@media (max-width: 520px) {
+  .static-cta:has(.story-pin) > .btn {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 44px;
+    padding: 0 0.45rem;
+    font-size: 0.72rem;
+  }
+  .static-cta:has(.story-pin) > .story-pin {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
 }
 .story-pin {
   display: inline-flex;
@@ -838,11 +861,12 @@ html[data-hp-theme="light"] .story-pin picture { background: #f4ead6; }
 .story-pin span {
   display: block;
   min-width: 0;
-  padding: 0 0.75rem 0 0.45rem;
+  padding: 0 0.65rem 0 0.4rem;
   color: var(--heading);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   line-height: 1.15;
+  white-space: nowrap;
 }
 .story-pin:hover {
   border-color: var(--accent);
@@ -2039,11 +2063,16 @@ html[data-hp-theme="light"] .era-other {
 .hp-map-strip {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.75fr);
-  gap: 1.15rem 1.75rem;
+  grid-template-areas:
+    "figure copy"
+    "figure pills";
+  column-gap: 1.75rem;
+  row-gap: 1rem;
   align-items: center;
   padding: 1.15rem clamp(1.25rem, 5vw, 4rem) 0.25rem;
 }
 .hp-map-strip > a[href="#map"] {
+  grid-area: figure;
   display: block;
   min-width: 0;
   color: inherit;
@@ -2105,7 +2134,7 @@ html[data-hp-theme="light"] .hp-map-seal {
     0 0 0 3px #6e4214,
     0 8px 20px rgba(40, 28, 12, 0.28);
 }
-.hp-map-strip-copy { container-type: inline-size; }
+.hp-map-strip-copy { grid-area: copy; min-width: 0; }
 .hp-map-strip-copy h2 {
   margin: 0 0 0.4rem;
   color: var(--heading);
@@ -2114,7 +2143,7 @@ html[data-hp-theme="light"] .hp-map-seal {
 }
 .hp-map-strip-copy p { margin: 0 0 0.85rem; }
 .hp-map-strip-list {
-  margin: 0 0 1rem;
+  margin: 0;
   padding-left: 1.15rem;
   color: var(--muted);
   font-size: 0.95rem;
@@ -2704,7 +2733,14 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     --hpq-foot-lines: 1;
     padding: 0.75rem 1.15rem;
   }
-  .hp-map-strip { grid-template-columns: 1fr; padding-top: 0.85rem; }
+  .hp-map-strip {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "figure"
+      "copy"
+      "pills";
+    padding-top: 0.85rem;
+  }
   .hp-mag-hero-copy { --hp-deck-lines: 5; --hp-credit-lines: 2; }
   .hp-page {
     --hp-logo: 96px;
@@ -3191,14 +3227,23 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   height: 100%;
   min-height: 100%;
 }
-/* Map pills under the strip copy, where the old button and link sat. */
+/* Map pills under the description. Floor is the 390px size; stack only below 360px. */
 .hp-thumb-row {
+  grid-area: pills;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 220px));
+  grid-template-columns: repeat(2, minmax(10.5rem, 13.75rem));
   justify-content: start;
   gap: 0.5rem;
   align-items: stretch;
   margin: 0;
+  min-width: 0;
+}
+@media (max-width: 1260px) and (min-width: 701px) {
+  .hp-map-strip {
+    grid-template-areas:
+      "figure copy"
+      "pills pills";
+  }
 }
 .hp-thumb-row > a {
   display: flex;
@@ -3239,11 +3284,12 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .hp-thumb-label {
   display: block;
   min-width: 0;
-  padding: 0 0.7rem 0 0.45rem;
+  padding: 0 0.35rem 0 0.22rem;
   color: var(--heading);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   line-height: 1.15;
+  white-space: nowrap;
 }
 .hp-thumb-row > a:hover {
   border-color: var(--accent);
@@ -3256,16 +3302,22 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
-@media (max-width: 420px) {
-  .hp-thumb-zoom { flex-basis: 56px; width: 56px; }
-  .hp-thumb-label { padding: 0 0.45rem 0 0.35rem; font-size: 0.75rem; }
-}
-@container (max-width: 300px) {
+@media (max-width: 440px) {
   .hp-thumb-zoom { flex-basis: 48px; width: 48px; }
-  .hp-thumb-label { padding: 0 0.35rem 0 0.3rem; font-size: 0.7rem; }
+  .hp-thumb-label { padding: 0 0.35rem 0 0.22rem; font-size: 0.7rem; }
+}
+@media (max-width: 380px) {
+  .hp-thumb-row {
+    width: calc(100% + 1.5rem);
+    margin-left: -0.75rem;
+  }
 }
 @media (max-width: 359px) {
-  .hp-thumb-row { grid-template-columns: minmax(0, 220px); }
+  .hp-thumb-row {
+    grid-template-columns: minmax(0, 13.75rem);
+    width: auto;
+    margin-left: 0;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .hp-thumb-row > a,
