@@ -1259,9 +1259,29 @@ a.related-card:hover .related-card-chevron {
   box-sizing: border-box;
 }
 .ky-popup .maplibregl-popup-close-button {
+  /* 44px hit area (WCAG 2.5.5); glyph stays visually small in the corner. */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--muted);
-  font-size: 1.15rem;
-  padding: 0.15rem 0.45rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  background: transparent;
+  border: 0;
+  border-radius: 0 10px 0 10px;
+  cursor: pointer;
+}
+.ky-popup .maplibregl-popup-close-button:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: -3px;
 }
 .ky-popup .maplibregl-popup-close-button:hover { color: var(--accent); }
 .ky-popup .maplibregl-popup-tip {
@@ -1270,7 +1290,7 @@ a.related-card:hover .related-card-chevron {
 }
 .map-popup h3 {
   margin: 0.2rem 0 0.35rem;
-  padding-right: 1.4rem;
+  padding-right: 2.4rem;
   font-size: 1.05rem;
   color: var(--heading);
   line-height: 1.25;
