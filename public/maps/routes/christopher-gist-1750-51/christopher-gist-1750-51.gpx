@@ -29,9 +29,9 @@
     <name>lower Salt Lick Creek, &quot;about 15 miles above the Falls&quot;</name>
     <desc>disputed; drawn near Grant/Owen cos.. KY. Approximate. Conjectural.</desc>
   </wpt>
-  <wpt lat="38.33" lon="-84.78">
-    <name>crosses the &quot;little Cuttaway&quot; (Kentucky River) at an island</name>
-    <desc>Kentucky River below Frankfort (approx.). Owen/Henry/Franklin cos., KY. Approximate. Conjectural.</desc>
+  <wpt lat="37.84" lon="-84.02">
+    <name>crosses the &quot;little Cuttaway&quot; (the Red River) at an island</name>
+    <desc>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</desc>
   </wpt>
   <wpt lat="37.33" lon="-81.20">
     <name>Bluestone River</name>
@@ -80,9 +80,9 @@
       <name>lower Salt Lick Creek, &quot;about 15 miles above the Falls&quot;</name>
       <desc>disputed; drawn near Grant/Owen cos.. KY. Approximate. Conjectural.</desc>
     </rtept>
-    <rtept lat="38.33" lon="-84.78">
-      <name>crosses the &quot;little Cuttaway&quot; (Kentucky River) at an island</name>
-      <desc>Kentucky River below Frankfort (approx.). Owen/Henry/Franklin cos., KY. Approximate. Conjectural.</desc>
+    <rtept lat="37.84" lon="-84.02">
+      <name>crosses the &quot;little Cuttaway&quot; (the Red River) at an island</name>
+      <desc>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</desc>
     </rtept>
     <rtept lat="37.33" lon="-81.20">
       <name>Bluestone River</name>
