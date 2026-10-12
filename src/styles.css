@@ -93,6 +93,15 @@ body.privacy-doc header.top {
 html[data-hp-theme="light"] body.privacy-doc header.top {
   background: #f3ead8;
 }
+/* Home: same solid fill. At 95% alpha + blur, hero images and headings scrolled under the sticky
+   header showed through as a ghost (visible in the 1280 light shots). */
+body.hp-page header.top {
+  background: #101812;
+  backdrop-filter: none;
+}
+html[data-hp-theme="light"] body.hp-page header.top {
+  background: #f3ead8;
+}
 .brand-home {
   display: inline-flex;
   align-items: center;
@@ -2727,8 +2736,8 @@ html[data-hp-theme="light"] .about-seal {
   align-items: center;
   padding: 1.15rem clamp(1.25rem, 5vw, 4rem) 0.25rem;
 }
-.hp-map-strip > a[href="#map"] {
-  grid-area: figure;
+.hp-map-strip-fig-wrap { grid-area: figure; min-width: 0; }
+.hp-map-strip-link {
   display: block;
   min-width: 0;
   color: inherit;
@@ -2752,8 +2761,8 @@ html[data-hp-theme="light"] .about-seal {
 html[data-hp-theme="light"] .hp-map-strip-img {
   background: #f4ead6;
 }
-.hp-map-strip > a[href="#map"]:hover .hp-map-strip-img,
-.hp-map-strip > a[href="#map"]:focus-within .hp-map-strip-img {
+.hp-map-strip-link:hover .hp-map-strip-img,
+.hp-map-strip-link:focus-visible .hp-map-strip-img {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
 }
@@ -5207,3 +5216,76 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 .static-story .story-body::after { content: ''; display: block; clear: both; }
 .static-story .learn-more,
 .static-story .route-map { clear: both; }
+
+/* Homepage "Plan your drive" entry. Seal art unchanged (native 576px file, shown smaller, never recolored). */
+.hp-map-strip-link .hp-map-seal {
+  left: 2.5%;
+  top: 5%;
+  height: 42%;
+  transform: none;
+}
+.hp-plan-drive {
+  position: absolute;
+  z-index: 2;
+  left: 58%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 0.75rem 1rem 0.85rem;
+  border-radius: 14px;
+  background: rgba(16, 24, 18, 0.9);
+  color: #f6edd8;
+  border: 1px solid rgba(201, 137, 58, 0.7);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  max-width: 92%;
+}
+html[data-hp-theme="light"] .hp-plan-drive {
+  background: rgba(255, 253, 246, 0.94);
+  color: #3d2a12;
+  border-color: rgba(133, 80, 15, 0.55);
+}
+.hp-plan-drive-title {
+  font: 800 clamp(1.5rem, 4vw, 2.9rem)/1.05 "Segoe UI", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.hp-plan-drive-promise { font-size: clamp(0.85rem, 1.4vw, 1.05rem); font-weight: 500; }
+.hp-plan-drive-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  background: #c9893a;
+  color: #1a140c;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+.hp-map-strip-link:hover .hp-plan-drive-pill,
+.hp-map-strip-link:focus-visible .hp-plan-drive-pill { background: #e0a050; }
+.hp-map-strip-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.hp-map-strip-explore { margin: 0.25rem 0 0; font-size: 0.95rem; }
+.hp-map-strip-explore a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .hp-map-strip-link .hp-map-seal { height: 34%; top: 4%; left: 2%; }
+  /* Phones: the plaque moves below the map so the whole KY map shows; seal stays top-left. */
+  .hp-plan-drive { position: static; transform: none; max-width: none; margin-top: 0.6rem; padding: 0.7rem 0.9rem 0.85rem; box-shadow: none; }
+  .hp-plan-drive-title { font-size: 1.6rem; }
+  .hp-plan-drive-promise { display: block; font-size: 0.95rem; }
+  .hp-plan-drive-pill { min-height: 44px; }
+  .hp-map-strip-figure { min-height: 0; }
+}
+
+/* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
+.hp-map-strip { scroll-margin-top: 14rem; }
+@media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }

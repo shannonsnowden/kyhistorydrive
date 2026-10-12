@@ -268,6 +268,11 @@ class PrerenderPages {
     )
     if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
     entries.push({ loc: `${PrerenderPages.SITE}/routes/`, lastmod: routesLast })
+    // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
+    for (const loc of PrerenderPages.drivePaths(root)) {
+      const src = loc === '/drives/build/' ? 'drives/build/index.html' : `public${loc}index.html`
+      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
+    }
     entries.push({
       loc: `${PrerenderPages.SITE}/privacy/`,
       lastmod: dates.lastmod.get('privacy/index.html') || '',
@@ -2800,6 +2805,17 @@ ${rows.join('\n')}
       throw new Error('prerender: homepage is missing the Kentucky history route maps anchor')
     }
     fs.writeFileSync(file, html)
+  }
+
+  /** /drives/, /drives/build/, then every public/drives/<slug>/index.html in order. */
+  static drivePaths(root) {
+    const dir = path.join(root, 'public/drives')
+    if (!fs.existsSync(path.join(dir, 'index.html'))) return []
+    const slugs = fs.readdirSync(dir, { withFileTypes: true })
+      .filter((d) => d.isDirectory() && fs.existsSync(path.join(dir, d.name, 'index.html')))
+      .map((d) => d.name)
+      .sort()
+    return ['/drives/', '/drives/build/', ...slugs.map((s) => `/drives/${s}/`)]
   }
 
   static writePage(dist, urlPath, html) {

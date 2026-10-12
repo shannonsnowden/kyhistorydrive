@@ -2,6 +2,7 @@
 <html lang="en" data-hp-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
     <script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],H=[B+'khd-logo-512.webp',B+'khd-logo-c-512.webp',B+'khd-logo-c2-512.webp'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];window.__khdLogoHi=H[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
@@ -162,6 +163,7 @@
         <a href="#map" data-route="map">Map</a>
         <a href="#timeline" data-route="timeline">Timeline</a>
         <a href="/people/" data-route="people">People</a>
+        <a href="/drives/">Drives</a>
         <a href="#about" data-route="about">About</a>
         <button
           type="button"
@@ -205,7 +207,8 @@
 
       <!-- Static picture only. The interactive marker map is the #map route, not a second map on this page. -->
       <section class="hp-map-strip" aria-labelledby="hp-map-strip-title">
-        <a href="#map" tabindex="-1" aria-label="Open the history map">
+        <div class="hp-map-strip-fig-wrap">
+        <a href="/drives/" class="hp-map-strip-link" aria-label="Plan Your Drive: Kentucky history drives">
         <div class="hp-map-strip-figure">
         <img
           id="hpMapStripImg"
@@ -231,8 +234,11 @@
           <source type="image/avif" srcset="/brand/khd-map-seal.avif" />
           <img src="/brand/khd-map-seal.webp" width="576" height="576" alt="" loading="lazy" decoding="async" />
         </picture>
+        <span class="hp-plan-drive" aria-hidden="true"><span class="hp-plan-drive-title">Plan Your Drive</span><span class="hp-plan-drive-promise">Pick a town and time; we’ll map the stops.</span><span class="hp-plan-drive-pill">Start planning →</span></span>
         </div>
         </a>
+        <p class="hp-map-strip-explore"><a href="#map" data-route="map">Explore the map →</a></p>
+        </div>
         <div class="hp-map-strip-copy">
           <p class="hp-kicker">Map</p>
           <h2 id="hp-map-strip-title">Explore Kentucky’s history map</h2>
