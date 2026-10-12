@@ -3734,15 +3734,7 @@ html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display:
   font-size: 0.95rem;
   line-height: 1.45;
 }
-.route-legend-hex {
-  display: inline-block;
-  flex: none;
-  width: 16px;
-  height: 16px;
-  background: var(--panel);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 0.6px var(--heading));
-}
+.route-legend-hex { display: inline-block; flex: none; width: 18px; height: 20px; }
 .route-map-expand {
   position: absolute;
   top: 0.55rem;
@@ -4212,4 +4204,21 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
   .timeline-read-toggle:focus-visible {
     outline: 3px solid Highlight;
   }
+}
+
+/* Critiquito 10/12: icon-only 44px Expand on phones so it doesn't cover the map art */
+@media (max-width: 699px) {
+  .route-map-expand {
+    top: auto;
+    bottom: 0.4rem;
+    right: 0.4rem;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    background: color-mix(in srgb, var(--panel) 88%, transparent);
+  }
+  .route-map-expand-text { display: none; }
+  .route-map-expand-icon { width: 20px; height: 20px; }
 }

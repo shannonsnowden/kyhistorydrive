@@ -1075,6 +1075,7 @@ class PrerenderPages {
       .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
       .route-map-phone-note a { color: var(--accent); }
       @media (max-width: 699px) {
+        .route-map-expand { top: auto; bottom: 0.4rem; right: 0.4rem; }
         .route-map-phone-note { display: block; }
         .has-phone-caption .route-map-caption-desk { display: none; }
         .route-map-caption-phone { display: block; }

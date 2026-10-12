@@ -356,7 +356,7 @@ export function routeMapZoomHtml(route, { thumb = false } = {}) {
         <svg class="route-map-expand-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
           <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
-        <span>Expand</span>
+        <span class="route-map-expand-text">Expand</span>
       </button>
     </div>`
 }
@@ -408,7 +408,7 @@ function linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel }
 
 function markerLegendHtml(route) {
   if (!route.stops.some((stop) => stop.conjectural)) return ''
-  return `<p class="route-marker-legend"><span class="route-legend-hex" aria-hidden="true"></span> Hexagon: conjectural stop</p>`
+  return `<p class="route-marker-legend"><svg class="route-legend-hex" viewBox="0 0 20 22" width="18" height="20" aria-hidden="true" focusable="false"><polygon points="10,1.5 18.5,6.25 18.5,15.75 10,20.5 1.5,15.75 1.5,6.25" fill="var(--panel)" stroke="var(--heading)" stroke-width="2" stroke-linejoin="round"/></svg> Hexagon: conjectural stop</p>`
 }
 
 function phoneCropNote(route) {
