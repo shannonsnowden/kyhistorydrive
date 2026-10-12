@@ -52,7 +52,10 @@ function walk(o, file, owner = null) {
 // Text files: a protected id followed within WINDOW chars (GPX/KML: also 200 before) by a fine KY lat/lon pair.
 const WINDOW = 400
 const PAIR = /(-?\d{2,3}\.\d+)["']?\s*[,\s]\s*(?:"?lon(?:gitude)?"?\s*[:=]\s*"?|lon=")?(-?\d{2,3}\.\d+)/g
-const idRe = new RegExp(`(?:^|[^a-z0-9-])(${[...ids].sort((x, y) => y.length - x.length).map((x) => x.replace(/[-]/g, '\\-')).join('|')})(?![a-z0-9-])`, 'g')
+function escapeRegExp(value) {
+  return String(value).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
+}
+const idRe = new RegExp(`(?:^|[^a-z0-9-])(${[...ids].sort((x, y) => y.length - x.length).map((x) => escapeRegExp(x)).join('|')})(?![a-z0-9-])`, 'g')
 function textScan(text, file) {
   for (const m of text.matchAll(idRe)) {
     const back = /\.(gpx|kml)$/.test(file) ? 200 : 0 // GPX/KML put the name after the coordinates
