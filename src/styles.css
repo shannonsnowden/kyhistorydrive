@@ -468,7 +468,7 @@ a#siteSearchInput {
 #about, #app {
   scroll-margin-top: 0;
 }
-.about-logo-block {
+.about-seals {
   scroll-margin-top: 0;
 }
 .panel-wide { padding: 1.5rem 1.25rem; max-width: 64rem; margin: 0 auto; }
@@ -1362,7 +1362,6 @@ a.related-card:hover .related-card-chevron {
 .about-app-data {
   font-size: 0.75rem;
   margin-top: 2.25rem;
-  opacity: 0.65;
 }
 
 .hero-welcome {
@@ -2040,47 +2039,60 @@ a.related-card:hover .related-card-chevron {
 }
 
 
-.about-logo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
+/* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2).
+   Dark ring is the existing gold #c9a227. Light ring is the existing navy #0b2a5b.
+   2px of transparent padding shows the card background between the ring and the artwork. */
+.about-seals {
   margin: 0.5rem 0 1.5rem;
-  padding: 1.25rem 1rem;
-  background: #0a0a0a;
+  padding: 1.1rem 1rem 1rem;
+  background: var(--surface);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
   border-radius: 14px;
-  box-shadow: inset 0 0 0 1px rgba(201, 137, 58, 0.15);
 }
-.about-logo {
-  width: min(360px, 88vw);
-  height: auto;
-  border-radius: 50%;
-  background: #000;
-  display: block;
-}
-.about-logo-caption {
-  margin: 0;
-  font-size: 0.85rem;
+.about-seals-title {
+  margin: 0 0 0.85rem;
+  font-size: 1.05rem;
+  color: var(--heading);
   text-align: center;
-  color: #E8DCC0;
 }
-@media (max-width: 600px) {
-  .about-logo-block {
-    max-height: 240px;
-    box-sizing: border-box;
-    overflow: hidden;
-    justify-content: center;
-    padding: 0.65rem 0.75rem;
-    gap: 0.4rem;
-  }
-  .about-logo {
-    width: auto;
-    max-width: min(200px, 70vw);
-    max-height: 168px;
-    height: auto;
-  }
+.about-seals-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
 }
+.about-seals-list li { margin: 0; }
+.about-seal {
+  display: block;
+  width: clamp(120px, 14vw, 160px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  /* 2px of the card background between the ring and the artwork's gold rim. */
+  padding: 2px;
+  border: 2px solid #c9a227;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+html[data-hp-theme="light"] .about-seal {
+  border: 2px solid #0b2a5b;
+  box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
+}
+.about-seals-caption {
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  text-align: center;
+  color: var(--muted);
+}
+@media (max-width: 479px) {
+  .about-seals-list { flex-direction: column; align-items: center; gap: 0.9rem; }
+  .about-seal { width: 132px; }
+}
+
 
 
 .share-row {
@@ -2942,10 +2954,12 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 }
 /* Header seal rotates per page load between khd-logo.png (black), khd-logo-c.png (cream center,
    navy band) and khd-logo-c2.png (cream center, gold rim edge). Inline script after #brandLogo; the
-   localStorage counter is khd-logo-n. One gold border and shadow suit all three on both headers. */
+   localStorage counter is khd-logo-n. Dark ring is gold #c9a227; light ring is navy #0b2a5b. */
 .brand-logo,
 .hp-page .brand-logo {
   background: transparent;
+  /* 2px of the header background between the ring and the artwork's gold rim. */
+  padding: 2px;
   border: 2px solid #c9a227;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
