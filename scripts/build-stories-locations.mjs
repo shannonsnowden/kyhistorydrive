@@ -201,6 +201,9 @@ const MANUAL_OVERRIDES = {
   // ceded tract (outside it), so the fuzzy Falls/Clarksville pin was misleading. No History pin
   // exists for the Piankashaw; leave the story unpinned (empty override = no place match).
   'piankashaw-claims-on-the-ohio-wabash': {},
+  // Tutelo: the body names Lower Shawneetown only as a mixed town where Henderson (1992) lists
+  // Tutelo among residents; a Tutelo pin there would imply a Tutelo village in Kentucky. Unpinned.
+  'tutelo-the-totteroy': {},
   // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
   'col-john-todd-of-lexington': {
     matchName: 'Col. John Todd of Lexington',

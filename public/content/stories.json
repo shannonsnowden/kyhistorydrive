@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T10:24:20.439Z",
+  "generatedAt": "2026-10-12T13:15:34.495Z",
   "count": 235,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -1228,6 +1228,32 @@
       "lon": -82.9,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Hardin Village Fort Ancient"
+    },
+    {
+      "slug": "iroquois-beaver-wars",
+      "title": "Iroquois Beaver Wars",
+      "publishedDate": "2026-08-27",
+      "summary": "In the 1600s the Haudenosaunee (Six Nations) fought wars across the Great Lakes and Ohio Valley, and later used them to claim rights over Kentucky.",
+      "yearStart": 1640,
+      "yearEnd": 1768,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-08-27",
+      "territory": {
+        "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+        "nation": "Six Nations (Haudenosaunee)",
+        "presenceLabel": "Conquest claim, no mapped area"
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
@@ -2973,7 +2999,7 @@
         "nation": "Illinois Confederation (Kaskaskia, Cahokia)",
         "yearStart": 1778,
         "yearEnd": 1803,
-        "presenceLabel": "Illinois (Illiniwek) town or declared claim in this area"
+        "presenceLabel": "Illinois (Illiniwek) towns and 1803 claim (regional context; none in Kentucky)"
       },
       "lat": null,
       "lon": null,
@@ -5959,33 +5985,6 @@
       "matchedPlace": "Big Bone Lick"
     },
     {
-      "slug": "iroquois-beaver-wars",
-      "title": "Iroquois Beaver Wars",
-      "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Iroquois Beaver Wars pressure, Shawnee hunting ground use, and the “middle ground” depopulation story that reshaped the Ohio Valley before Anglo stations.",
-      "yearStart": null,
-      "yearEnd": null,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "county": "",
-      "territory": {
-        "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
-        "nation": "Six Nations (Haudenosaunee)",
-        "presenceLabel": "Conquest claim, no mapped area"
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
       "slug": "kentucky-river-palisades",
       "title": "Kentucky River Palisades",
       "publishedDate": "2026-09-14",
@@ -6071,7 +6070,7 @@
       "slug": "osage-memory-of-the-ohio-valley",
       "title": "Osage Memory of the Ohio Valley",
       "publishedDate": "2026-09-26",
-      "summary": "The Osage (Wah-zha-zhe; Ni-U-Ko'n-Ska, \"Children of the Middle Waters\") are a Dhegiha Siouan people whose oral tradition and Nation Historic Preservation scholarship place…",
+      "summary": "Osage Nation oral tradition traces the Osage and other Dhegiha Siouan peoples to an ancestral homeland in the Ohio Valley.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",
@@ -6096,7 +6095,7 @@
         "nation": "Osage (Wazhazhe, Ni-U-Kon-Ska)",
         "yearStart": 1673,
         "yearEnd": 1823,
-        "presenceLabel": "Osage villages in Missouri (nothing drawn in Kentucky)",
+        "presenceLabel": "Osage Nation oral tradition: Ohio Valley homeland (villages drawn in Missouri; nothing in Kentucky)",
         "yearText": "c.1673 to c.1823"
       },
       "lat": null,
@@ -6108,7 +6107,7 @@
       "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
       "title": "Potawatomi fire-keepers and the Ohio Valley wars",
       "publishedDate": "2026-09-27",
-      "summary": "The Potawatomi (Bodéwadmi, \"keepers of the fire\") were the youngest sibling of the Anishinaabe Council of Three Fires. In the Beaver Wars they fought as French-allied…",
+      "summary": "The Potawatomi (Bodéwadmi, \"keepers of the fire\") are an Anishinaabe people of the western Great Lakes, part of the Council of Three Fires with the Ojibwe and Odawa.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",
@@ -6225,14 +6224,6 @@
         "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2007
       },
-      "territory": {
-        "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
-        "nation": "Susquehannock (Conestoga)",
-        "yearStart": 1550,
-        "yearEnd": 1763,
-        "presenceLabel": "Susquehannock or Conestoga village in this area",
-        "approxStart": true
-      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -6306,7 +6297,7 @@
       "slug": "yuchi-on-the-green-river-maps",
       "title": "Yuchi on the Green River maps",
       "publishedDate": "2026-09-05",
-      "summary": "John R. Swanton's federal tribal handbook notes that early colonial maps place a Yuchi (Euchee) town on a Kentucky river matching the Green. The Yuchi were a language-isolate…",
+      "summary": "John R. Swanton's 1953 handbook of North American tribes reports that some early maps placed a Yuchi town on a Kentucky river that appears to be the Green.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",
