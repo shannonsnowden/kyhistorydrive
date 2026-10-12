@@ -1,7 +1,19 @@
 {
   "phase": 1,
   "status": "proof-of-concept",
-  "dates": "Every opening year in this file is provisional. Research Bot is still confirming them.",
+  "dates": "Every opening year in this file is provisional. Research Bot is still confirming them. Parkway opening years stay provisional pending a check against KYTC's own document.",
+  "verification": {
+    "title": "Transportation map proof of concept: source verification",
+    "date": "2026-10-12",
+    "url": "https://github.com/shannonsnowden/ky-history-research/blob/main/findings/transportation/2026-10-12-transport-map-verification.md",
+    "commit": "c4b56b3",
+    "rules": [
+      "Do not use KYTC GIS line data. It has no explicit license and may involve cost recovery.",
+      "Rail geometry is USDOT/BTS NTAD North American Rail Network Lines, public domain.",
+      "Parkway geometry is USDOT/BTS NTAD National Highway System, public domain. OpenStreetMap (ODbL, credited as (c) OpenStreetMap contributors, in a separate file) is the alternative when NTAD is not used.",
+      "Parkway opening years stay provisional pending a check against KYTC's own document."
+    ]
+  },
   "filter": "A line is drawn when opened <= year and (closed > year or the feature has no closed year). This extract has no closed years.",
   "simplify": "Douglas-Peucker at about 100 meters, then coordinates rounded to 4 decimal places. Gaps of 2 km or less between pieces of the same route were closed with a straight segment. Fragments shorter than 2 km that did not join were dropped.",
   "retrieved": "2026-10-12",
@@ -15,12 +27,15 @@
   },
   "notUsed": [
     {
-      "source": "Kentucky Transportation Cabinet road centerlines",
-      "reason": "The license is not clear for redistribution. KYTC says it reserves the right to recover costs if the data is used for profit, and reproduction of the official highway map needs Cabinet approval. Parkway geometry was taken from NTAD instead."
+      "source": "Kentucky Transportation Cabinet GIS line data",
+      "reason": "Do not use. KYTC GIS line data has no explicit license and may involve cost recovery. Parkway lines in this extract come from the NTAD National Highway System instead.",
+      "verification": "https://github.com/shannonsnowden/ky-history-research/blob/main/findings/transportation/2026-10-12-transport-map-verification.md",
+      "verificationCommit": "c4b56b3"
     },
     {
       "source": "OpenStreetMap",
-      "reason": "Not used. NTAD National Highway System already includes the Kentucky parkways under a public-domain U.S. government license, so no ODbL extract was needed."
+      "reason": "Not used. Parkway geometry is NTAD (public domain). If OpenStreetMap is used later, keep it in a separate labeled file, under the Open Database License, and credit (c) OpenStreetMap contributors.",
+      "license": "Open Database License (ODbL)"
     }
   ],
   "datasets": [
@@ -122,7 +137,7 @@
       "opened": 1963,
       "openedLabel": "1963",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. Elizabethtown to near Eddyville opened in 1963; a short 1968 connection to I-24 is not split out.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Elizabethtown to near Eddyville opened in 1963; a short 1968 connection to I-24 is not split out. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Western Kentucky Parkway. Provisional opening 1963.",
@@ -135,7 +150,7 @@
       "opened": 1963,
       "openedLabel": "1963",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. The Winchester–Campton road is usually dated 1963; the Campton–Salyersville mileage in this extract uses the same provisional year.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The Winchester–Campton road is usually dated 1963; the Campton–Salyersville mileage in this extract uses the same provisional year. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Bert T. Combs Mountain Parkway. Provisional opening 1963.",
@@ -148,7 +163,7 @@
       "opened": 1965,
       "openedLabel": "1965",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. Opened in November 1965 as the Kentucky Bluegrass Parkway.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Opened in November 1965 as the Kentucky Bluegrass Parkway. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Bluegrass Parkway, Elizabethtown to Versailles. Provisional opening 1965.",
@@ -161,7 +176,7 @@
       "opened": 1966,
       "openedLabel": "1966",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Purchase Parkway, Fulton to the Kentucky Dam area. Provisional opening 1966.",
@@ -174,7 +189,7 @@
       "opened": 1969,
       "openedLabel": "1969",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. The original Henderson–Hopkinsville parkway is dated 1969.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The original Henderson–Hopkinsville parkway is dated 1969. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Pennyrile Parkway. Provisional opening 1969.",
@@ -187,7 +202,7 @@
       "opened": 1970,
       "openedLabel": "1970",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. Dedicated 18 December 1970.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Dedicated 18 December 1970. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Audubon Parkway, Henderson to Owensboro. Provisional opening 1970.",
@@ -200,7 +215,7 @@
       "opened": 1971,
       "openedLabel": "1971",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. Later renamed the Hal Rogers Parkway.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Later renamed the Hal Rogers Parkway. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Daniel Boone Parkway (now Hal Rogers), London to Hazard. Provisional opening 1971.",
@@ -213,7 +228,7 @@
       "opened": 1972,
       "openedLabel": "1972",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. Later renamed the William H. Natcher Parkway.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Later renamed the William H. Natcher Parkway. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Green River Parkway (now Natcher), Bowling Green to Owensboro. Provisional opening 1972.",
@@ -226,7 +241,7 @@
       "opened": 1973,
       "openedLabel": "1973",
       "dateStatus": "provisional",
-      "dateNote": "Provisional. Research Bot is still confirming this date. Sections opened in 1972 and 1973; the line is drawn from 1973.",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Sections opened in 1972 and 1973; the line is drawn from 1973. The year stays provisional pending a check against KYTC's own document (verification commit c4b56b3).",
       "dataset": "ntad-nhs",
       "file": "parkways.geojson",
       "summary": "Cumberland Parkway, Somerset to I-65. Provisional completion 1973 (sections from 1972).",
