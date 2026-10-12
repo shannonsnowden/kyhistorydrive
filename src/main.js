@@ -1,4 +1,4 @@
-import maplibregl from 'maplibre-gl'
+import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
@@ -63,9 +63,10 @@ function cartoRasterStyle(key) {
 const OSM_STYLE = CARTO_KEY ? cartoRasterStyle(CARTO_KEY) : CARTO_VECTOR_STYLE
 
 /**
- * Map credits. MapLibre GL JS before 6.4.1 writes attribution from style and
- * tile metadata with innerHTML (CVE-2026-85061). This string is the only
- * credit the control may show; source metadata is cleared before it reads it.
+ * Map credits. MapLibre writes attribution from style and tile metadata as HTML
+ * (CVE-2026-85061, fixed in 6.4.1). Keep credits on this local string anyway:
+ * source metadata is cleared before the control reads it, so a remote style
+ * cannot supply the markup.
  */
 const MAP_ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>'
