@@ -1451,7 +1451,7 @@ class PrerenderPages {
     if (gaProblems.length) {
       throw new Error(`prerender: ${urlPath} ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
-    if (!html.includes('class="top site-header"') || !html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
+    if (!html.includes('class="top site-header"') || html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
       throw new Error(`prerender: ${urlPath} is missing the shared homepage header`)
     }
     if (!html.includes('src="/brand/khd-logo.png"') || !html.includes("var B='/brand/'")) {
