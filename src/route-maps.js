@@ -4,6 +4,7 @@
  * that file gives one latitude/longitude pair.
  */
 import { routeMapOverlayHtml } from './route-map-geo.js'
+import { ROUTE_TRACKS } from './route-track-meta.js'
 export const SITE = 'https://kyhistorydrive.com'
 export const ORG_ID = `${SITE}/#organization`
 
@@ -59,7 +60,7 @@ export const ROUTE_MAPS = [
     stops: [
       wp('South Portsmouth / Fullerton, Greenup County, Kentucky, and Scioto County, Ohio', 'Lower Shawneetown', [38.7, -83.1]),
       wp('near Olive Hill and the Mount Sterling area, Carter, Bath, and Montgomery counties, Kentucky', 'Scioto prong', [38.137, -83.566], true),
-      wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.946, -84]),
+      wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.9, -84]),
       wp('near Clay City, Clark, Powell, and Estill counties, Kentucky', 'Red River crossing', [37.84, -84.02]),
       wp('Irvine, Estill County, Kentucky', 'Kentucky River ford', [37.69, -83.97]),
       wp('Gray Hawk, Jackson County, Kentucky', 'War Fork / Sand Gap', [37.4, -83.94]),
@@ -146,7 +147,7 @@ export const ROUTE_MAPS = [
       wp('Lancaster and the Circleville area, Fairfield and Pickaway counties, Ohio', 'Hockhocking and Maguck'),
       wp('Portsmouth, Ohio / South Portsmouth, Kentucky, Scioto County, Ohio, and Greenup County, Kentucky', 'Lower Shawneetown', [38.7, -83.0]),
       wp('Piqua, Miami County, Ohio', 'Pickawillany', [40.18, -84.24]),
-      wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.71, -83]),
+      wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.7, -83]),
       wp('Lewis, Mason, and Bracken counties, Kentucky', 'down the southeast side of the Ohio', null, true),
       wp('near Grant and Owen counties, Kentucky', 'lower Salt Lick Creek, disputed', [38.55, -84.7], true),
       wp('Red River near Clay City, Clark, Powell, and Estill counties, Kentucky', 'little Cuttaway (Red River)', [37.84, -84.02], true),
@@ -278,6 +279,9 @@ for (const route of ROUTE_MAPS) {
   if (route.slug === 'mantle-rock-and-the-trail-of-tears' && !route.sentence.includes('Northern Route')) {
     throw new Error('Mantle Rock route must use the NPS name Northern Route')
   }
+  if (!ROUTE_TRACKS[route.slug]?.gpx || !ROUTE_TRACKS[route.slug]?.kml) {
+    throw new Error(`route map ${route.slug} is missing GPX/KML from NOTES.md`)
+  }
   for (const stop of route.stops) {
     if (!stop.geo) continue
     for (const n of stop.geo) {
@@ -397,7 +401,7 @@ function linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel }
   }
   if (!items.length) return ''
   const level = headingLevel === 3 ? 3 : 2
-  return `<nav class="static-related route-links" aria-label="Related stories"><h${level}>Related stories</h${level}><ul class="related-list">${items.join('')}</ul></nav>`
+  return `<nav class="route-links" aria-label="Related stories"><h${level}>Related stories</h${level}><ul class="related-list">${items.join('')}</ul></nav>`
 }
 
 function phoneCropNote(route) {
@@ -405,6 +409,17 @@ function phoneCropNote(route) {
   const light = route.files.fullPng
   const dark = route.files.darkPng
   return `<p class="route-map-phone-note">Kentucky leg shown — <a class="route-map-full-link" href="${esc(light)}" data-href-light="${esc(light)}" data-href-dark="${esc(dark)}">view full route</a></p>`
+}
+
+function downloadsHtml(route) {
+  const meta = ROUTE_TRACKS[route.slug]
+  if (!meta?.gpx || !meta?.kml) return ''
+  const approx = meta.approximate ? ' (approximate)' : ''
+  return `<p class="route-downloads">
+      <a class="btn ghost small" href="${esc(meta.gpx)}" download>Download GPX${approx}</a>
+      <a class="btn ghost small" href="${esc(meta.kml)}" download>Download KML${approx}</a>
+      <span class="route-downloads-hint">for GPS and map apps</span>
+    </p>`
 }
 
 function stopsHtml(route) {
@@ -434,6 +449,7 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
           ${phoneCropNote(route)}
         </figcaption>
       </figure>
+      ${downloadsHtml(route)}
       ${stopsHtml(route)}
       ${note}
       <p class="route-sources muted">${esc(route.sources)}</p>
@@ -536,11 +552,6 @@ export function safeAssetUrl(value) {
   return parsed.href
 }
 
-function assignAsset(el, attr, value) {
-  const next = safeAssetUrl(value)
-  if (next && !/["&<>]/.test(next)) el.setAttribute(attr, next)
-}
-
 function paintStoryPinPictures(mode) {
   document.querySelectorAll('picture.story-pin-picture').forEach((pic) => {
     pic.querySelectorAll('source[data-theme]').forEach((src) => {
@@ -549,7 +560,10 @@ function paintStoryPinPictures(mode) {
     })
     const img = pic.querySelector('img')
     if (!img) return
-    assignAsset(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    const next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+    }
     img.remove()
     pic.appendChild(img)
   })
@@ -572,12 +586,18 @@ export function applyRouteMapTheme(theme) {
     })
     const img = pic.querySelector('img')
     if (!img) return
-    assignAsset(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    const next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+    }
     img.remove()
     pic.appendChild(img)
   })
   document.querySelectorAll('a.route-map-full-link').forEach((link) => {
-    assignAsset(link, 'href', link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+    const next = safeAssetUrl(link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) link.setAttribute('href', next)
+    }
   })
 }
 
@@ -587,10 +607,6 @@ export function routeMapThemeScript() {
         ${safeAssetUrl.toString()}
         var phone = '(max-width: 699px)'
         var desk = '(min-width: 700px)'
-        function assign(el, attr, value) {
-          var next = safeAssetUrl(value)
-          if (next && !/["&<>]/.test(next)) el.setAttribute(attr, next)
-        }
         function apply(theme) {
           var mode = theme === 'light' ? 'light' : 'dark'
           document.querySelectorAll('picture.story-pin-picture').forEach(function (pic) {
@@ -600,7 +616,10 @@ export function routeMapThemeScript() {
             })
             var img = pic.querySelector('img')
             if (!img) return
-            assign(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            var next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+            }
             img.remove()
             pic.appendChild(img)
           })
@@ -613,12 +632,18 @@ export function routeMapThemeScript() {
             })
             var img = pic.querySelector('img')
             if (!img) return
-            assign(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            var next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+            }
             img.remove()
             pic.appendChild(img)
           })
           document.querySelectorAll('a.route-map-full-link').forEach(function (link) {
-            assign(link, 'href', link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+            var next = safeAssetUrl(link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) link.setAttribute('href', next)
+            }
           })
         }
         function run() { apply(document.documentElement.getAttribute('data-hp-theme') || 'dark') }
