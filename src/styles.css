@@ -4168,18 +4168,24 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
     border-bottom-color: transparent;
   }
 }
-/* Reading mode: center a column whose story text is at most 70ch.
+/* Reading mode: center a wider column whose story text is at most 96ch.
+   With the map shown, the story column is ~52% of the viewport and the body
+   is held to 70ch. Hiding the map must give a visibly wider measure, so the
+   cap rises to 96ch (comfortable upper bound for long-form reading).
    The extra 2.6rem is the story card's horizontal padding and border, so the
-   body itself — not the card — is the 70ch measure. The sticky bar stays full width.
+   body itself — not the card — is the 96ch measure. The sticky bar stays full width.
    The photo stacks so it doesn't eat the line. */
+.timeline-layout.is-reading-wide {
+  --tl-read-measure: 96ch;
+}
 .timeline-layout.is-reading-wide .timeline-main > :not(.timeline-read-bar) {
-  width: min(100%, calc(70ch + 2.6rem));
-  max-width: calc(70ch + 2.6rem);
+  width: min(100%, calc(var(--tl-read-measure) + 2.6rem));
+  max-width: calc(var(--tl-read-measure) + 2.6rem);
   margin-inline: auto;
   box-sizing: border-box;
 }
 .timeline-layout.is-reading-wide .story-body {
-  max-width: 70ch;
+  max-width: var(--tl-read-measure);
 }
 .timeline-layout.is-reading-wide .story-reader .story-reader-layout,
 .timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
