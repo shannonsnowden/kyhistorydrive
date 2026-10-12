@@ -1153,18 +1153,42 @@ html[data-hp-theme="light"] .era-other {
   overscroll-behavior: contain;
   touch-action: pan-y;
 }
-/* Fade sits on the card shell, not in the scroll flow, and is removed at the end. */
+/* Fade + "More" sit on the card shell, not in the scroll flow; hidden at the end. */
 .ky-popup.has-more .maplibregl-popup-content::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 2.5rem;
+  height: 3.25rem;
   border-radius: 0 0 10px 10px;
-  background: linear-gradient(to bottom, transparent, var(--panel) 82%);
+  background: linear-gradient(to bottom, transparent, var(--panel) 72%);
   pointer-events: none;
 }
+.popup-more-hint {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.2rem;
+  z-index: 2;
+  pointer-events: none;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1;
+}
+.popup-more-hint span {
+  display: inline-block;
+  padding: 0.15rem 0.55rem 0.2rem;
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.ky-popup.has-more .popup-more-hint { display: block; }
 .ky-popup.maplibregl-popup {
   z-index: 5;
 }

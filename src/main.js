@@ -1657,12 +1657,17 @@ function waitForCamera(targetMap, timeout = 4000) {
 
 /**
  * Wide maps: park the pin near the top so the card opens under it and related
- * stories stay inside the map. Narrow maps: slide the pin sideways so a
- * centered card does not run off the left or right edge.
+ * stories stay inside the map. Narrow maps: park the pin in the lower third so
+ * the card opens above with room to scroll, and slide sideways so a centered
+ * card does not run off the left or right edge.
  */
 async function nudgeCameraForPopup(targetMap, lngLat) {
   if (!targetMap?.project || !targetMap.getContainer?.() || !lngLat) return
+  // A deep-link easeTo may still be queued; wait until the camera is quiet.
   await waitForCamera(targetMap)
+  if (targetMap.isMoving?.()) await waitForCamera(targetMap)
+  else await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))
+  if (targetMap.isMoving?.()) await waitForCamera(targetMap)
   const el = targetMap.getContainer()
   const w = el.clientWidth
   const h = el.clientHeight
@@ -1673,6 +1678,10 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
   if (w >= 700 && h >= 420) {
     const targetY = Math.round(Math.min(112, Math.max(72, h * 0.16)))
     if (pt.y > targetY + 28) dy = pt.y - targetY
+  } else if (w < 700) {
+    // Lower third: more space above the pin for the scrollable card body.
+    const targetY = Math.round(Math.min(h - 56, h * 0.68))
+    if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
   }
   if (w < 760) {
     const boxW = Math.min(460, Math.max(200, w - 16))
@@ -1711,8 +1720,12 @@ function popupPlacement(targetMap, lngLat) {
   const popupW = Math.min(460, Math.max(200, w - pad * 2))
   const spaceAbove = Math.max(0, pt.y - pad)
   const spaceBelow = Math.max(0, h - pt.y - pad)
-  // After the wide-map nudge the pin sits near the top, so the card opens below it.
-  const openUp = w >= 700 ? spaceBelow < 160 && spaceAbove > spaceBelow : spaceAbove > spaceBelow
+  // Wide maps: after the top nudge the card opens below the pin. Narrow maps:
+  // prefer opening upward whenever space below is tight, so the scrollable card
+  // stays inside the canvas (Critiquito #213 phone cut-off).
+  const openUp = w >= 700
+    ? spaceBelow < 160 && spaceAbove > spaceBelow
+    : spaceBelow < 220 || spaceAbove > spaceBelow
   let anchor = openUp ? 'bottom' : 'top'
   const half = popupW / 2
   if (pt.x - half < pad && w - pt.x > pad + 160) {
@@ -1723,7 +1736,7 @@ function popupPlacement(targetMap, lngLat) {
   const avail = openUp ? spaceAbove : spaceBelow
   // Tip, offset, and a margin so the card stays inside the map, clear of the
   // site header above the canvas and the footer below it.
-  const maxHeightPx = Math.max(120, Math.min(560, Math.floor(avail - 36)))
+  const maxHeightPx = Math.max(w < 700 ? 96 : 120, Math.min(560, Math.floor(avail - 36)))
   return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px` }
 }
 
@@ -1741,7 +1754,9 @@ function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
   if (rect.bottom > mapRect.bottom - 6) overflowY = Math.max(overflowY, rect.bottom - (mapRect.bottom - 6))
   if (rect.top < mapRect.top + 6) overflowY = Math.max(overflowY, mapRect.top + 6 - rect.top)
   if (overflowY > 1 && scroller) {
-    const next = Math.max(120, Math.floor(scroller.clientHeight - overflowY - 2))
+    // Allow a shorter card on phones so the body can scroll inside the canvas
+    // instead of clipping mid-sentence at the map edge.
+    const next = Math.max(88, Math.floor(scroller.clientHeight - overflowY - 2))
     scroller.style.maxHeight = `${next}px`
   }
   const again = popupEl.getBoundingClientRect()
@@ -1855,7 +1870,15 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
         (parseFloat(cs.paddingBottom) || 0) +
         (parseFloat(cs.borderTopWidth) || 0) +
         (parseFloat(cs.borderBottomWidth) || 0)
-      maxH = Math.max(120, Math.floor(place.maxHeightPx - chrome))
+      maxH = Math.max(place.maxHeightPx < 120 ? 88 : 120, Math.floor(place.maxHeightPx - chrome))
+      // Explicit "More" cue when the body scrolls (fade alone reads as a hard cut-off).
+      if (!content.querySelector('.popup-more-hint')) {
+        const hint = document.createElement('div')
+        hint.className = 'popup-more-hint'
+        hint.setAttribute('aria-hidden', 'true')
+        hint.innerHTML = '<span>More</span>'
+        content.appendChild(hint)
+      }
     }
     scroller.style.maxHeight = `${maxH}px`
     scroller.addEventListener('scroll', () => syncPopupFade(scroller), { passive: true })
@@ -3668,7 +3691,16 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
   const [lon, lat] = feature.geometry.coordinates
   const fp = feature.properties || {}
   const zoom = capProtectedZoom(Math.max(map.getZoom(), 12), fp.historyId, fp.id, fp.slug, placeId)
-  map.easeTo({ center: [lon, lat], zoom, duration: 600 })
+  // Wait for the zoom to settle before placing the popup. Otherwise the easeTo
+  // finishes after nudgeCameraForPopup and recenters the pin, undoing the
+  // phone lower-third offset and clipping the scrollable card (#213).
+  map.easeTo({ center: [lon, lat], zoom, duration: 600, essential: true })
+  await waitForCamera(map, 900)
+  // If easeTo had not started moving yet when waitForCamera checked, give it a
+  // beat and wait again so placement runs on the settled camera.
+  if (map.isMoving?.()) await waitForCamera(map, 900)
+  else await new Promise((r) => setTimeout(r, 50))
+  if (map.isMoving?.()) await waitForCamera(map, 900)
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
   return true
 }
