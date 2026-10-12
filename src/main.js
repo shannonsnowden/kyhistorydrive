@@ -1,5 +1,10 @@
-import maplibregl from 'maplibre-gl'
+import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+
+// Vite bundles this module, so import.meta.url no longer points at maplibre-gl.mjs.
+// The worker has to be set before the first Map (MapLibre GL JS 6, bundler installs).
+maplibregl.setWorkerUrl(maplibreWorkerUrl)
 import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
@@ -11,7 +16,19 @@ import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProt
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
-import { applyRouteMapTheme, routeMapSectionHtml } from './route-maps.js'
+import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
+import {
+  citeBoxHtml,
+  correctionHtml,
+  learnMoreBlockHtml,
+  markerRecords,
+  photoCreditHtml,
+  relatedAndNearbyForStory,
+  resolveArticleDates,
+  storyCanonicalUrl,
+  wireCiteBoxes,
+} from './story-tools.js'
+import { storyPinLinkHtml } from './story-pin.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -54,8 +71,6 @@ function cartoRasterStyle(key) {
         type: 'raster',
         tiles: [tile('a'), tile('b'), tile('c')],
         tileSize: 256,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
       },
     },
     layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
@@ -64,10 +79,60 @@ function cartoRasterStyle(key) {
 
 const OSM_STYLE = CARTO_KEY ? cartoRasterStyle(CARTO_KEY) : CARTO_VECTOR_STYLE
 
+/**
+ * Map credits. MapLibre writes attribution from style and tile metadata as HTML
+ * (CVE-2026-85061, fixed in 6.4.1). Keep credits on this local string anyway:
+ * source metadata is cleared before the control reads it, so a remote style
+ * cannot supply the markup.
+ */
+const MAP_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>'
+
+function stripSourceAttributions(mapInstance) {
+  let sources
+  try {
+    sources = mapInstance.getStyle()?.sources
+  } catch {
+    return
+  }
+  if (!sources) return
+  for (const id of Object.keys(sources)) {
+    const source = mapInstance.getSource(id)
+    if (source && source.attribution) source.attribution = ''
+  }
+}
+
+function attachFixedAttribution(mapInstance) {
+  const scrub = () => stripSourceAttributions(mapInstance)
+  // Register before AttributionControl so metadata events clear source
+  // credits before the control copies them into innerHTML.
+  mapInstance.on('styledata', scrub)
+  mapInstance.on('sourcedata', scrub)
+  mapInstance.on('load', scrub)
+  scrub()
+  mapInstance.addControl(
+    new maplibregl.AttributionControl({
+      customAttribution: MAP_ATTRIBUTION,
+      compact: false,
+    }),
+  )
+}
 
 // Statewide Kentucky (not Bagdad close-up)
 const CENTER = [-85.76, 37.84]
 const START_ZOOM = 6.4
+
+function createBasemap(container) {
+  const mapInstance = new maplibregl.Map({
+    container,
+    style: OSM_STYLE,
+    center: CENTER,
+    zoom: START_ZOOM,
+    attributionControl: false,
+  })
+  attachFixedAttribution(mapInstance)
+  return mapInstance
+}
 const KY_BOUNDS = [
   [-89.58, 36.5], // SW
   [-81.97, 39.15], // NE
@@ -322,6 +387,17 @@ function storyPlaceHash({ historyId, slug, lat, lon } = {}) {
   if (historyId) return `#map/history/${encodeURIComponent(historyId)}`
   if (lat != null && lon != null && slug) return `#map/stories/${encodeURIComponent(slug)}`
   return null
+}
+
+/** Same public-pin rule as prerender. A history id alone is not enough for a thumbnail. */
+function publicStoryGeo(lat, lon) {
+  if (lat == null || lon == null || lat === '' || lon === '') return null
+  const la = Number(lat)
+  const lo = Number(lon)
+  if (!Number.isFinite(la) || !Number.isFinite(lo)) return null
+  if (Math.abs(la) > 90 || Math.abs(lo) > 180) return null
+  if (la === 0 && lo === 0) return null
+  return { lat: la, lon: lo }
 }
 
 let storiesLocationsCache = null
@@ -944,9 +1020,9 @@ function collectResearchItems(linkList, extra = {}) {
     const normalized = normalizeResearchUrl(url)
     if (!normalized || isGrokipediaUrl(normalized) || seenUrl.has(normalized)) return
     seenUrl.add(normalized)
-    items.push({ label: labelForResearchUrl(normalized, label), url: normalized })
+    items.push({ label: labelForResearchUrl(normalized, label), linkText: label, url: normalized })
   }
-  for (const l of linkList || []) add(l.label, l.url)
+  for (const l of linkList || []) add(l.linkText || l.label, l.url)
   add('Kentucky Historical Society', extra.source_url)
   add('Website', extra.website)
 
@@ -973,7 +1049,7 @@ function extractResearchLinks(markdown) {
     const normalized = normalizeResearchUrl(url)
     if (!normalized || isGrokipediaUrl(normalized) || seen.has(normalized)) return
     seen.add(normalized)
-    links.push({ label: labelForResearchUrl(normalized, label), url: normalized })
+    links.push({ label: labelForResearchUrl(normalized, label), linkText: label, url: normalized })
   }
   for (const link of extractMarkdownLinks(markdown)) add(link.label, link.url)
   for (const url of extractBareHttpUrls(markdown)) {
@@ -1090,14 +1166,21 @@ function photosHtml(photos) {
     .map((p) => {
       const title = escapeHtml(p.title || 'Historic photo')
       const year = p.year ? escapeHtml(String(p.year)) : ''
-      const credit = escapeHtml(p.attribution || p.source_label || p.credit || '')
       const href = escapeHtml(p.source_url || p.image_url)
       const img = escapeHtml(p.image_url)
-      return `<a class="historic-photo-card" href="${href}" target="_blank" rel="noopener noreferrer">
-        <img src="${img}" alt="${title}" loading="lazy" />
-        <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
-        ${credit ? `<span class="historic-photo-attr">Source: ${credit}</span>` : ''}
-      </a>`
+      const creditLine = photoCreditHtml(p, { block: false })
+      const label = escapeHtml(
+        `Open ${p.source_label || p.source || p.credit || 'photo source'}: ${p.title || 'historic photo'} (opens in a new tab)`,
+      )
+      return `<figure class="historic-photo-card">
+        <a href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}">
+          <img src="${img}" alt="${title}" loading="lazy" />
+        </a>
+        <figcaption>
+          <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
+          ${creditLine}
+        </figcaption>
+      </figure>`
     })
     .join('')
   return `<div class="historic-photos"><div class="historic-photos-label">Historic photos</div><div class="historic-photos-grid">${cards}</div></div>`
@@ -1114,15 +1197,7 @@ function researchLinksHtml(links, title, extra = {}) {
     return !(fam && alreadyFamilies.has(fam))
   })
   if (!items.length) return ''
-  return `<div class="popup-research">
-    <div class="historic-photos-label">Learn more</div>
-    <ul class="research-list">${items
-      .map(
-        (l) =>
-          `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a></li>`,
-      )
-      .join('')}</ul>
-  </div>`
+  return learnMoreBlockHtml(items, { storyTitle: title || '' })
 }
 
 
@@ -1186,9 +1261,13 @@ function wikipediaTitleFromUrl(url) {
 }
 
 function stripHtmlCredits(html) {
-  return String(html || '')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
+  let text = String(html || '').replace(/<br\s*\/?>/gi, ' ')
+  let prev
+  do {
+    prev = text
+    text = text.replace(/<[^>]+>/g, '')
+  } while (text !== prev)
+  return text
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
@@ -1462,8 +1541,6 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
 function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
-  const sourceLabel = escapeHtml(photo.source_label || photo.credit || '')
-  const attribution = escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
   const year = photo.year ? escapeHtml(String(photo.year)) : ''
 
   const bits = [
@@ -1498,7 +1575,7 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
-      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>`
+      ${photoCreditHtml(photo)}`
   } else {
     thumb = `<p class="story-sidebar-photo-attr muted">No matching thumbnail yet — use a source link above.</p>`
   }
@@ -2244,12 +2321,7 @@ function initMap() {
     return
   }
   renderLayerToggles()
-  map = new maplibregl.Map({
-    container: 'mapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  map = createBasemap('mapCanvas')
   bindMapResize(map)
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
@@ -2472,12 +2544,7 @@ async function initTimelineMap() {
     })
     return
   }
-  timelineMap = new maplibregl.Map({
-    container: 'timelineMapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  timelineMap = createBasemap('timelineMapCanvas')
   timelineMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
   noteMapIdle(timelineMap)
   document.getElementById('timelineZoomFullState')?.addEventListener('click', () => {
@@ -2530,12 +2597,7 @@ function initStoriesMap() {
     requestAnimationFrame(() => storiesMap.resize())
     return
   }
-  storiesMap = new maplibregl.Map({
-    container: 'storiesMapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  storiesMap = createBasemap('storiesMapCanvas')
   storiesMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
   storiesMap.on('load', async () => {
     try {
@@ -2672,6 +2734,16 @@ async function loadStoryBody(slug) {
   const res = await fetch(`/content/stories/${encodeURIComponent(slug)}.json`)
   if (!res.ok) throw new Error('not found')
   return res.json()
+}
+
+let storyDatesCache = null
+async function loadStoryDates() {
+  if (!storyDatesCache) {
+    storyDatesCache = fetch('/content/story-dates.json')
+      .then((res) => (res.ok ? res.json() : {}))
+      .catch(() => ({}))
+  }
+  return storyDatesCache
 }
 
 function primaryStoryTag(story) {
@@ -2942,7 +3014,9 @@ function timelineHeaderOffset() {
 
 function timelineItemFor(slug) {
   if (!slug) return null
-  const esc = window.CSS?.escape ? window.CSS.escape(slug) : String(slug).replace(/"/g, '\\"')
+  const esc = window.CSS?.escape
+    ? window.CSS.escape(slug)
+    : String(slug).replace(/\\/g, '\\\\').replace(/"/g, '\\"')
   return document.querySelector(`#timelineList .timeline-item[data-slug="${esc}"]`)
 }
 
@@ -3054,6 +3128,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     el.classList.toggle('selected', el.dataset.slug === meta.slug)
   })
   try {
+    const markerFeaturesPromise = loadLayerFeatures('markers')
     await loadHistoricPhotoData()
     const s = await loadStoryBody(meta.slug)
     let historyId = meta.historyId || null
@@ -3104,6 +3179,15 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
     })
+    const pinHtml =
+      mapHash && publicStoryGeo(meta.lat ?? s.lat, meta.lon ?? s.lon)
+        ? storyPinLinkHtml({ href: `/${mapHash}`, title: s.title, slug: meta.slug })
+        : ''
+    const mapControl = pinHtml
+      ? pinHtml
+      : mapHash
+        ? `<a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>`
+        : ''
     const extras = placeDetailExtrasHtml({
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
@@ -3115,7 +3199,12 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       storyPhoto: s.photo || null,
     })
     const relatedData = await loadRelatedPeople()
-    const relTitles = Object.fromEntries(((await loadStories()).stories || []).map((x) => [x.slug, x.title]))
+    const storyIndex = await loadStories()
+    const markerFeatures = await markerFeaturesPromise
+    const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
+    const dateFile = (await loadStoryDates())[meta.slug] || {}
+    const articleDates = resolveArticleDates(s, dateFile)
+    const canonical = storyCanonicalUrl(meta.slug)
     const relTitleFor = (sl) => relTitles[sl]
     const sidebarPhoto = await resolveStorySidebarPhoto({
       title: s.title,
@@ -3154,18 +3243,42 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
             <div class="tags">${tags}</div>
-            ${
-              mapHash
-                ? `<div class="story-card-actions">
-              <a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>
-            </div>`
-                : ''
-            }
+            ${mapControl ? `<div class="story-card-actions">${mapControl}</div>` : ''}
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
           ${extras}
+          ${relatedAndNearbyForStory(
+            {
+              slug: meta.slug,
+              title: s.title,
+              era: s.era || meta.era,
+              tags: s.tags || meta.tags,
+              county: meta.county || s.county,
+              territoryNation: s.territoryNation || meta.territoryNation,
+              yearStart: s.yearStart ?? meta.yearStart,
+              yearEnd: s.yearEnd ?? meta.yearEnd,
+              lat: meta.lat ?? s.lat,
+              lon: meta.lon ?? s.lon,
+            },
+            storyIndex.stories,
+            markerRecords(markerFeatures),
+            {
+              headingLevel: 2,
+              excludeSlugs: routeBySlug(meta.slug)?.relatedStories || [],
+              excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
+              limit: 3,
+            },
+          )}
+          ${citeBoxHtml({
+            title: s.title,
+            url: canonical,
+            published: articleDates.published,
+            modified: articleDates.modified,
+            headingLevel: 3,
+          })}
+          ${correctionHtml({ title: s.title, url: canonical })}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
           ${
             mapHash
@@ -3186,6 +3299,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const summaryEl = reader.querySelector('.story-summary')
     if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)
+    wireCiteBoxes(reader)
     applyRouteMapTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
     mountStoryTerritory(reader, meta)
     if (rowItem) {

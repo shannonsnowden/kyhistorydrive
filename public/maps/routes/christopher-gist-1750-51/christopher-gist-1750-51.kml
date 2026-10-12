@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Christopher Gist, 1750–51 (approximate)</name>
+    <description>Approximate waypoints for Christopher Gist, 1750–51. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/christopher-gist-1750-51/</description>
+    <Placemark>
+      <name>Col. Thomas Cresap's at Old Town</name>
+      <description>Oldtown. Allegany Co., MD. Approximate.</description>
+      <Point><coordinates>-78.55,39.60,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Wyandot town on the Muskingum</name>
+      <description>Coshocton. Coshocton Co., OH. Approximate.</description>
+      <Point><coordinates>-81.86,40.27,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Lower Shawneetown (&quot;Shannoah Town&quot;), mouth of the Scioto</name>
+      <description>Portsmouth OH / South Portsmouth KY. Scioto Co., OH / Greenup Co., KY. Approximate.</description>
+      <Point><coordinates>-83.0,38.7,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Pickawillany (Twightwee town), Great Miami</name>
+      <description>Piqua. Miami Co., OH. Approximate.</description>
+      <Point><coordinates>-84.24,40.18,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>ferried over the Ohio into Kentucky</name>
+      <description>South Portsmouth. Greenup Co., KY. Approximate.</description>
+      <Point><coordinates>-83.0,38.7,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>lower Salt Lick Creek, &quot;about 15 miles above the Falls&quot;</name>
+      <description>disputed; drawn near Grant/Owen cos.. KY. Approximate. Conjectural.</description>
+      <Point><coordinates>-84.70,38.55,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>crosses the &quot;little Cuttaway&quot; (the Red River) at an island</name>
+      <description>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</description>
+      <Point><coordinates>-84.02,37.84,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bluestone River</name>
+      <description>Bluefield–Princeton area. Mercer Co., WV / Tazewell Co., VA. Approximate.</description>
+      <Point><coordinates>-81.20,37.33,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>crosses the New River by raft, ~8 mi above the Bluestone mouth</name>
+      <description>near Hinton. Summers Co., WV. Approximate.</description>
+      <Point><coordinates>-80.85,37.56,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>mountain pond (Mountain Lake), Sinking Creek</name>
+      <description>Mountain Lake. Giles Co., VA. Approximate.</description>
+      <Point><coordinates>-80.53,37.36,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Richard Hall's, farthest settler on the New River</name>
+      <description>near Blacksburg. Montgomery Co., VA. Approximate.</description>
+      <Point><coordinates>-80.35,37.18,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Carolina line; home on the Yadkin</name>
+      <description>upper Yadkin (exact homestead uncertain). Surry/Yadkin/Davie cos., NC. Approximate.</description>
+      <Point><coordinates>-80.55,36.12,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Christopher Gist, 1750–51 (approximate)</name>
+      <description>Approximate waypoints for Christopher Gist, 1750–51. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/christopher-gist-1750-51/</description>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>-78.55,39.60,0 -81.86,40.27,0 -83.0,38.7,0 -84.24,40.18,0 -83.0,38.7,0 -84.70,38.55,0 -84.02,37.84,0 -81.20,37.33,0 -80.85,37.56,0 -80.53,37.36,0 -80.35,37.18,0 -80.55,36.12,0</coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>
