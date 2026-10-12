@@ -3956,8 +3956,8 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
 }
 .transport-legend-list .is-future { opacity: 0.45; }
 .transport-swatch {
-  width: 1.15rem;
-  height: 0.32rem;
+  width: 24px;
+  height: 4px;
   border-radius: 2px;
   flex: none;
 }
@@ -4017,7 +4017,7 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
 .transport-popup-card h3 { margin: 0 0 0.25rem; color: var(--heading); font-size: 1.02rem; }
 .transport-popup-year { margin: 0 0 0.35rem; font-weight: 700; color: var(--accent); }
 .transport-popup-card p { margin: 0.3rem 0 0; font-size: 0.88rem; line-height: 1.4; }
-.transport-popup-note { color: var(--muted); }
+.transport-popup-note { color: var(--text); }
 @media (max-width: 900px) {
   .transport-section { display: flex; flex-direction: column; }
   .transport-controls { display: contents; }
@@ -4059,7 +4059,8 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
 }
 .transport-era-list li { display: flex; align-items: center; gap: 0.35rem; }
 .transport-swatch.is-future-swatch {
-  background: repeating-linear-gradient(90deg, #8a7f6a 0 4px, transparent 4px 7px);
+  background: repeating-linear-gradient(90deg, currentColor 0 6px, transparent 6px 10px);
+  opacity: 0.5;
 }
 .transport-endpoint { display: flex; align-items: center; gap: 3px; pointer-events: none; }
 .transport-endpoint i { width: 7px; height: 7px; border-radius: 50%; background: #fff8ea; border: 1.5px solid #2b1d0e; }
@@ -4090,3 +4091,43 @@ html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
 .transport-facts dd { margin: 0.1rem 0 0; }
 .transport-sources { padding-left: 1.1rem; margin: 0; }
 .transport-sources li { margin: 0.2rem 0; overflow-wrap: anywhere; }
+
+/* Critiquito 10/12: bigger legend, 44px slider target, sparse-year note */
+.transport-era-list { font-size: 0.92rem; gap: 0.45rem 1rem; }
+.transport-legend-label { font-size: 0.78rem; }
+.transport-slider { height: 44px; background: transparent; margin: 0.2rem 0 0; }
+.transport-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+}
+.transport-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+}
+.transport-slider::-webkit-slider-thumb { width: 26px; height: 26px; margin-top: -10px; }
+.transport-slider::-moz-range-thumb { width: 26px; height: 26px; }
+.transport-section .map-canvas-wrap { position: relative; }
+.transport-sparse {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 56px;
+  max-width: 22rem;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  z-index: 2;
+  pointer-events: none;
+}
+.transport-sparse[hidden] { display: none; }
+@media (max-width: 900px) {
+  /* Facts/sources sit under the map and legend on phones, not above the map. */
+  .transport-facts { order: 5; background: var(--panel); margin-top: 0; padding: 1rem; }
+}

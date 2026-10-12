@@ -21,12 +21,14 @@ const COLORS = {
     parkway: '#b5651d',
     bridge: '#fff8ea',
     bridgeStroke: '#2b1d0e',
+    future: '#8a7f6a',
   },
   dark: {
     bg: '#100e0c',
     land: '#173028',
     landLine: '#c9893a',
     casing: '#0b0a09',
+    future: '#cfc3a6',
     lo: '#f6e7c1',
     ln: '#e2b15a',
     cs: '#c9893a',
@@ -74,26 +76,47 @@ export function transportYearFilter(year) {
   ]
 }
 
+/* Decade hues are spaced around the wheel so neighbours never share a family
+ * (gold / brick red / violet / blue / cyan / green). Dark mode uses lighter
+ * tints of the same hues so every line clears 3:1 on the dark green land. */
 export const ERA_COLORS = [
   [1830, '#b8860b'],
-  [1850, '#d9480f'],
-  [1870, '#b5179e'],
-  [1880, '#5f3dc4'],
-  [1960, '#1864ab'],
-  [1970, '#087f5b'],
+  [1850, '#c92a2a'],
+  [1870, '#862e9c'],
+  [1880, '#3b5bdb'],
+  [1960, '#0c8599'],
+  [1970, '#2b8a3e'],
 ]
+const ERA_COLORS_DARK = {
+  1830: '#ffd43b',
+  1850: '#ff8787',
+  1870: '#da77f2',
+  1880: '#91a7ff',
+  1960: '#66d9e8',
+  1970: '#8ce99a',
+}
 
-function eraColorFor(year) {
-  let color = ERA_COLORS[0][1]
-  for (const [d, c] of ERA_COLORS) if (year >= d) color = c
+function eraList(theme = themeName()) {
+  return theme === 'dark' ? ERA_COLORS.map(([d]) => [d, ERA_COLORS_DARK[d]]) : ERA_COLORS
+}
+
+function eraColorFor(year, theme) {
+  const list = eraList(theme)
+  let color = list[0][1]
+  for (const [d, c] of list) if (year >= d) color = c
   return color
 }
 
-function eraColorExpr() {
-  const expr = ['step', ['get', 'opened'], ERA_COLORS[0][1]]
-  for (const [d, c] of ERA_COLORS.slice(1)) expr.push(d, c)
+function eraColorExpr(theme) {
+  const list = eraList(theme)
+  const expr = ['step', ['get', 'opened'], list[0][1]]
+  for (const [d, c] of list.slice(1)) expr.push(d, c)
   return expr
 }
+
+/* 3px lines (4px from county zoom), parkways a touch thinner, on a 1px casing. */
+const LINE_W = ['interpolate', ['linear'], ['zoom'], 7, ['match', ['get', 'kind'], 'parkway', 2.6, 3], 8.5, ['match', ['get', 'kind'], 'parkway', 3.4, 4]]
+const CASE_W = ['interpolate', ['linear'], ['zoom'], 7, ['match', ['get', 'kind'], 'parkway', 4.6, 5], 8.5, ['match', ['get', 'kind'], 'parkway', 5.4, 6]]
 
 function futureFilter(year) {
   return ['>', ['get', 'opened'], year]
@@ -137,7 +160,7 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
         type: 'line',
         source: 'sections',
         filter: futureFilter(DEFAULT_YEAR),
-        paint: { 'line-color': '#8a7f6a', 'line-width': 1.6, 'line-opacity': 0.55, 'line-dasharray': [2, 2] },
+        paint: { 'line-color': c.future, 'line-width': 2, 'line-opacity': 0.5, 'line-dasharray': [2, 2] },
       },
       {
         id: 'sec-casing',
@@ -145,7 +168,7 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
         source: 'sections',
         filter: transportYearFilter(DEFAULT_YEAR),
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': c.casing, 'line-width': ['match', ['get', 'kind'], 'parkway', 4.4, 5.2] },
+        paint: { 'line-color': c.casing, 'line-width': CASE_W },
       },
       {
         id: 'sec-line',
@@ -153,7 +176,7 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
         source: 'sections',
         filter: transportYearFilter(DEFAULT_YEAR),
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': eraColorExpr(), 'line-width': ['match', ['get', 'kind'], 'parkway', 2.4, 3] },
+        paint: { 'line-color': eraColorExpr(theme), 'line-width': LINE_W },
       },
       {
         id: 'bridge-circle',
@@ -179,6 +202,8 @@ function applyColors() {
   map.setPaintProperty('land', 'fill-color', c.land)
   map.setPaintProperty('land-line', 'line-color', c.landLine)
   map.setPaintProperty('sec-casing', 'line-color', c.casing)
+  map.setPaintProperty('sec-line', 'line-color', eraColorExpr(theme))
+  map.setPaintProperty('sec-future', 'line-color', c.future)
   map.setPaintProperty('bridge-circle', 'circle-color', c.bridge)
   map.setPaintProperty('bridge-circle', 'circle-stroke-color', c.bridgeStroke)
 }
@@ -206,13 +231,35 @@ function applyYear(year) {
   if (canvas) canvas.setAttribute('aria-label', `Kentucky transportation map in ${year}`)
   syncEndpoints(year)
   renderLegend(year)
+  renderSparseNote(year)
+}
+
+/** Early years show only one or two lines; say so, so the map doesn't read as a load failure. */
+function renderSparseNote(year) {
+  const note = document.getElementById('transportSparse')
+  if (!note || !sections) return
+  const open = new Set(
+    sections.features
+      .map((f) => f.properties)
+      .filter((p) => p.opened <= year && (p.closed == null || p.closed > year))
+      .map((p) => p.routeName || p.id),
+  )
+  if (open.size > 2) {
+    note.hidden = true
+    note.textContent = ''
+    return
+  }
+  const next = sections.features.map((f) => f.properties.opened).filter((y) => y > year).sort((a, b) => a - b)[0]
+  const count = open.size === 0 ? 'No lines open' : open.size === 1 ? '1 line open' : `${open.size} lines open`
+  note.textContent = `${count} in ${year}.${next ? ` The next opens in ${next}.` : ''}`
+  note.hidden = false
 }
 
 function renderLegend(year) {
   const list = document.getElementById('transportLegend')
   if (!list || !sections) return
   let html = '<p class="transport-legend-label">Completed by decade</p><ul class="transport-era-list">'
-  for (const [d, c] of ERA_COLORS) {
+  for (const [d, c] of eraList()) {
     html += `<li><i class="transport-swatch" style="background:${esc(c)}" aria-hidden="true"></i>${esc(d)}s</li>`
   }
   html += '<li><i class="transport-swatch is-future-swatch" aria-hidden="true"></i>Not yet open</li></ul>'
@@ -290,10 +337,31 @@ function onLineClick(e) {
   const feature = e.features && e.features[0]
   if (!feature) return
   const props = feature.properties || {}
-  new maplibregl.Popup({ className: 'transport-popup', maxWidth: window.innerWidth < 600 ? '230px' : '280px', closeButton: true })
+  const popup = new maplibregl.Popup({ className: 'transport-popup', maxWidth: window.innerWidth < 600 ? '230px' : '280px', closeButton: true })
     .setLngLat(e.lngLat)
     .setHTML(popupHtml(props))
     .addTo(map)
+  fitPopupAboveCredit(popup)
+}
+
+/** Keep the popup clear of the attribution strip: cap its height to the free canvas and scroll inside. */
+function fitPopupAboveCredit(popup) {
+  const content = popup.getElement()?.querySelector('.maplibregl-popup-content')
+  if (!content) return
+  const canvas = map.getContainer().getBoundingClientRect()
+  const attrib = map.getContainer().querySelector('.maplibregl-ctrl-bottom-right')
+  const creditH = attrib ? attrib.getBoundingClientRect().height : 0
+  content.style.maxHeight = `${Math.max(120, Math.floor(canvas.height / 2 - creditH - 16))}px`
+  content.style.overflowY = 'auto'
+  // Pan so the whole card sits inside the canvas, above the credit.
+  requestAnimationFrame(() => {
+    const r = popup.getElement().getBoundingClientRect()
+    const bottomLimit = canvas.bottom - creditH - 8
+    let dy = 0
+    if (r.bottom > bottomLimit) dy = r.bottom - bottomLimit
+    if (r.top - dy < canvas.top + 8) dy = r.top - canvas.top - 8
+    if (dy) map.panBy([0, dy], { duration: 250 })
+  })
 }
 
 function wireMap() {
@@ -307,7 +375,8 @@ function wireMap() {
     map.on('click', id, onLineClick)
   }
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
-  map.addControl(new maplibregl.AttributionControl({ customAttribution: ATTRIBUTION, compact: false }), 'bottom-right')
+  // Phones get the collapsed ⓘ credit so it never sits on a popup.
+  map.addControl(new maplibregl.AttributionControl({ customAttribution: ATTRIBUTION, compact: window.innerWidth < 600 }), 'bottom-right')
 }
 
 async function boot() {
@@ -337,6 +406,9 @@ async function boot() {
   })
   wireMap()
   await new Promise((resolve) => map.once('load', resolve))
+  if (window.innerWidth < 600) {
+    container.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show')
+  }
   addCountyLabels(labels)
   addEndpointLabels(ends)
   const observer = new MutationObserver(() => {
