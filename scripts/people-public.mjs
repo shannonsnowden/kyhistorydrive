@@ -37,6 +37,12 @@ export const AI_IDS = [
   'jane-todd-crawford',
   'lewis-craig',
   'nonhelema',
+  // Subject portraits for stories with no known likeness (Story Studio library, Oct 2026).
+  'blue-jacket',
+  'egushawa',
+  'mary-draper-ingles',
+  'richard-callaway',
+  'squire-boone',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [

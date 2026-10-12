@@ -157,6 +157,12 @@ const commonsFile = (u) =>
  * Also skipped when the story photo (sidebar) is the same Commons file as the portrait.
  * Returns { person, reason }.
  */
+/**
+ * Slug-prefix matches that are not the story's subject. The Red Bird River petroglyphs story is
+ * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
+ */
+const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
+
 export function storySubject(relatedData, people, story) {
   const slug = story?.slug
   if (!slug || !Array.isArray(people)) return { person: null, reason: '' }
@@ -170,6 +176,7 @@ export function storySubject(relatedData, people, story) {
   for (const p of withImage) {
     if ((p.stories || []).some((s) => s === slug && (s === p.id || s.startsWith(`${p.id}-`)))) hits.set(p.id, p)
   }
+  for (const id of NOT_SUBJECT[slug] || []) hits.delete(id)
   if (!hits.size) return { person: null, reason: '' }
   if (hits.size > 1) return { person: null, reason: `ambiguous: ${[...hits.keys()].join('/')}` }
   const person = [...hits.values()][0]
