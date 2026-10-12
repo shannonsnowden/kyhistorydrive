@@ -1,10 +1,11 @@
 {
-  "_about": "Inventory of named historical people in kyhistorydrive stories and free-to-use likenesses. Phase 1 research data; not shipped to the site. Generated 2026-10-12. Image URLs point to Wikimedia Commons; no images are stored in the repo yet.",
+  "_about": "Inventory of named historical people in kyhistorydrive stories. Research file, not shipped as-is. The build writes a slim public/data/people.json. Wikimedia URLs here are download sources for verified free portraits; the site self-hosts the files.",
   "_fields": {
     "likeness": "portrait | drawing | photo | none-known | doubtful",
     "timing": "life | posthumous | uncertain (relative to the sitter's lifetime)",
     "freeToUse": "true only when the Commons-stated license is public domain, CC0, CC BY or CC BY-SA and the likeness is not doubtful",
-    "verified": "license read from the Commons file page metadata (not guessed); false where metadata is thin or the likeness is doubtful"
+    "verified": "license read from the Commons file page metadata (not guessed); false where metadata is thin or the likeness is doubtful",
+    "ai": "true when an approved AI illustration is the portrait to ship; it must stay labeled and credited"
   },
   "people": [
     {
@@ -749,12 +750,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found.",
+      "ai": true
     },
     {
       "id": "elijah-craig",
@@ -888,12 +890,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting.",
+      "ai": true
     },
     {
       "id": "charles-scott",
@@ -1076,12 +1079,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "Commons image is a photo of a modern monument, not a likeness. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "Commons image is a photo of a modern monument, not a likeness. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting.",
+      "ai": true
     },
     {
       "id": "esther-whitley",
@@ -1099,12 +1103,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article.",
+      "ai": true
     },
     {
       "id": "william-whitley",
@@ -1217,12 +1222,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting.",
+      "ai": true
     },
     {
       "id": "blue-jacket",
@@ -2260,12 +2266,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article.",
+      "ai": true
     },
     {
       "id": "valentine-harman",
@@ -2626,12 +2633,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found.",
+      "ai": true
     },
     {
       "id": "evan-williams",
@@ -2647,12 +2655,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found.",
+      "ai": true
     },
     {
       "id": "e-h-taylor-jr",

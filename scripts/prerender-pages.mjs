@@ -56,6 +56,8 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
+import { portraitsByStorySlug, relatedBlockHtml } from '../src/related-people.js'
+import { initials } from './people-public.mjs'
 
 /** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
 export function preloadsPoster(html, poster) {
@@ -163,10 +165,22 @@ class PrerenderPages {
         dates.lastmod.get('index.html') || '',
       ),
     })
+    const relatedBundle = PrerenderPages.loadRelatedBundle(root)
+    const peopleHtml = PrerenderPages.peoplePage(relatedBundle.people, stories, cssHrefs)
+    PrerenderPages.assertPage(peopleHtml, { lat: null, lon: null }, '/people/')
+    PrerenderPages.assertPeople(peopleHtml, relatedBundle.people)
+    PrerenderPages.writePage(dist, '/people/', peopleHtml)
+    entries.push({
+      loc: `${PrerenderPages.SITE}/people/`,
+      lastmod: PrerenderPages.laterDate(
+        dates.lastmod.get('data/people.json') || '',
+        dates.lastmod.get('scripts/prerender-pages.mjs') || '',
+      ),
+    })
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
-      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers)
+      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers, relatedBundle)
       PrerenderPages.assertPage(html, story, urlPath)
       PrerenderPages.assertStory(html, story, description, stories, markers)
       PrerenderPages.writePage(dist, urlPath, html)
@@ -229,7 +243,7 @@ class PrerenderPages {
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
-      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, videos, privacy; sitemap ${sitemapCount} urls`,
+      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, people, videos, privacy; sitemap ${sitemapCount} urls`,
     )
     return {
       pages: stories.length + layers.length + 1,
@@ -1076,6 +1090,7 @@ class PrerenderPages {
       .route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
       .route-card p { margin: 0; }
       @media (max-width: 700px) { .place-list { columns: 1; } .route-card { grid-template-columns: 1fr; } }
+      .static-read:has(.people-page) { max-width: 76rem; }
     </style>
     <script>
       (function () {
@@ -1100,6 +1115,7 @@ class PrerenderPages {
     <footer class="foot">
       <span>kyhistorydrive.com</span>
       <a href="/about/">About</a>
+      <a href="/people/">People</a>
       <a href="/videos/">Videos</a>
       <a href="/routes/">Route maps</a>
       <a href="/privacy/">Privacy</a>
@@ -1227,7 +1243,7 @@ class PrerenderPages {
     return markers
   }
 
-  static storyPage(story, all, cssHrefs, layers, markers = []) {
+  static storyPage(story, all, cssHrefs, layers, markers = [], relatedBundle = null) {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
@@ -1291,6 +1307,7 @@ class PrerenderPages {
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
+          ${PrerenderPages.relatedPeopleSection(story, all, relatedBundle)}
           ${PrerenderPages.relatedAndNearbySection(story, all, markers)}
           ${citeBoxHtml({
             title: story.title,
@@ -1632,6 +1649,27 @@ class PrerenderPages {
     if (!html.includes(PrerenderPages.rssAlternateLink())) {
       throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
     }
+    const peopleAside = html.match(/<aside class="story-related"[\s\S]*?<\/aside>/)
+    if (peopleAside) {
+      if (!peopleAside[0].includes('Related people &amp; stories')) {
+        throw new Error(`prerender: ${urlPath} related people heading is missing`)
+      }
+      const shots = [...peopleAside[0].matchAll(/<img\b[^>]*>/g)].map((match) => match[0])
+      for (const img of shots) {
+        if (!img.includes('loading="lazy"') || !img.includes('width="36"') || !img.includes('height="36"')) {
+          throw new Error(`prerender: ${urlPath} headshot is missing lazy loading or 36px dimensions`)
+        }
+        if (!/alt="(?:Portrait of |AI illustration of )[^"]+"/.test(img)) {
+          throw new Error(`prerender: ${urlPath} headshot alt text is missing the person`)
+        }
+        if (!/src="\/people\/portraits\/[^"]+\.jpg"/.test(img) || /https?:/i.test(img)) {
+          throw new Error(`prerender: ${urlPath} headshot is not a self-hosted portrait`)
+        }
+      }
+    }
+    if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
+      throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
+    }
     const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
     if (!related || !related[0].includes('Related and nearby') || relatedCount < 3 || relatedCount > 5) {
@@ -1914,6 +1952,153 @@ class PrerenderPages {
     const transcript = PrerenderPages.transcriptFromVtt(fs.readFileSync(file, 'utf8'))
     if (!transcript) throw new Error(`prerender: ${film.id} transcript is empty`)
     return transcript
+  }
+
+  static loadRelatedBundle(root) {
+    const relatedFile = path.join(root, 'public/data/web/related-people.json')
+    const peopleFile = path.join(root, 'public/data/people.json')
+    if (!fs.existsSync(peopleFile)) throw new Error('prerender: public/data/people.json is missing; run build-people')
+    const data = PrerenderPages.readJson(relatedFile)
+    const people = PrerenderPages.readJson(peopleFile)
+    if (!Array.isArray(people.people) || !people.people.length) throw new Error('prerender: public people file is empty')
+    return { data, people, portraits: portraitsByStorySlug(data, people.people) }
+  }
+
+  static relatedPeopleSection(story, all, relatedBundle) {
+    if (!relatedBundle) return ''
+    const titleFor = (slug) => all.find((item) => item.slug === slug)?.title || ''
+    return relatedBlockHtml(relatedBundle.data, story.slug, titleFor, 'storyPeopleH', {
+      portraits: relatedBundle.portraits,
+      linkFor: (slug) => `/stories/${encodeURIComponent(slug)}/`,
+    })
+  }
+
+  static peopleSilhouette() {
+    return `<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10" fill="currentColor"/><path d="M12 56c2.2-12 9-18 20-18s17.8 6 20 18" fill="currentColor"/></svg>`
+  }
+
+  static peopleCard(person, titleFor) {
+    const name = PrerenderPages.escapeHtml(person.name)
+    const dates = person.dates ? `<p class="people-dates">${PrerenderPages.escapeHtml(person.dates)}</p>` : ''
+    const stories = (person.stories || [])
+      .map((slug) => {
+        const title = titleFor(slug)
+        if (!title) return ''
+        return `<li><a href="/stories/${encodeURIComponent(slug)}/">${PrerenderPages.escapeHtml(title)}</a></li>`
+      })
+      .filter(Boolean)
+      .join('')
+    const storyList = stories ? `<ul class="people-stories">${stories}</ul>` : ''
+    let media
+    if (person.image) {
+      const alt = person.ai ? `AI illustration of ${person.name}` : `Portrait of ${person.name}`
+      media = `<picture class="people-photo"><source srcset="${PrerenderPages.escapeHtml(person.image.webp)}" type="image/webp"><img src="${PrerenderPages.escapeHtml(person.image.jpg)}" width="512" height="512" alt="${PrerenderPages.escapeHtml(alt)}" loading="lazy" decoding="async"></picture>`
+    } else {
+      media = `<div class="people-fallback" aria-hidden="true">${PrerenderPages.peopleSilhouette()}<span class="people-initials">${PrerenderPages.escapeHtml(initials(person.name))}</span></div>`
+    }
+    const badge = person.ai ? `<p class="people-badge">AI illustration</p>` : ''
+    const credit = person.image
+      ? `<p class="people-credit">${PrerenderPages.escapeHtml(person.credit)}</p><p class="people-license">${PrerenderPages.escapeHtml(person.license)}</p>`
+      : ''
+    return `<li class="people-card" id="${PrerenderPages.escapeHtml(person.id)}">${media}<h3>${name}</h3>${dates}${badge}${credit}${storyList}</li>`
+  }
+
+  static peoplePage(peopleFile, stories, cssHrefs) {
+    const titleFor = (slug) => stories.find((story) => story.slug === slug)?.title || ''
+    const byName = (a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+    const illustrated = peopleFile.people.filter((person) => person.image).sort(byName)
+    const plain = peopleFile.people.filter((person) => !person.image).sort(byName)
+    const aiCount = illustrated.filter((person) => person.ai).length
+    const realCount = illustrated.length - aiCount
+    const pageUrl = `${PrerenderPages.SITE}/people/`
+    const description =
+      'People from the Kentucky history stories, with labeled AI illustrations and credited public-domain and Creative Commons portraits.'
+    const lead = `${illustrated.length} portraits are shown with credit: ${aiCount} labeled AI illustrations and ${realCount} historical portraits. ${plain.length} more people from the stories are listed with initials until a portrait is ready.`
+    const main = `<article class="people-page">
+        <nav class="story-crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">People</span>
+        </nav>
+        <header class="story-head">
+          <p class="static-kicker">People</p>
+          <h1>People</h1>
+          <p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>
+        </header>
+        <section class="people-group" aria-labelledby="people-portraits-heading">
+          <h2 id="people-portraits-heading">Portraits</h2>
+          <ul class="people-grid">${illustrated.map((person) => PrerenderPages.peopleCard(person, titleFor)).join('')}</ul>
+        </section>
+        <section class="people-group" aria-labelledby="people-names-heading">
+          <h2 id="people-names-heading">Names without a portrait yet</h2>
+          <ul class="people-grid">${plain.map((person) => PrerenderPages.peopleCard(person, titleFor)).join('')}</ul>
+        </section>
+      </article>`
+    const jsonLd = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: 'People',
+        description,
+        isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
+        publisher: { '@id': PrerenderPages.ORG_ID },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'People', item: pageUrl },
+        ],
+      },
+    ])
+    return PrerenderPages.shell({
+      title: 'People · Kentucky History Drive',
+      description,
+      canonical: pageUrl,
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'website',
+      jsonLd,
+      activeRoute: 'people',
+      main,
+    })
+  }
+
+  static assertPeople(html, peopleFile) {
+    if (!html.includes('<h1>People</h1>')) throw new Error('prerender: /people/ is missing its heading')
+    if (!html.includes('href="/people/"') || !html.includes('data-route="people"') || !html.includes('aria-current="page"')) {
+      throw new Error('prerender: /people/ is missing its nav link')
+    }
+    if (/upload\.wikimedia\.org/i.test(html)) {
+      throw new Error('prerender: /people/ hotlinks a Wikimedia file')
+    }
+    const remoteImg = [...html.matchAll(/<(?:img|source)\b[^>]*>/gi)].some((tag) => /(?:src|srcset)="https?:/i.test(tag[0]))
+    if (remoteImg) throw new Error('prerender: /people/ hotlinks an image')
+    const illustrated = peopleFile.people.filter((person) => person.image)
+    const ai = illustrated.filter((person) => person.ai)
+    const badges = html.match(/class="people-badge"/g) || []
+    if (badges.length !== ai.length) {
+      throw new Error(`prerender: /people/ has ${badges.length} AI badges, expected ${ai.length}`)
+    }
+    if (!html.includes('class="people-fallback"')) throw new Error('prerender: /people/ is missing a placeholder')
+    for (const person of illustrated) {
+      const alt = person.ai ? `AI illustration of ${person.name}` : `Portrait of ${person.name}`
+      if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
+        throw new Error(`prerender: /people/ is missing alt text for ${person.id}`)
+      }
+      if (!html.includes(PrerenderPages.escapeHtml(person.credit)) || !html.includes(PrerenderPages.escapeHtml(person.license))) {
+        throw new Error(`prerender: /people/ is missing the credit or license for ${person.id}`)
+      }
+      if (!html.includes(`src="${person.image.jpg}"`) || !html.includes(`srcset="${person.image.webp}"`)) {
+        throw new Error(`prerender: /people/ is missing the local image for ${person.id}`)
+      }
+      if (person.ai && !html.includes('>AI illustration<')) {
+        throw new Error(`prerender: /people/ AI badge text is missing`)
+      }
+    }
   }
 
   static videosPage(films, stories, cssHrefs) {
