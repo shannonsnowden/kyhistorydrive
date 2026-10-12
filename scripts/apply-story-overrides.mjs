@@ -197,7 +197,7 @@ for (const [slug, o] of Object.entries(spec.overrides)) {
 }
 
 // ---- generic pin rounding for prehistoric/archaeological stories (#141) -------------------------
-// Looting-sensitive: any story with era "prehistoric" or tag "archaeology" whose pin has more than
+// Looting-sensitive: any story with era "prehistoric" or tag "archaeology" (or listed in includeSlugs) whose pin has more than
 // `decimals` decimals is rounded, unless its slug is in the rules file allowlist. History entries are
 // reached through the story's historyId (stories-locations.json). Modern places are never touched.
 const rounding = { rounded: [], protectedIds: [] }
@@ -215,9 +215,11 @@ if (fs.existsSync(RULES)) {
   }
   const skipS = new Set(rules.skipSlugs)
   const skipH = new Set(rules.skipHistoryIds)
+  const incS = new Set(okList(rules.includeSlugs) ? rules.includeSlugs : [])
+  if (okList(rules.extraProtectedIds)) rounding.protectedIds.push(...rules.extraProtectedIds)
   const rnd = (x) => Number(x.toFixed(dec))
   for (const st of load(F.index)?.data.stories || []) {
-    if (!(st.era === 'prehistoric' || (st.tags || []).includes('archaeology'))) continue
+    if (!(incS.has(st.slug) || st.era === 'prehistoric' || (st.tags || []).includes('archaeology'))) continue
     if (skipS.has(st.slug) || !isNum(st.lat) || !isNum(st.lon)) continue
     const hid = load(F.locs)?.data.locations?.[st.slug]?.historyId || null
     if (hid && skipH.has(hid)) continue

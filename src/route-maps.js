@@ -50,7 +50,7 @@ export const ROUTE_MAPS = [
     stops: [
       wp('South Portsmouth / Fullerton, Greenup County, Kentucky, and Scioto County, Ohio', 'Lower Shawneetown', [38.7, -83.1]),
       wp('near Olive Hill and the Mount Sterling area, Carter, Bath, and Montgomery counties, Kentucky', 'Scioto prong', [38.137, -83.566], true),
-      wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.946, -84]),
+      wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.9, -84.0]),
       wp('near Clay City, Clark, Powell, and Estill counties, Kentucky', 'Red River crossing', [37.84, -84.02]),
       wp('Irvine, Estill County, Kentucky', 'Kentucky River ford', [37.69, -83.97]),
       wp('Gray Hawk, Jackson County, Kentucky', 'War Fork / Sand Gap', [37.4, -83.94]),

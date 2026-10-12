@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T17:18:13.536Z",
+  "generatedAt": "2026-10-12T02:11:52.244Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
@@ -522,8 +522,8 @@
     },
     "john-finley-the-trader-who-put-kentucky-on-boones-map": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
@@ -538,8 +538,8 @@
     },
     "odawa-raid-at-eskippakithiki-1753": {
       "slug": "odawa-raid-at-eskippakithiki-1753",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
