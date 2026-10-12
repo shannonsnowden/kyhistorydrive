@@ -933,6 +933,30 @@ class PrerenderPages {
     return `${PrerenderPages.SITE}${url.startsWith('/') ? url : `/${url}`}`
   }
 
+  /** "Photo: Name / Wikimedia Commons, " (license follows), or "Illustration: Kentucky History Drive, " for AI art. */
+  static peopleCreditName(person) {
+    const raw = String(person.credit || '')
+    const name = raw
+      .replace(/\s*·\s*via Wikimedia Commons\s*$/i, '')
+      .replace(new RegExp(`\\s*·\\s*${String(person.license || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`), '')
+      .replace(/^[^\n:]*\.(?:jpe?g|png|tiff?):\s*/i, '')
+      .replace(/\s*\n\s*/g, '; ')
+      .replace(/\s*\(talk\)/g, '')
+      .replace(/^probably H\.B\. Hall \(.*$/i, 'Probably H. B. Hall')
+      .replace(/^\.;\s*The original uploader was (\S+) at English Wikipedia$/i, 'Unknown (uploaded by $1, English Wikipedia)')
+      .replace(/Up-loaded by [^.]*?no name associated with art/i, 'Unknown artist')
+      .replace(/John Frost, L\.L\. D\. is the author of the book; illustrator is not identified/i, 'Unknown illustrator (book by John Frost)')
+      .replace(/\.\s*$/, '')
+      .trim()
+    return name || 'Unknown'
+  }
+
+  static peopleCreditLead(person) {
+    const viaCommons = /via Wikimedia Commons/i.test(String(person.credit || ''))
+    if (person.ai) return `Illustration: ${PrerenderPages.peopleCreditName(person)}, `
+    return `Photo: ${PrerenderPages.peopleCreditName(person)}${viaCommons ? ' / Wikimedia Commons' : ''}, `
+  }
+
   static storyCreditHtml(photo, title, { priority = false } = {}) {
     if (!photo?.image_url) return ''
     const caption = PrerenderPages.escapeHtml(PrerenderPages.photoAlt(photo, title))
@@ -1080,10 +1104,13 @@ class PrerenderPages {
       @media (max-width: 1400px) and (min-width: 601px) { .route-map { scroll-margin-top: 6.75rem; } }
       @media (max-width: 600px) { .route-map { scroll-margin-top: 4.25rem; } }
       .route-map h2, .route-map h3 { color: var(--heading); }
-      .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
+      .route-map-picture { display: block; }
       .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
       .route-map-zoom { position: relative; display: block; }
-      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; margin: 0; }
+      .route-map-open { display: block; width: 100%; margin: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: zoom-in; }
+      .route-map-art { position: relative; display: block; overflow: hidden; border-radius: 12px; }
+      .route-map-overlay { position: absolute; inset: 0; pointer-events: none; }
+      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 2; margin: 0; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
       .route-map-caption-phone { display: none; }
       .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
@@ -1129,7 +1156,7 @@ class PrerenderPages {
       <a href="/about/">About</a>
       <a href="/people/">People</a>
       <a href="/videos/">Videos</a>
-      <a href="/routes/">Route maps</a>
+      <a href="/routes/">Kentucky history route maps</a>
       <a href="/privacy/">Privacy</a>
       ${privacyChoicesLinkHtml()}
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
@@ -1147,6 +1174,14 @@ class PrerenderPages {
   /** Specific subject tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
     return pickRelatedStories(story, all, excludeSlugs)
+  }
+
+  static relatedCardMeta(story) {
+    const bits = ['Story']
+    if (story.county) bits.push(PrerenderPages.countyLabel(story.county, true))
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    if (years) bits.push(years)
+    return bits.join(' · ')
   }
 
   static relatedAndNearbySection(story, all, markers) {
@@ -1288,6 +1323,11 @@ class PrerenderPages {
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const route = routeBySlug(story.slug)
+    const describeStory = (slug) => {
+      const item = all.find((entry) => entry.slug === slug)
+      if (!item) return null
+      return { title: item.title, meta: PrerenderPages.relatedCardMeta(item) }
+    }
     const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
     const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
@@ -1317,6 +1357,7 @@ class PrerenderPages {
             headingLevel: 2,
             linkMode: 'story',
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
+            describe: describeStory,
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
           ${PrerenderPages.relatedPeopleSection(story, all, relatedBundle)}
@@ -1471,7 +1512,7 @@ class PrerenderPages {
     if (gaProblems.length) {
       throw new Error(`prerender: ${urlPath} ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
-    if (!html.includes('class="top site-header"') || !html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
+    if (!html.includes('class="top site-header"') || html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
       throw new Error(`prerender: ${urlPath} is missing the shared homepage header`)
     }
     if (!html.includes('src="/brand/khd-logo.png"') || !html.includes("var B='/brand/'")) {
@@ -1536,6 +1577,59 @@ class PrerenderPages {
     if (!block.includes('class="route-map-zoom"') || !block.includes('class="route-map-expand"') || !block.includes('>Expand<')) {
       throw new Error(`prerender: ${urlPath} route map is missing the expand control`)
     }
+    if (!block.includes('class="route-map-open"') || !block.includes('aria-controls="route-map-lightbox"')) {
+      throw new Error(`prerender: ${urlPath} route map image is not a lightbox button`)
+    }
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark', 'phone-light', 'phone-dark']) {
+      if (!block.includes(`data-frame="${frame}"`)) {
+        throw new Error(`prerender: ${urlPath} route map is missing the ${frame} overlay`)
+      }
+    }
+    if (block.includes('class="route-ky-line"') || block.includes('class="route-ky"')) {
+      throw new Error(`prerender: ${urlPath} still draws a Kentucky outline that does not fit the painting`)
+    }
+    if (/class="route-map-open"[^>]*aria-label=/.test(block)) {
+      throw new Error(`prerender: ${urlPath} route map button aria-label replaces the image alt`)
+    }
+    if (!block.includes(`aria-describedby="route-map-hint-${route.slug}"`) || !block.includes('Opens a larger view of this map.')) {
+      throw new Error(`prerender: ${urlPath} route map image is missing its description`)
+    }
+    const geoStops = route.stops.flatMap((stop, index) => (stop.geo ? [index + 1] : []))
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark']) {
+      const slot = block.match(new RegExp(`data-frame="${frame}"[^>]*>([\\s\\S]*?)<\\/div>`))
+      const nums = slot ? [...slot[1].matchAll(/data-n="(\d+)"/g)].map((match) => Number(match[1])) : []
+      if (nums.join(',') !== geoStops.join(',')) {
+        throw new Error(`prerender: ${urlPath} ${frame} markers are ${nums.join(',')}, expected ${geoStops.join(',')}`)
+      }
+    }
+    if (/<span class="route-stop[^"]*"[^>]*>\s*\d/.test(block)) {
+      throw new Error(`prerender: ${urlPath} repeats stop numbers as overlay text`)
+    }
+    if (route.stops.some((stop) => stop.conjectural) && !block.includes('Hexagon: conjectural stop')) {
+      throw new Error(`prerender: ${urlPath} legend is missing the conjectural hexagon`)
+    }
+    const phone = block.match(/data-frame="phone-light"[^>]*>([\s\S]*?)<\/div>/)
+    const phoneBadges = phone ? (phone[1].match(/data-n="/g) || []).length : 0
+    if (phoneBadges > geoStops.length) {
+      throw new Error(`prerender: ${urlPath} phone overlay has more badges than stops`)
+    }
+    const links = block.match(/<nav class="route-links"[\s\S]*?<\/nav>/)
+    if (!links || !links[0].includes('class="related-card"') || !links[0].includes('>Related stories<')) {
+      throw new Error(`prerender: ${urlPath} route stories are not one card section`)
+    }
+    if (links[0].includes('Related stories and markers') || html.includes('Related stories and markers')) {
+      throw new Error(`prerender: ${urlPath} still has a separate markers section`)
+    }
+    for (const slug of route.relatedStories || []) {
+      if (!links[0].includes(`/stories/${slug}/`)) {
+        throw new Error(`prerender: ${urlPath} related stories omit ${slug}`)
+      }
+    }
+    for (const marker of route.markers || []) {
+      if (!links[0].includes(`/#map/markers/${marker.number}`)) {
+        throw new Error(`prerender: ${urlPath} related stories omit marker ${marker.number}`)
+      }
+    }
     if (!block.includes(`data-route-slug="${route.slug}"`) || !block.includes(`data-fallback="${route.files.fullWebp}"`)) {
       throw new Error(`prerender: ${urlPath} route map lightbox is missing its sources`)
     }
@@ -1588,6 +1682,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} waypoint ItemList does not match NOTES.md`)
     }
     list.itemListElement.forEach((item, index) => {
+      if (item.position !== index + 1) {
+        throw new Error(`prerender: ${urlPath} waypoint ${index + 1} JSON-LD position is ${item.position}`)
+      }
       const placeNode = item?.item
       if (placeNode?.['@type'] !== 'Place') throw new Error(`prerender: ${urlPath} waypoint ${index + 1} is not a Place`)
       const geo = route.stops[index].geo
@@ -1605,6 +1702,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} Article image is missing the route map`)
     }
     if (!html.includes('href="/routes/"')) throw new Error(`prerender: ${urlPath} does not link to /routes/`)
+    if (!block.includes('>Kentucky history route maps<')) {
+      throw new Error(`prerender: ${urlPath} is missing the Kentucky history route maps anchor`)
+    }
     const gpx = `/maps/routes/${route.slug}/${route.slug}.gpx`
     const kml = `/maps/routes/${route.slug}/${route.slug}.kml`
     if (!block.includes(`href="${gpx}"`) || !block.includes(`href="${kml}"`)) {
@@ -1621,6 +1721,9 @@ class PrerenderPages {
   static assertRoutes(html, stories) {
     if (!html.includes('<h1>Route maps</h1>')) throw new Error('prerender: /routes/ is missing its heading')
     if (!html.includes('href="/routes/"')) throw new Error('prerender: /routes/ footer link is missing')
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: /routes/ is missing the Kentucky history route maps anchor')
+    }
     if (!html.includes('Northern Route') || /Benge-Drane|\bDrane\b/.test(html)) {
       throw new Error('prerender: /routes/ must use the NPS name Northern Route')
     }
@@ -1628,6 +1731,9 @@ class PrerenderPages {
     if (!html.includes('src="/route-map-lightbox.js"')) throw new Error('prerender: /routes/ is missing the lightbox script')
     if ((html.match(/class="route-map-expand"/g) || []).length !== ROUTE_MAPS.length) {
       throw new Error('prerender: /routes/ is missing an expand control on each map')
+    }
+    if ((html.match(/class="route-map-open"/g) || []).length !== ROUTE_MAPS.length) {
+      throw new Error('prerender: /routes/ map images are not lightbox buttons')
     }
     if (/onclick=|javascript:/.test(html)) throw new Error('prerender: /routes/ uses an inline event handler')
     const cards = html.match(/class="route-card"/g) || []
@@ -2015,7 +2121,7 @@ class PrerenderPages {
       ? `<a href="${PrerenderPages.escapeHtml(person.licenseUrl)}" rel="license">${PrerenderPages.escapeHtml(person.license)}</a>`
       : PrerenderPages.escapeHtml(person.license)
     const credit = person.image
-      ? `<p class="people-credit">${PrerenderPages.escapeHtml(person.credit)}</p><p class="people-license">${license}</p>`
+      ? `<p class="people-credit">${PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))}${license}</p>`
       : ''
     return `<li class="people-card" id="${PrerenderPages.escapeHtml(person.id)}">${media}<h3>${name}</h3>${line}${badge}${credit}${storyList}</li>`
   }
@@ -2183,7 +2289,7 @@ class PrerenderPages {
       if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
         throw new Error(`prerender: /people/ is missing alt text for ${person.id}`)
       }
-      if (!html.includes(PrerenderPages.escapeHtml(person.credit)) || !html.includes(PrerenderPages.escapeHtml(person.license))) {
+      if (!html.includes(PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))) || !html.includes(PrerenderPages.escapeHtml(person.license))) {
         throw new Error(`prerender: /people/ is missing the credit or license for ${person.id}`)
       }
       if (!html.includes(`src="${person.image.jpg}"`) || !html.includes(`srcset="${person.image.webp}"`)) {
@@ -2552,7 +2658,7 @@ ${rows.join('\n')}
               <h2>Map layers</h2>
               <ul class="crawl-list">${layerLinks}</ul>
             </section>
-            <p><a href="/routes/">Route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
+            <p><a href="/routes/">Kentucky history route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
           </div>
         </details>
       </nav>`
@@ -2584,6 +2690,9 @@ ${rows.join('\n')}
     const routeLinks = (html.match(/href="\/routes\/"/g) || []).length
     if (!html.includes('class="hp-map-routes"') || routeLinks < 3) {
       throw new Error('prerender: homepage is missing the route maps link in the page, footer, or directory')
+    }
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: homepage is missing the Kentucky history route maps anchor')
     }
     fs.writeFileSync(file, html)
   }

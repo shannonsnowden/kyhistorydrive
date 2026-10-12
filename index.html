@@ -6,7 +6,7 @@
     <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
     <script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
     <title>Kentucky History Drive</title>
-    <meta name="description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. An iPhone app is coming soon." />
+    <meta name="description" content="Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers." />
     <link rel="canonical" href="https://kyhistorydrive.com/" />
     <link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="https://kyhistorydrive.com/feed.xml" />
     <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://kyhistorydrive.com/" />
     <meta property="og:title" content="Kentucky History Drive" />
-    <meta property="og:description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. An iPhone app is coming soon." />
+    <meta property="og:description" content="Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers." />
     <meta property="og:image" content="https://kyhistorydrive.com/brand/khd-logo-512.png" />
     <meta property="og:image:secure_url" content="https://kyhistorydrive.com/brand/khd-logo-512.png" />
     <meta property="og:image:type" content="image/png" />
@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Kentucky History Drive official seal" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Kentucky History Drive" />
-    <meta name="twitter:description" content="Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline. An iPhone app is coming soon." />
+    <meta name="twitter:description" content="Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers." />
     <meta name="twitter:image" content="https://kyhistorydrive.com/brand/khd-logo-512.png" />
     <meta name="twitter:image:alt" content="Kentucky History Drive official seal" />
     <script type="application/ld+json">
@@ -37,7 +37,7 @@
           "@type": "ImageObject",
           "url": "https://kyhistorydrive.com/brand/khd-logo-512.png"
         },
-        "description": "Kentucky history highlights, an open-source map of Historical Society markers, and a filterable timeline.",
+        "description": "Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers.",
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
@@ -159,7 +159,6 @@
         <a href="#timeline" data-route="timeline">Timeline</a>
         <a href="/people/" data-route="people">People</a>
         <a href="#about" data-route="about">About</a>
-        <a href="#app" data-route="app">iPhone app (coming soon)</a>
         <button
           type="button"
           id="hpThemeToggle"
@@ -176,7 +175,7 @@
 
     <main id="content" tabindex="-1">
     <section id="home" class="view hp-home" data-view="home">
-      <p class="hp-value">Find Kentucky Historical Society markers on a map and read a new Kentucky history story every day.</p>
+      <p class="hp-value">Pioneers, Native nations, long hunters, soldiers and distillers. Explore the stories that made Kentucky, on a living map you can travel through time.</p>
       <section id="hpHero" class="hp-mag-hero" aria-labelledby="hp-hero-title" aria-busy="true">
         <div class="hp-hero-skeleton" aria-hidden="true">
           <span class="hp-skel hp-skel-kicker"></span>
@@ -252,7 +251,7 @@
                   <img src="/maps/homepage-card/route-maps-pill-light.jpg" srcset="/maps/homepage-card/route-maps-pill-light.jpg 1x, /maps/homepage-card/route-maps-pill-light@2x.jpg 2x" width="72" height="41" alt="" loading="lazy" decoding="async" />
                 </picture>
               </span>
-            <span class="hp-thumb-label">Route maps</span>
+            <span class="hp-thumb-label">Kentucky history route maps</span>
           </a>
         </div>
         <script>
@@ -351,9 +350,24 @@
 
     <section id="timeline" class="view timeline-section" data-view="timeline" hidden>
       <div class="timeline-layout">
-        <div class="timeline-main">
-          <div class="panel-head">
+        <div class="timeline-main" id="timelineStoryPane">
+          <div class="timeline-read-bar">
             <h2>Timeline</h2>
+            <button
+              type="button"
+              id="timelineReadingToggle"
+              class="timeline-read-toggle"
+              aria-expanded="true"
+              aria-controls="timelineMapPane"
+            >
+              <svg class="timeline-read-toggle-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="timeline-read-label timeline-read-label-hide">Hide map</span>
+              <span class="timeline-read-label timeline-read-label-show">Show map</span>
+            </button>
+          </div>
+          <div class="panel-head">
             <p class="muted">Filter by era or timeframe, then open a story to read it. The map highlights the story’s location when it has one.</p>
           </div>
           <div id="timelineFilters" class="filters">
@@ -395,7 +409,7 @@
             <button type="button" id="timelineJumpResetBottom" class="scroll-fab nav-jump" title="Reset filters and show all stories"><span class="nav-jump-ico" aria-hidden="true">↺</span><span class="nav-jump-label">Reset</span></button>
           </div>
         </div>
-        <aside class="timeline-map-pane" aria-label="Timeline places map">
+        <aside class="timeline-map-pane" id="timelineMapPane" aria-label="Timeline places map">
           <div class="timeline-map-head">
             <h3>Places in this timeframe</h3>
             <p id="timelineMapMeta" class="muted">Pick an era or timeframe to see matching places.</p>
@@ -460,7 +474,7 @@
       <a href="/about/">About</a>
       <a href="/people/">People</a>
       <a href="/videos/">Videos</a>
-      <a href="/routes/">Route maps</a>
+      <a href="/routes/">Kentucky history route maps</a>
       <a href="/privacy/">Privacy</a>
       <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
