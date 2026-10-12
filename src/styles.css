@@ -4824,6 +4824,9 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
+  }
+}
+
 /* #261: one subheading. Desktop shows it beside the seal and hides the band below;
    phones hide the header line and keep the band. */
 @media (min-width: 601px) {
