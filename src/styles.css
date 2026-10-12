@@ -4895,3 +4895,56 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   .hp-rail-card-title { font-size: 0.95rem; line-height: 1.25; }
   .hp-rail-all { margin-top: 0; padding: 0.15rem 0 0; line-height: 1.3; }
 }
+
+/* Story pages (/stories/<slug>/): align with the homepage container and use one reading
+   measure. --page-max / --page-gutter / --page-pad are defined identically in #263, so the two
+   merge cleanly in either order. Text blocks share --read-measure; the route map, photos and
+   film may use the full main column. Phones (≤900px) and the #timeline reader are unchanged. */
+:root {
+  --page-max: 1360px;
+  --page-gutter: clamp(1.25rem, 5vw, 4rem);
+  --page-pad: max(var(--page-gutter), calc((100% - var(--page-max)) / 2));
+  --read-measure: 43rem;
+}
+@media (min-width: 901px) {
+  body:has(main.static-read > .static-story) .site-header {
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+  main.static-read:has(> .static-story) {
+    max-width: none;
+    margin: 0;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+    box-sizing: border-box;
+  }
+  /* One measure for every text block in the article. */
+  .static-story .story-crumbs,
+  .static-story .story-head > *,
+  .static-story .story-lead,
+  .static-story .story-intro > p,
+  .static-story .story-body,
+  .static-story .story-body > *,
+  .static-story .route-map > h2,
+  .static-story .route-map > h3,
+  .static-story .route-map > p,
+  .static-story .route-map-caption,
+  .static-story .route-marker-legend,
+  .static-story .route-downloads,
+  .static-story .route-waypoints,
+  .static-story .route-sources,
+  .static-story .route-links,
+  .static-story .route-index-link,
+  .static-story .research-list,
+  .static-story .static-related,
+  .static-story .cite-story,
+  .static-story .story-correction,
+  .static-story .static-cta {
+    max-width: var(--read-measure);
+  }
+  .static-story .story-body { width: 100%; }
+  /* Media may span the full main column. */
+  .static-story .route-map,
+  .static-story .route-map-figure,
+  .static-story .film-block { max-width: none; }
+}
