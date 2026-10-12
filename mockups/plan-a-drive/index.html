@@ -6,8 +6,8 @@
 <meta name="robots" content="noindex, nofollow" />
 <title>MOCKUP: Plan a history drive (Kentucky History Drive)</title>
 <style>
-:root{--bg:#f3ead8;--panel:#fffdf6;--text:#1a241c;--muted:#52604c;--accent:#9a5f1c;--accent-deep:#6e4214;--chip:#e7dfcc;--gold:#c9893a;--line:#d3c4a6;--surface:#e8dfcc;--heading:#3d2a12;--green:#2f5a3a;--green-soft:#dfe8d6;--parch:#efe2c2;--focus:#3d2a12}
-[data-hp-theme=dark]{--bg:#101812;--panel:#1a241c;--text:#f3ead8;--muted:#a8b59c;--accent:#c9893a;--accent-deep:#8b5a2b;--chip:#243628;--line:#2e4034;--surface:#141c16;--heading:#e8d5a8;--green:#7fae7a;--green-soft:#22331f;--parch:#2a2a1c;--focus:#f6edd8}
+:root{--bg:#f3ead8;--panel:#fffdf6;--text:#1a241c;--muted:#52604c;--accent:#9a5f1c;--accent-deep:#6e4214;--chip:#e7dfcc;--gold:#c9893a;--line:#d3c4a6;--surface:#e8dfcc;--heading:#3d2a12;--green:#2f5a3a;--green-soft:#dfe8d6;--parch:#efe2c2;--focus:#3d2a12;--ky-fill:#e4d3ae;--ky-county:#c2ad84;--pin-num:#fffdf6;--field:#fffdf6;--field-line:#8a7a5c;--placeholder:#5a5544}
+[data-hp-theme=dark]{--bg:#101812;--panel:#1a241c;--text:#f3ead8;--muted:#a8b59c;--accent:#c9893a;--accent-deep:#8b5a2b;--chip:#243628;--line:#2e4034;--surface:#141c16;--heading:#e8d5a8;--green:#7fae7a;--green-soft:#22331f;--parch:#2a2a1c;--focus:#f6edd8;--ky-fill:#26382a;--ky-county:#3f5644;--pin-num:#101812;--field:#243628;--field-line:#8fa486;--placeholder:#c9d2bd;--muted:#bcc7b0}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
 .banner{background:var(--gold);color:#1a140c;text-align:center;font-weight:700;padding:6px 12px;font-size:14px}
@@ -21,19 +21,23 @@ h2{color:var(--heading);margin:.2em 0 .1em;font-family:Georgia,serif;font-size:2
 button,.btn{min-height:44px;min-width:44px;border-radius:10px;border:1px solid var(--accent-deep);background:var(--gold);color:#1a140c;font:600 15px system-ui;padding:0 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
 .btn-green{background:var(--green);border-color:var(--green);color:#fffdf6}
 [data-hp-theme=dark] .btn-green{color:#101812}
-.btn-quiet{background:transparent;color:var(--text);border-color:var(--line)}
-input{min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);padding:0 12px;font-size:16px;flex:1 1 220px}
-:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.privacy{font-size:13px;color:var(--muted);flex-basis:100%;margin:0}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.btn-quiet{background:transparent;color:var(--heading);border:2px solid var(--accent)}
+.btn-quiet:hover{background:var(--chip)}
+.go .btn{border-radius:999px;min-height:44px;padding:0 18px}
+input{min-height:44px;border-radius:10px;border:1.5px solid var(--field-line);background:var(--field);color:var(--text);padding:0 12px;font-size:16px;flex:1 1 180px;min-width:0}
+input::placeholder{color:var(--placeholder);opacity:1}
+:focus-visible,.show-focus{outline:3px solid var(--focus)!important;outline-offset:3px}
+.card:focus-visible,.card.show-focus{border-color:var(--accent)}
+.privacy{font-size:14px;color:var(--muted);flex-basis:100%;margin:0}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;min-height:44px}
 .card:hover{border-color:var(--accent)}
 .card svg{display:block;width:100%;height:auto;background:var(--parch)}
 .card-body{padding:10px 12px 14px}
-.card h4{margin:4px 0 6px;font-size:17px;color:var(--heading);display:flex;gap:8px;align-items:center}
+.card h4{margin:4px 0 6px;font-size:19px;line-height:1.25;color:var(--heading);display:flex;gap:8px;align-items:center}
 .theme-ico{width:28px;height:28px;border-radius:50%;background:var(--green-soft);color:var(--green);display:inline-grid;place-items:center;flex:none}
-.meta{display:flex;gap:12px;font-size:14px;color:var(--muted)}
-.dist{font-size:13px;color:var(--accent);font-weight:600;min-height:1.2em}
+.meta{display:flex;gap:12px;font-size:15px;color:var(--muted)}
+.dist{font-size:14px;color:var(--accent);font-weight:600;min-height:1.2em}
 .detail{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;grid-template-columns:1fr 1.2fr;gap:18px}
 .detail h3{margin:0;font-family:Georgia,serif;font-size:24px;color:var(--heading)}
 ol.stops{padding:0;margin:12px 0;list-style:none;counter-reset:s}
@@ -44,8 +48,13 @@ ol.stops a:hover span{text-decoration:underline}
 .leg{font-size:13px;color:var(--muted);margin-left:auto}
 .go{display:flex;gap:10px;flex-wrap:wrap}
 .bigmap svg{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:var(--parch)}
-.note{font-size:13px;color:var(--muted)}
-@media (max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.detail{grid-template-columns:1fr}}
+.note{font-size:14px;color:var(--muted)}
+.map-town{font:700 13px system-ui,sans-serif;fill:var(--heading);paint-order:stroke;stroke:var(--parch);stroke-width:3.5px;stroke-linejoin:round}
+.bigmap .map-town{font-size:15px}
+.focus-demo{margin:28px 0 0;padding:16px;border:2px dashed var(--line);border-radius:14px}
+.focus-demo h3{margin:0 0 10px;color:var(--heading);font-size:16px}
+.focus-demo .row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+@media (max-width:900px){.cards{grid-template-columns:1fr}.detail{grid-template-columns:1fr}}
 @media (max-width:480px){.cards{grid-template-columns:1fr}h2{font-size:24px}}
 </style>
 </head>
@@ -65,7 +74,7 @@ ol.stops a:hover span{text-decoration:underline}
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2"/></svg>
         Use my location</button>
       <label for="place" class="sr" style="position:absolute;left:-9999px">Town, ZIP or destination</label>
-      <input id="place" type="text" placeholder="Town, ZIP or destination (e.g. Paris, 40361)" autocomplete="off" />
+      <input id="place" type="text" placeholder="Town or ZIP" autocomplete="off" />
       <button type="button" id="findBtn">Find drives</button>
       <p class="privacy" id="locNote">Your location is used only on this device to sort drives by distance. It is never stored or sent.</p>
     </div>
@@ -73,37 +82,61 @@ ol.stops a:hover span{text-decoration:underline}
     <div class="cards" id="cards"></div>
 
     <div class="detail" id="detail" aria-live="polite"></div>
+
+    <div class="focus-demo" aria-label="Mockup: keyboard focus states" id="focusDemo">
+      <h3>Mockup state: keyboard focus (3px ring)</h3>
+      <div class="row">
+        <button type="button" class="btn-green show-focus" tabindex="-1">Use my location</button>
+        <button type="button" class="show-focus" tabindex="-1">Find drives</button>
+        <a class="btn show-focus" tabindex="-1" style="border-radius:999px">Open in Google Maps</a>
+        <a class="btn btn-quiet show-focus" tabindex="-1" style="border-radius:999px">Open in Apple Maps</a>
+      </div>
+      <div class="cards" style="max-width:420px;grid-template-columns:1fr" id="focusCard"></div>
+    </div>
   </section>
 </main>
 <script>
 const S=(slug,name,lat,lon)=>({slug,name,lat,lon});
 const DRIVES=[
- {id:'frontier',title:'Frontier stations of the Bluegrass',theme:'fort',time:'3 h 10 min',
+ {id:'frontier',towns:[['Lexington',38.0406,-84.5037],['Winchester',37.9901,-84.1797],['Richmond',37.7479,-84.2947]],title:'Frontier stations of the Bluegrass',theme:'fort',time:'3 h 10 min',
   stops:[S('bryan-station-siege-august-1782','Bryan Station siege, 1782',38.0759,-84.4153),S('capt-john-strode-of-strodes-station',"Strode's Station",38.0089,-84.2147),S('col-richard-callaway-of-boonesborough','Boonesborough',37.8909,-84.2666),S('william-hoy-and-hoys-station',"Hoy's Station",37.8230,-84.3296),S('richmond-from-millers-barn',"Richmond from Miller's barn",37.7480,-84.2944)]},
- {id:'licking',title:'Up the Licking to Blue Licks',theme:'river',time:'2 h 30 min',
+ {id:'licking',towns:[['Paris',38.2098,-84.2530],['Cynthiana',38.3903,-84.2941],['Carlisle',38.3120,-84.0274]],title:'Up the Licking to Blue Licks',theme:'river',time:'2 h 30 min',
   stops:[S('paris-from-hopewell','Paris from Hopewell',38.2127,-84.2498),S('cynthiana-cynthia-anna-on-the-licking','Cynthiana on the Licking',38.3903,-84.2941),S('isaac-ruddell-and-the-guns-at-ruddells-station',"Ruddell's Station",38.3351,-84.2749),S('battle-of-blue-licks','Battle of Blue Licks',38.4344,-83.9915)]},
- {id:'capital',title:'Capital and Commonwealth',theme:'dome',time:'2 h 45 min',
+ {id:'capital',towns:[['Frankfort',38.2009,-84.8733],['Lawrenceburg',38.0373,-84.8966],['Danville',37.6456,-84.7722]],title:'Capital and Commonwealth',theme:'dome',time:'2 h 45 min',
   stops:[S('frankfort-franks-ford-becomes-the-capital',"Frankfort: Frank's Ford",38.1981,-84.8656),S('liberty-hall-john-browns-frankfort-house','Liberty Hall',38.1998,-84.8812),S('lawrenceburg-from-kaufmans-station',"Lawrenceburg from Kaufman's Station",38.0219,-84.8932),S('shaker-village-of-pleasant-hill','Shaker Village of Pleasant Hill',37.8180,-84.7403),S('danville-and-constitution-square','Danville, Constitution Square',37.6456,-84.7722)]},
- {id:'wartime',title:'Camp Nelson and the Kentucky River',theme:'flag',time:'1 h 50 min',
+ {id:'wartime',towns:[['Lexington',38.0406,-84.5037],['Nicholasville',37.8806,-84.5730],['Harrodsburg',37.7623,-84.8433]],title:'Camp Nelson and the Kentucky River',theme:'flag',time:'1 h 50 min',
   stops:[S('col-john-todd-of-lexington','Lexington',38.0406,-84.5037),S('camp-nelson-jessamine-county','Camp Nelson',37.7878,-84.5981),S('mcafee-station-on-the-salt-river','McAfee Station',37.8506,-84.8519)]}
 ];
 const ICONS={fort:'<path d="M5 20V9h3V6h2v3h4V6h2v3h3v11z" fill="currentColor"/>',river:'<path d="M3 9c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0" stroke="currentColor" stroke-width="2" fill="none"/>',dome:'<path d="M4 20h16M6 20v-6h12v6M7 14a5 5 0 0 1 10 0M12 6v3" stroke="currentColor" stroke-width="2" fill="none"/>',flag:'<path d="M6 21V4M6 4h11l-2 4 2 4H6" stroke="currentColor" stroke-width="2" fill="none"/>'};
+let KY=null;
+const KX=Math.cos(37.8*Math.PI/180);
 function routeSvg(d,w,h,big){
-  const la=d.stops.map(s=>s.lat),lo=d.stops.map(s=>s.lon);
-  const pad=big?40:22,mnx=Math.min(...lo),mxx=Math.max(...lo),mny=Math.min(...la),mxy=Math.max(...la);
-  const sp=Math.max(mxx-mnx,(mxy-mny)*1.27,0.05);
-  const px=s=>[pad+(s.lon-mnx)/sp*(w-2*pad)+((w-2*pad)-(mxx-mnx)/sp*(w-2*pad))/2, h-pad-(s.lat-mny)*1.27/sp*(h-2*pad)-((h-2*pad)-(mxy-mny)*1.27/sp*(h-2*pad))/2];
-  const pts=d.stops.map(px);
+  const pts0=d.stops.map(s=>[s.lon,s.lat]).concat((d.towns||[]).map(t=>[t[2],t[1]]));
+  const lo=pts0.map(p=>p[0]),la=pts0.map(p=>p[1]);
+  let mnx=Math.min(...lo),mxx=Math.max(...lo),mny=Math.min(...la),mxy=Math.max(...la);
+  // pad the extent so the counties around the route show
+  const padDeg=big?0.3:0.14;mnx-=padDeg/KX;mxx+=padDeg/KX;mny-=padDeg;mxy+=padDeg;
+  const sx=(w)/((mxx-mnx)*KX),sy=h/(mxy-mny),sc=Math.min(sx,sy);
+  const ox=(w-(mxx-mnx)*KX*sc)/2,oy=(h-(mxy-mny)*sc)/2;
+  const P=(lon,lat)=>[ox+(lon-mnx)*KX*sc,oy+(mxy-lat)*sc];
+  const pl=l=>l.map((c,i)=>{const p=P(c[0],c[1]);return (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}).join('');
+  const base=KY?`<path d="${KY.state.map(pl).join('')}" fill="var(--ky-fill)" stroke="none"/><path d="${KY.counties.map(pl).join('')}" fill="none" stroke="var(--ky-county)" stroke-width="${big?1:0.8}"/><path d="${KY.state.map(pl).join('')}" fill="none" stroke="var(--accent-deep)" stroke-width="${big?2:1.5}" stroke-linejoin="round"/>`:'';
+  const pts=d.stops.map(s=>P(s.lon,s.lat));
   const path=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
-  let g='';for(let i=1;i<6;i++){g+=`<path d="M0 ${i*h/6} Q ${w/2} ${i*h/6+(i%2?6:-6)} ${w} ${i*h/6}" stroke="var(--line)" stroke-width="0.8" fill="none" opacity=".7"/>`}
-  const r=big?11:6;
-  const pins=pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${r}" fill="var(--green)" stroke="var(--panel)" stroke-width="2"/>`+(big?`<text x="${p[0]}" y="${p[1]+4}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--panel)">${i+1}</text>`:'')).join('');
-  return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Route map: ${d.stops.map(s=>s.name).join(', then ')}">${g}<rect x="3" y="3" width="${w-6}" height="${h-6}" fill="none" stroke="var(--accent-deep)" stroke-width="1.5" rx="6"/><path d="${path}" stroke="var(--gold)" stroke-width="${big?6:4}" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="${big?'':''}"/><path d="${path}" stroke="var(--accent-deep)" stroke-width="1.2" fill="none" stroke-dasharray="4 4"/>${pins}</svg>`;
+  const r=big?13:8;
+  const towns=(d.towns||[]).slice(0,3).map(t=>{const p=P(t[2],t[1]);
+    // A town on top of a stop pin: drop its dot and push the label clear of the pin.
+    const near=pts.find(q=>Math.hypot(q[0]-p[0],q[1]-p[1])<r+10);
+    const at=near||p;const right=at[0]<w*0.62;const gap=near?r+5:7;
+    // Keep the label off the route line: nudge it to the side with fewer stops.
+    return `${near?'':`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${big?3.5:3}" fill="var(--heading)"/>`}<text class="map-town" x="${(at[0]+(right?gap:-gap)).toFixed(1)}" y="${(at[1]+(big?5:4)).toFixed(1)}" text-anchor="${right?'start':'end'}">${t[0]}</text>`}).join('');
+  const pins=pts.map((p,i)=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${r}" fill="var(--green)" stroke="var(--panel)" stroke-width="2.5"/><text x="${p[0].toFixed(1)}" y="${(p[1]+(big?5:4)).toFixed(1)}" text-anchor="middle" font-size="${big?14:11}" font-weight="700" fill="var(--pin-num)" style="pointer-events:none">${i+1}</text>`).join('');
+  return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Route map: ${d.stops.map(s=>s.name).join(', then ')}"><rect width="${w}" height="${h}" fill="var(--parch)"/>${base}<path d="${path}" stroke="var(--panel)" stroke-width="${big?9:7}" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="${path}" stroke="var(--gold)" stroke-width="${big?5:4}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>${towns}${pins}<rect x="1" y="1" width="${w-2}" height="${h-2}" fill="none" stroke="var(--accent-deep)" stroke-width="1.5" rx="6"/></svg>`;
 }
 function hav(a,b){const R=3958.8,t=x=>x*Math.PI/180,dl=t(b.lat-a.lat),dn=t(b.lon-a.lon);const h=Math.sin(dl/2)**2+Math.cos(t(a.lat))*Math.cos(t(b.lat))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
 let order=DRIVES.slice(),dists={};
 function render(){
-  document.getElementById('cards').innerHTML=order.map(d=>`<a class="card" href="#drive/${d.id}" data-id="${d.id}">${routeSvg(d,320,150,false)}<div class="card-body"><h4><span class="theme-ico"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">${ICONS[d.theme]}</svg></span>${d.title}</h4><div class="meta"><span>${d.stops.length} stops</span><span>About ${d.time}</span></div><div class="dist">${dists[d.id]!=null?'About '+Math.round(dists[d.id])+' mi from you':''}</div></div></a>`).join('');
+  document.getElementById('cards').innerHTML=order.map(d=>`<a class="card" href="#drive/${d.id}" data-id="${d.id}">${routeSvg(d,320,170,false)}<div class="card-body"><h4><span class="theme-ico"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">${ICONS[d.theme]}</svg></span>${d.title}</h4><div class="meta"><span>${d.stops.length} stops</span><span>About ${d.time}</span></div><div class="dist">${dists[d.id]!=null?'About '+Math.round(dists[d.id])+' mi from you':''}</div></div></a>`).join('');
 }
 function detail(id){
   const d=DRIVES.find(x=>x.id===id)||DRIVES[0];
@@ -113,8 +146,8 @@ function detail(id){
   document.getElementById('detail').innerHTML=`<div><p class="hp-kicker">Drive detail</p><h3>${d.title}</h3><p class="meta"><span>${d.stops.length} stops</span><span>About ${d.time} driving</span></p>
   <ol class="stops">${d.stops.map(s=>`<li><a href="/stories/${s.slug}/"><span>${s.name}</span></a></li>`).join('')}</ol>
   <div class="go"><a class="btn" href="${g}" target="_blank" rel="noopener">Open in Google Maps</a><a class="btn btn-quiet" href="${a}" target="_blank" rel="noopener">Open in Apple Maps</a></div>
-  <p class="note">Drive times are placeholders. Some stops are markers or roadside sites; check access before you go.</p></div>
-  <div class="bigmap">${routeSvg(d,560,400,true)}</div>`;
+  <p class="note">Base map: Kentucky county lines, U.S. Census Bureau (public domain). Drive times are placeholders. Some stops are markers or roadside sites; check access before you go.</p></div>
+  <div class="bigmap">${(innerWidth<600?routeSvg(d,340,300,true):routeSvg(d,560,400,true))}</div>`;
 }
 document.getElementById('useLoc').addEventListener('click',()=>{
   if(!navigator.geolocation)return;
@@ -122,7 +155,9 @@ document.getElementById('useLoc').addEventListener('click',()=>{
     DRIVES.forEach(d=>dists[d.id]=hav(me,d.stops[0]));order=DRIVES.slice().sort((a,b)=>dists[a.id]-dists[b.id]);render();},()=>{}, {maximumAge:600000,timeout:8000});
 });
 window.addEventListener('hashchange',()=>{const m=location.hash.match(/drive\/(\w+)/);if(m)detail(m[1])});
-render();detail((location.hash.match(/drive\/(\w+)/)||[])[1]||'frontier');
+function boot(){render();detail((location.hash.match(/drive\/(\w+)/)||[])[1]||'frontier');
+  const fc=document.getElementById('focusCard');const d=DRIVES[1];fc.innerHTML=`<a class="card show-focus" tabindex="-1" style="pointer-events:none">${routeSvg(d,320,170,false)}<div class="card-body"><h4>${d.title}</h4><div class="meta"><span>${d.stops.length} stops</span><span>About ${d.time}</span></div></div></a>`;}
+fetch('ky-base.json').then(r=>r.json()).then(j=>{KY=j}).catch(()=>{}).finally(boot);
 </script>
 </body>
 </html>
