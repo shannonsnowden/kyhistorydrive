@@ -2,23 +2,23 @@
 /**
  * Fixtures for check-protected-coords: each case writes a tiny dist/ with one leak shaped like a real
  * one found on main (Oct 11, 2026) and expects the check to FAIL; the "clean" twin (same file, 0.1°
- * values) must PASS. The exact coordinates are stored offset (decoded here at run time) to avoid
- * republishing them in plain text; the offset is trivially reversible and is not secret (the repo is going private).
+ * values) must PASS. All coordinates here are FAKE test values; no real protected coordinate is stored.
+ * The keyed-hash cases use a throwaway test key and a temporary hash list, never the real ones.
  */
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+import { buildHashFile } from './lib/coord-pairs.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const OFF = [1.2345, -0.6789]
-const dec = ([la, lo], d = [3, 3]) => [(la - OFF[0]).toFixed(d[0]), (lo - OFF[1]).toFixed(d[1])].map((x) => String(Number(x)))
-// Offset-encoded exact pairs (lat + 1.2345, lon - 0.6789).
-const LS = dec([39.9115, -83.7859]) // Lower Shawneetown route waypoint (Warriors' Path)
-const LS2 = dec([39.9645, -83.6689], [2, 2]) // Lower Shawneetown (Gist route)
-const CLEEK = dec([40.1945, -85.4189], [2, 2]) // Cleek-McCabe territory dot
-const CARL = dec([38.4445, -87.3589], [2, 2]) // Carlston Annis search-index entry
+// Fake test values (central Kentucky, nowhere near the real sites): each fixture only needs a pair
+// finer than 0.1° next to a protected name/id. No real coordinates are stored here.
+const LS = ['37.61234', '-84.98765'] // stands in for a Lower Shawneetown route waypoint (Warriors' Path)
+const LS2 = ['37.63', '-85.03'] // stands in for Lower Shawneetown (Gist route NOTES row)
+const CLEEK = ['37.55', '-85.11'] // stands in for a Cleek-McCabe territory dot
+const CARL = ['37.57', '-85.22'] // stands in for a Carlston Annis search-index entry
 const ROUND = ['38.7', '-83.1']
 
 const cases = {
@@ -29,6 +29,14 @@ const cases = {
   'territory-dot-label': () => ({ 'data/web/territories/test.json': JSON.stringify({ slug: 'test', eras: [{ storySlugs: ['cleek-mccabe-fort-ancient-village'] }], geojson: { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { id: 'site3', label: 'Cleek-McCabe Site', approximate: true }, geometry: { type: 'Point', coordinates: [Number(CLEEK[1]), Number(CLEEK[0])] } }] } }) }),
   'app-search-index': () => ({ 'data/app/search-index.json': JSON.stringify({ version: 1, sites: { 'history:carlston-annis-shell-mound': { name: 'Carlston Annis Shell Mound', latitude: Number(CARL[0]), longitude: Number(CARL[1]) } } }) }),
 }
+// Keyed (HMAC) known-pair list: a throwaway key and a temp list holding FAKE pairs. keyed-* cases put a
+// pair in a file with no protected name/id, so only the keyed list can catch it. territory-dot-label
+// (a dot labeled "Cleek-McCabe Site" with no slug) is also only caught by the keyed list.
+const TEST_KEY = 'test-key-not-the-real-one'
+const FAKE = '37.4321,-85.6789'
+const hashDir = fs.mkdtempSync(path.join(os.tmpdir(), 'khd-hash-'))
+const hashFile = path.join(hashDir, 'hashes.json')
+fs.writeFileSync(hashFile, JSON.stringify(buildHashFile([FAKE, `${Number(CLEEK[0])},${Number(CLEEK[1])}`], TEST_KEY)))
 const leakArg = { 'js-bundle-waypoint': LS, 'gpx-waypoint': LS, 'kml-waypoint': LS }
 
 function makeDist(files) {
@@ -39,11 +47,13 @@ function makeDist(files) {
   for (const [rel, body] of Object.entries(files)) put(rel, body)
   return d
 }
-const run = (d) => spawnSync(process.execPath, [path.join(root, 'scripts/check-protected-coords.mjs'), '--dist', d], { encoding: 'utf8' })
+const baseEnv = Object.fromEntries(Object.entries(process.env).filter(([k]) => !['PROTECTED_COORDS_KEY', 'AWS_APP_ID', 'AWS_BRANCH'].includes(k)))
+const run = (d, env = {}, extra = []) => spawnSync(process.execPath, [path.join(root, 'scripts/check-protected-coords.mjs'), '--dist', d, ...extra], { encoding: 'utf8', env: { ...baseEnv, ...env } })
 
 let failed = 0
 for (const [name, mk] of Object.entries(cases)) {
-  const leak = run(makeDist(mk(leakArg[name] || LS)))
+  const keyArgs = [{ PROTECTED_COORDS_KEY: TEST_KEY }, ['--hashes', hashFile]]
+  const leak = run(makeDist(mk(leakArg[name] || LS)), ...keyArgs)
   const leakOk = leak.status === 1
   let clean = mk(ROUND)
   // Cases without a pair argument: swap the exact values for 0.1° ones.
@@ -51,11 +61,27 @@ for (const [name, mk] of Object.entries(cases)) {
     .replaceAll(`${LS2[0]}, ${LS2[1]}`, '38.7, -83')
     .replace(`[${Number(CLEEK[1])},${Number(CLEEK[0])}]`, '[-84.7,39]')
     .replace(`"latitude":${Number(CARL[0])},"longitude":${Number(CARL[1])}`, '"latitude":37.2,"longitude":-86.7')]))
-  const pass = run(makeDist(clean))
+  const pass = run(makeDist(clean), ...keyArgs)
   const passOk = pass.status === 0
   console.log(`${leakOk && passOk ? 'ok  ' : 'FAIL'} ${name}: leak -> exit ${leak.status}${leakOk ? '' : ' (expected 1)'}; clean -> exit ${pass.status}${passOk ? '' : ' (expected 0)'}`)
   if (!leakOk || !passOk) { failed++; console.log(leak.stderr + pass.stderr) }
 }
+const keyed = makeDist({ 'data/other.csv': `name,lat,lon\nSomewhere,${FAKE}\n` })
+const keyedClean = makeDist({ 'data/other.csv': 'name,lat,lon\nSomewhere,37.4,-85.7\n' })
+const keyCases = [
+  ['keyed-pair-found', keyed, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ['keyed-pair-clean-twin', keyedClean, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
+  ['keyed-no-key-local-skips', keyed, {}, 0],
+  ['keyed-no-key-amplify-fails-closed', keyedClean, { AWS_APP_ID: 'd123test' }, 1],
+  ['keyed-wrong-key-fails', keyedClean, { PROTECTED_COORDS_KEY: 'wrong-key' }, 1],
+]
+for (const [name, d, env, want] of keyCases) {
+  const r = run(d, env, ['--hashes', hashFile])
+  const ok = r.status === want
+  console.log(`${ok ? 'ok  ' : 'FAIL'} ${name}: exit ${r.status}${ok ? '' : ` (expected ${want})`}`)
+  if (!ok) { failed++; console.log(r.stdout + r.stderr) }
+}
+
 // Pin thumbnail SVGs (#222): dot must sit on the projected 0.1° point. A stand-in frame module keeps
 // these fixtures independent of #222's real projection.
 const frameMod = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'khd-frame-')), 'frame.mjs')
@@ -77,4 +103,4 @@ for (const [name, files, want] of svgCases) {
 }
 
 if (failed) { console.error(`test-protected-coords: ${failed} case(s) failed`); process.exit(1) }
-console.log(`test-protected-coords: ${Object.keys(cases).length} leak fixtures fail and their 0.1° twins pass; ${svgCases.length} pin-SVG fixtures behave`)
+console.log(`test-protected-coords: ${Object.keys(cases).length} leak fixtures fail and their 0.1° twins pass; ${keyCases.length} keyed-list cases; ${svgCases.length} pin-SVG fixtures behave`)

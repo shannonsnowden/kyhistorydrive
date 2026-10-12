@@ -1,11 +1,13 @@
 /**
- * Shared helpers for the protected-coordinate check (pair extraction + hashing).
- * The salted hashes are NOT secret: the salt is here in public and the coordinate space is small, so they
- * can be reversed. They only avoid republishing plain values; the repo is going private (Shannon, Oct 11, 2026).
+ * Shared helpers for the protected-coordinate check (pair extraction + keyed hashing).
+ * Known exact pairs are stored as HMAC-SHA256 under a secret key (env PROTECTED_COORDS_KEY, set in
+ * Amplify). Without the key the list cannot be brute-forced back to coordinates, even though the
+ * Kentucky coordinate space is small.
  */
 import crypto from 'node:crypto'
 
-export const HASH_SALT = 'khd-protected-coords-v1:'
+const DOMAIN = 'khd-protected-coords-v2:'
+const KEY_CHECK = 'khd-protected-coords-key-check'
 const NUM = /-?\d{1,3}\.\d+/g
 const isLat = (v) => v > 36 && v < 39.5
 const isLon = (v) => v < -81.5 && v > -89.8
@@ -29,6 +31,16 @@ export function extractPairs(text) {
   return out
 }
 
-export function hashPair(pair) {
-  return crypto.createHash('sha256').update(HASH_SALT + pair).digest('hex').slice(0, 20)
+/** HMAC-SHA256 (first 32 hex) of a normalized "lat,lon" pair under the secret key. */
+export function hashPair(pair, key) {
+  if (!key) throw new Error('hashPair needs the key')
+  return crypto.createHmac('sha256', key).update(DOMAIN + pair).digest('hex').slice(0, 32)
+}
+
+/** Fingerprint stored with the list so a wrong key fails loudly instead of matching nothing. */
+export const keyCheck = (key) => crypto.createHmac('sha256', key).update(KEY_CHECK).digest('hex').slice(0, 16)
+
+export function buildHashFile(pairs, key, note = '') {
+  const hashes = [...new Set(pairs)].map((p) => hashPair(p, key)).sort()
+  return { schema: 2, algorithm: 'HMAC-SHA256/32hex', keyEnv: 'PROTECTED_COORDS_KEY', keyCheck: keyCheck(key), note, count: hashes.length, hashes }
 }

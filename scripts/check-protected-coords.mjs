@@ -9,9 +9,10 @@
  * 2. Text (JS, GPX, KML, MD, HTML): a protected id followed within 400 chars (GPX/KML: also 200 before) by a Kentucky lat/lon
  *    pair with >1 decimal fails.
  * 3. Known exact pairs: every file in dist is scanned for number pairs (either lat/lon order); any pair
- *    whose salted hash is in scripts/protected-coords.hashes.json (known exact coordinates of the
- *    protected sites from git history; scripts/build-protected-coord-hashes.mjs) fails, whatever its label.
- *    The hashes avoid republishing plain values but are not secret (public salt, reversible).
+ *    whose keyed hash (HMAC-SHA256, key in env PROTECTED_COORDS_KEY) is in scripts/protected-coords.hashes.json
+ *    (known exact coordinates of the protected sites from git history; scripts/build-protected-coord-hashes.mjs)
+ *    fails, whatever its label. Without the key the list cannot be reversed. No key: this step is skipped
+ *    with a warning locally/CI, and fails closed in Amplify (AWS_APP_ID set).
  * Records are matched by id/slug/historyId/storySlug(s), story URL, or a protected display name
  * (name/title/label, taken from the stories/history layers).
  * Fixtures: scripts/test-protected-coords.mjs.
@@ -20,13 +21,28 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { extractPairs, hashPair } from './lib/coord-pairs.mjs'
+import { extractPairs, hashPair, keyCheck } from './lib/coord-pairs.mjs'
 
 const argDist = process.argv.indexOf('--dist')
 const dist = path.resolve(argDist > 0 ? process.argv[argDist + 1] : 'dist')
 const argHashes = process.argv.indexOf('--hashes')
 const hashFile = argHashes > 0 ? process.argv[argHashes + 1] : path.join(path.dirname(fileURLToPath(import.meta.url)), 'protected-coords.hashes.json')
-const knownHashes = new Set(JSON.parse(fs.readFileSync(hashFile, 'utf8')).hashes || [])
+// Keyed known-pair list: needs PROTECTED_COORDS_KEY. Missing key: skip this part with a warning,
+// except in Amplify (AWS_APP_ID set), where it fails closed. A key that does not match the list fails.
+const KEY = process.env.PROTECTED_COORDS_KEY || ''
+const inAmplify = Boolean(process.env.AWS_APP_ID)
+const hashData = JSON.parse(fs.readFileSync(hashFile, 'utf8'))
+let knownHashes = new Set()
+if (!KEY) {
+  if (inAmplify) {
+    console.error('check-protected-coords: PROTECTED_COORDS_KEY is not set in this Amplify build. Failing closed; add it under Amplify > Hosting > Environment variables (as a secret).')
+    process.exit(1)
+  }
+  console.warn('check-protected-coords: WARNING PROTECTED_COORDS_KEY not set; skipping the keyed known-exact-pair scan (id/name checks still run). Amplify builds fail without it.')
+} else if (hashData.schema !== 2 || hashData.keyCheck !== keyCheck(KEY)) {
+  console.error('check-protected-coords: PROTECTED_COORDS_KEY does not match ' + path.basename(hashFile) + ' (keyCheck mismatch, or old unkeyed list). Fix the env var or regenerate the list with scripts/build-protected-coord-hashes.mjs.')
+  process.exit(1)
+} else knownHashes = new Set(hashData.hashes || [])
 const ids = new Set(JSON.parse(fs.readFileSync(path.join(dist, 'data/web/protected-pins.json'), 'utf8')).ids || [])
 if (!ids.size) throw new Error('check-protected-coords: protected-pins.json has no ids')
 
@@ -117,8 +133,8 @@ for (const f of files(dist)) {
   const ext = path.extname(f)
   const rel = path.relative(dist, f)
   if (SCAN.test(f) && fs.statSync(f).size < 50e6) {
-    for (const pair of extractPairs(fs.readFileSync(f, 'utf8'))) {
-      if (knownHashes.has(hashPair(pair))) errors.push(`${rel}: known exact coordinate of a protected site (hash ${hashPair(pair)})`)
+    if (knownHashes.size) for (const pair of extractPairs(fs.readFileSync(f, 'utf8'))) {
+      if (knownHashes.size && knownHashes.has(hashPair(pair, KEY))) errors.push(`${rel}: known exact coordinate of a protected site (hash ${hashPair(pair, KEY).slice(0, 8)}…)`)
     }
   }
   if (ext === '.json' || ext === '.geojson') {
@@ -143,4 +159,4 @@ if (errors.length) {
   for (const e of errors.slice(0, 30)) console.error('  ' + e)
   process.exit(1)
 }
-console.log(`check-protected-coords: ${ids.size} protected ids, ${names.size} names, ${knownHashes.size} known exact pairs; none found in dist`)
+console.log(`check-protected-coords: ${ids.size} protected ids, ${names.size} names, ${knownHashes.size ? knownHashes.size + ' known exact pairs (keyed)' : 'keyed pair scan SKIPPED (no key)'}; none found in dist`)
