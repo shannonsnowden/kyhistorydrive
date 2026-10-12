@@ -2165,6 +2165,26 @@ html[data-hp-theme="light"] .about-seal {
   border: 2px solid #0b2a5b;
   box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
 }
+.about-seal-btn {
+  appearance: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0;
+  line-height: 0;
+  color: inherit;
+  cursor: zoom-in;
+  border-radius: 50%;
+  vertical-align: top;
+  touch-action: manipulation;
+}
+.about-seal-btn:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+}
 .about-seals-caption {
   margin: 0.85rem 0 0;
   font-size: 0.88rem;
@@ -4030,6 +4050,15 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   opacity: 0;
 }
 .route-lightbox-img.is-ready { opacity: 1; }
+.route-lightbox.is-seal .route-lightbox-img {
+  background: transparent;
+  border-radius: 50%;
+  /* Never paint larger than the seal master's native pixels (512). */
+  max-width: min(90vw, 512px);
+  max-height: min(90vh, 512px);
+  width: auto;
+  height: auto;
+}
 .route-lightbox-overlay {
   position: absolute;
   z-index: 1;
@@ -4335,4 +4364,24 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
     outline: 3px solid Highlight;
   }
 }
+
+/* Tap-to-enlarge cue on the About seals (Critiquito batch 2) */
+.about-seal-btn { position: relative; }
+.about-seal-btn::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9893a' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 18px no-repeat;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+html[data-hp-theme="light"] .about-seal-btn::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2385500f' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E");
+}
+.about-seals-hint { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
 
