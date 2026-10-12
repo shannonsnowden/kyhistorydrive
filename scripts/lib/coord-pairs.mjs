@@ -1,4 +1,8 @@
-/** Shared helpers for the protected-coordinate check (pair extraction + hashing). */
+/**
+ * Shared helpers for the protected-coordinate check (pair extraction + hashing).
+ * The salted hashes are NOT secret: the salt is here in public and the coordinate space is small, so they
+ * can be reversed. They only avoid republishing plain values; the repo is going private (Shannon, Oct 11, 2026).
+ */
 import crypto from 'node:crypto'
 
 export const HASH_SALT = 'khd-protected-coords-v1:'

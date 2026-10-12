@@ -2,8 +2,8 @@
 /**
  * Fixtures for check-protected-coords: each case writes a tiny dist/ with one leak shaped like a real
  * one found on main (Oct 11, 2026) and expects the check to FAIL; the "clean" twin (same file, 0.1°
- * values) must PASS. The exact coordinates are stored offset (decoded here at run time) so this file
- * does not republish them in plain text.
+ * values) must PASS. The exact coordinates are stored offset (decoded here at run time) to avoid
+ * republishing them in plain text; the offset is trivially reversible and is not secret (the repo is going private).
  */
 import fs from 'node:fs'
 import os from 'node:os'
@@ -56,5 +56,25 @@ for (const [name, mk] of Object.entries(cases)) {
   console.log(`${leakOk && passOk ? 'ok  ' : 'FAIL'} ${name}: leak -> exit ${leak.status}${leakOk ? '' : ' (expected 1)'}; clean -> exit ${pass.status}${passOk ? '' : ' (expected 0)'}`)
   if (!leakOk || !passOk) { failed++; console.log(leak.stderr + pass.stderr) }
 }
+// Pin thumbnail SVGs (#222): dot must sit on the projected 0.1° point. A stand-in frame module keeps
+// these fixtures independent of #222's real projection.
+const frameMod = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'khd-frame-')), 'frame.mjs')
+fs.writeFileSync(frameMod, 'export function loadMapFrame(){return {frame:{xFit:{scale:100,offset:9000},yFit:{scale:-100,offset:4000}},project:(lon,lat)=>[lon,lat]}}\n')
+const runSvg = (d) => spawnSync(process.execPath, [path.join(root, 'scripts/check-protected-pin-svgs.mjs'), '--dist', d, '--frame-module', frameMod], { encoding: 'utf8' })
+const pin = (x, y) => `<svg xmlns="http://www.w3.org/2000/svg"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="32"/></svg>`
+const loc = JSON.stringify({ locations: { 'carlston-annis-shell-mound': { lat: 37.2, lon: -86.7 } } })
+const at = (lat, lon) => [100 * lon + 9000, -100 * lat + 4000]
+const svgCases = [
+  ['svg-absent-skips', {}, 0],
+  ['svg-on-rounded-point', { 'content/stories-locations.json': loc, 'brand/story-pins/carlston-annis-shell-mound-light.svg': pin(...at(37.2, -86.7)) }, 0],
+  ['svg-on-unrounded-point', { 'content/stories-locations.json': loc, 'brand/story-pins/carlston-annis-shell-mound-dark.svg': pin(...at(37.24, -86.73)) }, 1],
+]
+for (const [name, files, want] of svgCases) {
+  const r = runSvg(makeDist(files))
+  const ok = r.status === want
+  console.log(`${ok ? 'ok  ' : 'FAIL'} ${name}: exit ${r.status}${ok ? '' : ` (expected ${want})`}`)
+  if (!ok) { failed++; console.log(r.stdout + r.stderr) }
+}
+
 if (failed) { console.error(`test-protected-coords: ${failed} case(s) failed`); process.exit(1) }
-console.log(`test-protected-coords: ${Object.keys(cases).length} leak fixtures fail and their 0.1° twins pass`)
+console.log(`test-protected-coords: ${Object.keys(cases).length} leak fixtures fail and their 0.1° twins pass; ${svgCases.length} pin-SVG fixtures behave`)

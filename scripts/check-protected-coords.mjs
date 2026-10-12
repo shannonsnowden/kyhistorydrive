@@ -11,6 +11,7 @@
  * 3. Known exact pairs: every file in dist is scanned for number pairs (either lat/lon order); any pair
  *    whose salted hash is in scripts/protected-coords.hashes.json (known exact coordinates of the
  *    protected sites from git history; scripts/build-protected-coord-hashes.mjs) fails, whatever its label.
+ *    The hashes avoid republishing plain values but are not secret (public salt, reversible).
  * Records are matched by id/slug/historyId/storySlug(s), story URL, or a protected display name
  * (name/title/label, taken from the stories/history layers).
  * Fixtures: scripts/test-protected-coords.mjs.
