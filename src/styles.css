@@ -3701,16 +3701,56 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     min-height: 44px;
     font-size: 1rem;
   }
-  /* The bar is 60px, so the hero can fill the rest of the first screen. */
-  .hp-mag-hero { min-height: calc(100svh - 60px); }
+  /* The bar is 60px and the value line above the hero is up to three lines
+     (~5.5rem). Size the hero to what is left of the first screen so the credit
+     and the control row stay on screen. */
+  .hp-mag-hero { min-height: calc(100svh - 60px - 5.5rem); }
+  .hp-mag-hero-copy {
+    /* Reserve a third credit line, then keep it above the 44px control row. */
+    --hp-credit-lines: 3;
+    padding-bottom: calc(44px + 1.6rem);
+  }
+  /* One row under the credit: ◀, dots, Play, ▶. */
   .hp-hero-controls {
     left: 0.35rem;
     right: 0.35rem;
+    bottom: 0.45rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     gap: 0;
   }
+  .hp-hero-nav,
   .hp-hero-playback {
+    flex: 0 0 auto;
+  }
+  .hp-hero-playback {
+    min-width: 44px;
+    height: 44px;
     padding: 0 0.55rem;
     font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .hp-hero-dots {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    justify-content: safe center;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .hp-hero-dots::-webkit-scrollbar { display: none; }
+  /* The painted dot stays 11px (::before). The button itself is a 44px tap
+     target, pulled together so the row fits at 390px. At 320px it may scroll. */
+  .hp-hero-dot {
+    box-sizing: content-box;
+    flex: 0 0 auto;
+    width: 11px;
+    height: 11px;
+    padding: 16.5px;
+    margin-inline: -8px;
+    scroll-snap-align: center;
   }
 }
 
@@ -5076,3 +5116,94 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 }
 .hp-map-strip li a:hover,
 .hp-map-strip li a:focus-visible { color: var(--heading); }
+
+
+/* Story pages (/stories/<slug>/): align with the homepage container and use one reading
+   measure. --page-max / --page-gutter / --page-pad are defined identically in #263, so the two
+   merge cleanly in either order. Text blocks share --read-measure; the route map, photos and
+   film may use the full main column. Phones (≤900px) and the #timeline reader are unchanged. */
+:root {
+  --page-max: 1360px;
+  --page-gutter: clamp(1.25rem, 5vw, 4rem);
+  --page-pad: max(var(--page-gutter), calc((100% - var(--page-max)) / 2));
+  --read-measure: 43rem;
+}
+@media (min-width: 901px) {
+  body:has(main.static-read > .static-story) .site-header {
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+  main.static-read:has(> .static-story) {
+    max-width: none;
+    margin: 0;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+    box-sizing: border-box;
+  }
+  /* One measure for every text block in the article. */
+  .static-story .story-crumbs,
+  .static-story .story-head > *,
+  .static-story .story-lead,
+  .static-story .story-intro > p,
+  .static-story .story-body,
+  .static-story .story-body > *,
+  .static-story .route-map > h2,
+  .static-story .route-map > h3,
+  .static-story .route-map > p,
+  .static-story .route-map-caption,
+  .static-story .route-marker-legend,
+  .static-story .route-downloads,
+  .static-story .route-waypoints,
+  .static-story .route-sources,
+  .static-story .route-links,
+  .static-story .route-index-link,
+  .static-story .research-list,
+  .static-story .static-related,
+  .static-story .cite-story,
+  .static-story .story-correction,
+  .static-story .static-cta {
+    max-width: var(--read-measure);
+  }
+  .static-story .story-body { width: 100%; }
+  /* Media may span the full main column. */
+  .static-story .route-map,
+  .static-story .route-map-figure,
+  .static-story .film-block { max-width: none; }
+}
+/* Story type (≥901px): 18px / 1.6 body and a 20px lead inside the 43rem column; the gap
+   from the lead to the first paragraph equals paragraph spacing (1em); breadcrumb flush. */
+@media (min-width: 901px) {
+  .static-story.story-reader-layout { row-gap: 0; }
+  .static-story .story-body { font-size: 1.125rem; line-height: 1.6; }
+  .static-story .story-body p { margin: 1em 0; }
+  .static-story .story-body > :first-child { margin-top: 1em; }
+  .static-story .story-intro,
+  .static-story .story-head,
+  .static-story .story-lead { margin-bottom: 0; }
+  .static-story .story-lead { font-size: 1.25rem; line-height: 1.5; }
+  .static-story .story-reader-main > .story-body:first-child { padding-top: 0; }
+  .static-story .story-crumbs,
+  .static-story .story-crumbs > :first-child { margin-left: 0; padding-left: 0; }
+}
+/* Inline story portrait (main subject): floats right of the first paragraph so the text wraps.
+   200px on desktop, 120px on phones (so paragraph 1 stays near the top and it never stacks under
+   the Photos card). Fixed border so light and dark match; 200/120 square boxes, so no layout shift. */
+.static-story .story-portrait { float: right; width: 120px; margin: 0.3rem 0 0.5rem 0.9rem; }
+.static-story .story-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(120, 110, 95, 0.55);
+  background: var(--chip);
+}
+.static-story .story-portrait figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.35; color: var(--muted); }
+.static-story .story-portrait-name { display: block; font-weight: 700; color: var(--heading); }
+@media (min-width: 601px) {
+  .static-story .story-portrait { width: 200px; margin: 0.35rem 0 0.75rem 1.5rem; }
+}
+.static-story .story-body::after { content: ''; display: block; clear: both; }
+.static-story .learn-more,
+.static-story .route-map { clear: both; }

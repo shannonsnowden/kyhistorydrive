@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-12T09:47:38.735Z",
+  "generatedAt": "2026-10-12T11:00:49.943Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 134,
+    "override": 135,
     "none": 37
   },
   "locations": {
@@ -303,14 +303,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Fox Farm Fort Ancient",
       "historyId": "fox-farm-fort-ancient"
-    },
-    "tinsley-hill-15ly18-lyon-county": {
-      "slug": "tinsley-hill-15ly18-lyon-county",
-      "lat": 37,
-      "lon": -88,
-      "mapConfidence": "override",
-      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
-      "historyId": "tinsley-hill-15ly18-lyon-1300-1450"
     },
     "slone-site-15pi11-pike-county": {
       "slug": "slone-site-15pi11-pike-county",
@@ -960,6 +952,14 @@
       "matchedPlace": "Bardstown Founding",
       "historyId": "bardstown-founding"
     },
+    "capt-robert-johnson-and-big-crossing-station": {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "lat": 38.21444444,
+      "lon": -84.60527778,
+      "mapConfidence": "override",
+      "matchedPlace": "Big Crossing Station / Great Crossing",
+      "historyId": "great-crossing-scott-1783-1815"
+    },
     "egushawa-and-the-odawa-in-kentuckys-war-years": {
       "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
       "lat": 38.262614,
@@ -1119,14 +1119,6 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
-    },
-    "capt-robert-johnson-and-big-crossing-station": {
-      "slug": "capt-robert-johnson-and-big-crossing-station",
-      "lat": 38.21444444,
-      "lon": -84.60527778,
-      "mapConfidence": "override",
-      "matchedPlace": "Big Crossing Station / Great Crossing",
-      "historyId": "great-crossing-scott-1783-1815"
     },
     "harry-innes": {
       "slug": "harry-innes",
@@ -1528,6 +1520,14 @@
       "matchedPlace": "Taylorsville",
       "historyId": null
     },
+    "campbellsville-from-buckhorn-creek-to-county-seat": {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "lat": 37.34583333,
+      "lon": -85.34555556,
+      "mapConfidence": "override",
+      "matchedPlace": "Campbellsville (Taylor County seat)",
+      "historyId": "campbellsville-taylor-1814-1848"
+    },
     "somerset": {
       "slug": "somerset",
       "lat": 37.0897167,
@@ -1599,14 +1599,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)",
       "historyId": "saltpeter-cave-carter-caves-15cr99"
-    },
-    "campbellsville-from-buckhorn-creek-to-county-seat": {
-      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
-      "lat": 37.34583333,
-      "lon": -85.34555556,
-      "mapConfidence": "override",
-      "matchedPlace": "Campbellsville (Taylor County seat)",
-      "historyId": "campbellsville-taylor-1814-1848"
     },
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
@@ -1711,6 +1703,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
+    },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson USCT recruiting and training center",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866"
     },
     "camp-nelson-jessamine-county": {
       "slug": "camp-nelson-jessamine-county",
@@ -1871,6 +1871,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "tinsley-hill-15ly18-lyon-county": {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "lat": 37,
+      "lon": -88,
+      "mapConfidence": "override",
+      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450"
     },
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {
       "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",

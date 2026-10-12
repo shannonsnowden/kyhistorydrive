@@ -57,6 +57,7 @@ import {
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { portraitsByStorySlug, relatedBlockHtml, portraitAlt } from '../src/related-people.js'
+import { creditWithCaption } from '../src/portrait-captions.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 
@@ -203,6 +204,8 @@ class PrerenderPages {
         dates.lastmod.get('scripts/prerender-pages.mjs') || '',
       ),
     })
+    relatedBundle.sourcePeople = sourcePeople
+    const portraitLog = { shown: [], skipped: [] }
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
@@ -210,6 +213,9 @@ class PrerenderPages {
       PrerenderPages.assertPage(html, story, urlPath)
       PrerenderPages.assertStory(html, story, description, stories, markers)
       PrerenderPages.writePage(dist, urlPath, html)
+      const pick = PrerenderPages.storyPortrait(story, relatedBundle)
+      if (pick.person) portraitLog.shown.push(story.slug)
+      else if (pick.reason) portraitLog.skipped.push(`${story.slug} (${pick.reason})`)
       const route = routeBySlug(story.slug)
       const images = route
         ? [
@@ -269,6 +275,7 @@ class PrerenderPages {
     // /timeline/ forwards to the /#timeline hash route. Amplify rules cannot target a #fragment,
     // so this stub redirects in the browser. Deliberately not in the sitemap.
     PrerenderPages.writePage(dist, '/timeline/', PrerenderPages.timelineRedirectHtml())
+    console.log(`prerender: inline portraits on ${portraitLog.shown.length} stories; skipped ${portraitLog.skipped.length}: ${portraitLog.skipped.join(', ')}`)
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
@@ -1370,7 +1377,7 @@ class PrerenderPages {
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
-          <div class="story-body">${marked.parse(bodyMarkdown)}</div>
+          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${marked.parse(bodyMarkdown)}</div>
           ${routeMapSectionHtml(story.slug, {
             headingLevel: 2,
             linkMode: 'story',
@@ -2098,6 +2105,55 @@ class PrerenderPages {
     const people = PrerenderPages.readJson(peopleFile)
     if (!Array.isArray(people.people) || !people.people.length) throw new Error('prerender: public people file is empty')
     return { data, people, portraits: portraitsByStorySlug(data, people.people) }
+  }
+
+  /**
+   * Main subject of a story, for the inline portrait. Uses the same data as the 36px headshots:
+   * related-people.json name → own story, or a people.json story slug equal to (or starting with)
+   * the person id. More than one match → skip (no guessing). Skipped too when the sidebar
+   * already shows the same Commons file.
+   */
+  static storyPortrait(story, bundle) {
+    if (!bundle?.people?.people) return { person: null, reason: '' }
+    const slug = story.slug
+    // Both sources must be self-hosted portraits (same safe-URL rule for webp and jpg).
+    const safe = (u) => /^\/people\/portraits\/[\w.-]+\.(?:webp|jpg)$/.test(String(u || ''))
+    const withImage = bundle.people.people.filter((p) => safe(p?.image?.jpg) && safe(p?.image?.webp))
+    const norm = (v) => String(v || '').toLowerCase().replace(/\s+/g, ' ').trim()
+    const rankless = (v) => norm(v).replace(/^(col|colonel|gen|general|maj|major|capt|captain|dr|sir|rev)\.?\s+/, '')
+    const hits = new Map()
+    for (const [name, target] of Object.entries(bundle.data?.people || {})) {
+      if (target !== slug) continue
+      const p = withImage.find((x) => norm(x.name) === norm(name)) || withImage.find((x) => norm(x.name) === rankless(name))
+      if (p) hits.set(p.id, p)
+    }
+    for (const p of withImage) {
+      if ((p.stories || []).some((s) => s === slug && (s === p.id || s.startsWith(`${p.id}-`)))) hits.set(p.id, p)
+    }
+    if (!hits.size) return { person: null, reason: '' }
+    if (hits.size > 1) return { person: null, reason: `ambiguous: ${[...hits.keys()].join('/')}` }
+    const person = [...hits.values()][0]
+    const src = (bundle.sourcePeople || []).find((p) => p.id === person.id)
+    const file = (u) => decodeURIComponent(String(u || '').split('?')[0].split('/').pop() || '').replace(/^File:/, '').toLowerCase()
+    const photoUrl = story.photo?.source_url
+    if (photoUrl && src?.sourcePage && file(photoUrl) === file(src.sourcePage)) {
+      return { person: null, reason: `${person.id}: same image already in the Photos sidebar` }
+    }
+    return { person, reason: '' }
+  }
+
+  /** Newspaper-style portrait floated right of the first paragraph; caption keeps the credit. */
+  static storyPortraitHtml(person) {
+    if (!person) return ''
+    if (!/^\/people\/portraits\/[\w.-]+\.webp$/.test(person.image?.webp || '') || !/^\/people\/portraits\/[\w.-]+\.jpg$/.test(person.image?.jpg || '')) return ''
+    const esc = PrerenderPages.escapeHtml
+    const credit = person.ai
+      ? `AI illustration · ${person.credit || 'Kentucky History Drive'}`
+      : creditWithCaption(person, person.credit || '')
+    return `<figure class="story-portrait">
+            <picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" decoding="async"></picture>
+            <figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${esc(credit)}</span></figcaption>
+          </figure>`
   }
 
   static relatedPeopleSection(story, all, relatedBundle) {

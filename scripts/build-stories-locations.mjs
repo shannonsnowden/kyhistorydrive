@@ -928,6 +928,13 @@ const MANUAL_OVERRIDES = {
     lon: -84.72166667,
     confidence: 'override',
   },
+  // 2026-10-12 add-on: Camp Nelson USCT story (CoS request), NPS visitor center coords
+  'camp-nelson-kentucky-us-colored-troops': {
+    matchName: "Camp Nelson USCT recruiting and training center",
+    lat: 37.797005,
+    lon: -84.600577,
+    confidence: 'override',
+  },
 }
 
 
