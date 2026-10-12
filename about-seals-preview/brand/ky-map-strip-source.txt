@@ -1,0 +1,1 @@
+U.S. Census Bureau 2025 Cartographic Boundary Files cb_2025_us_state_500k and cb_2025_us_county_500k, public domain; drawn in NAD83 / Kentucky Single Zone (EPSG:3089).

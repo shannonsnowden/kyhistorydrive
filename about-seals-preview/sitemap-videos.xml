@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://kyhistorydrive.com/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com/videos/mary-ingles/poster.jpg</video:thumbnail_loc>
+      <video:title>Follow the River Home: Mary Draper Ingles</video:title>
+      <video:description>In July 1755 a Shawnee war party struck Draper's Meadow on the Virginia frontier and carried Mary Draper Ingles, then about twenty-three and pregnant, west with her two young sons. After the long march to the Ohio villages she was put to work at a salt-making camp at Big Bone Lick in what is now Boone County—among the earliest recorded European women on Kentucky ground.</video:description>
+      <video:content_loc>https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com/videos/mary-ingles/pilot-full.mp4</video:content_loc>
+      <video:duration>310</video:duration>
+      <video:publication_date>2026-10-10T09:00:00-04:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+</urlset>
