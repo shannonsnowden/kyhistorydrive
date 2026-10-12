@@ -1312,29 +1312,8 @@ a.related-card:hover .related-card-chevron {
   width: 100%;
 }
 .map-canvas-wrap #mapCanvas { flex: 1 1 auto; min-height: 60vh; width: 100%; height: auto; }
-.full-state-fab {
-  position: absolute;
-  left: 12px;
-  bottom: 28px;
-  z-index: 2;
-  border: 1px solid var(--accent);
-  background: var(--chip);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 0.5rem 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-}
-.full-state-fab:hover {
-  background: #c9893a;
-  border-color: var(--heading);
-  color: #1a140c;
-}
-
-/* Back to story. Green and amber, same family as the era pills. */
+/* Back to story and Full state share one map control: chip fill, amber edge, 44px. */
+.full-state-fab,
 .story-return {
   display: inline-flex;
   align-items: center;
@@ -1342,28 +1321,36 @@ a.related-card:hover .related-card-chevron {
   gap: 0.2rem;
   min-height: 44px;
   min-width: 44px;
-  padding: 0.55rem 0.95rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--accent);
+  background: var(--chip);
+  color: var(--text);
   border-radius: 999px;
-  border: 1px solid #2f5a48;
-  background: #1e3b2f;
-  color: #f6edd8;
   font: inherit;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.2;
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(16, 24, 18, 0.28);
   touch-action: manipulation;
 }
+.full-state-fab:hover,
 .story-return:hover {
   background: #c9893a;
-  border-color: #8b5a2b;
+  border-color: var(--heading);
   color: #1a140c;
 }
+.full-state-fab:focus-visible,
 .story-return:focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
+}
+.full-state-fab {
+  position: absolute;
+  left: 12px;
+  bottom: 28px;
+  z-index: 2;
 }
 .map-canvas-wrap > .story-return {
   position: absolute;

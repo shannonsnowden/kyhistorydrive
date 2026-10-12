@@ -10,7 +10,9 @@ import {
   mapDestFromHref,
   parseStoryReturn,
   returnUrl,
+  shouldUseHistoryBack,
   staticPageBootScript,
+  territoryBackHtml,
 } from '../src/story-return.js'
 
 const slug = 'capt-robert-johnson-and-big-crossing-station'
@@ -94,6 +96,39 @@ assert.match(boot, /data-story-map/)
 assert.match(boot, /scrollRestoration/)
 assert.match(boot, /khd-story-return/)
 new Function(boot)
+
+const sameOrigin = origin('/', `timeline/${slug}`, 400)
+assert.equal(shouldUseHistoryBack({
+  historyLength: 3,
+  storedLength: 3,
+  dest: '#map/history/great-crossing-scott-1783-1815',
+  here: '#map/history/great-crossing-scott-1783-1815',
+  origin: sameOrigin,
+  storedOrigin: sameOrigin,
+}), true)
+assert.equal(shouldUseHistoryBack({
+  historyLength: 4,
+  storedLength: 3,
+  dest: '#map/history/great-crossing-scott-1783-1815',
+  here: '#map/history/great-crossing-scott-1783-1815',
+  origin: sameOrigin,
+  storedOrigin: sameOrigin,
+}), false)
+assert.equal(shouldUseHistoryBack({
+  historyLength: 3,
+  storedLength: 3,
+  dest: '#map/history/great-crossing-scott-1783-1815',
+  here: '#map/markers/1753',
+  origin: sameOrigin,
+  storedOrigin: sameOrigin,
+}), false)
+assert.equal(shouldUseHistoryBack({ historyLength: 2, storedLength: 2 }), false)
+
+globalThis.history = { state: null, length: 1 }
+const territory = territoryBackHtml(slug)
+assert.match(territory, new RegExp(`href="/stories/${slug}/"`))
+assert.doesNotMatch(territory, /aria-label/)
+assert.doesNotMatch(territory, /#timeline/)
 
 const sample = returnUrl(timeline)
 assert.equal(sample.startsWith('/'), true)

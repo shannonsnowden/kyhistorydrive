@@ -223,7 +223,15 @@ export function adoptCrossPageReturn() {
   }
   const prev = history.state && typeof history.state === 'object' ? history.state : {}
   history.replaceState({ ...prev, khdStoryReturn: origin }, '', location.href)
-  writeStore({ v: 1, origin, dest, pending: false, restore: false, t: data.t })
+  writeStore({
+    v: 1,
+    origin,
+    dest,
+    pending: false,
+    restore: false,
+    t: data.t,
+    historyLength: history.length,
+  })
   return origin
 }
 
@@ -245,8 +253,44 @@ export function openMapFromStory(dest, origin) {
   delete prev.khdStoryReturn
   history.replaceState({ ...prev, khdScroll: parsed.scroll }, '', location.href)
   history.pushState({ khdStoryReturn: parsed }, '', `${currentPath()}${mapHash}`)
-  writeStore({ v: 1, origin: parsed, dest: mapHash, pending: false, restore: false, t: Date.now() })
+  writeStore({
+    v: 1,
+    origin: parsed,
+    dest: mapHash,
+    pending: false,
+    restore: false,
+    t: Date.now(),
+    historyLength: history.length,
+  })
   return true
+}
+
+/**
+ * history.back() is only safe when the previous entry is still the stored
+ * origin. A longer history means something else was pushed after the map
+ * opened, so the control must follow returnUrl() instead.
+ */
+export function shouldUseHistoryBack({ historyLength, storedLength, dest, here, origin, storedOrigin } = {}) {
+  if (!Number.isInteger(storedLength) || storedLength < 2 || historyLength !== storedLength) return false
+  const back = parseStoryReturn(storedOrigin)
+  const now = parseStoryReturn(origin)
+  if (!back || !now || back.path !== now.path || back.hash !== now.hash) return false
+  const want = mapDestFromHref(typeof dest === 'string' ? dest : '')
+  const at = mapDestFromHref(typeof here === 'string' ? here : '')
+  if (!want || want !== at) return false
+  return true
+}
+
+function canHistoryBackToOrigin() {
+  const data = readStore()
+  return shouldUseHistoryBack({
+    historyLength: history.length,
+    storedLength: data?.historyLength,
+    dest: data?.dest,
+    here: location.hash,
+    origin: currentReturn(),
+    storedOrigin: data?.origin,
+  })
 }
 
 function sameDocument(href) {
@@ -291,12 +335,16 @@ function onReturnClick(event) {
   if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
   event.preventDefault()
   rememberRestore()
-  if (history.length > 1) {
+  if (canHistoryBackToOrigin()) {
     history.back()
     return
   }
-  const href = returnUrl(currentReturn())
-  if (href) location.assign(href)
+  const origin = currentReturn() || parseStoryReturn(readStore()?.origin)
+  const href = returnUrl(origin)
+  if (!href) return
+  // assign() does not fire popstate, so stamp the stored scroll for this document.
+  noteScrollRestoreFromState({ khdScroll: origin.scroll })
+  location.assign(href)
 }
 
 function ensureButton() {
@@ -307,10 +355,9 @@ function ensureButton() {
   btn = document.createElement('a')
   btn.id = 'storyReturn'
   btn.className = 'story-return'
-  btn.href = '/#timeline'
+  btn.href = '/'
   btn.hidden = true
   btn.dataset.storyReturn = '1'
-  btn.setAttribute('aria-label', 'Back to story')
   btn.innerHTML = '<span aria-hidden="true">← </span>Back to story'
   wrap.insertBefore(btn, wrap.firstChild)
   return btn
@@ -525,10 +572,10 @@ export function territoryBackHtml(slug) {
   const origin = currentReturn()
   const fromHistory = returnUrl(origin)
   let href = fromHistory
-  if (!href && SLUG_RE.test(String(slug || ''))) href = `/#timeline/${slug}`
+  if (!href && SLUG_RE.test(String(slug || ''))) href = `/stories/${slug}/`
   if (!href) return ''
   const flag = fromHistory ? ' data-story-return="1"' : ''
-  return `<a class="story-return" href="${escAttr(href)}"${flag} aria-label="Back to story"><span aria-hidden="true">← </span>Back to story</a>`
+  return `<a class="story-return" href="${escAttr(href)}"${flag}><span aria-hidden="true">← </span>Back to story</a>`
 }
 
 export function installStoryReturn(options = {}) {

@@ -2342,6 +2342,11 @@ function initMap() {
   document.getElementById('heroZoomFullState')?.addEventListener('click', zoomFull)
 
   map.on('load', async () => {
+    // A story map link must not wait out every other layer. The markers file
+    // alone is large enough that the camera stays on the whole state, and the
+    // pin and popup never appear in that window.
+    const deepLink = mapDeepLink()
+    if (deepLink) pendingFocus = deepLink
     try {
       const kyRes = await fetch('/data/kentucky-outline.geojson')
       const ky = await kyRes.json()
@@ -2372,8 +2377,29 @@ function initMap() {
       }
     }
 
-    for (const def of DATA_LAYERS) {
+    const layers = DATA_LAYERS.slice()
+    if (deepLink && !STORY_MAP_LAYERS.has(deepLink.placeLayer)) {
+      const idx = layers.findIndex((def) => def.id === deepLink.placeLayer)
+      if (idx > 0) layers.unshift(layers.splice(idx, 1)[0])
+    }
+    let revealedDeepLink = false
+    const startDeepLink = async () => {
+      if (revealedDeepLink || !deepLink) return
+      revealedDeepLink = true
+      mapReady = true
+      applyFiltersToMapInstance(map)
+      await revealPlaceFromHash(deepLink)
+      // Let the flown camera and popup paint before the next layer's GeoJSON
+      // parse blocks the main thread (markers.geojson is the usual stall).
+      await new Promise((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      })
+    }
+    if (deepLink && !layers.some((def) => def.id === deepLink.placeLayer)) await startDeepLink()
+
+    for (const def of layers) {
       await addDataLayer(def)
+      if (deepLink && def.id === deepLink.placeLayer) await startDeepLink()
     }
 
     // Home defaults: Markers on + whole-state view
@@ -2416,18 +2442,22 @@ function initMap() {
     syncAllLayersCheckbox()
     syncNationLayers().catch(console.error)
     updateStats()
-    pendingFocus = null
-    ensureHighlightSource(map, null)
-    const place = parseHash()
-    if (place.view === 'map' && place.placeLayer && place.placeId) {
-      revealPlaceFromHash({
-        placeLayer: place.placeLayer,
-        placeId: place.placeId,
-      }).catch(console.error)
+    if (!revealedDeepLink) {
+      pendingFocus = null
+      ensureHighlightSource(map, null)
+      const place = mapDeepLink()
+      if (place) revealPlaceFromHash(place).catch(console.error)
+      else fitMapToKentucky(map, { duration: 0 })
     } else {
-      fitMapToKentucky(map, { duration: 0 })
+      pendingFocus = null
     }
   })
+}
+
+function mapDeepLink() {
+  const place = parseHash()
+  if (place.view !== 'map' || !place.placeLayer || !place.placeId) return null
+  return { placeLayer: place.placeLayer, placeId: place.placeId }
 }
 
 /* -------------------- Timeline map (filtered layers) -------------------- */
