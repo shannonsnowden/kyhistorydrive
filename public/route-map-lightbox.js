@@ -13,6 +13,7 @@
   var stage = null
   var canvas = null
   var img = null
+  var overlayHost = null
   var statusEl = null
   var statusText = null
   var spinner = null
@@ -113,7 +114,10 @@
     img.alt = ''
     img.draggable = false
     img.decoding = 'async'
-    canvas.appendChild(img)
+    overlayHost = document.createElement('div')
+    overlayHost.className = 'route-lightbox-overlay'
+    overlayHost.setAttribute('aria-hidden', 'true')
+    canvas.append(img, overlayHost)
     stage.append(statusEl, canvas)
 
     dialog.append(backdrop, bar, stage)
@@ -134,7 +138,7 @@
         clicksToSwallow -= 1
         return
       }
-      var onImage = downOnImage || Boolean(e.target.closest && e.target.closest('.route-lightbox-img'))
+      var onImage = downOnImage || Boolean(e.target.closest && e.target.closest('.route-lightbox-img, .route-lightbox-overlay'))
       if (onImage) return
       close()
     })
@@ -174,6 +178,7 @@
       }
       clampPan()
       apply(false)
+      placeOverlay()
     })
   }
 
@@ -277,7 +282,7 @@
       })
       if (!pointers.size) pinch = null
     }
-    downOnImage = Boolean(e.target.closest && e.target.closest('.route-lightbox-img'))
+    downOnImage = Boolean(e.target.closest && e.target.closest('.route-lightbox-img, .route-lightbox-overlay'))
     try {
       stage.setPointerCapture(e.pointerId)
     } catch (err) {
@@ -495,6 +500,7 @@
         }
         clampPan()
         apply(false)
+        placeOverlay()
         img.classList.add('is-ready')
       })
     }
@@ -543,6 +549,7 @@
     setInert(true)
     document.addEventListener('keydown', onKey, true)
     closeBtn.focus()
+    syncOverlay()
     startLoad(zoomChain(frame))
   }
 
@@ -565,18 +572,38 @@
     if (back && back.isConnected && back.focus) back.focus()
   }
 
+  function placeOverlay() {
+    if (!overlayHost || !img) return
+    overlayHost.style.left = img.offsetLeft + 'px'
+    overlayHost.style.top = img.offsetTop + 'px'
+    overlayHost.style.width = img.clientWidth + 'px'
+    overlayHost.style.height = img.clientHeight + 'px'
+  }
+
+  function syncOverlay() {
+    if (!overlayHost) return
+    overlayHost.replaceChildren()
+    if (!openFrame) return
+    var mode = document.documentElement.getAttribute('data-hp-theme') === 'light' ? 'light' : 'dark'
+    var slot = mode === 'dark' ? 'zoom-dark' : 'desk-light'
+    var src = openFrame.querySelector('.route-map-overlay[data-frame="' + slot + '"]')
+    if (!src) return
+    overlayHost.appendChild(src.cloneNode(true))
+    placeOverlay()
+  }
+
   new MutationObserver(function () {
     if (!dialog || dialog.hidden || !openFrame) return
+    syncOverlay()
     startLoad(zoomChain(openFrame))
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-hp-theme'] })
 
   document.addEventListener('click', function (e) {
     var frame = e.target.closest && e.target.closest('.route-map-zoom')
     if (!frame) return
-    var hit = e.target.closest('.route-map-expand, img, .route-map-picture')
+    var hit = e.target.closest && e.target.closest('.route-map-open, .route-map-expand')
     if (!hit || !frame.contains(hit)) return
     e.preventDefault()
-    var opener = hit.closest('.route-map-expand') || frame.querySelector('.route-map-expand')
-    open(frame, opener)
+    open(frame, hit)
   })
 })()

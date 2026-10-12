@@ -1035,6 +1035,10 @@ class PrerenderPages {
       .static-related h2 { font-size: 1.2rem; margin: 0 0 0.55rem; color: var(--heading); }
       .static-related ul { list-style: none; margin: 0; padding: 0; }
       .static-related li { margin: 0 0 0.45rem; }
+      .related-list { display: grid; gap: 0.6rem; }
+      .related-list > li { margin: 0; }
+      a.related-card { display: grid; grid-template-columns: 56px minmax(0, 1fr) 20px; gap: 0.7rem; align-items: center; min-height: 72px; padding: 0.75rem 0.9rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; color: inherit; text-decoration: none; }
+      .related-card-title { color: var(--accent); font-weight: 600; }
       .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
@@ -1043,10 +1047,13 @@ class PrerenderPages {
       @media (max-width: 1400px) and (min-width: 601px) { .route-map { scroll-margin-top: 6.75rem; } }
       @media (max-width: 600px) { .route-map { scroll-margin-top: 4.25rem; } }
       .route-map h2, .route-map h3 { color: var(--heading); }
-      .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
+      .route-map-picture { display: block; }
       .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
       .route-map-zoom { position: relative; display: block; }
-      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; margin: 0; }
+      .route-map-open { display: block; width: 100%; margin: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: zoom-in; }
+      .route-map-art { position: relative; display: block; overflow: hidden; border-radius: 12px; }
+      .route-map-overlay { position: absolute; inset: 0; pointer-events: none; }
+      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 2; margin: 0; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
       .route-map-caption-phone { display: none; }
       .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
@@ -1142,6 +1149,14 @@ class PrerenderPages {
       }
     }
     return picked.slice(0, 5)
+  }
+
+  static relatedCardMeta(story) {
+    const bits = ['Story']
+    if (story.county) bits.push(PrerenderPages.countyLabel(story.county, true))
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    if (years) bits.push(years)
+    return bits.join(' · ')
   }
 
   static relatedHtml(story, all) {
@@ -1275,6 +1290,20 @@ class PrerenderPages {
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const route = routeBySlug(story.slug)
+    const describeStory = (slug) => {
+      const item = all.find((entry) => entry.slug === slug)
+      if (!item) return null
+      return { title: item.title, meta: PrerenderPages.relatedCardMeta(item) }
+    }
+    const relatedExtras = route
+      ? PrerenderPages.relatedStories(story, all)
+          .filter((item) => !(route.relatedStories || []).includes(item.slug))
+          .map((item) => ({
+            slug: item.slug,
+            title: item.title,
+            meta: PrerenderPages.relatedCardMeta(item),
+          }))
+      : []
     const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
     const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
@@ -1304,9 +1333,11 @@ class PrerenderPages {
             headingLevel: 2,
             linkMode: 'story',
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
+            describe: describeStory,
+            extras: relatedExtras,
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
-          ${PrerenderPages.relatedHtml(story, all)}
+          ${route ? '' : PrerenderPages.relatedHtml(story, all)}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
             ${mapControl}
@@ -1514,6 +1545,22 @@ class PrerenderPages {
     if (!block.includes('class="route-map-zoom"') || !block.includes('class="route-map-expand"') || !block.includes('>Expand<')) {
       throw new Error(`prerender: ${urlPath} route map is missing the expand control`)
     }
+    if (!block.includes('class="route-map-open"') || !block.includes('aria-controls="route-map-lightbox"')) {
+      throw new Error(`prerender: ${urlPath} route map image is not a lightbox button`)
+    }
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark', 'phone-light', 'phone-dark']) {
+      if (!block.includes(`data-frame="${frame}"`)) {
+        throw new Error(`prerender: ${urlPath} route map is missing the ${frame} overlay`)
+      }
+    }
+    if (!block.includes('class="route-ky-line"')) {
+      throw new Error(`prerender: ${urlPath} route map is missing the Kentucky outline`)
+    }
+    const geoStops = route.stops.filter((stop) => stop.geo).length
+    const markerCount = (block.match(/class="route-stop/g) || []).length
+    if (markerCount !== geoStops * 5) {
+      throw new Error(`prerender: ${urlPath} has ${markerCount} stop markers, expected ${geoStops * 5}`)
+    }
     if (!block.includes(`data-route-slug="${route.slug}"`) || !block.includes(`data-fallback="${route.files.fullWebp}"`)) {
       throw new Error(`prerender: ${urlPath} route map lightbox is missing its sources`)
     }
@@ -1596,6 +1643,9 @@ class PrerenderPages {
     if ((html.match(/class="route-map-expand"/g) || []).length !== ROUTE_MAPS.length) {
       throw new Error('prerender: /routes/ is missing an expand control on each map')
     }
+    if ((html.match(/class="route-map-open"/g) || []).length !== ROUTE_MAPS.length) {
+      throw new Error('prerender: /routes/ map images are not lightbox buttons')
+    }
     if (/onclick=|javascript:/.test(html)) throw new Error('prerender: /routes/ uses an inline event handler')
     const cards = html.match(/class="route-card"/g) || []
     if (cards.length !== ROUTE_MAPS.length) {
@@ -1628,10 +1678,40 @@ class PrerenderPages {
     if (!html.includes(PrerenderPages.rssAlternateLink())) {
       throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
     }
-    const related = html.match(/<nav class="static-related"[\s\S]*?<\/nav>/)
-    const relatedCount = related ? (related[0].match(/href="\/stories\//g) || []).length : 0
-    if (relatedCount < 3 || relatedCount > 5) {
-      throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
+    const routeForRelated = routeBySlug(story.slug)
+    const relatedNavs = html.match(/<nav class="static-related/g) || []
+    if (routeForRelated) {
+      if (relatedNavs.length !== 1) {
+        throw new Error(`prerender: ${urlPath} has ${relatedNavs.length} related sections`)
+      }
+      if (html.includes('Related stories and markers')) {
+        throw new Error(`prerender: ${urlPath} still has a separate markers section`)
+      }
+      const related = html.match(/<nav class="static-related[\s\S]*?<\/nav>/)
+      const relatedBlock = related ? related[0] : ''
+      if (!relatedBlock.includes('class="related-card"') || !relatedBlock.includes('>Related stories<')) {
+        throw new Error(`prerender: ${urlPath} related stories are not cards`)
+      }
+      const storyLinks = relatedBlock.match(/href="\/stories\//g) || []
+      if (storyLinks.length < 3) {
+        throw new Error(`prerender: ${urlPath} has ${storyLinks.length} related story links`)
+      }
+      for (const slug of routeForRelated.relatedStories || []) {
+        if (!relatedBlock.includes(`/stories/${slug}/`)) {
+          throw new Error(`prerender: ${urlPath} related stories omit ${slug}`)
+        }
+      }
+      for (const marker of routeForRelated.markers || []) {
+        if (!relatedBlock.includes(`/#map/markers/${marker.number}`)) {
+          throw new Error(`prerender: ${urlPath} related stories omit marker ${marker.number}`)
+        }
+      }
+    } else {
+      const related = html.match(/<nav class="static-related"[\s\S]*?<\/nav>/)
+      const relatedCount = related ? (related[0].match(/href="\/stories\//g) || []).length : 0
+      if (relatedCount < 3 || relatedCount > 5) {
+        throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
+      }
     }
     let data
     const block = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)

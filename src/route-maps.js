@@ -3,6 +3,7 @@
  * public/maps/routes/<slug>/NOTES.md. Coordinates are included only when
  * that file gives one latitude/longitude pair.
  */
+import { routeMapOverlayHtml } from './route-map-geo.js'
 export const SITE = 'https://kyhistorydrive.com'
 export const ORG_ID = `${SITE}/#organization`
 
@@ -339,7 +340,12 @@ export function routeMapZoomHtml(route, { thumb = false } = {}) {
   const label = `Expand: ${route.alt}`
   const f = route.files
   return `<div class="route-map-zoom" data-route-slug="${esc(route.slug)}" data-fallback="${esc(f.fullWebp)}" data-zoom-light-avif="${esc(f.zoomLightAvif)}" data-zoom-light-webp="${esc(f.zoomLightWebp)}" data-zoom-dark-avif="${esc(f.zoomDarkAvif)}" data-zoom-dark-webp="${esc(f.zoomDarkWebp)}">
-      ${routeMapPictureHtml(route, { thumb })}
+      <button type="button" class="route-map-open" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="${esc(label)}">
+        <span class="route-map-art">
+          ${routeMapPictureHtml(route, { thumb })}
+          ${routeMapOverlayHtml(route)}
+        </span>
+      </button>
       <button type="button" class="route-map-expand" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="${esc(label)}">
         <svg class="route-map-expand-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
           <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -354,22 +360,44 @@ function storyHref(slug, linkMode) {
   return `/stories/${encodeURIComponent(slug)}/`
 }
 
-function linksHtml(route, linkMode, titleFor) {
-  const stories = (route.relatedStories || [])
-    .filter((slug) => slug !== route.slug)
-    .map((slug) => {
-      const title = titleFor ? titleFor(slug) : ''
-      if (!title) return ''
-      return `<li><a href="${esc(storyHref(slug, linkMode))}">${esc(title)}</a></li>`
-    })
-    .filter(Boolean)
-  const markers = (route.markers || []).map(
-    (marker) =>
-      `<li><a href="/#map/markers/${esc(marker.number)}">KHS marker #${esc(marker.number)}, ${esc(marker.title)}</a></li>`,
-  )
-  const items = [...stories, ...markers]
+const PIN_ICON = `<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 5.7 10.9 6.4 11.55a.5.5 0 0 0 .7 0c.7-.65 6.4-6.49 6.4-11.55A6.75 6.75 0 0 0 12 2.25zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`
+
+const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.25 10.75 8 6 12.75" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+
+function relatedCardHtml({ href, title, meta }) {
+  return `<li><a class="related-card" href="${esc(href)}"><span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span><span class="related-card-copy"><span class="related-card-title">${esc(title)}</span><span class="related-card-meta">${esc(meta)}</span></span>${CHEVRON_ICON}</a></li>`
+}
+
+function linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel }) {
+  const seen = new Set()
+  const items = []
+  const addStory = (slug, described) => {
+    if (!slug || slug === route.slug || seen.has(slug)) return
+    const title = described?.title || (titleFor ? titleFor(slug) : '')
+    if (!title) return
+    seen.add(slug)
+    items.push(
+      relatedCardHtml({
+        href: storyHref(slug, linkMode),
+        title,
+        meta: described?.meta || 'Story',
+      }),
+    )
+  }
+  for (const slug of route.relatedStories || []) addStory(slug, describe ? describe(slug) : null)
+  for (const extra of extras || []) addStory(extra.slug, extra)
+  for (const marker of route.markers || []) {
+    items.push(
+      relatedCardHtml({
+        href: `/#map/markers/${encodeURIComponent(marker.number)}`,
+        title: marker.title,
+        meta: `Historical marker · KHS #${marker.number}`,
+      }),
+    )
+  }
   if (!items.length) return ''
-  return `<nav class="route-links" aria-label="Related stories and markers"><h3>Related stories and markers</h3><ul>${items.join('')}</ul></nav>`
+  const level = headingLevel === 3 ? 3 : 2
+  return `<nav class="static-related route-links" aria-label="Related stories"><h${level}>Related stories</h${level}><ul class="related-list">${items.join('')}</ul></nav>`
 }
 
 function phoneCropNote(route) {
@@ -389,7 +417,7 @@ function stopsHtml(route) {
   return `<h3>${esc(route.stopsLabel)}</h3><ol class="route-waypoints">${items}</ol>`
 }
 
-export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story', titleFor = null } = {}) {
+export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story', titleFor = null, describe = null, extras = null } = {}) {
   const route = routeBySlug(slug)
   if (!route) return ''
   const level = headingLevel === 3 ? 3 : 2
@@ -409,7 +437,7 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
       ${stopsHtml(route)}
       ${note}
       <p class="route-sources muted">${esc(route.sources)}</p>
-      ${linksHtml(route, linkMode, titleFor)}
+      ${linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel: level })}
       <p class="route-index-link"><a href="/routes/">All route maps</a></p>
     </section>`
 }
@@ -484,6 +512,35 @@ export function routeMapJsonLd(route, { canonical, title }) {
 const PHONE_MQ = '(max-width: 699px)'
 const DESK_MQ = '(min-width: 700px)'
 
+/**
+ * http(s) on this site or the current page, or a relative path.
+ * Rejects javascript:, data:, and protocol-relative URLs.
+ * Self-contained so the no-module theme script can embed the same function.
+ */
+export function safeAssetUrl(value) {
+  const raw = typeof value === 'string' ? value.trim() : ''
+  if (!raw || /[\u0000-\u001f\u007f\\<>"'`]/.test(raw)) return ''
+  if (raw.startsWith('//')) return ''
+  let parsed
+  try {
+    parsed = new URL(raw, 'https://kyhistorydrive.com')
+  } catch {
+    return ''
+  }
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return ''
+  const allowedOrigins = ['https://kyhistorydrive.com', 'http://kyhistorydrive.com']
+  const pageOrigin = typeof location !== 'undefined' && location.origin ? location.origin : ''
+  const allowed = allowedOrigins.includes(parsed.origin) || (pageOrigin !== '' && parsed.origin === pageOrigin)
+  if (!allowed) return ''
+  if (!/^[a-z][a-z0-9+.-]*:/i.test(raw)) return raw
+  return parsed.href
+}
+
+function assignAsset(el, attr, value) {
+  const next = safeAssetUrl(value)
+  if (next && !/["&<>]/.test(next)) el.setAttribute(attr, next)
+}
+
 function paintStoryPinPictures(mode) {
   document.querySelectorAll('picture.story-pin-picture').forEach((pic) => {
     pic.querySelectorAll('source[data-theme]').forEach((src) => {
@@ -492,8 +549,7 @@ function paintStoryPinPictures(mode) {
     })
     const img = pic.querySelector('img')
     if (!img) return
-    const next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-    if (next) img.setAttribute('src', next)
+    assignAsset(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
     img.remove()
     pic.appendChild(img)
   })
@@ -516,22 +572,25 @@ export function applyRouteMapTheme(theme) {
     })
     const img = pic.querySelector('img')
     if (!img) return
-    const next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-    if (next) img.setAttribute('src', next)
+    assignAsset(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
     img.remove()
     pic.appendChild(img)
   })
   document.querySelectorAll('a.route-map-full-link').forEach((link) => {
-    const next = link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light')
-    if (next) link.setAttribute('href', next)
+    assignAsset(link, 'href', link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
   })
 }
 
 export function routeMapThemeScript() {
   return `<script>
       (function () {
+        ${safeAssetUrl.toString()}
         var phone = '(max-width: 699px)'
         var desk = '(min-width: 700px)'
+        function assign(el, attr, value) {
+          var next = safeAssetUrl(value)
+          if (next && !/["&<>]/.test(next)) el.setAttribute(attr, next)
+        }
         function apply(theme) {
           var mode = theme === 'light' ? 'light' : 'dark'
           document.querySelectorAll('picture.story-pin-picture').forEach(function (pic) {
@@ -541,8 +600,7 @@ export function routeMapThemeScript() {
             })
             var img = pic.querySelector('img')
             if (!img) return
-            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-            if (next) img.setAttribute('src', next)
+            assign(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
             img.remove()
             pic.appendChild(img)
           })
@@ -555,14 +613,12 @@ export function routeMapThemeScript() {
             })
             var img = pic.querySelector('img')
             if (!img) return
-            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-            if (next) img.setAttribute('src', next)
+            assign(img, 'src', img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
             img.remove()
             pic.appendChild(img)
           })
           document.querySelectorAll('a.route-map-full-link').forEach(function (link) {
-            var next = link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light')
-            if (next) link.setAttribute('href', next)
+            assign(link, 'href', link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
           })
         }
         function run() { apply(document.documentElement.getAttribute('data-hp-theme') || 'dark') }

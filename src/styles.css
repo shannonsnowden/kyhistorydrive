@@ -3345,7 +3345,30 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-map-figure { margin: 0.75rem 0 0.35rem; }
 .route-map-picture { display: block; }
 .route-map-zoom { position: relative; display: block; min-width: 0; }
-.route-map-zoom img { cursor: zoom-in; }
+.route-map-open {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.route-map-open:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+.route-map-art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  line-height: 0;
+}
 .route-map-picture img {
   display: block;
   width: 100%;
@@ -3355,11 +3378,67 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   border: 1px solid var(--line);
   border-radius: 12px;
 }
+.route-map-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+}
+.route-map-overlay[data-frame="desk-light"] { display: block; }
+html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-light"] { display: none; }
+html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display: block; }
+@media (max-width: 699px) {
+  .route-map-overlay[data-frame="desk-light"],
+  .route-map-overlay[data-frame="desk-dark"] { display: none; }
+  .route-map-overlay[data-frame="phone-light"] { display: block; }
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-light"] { display: none; }
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-dark"] { display: block; }
+}
+.route-map-overlay[data-frame="zoom-dark"] { display: none; }
+.route-ky {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.route-map-overlay[data-frame$="light"] .route-ky-line { stroke: #1a3d28; }
+.route-map-overlay[data-frame$="dark"] .route-ky-line { stroke: #e8d5a8; }
+.route-ky-line {
+  fill: none;
+  stroke-width: 2.25;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.route-stop {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: 0;
+  border: 2px solid var(--heading);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--ink-on-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.route-stop-conjectural {
+  background: var(--panel);
+  color: var(--heading);
+  border-style: dashed;
+}
 .route-map-expand {
   position: absolute;
   top: 0.55rem;
   right: 0.55rem;
-  z-index: 1;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -3397,8 +3476,116 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
 .route-waypoints li { margin: 0 0 0.35rem; }
 .route-sources { margin: 0.35rem 0 0.85rem; }
-.route-links ul { list-style: none; margin: 0; padding: 0; }
-.route-links li { margin: 0 0 0.4rem; }
+.route-map .static-related { margin: 0.5rem 0 0; max-width: 100%; }
+.route-map .static-related > h2,
+.route-map .static-related > h3 {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin: 1.25rem 0 0.75rem;
+  color: var(--heading);
+}
+.related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 100%;
+}
+@media (min-width: 720px) {
+  .related-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+}
+.related-list > li { display: flex; margin: 0; min-width: 0; }
+a.related-card {
+  display: grid;
+  flex: 1 1 auto;
+  width: 100%;
+  grid-template-columns: 56px minmax(0, 1fr) 20px;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  min-height: 72px;
+  min-width: 0;
+  box-sizing: border-box;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: none;
+  color: inherit;
+  text-decoration: none;
+}
+a.related-card:hover {
+  border-color: var(--accent);
+  background: var(--panel);
+  text-decoration: none;
+}
+a.related-card:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.related-card-media {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+}
+.related-card-pin { color: var(--accent); }
+.related-card-pin-icon { display: block; width: 24px; height: 24px; }
+.related-card-copy { min-width: 0; }
+.related-card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+a.related-card:hover .related-card-title,
+a.related-card:focus-visible .related-card-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.related-card-meta {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+.related-card-chevron {
+  display: block;
+  width: 16px;
+  height: 16px;
+  justify-self: end;
+  color: var(--muted);
+  transition: transform 160ms ease, color 160ms ease;
+}
+a.related-card:hover .related-card-chevron {
+  transform: translateX(2px);
+  color: var(--accent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .related-card-chevron { transition: none; }
+  a.related-card:hover .related-card-chevron { transform: none; }
+}
 .route-index-link { margin: 0.8rem 0 0; }
 .route-index-list { list-style: none; margin: 1rem 0 0; padding: 0; }
 .route-card {
@@ -3512,6 +3699,18 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   opacity: 0;
 }
 .route-lightbox-img.is-ready { opacity: 1; }
+.route-lightbox-overlay {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+.route-lightbox-img.is-ready ~ .route-lightbox-overlay { opacity: 1; }
+.route-lightbox-overlay .route-map-overlay {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+}
 .route-lightbox-status {
   position: absolute;
   left: 50%;
