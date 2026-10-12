@@ -22,7 +22,7 @@ October 31, 1750 – May 19, 1751 (Gist's first journey for the Ohio Company). K
 No. Gist drew a plat of his track, but it doesn't survive in usable form. The line follows the daily compass courses and named places in his journal (e.g. "Tuesday 12. got my Horses over the River"; "Monday 18 … lower Salt Lick Creek … about 15 miles above the Falls"; "Tuesday 30 … Blue Stone"; "Wednesday 8 … crossed the [New] River … about 8 miles above the Mouth of the Big Stone River"). The Ohio-country towns (Logstown, Muskingum, Lower Shawneetown, Pickawillany) are well located. The Kentucky leg is a reconstruction.
 
 ## One-sentence route (plain text)
-Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Red River, which he called the little Cuttaway, and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.
+Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned southeast, crossing the Red River (his "little Cuttaway") on March 19, and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.
 
 Distance (measured on the map line): about 350 miles from Old Town to Lower Shawneetown, 250 for the Pickawillany round trip, and about 480 from Lower Shawneetown through Kentucky to the Yadkin.
 
@@ -34,13 +34,13 @@ Distance (measured on the map line): about 350 miles from Old Town to Lower Shaw
 | 3 | late Nov | Shannopin's Town; Logstown | Pittsburgh; Ambridge/Baden | Allegheny/Beaver cos., PA | 40.45, -80.00; 40.60, -80.24 | high |
 | 4 | Dec 14 | Wyandot town on the Muskingum | Coshocton | Coshocton Co., OH | 40.27, -81.86 | high |
 | 5 | Jan 1751 | Hockhocking; Maguck (Delaware town) | Lancaster; Circleville area | Fairfield/Pickaway cos., OH | ≈39.7, -82.6; 39.58, -82.95 | medium |
-| 6 | Jan 29 & Mar 8 | Lower Shawneetown ("Shannoah Town"), mouth of the Scioto | Portsmouth OH / South Portsmouth KY | Scioto Co., OH / Greenup Co., KY | 38.7, -83.0 (rounded to 0.1°, protected site) | high |
+| 6 | Jan 29 & Mar 8 | Lower Shawneetown ("Shannoah Town"), mouth of the Scioto | Portsmouth OH / South Portsmouth KY | Scioto Co., OH / Greenup Co., KY | 38.73, -82.99 | high |
 | 7 | Feb 17 | Pickawillany (Twightwee town), Great Miami | Piqua | Miami Co., OH | 40.18, -84.24 | high |
-| 8 | Mar 12 | ferried over the Ohio into Kentucky | South Portsmouth | Greenup Co., KY | 38.7, -83.0 | high |
+| 8 | Mar 12 | ferried over the Ohio into Kentucky | South Portsmouth | Greenup Co., KY | 38.71, -83.0 | high |
 | 9 | Mar 13–17 | down the southeast side of the Ohio, S and SW | Lewis–Mason–Bracken cos. corridor | KY | ≈38.6, -83.3 to -84.3 | low |
 | 10 | Mar 18 | lower Salt Lick Creek, "about 15 miles above the Falls" | disputed; drawn near Grant/Owen cos. | KY | ≈38.55, -84.70 | conjectural |
-| 11 | Mar 19 | crosses the "little Cuttaway" (the Red River) at an island | Red River near Clay City | Clark/Powell/Estill cos., KY | ≈37.84, -84.02 | conjectural |
-| 12 | Mar 20 – Apr 29 | southeast up the branches of the little Cuttaway (the Red River), coal, laurel thickets, mountains | Bluegrass edge → eastern KY coalfield → Pound Gap area | Clark/Powell → Letcher cos., KY; Wise Co., VA | ≈38.1 → 37.15, -84.45 to -82.6 | conjectural |
+| 11 | Mar 19 | crosses the "little Cuttaway" (Red River) at an island | Red River near Clay City (approx.) | Powell/Clark/Estill cos., KY | ≈37.86, -83.93 | conjectural |
+| 12 | Mar 20 – Apr 29 | southeast up the branches of the little Cuttaway, coal, laurel thickets, mountains | Bluegrass edge → eastern KY coalfield → Pound Gap area | Clark/Powell → Letcher cos., KY; Wise Co., VA | ≈38.1 → 37.15, -84.45 to -82.6 | conjectural |
 | 13 | Apr 30 | Bluestone River | Bluefield–Princeton area | Mercer Co., WV / Tazewell Co., VA | ≈37.33, -81.20 | low |
 | 14 | May 7–8 | crosses the New River by raft, ~8 mi above the Bluestone mouth | near Hinton | Summers Co., WV | ≈37.56, -80.85 | medium |
 | 15 | May 11 | mountain pond (Mountain Lake), Sinking Creek | Mountain Lake | Giles Co., VA | 37.36, -80.53 | medium |
@@ -50,7 +50,7 @@ Distance (measured on the map line): about 350 miles from Old Town to Lower Shaw
 ## Uncertainty notes
 - Ohio-country leg: solid, approximate between well-located towns. Pickawillany side trip: thin dashed branch.
 - The whole Kentucky leg and the return through the mountains are dashed and labelled conjectural. Gist gives only compass courses and miles, and historians place his "lower Salt Lick Creek" anywhere from near Big Bone Lick to the Licking River. One old secondary history even has him at the Lower Blue Licks. His informants' "15 miles above the Falls" may itself have been wrong. The map draws a middle reading and labels the site "disputed."
-- "Little Cuttaway" is the Red River. The USGS name record lists "Little Cuttaway River" as another name for the Red, and Gist's journal entry for March 19, 1751 is the crossing. The house map still draws that day on the Kentucky River below Frankfort, which is the Darlington and Summers reading. Story Studio should move the line onto the Red. Some writers say he climbed Pilot Knob (Powell Co.) or left by Pound Gap. Neither is in his journal, and they are used only to shape the dashed line.
+- "Little Cuttaway" is the Red River: USGS GNIS lists "Little Cuttaway" as a variant name of the Red River (KY). Older editions (Darlington, Summers) read it as the Kentucky River; the map follows GNIS (fixed 2026-10-12). Some writers say he climbed Pilot Knob (Powell Co.) or left by Pound Gap. Neither is in his journal, and they are used only to shape the dashed line.
 - The fossil tooth came from a lick that traders described to Gist. Big Bone Lick is marked for context as "hearsay," not as a place he visited.
 - The Falls of the Ohio are marked "never reached."
 
