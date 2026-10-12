@@ -75,10 +75,10 @@
     "cemetery_type": "national",
     "nrhp": true,
     "history": "Small Civil War national cemetery in Danville for Union soldiers who died in local hospitals. Administered by the VA and listed on the National Register, it is one of Kentucky's seven national cemeteries.",
-    "why_historic_url": "https://www.cem.va.gov/cems/nchp/danville.asp",
-    "website": "https://www.cem.va.gov/cems/nchp/danville.asp",
+    "why_historic_url": "https://www.cem.va.gov/cems/nchp/danvilleky.asp",
+    "website": "https://www.cem.va.gov/cems/nchp/danvilleky.asp",
     "sources": [
-      "https://www.cem.va.gov/cems/nchp/danville.asp",
+      "https://www.cem.va.gov/cems/nchp/danvilleky.asp",
       "https://en.wikipedia.org/wiki/Danville_National_Cemetery_(Kentucky)"
     ],
     "geocode_source": "nrhp",
@@ -286,7 +286,7 @@
     "why_historic_url": "https://en.wikipedia.org/wiki/Episcopal_Burying_Ground_and_Chapel",
     "sources": [
       "https://en.wikipedia.org/wiki/Episcopal_Burying_Ground_and_Chapel",
-      "https://history.ky.gov/markers/colonel-george-nicholas"
+      "https://history.ky.gov/markers/colonel-george-nichols"
     ],
     "geocode_source": "manual",
     "marker_number": "125",
