@@ -25,7 +25,9 @@ import {
   relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
+  storyTimelineForStory,
   wireCiteBoxes,
+  wireStoryTimelines,
 } from './story-tools.js'
 import { storyPinLinkHtml } from './story-pin.js'
 import './territory.css'
@@ -3216,6 +3218,36 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
         })
       : ''
     if (film) reader.classList.add('has-film')
+    const markerRows = markerRecords(markerFeatures)
+    const routeForTimeline = routeBySlug(meta.slug)
+    const timeline = storyTimelineForStory(
+      {
+        slug: meta.slug,
+        title: s.title,
+        era: s.era || meta.era,
+        tags: s.tags || meta.tags || [],
+        county: meta.county || s.county || '',
+        yearStart: s.yearStart ?? meta.yearStart ?? null,
+        yearEnd: s.yearEnd ?? meta.yearEnd ?? null,
+        lat: meta.lat ?? s.lat ?? null,
+        lon: meta.lon ?? s.lon ?? null,
+        historyId,
+        matchedPlace: meta.matchedPlace || s.matchedPlace || '',
+      },
+      storyIndex.stories,
+      markerRows,
+      {
+        headingLevel: 2,
+        excludeMarkerIds: (routeForTimeline?.markers || []).map((marker) => String(marker.number)),
+      },
+    )
+    const photoHtml = storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: Boolean(film) })
+    const sidebarHtml = timeline.html
+      ? `<div class="story-sidebar-col"><div class="story-timeline-slot" data-timeline-slot="side"></div>${photoHtml}</div>`
+      : photoHtml
+    const inlineTimeline = timeline.html
+      ? `<div class="story-timeline-slot" data-timeline-slot="inline">${timeline.html}</div>`
+      : ''
     reader.innerHTML = `
       ${timelineReaderBarHtml('top')}
       <div class="story-reader-layout">
@@ -3237,6 +3269,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             <div class="tags">${tags}</div>
             ${mapControl ? `<div class="story-card-actions">${mapControl}</div>` : ''}
           </header>
+          ${inlineTimeline}
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
@@ -3255,11 +3288,14 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               lon: meta.lon ?? s.lon,
             },
             storyIndex.stories,
-            markerRecords(markerFeatures),
+            markerRows,
             {
               headingLevel: 2,
-              excludeSlugs: routeBySlug(meta.slug)?.relatedStories || [],
-              excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
+              excludeSlugs: [...(routeForTimeline?.relatedStories || []), ...timeline.slugs],
+              excludeMarkerIds: [
+                ...(routeForTimeline?.markers || []).map((marker) => String(marker.number)),
+                ...timeline.markerIds,
+              ],
               limit: 3,
             },
           )}
@@ -3279,12 +3315,13 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           }
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
-        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: Boolean(film) })}
+        ${sidebarHtml}
         ${filmHtml}
       </div>
       ${timelineReaderBarHtml('bottom')}
     `
     wireFilmCaptions(reader)
+    wireStoryTimelines(reader)
     const sidebar = reader.querySelector('.story-sidebar-photo')
     if (sidebar) AdSlot.mount(sidebar, 'sidebar')
     linkPeopleInBody(reader.querySelector('.story-body'), relatedData, meta.slug, relTitleFor)

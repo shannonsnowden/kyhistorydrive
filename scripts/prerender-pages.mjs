@@ -44,6 +44,8 @@ import {
   resolveArticleDates,
   storyCanonicalUrl,
   storyThumbSrc,
+  storyTimelineForStory,
+  timelineBootScript,
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
@@ -1130,13 +1132,13 @@ class PrerenderPages {
     return pickRelatedStories(story, all, excludeSlugs)
   }
 
-  static relatedAndNearbySection(story, all, markers) {
+  static relatedAndNearbySection(story, all, markers, exclude = {}) {
     const route = routeBySlug(story.slug)
     const routeSlugs = route?.relatedStories || []
     const routeMarkerIds = (route?.markers || []).map((marker) => String(marker.number))
     return relatedAndNearbyForStory(story, all, markers, {
-      excludeSlugs: routeSlugs,
-      excludeMarkerIds: routeMarkerIds,
+      excludeSlugs: [...routeSlugs, ...(exclude.slugs || [])],
+      excludeMarkerIds: [...routeMarkerIds, ...(exclude.markerIds || [])],
       limit: 3,
       thumbFor: (item) => PrerenderPages.existingThumb(item),
     })
@@ -1281,6 +1283,15 @@ class PrerenderPages {
           transcript: PrerenderPages.transcriptForFilm(film),
         })
       : ''
+    const routeMarkerIds = (route?.markers || []).map((marker) => String(marker.number))
+    const timeline = storyTimelineForStory(story, all, markers, {
+      headingLevel: 2,
+      excludeMarkerIds: routeMarkerIds,
+    })
+    const photoHtml = PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })
+    const sidebar = timeline.html
+      ? `<div class="story-sidebar-col">${timeline.html}${photoHtml}</div>`
+      : photoHtml
     const main = `<article class="story-reader-layout static-story${film ? ' has-film' : ''}">
         <div class="story-intro">
           ${PrerenderPages.crumbHtml(story, layer)}
@@ -1291,7 +1302,7 @@ class PrerenderPages {
             ${lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''}
           </header>
         </div>
-        ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
+        ${sidebar}
         <div class="story-reader-main">
           <div class="story-body">${marked.parse(bodyMarkdown)}</div>
           ${routeMapSectionHtml(story.slug, {
@@ -1300,7 +1311,10 @@ class PrerenderPages {
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
-          ${PrerenderPages.relatedAndNearbySection(story, all, markers)}
+          ${PrerenderPages.relatedAndNearbySection(story, all, markers, {
+            slugs: timeline.slugs,
+            markerIds: timeline.markerIds,
+          })}
           ${citeBoxHtml({
             title: story.title,
             url: storyCanonicalUrl(story.slug),
@@ -1315,7 +1329,7 @@ class PrerenderPages {
           </div>
         </div>
         ${filmHtml}
-      </article>`
+      </article>${timeline.html ? timelineBootScript() : ''}`
     return PrerenderPages.shell({
       title,
       description,
@@ -1728,15 +1742,24 @@ class PrerenderPages {
     }
     if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
     const routeForNearby = routeBySlug(story.slug)
+    const timelineShown = storyTimelineForStory(story, all, markers, {
+      excludeMarkerIds: (routeForNearby?.markers || []).map((marker) => String(marker.number)),
+    })
     const relatedSlugs = [...related[0].matchAll(/<li class="related-story">[\s\S]*?href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
-    const expectedRelated = PrerenderPages.relatedStories(story, all, routeForNearby?.relatedStories || []).map((item) => item.slug)
+    const expectedRelated = PrerenderPages.relatedStories(story, all, [
+      ...(routeForNearby?.relatedStories || []),
+      ...timelineShown.slugs,
+    ]).map((item) => item.slug)
     if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
       throw new Error(`prerender: ${urlPath} related stories are not ranked by subject tags, county, then distance`)
     }
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
-      excludeSlugs: [...(routeForNearby?.relatedStories || []), ...relatedSlugs],
-      excludeMarkerIds: (routeForNearby?.markers || []).map((marker) => String(marker.number)),
+      excludeSlugs: [...(routeForNearby?.relatedStories || []), ...timelineShown.slugs, ...relatedSlugs],
+      excludeMarkerIds: [
+        ...(routeForNearby?.markers || []).map((marker) => String(marker.number)),
+        ...timelineShown.markerIds,
+      ],
     })
     const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
     if (!PrerenderPages.publicGeo(story) && nearbyItems.length) {

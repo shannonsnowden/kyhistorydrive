@@ -279,7 +279,17 @@ export function markerRecords(features) {
     const id = props.marker_number ?? props.id
     const title = props.title || props.name
     if (id == null || String(id).trim() === '' || !title) continue
-    rows.push({ id: String(id), title: String(title), lat, lon })
+    const yearStart = props.yearStart ?? props.year_start ?? null
+    const yearEnd = props.yearEnd ?? props.year_end ?? null
+    rows.push({
+      id: String(id),
+      title: String(title),
+      lat,
+      lon,
+      yearStart,
+      yearEnd,
+      county: props.county || '',
+    })
   }
   return rows
 }
@@ -530,6 +540,376 @@ export function relatedAndNearbyForStory(
     }
   })
   return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel })
+}
+
+/** Home-map hash for a story that already has a pin. The hash never includes coordinates. */
+export function storyPlaceHash({ historyId, slug, lat, lon } = {}) {
+  if (historyId) return `#map/history/${encodeURIComponent(historyId)}`
+  if (lat != null && lon != null && lat !== '' && lon !== '' && slug) {
+    return `#map/stories/${encodeURIComponent(slug)}`
+  }
+  return null
+}
+
+/** Year label for the timeline. BCE/CE, with an en dash when the span is a range. */
+export function formatYearRange(start, end) {
+  const fmt = (year) => {
+    if (year == null || year === '' || Number.isNaN(Number(year))) return ''
+    const n = Number(year)
+    if (n < 0) return `${Math.abs(n)} BCE`
+    return String(n)
+  }
+  const hasStart = start != null && start !== '' && !Number.isNaN(Number(start))
+  const hasEnd = end != null && end !== '' && !Number.isNaN(Number(end))
+  if (!hasStart && !hasEnd) return ''
+  if (hasStart && hasEnd && Number(start) !== Number(end)) {
+    const cross = Number(start) < 0 && Number(end) > 0 ? ' CE' : ''
+    return `${fmt(start)} – ${fmt(end)}${cross}`
+  }
+  return fmt(hasStart ? start : end)
+}
+
+function anchorYear(record) {
+  const year = record?.yearStart ?? record?.yearEnd
+  if (year == null || year === '' || Number.isNaN(Number(year))) return null
+  return Number(year)
+}
+
+function endYear(record, fallback) {
+  const year = record?.yearEnd ?? record?.yearStart ?? fallback
+  if (year == null || year === '' || Number.isNaN(Number(year))) return fallback
+  return Number(year)
+}
+
+function titleWords(title) {
+  return String(title || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+}
+
+function normPlace(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+}
+
+function placeStem(value) {
+  const norm = normPlace(value)
+  if (!norm) return ''
+  return norm.split(/\s*\/\s*/)[0].trim()
+}
+
+function timelineScore(story, other) {
+  const specific = sharedCount(relatedTagSets(story).specific, relatedTagSets(other).specific)
+  let score = specific * 3
+  if (sameCounty(story, other)) score += 2
+  if (story?.era && story.era === other?.era) score += 1
+  if (relatedMiles(story, other) <= 40) score += 1
+  return score
+}
+
+function isNearDuplicate(candidate, picked) {
+  const place = normPlace(candidate.matchedPlace)
+  const stem = placeStem(candidate.matchedPlace)
+  const words = titleWords(candidate.title)
+  const two = words.length >= 2 ? words.slice(0, 2).join(' ') : ''
+  for (const item of picked) {
+    const otherPlace = normPlace(item.matchedPlace)
+    if (place && otherPlace && place === otherPlace) return true
+    const otherStem = placeStem(item.matchedPlace)
+    if (stem && otherStem && stem.length >= 4 && stem === otherStem && candidate.cy === item.cy) return true
+    const otherWords = titleWords(item.title)
+    const otherTwo = otherWords.length >= 2 ? otherWords.slice(0, 2).join(' ') : ''
+    if (two && otherTwo && two === otherTwo && candidate.cy === item.cy) return true
+  }
+  return false
+}
+
+function takeRanked(ranked, already, limit) {
+  const chosen = []
+  const picked = [...already]
+  if (limit <= 0) return chosen
+  for (const item of ranked) {
+    if (chosen.length >= limit) break
+    if (item.slug && picked.some((row) => row.slug === item.slug)) continue
+    if (item.id && picked.some((row) => row.kind === 'marker' && row.id === item.id)) continue
+    if (isNearDuplicate(item, picked)) continue
+    chosen.push(item)
+    picked.push(item)
+  }
+  return chosen
+}
+
+function chrono(a, b) {
+  if (a.cy !== b.cy) return a.cy - b.cy
+  const endA = endYear(a, a.cy)
+  const endB = endYear(b, b.cy)
+  if (endA !== endB) return endA - endB
+  return String(a.title).localeCompare(String(b.title)) || String(a.slug || a.id || '').localeCompare(String(b.slug || b.id || ''))
+}
+
+/**
+ * Up to four stories before and four after this story's year.
+ * Same place and near-duplicate titles are dropped. Markers fill a side
+ * only when that side still has fewer than three stories.
+ */
+export function pickTimelineEvents(story, allStories, markers, { perSide = 4, max = 9, excludeMarkerIds = [] } = {}) {
+  const empty = { before: [], current: null, after: [] }
+  const y = anchorYear(story)
+  if (y == null || !story?.slug || !story?.title) return empty
+  const sideLimit = Math.max(0, Number(perSide) || 0)
+  const neighborCap = Math.max(sideLimit, Math.max(0, (Number(max) || 9) - 1))
+  const current = {
+    kind: 'story',
+    slug: story.slug,
+    title: story.title,
+    yearStart: story.yearStart ?? null,
+    yearEnd: story.yearEnd ?? null,
+    cy: y,
+    matchedPlace: story.matchedPlace || '',
+  }
+  const beforeRanked = []
+  const afterRanked = []
+  for (const other of allStories || []) {
+    if (!other?.slug || other.slug === story.slug || !other.title) continue
+    const cy = anchorYear(other)
+    if (cy == null) continue
+    const score = timelineScore(story, other)
+    if (score <= 0) continue
+    const row = {
+      kind: 'story',
+      slug: other.slug,
+      title: other.title,
+      yearStart: other.yearStart ?? null,
+      yearEnd: other.yearEnd ?? null,
+      cy,
+      matchedPlace: other.matchedPlace || '',
+      score,
+    }
+    let side = cy < y ? 'before' : cy > y ? 'after' : ''
+    if (!side) {
+      const cEnd = endYear(other, cy)
+      const sEnd = endYear(story, y)
+      if (cEnd !== sEnd) side = cEnd < sEnd ? 'before' : 'after'
+      else side = String(other.title).localeCompare(String(story.title)) < 0 ? 'before' : 'after'
+    }
+    if (side === 'before') beforeRanked.push(row)
+    else afterRanked.push(row)
+  }
+  const byRank = (a, b) => {
+    if (b.score !== a.score) return b.score - a.score
+    const delta = Math.abs(a.cy - y) - Math.abs(b.cy - y)
+    if (delta) return delta
+    return String(a.title).localeCompare(String(b.title)) || String(a.slug).localeCompare(String(b.slug))
+  }
+  beforeRanked.sort(byRank)
+  afterRanked.sort(byRank)
+  let before = takeRanked(beforeRanked, [current], Math.min(sideLimit, neighborCap))
+  let after = takeRanked(afterRanked, [current, ...before], Math.min(sideLimit, neighborCap))
+  if (before.length < 3 && before.length + after.length < neighborCap) {
+    after = after.concat(takeRanked(afterRanked, [current, ...before, ...after], neighborCap - before.length - after.length))
+  } else if (after.length < 3 && before.length + after.length < neighborCap) {
+    before = before.concat(takeRanked(beforeRanked, [current, ...before, ...after], neighborCap - before.length - after.length))
+  }
+  const skipMarkers = new Set((excludeMarkerIds || []).map((id) => String(id)))
+  const markerPool = { before: [], after: [], same: [] }
+  const storyCounty = countyKey(story)
+  if (storyCounty) {
+    for (const marker of markers || []) {
+      const id = marker?.id ?? marker?.marker_number
+      const title = marker?.title || marker?.name
+      if (id == null || String(id).trim() === '' || !title || skipMarkers.has(String(id))) continue
+      if (countyKey(marker) !== storyCounty) continue
+      const cy = anchorYear(marker)
+      if (cy == null || Math.abs(cy - y) > 25) continue
+      const row = {
+        kind: 'marker',
+        id: String(id),
+        title: String(title),
+        yearStart: marker.yearStart ?? cy,
+        yearEnd: marker.yearEnd ?? null,
+        cy,
+        matchedPlace: '',
+      }
+      const bucket = cy < y ? 'before' : cy > y ? 'after' : 'same'
+      markerPool[bucket].push(row)
+    }
+    const byTime = (a, b) => Math.abs(a.cy - y) - Math.abs(b.cy - y) || a.title.localeCompare(b.title) || a.id.localeCompare(b.id)
+    markerPool.before.sort(byTime)
+    markerPool.after.sort(byTime)
+    markerPool.same.sort(byTime)
+    if (before.length < 3) before = before.concat(takeRanked(markerPool.before, [current, ...before, ...after], 3 - before.length))
+    if (after.length < 3) after = after.concat(takeRanked(markerPool.after, [current, ...before, ...after], 3 - after.length))
+    const same = markerPool.same
+    if (same.length && (before.length < 3 || after.length < 3)) {
+      const preferBefore = before.length <= after.length
+      if (preferBefore && before.length < 3) before = before.concat(takeRanked(same, [current, ...before, ...after], 3 - before.length))
+      if (after.length < 3) after = after.concat(takeRanked(same, [current, ...before, ...after], 3 - after.length))
+      if (before.length < 3) before = before.concat(takeRanked(same, [current, ...before, ...after], 3 - before.length))
+    }
+  }
+  before.sort(chrono)
+  after.sort(chrono)
+  return { before, current, after }
+}
+
+const TIMELINE_PIN = `<svg class="st-pin-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2A6.8 6.8 0 0 0 5.2 9c0 5.1 5.7 11 6.4 11.6a.6.6 0 0 0 .8 0c.7-.6 6.4-6.5 6.4-11.6A6.8 6.8 0 0 0 12 2.2zm0 9.2a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8z"/></svg>`
+
+function safeDomId(value, fallback) {
+  const id = String(value || '').replace(/[^\w-]/g, '')
+  return id || fallback
+}
+
+function datetimeYear(start, end) {
+  const year = start != null && start !== '' ? start : end
+  if (year == null || year === '' || Number.isNaN(Number(year))) return ''
+  return String(Number(year))
+}
+
+function timelineStoryBySlug(allStories) {
+  const bySlug = new Map()
+  for (const item of allStories || []) {
+    if (item?.slug) bySlug.set(item.slug, item)
+  }
+  return bySlug
+}
+
+function timelineRowHtml(event, bySlug) {
+  const years = formatYearRange(event.yearStart, event.yearEnd)
+  const datetime = datetimeYear(event.yearStart, event.yearEnd)
+  const time = `<span class="st-date"><time datetime="${esc(datetime)}">${esc(years)}</time></span>`
+  if (event.kind === 'current') {
+    return `<li class="st-item st-current" aria-current="page"><div class="st-row"><div class="st-current-body">${time}<span class="st-title">${esc(event.title)}</span><span class="st-here">This story</span></div></div></li>`
+  }
+  if (event.kind === 'marker') {
+    return `<li class="st-item"><div class="st-row"><a class="st-link" href="${esc(markerMapHref(event.id))}">${time}<span class="st-kicker">Marker</span><span class="st-title">${esc(event.title)}</span></a></div></li>`
+  }
+  const source = bySlug.get(event.slug)
+  const hash = storyPlaceHash({
+    historyId: source?.historyId,
+    slug: event.slug,
+    lat: source?.lat,
+    lon: source?.lon,
+  })
+  const pin = hash
+    ? `<a class="st-pin" href="/${esc(hash)}" aria-label="${esc(`Show ${event.title} on the map`)}">${TIMELINE_PIN}</a>`
+    : ''
+  return `<li class="st-item"><div class="st-row"><a class="st-link" href="/stories/${encodeURIComponent(event.slug)}/">${time}<span class="st-title">${esc(event.title)}</span></a>${pin}</div></li>`
+}
+
+/** The panel markup. Empty when this story has no year or no neighbours. */
+export function storyTimelineHtml(story, allStories, markers, options = {}) {
+  return storyTimelineForStory(story, allStories, markers, options).html
+}
+
+/** Panel HTML plus the slugs and marker ids already shown, so related lists can skip them. */
+export function storyTimelineForStory(story, allStories, markers, options = {}) {
+  const picked = pickTimelineEvents(story, allStories, markers, options)
+  const events = [...picked.before, ...picked.after]
+  const slugs = events.filter((event) => event.slug).map((event) => event.slug)
+  const markerIds = events.filter((event) => event.kind === 'marker' && event.id).map((event) => String(event.id))
+  if (!picked.current || !events.length) return { html: '', slugs, markerIds, picked }
+  const level = options.headingLevel === 3 ? 3 : 2
+  const headingId = safeDomId(options.headingId, 'storyTimelineH')
+  const listId = safeDomId(options.listId, 'storyTimelineList')
+  const count = events.length + 1
+  const countLabel = `${count} event${count === 1 ? '' : 's'}`
+  const bySlug = timelineStoryBySlug(allStories)
+  const rows = [
+    ...picked.before.map((event) => timelineRowHtml(event, bySlug)),
+    timelineRowHtml({ ...picked.current, kind: 'current' }, bySlug),
+    ...picked.after.map((event) => timelineRowHtml(event, bySlug)),
+  ].join('')
+  const html = `<nav class="story-timeline" aria-labelledby="${headingId}"><h${level} id="${headingId}" class="story-timeline-heading"><button type="button" class="story-timeline-toggle" aria-expanded="false" aria-controls="${listId}"><span class="st-label">Timeline</span><span class="st-sep" aria-hidden="true">·</span><span class="st-count">${esc(countLabel)}</span><span class="st-chevron" aria-hidden="true">▾</span></button></h${level}><ol class="st-list" id="${listId}" hidden>${rows}</ol></nav>`
+  return { html, slugs, markerIds, picked }
+}
+
+function setTimelineOpen(nav, open) {
+  const button = nav.querySelector('.story-timeline-toggle')
+  const list = nav.querySelector('.st-list')
+  if (!button || !list) return
+  button.setAttribute('aria-expanded', open ? 'true' : 'false')
+  if (open) list.removeAttribute('hidden')
+  else list.setAttribute('hidden', '')
+}
+
+function placeStoryTimeline(nav) {
+  const layout = nav.closest?.('.story-reader-layout')
+  if (!layout) return
+  const wide = window.matchMedia('(min-width: 901px)').matches
+  const slot = layout.querySelector(`[data-timeline-slot="${wide ? 'side' : 'inline'}"]`)
+  if (slot && nav.parentElement !== slot) slot.appendChild(nav)
+}
+
+let timelineResizeBound = false
+
+/** Opens the list at ≥601px and, in the hash reader, parks it in the sidebar at ≥901px. */
+export function wireStoryTimelines(root = typeof document !== 'undefined' ? document : null) {
+  if (!root?.querySelectorAll || typeof window === 'undefined') return
+  root.querySelectorAll('.story-timeline').forEach((nav) => {
+    placeStoryTimeline(nav)
+    if (nav.dataset.timelineReady === '1') return
+    nav.dataset.timelineReady = '1'
+    setTimelineOpen(nav, window.matchMedia('(min-width: 601px)').matches)
+    const button = nav.querySelector('.story-timeline-toggle')
+    button?.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') === 'true'
+      setTimelineOpen(nav, !open)
+    })
+  })
+  if (timelineResizeBound) return
+  timelineResizeBound = true
+  let layoutWide = window.matchMedia('(min-width: 901px)').matches
+  let openWide = window.matchMedia('(min-width: 601px)').matches
+  window.addEventListener('resize', () => {
+    const nextLayout = window.matchMedia('(min-width: 901px)').matches
+    const nextOpen = window.matchMedia('(min-width: 601px)').matches
+    document.querySelectorAll('.story-timeline').forEach((nav) => {
+      if (nextLayout !== layoutWide) placeStoryTimeline(nav)
+      if (nextOpen !== openWide) setTimelineOpen(nav, nextOpen)
+    })
+    layoutWide = nextLayout
+    openWide = nextOpen
+  })
+}
+
+/** Static pages have no app bundle. This opens the list on wider screens and toggles it. */
+export function timelineBootScript() {
+  return `<script>
+    (function () {
+      var OPEN_AT = 601;
+      function setOpen(nav, open) {
+        var button = nav.querySelector('.story-timeline-toggle');
+        var list = nav.querySelector('.st-list');
+        if (!button || !list) return;
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) list.removeAttribute('hidden');
+        else list.setAttribute('hidden', '');
+      }
+      function wire(nav) {
+        if (nav.getAttribute('data-timeline-ready') === '1') return;
+        nav.setAttribute('data-timeline-ready', '1');
+        setOpen(nav, window.matchMedia('(min-width: ' + OPEN_AT + 'px)').matches);
+        var button = nav.querySelector('.story-timeline-toggle');
+        if (!button) return;
+        button.addEventListener('click', function () {
+          setOpen(nav, button.getAttribute('aria-expanded') !== 'true');
+        });
+      }
+      document.querySelectorAll('.story-timeline').forEach(wire);
+      var openWide = window.matchMedia('(min-width: ' + OPEN_AT + 'px)').matches;
+      window.addEventListener('resize', function () {
+        var next = window.matchMedia('(min-width: ' + OPEN_AT + 'px)').matches;
+        if (next === openWide) return;
+        openWide = next;
+        document.querySelectorAll('.story-timeline').forEach(function (nav) { setOpen(nav, next); });
+      });
+    })();
+  </script>`
 }
 
 const SOURCE_BY_DOMAIN = [
