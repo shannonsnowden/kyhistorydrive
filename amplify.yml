@@ -67,3 +67,18 @@ customRules:
   - source: '/timeline/'
     target: '/timeline/index.html'
     status: '200'
+  # Drives live at /drives/ (index, /drives/<slug>/ pages, /drives/build/ planner), served as
+  # static index.html files. Slashless /drives follows the /about slash rules. The old
+  # /drive-preview/ paths from the preview build redirect permanently to the same page under /drives/.
+  - source: '/drives'
+    target: '/drives/'
+    status: '301'
+  - source: '/drive-preview'
+    target: '/drives/'
+    status: '301'
+  - source: '/drive-preview/'
+    target: '/drives/'
+    status: '301'
+  - source: '/drive-preview/<*>'
+    target: '/drives/<*>'
+    status: '301'

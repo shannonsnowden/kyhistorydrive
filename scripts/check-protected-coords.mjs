@@ -23,7 +23,7 @@ const fineStr = (s) => /\.\d{2,}/.test(s)
 const errors = []
 
 function namesProtected(o) {
-  for (const k of ['id', 'slug', 'historyId', 'storySlug', 'story_slug', 'history_id']) if (ids.has(o[k])) return o[k]
+  for (const k of ['id', 'identifier', 'slug', 'historyId', 'storySlug', 'story_slug', 'history_id']) if (ids.has(o[k])) return o[k]
   for (const k of ['url', '@id']) {
     const m = typeof o[k] === 'string' && o[k].match(/\/stories\/([^/#?]+)/)
     if (m && ids.has(m[1])) return m[1]
