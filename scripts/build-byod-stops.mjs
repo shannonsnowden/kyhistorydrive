@@ -25,6 +25,12 @@ const miles = (a, b) => { const r = Math.PI / 180, dLat = (b[1] - a[1]) * r, dLo
   return 2 * 3958.8 * Math.asin(Math.sqrt(h)) }
 const privPts = []
 for (const layer of ['stories', 'history', 'war']) for (const f of L(layer)) if ([f.properties.id, f.properties.slug].some((i) => priv.has(i))) privPts.push(f.geometry.coordinates)
+// Caves are blocked by default (show caves included). Named exceptions need Security Watch sign-off,
+// with the pin on the visitor center / parking entrance, never a cave opening.
+const CAVE_ALLOW = new Set([
+  'diamond-caverns-decorated-limestone', // Security Watch OK 2026-10-12: visitor center on Mammoth Cave Pkwy, 37.1166,-86.0630
+])
+const isCave = (name) => /\bcave(s|rns?)?\b|\bcavern/i.test(name || '') && !/cave hill/i.test(name || '')
 // One predicate for the filter AND the self-check (fail closed).
 const ARCH = new Set(), COUNTY = new Set(), ROUNDED = new Set()
 for (const f of L('stories')) {
@@ -37,7 +43,9 @@ for (const layer of Object.keys(LAYERS)) for (const f of L(layer)) {
   const [lon, lat] = f.geometry.coordinates
   if (dec(lat) < 3 || dec(lon) < 3) { ROUNDED.add(f.properties.id); if (f.properties.slug) ROUNDED.add(f.properties.slug) }
 }
-const unsafeWhy = (ids, pt) => {
+const unsafeWhy = (ids, pt, name) => {
+  if (ids.some((i) => CAVE_ALLOW.has(i)) && !ids.some((i) => prot.has(i))) return null
+  if (isCave(name)) return 'cave'
   if (ids.some((i) => prot.has(i))) return 'protected'
   if (ids.some((i) => priv.has(i)) || privPts.some((q) => miles(q, pt) < 0.5)) return 'private'
   if (ids.some((i) => ARCH.has(i))) return 'archaeology'
@@ -45,7 +53,7 @@ const unsafeWhy = (ids, pt) => {
   if (ids.some((i) => COUNTY.has(i))) return 'county'
   return null
 }
-const excluded = { protected: 0, archaeology: 0, rounded: 0, county: 0, private: 0 }
+const excluded = { cave: 0, protected: 0, archaeology: 0, rounded: 0, county: 0, private: 0 }
 const out = []
 const distilleries = []
 for (const layer of Object.keys(LAYERS)) {
@@ -53,7 +61,7 @@ for (const layer of Object.keys(LAYERS)) {
     const p = f.properties
     const [lon, lat] = f.geometry.coordinates
     const ids = [p.id, p.slug].filter(Boolean)
-    const why = unsafeWhy(ids, [lon, lat]) || (dec(lat) < 3 || dec(lon) < 3 ? 'rounded' : null)
+    const why = unsafeWhy(ids, [lon, lat], p.title || p.name) || (dec(lat) < 3 || dec(lon) < 3 ? 'rounded' : null)
     if (why) { excluded[why]++; continue }
     const s = { id: p.id, n: p.title || p.name, k: layer, lat: +lat.toFixed(4), lon: +lon.toFixed(4), w: WEIGHT[layer] }
     if (layer === 'stories') s.slug = p.slug
@@ -70,7 +78,7 @@ for (const s of out) if (!kept.some((k) => Math.abs(k.lat - s.lat) < 0.002 && Ma
 // Self-check (fails closed): re-test every kept stop against the source data with the same predicate.
 const bad = []
 for (const s of kept) {
-  const why = unsafeWhy([s.id, s.slug].filter(Boolean), [s.lon, s.lat])
+  const why = unsafeWhy([s.id, s.slug].filter(Boolean), [s.lon, s.lat], s.n)
   if (why) bad.push(`build-your-own: ${s.id} (${why})`)
 }
 // Staged drive pages: a sensitive stop may appear only as a generalized marker
@@ -92,8 +100,8 @@ for (const slug of fs.readdirSync(DP)) {
     // Linked story slugs count for protected/archaeology/county (a stop told through an archaeological
     // story is that site), but not for private land (a distillery may link a story set on a nearby farm).
     const storyIds = (s.stories || []).map((x) => x[0])
-    const storyWhy = unsafeWhy(storyIds, [0, 0])
-    const why = unsafeWhy(ids, [s.lon, s.lat]) || (s.private ? 'private' : null) || (storyWhy && storyWhy !== 'private' && storyWhy !== 'rounded' ? storyWhy : null)
+    const storyWhy = ids.some((i) => CAVE_ALLOW.has(i)) ? null : unsafeWhy(storyIds, [0, 0])
+    const why = unsafeWhy(ids, [s.lon, s.lat], s.name) || (s.private ? 'private' : null) || (storyWhy && storyWhy !== 'private' && storyWhy !== 'rounded' ? storyWhy : null)
     const d = Math.max(dec(s.lat), dec(s.lon))
     if (!why) continue
     if (why === 'private' ? !(s.private && d <= 2) : !(s.approx && d <= 1)) bad.push(`drive page ${slug}: ${s.id} (${why}) at ${s.lat},${s.lon}`)
