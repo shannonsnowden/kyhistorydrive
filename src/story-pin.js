@@ -1,6 +1,6 @@
-/** Small build-time pin thumbnail. Width and height match .story-pin in styles.css. */
-export const STORY_PIN_WIDTH = 220
-export const STORY_PIN_HEIGHT = 95
+/** Mini map inside the story pin pill. Width and height match .story-pin img. */
+export const STORY_PIN_WIDTH = 72
+export const STORY_PIN_HEIGHT = 64
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 

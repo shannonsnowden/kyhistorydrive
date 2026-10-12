@@ -1,16 +1,15 @@
 /**
- * Homepage Route maps thumbnail.
- * Story Studio final art lives in public/maps/homepage-card/. See NOTES.md there.
- * Light and dark, each as WebP with a JPEG fallback, at 1x and 2x.
+ * Homepage Route maps pill.
+ * A 2x crop of the Story Studio card, light and dark, WebP with a JPEG fallback.
  * The image alt stays empty: the button's accessible name is the visible label.
  */
-export const ROUTE_MAPS_CARD_ART = '/maps/homepage-card/route-maps-card'
+export const ROUTE_MAPS_CARD_ART = '/maps/homepage-card/route-maps-pill'
 
 export const ROUTE_MAPS_CARD_ALT =
   "Antique parchment map of the Warriors' Path in red, running south through eastern Kentucky past the Kentucky River ford and Flat Lick to Cumberland Gap."
 
-export const ROUTE_MAPS_CARD_WIDTH = 600
-export const ROUTE_MAPS_CARD_HEIGHT = 340
+export const ROUTE_MAPS_CARD_WIDTH = 72
+export const ROUTE_MAPS_CARD_HEIGHT = 41
 
 function pair(theme, ext) {
   return `${ROUTE_MAPS_CARD_ART}-${theme}.${ext} 1x, ${ROUTE_MAPS_CARD_ART}-${theme}@2x.${ext} 2x`
