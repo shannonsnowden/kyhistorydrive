@@ -342,14 +342,16 @@ export function routeMapPictureHtml(route, { thumb = false } = {}) {
 /** Thumbnail or story figure. The hi-res file is not in the markup; the viewer loads it on open. */
 export function routeMapZoomHtml(route, { thumb = false } = {}) {
   const label = `Expand: ${route.alt}`
+  const hintId = `route-map-hint-${route.slug}`
   const f = route.files
   return `<div class="route-map-zoom" data-route-slug="${esc(route.slug)}" data-fallback="${esc(f.fullWebp)}" data-zoom-light-avif="${esc(f.zoomLightAvif)}" data-zoom-light-webp="${esc(f.zoomLightWebp)}" data-zoom-dark-avif="${esc(f.zoomDarkAvif)}" data-zoom-dark-webp="${esc(f.zoomDarkWebp)}">
-      <button type="button" class="route-map-open" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="${esc(label)}">
+      <button type="button" class="route-map-open" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-describedby="${esc(hintId)}">
         <span class="route-map-art">
           ${routeMapPictureHtml(route, { thumb })}
           ${routeMapOverlayHtml(route)}
         </span>
       </button>
+      <p id="${esc(hintId)}" class="visually-hidden">Opens a larger view of this map.</p>
       <button type="button" class="route-map-expand" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="${esc(label)}">
         <svg class="route-map-expand-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
           <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -404,6 +406,11 @@ function linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel }
   return `<nav class="route-links" aria-label="Related stories"><h${level}>Related stories</h${level}><ul class="related-list">${items.join('')}</ul></nav>`
 }
 
+function markerLegendHtml(route) {
+  if (!route.stops.some((stop) => stop.conjectural)) return ''
+  return `<p class="route-marker-legend"><span class="route-legend-hex" aria-hidden="true"></span> Hexagon: conjectural stop</p>`
+}
+
 function phoneCropNote(route) {
   if (!route.phoneCrop) return ''
   const light = route.files.fullPng
@@ -446,6 +453,7 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
         <figcaption>
           <p class="route-map-caption${route.phoneCaption ? ' route-map-caption-desk' : ''}">${esc(route.caption)}</p>
           ${route.phoneCaption ? `<p class="route-map-caption route-map-caption-phone">${esc(route.phoneCaption)}</p>` : ''}
+          ${markerLegendHtml(route)}
           ${phoneCropNote(route)}
         </figcaption>
       </figure>

@@ -1047,7 +1047,8 @@ class PrerenderPages {
       .static-related ul { list-style: none; margin: 0; padding: 0; }
       .static-related li { margin: 0 0 0.25rem; }
       .route-map a.related-card { display: grid; grid-template-columns: 56px minmax(0, 1fr) 20px; gap: 0.7rem; align-items: center; min-height: 72px; padding: 0.7rem 0.85rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; color: inherit; text-decoration: none; }
-      .route-map .related-card-title { color: var(--accent); font-weight: 600; }
+      .route-map .related-card-copy { min-width: 0; }
+      .route-map .related-card-title { color: var(--accent); font-weight: 600; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; line-height: 1.3; word-break: normal; overflow-wrap: break-word; }
       .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
@@ -1566,13 +1567,33 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} route map is missing the ${frame} overlay`)
       }
     }
-    if (!block.includes('class="route-ky-line"')) {
-      throw new Error(`prerender: ${urlPath} route map is missing the Kentucky outline`)
+    if (block.includes('class="route-ky-line"') || block.includes('class="route-ky"')) {
+      throw new Error(`prerender: ${urlPath} still draws a Kentucky outline that does not fit the painting`)
     }
-    const geoStops = route.stops.filter((stop) => stop.geo).length
-    const markerCount = (block.match(/class="route-stop/g) || []).length
-    if (markerCount !== geoStops * 5) {
-      throw new Error(`prerender: ${urlPath} has ${markerCount} stop markers, expected ${geoStops * 5}`)
+    if (/class="route-map-open"[^>]*aria-label=/.test(block)) {
+      throw new Error(`prerender: ${urlPath} route map button aria-label replaces the image alt`)
+    }
+    if (!block.includes(`aria-describedby="route-map-hint-${route.slug}"`) || !block.includes('Opens a larger view of this map.')) {
+      throw new Error(`prerender: ${urlPath} route map image is missing its description`)
+    }
+    const geoStops = route.stops.flatMap((stop, index) => (stop.geo ? [index + 1] : []))
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark']) {
+      const slot = block.match(new RegExp(`data-frame="${frame}"[^>]*>([\\s\\S]*?)<\\/div>`))
+      const nums = slot ? [...slot[1].matchAll(/data-n="(\d+)"/g)].map((match) => Number(match[1])) : []
+      if (nums.join(',') !== geoStops.join(',')) {
+        throw new Error(`prerender: ${urlPath} ${frame} markers are ${nums.join(',')}, expected ${geoStops.join(',')}`)
+      }
+    }
+    if (/<span class="route-stop[^"]*"[^>]*>\s*\d/.test(block)) {
+      throw new Error(`prerender: ${urlPath} repeats stop numbers as overlay text`)
+    }
+    if (route.stops.some((stop) => stop.conjectural) && !block.includes('Hexagon: conjectural stop')) {
+      throw new Error(`prerender: ${urlPath} legend is missing the conjectural hexagon`)
+    }
+    const phone = block.match(/data-frame="phone-light"[^>]*>([\s\S]*?)<\/div>/)
+    const phoneBadges = phone ? (phone[1].match(/data-n="/g) || []).length : 0
+    if (phoneBadges > geoStops.length) {
+      throw new Error(`prerender: ${urlPath} phone overlay has more badges than stops`)
     }
     const links = block.match(/<nav class="route-links"[\s\S]*?<\/nav>/)
     if (!links || !links[0].includes('class="related-card"') || !links[0].includes('>Related stories<')) {
@@ -1643,6 +1664,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} waypoint ItemList does not match NOTES.md`)
     }
     list.itemListElement.forEach((item, index) => {
+      if (item.position !== index + 1) {
+        throw new Error(`prerender: ${urlPath} waypoint ${index + 1} JSON-LD position is ${item.position}`)
+      }
       const placeNode = item?.item
       if (placeNode?.['@type'] !== 'Place') throw new Error(`prerender: ${urlPath} waypoint ${index + 1} is not a Place`)
       const geo = route.stops[index].geo

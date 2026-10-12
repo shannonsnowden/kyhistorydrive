@@ -226,6 +226,7 @@
     var motion = Boolean(animate) && !reducedMotion()
     canvas.classList.toggle('is-anim', motion)
     canvas.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px) scale(' + scale.toFixed(4) + ')'
+    canvas.style.setProperty('--map-scale', scale.toFixed(4))
     if (motion) {
       window.setTimeout(function () {
         canvas.classList.remove('is-anim')
