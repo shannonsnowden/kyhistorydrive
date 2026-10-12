@@ -9,7 +9,7 @@ import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
-import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
@@ -1874,9 +1874,10 @@ async function slugForPlaceProps(props) {
 async function popupRelatedHtml(props) {
   const slug = await slugForPlaceProps(props)
   if (!slug) return ''
-  const [relatedData, idx] = await Promise.all([loadRelatedPeople(), loadStories()])
+  const [relatedData, idx, publicPeople] = await Promise.all([loadRelatedPeople(), loadStories(), loadPublicPeople()])
   const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
-  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH')
+  const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits })
 }
 
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
@@ -3198,7 +3199,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       layer: 'history',
       storyPhoto: s.photo || null,
     })
-    const relatedData = await loadRelatedPeople()
+    const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
+    const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
     const storyIndex = await loadStories()
     const markerFeatures = await markerFeaturesPromise
     const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
@@ -3247,7 +3249,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
           ${extras}
           ${relatedAndNearbyForStory(
             {

@@ -108,6 +108,7 @@ export function siteHeaderHtml(activeRoute = '') {
         ${item('home', '/', 'Home')}
         ${item('map', '/#map', 'Map')}
         ${item('timeline', '/#timeline', 'Timeline')}
+        ${item('people', '/people/', 'People')}
         ${item('about', '/about/', 'About')}
         <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
           <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
