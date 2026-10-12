@@ -4,6 +4,7 @@
  * comment removal, and poster matching that does not treat a host as a regexp.
  */
 import assert from 'node:assert/strict'
+import fs from 'node:fs'
 import { ROUTE_MAPS, routeMapThemeScript, safeAssetUrl } from '../src/route-maps.js'
 import { PrerenderPages, preloadsPoster } from './prerender-pages.mjs'
 import { assertEscapedXml } from './rss-feed.mjs'
@@ -35,6 +36,14 @@ for (const route of ROUTE_MAPS) {
 const themeScript = routeMapThemeScript()
 assert.ok(themeScript.includes(safeAssetUrl.toString()))
 assert.equal(themeScript.split('</script>').length, 2)
+assert.equal(themeScript.split("img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')").length, 3)
+assert.equal((themeScript.match(/if \(next\) img\.setAttribute\('src', next\)/g) || []).length, 0)
+
+const lightbox = fs.readFileSync(new URL('../public/route-map-lightbox.js', import.meta.url), 'utf8')
+assert.match(lightbox, /data-zoom-' \+ mode \+ '-' \+ ext/)
+assert.equal(lightbox.includes('img.src = urls'), false)
+assert.equal(safeAssetUrl('/maps/routes/example/zoom/example-zoom-light.avif'), '/maps/routes/example/zoom/example-zoom-light.avif')
+assert.equal(safeAssetUrl('/brand/story-pins/example-light.svg'), '/brand/story-pins/example-light.svg')
 
 const transcript = PrerenderPages.transcriptFromVtt(`WEBVTT
 

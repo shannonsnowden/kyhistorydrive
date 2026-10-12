@@ -126,14 +126,14 @@
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
-      "lat": 39.0,
+      "lat": 39,
       "lon": -84.7
     },
     "cleek-mccabe-fort-ancient-village": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
-      "lat": 39.0,
+      "lat": 39,
       "lon": -84.7
     },
     "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
@@ -162,7 +162,7 @@
       "date": "2026-10-02",
       "historyId": "sweet-lick-knob-fort-ancient-estill",
       "lat": 37.7,
-      "lon": -84.0
+      "lon": -84
     },
     "hardin-village-15gp22": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
@@ -183,7 +183,7 @@
       "date": "2026-10-02",
       "historyId": "slack-farm-15un28-union-county",
       "lat": 37.7,
-      "lon": -88.0
+      "lon": -88
     },
     "dover-mound-mason-county": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET. (nearest 0.1° point inside Kentucky)",
@@ -196,14 +196,14 @@
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "lat": 38.0,
+      "lat": 38,
       "lon": -84.5
     },
     "peter-village-early-woodland-enclosure-near-lexington": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "lat": 38.0,
+      "lat": 38,
       "lon": -84.5
     },
     "adams-site-15fu4": {
@@ -260,7 +260,7 @@
       "date": "2026-10-02",
       "historyId": "lower-shawneetown",
       "lat": 38.7,
-      "lon": -83.0
+      "lon": -83
     },
     "mcafee-station-on-the-salt-river": {
       "reason": "Pin McAfee Station / McAfee hamlet (Mercer GNIS) for 1773 survey–1785 New Providence span. | QA 2026-10-03: county label was Boyle (nearest-pin inference); 1773 party = Robert, James, George + McCoun, Adams per cited marker; removed unsupported \"hamlet still marks the name\".",
@@ -422,7 +422,7 @@
       "reason": "Archaeological site: Wikipedia public coords rounded to 2 decimals (#141 tier B). Occupation ~1100–1350 CE, not the 2006 excavation. | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET. (nearest 0.1° point inside Kentucky)",
       "date": "2026-10-05",
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
-      "lat": 37.0,
+      "lat": 37,
       "lon": -88.6,
       "yearStart": 1100,
       "yearEnd": 1350,
@@ -567,7 +567,7 @@
       "date": "2026-10-08",
       "historyId": "old-fort-earthworks-15gp1-greenup",
       "lat": 38.7,
-      "lon": -83.0,
+      "lon": -83,
       "yearStart": -200,
       "yearEnd": 500,
       "county": "Greenup"
@@ -735,6 +735,54 @@
           "new": "August 21, 1931.\nSource: [Cumberland Falls State Resort Park history (Kentucky State Parks, archived)](https://web.archive.org/web/20150604135131/http://parks.ky.gov/parks/resortparks/cumberland-falls/history.aspx)\nSource: [Cumberland Falls (Wikipedia)](https://en.wikipedia.org/wiki/Cumberland_Falls)"
         }
       ]
+    },
+    "capt-robert-johnson-and-big-crossing-station": {
+      "reason": "Wikipedia coordinate for Great Crossing, Kentucky (38.21444444, -84.60527778). Years 1780 (marker: Beargrass to Bryan’s Station)–1815 (Robert Johnson’s death). County Scott. Orange County, the Floyd survey, the 1779 arrival, and the mills are not in the cited pages.",
+      "date": "2026-10-12",
+      "historyId": "great-crossing-scott-1783-1815",
+      "lat": 38.21444444,
+      "lon": -84.60527778,
+      "yearStart": 1780,
+      "yearEnd": 1815,
+      "county": "Scott"
+    },
+    "campbellsville-from-buckhorn-creek-to-county-seat": {
+      "reason": "Wikipedia coordinate for Campbellsville (37.34583333, -85.34555556). Years 1800 (marker: first settled)–1848 (Taylor County seat). County Taylor. Buckhorn Creek, the Jan. 3 date, the postmaster, and the lot count are not in the cited pages. Title uses Andrew Campbell’s lots; the slug is unchanged.",
+      "date": "2026-10-12",
+      "historyId": "campbellsville-taylor-1814-1848",
+      "lat": 37.34583333,
+      "lon": -85.34555556,
+      "yearStart": 1800,
+      "yearEnd": 1848,
+      "county": "Taylor"
+    },
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
+      "reason": "Wikipedia coordinate for the Siege of Boonesborough (37.89977778, -84.26566667). Years 1778–1779. County Madison.",
+      "date": "2026-10-12",
+      "historyId": "boonesborough-siege-blackfish-1778",
+      "lat": 37.89977778,
+      "lon": -84.26566667,
+      "yearStart": 1778,
+      "yearEnd": 1779,
+      "county": "Madison"
+    },
+    "tinsley-hill-15ly18-lyon-county": {
+      "reason": "Generalized Lyon County point (37.0, -88.0), about 10 km, not a site coordinate. The tDAR citations do not give a mound count, a burial count, or a phase date, so those years are not published. County Lyon.",
+      "date": "2026-10-12",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450",
+      "lat": 37,
+      "lon": -88,
+      "county": "Lyon"
+    },
+    "burlington-boone-county-seat": {
+      "reason": "Wikipedia coordinate for Burlington, Kentucky (39.02222222, -84.72166667). Years 1799–1816. County Boone.",
+      "date": "2026-10-12",
+      "historyId": "burlington-boone-1799-1816",
+      "lat": 39.02222222,
+      "lon": -84.72166667,
+      "yearStart": 1799,
+      "yearEnd": 1816,
+      "county": "Boone"
     }
   }
 }
