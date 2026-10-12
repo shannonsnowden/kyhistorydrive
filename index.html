@@ -349,9 +349,24 @@
 
     <section id="timeline" class="view timeline-section" data-view="timeline" hidden>
       <div class="timeline-layout">
-        <div class="timeline-main">
-          <div class="panel-head">
+        <div class="timeline-main" id="timelineStoryPane">
+          <div class="timeline-read-bar">
             <h2>Timeline</h2>
+            <button
+              type="button"
+              id="timelineReadingToggle"
+              class="timeline-read-toggle"
+              aria-expanded="true"
+              aria-controls="timelineMapPane"
+            >
+              <svg class="timeline-read-toggle-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="timeline-read-label timeline-read-label-hide">Hide map</span>
+              <span class="timeline-read-label timeline-read-label-show">Show map</span>
+            </button>
+          </div>
+          <div class="panel-head">
             <p class="muted">Filter by era or timeframe, then open a story to read it. The map highlights the story’s location when it has one.</p>
           </div>
           <div id="timelineFilters" class="filters">
@@ -393,7 +408,7 @@
             <button type="button" id="timelineJumpResetBottom" class="scroll-fab nav-jump" title="Reset filters and show all stories"><span class="nav-jump-ico" aria-hidden="true">↺</span><span class="nav-jump-label">Reset</span></button>
           </div>
         </div>
-        <aside class="timeline-map-pane" aria-label="Timeline places map">
+        <aside class="timeline-map-pane" id="timelineMapPane" aria-label="Timeline places map">
           <div class="timeline-map-head">
             <h3>Places in this timeframe</h3>
             <p id="timelineMapMeta" class="muted">Pick an era or timeframe to see matching places.</p>
