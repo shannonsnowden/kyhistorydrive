@@ -18,7 +18,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { marked } from 'marked'
 import {
   GA_MEASUREMENT_ID,
   deferredAdsenseLoaderHtml,
@@ -56,6 +55,13 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
+import { researchNotesHtml } from '../src/research-notes.js'
+import {
+  glanceTableHtml,
+  markdownWithoutGlanceSection,
+  renderStoryHtml,
+  researchPageHref,
+} from '../src/story-markdown.js'
 
 /** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
 export function preloadsPoster(html, poster) {
@@ -121,9 +127,16 @@ class PrerenderPages {
     if (/3840|HIRES_WIDTH|-route-map-'/.test(lightboxJs)) {
       throw new Error('prerender: route map lightbox still requests the old hi-res WebP')
     }
-    PrerenderPages.configureMarked()
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
     const stories = PrerenderPages.liveStories(PrerenderPages.loadStories(root))
+    const researchNotes = PrerenderPages.loadResearch(root)
+    const researchByStory = new Map()
+    for (const notes of researchNotes) {
+      if (researchByStory.has(notes.storySlug)) {
+        throw new Error(`prerender: duplicate research notes for ${notes.storySlug}`)
+      }
+      researchByStory.set(notes.storySlug, notes)
+    }
     const markers = PrerenderPages.loadHistoricalMarkers(root)
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
@@ -175,9 +188,10 @@ class PrerenderPages {
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
-      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers)
+      const notes = researchByStory.get(story.slug) || null
+      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers, notes)
       PrerenderPages.assertPage(html, story, urlPath)
-      PrerenderPages.assertStory(html, story, description, stories, markers)
+      PrerenderPages.assertStory(html, story, description, stories, markers, notes)
       PrerenderPages.writePage(dist, urlPath, html)
       const route = routeBySlug(story.slug)
       const images = route
@@ -231,6 +245,19 @@ class PrerenderPages {
     )
     if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
     entries.push({ loc: `${PrerenderPages.SITE}/routes/`, lastmod: routesLast })
+    for (const notes of researchNotes) {
+      const story = stories.find((item) => item.slug === notes.storySlug)
+      if (!story) throw new Error(`prerender: research ${notes.slug} is not tied to a live story`)
+      const urlPath = `/research/${notes.slug}/`
+      const html = PrerenderPages.researchPage(notes, cssHrefs)
+      PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
+      PrerenderPages.assertResearch(html, notes)
+      PrerenderPages.writePage(dist, urlPath, html)
+      const fileKey = `public/content/research/${notes.slug}.json`
+      const lastmod = dates.lastmod.get(fileKey) || PrerenderPages.isoDate(notes.updated)
+      if (!PrerenderPages.isoDate(lastmod)) throw new Error(`prerender: ${urlPath} is missing lastmod`)
+      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod })
+    }
     entries.push({
       loc: `${PrerenderPages.SITE}/privacy/`,
       lastmod: dates.lastmod.get('privacy/index.html') || '',
@@ -238,7 +265,7 @@ class PrerenderPages {
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
-      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, videos, privacy; sitemap ${sitemapCount} urls`,
+      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers, ${researchNotes.length} research) plus home, about, videos, privacy; sitemap ${sitemapCount} urls`,
     )
     return {
       pages: stories.length + layers.length + 1,
@@ -256,20 +283,6 @@ class PrerenderPages {
 
   static readJson(file) {
     return JSON.parse(fs.readFileSync(file, 'utf8'))
-  }
-
-  static configureMarked() {
-    marked.setOptions({ breaks: true })
-    marked.use({
-      renderer: {
-        link({ href, title, tokens }) {
-          const text = this.parser.parseInline(tokens)
-          const t = title ? ` title="${title}"` : ''
-          const safeHref = String(href || '').replace(/"/g, '&quot;')
-          return `<a href="${safeHref}"${t} target="_blank" rel="noopener noreferrer">${text}</a>`
-        },
-      },
-    })
   }
 
   static escapeHtml(s) {
@@ -706,6 +719,7 @@ class PrerenderPages {
       lon: loc?.lon ?? indexRow?.lon ?? null,
       photo,
       archaeological: PrerenderPages.isArchaeological(body),
+      glance: body.glance && typeof body.glance === 'object' ? body.glance : null,
     }
   }
 
@@ -1236,7 +1250,40 @@ class PrerenderPages {
     return markers
   }
 
-  static storyPage(story, all, cssHrefs, layers, markers = []) {
+  static loadResearch(root) {
+    const dir = path.join(root, 'public/content/research')
+    if (!fs.existsSync(dir)) return []
+    const notes = []
+    for (const name of fs.readdirSync(dir).filter((file) => file.endsWith('.json')).sort()) {
+      const data = PrerenderPages.readJson(path.join(dir, name))
+      const slug = PrerenderPages.safeSegment(data.slug, 'research slug')
+      if (`${slug}.json` !== name) throw new Error(`prerender: research file ${name} slug is ${data.slug}`)
+      PrerenderPages.safeSegment(data.storySlug, 'research storySlug')
+      if (!String(data.title || '').trim()) throw new Error(`prerender: research ${slug} is missing a title`)
+      notes.push(data)
+    }
+    return notes
+  }
+
+  static researchPage(notes, cssHrefs) {
+    const article = researchNotesHtml(notes)
+    const urlPath = `/research/${notes.slug}/`
+    if (!article) throw new Error(`prerender: ${urlPath} did not render`)
+    const description = PrerenderPages.storyMetaDescription(notes.summary)
+    PrerenderPages.assertStoryMeta(description, notes.summary, urlPath)
+    return PrerenderPages.shell({
+      title: `${notes.title} · Kentucky History Drive`,
+      description,
+      canonical: `${PrerenderPages.SITE}${urlPath}`,
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'article',
+      main: article,
+    })
+  }
+
+  static storyPage(story, all, cssHrefs, layers, markers = [], notes = null) {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
@@ -1250,10 +1297,19 @@ class PrerenderPages {
       PrerenderPages.firstSentence(story.bodyMarkdown) ||
       PrerenderPages.firstSentence(summary) ||
       story.title
-    const bodyMarkdown = PrerenderPages.bodyWithoutLead(
-      PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
-      lead,
+    const bodyMarkdown = markdownWithoutGlanceSection(
+      PrerenderPages.bodyWithoutLead(
+        PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
+        lead,
+      ),
+      Boolean(story.glance),
     )
+    const bodyHtml = renderStoryHtml(bodyMarkdown)
+    const glanceHtml = glanceTableHtml(story.glance, notes)
+    const researchHref = notes ? researchPageHref(notes.slug) : ''
+    const researchLink = researchHref
+      ? `<p class="story-research-link"><a href="${PrerenderPages.escapeHtml(researchHref)}">Research notes</a></p>`
+      : ''
     const mapHref = PrerenderPages.storyMapHref(story)
     const pinHtml =
       mapHref && PrerenderPages.publicGeo(story)
@@ -1289,11 +1345,13 @@ class PrerenderPages {
             <p class="story-card-meta">${metaBits.map((bit) => `<span>${PrerenderPages.escapeHtml(bit)}</span>`).join(' · ')}</p>
             <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
             ${lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''}
+            ${glanceHtml}
+            ${researchLink}
           </header>
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
-          <div class="story-body">${marked.parse(bodyMarkdown)}</div>
+          <div class="story-body">${bodyHtml}</div>
           ${routeMapSectionHtml(story.slug, {
             headingLevel: 2,
             linkMode: 'story',
@@ -1631,8 +1689,96 @@ class PrerenderPages {
     }
   }
 
-  static assertStory(html, story, description, all = [], markers = []) {
+  static storyBodyHtml(html) {
+    const match = html.match(
+      /<div class="story-body">([\s\S]*?)<\/div>/,
+    )
+    return match ? match[1] : null
+  }
+
+  static assertStoryLinks(html, story) {
     const urlPath = `/stories/${story.slug}/`
+    const body = PrerenderPages.storyBodyHtml(html)
+    if (body == null) throw new Error(`prerender: ${urlPath} is missing the story body`)
+    if (!body) return
+    if (/<script|onerror\s*=|onload\s*=|javascript:/i.test(body)) {
+      throw new Error(`prerender: ${urlPath} story body has raw HTML`)
+    }
+    const anchors = [...body.matchAll(/<a\b([^>]*)>/g)]
+    for (const anchor of anchors) {
+      const attrs = anchor[1]
+      const href = (attrs.match(/\bhref="([^"]*)"/) || [])[1] || ''
+      if (!href || href.startsWith('javascript:') || href.startsWith('data:') || href.startsWith('//')) {
+        throw new Error(`prerender: ${urlPath} has an unsafe story link`)
+      }
+      const external = /^https?:\/\//i.test(href)
+      const site = href.startsWith('/') || href.startsWith('#')
+      if (!external && !site) throw new Error(`prerender: ${urlPath} link ${href} is not http(s) or site-relative`)
+      if (external) {
+        if (!attrs.includes('target="_blank"') || !attrs.includes('rel="noopener"')) {
+          throw new Error(`prerender: ${urlPath} external link is missing rel=noopener or target=_blank`)
+        }
+      } else if (/\btarget=/.test(attrs)) {
+        throw new Error(`prerender: ${urlPath} site link ${href} opens a new tab`)
+      }
+    }
+  }
+
+  static assertResearch(html, notes) {
+    const urlPath = `/research/${notes.slug}/`
+    const article = html.match(/<article class="research-notes">[\s\S]*<\/article>/)
+    if (!article) throw new Error(`prerender: ${urlPath} is missing the research article`)
+    const block = article[0]
+    if (!block.includes('>Back to story<') || !block.includes(`href="/stories/${notes.storySlug}/"`)) {
+      throw new Error(`prerender: ${urlPath} is missing the Back to story link`)
+    }
+    if (!block.includes(PrerenderPages.escapeHtml(notes.title))) {
+      throw new Error(`prerender: ${urlPath} is missing its title`)
+    }
+    if (/<script|onerror\s*=|onload\s*=|javascript:|data:text/i.test(block)) {
+      throw new Error(`prerender: ${urlPath} has raw HTML`)
+    }
+    if (block.includes('<img') || block.includes('<iframe') || block.includes('<object')) {
+      throw new Error(`prerender: ${urlPath} includes embedded content`)
+    }
+    const external = [...block.matchAll(/<a\b([^>]*href="https?:\/\/[^"]*"[^>]*)>/g)]
+    if (!external.length || external.some((anchor) => !anchor[1].includes('rel="noopener"') || !anchor[1].includes('target="_blank"'))) {
+      throw new Error(`prerender: ${urlPath} external source is missing rel=noopener or target=_blank`)
+    }
+    const internal = [...block.matchAll(/<a\b([^>]*href="\/[^"]*"[^>]*)>/g)]
+    if (internal.some((anchor) => /\btarget=/.test(anchor[1]))) {
+      throw new Error(`prerender: ${urlPath} site link opens a new tab`)
+    }
+  }
+
+  static assertStory(html, story, description, all = [], markers = [], notes = null) {
+    const urlPath = `/stories/${story.slug}/`
+    PrerenderPages.assertStoryLinks(html, story)
+    if (story.glance) {
+      if (!html.includes('<table class="story-glance">') || !html.includes('<caption>At a glance</caption>')) {
+        throw new Error(`prerender: ${urlPath} is missing the at-a-glance table`)
+      }
+      if (!html.includes('<th scope="row">')) {
+        throw new Error(`prerender: ${urlPath} glance table is missing row headers`)
+      }
+      const glanceDate = String(story.glance.date || '')
+      if (glanceDate && !html.includes(PrerenderPages.escapeHtml(glanceDate))) {
+        throw new Error(`prerender: ${urlPath} glance table is missing the date`)
+      }
+      if (html.includes('## At a glance') || html.includes('<h2>At a glance</h2>')) {
+        throw new Error(`prerender: ${urlPath} still renders the markdown glance table`)
+      }
+      const glance = html.match(/<table class="story-glance">[\s\S]*?<\/table>/)
+      if (!glance || /javascript:|\btarget=/.test(glance[0])) {
+        throw new Error(`prerender: ${urlPath} glance table has an unsafe link`)
+      }
+    }
+    if (notes) {
+      const href = researchPageHref(notes.slug)
+      if (!href || !html.includes(`href="${href}"`) || !html.includes('>Research notes<')) {
+        throw new Error(`prerender: ${urlPath} does not link to its research notes`)
+      }
+    }
     PrerenderPages.assertStoryMeta(description, PrerenderPages.storyDescriptionSource(story), urlPath)
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
