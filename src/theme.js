@@ -30,7 +30,7 @@ export function preferredTheme() {
 function syncToggle(btn, theme) {
   const isLight = theme === 'light'
   btn.setAttribute('aria-pressed', isLight ? 'true' : 'false')
-  btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme')
+  btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode')
   const label = btn.querySelector('.hp-theme-toggle-label')
   const icon = btn.querySelector('.hp-theme-toggle-icon')
   if (label) label.textContent = isLight ? 'Dark' : 'Light'

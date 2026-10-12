@@ -63,3 +63,16 @@ export function responsivePicture(opts) {
   if (!meta?.avif?.length && !meta?.webp?.length) return img
   return `<picture>${sourceTag('image/avif', meta.avif, sizes)}${sourceTag('image/webp', meta.webp, sizes)}${img}</picture>`
 }
+
+/** Build-time: seed the manifest without fetch (scripts/prerender-home-hero.mjs). */
+export function setPhotoVariants(data) {
+  images = data?.images || data || {}
+  manifestPromise = Promise.resolve(images)
+}
+
+/** srcset strings for a photo, or {} when no variants exist. */
+export function responsiveSources(src) {
+  const meta = images[String(src || '')]
+  const join = (list) => (list?.length ? list.map((v) => `${v.src} ${Number(v.w)}w`).join(', ') : '')
+  return { avif: join(meta?.avif), webp: join(meta?.webp) }
+}

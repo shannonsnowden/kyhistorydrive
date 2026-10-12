@@ -728,9 +728,9 @@
     "category": "restaurant",
     "cuisine_or_type": "contemporary Southern",
     "history": "Downtown Lexington culinary trailblazer since 1981, repeatedly named among Southern Living's Best of the South. Local ingredients and Bluegrass hospitality in a single Short Street dining room\u2014not a multi-state brand.",
-    "website": "http://dudleysonshort.com/",
+    "website": "https://dudleysonshort.com/",
     "sources": [
-      "http://dudleysonshort.com/",
+      "https://dudleysonshort.com/",
       "https://www.yelp.com/biz/dudleys-on-short-lexington"
     ],
     "yelp_rating": 4.1,
@@ -775,9 +775,9 @@
     "category": "restaurant",
     "cuisine_or_type": "Italian-Southern bistro",
     "history": "Downtown Frankfort fine-dining bistro overlooking Old State Capitol grounds. Italian and Southern plates with a serious bourbon list\u2014capital-city destination unique to this Broadway address.",
-    "website": "http://serafinikentucky.com/",
+    "website": "https://serafinikentucky.com/",
     "sources": [
-      "http://serafinikentucky.com/",
+      "https://serafinikentucky.com/",
       "https://promallu.com/toprated/united-states/serafini-7ql9oy/"
     ],
     "yelp_rating": null,
@@ -1978,10 +1978,7 @@
     "category": "restaurant",
     "cuisine_or_type": "pizza",
     "history": "Longtime downtown Berea independent pizzeria\u2014college-town staple.",
-    "website": "https://www.papalenos.com/",
-    "sources": [
-      "https://www.papalenos.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": 4.4,
     "combined_rating": 4.4,
@@ -2559,9 +2556,9 @@
     "category": "restaurant",
     "cuisine_or_type": "American Southern",
     "history": "Mainstrasse independent since 2003\u2014American/Southern fare unique to Covington.",
-    "website": "http://www.ottosonmain.com/",
+    "website": "https://www.ottosonmain.com/",
     "sources": [
-      "http://www.ottosonmain.com/"
+      "https://www.ottosonmain.com/"
     ],
     "yelp_rating": null,
     "google_rating": 4.6,
@@ -2647,10 +2644,7 @@
     "category": "restaurant",
     "cuisine_or_type": "American steaks",
     "history": "Scratch American in Newport's York Historic District\u201425+ year independent with patio garden.",
-    "website": "http://www.yorkstreetrestaurant.com/",
-    "sources": [
-      "http://www.yorkstreetrestaurant.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -3242,10 +3236,7 @@
     "category": "restaurant",
     "cuisine_or_type": "New American",
     "history": "Manchester/distillery district independent\u2014Lexington chef destination.",
-    "website": "https://www.middleforkkb.com/",
-    "sources": [
-      "https://www.middleforkkb.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": 4.6,
     "combined_rating": 4.6,

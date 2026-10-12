@@ -9,8 +9,9 @@ import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
-import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
+import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
@@ -1873,9 +1874,10 @@ async function slugForPlaceProps(props) {
 async function popupRelatedHtml(props) {
   const slug = await slugForPlaceProps(props)
   if (!slug) return ''
-  const [relatedData, idx] = await Promise.all([loadRelatedPeople(), loadStories()])
+  const [relatedData, idx, publicPeople] = await Promise.all([loadRelatedPeople(), loadStories(), loadPublicPeople()])
   const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
-  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH')
+  const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits })
 }
 
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
@@ -2490,30 +2492,34 @@ function updateTimelineMapCounts() {
   const el = document.getElementById('timelineMapCounts')
   const meta = document.getElementById('timelineMapMeta')
   if (!el) return
-  if (!timelineMap || !timelineMapReady) {
+  // "All" is the unfiltered state: the map waits for an era or timeframe,
+  // so the "no places in this filter" line would be a false empty result.
+  if (!timelineMap || !timelineMapReady || !timelineHasActivePlaceFilter()) {
     el.textContent = ''
-    return
-  }
-  const bits = []
-  let total = 0
-  for (const def of DATA_LAYERS) {
-    if (!timelineLayerVisibility[def.id]) continue
-    const src = timelineMap.getSource(def.id)
-    const feats = src?._data?.features
-    if (!feats) continue
-    const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
-    if (n) {
-      if (def.statsText) {
-      bits.push(def.statsText(src._data.features))
-      continue
+    el.hidden = true
+  } else {
+    const bits = []
+    let total = 0
+    for (const def of DATA_LAYERS) {
+      if (!timelineLayerVisibility[def.id]) continue
+      const src = timelineMap.getSource(def.id)
+      const feats = src?._data?.features
+      if (!feats) continue
+      const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
+      if (n) {
+        if (def.statsText) {
+          bits.push(def.statsText(src._data.features))
+          continue
+        }
+        bits.push(`${n.toLocaleString()} ${def.label}`)
+        total += n
+      }
     }
-    bits.push(`${n.toLocaleString()} ${def.label}`)
-      total += n
-    }
+    el.hidden = false
+    el.textContent = bits.length
+      ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
+      : 'Map: no places in this filter (try another timeframe or era)'
   }
-  el.textContent = bits.length
-    ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
-    : 'Map: no places in this filter (try another timeframe or era)'
   if (meta && !pendingFocus) {
     const { yearMin, yearMax } = timelineState
     if (!timelineHasActivePlaceFilter()) {
@@ -3001,7 +3007,10 @@ let timelinePendingRestore = null
 
 function timelineHeaderOffset() {
   const header = document.querySelector('header.top')
-  return header ? header.getBoundingClientRect().height + 8 : 8
+  const bar = document.querySelector('.timeline-read-bar')
+  const headerH = header ? header.getBoundingClientRect().height : 0
+  const barH = bar ? bar.getBoundingClientRect().height : 0
+  return headerH + barH + 8
 }
 
 function timelineItemFor(slug) {
@@ -3190,7 +3199,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       layer: 'history',
       storyPhoto: s.photo || null,
     })
-    const relatedData = await loadRelatedPeople()
+    const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
+    const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
     const storyIndex = await loadStories()
     const markerFeatures = await markerFeaturesPromise
     const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
@@ -3239,7 +3249,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           </header>
           <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
           ${extras}
           ${relatedAndNearbyForStory(
             {
@@ -3682,9 +3692,8 @@ function scrollTimelineToFilters() {
     // Keep site header visible; land on Timeline filters
     target.scrollIntoView({ block: 'start', behavior: 'auto' })
   }
-  // Sticky header offset: nudge so nav + filters aren't under the top bar
-  const header = document.querySelector('header.top')
-  const offset = header ? header.getBoundingClientRect().height + 8 : 0
+  // Sticky header + reading bar: nudge so filters aren't covered
+  const offset = timelineHeaderOffset()
   if (offset && (filters || section)) {
     const y = window.scrollY - offset
     if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -4370,6 +4379,7 @@ function setActiveNav(view) {
     const r = a.dataset.route
     a.classList.toggle('active', r === view)
   })
+  document.body.classList.toggle('hp-page', view === 'home')
 }
 
 async function applyRoute() {
@@ -4460,8 +4470,7 @@ async function applyRoute() {
       const reader = document.getElementById('timelineStoryReader')
       if (!reader || reader.classList.contains('is-empty')) return false
       reader.scrollIntoView({ block: 'start', behavior: 'auto' })
-      const header = document.querySelector('header.top')
-      const offset = header ? header.getBoundingClientRect().height + 8 : 0
+      const offset = timelineHeaderOffset()
       if (offset) {
         const y = window.scrollY - offset
         if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -4557,4 +4566,5 @@ initThemeToggle()
 initSiteSearch()
 MobileNav.init()
 initHomePage()
+initTimelineReading({ getMap: () => timelineMap })
 applyRoute().catch(console.error)
