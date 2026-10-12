@@ -114,25 +114,27 @@ const pinOf = (slug) => { const x = read(FILES[0]).stories.find((y) => y.slug ==
 const historyPin = (hid) => read(FILES[3]).features.find((f) => f.properties.id === hid).geometry.coordinates
 const DOVER = 'dover-mound-mason-county'
 const DOVER_H = 'dover-mound-adena-mason-county'
-setPin(DOVER, DOVER_H, 38.756412, -83.884411) // prehistoric, not allowlisted
+setPin(DOVER, DOVER_H, 38.712345, -83.912345) // prehistoric, not allowlisted (fake test value)
 setPin('harry-innes', 'harry-innes-frankfort-1783-1816', 38.193912, -84.865812) // modern (frontier): must stay
-setPin('page-site-lost-city-15lo1', null, 36.824611, -86.848911) // county-level allowlist: must stay
+setPin('page-site-lost-city-15lo1', null, 36.812345, -86.712345) // protected since Oct 12 (KY History): rounded (fake test value)
 setPin('mount-horeb-earthworks', 'mount-horeb-adena-park', 38.1588727, -84.4652044) // tier C: must stay
 r = run([], none)
 assert.equal(r.status, 0, r.stderr)
-assert.match(r.stdout, /pin-rounding: 1 prehistoric\/archaeological story pin\(s\) rounded: dover-mound-mason-county/)
-assert.deepEqual(pinOf(DOVER), [38.8, -83.9])
-assert.deepEqual(historyPin(DOVER_H), [-83.9, 38.8])
+assert.match(r.stdout, /pin-rounding: 2 prehistoric\/archaeological story pin\(s\) rounded: /)
+assert.match(r.stdout, /dover-mound-mason-county/)
+assert.match(r.stdout, /page-site-lost-city-15lo1/)
+assert.deepEqual(pinOf(DOVER), [38.7, -83.9])
+assert.deepEqual(historyPin(DOVER_H), [-83.9, 38.7])
 assert.deepEqual(pinOf('harry-innes'), [38.193912, -84.865812])
 assert.deepEqual(historyPin('harry-innes-frankfort-1783-1816'), [-84.865812, 38.193912])
-assert.deepEqual(pinOf('page-site-lost-city-15lo1'), [36.824611, -86.848911])
+assert.deepEqual(pinOf('page-site-lost-city-15lo1'), [36.8, -86.7])
 assert.deepEqual(pinOf('mount-horeb-earthworks'), [38.1588727, -84.4652044])
 const rounded = snap()
 r = run([], none)
 assert.match(r.stdout, /pin-rounding: 0 /)
 assert.deepEqual(snap(), rounded)
 assert.equal(run(['--check'], none).status, 0)
-ok('pin rounding: prehistoric rounded in every copy; tier C, county-level and modern places untouched; idempotent')
+ok('pin rounding: prehistoric rounded in every copy; tier C and modern places untouched; idempotent')
 
 // 6. malformed files fail clearly (exit 1)
 const bad = [

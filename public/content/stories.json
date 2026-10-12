@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T10:00:37.194Z",
+  "generatedAt": "2026-10-12T10:33:01.164Z",
   "count": 235,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -529,8 +529,8 @@
         "yearEnd": 1100,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.82461,
-      "lon": -86.84895,
+      "lat": 36.8,
+      "lon": -86.8,
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)"
     },
@@ -1813,8 +1813,8 @@
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
         "year": 1851
       },
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
@@ -1856,8 +1856,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
