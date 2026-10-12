@@ -122,7 +122,7 @@ function sourceItemHtml(source) {
   const text = escapeHtml(citation || id)
   const external = href && isExternalStoryUrl(href)
   const body = href
-    ? `<a href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener"' : ''}>${text}${external ? '<span class="visually-hidden"> (opens in a new tab)</span>' : ''}</a>`
+    ? `<a href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}${external ? '<span class="visually-hidden"> (opens in a new tab)</span>' : ''}</a>`
     : text
   const idAttr = id ? ` id="source-${id}"` : ''
   return `<li${idAttr}>${body}</li>`

@@ -3345,7 +3345,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       notesLink.className = 'story-research-link'
       const notesAnchor = document.createElement('a')
       notesAnchor.href = notesHref
-      notesAnchor.textContent = 'Research notes'
+      notesAnchor.textContent = `Research notes and sources for the ${String(s.title || '').replace(/^the\s+/i, '').replace(/\s*\(.*\)\s*$/, '')}`
       notesLink.appendChild(notesAnchor)
       glanceMount.insertAdjacentElement('afterend', notesLink)
     }

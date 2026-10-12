@@ -249,7 +249,7 @@ class PrerenderPages {
       const story = stories.find((item) => item.slug === notes.storySlug)
       if (!story) throw new Error(`prerender: research ${notes.slug} is not tied to a live story`)
       const urlPath = `/research/${notes.slug}/`
-      const html = PrerenderPages.researchPage(notes, cssHrefs)
+      const html = PrerenderPages.researchPage(notes, cssHrefs, story)
       PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
       PrerenderPages.assertResearch(html, notes)
       PrerenderPages.writePage(dist, urlPath, html)
@@ -1181,6 +1181,7 @@ class PrerenderPages {
     const dates = PrerenderPages.articleDates(story)
     const article = {
       '@type': 'Article',
+      '@id': `${canonical}#article`,
       headline: story.title,
       description,
       mainEntityOfPage: canonical,
@@ -1265,9 +1266,10 @@ class PrerenderPages {
     return notes
   }
 
-  static researchPage(notes, cssHrefs) {
+  static researchPage(notes, cssHrefs, story = null) {
     const article = researchNotesHtml(notes)
     const urlPath = `/research/${notes.slug}/`
+    const pageUrl = `${PrerenderPages.SITE}${urlPath}`
     if (!article) throw new Error(`prerender: ${urlPath} did not render`)
     const description = PrerenderPages.storyMetaDescription(notes.summary)
     PrerenderPages.assertStoryMeta(description, notes.summary, urlPath)
@@ -1280,7 +1282,37 @@ class PrerenderPages {
       imageAlt: 'Kentucky History Drive official seal',
       ogType: 'article',
       main: article,
+      jsonLd: PrerenderPages.researchJsonLd(notes, pageUrl, description, story),
     })
+  }
+
+  /** Research page: an Article about / based on the story's Article, plus breadcrumbs back to it. */
+  static researchLinkTopic(title) {
+    return String(title || '').replace(/^the\s+/i, '').replace(/\s*\(.*\)\s*$/, '')
+  }
+
+  static researchJsonLd(notes, pageUrl, description, story) {
+    const storyUrl = `${PrerenderPages.SITE}/stories/${notes.storySlug}/`
+    const storyRef = { '@type': 'Article', '@id': `${storyUrl}#article`, url: storyUrl, headline: story?.title || notes.title }
+    const node = {
+      '@type': 'Article',
+      '@id': `${pageUrl}#research`,
+      headline: notes.title,
+      description,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      about: storyRef,
+      isBasedOn: storyRef,
+      ...(notes.updated ? { dateModified: notes.updated } : {}),
+      author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+      publisher: PrerenderPages.publisherNode(),
+    }
+    const crumbs = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+      { '@type': 'ListItem', position: 2, name: story?.title || notes.storySlug, item: storyUrl },
+      { '@type': 'ListItem', position: 3, name: 'Research notes', item: pageUrl },
+    ]
+    return PrerenderPages.jsonLdScript([PrerenderPages.organizationNode(), node, { '@type': 'BreadcrumbList', itemListElement: crumbs }])
   }
 
   static storyPage(story, all, cssHrefs, layers, markers = [], notes = null) {
@@ -1308,7 +1340,7 @@ class PrerenderPages {
     const glanceHtml = glanceTableHtml(story.glance, notes)
     const researchHref = notes ? researchPageHref(notes.slug) : ''
     const researchLink = researchHref
-      ? `<p class="story-research-link"><a href="${PrerenderPages.escapeHtml(researchHref)}">Research notes</a></p>`
+      ? `<p class="story-research-link"><a href="${PrerenderPages.escapeHtml(researchHref)}">Research notes and sources for the ${PrerenderPages.escapeHtml(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
     const mapHref = PrerenderPages.storyMapHref(story)
     const pinHtml =
@@ -1714,7 +1746,7 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} link is not http(s) or site-relative`)
       }
       if (external) {
-        if (!attrs.includes('target="_blank"') || !attrs.includes('rel="noopener"')) {
+        if (!attrs.includes('target="_blank"') || !attrs.includes('rel="noopener noreferrer"')) {
           throw new Error(`prerender: ${urlPath} external link is missing rel=noopener or target=_blank`)
         }
       } else if (/\btarget=/.test(attrs)) {
@@ -1741,7 +1773,7 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} includes embedded content`)
     }
     const external = [...block.matchAll(/<a\b([^>]*href="https?:\/\/[^"]*"[^>]*)>/g)]
-    if (!external.length || external.some((anchor) => !anchor[1].includes('rel="noopener"') || !anchor[1].includes('target="_blank"'))) {
+    if (!external.length || external.some((anchor) => !anchor[1].includes('rel="noopener noreferrer"') || !anchor[1].includes('target="_blank"'))) {
       throw new Error(`prerender: ${urlPath} external source is missing rel=noopener or target=_blank`)
     }
     const internal = [...block.matchAll(/<a\b([^>]*href="\/[^"]*"[^>]*)>/g)]
@@ -1778,7 +1810,7 @@ class PrerenderPages {
     }
     if (notes) {
       const href = researchPageHref(notes.slug)
-      if (!href || !html.includes(`href="${href}"`) || !html.includes('>Research notes<')) {
+      if (!href || !html.includes(`href="${href}"`) || !html.includes('>Research notes and sources for the ')) {
         throw new Error(`prerender: ${urlPath} does not link to its research notes`)
       }
     }

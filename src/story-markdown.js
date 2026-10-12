@@ -173,7 +173,7 @@ function renderLink(token, out) {
     return
   }
   const external = isExternalStoryUrl(href)
-  out.open('a', external ? { href, target: '_blank', rel: 'noopener' } : { href })
+  out.open('a', external ? { href, target: '_blank', rel: 'noopener noreferrer' } : { href })
   if (token.tokens?.length) renderTokens(token.tokens, out)
   else out.text(token.text || href)
   if (external) {
@@ -192,7 +192,7 @@ function renderImage(token, out) {
     return
   }
   const external = isExternalStoryUrl(href)
-  out.open('a', external ? { href, target: '_blank', rel: 'noopener' } : { href })
+  out.open('a', external ? { href, target: '_blank', rel: 'noopener noreferrer' } : { href })
   out.text(alt || href)
   if (external) {
     out.open('span', { class: 'visually-hidden' })
@@ -246,9 +246,9 @@ function checkedAttrs(tag, attrs) {
       throw new Error('story markdown: bad target')
     }
     out.target = '_blank'
-    out.rel = 'noopener'
+    out.rel = 'noopener noreferrer'
   }
-  if (attrs.rel != null && attrs.rel !== 'noopener') throw new Error('story markdown: bad rel')
+  if (attrs.rel != null && attrs.rel !== 'noopener noreferrer') throw new Error('story markdown: bad rel')
   if (attrs.scope != null) {
     if (tag !== 'th' || (attrs.scope !== 'row' && attrs.scope !== 'col')) {
       throw new Error('story markdown: bad scope')
