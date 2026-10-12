@@ -120,7 +120,7 @@ for (const slug of ['bardstown', 'benjamin-logan', 'carlston-annis-shell-mound']
   const html = panel.html
   assert.match(html, /<button type="button" class="story-timeline-toggle" aria-expanded="true"/)
   assert.match(html, /aria-controls="storyTimelineList"/)
-  assert.match(html, /Timeline: what happened before and after/)
+  assert.match(html, /Kentucky history around /)
   assert.match(html, /<ol class="st-list" id="storyTimelineList">/)
   assert.doesNotMatch(html, /<ol[^>]*\shidden/)
   assert.match(html, /class="st-pin" rel="nofollow"/)

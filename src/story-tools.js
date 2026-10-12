@@ -818,13 +818,15 @@ export function storyTimelineForStory(story, allStories, markers, options = {}) 
   const listId = safeDomId(options.listId, 'storyTimelineList')
   const count = events.length + 1
   const countLabel = `${count} event${count === 1 ? '' : 's'}`
+  const around = formatYearRange(picked.current.cy, picked.current.cy)
+  const headingLabel = around ? `Kentucky history around ${around}` : 'What else happened in Kentucky'
   const bySlug = timelineStoryBySlug(allStories)
   const rows = [
     ...picked.before.map((event) => timelineRowHtml(event, bySlug)),
     timelineRowHtml({ ...picked.current, kind: 'current' }, bySlug),
     ...picked.after.map((event) => timelineRowHtml(event, bySlug)),
   ].join('')
-  const html = `<nav class="story-timeline" aria-labelledby="${headingId}"><h${level} id="${headingId}" class="story-timeline-heading"><button type="button" class="story-timeline-toggle" aria-expanded="true" aria-controls="${listId}"><span class="st-label">Timeline: what happened before and after</span><span class="st-count">${esc(countLabel)}</span><span class="st-chevron" aria-hidden="true">▾</span></button></h${level}><ol class="st-list" id="${listId}">${rows}</ol></nav>`
+  const html = `<nav class="story-timeline" aria-labelledby="${headingId}"><h${level} id="${headingId}" class="story-timeline-heading"><button type="button" class="story-timeline-toggle" aria-expanded="true" aria-controls="${listId}"><span class="st-label">${esc(headingLabel)}</span><span class="st-count">${esc(countLabel)}</span><span class="st-chevron" aria-hidden="true">▾</span></button></h${level}><ol class="st-list" id="${listId}">${rows}</ol></nav>`
   return { html, slugs, markerIds, picked }
 }
 
