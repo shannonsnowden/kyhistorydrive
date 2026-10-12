@@ -33,19 +33,15 @@
       "id": "squire-boone",
       "name": "Squire Boone",
       "dates": null,
-      "image": {
-        "webp": "/people/portraits/squire-boone__ai-portrait-v1-512.webp",
-        "jpg": "/people/portraits/squire-boone__ai-portrait-v1-512.jpg"
-      },
-      "credit": "Kentucky History Drive",
-      "ai": true,
-      "license": "Original AI illustration",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
       "licenseUrl": null,
       "stories": [
         "shelbyville",
         "squire-boones-painted-stone"
-      ],
-      "sourceFile": null
+      ]
     },
     {
       "id": "jemima-boone",
@@ -1144,18 +1140,14 @@
       "id": "mary-draper-ingles",
       "name": "Mary Draper Ingles",
       "dates": null,
-      "image": {
-        "webp": "/people/portraits/mary-draper-ingles__ai-portrait-v1-512.webp",
-        "jpg": "/people/portraits/mary-draper-ingles__ai-portrait-v1-512.jpg"
-      },
-      "credit": "Kentucky History Drive",
-      "ai": true,
-      "license": "Original AI illustration",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
       "licenseUrl": null,
       "stories": [
         "mary-draper-ingles-escapes-through-kentucky-1755"
-      ],
-      "sourceFile": null
+      ]
     },
     {
       "id": "jenny-wiley",

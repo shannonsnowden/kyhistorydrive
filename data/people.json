@@ -58,13 +58,12 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": "Original AI illustration",
+      "license": null,
       "licenseUrl": null,
-      "credit": "Kentucky History Drive",
+      "credit": null,
       "freeToUse": false,
       "verified": false,
-      "notes": "Only image found is William Ranney's 1852 imaginative scene, not a likeness.",
-      "ai": true
+      "notes": "Only image found is William Ranney's 1852 imaginative scene, not a likeness."
     },
     {
       "id": "jemima-boone",
@@ -1664,13 +1663,12 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": "Original AI illustration",
+      "license": null,
       "licenseUrl": null,
-      "credit": "Kentucky History Drive",
+      "credit": null,
       "freeToUse": false,
       "verified": false,
-      "notes": "Only a modern statue (CC BY-SA 4.0 photo); no historical likeness.",
-      "ai": true
+      "notes": "Only a modern statue (CC BY-SA 4.0 photo); no historical likeness."
     },
     {
       "id": "jenny-wiley",
