@@ -43,8 +43,13 @@ html[data-hp-theme="dark"] {
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--text); }
 /* Reserve the sticky timeline jump bar when it is open, so scroll-into-view
-   stops above it. --timeline-jump-h is 0 while the bar is hidden. */
+   stops above it. --timeline-jump-h is 0 while the bar is hidden.
+   With a story open, also keep about 80px (plus the home-indicator inset)
+   so the last lines can sit clear of the floating bar. */
 html { scroll-padding-bottom: calc(var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px)); }
+html:has(#timelineReaderJump:not([hidden])) {
+  scroll-padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px) + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
+}
 /* Author display rules must not override the hidden attribute (map-section uses display:grid) */
 [hidden] { display: none !important; }
 a { color: var(--accent); }
@@ -691,10 +696,10 @@ a.btn { text-decoration: none; display: inline-block; }
 .stories-list { display: grid; gap: 0.75rem; }
 .story-reader {
   margin-top: 1.15rem;
-  /* Bottom padding matches the sticky Home/Filters/Stories/Top/Reset bar
-     (its height plus the gap it floats above the viewport) so the last
-     lines stay above the bar at every width. */
-  padding: 1.1rem 1.15rem calc(1.35rem + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
+  /* 80px plus the home-indicator inset sits above the floating
+     Home/Filters/Stories/Top/Reset bar (its height and the gap it floats
+     above the viewport) so the last lines can scroll clear of it. */
+  padding: 1.1rem 1.15rem calc(80px + env(safe-area-inset-bottom, 0px) + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -932,7 +937,7 @@ html[data-hp-theme="light"] .era-other {
 .back-link { font-size: 0.9rem; text-decoration: none; }
 .story-detail { background: var(--panel); border-radius: 12px; padding: 1.25rem 1.4rem; border: 1px solid var(--line); }
 .story-head h2 { margin: 0.4rem 0 0.5rem; color: var(--heading); }
-.story-body { line-height: 1.6; font-size: 1.02rem; }
+.story-body { line-height: 1.6; font-size: 1.02rem; max-width: 70ch; }
 .story-body { overflow-wrap: anywhere; }
 .story-body a { word-break: break-word; overflow-wrap: anywhere; }
 .story-reader-main, .story-reader-layout > * { min-width: 0; }
