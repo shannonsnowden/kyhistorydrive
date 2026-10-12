@@ -11,16 +11,16 @@ const DEFAULT_YEAR = 1880
 
 const COLORS = {
   light: {
-    bg: '#f4efe4',
-    land: '#1c3d32',
-    landLine: '#e2b15a',
-    casing: '#10261c',
-    lo: '#f6e7c1',
-    ln: '#e2b15a',
-    cs: '#d0893a',
-    parkway: '#c9e6b0',
+    bg: '#ffffff',
+    land: '#f6eedb',
+    landLine: '#2b2620',
+    casing: '#2b1d0e',
+    lo: '#e0a32e',
+    ln: '#c47a17',
+    cs: '#8f4a10',
+    parkway: '#b5651d',
     bridge: '#fff8ea',
-    bridgeStroke: '#6e4214',
+    bridgeStroke: '#2b1d0e',
   },
   dark: {
     bg: '#100e0c',
