@@ -133,6 +133,13 @@ html[data-hp-theme="light"] body.privacy-doc header.top {
   outline-offset: 3px;
   border-radius: 8px;
 }
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+  min-width: 0;
+}
 .brand h1 {
   margin: 0;
   font-size: clamp(1.05rem, 2.5vw, 1.35rem);
@@ -149,13 +156,18 @@ html[data-hp-theme="light"] body.privacy-doc header.top {
 }
 .tagline {
   margin: 0;
-  margin-left: calc(88px + 0.65rem);
   color: var(--muted);
   font-size: 0.85rem;
   line-height: 1.3;
 }
-@media (max-width: 700px) {
-  .tagline { margin-left: calc(64px + 0.65rem); }
+/* Compact header: keep the pitch off non-home routes. */
+.brand-subhead {
+  display: none;
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  max-width: 28rem;
 }
 nav {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem;
@@ -2150,8 +2162,9 @@ html[data-hp-theme="light"] .about-seal {
   width: 100%;
 }
 .hp-page {
-  --hp-logo: 136px;
-  --hp-logo-gap: 0.8rem;
+  /* Seal ≈ title + tagline + subhead stack; never above the 512 native master. */
+  --hp-logo: 200px;
+  --hp-logo-gap: 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -2162,24 +2175,41 @@ html[data-hp-theme="light"] .about-seal {
   background: var(--header-bg);
   padding: 0.9rem clamp(1.25rem, 5vw, 4rem);
   gap: 1rem 1.5rem;
+  align-items: center;
 }
 .hp-page .brand-home {
+  align-items: center;
   gap: var(--hp-logo-gap);
 }
 .hp-page .brand-logo {
   width: var(--hp-logo);
   height: var(--hp-logo);
+  max-width: 512px;
+  max-height: 512px;
   border-width: 2px;
   box-shadow:
     0 4px 18px rgba(0, 0, 0, 0.5),
     0 0 0 3px rgba(201, 137, 58, 0.28);
 }
+.hp-page .brand-lockup {
+  gap: 0.28rem;
+  justify-content: center;
+}
 .hp-page .brand h1 {
-  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+  font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+  line-height: 1.12;
 }
 .hp-page .tagline {
-  margin-left: calc(var(--hp-logo) + var(--hp-logo-gap));
-  font-size: 0.92rem;
+  margin-left: 0;
+  font-size: 1.15rem;
+  color: var(--heading);
+}
+.hp-page .brand-subhead {
+  display: block;
+  font-size: 1.02rem;
+  line-height: 1.4;
+  color: var(--accent);
+  max-width: 28rem;
 }
 .hp-page nav {
   flex: 1 1 16rem;
@@ -2991,7 +3021,7 @@ html[data-hp-theme="light"] .hp-page .brand-logo {
   box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
 }
 @media (min-width: 1024px) {
-  .brand .tagline { margin-top: -8px; }
+  body:not(.hp-page) .brand .tagline { margin-top: 0; }
 }
 .brand-home:hover .brand-logo,
 .brand-home:focus-visible .brand-logo,
@@ -3052,7 +3082,34 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
   .hp-mag-hero-copy { --hp-deck-lines: 5; --hp-credit-lines: 2; }
   .hp-page {
-    --hp-logo: 96px;
+    --hp-logo: 140px;
+  }
+  .hp-page .top {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+  }
+  .hp-page .brand {
+    width: 100%;
+  }
+  .hp-page .brand-home {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 0.55rem;
+  }
+  .hp-page .brand-lockup {
+    align-items: center;
+  }
+  .hp-page .brand h1 {
+    font-size: 1.35rem;
+  }
+  .hp-page .tagline {
+    font-size: 1.02rem;
+  }
+  .hp-page .brand-subhead {
+    font-size: 0.92rem;
+    max-width: 22rem;
   }
   .hp-page .nav-search {
     max-width: none;
@@ -3134,6 +3191,58 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header #siteSearchInput {
     padding: 0.28rem 0.5rem;
     font-size: 0.8rem;
+  }
+}
+
+/* Homepage big seal: win over the compact laptop/phone header rules. */
+@media (max-width: 1400px) and (min-width: 701px) {
+  body.hp-page .site-header {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.7rem clamp(1rem, 3vw, 2.5rem);
+    gap: 0.75rem 1rem;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  body.hp-page .site-header .brand-logo {
+    width: var(--hp-logo, 200px);
+    height: var(--hp-logo, 200px);
+  }
+  body.hp-page .site-header .brand h1 {
+    font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  }
+  body.hp-page .site-header .tagline {
+    display: block;
+    margin-left: 0;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  body.hp-page .site-header {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 0.65rem 0.75rem 0.75rem;
+    gap: 0.5rem;
+  }
+  body.hp-page .site-header .brand-logo {
+    width: var(--hp-logo, 140px);
+    height: var(--hp-logo, 140px);
+  }
+  body.hp-page .site-header .brand h1 {
+    font-size: 1.2rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+  body.hp-page .site-header .tagline {
+    display: block;
+    margin-left: 0;
+  }
+  body.hp-page .site-header .brand-home {
+    max-width: none;
   }
 }
 
