@@ -3701,16 +3701,56 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     min-height: 44px;
     font-size: 1rem;
   }
-  /* The bar is 60px, so the hero can fill the rest of the first screen. */
-  .hp-mag-hero { min-height: calc(100svh - 60px); }
+  /* The bar is 60px and the value line above the hero is up to three lines
+     (~5.5rem). Size the hero to what is left of the first screen so the credit
+     and the control row stay on screen. */
+  .hp-mag-hero { min-height: calc(100svh - 60px - 5.5rem); }
+  .hp-mag-hero-copy {
+    /* Reserve a third credit line, then keep it above the 44px control row. */
+    --hp-credit-lines: 3;
+    padding-bottom: calc(44px + 1.6rem);
+  }
+  /* One row under the credit: ◀, dots, Play, ▶. */
   .hp-hero-controls {
     left: 0.35rem;
     right: 0.35rem;
+    bottom: 0.45rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     gap: 0;
   }
+  .hp-hero-nav,
   .hp-hero-playback {
+    flex: 0 0 auto;
+  }
+  .hp-hero-playback {
+    min-width: 44px;
+    height: 44px;
     padding: 0 0.55rem;
     font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .hp-hero-dots {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    justify-content: safe center;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .hp-hero-dots::-webkit-scrollbar { display: none; }
+  /* The painted dot stays 11px (::before). The button itself is a 44px tap
+     target, pulled together so the row fits at 390px. At 320px it may scroll. */
+  .hp-hero-dot {
+    box-sizing: content-box;
+    flex: 0 0 auto;
+    width: 11px;
+    height: 11px;
+    padding: 16.5px;
+    margin-inline: -8px;
+    scroll-snap-align: center;
   }
 }
 
