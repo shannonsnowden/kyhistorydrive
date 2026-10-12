@@ -783,6 +783,13 @@
       "yearStart": 1799,
       "yearEnd": 1816,
       "county": "Boone"
+    },
+    "cynthiana-cynthia-anna-on-the-licking": {
+      "reason": "History entry was geocoded to far-western KY (36.66,-88.31) and tagged archaeology; pin to Cynthiana, Harrison County (38.3903,-84.2941, GNIS/Wikipedia) and category town.",
+      "date": "2026-10-12",
+      "historyId": "cynthiana-founding-robert-harrison",
+      "lat": 38.3903,
+      "lon": -84.2941
     }
   }
 }
