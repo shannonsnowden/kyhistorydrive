@@ -1,11 +1,11 @@
 /** Root-absolute seal files. A path without the leading slash resolves under /about/ or /stories/ and 404s. */
 export function sealRotationScriptHtml() {
-  return `<script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>`
+  return `<script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],H=[B+'khd-logo-512.webp',B+'khd-logo-c-512.webp',B+'khd-logo-c2-512.webp'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];window.__khdLogoHi=H[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>`
 }
 
 /** Apply the rotated seal. Force a /brand/ path so a subpage cannot resolve it relatively. */
 export function sealSrcScriptHtml() {
-  return `<script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>`
+  return `<script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo,h=window.__khdLogoHi;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(h&&h.indexOf('/brand/')!==0)h='/brand/'+String(h).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s);if(h){im.setAttribute('srcset',s+' 176w, '+h+' 512w');im.setAttribute('sizes','(min-width: 701px) 132px, (min-width: 601px) 84px, 68px')}})()</script>`
 }
 
 /** Menu and theme toggle for the shared header on pages that are not the SPA. */
@@ -40,7 +40,7 @@ export function siteChromeScriptHtml() {
           document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
             var light = theme === 'light'
             btn.setAttribute('aria-pressed', light ? 'true' : 'false')
-            btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme')
+            btn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode')
             var label = btn.querySelector('.hp-theme-toggle-label')
             var icon = btn.querySelector('.hp-theme-toggle-icon')
             if (label) label.textContent = light ? 'Dark' : 'Light'
@@ -73,11 +73,14 @@ export function siteHeaderHtml(activeRoute = '') {
     <header class="top site-header">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" />
+          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" decoding="async" />
           ${sealSrcScriptHtml()}
-          <h1>Kentucky History Drive</h1>
+          <div class="brand-lockup">
+            <h1>Kentucky History Drive</h1>
+            <p class="tagline">History is all around us.</p>
+            <p class="brand-subhead">Pioneers, Native nations, long hunters, soldiers and distillers. Explore the stories that made Kentucky, on a living map you can travel through time.</p>
+          </div>
         </a>
-        <p class="tagline">History is all around us.</p>
       </div>
       <div class="nav-mobile-tools" id="navMobileTools">
         <a class="nav-icon-btn" id="navSearchToggle" href="/" aria-label="Search places and stories">
@@ -107,11 +110,10 @@ export function siteHeaderHtml(activeRoute = '') {
         ${item('timeline', '/#timeline', 'Timeline')}
         ${item('people', '/people/', 'People')}
         ${item('about', '/about/', 'About')}
-        <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
           <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
           <span class="hp-theme-toggle-label">Light</span>
         </button>
       </nav>
     </header>`
   }
-

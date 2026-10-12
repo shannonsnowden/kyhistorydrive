@@ -15,45 +15,25 @@ import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
-import { HeroCarousel } from './hero-carousel.js'
 import { HomepageStructure } from './homepage-structure.js'
-
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
-
-function formatDisplayDate(iso) {
-  const d = new Date(`${iso}T12:00:00`)
-  if (Number.isNaN(d.getTime())) return iso
-  return d.toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
-
-/** Card/hero year label: negative years read as BCE (Dover Mound shows 800 BCE, not -800). */
-function storyYearLabel(y) {
-  const n = Number(y)
-  if (!Number.isFinite(n) || n === 0) return ''
-  return n < 0 ? `${Math.abs(n)} BCE` : String(n)
-}
-
-function eraLabel(era) {
-  const map = {
-    prehistoric: 'Prehistoric',
-    native: 'Native',
-    frontier: 'Frontier',
-    'early-commonwealth': 'Early commonwealth',
-    other: 'Kentucky',
-  }
-  return map[era] || 'Kentucky'
-}
+import {
+  escapeHtml,
+  formatDisplayDate,
+  storyYearLabel,
+  eraLabel,
+  firstSentence,
+  heroDeckText,
+  storyMapHref,
+  isPhotoUrl,
+  usablePhoto,
+  photoCredit,
+  placeCaption,
+  cardAlt,
+  renderLeadStory,
+  renderRailCard,
+  renderSwipeCard,
+  leadPreloadTag,
+} from './home-hero-render.js'
 
 function extractWikipediaUrl(markdown) {
   const m = String(markdown || '').match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s)\]">]+/i)
@@ -69,31 +49,6 @@ function wikiTitleFromUrl(url) {
   }
 }
 
-function firstSentence(text) {
-  const t = String(text || '')
-    .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
-    .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
-    .replace(/\s+/g, ' ')
-    .trim()
-  if (!t) return ''
-  // Only split where a new sentence starts (capital/quote); keeps "A.D. 1200" and "O.F.C. (Old…)" intact.
-  const parts = t.split(/(?<=[.!?])\s+(?=[A-Z"'\u201C\u2018])/)
-  let out = ''
-  for (const p of parts) {
-    out = out ? `${out} ${p}` : p
-    if (
-      out.length >= 40 &&
-      /[.!?]$/.test(out) &&
-      !/\b(Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co)\.$/.test(out) &&
-      // Don't stop on a middle/first initial ("Return J. Meigs", "John C. Breckinridge").
-      !/(?:^|[\s(])[A-Z]\.$/.test(out)
-    ) {
-      break
-    }
-  }
-  return out
-}
-
 function quoteFromStory(story) {
   if (!story) return null
   const text = String(story.quote || story.summary || '').trim()
@@ -106,51 +61,6 @@ function quoteFromStory(story) {
   }
 }
 
-/** Hero overlay: the full first sentence. A finished sentence is not cut with an ellipsis. */
-function heroDeckText(story) {
-  // Build-time copy (scripts/build-home-preview.mjs) when present; same rules at runtime otherwise.
-  if (story?.heroDeck) return story.heroDeck
-  const quote = String(story?.quote || '').trim()
-  if (quote) return HomepageStructure.capWords(quote)
-  const summary = String(story?.summary || '').trim()
-  if (!summary) return ''
-  const stripped = HomepageStructure.deckText(summary)
-  const sentence = firstSentence(stripped)
-  if (sentence && /[.!?]$/.test(sentence)) return HomepageStructure.capWords(sentence)
-  return HomepageStructure.capWords(stripped)
-}
-
-/** Home-map deep link for a pin-backed story. Does not invent coordinates. */
-function storyMapHref(item) {
-  if (!item) return null
-  if (item.mapHref) return item.mapHref
-  if (item.historyId) return `/#map/history/${encodeURIComponent(item.historyId)}`
-  if (item.lat != null && item.lon != null && item.slug) {
-    return `/#map/stories/${encodeURIComponent(item.slug)}`
-  }
-  return null
-}
-
-function isPhotoUrl(url) {
-  const u = String(url || '').toLowerCase()
-  if (!u) return false
-  if (/\.svg(\?|$)/i.test(u)) return false
-  // Same-origin curated story heroes — skip Wikipedia schematic-map heuristics.
-  if (u.startsWith('/content/photos/stories/')) return true
-  if (
-    /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
-      u,
-    )
-  ) {
-    return false
-  }
-  if (/\/[^/?#]*\bmap\b[^/?#]*\.(jpe?g|png|gif|webp)/i.test(u)) return false
-  return true
-}
-
-function usablePhoto(photo) {
-  return photo?.image_url && isPhotoUrl(photo.image_url) ? photo : null
-}
 
 async function fetchWikipediaPhoto(titleOrUrl) {
   if (!titleOrUrl) return null
@@ -202,6 +112,7 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
       summary: full.summary || meta.summary || '',
       era: full.era || meta.era || '',
       yearStart: full.yearStart ?? meta.yearStart ?? null,
+      county: full.county || meta.county || null,
       briefDate,
       href: `/#timeline/${encodeURIComponent(slug)}`,
       place: loc.matchedPlace || null,
@@ -226,12 +137,6 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
   }
 }
 
-function photoCredit(photo) {
-  if (!photo) return ''
-  const label = photo.attribution || photo.source_label || ''
-  const year = photo.year ? ` · ${photo.year}` : ''
-  return label ? `${label}${year}` : ''
-}
 
 function briefStories(pack) {
   if (Array.isArray(pack?.stories) && pack.stories.length) return pack.stories
@@ -254,68 +159,34 @@ function prefersReducedMotion() {
   return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
 }
 
-function renderHeroSlide(story, index) {
-  const titleId = index === 0 ? 'hp-hero-title' : `hp-hero-title-${index}`
-  const img = usablePhoto(story.photo)
-    ? responsivePicture({
-        src: story.photo.image_url,
-        alt: story.photo.title || story.title,
-        className: 'hp-mag-hero-img',
-        loading: index === 0 ? 'eager' : 'lazy',
-        fetchPriority: index === 0 ? 'high' : '',
-        sizes: '100vw',
-      })
-    : ''
-  const credit = photoCredit(story.photo)
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
-  return `<article
-      class="hp-hero-slide${index === 0 ? ' is-active' : ''}"
-      data-hero-index="${index}"
-      aria-hidden="${index === 0 ? 'false' : 'true'}"
-      ${index === 0 ? '' : 'inert'}
-    >
-      <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade"></div></div>
-      <div class="hp-mag-hero-copy">
-        <p class="hp-kicker">Featured story</p>
-        <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(storyYearLabel(story.yearStart))}` : ''}</p>
-        <h2 id="${titleId}" class="hp-fit">${escapeHtml(story.title)}</h2>
-        <p class="hp-hero-deck hp-fit">${escapeHtml(heroDeckText(story))}</p>
-        <div class="hp-cta-row">
-          <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
-          ${
-            storyMapHref(story)
-              ? `<a class="btn hp-cta" href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
-              : `<a class="btn hp-cta" href="/#timeline">All stories</a>`
-          }
-        </div>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
-      </div>
-    </article>`
-}
 
-function renderHeroControls(slides) {
-  if (slides.length < 2) return ''
-  const dots = slides
-    .map((story, i) => {
-      const label = `Show story ${i + 1} of ${slides.length}: ${story.title}`
-      return `<button type="button" class="hp-hero-dot${i === 0 ? ' is-active' : ''}" data-hero-to="${i}" aria-label="${escapeHtml(label)}" aria-current="${i === 0 ? 'true' : 'false'}"></button>`
-    })
-    .join('')
-  return `<div class="hp-hero-controls">
-      <button type="button" class="hp-hero-nav" data-hero-dir="-1" aria-label="Previous story">‹</button>
-      <div class="hp-hero-dots" role="group" aria-label="Featured stories">${dots}</div>
-      <button type="button" class="hp-hero-playback" data-hero-playback aria-pressed="false">Play</button>
-      <button type="button" class="hp-hero-nav" data-hero-dir="1" aria-label="Next story">›</button>
-    </div>
-    <p class="visually-hidden" id="hpHeroStatus" aria-live="polite"></p>`
-}
-
-function initHeroRotator(root, slides) {
-  HeroCarousel.mount(root, slides)
+function preloadLeadImage(story) {
+  if (!usablePhoto(story?.photo)) return
+  // The build writes the same tag into <head> (scripts/prerender-home-hero.mjs); dev only adds it here.
+  if (document.getElementById('hpLeadPreload')?.getAttribute('href') === story.photo.image_url) return
+  const src = story.photo.image_url
+  const existing = document.getElementById('hpLeadPreload')
+  if (existing) existing.remove()
+  const link = document.createElement('link')
+  link.id = 'hpLeadPreload'
+  link.rel = 'preload'
+  link.as = 'image'
+  link.href = src
+  link.fetchPriority = 'high'
+  // If responsive variants exist on the rendered picture, mirror imagesrcset from the first webp source.
+  const pic = document.querySelector('#hpHero picture source[type="image/webp"]')
+  if (pic?.getAttribute('srcset')) {
+    link.setAttribute('imagesrcset', pic.getAttribute('srcset'))
+    const sizes = pic.getAttribute('sizes') || '(max-width: 900px) 100vw, 66vw'
+    link.setAttribute('imagesizes', sizes)
+  }
+  document.head.appendChild(link)
 }
 
 function renderHero(pack) {
   const root = document.getElementById('hpHero')
+  const rail = document.getElementById('hpStoryRail')
+  const swipe = document.getElementById('hpStorySwipe')
   if (!root) return
   const slides = heroSlides(pack)
   if (!slides.length) {
@@ -328,18 +199,30 @@ function renderHero(pack) {
         <a class="btn hp-cta" href="/#timeline">Timeline</a>
       </div>
     </div>`
+    if (rail) rail.innerHTML = ''
+    if (swipe) swipe.innerHTML = ''
     root.removeAttribute('aria-busy')
     return
   }
-  root.innerHTML = `
-    <div class="hp-hero-viewport">
-      ${slides.map((story, i) => renderHeroSlide(story, i)).join('')}
-    </div>
-    ${renderHeroControls(slides)}`
+  const lead = slides[0]
+  const more = slides.slice(1, 5)
+  // The build wrote the lead + cards into index.html (scripts/prerender-home-hero.mjs).
+  // Keep that markup: no lead image swap on load, even if newer data picks a different lead.
+  if (root.querySelector('.hp-lead-story')) {
+    root.removeAttribute('aria-busy')
+    markPortraitHeroImages(root)
+    fitHomeText()
+    return
+  }
+  root.innerHTML = renderLeadStory(lead)
   root.removeAttribute('aria-busy')
+  if (rail) rail.innerHTML = more.map(renderRailCard).join('')
+  if (swipe) swipe.innerHTML = more.map(renderSwipeCard).join('')
   markPortraitHeroImages(root)
   fitHomeText()
-  initHeroRotator(root, slides)
+  // Preload after picture sources exist in the DOM.
+  requestAnimationFrame(() => preloadLeadImage(lead))
+  // No auto-rotation: the former carousel controls are gone.
 }
 
 /**

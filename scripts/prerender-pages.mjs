@@ -167,6 +167,21 @@ class PrerenderPages {
     if (!aboutHtml.includes('<h2 class="about-page-title">Kentucky History Drive</h2>')) {
       throw new Error('prerender: /about/ should demote the duplicate title to an h2')
     }
+    if (!aboutHtml.includes('src="/route-map-lightbox.js"')) {
+      throw new Error('prerender: /about/ is missing the seal lightbox')
+    }
+    for (const label of [
+      'Enlarge original black edition seal',
+      'Enlarge navy edition seal',
+      'Enlarge gold-rim edition seal',
+    ]) {
+      if (!aboutHtml.includes(`aria-label="${label}"`) || !aboutHtml.includes(`<button type="button" class="about-seal-btn"`)) {
+        throw new Error(`prerender: /about/ is missing the ${label} button`)
+      }
+    }
+    if ((aboutHtml.match(/class="about-seal-btn"/g) || []).length !== 3) {
+      throw new Error('prerender: /about/ should have three seal buttons')
+    }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
       loc: `${PrerenderPages.SITE}/about/`,
@@ -2580,11 +2595,11 @@ ${rows.join('\n')}
         <figure class="about-seals" aria-labelledby="aboutSealsTitle">
           <h2 class="about-seals-title" id="aboutSealsTitle">Our seals</h2>
           <ul class="about-seals-list">
-            <li><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></li>
-            <li><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></li>
-            <li><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge original black edition seal" data-full-src="/brand/khd-logo-512.webp"><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></button></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge navy edition seal" data-full-src="/brand/khd-logo-c-512.webp"><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></button></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge gold-rim edition seal" data-full-src="/brand/khd-logo-c2-512.webp"><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></button></li>
           </ul>
-          <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit.</figcaption>
+          <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit. Tap a seal to enlarge it.</figcaption>
         </figure>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
@@ -2634,6 +2649,7 @@ ${rows.join('\n')}
       jsonLd,
       main,
       activeRoute: 'about',
+      routeLightbox: true,
     })
   }
 
@@ -2679,6 +2695,15 @@ ${rows.join('\n')}
     if (!/<script type="module"/.test(html)) throw new Error('prerender: homepage lost the app bundle')
     if (!html.includes('src="/route-map-lightbox.js"')) {
       throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
+    }
+    for (const label of [
+      'Enlarge original black edition seal',
+      'Enlarge navy edition seal',
+      'Enlarge gold-rim edition seal',
+    ]) {
+      if (!html.includes(`aria-label="${label}"`)) {
+        throw new Error(`prerender: homepage #about is missing the ${label} button`)
+      }
     }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')

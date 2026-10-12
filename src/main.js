@@ -4379,6 +4379,7 @@ function setActiveNav(view) {
     const r = a.dataset.route
     a.classList.toggle('active', r === view)
   })
+  document.body.classList.toggle('hp-page', view === 'home')
 }
 
 async function applyRoute() {
