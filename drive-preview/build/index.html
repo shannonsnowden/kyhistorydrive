@@ -2,7 +2,7 @@
 <html lang="en" data-hp-theme="light">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="referrer" content="no-referrer" />
 <!-- khd-no-analytics -->
@@ -12,60 +12,53 @@
 <body>
 <div class="banner" role="note">DRAFT MOCKUP: not live. Times and distances are rough estimates.</div>
 <main>
-  <p class="kicker">Plan a history drive · Build your own</p>
   <div class="titlerow">
-    <h1>Build your own drive</h1>
-    <button type="button" id="themeBtn" class="btn-quiet" aria-pressed="false">Dark mode</button>
+    <p class="kicker"><a href="/drives/">Drives</a> · Build your own</p>
+    <button type="button" id="themeBtn" class="icon-btn" aria-pressed="false" aria-label="Switch to dark theme"><span aria-hidden="true">☾</span></button>
   </div>
-  <p class="muted lede">Pick a starting point and how long you have. We'll suggest a loop of nearby history stops from the Kentucky History Drive map, in driving order, ending back where you started.</p>
-
-  <form class="finder" id="form" aria-label="Build a drive">
-    <fieldset class="seg">
-      <legend>Start from</legend>
-      <label><input type="radio" name="mode" value="town" checked /> A town</label>
-      <label><input type="radio" name="mode" value="distillery" /> A distillery</label>
-      <label><input type="radio" name="mode" value="loc" /> My location</label>
-    </fieldset>
-    <div class="startrow" id="rowTown">
-      <label for="town" class="sr">Kentucky town or ZIP</label>
-      <input id="town" type="text" inputmode="search" placeholder="Kentucky town or ZIP (e.g. Bardstown, 40004)" autocomplete="off" list="townList" value="Paris" />
-      <datalist id="townList"></datalist>
+  <form class="ask" id="form" novalidate>
+    <label for="q" class="ask-q">Where are you, or where are you going?</label>
+    <div class="ask-row">
+      <input id="q" type="text" inputmode="search" placeholder="Town, ZIP or distillery" autocomplete="off" list="qList" aria-describedby="qMsg" />
+      <datalist id="qList"></datalist>
+      <button type="button" id="useLoc" class="btn-green"><span aria-hidden="true">📍</span> Use my location</button>
     </div>
-    <div class="startrow" id="rowDist" hidden>
-      <label for="dist" class="sr">Distillery</label>
-      <select id="dist"></select>
-    </div>
-    <div class="startrow" id="rowLoc" hidden>
-      <button type="button" id="useLoc" class="btn-green" aria-describedby="locNote">Use my location</button>
-      <span id="locState" class="muted"></span>
-    </div>
+    <p id="qMsg" class="field-msg" aria-live="polite"></p>
     <fieldset class="seg">
       <legend>Time you have</legend>
-      <label><input type="radio" name="budget" value="60" checked /> About 1 hour</label>
-      <label><input type="radio" name="budget" value="120" /> About 2 hours</label>
+      <label><input type="radio" name="budget" value="60" /> 1 hr</label>
+      <label><input type="radio" name="budget" value="120" checked /> 2 hrs</label>
+      <label><input type="radio" name="budget" value="240" /> Half day (~4 hrs)</label>
+      <label><input type="radio" name="budget" value="480" /> Full day (~8 hrs)</label>
     </fieldset>
-    <button type="submit" id="go">Suggest a drive</button>
-    <p id="locNote">Location is only used if you press “Use my location”. It stays in this browser to pick nearby stops: it is never stored or sent anywhere, and it is not added to the map links. Town and ZIP lookups use a list bundled with this page (U.S. Census Gazetteer).</p>
+    <button type="submit" class="btn-primary">Suggest a drive</button>
+    <details class="how"><summary>How we use your location</summary>
+      <p>Only if you press “Use my location”, and your browser asks first. The position stays in this page to pick nearby stops. It is never stored, never sent to us or anyone else, and never put in a link: the Maps buttons carry the stops only, and your maps app works out the way from where you are. Town, ZIP and distillery names are matched against a list bundled with this page.</p>
+    </details>
   </form>
-
   <p id="status" class="status" aria-live="polite"></p>
-
-  <div class="layout">
-    <section class="card" aria-labelledby="stops-h">
-      <h2 id="stops-h">Your loop</h2>
+  <div class="layout" id="layout">
+    <section class="card list-card" aria-labelledby="stops-h">
+      <h2 id="stops-h">Your drive</h2>
       <div class="facts" id="facts"></div>
-      <ol class="stops" id="stops"><li class="empty muted">Pick a start and press “Suggest a drive”.</li></ol>
-      <div class="go" id="dirs"></div>
-      <p class="note estimate"><b>These are estimates, not directions.</b> Drive times use straight-line distance × 1.3 for winding roads at an average 40 mph, plus about 10 minutes at each stop. Real roads, traffic and opening hours will differ, so check the route in your maps app before you set out.</p>
-      <p class="note">Archaeological sites and stops on private land are never suggested.</p>
+      <div class="mini-slot" id="miniSlot"></div>
+      <ol class="stops" id="stops"></ol>
+      <section class="route" id="route" aria-labelledby="route-h" hidden>
+        <h3 id="route-h">Open in your maps app</h3>
+        <div id="legs"></div>
+      </section>
+      <div class="callout">
+        <p><b>Estimates, not directions.</b> Times use straight-line distance × 1.3 at an average 40 mph, plus about 10 minutes at each stop. Check the route in your maps app before you set out.</p>
+        <p>Don’t use this page while driving. Archaeological sites, caves and private land are never suggested; stay on public property and respect posted signs.</p>
+      </div>
     </section>
-    <figure class="card map" style="margin:0">
-      <h2>Map</h2>
-      <div id="map" role="region" aria-label="Map of the suggested loop"></div>
-      <figcaption>Numbered circles: stops in driving order. Dashed amber lines connect stops in order; they are not the road route. Square: your start.</figcaption>
+    <figure class="card map-card" id="mapCard">
+      <div id="map" role="region" aria-label="Map of the suggested drive"></div>
+      <figcaption>Numbered circles: stops in order. Dashed lines join stops in order; they are not the road route.</figcaption>
     </figure>
   </div>
 </main>
+<div class="sticky-bar" id="stickyBar" hidden></div>
 <script type="module" src="/src/build-a-drive.js"></script>
 </body>
 </html>

@@ -105,6 +105,7 @@ export function siteHeaderHtml(activeRoute = '') {
         ${item('home', '/', 'Home')}
         ${item('map', '/#map', 'Map')}
         ${item('timeline', '/#timeline', 'Timeline')}
+        ${item('drives', '/drives/', 'Drives')}
         ${item('about', '/about/', 'About')}
         ${item('app', '/#app', 'iPhone app (coming soon)')}
         <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
