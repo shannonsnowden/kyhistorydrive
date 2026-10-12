@@ -4083,3 +4083,10 @@ html[data-hp-theme='dark'] .transport-endpoint b { color: #f6edd8; text-shadow: 
 html[data-hp-theme='dark'] .transport-endpoint i { background: #100e0c; border-color: #f6edd8; }
 html[data-hp-theme='dark'] .transport-county-label { color: #d8ccb2; text-shadow: 0 0 2px #100e0c, 0 0 2px #100e0c; }
 html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
+.transport-facts { margin-top: 1.25rem; font-size: 0.9rem; }
+.transport-facts h3 { font-size: 1rem; margin: 0 0 0.5rem; }
+.transport-facts h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.9rem 0 0.3rem; }
+.transport-facts dt { font-weight: 700; margin-top: 0.5rem; }
+.transport-facts dd { margin: 0.1rem 0 0; }
+.transport-sources { padding-left: 1.1rem; margin: 0; }
+.transport-sources li { margin: 0.2rem 0; overflow-wrap: anywhere; }
