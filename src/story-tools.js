@@ -796,7 +796,7 @@ function timelineRowHtml(event, bySlug) {
     lon: source?.lon,
   })
   const pin = hash
-    ? `<a class="st-pin" href="/${esc(hash)}" aria-label="${esc(`Show ${event.title} on the map`)}">${TIMELINE_PIN}</a>`
+    ? `<a class="st-pin" rel="nofollow" href="/${esc(hash)}" aria-label="${esc(`Show ${event.title} on the map`)}">${TIMELINE_PIN}</a>`
     : ''
   return `<li class="st-item"><div class="st-row"><a class="st-link" href="/stories/${encodeURIComponent(event.slug)}/">${time}<span class="st-title">${esc(event.title)}</span></a>${pin}</div></li>`
 }
@@ -824,7 +824,7 @@ export function storyTimelineForStory(story, allStories, markers, options = {}) 
     timelineRowHtml({ ...picked.current, kind: 'current' }, bySlug),
     ...picked.after.map((event) => timelineRowHtml(event, bySlug)),
   ].join('')
-  const html = `<nav class="story-timeline" aria-labelledby="${headingId}"><h${level} id="${headingId}" class="story-timeline-heading"><button type="button" class="story-timeline-toggle" aria-expanded="false" aria-controls="${listId}"><span class="st-label">Timeline</span><span class="st-sep" aria-hidden="true">·</span><span class="st-count">${esc(countLabel)}</span><span class="st-chevron" aria-hidden="true">▾</span></button></h${level}><ol class="st-list" id="${listId}" hidden>${rows}</ol></nav>`
+  const html = `<nav class="story-timeline" aria-labelledby="${headingId}"><h${level} id="${headingId}" class="story-timeline-heading"><button type="button" class="story-timeline-toggle" aria-expanded="true" aria-controls="${listId}"><span class="st-label">Timeline: what happened before and after</span><span class="st-count">${esc(countLabel)}</span><span class="st-chevron" aria-hidden="true">▾</span></button></h${level}><ol class="st-list" id="${listId}">${rows}</ol></nav>`
   return { html, slugs, markerIds, picked }
 }
 
@@ -847,7 +847,7 @@ function placeStoryTimeline(nav) {
 
 let timelineResizeBound = false
 
-/** Opens the list at ≥601px and, in the hash reader, parks it in the sidebar at ≥901px. */
+/** The list ships open. This collapses it at ≤600px and, in the hash reader, parks it in the sidebar at ≥901px. */
 export function wireStoryTimelines(root = typeof document !== 'undefined' ? document : null) {
   if (!root?.querySelectorAll || typeof window === 'undefined') return
   root.querySelectorAll('.story-timeline').forEach((nav) => {
@@ -877,7 +877,7 @@ export function wireStoryTimelines(root = typeof document !== 'undefined' ? docu
   })
 }
 
-/** Static pages have no app bundle. This opens the list on wider screens and toggles it. */
+/** Static pages have no app bundle. The list ships open; this collapses it at ≤600px and toggles it. */
 export function timelineBootScript() {
   return `<script>
     (function () {

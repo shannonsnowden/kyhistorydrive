@@ -118,10 +118,13 @@ assert.equal(kept.filter((title) => springfieldTitles.includes(title)).length, 1
 for (const slug of ['bardstown', 'benjamin-logan', 'carlston-annis-shell-mound']) {
   const panel = storyTimelineForStory(story(slug), stories)
   const html = panel.html
-  assert.match(html, /<button type="button" class="story-timeline-toggle" aria-expanded="false"/)
+  assert.match(html, /<button type="button" class="story-timeline-toggle" aria-expanded="true"/)
   assert.match(html, /aria-controls="storyTimelineList"/)
-  assert.match(html, /<ol class="st-list"/)
-  assert.match(html, /hidden>/)
+  assert.match(html, /Timeline: what happened before and after/)
+  assert.match(html, /<ol class="st-list" id="storyTimelineList">/)
+  assert.doesNotMatch(html, /<ol[^>]*\shidden/)
+  assert.match(html, /class="st-pin" rel="nofollow"/)
+  assert.doesNotMatch(html, /class="st-link"[^>]*nofollow/)
   assert.match(html, /aria-current="page"/)
   assert.match(html, />This story</)
   assert.doesNotMatch(html, /\d+\.\d{2,}/)
