@@ -25,7 +25,7 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 - **Living people**: no personal details.
 - **Cite this story**: use the Chicago or MLA format with author or "KY History Drive", title, site, URL, published date, last revised date and accessed date. The published date comes from the real git first-commit date. Never invent dates; when there's no reliable date, show only "Last revised".
 - **Paragraphs**: 2 to 4 sentences. No walls of text.
-- **Photos**: Use real archival photos when they exist; use AI images or illustrations where none exist or where they serve the story better. Every AI image is visibly labeled "AI illustration" with a credit, and is never passed off as a real photo. (Approved by Shannon 2026-10-11.) When a photo is not from the story's period, caption it as a "later view".
+- **Photos**: Use real archival photos when they exist; use AI images or illustrations where none exist or where they serve the story better. Every AI image is visibly labeled "AI illustration" with a credit, and is never passed off as a real photo. (Approved by Shannon 2026-10-11.) AI images may show realistic faces of real historical people; this replaces the earlier no-photoreal-likeness rule. Such images must always be labeled "AI illustration" and credited, with no exceptions (Shannon, 2026-10-12). When a photo is not from the story's period, caption it as a "later view".
 - **Fairness** (Shannon, 2026-10-11): Every story must be fair to the Shawnee and to every people it covers. Present Native nations, settlers and all groups with balance, using their own perspectives and names where sources allow, and avoid one-sided framing.
 - **Native nations**: every new story gets a territory map, or a tag only when the source is oral tradition. Archaeological cultures get a shape only when sources place them in an area. Timeline map pages exist only when the map shows real change over time. Never remove panel layers. Outside tribal review was skipped; stories rely on cited sources.
 - **Years**: event or occupation years only, never dig, WPA, NRHP or study dates. BCE years are stored as negative numbers. Use culture defaults when there's no date.
@@ -74,7 +74,7 @@ Plain and specific. Place first ("On the Green River's Big Bend in Butler County
 
 **Motion:** transitions only (150 to 350ms, ease), with no autoplay movement that can't be paused. Under `prefers-reduced-motion: reduce`, transitions and transforms are off, and state shows through color and border only.
 
-**Images:** Prefer real archival photos when they exist; AI images or illustrations are allowed when none exist or when they serve the story better. Every AI image is visibly labeled "AI illustration" with a credit, and is never passed off as a real photo. Served from the repo as AVIF with a WebP fallback, using `srcset` and `width`/`height` set (no CLS), with `loading="lazy"` below the fold. Out-of-period photos are captioned "later view". If there's no good match and no labeled illustration, there's no image, never a filler.
+**Images:** Prefer real archival photos when they exist; AI images or illustrations are allowed when none exist or when they serve the story better. Every AI image is visibly labeled "AI illustration" with a credit, and is never passed off as a real photo. AI images may show realistic faces of real historical people (Shannon, 2026-10-12), always labeled "AI illustration" and credited. Served from the repo as AVIF with a WebP fallback, using `srcset` and `width`/`height` set (no CLS), with `loading="lazy"` below the fold. Out-of-period photos are captioned "later view". If there's no good match and no labeled illustration, there's no image, never a filler.
 
 **Header and seal:** three seals rotate (`khd-logo`, `-c`, `-c2`). The seal is picked before first paint. It gets a 2px gold border, a navy outline on the light header and a dark outline on the dark header. The header stays one row from 701 to 1400px and is opaque on phones (including the open menu). The seal is never recolored, stretched or used on its own as a UI color source.
 
@@ -97,7 +97,7 @@ Plain and specific. Place first ("On the Green River's Big Bend in Butler County
 4. Targets 44px or larger. `aria-pressed`/`aria-expanded` on toggles.
 5. Reduced-motion checked.
 6. No layout shift from images, ads or the signed-in UI.
-7. Photos are archival when available; AI images are labeled "AI illustration", credited and relevant (the right place and period).
+7. Photos are archival when available; AI images are labeled "AI illustration", credited and relevant (the right place and period), including any realistic likeness of a real historical person.
 8. Header on one row at 1280. The phone menu is opaque.
 9. Copy fits without pushing the primary CTA below the first screen on a 390 phone.
 
