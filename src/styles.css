@@ -4948,3 +4948,18 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   .static-story .route-map-figure,
   .static-story .film-block { max-width: none; }
 }
+/* Story type (≥901px): 18px / 1.6 body and a 20px lead inside the 43rem column; the gap
+   from the lead to the first paragraph equals paragraph spacing (1em); breadcrumb flush. */
+@media (min-width: 901px) {
+  .static-story.story-reader-layout { row-gap: 0; }
+  .static-story .story-body { font-size: 1.125rem; line-height: 1.6; }
+  .static-story .story-body p { margin: 1em 0; }
+  .static-story .story-body > :first-child { margin-top: 1em; }
+  .static-story .story-intro,
+  .static-story .story-head,
+  .static-story .story-lead { margin-bottom: 0; }
+  .static-story .story-lead { font-size: 1.25rem; line-height: 1.5; }
+  .static-story .story-reader-main > .story-body:first-child { padding-top: 0; }
+  .static-story .story-crumbs,
+  .static-story .story-crumbs > :first-child { margin-left: 0; padding-left: 0; }
+}
