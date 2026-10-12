@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-hp-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="no-referrer" />
+<title>Plan a history drive (Kentucky History Drive)</title>
+<link rel="canonical" href="https://kyhistorydrive.com/drives/" />
+<meta name="description" content="12 themed drives across the state and 12 loops that start at 10 Kentucky distilleries. Each page lists the stops in order, with a route map, stories and directions." />
+<style>
+:root{--bg:#f3ead8;--panel:#fffdf6;--text:#1a241c;--muted:#52604c;--accent:#9a5f1c;--accent-deep:#6e4214;--gold:#c9893a;--line:#d3c4a6;--heading:#3d2a12;--green:#2f5a3a;--green-soft:#dfe8d6;--parch:#efe2c2;--land:#f7efdb;--county:#d9c9a5;--river:#6f8f7a;--focus:#3d2a12;--route-under:#fffdf6}
+[data-hp-theme=dark]{--bg:#101812;--panel:#1a241c;--text:#f3ead8;--muted:#a8b59c;--accent:#c9893a;--accent-deep:#8b5a2b;--line:#2e4034;--heading:#e8d5a8;--green:#7fae7a;--green-soft:#22331f;--parch:#141c16;--land:#1f2a20;--county:#33463a;--river:#5c7f68;--focus:#f6edd8;--route-under:#101812}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+.banner{background:var(--gold);color:#1a140c;text-align:center;font-weight:700;padding:6px 12px;font-size:14px}
+main{max-width:1120px;margin:0 auto;padding:16px}
+a{color:var(--accent)}
+.kicker{text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--accent);font-weight:700;margin:0}
+h1{color:var(--heading);font-family:Georgia,serif;font-size:32px;margin:.15em 0}
+h2{color:var(--heading);font-family:Georgia,serif;font-size:22px;margin:0 0 8px}
+.muted{color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:6px 0 14px;color:var(--muted);font-size:15px}
+.facts b{color:var(--text)}
+button,.btn{min-height:44px;min-width:44px;border-radius:10px;border:1px solid var(--accent-deep);background:var(--gold);color:#1a140c;font:600 15px system-ui;padding:0 16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn-green{background:var(--green);border-color:var(--green);color:#fffdf6}
+[data-hp-theme=dark] .btn-green{color:#101812}
+.btn-quiet{background:transparent;color:var(--text);border-color:var(--line)}
+input{min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);padding:0 12px;font-size:16px;flex:1 1 200px;min-width:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.sr{position:absolute;left:-9999px}
+.finder{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
+.finder p{flex-basis:100%;margin:0;font-size:13px;color:var(--muted)}
+#near{font-weight:600;color:var(--accent);flex-basis:100%;margin:0;min-height:1.3em}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+.map svg{width:100%;height:auto;display:block;border-radius:10px;background:var(--parch)}
+.map figcaption{font-size:12px;color:var(--muted);margin-top:6px}
+ol.stops{list-style:none;padding:0;margin:0}
+ol.stops>li{border-top:1px solid var(--line);padding:10px 0;display:grid;grid-template-columns:32px 1fr;gap:4px 10px}
+.num{width:30px;height:30px;border-radius:50%;background:var(--green);color:var(--panel);display:grid;place-items:center;font-weight:700}
+li.private .num{background:transparent;color:var(--green);border:2px dashed var(--green)}
+.stop-name{font-weight:700;color:var(--heading);margin:2px 0 0}
+.stop-meta{font-size:14px;color:var(--muted);margin:0}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 8px;margin-right:6px;background:var(--green-soft);color:var(--green)}
+.tag.warn{background:#f3e1c3;color:#6e4214}
+[data-hp-theme=dark] .tag.warn{background:#3a2c17;color:#e8c58a}
+.links{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.links a.story{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:10px;color:var(--text);text-decoration:none;font-size:14px}
+.links a.story:hover{border-color:var(--accent)}
+.go{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+.note{font-size:13px;color:var(--muted)}
+.leg{grid-column:2;font-size:12px;color:var(--muted)}
+@media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+
+.grid{list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.dcard a{display:block;height:100%;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:var(--text);text-decoration:none}
+.dcard a:hover{border-color:var(--accent)}
+.dcard h3{font-family:Georgia,serif;color:var(--heading);margin:6px 0 2px;font-size:19px}
+.dcard .loop{margin:0;font-weight:600;color:var(--accent)}
+.dcard .muted{font-size:14px;margin:6px 0}
+.dcard .facts{margin:0;font-size:14px}
+.tag.amber{background:#f3e1c3;color:#6e4214}
+[data-hp-theme=dark] .tag.amber{background:#3a2c17;color:#e8c58a}
+.byod{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+.byod p{margin:0}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Plan a history drive</p>
+  <h1>Kentucky history drives</h1>
+  <p class="muted" style="margin:0 0 14px">12 themed drives across the state and 12 loops that start at 10 Kentucky distilleries. Each page lists the stops in order, with a route map, stories and directions.</p>
+  <section class="card byod" style="margin-bottom:20px"><div><h2 style="margin:0">Build your own drive</h2><p class="muted">Pick a town, a distillery or your location and 1 or 2 hours; we suggest a loop of nearby stops.</p></div><a class="btn btn-green" href="/drives/build/">Build a drive</a></section>
+  <h2>Themed drives</h2>
+  <ul class="grid"><li class="dcard"><a href="/drives/licking-valley/"><span class="tag">Themed drive</span>
+<h3>Licking Valley: Stations, Blue Licks and Covered Bridges</h3><p class="muted">From the 1780 raids on Ruddell's and Martin's stations to the 1782 Battle of Blue Licks, with three covered bridges, ending in old Washington.</p>
+<p class="facts"><span><b>7</b> stops</span><span>About <b>89 mi</b></span><span>About <b>2 h 33 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/big-sandy-pine-mountain/"><span class="tag">Themed drive</span>
+<h3>Big Sandy and Pine Mountain</h3><p class="muted">From Pound Gap on Pine Mountain down the Big Sandy valley: Pikeville&#x27;s heritage center, the 1861–62 battles at Ivy Mountain and Middle Creek, Jenny Wiley&#x27;s story and a mountain farm community.</p>
+<p class="facts"><span><b>6</b> stops</span><span>About <b>92 mi</b></span><span>About <b>2 h 04 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/bluegrass-forts/"><span class="tag">Themed drive</span>
+<h3>Bluegrass Forts and Stations</h3><p class="muted">From James Harrod&#x27;s 1774 settlement to the springs where Lexington was named, then east to the stations near Winchester and Boonesborough that settlers held through the raids of 1779–1782.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>70 mi</b></span><span>About <b>1 h 38 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/boones-trail/"><span class="tag">Themed drive</span>
+<h3>Boone&#x27;s Trail and the Wilderness Road</h3><p class="muted">From Cumberland Gap, where Thomas Walker followed an Indian road in 1750, north along the settlers&#x27; route to Logan&#x27;s and Whitley&#x27;s stations and Boone&#x27;s fort on the Kentucky River.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>158 mi</b></span><span>About <b>3 h 32 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/bourbon-heritage/"><span class="tag">Themed drive</span>
+<h3>Bourbon Heritage: the family distillers of the Rolling Fork country</h3><p class="muted">Out from Bardstown into the Nelson, Washington and Marion county hollows: the Willett farm, Henry McKenna&#x27;s Fairfield, Jacob Beam&#x27;s Hardin&#x27;s Creek and a Beam descendant&#x27;s distillery at Lebanon.</p>
+<p class="facts"><span><b>4</b> stops</span><span>About <b>56 mi</b></span><span>About <b>1 h 25 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/capital-and-shakers/"><span class="tag">Themed drive</span>
+<h3>Capital, Shakers and the Early Commonwealth</h3><p class="muted">From the Old State Capitol and Liberty Hall in Frankfort to the Glenn&#x27;s Creek distillery, the Shakers of Pleasant Hill, and Danville&#x27;s square where Kentucky&#x27;s statehood conventions met.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>60 mi</b></span><span>About <b>1 h 40 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/cave-country/"><span class="tag">Themed drive</span>
+<h3>Cave Country</h3><p class="muted">From Bowling Green&#x27;s Lost River Cave to Mammoth Cave and Horse Cave: the karst country where saltpetre was mined for the War of 1812 and show caves drew paying visitors from 1816 on.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>52 mi</b></span><span>About <b>1 h 23 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/civil-war-bluegrass/"><span class="tag">Themed drive</span>
+<h3>Civil War in the Bluegrass</h3><p class="muted">From Kentucky&#x27;s largest Civil War battle at Perryville to the Union recruiting camps at Camp Dick Robinson and Camp Nelson, the 1862 fight at Richmond, and the Lexington home of the Hunt and Morgan families.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>104 mi</b></span><span>About <b>2 h 33 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/civil-war-south-central/"><span class="tag">Themed drive</span>
+<h3>Civil War in South Central Kentucky</h3><p class="muted">From the January 1862 Union victory at Mill Springs to Morgan&#x27;s 1863 raid at Tebbs Bend and Lebanon, then the fights for the Green River bridge and Glasgow&#x27;s fort.</p>
+<p class="facts"><span><b>6</b> stops</span><span>About <b>157 mi</b></span><span>About <b>3 h 36 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/northern-kentucky/"><span class="tag">Themed drive</span>
+<h3>Northern Kentucky: Ice Age to the Roebling Bridge</h3><p class="muted">From the Ice Age salt springs at Big Bone Lick through Boone County&#x27;s seat and a Dinsmore farm to the 1862 defenses of Cincinnati and Roebling&#x27;s bridge.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>42 mi</b></span><span>About <b>1 h 26 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/pennyrile/"><span class="tag">Themed drive</span>
+<h3>Pennyrile Towns and Civil War Memory</h3><p class="muted">Pennyrile county seats from about 1800, the camp meeting that started the Great Revival, a divided state&#x27;s Civil War memory at Fairview, and an eight-sided house near Franklin.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>71 mi</b></span><span>About <b>1 h 45 min</b> driving</span></p></a></li><li class="dcard"><a href="/drives/western-rivers/"><span class="tag">Themed drive</span>
+<h3>Western Rivers: Mississippian Towns, Clark&#x27;s Fort and the Trail of Tears</h3><p class="muted">Along the lower Ohio and Mississippi: the Cherokee Trail of Tears at Mantle Rock, Civil War Paducah, the Mississippian town at Wickliffe, Clark&#x27;s 1780 fort and the Confederate river fort at Columbus.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>90 mi</b></span><span>About <b>2 h 16 min</b> driving</span></p></a></li></ul>
+  <h2>Start at a distillery: 10 distilleries, 12 loops</h2>
+  <ul class="grid"><li class="dcard"><a href="/drives/barton-1792/"><span class="tag amber">Distillery start</span>
+<h3>Barton 1792: Bardstown and the Catholic Holy Land</h3><p class="loop">Loop 1: Bardstown to Loretto</p><p class="muted">Starting at Barton 1792 on the edge of Bardstown: Spalding Hall, Federal Hill, and the Holy Cross and Loretto country to the south.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>46 mi</b></span><span>About <b>1 h 28 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/buffalo-trace/"><span class="tag amber">Distillery start</span>
+<h3>Buffalo Trace · Loop 1: Capital and the river</h3><p class="loop">Frankfort history near the distillery</p><p class="muted">Starting at Buffalo Trace on the Kentucky River at Frankfort: where Leestown stood, the capital that grew beside it, and the Glenn&#x27;s Creek distilleries a few miles south.</p>
+<p class="facts"><span><b>9</b> stops</span><span>About <b>28 mi</b></span><span>About <b>0 h 55 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/buffalo-trace-loop-2/"><span class="tag amber">Distillery start</span>
+<h3>Buffalo Trace · Loop 2: Glenn&#x27;s Creek distilleries</h3><p class="loop">Frankfort history near the distillery</p><p class="muted">Starting at Buffalo Trace on the Kentucky River at Frankfort: where Leestown stood, the capital that grew beside it, and the Glenn&#x27;s Creek distilleries a few miles south.</p>
+<p class="facts"><span><b>4</b> stops</span><span>About <b>27 mi</b></span><span>About <b>0 h 56 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/castle-and-key/"><span class="tag amber">Distillery start</span>
+<h3>Castle &amp; Key: Glenn&#x27;s Creek to the capital</h3><p class="loop">Loop 1: Frankfort museums and the Elkhorn</p><p class="muted">Starting at Castle &amp; Key on Glenn&#x27;s Creek: the State Arsenal, the Kentucky Historical Society, Daniel Boone&#x27;s grave and the Switzer covered bridge.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>30 mi</b></span><span>About <b>1 h 03 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/four-roses/"><span class="tag amber">Distillery start</span>
+<h3>Four Roses: Lawrenceburg and the Salt River settlements</h3><p class="loop">Loop 1: McAfee country and Fort Harrod</p><p class="muted">Starting at Four Roses on the Salt River: Lawrenceburg&#x27;s beginnings, the McAfee settlers of 1779, and James Harrod&#x27;s 1774 town.</p>
+<p class="facts"><span><b>4</b> stops</span><span>About <b>46 mi</b></span><span>About <b>1 h 04 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/heaven-hill/"><span class="tag amber">Distillery start</span>
+<h3>Heaven Hill: Bardstown and the road to Lincoln&#x27;s birthplace</h3><p class="loop">Loop 1: Bardstown, New Haven and Lincoln&#x27;s birthplace</p><p class="muted">Starting at Heaven Hill in Bardstown: the town&#x27;s founding, Federal Hill, Spalding Hall and Union Church, then south to the Kentucky Railway Museum and Lincoln&#x27;s birthplace.</p>
+<p class="facts"><span><b>8</b> stops</span><span>About <b>63 mi</b></span><span>About <b>1 h 44 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/jim-beam/"><span class="tag amber">Distillery start</span>
+<h3>Jim Beam: Clermont, Salt River salt and Civil War forts</h3><p class="loop">Loop 1: Salt River and Fort Duffield</p><p class="muted">Starting at Jim Beam in Clermont: the Bullitt&#x27;s Lick salt works, the Salt River falls at Shepherdsville, and a Union fort above West Point.</p>
+<p class="facts"><span><b>5</b> stops</span><span>About <b>56 mi</b></span><span>About <b>1 h 35 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/makers-mark/"><span class="tag amber">Distillery start</span>
+<h3>Maker&#x27;s Mark: Loretto, Holy Cross and the Lincoln country</h3><p class="loop">Loop 1: Holy Cross, Lebanon and Springfield</p><p class="muted">Starting at Maker&#x27;s Mark in Loretto: the Maryland Catholic settlement at Holy Cross, Civil War Lebanon, and the Springfield courthouse and homestead tied to Abraham Lincoln&#x27;s parents.</p>
+<p class="facts"><span><b>6</b> stops</span><span>About <b>57 mi</b></span><span>About <b>1 h 45 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/old-forester/"><span class="tag amber">Distillery start</span>
+<h3>Old Forester: Whiskey Row to Cave Hill</h3><p class="loop">Loop 1: Whiskey Row to Zachary Taylor</p><p class="muted">Starting at Old Forester on Louisville&#x27;s Main Street: the riverfront distillers, the Filson, Cave Hill, and the Speed and Croghan homes.</p>
+<p class="facts"><span><b>9</b> stops</span><span>About <b>32 mi</b></span><span>About <b>1 h 13 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/wild-turkey/"><span class="tag amber">Distillery start</span>
+<h3>Wild Turkey · Loop 1: Tyrone, Versailles and Jack Jouett</h3><p class="loop">Tyrone, Versailles and the Kentucky River</p><p class="muted">Starting at Wild Turkey above the Kentucky River: the Tyrone distilling past, Versailles and Jack Jouett, and the Shakers of Pleasant Hill.</p>
+<p class="facts"><span><b>4</b> stops</span><span>About <b>28 mi</b></span><span>About <b>0 h 59 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/wild-turkey-loop-2/"><span class="tag amber">Distillery start</span>
+<h3>Wild Turkey · Loop 2: Shaker Village of Pleasant Hill</h3><p class="loop">Tyrone, Versailles and the Kentucky River</p><p class="muted">Starting at Wild Turkey above the Kentucky River: the Tyrone distilling past, Versailles and Jack Jouett, and the Shakers of Pleasant Hill.</p>
+<p class="facts"><span><b>3</b> stops</span><span>About <b>58 mi</b></span><span>About <b>1 h 21 min</b> driving round trip</span></p></a></li><li class="dcard"><a href="/drives/woodford-reserve/"><span class="tag amber">Distillery start</span>
+<h3>Woodford Reserve: Glenn&#x27;s Creek, Versailles and Midway</h3><p class="loop">Loop 1: Versailles and Midway</p><p class="muted">Starting at Woodford Reserve on Glenn&#x27;s Creek: Versailles, Jack Jouett&#x27;s house, Midway&#x27;s mill and cemetery, and Woodford County&#x27;s rail history.</p>
+<p class="facts"><span><b>6</b> stops</span><span>About <b>40 mi</b></span><span>About <b>1 h 23 min</b> driving round trip</span></p></a></li></ul>
+  <p class="note">Miles and times are estimates from OpenStreetMap routing, not live traffic. Archaeological sites are shown at approximate locations, and private-land sites are marker only, with no directions.</p>
+</main>
+<script>
+const t=new URLSearchParams(location.search).get('theme');document.documentElement.dataset.hpTheme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')
+</script>
+</body>
+</html>
