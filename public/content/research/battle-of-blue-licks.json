@@ -367,6 +367,7 @@
   "sources": [
     {
       "id": "caldwell-1782",
+      "short": "Caldwell report, 1782",
       "citation": "Capt. William Caldwell, report dated Wakitamiki, Aug. 26, 1782 (British Library Add. MSS 21,783 ff. 231-232), Loyalist Institute transcription",
       "url": "https://www.royalprovincial.com/history/battles/brcald1.shtml",
       "type": "primary",
@@ -374,6 +375,7 @@
     },
     {
       "id": "boone-1782",
+      "short": "Boone letter, 1782",
       "citation": "Daniel Boone to Gov. Benjamin Harrison, Aug. 30, 1782, transcribed by Kentucky National Guard History",
       "url": "https://kynghistory.ky.gov/Our-History/History-of-the-Guard/Pages/The-Battle-of-Blue-Licks.aspx",
       "type": "primary",
@@ -381,6 +383,7 @@
     },
     {
       "id": "filson-1784",
+      "short": "Filson, 1784",
       "citation": "John Filson, The Adventures of Col. Daniel Boon, in The Discovery, Settlement and Present State of Kentucke (1784), Project Gutenberg",
       "url": "https://www.gutenberg.org/files/909/909-h/909-h.htm",
       "type": "primary",
@@ -388,6 +391,7 @@
     },
     {
       "id": "trigg-act",
+      "short": "Trigg County act",
       "citation": "Act creating Trigg County (Acts of the Kentucky General Assembly), Kentucky Secretary of State Land Office",
       "url": "https://web.sos.ky.gov/land/CountyFormation.aspx/?countyname=Trigg",
       "type": "primary",
@@ -395,6 +399,7 @@
     },
     {
       "id": "todd-act",
+      "short": "Todd County act",
       "citation": "Act creating Todd County (1819), transcribed by Kentucky Genealogy",
       "url": "https://kentuckygenealogy.org/todd/act_of_legislature.htm",
       "type": "primary",
@@ -402,6 +407,7 @@
     },
     {
       "id": "mercury-1928",
+      "short": "Carlisle Mercury, 1928",
       "citation": "Carlisle Mercury, report of the Blue Licks monument dedication, Aug. 23, 1928 (Filson Historical Society PDF)",
       "url": "https://filsonhistorical.org/wp-content/uploads/publicationpdfs/3-1-4_The-Report-on-Blue-Licks-Monument-Dedication-August-1928_Carlisle-Mercury-The.pdf",
       "type": "primary",
@@ -409,6 +415,7 @@
     },
     {
       "id": "ekh",
+      "short": "ExploreKYHistory",
       "citation": "ExploreKYHistory (Kentucky Historical Society), Blue Licks Battlefield",
       "url": "https://explorekyhistory.ky.gov/items/show/590",
       "type": "secondary",
@@ -416,6 +423,7 @@
     },
     {
       "id": "khs-18",
+      "short": "KHS marker #18",
       "citation": "Kentucky Historical Society, historical marker #18, Blue Licks Battlefield",
       "url": "https://history.ky.gov/markers/blue-licks-battlefield",
       "type": "secondary",
@@ -423,6 +431,7 @@
     },
     {
       "id": "abt",
+      "short": "Battlefield Trust: Blue Licks",
       "citation": "American Battlefield Trust, Blue Licks",
       "url": "https://www.battlefields.org/learn/revolutionary-war/battles/blue-licks",
       "type": "secondary",
@@ -430,6 +439,7 @@
     },
     {
       "id": "abt-bryan",
+      "short": "Battlefield Trust: Bryan's Station",
       "citation": "American Battlefield Trust, Bryan's Station",
       "url": "https://www.battlefields.org/learn/revolutionary-war/battles/bryans-station",
       "type": "secondary",
@@ -437,6 +447,7 @@
     },
     {
       "id": "abt-gnad",
+      "short": "Battlefield Trust: Gnadenhutten",
       "citation": "American Battlefield Trust, Gnadenhutten",
       "url": "https://www.battlefields.org/learn/revolutionary-war/battles/gnadenhutten",
       "type": "secondary",
@@ -444,6 +455,7 @@
     },
     {
       "id": "dcb-caldwell",
+      "short": "DCB: Caldwell",
       "citation": "Dictionary of Canadian Biography, Caldwell, William (d. 1822)",
       "url": "https://www.biographi.ca/en/bio/caldwell_william_1822_6E.html",
       "type": "secondary",
@@ -451,6 +463,7 @@
     },
     {
       "id": "dcb-mckee",
+      "short": "DCB: McKee",
       "citation": "Dictionary of Canadian Biography, McKee, Alexander",
       "url": "https://www.biographi.ca/en/bio/mckee_alexander_4E.html",
       "type": "secondary",
@@ -458,6 +471,7 @@
     },
     {
       "id": "dcb-girty",
+      "short": "DCB: Girty",
       "citation": "Dictionary of Canadian Biography, Girty, Simon",
       "url": "https://www.biographi.ca/en/bio/girty_simon_5E.html",
       "type": "secondary",
@@ -465,6 +479,7 @@
     },
     {
       "id": "butterfield",
+      "short": "Butterfield, 1890",
       "citation": "C. W. Butterfield, History of the Girtys (1890), Internet Archive",
       "url": "https://archive.org/details/historyofgirtysb00butt",
       "type": "secondary",
@@ -472,6 +487,7 @@
     },
     {
       "id": "historynet",
+      "short": "HistoryNet",
       "citation": "HistoryNet, Battle of Blue Licks (popular narrative drawing on 19th-century recollections)",
       "url": "https://historynet.com/battle-of-blue-licks/",
       "type": "secondary",
@@ -479,6 +495,7 @@
     },
     {
       "id": "hmdb",
+      "short": "HMdb monument",
       "citation": "Historical Marker Database, Unknown Heroes of the Battle of the Blue Licks (monument inscriptions)",
       "url": "https://www.hmdb.org/m.asp?m=285554",
       "type": "secondary",
@@ -486,6 +503,7 @@
     },
     {
       "id": "lexsar",
+      "short": "Lafayette SAR, 2026",
       "citation": "Lafayette Chapter SAR, Battle of Blue Licks memorial event, Aug. 15, 2026",
       "url": "https://lexsar.org/event/battle-of-blue-licks-national-event-and-kysssar-state-meeting/",
       "type": "secondary",
@@ -493,6 +511,7 @@
     },
     {
       "id": "ky-leg-todd",
+      "short": "LRC: John Todd",
       "citation": "Kentucky Legislative Research Commission, Legislative Moments: John Todd (1750-1782)",
       "url": "https://apps.legislature.ky.gov/LegislativeMoments/moments09RS/web/Lincoln%20moments%2010.pdf",
       "type": "secondary",
@@ -500,6 +519,7 @@
     },
     {
       "id": "rkyshs-boundary",
+      "short": "KHS Register: boundary",
       "citation": "Register of the Kentucky Historical Society 44, The Kentucky Boundary",
       "url": "https://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/America/United_States/Kentucky/_Texts/RKySHS/44/146/The_Kentucky_Boundary*.html",
       "type": "secondary",
@@ -507,6 +527,7 @@
     },
     {
       "id": "jsh-convention",
+      "short": "JSH 1935: convention",
       "citation": "Journal of Southern History 1 (1935), Journal of the First Kentucky Convention, ed. T. P. Abernethy",
       "url": "https://penelope.uchicago.edu/Thayer/E/Journals/JSH/1/1/First_Kentucky_Convention*.html",
       "type": "secondary",
@@ -514,6 +535,7 @@
     },
     {
       "id": "oh-treaty",
+      "short": "Office of the Historian: 1783 treaty",
       "citation": "U.S. Office of the Historian, Treaty of Paris, 1783",
       "url": "https://history.state.gov/milestones/1776-1783/treaty",
       "type": "secondary",

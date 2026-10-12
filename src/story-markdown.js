@@ -256,7 +256,7 @@ function checkedAttrs(tag, attrs) {
     out.scope = attrs.scope
   }
   if (attrs.class != null) {
-    if (attrs.class !== 'visually-hidden' && attrs.class !== 'story-glance' && attrs.class !== 'story-glance-list') {
+    if (attrs.class !== 'visually-hidden' && attrs.class !== 'story-glance' && attrs.class !== 'story-glance-list' && attrs.class !== 'story-glance-sources') {
       throw new Error('story markdown: bad class')
     }
     out.class = attrs.class
@@ -403,26 +403,17 @@ function renderGlance(glance, notes, out) {
     out.close('td')
     out.close('tr')
   }
-  if (sourceRows.length) {
-    out.open('tr')
-    out.open('th', { scope: 'row' })
-    out.text('Sources')
-    out.close('th')
-    out.open('td')
-    out.open('ul', { class: 'story-glance-list' })
-    for (const source of sourceRows) {
-      out.open('li')
-      out.open('a', { href: source.href })
-      out.text(source.text)
-      out.close('a')
-      out.close('li')
-    }
-    out.close('ul')
-    out.close('td')
-    out.close('tr')
-  }
   out.close('tbody')
   out.close('table')
+  if (sourceRows.length) {
+    // Sources sit under the table (not in it) so the glance stays short on phones.
+    const slug = String(notes?.slug || '')
+    out.open('p', { class: 'story-glance-sources' })
+    out.open('a', { href: `/research/${slug}/#sources` })
+    out.text(`Sources for this table (${sourceRows.length}) on the research page →`)
+    out.close('a')
+    out.close('p')
+  }
   return true
 }
 

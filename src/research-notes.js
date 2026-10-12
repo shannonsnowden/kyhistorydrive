@@ -29,23 +29,34 @@ function formatUpdated(value) {
 }
 
 function knownSourceIds(notes) {
-  const ids = new Set()
+  const ids = new Map()
   for (const source of notes?.sources || []) {
     const id = safeId(source?.id)
-    if (id) ids.add(id)
+    if (id) ids.set(id, source)
   }
   return ids
+}
+
+/** Readable chip text: the source's short label, else a tidied id ("caldwell-1782" -> "Caldwell 1782"). */
+function sourceLabel(id, source) {
+  const short = String(source?.short || '').trim()
+  if (short) return short
+  return String(id)
+    .split('-')
+    .map((w) => (/^\d+$/.test(w) ? w : w.length <= 3 ? w.toUpperCase() : w[0].toUpperCase() + w.slice(1)))
+    .join(' ')
 }
 
 function citeHtml(ids, known) {
   const bits = []
   for (const id of ids || []) {
     const sourceId = safeId(id)
-    if (sourceId && known.has(sourceId)) bits.push(`<a href="#source-${sourceId}">${escapeHtml(sourceId)}</a>`)
-    else if (id) bits.push(escapeHtml(id))
+    if (sourceId && known.has(sourceId)) {
+      bits.push(`<a class="research-cite" href="#source-${sourceId}">${escapeHtml(sourceLabel(sourceId, known.get(sourceId)))}</a>`)
+    } else if (id) bits.push(`<span class="research-cite is-plain">${escapeHtml(sourceLabel(id))}</span>`)
   }
   if (!bits.length) return ''
-  return ` <span class="research-cites">(${bits.join('; ')})</span>`
+  return ` <span class="research-cites"><span class="visually-hidden">Sources: </span>${bits.join(' ')}</span>`
 }
 
 function sectionHtml(section, known) {
@@ -143,7 +154,7 @@ function sourcesHtml(notes) {
     blocks.push(`<h3>${escapeHtml(heading)}</h3><ul>${items.join('')}</ul>`)
   }
   if (!blocks.length) return ''
-  return `<section class="research-section">
+  return `<section class="research-section" id="sources">
       <h2>Sources</h2>
       ${blocks.join('')}
     </section>`
@@ -163,7 +174,7 @@ export function researchNotesHtml(notes) {
     ? `<p class="research-updated">Updated <time datetime="${escapeHtml(iso)}">${escapeHtml(updated)}</time></p>`
     : ''
   return `<article class="research-notes">
-      <p class="back-link"><a href="${escapeHtml(back)}">Back to story</a></p>
+      <p class="back-link"><a class="back-pill" href="${escapeHtml(back)}">Back to story</a></p>
       <header class="story-head">
         <p class="static-kicker">Research notes</p>
         <h1>${escapeHtml(title)}</h1>
