@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T10:00:37.873Z",
+  "generatedAt": "2026-10-12T11:01:02.201Z",
   "briefDate": "2026-10-12",
   "displayDate": "Monday, October 12, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -123,6 +123,30 @@
         "year": 2020
       },
       "heroDeck": "In June 1799 Boone County’s first court fixed the county seat at Craig’s Camp, 74 acres at the headwaters of Allens Fork."
+    },
+    {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "title": "Camp Nelson and Kentucky’s U.S. Colored Troops",
+      "summary": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion.",
+      "era": "other",
+      "yearStart": 1863,
+      "briefDate": "2026-10-12",
+      "href": "/#timeline/camp-nelson-kentucky-us-colored-troops",
+      "place": "Camp Nelson USCT recruiting and training center",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "mapHref": "/#map/history/camp-nelson-usct-jessamine-1863-1866",
+      "quote": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion.",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864
+      },
+      "heroDeck": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion."
     }
   ],
   "hero": {
@@ -245,6 +269,30 @@
         "year": 2020
       },
       "heroDeck": "In June 1799 Boone County’s first court fixed the county seat at Craig’s Camp, 74 acres at the headwaters of Allens Fork."
+    },
+    {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "title": "Camp Nelson and Kentucky’s U.S. Colored Troops",
+      "summary": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion.",
+      "era": "other",
+      "yearStart": 1863,
+      "briefDate": "2026-10-12",
+      "href": "/#timeline/camp-nelson-kentucky-us-colored-troops",
+      "place": "Camp Nelson USCT recruiting and training center",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "mapHref": "/#map/history/camp-nelson-usct-jessamine-1863-1866",
+      "quote": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion.",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864
+      },
+      "heroDeck": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion."
     }
   ],
   "layers": [
