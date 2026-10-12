@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T10:45:31.142Z",
+  "generatedAt": "2026-10-12T10:46:25.196Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -159,7 +159,7 @@
     },
     "camp-nelson-kentucky-us-colored-troops": {
       "slug": "camp-nelson-kentucky-us-colored-troops",
-      "historyId": null,
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
       "photo": {
         "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
         "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
@@ -1516,6 +1516,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
         "year": 2022
+      }
+    },
+    "camp-nelson-usct-jessamine-1863-1866": {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864
       }
     },
     "campbellsville-taylor-1814-1848": {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T09:46:33.033Z",
+  "generatedAt": "2026-10-12T10:47:14.188Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg": {
@@ -116,6 +116,23 @@
         {
           "src": "/content/photos/opt/stories/burlington-boone-county-seat-1156.webp",
           "w": 1156
+        }
+      ]
+    },
+    "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg": {
+      "sha256": "61ecdd2d1374f98f4c81279e9dd3c811f5aeafb219c184fe5116d96611a963af",
+      "width": 507,
+      "height": 640,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/camp-nelson-kentucky-us-colored-troops-507.avif",
+          "w": 507
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/camp-nelson-kentucky-us-colored-troops-507.webp",
+          "w": 507
         }
       ]
     },
