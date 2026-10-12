@@ -534,19 +534,43 @@ function samePlace(a, b) {
   return sameHistoryId(a, b) || coordsClose(a, b)
 }
 
+/**
+ * Same person: both titles lead with the same personal name before a comma
+ * ("Hugh McGary, the hothead major" / "Hugh McGary, the Blue Licks Hothead").
+ */
+function titlePerson(title) {
+  const m = /^([^,:]+),\s/.exec(String(title || ''))
+  if (!m) return ''
+  const name = m[1].trim()
+  const words = name.split(/\s+/)
+  if (words.length < 2 || words.length > 4) return ''
+  if (!words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) return ''
+  return name.toLowerCase()
+}
+
+function samePerson(a, b) {
+  if (!a?.slug || !b?.slug || a.slug === b.slug) return false
+  const pa = titlePerson(a.title)
+  return Boolean(pa) && pa === titlePerson(b.title)
+}
+
+function sameSubject(a, b) {
+  return samePlace(a, b) || samePerson(a, b)
+}
+
 /** One story per place. The richer article wins. A thinner twin of the current page is dropped. */
 function collapseSamePlace(origin, stories, skip) {
   const groups = []
   for (const other of stories || []) {
     if (!other?.slug || !other.title) continue
     if (origin?.slug && other.slug === origin.slug) continue
-    const idx = groups.findIndex((group) => group.some((item) => samePlace(item, other)))
+    const idx = groups.findIndex((group) => group.some((item) => sameSubject(item, other)))
     if (idx === -1) groups.push([other])
     else groups[idx].push(other)
   }
   const kept = []
   for (const group of groups) {
-    const rivals = origin && group.some((item) => samePlace(origin, item)) ? [...group, origin] : group
+    const rivals = origin && group.some((item) => sameSubject(origin, item)) ? [...group, origin] : group
     rivals.sort(
       (a, b) => storyRichness(b) - storyRichness(a) || String(a.slug).localeCompare(String(b.slug)),
     )
