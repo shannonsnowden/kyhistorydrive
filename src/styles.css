@@ -4866,3 +4866,32 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     object-fit: cover;
   }
 }
+
+/* 1280: side list matches the 440px lead exactly — smaller thumbs (96×80, same ratio),
+   tighter gaps; the 4 cards spread to fill the column so there is no gap under either. */
+@media (min-width: 901px) {
+  .hp-lead-grid { align-items: start; }
+  .hp-story-rail {
+    height: 440px;
+    gap: 0.45rem;
+  }
+  .hp-story-rail-list {
+    flex: 1 1 auto;
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+  .hp-rail-card {
+    grid-template-columns: 96px 1fr;
+    gap: 0.65rem;
+    min-height: 80px;
+  }
+  .hp-rail-card picture,
+  .hp-rail-card picture img,
+  .hp-rail-card .hp-rail-card-img,
+  .hp-rail-card-ph {
+    width: 96px;
+    height: 80px;
+  }
+  .hp-rail-card-title { font-size: 0.95rem; line-height: 1.25; }
+  .hp-rail-all { margin-top: 0; padding: 0.15rem 0 0; line-height: 1.3; }
+}
