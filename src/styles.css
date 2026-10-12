@@ -1766,8 +1766,9 @@ html[data-hp-theme="light"] .era-other {
 }
 
 
-/* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2). Frame stays in
-   the green/amber palette; navy and gold appear only in the seals and their #194 header ring. */
+/* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2).
+   Light-mode decorative ring is amber via --accent. Dark mode keeps the #194 gold ring.
+   Navy stays inside the seal artwork (and the header logo ring), not this border. */
 .about-seals {
   margin: 0.5rem 0 1.5rem;
   padding: 1.1rem 1rem 1rem;
@@ -1803,7 +1804,7 @@ html[data-hp-theme="light"] .era-other {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 html[data-hp-theme="light"] .about-seal {
-  border: 2px solid #0b2a5b;
+  border: 2px solid var(--accent);
   box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
 }
 .about-seals-caption {
