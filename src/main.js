@@ -6,6 +6,7 @@ import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
 import { initThemeToggle } from './theme.js'
+import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
@@ -2929,7 +2930,10 @@ let timelinePendingRestore = null
 
 function timelineHeaderOffset() {
   const header = document.querySelector('header.top')
-  return header ? header.getBoundingClientRect().height + 8 : 8
+  const bar = document.querySelector('.timeline-read-bar')
+  const headerH = header ? header.getBoundingClientRect().height : 0
+  const barH = bar ? bar.getBoundingClientRect().height : 0
+  return headerH + barH + 8
 }
 
 function timelineItemFor(slug) {
@@ -3568,9 +3572,8 @@ function scrollTimelineToFilters() {
     // Keep site header visible; land on Timeline filters
     target.scrollIntoView({ block: 'start', behavior: 'auto' })
   }
-  // Sticky header offset: nudge so nav + filters aren't under the top bar
-  const header = document.querySelector('header.top')
-  const offset = header ? header.getBoundingClientRect().height + 8 : 0
+  // Sticky header + reading bar: nudge so filters aren't covered
+  const offset = timelineHeaderOffset()
   if (offset && (filters || section)) {
     const y = window.scrollY - offset
     if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -4346,8 +4349,7 @@ async function applyRoute() {
       const reader = document.getElementById('timelineStoryReader')
       if (!reader || reader.classList.contains('is-empty')) return false
       reader.scrollIntoView({ block: 'start', behavior: 'auto' })
-      const header = document.querySelector('header.top')
-      const offset = header ? header.getBoundingClientRect().height + 8 : 0
+      const offset = timelineHeaderOffset()
       if (offset) {
         const y = window.scrollY - offset
         if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -4444,4 +4446,5 @@ initThemeToggle()
 initSiteSearch()
 MobileNav.init()
 initHomePage()
+initTimelineReading({ getMap: () => timelineMap })
 applyRoute().catch(console.error)
