@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Mantle Rock and the Trail of Tears, 1838–39 (approximate)</name>
+    <description>Approximate waypoints for Mantle Rock and the Trail of Tears, 1838–39. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/mantle-rock-and-the-trail-of-tears/</description>
+    <Placemark>
+      <name>Enters Kentucky on the Port Royal Road (Gray's Inn camp)</name>
+      <description>near Guthrie. Todd Co., KY. Approximate.</description>
+      <Point><coordinates>-87.17,36.64,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Hopkinsville camp, rations; burials of Chiefs Whitepath and Fly Smith (Trail of Tears Commemorative Park)</name>
+      <description>Hopkinsville. Christian Co., KY. Approximate.</description>
+      <Point><coordinates>-87.493,36.857,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Big Spring camp</name>
+      <description>Princeton. Caldwell Co., KY. Approximate.</description>
+      <Point><coordinates>-87.882,37.109,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Salem (Salem–Golconda Road begins)</name>
+      <description>Salem. Livingston Co., KY. Approximate.</description>
+      <Point><coordinates>-88.243,37.264,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Mantle Rock (winter camps strung along the road)</name>
+      <description>near Joy, off KY 133. Livingston Co., KY. Approximate.</description>
+      <Point><coordinates>-88.432,37.360,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Berry's Ferry, Ohio River crossing</name>
+      <description>opposite Golconda, IL (near Rondeau Island). Livingston Co., KY / Pope Co., IL. Approximate.</description>
+      <Point><coordinates>-88.476,37.372,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Mississippi crossing (Green's / Willard's ferries area)</name>
+      <description>near Cape Girardeau, MO. Union/Alexander Co., IL – Cape Girardeau Co., MO. Approximate.</description>
+      <Point><coordinates>-89.47,37.4,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Mantle Rock and the Trail of Tears, 1838–39 (approximate)</name>
+      <description>Approximate waypoints for Mantle Rock and the Trail of Tears, 1838–39. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/mantle-rock-and-the-trail-of-tears/</description>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>-87.17,36.64,0 -87.493,36.857,0 -87.882,37.109,0 -88.243,37.264,0 -88.432,37.360,0 -88.476,37.372,0 -89.47,37.4,0</coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

@@ -36,7 +36,7 @@ Distance (measured on the map line): about 350 miles from Old Town to Lower Shaw
 | 5 | Jan 1751 | Hockhocking; Maguck (Delaware town) | Lancaster; Circleville area | Fairfield/Pickaway cos., OH | ≈39.7, -82.6; 39.58, -82.95 | medium |
 | 6 | Jan 29 & Mar 8 | Lower Shawneetown ("Shannoah Town"), mouth of the Scioto | Portsmouth OH / South Portsmouth KY | Scioto Co., OH / Greenup Co., KY | 38.7, -83.0 (rounded to 0.1°, protected site) | high |
 | 7 | Feb 17 | Pickawillany (Twightwee town), Great Miami | Piqua | Miami Co., OH | 40.18, -84.24 | high |
-| 8 | Mar 12 | ferried over the Ohio into Kentucky | South Portsmouth | Greenup Co., KY | 38.71, -83.0 | high |
+| 8 | Mar 12 | ferried over the Ohio into Kentucky | South Portsmouth | Greenup Co., KY | 38.7, -83.0 | high |
 | 9 | Mar 13–17 | down the southeast side of the Ohio, S and SW | Lewis–Mason–Bracken cos. corridor | KY | ≈38.6, -83.3 to -84.3 | low |
 | 10 | Mar 18 | lower Salt Lick Creek, "about 15 miles above the Falls" | disputed; drawn near Grant/Owen cos. | KY | ≈38.55, -84.70 | conjectural |
 | 11 | Mar 19 | crosses the "little Cuttaway" (the Red River) at an island | Red River near Clay City | Clark/Powell/Estill cos., KY | ≈37.84, -84.02 | conjectural |
