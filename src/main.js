@@ -1,5 +1,10 @@
 import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+
+// Vite bundles this module, so import.meta.url no longer points at maplibre-gl.mjs.
+// The worker has to be set before the first Map (MapLibre GL JS 6, bundler installs).
+maplibregl.setWorkerUrl(maplibreWorkerUrl)
 import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
