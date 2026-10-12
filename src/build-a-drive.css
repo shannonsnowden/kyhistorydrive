@@ -118,3 +118,7 @@ ol.stops>li.on{background:var(--hl)}
 .leg-sub{display:block;font-size:14px;font-weight:500;color:var(--muted);padding-left:1.1rem}
 .legs-how{margin-top:8px}
 .legs-how p{font-size:14px}
+
+/* phase 1d */
+.seg label{white-space:nowrap}
+@media (max-width:860px){.seg label{padding:0 8px;font-size:15px}.sticky-bar .btn-maps{font-size:15px;padding:0 8px}.bar-label{white-space:nowrap}}

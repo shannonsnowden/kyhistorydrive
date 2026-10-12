@@ -23,6 +23,8 @@ const MPH = 40
 const DWELL_BY = { 60: 10, 120: 15, 240: 20, 480: 25 }
 const BREAK_BY = { 60: 0, 120: 0, 240: 0, 480: 45 }
 const MAX_STOPS = { 60: 3, 120: 5, 240: 7, 480: 12 }
+// Stops closer than this are one visit (you'd walk, not drive): never suggest two of them.
+const SAME_VISIT_MI = 0.4
 let DWELL = 10
 const BUDGET_LABEL = { 60: 'about 1 hour', 120: 'about 2 hours', 240: 'a half day (~4 hrs)', 480: 'a full day (~8 hrs)' }
 
@@ -86,7 +88,7 @@ export function planLoop(start, stops, budget) {
     if (!best) break
     order.splice(best.i, 0, best.s)
     cur += best.add
-    pool = pool.filter((p) => p !== best.s && miles(p, best.s) > 0.15)
+    pool = pool.filter((p) => p !== best.s && miles(p, best.s) > SAME_VISIT_MI)
   }
   order = twoOpt(start, order)
   const c = loopCost(start, order)
@@ -220,7 +222,7 @@ async function main() {
     $('facts').innerHTML = `<span>About <b>${Math.round(mi)} miles</b> round trip</span><span><b>${fmt(min)}</b> with stops${BREAK_BY[b] ? ' and a meal break' : ''}</span>`
     // One leg split for the list and both apps: 4 stops per leg (Apple's untested cap; within Google's
     // phone cap). Leg k>1 starts at leg k-1's last stop. Links carry stops only, never the start.
-    const n = legSize('apple', true)
+    const n = legSize()
     const apps = IS_APPLE ? ['apple', 'google'] : ['google', 'apple']
     const name = { apple: 'Apple Maps', google: 'Google Maps' }
     const links = { google: buildLegs(order, n, 'google'), apple: buildLegs(order, n, 'apple') }

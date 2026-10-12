@@ -3,10 +3,13 @@
  * SECURITY: every coordinate in these URLs comes from a STOP. The visitor's start (typed place or
  * geolocation) is never a parameter here, so it cannot end up in a link. Leg 1 has no origin (the maps
  * app uses the device's own location); leg k>1 starts at leg k-1's last stop.
- * Caps: Google = 3 waypoints + destination in phone browsers, 9 + destination elsewhere.
- * Apple's multistop limit is undocumented, so Apple uses 4 stops per leg until device-tested.
+ * Caps: 4 stops per leg everywhere (Google allows 3 waypoints + destination in phone browsers;
+ *   Apple multistop is untested), so both apps open the same stops for each leg.
  */
-export const legSize = (app, phone) => (app === 'apple' || phone ? 4 : 10)
+// One cap for every app and screen: 4 stops per leg (3 waypoints + destination). That fits Google's
+// phone-browser limit and Apple's untested multistop, and matches the legs shown to visitors.
+export const LEG_STOPS = 4
+export const legSize = () => LEG_STOPS
 const ll = (s) => `${s.lat.toFixed(4)},${s.lon.toFixed(4)}`
 export function googleUrl(from, stops) {
   // from: previous leg's last stop (a stop, never the visitor), or null for leg 1 (the app uses the device).

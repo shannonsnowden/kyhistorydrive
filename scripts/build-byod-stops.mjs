@@ -89,6 +89,26 @@ const samePlace = (a, b) => {
   return [...ta].filter((w) => tb.has(w)).length >= Math.min(2, ta.size, tb.size) && ta.size && tb.size
 }
 for (const s of out) if (!kept.some((k) => samePlace(k, s))) kept.push(s)
+// A story pinned on a physical site is the same stop: fold it into the site (keep the site's name
+// and pin, carry the story link and the higher weight). Plus named pairs that are one visit.
+const SAME_VISIT = [['churchill-downs', 'kentucky-derby-museum']]
+for (const [a, b] of SAME_VISIT) {
+  const A = kept.find((k) => k.id === a), B = kept.find((k) => k.id === b)
+  if (A && B) { A.w = Math.max(A.w, B.w); kept.splice(kept.indexOf(B), 1) }
+}
+for (const st of kept.filter((k) => k.k === 'stories')) {
+  const stT = toks(st.n + ' ' + st.slug.replace(/-/g, ' '))
+  const site = kept.filter((k) => {
+    if (k.k === 'stories' || k.slug) return false
+    const d = miles([k.lon, k.lat], [st.lon, st.lat])
+    return d < 0.2 || (d < 0.3 && [...toks(k.n + ' ' + k.id.replace(/-/g, ' '))].some((w) => stT.has(w)))
+  })
+    .sort((x, y) => miles([x.lon, x.lat], [st.lon, st.lat]) - miles([y.lon, y.lat], [st.lon, st.lat]))[0]
+  if (!site) continue
+  site.slug = st.slug
+  site.w = Math.max(site.w, st.w)
+  kept.splice(kept.indexOf(st), 1)
+}
 
 // Self-check (fails closed): re-test every kept stop against the source data with the same predicate.
 const bad = []

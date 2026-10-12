@@ -2,10 +2,10 @@
  * Proves the visitor's start never appears in a Maps link: plans loops from many starts with the
  * real stop list, builds every leg for both apps at phone and desktop caps, and checks that
  * (1) no URL has an origin/source on leg 1, (2) every coordinate in every URL is a stop's,
- * (3) the start's coordinates (any precision down to 2 decimals) appear in no URL, (4) caps hold.
+ * (3) the start's coordinates (any precision down to 2 decimals) appear in no URL, (4) every leg has at most 4 new stops for both apps on phone and desktop.
  */
 import fs from 'node:fs'
-import { legSize, buildLegs } from '../src/drive-links.js'
+import { legSize, buildLegs, LEG_STOPS } from '../src/drive-links.js'
 
 const data = JSON.parse(fs.readFileSync('public/drive-preview/byod-stops.json', 'utf8'))
 const stopSet = new Set(data.stops.map((s) => `${s.lat.toFixed(4)},${s.lon.toFixed(4)}`))
@@ -19,6 +19,7 @@ for (let t = 0; t < 200; t++) {
   if (!order.length) continue
   for (const app of ['google', 'apple']) for (const phone of [true, false]) {
     const n = legSize(app, phone)
+    if (n !== 4 || LEG_STOPS !== 4) fail(`leg cap is ${n}, expected 4 stops per leg for ${app}${phone ? ' (phone)' : ''}`)
     const legs = buildLegs(order, n, app)
     legs.forEach((l, k) => {
       const u = new URL(l.url); urls++

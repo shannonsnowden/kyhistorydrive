@@ -93,6 +93,15 @@ body.privacy-doc header.top {
 html[data-hp-theme="light"] body.privacy-doc header.top {
   background: #f3ead8;
 }
+/* Home: same solid fill. At 95% alpha + blur, hero images and headings scrolled under the sticky
+   header showed through as a ghost (visible in the 1280 light shots). */
+body.hp-page header.top {
+  background: #101812;
+  backdrop-filter: none;
+}
+html[data-hp-theme="light"] body.hp-page header.top {
+  background: #f3ead8;
+}
 .brand-home {
   display: inline-flex;
   align-items: center;
@@ -5184,3 +5193,7 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .hp-plan-drive-pill { min-height: 44px; }
   .hp-map-strip-figure { min-height: 0; }
 }
+
+/* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
+.hp-map-strip { scroll-margin-top: 14rem; }
+@media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
