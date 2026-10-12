@@ -58,6 +58,7 @@ import {
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { portraitsByStorySlug, relatedBlockHtml, portraitAlt } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
+import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 
 /** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
 export function preloadsPoster(html, poster) {
@@ -166,9 +167,10 @@ class PrerenderPages {
       ),
     })
     const relatedBundle = PrerenderPages.loadRelatedBundle(root)
-    const peopleHtml = PrerenderPages.peoplePage(relatedBundle.people, stories, cssHrefs)
+    const sourcePeople = PrerenderPages.readJson(path.join(root, 'data/people.json')).people || []
+    const peopleHtml = PrerenderPages.peoplePage(relatedBundle.people, stories, cssHrefs, sourcePeople)
     PrerenderPages.assertPage(peopleHtml, { lat: null, lon: null }, '/people/')
-    PrerenderPages.assertPeople(peopleHtml, relatedBundle.people)
+    PrerenderPages.assertPeople(peopleHtml, relatedBundle.people, sourcePeople, stories)
     PrerenderPages.writePage(dist, '/people/', peopleHtml)
     entries.push({
       loc: `${PrerenderPages.SITE}/people/`,
@@ -704,6 +706,7 @@ class PrerenderPages {
       visibility: body.visibility || indexRow?.visibility || '',
       territoryNation: body.territory?.nation || '',
       county: indexRow?.county != null ? indexRow.county : '',
+      fileCounty: typeof body.county === 'string' ? body.county.trim() : '',
       matchedPlace: indexRow?.matchedPlace || loc?.matchedPlace || '',
       mapConfidence: indexRow?.mapConfidence || loc?.mapConfidence || '',
       historyId: loc?.historyId || indexRow?.historyId || null,
@@ -1977,9 +1980,11 @@ class PrerenderPages {
     return `<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10" fill="currentColor"/><path d="M12 56c2.2-12 9-18 20-18s17.8 6 20 18" fill="currentColor"/></svg>`
   }
 
-  static peopleCard(person, titleFor) {
+  static peopleCard(person, titleFor, identifier) {
     const name = PrerenderPages.escapeHtml(person.name)
-    const dates = person.dates ? `<p class="people-dates">${PrerenderPages.escapeHtml(person.dates)}</p>` : ''
+    const line = identifier
+      ? `<p class="people-id">${PrerenderPages.escapeHtml(identifier)}</p>`
+      : ''
     const stories = (person.stories || [])
       .map((slug) => {
         const title = titleFor(slug)
@@ -1997,23 +2002,54 @@ class PrerenderPages {
       media = `<div class="people-fallback" aria-hidden="true">${PrerenderPages.peopleSilhouette()}<span class="people-initials">${PrerenderPages.escapeHtml(initials(person.name))}</span></div>`
     }
     const badge = person.ai ? `<p class="people-badge">AI illustration</p>` : ''
+    const license = person.licenseUrl
+      ? `<a href="${PrerenderPages.escapeHtml(person.licenseUrl)}" rel="license">${PrerenderPages.escapeHtml(person.license)}</a>`
+      : PrerenderPages.escapeHtml(person.license)
     const credit = person.image
-      ? `<p class="people-credit">${PrerenderPages.escapeHtml(person.credit)}</p><p class="people-license">${PrerenderPages.escapeHtml(person.license)}</p>`
+      ? `<p class="people-credit">${PrerenderPages.escapeHtml(person.credit)}</p><p class="people-license">${license}</p>`
       : ''
-    return `<li class="people-card" id="${PrerenderPages.escapeHtml(person.id)}">${media}<h3>${name}</h3>${dates}${badge}${credit}${storyList}</li>`
+    return `<li class="people-card" id="${PrerenderPages.escapeHtml(person.id)}">${media}<h3>${name}</h3>${line}${badge}${credit}${storyList}</li>`
   }
 
-  static peoplePage(peopleFile, stories, cssHrefs) {
+  static personNode(person, source, storiesBySlug) {
+    const node = {
+      '@type': 'Person',
+      '@id': `${PrerenderPages.SITE}/people/#${person.id}`,
+      name: person.name,
+    }
+    const span = knownLifeSpan(source?.lifeDates)
+    if (span) {
+      node.birthDate = span.birthDate
+      node.deathDate = span.deathDate
+    }
+    const subjectOf = (person.stories || [])
+      .filter((slug) => storiesBySlug.has(slug))
+      .map((slug) => `${PrerenderPages.SITE}/stories/${encodeURIComponent(slug)}/`)
+    if (subjectOf.length) node.subjectOf = subjectOf
+    if (person.image && !person.ai) node.image = `${PrerenderPages.SITE}${person.image.jpg}`
+    return node
+  }
+
+  static peoplePage(peopleFile, stories, cssHrefs, sourcePeople = []) {
     const titleFor = (slug) => stories.find((story) => story.slug === slug)?.title || ''
+    const storiesBySlug = new Map(stories.map((story) => [story.slug, story]))
+    const sourceById = new Map(sourcePeople.map((person) => [person.id, person]))
+    const lineFor = (person) => personIdentifier(sourceById.get(person.id), storiesBySlug)
     const byName = (a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
     const illustrated = peopleFile.people.filter((person) => person.image).sort(byName)
     const plain = peopleFile.people.filter((person) => !person.image).sort(byName)
+    const ordered = [...illustrated, ...plain]
     const aiCount = illustrated.filter((person) => person.ai).length
     const realCount = illustrated.length - aiCount
+    const total = peopleFile.people.length
+    const withLine = ordered.filter((person) => lineFor(person)).length
+    const withDates = sourcePeople.filter((person) => String(person.lifeDates || '').trim()).length
+    const withPlace = sourcePeople.filter((person) => personPlace(person.stories, storiesBySlug)).length
+    console.log(`people page: ${withLine} of ${total} identifier lines (${withDates} with dates, ${withPlace} with a place)`)
     const pageUrl = `${PrerenderPages.SITE}/people/`
     const description =
       'People from the Kentucky history stories, with labeled AI illustrations and credited public-domain and Creative Commons portraits.'
-    const lead = `${illustrated.length} portraits are shown with credit: ${aiCount} labeled AI illustrations and ${realCount} historical portraits. ${plain.length} more people from the stories are listed with initials until a portrait is ready.`
+    const lead = `${total} people: ${realCount} real portraits and ${aiCount} AI illustrations. ${plain.length} more are listed with initials until a portrait is ready.`
     const main = `<article class="people-page">
         <nav class="story-crumbs" aria-label="Breadcrumb">
           <a href="/">Home</a>
@@ -2027,11 +2063,11 @@ class PrerenderPages {
         </header>
         <section class="people-group" aria-labelledby="people-portraits-heading">
           <h2 id="people-portraits-heading">Portraits</h2>
-          <ul class="people-grid">${illustrated.map((person) => PrerenderPages.peopleCard(person, titleFor)).join('')}</ul>
+          <ul class="people-grid">${illustrated.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person))).join('')}</ul>
         </section>
         <section class="people-group" aria-labelledby="people-names-heading">
           <h2 id="people-names-heading">Names without a portrait yet</h2>
-          <ul class="people-grid">${plain.map((person) => PrerenderPages.peopleCard(person, titleFor)).join('')}</ul>
+          <ul class="people-grid">${plain.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person))).join('')}</ul>
         </section>
       </article>`
     const jsonLd = PrerenderPages.jsonLdScript([
@@ -2044,6 +2080,16 @@ class PrerenderPages {
         description,
         isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
         publisher: { '@id': PrerenderPages.ORG_ID },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#list`,
+        numberOfItems: ordered.length,
+        itemListElement: ordered.map((person, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: PrerenderPages.personNode(person, sourceById.get(person.id), storiesBySlug),
+        })),
       },
       {
         '@type': 'BreadcrumbList',
@@ -2067,7 +2113,7 @@ class PrerenderPages {
     })
   }
 
-  static assertPeople(html, peopleFile) {
+  static assertPeople(html, peopleFile, sourcePeople = [], stories = []) {
     if (!html.includes('<h1>People</h1>')) throw new Error('prerender: /people/ is missing its heading')
     if (!html.includes('href="/people/"') || !html.includes('data-route="people"') || !html.includes('aria-current="page"')) {
       throw new Error('prerender: /people/ is missing its nav link')
@@ -2079,11 +2125,50 @@ class PrerenderPages {
     if (remoteImg) throw new Error('prerender: /people/ hotlinks an image')
     const illustrated = peopleFile.people.filter((person) => person.image)
     const ai = illustrated.filter((person) => person.ai)
+    const real = illustrated.length - ai.length
+    const plain = peopleFile.people.length - illustrated.length
+    const lead = `${peopleFile.people.length} people: ${real} real portraits and ${ai.length} AI illustrations. ${plain} more are listed with initials until a portrait is ready.`
+    if (!html.includes(lead)) {
+      throw new Error('prerender: /people/ lead does not match the portrait counts')
+    }
     const badges = html.match(/class="people-badge"/g) || []
     if (badges.length !== ai.length) {
       throw new Error(`prerender: /people/ has ${badges.length} AI badges, expected ${ai.length}`)
     }
     if (!html.includes('class="people-fallback"')) throw new Error('prerender: /people/ is missing a placeholder')
+    const storiesBySlug = new Map(stories.map((story) => [story.slug, story]))
+    const sourceById = new Map(sourcePeople.map((person) => [person.id, person]))
+    let expectedLines = 0
+    for (const person of peopleFile.people) {
+      const line = personIdentifier(sourceById.get(person.id), storiesBySlug)
+      if (!line) continue
+      expectedLines += 1
+      if (!html.includes(`<p class="people-id">${PrerenderPages.escapeHtml(line)}</p>`)) {
+        throw new Error(`prerender: /people/ is missing the identifier for ${person.id}`)
+      }
+    }
+    const lines = html.match(/class="people-id"/g) || []
+    if (lines.length !== expectedLines) {
+      throw new Error(`prerender: /people/ has ${lines.length} identifier lines, expected ${expectedLines}`)
+    }
+    if (!html.includes('Lexington co-founder, militia officer · 1756–1807')) {
+      throw new Error('prerender: /people/ is missing Levi Todd’s recorded role and dates')
+    }
+    const licensed = peopleFile.people.filter((person) => person.licenseUrl)
+    for (const person of licensed) {
+      const link = `<a href="${PrerenderPages.escapeHtml(person.licenseUrl)}" rel="license">${PrerenderPages.escapeHtml(person.license)}</a>`
+      if (!html.includes(link)) {
+        throw new Error(`prerender: /people/ is missing the license link for ${person.id}`)
+      }
+    }
+    const licenseLinks = html.match(/rel="license"/g) || []
+    if (licenseLinks.length !== licensed.length) {
+      throw new Error(`prerender: /people/ has ${licenseLinks.length} license links, expected ${licensed.length}`)
+    }
+    const ballard = html.match(/<li class="people-card" id="bland-ballard">[\s\S]*?<\/li>/)
+    if (!ballard || !ballard[0].includes('class="people-fallback"') || /<img\b/.test(ballard[0])) {
+      throw new Error('prerender: Bland Ballard must stay a placeholder, with no image')
+    }
     for (const person of illustrated) {
       const alt = portraitAlt(person)
       if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
@@ -2098,6 +2183,60 @@ class PrerenderPages {
       if (person.ai && !html.includes('>AI illustration<')) {
         throw new Error(`prerender: /people/ AI badge text is missing`)
       }
+    }
+    const block = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
+    if (!block) throw new Error('prerender: /people/ is missing JSON-LD')
+    let data
+    try {
+      data = JSON.parse(block[1])
+    } catch (err) {
+      throw new Error(`prerender: /people/ has invalid JSON-LD (${err.message})`)
+    }
+    const nodes = data['@graph'] || []
+    const list = nodes.find((node) => node['@type'] === 'ItemList')
+    if (!list || list.numberOfItems !== peopleFile.people.length || list.itemListElement?.length !== peopleFile.people.length) {
+      throw new Error('prerender: /people/ ItemList does not cover every person')
+    }
+    const byId = new Map()
+    for (const entry of list.itemListElement) {
+      const item = entry.item
+      if (item?.['@type'] !== 'Person' || typeof item['@id'] !== 'string') {
+        throw new Error('prerender: /people/ ItemList entry is not a Person')
+      }
+      const prefix = `${PrerenderPages.SITE}/people/#`
+      if (!item['@id'].startsWith(prefix)) throw new Error(`prerender: /people/ Person @id is not ${prefix}`)
+      byId.set(item['@id'].slice(prefix.length), item)
+    }
+    for (const person of peopleFile.people) {
+      const item = byId.get(person.id)
+      if (!item || item.name !== person.name) {
+        throw new Error(`prerender: /people/ JSON-LD is missing ${person.id}`)
+      }
+      const span = knownLifeSpan(sourceById.get(person.id)?.lifeDates)
+      if (span) {
+        if (item.birthDate !== span.birthDate || item.deathDate !== span.deathDate) {
+          throw new Error(`prerender: /people/ dates for ${person.id} do not match the recorded span`)
+        }
+      } else if (item.birthDate || item.deathDate) {
+        throw new Error(`prerender: /people/ invented dates for ${person.id}`)
+      }
+      if (person.image && !person.ai) {
+        if (item.image !== `${PrerenderPages.SITE}${person.image.jpg}`) {
+          throw new Error(`prerender: /people/ JSON-LD image for ${person.id} is not the local portrait`)
+        }
+      } else if (item.image) {
+        throw new Error(`prerender: /people/ JSON-LD image is set for ${person.id}`)
+      }
+      const subjectOf = (person.stories || [])
+        .filter((slug) => storiesBySlug.has(slug))
+        .map((slug) => `${PrerenderPages.SITE}/stories/${encodeURIComponent(slug)}/`)
+      const got = item.subjectOf || []
+      if (subjectOf.length !== got.length || subjectOf.some((url, index) => got[index] !== url)) {
+        throw new Error(`prerender: /people/ subjectOf for ${person.id} does not match the live stories`)
+      }
+    }
+    if (byId.get('blackfish')?.birthDate) {
+      throw new Error('prerender: Blackfish’s circa dates must not become a birthDate')
     }
   }
 

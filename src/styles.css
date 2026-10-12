@@ -3920,7 +3920,9 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   line-height: 1.25;
   color: var(--heading);
 }
-.people-dates { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.people-dates,
+.people-id { margin: 0; color: var(--muted); font-size: 0.85rem; line-height: 1.35; }
+.people-license a { color: var(--accent); }
 .people-badge {
   align-self: flex-start;
   margin: 0.15rem 0 0;

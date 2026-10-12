@@ -49,7 +49,6 @@ const FORBIDDEN_PUBLIC_KEYS = [
   'verified',
   'notes',
   'sourcePage',
-  'licenseUrl',
   'lifeDates',
   'imageUrl',
 ]
@@ -131,6 +130,15 @@ export function findAiPortrait(id, dir) {
   }
 }
 
+/** Stored CC0 or CC BY-SA deed. Other licenses stay unlinked. */
+export function shippedLicenseUrl(person) {
+  const license = String(person?.license || '')
+  const url = String(person?.licenseUrl || '').trim()
+  if (!url || !/^https?:\/\//i.test(url)) return null
+  if (/^cc0(?:\s|$)/i.test(license) || /^cc by-sa(?:\s|$)/i.test(license)) return url
+  return null
+}
+
 export function realPortraitPaths(id) {
   return {
     webp: `/people/portraits/${id}-512.webp`,
@@ -164,6 +172,7 @@ export function publicRecord(person, image, ai) {
       credit: null,
       ai: false,
       license: null,
+      licenseUrl: null,
       stories,
     }
   }
@@ -183,6 +192,7 @@ export function publicRecord(person, image, ai) {
     credit,
     ai: Boolean(ai),
     license,
+    licenseUrl: ai ? null : shippedLicenseUrl(person),
     stories,
   }
 }
@@ -195,18 +205,24 @@ export function assertPublicPeople(data) {
     for (const key of FORBIDDEN_PUBLIC_KEYS) {
       if (keys.includes(key)) throw new Error(`people: public record ${person.id} still has ${key}`)
     }
-    for (const key of ['id', 'name', 'dates', 'image', 'credit', 'ai', 'license', 'stories']) {
+    for (const key of ['id', 'name', 'dates', 'image', 'credit', 'ai', 'license', 'licenseUrl', 'stories']) {
       if (!keys.includes(key)) throw new Error(`people: public record ${person.id || '?'} is missing ${key}`)
     }
     if (ids.has(person.id)) throw new Error(`people: duplicate id ${person.id}`)
     ids.add(person.id)
     if (!Array.isArray(person.stories)) throw new Error(`people: ${person.id} stories is not a list`)
     if (typeof person.ai !== 'boolean') throw new Error(`people: ${person.id} ai is not a boolean`)
+    if (person.licenseUrl != null && !/^https?:\/\//i.test(person.licenseUrl)) {
+      throw new Error(`people: ${person.id} license URL is not an http(s) URL`)
+    }
     if (person.image == null) {
-      if (person.credit != null || person.license != null || person.ai) {
+      if (person.credit != null || person.license != null || person.licenseUrl != null || person.ai) {
         throw new Error(`people: ${person.id} has credit or an AI flag without an image`)
       }
       continue
+    }
+    if (person.ai && person.licenseUrl) {
+      throw new Error(`people: ${person.id} AI illustration must not carry a license URL`)
     }
     if (!person.credit || !person.license) throw new Error(`people: ${person.id} image is missing credit or license`)
     if (person.ai && !/AI illustration/i.test(`${person.license} ${person.credit}`)) {
