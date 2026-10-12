@@ -2037,7 +2037,7 @@ ${rows.join('\n')}
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
         <figure class="about-seals" aria-labelledby="aboutSealsTitle">
-          <h3 class="about-seals-title" id="aboutSealsTitle">Our seals</h3>
+          <h2 class="about-seals-title" id="aboutSealsTitle">Our seals</h2>
           <ul class="about-seals-list">
             <li><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></li>
             <li><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></li>
