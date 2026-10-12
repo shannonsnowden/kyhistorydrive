@@ -2382,8 +2382,7 @@ html[data-hp-theme="light"] .about-seal {
   line-height: 1.45;
   color: var(--heading);
 }
-/* Pitch lives in the header brand-subhead on the magazine homepage. */
-body.hp-page .hp-value { display: none; }
+/* Pitch: header brand-subhead on desktop, this band on phones (rule at the end). */
 
 /* —— Lead story + More Kentucky stories rail (no auto-rotation) —— */
 .hp-lead-block {
