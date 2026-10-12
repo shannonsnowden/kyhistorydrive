@@ -593,9 +593,12 @@ function rawXmlSpecial(fragment, where) {
 
 /** Text and attribute values are entity-escaped (& < > " '), or left inside CDATA. */
 export function assertEscapedXml(xml) {
-  const source = String(xml)
-    .replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, '')
-    .replace(/<!--[\s\S]*?-->/g, '')
+  let source = String(xml).replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, '')
+  let prev
+  do {
+    prev = source
+    source = source.replace(/<!--[\s\S]*?-->/g, '')
+  } while (source !== prev)
   let i = 0
   while (i < source.length) {
     if (source.startsWith('<?', i)) {

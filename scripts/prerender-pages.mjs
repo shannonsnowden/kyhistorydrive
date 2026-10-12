@@ -41,6 +41,16 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 
+/** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
+export function preloadsPoster(html, poster) {
+  const re = /rel="preload"[^>]*/g
+  let match
+  while ((match = re.exec(html))) {
+    if (match[0].includes(poster)) return true
+  }
+  return false
+}
+
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
   static ORG_ID = 'https://kyhistorydrive.com/#organization'
@@ -1668,8 +1678,7 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} story photo is lazy-loaded`)
       }
     }
-    const posterPreload = new RegExp(`rel="preload"[^>]*${film.poster.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`)
-    if (posterPreload.test(html)) {
+    if (preloadsPoster(html, film.poster)) {
       throw new Error(`prerender: ${urlPath} preloads the video poster`)
     }
   }
@@ -1708,14 +1717,17 @@ class PrerenderPages {
       if (timeIdx < 0) continue
       const stamp = rows[timeIdx].match(/^((?:\d{2}:)?\d{2}:\d{2}\.\d+)/)
       if (!stamp) continue
-      const cue = rows
-        .slice(timeIdx + 1)
-        .join(' ')
-        .replace(/<[^>]+>/g, '')
+      let cue = rows.slice(timeIdx + 1).join(' ')
+      let prev
+      do {
+        prev = cue
+        cue = cue.replace(/<[^>]+>/g, '')
+      } while (cue !== prev)
+      cue = cue
         .replace(/&nbsp;/gi, ' ')
-        .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, '&')
         .replace(/\s+/g, ' ')
         .trim()
       if (!cue || seen.has(cue)) continue

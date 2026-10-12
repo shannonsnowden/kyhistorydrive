@@ -1185,9 +1185,13 @@ function wikipediaTitleFromUrl(url) {
 }
 
 function stripHtmlCredits(html) {
-  return String(html || '')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
+  let text = String(html || '').replace(/<br\s*\/?>/gi, ' ')
+  let prev
+  do {
+    prev = text
+    text = text.replace(/<[^>]+>/g, '')
+  } while (text !== prev)
+  return text
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
@@ -2934,7 +2938,9 @@ function timelineHeaderOffset() {
 
 function timelineItemFor(slug) {
   if (!slug) return null
-  const esc = window.CSS?.escape ? window.CSS.escape(slug) : String(slug).replace(/"/g, '\\"')
+  const esc = window.CSS?.escape
+    ? window.CSS.escape(slug)
+    : String(slug).replace(/\\/g, '\\\\').replace(/"/g, '\\"')
   return document.querySelector(`#timelineList .timeline-item[data-slug="${esc}"]`)
 }
 
