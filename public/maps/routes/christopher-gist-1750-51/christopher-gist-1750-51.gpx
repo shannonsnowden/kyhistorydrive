@@ -31,7 +31,8 @@
   </wpt>
   <wpt lat="37.84" lon="-84.02">
     <name>crosses the &quot;little Cuttaway&quot; (the Red River) at an island</name>
-    <desc>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</desc>  </wpt>
+    <desc>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</desc>
+  </wpt>
   <wpt lat="37.33" lon="-81.20">
     <name>Bluestone River</name>
     <desc>Bluefield–Princeton area. Mercer Co., WV / Tazewell Co., VA. Approximate.</desc>
@@ -81,7 +82,8 @@
     </rtept>
     <rtept lat="37.84" lon="-84.02">
       <name>crosses the &quot;little Cuttaway&quot; (the Red River) at an island</name>
-      <desc>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</desc>    </rtept>
+      <desc>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</desc>
+    </rtept>
     <rtept lat="37.33" lon="-81.20">
       <name>Bluestone River</name>
       <desc>Bluefield–Princeton area. Mercer Co., WV / Tazewell Co., VA. Approximate.</desc>

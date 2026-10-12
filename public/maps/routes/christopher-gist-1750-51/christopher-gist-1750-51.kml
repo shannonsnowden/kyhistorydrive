@@ -36,7 +36,8 @@
     <Placemark>
       <name>crosses the &quot;little Cuttaway&quot; (the Red River) at an island</name>
       <description>Red River near Clay City. Clark/Powell/Estill cos., KY. Approximate. Conjectural.</description>
-      <Point><coordinates>-84.02,37.84,0</coordinates></Point>    </Placemark>
+      <Point><coordinates>-84.02,37.84,0</coordinates></Point>
+    </Placemark>
     <Placemark>
       <name>Bluestone River</name>
       <description>Bluefield–Princeton area. Mercer Co., WV / Tazewell Co., VA. Approximate.</description>
@@ -67,7 +68,8 @@
       <description>Approximate waypoints for Christopher Gist, 1750–51. Positions are taken from the story notes and are not a survey. https://kyhistorydrive.com/stories/christopher-gist-1750-51/</description>
       <LineString>
         <tessellate>1</tessellate>
-        <coordinates>-78.55,39.60,0 -81.86,40.27,0 -83.0,38.7,0 -84.24,40.18,0 -83.0,38.7,0 -84.70,38.55,0 -84.02,37.84,0 -81.20,37.33,0 -80.85,37.56,0 -80.53,37.36,0 -80.35,37.18,0 -80.55,36.12,0</coordinates>      </LineString>
+        <coordinates>-78.55,39.60,0 -81.86,40.27,0 -83.0,38.7,0 -84.24,40.18,0 -83.0,38.7,0 -84.70,38.55,0 -84.02,37.84,0 -81.20,37.33,0 -80.85,37.56,0 -80.53,37.36,0 -80.35,37.18,0 -80.55,36.12,0</coordinates>
+      </LineString>
     </Placemark>
   </Document>
 </kml>
