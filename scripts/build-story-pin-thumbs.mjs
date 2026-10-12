@@ -30,6 +30,24 @@ function publicGeo(lat, lon) {
   return { lat: la, lon: lo }
 }
 
+// Eskippakithiki is protected. Draw it at 0.1° so a story-pin SVG cannot be
+// back-solved to the finer public pin. #226 owns the source list and app data.
+const ESKIPPAKITHIKI = { lat: 37.9, lon: -84.0 }
+const ESKIPPAKITHIKI_PIN = { lat: 37.93955, lon: -83.9975333 }
+
+function sameCoord(a, b) {
+  return Math.abs(a - b) < 1e-7
+}
+
+function storyPinGeo(geo, story, loc) {
+  const slug = String(story.slug || '')
+  const hid = String(loc.historyId || story.historyId || '')
+  const named = /eskippakithiki/i.test(`${slug} ${hid}`)
+  const samePin = sameCoord(geo.lat, ESKIPPAKITHIKI_PIN.lat) && sameCoord(geo.lon, ESKIPPAKITHIKI_PIN.lon)
+  if (named || samePin) return { ...ESKIPPAKITHIKI, rounded: true }
+  return geo
+}
+
 function svgFor(theme, d, viewBox, x, y) {
   const color = THEMES[theme]
   return (
@@ -48,14 +66,17 @@ function main() {
   const locations = JSON.parse(fs.readFileSync(LOCATIONS, 'utf8')).locations || {}
   fs.mkdirSync(OUT, { recursive: true })
   const keep = new Set()
+  const rounded = []
   let bytes = 0
   let stories = 0
   for (const story of index.stories || []) {
     const slug = story.slug
     if (!SLUG.test(slug || '')) continue
     const loc = locations[slug] || {}
-    const geo = publicGeo(loc.lat ?? story.lat, loc.lon ?? story.lon)
-    if (!geo) continue
+    const raw = publicGeo(loc.lat ?? story.lat, loc.lon ?? story.lon)
+    if (!raw) continue
+    const geo = storyPinGeo(raw, story, loc)
+    if (geo.rounded) rounded.push(slug)
     const [mx, my] = project(geo.lon, geo.lat)
     const x = (frame.xFit.scale * mx + frame.xFit.offset).toFixed(1)
     const y = (frame.yFit.scale * my + frame.yFit.offset).toFixed(1)
@@ -72,7 +93,11 @@ function main() {
     if (!keep.has(name)) fs.unlinkSync(path.join(OUT, name))
   }
   if (!stories) throw new Error('story pin thumbs: no public pins')
+  if (!rounded.includes('odawa-raid-at-eskippakithiki-1753') || !rounded.includes('john-finley-the-trader-who-put-kentucky-on-boones-map')) {
+    throw new Error('story pin thumbs: Eskippakithiki was not rounded for every story that uses it')
+  }
   console.log(`story pin thumbs ${stories} stories, ${keep.size} files, ${bytes} bytes`)
+  console.log(`story pin thumbs rounded Eskippakithiki to 0.1°: ${rounded.join(', ')}`)
 }
 
 main()
