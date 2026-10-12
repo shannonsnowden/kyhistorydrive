@@ -1,0 +1,236 @@
+{
+  "phase": 1,
+  "status": "proof-of-concept",
+  "dates": "Every opening year in this file is provisional. Research Bot is still confirming them.",
+  "filter": "A line is drawn when opened <= year and (closed > year or the feature has no closed year). This extract has no closed years.",
+  "simplify": "Douglas-Peucker at about 100 meters, then coordinates rounded to 4 decimal places. Gaps of 2 km or less between pieces of the same route were closed with a straight segment. Fragments shorter than 2 km that did not join were dropped.",
+  "retrieved": "2026-10-12",
+  "frame": {
+    "name": "Kentucky state outline",
+    "file": "/data/kentucky-outline.geojson",
+    "source": "Natural Earth",
+    "license": "Public domain",
+    "url": "https://www.naturalearthdata.com/",
+    "note": "Already on the site. Used only as the map frame, not as transport geometry."
+  },
+  "notUsed": [
+    {
+      "source": "Kentucky Transportation Cabinet road centerlines",
+      "reason": "The license is not clear for redistribution. KYTC says it reserves the right to recover costs if the data is used for profit, and reproduction of the official highway map needs Cabinet approval. Parkway geometry was taken from NTAD instead."
+    },
+    {
+      "source": "OpenStreetMap",
+      "reason": "Not used. NTAD National Highway System already includes the Kentucky parkways under a public-domain U.S. government license, so no ODbL extract was needed."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "ntad-narn",
+      "title": "North American Rail Network Lines",
+      "publisher": "U.S. Department of Transportation, Bureau of Transportation Statistics, from the Federal Railroad Administration",
+      "series": "National Transportation Atlas Database (NTAD)",
+      "file": "rail.geojson",
+      "url": "https://services.arcgis.com/xOi1kZaI0eWDREZv/ArcGIS/rest/services/NTAD_North_American_Rail_Network_Lines/FeatureServer/0",
+      "catalog": "https://doi.org/10.21949/1528950",
+      "license": "Public domain. This NTAD dataset is a work of the United States government as defined in 17 U.S.C. § 101 and as such are not protected by any U.S. copyrights. This work is available for unrestricted public use.",
+      "retrieved": "2026-10-12"
+    },
+    {
+      "id": "ntad-nhs",
+      "title": "National Highway System",
+      "publisher": "U.S. Department of Transportation, Bureau of Transportation Statistics, from the Federal Highway Administration",
+      "series": "National Transportation Atlas Database (NTAD)",
+      "version": "NHS Version 2025.08.08",
+      "file": "parkways.geojson",
+      "url": "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/NTAD_National_Highway_System/FeatureServer/0",
+      "catalog": "https://doi.org/10.21949/1530052",
+      "dictionary": "https://doi.org/10.21949/1529838",
+      "license": "The NHS Version 2025.08.08 database, or any portion thereof, can be freely distributed as long as this metadata entry is included with each distribution. The original metadata entry cannot be modified or deleted from any data transfer. This NTAD dataset is a work of the United States government as defined in 17 U.S.C. § 101 and as such are not protected by any U.S. copyrights. This work is available for unrestricted public use.",
+      "retrieved": "2026-10-12"
+    }
+  ],
+  "features": [
+    {
+      "id": "lexington-ohio",
+      "name": "Lexington & Ohio Railroad",
+      "kind": "rail",
+      "opened": 1835,
+      "openedLabel": "1835",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The first segment is dated 1834–35; the line is drawn from 1835, when cars were running between Lexington and Frankfort.",
+      "dataset": "ntad-narn",
+      "file": "rail.geojson",
+      "summary": "First railroad in Kentucky, Lexington to Frankfort. Opening year is provisional (1834–35).",
+      "selection": "NTAD lines with RROWNER1 RJCC, DIVISION CENTRAL KY, and BRANCH OLD ROAD, kept where the segment midpoint is between longitude -84.905 and -84.488 and latitude 38.03 and 38.23. That is the Lexington–Frankfort alignment. Louisville Water Street leads, the line west of Frankfort, and the line east of Lexington are not included."
+    },
+    {
+      "id": "ln-main",
+      "name": "Louisville & Nashville main line",
+      "kind": "rail",
+      "opened": 1859,
+      "openedLabel": "1859",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The year is the through-line completion (first Louisville–Nashville train, 27 October 1859), not the earlier section openings.",
+      "dataset": "ntad-narn",
+      "file": "rail.geojson",
+      "summary": "L&N main line from Louisville toward Nashville, drawn from the provisional 1859 completion.",
+      "selection": "NTAD lines with RROWNER1 CSXT and SUBDIV MAIN LINE: the Louisville Division in Kentucky and the same subdivision’s continuation into Tennessee toward Nashville. Urban terminal track that NTAD files under other subdivisions is not included."
+    },
+    {
+      "id": "cs-north",
+      "name": "Cincinnati Southern to High Bridge",
+      "kind": "rail",
+      "opened": 1877,
+      "openedLabel": "1877",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Northern portion, Cincinnati through Lexington to High Bridge.",
+      "dataset": "ntad-narn",
+      "file": "rail.geojson",
+      "summary": "Cincinnati Southern from Cincinnati through Lexington to High Bridge. Provisional opening 1877.",
+      "selection": "NTAD lines with RROWNER1 NS and SUBDIV one of FIRST DISTRICT CNO&TP, SECOND DISTRICT CNO&TP, CNO&TP NORTH, or CNOTP NORTH, north of High Bridge."
+    },
+    {
+      "id": "high-bridge",
+      "name": "High Bridge",
+      "kind": "bridge",
+      "opened": 1877,
+      "openedLabel": "1877",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The point is the NTAD vertex nearest the Kentucky River crossing, 73 meters from 37.8167 N, 84.7214 W.",
+      "dataset": "ntad-narn",
+      "file": "rail.geojson",
+      "summary": "High Bridge on the Cincinnati Southern, over the Kentucky River. Provisional opening 1877.",
+      "selection": "Point snapped to the NTAD Cincinnati Southern centerline at the Kentucky River crossing. Rounded to 4 decimal places."
+    },
+    {
+      "id": "cs-south",
+      "name": "Cincinnati Southern south of High Bridge",
+      "kind": "rail",
+      "opened": 1880,
+      "openedLabel": "1880",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The year is the through route to Chattanooga, not each construction section.",
+      "dataset": "ntad-narn",
+      "file": "rail.geojson",
+      "summary": "Cincinnati Southern south of High Bridge through Kentucky and into Tennessee. Provisional through-line year 1880.",
+      "selection": "Same NTAD Cincinnati Southern subdivisions as the northern portion, south of High Bridge, including the NTAD continuation into Tennessee. The extract does not reach Chattanooga."
+    },
+    {
+      "id": "western-kentucky",
+      "name": "Western Kentucky Parkway",
+      "kind": "parkway",
+      "opened": 1963,
+      "openedLabel": "1963",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Elizabethtown to near Eddyville opened in 1963; a short 1968 connection to I-24 is not split out.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Western Kentucky Parkway. Provisional opening 1963.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Western Kentucky Pkwy."
+    },
+    {
+      "id": "mountain",
+      "name": "Mountain Parkway",
+      "kind": "parkway",
+      "opened": 1963,
+      "openedLabel": "1963",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The Winchester–Campton road is usually dated 1963; the Campton–Salyersville mileage in this extract uses the same provisional year.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Bert T. Combs Mountain Parkway. Provisional opening 1963.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Bert T Combs Mountain Pkwy and Combs Mountain Pky. The later extension toward Prestonsburg is not in this extract."
+    },
+    {
+      "id": "bluegrass",
+      "name": "Bluegrass Parkway",
+      "kind": "parkway",
+      "opened": 1965,
+      "openedLabel": "1965",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Opened in November 1965 as the Kentucky Bluegrass Parkway.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Bluegrass Parkway, Elizabethtown to Versailles. Provisional opening 1965.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Blue Grass Pkwy."
+    },
+    {
+      "id": "purchase",
+      "name": "Purchase Parkway",
+      "kind": "parkway",
+      "opened": 1966,
+      "openedLabel": "1966",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Purchase Parkway, Fulton to the Kentucky Dam area. Provisional opening 1966.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Purchase Pkwy."
+    },
+    {
+      "id": "pennyrile",
+      "name": "Pennyrile Parkway",
+      "kind": "parkway",
+      "opened": 1969,
+      "openedLabel": "1969",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. The original Henderson–Hopkinsville parkway is dated 1969.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Pennyrile Parkway. Provisional opening 1969.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Pennyrile Pkwy, including segments later signed I-69 and I-169."
+    },
+    {
+      "id": "audubon",
+      "name": "Audubon Parkway",
+      "kind": "parkway",
+      "opened": 1970,
+      "openedLabel": "1970",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Dedicated 18 December 1970.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Audubon Parkway, Henderson to Owensboro. Provisional opening 1970.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Audubon Pkwy."
+    },
+    {
+      "id": "daniel-boone",
+      "name": "Daniel Boone Parkway",
+      "kind": "parkway",
+      "opened": 1971,
+      "openedLabel": "1971",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Later renamed the Hal Rogers Parkway.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Daniel Boone Parkway (now Hal Rogers), London to Hazard. Provisional opening 1971.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Daniel Boone Pkwy."
+    },
+    {
+      "id": "green-river",
+      "name": "Green River Parkway",
+      "kind": "parkway",
+      "opened": 1972,
+      "openedLabel": "1972",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Later renamed the William H. Natcher Parkway.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Green River Parkway (now Natcher), Bowling Green to Owensboro. Provisional opening 1972.",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Green River Pkwy."
+    },
+    {
+      "id": "cumberland",
+      "name": "Cumberland Parkway",
+      "kind": "parkway",
+      "opened": 1973,
+      "openedLabel": "1973",
+      "dateStatus": "provisional",
+      "dateNote": "Provisional. Research Bot is still confirming this date. Sections opened in 1972 and 1973; the line is drawn from 1973.",
+      "dataset": "ntad-nhs",
+      "file": "parkways.geojson",
+      "summary": "Cumberland Parkway, Somerset to I-65. Provisional completion 1973 (sections from 1972).",
+      "selection": "NTAD National Highway System, STFIPS 21, LNAME Cumberland Pkwy."
+    }
+  ]
+}

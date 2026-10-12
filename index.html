@@ -348,6 +348,48 @@
       </div>
     </section>
 
+    <section id="transport" class="view map-section transport-section" data-view="transport" hidden>
+      <aside class="controls transport-controls">
+        <div class="transport-head">
+          <p class="transport-kicker">Proof of concept</p>
+          <h2>Transport</h2>
+          <p id="transportProv" class="muted transport-note">
+            Lines appear when the year reaches their opening, and drop off after a closing year.
+            Every date is provisional. Research Bot is still confirming them.
+          </p>
+          <div class="transport-year">
+            <div class="transport-year-row">
+              <label for="transportYear">Year</label>
+              <output id="transportYearOut" for="transportYear">1880</output>
+            </div>
+            <input
+              id="transportYear"
+              class="transport-slider"
+              type="range"
+              min="1800"
+              max="2000"
+              step="1"
+              value="1880"
+              aria-valuemin="1800"
+              aria-valuemax="2000"
+              aria-valuenow="1880"
+              aria-describedby="transportProv"
+            />
+            <div class="transport-scale" aria-hidden="true"><span>1800</span><span>2000</span></div>
+          </div>
+          <p id="transportStatus" class="muted transport-status" role="status"></p>
+          <p id="transportLive" class="visually-hidden" aria-live="polite"></p>
+        </div>
+        <div id="transportLegend" class="transport-legend"></div>
+        <p class="transport-credit muted">
+          <a href="/maps/transport/sources.json">Sources and licenses</a>
+        </p>
+      </aside>
+      <div class="map-canvas-wrap">
+        <div id="transportMap" role="region" aria-label="Kentucky transportation map in 1880"></div>
+      </div>
+    </section>
+
     <section id="timeline" class="view timeline-section" data-view="timeline" hidden>
       <div class="timeline-layout">
         <div class="timeline-main">

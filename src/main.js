@@ -572,6 +572,10 @@ function parseHash() {
     return { view: 'map', placeLayer, placeId }
   }
   if (path === 'resources') return { view: 'resources' }
+  if (path === 'transport') {
+    const year = rest[0] != null && rest[0] !== '' ? Number(decodeURIComponent(rest[0])) : null
+    return { view: 'transport', year: Number.isFinite(year) ? year : null }
+  }
   if (['about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
@@ -4447,6 +4451,10 @@ async function applyRoute() {
       ensureHighlightSource(map, null)
       fitMapToKentucky(map, { duration: 0 })
     })
+  } else if (view === 'transport') {
+    const { showTransport } = await import('./transport-map.js')
+    await showTransport(parseHash().year)
+    requestAnimationFrame(scrollPageToTop)
   } else if (view === 'timeline') {
     setupTimelineFilters()
     resetTimelineFiltersOff({ keepFocus: Boolean(slug) })
