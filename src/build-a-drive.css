@@ -85,3 +85,29 @@ ol.stops>li.on{background:var(--hl)}
   body.has-bar main{padding-bottom:96px}
   .ask-q{font-size:1.35rem}
 }
+/* phase 1b */
+.vh{position:absolute;left:-9999px}
+.banner .short{display:none}
+.btn-secondary{background:transparent;color:var(--green-ink);border:2px solid var(--green);font-weight:700}
+.btn-primary{background:var(--gold);border:2px solid var(--accent-deep);font-weight:800}
+.how summary{color:var(--muted);text-decoration:underline;text-underline-offset:3px;font-weight:500}
+.legbox{border-top:2px solid var(--line);margin-top:6px}
+.leg-head{list-style:none;display:grid;grid-template-columns:1fr 150px 150px;gap:10px;align-items:center;padding:10px 0;cursor:pointer}
+.leg-head::-webkit-details-marker{display:none}
+.leg-label{font-weight:700;color:var(--heading)}
+.leg-label::before{content:'▸ ';color:var(--accent)}
+.legbox[open] .leg-label::before{content:'▾ '}
+.leg-btns{display:contents}
+.leg-head .btn-maps{min-height:44px;width:100%;white-space:nowrap}
+.row-links a{min-height:44px}
+.bar-label{margin:0 0 6px;font-size:13px;font-weight:700;color:var(--muted)}
+.sticky-bar .btn-maps{min-height:44px;white-space:nowrap}
+@media (max-width:860px){
+  .banner{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .banner .long{display:none}.banner .short{display:inline}
+  .seg{display:grid;grid-template-columns:1fr 1fr}
+  .seg legend{grid-column:1/-1}
+  .seg label{justify-content:center}
+  .leg-head{grid-template-columns:1fr 1fr}
+  .leg-label{grid-column:1/-1}
+}

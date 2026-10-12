@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/src/build-a-drive.css" />
 </head>
 <body>
-<div class="banner" role="note">DRAFT MOCKUP: not live. Times and distances are rough estimates.</div>
+<div class="banner" role="note"><span class="long">DRAFT MOCKUP: not live. Times and distances are rough estimates.</span><span class="short">Draft mockup · estimates only</span></div>
 <main>
   <div class="titlerow">
     <p class="kicker"><a href="/drives/">Drives</a> · Build your own</p>
@@ -21,7 +21,7 @@
     <div class="ask-row">
       <input id="q" type="text" inputmode="search" placeholder="Town, ZIP or distillery" autocomplete="off" list="qList" aria-describedby="qMsg" />
       <datalist id="qList"></datalist>
-      <button type="button" id="useLoc" class="btn-green"><span aria-hidden="true">📍</span> Use my location</button>
+      <button type="button" id="useLoc" class="btn-secondary"><span aria-hidden="true">📍</span> Use my location</button>
     </div>
     <p id="qMsg" class="field-msg" aria-live="polite"></p>
     <fieldset class="seg">
@@ -42,13 +42,9 @@
       <h2 id="stops-h">Your drive</h2>
       <div class="facts" id="facts"></div>
       <div class="mini-slot" id="miniSlot"></div>
-      <ol class="stops" id="stops"></ol>
-      <section class="route" id="route" aria-labelledby="route-h" hidden>
-        <h3 id="route-h">Open in your maps app</h3>
-        <div id="legs"></div>
-      </section>
+      <div id="stops"></div>
       <div class="callout">
-        <p><b>Estimates, not directions.</b> Times use straight-line distance × 1.3 at an average 40 mph, plus about 10 minutes at each stop. Check the route in your maps app before you set out.</p>
+        <p><b>Estimates, not directions.</b> Times use straight-line distance × 1.3 at an average 40 mph, plus 10–25 minutes at each stop (longer on longer trips) and a 45-minute meal break on a full day. Check the route in your maps app before you set out.</p>
         <p>Don’t use this page while driving. Archaeological sites, caves and private land are never suggested; stay on public property and respect posted signs.</p>
       </div>
     </section>

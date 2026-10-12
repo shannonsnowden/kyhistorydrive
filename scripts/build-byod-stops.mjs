@@ -28,9 +28,12 @@ for (const layer of ['stories', 'history', 'war']) for (const f of L(layer)) if 
 // Caves are blocked by default (show caves included). Named exceptions need Security Watch sign-off,
 // with the pin on the visitor center / parking entrance, never a cave opening.
 const CAVE_ALLOW = new Set([
-  'diamond-caverns-decorated-limestone', // Security Watch OK 2026-10-12: visitor center on Mammoth Cave Pkwy, 37.1166,-86.0630
+  'diamond-caverns-decorated-limestone', // Security Watch OK 2026-10-12: visitor center on Mammoth Cave Pkwy, 37.1166,-86.0630 (ISCA listing; OSM road frontage)
+  'mammoth-cave-np', // Security Watch OK 2026-10-12: NPS visitor center building, 37.1870,-86.1013 (OSM way 856343907)
+  'mammoth-cave-saltpeter', 'mammoth-cave-saltpeter-war-of-1812', // same park; re-pinned at the visitor center (source pins sit at the Historic Entrance)
+  'hidden-river-cave-under-horse-cave', 'hidden-river-cave-horse-cave-1890-1943', 'american-cave-museum', // Security Watch OK 2026-10-12: museum, 119 E Main St, Horse Cave, 37.1793,-85.9057 (OSM way 463719733)
 ])
-const CAVE_PIN = { 'diamond-caverns-decorated-limestone': [37.1166, -86.063] } // visitor center, not the story pin
+const CAVE_PIN = { 'diamond-caverns-decorated-limestone': [37.1166, -86.063], 'mammoth-cave-np': [37.187, -86.1013], 'mammoth-cave-saltpeter': [37.187, -86.1013], 'mammoth-cave-saltpeter-war-of-1812': [37.187, -86.1013], 'hidden-river-cave-horse-cave-1890-1943': [37.1793, -85.9057], 'hidden-river-cave-under-horse-cave': [37.1793, -85.9057], 'american-cave-museum': [37.1793, -85.9057] } // visitor center, not the story pin
 const isCave = (name) => /\bcave(s|rns?)?\b|\bcavern/i.test(name || '') && !/cave hill/i.test(name || '')
 // One predicate for the filter AND the self-check (fail closed).
 const ARCH = new Set(), COUNTY = new Set(), ROUNDED = new Set()
@@ -75,7 +78,17 @@ for (const layer of Object.keys(LAYERS)) {
 // Drop near-duplicates (same place on two layers): keep the higher weight.
 out.sort((a, b) => b.w - a.w)
 const kept = []
-for (const s of out) if (!kept.some((k) => Math.abs(k.lat - s.lat) < 0.002 && Math.abs(k.lon - s.lon) < 0.002)) kept.push(s)
+const STOPW = new Set(['state', 'park', 'historic', 'site', 'museum', 'house', 'county', 'kentucky', 'national', 'the', 'and', 'of'])
+const toks = (n) => new Set(String(n).toLowerCase().replace(/[^a-z ]/g, ' ').split(/\s+/).filter((w) => w.length > 3 && !STOPW.has(w)))
+const samePlace = (a, b) => {
+  if (Math.abs(a.lat - b.lat) < 0.002 && Math.abs(a.lon - b.lon) < 0.002) return true
+  const d = miles([a.lon, a.lat], [b.lon, b.lat])
+  if (d < 3 && a.n.trim().toLowerCase() === b.n.trim().toLowerCase()) return true
+  if (d > 1) return false
+  const ta = toks(a.n), tb = toks(b.n)
+  return [...ta].filter((w) => tb.has(w)).length >= Math.min(2, ta.size, tb.size) && ta.size && tb.size
+}
+for (const s of out) if (!kept.some((k) => samePlace(k, s))) kept.push(s)
 
 // Self-check (fails closed): re-test every kept stop against the source data with the same predicate.
 const bad = []

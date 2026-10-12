@@ -18,8 +18,12 @@ import { legSize, googleUrl, appleUrl, buildLegs } from './drive-links.js'
 
 const ROAD_FACTOR = 1.3
 const MPH = 40
-const DWELL = 10
-const MAX_STOPS = { 60: 3, 120: 10, 240: 16, 480: 30 }
+// Longer trips mean longer visits: dwell per stop scales with the time budget, and a full day
+// reserves a 45-minute meal break. Caps keep a day realistic (~12 stops) rather than a checklist.
+const DWELL_BY = { 60: 10, 120: 15, 240: 20, 480: 25 }
+const BREAK_BY = { 60: 0, 120: 0, 240: 0, 480: 45 }
+const MAX_STOPS = { 60: 3, 120: 5, 240: 7, 480: 12 }
+let DWELL = 10
 const BUDGET_LABEL = { 60: 'about 1 hour', 120: 'about 2 hours', 240: 'a half day (~4 hrs)', 480: 'a full day (~8 hrs)' }
 
 const $ = (id) => document.getElementById(id)
@@ -61,10 +65,12 @@ function loopCost(start, order) {
 }
 /** Cheapest insertion: add the stop with the best value per added minute while the loop fits the budget. */
 export function planLoop(start, stops, budget) {
+  DWELL = DWELL_BY[budget] || 10
+  const usable = budget - (BREAK_BY[budget] || 0)
   const reach = ((budget / 2 / 60) * MPH) / ROAD_FACTOR
   let pool = stops.filter((s) => { const d = miles(start, s); return d <= reach && d > 0.3 })
   let order = []
-  let cur = 0 // current loop minutes
+  let cur = 0 // current loop minutes (drive + dwell)
   const max = MAX_STOPS[budget] || 4
   while (order.length < max && pool.length) {
     const pts = [start, ...order, start]
@@ -72,7 +78,7 @@ export function planLoop(start, stops, budget) {
     for (const s of pool) {
       for (let i = 0; i < pts.length - 1; i++) {
         const add = driveMin(roadMi(pts[i], s) + roadMi(s, pts[i + 1]) - roadMi(pts[i], pts[i + 1])) + DWELL
-        if (cur + add > budget) continue
+        if (cur + add > usable) continue
         const score = s.w / (add + 1)
         if (!best || score > best.score) best = { score, s, i, add }
       }
@@ -82,7 +88,8 @@ export function planLoop(start, stops, budget) {
     cur += best.add
     pool = pool.filter((p) => p !== best.s && miles(p, best.s) > 0.15)
   }
-  return { order, ...loopCost(start, order) }
+  const c = loopCost(start, order)
+  return { order, mi: c.mi, min: c.min + (order.length ? BREAK_BY[budget] || 0 : 0) }
 }
 const fmt = (m) => (m >= 60 ? `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min` : `${Math.max(1, Math.round(m))} min`)
 const legText = (mi) => (mi < 0.5 ? 'Under half a mile, about 1 min' : `About ${mi < 1.5 ? 1 : Math.round(mi)} mi, ${fmt(driveMin(mi))}`)
@@ -162,8 +169,7 @@ async function main() {
   function pre() {
     $('status').textContent = ''
     $('facts').innerHTML = ''
-    $('stops').innerHTML = '<li class="note" style="display:block">Enter a town, ZIP or distillery, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</li>'
-    $('route').hidden = true
+    $('stops').innerHTML = '<p class="note">Enter a town, ZIP or distillery, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</p>'
     $('stickyBar').hidden = true
     document.body.classList.remove('has-bar')
     draw(null, [])
@@ -180,52 +186,68 @@ async function main() {
       $('tryMore')?.addEventListener('click', () => { document.querySelector(`input[name=budget][value="${nb}"]`).checked = true; render(start, nb) })
       $('facts').innerHTML = ''
       $('stops').innerHTML = ''
-      $('route').hidden = true
       $('stickyBar').hidden = true
       draw(null, [])
       return
     }
     $('status').textContent = `${order.length} stops from ${start.label}: about ${fmt(min)} with stops (estimate).`
-    $('facts').innerHTML = `<span>About <b>${Math.round(mi)} miles</b> round trip</span><span><b>${fmt(min)}</b> with stops</span>`
+    $('facts').innerHTML = `<span>About <b>${Math.round(mi)} miles</b> round trip</span><span><b>${fmt(min)}</b> with stops${BREAK_BY[b] ? ' and a meal break' : ''}</span>`
+    // One leg split for the list and both apps: 4 stops per leg (Apple's untested cap; within Google's
+    // phone cap). Leg k>1 starts at leg k-1's last stop. Links carry stops only, never the start.
+    const n = legSize('apple', true)
+    const apps = IS_APPLE ? ['apple', 'google'] : ['google', 'apple']
+    const name = { apple: 'Apple Maps', google: 'Google Maps' }
+    const links = { google: buildLegs(order, n, 'google'), apple: buildLegs(order, n, 'apple') }
+    const N = links.google.length
     let prev = start
-    const rows = order.map((s, i) => {
-      const d = roadMi(prev, s); prev = s
-      const story = s.slug ? `<a href="/stories/${encodeURIComponent(s.slug)}/">Read the story</a>` : ''
-      return `<li data-i="${i}" tabindex="-1"><span class="num" aria-hidden="true">${i + 1}</span>
-        <div><p class="stop-name"><span class="sr-only" style="position:absolute;left:-9999px">Stop ${i + 1}: </span>${esc(s.n)}</p>
-        <p class="stop-meta"><span class="tag">${esc(data.kinds[s.k])}</span>${s.c ? esc(s.c) + ' · ' : ''}${legText(d)} from the ${i ? 'last stop' : 'start'}</p></div>
-        <div class="row-links">${story}<a href="${stopUrl(s)}" target="_blank" rel="noopener noreferrer" aria-label="Directions to ${esc(s.n)}">Directions</a></div></li>`
-    })
-    rows.push(`<li><span class="num end" aria-hidden="true">↩</span><div><p class="stop-name">Back to ${esc(start.label)}</p><p class="stop-meta">${legText(roadMi(prev, start))}</p></div></li>`)
-    $('stops').innerHTML = rows.join('')
+    let html = ''
+    legsInfo = []
+    for (let k = 0; k < N; k++) {
+      const stops = order.slice(k * n, k * n + n)
+      let legMi = 0, p = prev
+      for (const s of stops) { legMi += roadMi(p, s); p = s }
+      const legMin = driveMin(legMi) + stops.length * DWELL
+      const first = k * n + 1, lastNo = k * n + stops.length
+      const btns = apps.map((a) => `<a class="btn btn-maps" href="${links[a][k].url}" target="_blank" rel="noopener noreferrer" aria-label="Open leg ${k + 1} in ${name[a]}">${name[a]}</a>`).join('')
+      legsInfo.push(apps.map((a) => links[a][k].url))
+      const rows = stops.map((s, j) => {
+        const i = k * n + j
+        const d = roadMi(prev, s); prev = s
+        const story = s.slug ? `<a href="/stories/${encodeURIComponent(s.slug)}/">Read the story</a>` : ''
+        return `<li data-i="${i}" tabindex="-1"><span class="num" aria-hidden="true">${i + 1}</span>
+          <div><p class="stop-name"><span class="vh">Stop ${i + 1}: </span>${esc(s.n)}</p>
+          <p class="stop-meta"><span class="tag">${esc(data.kinds[s.k])}</span>${s.c ? esc(s.c) + ' · ' : ''}${legText(d)} from the ${i ? 'last stop' : 'start'}</p></div>
+          <div class="row-links">${story}<a href="${stopUrl(s)}" target="_blank" rel="noopener noreferrer" aria-label="Directions to ${esc(s.n)}">Directions</a></div></li>`
+      }).join('')
+      const label = N > 1 ? `Leg ${k + 1} · stops ${k ? first - 1 : 1}–${lastNo} · about ${fmt(legMin)}` : `Stops 1–${lastNo} · about ${fmt(legMin)}`
+      html += `<details class="legbox" data-k="${k}"${k === 0 ? ' open' : ''}><summary class="leg-head"><span class="leg-label">${label}</span><span class="leg-btns">${btns}</span></summary><ol class="stops">${rows}</ol></details>`
+    }
+    html += `<ol class="stops"><li><span class="num end" aria-hidden="true">↩</span><div><p class="stop-name">Back to ${esc(start.label)}</p><p class="stop-meta">${legText(roadMi(prev, start))}</p></div></li></ol>`
+    html += `<p class="note">Your maps app starts from wherever you are; we never send it your starting point.${N > 1 ? ' Each leg starts at the last stop of the leg before.' : ''} Legs are 4 stops so Apple Maps and Google Maps open the same stops.</p>`
+    $('stops').innerHTML = html
+    // Buttons inside <summary> must not toggle the leg.
+    document.querySelectorAll('.leg-btns a').forEach((a) => a.addEventListener('click', (e) => e.stopPropagation()))
     document.querySelectorAll('#stops li[data-i]').forEach((li) => {
       const i = Number(li.dataset.i)
       li.addEventListener('mouseenter', () => hl(i)); li.addEventListener('focusin', () => hl(i))
     })
-    // Legs per app. Origin is never in a link: leg 1 has none, later legs start at a stop.
-    const phone = isPhone()
-    const apps = IS_APPLE ? ['apple', 'google'] : ['google', 'apple']
-    const name = { apple: 'Apple Maps', google: 'Google Maps' }
-    const byApp = Object.fromEntries(apps.map((a) => [a, buildLegs(order, legSize(a, phone), a)]))
-    const nLegs = Math.max(...apps.map((a) => byApp[a].length))
-    let html = ''
-    if (byApp.apple.length === byApp.google.length) {
-      for (let k = 0; k < nLegs; k++) {
-        const g = byApp[apps[0]][k]
-        html += `<div class="leg">${nLegs > 1 ? `<p>Leg ${g.k}: stops ${g.firstNo}–${g.lastNo}</p>` : ''}<div class="pair">${apps.map((a) => `<a class="btn btn-maps" href="${byApp[a][k].url}" target="_blank" rel="noopener noreferrer">Open ${nLegs > 1 ? `leg ${k + 1} ` : ''}in ${name[a]}</a>`).join('')}</div></div>`
-      }
-    } else {
-      html += `<div class="pair">${apps.map((a) => `<div class="leg">${byApp[a].map((l) => `<p>${byApp[a].length > 1 ? `Leg ${l.k}: stops ${l.firstNo}–${l.lastNo}` : `Stops 1–${l.lastNo}`}</p><a class="btn btn-maps" href="${l.url}" target="_blank" rel="noopener noreferrer">Open ${byApp[a].length > 1 ? `leg ${l.k} ` : ''}in ${name[a]}</a>`).join('')}</div>`).join('')}</div>`
+    // Phone sticky bar follows the leg in view.
+    const setBar = (k) => {
+      $('stickyBar').innerHTML = `<p class="bar-label">${N > 1 ? `Leg ${k + 1} of ${N}` : 'Your drive'}</p><div class="pair">${apps.map((a, j) => `<a class="btn btn-maps" href="${legsInfo[k][j]}" target="_blank" rel="noopener noreferrer" aria-label="Open ${N > 1 ? `leg ${k + 1} ` : ''}in ${name[a]}">${name[a]}</a>`).join('')}</div>`
     }
-    html += `<p class="note">Your maps app starts from wherever you are; we never send it your starting point. ${nLegs > 1 ? 'Each leg starts at the last stop of the leg before. ' : ''}Apple Maps legs are capped at 4 stops until multistop links are tested on devices.</p>`
-    $('legs').innerHTML = html
-    $('route').hidden = false
-    const first = apps.map((a) => byApp[a][0])
-    $('stickyBar').innerHTML = `<div class="pair">${apps.map((a, j) => `<a class="btn btn-maps" href="${first[j].url}" target="_blank" rel="noopener noreferrer">${byApp[a].length > 1 ? 'Leg 1 in ' : ''}${name[a]}</a>`).join('')}</div>`
+    setBar(0)
+    io?.disconnect()
+    io = new IntersectionObserver((ents) => {
+      const vis = ents.filter((e) => e.isIntersecting).sort((x, y) => x.boundingClientRect.top - y.boundingClientRect.top)[0]
+      if (vis) setBar(Number(vis.target.dataset.k))
+    }, { rootMargin: '-30% 0px -50% 0px' })
+    document.querySelectorAll('.legbox').forEach((d) => io.observe(d))
     $('stickyBar').hidden = false
     document.body.classList.add('has-bar')
     draw(start, order)
   }
+  let legsInfo = []
+  let io = null
 
   // ---------- inputs ----------
   let here = null // in memory only
