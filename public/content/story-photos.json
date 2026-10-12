@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T09:47:39.719Z",
+  "generatedAt": "2026-10-12T11:58:25.811Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -865,7 +865,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "cardThumb": false
       }
     },
     "new-castle-henry-county-seat": {
@@ -2079,7 +2080,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "cardThumb": false
       }
     },
     "new-castle-henry-county-seat-1798": {

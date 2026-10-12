@@ -1005,7 +1005,7 @@ html[data-hp-theme="light"] .era-other {
   outline-offset: 2px;
 }
 .story-nearby,
-.static-related { margin: 0; max-width: 100%; }
+.static-related { margin: 0; max-width: 100%; container-type: inline-size; container-name: related; }
 .story-nearby > h2,
 .story-nearby > h3,
 .static-related > h2,
@@ -1029,10 +1029,10 @@ html[data-hp-theme="light"] .era-other {
   width: 100%;
   max-width: 100%;
 }
-@media (min-width: 720px) {
+/* Two columns only when the list itself is wide enough for a two-line title.
+   A 1280px window still has a narrow story column beside the photo. */
+@container related (min-width: 42rem) {
   .related-list {
-    /* minmax(0, 1fr) lets a long title wrap inside the column instead of
-       stretching the card and getting clipped at the story column edge. */
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
