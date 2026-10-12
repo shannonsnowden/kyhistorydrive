@@ -1,404 +1,405 @@
 {
- "schema": 1,
- "note": "Territory index. To add a nation: add its data file under public/data/web/territories/ and one entry here. No code change needed. Colors: Okabe-Ito colorblind-safe palette, one per nation. ARCHAEOLOGICAL CULTURES (not tribes): an entry with \"kind\": \"culture\" and \"texture\" (one of dots, crosshatch, horizontal, diamonds, vertical) is listed in its own Layers group 'Archaeological cultures (not tribes)' and its own map-legend group, never mixed with the nations; the group appears only when at least one culture entry exists. A culture uses the same fields as a nation (id, name, color = fill, slugs, ref, extentFeature or mainMap parts, confidence, note, mapNote) plus: texture (required; an unknown value falls back to dots), outline (optional hex, default dark brown #4a2f1a), yearStart/yearEnd (negative = BCE, e.g. -4000; the labels print '4000 BCE', 'c.800 BCE' with approxStart:true, or '800 BCE – 700 CE'), yearLabel (optional text that replaces the years). Its note panel always adds: archaeological culture defined by artifacts and sites, not a tribe; no descent claim. Do not use a nation color or a nation slug for a culture; cultures are separated by texture, outline, legend group and year range, not by color alone.",
- "nations": [
-  {
-   "id": "chickasaw",
-   "name": "Chickasaw",
-   "color": "#D55E00",
-   "slugs": [
-    "chickasaw-hunting-grounds"
-   ],
-   "ref": "/data/web/territories/chickasaw-hunting-grounds.json",
-   "extentFeature": "r1",
-   "yearStart": 1780,
-   "yearEnd": 1818,
-   "confidence": "medium",
-   "note": "Extent shown is the 1786 Treaty of Hopewell frame; its southern edge is not fixed by the sources.",
-   "mapNote": "General area (1786 Hopewell frame): approximate, not a boundary."
-  },
-  {
-   "id": "cherokee",
-   "name": "Cherokee",
-   "color": "#0072B2",
-   "slugs": [
-    "treaties-of-hard-labour-and-lochaber",
-    "chickamauga-cherokee",
-    "chickamauga-cherokee-hold-the-southern-flank"
-   ],
-   "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
-   "extentFeature": "extent",
-   "yearStart": 1768,
-   "yearEnd": 1794,
-   "confidence": "low-medium",
-   "mapNote": "General area: the 1771 Donelson cession and the 1770 Lochaber wedge (hatched, full documented shapes, including the parts outside Kentucky) and the Chickamauga counties. Approximate, low-medium confidence, not a boundary.",
-   "note": "Main-map shape = sourced treaty/survey shapes (1770 wedge, 1771 survey area) drawn in full, solid lines inside Kentucky and the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn.",
-   "mainMap": true
-  },
-  {
-   "id": "shawnee",
-   "name": "Shawnee",
-   "color": "#009E73",
-   "slugs": [
-    "treaty-of-camp-charlotte-1774",
-    "shawnee-chillicothe-divisions",
-    "nonhelema"
-   ],
-   "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
-   "extentFeature": "extent",
-   "yearStart": 1735,
-   "yearEnd": 1795,
-   "confidence": "low-medium",
-   "mapNote": "Presence in Kentucky c.1735–c.1782; claim to most of Kentucky asserted by 1768 (whole-state outline = most generous estimate, not a boundary). Ohio town counties and the 1774 Ohio River line run to 1795. Approximate, low-medium confidence.",
-   "note": "Main-map shape = claim area (Kentucky outline, most generous estimate of “most of Kentucky”; not a boundary), the 1774 Ohio River line and the Ohio town counties. No boundary is sourced.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "six-nations",
-   "name": "Six Nations (Haudenosaunee)",
-   "color": "#CC79A7",
-   "slugs": [
-    "treaty-of-fort-stanwix-1768",
-    "iroquois-beaver-wars"
-   ],
-   "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
-   "extentFeature": "extent",
-   "yearStart": 1600,
-   "yearEnd": 1784,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Haudenosaunee homeland in New York and Pennsylvania (tint), shown from 1600 (a display start; no founding year is sourced) to 1784, and, hatched, the Kentucky east of the Tennessee River sold to the Crown in 1768 (a cession claim, not where people lived). Low–medium confidence, not a boundary.",
-   "note": "Kentucky east of the Tennessee River was sold to the Crown at Fort Stanwix 1768 on a Six Nations conquest claim that the Cherokee and Shawnee disputed. The tint in New York and Pennsylvania is a general area of the homeland, built from whole counties.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "mingo",
-   "name": "Mingo",
-   "color": "#A8456F",
-   "slugs": [
-    "mingo-camps-south-of-the-ohio"
-   ],
-   "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
-   "extentFeature": "extent",
-   "yearStart": 1750,
-   "yearEnd": 1832,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of Mingo presence, c.1750–1832 (whole counties, not a boundary): the Cayuga and Seneca lakes in New York, the upper Ohio (Mingo Town 1770), Delaware County, Ohio (Pluggy’s Town from 1772, county level) and the Sandusky and Lewistown Seneca to 1832, with three approximate points. Kentucky camp sites unknown, not drawn. Low–medium confidence.",
-   "note": "Presence: approximate general areas in New York and Ohio, sourced points and a raid site; no Kentucky camp areas are known or drawn.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "wyandot",
-   "name": "Wyandot",
-   "color": "#56B4E9",
-   "slugs": [
-    "wyandot-on-kentuckys-northern-frontier",
-    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
-   ],
-   "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
-   "extentFeature": "extent",
-   "yearStart": 1671,
-   "yearEnd": 1843,
-   "confidence": "medium",
-   "mapNote": "Approximate general area of Wyandot towns, 1671–1843 (whole counties, not a boundary): Michilimackinac, Detroit, Sandusky Bay and the Muskingum, then the Sandusky River and the 1817 reserves; Kentucky only as 1780 and 1782 raid sites. The 1785 Fort McIntosh allotment is hatched as a county approximation. Medium confidence for named sites; the county tint is low–medium.",
-   "note": "A general area in Michigan and Ohio, sourced town and raid points; no Kentucky camp areas are known or drawn.",
-   "mainMap": true,
-   "approxStart": false
-  },
-  {
-   "id": "delaware-lenape",
-   "name": "Delaware (Lenape)",
-   "color": "#E69F00",
-   "slugs": [
-    "delaware-lenape-in-the-1780-kentucky-raids",
-    "delaware-winter-camps-on-kentucky-ground"
-   ],
-   "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
-   "extentFeature": "extent",
-   "yearStart": 1750,
-   "yearEnd": 1805,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Delaware (Lenape) Ohio towns c.1750–1795 (Muskingum and Tuscarawas valleys; the Tuscarawas towns date from 1772) and the ten-county 1804 Indiana cession (whole counties, not a boundary), plus Bird’s 1780 route in Kentucky. The Delaware valley counties in Pennsylvania are an inference (low confidence). Kentucky camp sites unknown, not drawn.",
-   "note": "Ohio and Indiana: a general area of the towns, the 1780 route inside Kentucky, the 1785 allotment and the 1804 cession. No Kentucky camp areas are drawn.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "miami",
-   "name": "Miami (with Wea and Piankashaw)",
-   "color": "#332288",
-   "slugs": [
-    "miami-hunters-return-north-of-the-ohio",
-    "piankashaw-claims-on-the-ohio-wabash"
-   ],
-   "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
-   "extentFeature": "extent",
-   "yearStart": 1654,
-   "yearEnd": 1846,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Miami, Wea and Piankashaw, c.1654–1846: Lake Michigan and Detroit sites, then the Wabash country from Fort Wayne to Vincennes, with the ten-county 1804 cession (whole counties, not a boundary). Medium confidence for the town points, low–medium for the county tints. Northern Kentucky hunting ground: no area drawn.",
-   "note": "Wabash valley in Indiana: a general area of the towns and the 1804 cession; Kentucky hunting is described in text only.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "kickapoo",
-   "name": "Kickapoo (with Mascouten)",
-   "color": "#999933",
-   "slugs": [
-    "kickapoo-on-the-kentucky-frontier",
-    "mascouten-fire-nation-on-the-wabash"
-   ],
-   "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
-   "extentFeature": "extent",
-   "yearStart": 1730,
-   "yearEnd": 1819,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area in Indiana and Illinois, c.1730s–1819 (the Wabash and Vermilion country, whole counties, not a boundary). Sources disagree on where the Kickapoo were at first contact, so none is asserted. The Mascouten have no area of their own and are shown here. No Kentucky villages are documented. Low–medium confidence.",
-   "note": "A general area in Indiana and Illinois; no Kentucky villages are documented.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "illinois",
-   "name": "Illinois Confederation (Kaskaskia, Cahokia)",
-   "color": "#8C510A",
-   "slugs": [
-    "illinois-confederation-at-cahokia"
-   ],
-   "ref": "/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
-   "extentFeature": "extent",
-   "yearStart": 1778,
-   "yearEnd": 1803,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Illinois towns on the Mississippi (1778) and of the claim declared in 1803 (southern Illinois, whole counties, not a boundary). The claim’s southern edge is the Ohio River from Cairo to Saline Creek (medium confidence); nothing in Kentucky is claimed. The inland ridge calls are unlocated, so the inland edge is a rough guess (low). Low–medium overall.",
-   "note": "Two town points and a general area of the 1803 declared claim in Illinois; the Ohio River edge is sourced, the inland calls are unlocated, and no Kentucky territory is claimed.",
-   "mainMap": true
-  },
-  {
-   "id": "potawatomi",
-   "name": "Potawatomi",
-   "color": "#9B59B6",
-   "slugs": [
-    "potawatomi-fire-keepers-and-the-ohio-valley-wars"
-   ],
-   "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
-   "extentFeature": "extent",
-   "yearStart": 1640,
-   "yearEnd": 1809,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of Potawatomi presence, c.1640–1809: Green Bay and the Door Peninsula to about 1700, then the St. Joseph River, Chicago and Milwaukee, then southern Michigan, northern Indiana and northeast Illinois (whole counties, not a boundary). Low–medium confidence to 1763; low from 1763.",
-   "note": "A general area in Wisconsin, Michigan, Indiana and Illinois; Detroit and Chicago points; no Kentucky presence.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "ojibwe",
-   "name": "Ojibwe (Chippewa) and Odawa",
-   "color": "#4D4D4D",
-   "slugs": [
-    "ojibwe-on-birds-war-road"
-   ],
-   "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
-   "extentFeature": "extent",
-   "yearStart": 1700,
-   "yearEnd": 1819,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of Odawa and Ojibwe presence, c.1700–1819: Sault Ste. Marie and the Straits of Mackinac, Detroit, Saginaw and the Maumee, and (from the 1807 and 1819 treaties) the Saginaw and Thunder Bay counties (whole counties, not a boundary), plus Bird’s 1780 route, solid in Kentucky. Low–medium confidence. The wider homeland (Wisconsin, Minnesota, Ontario) is text only. The Odawa story about Egushawa is separate.",
-   "note": "A general area in Michigan and Ohio, and Bird’s June 1780 war road in Kentucky; the wider homeland is not drawn.",
-   "mainMap": true,
-   "approxStart": true
-  },
-  {
-   "id": "tutelo",
-   "name": "Tutelo",
-   "color": "#FFAABB",
-   "outline": "#7A1F3D",
-   "slugs": [
-    "tutelo-the-totteroy"
-   ],
-   "ref": "/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
-   "extentFeature": "extent",
-   "yearStart": 1671,
-   "yearEnd": 1779,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Tutelo, 1671–1779: Roanoke and Salem and Mecklenburg County, Virginia, then Brunswick County, Virginia (Fort Christanna), Northumberland County, Pennsylvania (Shamokin) and Tompkins County, New York (Coreorgonel); whole counties, not a boundary. Low–medium confidence. ‘Totteroy’ is a map name only: nothing is drawn in Kentucky.",
-   "note": "A general area in Virginia, Pennsylvania and New York; no documented village in Kentucky.",
-   "mainMap": true
-  },
-  {
-   "id": "mosopelea",
-   "name": "Mosopelea (Ofo)",
-   "color": "#661100",
-   "slugs": [
-    "mosopelea-ofo-the-ohio-valley"
-   ],
-   "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
-   "extentFeature": "extent",
-   "yearStart": 1673,
-   "yearEnd": 1784,
-   "yearLabel": "before 1673–1784",
-   "confidence": "low",
-   "mapNote": "Approximate general area of the Mosopelea (Ofo), before 1673 to 1784: the five Ohio River counties between the Muskingum and the Scioto (from a 1684 French map; disputed), then Yazoo and Adams counties, Mississippi, and Pointe Coupee Parish, Louisiana (whole counties, not a boundary). Low confidence; no start year is known. Nothing in Kentucky.",
-   "note": "A general area in Ohio (disputed), Mississippi and Louisiana; nothing documented in Kentucky.",
-   "mainMap": true
-  },
-  {
-   "id": "osage",
-   "name": "Osage",
-   "color": "#8855FF",
-   "slugs": [
-    "osage-memory-of-the-ohio-valley"
-   ],
-   "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
-   "extentFeature": "extent",
-   "yearStart": 1673,
-   "yearEnd": 1823,
-   "yearLabel": "c.1673–c.1823",
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Osage, c.1673–c.1823: Vernon and Bates counties, Missouri (the Osage River villages), and Saline County, Missouri, for the Little Osage after 1717 (whole counties, not a boundary; the Saline County placement is uncertain). Low–medium confidence. Nothing is drawn in Kentucky: the Ohio Valley origin is Osage Nation oral tradition, debated by historians, with no sourced place or year in Kentucky.",
-   "note": "A general area in western Missouri; the Ohio Valley origin is Osage Nation oral tradition, debated by historians and undated, and nothing is drawn in Kentucky.",
-   "mainMap": true
-  },
-  {
-   "id": "yuchi",
-   "name": "Yuchi",
-   "color": "#FF4466",
-   "outline": "#5A0F23",
-   "slugs": [
-    "yuchi-on-the-green-river-maps"
-   ],
-   "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
-   "extentFeature": "extent",
-   "yearStart": 1567,
-   "yearEnd": 1836,
-   "confidence": "low-medium",
-   "mapNote": "Approximate general area of the Yuchi, 1567–1836: Bradley and Polk counties, Tennessee, to 1714 (sources disagree on the county), Effingham County, Georgia, and Aiken County, South Carolina, on the Savannah River c.1722–1751, and Russell County, Alabama, on the Chattahoochee River 1715–1836 (whole counties, not a boundary). Low–medium confidence. Kentucky is a tag only: one undated early-map mark, no documented town.",
-   "note": "A general area in Tennessee, Georgia, South Carolina and Alabama; no documented town in Kentucky.",
-   "mainMap": true
-  },
-  {
-   "id": "green-river-archaic",
-   "name": "Green River Archaic",
-   "kind": "culture",
-   "texture": "dots",
-   "color": "#BEDCA0",
-   "slugs": [
-    "chiggerville-15oh1",
-    "read-shell-midden-15bt10-butler-county",
-    "carlston-annis-shell-mound",
-    "indian-knoll-on-the-green-river",
-    "ward-site-15mcl11-mclean-county"
-   ],
-   "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
-   "extentFeature": "extent",
-   "yearStart": -4000,
-   "yearEnd": -1000,
-   "confidence": "medium",
-   "mapNote": "Approximate general area of the Green River Archaic (an archaeological culture, not a tribe), 4000–1000 BCE: Butler, Ohio, Henderson, McLean and Muhlenberg counties, Kentucky (whole counties, not a boundary). Medium confidence.",
-   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area in west-central Kentucky; no site locations are shown.",
-   "mainMap": true
-  },
-  {
-   "id": "adena",
-   "name": "Adena",
-   "kind": "culture",
-   "texture": "crosshatch",
-   "color": "#6E6EDC",
-   "slugs": [
-    "dover-mound-mason-county",
-    "gaitskill-mounds-engraved-tablets",
-    "peter-village-enclosure-15fa166",
-    "peter-village-early-woodland-enclosure-near-lexington",
-    "mount-horeb-earthworks",
-    "robbins-mounds-boone-county",
-    "wright-mounds-montgomery-county",
-    "ashlands-adena-mounds"
-   ],
-   "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
-   "extentFeature": "extent",
-   "yearStart": -800,
-   "yearEnd": 250,
-   "approxStart": true,
-   "yearLabel": "Kentucky 500 BCE–250 CE · Ohio c.800 BCE–100 CE",
-   "confidence": "medium",
-   "mapNote": "Approximate general area of Adena (an archaeological culture, not a tribe): eight Kentucky counties, 500 BCE–250 CE, and Ross County, Ohio, c.800 BCE–100 CE (whole counties, not a boundary). Medium confidence for years, medium-low for area.",
-   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: Bluegrass and nearby Kentucky counties plus Ross County, Ohio; no site locations are shown.",
-   "mainMap": true
-  },
-  {
-   "kind": "culture",
-   "extentFeature": "extent",
-   "mainMap": true,
-   "id": "fort-ancient",
-   "name": "Fort Ancient",
-   "texture": "horizontal",
-   "color": "#8C4682",
-   "slugs": [
-    "muir-site-15js86",
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-    "buckner-site-fort-ancient-villages-on-strodes-creek",
-    "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-    "cleek-mccabe-fort-ancient-village",
-    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
-    "fox-farm-mason-county",
-    "howard-site-late-fort-ancient-above-harts-fork",
-    "sweet-lick-knob-fort-ancient-gathering-place",
-    "hardin-village-15gp22"
-   ],
-   "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-   "yearStart": 1000,
-   "yearEnd": 1750,
-   "confidence": "medium",
-   "mapNote": "Approximate general area of Fort Ancient (an archaeological culture, not a tribe), 1000–1750 CE: ten Kentucky counties with documented villages (whole counties, not a boundary). Medium confidence.",
-   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: central, northern and eastern Kentucky counties with documented villages; no site locations are shown."
-  },
-  {
-   "kind": "culture",
-   "extentFeature": "extent",
-   "mainMap": true,
-   "id": "mississippian-western-kentucky",
-   "name": "Mississippian (western Kentucky)",
-   "texture": "diamonds",
-   "color": "#5A965A",
-   "slugs": [
-    "adams-site-15fu4",
-    "adams-site-mississippian-town-near-hickman",
-    "turk-site-carlisle-county",
-    "twin-mounds-site",
-    "tolu-site-mississippian-mounds-on-the-lower-ohio",
-    "jonathan-creek-mississippian-center",
-    "wickliffe-mounds-mississippian-village-ballard-county",
-    "annis-mound-village",
-    "page-site-lost-city-15lo1",
-    "croley-evans-site"
-   ],
-   "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
-   "yearStart": 1000,
-   "yearEnd": 1700,
-   "confidence": "medium",
-   "mapNote": "Approximate general area of Mississippian western Kentucky (an archaeological culture, not a tribe), 1000–1700 CE: eight Kentucky counties holding named towns and mound centers (whole counties, not a boundary). Medium confidence for years, medium-low for area.",
-   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: western and south-central Kentucky counties with named towns; no site locations are shown."
-  },
-  {
-   "kind": "culture",
-   "extentFeature": "extent",
-   "mainMap": true,
-   "id": "caborn-welborn",
-   "name": "Caborn-Welborn",
-   "texture": "vertical",
-   "color": "#D2AAD2",
-   "slugs": [
-    "slack-farm-15un28-union-county"
-   ],
-   "ref": "/data/web/territories/caborn-welborn-slack-farm.json",
-   "yearStart": 1400,
-   "yearEnd": 1700,
-   "confidence": "high",
-   "mapNote": "Approximate general area of Caborn-Welborn (an archaeological culture, not a tribe), 1400–1700 CE: Union and Henderson counties, Kentucky, and Posey County, Indiana (whole counties, not a boundary). High confidence for years, medium for area.",
-   "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area near the mouth of the Wabash River; no site locations are shown."
-  }
- ]
+  "schema": 1,
+  "note": "Territory index. To add a nation: add its data file under public/data/web/territories/ and one entry here. No code change needed. Colors: Okabe-Ito colorblind-safe palette, one per nation. ARCHAEOLOGICAL CULTURES (not tribes): an entry with \"kind\": \"culture\" and \"texture\" (one of dots, crosshatch, horizontal, diamonds, vertical) is listed in its own Layers group 'Archaeological cultures (not tribes)' and its own map-legend group, never mixed with the nations; the group appears only when at least one culture entry exists. A culture uses the same fields as a nation (id, name, color = fill, slugs, ref, extentFeature or mainMap parts, confidence, note, mapNote) plus: texture (required; an unknown value falls back to dots), outline (optional hex, default dark brown #4a2f1a), yearStart/yearEnd (negative = BCE, e.g. -4000; the labels print '4000 BCE', 'c.800 BCE' with approxStart:true, or '800 BCE – 700 CE'), yearLabel (optional text that replaces the years). Its note panel always adds: archaeological culture defined by artifacts and sites, not a tribe; no descent claim. Do not use a nation color or a nation slug for a culture; cultures are separated by texture, outline, legend group and year range, not by color alone.",
+  "nations": [
+    {
+      "id": "chickasaw",
+      "name": "Chickasaw",
+      "color": "#D55E00",
+      "slugs": [
+        "chickasaw-hunting-grounds"
+      ],
+      "ref": "/data/web/territories/chickasaw-hunting-grounds.json",
+      "extentFeature": "r1",
+      "yearStart": 1780,
+      "yearEnd": 1818,
+      "confidence": "medium",
+      "note": "Extent shown is the 1786 Treaty of Hopewell frame; its southern edge is not fixed by the sources.",
+      "mapNote": "General area (1786 Hopewell frame): approximate, not a boundary."
+    },
+    {
+      "id": "cherokee",
+      "name": "Cherokee",
+      "color": "#0072B2",
+      "slugs": [
+        "treaties-of-hard-labour-and-lochaber",
+        "chickamauga-cherokee",
+        "chickamauga-cherokee-hold-the-southern-flank"
+      ],
+      "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
+      "extentFeature": "extent",
+      "yearStart": 1768,
+      "yearEnd": 1794,
+      "confidence": "low-medium",
+      "mapNote": "General area: the 1771 Donelson cession and the 1770 Lochaber wedge (hatched, full documented shapes, including the parts outside Kentucky) and the Chickamauga counties. Approximate, low-medium confidence, not a boundary.",
+      "note": "Main-map shape = sourced treaty/survey shapes (1770 wedge, 1771 survey area) drawn in full, solid lines inside Kentucky and the Chickamauga county footprint. Pre-1768 Kentucky use has no dated boundary and is not drawn.",
+      "mainMap": true
+    },
+    {
+      "id": "shawnee",
+      "name": "Shawnee",
+      "color": "#009E73",
+      "slugs": [
+        "treaty-of-camp-charlotte-1774",
+        "shawnee-chillicothe-divisions",
+        "nonhelema"
+      ],
+      "ref": "/data/web/territories/shawnee-kentucky-ohio-river-and-towns.json",
+      "extentFeature": "extent",
+      "yearStart": 1735,
+      "yearEnd": 1795,
+      "confidence": "low-medium",
+      "mapNote": "Presence in Kentucky c.1735–c.1782; claim to most of Kentucky asserted by 1768 (whole-state outline = most generous estimate, not a boundary). Ohio town counties and the 1774 Ohio River line run to 1795. Approximate, low-medium confidence.",
+      "note": "Main-map shape = claim area (Kentucky outline, most generous estimate of “most of Kentucky”; not a boundary), the 1774 Ohio River line and the Ohio town counties. No boundary is sourced.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "six-nations",
+      "name": "Six Nations (Haudenosaunee)",
+      "color": "#CC79A7",
+      "slugs": [
+        "treaty-of-fort-stanwix-1768",
+        "iroquois-beaver-wars"
+      ],
+      "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+      "extentFeature": "extent",
+      "yearStart": 1600,
+      "yearEnd": 1784,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of the Haudenosaunee homeland in New York and Pennsylvania (tint), shown from 1600 (a display start; no founding year is sourced) to 1784, and, hatched, the Kentucky east of the Tennessee River sold to the Crown in 1768 (a cession claim, not where people lived). Low–medium confidence, not a boundary.",
+      "note": "Kentucky east of the Tennessee River was sold to the Crown at Fort Stanwix 1768 on a Six Nations conquest claim that the Cherokee and Shawnee disputed. The tint in New York and Pennsylvania is a general area of the homeland, built from whole counties.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "mingo",
+      "name": "Mingo",
+      "color": "#A8456F",
+      "slugs": [
+        "mingo-camps-south-of-the-ohio"
+      ],
+      "ref": "/data/web/territories/mingo-presence-ohio-and-kentucky.json",
+      "extentFeature": "extent",
+      "yearStart": 1750,
+      "yearEnd": 1832,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of Mingo presence, c.1750–1832 (whole counties, not a boundary): the Cayuga and Seneca lakes in New York, the upper Ohio (Mingo Town 1770), Delaware County, Ohio (Pluggy’s Town from 1772, county level) and the Sandusky and Lewistown Seneca to 1832, with three approximate points. Kentucky camp sites unknown, not drawn. Low–medium confidence.",
+      "note": "Presence: approximate general areas in New York and Ohio, sourced points and a raid site; no Kentucky camp areas are known or drawn.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "wyandot",
+      "name": "Wyandot",
+      "color": "#56B4E9",
+      "slugs": [
+        "wyandot-on-kentuckys-northern-frontier",
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
+      ],
+      "ref": "/data/web/territories/wyandot-ohio-detroit-and-kentucky-raids.json",
+      "extentFeature": "extent",
+      "yearStart": 1671,
+      "yearEnd": 1843,
+      "confidence": "medium",
+      "mapNote": "Approximate general area of Wyandot towns, 1671–1843 (whole counties, not a boundary): Michilimackinac, Detroit, Sandusky Bay and the Muskingum, then the Sandusky River and the 1817 reserves; Kentucky only as 1780 and 1782 raid sites. The 1785 Fort McIntosh allotment is hatched as a county approximation. Medium confidence for named sites; the county tint is low–medium.",
+      "note": "A general area in Michigan and Ohio, sourced town and raid points; no Kentucky camp areas are known or drawn.",
+      "mainMap": true,
+      "approxStart": false
+    },
+    {
+      "id": "delaware-lenape",
+      "name": "Delaware (Lenape)",
+      "color": "#E69F00",
+      "slugs": [
+        "delaware-lenape-in-the-1780-kentucky-raids",
+        "delaware-winter-camps-on-kentucky-ground"
+      ],
+      "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",
+      "extentFeature": "extent",
+      "yearStart": 1750,
+      "yearEnd": 1805,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of the Delaware (Lenape) Ohio towns c.1750–1795 (Muskingum and Tuscarawas valleys; the Tuscarawas towns date from 1772) and the ten-county 1804 Indiana cession (whole counties, not a boundary), plus Bird’s 1780 route in Kentucky. The Delaware valley counties in Pennsylvania are an inference (low confidence). Kentucky camp sites unknown, not drawn.",
+      "note": "Ohio and Indiana: a general area of the towns, the 1780 route inside Kentucky, the 1785 allotment and the 1804 cession. No Kentucky camp areas are drawn.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "miami",
+      "name": "Miami (with Wea and Piankashaw)",
+      "color": "#2F7D4F",
+      "slugs": [
+        "miami-hunters-return-north-of-the-ohio",
+        "piankashaw-claims-on-the-ohio-wabash"
+      ],
+      "ref": "/data/web/territories/miami-wabash-piankashaw-wea-and-northern-kentucky.json",
+      "extentFeature": "extent",
+      "yearStart": 1654,
+      "yearEnd": 1846,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of the Miami, Wea and Piankashaw, c.1654–1846: Lake Michigan and Detroit sites, then the Wabash country from Fort Wayne to Vincennes, with the ten-county 1804 cession (whole counties, not a boundary). Medium confidence for the town points, low–medium for the county tints. Northern Kentucky hunting ground: no area drawn.",
+      "note": "Wabash valley in Indiana: a general area of the towns and the 1804 cession; Kentucky hunting is described in text only.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "kickapoo",
+      "name": "Kickapoo (with Mascouten)",
+      "color": "#999933",
+      "slugs": [
+        "kickapoo-on-the-kentucky-frontier",
+        "mascouten-fire-nation-on-the-wabash"
+      ],
+      "ref": "/data/web/territories/kickapoo-wabash-vermilion-and-illinois.json",
+      "extentFeature": "extent",
+      "yearStart": 1730,
+      "yearEnd": 1819,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area in Indiana and Illinois, c.1730s–1819 (the Wabash and Vermilion country, whole counties, not a boundary). Sources disagree on where the Kickapoo were at first contact, so none is asserted. The Mascouten have no area of their own and are shown here. No Kentucky villages are documented. Low–medium confidence.",
+      "note": "A general area in Indiana and Illinois; no Kentucky villages are documented.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "illinois",
+      "name": "Illinois Confederation (Kaskaskia, Cahokia)",
+      "color": "#8C510A",
+      "slugs": [
+        "illinois-confederation-at-cahokia"
+      ],
+      "ref": "/data/web/territories/illinois-confederation-cahokia-and-the-1803-claim.json",
+      "extentFeature": "extent",
+      "yearStart": 1778,
+      "yearEnd": 1803,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of the Illinois towns on the Mississippi (1778) and of the claim declared in 1803 (southern Illinois, whole counties, not a boundary). The claim’s southern edge is the Ohio River from Cairo to Saline Creek (medium confidence); nothing in Kentucky is claimed. The inland ridge calls are unlocated, so the inland edge is a rough guess (low). Low–medium overall.",
+      "note": "Two town points and a general area of the 1803 declared claim in Illinois; the Ohio River edge is sourced, the inland calls are unlocated, and no Kentucky territory is claimed.",
+      "mainMap": true
+    },
+    {
+      "id": "potawatomi",
+      "name": "Potawatomi",
+      "color": "#9B59B6",
+      "slugs": [
+        "potawatomi-fire-keepers-and-the-ohio-valley-wars"
+      ],
+      "ref": "/data/web/territories/potawatomi-great-lakes-and-the-ohio-valley-wars.json",
+      "extentFeature": "extent",
+      "yearStart": 1640,
+      "yearEnd": 1809,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of Potawatomi presence, c.1640–1809: Green Bay and the Door Peninsula to about 1700, then the St. Joseph River, Chicago and Milwaukee, then southern Michigan, northern Indiana and northeast Illinois (whole counties, not a boundary). Low–medium confidence to 1763; low from 1763.",
+      "note": "A general area in Wisconsin, Michigan, Indiana and Illinois; Detroit and Chicago points; no Kentucky presence.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "ojibwe",
+      "name": "Ojibwe (Chippewa) and Odawa",
+      "color": "#4D4D4D",
+      "slugs": [
+        "ojibwe-on-birds-war-road"
+      ],
+      "ref": "/data/web/territories/ojibwe-and-odawa-on-birds-war-road.json",
+      "extentFeature": "extent",
+      "yearStart": 1700,
+      "yearEnd": 1819,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of Odawa and Ojibwe presence, c.1700–1819: Sault Ste. Marie and the Straits of Mackinac, Detroit, Saginaw and the Maumee, and (from the 1807 and 1819 treaties) the Saginaw and Thunder Bay counties (whole counties, not a boundary), plus Bird’s 1780 route, solid in Kentucky. Low–medium confidence. The wider homeland (Wisconsin, Minnesota, Ontario) is text only. The Odawa story about Egushawa is separate.",
+      "note": "A general area in Michigan and Ohio, and Bird’s June 1780 war road in Kentucky; the wider homeland is not drawn.",
+      "mainMap": true,
+      "approxStart": true
+    },
+    {
+      "id": "tutelo",
+      "name": "Tutelo",
+      "color": "#FFAABB",
+      "outline": "#7A1F3D",
+      "slugs": [
+        "tutelo-the-totteroy"
+      ],
+      "ref": "/data/web/territories/tutelo-virginia-piedmont-and-cayuga-protection.json",
+      "extentFeature": "extent",
+      "yearStart": 1671,
+      "yearEnd": 1779,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of the Tutelo, 1671–1779: Roanoke and Salem and Mecklenburg County, Virginia, then Brunswick County, Virginia (Fort Christanna), Northumberland County, Pennsylvania (Shamokin) and Tompkins County, New York (Coreorgonel); whole counties, not a boundary. Low–medium confidence. ‘Totteroy’ is a map name only: nothing is drawn in Kentucky.",
+      "note": "A general area in Virginia, Pennsylvania and New York; no documented village in Kentucky.",
+      "mainMap": true
+    },
+    {
+      "id": "mosopelea",
+      "name": "Mosopelea (Ofo)",
+      "color": "#661100",
+      "slugs": [
+        "mosopelea-ofo-the-ohio-valley"
+      ],
+      "ref": "/data/web/territories/mosopelea-ofo-ohio-valley-and-lower-mississippi.json",
+      "extentFeature": "extent",
+      "yearStart": 1673,
+      "yearEnd": 1784,
+      "yearLabel": "before 1673–1784",
+      "confidence": "low",
+      "mapNote": "Approximate general area of the Mosopelea (Ofo), before 1673 to 1784: the five Ohio River counties between the Muskingum and the Scioto (from a 1684 French map; disputed), then Yazoo and Adams counties, Mississippi, and Pointe Coupee Parish, Louisiana (whole counties, not a boundary). Low confidence; no start year is known. Nothing in Kentucky.",
+      "note": "A general area in Ohio (disputed), Mississippi and Louisiana; nothing documented in Kentucky.",
+      "mainMap": true
+    },
+    {
+      "id": "osage",
+      "name": "Osage",
+      "color": "#8855FF",
+      "slugs": [
+        "osage-memory-of-the-ohio-valley"
+      ],
+      "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",
+      "extentFeature": "extent",
+      "yearStart": 1673,
+      "yearEnd": 1823,
+      "yearLabel": "c.1673–c.1823",
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of the Osage, c.1673–c.1823: Vernon and Bates counties, Missouri (the Osage River villages), and Saline County, Missouri, for the Little Osage after 1717 (whole counties, not a boundary; the Saline County placement is uncertain). Low–medium confidence. Nothing is drawn in Kentucky: the Ohio Valley origin is Osage Nation oral tradition, debated by historians, with no sourced place or year in Kentucky.",
+      "note": "A general area in western Missouri; the Ohio Valley origin is Osage Nation oral tradition, debated by historians and undated, and nothing is drawn in Kentucky.",
+      "mainMap": true,
+      "mapLabel": true
+    },
+    {
+      "id": "yuchi",
+      "name": "Yuchi",
+      "color": "#FF4466",
+      "outline": "#5A0F23",
+      "slugs": [
+        "yuchi-on-the-green-river-maps"
+      ],
+      "ref": "/data/web/territories/yuchi-tennessee-savannah-chattahoochee.json",
+      "extentFeature": "extent",
+      "yearStart": 1567,
+      "yearEnd": 1836,
+      "confidence": "low-medium",
+      "mapNote": "Approximate general area of the Yuchi, 1567–1836: Bradley and Polk counties, Tennessee, to 1714 (sources disagree on the county), Effingham County, Georgia, and Aiken County, South Carolina, on the Savannah River c.1722–1751, and Russell County, Alabama, on the Chattahoochee River 1715–1836 (whole counties, not a boundary). Low–medium confidence. Kentucky is a tag only: one undated early-map mark, no documented town.",
+      "note": "A general area in Tennessee, Georgia, South Carolina and Alabama; no documented town in Kentucky.",
+      "mainMap": true
+    },
+    {
+      "id": "green-river-archaic",
+      "name": "Green River Archaic",
+      "kind": "culture",
+      "texture": "dots",
+      "color": "#BEDCA0",
+      "slugs": [
+        "chiggerville-15oh1",
+        "read-shell-midden-15bt10-butler-county",
+        "carlston-annis-shell-mound",
+        "indian-knoll-on-the-green-river",
+        "ward-site-15mcl11-mclean-county"
+      ],
+      "ref": "/data/web/territories/green-river-archaic-shell-middens.json",
+      "extentFeature": "extent",
+      "yearStart": -4000,
+      "yearEnd": -1000,
+      "confidence": "medium",
+      "mapNote": "Approximate general area of the Green River Archaic (an archaeological culture, not a tribe), 4000–1000 BCE: Butler, Ohio, Henderson, McLean and Muhlenberg counties, Kentucky (whole counties, not a boundary). Medium confidence.",
+      "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area in west-central Kentucky; no site locations are shown.",
+      "mainMap": true
+    },
+    {
+      "id": "adena",
+      "name": "Adena",
+      "kind": "culture",
+      "texture": "crosshatch",
+      "color": "#6E6EDC",
+      "slugs": [
+        "dover-mound-mason-county",
+        "gaitskill-mounds-engraved-tablets",
+        "peter-village-enclosure-15fa166",
+        "peter-village-early-woodland-enclosure-near-lexington",
+        "mount-horeb-earthworks",
+        "robbins-mounds-boone-county",
+        "wright-mounds-montgomery-county",
+        "ashlands-adena-mounds"
+      ],
+      "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
+      "extentFeature": "extent",
+      "yearStart": -800,
+      "yearEnd": 250,
+      "approxStart": true,
+      "yearLabel": "Kentucky 500 BCE–250 CE · Ohio c.800 BCE–100 CE",
+      "confidence": "medium",
+      "mapNote": "Approximate general area of Adena (an archaeological culture, not a tribe): eight Kentucky counties, 500 BCE–250 CE, and Ross County, Ohio, c.800 BCE–100 CE (whole counties, not a boundary). Medium confidence for years, medium-low for area.",
+      "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: Bluegrass and nearby Kentucky counties plus Ross County, Ohio; no site locations are shown.",
+      "mainMap": true
+    },
+    {
+      "kind": "culture",
+      "extentFeature": "extent",
+      "mainMap": true,
+      "id": "fort-ancient",
+      "name": "Fort Ancient",
+      "texture": "horizontal",
+      "color": "#8C4682",
+      "slugs": [
+        "muir-site-15js86",
+        "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+        "buckner-site-fort-ancient-villages-on-strodes-creek",
+        "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
+        "cleek-mccabe-fort-ancient-village",
+        "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+        "fox-farm-mason-county",
+        "howard-site-late-fort-ancient-above-harts-fork",
+        "sweet-lick-knob-fort-ancient-gathering-place",
+        "hardin-village-15gp22"
+      ],
+      "ref": "/data/web/territories/fort-ancient-farming-villages.json",
+      "yearStart": 1000,
+      "yearEnd": 1750,
+      "confidence": "medium",
+      "mapNote": "Approximate general area of Fort Ancient (an archaeological culture, not a tribe), 1000–1750 CE: ten Kentucky counties with documented villages (whole counties, not a boundary). Medium confidence.",
+      "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: central, northern and eastern Kentucky counties with documented villages; no site locations are shown."
+    },
+    {
+      "kind": "culture",
+      "extentFeature": "extent",
+      "mainMap": true,
+      "id": "mississippian-western-kentucky",
+      "name": "Mississippian (western Kentucky)",
+      "texture": "diamonds",
+      "color": "#5A965A",
+      "slugs": [
+        "adams-site-15fu4",
+        "adams-site-mississippian-town-near-hickman",
+        "turk-site-carlisle-county",
+        "twin-mounds-site",
+        "tolu-site-mississippian-mounds-on-the-lower-ohio",
+        "jonathan-creek-mississippian-center",
+        "wickliffe-mounds-mississippian-village-ballard-county",
+        "annis-mound-village",
+        "page-site-lost-city-15lo1",
+        "croley-evans-site"
+      ],
+      "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
+      "yearStart": 1000,
+      "yearEnd": 1700,
+      "confidence": "medium",
+      "mapNote": "Approximate general area of Mississippian western Kentucky (an archaeological culture, not a tribe), 1000–1700 CE: eight Kentucky counties holding named towns and mound centers (whole counties, not a boundary). Medium confidence for years, medium-low for area.",
+      "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area: western and south-central Kentucky counties with named towns; no site locations are shown."
+    },
+    {
+      "kind": "culture",
+      "extentFeature": "extent",
+      "mainMap": true,
+      "id": "caborn-welborn",
+      "name": "Caborn-Welborn",
+      "texture": "vertical",
+      "color": "#D2AAD2",
+      "slugs": [
+        "slack-farm-15un28-union-county"
+      ],
+      "ref": "/data/web/territories/caborn-welborn-slack-farm.json",
+      "yearStart": 1400,
+      "yearEnd": 1700,
+      "confidence": "high",
+      "mapNote": "Approximate general area of Caborn-Welborn (an archaeological culture, not a tribe), 1400–1700 CE: Union and Henderson counties, Kentucky, and Posey County, Indiana (whole counties, not a boundary). High confidence for years, medium for area.",
+      "note": "Archaeological culture defined by artifacts and sites, not a tribe; no descent claim is made. A general area near the mouth of the Wabash River; no site locations are shown."
+    }
+  ]
 }
