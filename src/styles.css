@@ -2163,7 +2163,7 @@ html[data-hp-theme="light"] .about-seal {
 }
 .hp-page {
   /* Seal ≈ title + tagline + subhead stack; never above the 512 native master. */
-  --hp-logo: 200px;
+  --hp-logo: 132px;
   --hp-logo-gap: 1rem;
   min-height: 100vh;
   display: flex;
@@ -2176,6 +2176,8 @@ html[data-hp-theme="light"] .about-seal {
   padding: 0.9rem clamp(1.25rem, 5vw, 4rem);
   gap: 1rem 1.5rem;
   align-items: center;
+  /* Reserve seal+pad so the hero below does not jump (132px seal desktop). */
+  min-height: calc(132px + 1.8rem);
 }
 .hp-page .brand-home {
   align-items: center;
@@ -3082,11 +3084,12 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
   .hp-mag-hero-copy { --hp-deck-lines: 5; --hp-credit-lines: 2; }
   .hp-page {
-    --hp-logo: 140px;
+    --hp-logo: 84px;
   }
   .hp-page .top {
     flex-wrap: wrap;
     padding: 0.75rem 1rem;
+    min-height: calc(84px + 4.5rem);
   }
   .hp-page .brand {
     width: 100%;
@@ -3206,8 +3209,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     max-height: none;
   }
   body.hp-page .site-header .brand-logo {
-    width: var(--hp-logo, 200px);
-    height: var(--hp-logo, 200px);
+    width: var(--hp-logo, 132px);
+    height: var(--hp-logo, 132px);
   }
   body.hp-page .site-header .brand h1 {
     font-size: clamp(1.3rem, 2.6vw, 1.75rem);
@@ -3228,8 +3231,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     gap: 0.5rem;
   }
   body.hp-page .site-header .brand-logo {
-    width: var(--hp-logo, 140px);
-    height: var(--hp-logo, 140px);
+    width: var(--hp-logo, 84px);
+    height: var(--hp-logo, 84px);
   }
   body.hp-page .site-header .brand h1 {
     font-size: 1.2rem;
