@@ -75,12 +75,12 @@ export function transportYearFilter(year) {
 }
 
 export const ERA_COLORS = [
-  [1830, '#e8b341'],
-  [1850, '#d68f27'],
-  [1870, '#bb6f1c'],
-  [1880, '#a35a18'],
-  [1960, '#86391a'],
-  [1970, '#5f2314'],
+  [1830, '#b8860b'],
+  [1850, '#d9480f'],
+  [1870, '#b5179e'],
+  [1880, '#5f3dc4'],
+  [1960, '#1864ab'],
+  [1970, '#087f5b'],
 ]
 
 function eraColorFor(year) {
@@ -204,6 +204,7 @@ function applyYear(year) {
   if (live) live.textContent = `Showing lines open in ${year}. Dates are provisional.`
   const canvas = document.getElementById('transportMap')
   if (canvas) canvas.setAttribute('aria-label', `Kentucky transportation map in ${year}`)
+  syncEndpoints(year)
   renderLegend(year)
 }
 
@@ -265,8 +266,9 @@ function popupHtml(props) {
   return `<div class="transport-popup-card">
     <p class="transport-popup-kicker">${esc(kind)} · provisional date</p>
     <h3>${esc(props.routeName)}</h3>
-    <p>${esc(props.name)}</p>
+    <p>${esc(props.from)} to ${esc(props.to)}</p>
     <p class="transport-popup-year">Opened ${esc(props.opened)}</p>
+    ${props.why ? `<p class="transport-popup-why"><strong>Why it ran here:</strong> ${esc(props.why)}${String(props.whyProvisional) === 'true' ? ' <em>(provisional)</em>' : ''}${/^https:\/\//.test(String(props.whySource || '')) ? ` <a href="${esc(props.whySource)}" target="_blank" rel="noopener noreferrer nofollow">Source</a>` : ''}</p>` : ''}
     <p class="transport-popup-note">${String(props.dateSourced) === 'true' ? 'Provisional. Research Bot is still confirming this date.' : 'Date not yet sourced for this section.'} ${link}</p>
   </div>`
 }
@@ -296,7 +298,7 @@ function wireMap() {
 }
 
 async function boot() {
-  const [rail, roads, ky, src, counties, secs, labels] = await Promise.all([
+  const [rail, roads, ky, src, counties, secs, labels, ends] = await Promise.all([
     fetchJson('/maps/transport/rail.geojson'),
     { type: 'FeatureCollection', features: [] },
     fetchJson('/data/kentucky-outline.geojson'),
@@ -304,6 +306,7 @@ async function boot() {
     fetchJson('/maps/transport/county-lines.geojson'),
     fetchJson('/maps/transport/sections.geojson'),
     fetchJson('/maps/transport/county-labels.geojson'),
+    fetchJson('/maps/transport/endpoints.geojson'),
   ])
   sections = secs
   sources = src
@@ -322,6 +325,7 @@ async function boot() {
   wireMap()
   await new Promise((resolve) => map.once('load', resolve))
   addCountyLabels(labels)
+  addEndpointLabels(ends)
   const observer = new MutationObserver(() => {
     applyColors()
     const year = Number(document.getElementById('transport')?.dataset.year || DEFAULT_YEAR)
@@ -361,6 +365,27 @@ async function boot() {
   window.addEventListener('resize', () => {
     if (map) map.resize()
   })
+}
+
+let endpointMarkers = []
+function syncEndpoints(year) {
+  for (const [m, opened, on] of endpointMarkers) {
+    const want = opened <= year
+    if (want !== on.v) {
+      on.v = want
+      want ? m.addTo(map) : m.remove()
+    }
+  }
+}
+
+function addEndpointLabels(ends) {
+  for (const f of ends.features || []) {
+    const el = document.createElement('span')
+    el.className = 'transport-endpoint'
+    el.innerHTML = `<i aria-hidden="true"></i><b>${esc(f.properties.name)}</b>`
+    const m = new maplibregl.Marker({ element: el, anchor: 'left', offset: [-4, 0] }).setLngLat(f.geometry.coordinates)
+    endpointMarkers.push([m, Number(f.properties.opened), { v: false }])
+  }
 }
 
 const COUNTY_LABEL_ZOOM = 8.5
