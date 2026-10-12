@@ -345,6 +345,92 @@ export function nearbyHtml(story, all, { headingLevel = 2, markers = [], exclude
   return `<nav class="story-nearby" aria-labelledby="nearby-stories-heading"><h${level} id="nearby-stories-heading">Nearby</h${level}><ul>${items}</ul></nav>`
 }
 
+const GENERIC_RELATED_TAGS = new Set([
+  'kentucky',
+  'other',
+  'prehistoric',
+  'native',
+  'frontier',
+  'early-commonwealth',
+])
+
+function specificTags(story) {
+  const era = story?.era
+  return (story?.tags || []).filter((tag) => tag && tag !== era && !GENERIC_RELATED_TAGS.has(tag))
+}
+
+function sharedTagCount(story, other) {
+  const tags = new Set(specificTags(story))
+  if (!tags.size) return 0
+  return specificTags(other).filter((tag) => tags.has(tag)).length
+}
+
+function yearSpan(story) {
+  const start = Number(story?.yearStart)
+  const end = Number(story?.yearEnd)
+  const startOk = Number.isFinite(start)
+  const endOk = Number.isFinite(end)
+  if (!startOk && !endOk) return null
+  const a = startOk ? start : end
+  const b = endOk ? end : start
+  return [Math.min(a, b), Math.max(a, b)]
+}
+
+/** Years the two stories share. A matching era label counts as 1 only when a year span is missing. */
+export function eraOverlapYears(story, other) {
+  const a = yearSpan(story)
+  const b = yearSpan(other)
+  if (!a || !b) return story?.era && story.era === other?.era ? 1 : 0
+  const start = Math.max(a[0], b[0])
+  const end = Math.min(a[1], b[1])
+  return end >= start ? end - start + 1 : 0
+}
+
+function countyKey(story) {
+  return String(story?.county || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+county$/, '')
+}
+
+function sameCounty(story, other) {
+  const a = countyKey(story)
+  const b = countyKey(other)
+  return Boolean(a && b && a === b)
+}
+
+function relatedMiles(story, other) {
+  const origin = storyOrigin(story)
+  const lat = finiteCoord(other?.lat)
+  const lon = finiteCoord(other?.lon)
+  if (!origin || !validPin(lat, lon)) return Number.POSITIVE_INFINITY
+  return haversineMiles(origin.lat, origin.lon, lat, lon)
+}
+
+/**
+ * Three to five other stories.
+ * Order: more shared subject tags, then more years of overlap, then the same county,
+ * then nearer, then title. Alphabetical order is only the last tiebreak.
+ */
+export function pickRelatedStories(story, all, excludeSlugs = []) {
+  const skip = new Set(excludeSlugs || [])
+  const pool = (all || []).filter(
+    (other) => other?.slug && other.slug !== story?.slug && other.title && !skip.has(other.slug),
+  )
+  pool.sort((a, b) => {
+    const tagDelta = sharedTagCount(story, b) - sharedTagCount(story, a)
+    if (tagDelta) return tagDelta
+    const eraDelta = eraOverlapYears(story, b) - eraOverlapYears(story, a)
+    if (eraDelta) return eraDelta
+    const countyDelta = Number(sameCounty(story, b)) - Number(sameCounty(story, a))
+    if (countyDelta) return countyDelta
+    const milesDelta = relatedMiles(story, a) - relatedMiles(story, b)
+    if (milesDelta) return milesDelta
+    return String(a.title).localeCompare(String(b.title)) || String(a.slug).localeCompare(String(b.slug))
+  })
+  return pool.slice(0, Math.min(5, pool.length))
+}
+
 /** Related stories first, then nearby places that are not already listed. */
 export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2 } = {}) {
   const rows = [...(related || []), ...(nearby || [])]

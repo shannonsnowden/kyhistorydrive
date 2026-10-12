@@ -38,6 +38,7 @@ import {
   markerRecords,
   nearbyPlaces,
   photoCreditHtml,
+  pickRelatedStories,
   relatedAndNearbyHtml,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -1085,44 +1086,9 @@ class PrerenderPages {
 `
   }
 
-  /** Same era, county, or subject layer (shared tag or territory). Three to five stories. */
+  /** Shared tags, then era overlap, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
-    const skip = new Set(excludeSlugs || [])
-    const generic = new Set(['kentucky', 'other', 'prehistoric', 'native', 'frontier', 'early-commonwealth', story.era])
-    const tags = new Set((story.tags || []).filter((tag) => tag && !generic.has(tag)))
-    const ranked = []
-    for (const other of all) {
-      if (!other || other.slug === story.slug || skip.has(other.slug)) continue
-      let score = 0
-      if (story.era && other.era === story.era) score += 3
-      if (story.county && other.county && other.county === story.county) score += 4
-      if (story.territoryNation && other.territoryNation && other.territoryNation === story.territoryNation) score += 3
-      const shared = (other.tags || []).filter((tag) => tags.has(tag)).length
-      if (shared) score += Math.min(4, shared * 2)
-      if (score > 0) ranked.push({ other, score })
-    }
-    ranked.sort((a, b) => b.score - a.score || a.other.title.localeCompare(b.other.title))
-    const picked = []
-    const seen = new Set()
-    const take = (item) => {
-      if (!item || skip.has(item.slug) || seen.has(item.slug) || picked.length >= 5) return
-      seen.add(item.slug)
-      picked.push(item)
-    }
-    for (const row of ranked) take(row.other)
-    if (picked.length < 3) {
-      for (const other of all) {
-        if (other.era === story.era) take(other)
-        if (picked.length >= 3) break
-      }
-    }
-    if (picked.length < 3) {
-      for (const other of all) {
-        take(other)
-        if (picked.length >= 3) break
-      }
-    }
-    return picked.slice(0, 5)
+    return pickRelatedStories(story, all, excludeSlugs)
   }
 
   static relatedAndNearbySection(story, all, markers) {
@@ -1698,6 +1664,10 @@ class PrerenderPages {
     if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
     const routeForNearby = routeBySlug(story.slug)
     const relatedSlugs = [...related[0].matchAll(/<li class="related-story">[\s\S]*?href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
+    const expectedRelated = PrerenderPages.relatedStories(story, all, routeForNearby?.relatedStories || []).map((item) => item.slug)
+    if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
+      throw new Error(`prerender: ${urlPath} related stories are not ranked by tags, era, county, then distance`)
+    }
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
       excludeSlugs: [...(routeForNearby?.relatedStories || []), ...relatedSlugs],
