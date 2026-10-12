@@ -4068,3 +4068,18 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
   text-shadow: 0 0 2px #f6eedb, 0 0 2px #f6eedb, 0 0 3px #f6eedb;
 }
 .transport-popup-why { font-size: 0.85rem; }
+.transport-badge.is-needs-source { color: #9c2a10; border-color: currentColor; }
+@media (max-width: 600px) {
+  .transport-popup .maplibregl-popup-content {
+    max-height: 40vh;
+    overflow-y: auto;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .transport-popup h3 { font-size: 1rem; margin: 0.15rem 0; }
+  .transport-popup p { margin: 0.25rem 0; }
+}
+html[data-hp-theme='dark'] .transport-endpoint b { color: #f6edd8; text-shadow: 0 0 2px #100e0c, 0 0 3px #100e0c; }
+html[data-hp-theme='dark'] .transport-endpoint i { background: #100e0c; border-color: #f6edd8; }
+html[data-hp-theme='dark'] .transport-county-label { color: #d8ccb2; text-shadow: 0 0 2px #100e0c, 0 0 2px #100e0c; }
+html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }

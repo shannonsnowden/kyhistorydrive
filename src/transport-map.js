@@ -225,16 +225,16 @@ function renderLegend(year) {
     const seen = new Set()
     html += `<p class="transport-legend-label">${esc(label)}</p><ul class="transport-legend-list">`
     for (const f of items) {
-      if (seen.has(f.route + f.name)) continue
-      seen.add(f.route + f.name)
+      if (seen.has(f.id)) continue
+      seen.add(f.id)
       const on = f.opened <= year
-      const title = kind === 'rail' ? `${f.routeName}: ${f.name}` : f.routeName
+      const title = `${f.routeName}: ${f.from} to ${f.to}`
       html += `<li class="${on ? 'is-on' : 'is-future'}">
-          <button type="button" data-year="${esc(f.opened)}">
+          <button type="button" data-year="${esc(f.opened > 2000 ? 2000 : f.opened)}">
           <i class="transport-swatch" style="background:${esc(eraColorFor(f.opened))}" aria-hidden="true"></i>
           <span class="transport-legend-name">${esc(title)}</span>
-          <span class="transport-legend-year">${esc(f.opened)}</span>
-          <span class="transport-badge">${f.dateSourced ? 'Provisional' : 'Unsourced'}</span>
+          <span class="transport-legend-year">${esc(f.openedLabel || f.opened)}</span>
+          ${f.dateStatus === 'needs-source' ? '<span class="transport-badge is-needs-source">Needs source</span>' : f.dateStatus === 'disputed' ? '<span class="transport-badge">Disputed</span>' : f.provisional ? '<span class="transport-badge">Provisional</span>' : ''}
         </button>
       </li>`
     }
@@ -261,15 +261,28 @@ function popupHtml(props) {
   </div>`
   }
   const kind = props.kind === 'parkway' ? 'Parkway' : 'Railroad section'
-  const src = String(props.source || '')
-  const link = /^https:\/\//.test(src) ? `<a href="${esc(src)}" target="_blank" rel="noopener noreferrer nofollow">Source</a>` : ''
+  let srcs = []
+  try {
+    srcs = typeof props.sources === 'string' ? JSON.parse(props.sources) : props.sources || []
+  } catch {
+    srcs = []
+  }
+  const links = srcs
+    .filter((u) => /^https:\/\//.test(String(u)))
+    .map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer nofollow">${i + 1}</a>`)
+    .join(' ')
+  const status = props.dateStatus
+  const statusText =
+    status === 'needs-source' ? 'Date needs source.' : status === 'disputed' ? 'Sources disagree on the year.' : props.provisional === true || String(props.provisional) === 'true' ? 'Provisional date.' : 'Sourced date.'
+  const inferred = props.whyInferred === true || String(props.whyInferred) === 'true'
   return `<div class="transport-popup-card">
-    <p class="transport-popup-kicker">${esc(kind)} · provisional date</p>
+    <p class="transport-popup-kicker">${esc(kind)}</p>
     <h3>${esc(props.routeName)}</h3>
     <p>${esc(props.from)} to ${esc(props.to)}</p>
-    <p class="transport-popup-year">Opened ${esc(props.opened)}</p>
-    ${props.why ? `<p class="transport-popup-why"><strong>Why it ran here:</strong> ${esc(props.why)}${String(props.whyProvisional) === 'true' ? ' <em>(provisional)</em>' : ''}${/^https:\/\//.test(String(props.whySource || '')) ? ` <a href="${esc(props.whySource)}" target="_blank" rel="noopener noreferrer nofollow">Source</a>` : ''}</p>` : ''}
-    <p class="transport-popup-note">${String(props.dateSourced) === 'true' ? 'Provisional. Research Bot is still confirming this date.' : 'Date not yet sourced for this section.'} ${link}</p>
+    <p class="transport-popup-year">Opened ${esc(props.openedLabel || props.opened)}</p>
+    ${props.dateNote ? `<p class="transport-popup-note">${esc(props.dateNote)}</p>` : ''}
+    ${props.why ? `<p class="transport-popup-why"><strong>Why it ran here:</strong> ${esc(props.why)}${inferred ? ' <em>(inferred)</em>' : ''}</p>` : ''}
+    <p class="transport-popup-note"><strong>${esc(statusText)}</strong>${links ? ` Sources: ${links}` : ''}</p>
   </div>`
 }
 
@@ -277,7 +290,7 @@ function onLineClick(e) {
   const feature = e.features && e.features[0]
   if (!feature) return
   const props = feature.properties || {}
-  new maplibregl.Popup({ className: 'transport-popup', maxWidth: '280px', closeButton: true })
+  new maplibregl.Popup({ className: 'transport-popup', maxWidth: window.innerWidth < 600 ? '230px' : '280px', closeButton: true })
     .setLngLat(e.lngLat)
     .setHTML(popupHtml(props))
     .addTo(map)
@@ -376,6 +389,22 @@ function syncEndpoints(year) {
       want ? m.addTo(map) : m.remove()
     }
   }
+  declutterEndpoints()
+}
+
+/** Hide endpoint names that collide with a higher-priority name (file order = priority); dots stay. */
+function declutterEndpoints() {
+  const placed = []
+  for (const [m, , on] of endpointMarkers) {
+    if (!on.v) continue
+    const label = m.getElement().querySelector('b')
+    if (!label) continue
+    label.style.visibility = ''
+    const r = label.getBoundingClientRect()
+    const hit = placed.some((p) => r.left < p.right + 2 && r.right > p.left - 2 && r.top < p.bottom + 1 && r.bottom > p.top - 1)
+    if (hit) label.style.visibility = 'hidden'
+    else placed.push(r)
+  }
 }
 
 function addEndpointLabels(ends) {
@@ -405,6 +434,7 @@ function addCountyLabels(labels) {
     for (const m of markers) want ? m.addTo(map) : m.remove()
   }
   map.on('zoomend', sync)
+  map.on('moveend', declutterEndpoints)
   sync()
 }
 

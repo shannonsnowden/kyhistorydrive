@@ -263,5 +263,11 @@
       "note": "Each route split into opening sections. Every date is provisional; dateSourced:false marks sections whose opening year is not yet sourced. Frankfort-Louisville geometry is the modern USDOT/BTS NTAD rail line (public domain)."
     },
     "eraColors": "Line color steps by completion decade, light amber (1830s) to deep red-brown (1970s). Sections not yet open at the slider year are drawn faint and dashed."
+  },
+  "sectionsSourced": {
+    "title": "Transport sections, sourced",
+    "url": "https://github.com/shannonsnowden/ky-history-research/blob/main/findings/transportation/2026-10-12-transport-sections-sourced.md",
+    "commit": "b4c8512",
+    "note": "Per-section sources are in sections.geojson (sources[]). dateStatus is sourced, disputed (both years shown) or needs-source. Parkway years stay provisional. whyInferred marks notes that are our inference."
   }
 }
