@@ -4729,3 +4729,83 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     flex: 0 0 auto;
   }
 }
+
+/* #262 review fixes (Critiquito). */
+/* 1280: the lead title + kicker + summary stack from the bottom and grow upward,
+   so a 2-line title never runs under the kicker/summary. Title capped near 32px. */
+@media (min-width: 901px) {
+  .hp-lead-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hp-lead-media-link {
+    position: static;
+    inset: auto;
+    display: block;
+  }
+  .hp-lead-media-link .hp-mag-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hp-lead-title {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding: 3rem 1.15rem 0.35rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.15;
+    background: linear-gradient(to top, rgba(8, 12, 9, 0.78), rgba(8, 12, 9, 0));
+  }
+  .hp-mag-hero .hp-mag-hero-copy {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    height: auto;
+  }
+  .hp-mag-hero .hp-hero-deck {
+    height: auto;
+    overflow: visible;
+  }
+  .hp-all-stories { display: none; }
+}
+.hp-rail-all {
+  margin-top: 0.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.35rem 0;
+}
+.hp-rail-all:hover,
+.hp-rail-all:focus-visible { text-decoration: underline; }
+/* Phones/tablets: no big gap above the buttons; full-width centered buttons with 16px sides. */
+@media (max-width: 900px) {
+  .hp-mag-hero .hp-mag-hero-copy {
+    padding: 0.85rem 16px 0.5rem;
+  }
+  .hp-mag-hero .hp-hero-deck {
+    height: auto;
+    overflow: visible;
+    margin-bottom: 0.85rem;
+  }
+  .hp-mag-hero .hp-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+  .hp-mag-hero .hp-cta-row .hp-cta {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  /* Credit: full-opacity --muted for ≥4.5:1 on the light panel. */
+  .hp-mag-hero .hp-mag-hero-copy .hp-photo-credit {
+    color: var(--muted);
+    opacity: 1;
+    min-height: 0;
+  }
+}

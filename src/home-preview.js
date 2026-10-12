@@ -16,43 +16,24 @@ import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
 import { HomepageStructure } from './homepage-structure.js'
-
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
-
-function formatDisplayDate(iso) {
-  const d = new Date(`${iso}T12:00:00`)
-  if (Number.isNaN(d.getTime())) return iso
-  return d.toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
-
-/** Card/hero year label: negative years read as BCE (Dover Mound shows 800 BCE, not -800). */
-function storyYearLabel(y) {
-  const n = Number(y)
-  if (!Number.isFinite(n) || n === 0) return ''
-  return n < 0 ? `${Math.abs(n)} BCE` : String(n)
-}
-
-function eraLabel(era) {
-  const map = {
-    prehistoric: 'Prehistoric',
-    native: 'Native',
-    frontier: 'Frontier',
-    'early-commonwealth': 'Early commonwealth',
-    other: 'Kentucky',
-  }
-  return map[era] || 'Kentucky'
-}
+import {
+  escapeHtml,
+  formatDisplayDate,
+  storyYearLabel,
+  eraLabel,
+  firstSentence,
+  heroDeckText,
+  storyMapHref,
+  isPhotoUrl,
+  usablePhoto,
+  photoCredit,
+  placeCaption,
+  cardAlt,
+  renderLeadStory,
+  renderRailCard,
+  renderSwipeCard,
+  leadPreloadTag,
+} from './home-hero-render.js'
 
 function extractWikipediaUrl(markdown) {
   const m = String(markdown || '').match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s)\]">]+/i)
@@ -68,31 +49,6 @@ function wikiTitleFromUrl(url) {
   }
 }
 
-function firstSentence(text) {
-  const t = String(text || '')
-    .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
-    .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
-    .replace(/\s+/g, ' ')
-    .trim()
-  if (!t) return ''
-  // Only split where a new sentence starts (capital/quote); keeps "A.D. 1200" and "O.F.C. (Old…)" intact.
-  const parts = t.split(/(?<=[.!?])\s+(?=[A-Z"'\u201C\u2018])/)
-  let out = ''
-  for (const p of parts) {
-    out = out ? `${out} ${p}` : p
-    if (
-      out.length >= 40 &&
-      /[.!?]$/.test(out) &&
-      !/\b(Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co)\.$/.test(out) &&
-      // Don't stop on a middle/first initial ("Return J. Meigs", "John C. Breckinridge").
-      !/(?:^|[\s(])[A-Z]\.$/.test(out)
-    ) {
-      break
-    }
-  }
-  return out
-}
-
 function quoteFromStory(story) {
   if (!story) return null
   const text = String(story.quote || story.summary || '').trim()
@@ -105,51 +61,6 @@ function quoteFromStory(story) {
   }
 }
 
-/** Hero overlay: the full first sentence. A finished sentence is not cut with an ellipsis. */
-function heroDeckText(story) {
-  // Build-time copy (scripts/build-home-preview.mjs) when present; same rules at runtime otherwise.
-  if (story?.heroDeck) return story.heroDeck
-  const quote = String(story?.quote || '').trim()
-  if (quote) return HomepageStructure.capWords(quote)
-  const summary = String(story?.summary || '').trim()
-  if (!summary) return ''
-  const stripped = HomepageStructure.deckText(summary)
-  const sentence = firstSentence(stripped)
-  if (sentence && /[.!?]$/.test(sentence)) return HomepageStructure.capWords(sentence)
-  return HomepageStructure.capWords(stripped)
-}
-
-/** Home-map deep link for a pin-backed story. Does not invent coordinates. */
-function storyMapHref(item) {
-  if (!item) return null
-  if (item.mapHref) return item.mapHref
-  if (item.historyId) return `/#map/history/${encodeURIComponent(item.historyId)}`
-  if (item.lat != null && item.lon != null && item.slug) {
-    return `/#map/stories/${encodeURIComponent(item.slug)}`
-  }
-  return null
-}
-
-function isPhotoUrl(url) {
-  const u = String(url || '').toLowerCase()
-  if (!u) return false
-  if (/\.svg(\?|$)/i.test(u)) return false
-  // Same-origin curated story heroes — skip Wikipedia schematic-map heuristics.
-  if (u.startsWith('/content/photos/stories/')) return true
-  if (
-    /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
-      u,
-    )
-  ) {
-    return false
-  }
-  if (/\/[^/?#]*\bmap\b[^/?#]*\.(jpe?g|png|gif|webp)/i.test(u)) return false
-  return true
-}
-
-function usablePhoto(photo) {
-  return photo?.image_url && isPhotoUrl(photo.image_url) ? photo : null
-}
 
 async function fetchWikipediaPhoto(titleOrUrl) {
   if (!titleOrUrl) return null
@@ -225,12 +136,6 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
   }
 }
 
-function photoCredit(photo) {
-  if (!photo) return ''
-  const label = photo.attribution || photo.source_label || ''
-  const year = photo.year ? ` · ${photo.year}` : ''
-  return label ? `${label}${year}` : ''
-}
 
 function briefStories(pack) {
   if (Array.isArray(pack?.stories) && pack.stories.length) return pack.stories
@@ -253,113 +158,11 @@ function prefersReducedMotion() {
   return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
 }
 
-function placeCaption(story) {
-  const place = String(story?.place || '').trim()
-  const year = storyYearLabel(story?.yearStart)
-  let county = ''
-  const m = place.match(/([A-Za-z .'-]+?\s+County)\b/)
-  if (m) county = m[1].replace(/\s+/g, ' ').trim()
-  else if (/County seat/i.test(place)) {
-    const seat = place.match(/([A-Za-z .'-]+)\s*\(/)
-    county = seat ? seat[1].trim() : place
-  } else if (place) {
-    // Prefer a short place label over the era kicker "Featured story".
-    county = place.split(/[,(]/)[0].trim()
-  }
-  if (county && year) return `${county} · ${year}`
-  if (county) return county
-  if (year) return year
-  return eraLabel(story?.era)
-}
-
-function cardAlt(story) {
-  const title = String(story?.photo?.title || story?.title || '').trim()
-  return title || 'Kentucky history story'
-}
-
-function renderLeadStory(story) {
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
-  const alt = cardAlt(story)
-  const img = usablePhoto(story.photo)
-    ? responsivePicture({
-        src: story.photo.image_url,
-        alt,
-        className: 'hp-mag-hero-img',
-        loading: 'eager',
-        fetchPriority: 'high',
-        sizes: '(max-width: 900px) 100vw, 66vw',
-      })
-    : ''
-  const credit = photoCredit(story.photo)
-  return `<article class="hp-lead-story">
-      <a class="hp-lead-media-link" href="${escapeHtml(href)}">
-        <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade" aria-hidden="true"></div></div>
-        <h2 id="hp-hero-title" class="hp-lead-title">${escapeHtml(story.title)}</h2>
-      </a>
-      <div class="hp-mag-hero-copy">
-        <p class="hp-hero-eyebrow">${escapeHtml(placeCaption(story))}</p>
-        <p class="hp-hero-deck">${escapeHtml(heroDeckText(story))}</p>
-        <div class="hp-cta-row">
-          <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
-          ${
-            storyMapHref(story)
-              ? `<a class="btn hp-cta" href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
-              : ''
-          }
-        </div>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
-      </div>
-    </article>`
-}
-
-function renderRailCard(story) {
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
-  const alt = cardAlt(story)
-  const img = usablePhoto(story.photo)
-    ? responsivePicture({
-        src: story.photo.image_url,
-        alt,
-        className: 'hp-rail-card-img',
-        loading: 'lazy',
-        sizes: '116px',
-        width: 116,
-        height: 96,
-      })
-    : `<span class="hp-rail-card-ph" aria-hidden="true"></span>`
-  return `<a class="hp-rail-card" href="${escapeHtml(href)}">
-      ${img}
-      <span class="hp-rail-card-copy">
-        <h3 class="hp-rail-card-title">${escapeHtml(story.title)}</h3>
-        <small class="hp-rail-card-meta">${escapeHtml(placeCaption(story))}</small>
-      </span>
-    </a>`
-}
-
-function renderSwipeCard(story) {
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
-  const alt = cardAlt(story)
-  const img = usablePhoto(story.photo)
-    ? responsivePicture({
-        src: story.photo.image_url,
-        alt,
-        className: 'hp-swipe-card-img',
-        loading: 'lazy',
-        sizes: '150px',
-        width: 150,
-        height: 90,
-      })
-    : `<span class="hp-swipe-card-ph" aria-hidden="true"></span>`
-  return `<li class="hp-swipe-card">
-      <a class="hp-swipe-card-link" href="${escapeHtml(href)}">
-        ${img}
-        <h3 class="hp-swipe-card-title">${escapeHtml(story.title)}</h3>
-        <small class="hp-swipe-card-meta">${escapeHtml(placeCaption(story))}</small>
-      </a>
-    </li>`
-}
 
 function preloadLeadImage(story) {
   if (!usablePhoto(story?.photo)) return
+  // The build writes the same tag into <head> (scripts/prerender-home-hero.mjs); dev only adds it here.
+  if (document.getElementById('hpLeadPreload')?.getAttribute('href') === story.photo.image_url) return
   const src = story.photo.image_url
   const existing = document.getElementById('hpLeadPreload')
   if (existing) existing.remove()
