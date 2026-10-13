@@ -78,7 +78,8 @@ export function transportYearFilter(year) {
 
 /* Decade hues are spaced around the wheel so neighbours never share a family
  * (gold / brick red / violet / blue / teal-green / green). Dark 1960 is
- * teal-green (#38d9a9) so it no longer reads like the 1880 periwinkle. Dark mode uses lighter
+ * teal-green (#38d9a9) so it no longer reads like the 1880 periwinkle, and dark 1970 is lime
+ * (#c0eb75) so it stays clear of that teal. Dark mode uses lighter
  * tints of the same hues so every line clears 3:1 on the dark green land. */
 export const ERA_COLORS = [
   [1830, '#b8860b'],
@@ -86,7 +87,7 @@ export const ERA_COLORS = [
   [1870, '#862e9c'],
   [1880, '#3b5bdb'],
   [1960, '#0c8599'],
-  [1970, '#2b8a3e'],
+  [1970, '#5c940d'],
 ]
 const ERA_COLORS_DARK = {
   1830: '#ffd43b',
@@ -94,7 +95,7 @@ const ERA_COLORS_DARK = {
   1870: '#da77f2',
   1880: '#91a7ff',
   1960: '#38d9a9',
-  1970: '#8ce99a',
+  1970: '#c0eb75',
 }
 
 function eraList(theme = themeName()) {
@@ -432,7 +433,8 @@ async function boot() {
         [-89.58, 36.45],
         [-81.96, 39.17],
       ],
-      { padding: 18, duration: 0 },
+      // Bottom padding clears the credits strip so 'toward Chattanooga' stays readable.
+      { padding: { top: 18, left: 18, right: 18, bottom: 18 + creditsHeight(container) }, duration: 0 },
     )
     fitted = true
   }
@@ -459,6 +461,11 @@ async function boot() {
   window.addEventListener('resize', () => {
     if (map) map.resize()
   })
+}
+
+function creditsHeight(container) {
+  const strip = container.querySelector('.maplibregl-ctrl-bottom-right')
+  return Math.ceil(strip ? strip.getBoundingClientRect().height : 0) + 6
 }
 
 let endpointMarkers = []
@@ -492,6 +499,7 @@ function addEndpointLabels(ends) {
   for (const f of ends.features || []) {
     const el = document.createElement('span')
     el.className = 'transport-endpoint'
+    el.dataset.place = f.properties.name
     el.innerHTML = `<i aria-hidden="true"></i><b>${esc(f.properties.name)}</b>`
     const m = new maplibregl.Marker({ element: el, anchor: 'left', offset: [-4, 0] }).setLngLat(f.geometry.coordinates)
     endpointMarkers.push([m, Number(f.properties.opened), { v: false }])
