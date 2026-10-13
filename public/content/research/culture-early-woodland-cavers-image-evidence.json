@@ -1,0 +1,164 @@
+{
+  "slug": "culture-early-woodland-cavers-image-evidence",
+  "storySlug": "salts-cave-15ht4",
+  "title": "Image evidence: Early Woodland cave explorers of the Mammoth Cave area (about 1000–200 BCE)",
+  "updated": "2026-10-13",
+  "summary": "People who explored miles into Mammoth and Salts caves to mine gypsum and other minerals, leaving slippers, cane torches and gourds preserved by the dry cave air. Lost John, a miner trapped under a boulder, was found in 1935.",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Early Woodland cave explorers of the Mammoth Cave area period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-early-woodland-cavers-image-evidence/)",
+  "sections": [
+    {
+      "heading": "Physical build",
+      "items": [
+        {
+          "text": "A preserved adult male miner ('Lost John') was found under a fallen boulder about 2.5 miles into Mammoth Cave; his remains were later removed from display and returned. Avoid depicting human remains.",
+          "sources": [
+            "npsd"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "Detailed stature data for this population were not confirmed from an open source.",
+          "sources": [
+            "npsd"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Hair and adornment",
+      "items": [
+        {
+          "text": "[Speculative] No confirmed hairstyle evidence from open sources; keep plain.",
+          "sources": [
+            "nps"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Clothing and materials",
+      "items": [
+        {
+          "text": "Woven fiber slippers/sandals, including ones of rattlesnake master fiber; cane baskets.",
+          "sources": [
+            "mc",
+            "nps",
+            "npsd"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "[Speculative] Upper-body clothing is not documented in these sources; light woven or hide garments are an inference.",
+          "sources": [
+            "mc"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Ornaments",
+      "items": [
+        {
+          "text": "None documented in these sources; leave out.",
+          "sources": [
+            "mc"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Tools carried",
+      "items": [
+        {
+          "text": "Bundled river-cane torches, mussel-shell scrapers and limestone hammerstones for mining, gourd and squash containers, wooden climbing poles.",
+          "sources": [
+            "mc",
+            "nps"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Setting and landscape",
+      "items": [
+        {
+          "text": "Deep dry limestone passages of the Mammoth Cave system in south-central Kentucky; cross-hatched and spiral charcoal pictographs on walls; visits in late spring–summer and late fall–winter; diet included cultivated sunflower, squash and gourd.",
+          "sources": [
+            "mc",
+            "nps",
+            "wat"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Image brief",
+      "items": [
+        {
+          "text": "Inside a vast dark limestone passage, one or two cavers in fiber slippers lit by a bundled cane torch, scraping white gypsum crust into a gourd with a mussel shell. Torch-orange light against gray rock, a faint charcoal geometric design on the wall; no remains shown.",
+          "sources": [
+            "mc",
+            "nps"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Display note (draft)",
+      "items": [
+        {
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Early Woodland cave explorers of the Mammoth Cave area period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-early-woodland-cavers-image-evidence/)",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "about 1000–200 BCE",
+      "text": "Early Woodland cave explorers of the Mammoth Cave area (about 1000–200 BCE)"
+    }
+  ],
+  "people": [],
+  "openQuestions": [
+    "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
+    "Items marked [Speculative] should stay generic in the image."
+  ],
+  "sources": [
+    {
+      "id": "mc",
+      "citation": "Kentucky Archaeological Survey, Mammoth Cave (Discover Kentucky Archaeology)",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Mammoth-Cave.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "nps",
+      "citation": "National Park Service, Native Americans - Mammoth Cave National Park",
+      "url": "https://www.nps.gov/maca/learn/historyculture/native-americans.htm",
+      "type": "NPS",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "npsd",
+      "citation": "National Park Service, Cave Discoveries From the Past",
+      "url": "https://www.nps.gov/articles/000/prehistoric-cave-discoveries.htm",
+      "type": "NPS",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wat",
+      "citation": "Watson & Yarnell, Archaeological and Paleoethnobotanical Investigations in Salts Cave, American Antiquity",
+      "url": "https://www.cambridge.org/core/journals/american-antiquity/article/abs/archaeological-and-paleoethnobotanical-investigations-in-salts-cave-mammoth-cave-national-park-kentucky/639716CABBC5C913A31CCA3D1CC758AD",
+      "type": "peer-reviewed",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "slug": "culture-adena-image-evidence",
+  "storySlug": "ashlands-adena-mounds",
+  "title": "Image evidence: Adena (Early–Middle Woodland, about 500 BCE–200 CE, Bluegrass)",
+  "updated": "2026-10-13",
+  "summary": "Woodland gardeners and hunters of the Bluegrass and Ohio Valley who built conical burial mounds and circular earthworks such as Wright Mounds and Mt. Horeb. Their finely woven fabrics and copper and mica ornaments are well documented from mound burials.",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-adena-image-evidence/)",
+  "sections": [
+    {
+      "heading": "Physical build",
+      "items": [
+        {
+          "text": "Webb and Snow's studies of Adena burials are cited in the state plan; [Speculative] specific build and stature figures were not confirmed from open sources. Show an ordinary build.",
+          "sources": [
+            "v1"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Hair and adornment",
+      "items": [
+        {
+          "text": "Copper and mica head ornaments; flat copper cut into antler-shaped headdresses; copper wrapped around wooden ear ornaments; bone combs.",
+          "sources": [
+            "ade",
+            "v1"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Clothing and materials",
+      "items": [
+        {
+          "text": "Hand-twined and plaited fabrics (no looms) of plant-fiber yarns, sometimes with downy feathers; bags, sashes, mantles, skirts and blankets; chevrons and diagonals in red, yellow, green, brown and black dyes. Skins, furs and feathers also used.",
+          "sources": [
+            "ade"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "[Speculative] Clan- or role-specific colors are the booklet's suggestion, not a finding.",
+          "sources": [
+            "ade"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Ornaments",
+      "items": [
+        {
+          "text": "Great Lakes copper bracelets, rings and beads; marine shell beads; mica crescents attached to clothing; slate gorgets.",
+          "sources": [
+            "ade",
+            "v1"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Tools carried",
+      "items": [
+        {
+          "text": "Atlatl with broad-bladed stemmed chert points and barite boatstone weights; granite axes and adzes; thick flat-bottomed pottery jars; net bags.",
+          "sources": [
+            "ade"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Setting and landscape",
+      "items": [
+        {
+          "text": "Rolling Bluegrass ridgetops with conical mounds visible from other ridges; paired-post ceremonial enclosures; small gardens of native seed plants, squash and gourd near camps.",
+          "sources": [
+            "ade",
+            "wr",
+            "mh"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Image brief",
+      "items": [
+        {
+          "text": "A respected elder on an open Bluegrass ridgetop at dusk in a deep-red twined mantle with chevron bands, copper bracelets and a mica crescent on the shoulder, a conical earth mound behind. Soft rolling hills and a paired-post enclosure; dignified, not theatrical.",
+          "sources": [
+            "ade",
+            "wr"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Display note (draft)",
+      "items": [
+        {
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-adena-image-evidence/)",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "about 500 BCE–200 CE",
+      "text": "Adena (Early–Middle Woodland, about 500 BCE–200 CE, Bluegrass)"
+    }
+  ],
+  "people": [],
+  "openQuestions": [
+    "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
+    "Items marked [Speculative] should stay generic in the image."
+  ],
+  "sources": [
+    {
+      "id": "ade",
+      "citation": "Henderson et al., Woodland Period Moundbuilders of the Bluegrass (KAS Education Series 9, 2007)",
+      "url": "https://heritage.ky.gov/Documents/Adena-Booklet.pdf",
+      "type": "state agency booklet",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "mh",
+      "citation": "Kentucky Archaeological Survey, Mt. Horeb Earthwork",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Mt.-Horeb.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "v1",
+      "citation": "Pollack (ed.), The Archaeology of Kentucky: An Update, Vol. 1 (Paleoindian, Archaic, Woodland chapters), Kentucky Heritage Council 2008",
+      "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol1.pdf",
+      "type": "state archaeology plan",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wr",
+      "citation": "Kentucky Archaeological Survey, Wright Mounds",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Wright-Mounds.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

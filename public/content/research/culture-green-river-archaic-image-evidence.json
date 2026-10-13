@@ -1,0 +1,172 @@
+{
+  "slug": "culture-green-river-archaic-image-evidence",
+  "storySlug": "indian-knoll-on-the-green-river",
+  "title": "Image evidence: Green River Archaic (shell-mound Archaic, about 3000–1000 BCE)",
+  "updated": "2026-10-13",
+  "summary": "Hunter-gatherer families who returned seasonally to riverside camps along the Green River, leaving huge shell middens such as Indian Knoll and Carlston Annis. Large burial samples make this one of the best-documented ancient populations in Kentucky.",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Green River Archaic period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-green-river-archaic-image-evidence/)",
+  "sections": [
+    {
+      "heading": "Physical build",
+      "items": [
+        {
+          "text": "The Indian Knoll skeletal series (over 1,100 individuals) was studied for age, sex and stature (Snow 1948; Johnston & Snow 1961). Many died young; nearly one in two people broke at least one bone in life, and gritty food heavily wore teeth.",
+          "sources": [
+            "js",
+            "v1",
+            "grA"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "Specific average stature figures were not confirmed from an open source; avoid stating heights.",
+          "sources": [
+            "v1"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Hair and adornment",
+      "items": [
+        {
+          "text": "Decorated bone pins may have held hair in place (possibly also fastened clothing or hung as pendants).",
+          "sources": [
+            "grA"
+          ],
+          "confidence": "medium"
+        },
+        {
+          "text": "Red ochre lumps occur in graves; [Speculative] body or face paint is possible but undocumented.",
+          "sources": [
+            "grA"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Clothing and materials",
+      "items": [
+        {
+          "text": "Animal skins and furs for clothing and bags; plant fiber for net bags, clothing and footgear; a sash decorated with tiny shell beads is shown in the KAS reconstruction.",
+          "sources": [
+            "grA"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Ornaments",
+      "items": [
+        {
+          "text": "Necklaces of hundreds of flat round shell beads, marginella and barrel-shaped marine shell beads, drilled animal-canine necklaces; a few people had engraved marine-shell pendants and Great Lakes copper pins and beads.",
+          "sources": [
+            "grA",
+            "ik"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Tools carried",
+      "items": [
+        {
+          "text": "Atlatl and spear with stemmed or notched points; humped marine-shell bannerstones typical of the Green River valley; squirrel-skin bag; antler tools; nutting stones and pestles at camp.",
+          "sources": [
+            "grA",
+            "ik"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "Dogs lived and were buried with people; medium-sized, 14–18 inches at the shoulder, possibly long-haired.",
+          "sources": [
+            "grA",
+            "ik"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Setting and landscape",
+      "items": [
+        {
+          "text": "Riverside shell-midden camps on the Green River in west-central Kentucky; mussels, fish, turtles, deer and hickory nuts; possible hide- or mat-covered shelters or brush lean-tos.",
+          "sources": [
+            "grA",
+            "ik"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Image brief",
+      "items": [
+        {
+          "text": "A hunter and his dog on a pale shell-strewn bank of the green Green River, atlatl in hand with a shell bannerstone, a shell-bead sash and bone hair pin, drying racks and smoke behind. Warm late-summer light, mussel shells underfoot; clearly a riverside camp, not a village.",
+          "sources": [
+            "grA",
+            "ik"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Display note (draft)",
+      "items": [
+        {
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Green River Archaic period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-green-river-archaic-image-evidence/)",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "about 3000–1000 BCE",
+      "text": "Green River Archaic (shell-mound Archaic, about 3000–1000 BCE)"
+    }
+  ],
+  "people": [],
+  "openQuestions": [
+    "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
+    "Items marked [Speculative] should stay generic in the image."
+  ],
+  "sources": [
+    {
+      "id": "grA",
+      "citation": "Kentucky Heritage Council / KAS, Green River Archaic booklet",
+      "url": "https://heritage.ky.gov/Documents/Green-River-Archaic.pdf",
+      "type": "state agency booklet",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "ik",
+      "citation": "Kentucky Archaeological Survey, Indian Knoll (Discover Kentucky Archaeology)",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Indian-Knoll.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "js",
+      "citation": "Johnston & Snow, The reassessment of the age and sex of the Indian Knoll skeletal population, Am. J. Phys. Anthropology 19(3), 1961",
+      "url": "https://scholars.uky.edu/en/publications/the-reassessment-of-the-age-and-sex-of-the-indian-knoll-skeletal-/",
+      "type": "peer-reviewed",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "v1",
+      "citation": "Pollack (ed.), The Archaeology of Kentucky: An Update, Vol. 1 (Paleoindian, Archaic, Woodland chapters), Kentucky Heritage Council 2008",
+      "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol1.pdf",
+      "type": "state archaeology plan",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

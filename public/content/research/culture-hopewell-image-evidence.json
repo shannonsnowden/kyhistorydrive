@@ -1,0 +1,139 @@
+{
+  "slug": "culture-hopewell-image-evidence",
+  "storySlug": "old-fort-earthworks-15gp1-greenup-county",
+  "title": "Image evidence: Hopewell-related Middle Woodland (about 200 BCE–500 CE, Ohio Valley)",
+  "updated": "2026-10-13",
+  "summary": "Middle Woodland communities in northern and eastern Kentucky tied to the wider Hopewell exchange network, building geometric earthworks such as Old Fort at the Portsmouth Group. Kentucky sites show Hopewell-style goods, though fewer than north of the Ohio.",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Hopewell-related Middle Woodland period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-hopewell-image-evidence/)",
+  "sections": [
+    {
+      "heading": "Physical build",
+      "items": [
+        {
+          "text": "No open Kentucky skeletal study of build was confirmed; show ordinary build.",
+          "sources": [
+            "v1"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Hair and adornment",
+      "items": [
+        {
+          "text": "Copper and mica head ornaments are documented at Kentucky Hopewell-related sites (Wright-Greene, Robbins, Crigler); copper bicymbal ear spools at Amburgey.",
+          "sources": [
+            "v1"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Clothing and materials",
+      "items": [
+        {
+          "text": "[Speculative] Fabric technology likely continued Adena twining; specific Hopewell garments in Kentucky are not documented in these sources.",
+          "sources": [
+            "v1",
+            "ade"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Ornaments",
+      "items": [
+        {
+          "text": "Copper breastplates/gorgets, solid bracelets, rings, ear spools; cut mica; marine shell beads; hooked-beak bird motifs.",
+          "sources": [
+            "v1"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Tools carried",
+      "items": [
+        {
+          "text": "Chert bladelets (Ohio Flint Ridge), platform pipes, copper celts; atlatl still in use.",
+          "sources": [
+            "v1"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Setting and landscape",
+      "items": [
+        {
+          "text": "Ohio River terrace in Greenup County: a square 13.5-acre earth enclosure with corners to the cardinal directions and long parallel embankments, part of the Portsmouth Group.",
+          "sources": [
+            "of"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Image brief",
+      "items": [
+        {
+          "text": "A person at the edge of a vast square earthen wall on an Ohio River terrace in morning mist, wearing copper ear spools, a copper breastplate and a cut-mica headpiece catching the light, holding a stone platform pipe. Broad river floodplain and the long parallel embankments behind; geometry emphasized to set it apart from Adena's round ridgetop mounds.",
+          "sources": [
+            "of",
+            "v1"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Display note (draft)",
+      "items": [
+        {
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Hopewell-related Middle Woodland period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-hopewell-image-evidence/)",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "about 200 BCE–500 CE",
+      "text": "Hopewell-related Middle Woodland (about 200 BCE–500 CE, Ohio Valley)"
+    }
+  ],
+  "people": [],
+  "openQuestions": [
+    "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
+    "Items marked [Speculative] should stay generic in the image."
+  ],
+  "sources": [
+    {
+      "id": "ade",
+      "citation": "Henderson et al., Woodland Period Moundbuilders of the Bluegrass (KAS Education Series 9, 2007)",
+      "url": "https://heritage.ky.gov/Documents/Adena-Booklet.pdf",
+      "type": "state agency booklet",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "of",
+      "citation": "Kentucky Archaeological Survey, Old Fort Earthworks",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Old-Fort-Earthworks.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "v1",
+      "citation": "Pollack (ed.), The Archaeology of Kentucky: An Update, Vol. 1 (Paleoindian, Archaic, Woodland chapters), Kentucky Heritage Council 2008",
+      "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol1.pdf",
+      "type": "state archaeology plan",
+      "accessed": "2026-10-13"
+    }
+  ]
+}
