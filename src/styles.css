@@ -5685,3 +5685,10 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
   #map #nationLegend.terr-maplegend:not(.ml-open) { padding: 0; border: 0; background: transparent; box-shadow: none; }
   #map #nationLegend.ml-open .ml-body { display: flex; flex-direction: column; min-height: 0; overflow: auto; margin-top: 0.35rem; }
 }
+
+/* Item 71: inline non-portrait story figure (culture AI illustrations) with a visible note and credit. */
+.story-figure { float: right; clear: right; width: min(360px, 50%); margin: 0.3rem 0 0.75rem 1.2rem; }
+.story-figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; border: 1px solid rgba(120, 110, 95, 0.55); background: var(--chip); }
+.story-figure figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.4; color: var(--muted); }
+.story-figure-credit { display: block; margin-top: 0.2rem; font-weight: 600; }
+@container (max-width: 559.98px) { .story-figure { float: none; width: min(360px, 100%); margin: 0.85rem auto 1rem; } }
