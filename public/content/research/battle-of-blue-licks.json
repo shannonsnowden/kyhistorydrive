@@ -1,0 +1,545 @@
+{
+  "slug": "battle-of-blue-licks",
+  "storySlug": "battle-of-blue-licks",
+  "title": "Battle of Blue Licks, 1782: research notes",
+  "updated": "2026-10-12",
+  "summary": "Sourced fact outline behind the Battle of Blue Licks article: each side's aims, a dated timeline, casualty ranges, people, contested claims and open questions.",
+  "sections": [
+    {
+      "heading": "British and Detroit Indian Department aims",
+      "items": [
+        {
+          "text": "Britain ran its western war from Detroit through the Indian Department, whose officers supplied, advised and often accompanied allied warriors.",
+          "sources": [
+            "dcb-mckee"
+          ]
+        },
+        {
+          "text": "Caldwell was sent west with about 50 Rangers after Clark took Vincennes; his commandant called him a very active partisan. In June 1782 his force defeated Crawford on the upper Sandusky.",
+          "sources": [
+            "dcb-caldwell"
+          ]
+        },
+        {
+          "text": "Caldwell first meant to strike Wheeling, turned toward Kentucky after a false alarm that Clark was marching, and crossed the Ohio with three hundred Indians and Rangers.",
+          "sources": [
+            "caldwell-1782"
+          ]
+        },
+        {
+          "text": "McKee, a captain and interpreter with extensive influence among the Indians, took part in the attack on Bryan's Station.",
+          "sources": [
+            "dcb-mckee"
+          ]
+        },
+        {
+          "text": "Simon Girty was captured as a boy, raised among the Senecas and joined the British at Detroit in 1778. The DCB notes that a white savage legend grew from distortions of fact.",
+          "sources": [
+            "dcb-girty"
+          ]
+        },
+        {
+          "text": "James and George Girty served Britain's Indian allies as interpreters, but no source in hand places either at Blue Licks.",
+          "sources": [
+            "butterfield",
+            "dcb-girty"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Native nations' aims",
+      "items": [
+        {
+          "text": "Caldwell wrote that his warriors were Wyandots and Lake Indians and that the Wyandots supplied his provisions.",
+          "sources": [
+            "caldwell-1782"
+          ]
+        },
+        {
+          "text": "Kentucky and battlefield sources also name Shawnee and Delaware (Lenape) warriors.",
+          "sources": [
+            "ekh",
+            "abt"
+          ]
+        },
+        {
+          "text": "In 1780 Indian leaders insisted that Bird's expedition turn up the Licking into Kentucky to face their old enemies the Kentucky settlers.",
+          "sources": [
+            "dcb-girty"
+          ]
+        },
+        {
+          "text": "At Gnadenhutten in March 1782 Pennsylvania militia killed some 90 Christian Delawares; American Battlefield Trust says the massacre fed a desire for revenge in the Sandusky region. It is context for 1782, not a documented direct cause of Blue Licks.",
+          "sources": [
+            "abt-gnad",
+            "dcb-girty"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Kentucky militia aims",
+      "items": [
+        {
+          "text": "Bryan's Station had just been besieged; buildings were burned and more than 300 hogs and 150 cattle killed.",
+          "sources": [
+            "caldwell-1782"
+          ]
+        },
+        {
+          "text": "Todd commanded; Trigg had the right, Boone the left, McGary the center and Harlan the advance.",
+          "sources": [
+            "boone-1782"
+          ]
+        },
+        {
+          "text": "Boone advised caution and a flanking move because of the ravines; the Kentuckians ignored his advice.",
+          "sources": [
+            "ekh"
+          ]
+        },
+        {
+          "text": "The tradition that McGary dared the men across shouting about cowards comes from later recollections and is not in Boone's 1782 letter or 1784 narrative.",
+          "sources": [
+            "historynet",
+            "boone-1782",
+            "filson-1784"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Casualties and strength (ranges)",
+      "items": [
+        {
+          "text": "Kentucky force: 176 (Filson), 181 (Boone), 182 (American Battlefield Trust).",
+          "sources": [
+            "filson-1784",
+            "boone-1782",
+            "abt"
+          ]
+        },
+        {
+          "text": "British and Native force: about 200 in line (American Battlefield Trust); 300 crossed the Ohio and nearly 100 left before the battle (Caldwell); more than 400 guessed from trail sign (Boone).",
+          "sources": [
+            "abt",
+            "caldwell-1782",
+            "boone-1782"
+          ]
+        },
+        {
+          "text": "Kentucky losses: 67 lost including 7 captured (Filson); about 70 killed (ExploreKYHistory); 77 killed and 12 wounded (Boone).",
+          "sources": [
+            "filson-1784",
+            "ekh",
+            "boone-1782"
+          ]
+        },
+        {
+          "text": "British and Native losses: one Ranger and six Indians killed, ten wounded (Caldwell). Caldwell claimed 146 killed and taken and wrongly listed Boone and McGary as dead.",
+          "sources": [
+            "caldwell-1782"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Outcome and legacy",
+      "items": [
+        {
+          "text": "Caldwell's Rangers returned to Detroit hardly capable of taking the field again, and the war moved to diplomacy.",
+          "sources": [
+            "dcb-caldwell"
+          ]
+        },
+        {
+          "text": "In November 1782 Clark led Kentucky militia against the Shawnee towns on the Great Miami; the inhabitants left and five towns were burned.",
+          "sources": [
+            "filson-1784"
+          ]
+        },
+        {
+          "text": "The Treaty of Paris recognized U.S. independence and western bounds to the Mississippi; Native nations were not party to it.",
+          "sources": [
+            "oh-treaty"
+          ]
+        },
+        {
+          "text": "A 32-acre battlefield tract became a state park and a 40-foot obelisk was unveiled August 19, 1928; it names the opposing nations but lists only Kentucky dead.",
+          "sources": [
+            "mercury-1928",
+            "hmdb"
+          ]
+        },
+        {
+          "text": "Trigg County (1820) and Todd County (1819) are named for the two fallen colonels.",
+          "sources": [
+            "trigg-act",
+            "todd-act"
+          ]
+        },
+        {
+          "text": "Lack of means and authority to defend the district led Benjamin Logan to call the 1784 Danville meeting that began the conventions leading to statehood in 1792.",
+          "sources": [
+            "rkyshs-boundary",
+            "jsh-convention"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1782,
+      "event": "Mar. 8: Gnadenhutten massacre in the Ohio country",
+      "sources": [
+        "abt-gnad"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "June: Caldwell and allies defeat Crawford on the upper Sandusky",
+      "sources": [
+        "dcb-caldwell"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "Aug. 15 or 16: Caldwell's force surrounds Bryan's Station (Caldwell gives the 15th, Kentucky accounts the 16th)",
+      "sources": [
+        "caldwell-1782",
+        "boone-1782",
+        "abt-bryan"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "Aug. 17: Attackers withdraw and camp at the Blue Licks",
+      "sources": [
+        "caldwell-1782"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "Aug. 18: About 180 militia pursue from Bryan's Station",
+      "sources": [
+        "filson-1784",
+        "boone-1782"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "Aug. 19: Battle of Blue Licks, about 15 minutes; militia routed (Caldwell dates it the 18th)",
+      "sources": [
+        "boone-1782",
+        "filson-1784",
+        "caldwell-1782",
+        "abt"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "About Aug. 24: Logan's force of about 460 buries the dead; 43 found on the ground",
+      "sources": [
+        "boone-1782"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "Aug. 30: Boone asks Gov. Harrison for 500 men",
+      "sources": [
+        "boone-1782"
+      ]
+    },
+    {
+      "year": 1782,
+      "event": "Nov.: Clark's campaign burns five Shawnee towns on the Great Miami",
+      "sources": [
+        "filson-1784"
+      ]
+    },
+    {
+      "year": 1783,
+      "event": "Sept. 3: Treaty of Paris signed",
+      "sources": [
+        "oh-treaty"
+      ]
+    },
+    {
+      "year": 1784,
+      "event": "Logan's Danville meeting on frontier defense begins the statehood conventions",
+      "sources": [
+        "jsh-convention"
+      ]
+    },
+    {
+      "year": 1928,
+      "event": "Aug. 19: Blue Licks monument dedicated",
+      "sources": [
+        "mercury-1928"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "John Todd",
+      "role": "Kentucky commander; killed",
+      "peopleId": "john-todd"
+    },
+    {
+      "name": "Stephen Trigg",
+      "role": "Right wing; killed",
+      "peopleId": "stephen-trigg"
+    },
+    {
+      "name": "Daniel Boone",
+      "role": "Left wing",
+      "peopleId": "daniel-boone"
+    },
+    {
+      "name": "Israel Boone",
+      "role": "Killed",
+      "peopleId": "israel-boone"
+    },
+    {
+      "name": "Hugh McGary",
+      "role": "Center",
+      "peopleId": "hugh-mcgary"
+    },
+    {
+      "name": "Silas Harlan",
+      "role": "Advance party; killed",
+      "peopleId": "silas-harlan"
+    },
+    {
+      "name": "Robert Patterson",
+      "role": "Captain",
+      "peopleId": "robert-patterson"
+    },
+    {
+      "name": "Levi Todd",
+      "role": "Major; buried the dead",
+      "peopleId": "levi-todd"
+    },
+    {
+      "name": "Benjamin Logan",
+      "role": "Relief column",
+      "peopleId": "benjamin-logan"
+    },
+    {
+      "name": "George Rogers Clark",
+      "role": "November 1782 campaign",
+      "peopleId": "george-rogers-clark"
+    },
+    {
+      "name": "William Caldwell",
+      "role": "British commander",
+      "peopleId": "william-caldwell"
+    },
+    {
+      "name": "Alexander McKee",
+      "role": "Indian Department",
+      "peopleId": "alexander-mckee"
+    },
+    {
+      "name": "Simon Girty",
+      "role": "Indian Department interpreter",
+      "peopleId": "simon-girty"
+    },
+    {
+      "name": "James Girty",
+      "role": "Interpreter; presence at Blue Licks unconfirmed"
+    },
+    {
+      "name": "George Girty",
+      "role": "Interpreter; presence at Blue Licks unconfirmed"
+    }
+  ],
+  "openQuestions": [
+    "Names of the Wyandot, Shawnee, Lenape and Lake nations leaders at Blue Licks, and an Indigenous-perspective source.",
+    "Whether James or George Girty was present at the battle.",
+    "A working Kentucky State Parks page for Blue Licks Battlefield State Resort Park.",
+    "Whether a full battle reenactment is held annually; sources found describe only the August memorial ceremony.",
+    "Roles of Benjamin Netherland and Aaron Reynolds, known mainly from later tradition.",
+    "Caldwell's dates run one day earlier than the Kentucky accounts; the article follows the Kentucky dates."
+  ],
+  "sources": [
+    {
+      "id": "caldwell-1782",
+      "short": "Caldwell report, 1782",
+      "citation": "Capt. William Caldwell, report dated Wakitamiki, Aug. 26, 1782 (British Library Add. MSS 21,783 ff. 231-232), Loyalist Institute transcription",
+      "url": "https://www.royalprovincial.com/history/battles/brcald1.shtml",
+      "type": "primary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "boone-1782",
+      "short": "Boone letter, 1782",
+      "citation": "Daniel Boone to Gov. Benjamin Harrison, Aug. 30, 1782, transcribed by Kentucky National Guard History",
+      "url": "https://kynghistory.ky.gov/Our-History/History-of-the-Guard/Pages/The-Battle-of-Blue-Licks.aspx",
+      "type": "primary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "filson-1784",
+      "short": "Filson, 1784",
+      "citation": "John Filson, The Adventures of Col. Daniel Boon, in The Discovery, Settlement and Present State of Kentucke (1784), Project Gutenberg",
+      "url": "https://www.gutenberg.org/files/909/909-h/909-h.htm",
+      "type": "primary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "trigg-act",
+      "short": "Trigg County act",
+      "citation": "Act creating Trigg County (Acts of the Kentucky General Assembly), Kentucky Secretary of State Land Office",
+      "url": "https://web.sos.ky.gov/land/CountyFormation.aspx/?countyname=Trigg",
+      "type": "primary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "todd-act",
+      "short": "Todd County act",
+      "citation": "Act creating Todd County (1819), transcribed by Kentucky Genealogy",
+      "url": "https://kentuckygenealogy.org/todd/act_of_legislature.htm",
+      "type": "primary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "mercury-1928",
+      "short": "Carlisle Mercury, 1928",
+      "citation": "Carlisle Mercury, report of the Blue Licks monument dedication, Aug. 23, 1928 (Filson Historical Society PDF)",
+      "url": "https://filsonhistorical.org/wp-content/uploads/publicationpdfs/3-1-4_The-Report-on-Blue-Licks-Monument-Dedication-August-1928_Carlisle-Mercury-The.pdf",
+      "type": "primary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "ekh",
+      "short": "ExploreKYHistory",
+      "citation": "ExploreKYHistory (Kentucky Historical Society), Blue Licks Battlefield",
+      "url": "https://explorekyhistory.ky.gov/items/show/590",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "khs-18",
+      "short": "KHS marker #18",
+      "citation": "Kentucky Historical Society, historical marker #18, Blue Licks Battlefield",
+      "url": "https://history.ky.gov/markers/blue-licks-battlefield",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "abt",
+      "short": "Battlefield Trust: Blue Licks",
+      "citation": "American Battlefield Trust, Blue Licks",
+      "url": "https://www.battlefields.org/learn/revolutionary-war/battles/blue-licks",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "abt-bryan",
+      "short": "Battlefield Trust: Bryan's Station",
+      "citation": "American Battlefield Trust, Bryan's Station",
+      "url": "https://www.battlefields.org/learn/revolutionary-war/battles/bryans-station",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "abt-gnad",
+      "short": "Battlefield Trust: Gnadenhutten",
+      "citation": "American Battlefield Trust, Gnadenhutten",
+      "url": "https://www.battlefields.org/learn/revolutionary-war/battles/gnadenhutten",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "dcb-caldwell",
+      "short": "DCB: Caldwell",
+      "citation": "Dictionary of Canadian Biography, Caldwell, William (d. 1822)",
+      "url": "https://www.biographi.ca/en/bio/caldwell_william_1822_6E.html",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "dcb-mckee",
+      "short": "DCB: McKee",
+      "citation": "Dictionary of Canadian Biography, McKee, Alexander",
+      "url": "https://www.biographi.ca/en/bio/mckee_alexander_4E.html",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "dcb-girty",
+      "short": "DCB: Girty",
+      "citation": "Dictionary of Canadian Biography, Girty, Simon",
+      "url": "https://www.biographi.ca/en/bio/girty_simon_5E.html",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "butterfield",
+      "short": "Butterfield, 1890",
+      "citation": "C. W. Butterfield, History of the Girtys (1890), Internet Archive",
+      "url": "https://archive.org/details/historyofgirtysb00butt",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "historynet",
+      "short": "HistoryNet",
+      "citation": "HistoryNet, Battle of Blue Licks (popular narrative drawing on 19th-century recollections)",
+      "url": "https://historynet.com/battle-of-blue-licks/",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "hmdb",
+      "short": "HMdb monument",
+      "citation": "Historical Marker Database, Unknown Heroes of the Battle of the Blue Licks (monument inscriptions)",
+      "url": "https://www.hmdb.org/m.asp?m=285554",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "lexsar",
+      "short": "Lafayette SAR, 2026",
+      "citation": "Lafayette Chapter SAR, Battle of Blue Licks memorial event, Aug. 15, 2026",
+      "url": "https://lexsar.org/event/battle-of-blue-licks-national-event-and-kysssar-state-meeting/",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "ky-leg-todd",
+      "short": "LRC: John Todd",
+      "citation": "Kentucky Legislative Research Commission, Legislative Moments: John Todd (1750-1782)",
+      "url": "https://apps.legislature.ky.gov/LegislativeMoments/moments09RS/web/Lincoln%20moments%2010.pdf",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "rkyshs-boundary",
+      "short": "KHS Register: boundary",
+      "citation": "Register of the Kentucky Historical Society 44, The Kentucky Boundary",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/America/United_States/Kentucky/_Texts/RKySHS/44/146/The_Kentucky_Boundary*.html",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "jsh-convention",
+      "short": "JSH 1935: convention",
+      "citation": "Journal of Southern History 1 (1935), Journal of the First Kentucky Convention, ed. T. P. Abernethy",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Journals/JSH/1/1/First_Kentucky_Convention*.html",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    },
+    {
+      "id": "oh-treaty",
+      "short": "Office of the Historian: 1783 treaty",
+      "citation": "U.S. Office of the Historian, Treaty of Paris, 1783",
+      "url": "https://history.state.gov/milestones/1776-1783/treaty",
+      "type": "secondary",
+      "accessed": "2026-10-12"
+    }
+  ]
+}
