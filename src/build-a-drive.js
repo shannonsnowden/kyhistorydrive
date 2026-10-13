@@ -48,17 +48,14 @@ const isPhone = () => PHONE_MQ.matches || /Mobi|Android|iPhone/.test(UA)
 // Waypoint caps: Google allows 3 waypoints + destination in phone browsers, 9 + destination elsewhere.
 // Apple's multistop limit is undocumented, so Apple uses 4 stops per leg until it is device-tested.
 
-// ---------- theme (this visit only; nothing stored) ----------
+// ---------- theme: the site header toggle (shared with every page) sets data-hp-theme ----------
 const styleFor = (t) => `https://basemaps.cartocdn.com/gl/${t === 'dark' ? 'dark-matter' : 'voyager'}-gl-style/style.json`
 const hashParams = new URLSearchParams(location.hash.slice(1))
 const qTheme = new URLSearchParams(location.search).get('theme') || hashParams.get('theme')
-function setTheme(t) {
-  root.dataset.hpTheme = t
-  $('themeBtn').setAttribute('aria-pressed', String(t === 'dark'))
-  $('themeBtn').setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme')
-  $('themeBtn').firstElementChild.textContent = t === 'dark' ? '☀' : '☾'
-}
-setTheme(qTheme === 'dark' || qTheme === 'light' ? qTheme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+let savedTheme = null
+try { savedTheme = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme') } catch (e) {}
+const okTheme = (t) => t === 'dark' || t === 'light'
+root.dataset.hpTheme = okTheme(qTheme) ? qTheme : okTheme(savedTheme) ? savedTheme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 
 // ---------- geometry / planning ----------
 function miles(a, b) {
@@ -157,11 +154,13 @@ async function main() {
     map.addLayer({ id: 'loop', type: 'line', source: 'loop', paint: { 'line-color': '#c9893a', 'line-width': 3.5, 'line-dasharray': [2, 1.5] } })
   }
   ready = ready.then(addLayers)
-  $('themeBtn').addEventListener('click', () => {
-    setTheme(root.dataset.hpTheme === 'dark' ? 'light' : 'dark')
-    map.setStyle(styleFor(root.dataset.hpTheme))
+  let mapTheme = root.dataset.hpTheme
+  new MutationObserver(() => {
+    if (root.dataset.hpTheme === mapTheme) return
+    mapTheme = root.dataset.hpTheme
+    map.setStyle(styleFor(mapTheme))
     map.once('style.load', () => { addLayers(); if (last) draw(...last) })
-  })
+  }).observe(root, { attributes: true, attributeFilter: ['data-hp-theme'] })
 
   async function draw(start, order) {
     last = [start, order]
