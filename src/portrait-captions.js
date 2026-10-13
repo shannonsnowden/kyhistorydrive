@@ -36,6 +36,7 @@ export function creditWithCaption(person, credit) {
 export const PORTRAIT_ALTS = {
   // Portrait sweep batch 1 (canonical faces).
   'thomas-marshall-col': 'AI illustration of Col. Thomas Marshall, Virginia surveyor and Buck Pond founder, about 1795',
+  'hugh-mcgary': 'AI illustration of Hugh McGary, Harrodsburg frontiersman, about 1782',
   'hugh-forbes': 'AI illustration of Hugh Forbes, Scottish-born founder of Mount Sterling, about 1790',
   'daniel-boone': "AI illustration of Daniel Boone in old age, after Chester Harding's 1820 portrait",
   'benjamin-logan': 'AI illustration of Benjamin Logan, Kentucky pioneer and militia general',

@@ -88,10 +88,6 @@
     "label": "Same event: Logan’s 1786 militia raid struck her Ohio village"
    },
    {
-    "slug": "hugh-mcgary-the-hothead-major",
-    "label": "Same event: McGary killed Moluntha in 1786"
-   },
-   {
     "slug": "lower-shawneetown-at-the-scioto-mouth",
     "label": "Same place: she held influence at Lower Shawneetown"
    },
@@ -128,10 +124,6 @@
     "label": "Same event: McGary served on Logan’s 1786 Ohio raid"
    },
    {
-    "slug": "hugh-mcgary-the-hothead-major",
-    "label": "Another story about Hugh McGary"
-   },
-   {
     "slug": "battle-of-blue-licks",
     "label": "Same event: Battle of Blue Licks, August 1782"
    },
@@ -150,10 +142,6 @@
     "label": "Same event: McGary served on Logan’s 1786 Ohio raid"
    },
    {
-    "slug": "hugh-mcgary-the-hothead-major",
-    "label": "Same event: McGary served on this raid"
-   },
-   {
     "slug": "stanford-from-st-asaph",
     "label": "Same place: Logan’s Station (St. Asaph), near present Stanford"
    },
@@ -162,32 +150,10 @@
     "label": "Same place: Daniel Trabue, who served at Logan’s Fort and wrote about it, has his own story"
    }
   ],
-  "hugh-mcgary-the-hothead-major": [
-   {
-    "slug": "nonhelema",
-    "label": "Same event: killed Moluntha, Nonhelema’s husband, in 1786"
-   },
-   {
-    "slug": "benjamin-logan",
-    "label": "Same event: Logan’s Mad River raid, 1786"
-   },
-   {
-    "slug": "hugh-mcgary-the-blue-licks-hothead",
-    "label": "Another story about Hugh McGary"
-   },
-   {
-    "slug": "battle-of-blue-licks",
-    "label": "Same event: Battle of Blue Licks, August 1782"
-   }
-  ],
   "battle-of-blue-licks": [
    {
     "slug": "hugh-mcgary-the-blue-licks-hothead",
     "label": "Same event: Hugh McGary commanded the center at Blue Licks"
-   },
-   {
-    "slug": "hugh-mcgary-the-hothead-major",
-    "label": "Same event: Hugh McGary dared the militia across the Licking at Blue Licks"
    },
    {
     "slug": "col-john-todd-of-lexington",
@@ -472,18 +438,8 @@
   ],
   "adams-site-15fu4": [
    {
-    "slug": "adams-site-mississippian-town-near-hickman",
-    "label": "Another story about the Adams Site (15Fu4)"
-   },
-   {
     "slug": "wickliffe-mounds-mississippian-village-ballard-county",
     "label": "Same place: a sister Mississippian border town"
-   }
-  ],
-  "adams-site-mississippian-town-near-hickman": [
-   {
-    "slug": "adams-site-15fu4",
-    "label": "Another story about the Adams Site (15Fu4)"
    }
   ],
   "bland-w-ballard-of-tick-creek": [
@@ -588,18 +544,7 @@
     "label": "Same place: the Kentucky Historical Society credits Gist with finding the Pound Gap route"
    }
   ],
-  "cleek-mccabe-fort-ancient-village": [
-   {
-    "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-    "label": "Another story about Cleek-McCabe"
-   }
-  ],
-  "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": [
-   {
-    "slug": "cleek-mccabe-fort-ancient-village",
-    "label": "Another story about Cleek-McCabe"
-   }
-  ],
+  "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": [],
   "cloudsplitter-rockshelter-menifee-county": [
    {
     "slug": "newt-kash-hollow-15mf1",
@@ -768,18 +713,7 @@
     "label": "Same event: Brig. Gen. Charles Scott’s June 1791 Wabash raid"
    }
   ],
-  "lawrenceburg-from-kaufmans-station": [
-   {
-    "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
-    "label": "Another story about Lawrenceburg and Kaufman’s Station"
-   }
-  ],
-  "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": [
-   {
-    "slug": "lawrenceburg-from-kaufmans-station",
-    "label": "Another story about Lawrenceburg and Kaufman’s Station"
-   }
-  ],
+  "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": [],
   "louisville-and-portland-canal": [
    {
     "slug": "falls-of-the-ohio",
@@ -814,18 +748,7 @@
     "label": "Same event: the 1768 Fort Stanwix deed left hunting rights south of the Ohio"
    }
   ],
-  "muir-site-15js86": [
-   {
-    "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-    "label": "Another story about the Muir site"
-   }
-  ],
-  "muir-site-early-fort-ancient-on-a-jessamine-ridge": [
-   {
-    "slug": "muir-site-15js86",
-    "label": "Another story about the Muir site"
-   }
-  ],
+  "muir-site-early-fort-ancient-on-a-jessamine-ridge": [],
   "owensboro-yellow-banks": [
    {
     "slug": "yellow-banks-becomes-owensboro",
@@ -926,18 +849,7 @@
     "label": "Same place: where the road to Bullitt’s Lick crossed Salt River"
    }
   ],
-  "springfield-founding-and-washington-county-seat": [
-   {
-    "slug": "springfield-first-county-seat-after-statehood",
-    "label": "Another story about Springfield"
-   }
-  ],
-  "springfield-first-county-seat-after-statehood": [
-   {
-    "slug": "springfield-founding-and-washington-county-seat",
-    "label": "Another story about Springfield"
-   }
-  ],
+  "springfield-founding-and-washington-county-seat": [],
   "stanford-from-st-asaph": [
    {
     "slug": "benjamin-logan",
