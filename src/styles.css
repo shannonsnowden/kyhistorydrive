@@ -5220,19 +5220,6 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 .story-reader-layout .learn-more,
 .story-reader-layout .route-map { clear: both; }
 
-/* Round subject headshot beside the story title (static h1 and app reader h2). */
-.story-title-row { display: flex; align-items: center; gap: 0.6rem; }
-.story-title-row > h1,
-.story-title-row > h2 { margin: 0; min-width: 0; }
-.story-title-headshot { flex: 0 0 auto; line-height: 0; }
-.story-title-headshot img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid rgba(120, 110, 95, 0.55);
-  background: var(--chip);
-}
 
 /* Homepage "Plan your drive" entry. Seal art unchanged (native 576px file, shown smaller, never recolored). */
 .hp-map-strip-link .hp-map-seal {
