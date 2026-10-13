@@ -2845,9 +2845,11 @@ async function enrichStoriesCounties(stories) {
   }
 
   for (const s of stories) {
+    const loc = locations[s.slug] || {}
+    if (!s.historyId && loc.historyId) s.historyId = loc.historyId
+    if (!s.matchedPlace && loc.matchedPlace) s.matchedPlace = loc.matchedPlace
     // county set in the story JSON wins; an explicit '' means "no county label" (out-of-state / unpinned stories).
     if (s.county != null) continue
-    const loc = locations[s.slug] || {}
     let county = ''
     const histId = loc.historyId || s.historyId
     if (histId && historyById.get(histId)?.county) {
@@ -3290,6 +3292,10 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               yearEnd: s.yearEnd ?? meta.yearEnd,
               lat: meta.lat ?? s.lat,
               lon: meta.lon ?? s.lon,
+              historyId,
+              matchedPlace: meta.matchedPlace || '',
+              bodyMarkdown: s.bodyMarkdown || '',
+              proseChars: meta.proseChars,
             },
             storyIndex.stories,
             markerRecords(markerFeatures),

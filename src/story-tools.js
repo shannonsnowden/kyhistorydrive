@@ -252,8 +252,7 @@ export function nearbyStories(story, all, { limit = 5, excludeSlugs = [] } = {})
   if (!origin) return []
   const skip = new Set(excludeSlugs || [])
   const rows = []
-  for (const other of all || []) {
-    if (!other?.slug || other.slug === story.slug || !other.title || skip.has(other.slug)) continue
+  for (const other of collapseSamePlace(story, all, skip)) {
     const olat = finiteCoord(other.lat)
     const olon = finiteCoord(other.lon)
     if (!validPin(olat, olon)) continue
@@ -361,6 +360,9 @@ export function storyDetail(story) {
 
 /** 112px opt/ crop used as the 2× source for a 56px card thumbnail. */
 export function storyThumbSrc(story) {
+  // A curated stand-in (a street or courthouse standing in for the site) stays
+  // on the story page. The card uses the pin tile instead.
+  if (story?.photo?.cardThumb === false) return ''
   const url = String(story?.photo?.image_url || '')
   if (!url.startsWith('/content/photos/')) return ''
   const base = url.split('/').pop().replace(/\.[^.]+$/, '')
@@ -409,8 +411,11 @@ export function nearbyHtml(story, all, { headingLevel = 2, markers = [], exclude
 
 /**
  * Era and place labels, plus the corpus-wide native-history label.
- * One shared subject tag outranks any number of these, and they do not
- * outrank county or distance.
+ * These never rank a story. A single specific tag does not either:
+ * civil-war, salt, or frontier-war is too broad to beat the same county
+ * or a nearby story. Two shared specific tags still come first, so a
+ * later Camp Nelson / USCT story that shares usct and civil-war can
+ * outrank a town sketch next door.
  */
 const BROAD_RELATED_TAGS = new Set([
   'kentucky',
@@ -421,6 +426,160 @@ const BROAD_RELATED_TAGS = new Set([
   'frontier',
   'early-commonwealth',
 ])
+
+function trinomialMatches(value) {
+  return [...String(value || '').matchAll(/\b15[a-z]{2}\d{1,4}\b/gi)].map((match) => match[0].toLowerCase())
+}
+const TITLE_RANKS = new Set(['capt', 'col', 'gen', 'maj', 'dr', 'rev', 'sgt', 'lt', 'cpt'])
+const COORD_MATCH_DEGREES = 0.01
+
+function proseLength(story) {
+  const body = story?.bodyMarkdown
+  if (typeof body === 'string' && body.length) return body.length
+  const recorded = Number(story?.proseChars)
+  if (Number.isFinite(recorded) && recorded > 0) return recorded
+  return String(story?.summary || '').length
+}
+
+/** Longer article text is the richer entry. Summary length breaks a tie. */
+function storyRichness(story) {
+  return proseLength(story) * 1000 + String(story?.summary || '').length
+}
+
+function trinomialsOf(story) {
+  const blob = [story?.slug, story?.title, story?.matchedPlace].filter(Boolean).join(' ')
+  return new Set(trinomialMatches(blob))
+}
+
+function sharedTrinomial(a, b) {
+  const left = trinomialsOf(a)
+  if (!left.size) return false
+  for (const id of trinomialsOf(b)) if (left.has(id)) return true
+  return false
+}
+
+function titleLabels(title) {
+  let text = String(title || '')
+    .toLowerCase()
+    .replace(/[’']/g, '')
+  text = text.replace(/\b15[a-z]{2}\d{1,4}\b/gi, ' ')
+  text = text.replace(/\([^)]*\)/g, ' ')
+  return text
+    .split(/\s*(?::|\/|—|–)\s*/)
+    .map((part) => {
+      const words = part
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .split(' ')
+        .filter(Boolean)
+      if (words.length && TITLE_RANKS.has(words[0])) words.shift()
+      return words.join(' ')
+    })
+    .filter(Boolean)
+}
+
+function leadingStems(title) {
+  const stems = []
+  for (const label of titleLabels(title)) {
+    const words = label.split(' ').filter(Boolean)
+    if (!words.length) continue
+    stems.push(words[0])
+    if (words.length >= 2) stems.push(`${words[0]} ${words[1]}`)
+  }
+  return stems
+}
+
+/** Leading place name: two words, or one word of at least six letters. */
+function sharedTitleStem(aTitle, bTitle) {
+  const pairs = [
+    [leadingStems(aTitle), titleLabels(bTitle)],
+    [leadingStems(bTitle), titleLabels(aTitle)],
+  ]
+  for (const [stems, labels] of pairs) {
+    for (const stem of stems) {
+      for (const label of labels) {
+        if (label !== stem && !label.startsWith(`${stem} `)) continue
+        if (stem.split(' ').length >= 2 || stem.length >= 6) return true
+      }
+    }
+  }
+  return false
+}
+
+function sameHistoryId(a, b) {
+  const id = String(a?.historyId || '').trim()
+  return Boolean(id) && id === String(b?.historyId || '').trim()
+}
+
+function coordsClose(a, b) {
+  const aLat = finiteCoord(a?.lat)
+  const aLon = finiteCoord(a?.lon)
+  const bLat = finiteCoord(b?.lat)
+  const bLon = finiteCoord(b?.lon)
+  if (!validPin(aLat, aLon) || !validPin(bLat, bLon)) return false
+  return Math.abs(aLat - bLat) <= COORD_MATCH_DEGREES + 1e-6 && Math.abs(aLon - bLon) <= COORD_MATCH_DEGREES + 1e-6
+}
+
+/**
+ * Same place: a shared site trinomial, the same map site when the titles
+ * also share a stem, or coordinates within about 0.01° plus that stem.
+ * A shared pin alone is not enough. Lincoln and Painted Stone share a pin
+ * and stay separate.
+ */
+function samePlace(a, b) {
+  if (!a?.slug || !b?.slug || a.slug === b.slug) return false
+  if (sharedTrinomial(a, b)) return true
+  if (!sharedTitleStem(a?.title, b?.title)) return false
+  return sameHistoryId(a, b) || coordsClose(a, b)
+}
+
+/**
+ * Same person: both titles lead with the same personal name before a comma
+ * ("Hugh McGary, the hothead major" / "Hugh McGary, the Blue Licks Hothead").
+ */
+function titlePerson(title) {
+  const m = /^([^,:]+),\s/.exec(String(title || ''))
+  if (!m) return ''
+  const name = m[1].trim()
+  const words = name.split(/\s+/)
+  if (words.length < 2 || words.length > 4) return ''
+  if (!words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) return ''
+  return name.toLowerCase()
+}
+
+function samePerson(a, b) {
+  if (!a?.slug || !b?.slug || a.slug === b.slug) return false
+  const pa = titlePerson(a.title)
+  return Boolean(pa) && pa === titlePerson(b.title)
+}
+
+function sameSubject(a, b) {
+  return samePlace(a, b) || samePerson(a, b)
+}
+
+/** One story per place. The richer article wins. A thinner twin of the current page is dropped. */
+function collapseSamePlace(origin, stories, skip) {
+  const groups = []
+  for (const other of stories || []) {
+    if (!other?.slug || !other.title) continue
+    if (origin?.slug && other.slug === origin.slug) continue
+    const idx = groups.findIndex((group) => group.some((item) => sameSubject(item, other)))
+    if (idx === -1) groups.push([other])
+    else groups[idx].push(other)
+  }
+  const kept = []
+  for (const group of groups) {
+    const rivals = origin && group.some((item) => sameSubject(origin, item)) ? [...group, origin] : group
+    rivals.sort(
+      (a, b) => storyRichness(b) - storyRichness(a) || String(a.slug).localeCompare(String(b.slug)),
+    )
+    const best = rivals[0]
+    if (!best?.slug || (origin?.slug && best.slug === origin.slug) || skip?.has(best.slug)) continue
+    kept.push(best)
+  }
+  return kept
+}
 
 function relatedTagSets(story) {
   const specific = new Set()
@@ -462,21 +621,21 @@ function relatedMiles(story, other) {
 }
 
 /**
- * Up to five other stories.
- * Shared subject tags (a person, nation, event, or theme) come first.
- * Broad era and place tags do not rank a story.
+ * Up to five other stories, one per place.
+ * Two or more shared specific tags come first.
+ * One specific tag does not outrank the same county or a nearer story.
  * Then the same county, then nearer, then title.
  */
 export function pickRelatedStories(story, all, excludeSlugs = []) {
   const skip = new Set(excludeSlugs || [])
   const originTags = relatedTagSets(story)
-  const pool = (all || []).filter(
-    (other) => other?.slug && other.slug !== story?.slug && other.title && !skip.has(other.slug),
-  )
+  const pool = collapseSamePlace(story, all, skip)
+  const strongCount = (other) => {
+    const shared = sharedCount(originTags.specific, relatedTagSets(other).specific)
+    return shared >= 2 ? shared : 0
+  }
   pool.sort((a, b) => {
-    const specificDelta =
-      sharedCount(originTags.specific, relatedTagSets(b).specific) -
-      sharedCount(originTags.specific, relatedTagSets(a).specific)
+    const specificDelta = strongCount(b) - strongCount(a)
     if (specificDelta) return specificDelta
     const countyDelta = Number(sameCounty(story, b)) - Number(sameCounty(story, a))
     if (countyDelta) return countyDelta
