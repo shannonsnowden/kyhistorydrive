@@ -157,12 +157,6 @@ const MANUAL_OVERRIDES = {
     lon: -85.3441,
     confidence: 'override',
   },
-  'springfield-first-county-seat-after-statehood': {
-    matchName: 'Springfield',
-    lat: 37.6853,
-    lon: -85.2222,
-    confidence: 'override',
-  },
   'bland-w-ballard-of-tick-creek': {
     matchName: 'Bland W. Ballard / Tyler Station',
     lat: 38.2143528,
@@ -218,12 +212,6 @@ const MANUAL_OVERRIDES = {
     matchName: 'Newt Kash Hollow (15Mf1)',
     lat: 37.9,
     lon: -83.6,
-    confidence: 'override',
-  },
-  'muir-site-15js86': {
-    matchName: 'Muir Site (15Js86)',
-    lat: 37.9,
-    lon: -84.6,
     confidence: 'override',
   },
   // Sep 16 — use iOS pin coords; leave Illinois Confederation unpinned (Cahokia)

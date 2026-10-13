@@ -68,7 +68,6 @@
       "licenseUrl": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
-        "hugh-mcgary-the-hothead-major",
         "wyandot-on-kentuckys-northern-frontier"
       ]
     },
@@ -1012,17 +1011,20 @@
       "id": "hugh-mcgary",
       "name": "Hugh McGary",
       "dates": "1744–1806",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/hugh-mcgary__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hugh-mcgary__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
-        "hugh-mcgary-the-hothead-major",
         "nonhelema",
         "moluntha-and-logans-raid-1786"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "moluntha",
@@ -1038,7 +1040,6 @@
       "licenseUrl": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
-        "hugh-mcgary-the-hothead-major",
         "nonhelema",
         "moluntha-and-logans-raid-1786"
       ],
@@ -1729,7 +1730,6 @@
       "licenseUrl": null,
       "stories": [
         "harry-innes",
-        "springfield-first-county-seat-after-statehood",
         "springfield-founding-and-washington-county-seat",
         "washington-mason-county"
       ],
@@ -2194,7 +2194,6 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "springfield-first-county-seat-after-statehood",
         "springfield-founding-and-washington-county-seat"
       ]
     },
@@ -2533,7 +2532,6 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "lawrenceburg-from-kaufmans-station",
         "lawrenceburg-from-kaufmans-station-to-anderson-county-seat"
       ]
     },
@@ -2547,7 +2545,6 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "lawrenceburg-from-kaufmans-station",
         "lawrenceburg-from-kaufmans-station-to-anderson-county-seat"
       ]
     },
@@ -4574,7 +4571,6 @@
     "capt-nathaniel-hart": "nathaniel-hart",
     "capt-abraham-lincoln-on-long-run": "abraham-lincoln-capt",
     "col-stephen-trigg-of-viney-grove": "stephen-trigg",
-    "hugh-mcgary-the-hothead-major": "hugh-mcgary",
     "michael-stoner-german-long-hunter": "michael-stoner",
     "christopher-gist-1750-51": "christopher-gist",
     "col-john-todd-of-lexington": "john-todd",
@@ -4593,6 +4589,7 @@
     "ann-mcginty-and-kentuckys-first-spinning-wheel": "ann-mcginty",
     "benjamin-logan": "benjamin-logan",
     "esther-whitley-over-the-cumberlands-1775": "esther-whitley",
+    "hugh-mcgary-the-blue-licks-hothead": "hugh-mcgary",
     "levi-todd-lexington-co-founder": "levi-todd",
     "maj-joseph-bowman": "joseph-bowman",
     "richard-henderson": "richard-henderson",
@@ -4605,7 +4602,6 @@
     "col-john-bowman-at-old-chillicothe": "john-bowman",
     "col-robert-patterson-builds-lexington": "robert-patterson",
     "edward-worthington-at-worthingtons-fort": "edward-worthington",
-    "hugh-mcgary-the-blue-licks-hothead": "hugh-mcgary",
     "isaac-ruddell-and-the-guns-at-ruddells-station": "isaac-ruddell",
     "william-christian-of-beargrass": "william-christian",
     "capt-robert-johnson-and-big-crossing-station": "robert-johnson",
