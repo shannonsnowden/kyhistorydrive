@@ -752,13 +752,16 @@ export function photoCreditHtml(photo, { block = true } = {}) {
     chunks.push(externalLink(model.sourceUrl, 'Source'))
   }
   if (!chunks.length && !model.license) return ''
-  // Pieces joined with ' · ' and no trailing period, so no stray ' .' follows a link.
-  let inner = chunks.length ? `Photo: ${chunks.join(' · ')}` : 'Photo'
+  // Each piece is a nowrap .seg; CSS (.seg + .seg::before) draws the ' · ' at the start of the
+  // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
+  const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
+  if (segs.length) segs[0] = `<span class="seg">Photo: ${chunks[0]}</span>`
   if (model.license) {
     const license = model.licenseUrl ? externalLink(model.licenseUrl, model.license) : esc(model.license)
-    // Keep the whole license together ("License: CC BY-SA 4.0" never splits across lines).
-    inner += `${chunks.length ? ' · ' : ': '}<span class="photo-license">License: ${license}</span>`
+    const prefix = segs.length ? '' : 'Photo: '
+    segs.push(`<span class="seg photo-license">${prefix}License: ${license}</span>`)
   }
+  const inner = segs.join(' ')
   if (block) return `<p class="story-sidebar-photo-attr story-photo-credit">${inner}</p>`
   return `<span class="historic-photo-attr story-photo-credit">${inner}</span>`
 }

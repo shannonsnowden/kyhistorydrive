@@ -217,7 +217,8 @@ assert.match(creditHtml, /License:/)
 assert.match(creditHtml, /creativecommons\.org/)
 assert.match(creditHtml, /target="_blank"/)
 assert.doesNotMatch(creditHtml, /<\/a>\s*\./, 'no stray period after a link in the photo credit')
-assert.match(creditHtml, / · <span class="photo-license">/)
+assert.match(creditHtml, /<\/span> <span class="seg photo-license">License:/)
+assert.doesNotMatch(creditHtml, / · /, 'separators are drawn by CSS (.seg + .seg::before), not in the markup')
 
 const sourceOnly = photoCreditModel({
   image_url: '/photo.jpg',

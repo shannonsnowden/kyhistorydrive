@@ -1201,7 +1201,7 @@ a.related-card:hover .related-card-chevron {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 0.2rem;
+  padding: 0;
 }
 .story-photo-credit a:focus-visible {
   outline: 3px solid var(--focus-ring);
@@ -5310,4 +5310,5 @@ html[data-hp-theme="light"] .hp-plan-drive {
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
 
 /* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
-.story-photo-credit .photo-license { white-space: nowrap; }
+.story-photo-credit .seg { white-space: nowrap; }
+.story-photo-credit .seg + .seg::before { content: '· '; }
