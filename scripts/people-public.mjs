@@ -41,6 +41,8 @@ export const AI_IDS = [
   'blue-jacket',
   'egushawa',
   'richard-callaway',
+  'moluntha',
+  'robert-johnson',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [

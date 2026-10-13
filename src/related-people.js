@@ -220,7 +220,8 @@ export function storySubject(relatedData, people, story, storySubjects = null) {
 /** Newspaper-style portrait floated right of the first paragraph; name-first caption with credit. */
 export function storyPortraitHtml(person) {
   if (!person || !hasSafePortrait(person)) return ''
-  const credit = person.ai ? `AI illustration · ${person.credit || 'Kentucky History Drive'}` : creditWithCaption(person, person.credit || '')
+  const aiCredit = person.credit || 'Kentucky History Drive'
+  const credit = person.ai ? (/^AI illustration\b/i.test(aiCredit) ? aiCredit : `AI illustration · ${aiCredit}`) : creditWithCaption(person, person.credit || '')
   return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${esc(credit)}</span></figcaption></figure>`
 }
 

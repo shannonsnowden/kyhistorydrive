@@ -875,15 +875,19 @@
       "id": "robert-johnson",
       "name": "Robert Johnson",
       "dates": "1745–1815",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/robert-johnson__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/robert-johnson__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration by Story Studio for Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "burlington-boone-county-seat",
         "capt-robert-johnson-and-big-crossing-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jemima-suggett-johnson",
@@ -1023,17 +1027,21 @@
       "id": "moluntha",
       "name": "Moluntha",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/moluntha__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/moluntha__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration by Story Studio for Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
         "nonhelema",
         "moluntha-and-logans-raid-1786"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "egushawa",
