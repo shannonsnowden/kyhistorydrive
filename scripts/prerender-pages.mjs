@@ -978,6 +978,8 @@ class PrerenderPages {
   static peopleCreditName(person) {
     const raw = String(person.credit || '')
     const name = raw
+      // AI credits already open with 'AI illustration · '; the card label says 'Illustration:', so drop the prefix.
+      .replace(person.ai ? /^AI illustration\s*·\s*/i : /(?!)/, '')
       .replace(/\s*·\s*via Wikimedia Commons\s*$/i, '')
       .replace(new RegExp(`\\s*·\\s*${String(person.license || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`), '')
       .replace(/^[^\n:]*\.(?:jpe?g|png|tiff?):\s*/i, '')

@@ -1,7 +1,7 @@
 # Mantle Rock and the Trail of Tears, 1838–39: house-style route map
 
 Story: "Mantle Rock and the Trail of Tears, 1838–39" – https://kyhistorydrive.com/#timeline/mantle-rock-and-the-trail-of-tears
-Built 2026-10-10 by Story Studio with `make_map.py` + shared `../routemap.py` (generalised from the Warriors' Path map: parchment, hachured hillshade, burned edges, vignette, Kalam hand lettering, red route, cartouche, legend, scale bar, compass, credit line, modern state lines). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
+Built 2026-10-10 for Kentucky History Drive with `make_map.py` + shared `../routemap.py` (generalised from the Warriors' Path map: parchment, hachured hillshade, burned edges, vignette, Kalam hand lettering, red route, cartouche, legend, scale bar, compass, credit line, modern state lines). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
 
 ## Files
 | file | size | use |

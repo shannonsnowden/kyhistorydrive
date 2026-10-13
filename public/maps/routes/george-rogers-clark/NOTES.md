@@ -1,7 +1,7 @@
 # George Rogers Clark, Illinois Campaign 1778–79: house-style route map
 
 Story: "George Rogers Clark" – https://kyhistorydrive.com/#timeline/george-rogers-clark
-Built 2026-10-10 by Story Studio with `make_map.py` + shared `../routemap.py` (same house style as the Warriors' Path map). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
+Built 2026-10-10 for Kentucky History Drive with `make_map.py` + shared `../routemap.py` (same house style as the Warriors' Path map). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
 
 ## Files
 | file | size | use |

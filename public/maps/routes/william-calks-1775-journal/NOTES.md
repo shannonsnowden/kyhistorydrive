@@ -1,7 +1,7 @@
 # William Calk's 1775 journal: house-style route map
 
 Story: "William Calk's 1775 journal" – https://kyhistorydrive.com/#timeline/william-calks-1775-journal
-Built 2026-10-10 by Story Studio with `make_map.py` + shared `../routemap.py` (same house style as the Warriors' Path map). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
+Built 2026-10-10 for Kentucky History Drive with `make_map.py` + shared `../routemap.py` (same house style as the Warriors' Path map). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
 
 ## Files
 | file | size | use |

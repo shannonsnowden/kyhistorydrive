@@ -1275,10 +1275,10 @@
       "sourcePage": null,
       "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "AI illustration by Story Studio for Kentucky History Drive; no known likeness exists",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found. AI illustration by Story Studio (Oct 2026); no known likeness exists."
+      "notes": "No Wikipedia article or Commons likeness found. AI illustration (Oct 2026); no known likeness exists."
     },
     {
       "id": "jemima-suggett-johnson",
@@ -1494,10 +1494,10 @@
       "sourcePage": null,
       "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "AI illustration by Story Studio for Kentucky History Drive; no known likeness exists",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting. AI illustration by Story Studio (Oct 2026); no known likeness exists."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting. AI illustration (Oct 2026); no known likeness exists."
     },
     {
       "id": "egushawa",
@@ -6781,7 +6781,7 @@
       "credit": "George Garvin Brown, from Memoirs of the Lower Ohio Valley (1905), p. 282. Public domain, via Internet Archive.",
       "freeToUse": true,
       "verified": true,
-      "notes": "Real photograph, Memoirs of the Lower Ohio Valley (1905), p. 282 (Internet Archive). Local files george-garvin-brown__photo-512.{webp,jpg} (Story Studio, Oct 2026). Never use the Whiskey Row banner image of Brown.",
+      "notes": "Real photograph, Memoirs of the Lower Ohio Valley (1905), p. 282 (Internet Archive). Local files george-garvin-brown__photo-512.{webp,jpg} (supplied Oct 2026). Never use the Whiskey Row banner image of Brown.",
       "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
     }
   ]

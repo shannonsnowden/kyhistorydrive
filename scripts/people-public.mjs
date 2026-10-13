@@ -37,7 +37,7 @@ export const AI_IDS = [
   'jane-todd-crawford',
   'lewis-craig',
   'nonhelema',
-  // Subject portraits for stories with no known likeness (Story Studio library, Oct 2026).
+  // Subject portraits for stories with no known likeness (site illustration library, Oct 2026).
   'blue-jacket',
   'egushawa',
   'richard-callaway',
@@ -145,7 +145,7 @@ export function shippedLicenseUrl(person) {
   return null
 }
 
-/** Hand-supplied real photos (Story Studio): public/people/portraits/<id>__photo-512.{webp,jpg}. */
+/** Hand-supplied real photos: public/people/portraits/<id>__photo-512.{webp,jpg}. */
 export function findLocalPhoto(id, dir) {
   const webp = `${id}__photo-512.webp`
   const jpg = `${id}__photo-512.jpg`
