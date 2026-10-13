@@ -1458,26 +1458,52 @@ class PrerenderPages {
     return [...groups.entries()].filter(([, list]) => list.length)
   }
 
-  /** /stories/: every live story, grouped by era, with a small text + era filter. Links work without JS. */
+  static STORIES_PIN_SVG = '<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 5.7 10.9 6.4 11.55a.5.5 0 0 0 .7 0c.7-.65 6.4-6.49 6.4-11.55A6.75 6.75 0 0 0 12 2.25zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>'
+
+  /** County for the listing: the story's own county, else the one Kentucky county its title or summary names. Never guessed. */
+  static storiesListCounty(story) {
+    if (story.county) return PrerenderPages.countyLabel(story.county, true)
+    if (!PrerenderPages._kyCounties) {
+      try {
+        const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', 'data', 'county-centroids.json')
+        PrerenderPages._kyCounties = Object.keys(JSON.parse(fs.readFileSync(file, 'utf8')))
+      } catch {
+        PrerenderPages._kyCounties = []
+      }
+    }
+    const text = `${story.title || ''} ${story.summary || ''}`
+    const found = new Set()
+    for (const name of PrerenderPages._kyCounties) {
+      if (text.includes(`${name} County`)) found.add(name)
+    }
+    return found.size === 1 ? PrerenderPages.countyLabel([...found][0], true) : ''
+  }
+
+  /** /stories/: every live story, grouped by era, as thumbnail cards with a text + era filter. Links work without JS. */
   static storiesIndexPage(stories, cssHrefs) {
     const esc = PrerenderPages.escapeHtml
     const pageUrl = `${PrerenderPages.SITE}/stories/`
     const groups = PrerenderPages.storiesByEra(stories)
     const ordered = groups.flatMap(([, list]) => list)
+    const total = ordered.length
     const description = PrerenderPages.metaDescription(
-      `All ${ordered.length} Kentucky History Drive stories, grouped by era from prehistoric mounds to the early commonwealth, with a quick filter.`,
+      `All ${total} Kentucky History Drive stories, grouped by era from prehistoric mounds to the early commonwealth, with a quick filter.`,
     )
     const label = (era) => PrerenderPages.STORIES_ERA_LABEL[era] || era
-    const chips = [`<button type="button" class="stories-chip" data-era="" aria-pressed="true">All <span class="stories-chip-n">${ordered.length}</span></button>`]
+    const chips = [`<button type="button" class="stories-chip" data-era="" aria-pressed="true">All <span class="stories-chip-n">${total}</span></button>`]
       .concat(groups.map(([era, list]) => `<button type="button" class="stories-chip" data-era="${esc(era)}" aria-pressed="false">${esc(label(era))} <span class="stories-chip-n">${list.length}</span></button>`))
       .join('')
     const item = (story) => {
       const meta = []
+      const county = PrerenderPages.storiesListCounty(story)
+      if (county) meta.push(county)
       const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
       if (years) meta.push(years)
-      if (story.county) meta.push(PrerenderPages.countyLabel(story.county, true))
-      const hay = [story.title, story.county, story.summary].filter(Boolean).join(' ').toLowerCase()
-      return `<li class="stories-item" data-q="${esc(hay)}"><a href="/stories/${esc(story.slug)}/">${esc(story.title)}</a>${meta.length ? `<span class="stories-meta">${esc(meta.join(' · '))}</span>` : ''}</li>`
+      const thumb = PrerenderPages.existingThumb(story)
+      const media = thumb
+        ? `<span class="related-card-media stories-thumb"><img class="related-card-img" src="${esc(thumb)}" alt="" width="72" height="72" loading="lazy" decoding="async"></span>`
+        : `<span class="related-card-media related-card-pin stories-thumb" aria-hidden="true">${PrerenderPages.STORIES_PIN_SVG}</span>`
+      return `<li class="stories-item" data-s="${esc(story.summary || '')}"><a class="related-card stories-card" href="/stories/${esc(story.slug)}/">${media}<span class="related-card-copy"><span class="related-card-title">${esc(story.title)}</span>${meta.length ? `<span class="related-card-meta stories-meta">${esc(meta.join(' · '))}</span>` : ''}<span class="stories-why" hidden></span></span></a></li>`
     }
     const sections = groups
       .map(([era, list]) => `<section class="stories-group" data-era="${esc(era)}" aria-labelledby="stories-era-${esc(era)}">
@@ -1486,24 +1512,37 @@ class PrerenderPages {
         </section>`)
       .join('\n        ')
     const main = `<style>
-        .static-read:has(.stories-page) { max-width: 64rem; }
-        .stories-filter { display: flex; flex-direction: column; gap: 0.6rem; margin: 0 0 1.25rem; }
-        .stories-filter input { width: 100%; max-width: 28rem; box-sizing: border-box; padding: 0.55rem 0.75rem; font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
-        .stories-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .stories-chip { min-height: 36px; padding: 0.3rem 0.8rem; font: inherit; font-size: 0.9rem; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
+        .static-read:has(.stories-page) { max-width: 72rem; }
+        .stories-filter { display: flex; flex-direction: column; gap: 0.6rem; margin: 0 0 1rem; }
+        .stories-search { position: relative; max-width: 28rem; }
+        .stories-filter input { width: 100%; box-sizing: border-box; min-height: 44px; padding: 0.55rem 2.75rem 0.55rem 0.75rem; font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+        .stories-filter input::-webkit-search-cancel-button { display: none; }
+        .stories-clear { position: absolute; right: 0; top: 0; width: 44px; height: 44px; border: 0; background: none; color: var(--muted); font-size: 1.4rem; line-height: 1; cursor: pointer; border-radius: 10px; }
+        .stories-clear:hover, .stories-clear:focus-visible { color: var(--accent); }
+        .stories-chips { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.5rem; }
+        .stories-chip { min-height: 44px; padding: 0.4rem 0.95rem; font: inherit; font-size: 0.95rem; color: var(--text); background: var(--panel); border: 1px solid var(--muted); border-radius: 999px; cursor: pointer; }
         .stories-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg, #fff); font-weight: 700; }
-        .stories-chip-n { opacity: 0.75; font-size: 0.8em; }
-        .stories-group h2 { color: var(--heading); margin: 1.5rem 0 0.5rem; font-size: 1.3rem; }
+        .stories-chip:disabled { opacity: 0.45; cursor: default; }
+        .stories-chip-n { opacity: 0.8; font-size: 0.85em; }
+        .stories-status { margin: 0; color: var(--text); font-size: 0.95rem; min-height: 1.4em; }
+        .stories-group h2 { position: sticky; top: var(--stories-sticky-top, 0px); scroll-margin-top: var(--stories-sticky-top, 0px); z-index: 2; background: var(--bg); color: var(--heading); margin: 1.5rem 0 0.75rem; padding: 0.5rem 0; font-size: 1.3rem; border-bottom: 1px solid var(--line); }
         .stories-count { color: var(--muted); font-weight: 400; font-size: 0.85em; }
-        .stories-list { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 2rem; }
-        .stories-item { break-inside: avoid; margin: 0 0 0.6rem; line-height: 1.35; }
-        .stories-item a { color: var(--accent); text-decoration: none; font-weight: 600; }
-        .stories-item a:hover, .stories-item a:focus-visible { text-decoration: underline; }
-        .stories-meta { display: block; color: var(--muted); font-size: 0.85rem; }
-        .stories-empty { color: var(--muted); }
-        @media (max-width: 700px) { .stories-list { columns: 1; } }
+        .stories-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+        .stories-item { display: flex; min-width: 0; margin: 0; }
+        .stories-item[hidden] { display: none; }
+        a.related-card.stories-card { grid-template-columns: 72px minmax(0, 1fr); min-height: 96px; }
+        .stories-card .stories-thumb, .stories-card .related-card-img { width: 72px; height: 72px; }
+        .stories-card .related-card-meta { -webkit-line-clamp: 1; line-clamp: 1; }
+        .stories-why { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; margin-top: 0.2rem; color: var(--text); font-size: 0.85rem; line-height: 1.3; }
+        .stories-why[hidden] { display: none; }
+        .stories-page mark { background: color-mix(in srgb, var(--accent) 28%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; }
+        .stories-empty { padding: 1.25rem; border: 1px dashed var(--line); border-radius: 14px; color: var(--text); }
+        .stories-empty button { margin-left: 0.5rem; min-height: 44px; padding: 0.4rem 1rem; font: inherit; color: var(--bg, #fff); background: var(--accent); border: 0; border-radius: 999px; cursor: pointer; }
+        .stories-top { display: inline-block; margin-top: 1.5rem; color: var(--accent); }
+        @media (min-width: 1440px) { .stories-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } .static-read:has(.stories-page) { max-width: 84rem; } }
+        @media (max-width: 700px) { .stories-list { grid-template-columns: minmax(0, 1fr); } a.related-card.stories-card { grid-template-columns: 64px minmax(0, 1fr); min-height: 84px; } .stories-card .stories-thumb, .stories-card .related-card-img { width: 64px; height: 64px; } }
       </style>
-      <article class="stories-page">
+      <article class="stories-page" id="stories-top">
         <nav class="story-crumbs" aria-label="Breadcrumb">
           <a href="/">Home</a>
           <span aria-hidden="true">/</span>
@@ -1512,46 +1551,120 @@ class PrerenderPages {
         <header class="story-head">
           <p class="static-kicker">Stories</p>
           <h1>All Kentucky history stories</h1>
-          <p class="story-lead">${ordered.length} stories, grouped by era and oldest first within each era. Open the <a href="/#map">map</a> or the <a href="/#timeline">timeline</a> to explore them by place and year.</p>
+          <p class="story-lead">${total} stories, grouped by era and oldest first within each era. Open the <a href="/#map">map</a> or the <a href="/#timeline">timeline</a> to explore them by place and year.</p>
         </header>
         <div class="stories-filter" id="storiesFilter" hidden>
-          <label class="visually-hidden" for="storiesQuery">Filter stories</label>
-          <input id="storiesQuery" type="search" placeholder="Filter by title, county or topic…" autocomplete="off" />
+          <div class="stories-search">
+            <label class="visually-hidden" for="storiesQuery">Filter stories</label>
+            <input id="storiesQuery" type="search" placeholder="Filter by title, county or topic…" autocomplete="off" />
+            <button type="button" class="stories-clear" id="storiesClear" aria-label="Clear filter" hidden>×</button>
+          </div>
           <div class="stories-chips" role="group" aria-label="Era">${chips}</div>
-          <p class="stories-status visually-hidden" id="storiesStatus" aria-live="polite"></p>
+          <p class="stories-status" id="storiesStatus" aria-live="polite"></p>
         </div>
+        <div class="stories-empty" id="storiesEmpty" hidden><span id="storiesEmptyText">No stories match that filter.</span><button type="button" id="storiesReset">Clear filter</button></div>
         ${sections}
-        <p class="stories-empty" id="storiesEmpty" hidden>No stories match that filter.</p>
+        <a class="stories-top" href="#stories-top">Back to top ↑</a>
       </article>
       <script>
         (function () {
           var box = document.getElementById('storiesFilter')
           if (!box) return
           box.hidden = false
+          var head = document.querySelector('header.site-header')
+          function stickTop() {
+            var pos = head ? getComputedStyle(head).position : ''
+            var h = head && (pos === 'sticky' || pos === 'fixed') ? head.getBoundingClientRect().height : 0
+            document.documentElement.style.setProperty('--stories-sticky-top', Math.round(h) + 'px')
+          }
+          stickTop()
+          window.addEventListener('resize', stickTop)
+          var TOTAL = ${total}
           var input = document.getElementById('storiesQuery')
+          var clear = document.getElementById('storiesClear')
           var chips = box.querySelectorAll('.stories-chip')
           var groups = document.querySelectorAll('.stories-group')
           var empty = document.getElementById('storiesEmpty')
+          var emptyText = document.getElementById('storiesEmptyText')
           var status = document.getElementById('storiesStatus')
           var era = ''
+          var items = []
+          groups.forEach(function (g) {
+            g.querySelectorAll('.stories-item').forEach(function (li) {
+              var t = li.querySelector('.related-card-title')
+              var m = li.querySelector('.stories-meta')
+              items.push({ li: li, era: g.getAttribute('data-era'), t: t, title: t.textContent, m: m, meta: m ? m.textContent : '', why: li.querySelector('.stories-why'), sum: li.getAttribute('data-s') || '' })
+            })
+          })
+          function paint(el, text, q) {
+            while (el.firstChild) el.removeChild(el.firstChild)
+            var i = q ? text.toLowerCase().indexOf(q) : -1
+            if (i === -1) { el.appendChild(document.createTextNode(text)); return }
+            el.appendChild(document.createTextNode(text.slice(0, i)))
+            var mk = document.createElement('mark')
+            mk.textContent = text.slice(i, i + q.length)
+            el.appendChild(mk)
+            el.appendChild(document.createTextNode(text.slice(i + q.length)))
+          }
+          function snippet(text, q) {
+            var i = text.toLowerCase().indexOf(q)
+            var start = Math.max(0, i - 50)
+            var end = Math.min(text.length, i + q.length + 70)
+            return { text: (start ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '') }
+          }
           function apply() {
-            var q = input.value.trim().toLowerCase()
-            var total = 0
+            var raw = input.value.trim()
+            var q = raw.toLowerCase()
+            clear.hidden = !raw
+            var perEra = {}
+            var allN = 0
+            items.forEach(function (it) {
+              var inTitle = !q || it.title.toLowerCase().indexOf(q) !== -1
+              var inMeta = q && it.meta.toLowerCase().indexOf(q) !== -1
+              var inSum = q && it.sum.toLowerCase().indexOf(q) !== -1
+              it.hit = inTitle || inMeta || inSum
+              if (it.hit) { perEra[it.era] = (perEra[it.era] || 0) + 1; allN++ }
+              paint(it.t, it.title, q)
+              if (it.m) paint(it.m, it.meta, q)
+              if (q && !inTitle && !inMeta && inSum) {
+                paint(it.why, snippet(it.sum, q).text, q)
+                it.why.hidden = false
+              } else {
+                it.why.hidden = true
+              }
+            })
+            chips.forEach(function (c) {
+              var e = c.getAttribute('data-era')
+              var n = e ? (perEra[e] || 0) : allN
+              c.querySelector('.stories-chip-n').textContent = n
+              c.disabled = !!e && n === 0 && era !== e
+            })
+            var shown = 0
             groups.forEach(function (g) {
               var on = !era || g.getAttribute('data-era') === era
               var n = 0
-              g.querySelectorAll('.stories-item').forEach(function (li) {
-                var show = on && (!q || li.getAttribute('data-q').indexOf(q) !== -1)
-                li.hidden = !show
+              items.forEach(function (it) {
+                if (it.era !== g.getAttribute('data-era')) return
+                var show = on && it.hit
+                it.li.hidden = !show
                 if (show) n++
               })
               g.hidden = n === 0
               var c = g.querySelector('.stories-count')
               if (c) c.textContent = '(' + n + ')'
-              total += n
+              shown += n
             })
-            empty.hidden = total !== 0
-            status.textContent = total + (total === 1 ? ' story' : ' stories')
+            empty.hidden = shown !== 0
+            if (!shown) emptyText.textContent = raw ? 'No stories match “' + raw + '”.' : 'No stories in this era.'
+            if (!raw && !era) status.textContent = 'Showing all ' + TOTAL + ' stories'
+            else status.textContent = shown + ' of ' + TOTAL + (shown === 1 ? ' story matches' : ' stories match') + (raw ? ' “' + raw + '”' : '')
+          }
+          function reset() {
+            input.value = ''
+            era = ''
+            chips.forEach(function (o) { o.setAttribute('aria-pressed', o.getAttribute('data-era') === '' ? 'true' : 'false') })
+            apply()
+            input.focus()
           }
           chips.forEach(function (c) {
             c.addEventListener('click', function () {
@@ -1561,6 +1674,9 @@ class PrerenderPages {
             })
           })
           input.addEventListener('input', apply)
+          clear.addEventListener('click', reset)
+          document.getElementById('storiesReset').addEventListener('click', reset)
+          apply()
         })()
       </script>`
     const jsonLd = PrerenderPages.jsonLdScript([
@@ -1580,7 +1696,7 @@ class PrerenderPages {
         '@type': 'ItemList',
         '@id': `${pageUrl}#list`,
         name: 'Kentucky history stories',
-        numberOfItems: ordered.length,
+        numberOfItems: total,
         itemListElement: ordered.map((story, index) => ({
           '@type': 'ListItem',
           position: index + 1,
