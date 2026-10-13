@@ -209,7 +209,7 @@ export function renderLeadStory(story) {
           <a class="btn hp-cta" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">Read the story</a>
           ${
             storyMapHref(story)
-              ? `<a class="btn hp-cta" href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
+              ? `<a class="btn hp-cta" data-story-map href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
               : ''
           }
         </div>
