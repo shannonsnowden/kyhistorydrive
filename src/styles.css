@@ -4730,7 +4730,8 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
    cap rises to 96ch (comfortable upper bound for long-form reading).
    The extra 2.6rem is the story card's horizontal padding and border, so the
    body itself — not the card — is the 96ch measure. The sticky bar stays full width.
-   The photo stacks so it doesn't eat the line. */
+   The photo stacks so it doesn't eat the line.
+   Paragraphs and other body text are capped at ~78ch inside it (below). */
 .timeline-layout.is-reading-wide {
   --tl-read-measure: 96ch;
 }
@@ -4742,6 +4743,15 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
 }
 .timeline-layout.is-reading-wide .story-body {
   max-width: var(--tl-read-measure);
+}
+/* Within the wide column, body text keeps a ~78ch reading measure while
+   media (figures, images, maps, video) still use the full column width. */
+.timeline-layout.is-reading-wide {
+  --tl-text-measure: 78ch;
+}
+.timeline-layout.is-reading-wide .story-body > :is(p, ul, ol, dl, blockquote, h2, h3, h4, h5, h6, .story-summary),
+.timeline-layout.is-reading-wide .story-summary {
+  max-width: var(--tl-text-measure);
 }
 .timeline-layout.is-reading-wide .story-reader .story-reader-layout,
 .timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
