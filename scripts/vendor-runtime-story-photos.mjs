@@ -32,12 +32,12 @@ function readJson(rel) {
 }
 
 function stripHtml(html) {
-  let text = String(html || '')
+  // Line breaks become spaces before the tag loop. The loop itself is only the
+  // tag replace, so its result flows back into the same replace until stable.
+  let text = String(html || '').replace(/<br\s*\/?>/gi, ' ')
   let previous
-  // Repeat until stable so a nested tag cannot collapse into <script>.
   do {
     previous = text
-    text = text.replace(/<br\s*\/?>/gi, ' ')
     text = text.replace(/<[^>]*>/g, '')
   } while (text !== previous)
   // Decode &amp; last so &amp;lt; stays &lt; instead of becoming <.
