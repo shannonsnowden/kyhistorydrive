@@ -1571,7 +1571,7 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
     const imgAttrs = priority
       ? 'fetchpriority="high" loading="eager" data-lcp="story-photo"'
       : 'loading="lazy"'
-    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
+    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>

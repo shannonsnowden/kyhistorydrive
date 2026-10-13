@@ -1762,6 +1762,18 @@ a.related-card:hover .related-card-chevron {
   max-height: 200px;
   object-fit: cover;
 }
+/* Tall photos (photo.fit = "contain", set at build): show the whole image, letterboxed on the
+   palette surface, instead of a cover crop that cuts monuments to a sliver. */
+.story-sidebar-photo-frame.is-contain,
+.static-story .story-sidebar-photo-frame.is-contain { background: var(--surface); }
+.story-sidebar-photo-frame.is-contain img,
+.static-story .story-sidebar-photo-frame.is-contain img {
+  object-fit: contain;
+  object-position: center;
+}
+@media (max-width: 900px) {
+  .static-story .story-sidebar-photo-frame.is-contain img { aspect-ratio: 4 / 3; max-height: 320px; }
+}
 .story-sidebar-photo-cap {
   margin: 0.45rem 0 0.2rem;
   font-size: 0.75rem;
