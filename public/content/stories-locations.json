@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-13T12:32:58.330Z",
+  "generatedAt": "2026-10-13T13:35:10.288Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
     "county": 4,
     "override": 137,
-    "none": 38
+    "none": 37
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -74,7 +74,7 @@
     },
     "dover-mound-mason-county": {
       "slug": "dover-mound-mason-county",
-      "lat": 38.7,
+      "lat": 38.8,
       "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)",
@@ -186,7 +186,7 @@
     },
     "rowlandton-mound-site-15mcn3-paducah": {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
-      "lat": 37,
+      "lat": 37.1,
       "lon": -88.6,
       "mapConfidence": "override",
       "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah",
@@ -328,8 +328,8 @@
       "matchedPlace": "Hardin Village Fort Ancient",
       "historyId": "hardin-village-fort-ancient"
     },
-    "erie-the-cat-nation-cleared-from-the-lake-shore": {
-      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
+    "iroquois-beaver-wars": {
+      "slug": "iroquois-beaver-wars",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -1783,14 +1783,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Big Bone Lick",
       "historyId": "big-bone-lick"
-    },
-    "iroquois-beaver-wars": {
-      "slug": "iroquois-beaver-wars",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
     },
     "kentucky-river-palisades": {
       "slug": "kentucky-river-palisades",
