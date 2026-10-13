@@ -76,7 +76,7 @@ export function siteHeaderHtml(activeRoute = '') {
           <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" decoding="async" />
           ${sealSrcScriptHtml()}
           <div class="brand-lockup">
-            <h1>Kentucky History Drive</h1>
+            <p class="brand-title">Kentucky History Drive</p>
             <p class="tagline">History is all around us.</p>
             <p class="brand-subhead">Pioneers, Native nations, long hunters, soldiers and distillers. Explore the stories that made Kentucky, on a living map you can travel through time.</p>
           </div>
