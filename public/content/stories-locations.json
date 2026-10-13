@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-13T09:39:22.643Z",
+  "generatedAt": "2026-10-13T12:19:08.300Z",
   "stats": {
-    "exact": 12,
-    "fuzzy": 46,
-    "county": 6,
-    "override": 139,
+    "exact": 11,
+    "fuzzy": 45,
+    "county": 4,
+    "override": 137,
     "none": 38
   },
   "locations": {
@@ -152,6 +152,14 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
+    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
+      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+      "lat": 37.9,
+      "lon": -84.6,
+      "mapConfidence": "override",
+      "matchedPlace": "Muir Site (15Js86)",
+      "historyId": "muir-site-15js86-jessamine-county"
+    },
     "page-site-lost-city-15lo1": {
       "slug": "page-site-lost-city-15lo1",
       "lat": 36.82461,
@@ -167,14 +175,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)",
       "historyId": "sassafras-ridge-15fu3-fulton-1000-1500"
-    },
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "lat": 37.9,
-      "lon": -84.6,
-      "mapConfidence": "override",
-      "matchedPlace": "Muir Site (15Js86)",
-      "historyId": "muir-site-15js86-jessamine-county"
     },
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -728,6 +728,14 @@
       "matchedPlace": "William Whitley / Sportsman's Hill",
       "historyId": "william-whitley-sportsmans-hill"
     },
+    "hugh-mcgary-the-blue-licks-hothead": {
+      "slug": "hugh-mcgary-the-blue-licks-hothead",
+      "lat": 37.805,
+      "lon": -84.831,
+      "mapConfidence": "override",
+      "matchedPlace": "McGary's Station / Shawnee Springs",
+      "historyId": "mcgarys-station-shawnee-springs-mercer"
+    },
     "levi-todd-lexington-co-founder": {
       "slug": "levi-todd-lexington-co-founder",
       "lat": 38.0137667,
@@ -887,14 +895,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Worthington's Fort (Edward Worthington)",
       "historyId": "worthingtons-fort-danville"
-    },
-    "hugh-mcgary-the-blue-licks-hothead": {
-      "slug": "hugh-mcgary-the-blue-licks-hothead",
-      "lat": 37.805,
-      "lon": -84.831,
-      "mapConfidence": "override",
-      "matchedPlace": "McGary's Station / Shawnee Springs",
-      "historyId": "mcgarys-station-shawnee-springs-mercer"
     },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
