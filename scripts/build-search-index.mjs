@@ -6,6 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { stripMdLinks } from './strip-md-links.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -31,7 +32,7 @@ const PLACE_LAYERS = [
 const SNIPPET_LEN = 140
 
 function clean(s) {
-  return String(s || '')
+  return stripMdLinks(String(s || ''))
     .replace(/\s+/g, ' ')
     .trim()
 }

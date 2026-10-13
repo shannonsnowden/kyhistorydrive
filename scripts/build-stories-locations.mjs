@@ -378,8 +378,9 @@ const MANUAL_OVERRIDES = {
   },
   'lawrenceburg-from-kaufmans-station-to-anderson-county-seat': {
     matchName: "Lawrenceburg / Kaufman's Station",
-    lat: 38.1741739,
-    lon: -84.8769101,
+    // 2026-10-13: was 38.1742,-84.8769 (~15 km north); downtown per Wikipedia
+    lat: 38.033056,
+    lon: -84.903056,
     confidence: 'override',
   },
   // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
@@ -929,6 +930,39 @@ const MANUAL_OVERRIDES = {
     matchName: "Burlington (Boone County seat)",
     lat: 39.02222222,
     lon: -84.72166667,
+    confidence: 'override',
+  },
+  // 2026-10-12 add-on: Camp Nelson USCT story (CoS request), NPS visitor center coords
+  'camp-nelson-kentucky-us-colored-troops': {
+    matchName: "Camp Nelson USCT recruiting and training center",
+    lat: 37.797005,
+    lon: -84.600577,
+    confidence: 'override',
+  },
+  // 2026-10-13 brief (no swaps; Moluntha intentionally unpinned: Logan’s Raid towns were in Ohio; Sassafras Ridge generalized 0.1°)
+  'col-thomas-marshall-at-buck-pond': {
+    matchName: "Buck Pond / Col. Thomas Marshall",
+    lat: 38.066667,
+    lon: -84.686944,
+    confidence: 'override',
+  },
+  'prestonsburg-first-seat-on-the-big-sandy': {
+    matchName: "Prestonsburg founding / Preston’s Station",
+    lat: 37.681667,
+    lon: -82.766944,
+    confidence: 'override',
+  },
+  'george-garvin-brown-and-old-forester': {
+    matchName: "Old Forester / Whiskey Row (Louisville)",
+    lat: 38.256389,
+    lon: -85.7525,
+    confidence: 'override',
+  },
+  'moluntha-and-logans-raid-1786': {},
+  'sassafras-ridge-15fu3-fulton-county': {
+    matchName: "Sassafras Ridge (15Fu3), Fulton County (approximate)",
+    lat: 36.6,
+    lon: -89.2,
     confidence: 'override',
   },
 }

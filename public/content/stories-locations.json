@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-12T15:07:23.518Z",
+  "generatedAt": "2026-10-13T09:39:22.643Z",
   "stats": {
     "exact": 12,
     "fuzzy": 46,
     "county": 6,
-    "override": 134,
-    "none": 36
+    "override": 139,
+    "none": 38
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -167,6 +167,14 @@
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)",
       "historyId": null
+    },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "lat": 36.6,
+      "lon": -89.2,
+      "mapConfidence": "override",
+      "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500"
     },
     "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
@@ -1010,8 +1018,8 @@
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
-      "lat": 38.1741739,
-      "lon": -84.8769101,
+      "lat": 38.033056,
+      "lon": -84.903056,
       "mapConfidence": "override",
       "matchedPlace": "Lawrenceburg / Kaufman's Station",
       "historyId": null
@@ -1120,6 +1128,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "col-thomas-marshall-at-buck-pond": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "mapConfidence": "override",
+      "matchedPlace": "Buck Pond / Col. Thomas Marshall",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802"
+    },
     "harry-innes": {
       "slug": "harry-innes",
       "lat": 38.1939,
@@ -1191,6 +1207,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)",
       "historyId": "john-hardin-pleasant-run-washington-1786-1792"
+    },
+    "moluntha-and-logans-raid-1786": {
+      "slug": "moluntha-and-logans-raid-1786",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "blue-jacket-weyapiersenwah": {
       "slug": "blue-jacket-weyapiersenwah",
@@ -1456,6 +1480,14 @@
       "matchedPlace": "Owensboro / Yellow Banks",
       "historyId": "owensboro-founding-yellow-banks"
     },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "mapConfidence": "override",
+      "matchedPlace": "Prestonsburg founding / Preston’s Station",
+      "historyId": "prestonsburg-founding-floyd-1797-1818"
+    },
     "yellow-banks-becomes-owensboro": {
       "slug": "yellow-banks-becomes-owensboro",
       "lat": 37.7759614,
@@ -1704,6 +1736,14 @@
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
     },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson USCT recruiting and training center",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866"
+    },
     "camp-nelson-jessamine-county": {
       "slug": "camp-nelson-jessamine-county",
       "lat": 37.78778,
@@ -1711,6 +1751,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)",
       "historyId": "camp-nelson-jessamine-1863-1865"
+    },
+    "george-garvin-brown-and-old-forester": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Forester / Whiskey Row (Louisville)",
+      "historyId": "old-forester-whiskey-row-louisville-1870"
     },
     "frederick-stitzels-barrel-racks-1879": {
       "slug": "frederick-stitzels-barrel-racks-1879",

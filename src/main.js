@@ -9,8 +9,9 @@ import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
-import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
+import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
@@ -27,7 +28,6 @@ import {
   storyCanonicalUrl,
   wireCiteBoxes,
 } from './story-tools.js'
-import { storyPinLinkHtml } from './story-pin.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -380,24 +380,6 @@ function storyShareHash(slug) {
 }
 
 const STORY_MAP_LAYERS = new Set(['stories', 'story', 'timeline'])
-
-/** Home-map deep link for a story that already has a pin. Never invents coordinates. */
-function storyPlaceHash({ historyId, slug, lat, lon } = {}) {
-  if (historyId) return `#map/history/${encodeURIComponent(historyId)}`
-  if (lat != null && lon != null && slug) return `#map/stories/${encodeURIComponent(slug)}`
-  return null
-}
-
-/** Same public-pin rule as prerender. A history id alone is not enough for a thumbnail. */
-function publicStoryGeo(lat, lon) {
-  if (lat == null || lon == null || lat === '' || lon === '') return null
-  const la = Number(lat)
-  const lo = Number(lon)
-  if (!Number.isFinite(la) || !Number.isFinite(lo)) return null
-  if (Math.abs(la) > 90 || Math.abs(lo) > 180) return null
-  if (la === 0 && lo === 0) return null
-  return { lat: la, lon: lo }
-}
 
 let storiesLocationsCache = null
 async function loadStoriesLocations() {
@@ -1570,7 +1552,7 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
     const imgAttrs = priority
       ? 'fetchpriority="high" loading="eager" data-lcp="story-photo"'
       : 'loading="lazy"'
-    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
+    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
@@ -1873,9 +1855,10 @@ async function slugForPlaceProps(props) {
 async function popupRelatedHtml(props) {
   const slug = await slugForPlaceProps(props)
   if (!slug) return ''
-  const [relatedData, idx] = await Promise.all([loadRelatedPeople(), loadStories()])
+  const [relatedData, idx, publicPeople] = await Promise.all([loadRelatedPeople(), loadStories(), loadPublicPeople()])
   const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
-  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH')
+  const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits })
 }
 
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
@@ -2196,6 +2179,39 @@ function flyToFocus(targetMap, focus, zoom = 12) {
   targetMap.flyTo({ center: [focus.lon, focus.lat], zoom, essential: true })
 }
 
+/** Keep the selected pin above basemap labels and every other pin layer. */
+function raiseHighlightLayers(targetMap) {
+  for (const id of ['highlight-glow', 'highlight-core', 'highlight-hit']) {
+    if (targetMap.getLayer(id)) targetMap.moveLayer(id)
+  }
+}
+
+/** Gentle pulse on the selected pin's ring; still under prefers-reduced-motion. */
+const pulsingMaps = new WeakSet()
+function startHighlightPulse(targetMap) {
+  if (pulsingMaps.has(targetMap)) return
+  pulsingMaps.add(targetMap)
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const t0 = performance.now()
+  const tick = (now) => {
+    if (!targetMap.getLayer('highlight-glow')) return
+    if (!targetMap.__khdHighlightOn) {
+      window.setTimeout(() => requestAnimationFrame(tick), 500)
+      return
+    }
+    if (mq.matches) {
+      targetMap.setPaintProperty('highlight-glow', 'circle-radius', 20)
+      targetMap.setPaintProperty('highlight-glow', 'circle-opacity', 0.3)
+    } else {
+      const k = (Math.sin(((now - t0) / 1600) * Math.PI * 2) + 1) / 2
+      targetMap.setPaintProperty('highlight-glow', 'circle-radius', 18 + k * 8)
+      targetMap.setPaintProperty('highlight-glow', 'circle-opacity', 0.38 - k * 0.26)
+    }
+    window.setTimeout(() => requestAnimationFrame(tick), mq.matches ? 1000 : 50)
+  }
+  requestAnimationFrame(tick)
+}
+
 function ensureHighlightSource(targetMap, focus) {
   const data = {
     type: 'FeatureCollection',
@@ -2210,20 +2226,23 @@ function ensureHighlightSource(targetMap, focus) {
           ]
         : [],
   }
+  targetMap.__khdHighlightOn = data.features.length > 0
   if (targetMap.getSource('highlight')) {
     targetMap.getSource('highlight').setData(data)
+    raiseHighlightLayers(targetMap)
   } else {
     targetMap.addSource('highlight', { type: 'geojson', data })
+    // Selected story pin: solid site amber, ~28px, dark outline, soft pulse ring
     targetMap.addLayer({
       id: 'highlight-glow',
       type: 'circle',
       source: 'highlight',
       paint: {
-        'circle-radius': 18,
+        'circle-radius': 20,
         'circle-color': '#c9893a',
-        'circle-opacity': 0.25,
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#e8d5a8',
+        'circle-opacity': 0.3,
+        'circle-stroke-width': 0,
+        'circle-pitch-alignment': 'map',
       },
     })
     targetMap.addLayer({
@@ -2231,10 +2250,10 @@ function ensureHighlightSource(targetMap, focus) {
       type: 'circle',
       source: 'highlight',
       paint: {
-        'circle-radius': 7,
-        'circle-color': '#e8d5a8',
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#101812',
+        'circle-radius': 14,
+        'circle-color': '#c9893a',
+        'circle-stroke-width': 3,
+        'circle-stroke-color': '#1b140a',
       },
     })
     targetMap.addLayer({
@@ -2243,6 +2262,8 @@ function ensureHighlightSource(targetMap, focus) {
       source: 'highlight',
       paint: { 'circle-radius': 22, 'circle-opacity': 0 },
     })
+    raiseHighlightLayers(targetMap)
+    startHighlightPulse(targetMap)
     targetMap.on('mouseenter', 'highlight-hit', () => {
       targetMap.getCanvas().style.cursor = 'pointer'
     })
@@ -2490,30 +2511,34 @@ function updateTimelineMapCounts() {
   const el = document.getElementById('timelineMapCounts')
   const meta = document.getElementById('timelineMapMeta')
   if (!el) return
-  if (!timelineMap || !timelineMapReady) {
+  // "All" is the unfiltered state: the map waits for an era or timeframe,
+  // so the "no places in this filter" line would be a false empty result.
+  if (!timelineMap || !timelineMapReady || !timelineHasActivePlaceFilter()) {
     el.textContent = ''
-    return
-  }
-  const bits = []
-  let total = 0
-  for (const def of DATA_LAYERS) {
-    if (!timelineLayerVisibility[def.id]) continue
-    const src = timelineMap.getSource(def.id)
-    const feats = src?._data?.features
-    if (!feats) continue
-    const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
-    if (n) {
-      if (def.statsText) {
-      bits.push(def.statsText(src._data.features))
-      continue
+    el.hidden = true
+  } else {
+    const bits = []
+    let total = 0
+    for (const def of DATA_LAYERS) {
+      if (!timelineLayerVisibility[def.id]) continue
+      const src = timelineMap.getSource(def.id)
+      const feats = src?._data?.features
+      if (!feats) continue
+      const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
+      if (n) {
+        if (def.statsText) {
+          bits.push(def.statsText(src._data.features))
+          continue
+        }
+        bits.push(`${n.toLocaleString()} ${def.label}`)
+        total += n
+      }
     }
-    bits.push(`${n.toLocaleString()} ${def.label}`)
-      total += n
-    }
+    el.hidden = false
+    el.textContent = bits.length
+      ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
+      : 'Map: no places in this filter (try another timeframe or era)'
   }
-  el.textContent = bits.length
-    ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
-    : 'Map: no places in this filter (try another timeframe or era)'
   if (meta && !pendingFocus) {
     const { yearMin, yearMax } = timelineState
     if (!timelineHasActivePlaceFilter()) {
@@ -2636,6 +2661,8 @@ function focusStoryOnMaps(story) {
     if (metaEl) metaEl.textContent = `${story.title} — no map location yet`
     if (timelineMapReady) {
       ensureHighlightSource(timelineMap, null)
+      // No pin: show the default state view, not the previous story's focus
+      fitMapToKentucky(timelineMap, { duration: 0 })
     }
     return
   }
@@ -3001,7 +3028,13 @@ let timelinePendingRestore = null
 
 function timelineHeaderOffset() {
   const header = document.querySelector('header.top')
-  return header ? header.getBoundingClientRect().height + 8 : 8
+  const bar = document.querySelector('.timeline-read-bar')
+  const headerH = header ? header.getBoundingClientRect().height : 0
+  const barH = bar ? bar.getBoundingClientRect().height : 0
+  // Phones opened from a homepage story link: the map is docked under the bar
+  const docked = document.querySelector('#timeline .timeline-layout.is-home-story #timelineMapPane')
+  const dockH = docked && window.matchMedia('(max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
+  return headerH + barH + dockH + 8
 }
 
 function timelineItemFor(slug) {
@@ -3165,21 +3198,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const countyLine = meta.county
       ? `<span class="story-county">${escapeHtml(countyLabel(meta.county, true))}</span>`
       : ''
-    const mapHash = storyPlaceHash({
-      historyId,
-      slug: meta.slug,
-      lat: meta.lat ?? s.lat,
-      lon: meta.lon ?? s.lon,
-    })
-    const pinHtml =
-      mapHash && publicStoryGeo(meta.lat ?? s.lat, meta.lon ?? s.lon)
-        ? storyPinLinkHtml({ href: `/${mapHash}`, title: s.title, slug: meta.slug })
-        : ''
-    const mapControl = pinHtml
-      ? pinHtml
-      : mapHash
-        ? `<a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>`
-        : ''
+    // No 'Open on the map' here: the Timeline map beside the story already shows the pin.
     const extras = placeDetailExtrasHtml({
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
@@ -3190,7 +3209,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       layer: 'history',
       storyPhoto: s.photo || null,
     })
-    const relatedData = await loadRelatedPeople()
+    const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
+    const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
     const storyIndex = await loadStories()
     const markerFeatures = await markerFeaturesPromise
     const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
@@ -3216,18 +3236,23 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
         })
       : ''
     if (film) reader.classList.add('has-film')
+    // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
+    // when the Photos sidebar already shows the same file, but the title headshot stays).
+    const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
+    const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
       ${timelineReaderBarHtml('top')}
       <div class="story-reader-layout">
         <div class="story-reader-main">
           <header class="story-head">
+            <p class="story-kicker"><span>Story</span> · on the Timeline</p>
             <div class="story-card-meta">
               <span class="story-card-icon inline" aria-hidden="true">📖</span>
               ${countyLine}
               <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
               <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
             </div>
-            <h2>${escapeHtml(s.title)}</h2>
+            ${titleHtml}
             ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
@@ -3235,11 +3260,10 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
             <div class="tags">${tags}</div>
-            ${mapControl ? `<div class="story-card-actions">${mapControl}</div>` : ''}
           </header>
-          <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
+          <div class="story-body">${storyPortraitHtml(subject.person)}${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
           ${extras}
           ${relatedAndNearbyForStory(
             {
@@ -3272,11 +3296,6 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           })}
           ${correctionHtml({ title: s.title, url: canonical })}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
-          ${
-            mapHash
-              ? `<p class="muted popup-hint">The Timeline map highlights this place. Open on the map to fly to the pin and see the full popup.</p>`
-              : ''
-          }
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
         ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: Boolean(film) })}
@@ -3436,6 +3455,21 @@ function watchTimelineJumpPad() {
   new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
   window.addEventListener('resize', sync)
   sync()
+  // Critique #275: with a story open the floating bar covered the reader's title (390)
+  // and body text (1280). Tuck it away while reading down; bring it back on any upward
+  // scroll, near the end of the page, or when keyboard focus moves into it.
+  let lastY = window.scrollY
+  const tuck = (on) => bar.classList.toggle('is-tucked', Boolean(on) && !bar.contains(document.activeElement))
+  new MutationObserver(() => { if (!bar.hidden) tuck(true) }).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
+  if (!bar.hidden) tuck(true)
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY
+    const nearEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 120
+    if (nearEnd || y < lastY - 8) tuck(false)
+    else if (y > lastY + 8) tuck(true)
+    if (Math.abs(y - lastY) > 8) lastY = y
+  }, { passive: true })
+  bar.addEventListener('focusin', () => bar.classList.remove('is-tucked'))
 }
 
 function setupTimelineJumpControls() {
@@ -3682,9 +3716,8 @@ function scrollTimelineToFilters() {
     // Keep site header visible; land on Timeline filters
     target.scrollIntoView({ block: 'start', behavior: 'auto' })
   }
-  // Sticky header offset: nudge so nav + filters aren't under the top bar
-  const header = document.querySelector('header.top')
-  const offset = header ? header.getBoundingClientRect().height + 8 : 0
+  // Sticky header + reading bar: nudge so filters aren't covered
+  const offset = timelineHeaderOffset()
   if (offset && (filters || section)) {
     const y = window.scrollY - offset
     if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -4143,6 +4176,36 @@ function setLegendNote(id, { focus = false, scroll = true } = {}) {
     if (focus) el.querySelector(`button.ml-row[data-nid="${id}"]`)?.focus()
   }
 }
+/**
+ * Homepage story links open #timeline/<slug> with the map in view: the map is shown
+ * (reading-wide is undone) and, on phones, docked on top with the story below it.
+ * The flag is set by the homepage click intercept (src/home-preview.js).
+ */
+function applyHomeStoryLayout(slug) {
+  const layout = document.querySelector('#timeline .timeline-layout')
+  if (!layout) return
+  let fromHome = null
+  try {
+    fromHome = sessionStorage.getItem('khd-from-home')
+    sessionStorage.removeItem('khd-from-home')
+  } catch {}
+  const on = Boolean(slug && fromHome && fromHome === slug)
+  if (on && layout.classList.contains('is-reading-wide')) {
+    document.getElementById('timelineReadingToggle')?.click()
+  }
+  // Phones: the docked map must not trap one-finger page scrolls.
+  // Two-finger pinch still zooms and moves the map; + / − stay available.
+  if (timelineMap) {
+    const phone = window.matchMedia('(max-width: 900px)').matches
+    if (on && phone) timelineMap.dragPan.disable()
+    else timelineMap.dragPan.enable()
+  }
+  if (layout.classList.contains('is-home-story') !== on) {
+    layout.classList.toggle('is-home-story', on)
+    if (timelineMap) requestAnimationFrame(() => timelineMap.resize())
+  }
+}
+
 window.addEventListener('hashchange', () => {
   if (!legendNoteId) return
   legendNoteId = null
@@ -4400,6 +4463,7 @@ function setActiveNav(view) {
     const r = a.dataset.route
     a.classList.toggle('active', r === view)
   })
+  document.body.classList.toggle('hp-page', view === 'home')
 }
 
 async function applyRoute() {
@@ -4484,14 +4548,14 @@ async function applyRoute() {
     // Fresh visit: bare #timeline (no story slug), clear prior selection
     if (!slug) selectedStorySlug = null
     else selectedStorySlug = slug
+    applyHomeStoryLayout(slug)
     await renderTimelineList(slug)
     applyPendingStoryFocus()
     const scrollToStoryDetail = () => {
       const reader = document.getElementById('timelineStoryReader')
       if (!reader || reader.classList.contains('is-empty')) return false
       reader.scrollIntoView({ block: 'start', behavior: 'auto' })
-      const header = document.querySelector('header.top')
-      const offset = header ? header.getBoundingClientRect().height + 8 : 0
+      const offset = timelineHeaderOffset()
       if (offset) {
         const y = window.scrollY - offset
         if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -4552,7 +4616,7 @@ document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('clic
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
-/** About seals (the black one is 402KB) are hidden on first load. Fetch them only when About opens. */
+/** About seals carry a real src with loading="lazy", so the hidden About section never fetches them (and no img has an empty src). Kept as a fallback for browsers without lazy loading. */
 function revealAboutSeal() {
   document.querySelectorAll('#about img.about-seal[data-src]').forEach((img) => {
     if (img.getAttribute('src')) return
@@ -4587,4 +4651,5 @@ initThemeToggle()
 initSiteSearch()
 MobileNav.init()
 initHomePage()
+initTimelineReading({ getMap: () => timelineMap })
 applyRoute().catch(console.error)

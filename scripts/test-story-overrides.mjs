@@ -54,7 +54,7 @@ d = read(FILES[4]); Object.assign(d.find((p) => p.id === WH), { latitude: 37.1, 
 d = read(FILES[5]); for (const x of d.documents) if (x.id === `story:${W}` || x.id === `place:${WH}`) Object.assign(x, { lat: 37.1, lon: -87.1 }); write(FILES[5], d)
 const revertText = (s) =>
   s.replaceAll('burial mounds survive in Ashland', 'burial mounds still sit in Ashland')
-    .replaceAll('he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782', 'he was sworn near present-day Danville in November 1782')
+    .replaceAll('he was sworn in at Crow’s Station, Virginia (near present-day Danville, Kentucky), in November 1782', 'he was sworn near present-day Danville in November 1782')
     .replaceAll('he was sworn in at Crow’s Station, Virginia…', 'he was sworn near present-day…')
 for (const f of all()) { const p = path.join(tmp, f); const s = fs.readFileSync(p, 'utf8'); if (revertText(s) !== s) fs.writeFileSync(p, revertText(s)) }
 assert.notDeepEqual(snap(), before)
