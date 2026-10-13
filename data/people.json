@@ -6772,16 +6772,17 @@
       ],
       "role": "Founder of Old Forester and Brown-Forman",
       "native": false,
-      "likeness": "none-known",
+      "likeness": "real-photo",
       "timing": null,
-      "image": null,
-      "sourcePage": null,
-      "license": null,
+      "image": "/people/portraits/george-garvin-brown__photo-512.jpg",
+      "sourcePage": "https://archive.org/details/memoirsofloweroh01fede/page/282/",
+      "license": "Public domain",
       "licenseUrl": null,
-      "credit": null,
-      "freeToUse": false,
-      "verified": false,
-      "notes": "No free portrait found on Commons. Needs an AI portrait."
+      "credit": "George Garvin Brown, from Memoirs of the Lower Ohio Valley (1905), p. 282. Public domain, via Internet Archive.",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Real photograph, Memoirs of the Lower Ohio Valley (1905), p. 282 (Internet Archive). Local files george-garvin-brown__photo-512.{webp,jpg} (Story Studio, Oct 2026). Never use the Whiskey Row banner image of Brown.",
+      "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
     }
   ]
 }

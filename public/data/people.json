@@ -4548,14 +4548,19 @@
       "id": "george-garvin-brown",
       "name": "George Garvin Brown",
       "dates": "1846–1917",
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/george-garvin-brown__photo-512.webp",
+        "jpg": "/people/portraits/george-garvin-brown__photo-512.jpg"
+      },
+      "credit": "George Garvin Brown, from Memoirs of the Lower Ohio Valley (1905), p. 282. Public domain, via Internet Archive.",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "licenseUrl": null,
       "stories": [
         "george-garvin-brown-and-old-forester"
-      ]
+      ],
+      "sourceFile": null,
+      "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
     }
   ],
   "storySubjects": {

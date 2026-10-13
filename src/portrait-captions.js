@@ -36,6 +36,7 @@ export function creditWithCaption(person, credit) {
 export const PORTRAIT_ALTS = {
   moluntha: 'AI illustration of Moluntha, elderly Mekoche Shawnee civil chief, about 1786',
   'robert-johnson': "AI illustration of Robert Johnson, founder of Johnson's Station, about 1783",
+  'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
 }
 
 export function portraitAlt(person) {

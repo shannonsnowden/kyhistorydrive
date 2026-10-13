@@ -5210,8 +5210,8 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   .static-story .story-crumbs > :first-child { margin-left: 0; padding-left: 0; }
 }
 /* Inline story portrait (main subject), static /stories/ pages and the map app reader: floats right of the first paragraph so the text wraps.
-   200px on desktop, 120px on phones (so paragraph 1 stays near the top and it never stacks under
-   the Photos card). Fixed border so light and dark match; 200/120 square boxes, so no layout shift. */
+   200px in wide columns; in columns under 560px (phones, app reader beside the map) it becomes a
+   centered block like the PR B portraits. Fixed border so light and dark match; 200/120 square boxes, so no layout shift. */
 .story-portrait { float: right; width: 120px; margin: 0.3rem 0 0.5rem 0.9rem; }
 .story-portrait img {
   display: block;
@@ -5231,6 +5231,38 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 @container (min-width: 560px) {
   .story-portrait { width: 200px; margin: 0.35rem 0 0.75rem 1.5rem; }
 }
+/* PR B inline portraits (people named in the story): alternate right/left, one per paragraph,
+   each clears its own side so two never stack. */
+.story-portrait-inline { clear: right; }
+.story-portrait-left { float: left; clear: left; margin: 0.3rem 0.9rem 0.5rem 0; }
+@container (min-width: 560px) {
+  .story-portrait-inline { width: 160px; }
+  .story-portrait-left { margin: 0.35rem 1.5rem 0.75rem 0; }
+}
+/* Narrow text columns (phones, the app reader beside the map): no floats for PR B portraits;
+   a centered block between paragraphs so the text keeps its full width. */
+@container (max-width: 559.98px) {
+  .story-portrait,
+  .story-portrait-inline,
+  .story-portrait-inline.story-portrait-left {
+    float: none;
+    clear: both;
+    width: min(180px, 70%);
+    margin: 0.85rem auto 1rem;
+  }
+  /* Caption may run wider than the 180px image (still inside the column) so short credits
+     like 'AI illustration · Kentucky History Drive' stay on one line. */
+  .story-portrait figcaption {
+    text-align: center;
+    width: max-content;
+    max-width: calc(100cqw - 1rem);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+/* Captions at 12px or larger; --muted is AA on --panel/--bg in light (#52604c) and dark (#a8b59c). */
+.story-portrait figcaption { font-size: max(12px, 0.8rem); }
 .story-reader-layout .story-body::after { content: ''; display: block; clear: both; }
 .story-reader-layout .learn-more,
 .story-reader-layout .route-map { clear: both; }
@@ -5308,3 +5340,8 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+
+/* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
+.story-photo-credit .photo-license { white-space: nowrap; }
+/* Sidebar credit links are inline text links: no padded tap box, so no gap before the period (' .'). */
+.story-sidebar-photo-attr.story-photo-credit a { display: inline; min-height: 0; padding: 0; }
