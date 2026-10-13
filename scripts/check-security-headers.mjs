@@ -21,6 +21,10 @@ export const SECURITY_HEADERS = [
   ['Content-Security-Policy-Report-Only', CSP],
 ]
 
+export const DRIVES_PATTERN = "'/drives/**'"
+export const DRIVES_PATTERNS = [DRIVES_PATTERN, "'/drives/'"]
+export const DRIVES_PERMISSIONS = 'camera=(), microphone=(), geolocation=(self), payment=(), usb=()'
+
 export function patternBlocks(text) {
   const start = text.indexOf('customHeaders:\n')
   if (start === -1) return []
@@ -50,6 +54,11 @@ export function checkPatternBlocks(text) {
     const where = pattern || '(unnamed pattern)'
     for (const [key, expected] of SECURITY_HEADERS) {
       const values = headerValues(block, key)
+      // The one exception: /drives/** may allow geolocation for its own origin (opt-in "Use my location").
+      if (key === 'Permissions-Policy' && DRIVES_PATTERNS.includes(pattern)) {
+        if (values.length !== 1 || values[0] !== DRIVES_PERMISSIONS) problems.push(`${where} Permissions-Policy is ${JSON.stringify(values[0])}, expected ${JSON.stringify(DRIVES_PERMISSIONS)}`)
+        continue
+      }
       if (values.length === 0) problems.push(`${where} is missing ${key}`)
       else if (values.length !== 1 || values[0] !== expected) {
         problems.push(`${where} ${key} is ${JSON.stringify(values[0])}, expected ${JSON.stringify(expected)}`)
@@ -100,7 +109,10 @@ function main() {
   for (const problem of checkPatternBlocks(customHttp)) fail(problem)
 
   if (/preload/.test(customHttp)) fail('HSTS must not include preload')
-  if (/geolocation=\(self\)/.test(customHttp)) fail('geolocation=(self) is set, but the site does not use geolocation')
+  for (const { pattern, text } of patternBlocks(customHttp)) {
+    if (!DRIVES_PATTERNS.includes(pattern) && /geolocation=\(self\)/.test(text)) fail(`${pattern} sets geolocation=(self); only ${DRIVES_PATTERNS.join(' and ')} may`)
+  }
+  for (const want of DRIVES_PATTERNS) if (!patternBlocks(customHttp).some((b) => b.pattern === want)) fail(`customHttp.yml is missing ${want}`)
   if (/key:\s*'Content-Security-Policy'\s*$/m.test(customHttp)) {
     fail('enforcing Content-Security-Policy is present; this baseline is report-only')
   }

@@ -1,0 +1,153 @@
+{
+  "slug": "col-thomas-marshall-at-buck-pond",
+  "storySlug": "col-thomas-marshall-at-buck-pond",
+  "title": "Research notes: Col. Thomas Marshall at Buck Pond",
+  "updated": "2026-10-13",
+  "summary": "Sources for Thomas Marshall’s Revolutionary service, his 1783 surveyor appointment, Buck Pond, and his Kentucky politics. Buck Pond Farm’s own history and Wikipedia disagree on who appointed him.",
+  "sections": [
+    {
+      "heading": "Service and surveying",
+      "items": [
+        {
+          "text": "Colonel, 3rd Virginia Regiment; Brandywine, Germantown, Valley Forge; surrendered at Charleston 1780; first Kentucky visit while on parole.",
+          "sources": [
+            "wp-marshall"
+          ]
+        },
+        {
+          "text": "1783: surveyor general of Kentucky lands due Virginia Continental Line officers and soldiers; office in Lexington.",
+          "sources": [
+            "wp-marshall"
+          ]
+        },
+        {
+          "text": "Buck Pond Farm says Washington appointed him surveyor general of the lands of Fayette County. Treated as contested: Washington was not president in 1783.",
+          "sources": [
+            "buckpond",
+            "wp-marshall"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Buck Pond",
+      "items": [
+        {
+          "text": "Founded 1783; house completed 1785; turned over to son Dr. Louis Marshall about 1800; six generations of Marshalls lived there.",
+          "sources": [
+            "buckpond"
+          ]
+        },
+        {
+          "text": "Family moved from Fauquier County to Kentucky in 1785.",
+          "sources": [
+            "wp-marshall"
+          ]
+        },
+        {
+          "text": "Brief’s ‘Federal-style house’ wording was cut: neither source describes the style.",
+          "sources": []
+        }
+      ]
+    },
+    {
+      "heading": "Politics",
+      "items": [
+        {
+          "text": "Virginia House of Delegates for Fayette, 1787–1788; delegate to the 1788 Danville convention; Federalist; later federal revenue collector for Kentucky.",
+          "sources": [
+            "wp-marshall"
+          ]
+        },
+        {
+          "text": "Opposed slavery in Ohio but practiced and proposed indentured servitude of formerly enslaved people.",
+          "sources": [
+            "wp-marshall"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1780,
+      "event": "Surrendered at Charleston; on parole, first visit to Kentucky.",
+      "sources": [
+        "wp-marshall"
+      ]
+    },
+    {
+      "year": 1783,
+      "event": "Surveyor general of Virginia military lands in Kentucky; Buck Pond founded.",
+      "sources": [
+        "wp-marshall",
+        "buckpond"
+      ]
+    },
+    {
+      "year": 1785,
+      "event": "House completed; family moves to Kentucky.",
+      "sources": [
+        "buckpond",
+        "wp-marshall"
+      ]
+    },
+    {
+      "year": 1788,
+      "event": "Danville separation convention delegate.",
+      "sources": [
+        "wp-marshall"
+      ]
+    },
+    {
+      "year": 1800,
+      "event": "Buck Pond passed to Dr. Louis Marshall (about).",
+      "sources": [
+        "buckpond"
+      ]
+    },
+    {
+      "year": 1802,
+      "event": "Dies in Mason County.",
+      "sources": [
+        "wp-marshall"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Thomas Marshall",
+      "role": "Surveyor general, founder of Buck Pond",
+      "peopleId": "thomas-marshall-col"
+    },
+    {
+      "name": "John Marshall",
+      "role": "Son; Chief Justice"
+    },
+    {
+      "name": "Louis Marshall",
+      "role": "Youngest son; later owner of Buck Pond"
+    }
+  ],
+  "openQuestions": [
+    "Who labored at Buck Pond, enslaved or free, in Marshall’s lifetime?",
+    "Who exactly made the 1783 appointment, and how is it recorded in Virginia land-office papers?",
+    "No people.json entry exists yet for Thomas Marshall (1730–1802)."
+  ],
+  "sources": [
+    {
+      "id": "wp-marshall",
+      "citation": "“Thomas Marshall (Virginia politician, born 1730).” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Marshall_(Virginia_politician,_born_1730)",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "buckpond",
+      "citation": "“Farm History.” Buck Pond Farm, Versailles, Ky.",
+      "url": "https://www.buckpondfarm.com/farm-history.html",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

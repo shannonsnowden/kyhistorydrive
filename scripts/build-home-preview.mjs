@@ -550,6 +550,7 @@ async function main() {
       summary: full.summary || meta.summary || '',
       era: full.era || meta.era || '',
       yearStart: full.yearStart ?? meta.yearStart ?? null,
+      county: full.county || meta.county || null,
       briefDate: full.briefDate || meta.briefDate || briefDate,
       href: `/#timeline/${encodeURIComponent(slug)}`,
       place: loc.matchedPlace || null,

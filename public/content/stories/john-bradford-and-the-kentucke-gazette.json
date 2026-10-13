@@ -16,12 +16,12 @@
   "source": "ky-history",
   "briefDate": "2026-10-09",
   "photo": {
-    "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
-    "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+    "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette--topic.jpg",
+    "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
     "source_label": "Wikimedia Commons",
-    "attribution": "Unknown artist · Wikimedia Commons · public domain",
-    "year": null
+    "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
+    "year": 1887
   },
   "county": "Fayette"
 }
