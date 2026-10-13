@@ -63,6 +63,11 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 [data-hp-theme=dark] .tag.amber{background:#3a2c17;color:#e8c58a}
 .byod{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
 .byod p{margin:0}
+.dcard.is-selected a{border:3px solid var(--gold);box-shadow:0 0 0 3px var(--green-soft);background:var(--green-soft)}
+.drive-pick{display:none;background:var(--green-soft);border:2px solid var(--gold);border-radius:14px;padding:12px 14px;margin:0 0 16px;align-items:center;gap:10px;flex-wrap:wrap}
+.drive-pick.show{display:flex}
+.drive-pick p{margin:0;flex:1 1 240px}
+.drive-pick .btn{text-decoration:none;align-items:center}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://kyhistorydrive.com/drives/#page","name":"Kentucky history drives","description":"12 Kentucky history drives and 12 loops from 10 distilleries, each with ordered stops, a route map, stories and directions. Or build your own drive.","url":"https://kyhistorydrive.com/drives/","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"mainEntity":{"@type":"ItemList","numberOfItems":24,"itemListElement":[{"@type":"ListItem","position":1,"name":"Licking Valley: Stations, Blue Licks and Covered Bridges","url":"https://kyhistorydrive.com/drives/licking-valley/"},{"@type":"ListItem","position":2,"name":"Big Sandy and Pine Mountain","url":"https://kyhistorydrive.com/drives/big-sandy-pine-mountain/"},{"@type":"ListItem","position":3,"name":"Bluegrass Forts and Stations","url":"https://kyhistorydrive.com/drives/bluegrass-forts/"},{"@type":"ListItem","position":4,"name":"Boone's Trail and the Wilderness Road","url":"https://kyhistorydrive.com/drives/boones-trail/"},{"@type":"ListItem","position":5,"name":"Bourbon Heritage: the family distillers of the Rolling Fork country","url":"https://kyhistorydrive.com/drives/bourbon-heritage/"},{"@type":"ListItem","position":6,"name":"Capital, Shakers and the Early Commonwealth","url":"https://kyhistorydrive.com/drives/capital-and-shakers/"},{"@type":"ListItem","position":7,"name":"Cave Country","url":"https://kyhistorydrive.com/drives/cave-country/"},{"@type":"ListItem","position":8,"name":"Civil War in the Bluegrass","url":"https://kyhistorydrive.com/drives/civil-war-bluegrass/"},{"@type":"ListItem","position":9,"name":"Civil War in South Central Kentucky","url":"https://kyhistorydrive.com/drives/civil-war-south-central/"},{"@type":"ListItem","position":10,"name":"Northern Kentucky: Ice Age to the Roebling Bridge","url":"https://kyhistorydrive.com/drives/northern-kentucky/"},{"@type":"ListItem","position":11,"name":"Pennyrile Towns and Civil War Memory","url":"https://kyhistorydrive.com/drives/pennyrile/"},{"@type":"ListItem","position":12,"name":"Western Rivers: Mississippian Towns, Clark's Fort and the Trail of Tears","url":"https://kyhistorydrive.com/drives/western-rivers/"},{"@type":"ListItem","position":13,"name":"Barton 1792: Bardstown and the Catholic Holy Land · Loop 1: Bardstown to Loretto","url":"https://kyhistorydrive.com/drives/barton-1792/"},{"@type":"ListItem","position":14,"name":"Buffalo Trace · Loop 1: Capital and the river","url":"https://kyhistorydrive.com/drives/buffalo-trace/"},{"@type":"ListItem","position":15,"name":"Buffalo Trace · Loop 2: Glenn's Creek distilleries","url":"https://kyhistorydrive.com/drives/buffalo-trace-loop-2/"},{"@type":"ListItem","position":16,"name":"Castle & Key: Glenn's Creek to the capital · Loop 1: Frankfort museums and the Elkhorn","url":"https://kyhistorydrive.com/drives/castle-and-key/"},{"@type":"ListItem","position":17,"name":"Four Roses: Lawrenceburg and the Salt River settlements · Loop 1: McAfee country and Fort Harrod","url":"https://kyhistorydrive.com/drives/four-roses/"},{"@type":"ListItem","position":18,"name":"Heaven Hill: Bardstown and the road to Lincoln's birthplace · Loop 1: Bardstown, New Haven and Lincoln's birthplace","url":"https://kyhistorydrive.com/drives/heaven-hill/"},{"@type":"ListItem","position":19,"name":"Jim Beam: Clermont, Salt River salt and Civil War forts · Loop 1: Salt River and Fort Duffield","url":"https://kyhistorydrive.com/drives/jim-beam/"},{"@type":"ListItem","position":20,"name":"Maker's Mark: Loretto, Holy Cross and the Lincoln country · Loop 1: Holy Cross, Lebanon and Springfield","url":"https://kyhistorydrive.com/drives/makers-mark/"},{"@type":"ListItem","position":21,"name":"Old Forester: Whiskey Row to Cave Hill · Loop 1: Whiskey Row to Zachary Taylor","url":"https://kyhistorydrive.com/drives/old-forester/"},{"@type":"ListItem","position":22,"name":"Wild Turkey · Loop 1: Tyrone, Versailles and Jack Jouett","url":"https://kyhistorydrive.com/drives/wild-turkey/"},{"@type":"ListItem","position":23,"name":"Wild Turkey · Loop 2: Shaker Village of Pleasant Hill","url":"https://kyhistorydrive.com/drives/wild-turkey-loop-2/"},{"@type":"ListItem","position":24,"name":"Woodford Reserve: Glenn's Creek, Versailles and Midway · Loop 1: Versailles and Midway","url":"https://kyhistorydrive.com/drives/woodford-reserve/"}]}}</script>
@@ -73,6 +78,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <main>
   <p class="kicker">Plan a history drive</p>
   <h1>Kentucky history drives</h1>
+  <div class="drive-pick" id="drivePick" role="status" aria-live="polite"></div>
   <p class="muted" style="margin:0 0 14px">12 themed drives across the state and 12 loops that start at 10 Kentucky distilleries. Each page lists the stops in order, with a route map, stories and directions.</p>
   <section class="card byod" style="margin-bottom:20px"><div><h2 style="margin:0">Build your own drive</h2><p class="muted">Pick a town, a distillery or your location and the time you have, from 1 hour to a full day; we suggest a loop of nearby stops.</p></div><a class="btn btn-green" href="/drives/build/">Build a drive</a></section>
   <h2>Themed drives</h2>
@@ -131,6 +137,23 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script>
 const t=new URLSearchParams(location.search).get('theme');document.documentElement.dataset.hpTheme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')
+</script>
+<script>
+// Deep link: /drives/?drive=<id> (id = the drive's folder slug). Highlights that card, scrolls to it and offers
+// its page. A missing or unknown id leaves the full list as is and notes it; nothing from the URL becomes HTML.
+(function(){
+  var id=new URLSearchParams(location.search).get('drive')
+  if(id===null)return
+  var box=document.getElementById('drivePick')
+  var a=/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)&&id!=='build'?document.querySelector('.dcard a[href="/drives/'+id+'/"]'):null
+  if(!a){box.textContent='That drive was not found. Here are all of our drives.';box.classList.add('show');return}
+  var li=a.closest('.dcard');li.classList.add('is-selected');a.setAttribute('aria-current','true')
+  var name=(a.querySelector('h3')||a).textContent
+  var p=document.createElement('p');p.append('Selected drive: ');var b=document.createElement('b');b.textContent=name;p.append(b)
+  var go=document.createElement('a');go.className='btn btn-green';go.href='/drives/'+id+'/';go.textContent='Open this drive →'
+  box.append(p,go);box.classList.add('show')
+  requestAnimationFrame(function(){li.scrollIntoView({block:'center'})})
+})()
 </script>
 </body>
 </html>
