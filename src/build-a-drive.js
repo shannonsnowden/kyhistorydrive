@@ -16,10 +16,13 @@ import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&ur
 maplibregl.setWorkerUrl(maplibreWorkerUrl)
 import THEME_ICONS from '../scripts/drive-theme-icons.json'
 // Mockup: existing layer icon for each stop kind (no new icons).
+const escHtml = (v) => String(v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
 const kindIcon = (k) => {
+  if (!Object.hasOwn(THEME_ICONS.stopKinds, k)) return ''
   const v = THEME_ICONS.stopKinds[k]
-  if (!v) return ''
-  return v.startsWith('/') ? `<img class="kicon" src="${v}" alt="" width="16" height="16">` : `<span class="kicon" aria-hidden="true">${v}</span>`
+  if (typeof v !== 'string' || !v) return ''
+  if (v.startsWith('/')) return /^\/icons\/[\w-]+\.png$/.test(v) ? `<img class="kicon" src="${escHtml(v)}" alt="" width="16" height="16">` : ''
+  return `<span class="kicon" aria-hidden="true">${escHtml(v)}</span>`
 }
 import { legSize, googleUrl, appleUrl, buildLegs } from './drive-links.js'
 
