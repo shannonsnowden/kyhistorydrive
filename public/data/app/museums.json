@@ -905,11 +905,11 @@
     "longitude": -85.859492,
     "founded_year": null,
     "history": "Regional history museum on the Lincoln Trail covering Hardin County from pioneer settlement to the present, with rotating exhibits and famous-resident stories. Downtown Elizabethtown stop for travelers between Louisville and Hodgenville. Strong local-history counterpart to Fort Knox military sites.",
-    "website": "http://hardinkyhistory.com/",
+    "website": "https://hardinkyhistory.com/",
     "museum_type": "history",
     "geocode_source": "photon",
     "sources": [
-      "http://hardinkyhistory.com/",
+      "https://hardinkyhistory.com/",
       "https://en.wikipedia.org/wiki/List_of_museums_in_Kentucky"
     ]
   },
@@ -1113,11 +1113,11 @@
     "longitude": -88.6256886,
     "founded_year": 1968,
     "history": "Paducah city history museum in the historic Market House, covering William Clark's town founding, river trade, and local culture.",
-    "website": "https://www.markethousemuseum.com/",
+    "website": "https://markethousemuseum.org/",
     "museum_type": "history",
     "geocode_source": "photon",
     "sources": [
-      "https://www.markethousemuseum.com/"
+      "https://markethousemuseum.org/"
     ]
   },
   {
@@ -1328,8 +1328,8 @@
     "city": "Stanford",
     "county": "Lincoln",
     "address": "625 William Whitley Rd, Stanford, KY 40484",
-    "latitude": 37.5315,
-    "longitude": -84.5865,
+    "latitude": 37.4675558,
+    "longitude": -84.5484837,
     "founded_year": 1938,
     "history": "Brick frontier house of Revolutionary War pioneer William Whitley, interpreting early Kentucky settlement and the Sportsman's Hill racetrack tradition.",
     "website": "https://en.wikipedia.org/wiki/William_Whitley_House_State_Historic_Site",
@@ -1451,11 +1451,11 @@
     "longitude": -88.3225,
     "founded_year": 1978,
     "history": "Murray State University museum of West Kentucky and Jackson Purchase history, culture, and regional heritage.",
-    "website": "https://www.murraystate.edu/wrather/",
+    "website": "https://lib.murraystate.edu/wrathermuseum",
     "museum_type": "history",
     "geocode_source": "manual",
     "sources": [
-      "https://www.murraystate.edu/wrather/"
+      "https://lib.murraystate.edu/wrathermuseum"
     ]
   },
   {
@@ -1519,11 +1519,11 @@
     "longitude": -84.5290688,
     "founded_year": 2005,
     "history": "Museum interpreting Northern Kentucky and Cincinnati Civil War defenses on Battery Hooper, including earthworks and regional home-front stories.",
-    "website": "https://www.fortwright.com/civilwarmuseum",
+    "website": "https://en.wikipedia.org/wiki/James_A._Ramage_Civil_War_Museum",
     "museum_type": "military",
     "geocode_source": "photon",
     "sources": [
-      "https://www.fortwright.com/civilwarmuseum"
+      "https://en.wikipedia.org/wiki/James_A._Ramage_Civil_War_Museum"
     ]
   },
   {

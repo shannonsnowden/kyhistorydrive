@@ -3,6 +3,8 @@
  * public/maps/routes/<slug>/NOTES.md. Coordinates are included only when
  * that file gives one latitude/longitude pair.
  */
+import { routeMapOverlayHtml } from './route-map-geo.js'
+import { ROUTE_TRACKS } from './route-track-meta.js'
 export const SITE = 'https://kyhistorydrive.com'
 export const ORG_ID = `${SITE}/#organization`
 
@@ -13,18 +15,25 @@ const esc = (s) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
 
-function filesFor(slug, base) {
+function filesFor(slug, base, zoomStem) {
   const dir = `/maps/routes/${slug}`
   const f = (suffix) => `${dir}/${base}${suffix}`
+  const stem = zoomStem || slug
+  const zoom = (theme, ext) => `${dir}/zoom/${stem}-zoom-${theme}.${ext}`
   return {
     phoneWebp: f('-phone.webp'),
     phonePng: f('-phone.png'),
+    phoneDarkWebp: f('-phone-dark.webp'),
     phoneDarkPng: f('-phone-dark.png'),
     webWebp: f('-web.webp'),
     fullWebp: f('.webp'),
     fullPng: f('.png'),
     darkWebp: f('-dark.webp'),
     darkPng: f('-dark.png'),
+    zoomLightAvif: zoom('light', 'avif'),
+    zoomLightWebp: zoom('light', 'webp'),
+    zoomDarkAvif: zoom('dark', 'avif'),
+    zoomDarkWebp: zoom('dark', 'webp'),
   }
 }
 
@@ -33,11 +42,14 @@ const wp = (where, stop, geo = null, conjectural = false) => ({ where, stop, geo
 export const ROUTE_MAPS = [
   {
     slug: 'athiamiowee-the-warriors-path-through-kentucky',
-    base: 'warriors-path-map',
+    base: 'athiamiowee-the-warriors-path-through-kentucky',
+    zoomStem: 'warriors-path',
+    phoneCrop: true,
     era: 'before 1674 to the 1770s',
     alt: "Map of the Warriors' Path from the Ohio River at the Scioto south past Eskippakithiki to Cumberland Gap and Cherokee towns.",
     caption:
       "Solid: Warriors' Path (approximate) · Dotted: conjectural segment · Light dashes: branch prongs to the Ohio. Map: Kentucky History Drive.",
+    phoneCaption: "Solid: Warriors' Path (approximate). Map: Kentucky History Drive.",
     sentence:
       "The Warriors' Path ran from the Ohio River opposite the mouth of the Scioto (Lower Shawneetown, near present South Portsmouth) south past Eskippakithiki in Clark County, across the Red and Kentucky rivers near Irvine, along War Fork and Goose Creek to Flat Lick, over the Cumberland River at Pineville, and through Cumberland Gap toward the Cherokee Overhill towns on the Little Tennessee River.",
     distance:
@@ -46,9 +58,9 @@ export const ROUTE_MAPS = [
     note: 'A dashed branch runs from Eskippakithiki northeast across the Licking near Upper Blue Licks (Fleming and Nicholas counties) to the Ohio at Cabin Creek (Mason and Lewis counties), with a Maysville prong.',
     sources: 'Sources: Filson 1784; KHS marker #697; KYGeoNet Ky Frontier Trails; NPS.',
     stops: [
-      wp('South Portsmouth / Fullerton, Greenup County, Kentucky, and Scioto County, Ohio', 'Lower Shawneetown', [38.677, -83.107]),
+      wp('South Portsmouth / Fullerton, Greenup County, Kentucky, and Scioto County, Ohio', 'Lower Shawneetown', [38.7, -83.1]),
       wp('near Olive Hill and the Mount Sterling area, Carter, Bath, and Montgomery counties, Kentucky', 'Scioto prong', [38.137, -83.566], true),
-      wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.946, -84]),
+      wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.9, -84]),
       wp('near Clay City, Clark, Powell, and Estill counties, Kentucky', 'Red River crossing', [37.84, -84.02]),
       wp('Irvine, Estill County, Kentucky', 'Kentucky River ford', [37.69, -83.97]),
       wp('Gray Hawk, Jackson County, Kentucky', 'War Fork / Sand Gap', [37.4, -83.94]),
@@ -74,6 +86,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'thomas-walker-and-cumberland-gap',
     base: 'thomas-walker-and-cumberland-gap-route-map',
+    phoneCrop: true,
     era: '1750',
     alt: "Map of Thomas Walker's 1750 route from Castle Hill, Virginia, through Cumberland Gap to his cabin near Barbourville and back.",
     caption:
@@ -113,12 +126,15 @@ export const ROUTE_MAPS = [
   {
     slug: 'christopher-gist-1750-51',
     base: 'christopher-gist-1750-51-route-map',
+    phoneCrop: true,
     era: '1750–1751',
     alt: "Map of Christopher Gist's 1750–51 route from Old Town, Maryland, through Ohio and Kentucky to his home on the Yadkin.",
     caption:
       'Solid: route north of the Ohio (approximate) · Dotted: Kentucky and return (conjectural) · Light dashes: side trip to Pickawillany. Map: Kentucky History Drive.',
+    phoneCaption:
+      'Dotted: Kentucky and return (conjectural); the return is not shown in this crop. Map: Kentucky History Drive.',
     sentence:
-      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Kentucky River and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
+      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Red River, which he called the little Cuttaway, and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
     distance:
       'About 350 miles from Old Town to Lower Shawneetown, 250 for the Pickawillany round trip, and about 480 from Lower Shawneetown through Kentucky to the Yadkin, measured on the map line.',
     stopsLabel: 'Approximate stops, in order of travel',
@@ -129,12 +145,12 @@ export const ROUTE_MAPS = [
       wp('Pittsburgh and Ambridge/Baden, Allegheny and Beaver counties, Pennsylvania', "Shannopin's Town and Logstown"),
       wp('Coshocton, Coshocton County, Ohio', 'Wyandot town on the Muskingum', [40.27, -81.86]),
       wp('Lancaster and the Circleville area, Fairfield and Pickaway counties, Ohio', 'Hockhocking and Maguck'),
-      wp('Portsmouth, Ohio / South Portsmouth, Kentucky, Scioto County, Ohio, and Greenup County, Kentucky', 'Lower Shawneetown', [38.73, -82.99]),
+      wp('Portsmouth, Ohio / South Portsmouth, Kentucky, Scioto County, Ohio, and Greenup County, Kentucky', 'Lower Shawneetown', [38.7, -83.0]),
       wp('Piqua, Miami County, Ohio', 'Pickawillany', [40.18, -84.24]),
-      wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.71, -83]),
+      wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.7, -83]),
       wp('Lewis, Mason, and Bracken counties, Kentucky', 'down the southeast side of the Ohio', null, true),
       wp('near Grant and Owen counties, Kentucky', 'lower Salt Lick Creek, disputed', [38.55, -84.7], true),
-      wp('Kentucky River below Frankfort, Owen, Henry, and Franklin counties, Kentucky', 'little Cuttaway', [38.33, -84.78], true),
+      wp('Red River near Clay City, Clark, Powell, and Estill counties, Kentucky', 'little Cuttaway (Red River)', [37.84, -84.02], true),
       wp('Bluegrass edge to the eastern Kentucky coalfield, Clark and Powell counties to Letcher County, Kentucky, and Wise County, Virginia', 'southeast through the mountains', null, true),
       wp('Bluefield–Princeton area, Mercer County, West Virginia, and Tazewell County, Virginia', 'Bluestone River', [37.33, -81.2], true),
       wp('near Hinton, Summers County, West Virginia', 'New River', [37.56, -80.85], true),
@@ -151,9 +167,11 @@ export const ROUTE_MAPS = [
   {
     slug: 'william-calks-1775-journal',
     base: 'william-calks-1775-journal-route-map',
+    phoneCrop: true,
     era: '1775',
     alt: "Map of William Calk's 1775 trek from Prince William County, Virginia, through Cumberland Gap to Boonesborough, Kentucky.",
     caption: "Solid: Calk's route (approximate) · Dotted: conjectural segment. Map: Kentucky History Drive.",
+    phoneCaption: "Solid: Calk's route (approximate). Map: Kentucky History Drive.",
     sentence:
       "William Calk walked from Prince William County, Virginia, by Rapidan and over the Blue Ridge, down the Valley to Crow's Ferry, Pepper's Ferry on the New River and Fort Chiswell, across the Clinch country to Martin's Station in Powell Valley, through Cumberland Gap on April 8, and along Boone's Trace by the Cumberland, Laurel and Rockcastle rivers to Boonesborough on April 20, 1775.",
     distance: 'About 490 miles, a 39-day trip including a five-day snowbound stop on the Clinch, measured on the map line.',
@@ -194,6 +212,7 @@ export const ROUTE_MAPS = [
   {
     slug: 'george-rogers-clark',
     base: 'george-rogers-clark-route-map',
+    phoneCrop: false,
     era: '1778–1779',
     alt: "Map of George Rogers Clark's 1778–79 Illinois Campaign from the Falls of the Ohio to Kaskaskia, Cahokia and Vincennes.",
     caption:
@@ -222,10 +241,12 @@ export const ROUTE_MAPS = [
   {
     slug: 'mantle-rock-and-the-trail-of-tears',
     base: 'mantle-rock-and-the-trail-of-tears-route-map',
+    phoneCrop: true,
     era: '1838–1839 · Northern Route',
     alt: 'Map of the Trail of Tears Northern Route across Kentucky via Hopkinsville, Princeton and Mantle Rock to the Ohio at Golconda.',
     caption:
       'Solid: Northern Route (NPS designated, approximate) · Light dashes: Benge Route (another detachment). Map: Kentucky History Drive.',
+    phoneCaption: 'Solid: Northern Route (NPS designated, approximate). Map: Kentucky History Drive.',
     sentence:
       "On the Northern Route of the Trail of Tears, Cherokee detachments entered Kentucky on the Port Royal Road in Todd County, camped at Hopkinsville and Princeton, followed the Salem–Golconda Road through Salem past Mantle Rock, and crossed the Ohio at Berry's Ferry to Golconda, Illinois, before heading west to the Mississippi.",
     distance:
@@ -251,12 +272,15 @@ export const ROUTE_MAPS = [
 ]
 
 for (const route of ROUTE_MAPS) {
-  route.files = filesFor(route.slug, route.base)
+  route.files = filesFor(route.slug, route.base, route.zoomStem)
   if (route.alt.length > 125) {
     throw new Error(`route map alt for ${route.slug} is ${route.alt.length} characters`)
   }
   if (route.slug === 'mantle-rock-and-the-trail-of-tears' && !route.sentence.includes('Northern Route')) {
     throw new Error('Mantle Rock route must use the NPS name Northern Route')
+  }
+  if (!ROUTE_TRACKS[route.slug]?.gpx || !ROUTE_TRACKS[route.slug]?.kml) {
+    throw new Error(`route map ${route.slug} is missing GPX/KML from NOTES.md`)
   }
   for (const stop of route.stops) {
     if (!stop.geo) continue
@@ -292,11 +316,16 @@ export function routeMapPictureHtml(route, { thumb = false } = {}) {
   const sizes = '(min-width: 700px) min(100vw, 52rem)'
   const sources = thumb
     ? [
-        source('dark', 'thumb', f.darkWebp, 'image/webp', '(prefers-color-scheme: dark)'),
-        source('dark', 'thumb', f.darkPng, 'image/png', '(prefers-color-scheme: dark)'),
-        source('light', 'thumb', f.webWebp, 'image/webp', '(min-width: 0px)'),
+        source('dark', 'phone', f.phoneDarkWebp, 'image/webp', '(max-width: 699px) and (prefers-color-scheme: dark)'),
+        source('dark', 'phone', f.phoneDarkPng, 'image/png', '(max-width: 699px) and (prefers-color-scheme: dark)'),
+        source('light', 'phone', f.phoneWebp, 'image/webp', '(max-width: 699px)'),
+        source('light', 'phone', f.phonePng, 'image/png', '(max-width: 699px)'),
+        source('dark', 'desk', f.darkWebp, 'image/webp', '(min-width: 700px) and (prefers-color-scheme: dark)'),
+        source('dark', 'desk', f.darkPng, 'image/png', '(min-width: 700px) and (prefers-color-scheme: dark)'),
+        source('light', 'desk', f.webWebp, 'image/webp', '(min-width: 700px)'),
       ]
     : [
+        source('dark', 'phone', f.phoneDarkWebp, 'image/webp', '(max-width: 699px) and (prefers-color-scheme: dark)'),
         source('dark', 'phone', f.phoneDarkPng, 'image/png', '(max-width: 699px) and (prefers-color-scheme: dark)'),
         source('light', 'phone', f.phoneWebp, 'image/webp', '(max-width: 699px)'),
         source('light', 'phone', f.phonePng, 'image/png', '(max-width: 699px)'),
@@ -310,27 +339,94 @@ export function routeMapPictureHtml(route, { thumb = false } = {}) {
     </picture>`
 }
 
+/** Thumbnail or story figure. The hi-res file is not in the markup; the viewer loads it on open. */
+export function routeMapZoomHtml(route, { thumb = false } = {}) {
+  const label = `Expand: ${route.alt}`
+  const hintId = `route-map-hint-${route.slug}`
+  const f = route.files
+  return `<div class="route-map-zoom" data-route-slug="${esc(route.slug)}" data-fallback="${esc(f.fullWebp)}" data-zoom-light-avif="${esc(f.zoomLightAvif)}" data-zoom-light-webp="${esc(f.zoomLightWebp)}" data-zoom-dark-avif="${esc(f.zoomDarkAvif)}" data-zoom-dark-webp="${esc(f.zoomDarkWebp)}">
+      <button type="button" class="route-map-open" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-describedby="${esc(hintId)}">
+        <span class="route-map-art">
+          ${routeMapPictureHtml(route, { thumb })}
+          ${routeMapOverlayHtml(route)}
+        </span>
+      </button>
+      <p id="${esc(hintId)}" class="visually-hidden">Opens a larger view of this map.</p>
+      <button type="button" class="route-map-expand" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="${esc(label)}">
+        <svg class="route-map-expand-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>Expand</span>
+      </button>
+    </div>`
+}
+
 function storyHref(slug, linkMode) {
   if (linkMode === 'hash') return `#timeline/${encodeURIComponent(slug)}`
   return `/stories/${encodeURIComponent(slug)}/`
 }
 
-function linksHtml(route, linkMode, titleFor) {
-  const stories = (route.relatedStories || [])
-    .filter((slug) => slug !== route.slug)
-    .map((slug) => {
-      const title = titleFor ? titleFor(slug) : ''
-      if (!title) return ''
-      return `<li><a href="${esc(storyHref(slug, linkMode))}">${esc(title)}</a></li>`
-    })
-    .filter(Boolean)
-  const markers = (route.markers || []).map(
-    (marker) =>
-      `<li><a href="/#map/markers/${esc(marker.number)}">KHS marker #${esc(marker.number)}, ${esc(marker.title)}</a></li>`,
-  )
-  const items = [...stories, ...markers]
+const PIN_ICON = `<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 5.7 10.9 6.4 11.55a.5.5 0 0 0 .7 0c.7-.65 6.4-6.49 6.4-11.55A6.75 6.75 0 0 0 12 2.25zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`
+
+const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.25 10.75 8 6 12.75" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+
+function relatedCardHtml({ href, title, meta }) {
+  return `<li><a class="related-card" href="${esc(href)}"><span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span><span class="related-card-copy"><span class="related-card-title">${esc(title)}</span><span class="related-card-meta">${esc(meta)}</span></span>${CHEVRON_ICON}</a></li>`
+}
+
+function linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel }) {
+  const seen = new Set()
+  const items = []
+  const addStory = (slug, described) => {
+    if (!slug || slug === route.slug || seen.has(slug)) return
+    const title = described?.title || (titleFor ? titleFor(slug) : '')
+    if (!title) return
+    seen.add(slug)
+    items.push(
+      relatedCardHtml({
+        href: storyHref(slug, linkMode),
+        title,
+        meta: described?.meta || 'Story',
+      }),
+    )
+  }
+  for (const slug of route.relatedStories || []) addStory(slug, describe ? describe(slug) : null)
+  for (const extra of extras || []) addStory(extra.slug, extra)
+  for (const marker of route.markers || []) {
+    items.push(
+      relatedCardHtml({
+        href: `/#map/markers/${encodeURIComponent(marker.number)}`,
+        title: marker.title,
+        meta: `Historical marker · KHS #${marker.number}`,
+      }),
+    )
+  }
   if (!items.length) return ''
-  return `<nav class="route-links" aria-label="Related stories and markers"><h3>Related stories and markers</h3><ul>${items.join('')}</ul></nav>`
+  const level = headingLevel === 3 ? 3 : 2
+  return `<nav class="route-links" aria-label="Related stories"><h${level}>Related stories</h${level}><ul class="related-list">${items.join('')}</ul></nav>`
+}
+
+function markerLegendHtml(route) {
+  if (!route.stops.some((stop) => stop.conjectural)) return ''
+  return `<p class="route-marker-legend"><span class="route-legend-hex" aria-hidden="true"></span> Hexagon: conjectural stop</p>`
+}
+
+function phoneCropNote(route) {
+  if (!route.phoneCrop) return ''
+  const light = route.files.fullPng
+  const dark = route.files.darkPng
+  return `<p class="route-map-phone-note">Kentucky leg shown — <a class="route-map-full-link" href="${esc(light)}" data-href-light="${esc(light)}" data-href-dark="${esc(dark)}">view full route</a></p>`
+}
+
+function downloadsHtml(route) {
+  const meta = ROUTE_TRACKS[route.slug]
+  if (!meta?.gpx || !meta?.kml) return ''
+  const approx = meta.approximate ? ' (approximate)' : ''
+  return `<p class="route-downloads">
+      <a class="btn ghost small" href="${esc(meta.gpx)}" download>Download GPX${approx}</a>
+      <a class="btn ghost small" href="${esc(meta.kml)}" download>Download KML${approx}</a>
+      <span class="route-downloads-hint">for GPS and map apps</span>
+    </p>`
 }
 
 function stopsHtml(route) {
@@ -343,7 +439,7 @@ function stopsHtml(route) {
   return `<h3>${esc(route.stopsLabel)}</h3><ol class="route-waypoints">${items}</ol>`
 }
 
-export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story', titleFor = null } = {}) {
+export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story', titleFor = null, describe = null, extras = null } = {}) {
   const route = routeBySlug(slug)
   if (!route) return ''
   const level = headingLevel === 3 ? 3 : 2
@@ -352,28 +448,32 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
       <h${level} id="route-map-heading">View the map</h${level}>
       <p class="route-summary">${esc(route.sentence)}</p>
       ${route.distance ? `<p>${esc(route.distance)}</p>` : ''}
-      <figure class="route-map-figure">
-        ${routeMapPictureHtml(route)}
-        <figcaption class="route-map-caption">${esc(route.caption)}</figcaption>
+      <figure class="route-map-figure${route.phoneCaption ? ' has-phone-caption' : ''}">
+        ${routeMapZoomHtml(route)}
+        <figcaption>
+          <p class="route-map-caption${route.phoneCaption ? ' route-map-caption-desk' : ''}">${esc(route.caption)}</p>
+          ${route.phoneCaption ? `<p class="route-map-caption route-map-caption-phone">${esc(route.phoneCaption)}</p>` : ''}
+          ${markerLegendHtml(route)}
+          ${phoneCropNote(route)}
+        </figcaption>
       </figure>
+      ${downloadsHtml(route)}
       ${stopsHtml(route)}
       ${note}
       <p class="route-sources muted">${esc(route.sources)}</p>
-      ${linksHtml(route, linkMode, titleFor)}
-      <p class="route-index-link"><a href="/routes/">All route maps</a></p>
+      ${linksHtml(route, { linkMode, titleFor, describe, extras, headingLevel: level })}
+      <p class="route-index-link"><a href="/routes/">Kentucky history route maps</a></p>
     </section>`
 }
 
 export function routesIndexArticleHtml(titleFor) {
   const cards = ROUTE_MAPS.map((route) => {
     const title = (titleFor && titleFor(route.slug)) || route.slug
-    return `<li>
-        <a class="route-card" href="/stories/${esc(route.slug)}/#route-map">
-          ${routeMapPictureHtml(route, { thumb: true })}
-          <div>
-            <h2>${esc(title)}</h2>
-            <p class="muted">${esc(route.era)}</p>
-          </div>
+    return `<li class="route-card">
+        ${routeMapZoomHtml(route, { thumb: true })}
+        <a class="route-card-link" href="/stories/${esc(route.slug)}/#route-map">
+          <h2>${esc(title)}</h2>
+          <p class="muted">${esc(route.era)}</p>
         </a>
       </li>`
   }).join('')
@@ -436,10 +536,52 @@ export function routeMapJsonLd(route, { canonical, title }) {
 const PHONE_MQ = '(max-width: 699px)'
 const DESK_MQ = '(min-width: 700px)'
 
+/**
+ * http(s) on this site or the current page, or a relative path.
+ * Rejects javascript:, data:, and protocol-relative URLs.
+ * Self-contained so the no-module theme script can embed the same function.
+ */
+export function safeAssetUrl(value) {
+  const raw = typeof value === 'string' ? value.trim() : ''
+  if (!raw || /[\u0000-\u001f\u007f\\<>"'`]/.test(raw)) return ''
+  if (raw.startsWith('//')) return ''
+  let parsed
+  try {
+    parsed = new URL(raw, 'https://kyhistorydrive.com')
+  } catch {
+    return ''
+  }
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return ''
+  const allowedOrigins = ['https://kyhistorydrive.com', 'http://kyhistorydrive.com']
+  const pageOrigin = typeof location !== 'undefined' && location.origin ? location.origin : ''
+  const allowed = allowedOrigins.includes(parsed.origin) || (pageOrigin !== '' && parsed.origin === pageOrigin)
+  if (!allowed) return ''
+  if (!/^[a-z][a-z0-9+.-]*:/i.test(raw)) return raw
+  return parsed.href
+}
+
+function paintStoryPinPictures(mode) {
+  document.querySelectorAll('picture.story-pin-picture').forEach((pic) => {
+    pic.querySelectorAll('source[data-theme]').forEach((src) => {
+      const role = src.getAttribute('data-theme')
+      src.media = role === mode ? '(min-width: 0px)' : 'not all'
+    })
+    const img = pic.querySelector('img')
+    if (!img) return
+    const next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+    }
+    img.remove()
+    pic.appendChild(img)
+  })
+}
+
 /** Follow the site theme. The picture markup still carries prefers-color-scheme for no-JS. */
 export function applyRouteMapTheme(theme) {
   if (typeof document === 'undefined') return
   const mode = theme === 'light' ? 'light' : 'dark'
+  paintStoryPinPictures(mode)
   document.querySelectorAll('picture.route-map-picture').forEach((pic) => {
     pic.querySelectorAll('source[data-theme]').forEach((src) => {
       const role = src.getAttribute('data-theme')
@@ -452,20 +594,43 @@ export function applyRouteMapTheme(theme) {
     })
     const img = pic.querySelector('img')
     if (!img) return
-    const next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-    if (next) img.setAttribute('src', next)
+    const next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+    }
     img.remove()
     pic.appendChild(img)
+  })
+  document.querySelectorAll('a.route-map-full-link').forEach((link) => {
+    const next = safeAssetUrl(link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+    if (next) {
+      if (!/["&<>]/.test(next)) link.setAttribute('href', next)
+    }
   })
 }
 
 export function routeMapThemeScript() {
   return `<script>
       (function () {
+        ${safeAssetUrl.toString()}
         var phone = '(max-width: 699px)'
         var desk = '(min-width: 700px)'
         function apply(theme) {
           var mode = theme === 'light' ? 'light' : 'dark'
+          document.querySelectorAll('picture.story-pin-picture').forEach(function (pic) {
+            pic.querySelectorAll('source[data-theme]').forEach(function (src) {
+              var role = src.getAttribute('data-theme')
+              src.media = role === mode ? '(min-width: 0px)' : 'not all'
+            })
+            var img = pic.querySelector('img')
+            if (!img) return
+            var next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+            }
+            img.remove()
+            pic.appendChild(img)
+          })
           document.querySelectorAll('picture.route-map-picture').forEach(function (pic) {
             pic.querySelectorAll('source[data-theme]').forEach(function (src) {
               var role = src.getAttribute('data-theme')
@@ -475,10 +640,18 @@ export function routeMapThemeScript() {
             })
             var img = pic.querySelector('img')
             if (!img) return
-            var next = img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light')
-            if (next) img.setAttribute('src', next)
+            var next = safeAssetUrl(img.getAttribute(mode === 'dark' ? 'data-src-dark' : 'data-src-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) img.setAttribute('src', next)
+            }
             img.remove()
             pic.appendChild(img)
+          })
+          document.querySelectorAll('a.route-map-full-link').forEach(function (link) {
+            var next = safeAssetUrl(link.getAttribute(mode === 'dark' ? 'data-href-dark' : 'data-href-light'))
+            if (next) {
+              if (!/["&<>]/.test(next)) link.setAttribute('href', next)
+            }
           })
         }
         function run() { apply(document.documentElement.getAttribute('data-hp-theme') || 'dark') }

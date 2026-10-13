@@ -15,7 +15,6 @@
  * Years written here are yearStart/yearEnd (occupation or event). Archaeological
  * pins are never printed. MapLibre is not included.
  */
-import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -30,6 +29,22 @@ import {
 } from './gtag-snippet.mjs'
 import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
+import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
+import {
+  citeBootScript,
+  citeBoxHtml,
+  correctionHtml,
+  learnMoreBlockHtml,
+  learnMoreItemsFromMarkdown,
+  markerRecords,
+  nearbyPlaces,
+  photoCreditHtml,
+  pickRelatedStories,
+  relatedAndNearbyForStory,
+  resolveArticleDates,
+  storyCanonicalUrl,
+  storyThumbSrc,
+} from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
   ROUTE_MAPS,
@@ -40,6 +55,20 @@ import {
   routeMapThemeScript,
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
+import { storyPinLinkHtml } from '../src/story-pin.js'
+import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
+import { initials } from './people-public.mjs'
+import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
+
+/** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
+export function preloadsPoster(html, poster) {
+  const re = /rel="preload"[^>]*/g
+  let match
+  while ((match = re.exec(html))) {
+    if (match[0].includes(poster)) return true
+  }
+  return false
+}
 
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
@@ -85,15 +114,28 @@ class PrerenderPages {
     if (!fs.existsSync(path.join(dist, 'index.html'))) {
       throw new Error(`prerender: ${dist}/index.html is missing; run vite build first`)
     }
+    const lightboxJs = fs.readFileSync(path.join(dist, 'route-map-lightbox.js'), 'utf8')
+    if (/\beval\s*\(|\bnew Function\b|onclick\s*=|javascript:/.test(lightboxJs)) {
+      throw new Error('prerender: route map lightbox is not CSP-friendly')
+    }
+    if (!/data-zoom-' \+ mode \+ '-' \+ ext/.test(lightboxJs) || !lightboxJs.includes("'avif'") || !lightboxJs.includes("'webp'")) {
+      throw new Error('prerender: route map lightbox does not load theme-matched zoom art')
+    }
+    if (/3840|HIRES_WIDTH|-route-map-'/.test(lightboxJs)) {
+      throw new Error('prerender: route map lightbox still requests the old hi-res WebP')
+    }
     PrerenderPages.configureMarked()
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
-    const stories = PrerenderPages.loadStories(root)
+    const stories = PrerenderPages.liveStories(PrerenderPages.loadStories(root))
+    const markers = PrerenderPages.loadHistoricalMarkers(root)
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
     const dates = PrerenderPages.gitFileDates(root)
+    const textDates = gitStoryTextDates(root)
     for (const story of stories) {
       const file = `public/content/stories/${story.slug}.json`
       story.created = dates.created.get(file) || ''
+      story.gitModified = textDates.modified.get(file) || story.created
       story.lastmod = PrerenderPages.storyLastmod(story, dates.lastmod)
     }
     const homeLast = stories.reduce(
@@ -116,6 +158,30 @@ class PrerenderPages {
     if (aboutHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(aboutHtml)) {
       throw new Error('prerender: about page includes the plain contact address')
     }
+    const aboutH1 = [...aboutHtml.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)].map((match) =>
+      match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
+    )
+    if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
+      throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
+    }
+    if (!aboutHtml.includes('<h1 class="about-page-title">Kentucky History Drive</h1>')) {
+      throw new Error('prerender: /about/ page title should be the h1 (the header title is a <p>)')
+    }
+    if (!aboutHtml.includes('src="/route-map-lightbox.js"')) {
+      throw new Error('prerender: /about/ is missing the seal lightbox')
+    }
+    for (const label of [
+      'Enlarge original black edition seal',
+      'Enlarge navy edition seal',
+      'Enlarge gold-rim edition seal',
+    ]) {
+      if (!aboutHtml.includes(`aria-label="${label}"`) || !aboutHtml.includes(`<button type="button" class="about-seal-btn"`)) {
+        throw new Error(`prerender: /about/ is missing the ${label} button`)
+      }
+    }
+    if ((aboutHtml.match(/class="about-seal-btn"/g) || []).length !== 3) {
+      throw new Error('prerender: /about/ should have three seal buttons')
+    }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
     entries.push({
       loc: `${PrerenderPages.SITE}/about/`,
@@ -124,13 +190,43 @@ class PrerenderPages {
         dates.lastmod.get('index.html') || '',
       ),
     })
+    const relatedBundle = PrerenderPages.loadRelatedBundle(root)
+    const sourcePeople = PrerenderPages.readJson(path.join(root, 'data/people.json')).people || []
+    const peopleHtml = PrerenderPages.peoplePage(relatedBundle.people, stories, cssHrefs, sourcePeople)
+    PrerenderPages.assertPage(peopleHtml, { lat: null, lon: null }, '/people/')
+    PrerenderPages.assertPeople(peopleHtml, relatedBundle.people, sourcePeople, stories)
+    PrerenderPages.writePage(dist, '/people/', peopleHtml)
+    entries.push({
+      loc: `${PrerenderPages.SITE}/people/`,
+      lastmod: PrerenderPages.laterDate(
+        dates.lastmod.get('data/people.json') || '',
+        dates.lastmod.get('scripts/prerender-pages.mjs') || '',
+      ),
+    })
+    relatedBundle.sourcePeople = sourcePeople
+    const portraitLog = { shown: [], skipped: [] }
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
-      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers)
+      const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers, relatedBundle)
       PrerenderPages.assertPage(html, story, urlPath)
-      PrerenderPages.assertStory(html, story, description)
+      PrerenderPages.assertStory(html, story, description, stories, markers)
       PrerenderPages.writePage(dist, urlPath, html)
+      const pick = PrerenderPages.storyPortrait(story, relatedBundle)
+      if (pick.person) portraitLog.shown.push(story.slug)
+      // Shannon's rule: the Photos sidebar never repeats the inline portrait (see dedupe-portrait-photos.mjs).
+      if (pick.person?.sourceFile && story.photo?.source_url) {
+        let f = String(story.photo.source_url).split(/[?#]/)[0].split('/').pop() || ''
+        try {
+          f = decodeURIComponent(f)
+        } catch {
+          /* keep raw */
+        }
+        if (f.replace(/^File:/, '').replace(/_/g, ' ').toLowerCase() === pick.person.sourceFile.replace(/_/g, ' ').toLowerCase()) {
+          throw new Error(`prerender: ${story.slug} sidebar photo is the same image as the ${pick.person.id} inline portrait`)
+        }
+      }
+      else if (pick.reason) portraitLog.skipped.push(`${story.slug} (${pick.reason})`)
       const route = routeBySlug(story.slug)
       const images = route
         ? [
@@ -183,14 +279,23 @@ class PrerenderPages {
     )
     if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
     entries.push({ loc: `${PrerenderPages.SITE}/routes/`, lastmod: routesLast })
+    // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
+    for (const loc of PrerenderPages.drivePaths(root)) {
+      const src = `public${loc}index.html`
+      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
+    }
     entries.push({
       loc: `${PrerenderPages.SITE}/privacy/`,
       lastmod: dates.lastmod.get('privacy/index.html') || '',
     })
+    // /timeline/ forwards to the /#timeline hash route. Amplify rules cannot target a #fragment,
+    // so this stub redirects in the browser. Deliberately not in the sitemap.
+    PrerenderPages.writePage(dist, '/timeline/', PrerenderPages.timelineRedirectHtml())
+    console.log(`prerender: inline portraits on ${portraitLog.shown.length} stories; skipped ${portraitLog.skipped.length}: ${portraitLog.skipped.join(', ')}`)
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
-      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, videos, privacy; sitemap ${sitemapCount} urls`,
+      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, people, videos, privacy; sitemap ${sitemapCount} urls`,
     )
     return {
       pages: stories.length + layers.length + 1,
@@ -317,7 +422,7 @@ class PrerenderPages {
     const out = []
     let buf = ''
     const abbrev = (s) =>
-      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc)\.$/.test(
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
         s.trimEnd(),
       ) ||
       /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
@@ -360,14 +465,54 @@ class PrerenderPages {
     return match ? match[1] : ''
   }
 
-  /** publishedDate when the file has one; otherwise the story file's first git commit date. */
-  static articleDates(story) {
-    const published = PrerenderPages.isoDate(story.publishedDate) || PrerenderPages.isoDate(story.created)
-    const modified = PrerenderPages.isoDate(story.lastmod) || published
-    if (!published || !modified) {
-      throw new Error(`prerender: ${story.slug} is missing datePublished or dateModified`)
+  /** Calendar day in Kentucky. A story dated after this is not live yet. */
+  static siteToday(now = new Date()) {
+    return new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/New_York',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(now)
+  }
+
+  /**
+   * Stories prerender writes a public page for. Drafts, hidden stories, and
+   * future publishedDate values stay off the site. The RSS feed uses this too.
+   */
+  static isLiveStory(story, today = PrerenderPages.siteToday()) {
+    if (!story || typeof story.slug !== 'string' || !story.slug) return false
+    if (story.draft === true || story.hidden === true) return false
+    const status = String(story.status || story.visibility || '').trim().toLowerCase()
+    if (status === 'draft' || status === 'hidden' || status === 'unpublished' || status === 'private' || status === 'scheduled') {
+      return false
     }
-    return { published, modified }
+    const published = PrerenderPages.isoDate(story.publishedDate)
+    const day = PrerenderPages.isoDate(today)
+    if (!published || !day || published > day) return false
+    return true
+  }
+
+  static liveStories(stories, today = PrerenderPages.siteToday()) {
+    return (stories || []).filter((story) => PrerenderPages.isLiveStory(story, today))
+  }
+
+  /**
+   * Published is the story file's first git commit.
+   * Last revised is the last commit that changed that story's text.
+   * A missing git date stays empty. Never today, and never a story brief date.
+   */
+  static articleDates(story) {
+    const dates = resolveArticleDates(story, { published: story.created, modified: story.gitModified })
+    if (story.created && dates.published !== story.created) {
+      throw new Error(`prerender: ${story.slug} published date is not the git first commit`)
+    }
+    if (story.gitModified && dates.modified !== story.gitModified) {
+      throw new Error(`prerender: ${story.slug} revised date is not the last story-text commit`)
+    }
+    if (!dates.published && !dates.modified) {
+      throw new Error(`prerender: ${story.slug} has no git date`)
+    }
+    return dates
   }
 
   /** History pin, or a tag that is itself a layer id. Otherwise the story has no layer page. */
@@ -550,29 +695,7 @@ class PrerenderPages {
 
   /** Newest commit date per file, and the first commit date (oldest) for datePublished. */
   static gitFileDates(root) {
-    const lastmod = new Map()
-    const created = new Map()
-    try {
-      const out = execFileSync('git', ['log', '--name-only', '--pretty=format:%cs'], {
-        cwd: root,
-        encoding: 'utf8',
-        maxBuffer: 64 * 1024 * 1024,
-      })
-      let date = ''
-      for (const line of out.split('\n')) {
-        if (!line) continue
-        if (/^\d{4}-\d{2}-\d{2}$/.test(line)) {
-          date = line
-          continue
-        }
-        if (!date) continue
-        if (!lastmod.has(line)) lastmod.set(line, date)
-        created.set(line, date)
-      }
-    } catch (err) {
-      console.warn(`prerender: git dates unavailable (${err.message})`)
-    }
-    return { lastmod, created }
+    return gitFileDates(root)
   }
 
   static laterDate(a, b) {
@@ -627,8 +750,13 @@ class PrerenderPages {
       yearStart: body.yearStart ?? null,
       yearEnd: body.yearEnd ?? null,
       publishedDate: body.publishedDate || body.briefDate || indexRow?.publishedDate || '',
+      draft: body.draft === true || indexRow?.draft === true,
+      hidden: body.hidden === true || indexRow?.hidden === true,
+      status: body.status || indexRow?.status || '',
+      visibility: body.visibility || indexRow?.visibility || '',
       territoryNation: body.territory?.nation || '',
       county: indexRow?.county != null ? indexRow.county : '',
+      fileCounty: typeof body.county === 'string' ? body.county.trim() : '',
       matchedPlace: indexRow?.matchedPlace || loc?.matchedPlace || '',
       mapConfidence: indexRow?.mapConfidence || loc?.mapConfidence || '',
       historyId: loc?.historyId || indexRow?.historyId || null,
@@ -846,11 +974,33 @@ class PrerenderPages {
     return `${PrerenderPages.SITE}${url.startsWith('/') ? url : `/${url}`}`
   }
 
+  /** "Photo: Name / Wikimedia Commons, " (license follows), or "Illustration: Kentucky History Drive, " for AI art. */
+  static peopleCreditName(person) {
+    const raw = String(person.credit || '')
+    const name = raw
+      .replace(/\s*·\s*via Wikimedia Commons\s*$/i, '')
+      .replace(new RegExp(`\\s*·\\s*${String(person.license || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`), '')
+      .replace(/^[^\n:]*\.(?:jpe?g|png|tiff?):\s*/i, '')
+      .replace(/\s*\n\s*/g, '; ')
+      .replace(/\s*\(talk\)/g, '')
+      .replace(/^probably H\.B\. Hall \(.*$/i, 'Probably H. B. Hall')
+      .replace(/^\.;\s*The original uploader was (\S+) at English Wikipedia$/i, 'Unknown (uploaded by $1, English Wikipedia)')
+      .replace(/Up-loaded by [^.]*?no name associated with art/i, 'Unknown artist')
+      .replace(/John Frost, L\.L\. D\. is the author of the book; illustrator is not identified/i, 'Unknown illustrator (book by John Frost)')
+      .replace(/\.\s*$/, '')
+      .trim()
+    return name || 'Unknown'
+  }
+
+  static peopleCreditLead(person) {
+    const viaCommons = /via Wikimedia Commons/i.test(String(person.credit || ''))
+    if (person.ai) return `Illustration: ${PrerenderPages.peopleCreditName(person)}, `
+    return `Photo: ${PrerenderPages.peopleCreditName(person)}${viaCommons ? ' / Wikimedia Commons' : ''}, `
+  }
+
   static storyCreditHtml(photo, title, { priority = false } = {}) {
     if (!photo?.image_url) return ''
     const caption = PrerenderPages.escapeHtml(PrerenderPages.photoAlt(photo, title))
-    const sourceLabel = PrerenderPages.escapeHtml(photo.source_label || photo.credit || '')
-    const attribution = PrerenderPages.escapeHtml(photo.attribution || photo.source_label || photo.credit || '')
     const year = photo.year ? ` <span class="muted">(${PrerenderPages.escapeHtml(String(photo.year))})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
     const img = PrerenderPages.escapeHtml(photo.image_url)
@@ -862,11 +1012,11 @@ class PrerenderPages {
       : 'loading="lazy"'
     return `<aside class="story-sidebar-photo" aria-label="Story photo">
       <p class="story-sidebar-photo-heading">Photos</p>
-      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
+      <a class="story-sidebar-photo-frame${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year}</p>
-      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>
+      ${photoCreditHtml(photo)}
     </aside>`
   }
 
@@ -878,8 +1028,11 @@ class PrerenderPages {
     const caption = PrerenderPages.escapeHtml(photo.title || 'Layer photo')
     const img = PrerenderPages.escapeHtml(photo.image_url)
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
+    const linkLabel = PrerenderPages.escapeHtml(
+      `Open ${photo.source_label || photo.credit || 'photo source'}: ${photo.title || 'layer photo'} (opens in a new tab)`,
+    )
     return `<figure class="story-sidebar-photo">
-      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer">
+      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" loading="lazy" />
       </a>
       <figcaption>
@@ -889,14 +1042,16 @@ class PrerenderPages {
     </figure>`
   }
 
-  static learnMoreHtml(markdown) {
-    const lines = String(markdown || '').match(/^[ \t]*source:[ \t]*.+$/gim) || []
-    const items = lines
-      .map((line) => String(line).replace(/^[ \t]*source:[ \t]*/i, '').trim())
-      .filter(Boolean)
-      .map((text) => `<li>${marked.parseInline(text)}</li>`)
-    if (!items.length) return ''
-    return `<div class="popup-research"><div class="historic-photos-label">Learn more</div><ul class="research-list">${items.join('')}</ul></div>`
+  static learnMoreHtml(markdown, storyTitle = '') {
+    return learnMoreBlockHtml(learnMoreItemsFromMarkdown(markdown), { storyTitle })
+  }
+
+  /** 112px opt thumbnail when the build has written it. Otherwise the card uses the pin tile. */
+  static existingThumb(story) {
+    const src = storyThumbSrc(story)
+    if (!src) return ''
+    const abs = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', src.replace(/^\//, ''))
+    return fs.existsSync(abs) ? src : ''
   }
 
   static storyMapHref(story) {
@@ -923,7 +1078,12 @@ class PrerenderPages {
     return siteHeaderHtml(activeRoute)
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '' }) {
+  /** Autodiscovery for the stories feed. Homepage source carries the same tag. */
+  static rssAlternateLink() {
+    return `<link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="${PrerenderPages.SITE}/feed.xml" />`
+  }
+
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', routeLightbox = false, rss = false }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
@@ -953,6 +1113,7 @@ class PrerenderPages {
     <title>${t}</title>
     <meta name="description" content="${d}" />
     <link rel="canonical" href="${c}" />
+    ${rss ? PrerenderPages.rssAlternateLink() : ''}
     <meta property="og:type" content="${PrerenderPages.escapeHtml(ogType)}" />
     <meta property="og:site_name" content="Kentucky History Drive" />
     <meta property="og:locale" content="en_US" />
@@ -971,32 +1132,45 @@ class PrerenderPages {
     <style>
       .static-read { max-width: 52rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
       .static-kicker { margin: 0 0 0.35rem; color: var(--accent); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
-      .story-head h1 { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
+      .story-head h1, .about-page-title { color: var(--heading); font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; }
       .story-lead { font-size: 1.125rem; line-height: 1.5; margin: 0 0 1rem; }
       .story-crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0 0 0.85rem; font-size: 0.85rem; color: var(--muted); }
       .story-crumbs a { color: var(--accent); text-decoration: none; }
       .story-crumbs [aria-current="page"] { color: var(--text); }
-      .static-related { margin-top: 1.75rem; }
-      .static-related h2 { font-size: 1.2rem; margin: 0 0 0.55rem; color: var(--heading); }
-      .static-related ul { list-style: none; margin: 0; padding: 0; }
-      .static-related li { margin: 0 0 0.45rem; }
-      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+      .static-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; align-items: center; }
       .place-list { columns: 2; gap: 1.5rem; padding: 0; margin: 0.5rem 0 0; list-style: none; }
       .place-list li { break-inside: avoid; margin: 0 0 0.45rem; }
       .foot a { color: var(--accent); }
-      .route-map { margin: 1.75rem 0 0.5rem; }
+      .route-map { margin: 1.75rem 0 0.5rem; scroll-margin-top: 9rem; }
+      @media (max-width: 1400px) and (min-width: 601px) { .route-map { scroll-margin-top: 6.75rem; } }
+      @media (max-width: 600px) { .route-map { scroll-margin-top: 4.25rem; } }
       .route-map h2, .route-map h3 { color: var(--heading); }
-      .route-map-picture { display: block; margin: 0.75rem 0 0.35rem; }
+      .route-map-picture { display: block; }
       .route-map-picture img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--panel); border-radius: 12px; }
+      .route-map-zoom { position: relative; display: block; }
+      .route-map-open { display: block; width: 100%; margin: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: zoom-in; }
+      .route-map-art { position: relative; display: block; overflow: hidden; border-radius: 12px; }
+      .route-map-overlay { position: absolute; inset: 0; pointer-events: none; }
+      .route-map-expand { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 2; margin: 0; }
       .route-map-caption { margin: 0.35rem 0 0.85rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+      .route-map-caption-phone { display: none; }
+      .route-map-phone-note { display: none; margin: 0.15rem 0 0.75rem; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
+      .route-map-phone-note a { color: var(--accent); }
+      @media (max-width: 699px) {
+        .route-map-phone-note { display: block; }
+        .has-phone-caption .route-map-caption-desk { display: none; }
+        .route-map-caption-phone { display: block; }
+      }
       .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
       .route-waypoints li { margin: 0 0 0.35rem; }
       .route-links ul, .route-index-list { list-style: none; margin: 0; padding: 0; }
       .route-links li { margin: 0 0 0.4rem; }
       .route-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 0.85rem; align-items: center; margin: 0 0 0.85rem; padding: 0.65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: inherit; text-decoration: none; }
+      .route-card-link { color: inherit; text-decoration: none; }
       .route-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; color: var(--heading); }
       .route-card p { margin: 0; }
       @media (max-width: 700px) { .place-list { columns: 1; } .route-card { grid-template-columns: 1fr; } }
+      .static-read:has(.people-page) { max-width: 76rem; }
     </style>
     <script>
       (function () {
@@ -1021,8 +1195,9 @@ class PrerenderPages {
     <footer class="foot">
       <span>kyhistorydrive.com</span>
       <a href="/about/">About</a>
+      <a href="/people/">People</a>
       <a href="/videos/">Videos</a>
-      <a href="/routes/">Route maps</a>
+      <a href="/routes/">Kentucky history route maps</a>
       <a href="/privacy/">Privacy</a>
       ${privacyChoicesLinkHtml()}
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
@@ -1031,63 +1206,35 @@ class PrerenderPages {
     ${privacyChoicesBootHtml()}
     ${PrerenderPages.siteChromeScript()}
     ${routeMapThemeScript()}
+    ${routeLightbox ? '<script src="/route-map-lightbox.js" defer></script>' : ''}
   </body>
 </html>
 `
   }
 
-  /** Same era, county, or subject layer (shared tag or territory). Three to five stories. */
-  static relatedStories(story, all) {
-    const generic = new Set(['kentucky', 'other', 'prehistoric', 'native', 'frontier', 'early-commonwealth', story.era])
-    const tags = new Set((story.tags || []).filter((tag) => tag && !generic.has(tag)))
-    const ranked = []
-    for (const other of all) {
-      if (!other || other.slug === story.slug) continue
-      let score = 0
-      if (story.era && other.era === story.era) score += 3
-      if (story.county && other.county && other.county === story.county) score += 4
-      if (story.territoryNation && other.territoryNation && other.territoryNation === story.territoryNation) score += 3
-      const shared = (other.tags || []).filter((tag) => tags.has(tag)).length
-      if (shared) score += Math.min(4, shared * 2)
-      if (score > 0) ranked.push({ other, score })
-    }
-    ranked.sort((a, b) => b.score - a.score || a.other.title.localeCompare(b.other.title))
-    const picked = []
-    const seen = new Set()
-    const take = (item) => {
-      if (!item || seen.has(item.slug) || picked.length >= 5) return
-      seen.add(item.slug)
-      picked.push(item)
-    }
-    for (const row of ranked) take(row.other)
-    if (picked.length < 3) {
-      for (const other of all) {
-        if (other.era === story.era) take(other)
-        if (picked.length >= 3) break
-      }
-    }
-    if (picked.length < 3) {
-      for (const other of all) {
-        take(other)
-        if (picked.length >= 3) break
-      }
-    }
-    return picked.slice(0, 5)
+  /** Specific subject tags, then county, then distance. Title is only a tiebreak. */
+  static relatedStories(story, all, excludeSlugs = []) {
+    return pickRelatedStories(story, all, excludeSlugs)
   }
 
-  static relatedHtml(story, all) {
-    const related = PrerenderPages.relatedStories(story, all)
-    const items = related
-      .map((other) => {
-        const bits = [
-          other.county ? PrerenderPages.countyLabel(other.county, true) : '',
-          PrerenderPages.formatYearRange(other.yearStart, other.yearEnd),
-        ].filter(Boolean)
-        const extra = bits.length ? ` <span class="muted">${PrerenderPages.escapeHtml(bits.join(' · '))}</span>` : ''
-        return `<li><a href="/stories/${other.slug}/">${PrerenderPages.escapeHtml(other.title)}</a>${extra}</li>`
-      })
-      .join('')
-    return `<nav class="static-related" aria-label="Related stories"><h2>Related stories</h2><ul>${items}</ul></nav>`
+  static relatedCardMeta(story) {
+    const bits = ['Story']
+    if (story.county) bits.push(PrerenderPages.countyLabel(story.county, true))
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    if (years) bits.push(years)
+    return bits.join(' · ')
+  }
+
+  static relatedAndNearbySection(story, all, markers) {
+    const route = routeBySlug(story.slug)
+    const routeSlugs = route?.relatedStories || []
+    const routeMarkerIds = (route?.markers || []).map((marker) => String(marker.number))
+    return relatedAndNearbyForStory(story, all, markers, {
+      excludeSlugs: routeSlugs,
+      excludeMarkerIds: routeMarkerIds,
+      limit: 3,
+      thumbFor: (item) => PrerenderPages.existingThumb(item),
+    })
   }
 
   static storyJsonLd(story, description, image, imageAlt, layer) {
@@ -1120,8 +1267,8 @@ class PrerenderPages {
       mainEntityOfPage: canonical,
       url: canonical,
       image: routeLd ? [image || PrerenderPages.LOGO, routeLd.contentUrl] : [image || PrerenderPages.LOGO],
-      datePublished: dates.published,
-      dateModified: dates.modified,
+      ...(dates.published ? { datePublished: dates.published } : {}),
+      ...(dates.modified ? { dateModified: dates.modified } : {}),
       author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
       publisher: PrerenderPages.publisherNode(),
       contentLocation: { '@id': placeId },
@@ -1173,7 +1320,18 @@ class PrerenderPages {
       .join('')}</nav>`
   }
 
-  static storyPage(story, all, cssHrefs, layers) {
+  static loadHistoricalMarkers(root) {
+    const file = path.join(root, 'public/data/markers.geojson')
+    const collection = PrerenderPages.readJson(file)
+    const markers = markerRecords(collection.features)
+    const ids = new Set(markers.map((marker) => marker.id))
+    if (markers.length < 3 || ids.size !== markers.length) {
+      throw new Error(`prerender: expected unique historical markers, found ${markers.length}`)
+    }
+    return markers
+  }
+
+  static storyPage(story, all, cssHrefs, layers, markers = [], relatedBundle = null) {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
@@ -1192,13 +1350,27 @@ class PrerenderPages {
       lead,
     )
     const mapHref = PrerenderPages.storyMapHref(story)
+    const pinHtml =
+      mapHref && PrerenderPages.publicGeo(story)
+        ? storyPinLinkHtml({ href: mapHref, title: story.title, slug: story.slug })
+        : ''
+    const mapControl = pinHtml
+      ? pinHtml
+      : mapHref
+        ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>`
+        : ''
     const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
     const route = routeBySlug(story.slug)
-    const ogImage = route ? absoluteUrl(route.files.fullPng) : image
-    const ogAlt = route ? route.alt : imageAlt
+    const describeStory = (slug) => {
+      const item = all.find((entry) => entry.slug === slug)
+      if (!item) return null
+      return { title: item.title, meta: PrerenderPages.relatedCardMeta(item) }
+    }
+    const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
+    const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
     const filmDescription = film ? filmDescriptionFromPlain(bodyPlain) : ''
     const filmHtml = film
@@ -1221,17 +1393,27 @@ class PrerenderPages {
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
-          <div class="story-body">${marked.parse(bodyMarkdown)}</div>
+          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${marked.parse(bodyMarkdown)}</div>
           ${routeMapSectionHtml(story.slug, {
             headingLevel: 2,
             linkMode: 'story',
             titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
+            describe: describeStory,
           })}
-          ${PrerenderPages.learnMoreHtml(story.bodyMarkdown)}
-          ${PrerenderPages.relatedHtml(story, all)}
+          ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
+          ${PrerenderPages.relatedPeopleSection(story, all, relatedBundle)}
+          ${PrerenderPages.relatedAndNearbySection(story, all, markers)}
+          ${citeBoxHtml({
+            title: story.title,
+            url: storyCanonicalUrl(story.slug),
+            published: PrerenderPages.articleDates(story).published,
+            modified: PrerenderPages.articleDates(story).modified,
+          })}
+          ${correctionHtml({ title: story.title, url: storyCanonicalUrl(story.slug) })}
+          ${citeBootScript()}
           <div class="static-cta">
             <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
-            ${mapHref ? `<a class="btn ghost" href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>` : ''}
+            ${mapControl}
           </div>
         </div>
         ${filmHtml}
@@ -1243,10 +1425,12 @@ class PrerenderPages {
       cssHrefs,
       image: ogImage,
       imageAlt: ogAlt,
-      imageWidth: route ? 1600 : 0,
-      imageHeight: route ? 900 : 0,
+      imageWidth: !photo && route ? 1600 : 0,
+      imageHeight: !photo && route ? 900 : 0,
       jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
+      routeLightbox: Boolean(route),
       main,
+      rss: true,
     })
   }
 
@@ -1295,6 +1479,7 @@ class PrerenderPages {
       imageAlt: 'Kentucky History Drive official seal',
       ogType: 'website',
       jsonLd,
+      routeLightbox: true,
       main,
     })
   }
@@ -1368,7 +1553,7 @@ class PrerenderPages {
     if (gaProblems.length) {
       throw new Error(`prerender: ${urlPath} ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
-    if (!html.includes('class="top site-header"') || !html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
+    if (!html.includes('class="top site-header"') || html.includes('iPhone app (coming soon)') || !html.includes('id="navMenuToggle"')) {
       throw new Error(`prerender: ${urlPath} is missing the shared homepage header`)
     }
     if (!html.includes('src="/brand/khd-logo.png"') || !html.includes("var B='/brand/'")) {
@@ -1406,6 +1591,17 @@ class PrerenderPages {
     if (!block.includes('(max-width: 699px)') || !block.includes('(min-width: 700px)') || !block.includes('prefers-color-scheme: dark')) {
       throw new Error(`prerender: ${urlPath} route map picture is missing the phone or dark sources`)
     }
+    if (!block.includes(route.files.phoneDarkWebp)) {
+      throw new Error(`prerender: ${urlPath} route map is missing the dark phone WebP`)
+    }
+    const cropNote = 'Kentucky leg shown'
+    if (route.phoneCrop) {
+      if (!block.includes(cropNote) || !block.includes(route.files.fullPng)) {
+        throw new Error(`prerender: ${urlPath} phone crop is missing the full-route link`)
+      }
+    } else if (block.includes(cropNote)) {
+      throw new Error(`prerender: ${urlPath} phone art is the full route and must not say Kentucky leg`)
+    }
     if (!block.includes('960w') || !block.includes('1600w')) {
       throw new Error(`prerender: ${urlPath} route map is missing the 960 and 1600 sources`)
     }
@@ -1418,6 +1614,85 @@ class PrerenderPages {
     if (!/approximate/i.test(block)) throw new Error(`prerender: ${urlPath} route map is not labeled approximate`)
     if (block.includes('3840') || block.includes('-master-')) {
       throw new Error(`prerender: ${urlPath} includes a 3840 master`)
+    }
+    if (!block.includes('class="route-map-zoom"') || !block.includes('class="route-map-expand"') || !block.includes('>Expand<')) {
+      throw new Error(`prerender: ${urlPath} route map is missing the expand control`)
+    }
+    if (!block.includes('class="route-map-open"') || !block.includes('aria-controls="route-map-lightbox"')) {
+      throw new Error(`prerender: ${urlPath} route map image is not a lightbox button`)
+    }
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark', 'phone-light', 'phone-dark']) {
+      if (!block.includes(`data-frame="${frame}"`)) {
+        throw new Error(`prerender: ${urlPath} route map is missing the ${frame} overlay`)
+      }
+    }
+    if (block.includes('class="route-ky-line"') || block.includes('class="route-ky"')) {
+      throw new Error(`prerender: ${urlPath} still draws a Kentucky outline that does not fit the painting`)
+    }
+    if (/class="route-map-open"[^>]*aria-label=/.test(block)) {
+      throw new Error(`prerender: ${urlPath} route map button aria-label replaces the image alt`)
+    }
+    if (!block.includes(`aria-describedby="route-map-hint-${route.slug}"`) || !block.includes('Opens a larger view of this map.')) {
+      throw new Error(`prerender: ${urlPath} route map image is missing its description`)
+    }
+    const geoStops = route.stops.flatMap((stop, index) => (stop.geo ? [index + 1] : []))
+    for (const frame of ['desk-light', 'desk-dark', 'zoom-dark']) {
+      const slot = block.match(new RegExp(`data-frame="${frame}"[^>]*>([\\s\\S]*?)<\\/div>`))
+      const nums = slot ? [...slot[1].matchAll(/data-n="(\d+)"/g)].map((match) => Number(match[1])) : []
+      if (nums.join(',') !== geoStops.join(',')) {
+        throw new Error(`prerender: ${urlPath} ${frame} markers are ${nums.join(',')}, expected ${geoStops.join(',')}`)
+      }
+    }
+    if (/<span class="route-stop[^"]*"[^>]*>\s*\d/.test(block)) {
+      throw new Error(`prerender: ${urlPath} repeats stop numbers as overlay text`)
+    }
+    if (route.stops.some((stop) => stop.conjectural) && !block.includes('Hexagon: conjectural stop')) {
+      throw new Error(`prerender: ${urlPath} legend is missing the conjectural hexagon`)
+    }
+    const phone = block.match(/data-frame="phone-light"[^>]*>([\s\S]*?)<\/div>/)
+    const phoneBadges = phone ? (phone[1].match(/data-n="/g) || []).length : 0
+    if (phoneBadges > geoStops.length) {
+      throw new Error(`prerender: ${urlPath} phone overlay has more badges than stops`)
+    }
+    const links = block.match(/<nav class="route-links"[\s\S]*?<\/nav>/)
+    if (!links || !links[0].includes('class="related-card"') || !links[0].includes('>Related stories<')) {
+      throw new Error(`prerender: ${urlPath} route stories are not one card section`)
+    }
+    if (links[0].includes('Related stories and markers') || html.includes('Related stories and markers')) {
+      throw new Error(`prerender: ${urlPath} still has a separate markers section`)
+    }
+    for (const slug of route.relatedStories || []) {
+      if (!links[0].includes(`/stories/${slug}/`)) {
+        throw new Error(`prerender: ${urlPath} related stories omit ${slug}`)
+      }
+    }
+    for (const marker of route.markers || []) {
+      if (!links[0].includes(`/#map/markers/${marker.number}`)) {
+        throw new Error(`prerender: ${urlPath} related stories omit marker ${marker.number}`)
+      }
+    }
+    if (!block.includes(`data-route-slug="${route.slug}"`) || !block.includes(`data-fallback="${route.files.fullWebp}"`)) {
+      throw new Error(`prerender: ${urlPath} route map lightbox is missing its sources`)
+    }
+    for (const file of [route.files.zoomLightAvif, route.files.zoomLightWebp, route.files.zoomDarkAvif, route.files.zoomDarkWebp]) {
+      if (!block.includes(file)) throw new Error(`prerender: ${urlPath} route map is missing zoom art ${file}`)
+    }
+    if (route.phoneCaption) {
+      const phone = block.match(/class="route-map-caption route-map-caption-phone">([\s\S]*?)<\/p>/)
+      if (!phone || phone[1] !== PrerenderPages.escapeHtml(route.phoneCaption)) {
+        throw new Error(`prerender: ${urlPath} phone caption does not match the crop`)
+      }
+      if (route.slug === 'christopher-gist-1750-51' && /north of the Ohio|Pickawillany/.test(phone[1])) {
+        throw new Error(`prerender: ${urlPath} phone caption still describes the route north of the Ohio`)
+      }
+    } else if (block.includes('route-map-caption-phone')) {
+      throw new Error(`prerender: ${urlPath} has a phone caption the full route does not need`)
+    }
+    if (/onclick=|onerror=|onload=|javascript:/.test(block)) {
+      throw new Error(`prerender: ${urlPath} route map uses an inline event handler`)
+    }
+    if (!html.includes('src="/route-map-lightbox.js"')) {
+      throw new Error(`prerender: ${urlPath} is missing the route map lightbox script`)
     }
     if (route.slug === 'mantle-rock-and-the-trail-of-tears') {
       if (!block.includes('Northern Route') || /Benge-Drane|\bDrane\b/.test(block)) {
@@ -1448,6 +1723,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} waypoint ItemList does not match NOTES.md`)
     }
     list.itemListElement.forEach((item, index) => {
+      if (item.position !== index + 1) {
+        throw new Error(`prerender: ${urlPath} waypoint ${index + 1} JSON-LD position is ${item.position}`)
+      }
       const placeNode = item?.item
       if (placeNode?.['@type'] !== 'Place') throw new Error(`prerender: ${urlPath} waypoint ${index + 1} is not a Place`)
       const geo = route.stops[index].geo
@@ -1465,15 +1743,40 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} Article image is missing the route map`)
     }
     if (!html.includes('href="/routes/"')) throw new Error(`prerender: ${urlPath} does not link to /routes/`)
+    if (!block.includes('>Kentucky history route maps<')) {
+      throw new Error(`prerender: ${urlPath} is missing the Kentucky history route maps anchor`)
+    }
+    const gpx = `/maps/routes/${route.slug}/${route.slug}.gpx`
+    const kml = `/maps/routes/${route.slug}/${route.slug}.kml`
+    if (!block.includes(`href="${gpx}"`) || !block.includes(`href="${kml}"`)) {
+      throw new Error(`prerender: ${urlPath} is missing the GPX or KML download`)
+    }
+    if (!block.includes('Download GPX (approximate)') || !block.includes('Download KML (approximate)')) {
+      throw new Error(`prerender: ${urlPath} route download is not marked approximate`)
+    }
+    if (!block.includes('for GPS and map apps')) {
+      throw new Error(`prerender: ${urlPath} route download is missing the GPS hint`)
+    }
   }
 
   static assertRoutes(html, stories) {
     if (!html.includes('<h1>Route maps</h1>')) throw new Error('prerender: /routes/ is missing its heading')
     if (!html.includes('href="/routes/"')) throw new Error('prerender: /routes/ footer link is missing')
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: /routes/ is missing the Kentucky history route maps anchor')
+    }
     if (!html.includes('Northern Route') || /Benge-Drane|\bDrane\b/.test(html)) {
       throw new Error('prerender: /routes/ must use the NPS name Northern Route')
     }
     if (html.includes('3840') || html.includes('-master-')) throw new Error('prerender: /routes/ includes a 3840 master')
+    if (!html.includes('src="/route-map-lightbox.js"')) throw new Error('prerender: /routes/ is missing the lightbox script')
+    if ((html.match(/class="route-map-expand"/g) || []).length !== ROUTE_MAPS.length) {
+      throw new Error('prerender: /routes/ is missing an expand control on each map')
+    }
+    if ((html.match(/class="route-map-open"/g) || []).length !== ROUTE_MAPS.length) {
+      throw new Error('prerender: /routes/ map images are not lightbox buttons')
+    }
+    if (/onclick=|javascript:/.test(html)) throw new Error('prerender: /routes/ uses an inline event handler')
     const cards = html.match(/class="route-card"/g) || []
     if (cards.length !== ROUTE_MAPS.length) {
       throw new Error(`prerender: /routes/ has ${cards.length} cards, expected ${ROUTE_MAPS.length}`)
@@ -1489,20 +1792,63 @@ class PrerenderPages {
       if (!html.includes(route.files.webWebp) || !html.includes('loading="lazy"') || !html.includes('width="1600"')) {
         throw new Error(`prerender: /routes/ thumbnail for ${route.slug} is missing`)
       }
+      if (!html.includes(route.files.phoneWebp) || !html.includes(route.files.phoneDarkWebp) || !html.includes('(max-width: 699px)')) {
+        throw new Error(`prerender: /routes/ thumbnail for ${route.slug} does not serve phone art under 700px`)
+      }
     }
   }
 
-  static assertStory(html, story, description) {
+  static assertStory(html, story, description, all = [], markers = []) {
     const urlPath = `/stories/${story.slug}/`
     PrerenderPages.assertStoryMeta(description, PrerenderPages.storyDescriptionSource(story), urlPath)
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
     }
     if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
-    const related = html.match(/<nav class="static-related"[\s\S]*?<\/nav>/)
-    const relatedCount = related ? (related[0].match(/href="\/stories\//g) || []).length : 0
-    if (relatedCount < 3 || relatedCount > 5) {
+    if (!html.includes(PrerenderPages.rssAlternateLink())) {
+      throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
+    }
+    const peopleAside = html.match(/<aside class="story-related"[\s\S]*?<\/aside>/)
+    if (peopleAside) {
+      if (!peopleAside[0].includes('Related people &amp; stories')) {
+        throw new Error(`prerender: ${urlPath} related people heading is missing`)
+      }
+      const shots = [...peopleAside[0].matchAll(/<img\b[^>]*>/g)].map((match) => match[0])
+      for (const img of shots) {
+        if (!img.includes('loading="lazy"') || !img.includes('width="36"') || !img.includes('height="36"')) {
+          throw new Error(`prerender: ${urlPath} headshot is missing lazy loading or 36px dimensions`)
+        }
+        if (!/alt="(?:Attributed portrait of |Imagined posthumous portrait of |Detail from a group scene of |Portrait of |AI illustration of )[^"]+"/.test(img)) {
+          throw new Error(`prerender: ${urlPath} headshot alt text is missing the person`)
+        }
+        if (!/src="\/people\/portraits\/[^"]+\.jpg"/.test(img) || /https?:/i.test(img)) {
+          throw new Error(`prerender: ${urlPath} headshot is not a self-hosted portrait`)
+        }
+      }
+    }
+    if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
+      throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
+    }
+    const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
+    const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
+    if (!related || !related[0].includes('Related and nearby') || relatedCount < 3 || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
+    }
+    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related and nearby<\/h2>/.test(related[0])) {
+      throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
+    }
+    const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
+    if (learnMore) {
+      const labels = [...learnMore[0].matchAll(/<a [^>]*>([^<]+)/g)].map((match) => match[1].trim())
+      if (!labels.length || labels.some((label) => /^https?:/i.test(label))) {
+        throw new Error(`prerender: ${urlPath} Learn more link is not a readable label`)
+      }
+      if (!learnMore[0].includes('class="external-icon"') || !learnMore[0].includes('opens in a new tab')) {
+        throw new Error(`prerender: ${urlPath} Learn more link is missing its external icon or new-tab hint`)
+      }
+    }
+    if ((related[0].match(/<li class="related-story">[\s\S]*?<\/li>/g) || []).some((item) => !item.includes('>Story'))) {
+      throw new Error(`prerender: ${urlPath} related story is missing its Story label`)
     }
     let data
     const block = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
@@ -1529,8 +1875,100 @@ class PrerenderPages {
     if (article?.contentLocation?.['@id'] !== placeId || article.contentLocation.name) {
       throw new Error(`prerender: ${urlPath} contentLocation is not a Place @id`)
     }
-    if (!PrerenderPages.isoDate(article?.datePublished) || !PrerenderPages.isoDate(article?.dateModified)) {
-      throw new Error(`prerender: ${urlPath} Article is missing datePublished or dateModified`)
+    const expectedDates = PrerenderPages.articleDates(story)
+    if ((article?.datePublished || '') !== expectedDates.published || (article?.dateModified || '') !== expectedDates.modified) {
+      throw new Error(`prerender: ${urlPath} Article dates are not the git first commit and last story-text commit`)
+    }
+    if (story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
+      throw new Error(`prerender: ${urlPath} published date is a story field, not the git first commit`)
+    }
+    const cite = html.match(/<section class="cite-story"[\s\S]*?<\/section>/)
+    if (!cite || !cite[0].includes('data-cite-copy="chicago"') || !cite[0].includes('data-cite-copy="mla"')) {
+      throw new Error(`prerender: ${urlPath} is missing the citation box`)
+    }
+    if (!cite[0].includes(PrerenderPages.escapeHtml(storyCanonicalUrl(story.slug))) || !cite[0].includes('Kentucky History Drive')) {
+      throw new Error(`prerender: ${urlPath} citation is missing the site or URL`)
+    }
+    if (!cite[0].includes(PrerenderPages.escapeHtml(story.title))) {
+      throw new Error(`prerender: ${urlPath} citation is missing the story title`)
+    }
+    if (/Accessed/.test(cite[0])) {
+      throw new Error(`prerender: ${urlPath} baked in an access date`)
+    }
+    if (expectedDates.published) {
+      if (!cite[0].includes(`datetime="${expectedDates.published}"`) || !cite[0].includes('Published')) {
+        throw new Error(`prerender: ${urlPath} citation is missing the git published date`)
+      }
+    } else if (/\bPublished\b/.test(cite[0]) || article?.datePublished) {
+      throw new Error(`prerender: ${urlPath} invented a published date`)
+    }
+    if (!expectedDates.modified || !cite[0].includes(`datetime="${expectedDates.modified}"`) || !cite[0].includes('Last revised') || !cite[0].includes('last revised')) {
+      throw new Error(`prerender: ${urlPath} citation is missing the last revised date`)
+    }
+    const correction = html.match(/<a class="story-correction-link"[^>]*>/)
+    const rel = correction ? correction[0].match(/\brel="([^"]*)"/) : null
+    const relValue = rel ? rel[1] : ''
+    if (!correction || !correction[0].includes('target="_blank"') || !/\bnoopener\b/.test(relValue) || !/\bnoreferrer\b/.test(relValue) || !/\bnofollow\b/.test(relValue)) {
+      throw new Error(`prerender: ${urlPath} correction link must open in a new tab`)
+    }
+    if (!correction[0].includes('https://github.com/shannonsnowden/kyhistorydrive/issues/new?') || !correction[0].includes('labels=correction')) {
+      throw new Error(`prerender: ${urlPath} correction link is not a labeled GitHub issue`)
+    }
+    if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
+    const routeForNearby = routeBySlug(story.slug)
+    const relatedSlugs = [...related[0].matchAll(/<li class="related-story">[\s\S]*?href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
+    const expectedRelated = PrerenderPages.relatedStories(story, all, routeForNearby?.relatedStories || []).map((item) => item.slug)
+    if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
+      throw new Error(`prerender: ${urlPath} related stories are not ranked by subject tags, county, then distance`)
+    }
+    const nearbyExpected = nearbyPlaces(story, all, markers, {
+      limit: 3,
+      excludeSlugs: [...(routeForNearby?.relatedStories || []), ...relatedSlugs],
+      excludeMarkerIds: (routeForNearby?.markers || []).map((marker) => String(marker.number)),
+    })
+    const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
+    if (!PrerenderPages.publicGeo(story) && nearbyItems.length) {
+      throw new Error(`prerender: ${urlPath} shows nearby places without a public pin`)
+    }
+    if (PrerenderPages.publicGeo(story)) {
+      const nearbyStoriesHtml = nearbyItems.filter((item) => item.includes('href="/stories/'))
+      const nearbyMarkersHtml = nearbyItems.filter((item) => item.includes('href="/#map/markers/'))
+      if (nearbyExpected.filter((row) => row.kind === 'story').length >= 3 && (nearbyStoriesHtml.length < 3 || nearbyStoriesHtml.length > 5)) {
+        throw new Error(`prerender: ${urlPath} has ${nearbyStoriesHtml.length} nearby story links`)
+      }
+      if (nearbyExpected.filter((row) => row.kind === 'marker').length >= 3 && (nearbyMarkersHtml.length < 3 || nearbyMarkersHtml.length > 5)) {
+        throw new Error(`prerender: ${urlPath} has ${nearbyMarkersHtml.length} nearby marker links`)
+      }
+      if (nearbyMarkersHtml.length && nearbyMarkersHtml.some((item) => !item.includes('>Historical marker<'))) {
+        throw new Error(`prerender: ${urlPath} nearby marker is missing its label`)
+      }
+      if (nearbyStoriesHtml.length && nearbyStoriesHtml.some((item) => !item.includes('>Story<'))) {
+        throw new Error(`prerender: ${urlPath} nearby story is missing its Story label`)
+      }
+      if (nearbyItems.length && nearbyItems.some((item) => !item.includes('class="nearby-miles"'))) {
+        throw new Error(`prerender: ${urlPath} nearby distance is not on its own line`)
+      }
+      if (/href="\/#(?:map\/stories|timeline)\//.test(related[0])) {
+        throw new Error(`prerender: ${urlPath} nearby stories are not crawlable pages`)
+      }
+      const expectedStoryHrefs = nearbyExpected.filter((row) => row.kind === 'story').map((row) => `/stories/${row.slug}/`)
+      const actualStoryHrefs = nearbyStoriesHtml.map((item) => (item.match(/href="([^"]+)"/) || [])[1])
+      if (expectedStoryHrefs.join('|') !== actualStoryHrefs.join('|')) {
+        throw new Error(`prerender: ${urlPath} nearby stories are not the nearest unused stories`)
+      }
+    }
+    const markerHrefs = [...html.matchAll(/href="(\/#map\/markers\/[^"]+)"/g)].map((match) => match[1])
+    if (new Set(markerHrefs).size !== markerHrefs.length) {
+      throw new Error(`prerender: ${urlPath} repeats a historical marker link`)
+    }
+    if (story.photo?.image_url) {
+      if (!html.includes('class="story-sidebar-photo-attr story-photo-credit"')) {
+        throw new Error(`prerender: ${urlPath} story photo is missing its credit line`)
+      }
+      const sourceUrl = story.photo.source_url || ''
+      if (sourceUrl && !html.includes(PrerenderPages.escapeHtml(sourceUrl))) {
+        throw new Error(`prerender: ${urlPath} photo credit is missing its source link`)
+      }
     }
     const items = crumbs?.itemListElement || []
     if (items.some((item) => String(item.item || '').includes('/#timeline'))) {
@@ -1561,9 +1999,10 @@ class PrerenderPages {
     }
     const photo = story.photo?.image_url ? PrerenderPages.photoAbsolute(story.photo.image_url) : ''
     const route = routeBySlug(story.slug)
-    const expectedImage = route ? absoluteUrl(route.files.fullPng) : photo || PrerenderPages.LOGO
+    const expectedImage = photo || (route ? absoluteUrl(route.files.fullPng) : PrerenderPages.LOGO)
+    const expectedKind = photo ? 'story photo' : route ? '1600 route map' : 'story photo or logo fallback'
     if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
-      throw new Error(`prerender: ${urlPath} og:image is not the ${route ? '1600 route map' : 'story photo or logo fallback'}`)
+      throw new Error(`prerender: ${urlPath} og:image is not the ${expectedKind}`)
     }
     if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} twitter:image is missing`)
@@ -1604,8 +2043,7 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} story photo is lazy-loaded`)
       }
     }
-    const posterPreload = new RegExp(`rel="preload"[^>]*${film.poster.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`)
-    if (posterPreload.test(html)) {
+    if (preloadsPoster(html, film.poster)) {
       throw new Error(`prerender: ${urlPath} preloads the video poster`)
     }
   }
@@ -1644,14 +2082,17 @@ class PrerenderPages {
       if (timeIdx < 0) continue
       const stamp = rows[timeIdx].match(/^((?:\d{2}:)?\d{2}:\d{2}\.\d+)/)
       if (!stamp) continue
-      const cue = rows
-        .slice(timeIdx + 1)
-        .join(' ')
-        .replace(/<[^>]+>/g, '')
+      let cue = rows.slice(timeIdx + 1).join(' ')
+      let prev
+      do {
+        prev = cue
+        cue = cue.replace(/<[^>]+>/g, '')
+      } while (cue !== prev)
+      cue = cue
         .replace(/&nbsp;/gi, ' ')
-        .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, '&')
         .replace(/\s+/g, ' ')
         .trim()
       if (!cue || seen.has(cue)) continue
@@ -1670,6 +2111,299 @@ class PrerenderPages {
     const transcript = PrerenderPages.transcriptFromVtt(fs.readFileSync(file, 'utf8'))
     if (!transcript) throw new Error(`prerender: ${film.id} transcript is empty`)
     return transcript
+  }
+
+  static loadRelatedBundle(root) {
+    const relatedFile = path.join(root, 'public/data/web/related-people.json')
+    const peopleFile = path.join(root, 'public/data/people.json')
+    if (!fs.existsSync(peopleFile)) throw new Error('prerender: public/data/people.json is missing; run build-people')
+    const data = PrerenderPages.readJson(relatedFile)
+    const people = PrerenderPages.readJson(peopleFile)
+    if (!Array.isArray(people.people) || !people.people.length) throw new Error('prerender: public people file is empty')
+    return { data, people, portraits: portraitsByStorySlug(data, people.people) }
+  }
+
+  /** Main subject (shared rule in src/related-people.js storySubject). */
+  static storyPortrait(story, bundle) {
+    if (!bundle?.people?.people) return { person: null, reason: '' }
+    return storySubject(bundle.data, bundle.people.people, story, bundle.people.storySubjects)
+  }
+
+  static storyPortraitHtml(person) {
+    return storyPortraitHtml(person)
+  }
+
+  static relatedPeopleSection(story, all, relatedBundle) {
+    if (!relatedBundle) return ''
+    const titleFor = (slug) => all.find((item) => item.slug === slug)?.title || ''
+    return relatedBlockHtml(relatedBundle.data, story.slug, titleFor, 'storyPeopleH', {
+      portraits: relatedBundle.portraits,
+      linkFor: (slug) => `/stories/${encodeURIComponent(slug)}/`,
+    })
+  }
+
+  static peopleSilhouette() {
+    return `<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10" fill="currentColor"/><path d="M12 56c2.2-12 9-18 20-18s17.8 6 20 18" fill="currentColor"/></svg>`
+  }
+
+  static peopleCard(person, titleFor, identifier) {
+    const name = PrerenderPages.escapeHtml(person.name)
+    const line = identifier
+      ? `<p class="people-id">${PrerenderPages.escapeHtml(identifier)}</p>`
+      : ''
+    const stories = (person.stories || [])
+      .map((slug) => {
+        const title = titleFor(slug)
+        if (!title) return ''
+        return `<li><a href="/stories/${encodeURIComponent(slug)}/">${PrerenderPages.escapeHtml(title)}</a></li>`
+      })
+      .filter(Boolean)
+      .join('')
+    const storyList = stories ? `<ul class="people-stories">${stories}</ul>` : ''
+    let media
+    if (person.image) {
+      const alt = portraitAlt(person)
+      media = `<picture class="people-photo"><source srcset="${PrerenderPages.escapeHtml(person.image.webp)}" type="image/webp"><img src="${PrerenderPages.escapeHtml(person.image.jpg)}" width="512" height="512" alt="${PrerenderPages.escapeHtml(alt)}" loading="lazy" decoding="async"></picture>`
+    } else {
+      media = `<div class="people-fallback" aria-hidden="true">${PrerenderPages.peopleSilhouette()}<span class="people-initials">${PrerenderPages.escapeHtml(initials(person.name))}</span></div>`
+    }
+    const badge = person.ai ? `<p class="people-badge">AI illustration</p>` : ''
+    const license = person.licenseUrl
+      ? `<a href="${PrerenderPages.escapeHtml(person.licenseUrl)}" rel="license">${PrerenderPages.escapeHtml(person.license)}</a>`
+      : PrerenderPages.escapeHtml(person.license)
+    const credit = person.image
+      ? `<p class="people-credit">${PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))}${license}</p>`
+      : ''
+    return `<li class="people-card" id="${PrerenderPages.escapeHtml(person.id)}">${media}<h3>${name}</h3>${line}${badge}${credit}${storyList}</li>`
+  }
+
+  static personNode(person, source, storiesBySlug) {
+    const node = {
+      '@type': 'Person',
+      '@id': `${PrerenderPages.SITE}/people/#${person.id}`,
+      name: person.name,
+    }
+    const span = knownLifeSpan(source?.lifeDates)
+    if (span) {
+      node.birthDate = span.birthDate
+      node.deathDate = span.deathDate
+    }
+    const subjectOf = (person.stories || [])
+      .filter((slug) => storiesBySlug.has(slug))
+      .map((slug) => `${PrerenderPages.SITE}/stories/${encodeURIComponent(slug)}/`)
+    if (subjectOf.length) node.subjectOf = subjectOf
+    if (person.image && !person.ai) node.image = `${PrerenderPages.SITE}${person.image.jpg}`
+    return node
+  }
+
+  static peoplePage(peopleFile, stories, cssHrefs, sourcePeople = []) {
+    const titleFor = (slug) => stories.find((story) => story.slug === slug)?.title || ''
+    const storiesBySlug = new Map(stories.map((story) => [story.slug, story]))
+    const sourceById = new Map(sourcePeople.map((person) => [person.id, person]))
+    const lineFor = (person) => personIdentifier(sourceById.get(person.id), storiesBySlug)
+    const byName = (a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+    const illustrated = peopleFile.people.filter((person) => person.image).sort(byName)
+    const plain = peopleFile.people.filter((person) => !person.image).sort(byName)
+    const ordered = [...illustrated, ...plain]
+    const aiCount = illustrated.filter((person) => person.ai).length
+    const realCount = illustrated.length - aiCount
+    const total = peopleFile.people.length
+    const withLine = ordered.filter((person) => lineFor(person)).length
+    const withDates = sourcePeople.filter((person) => String(person.lifeDates || '').trim()).length
+    const withPlace = sourcePeople.filter((person) => personPlace(person.stories, storiesBySlug)).length
+    console.log(`people page: ${withLine} of ${total} identifier lines (${withDates} with dates, ${withPlace} with a place)`)
+    const pageUrl = `${PrerenderPages.SITE}/people/`
+    const description =
+      'People from the Kentucky history stories, with labeled AI illustrations and credited public-domain and Creative Commons portraits.'
+    const lead = `${total} people: ${realCount} real portraits and ${aiCount} AI illustrations. ${plain.length} more are listed with initials until a portrait is ready.`
+    const main = `<article class="people-page">
+        <nav class="story-crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">People</span>
+        </nav>
+        <header class="story-head">
+          <p class="static-kicker">People</p>
+          <h1>People</h1>
+          <p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>
+        </header>
+        <section class="people-group" aria-labelledby="people-portraits-heading">
+          <h2 id="people-portraits-heading">Portraits</h2>
+          <ul class="people-grid">${illustrated.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person))).join('')}</ul>
+        </section>
+        <section class="people-group" aria-labelledby="people-names-heading">
+          <h2 id="people-names-heading">Names without a portrait yet</h2>
+          <ul class="people-grid">${plain.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person))).join('')}</ul>
+        </section>
+      </article>`
+    const jsonLd = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: 'People',
+        description,
+        isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
+        publisher: { '@id': PrerenderPages.ORG_ID },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#list`,
+        numberOfItems: ordered.length,
+        itemListElement: ordered.map((person, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: PrerenderPages.personNode(person, sourceById.get(person.id), storiesBySlug),
+        })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'People', item: pageUrl },
+        ],
+      },
+    ])
+    return PrerenderPages.shell({
+      title: 'People · Kentucky History Drive',
+      description,
+      canonical: pageUrl,
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'website',
+      jsonLd,
+      activeRoute: 'people',
+      main,
+    })
+  }
+
+  static assertPeople(html, peopleFile, sourcePeople = [], stories = []) {
+    if (!html.includes('<h1>People</h1>')) throw new Error('prerender: /people/ is missing its heading')
+    if (!html.includes('href="/people/"') || !html.includes('data-route="people"') || !html.includes('aria-current="page"')) {
+      throw new Error('prerender: /people/ is missing its nav link')
+    }
+    if (/upload\.wikimedia\.org/i.test(html)) {
+      throw new Error('prerender: /people/ hotlinks a Wikimedia file')
+    }
+    const remoteImg = [...html.matchAll(/<(?:img|source)\b[^>]*>/gi)].some((tag) => /(?:src|srcset)="https?:/i.test(tag[0]))
+    if (remoteImg) throw new Error('prerender: /people/ hotlinks an image')
+    const illustrated = peopleFile.people.filter((person) => person.image)
+    const ai = illustrated.filter((person) => person.ai)
+    const real = illustrated.length - ai.length
+    const plain = peopleFile.people.length - illustrated.length
+    const lead = `${peopleFile.people.length} people: ${real} real portraits and ${ai.length} AI illustrations. ${plain} more are listed with initials until a portrait is ready.`
+    if (!html.includes(lead)) {
+      throw new Error('prerender: /people/ lead does not match the portrait counts')
+    }
+    const badges = html.match(/class="people-badge"/g) || []
+    if (badges.length !== ai.length) {
+      throw new Error(`prerender: /people/ has ${badges.length} AI badges, expected ${ai.length}`)
+    }
+    if (!html.includes('class="people-fallback"')) throw new Error('prerender: /people/ is missing a placeholder')
+    const storiesBySlug = new Map(stories.map((story) => [story.slug, story]))
+    const sourceById = new Map(sourcePeople.map((person) => [person.id, person]))
+    let expectedLines = 0
+    for (const person of peopleFile.people) {
+      const line = personIdentifier(sourceById.get(person.id), storiesBySlug)
+      if (!line) continue
+      expectedLines += 1
+      if (!html.includes(`<p class="people-id">${PrerenderPages.escapeHtml(line)}</p>`)) {
+        throw new Error(`prerender: /people/ is missing the identifier for ${person.id}`)
+      }
+    }
+    const lines = html.match(/class="people-id"/g) || []
+    if (lines.length !== expectedLines) {
+      throw new Error(`prerender: /people/ has ${lines.length} identifier lines, expected ${expectedLines}`)
+    }
+    if (!html.includes('Lexington co-founder, militia officer · 1756–1807')) {
+      throw new Error('prerender: /people/ is missing Levi Todd’s recorded role and dates')
+    }
+    const licensed = peopleFile.people.filter((person) => person.licenseUrl)
+    for (const person of licensed) {
+      const link = `<a href="${PrerenderPages.escapeHtml(person.licenseUrl)}" rel="license">${PrerenderPages.escapeHtml(person.license)}</a>`
+      if (!html.includes(link)) {
+        throw new Error(`prerender: /people/ is missing the license link for ${person.id}`)
+      }
+    }
+    const licenseLinks = html.match(/rel="license"/g) || []
+    if (licenseLinks.length !== licensed.length) {
+      throw new Error(`prerender: /people/ has ${licenseLinks.length} license links, expected ${licensed.length}`)
+    }
+    const ballard = html.match(/<li class="people-card" id="bland-ballard">[\s\S]*?<\/li>/)
+    if (!ballard || !ballard[0].includes('class="people-fallback"') || /<img\b/.test(ballard[0])) {
+      throw new Error('prerender: Bland Ballard must stay a placeholder, with no image')
+    }
+    for (const person of illustrated) {
+      const alt = portraitAlt(person)
+      if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
+        throw new Error(`prerender: /people/ is missing alt text for ${person.id}`)
+      }
+      if (!html.includes(PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))) || !html.includes(PrerenderPages.escapeHtml(person.license))) {
+        throw new Error(`prerender: /people/ is missing the credit or license for ${person.id}`)
+      }
+      if (!html.includes(`src="${person.image.jpg}"`) || !html.includes(`srcset="${person.image.webp}"`)) {
+        throw new Error(`prerender: /people/ is missing the local image for ${person.id}`)
+      }
+      if (person.ai && !html.includes('>AI illustration<')) {
+        throw new Error(`prerender: /people/ AI badge text is missing`)
+      }
+    }
+    const block = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
+    if (!block) throw new Error('prerender: /people/ is missing JSON-LD')
+    let data
+    try {
+      data = JSON.parse(block[1])
+    } catch (err) {
+      throw new Error(`prerender: /people/ has invalid JSON-LD (${err.message})`)
+    }
+    const nodes = data['@graph'] || []
+    const list = nodes.find((node) => node['@type'] === 'ItemList')
+    if (!list || list.numberOfItems !== peopleFile.people.length || list.itemListElement?.length !== peopleFile.people.length) {
+      throw new Error('prerender: /people/ ItemList does not cover every person')
+    }
+    const byId = new Map()
+    for (const entry of list.itemListElement) {
+      const item = entry.item
+      if (item?.['@type'] !== 'Person' || typeof item['@id'] !== 'string') {
+        throw new Error('prerender: /people/ ItemList entry is not a Person')
+      }
+      const prefix = `${PrerenderPages.SITE}/people/#`
+      if (!item['@id'].startsWith(prefix)) throw new Error(`prerender: /people/ Person @id is not ${prefix}`)
+      byId.set(item['@id'].slice(prefix.length), item)
+    }
+    for (const person of peopleFile.people) {
+      const item = byId.get(person.id)
+      if (!item || item.name !== person.name) {
+        throw new Error(`prerender: /people/ JSON-LD is missing ${person.id}`)
+      }
+      const span = knownLifeSpan(sourceById.get(person.id)?.lifeDates)
+      if (span) {
+        if (item.birthDate !== span.birthDate || item.deathDate !== span.deathDate) {
+          throw new Error(`prerender: /people/ dates for ${person.id} do not match the recorded span`)
+        }
+      } else if (item.birthDate || item.deathDate) {
+        throw new Error(`prerender: /people/ invented dates for ${person.id}`)
+      }
+      if (person.image && !person.ai) {
+        if (item.image !== `${PrerenderPages.SITE}${person.image.jpg}`) {
+          throw new Error(`prerender: /people/ JSON-LD image for ${person.id} is not the local portrait`)
+        }
+      } else if (item.image) {
+        throw new Error(`prerender: /people/ JSON-LD image is set for ${person.id}`)
+      }
+      const subjectOf = (person.stories || [])
+        .filter((slug) => storiesBySlug.has(slug))
+        .map((slug) => `${PrerenderPages.SITE}/stories/${encodeURIComponent(slug)}/`)
+      const got = item.subjectOf || []
+      if (subjectOf.length !== got.length || subjectOf.some((url, index) => got[index] !== url)) {
+        throw new Error(`prerender: /people/ subjectOf for ${person.id} does not match the live stories`)
+      }
+    }
+    if (byId.get('blackfish')?.birthDate) {
+      throw new Error('prerender: Blackfish’s circa dates must not become a birthDate')
+    }
   }
 
   static videosPage(films, stories, cssHrefs) {
@@ -1850,6 +2584,27 @@ class PrerenderPages {
     }
   }
 
+  /** Static /timeline/ stub: meta refresh + location.replace to /#timeline, with a visible link. */
+  static timelineRedirectHtml() {
+    return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+${gtagHeadHtml()}
+<title>Timeline · Kentucky History Drive</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="${PrerenderPages.SITE}/">
+<meta http-equiv="refresh" content="0; url=/#timeline">
+<script>location.replace('/#timeline')</script>
+</head>
+<body>
+<p>The timeline is at <a href="/#timeline">kyhistorydrive.com/#timeline</a>.</p>
+</body>
+</html>
+`
+  }
+
   /** Google video sitemap for each page that embeds a film. */
   static writeVideoSitemap(file, films, stories) {
     const rows = []
@@ -1891,13 +2646,18 @@ ${rows.join('\n')}
         </nav>
         <header class="story-head">
           <p class="static-kicker">About</p>
-          <h1>Kentucky History Drive</h1>
+          <h1 class="about-page-title">Kentucky History Drive</h1>
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
-        <div class="about-logo-block">
-          <img class="about-logo" src="/brand/khd-logo-512.png" width="360" height="360" alt="Kentucky History Drive seal — muskets, historical marker, and road to kyhistorydrive.com" />
-          <p class="about-logo-caption muted">Official Kentucky History Drive seal</p>
-        </div>
+        <figure class="about-seals" aria-labelledby="aboutSealsTitle">
+          <h2 class="about-seals-title" id="aboutSealsTitle">Our seals</h2>
+          <ul class="about-seals-list">
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge original black edition seal" data-full-src="/brand/khd-logo-512.webp"><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></button></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge navy edition seal" data-full-src="/brand/khd-logo-c-512.webp"><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></button></li>
+            <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge gold-rim edition seal" data-full-src="/brand/khd-logo-c2-512.webp"><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></button></li>
+          </ul>
+          <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit. Tap a seal to enlarge it.</figcaption>
+        </figure>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
         <h2>Author</h2>
@@ -1946,6 +2706,7 @@ ${rows.join('\n')}
       jsonLd,
       main,
       activeRoute: 'about',
+      routeLightbox: true,
     })
   }
 
@@ -1970,7 +2731,7 @@ ${rows.join('\n')}
               <h2>Map layers</h2>
               <ul class="crawl-list">${layerLinks}</ul>
             </section>
-            <p><a href="/routes/">Route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
+            <p><a href="/routes/">Kentucky history route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
           </div>
         </details>
       </nav>`
@@ -1981,11 +2742,26 @@ ${rows.join('\n')}
     if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
       throw new Error('prerender: homepage is missing the AdSense head tag')
     }
+    if (!html.includes(PrerenderPages.rssAlternateLink())) {
+      throw new Error('prerender: homepage is missing the RSS alternate link')
+    }
     const gaProblems = missingGaSnippet(html)
     if (gaProblems.length) {
       throw new Error(`prerender: homepage ${gaProblems.join('; ')} (${GA_MEASUREMENT_ID})`)
     }
     if (!/<script type="module"/.test(html)) throw new Error('prerender: homepage lost the app bundle')
+    if (!html.includes('src="/route-map-lightbox.js"')) {
+      throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
+    }
+    for (const label of [
+      'Enlarge original black edition seal',
+      'Enlarge navy edition seal',
+      'Enlarge gold-rim edition seal',
+    ]) {
+      if (!html.includes(`aria-label="${label}"`)) {
+        throw new Error(`prerender: homepage #about is missing the ${label} button`)
+      }
+    }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')
     }
@@ -1997,7 +2773,22 @@ ${rows.join('\n')}
     if (!html.includes('class="hp-map-routes"') || routeLinks < 3) {
       throw new Error('prerender: homepage is missing the route maps link in the page, footer, or directory')
     }
+    if (!html.includes('>Kentucky history route maps<')) {
+      throw new Error('prerender: homepage is missing the Kentucky history route maps anchor')
+    }
     fs.writeFileSync(file, html)
+  }
+
+  /** /drives/, then every public/drives/<slug>/index.html in order. */
+  static drivePaths(root) {
+    const dir = path.join(root, 'public/drives')
+    if (!fs.existsSync(path.join(dir, 'index.html'))) return []
+    const slugs = fs.readdirSync(dir, { withFileTypes: true })
+      .filter((d) => d.isDirectory() && fs.existsSync(path.join(dir, d.name, 'index.html')))
+      .map((d) => d.name)
+      .sort()
+    // /drives/build/ (the planner) is noindex,follow and stays out of the sitemap.
+    return ['/drives/', ...slugs.map((s) => `/drives/${s}/`)]
   }
 
   static writePage(dist, urlPath, html) {

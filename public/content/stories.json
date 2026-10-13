@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-11T15:36:36.717Z",
-  "count": 230,
+  "generatedAt": "2026-10-13T10:03:22.380Z",
+  "count": 241,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-11"
+    "end": "2026-10-13"
   },
   "eras": [
     "early-commonwealth",
@@ -30,8 +30,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-03",
-      "lat": 37.21,
-      "lon": -86.68,
+      "lat": 37.2,
+      "lon": -86.7,
       "mapConfidence": "exact",
       "matchedPlace": "Carlston Annis Shell Mound"
     },
@@ -51,8 +51,8 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Ohio",
-      "lat": 37.48,
-      "lon": -86.84,
+      "lat": 37.5,
+      "lon": -86.8,
       "mapConfidence": "override",
       "matchedPlace": "Chiggerville (15Oh1)"
     },
@@ -79,8 +79,8 @@
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
         "year": 2007
       },
-      "lat": 37.94,
-      "lon": -83.59,
+      "lat": 37.9,
+      "lon": -83.6,
       "mapConfidence": "override",
       "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)"
     },
@@ -101,8 +101,8 @@
       "source": "ky-history",
       "briefDate": "2026-08-29",
       "county": "Ohio",
-      "lat": 37.48,
-      "lon": -86.84,
+      "lat": 37.5,
+      "lon": -86.8,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Indian Knoll"
     },
@@ -121,8 +121,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-14",
-      "lat": 37.21,
-      "lon": -86.68,
+      "lat": 37.2,
+      "lon": -86.7,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Read Shell Midden (15Bt10)"
     },
@@ -164,8 +164,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-20",
-      "lat": 38.56,
-      "lon": -82.93,
+      "lat": 38.6,
+      "lon": -82.9,
       "mapConfidence": "override",
       "matchedPlace": "Hansen Site (15GP14)"
     },
@@ -186,8 +186,8 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Hart, Edmonson counties",
-      "lat": 37.31,
-      "lon": -85.88,
+      "lat": 37.3,
+      "lon": -85.9,
       "mapConfidence": "override",
       "matchedPlace": "Salts Cave (15Ht4)"
     },
@@ -221,8 +221,8 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.76,
-      "lon": -83.88,
+      "lat": 38.7,
+      "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)"
     },
@@ -329,7 +329,7 @@
         "yearEnd": -200,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.05,
+      "lat": 38,
       "lon": -84.5,
       "mapConfidence": "exact",
       "matchedPlace": "Peter Village enclosure (15Fa166)"
@@ -365,7 +365,7 @@
         "yearEnd": -200,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.05,
+      "lat": 38,
       "lon": -84.5,
       "mapConfidence": "override",
       "matchedPlace": "Peter Village enclosure (15Fa166)"
@@ -396,8 +396,8 @@
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2012
       },
-      "lat": 38.72,
-      "lon": -83.02,
+      "lat": 38.7,
+      "lon": -83,
       "mapConfidence": "override",
       "matchedPlace": "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)"
     },
@@ -424,8 +424,8 @@
         "yearEnd": 1,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 39.09,
-      "lon": -84.71,
+      "lat": 39.1,
+      "lon": -84.7,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Robbins Mounds (Boone County Adena)"
     },
@@ -473,8 +473,8 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.06,
-      "lon": -83.94,
+      "lat": 38.1,
+      "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
@@ -502,8 +502,8 @@
         "yearEnd": 1200,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.87,
-      "lon": -84.58,
+      "lat": 37.9,
+      "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Muir Site (15Js86)"
     },
@@ -533,6 +533,36 @@
       "lon": -86.84895,
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)"
+    },
+    {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
+      "publishedDate": "2026-10-13",
+      "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
+      "yearStart": 1000,
+      "yearEnd": 1500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Fulton",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      },
+      "lat": 36.6,
+      "lon": -89.2,
+      "mapConfidence": "override",
+      "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)"
     },
     {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
@@ -567,8 +597,8 @@
         "yearEnd": 1255,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.87,
-      "lon": -84.58,
+      "lat": 37.9,
+      "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Muir Site (15Js86)"
     },
@@ -595,8 +625,8 @@
         "yearEnd": 1500,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.55,
-      "lon": -89.19,
+      "lat": 36.5,
+      "lon": -89.2,
       "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)"
     },
@@ -631,8 +661,8 @@
         "yearEnd": 1500,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.55,
-      "lon": -89.19,
+      "lat": 36.5,
+      "lon": -89.2,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)"
     },
@@ -660,8 +690,8 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2003
       },
-      "lat": 37.1,
-      "lon": -88.64,
+      "lat": 37,
+      "lon": -88.6,
       "mapConfidence": "override",
       "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah"
     },
@@ -687,8 +717,8 @@
         "yearEnd": 1300,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.89,
-      "lon": -89.09,
+      "lat": 36.9,
+      "lon": -89.1,
       "mapConfidence": "override",
       "matchedPlace": "Turk Site (15Ce6)"
     },
@@ -743,8 +773,8 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
       },
-      "lat": 37.32,
-      "lon": -87.52,
+      "lat": 37.3,
+      "lon": -87.5,
       "mapConfidence": "override",
       "matchedPlace": "Andalex Village (15Hk22), Hopkins County"
     },
@@ -782,7 +812,7 @@
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
       "lat": 38.2,
-      "lon": -84.21,
+      "lon": -84.2,
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)"
     },
@@ -810,8 +840,8 @@
         "yearEnd": 1300,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.96,
-      "lon": -84.74,
+      "lat": 39,
+      "lon": -84.7,
       "mapConfidence": "exact",
       "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
@@ -847,8 +877,8 @@
         "yearEnd": 1300,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.96,
-      "lon": -84.74,
+      "lat": 39,
+      "lon": -84.7,
       "mapConfidence": "override",
       "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
@@ -945,8 +975,8 @@
         "yearEnd": 1550,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.29,
-      "lon": -84.58,
+      "lat": 38.3,
+      "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)"
     },
@@ -981,8 +1011,8 @@
         "yearEnd": 1450,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.44,
-      "lon": -88.25,
+      "lat": 37.4,
+      "lon": -88.2,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Tolu Site (15Cn1)"
     },
@@ -1017,8 +1047,8 @@
         "yearEnd": 1450,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.07,
-      "lon": -89.14,
+      "lat": 37.1,
+      "lon": -89.1,
       "mapConfidence": "override",
       "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)"
     },
@@ -1045,8 +1075,8 @@
         "yearEnd": 1350,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 37.21,
-      "lon": -86.68,
+      "lat": 37.2,
+      "lon": -86.7,
       "mapConfidence": "override",
       "matchedPlace": "Annis Mound & Village (15Bt2)"
     },
@@ -1074,8 +1104,8 @@
         "yearEnd": 1650,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.59,
-      "lon": -83.83,
+      "lat": 38.6,
+      "lon": -83.8,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Fox Farm Fort Ancient"
     },
@@ -1104,8 +1134,8 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
       },
-      "lat": 37.41,
-      "lon": -82.33,
+      "lat": 37.4,
+      "lon": -82.3,
       "mapConfidence": "override",
       "matchedPlace": "Slone Site (15Pi11), Pike County"
     },
@@ -1133,8 +1163,8 @@
         "yearEnd": 1750,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.73,
-      "lon": -84.28,
+      "lat": 37.7,
+      "lon": -84.3,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Howard Site (15Ma427) Late Fort Ancient"
     },
@@ -1161,8 +1191,8 @@
         "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
         "year": 2020
       },
-      "lat": 37.66,
-      "lon": -87.95,
+      "lat": 37.7,
+      "lon": -88,
       "mapConfidence": "override",
       "matchedPlace": "Slack Farm (15Un28) Caborn-Welborn village"
     },
@@ -1196,8 +1226,8 @@
         "yearEnd": 1450,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 37.69,
-      "lon": -83.96,
+      "lat": 37.7,
+      "lon": -84,
       "mapConfidence": "override",
       "matchedPlace": "Sweet Lick Knob Fort Ancient public building"
     },
@@ -1224,8 +1254,8 @@
         "yearEnd": 1650,
         "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
       },
-      "lat": 38.56,
-      "lon": -82.93,
+      "lat": 38.6,
+      "lon": -82.9,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Hardin Village Fort Ancient"
     },
@@ -1784,8 +1814,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-29",
-      "lat": 38.73,
-      "lon": -83.01,
+      "lat": 38.7,
+      "lon": -83,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Lower Shawneetown"
     },
@@ -1925,7 +1955,8 @@
         "kentucky",
         "native-history",
         "frontier-war",
-        "salt"
+        "salt",
+        "salt-lick"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-29",
@@ -2207,7 +2238,8 @@
         "kentucky",
         "frontier-war",
         "town-founding",
-        "salt"
+        "salt",
+        "salt-lick"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-29",
@@ -2227,7 +2259,8 @@
       "tags": [
         "frontier",
         "kentucky",
-        "salt"
+        "salt",
+        "salt-lick"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-16",
@@ -2271,6 +2304,7 @@
         "early-commonwealth",
         "kentucky",
         "salt",
+        "salt-lick",
         "industry",
         "louisville"
       ],
@@ -2340,12 +2374,13 @@
       "briefDate": "2026-10-10",
       "county": "",
       "photo": {
-        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg",
-        "title": "Cornstalk as imagined in John Frost’s 1872 pictorial history of the Indians (cropped engraving, not a life portrait)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg",
+        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph--topic.jpg",
+        "title": "Point Pleasant Battle Monument at Tu-Endie-Wei State Park, where the Kanawha meets the Ohio (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Point_Pleasant_monument.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Illustrator unidentified, from John Frost’s book · Wikimedia Commons · public domain",
-        "year": 1872
+        "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "fit": "contain"
       },
       "lat": null,
       "lon": null,
@@ -2678,6 +2713,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
+        "trail-of-tears",
+        "removal",
         "treaty",
         "frontier-war"
       ],
@@ -2707,6 +2745,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
+        "trail-of-tears",
+        "removal",
         "treaty",
         "frontier-war"
       ],
@@ -2809,6 +2850,37 @@
       "matchedPlace": "Springfield"
     },
     {
+      "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+      "title": "Blackfish, Chillicothe war chief",
+      "publishedDate": "2026-10-12",
+      "summary": "Blackfish (c. 1729–1779), war chief of the Chillicothe Shawnee, refused to give up Kentucky hunting ground after Dunmore’s War.",
+      "yearStart": 1778,
+      "yearEnd": 1779,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "shawnee",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Madison",
+      "photo": {
+        "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
+        "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "year": 1887,
+        "fit": "contain"
+      },
+      "lat": 37.89977778,
+      "lon": -84.26566667,
+      "mapConfidence": "override",
+      "matchedPlace": "Siege of Boonesborough (Sept 1778)"
+    },
+    {
       "slug": "daniel-trabue-of-columbia",
       "title": "Daniel Trabue, the pioneer who wrote it all down",
       "publishedDate": "2026-10-07",
@@ -2880,7 +2952,8 @@
       "tags": [
         "frontier",
         "kentucky",
-        "geology"
+        "geology",
+        "paleontology"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-28",
@@ -2957,12 +3030,13 @@
       "briefDate": "2026-10-11",
       "county": "Fayette",
       "photo": {
-        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg",
-        "title": "Simon Girty in an uncredited artist’s rendering published in 1905 (not a life portrait)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Simon_Girty.png",
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
+        "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Artist uncredited · Wikimedia Commons · public domain",
-        "year": 1905
+        "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019,
+        "fit": "contain"
       },
       "lat": 38.07586667,
       "lon": -84.41529167,
@@ -3063,7 +3137,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.805,
       "lon": -84.831,
@@ -3141,6 +3216,36 @@
       "lon": -85.4665,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bardstown Founding"
+    },
+    {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "title": "Capt. Robert Johnson and Big Crossing Station",
+      "publishedDate": "2026-10-12",
+      "summary": "Robert Johnson (1745–1815) founded Johnson’s Station in 1783 at the bison ford on Elkhorn Creek in Scott County, the place called Great Crossing.",
+      "yearStart": 1780,
+      "yearEnd": 1815,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "settlement",
+        "scott-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Scott",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
+      },
+      "lat": 38.21444444,
+      "lon": -84.60527778,
+      "mapConfidence": "override",
+      "matchedPlace": "Big Crossing Station / Great Crossing"
     },
     {
       "slug": "egushawa-and-the-odawa-in-kentuckys-war-years",
@@ -3309,10 +3414,11 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       },
-      "lat": 38.1741739,
-      "lon": -84.8769101,
+      "lat": 38.033056,
+      "lon": -84.903056,
       "mapConfidence": "override",
       "matchedPlace": "Lawrenceburg / Kaufman's Station"
     },
@@ -3570,7 +3676,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       },
       "lat": 38.07586667,
       "lon": -84.41529167,
@@ -3655,6 +3762,35 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "title": "Col. Thomas Marshall at Buck Pond",
+      "publishedDate": "2026-10-13",
+      "summary": "Col. Thomas Marshall (1730–1802), Revolutionary officer and father of Chief Justice John Marshall, ran Virginia’s military-land survey office in Kentucky and founded Buck Pond near Versailles.",
+      "yearStart": 1783,
+      "yearEnd": 1802,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "surveyor",
+        "revolution"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Woodford",
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "mapConfidence": "override",
+      "matchedPlace": "Buck Pond / Col. Thomas Marshall",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
+        "title": "John Marshall",
+        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
     },
     {
       "slug": "harry-innes",
@@ -3744,12 +3880,12 @@
       "briefDate": "2026-10-08",
       "county": "Franklin",
       "photo": {
-        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
-        "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
-        "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13--topic.jpg",
+        "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
-        "year": 1797
+        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
+        "year": 1796
       },
       "lat": 38.1986833,
       "lon": -84.8816833,
@@ -3794,12 +3930,12 @@
       "briefDate": "2026-10-06",
       "county": "Clark",
       "photo": {
-        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
-        "title": "Gen. Charles Scott (portrait, published 1907)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg--topic.jpg",
+        "title": "Fallen Timbers Battlefield, where Scott led Kentucky's mounted volunteers under Anthony Wayne in 1794 (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": 1907
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2010
       },
       "lat": 38.0877684,
       "lon": -84.1756194,
@@ -3876,12 +4012,42 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
         "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-        "year": 1940
+        "year": 1940,
+        "fit": "contain"
       },
       "lat": 37.69,
       "lon": -85.17,
       "mapConfidence": "override",
       "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)"
+    },
+    {
+      "slug": "moluntha-and-logans-raid-1786",
+      "title": "Moluntha and Logan’s Raid, 1786",
+      "publishedDate": "2026-10-13",
+      "summary": "In October 1786 Kentucky militia under Benjamin Logan burned Shawnee towns in Ohio, and Hugh McGary killed the aged Mekoche Shawnee leader Moluntha after he surrendered under an American flag.",
+      "yearStart": 1786,
+      "yearEnd": 1786,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "shawnee",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "blue-jacket-weyapiersenwah",
@@ -3962,12 +4128,12 @@
       "briefDate": "2026-10-09",
       "county": "Fayette",
       "photo": {
-        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
-        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette--topic.jpg",
+        "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": null
+        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
+        "year": 1887
       },
       "lat": 38.1222,
       "lon": -84.4565833,
@@ -4115,12 +4281,12 @@
       "briefDate": "2026-10-11",
       "county": "",
       "photo": {
-        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg",
-        "title": "Little Turtle, a lithograph after a lost portrait (circa 1798 original)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Little_Turtle.jpg",
+        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790--topic.jpg",
+        "title": "Kekionga, the Miami towns at present Fort Wayne, drawn by Ebenezer Denny on Harmar's 1790 campaign",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_Kekionga.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown author · Wikimedia Commons · public domain",
-        "year": 1798
+        "attribution": "Ebenezer Denny · Wikimedia Commons · public domain",
+        "year": 1790
       },
       "lat": null,
       "lon": null,
@@ -4512,7 +4678,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "year": 1902,
+        "fit": "contain"
       },
       "lat": 38.2219833,
       "lon": -85.3464,
@@ -4541,7 +4708,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.76176666666667,
       "lon": -85.3364,
@@ -4570,7 +4738,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.76176666666667,
       "lon": -85.3364,
@@ -4774,6 +4943,35 @@
       "matchedPlace": "Owensboro / Yellow Banks"
     },
     {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "title": "Prestonsburg: first seat on the Big Sandy",
+      "publishedDate": "2026-10-13",
+      "summary": "Laid out as Preston’s Station in 1797 on the Levisa Fork, Prestonsburg became the seat of a vast new Floyd County in 1800 and was formally established in 1818.",
+      "yearStart": 1797,
+      "yearEnd": 1818,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Floyd",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      },
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "mapConfidence": "override",
+      "matchedPlace": "Prestonsburg founding / Preston’s Station"
+    },
+    {
       "slug": "yellow-banks-becomes-owensboro",
       "title": "Yellow Banks becomes Owensboro",
       "publishedDate": "2026-09-24",
@@ -4871,7 +5069,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 38.4333333,
       "lon": -85.1688889,
@@ -4899,6 +5098,36 @@
       "matchedPlace": "Richmond Founding"
     },
     {
+      "slug": "burlington-boone-county-seat",
+      "title": "Burlington: from Craig’s Camp to Boone’s seat",
+      "publishedDate": "2026-10-12",
+      "summary": "In June 1799 Boone County’s first court fixed the county seat at Craig’s Camp, 74 acres at the headwaters of Allens Fork.",
+      "yearStart": 1799,
+      "yearEnd": 1816,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "towns",
+        "boone-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Boone",
+      "photo": {
+        "image_url": "/content/photos/stories/burlington-boone-county-seat.jpg",
+        "title": "Boone County Courthouse, Burlington (photographed 2020)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC0",
+        "year": 2020
+      },
+      "lat": 39.02222222,
+      "lon": -84.72166667,
+      "mapConfidence": "override",
+      "matchedPlace": "Burlington (Boone County seat)"
+    },
+    {
       "slug": "carlisle-kincarts-peach-orchard-county-seat",
       "title": "Carlisle: a county seat in Kincart’s peach orchard",
       "publishedDate": "2026-10-09",
@@ -4920,7 +5149,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       },
       "lat": 38.31245,
       "lon": -84.0282167,
@@ -4947,6 +5177,36 @@
       "lon": -85.3441,
       "mapConfidence": "override",
       "matchedPlace": "Taylorsville"
+    },
+    {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "title": "Campbellsville: from Andrew Campbell’s lots to a county seat",
+      "publishedDate": "2026-10-12",
+      "summary": "Andrew Campbell of Augusta County, Virginia, was selling lots and keeping a gristmill and a tavern by 1814, and the legislature established Campbellsville in 1817.",
+      "yearStart": 1800,
+      "yearEnd": 1848,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "towns",
+        "taylor-county"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Taylor",
+      "photo": {
+        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2017
+      },
+      "lat": 37.34583333,
+      "lon": -85.34555556,
+      "mapConfidence": "override",
+      "matchedPlace": "Campbellsville (Taylor County seat)"
     },
     {
       "slug": "somerset",
@@ -5076,6 +5336,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
+        "trail-of-tears",
+        "removal",
         "treaty"
       ],
       "source": "ky-history",
@@ -5427,7 +5690,9 @@
         "native",
         "kentucky",
         "native-history",
+        "cherokee",
         "trail-of-tears",
+        "removal",
         "natural-arch"
       ],
       "source": "ky-history",
@@ -5498,7 +5763,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-        "year": 1979
+        "year": 1979,
+        "fit": "contain"
       },
       "lat": 38.24611,
       "lon": -85.76889,
@@ -5557,6 +5823,39 @@
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
     },
     {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "title": "Camp Nelson and Kentucky’s U.S. Colored Troops",
+      "publishedDate": "2026-10-12",
+      "summary": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion.",
+      "yearStart": 1863,
+      "yearEnd": 1866,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "civil-war",
+        "usct",
+        "african-american",
+        "emancipation"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864,
+        "fit": "contain"
+      },
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson USCT recruiting and training center"
+    },
+    {
       "slug": "camp-nelson-jessamine-county",
       "title": "Camp Nelson, Jessamine County",
       "publishedDate": "2026-10-04",
@@ -5567,7 +5866,10 @@
       "tags": [
         "other",
         "kentucky",
-        "civil-war"
+        "civil-war",
+        "usct",
+        "african-american",
+        "emancipation"
       ],
       "source": "ky-history",
       "briefDate": "2026-10-04",
@@ -5584,6 +5886,35 @@
       "lon": -84.59806,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
+    },
+    {
+      "slug": "george-garvin-brown-and-old-forester",
+      "title": "George Garvin Brown and Old Forester",
+      "publishedDate": "2026-10-13",
+      "summary": "In 1870 Louisville’s George Garvin Brown began selling Old Forester only in sealed glass bottles, a guarantee against watered whiskey that became the foundation of Brown-Forman.",
+      "yearStart": 1870,
+      "yearEnd": 1917,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Forester / Whiskey Row (Louisville)"
     },
     {
       "slug": "frederick-stitzels-barrel-racks-1879",
@@ -5807,7 +6138,10 @@
         "native",
         "kentucky",
         "native-history",
-        "salt"
+        "salt",
+        "salt-lick",
+        "paleontology",
+        "geology"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-27",
@@ -5920,8 +6254,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-15",
-      "lat": 37.94,
-      "lon": -83.59,
+      "lat": 37.9,
+      "lon": -83.6,
       "mapConfidence": "override",
       "matchedPlace": "Newt Kash Hollow (15Mf1)"
     },
@@ -6054,8 +6388,8 @@
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
         "year": 1988
       },
-      "lat": 37.16,
-      "lon": -83.76,
+      "lat": 37.2,
+      "lon": -83.8,
       "mapConfidence": "override",
       "matchedPlace": "Red Bird River Petroglyphs, original site near Eriline (15CY51)"
     },
@@ -6095,6 +6429,36 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "title": "Tinsley Hill: Mississippian town under Lake Barkley",
+      "publishedDate": "2026-10-12",
+      "summary": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village on the Cumberland.",
+      "yearStart": null,
+      "yearEnd": null,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Lyon",
+      "photo": {
+        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+        "year": null
+      },
+      "lat": 37,
+      "lon": -88,
+      "mapConfidence": "override",
+      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)"
     },
     {
       "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",

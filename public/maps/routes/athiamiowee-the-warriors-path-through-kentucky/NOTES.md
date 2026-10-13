@@ -6,14 +6,16 @@ Built 2026-10-10 by Story Studio with `make_warriors_path_map.py` (reuses `/work
 ## Files
 | file | size | use |
 |---|---|---|
-| warriors-path-map-master-3840.png | 3840x2160 | video master / library copy |
-| warriors-path-map.png / .webp | 1600x900 | site full size |
-| warriors-path-map-web.webp | 960x540, ~109 KB | inline web |
-| warriors-path-map-390.png | 390x219 | phone legibility check |
-| warriors-path-map-dark.png / .webp, -dark-390.png | 1600x1080 / 390 | map on the site's dark background (#101812 bg, #1a241c panel, #2e4034 line, #f6edd8 focus frame, #e8d5a8 heading, #c9893a accent, #a8b59c caption, from src/styles.css) |
+| athiamiowee-the-warriors-path-through-kentucky-master-3840.png | 3840x2160 | video master / library copy |
+| athiamiowee-the-warriors-path-through-kentucky.png / .webp | 1600x900 | site full size |
+| athiamiowee-the-warriors-path-through-kentucky-web.webp | 960x540, ~109 KB | inline web |
+| athiamiowee-the-warriors-path-through-kentucky-390.png | 390x219 | phone legibility check |
+| athiamiowee-the-warriors-path-through-kentucky-dark.png / .webp, -dark-390.png | 1600x1080 / 390 | map on the site's dark background (#101812 bg, #1a241c panel, #2e4034 line, #f6edd8 focus frame, #e8d5a8 heading, #c9893a accent, #a8b59c caption, from src/styles.css) |
 | kygeonet-warriors-path.json | – | route geometry used (KYGeoNet layer 1, 'Warriors Path*' features) |
 
 Site file names per route-map SEO spec: `/content/maps/athiamiowee-the-warriors-path-through-kentucky-route-map.{avif,webp,jpg}` (rename on import; JPEG fallback ≤1600 px).
+
+The previous `warriors-path-map-*` files stay in this folder as unreferenced copies so old links still resolve. Amplify is not applying `customRules` redirects. Delete the copies once a console redirect is in place.
 
 ## Era of use
 Used by Native nations long before Europeans arrived (an old game trail); first recorded by a European in 1674 (Gabriel Arthur); named the "Warriors' Path" by English speakers by the 1750s; used by Walker (1750), Gist (1751), Finley and Boone (1769); absorbed into pioneer roads in the 1770s–80s. Caption years: "before 1674 to the 1770s".
@@ -29,9 +31,9 @@ Distance (measured on the map line): about 220 miles from the Ohio to Cumberland
 ## Waypoints (north to south) – coordinates WGS84, all approximate
 | # | stop | modern town / area | county, state | lat, lon | confidence |
 |---|---|---|---|---|---|
-| 1 | Lower Shawneetown (Ohio crossing, mouth of the Scioto) | South Portsmouth / Fullerton (opposite Portsmouth OH) | Greenup Co., KY (& Scioto Co., OH) | 38.677, -83.107 | high (town site), KYGeoNet point |
+| 1 | Lower Shawneetown (Ohio crossing, mouth of the Scioto) | South Portsmouth / Fullerton (opposite Portsmouth OH) | Greenup Co., KY (& Scioto Co., OH) | 38.7, -83.1 (rounded to 0.1°, protected site) | high (town site), KYGeoNet point |
 | 2 | Scioto prong via Slate Creek country | near Olive Hill / Mount Sterling area | Carter–Bath–Montgomery cos., KY | 38.137, -83.566 (bend) | low / conjectural |
-| 3 | Eskippakithiki (Indian Old Fields) | Indian Fields, ~10 mi E of Winchester | Clark Co., KY | 37.946, -84.000 | high |
+| 3 | Eskippakithiki (Indian Old Fields) | Indian Fields, ~10 mi E of Winchester | Clark Co., KY | 37.9, -84.0 (rounded to 0.1°, protected site) | high |
 | 4 | Red River crossing (near Kentucky River junction) | near Clay City / Lulbegrud Creek | Clark–Powell–Estill cos., KY | ~37.84, -84.02 | medium |
 | 5 | Kentucky River ford (Station Camp Creek) | Irvine | Estill Co., KY | ~37.69, -83.97 | medium |
 | 6 | War Fork / Sand Gap (KHS marker #697) | Gray Hawk (marker on US 421) | Jackson Co., KY | ~37.40, -83.94 | high (marker) |
@@ -46,7 +48,7 @@ Branch (KHS/story text): from Eskippakithiki NE across the Licking near Upper Bl
 - Labelled "approximate route" throughout; no trail survives as a continuous mapped line. KYGeoNet rates Cumberland Gap–Eskippakithiki mostly "High/Probable" (one Irvine–Red River link "Low/Conjectural"); all northern prongs are "Low/Conjectural".
 - Two northern termini are documented: the Scioto mouth (USFS history, Kincaid, KYGeoNet, Myer) and Cabin Creek via Blue Licks (KHS marker #697 text / ExploreKYHistory, used in our story text). The map shows the Scioto prong as the main line and Blue Licks/Cabin Creek as a dashed branch, so it agrees with the story.
 - South of Cumberland Gap the line is hand-placed (Powell Valley, Holston crossing near Knoxville, Little Tennessee) and dashed; Myer 1928 shows several alternative Cherokee connections.
-- Spec coordinate for Eskippakithiki (37.93, -84.07) was replaced by the KYGeoNet "Indian Fields" point (37.946, -84.000), which matches Beckner's location of the town at Indian Old Fields.
+- The Eskippakithiki waypoint is the KYGeoNet "Indian Fields" point, rounded to 0.1° because the town site is protected. It matches Beckner's location of the town at Indian Old Fields.
 - Red River and Little Tennessee are not in Natural Earth 10 m; hand-traced schematically.
 - State lines are modern (Natural Earth admin-1); in 1750s–70s this was Virginia's claimed Kentucky country.
 
@@ -69,10 +71,10 @@ Suggested caption: "Route of the Warriors' Path (Athiamiowee), before 1674 to th
 (Items 7–9 cited from bibliographic records; not re-read online in this pass.)
 
 ## v2 design pass (2026-10-11, Critiquito fixes)
-- **Phone art (new):** `warriors-path-map-phone.png` / `.webp` (780x439, 2x for a 390 CSS-px slot). It's a Kentucky-focused crop with only these stops: Lower Shawneetown, Eskippakithiki, Kentucky R. ford, War Fork, Cumberland Ford, Cumberland Gap. Labels are 118 px at 3840, which is 24 px at 780. Sub-labels, towns, river labels, the legend and the credits are dropped. `warriors-path-map-390.png` is now made from the phone art. Dark-frame version: `warriors-path-map-phone-dark.png`; `warriors-path-map-dark-390.png` is made from that. Serve it with `<picture><source media="(max-width: 600px)" srcset="…-phone.webp">`.
+- **Phone art (new):** `athiamiowee-the-warriors-path-through-kentucky-phone.png` / `.webp` (780x439, 2x for a 390 CSS-px slot). It's a Kentucky-focused crop with only these stops: Lower Shawneetown, Eskippakithiki, Kentucky R. ford, War Fork, Cumberland Ford, Cumberland Gap. Labels are 118 px at 3840, which is 24 px at 780. Sub-labels, towns, river labels, the legend and the credits are dropped. `athiamiowee-the-warriors-path-through-kentucky-390.png` is now made from the phone art. Dark-frame version: `athiamiowee-the-warriors-path-through-kentucky-phone-dark.png`; `athiamiowee-the-warriors-path-through-kentucky-dark-390.png` is made from that. Serve it with `<picture><source media="(max-width: 600px)" srcset="…-phone.webp">`.
 - **Credits and scale:** the credit line and the "Statute Miles" scale bar now sit on a solid parchment strip at the bottom of the frame. All labels, the cartouche, the legend and the strip are drawn above the burned edge and vignette, and labels are kept out of the outer edge.
 - **Line styles:** conjectural / approximate segments are now **red dots**. Branches and other routes are **lighter, muted-red dashes**. Approximate points are red rings with a parchment fill, so a line passing through one no longer overprints it.
-- **Dark version:** `warriors-path-map-dark.png/.webp` no longer has the frame heading or "Route map" line. The map's own cartouche is the only title. The caption under the map is kept at 1600 only; on the page, render it as HTML text.
+- **Dark version:** `athiamiowee-the-warriors-path-through-kentucky-dark.png/.webp` no longer has the frame heading or "Route map" line. The map's own cartouche is the only title. The caption under the map is kept at 1600 only; on the page, render it as HTML text.
 
 ## Legend (for the page HTML, under the phone art)
 - solid red line: Warriors’ Path (approx. route)

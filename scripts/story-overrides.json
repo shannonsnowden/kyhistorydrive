@@ -37,7 +37,7 @@
       "replace": [
         {
           "old": "he was sworn near present-day Danville in November 1782",
-          "new": "he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782"
+          "new": "he was sworn in at Crow’s Station, Virginia (near present-day Danville, Kentucky), in November 1782"
         },
         {
           "old": "he was sworn near present-day…",
@@ -46,221 +46,221 @@
       ]
     },
     "chiggerville-15oh1": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "chiggerville-15oh1-ohio-county",
-      "lat": 37.48,
-      "lon": -86.84
+      "lat": 37.5,
+      "lon": -86.8
     },
     "cloudsplitter-rockshelter-menifee-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
-      "lat": 37.94,
-      "lon": -83.59
+      "lat": 37.9,
+      "lon": -83.6
     },
     "newt-kash-hollow-15mf1": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "newt-kash-hollow-rockshelter-15mf1-menifee-county",
-      "lat": 37.94,
-      "lon": -83.59
+      "lat": 37.9,
+      "lon": -83.6
     },
     "read-shell-midden-15bt10-butler-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "read-shell-midden-15bt10",
-      "lat": 37.21,
-      "lon": -86.68
+      "lat": 37.2,
+      "lon": -86.7
     },
     "carlston-annis-shell-mound": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "carlston-annis-shell-mound",
-      "lat": 37.21,
-      "lon": -86.68
+      "lat": 37.2,
+      "lon": -86.7
     },
     "indian-knoll-on-the-green-river": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "indian-knoll",
-      "lat": 37.48,
-      "lon": -86.84
+      "lat": 37.5,
+      "lon": -86.8
     },
     "hansen-site-15gp14": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "hansen-site-15gp14-greenup-county",
-      "lat": 38.56,
-      "lon": -82.93
+      "lat": 38.6,
+      "lon": -82.9
     },
     "salts-cave-15ht4": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "salts-cave-15ht4-mammoth-cave",
-      "lat": 37.31,
-      "lon": -85.88
+      "lat": 37.3,
+      "lon": -85.9
     },
     "muir-site-15js86": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "muir-site-15js86-jessamine-county",
-      "lat": 37.87,
-      "lon": -84.58
+      "lat": 37.9,
+      "lon": -84.6
     },
     "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "muir-site-15js86-jessamine-county",
-      "lat": 37.87,
-      "lon": -84.58
+      "lat": 37.9,
+      "lon": -84.6
     },
     "buckner-site-fort-ancient-villages-on-strodes-creek": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "buckner-site-15bb12-bourbon-county",
       "lat": 38.2,
-      "lon": -84.21
+      "lon": -84.2
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
-      "lat": 38.96,
-      "lon": -84.74
+      "lat": 39,
+      "lon": -84.7
     },
     "cleek-mccabe-fort-ancient-village": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
-      "lat": 38.96,
-      "lon": -84.74
+      "lat": 39,
+      "lon": -84.7
     },
     "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "singer-hieronymus-fort-ancient-scott-county",
-      "lat": 38.29,
-      "lon": -84.58
+      "lat": 38.3,
+      "lon": -84.6
     },
     "fox-farm-mason-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "fox-farm-fort-ancient",
-      "lat": 38.59,
-      "lon": -83.83
+      "lat": 38.6,
+      "lon": -83.8
     },
     "howard-site-late-fort-ancient-above-harts-fork": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "howard-site-15ma427-late-fort-ancient-madison-county",
-      "lat": 37.73,
-      "lon": -84.28
+      "lat": 37.7,
+      "lon": -84.3
     },
     "sweet-lick-knob-fort-ancient-gathering-place": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "sweet-lick-knob-fort-ancient-estill",
-      "lat": 37.69,
-      "lon": -83.96
+      "lat": 37.7,
+      "lon": -84
     },
     "hardin-village-15gp22": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "hardin-village-fort-ancient",
-      "lat": 38.56,
-      "lon": -82.93
+      "lat": 38.6,
+      "lon": -82.9
     },
     "annis-mound-village": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "annis-mound-village-15bt2-butler-county",
-      "lat": 37.21,
-      "lon": -86.68
+      "lat": 37.2,
+      "lon": -86.7
     },
     "slack-farm-15un28-union-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "slack-farm-15un28-union-county",
-      "lat": 37.66,
-      "lon": -87.95
+      "lat": 37.7,
+      "lon": -88
     },
     "dover-mound-mason-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET. (nearest 0.1° point inside Kentucky)",
       "date": "2026-10-02",
       "historyId": "dover-mound-adena-mason-county",
-      "lat": 38.76,
-      "lon": -83.88
+      "lat": 38.7,
+      "lon": -83.9
     },
     "peter-village-enclosure-15fa166": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "lat": 38.05,
+      "lat": 38,
       "lon": -84.5
     },
     "peter-village-early-woodland-enclosure-near-lexington": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "lat": 38.05,
+      "lat": 38,
       "lon": -84.5
     },
     "adams-site-15fu4": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
-      "lat": 36.55,
-      "lon": -89.19
+      "lat": 36.5,
+      "lon": -89.2
     },
     "adams-site-mississippian-town-near-hickman": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
-      "lat": 36.55,
-      "lon": -89.19
+      "lat": 36.5,
+      "lon": -89.2
     },
     "turk-site-carlisle-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "turk-site-15ce6-carlisle-county",
-      "lat": 36.89,
-      "lon": -89.09
+      "lat": 36.9,
+      "lon": -89.1
     },
     "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "tolu-site-15cn1-crittenden-county",
-      "lat": 37.44,
-      "lon": -88.25
+      "lat": 37.4,
+      "lon": -88.2
     },
     "twin-mounds-site": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "twin-mounds-site-15ba2-ballard-county",
-      "lat": 37.07,
-      "lon": -89.14
+      "lat": 37.1,
+      "lon": -89.1
     },
     "wright-mounds-montgomery-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena",
-      "lat": 38.06,
-      "lon": -83.94
+      "lat": 38.1,
+      "lon": -83.9
     },
     "robbins-mounds-boone-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "robbins-mounds",
-      "lat": 39.09,
-      "lon": -84.71
+      "lat": 39.1,
+      "lon": -84.7
     },
     "lower-shawneetown-at-the-scioto-mouth": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141)",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "lower-shawneetown",
-      "lat": 38.73,
-      "lon": -83.01
+      "lat": 38.7,
+      "lon": -83
     },
     "mcafee-station-on-the-salt-river": {
       "reason": "Pin McAfee Station / McAfee hamlet (Mercer GNIS) for 1773 survey–1785 New Providence span. | QA 2026-10-03: county label was Boyle (nearest-pin inference); 1773 party = Robert, James, George + McCoun, Adams per cited marker; removed unsupported \"hamlet still marks the name\".",
@@ -323,11 +323,11 @@
       ]
     },
     "slone-site-15pi11-pike-county": {
-      "reason": "Flooded under Fishtrap Reservoir (Woodside/Levisa Fork); public coordinate generalized to ~0.01° (#141 style). Occupation 1350–1400 CE. | QA 2026-10-03: county label read \"Pike County · Levisa Fork County\".",
+      "reason": "Flooded under Fishtrap Reservoir (Woodside/Levisa Fork); public coordinate generalized to ~0.01° (#141 style). Occupation 1350–1400 CE. | QA 2026-10-03: county label read \"Pike County · Levisa Fork County\". | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-03",
       "historyId": "slone-site-15pi11-pike-county",
-      "lat": 37.41,
-      "lon": -82.33,
+      "lat": 37.4,
+      "lon": -82.3,
       "yearStart": 1350,
       "yearEnd": 1400,
       "county": "Pike"
@@ -379,11 +379,11 @@
       "county": "Jessamine"
     },
     "andalex-village-15hk22-hopkins-county": {
-      "reason": "Archaeological site, location not public: county-level pin (Hopkins centroid, 2 decimals), same approach as Slone/#141. Occupation 1175–1275 CE, not 1988–89 investigation.",
+      "reason": "Archaeological site, location not public: county-level pin (Hopkins centroid, 2 decimals), same approach as Slone/#141. Occupation 1175–1275 CE, not 1988–89 investigation. | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-04",
       "historyId": "andalex-village-15hk22-hopkins-county",
-      "lat": 37.32,
-      "lon": -87.52,
+      "lat": 37.3,
+      "lon": -87.5,
       "yearStart": 1175,
       "yearEnd": 1275,
       "county": "Hopkins"
@@ -419,11 +419,11 @@
       "county": "Carroll"
     },
     "rowlandton-mound-site-15mcn3-paducah": {
-      "reason": "Archaeological site: Wikipedia public coords rounded to 2 decimals (#141 tier B). Occupation ~1100–1350 CE, not the 2006 excavation.",
+      "reason": "Archaeological site: Wikipedia public coords rounded to 2 decimals (#141 tier B). Occupation ~1100–1350 CE, not the 2006 excavation. | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET. (nearest 0.1° point inside Kentucky)",
       "date": "2026-10-05",
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
-      "lat": 37.1,
-      "lon": -88.64,
+      "lat": 37,
+      "lon": -88.6,
       "yearStart": 1100,
       "yearEnd": 1350,
       "county": "McCracken"
@@ -515,11 +515,11 @@
       "county": "Powell"
     },
     "red-bird-river-petroglyphs-clay-county": {
-      "reason": "Pin original site near Eriline, rounded to 2 decimals (archaeology). County Clay. No years: no source dates the carvings; 1994 fall/move to Manchester is text only.",
+      "reason": "Pin original site near Eriline, rounded to 2 decimals (archaeology). County Clay. No years: no source dates the carvings; 1994 fall/move to Manchester is text only. | 2026-10-11: coarsened to 0.1° (rock-shelter site).",
       "date": "2026-10-07",
       "historyId": "red-bird-river-petroglyphs-eriline-clay",
-      "lat": 37.16,
-      "lon": -83.76,
+      "lat": 37.2,
+      "lon": -83.8,
       "county": "Clay"
     },
     "mclean-drift-bank-kentuckys-first-commercial-coal-mine": {
@@ -563,11 +563,11 @@
       "county": "Jackson"
     },
     "old-fort-earthworks-15gp1-greenup-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141): NRHP Portsmouth Earthworks Group A point rounded to 2 decimals. County Greenup. Years −200…500 (KAS Middle Woodland period), not the 1938 WPA dig or 1980 listing.",
+      "reason": "Looting-sensitive site, public coordinate generalized (#141): NRHP Portsmouth Earthworks Group A point rounded to 2 decimals. County Greenup. Years −200…500 (KAS Middle Woodland period), not the 1938 WPA dig or 1980 listing. | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-08",
       "historyId": "old-fort-earthworks-15gp1-greenup",
-      "lat": 38.72,
-      "lon": -83.02,
+      "lat": 38.7,
+      "lon": -83,
       "yearStart": -200,
       "yearEnd": 500,
       "county": "Greenup"
@@ -735,6 +735,116 @@
           "new": "August 21, 1931.\nSource: [Cumberland Falls State Resort Park history (Kentucky State Parks, archived)](https://web.archive.org/web/20150604135131/http://parks.ky.gov/parks/resortparks/cumberland-falls/history.aspx)\nSource: [Cumberland Falls (Wikipedia)](https://en.wikipedia.org/wiki/Cumberland_Falls)"
         }
       ]
+    },
+    "capt-robert-johnson-and-big-crossing-station": {
+      "reason": "Wikipedia coordinate for Great Crossing, Kentucky (38.21444444, -84.60527778). Years 1780 (marker: Beargrass to Bryan’s Station)–1815 (Robert Johnson’s death). County Scott. Orange County, the Floyd survey, the 1779 arrival, and the mills are not in the cited pages.",
+      "date": "2026-10-12",
+      "historyId": "great-crossing-scott-1783-1815",
+      "lat": 38.21444444,
+      "lon": -84.60527778,
+      "yearStart": 1780,
+      "yearEnd": 1815,
+      "county": "Scott"
+    },
+    "campbellsville-from-buckhorn-creek-to-county-seat": {
+      "reason": "Wikipedia coordinate for Campbellsville (37.34583333, -85.34555556). Years 1800 (marker: first settled)–1848 (Taylor County seat). County Taylor. Buckhorn Creek, the Jan. 3 date, the postmaster, and the lot count are not in the cited pages. Title uses Andrew Campbell’s lots; the slug is unchanged.",
+      "date": "2026-10-12",
+      "historyId": "campbellsville-taylor-1814-1848",
+      "lat": 37.34583333,
+      "lon": -85.34555556,
+      "yearStart": 1800,
+      "yearEnd": 1848,
+      "county": "Taylor"
+    },
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
+      "reason": "Wikipedia coordinate for the Siege of Boonesborough (37.89977778, -84.26566667). Years 1778–1779. County Madison.",
+      "date": "2026-10-12",
+      "historyId": "boonesborough-siege-blackfish-1778",
+      "lat": 37.89977778,
+      "lon": -84.26566667,
+      "yearStart": 1778,
+      "yearEnd": 1779,
+      "county": "Madison"
+    },
+    "tinsley-hill-15ly18-lyon-county": {
+      "reason": "Generalized Lyon County point (37.0, -88.0), about 10 km, not a site coordinate. The tDAR citations do not give a mound count, a burial count, or a phase date, so those years are not published. County Lyon.",
+      "date": "2026-10-12",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450",
+      "lat": 37,
+      "lon": -88,
+      "county": "Lyon"
+    },
+    "burlington-boone-county-seat": {
+      "reason": "Wikipedia coordinate for Burlington, Kentucky (39.02222222, -84.72166667). Years 1799–1816. County Boone.",
+      "date": "2026-10-12",
+      "historyId": "burlington-boone-1799-1816",
+      "lat": 39.02222222,
+      "lon": -84.72166667,
+      "yearStart": 1799,
+      "yearEnd": 1816,
+      "county": "Boone"
+    },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "reason": "Distinct USCT-focused companion to camp-nelson-jessamine-county (2026-10-04). Pin NPS Camp Nelson visitor center (37.797005, -84.600577). Years 1863–1866. County Jessamine.",
+      "date": "2026-10-12",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "yearStart": 1863,
+      "yearEnd": 1866,
+      "county": "Jessamine"
+    },
+    "col-thomas-marshall-at-buck-pond": {
+      "reason": "NRHP list coordinate for Buck Pond, Paynes Mill Rd., Versailles (38.066667, -84.686944). Private farm; view from the road. Years 1783–1802 (farm founded to Marshall’s death). County Woodford.",
+      "date": "2026-10-13",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "yearStart": 1783,
+      "yearEnd": 1802,
+      "county": "Woodford"
+    },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "reason": "Wikipedia coordinate for Prestonsburg, Kentucky (37.681667, -82.766944). Years 1797–1818. County Floyd.",
+      "date": "2026-10-13",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "yearStart": 1797,
+      "yearEnd": 1818,
+      "county": "Floyd"
+    },
+    "george-garvin-brown-and-old-forester": {
+      "reason": "Wikipedia coordinate for Whiskey Row (100 West Main Street Historic District), Louisville (38.256389, -85.7525). Years 1870–1917 (Old Forester launch to Brown’s death). County Jefferson.",
+      "date": "2026-10-13",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "yearStart": 1870,
+      "yearEnd": 1917,
+      "county": "Jefferson"
+    },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "reason": "Generalized to 0.1° (36.6, -89.2) in Fulton County near Hickman; exact site location is address-restricted and not published. Occupation years AD 1000–1500 (NRHP period of significance), not survey dates. County Fulton.",
+      "date": "2026-10-13",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "lat": 36.6,
+      "lon": -89.2,
+      "county": "Fulton"
+    },
+    "cynthiana-cynthia-anna-on-the-licking": {
+      "reason": "History entry was geocoded to far-western KY (36.66,-88.31) and tagged archaeology; pin to Cynthiana, Harrison County (38.3903,-84.2941) and category town.",
+      "date": "2026-10-13",
+      "historyId": "cynthiana-founding-robert-harrison",
+      "lat": 38.3903,
+      "lon": -84.2941
+    },
+    "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
+      "reason": "Pin was 38.1742,-84.8769, about 15 km north of town; move to downtown Lawrenceburg (Wikipedia 38.033056,-84.903056).",
+      "date": "2026-10-13",
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
+      "lat": 38.033056,
+      "lon": -84.903056
     }
   }
 }

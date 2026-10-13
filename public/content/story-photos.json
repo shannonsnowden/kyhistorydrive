@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T09:39:41.845Z",
+  "generatedAt": "2026-10-13T10:03:29.173Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -73,6 +73,19 @@
         "year": null
       }
     },
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
+      "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+      "historyId": "boonesborough-siege-blackfish-1778",
+      "photo": {
+        "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
+        "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "year": 1887,
+        "fit": "contain"
+      }
+    },
     "blue-jacket-weyapiersenwah": {
       "slug": "blue-jacket-weyapiersenwah",
       "historyId": "blue-jacket-limestone-negotiation-1787-1788",
@@ -106,7 +119,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       }
     },
     "buckner-site-fort-ancient-villages-on-strodes-creek": {
@@ -121,6 +135,18 @@
         "year": null
       }
     },
+    "burlington-boone-county-seat": {
+      "slug": "burlington-boone-county-seat",
+      "historyId": "burlington-boone-1799-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/burlington-boone-county-seat.jpg",
+        "title": "Boone County Courthouse, Burlington (photographed 2020)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC0",
+        "year": 2020
+      }
+    },
     "camp-nelson-jessamine-county": {
       "slug": "camp-nelson-jessamine-county",
       "historyId": "camp-nelson-jessamine-1863-1865",
@@ -133,6 +159,31 @@
         "year": 2022
       }
     },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864,
+        "fit": "contain"
+      }
+    },
+    "campbellsville-from-buckhorn-creek-to-county-seat": {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "historyId": "campbellsville-taylor-1814-1848",
+      "photo": {
+        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2017
+      }
+    },
     "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
       "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
       "historyId": "cane-ridge-meeting-house-bourbon-1791-1804",
@@ -143,6 +194,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
         "year": 1934
+      }
+    },
+    "capt-robert-johnson-and-big-crossing-station": {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "historyId": "great-crossing-scott-1783-1815",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
@@ -166,7 +229,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "carrollton-from-port-william": {
@@ -229,7 +293,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
         "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-        "year": 1940
+        "year": 1940,
+        "fit": "contain"
       }
     },
     "col-john-holder-at-lower-howards-creek": {
@@ -244,16 +309,28 @@
         "year": 2023
       }
     },
+    "col-thomas-marshall-at-buck-pond": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
+        "title": "John Marshall",
+        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
       "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg",
-        "title": "Cornstalk as imagined in John Frost’s 1872 pictorial history of the Indians (cropped engraving, not a life portrait)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg",
+        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph--topic.jpg",
+        "title": "Point Pleasant Battle Monument at Tu-Endie-Wei State Park, where the Kanawha meets the Ohio (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Point_Pleasant_monument.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Illustrator unidentified, from John Frost’s book · Wikimedia Commons · public domain",
-        "year": 1872
+        "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "croley-evans-site": {
@@ -428,24 +505,36 @@
       "slug": "gen-charles-scott-and-petersburg",
       "historyId": "gen-charles-scott-canewood-clark-1785-1813",
       "photo": {
-        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
-        "title": "Gen. Charles Scott (portrait, published 1907)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg--topic.jpg",
+        "title": "Fallen Timbers Battlefield, where Scott led Kentucky's mounted volunteers under Anthony Wayne in 1794 (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": 1907
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2010
       }
     },
     "gen-james-wilkinson-kentuckys-agent-13": {
       "slug": "gen-james-wilkinson-kentuckys-agent-13",
       "historyId": "wilkinson-love-house-frankfort-franklin-1784-1792",
       "photo": {
-        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
-        "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
-        "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13--topic.jpg",
+        "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
-        "year": 1797
+        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
+        "year": 1796
+      }
+    },
+    "george-garvin-brown-and-old-forester": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
       }
     },
     "harry-innes": {
@@ -517,7 +606,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
@@ -553,7 +643,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "jacob-beam-sells-old-jakes-first-barrel": {
@@ -565,7 +656,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "james-knox": {
@@ -608,12 +700,12 @@
       "slug": "john-bradford-and-the-kentucke-gazette",
       "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830",
       "photo": {
-        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
-        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette--topic.jpg",
+        "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": null
+        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
+        "year": 1887
       }
     },
     "john-finley-the-trader-who-put-kentucky-on-boones-map": {
@@ -649,7 +741,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "lebanon-cedars-meeting-house-county-seat": {
@@ -692,12 +785,12 @@
       "slug": "little-turtle-and-hardins-defeat-1790",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg",
-        "title": "Little Turtle, a lithograph after a lost portrait (circa 1798 original)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Little_Turtle.jpg",
+        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790--topic.jpg",
+        "title": "Kekionga, the Miami towns at present Fort Wayne, drawn by Ebenezer Denny on Harmar's 1790 campaign",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_Kekionga.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown author · Wikimedia Commons · public domain",
-        "year": 1798
+        "attribution": "Ebenezer Denny · Wikimedia Commons · public domain",
+        "year": 1790
       }
     },
     "louisville-and-portland-canal": {
@@ -721,7 +814,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-        "year": 1979
+        "year": 1979,
+        "fit": "contain"
       }
     },
     "mammoth-cave-saltpeter": {
@@ -796,6 +890,18 @@
         "year": null
       }
     },
+    "moluntha-and-logans-raid-1786": {
+      "slug": "moluntha-and-logans-raid-1786",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
+      }
+    },
     "moneton": {
       "slug": "moneton",
       "historyId": null,
@@ -829,7 +935,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "nonhelema": {
@@ -976,6 +1083,18 @@
         "year": null
       }
     },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "quapaw-the-downstream-people-of-the-ohio-valley": {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
       "historyId": null,
@@ -1048,6 +1167,18 @@
         "year": null
       }
     },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      }
+    },
     "shaker-village-of-pleasant-hill": {
       "slug": "shaker-village-of-pleasant-hill",
       "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
@@ -1064,12 +1195,13 @@
       "slug": "simon-girty-interpreter-at-bryan-station-1782",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg",
-        "title": "Simon Girty in an uncredited artist’s rendering published in 1905 (not a life portrait)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Simon_Girty.png",
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
+        "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Artist uncredited · Wikimedia Commons · public domain",
-        "year": 1905
+        "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019,
+        "fit": "contain"
       }
     },
     "simpsonville-takes-shape-on-the-louisville-road": {
@@ -1081,7 +1213,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "year": 1902,
+        "fit": "contain"
       }
     },
     "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
@@ -1190,6 +1323,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2011
+      }
+    },
+    "tinsley-hill-15ly18-lyon-county": {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450",
+      "photo": {
+        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+        "year": null
       }
     },
     "tolu-site-mississippian-mounds-on-the-lower-ohio": {
@@ -1362,6 +1507,19 @@
         "year": null
       }
     },
+    "boonesborough-siege-blackfish-1778": {
+      "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+      "historyId": "boonesborough-siege-blackfish-1778",
+      "photo": {
+        "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
+        "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "year": 1887,
+        "fit": "contain"
+      }
+    },
     "blue-jacket-limestone-negotiation-1787-1788": {
       "slug": "blue-jacket-weyapiersenwah",
       "historyId": "blue-jacket-limestone-negotiation-1787-1788",
@@ -1395,7 +1553,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       }
     },
     "buckner-site-15bb12-bourbon-county": {
@@ -1410,6 +1569,18 @@
         "year": null
       }
     },
+    "burlington-boone-1799-1816": {
+      "slug": "burlington-boone-county-seat",
+      "historyId": "burlington-boone-1799-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/burlington-boone-county-seat.jpg",
+        "title": "Boone County Courthouse, Burlington (photographed 2020)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse,_Burlington,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "w_lemay · Wikimedia Commons · CC0",
+        "year": 2020
+      }
+    },
     "camp-nelson-jessamine-1863-1865": {
       "slug": "camp-nelson-jessamine-county",
       "historyId": "camp-nelson-jessamine-1863-1865",
@@ -1422,6 +1593,31 @@
         "year": 2022
       }
     },
+    "camp-nelson-usct-jessamine-1863-1866": {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864,
+        "fit": "contain"
+      }
+    },
+    "campbellsville-taylor-1814-1848": {
+      "slug": "campbellsville-from-buckhorn-creek-to-county-seat",
+      "historyId": "campbellsville-taylor-1814-1848",
+      "photo": {
+        "image_url": "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg",
+        "title": "Taylor County Courthouse, Campbellsville (photographed 2017)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Taylor_County_Courthouse,_Campbellsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2017
+      }
+    },
     "cane-ridge-meeting-house-bourbon-1791-1804": {
       "slug": "cane-ridge-meeting-house-and-the-1801-camp-meeting",
       "historyId": "cane-ridge-meeting-house-bourbon-1791-1804",
@@ -1432,6 +1628,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Theodore Webb, Historic American Buildings Survey · Wikimedia Commons · public domain",
         "year": 1934
+      }
+    },
+    "great-crossing-scott-1783-1815": {
+      "slug": "capt-robert-johnson-and-big-crossing-station",
+      "historyId": "great-crossing-scott-1783-1815",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
+        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "hubbell-flatboat-fight-limestone-1791": {
@@ -1455,7 +1663,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "carrollton-port-william-carroll-1792-1838": {
@@ -1503,7 +1712,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
         "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-        "year": 1940
+        "year": 1940,
+        "fit": "contain"
       }
     },
     "holders-station-lower-howards-creek": {
@@ -1516,6 +1726,17 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
         "year": 2023
+      }
+    },
+    "col-thomas-marshall-buck-pond-woodford-1783-1802": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
+        "title": "John Marshall",
+        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
       }
     },
     "daniel-trabue-house-columbia-adair-1778-1840": {
@@ -1642,24 +1863,36 @@
       "slug": "gen-charles-scott-and-petersburg",
       "historyId": "gen-charles-scott-canewood-clark-1785-1813",
       "photo": {
-        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
-        "title": "Gen. Charles Scott (portrait, published 1907)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg--topic.jpg",
+        "title": "Fallen Timbers Battlefield, where Scott led Kentucky's mounted volunteers under Anthony Wayne in 1794 (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": 1907
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2010
       }
     },
     "wilkinson-love-house-frankfort-franklin-1784-1792": {
       "slug": "gen-james-wilkinson-kentuckys-agent-13",
       "historyId": "wilkinson-love-house-frankfort-franklin-1784-1792",
       "photo": {
-        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
-        "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
-        "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13--topic.jpg",
+        "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
-        "year": 1797
+        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
+        "year": 1796
+      }
+    },
+    "old-forester-whiskey-row-louisville-1870": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
       }
     },
     "harry-innes-frankfort-1783-1816": {
@@ -1719,7 +1952,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "ruddells-station-harrison-county": {
@@ -1755,7 +1989,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "james-knox-skinhouse-camp-knox-1770": {
@@ -1798,12 +2033,12 @@
       "slug": "john-bradford-and-the-kentucke-gazette",
       "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830",
       "photo": {
-        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
-        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette--topic.jpg",
+        "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": null
+        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
+        "year": 1887
       }
     },
     "john-finley-eskippakithiki-trader": {
@@ -1887,7 +2122,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-        "year": 1979
+        "year": 1979,
+        "fit": "contain"
       }
     },
     "mammoth-cave-saltpeter-war-of-1812": {
@@ -1983,7 +2219,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "old-fort-earthworks-15gp1-greenup": {
@@ -2094,6 +2331,18 @@
         "year": 2014
       }
     },
+    "prestonsburg-founding-floyd-1797-1818": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "red-bird-river-petroglyphs-eriline-clay": {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "historyId": "red-bird-river-petroglyphs-eriline-clay",
@@ -2154,6 +2403,18 @@
         "year": null
       }
     },
+    "sassafras-ridge-15fu3-fulton-1000-1500": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      }
+    },
     "pleasant-hill-shaker-village-mercer-1805-1910": {
       "slug": "shaker-village-of-pleasant-hill",
       "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
@@ -2175,7 +2436,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "year": 1902,
+        "fit": "contain"
       }
     },
     "singer-hieronymus-fort-ancient-scott-county": {
@@ -2260,6 +2522,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Olorin3k · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2011
+      }
+    },
+    "tinsley-hill-15ly18-lyon-1300-1450": {
+      "slug": "tinsley-hill-15ly18-lyon-county",
+      "historyId": "tinsley-hill-15ly18-lyon-1300-1450",
+      "photo": {
+        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
+        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
+        "year": null
       }
     },
     "tolu-site-15cn1-crittenden-county": {

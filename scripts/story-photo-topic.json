@@ -1,0 +1,52 @@
+{
+  "_comment": "Topic photos for the Photos sidebar of person stories, so the sidebar never repeats the inline subject portrait (Shannon, Oct 13). Files are vendored under public/content/photos/stories/<slug>--topic.jpg (no upscaling). scripts/dedupe-portrait-photos.mjs applies these in the build and drops a sidebar photo that matches the portrait when no row exists here.",
+  "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
+    "commonsFile": "Point_Pleasant_monument.jpg",
+    "title": "Point Pleasant Battle Monument at Tu-Endie-Wei State Park, where the Kanawha meets the Ohio (photographed 2007)",
+    "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "year": 2007
+  },
+  "simon-girty-interpreter-at-bryan-station-1782": {
+    "commonsFile": "Bryan's_Station.jpg",
+    "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
+    "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "year": 2019
+  },
+  "gen-charles-scott-and-petersburg": {
+    "commonsFile": "Fallen_Timbers_Battlefield.jpg",
+    "title": "Fallen Timbers Battlefield, where Scott led Kentucky's mounted volunteers under Anthony Wayne in 1794 (photographed 2010)",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "license": "Public domain",
+    "year": 2010
+  },
+  "john-bradford-and-the-kentucke-gazette": {
+    "commonsFile": "Kentucke_Gazette_Printing_House.png",
+    "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
+    "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
+    "license": "Public domain",
+    "year": 1887
+  },
+  "little-turtle-and-hardins-defeat-1790": {
+    "commonsFile": "Map_of_Kekionga.jpg",
+    "title": "Kekionga, the Miami towns at present Fort Wayne, drawn by Ebenezer Denny on Harmar's 1790 campaign",
+    "attribution": "Ebenezer Denny · Wikimedia Commons · public domain",
+    "license": "Public domain",
+    "year": 1790
+  },
+  "gen-james-wilkinson-kentuckys-agent-13": {
+    "commonsFile": "Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
+    "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
+    "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
+    "license": "Public domain",
+    "year": 1796
+  },
+  "col-thomas-marshall-at-buck-pond": {
+    "commonsFile": "Buck_Pond_P6170306.jpg",
+    "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+    "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "year": 2008
+  }
+}

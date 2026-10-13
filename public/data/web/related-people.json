@@ -32,7 +32,13 @@
   "Cornstalk": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
   "Esther Whitley": "esther-whitley-over-the-cumberlands-1775",
   "Simon Girty": "simon-girty-interpreter-at-bryan-station-1782",
-  "Little Turtle": "little-turtle-and-hardins-defeat-1790"
+  "Little Turtle": "little-turtle-and-hardins-defeat-1790",
+  "Blackfish": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+  "Robert Johnson": "capt-robert-johnson-and-big-crossing-station",
+  "Richard Callaway": "col-richard-callaway-of-boonesborough",
+  "Col. Richard Callaway": "col-richard-callaway-of-boonesborough",
+  "John Bowman": "col-john-bowman-at-old-chillicothe",
+  "Col. John Bowman": "col-john-bowman-at-old-chillicothe"
  },
  "skip": {
   "Richard Henderson": [
@@ -588,6 +594,10 @@
    {
     "slug": "shawnee-chillicothe-divisions",
     "label": "Same place: Old Chillicothe, a Shawnee Chillicothe town"
+   },
+   {
+    "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+    "label": "Same person: Blackfish, the Chillicothe war chief wounded in the raid"
    }
   ],
   "col-robert-patterson-builds-lexington": [
@@ -876,6 +886,10 @@
    {
     "slug": "ojibwe-on-birds-war-road",
     "label": "Same event: Clark burned the town in 1780 after Bird’s invasion"
+   },
+   {
+    "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+    "label": "Same person: Blackfish, war chief of the Chillicothe Shawnee"
    }
   ],
   "shepherdsville-on-salt-river": [
@@ -1242,6 +1256,62 @@
    {
     "slug": "red-river-gorge-arches-and-the-dam-fight",
     "label": "Same place: the Red River Gorge and its dam fight"
+   }
+  ],
+  "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": [
+   {
+    "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+    "label": "Same event: Cornstalk accepted the Ohio boundary Blackfish refused"
+   },
+   {
+    "slug": "col-john-bowman-at-old-chillicothe",
+    "label": "Same event: Col. John Bowman’s 1779 raid on Chillicothe"
+   },
+   {
+    "slug": "col-richard-callaway-of-boonesborough",
+    "label": "Same event: Col. Richard Callaway defended Boonesborough in the 1778 siege"
+   },
+   {
+    "slug": "shawnee-chillicothe-divisions",
+    "label": "Same people: the Chillicothe division Blackfish led"
+   },
+   {
+    "slug": "battle-of-blue-licks",
+    "label": "Same place: the Licking salt springs, later the Blue Licks battlefield"
+   }
+  ],
+  "col-richard-callaway-of-boonesborough": [
+   {
+    "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+    "label": "Same event: Blackfish led the September 1778 siege of Boonesborough"
+   }
+  ],
+  "capt-robert-johnson-and-big-crossing-station": [
+   {
+    "slug": "bryan-station-siege-august-1782",
+    "label": "Same place: he moved from Beargrass to Bryan’s Station in 1780"
+   },
+   {
+    "slug": "burlington-boone-county-seat",
+    "label": "Same place: he gave the land for Wilmington, later Burlington"
+   }
+  ],
+  "burlington-boone-county-seat": [
+   {
+    "slug": "capt-robert-johnson-and-big-crossing-station",
+    "label": "Same person: Robert Johnson gave the land for Wilmington"
+   }
+  ],
+  "camp-nelson-kentucky-us-colored-troops": [
+   {
+    "slug": "camp-nelson-jessamine-county",
+    "label": "Same place: the Camp Nelson depot, its forts and the 2018 monument have their own story"
+   }
+  ],
+  "camp-nelson-jessamine-county": [
+   {
+    "slug": "camp-nelson-kentucky-us-colored-troops",
+    "label": "Same place: the USCT regiments raised at Camp Nelson and the 1865 emancipation laws"
    }
   ]
  }

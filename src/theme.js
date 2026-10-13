@@ -4,6 +4,7 @@
  * `khd-home-preview-theme` key so earlier visits stay in sync.
  */
 import { applyRouteMapTheme } from './route-maps.js'
+import { paintHomeMapCards } from './route-card-art.js'
 
 export const THEME_KEY = 'khd-theme'
 export const THEME_KEY_LEGACY = 'khd-home-preview-theme'
@@ -29,7 +30,7 @@ export function preferredTheme() {
 function syncToggle(btn, theme) {
   const isLight = theme === 'light'
   btn.setAttribute('aria-pressed', isLight ? 'true' : 'false')
-  btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme')
+  btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode')
   const label = btn.querySelector('.hp-theme-toggle-label')
   const icon = btn.querySelector('.hp-theme-toggle-icon')
   if (label) label.textContent = isLight ? 'Dark' : 'Light'
@@ -42,12 +43,12 @@ const MAP_STRIP_SRC = {
 }
 
 function syncMapStrip(theme) {
-  const img = document.getElementById('hpMapStripImg')
-  if (!img) return
   const next = theme === 'light' ? MAP_STRIP_SRC.light : MAP_STRIP_SRC.dark
-  const current = img.getAttribute('src') || ''
-  if (current === next || current.endsWith(next)) return
-  img.src = next
+  document.querySelectorAll('#hpMapStripImg, .hp-ky-strip').forEach((img) => {
+    const current = img.getAttribute('src') || ''
+    if (current === next || current.endsWith(next)) return
+    img.src = next
+  })
 }
 
 export function applyTheme(theme, { persist = true } = {}) {
@@ -55,6 +56,7 @@ export function applyTheme(theme, { persist = true } = {}) {
   document.documentElement.setAttribute(THEME_ATTR, next)
   applyRouteMapTheme(next)
   syncMapStrip(next)
+  paintHomeMapCards()
   if (persist) {
     try {
       localStorage.setItem(THEME_KEY, next)
