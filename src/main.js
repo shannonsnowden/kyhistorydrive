@@ -10,6 +10,7 @@ import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
+import { loadTransportLinks, applyTransportLink } from './transport-links.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
@@ -3247,6 +3248,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
     // when the Photos sidebar already shows the same file, but the title headshot stays).
     const storyPeople = await loadStoryPeople()
+    const transportLinks = await loadTransportLinks()
     const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
     const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
@@ -3270,12 +3272,15 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             }
             <div class="tags">${tags}</div>
           </header>
-          <div class="story-body">${storyPortraitHtml(subject.person)}${applyStoryPeople(
-            marked.parse(stripSourceAttribution(s.bodyMarkdown || '')),
-            storyPeople.stories?.[meta.slug],
-            new Map((publicPeople.people || []).map((p) => [p.id, p])),
-            (h) => h,
-            { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
+          <div class="story-body">${storyPortraitHtml(subject.person)}${applyTransportLink(
+            applyStoryPeople(
+              marked.parse(stripSourceAttribution(s.bodyMarkdown || '')),
+              storyPeople.stories?.[meta.slug],
+              new Map((publicPeople.people || []).map((p) => [p.id, p])),
+              (h) => h,
+              { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
+            ),
+            transportLinks.stories?.[meta.slug],
           )}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits, personFor })}
@@ -4483,6 +4488,12 @@ function setActiveNav(view) {
 
 async function applyRoute() {
   const { view, slug } = parseHash()
+  if (view === 'transport') {
+    // Item 70: the transport map lives at /roads-and-rails/. Old #transport links forward there (client-side only).
+    const { year } = parseHash()
+    location.replace(`/roads-and-rails/${Number.isFinite(year) ? `#${year}` : ''}`)
+    return
+  }
   document.querySelectorAll('.view').forEach((el) => {
     const v = el.dataset.view
     el.hidden = v !== view
@@ -4556,10 +4567,6 @@ async function applyRoute() {
       ensureHighlightSource(map, null)
       fitMapToKentucky(map, { duration: 0 })
     })
-  } else if (view === 'transport') {
-    const { showTransport } = await import('./transport-map.js')
-    await showTransport(parseHash().year)
-    requestAnimationFrame(scrollPageToTop)
   } else if (view === 'timeline') {
     setupTimelineFilters()
     resetTimelineFiltersOff({ keepFocus: Boolean(slug) })

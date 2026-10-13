@@ -1,0 +1,35 @@
+{
+  "_note": "Item 70: one inline link per transport story to /roads-and-rails/, on an existing phrase (exact text, first mention outside links and headings). scripts/build-transport-links.mjs builds public/data/web/transport-links.json from this file; scripts/check-transport-links.mjs fails the build on a transport story with no link that is not in allowlist.",
+  "stories": {
+    "athiamiowee-the-warriors-path-through-kentucky": "Wilderness Road",
+    "bagdad-how-a-shelby-county-rail-stop-took-over-consolation": "Louisville and Frankfort Railroad",
+    "bowling-green-takes-shape-on-the-barren-1798": "Louisville & Nashville road",
+    "bullitts-lick-kentuckys-first-industry": "flatboats",
+    "capt-william-hubbells-ohio-flatboat-stand-1791": "flatboat",
+    "carlisle-kincarts-peach-orchard-county-seat": "Lexington–Maysville road",
+    "chickamauga-cherokee": "Wilderness Road",
+    "col-john-holder-at-lower-howards-creek": "flatboat",
+    "col-richard-callaway-of-boonesborough": "ferry boat",
+    "covington-at-the-point": "Kennedy’s Ferry",
+    "esther-whitley-over-the-cumberlands-1775": "Wilderness Road",
+    "evan-williams-on-the-louisville-wharf": "flatboat",
+    "falls-of-the-ohio": "flatboats",
+    "henry-skaggs-green-river-long-hunter": "Wilderness Road",
+    "john-finley-the-trader-who-put-kentucky-on-boones-map": "Wilderness Road",
+    "lexington-ohio-railroad": "first railroad",
+    "louisville-and-portland-canal": "canal",
+    "louisville-nashville-railroad-opens-the-interior": "Louisville & Nashville",
+    "manns-lick-louisvilles-salt-town": "steamboats",
+    "mantle-rock-and-the-trail-of-tears": "Berry’s Ferry",
+    "natural-bridge-sandstone-arch": "railroad excursion stop",
+    "paducah-at-the-tennessee-mouth": "steamboat traffic",
+    "shepherdsville-on-salt-river": "Wilderness Road",
+    "taylorsville-on-brashears-creek": "Steamboats",
+    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": "Warriors' Path",
+    "yellow-banks-becomes-owensboro": "flatboat"
+  },
+  "allowlist": {
+    "kentucky-river-palisades": "Clays Ferry is only a place name for the cliffs, not travel.",
+    "mclean-drift-bank-kentuckys-first-commercial-coal-mine": "The ferry only explains a place name (Stom's landing); the story is about coal mining."
+  }
+}

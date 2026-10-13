@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-hp-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
+    <script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],H=[B+'khd-logo-512.webp',B+'khd-logo-c-512.webp',B+'khd-logo-c2-512.webp'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];window.__khdLogoHi=H[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
+    <title>Roads &amp; Rails: Kentucky Railroad &amp; Parkway Map</title>
+    <meta name="description" content="Watch Kentucky's railroads and parkways appear year by year on an interactive map, from the first Lexington &amp; Ohio line in the 1830s to the 1970s parkways." />
+    <link rel="canonical" href="https://kyhistorydrive.com/roads-and-rails/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kentucky History Drive" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://kyhistorydrive.com/roads-and-rails/" />
+    <meta property="og:title" content="Roads &amp; Rails: Kentucky transportation map" />
+    <meta property="og:description" content="Watch Kentucky's railroads and parkways appear year by year on an interactive map, from the first Lexington &amp; Ohio line in the 1830s to the 1970s parkways." />
+    <meta property="og:image" content="https://kyhistorydrive.com/brand/og-roads-and-rails.png" />
+    <meta property="og:image:secure_url" content="https://kyhistorydrive.com/brand/og-roads-and-rails.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Roads &amp; Rails: Kentucky railroads and parkways map card, Kentucky History Drive" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Roads &amp; Rails: Kentucky transportation map" />
+    <meta name="twitter:description" content="Watch Kentucky's railroads and parkways appear year by year on an interactive map, from the first Lexington &amp; Ohio line in the 1830s to the 1970s parkways." />
+    <meta name="twitter:image" content="https://kyhistorydrive.com/brand/og-roads-and-rails.png" />
+    <meta name="twitter:image:alt" content="Roads &amp; Rails: Kentucky railroads and parkways map card, Kentucky History Drive" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script>
+      (function () {
+        try {
+          var q = new URLSearchParams(location.search).get('theme')
+          if (q === 'light' || q === 'dark') {
+            document.documentElement.setAttribute('data-hp-theme', q)
+            return
+          }
+          var stored = localStorage.getItem('khd-theme') || localStorage.getItem('khd-home-preview-theme')
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.setAttribute('data-hp-theme', stored)
+            return
+          }
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.setAttribute('data-hp-theme', 'light')
+          }
+        } catch (e) {}
+      })()
+    </script>
+    <!-- khd-roads-jsonld -->
+    <!-- khd-gtag -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
+  </head>
+  <body class="roads-rails-page">
+    <!-- khd-site-header roads -->
+
+    <main id="content" tabindex="-1">
+  <section id="transport" class="map-section transport-section">
+    <aside class="controls transport-controls">
+      <div class="transport-head">
+        <h1>Roads &amp; Rails</h1>
+        <p class="transport-intro">How Kentuckians moved, from river landings and turnpikes to railroads and the parkway system. Drag the year slider to watch the network grow, decade by decade.</p>
+        <p id="transportProv" class="muted transport-note">
+          Railroads and parkways appear in the year they opened. Railroad dates are sourced;
+          parkway years are provisional where noted.
+        </p>
+        <div class="transport-year">
+          <div class="transport-year-row">
+            <label for="transportYear">Year</label>
+            <output id="transportYearOut" for="transportYear">1880</output>
+          </div>
+          <input
+            id="transportYear"
+            class="transport-slider"
+            type="range"
+            min="1800"
+            max="2000"
+            step="1"
+            value="1880"
+            aria-valuemin="1800"
+            aria-valuemax="2000"
+            aria-valuenow="1880"
+            aria-describedby="transportProv"
+          />
+          <div class="transport-scale" aria-hidden="true"><span>1800</span><span>2000</span></div>
+        </div>
+        <p id="transportStatus" class="muted transport-status" role="status"></p>
+        <p id="transportLive" class="visually-hidden" aria-live="polite"></p>
+      </div>
+      <div id="transportLegend" class="transport-legend"></div>
+      <!-- khd-roads-stories -->
+      <p class="transport-credit muted">
+        <a href="#transportFactsH">Sources and licenses</a>
+      </p>
+      <section class="transport-facts" aria-labelledby="transportFactsH">
+      <h2 id="transportFactsH">Railroads and parkways on this map</h2>
+      <h3>Railroads</h3><dl>
+      <dt>Lexington &amp; Ohio Railroad</dt><dd>Kentucky&#x27;s first railroad. Horse-drawn cars reached Frankfort from Lexington on 31 January 1834; the first steam run followed in January 1835. The line was chartered to carry Bluegrass goods toward the Ohio River.</dd>
+      <dt>Louisville &amp; Frankfort Railroad</dt><dd>Closed the gap from Frankfort to the Ohio River at Louisville, with through service in 1851 after the Kentucky River bridge was finished.</dd>
+      <dt>Louisville &amp; Nashville main line</dt><dd>Opened south from Louisville in stages from 1855, climbing Muldraugh&#x27;s Hill to reach Elizabethtown in June 1858. Track met at Bowling Green on 10 August 1859, and the first through train to Nashville ran on 27 October 1859.</dd>
+      <dt>Cincinnati Southern Railway</dt><dd>Built by the city of Cincinnati for a direct route to Southern markets that bypassed Louisville and the L&amp;N. It was open to Somerset by 23 July 1877, crossing the Kentucky River on High Bridge, and through service to Chattanooga began in 1880.</dd>
+      </dl>
+      <h3>Parkways</h3><dl>
+      <dt>Mountain Parkway</dt><dd>Winchester to Campton opened 14 January 1963, and Campton to Salyersville was dedicated 1 November 1963. It was built to open up eastern Kentucky.</dd>
+      <dt>Western Kentucky Parkway</dt><dd>Elizabethtown to near Eddyville opened in 1963, and the extension to I-24 at Eddyville followed in 1968.</dd>
+      <dt>Bluegrass Parkway</dt><dd>Opened 27 October 1965 between Elizabethtown and the Bluegrass at Versailles.</dd>
+      <dt>Purchase Parkway</dt><dd>Opened in 1966 (provisional) through the Jackson Purchase, from Calvert City to Fulton.</dd>
+      <dt>Pennyrile Parkway</dt><dd>Opened in 1969 (provisional) between Henderson and Hopkinsville.</dd>
+      <dt>Audubon Parkway</dt><dd>Opened 18 December 1970 between Henderson and Owensboro.</dd>
+      <dt>Daniel Boone (Hal Rogers) Parkway</dt><dd>London to Hazard. Sources disagree on the opening year: 1971 or 1974.</dd>
+      <dt>Green River (Natcher) Parkway</dt><dd>Opened in 1972 (provisional) between Bowling Green and Owensboro.</dd>
+      <dt>Cumberland (Louie B. Nunn) Parkway</dt><dd>Opened in 1973 (provisional) from I-65 near Glasgow east to Somerset.</dd>
+      </dl>
+      <h3>Sources</h3><ul class="transport-sources">
+      <li><a href="https://history.ky.gov/markers/lexington-ohio-rr" rel="noopener noreferrer nofollow" target="_blank">history.ky.gov</a> (Lexington &amp; Ohio Railroad)</li>
+      <li><a href="https://wiki.lexhistory.org/wikilex/lexington-ohio-railroad" rel="noopener noreferrer nofollow" target="_blank">wiki.lexhistory.org</a> (Lexington &amp; Ohio Railroad)</li>
+      <li><a href="https://explorekyhistory.ky.gov/items/show/509" rel="noopener noreferrer nofollow" target="_blank">explorekyhistory.ky.gov</a> (Lexington &amp; Ohio Railroad)</li>
+      <li><a href="https://bullittcountyhistory.org/memories/rrstory.html" rel="noopener noreferrer nofollow" target="_blank">bullittcountyhistory.org</a> (Louisville &amp; Nashville main line)</li>
+      <li><a href="https://filsonhistorical.org/wp-content/uploads/researchdocs/pdf/louisvilleandnashvillerailroad_010z2.pdf" rel="noopener noreferrer nofollow" target="_blank">filsonhistorical.org</a> (Louisville &amp; Nashville main line)</li>
+      <li><a href="https://web.archive.org/web/20200118194822/http://www.trainweb.org/chris/17bowl.html" rel="noopener noreferrer nofollow" target="_blank">trainweb.org</a> (Louisville &amp; Nashville main line)</li>
+      <li><a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Trains/ICC_valuations/Cincinnati_Southern_Railway" rel="noopener noreferrer nofollow" target="_blank">en.wikipedia.org</a> (Cincinnati Southern Railway)</li>
+      <li><a href="https://bridgestunnels.com/location/high-bridge/" rel="noopener noreferrer nofollow" target="_blank">bridgestunnels.com</a> (Cincinnati Southern Railway)</li>
+      <li><a href="https://abandonedonline.net/location/cincinnati-southern-railway/" rel="noopener noreferrer nofollow" target="_blank">abandonedonline.net</a> (Cincinnati Southern Railway)</li>
+      <li><a href="https://www.kentuckyroads.com/mountain_parkway/" rel="noopener noreferrer nofollow" target="_blank">kentuckyroads.com</a> (Mountain Parkway)</li>
+      <li><a href="https://bridgestunnels.com/2024/02/26/the-widening-of-the-mountain-parkway-in-kentucky/" rel="noopener noreferrer nofollow" target="_blank">bridgestunnels.com</a> (Mountain Parkway)</li>
+      <li><a href="https://www.kentuckyroads.com/western_kentucky_parkway/" rel="noopener noreferrer nofollow" target="_blank">kentuckyroads.com</a> (Western Kentucky Parkway)</li>
+      <li><a href="https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky" rel="noopener noreferrer nofollow" target="_blank">en.wikipedia.org</a> (Western Kentucky Parkway)</li>
+      <li><a href="https://exploreuk.uky.edu/fa/fa-test/?id=xt718911rt4h" rel="noopener noreferrer nofollow" target="_blank">exploreuk.uky.edu</a> (Bluegrass Parkway)</li>
+      <li><a href="https://wiki.aaroads.com/wiki/List_of_parkways_and_named_highways_in_Kentucky" rel="noopener noreferrer nofollow" target="_blank">wiki.aaroads.com</a> (Purchase Parkway)</li>
+      <li><a href="https://transportationhistory.org/2019/12/18/kentucky-gets-a-new-addition-to-its-parkway-network/" rel="noopener noreferrer nofollow" target="_blank">transportationhistory.org</a> (Audubon Parkway)</li>
+      <li><a href="https://kentuckyroads.com/daniel_boone_parkway/" rel="noopener noreferrer nofollow" target="_blank">kentuckyroads.com</a> (Daniel Boone (Hal Rogers) Parkway)</li>
+      <li><a href="https://www.kentuckyroads.com/parkways/" rel="noopener noreferrer nofollow" target="_blank">kentuckyroads.com</a> (Green River (Natcher) Parkway)</li>
+      <li><a href="https://services.arcgis.com/xOi1kZaI0eWDREZv/ArcGIS/rest/services/NTAD_North_American_Rail_Network_Lines/FeatureServer/0" rel="noopener noreferrer nofollow" target="_blank">National Transportation Atlas Database (NTAD) North American Rail Network Lines</a> (Public domain. This NTAD dataset is a work of the United States government as defined in 17 U.S.C. § 101 and as such are not protected by any U.S. copyrights. This work is available for unrestricted public use.)</li>
+      <li><a href="https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/NTAD_National_Highway_System/FeatureServer/0" rel="noopener noreferrer nofollow" target="_blank">National Transportation Atlas Database (NTAD) National Highway System</a> (The NHS Version 2025.08.08 database, or any portion thereof, can be freely distributed as long as this metadata entry is included with each distribution. The original metadata entry cannot be modified or deleted from any data transfer. This NTAD dataset is a work of the United States government as defined in 17 U.S.C. § 101 and as such are not protected by any U.S. copyrights. This work is available for unrestricted public use.)</li>
+      <li><a href="https://www2.census.gov/geo/tiger/GENZ2023/" rel="noopener noreferrer nofollow" target="_blank">US Census Bureau cartographic boundary files, counties 2023</a> (public domain)</li>
+      <li><a href="https://www.naturalearthdata.com/" rel="noopener noreferrer nofollow" target="_blank">Natural Earth</a> state outline (public domain)</li>
+      </ul><p class="muted">Railroad dates are sourced per section. Parkway years are provisional where noted. <a href="/maps/transport/sources.json">Full source data (JSON)</a></p></section>
+    </aside>
+    <div class="map-canvas-wrap">
+      <div id="transportMap" role="region" aria-label="Kentucky transportation map in 1880"></div>
+      <p id="transportSparse" class="transport-sparse" role="note" hidden></p>
+    </div>
+  </section>
+    </main>
+
+    <footer class="foot">
+      <span>kyhistorydrive.com</span>
+      <a href="/about/">About</a>
+      <a href="/people/">People</a>
+      <a href="/videos/">Videos</a>
+      <a href="/routes/">Kentucky history route maps</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
+      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+    </footer>
+
+    <!-- khd-site-chrome -->
+    <script type="module" src="/src/roads-and-rails.js"></script>
+    <!-- khd-privacy-choices -->
+  </body>
+</html>
