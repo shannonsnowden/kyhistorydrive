@@ -11,7 +11,7 @@ import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
 import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
-import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
@@ -1864,8 +1864,9 @@ async function popupRelatedHtml(props) {
   if (!slug) return ''
   const [relatedData, idx, publicPeople] = await Promise.all([loadRelatedPeople(), loadStories(), loadPublicPeople()])
   const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
-  const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
-  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits })
+  const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+  const personFor = personByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits, personFor })
 }
 
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
@@ -3217,7 +3218,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       storyPhoto: s.photo || null,
     })
     const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
-    const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+    const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+    const personFor = personByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
     const storyIndex = await loadStories()
     const markerFeatures = await markerFeaturesPromise
     const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
@@ -3278,7 +3280,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
           )}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits, personFor })}
           ${extras}
           ${relatedAndNearbyForStory(
             {
@@ -4037,6 +4039,35 @@ function addNationLayers(n, T, before) {
   nationLayerIds[n.id] = ids
 }
 
+/** On-map name labels for nations drawn far from Kentucky (index flag mapLabel), so the shape isn't anonymous. */
+const nationLabelMarkers = {}
+async function syncNationMapLabels(nations) {
+  for (const n of nations) {
+    if (!n.mapLabel) continue
+    const on = nationOn.has(n.id) && !territoryRouteSlug()
+    if (on && !nationLabelMarkers[n.id]) {
+      try {
+        const b = nationBounds(await loadNationData(n.ref), n)
+        if (!b) continue
+        const el = document.createElement('span')
+        el.className = 'terr-farlabel'
+        el.style.setProperty('--nc', n.outline || n.color)
+        const yrs = nationYears(n)
+        el.textContent = yrs ? `${n.name}, ${yrs}` : n.name
+        el.setAttribute('aria-hidden', 'true')
+        nationLabelMarkers[n.id] = new maplibregl.Marker({ element: el, anchor: 'left', offset: [6, 0] }).setLngLat([b.getEast(), b.getCenter().lat])
+      } catch (err) {
+        console.warn('nation label failed', n.id, err)
+        continue
+      }
+    }
+    const m = nationLabelMarkers[n.id]
+    if (!m) continue
+    if (on) m.addTo(map)
+    else m.remove()
+  }
+}
+
 /** Bounds of a nation's main-map shapes (all parts). */
 function nationBounds(T, n) {
   const b = new maplibregl.LngLatBounds()
@@ -4100,6 +4131,7 @@ async function syncNationLayers() {
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none')
     }
   }
+  await syncNationMapLabels(nations)
   // Label tidy-up: the legend already names every nation, so on-map labels thin out as more nations are toggled on.
   const mapEl = document.getElementById('map')
   if (mapEl) mapEl.dataset.nlab = String(nations.filter((x) => nationOn.has(x.id)).length)
