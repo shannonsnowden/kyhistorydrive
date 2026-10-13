@@ -5643,3 +5643,13 @@ html[data-hp-theme="light"] .hp-plan-drive {
 .transport-intro { margin: 0 0 0.6rem; font-size: 1.02rem; line-height: 1.45; color: var(--text); }
 .roads-rails-page .transport-facts h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--heading); }
 .roads-rails-page .transport-facts h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.9rem 0 0.3rem; }
+
+/* Roads & Rails: static story list and drive link (SEO #291). */
+.transport-stories { margin-top: 1.25rem; font-size: 0.9rem; }
+.roads-rails-page .transport-stories h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--heading); }
+.transport-story-list { margin: 0; padding-left: 1.1rem; }
+.transport-story-list li { margin: 0.2rem 0; }
+.transport-story-list a { display: inline-block; min-height: 24px; }
+.transport-plan { margin: 0.75rem 0 0; }
+.transport-plan-link { font-weight: 700; color: var(--accent); }
+@media (max-width: 900px) { .transport-stories { order: 5; background: var(--panel); margin-top: 0; padding: 1rem; } }

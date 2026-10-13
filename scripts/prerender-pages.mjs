@@ -299,9 +299,13 @@ class PrerenderPages {
     }
     // Item 70: /roads-and-rails/ is a vite page (roads-and-rails/index.html); list it with a self-canonical.
     const rrFile = path.join(dist, 'roads-and-rails', 'index.html')
+    if (fs.existsSync(rrFile)) fs.writeFileSync(rrFile, PrerenderPages.roadsRailsFill(fs.readFileSync(rrFile, 'utf8'), stories, root))
     const rrHtml = fs.existsSync(rrFile) ? fs.readFileSync(rrFile, 'utf8') : ''
     if (!rrHtml.includes('<link rel="canonical" href="https://kyhistorydrive.com/roads-and-rails/"') || !rrHtml.includes('<h1>Roads &amp; Rails</h1>') || !rrHtml.includes('id="transportMap"')) {
       throw new Error('prerender: /roads-and-rails/ is missing its canonical, h1 or map')
+    }
+    if ((rrHtml.match(/<li><a href="\/stories\//g) || []).length < 1 || !rrHtml.includes('href="/drives/"') || !rrHtml.includes('"@type":"CollectionPage"')) {
+      throw new Error('prerender: /roads-and-rails/ is missing its story list, drives link or JSON-LD')
     }
     if (!/<a href="\/roads-and-rails\/" data-route="roads" class="active" aria-current="page">/.test(rrHtml)) {
       throw new Error('prerender: /roads-and-rails/ nav item is not marked current')
@@ -2950,6 +2954,69 @@ class PrerenderPages {
   }
 
   /** Static /timeline/ stub: meta refresh + location.replace to /#timeline, with a visible link. */
+  /**
+   * /roads-and-rails/ (SEO #291): a static "Stories on these routes" list and JSON-LD
+   * (CollectionPage + ItemList + BreadcrumbList), both built from the transport-link stories
+   * (public/data/web/transport-links.json, from scripts/transport-links.json), so new linked stories appear automatically.
+   */
+  static roadsRailsFill(html, stories, root) {
+    const tlFile = path.join(root, 'public/data/web/transport-links.json')
+    const linked = fs.existsSync(tlFile) ? Object.keys(PrerenderPages.readJson(tlFile).stories || {}) : []
+    const bySlug = new Map(stories.map((s) => [s.slug, s]))
+    const list = linked
+      .map((slug) => bySlug.get(slug))
+      .filter(Boolean)
+      .sort((a, b) => (Number(a.yearStart) || 9999) - (Number(b.yearStart) || 9999) || String(a.title).localeCompare(String(b.title)))
+    if (list.length !== linked.length) throw new Error(`prerender: /roads-and-rails/ ${linked.length - list.length} linked stories are not live`)
+    if (!list.length) throw new Error('prerender: /roads-and-rails/ has no linked stories')
+    const esc = PrerenderPages.escapeHtml
+    const rows = list
+      .map((s) => `        <li><a href="/stories/${encodeURIComponent(s.slug)}/">${esc(s.title)}</a>${s.yearStart ? ` <span class="muted">(${esc(s.yearStart)})</span>` : ''}</li>`)
+      .join('\n')
+    const section = `<section class="transport-stories" aria-labelledby="transportStoriesH">
+        <h2 id="transportStoriesH">Stories on these routes</h2>
+        <ul class="transport-story-list">
+${rows}
+        </ul>
+        <p class="transport-plan"><a class="transport-plan-link" href="/drives/">Plan a drive</a> along Kentucky's historic routes.</p>
+      </section>`
+    const pageUrl = `${PrerenderPages.SITE}/roads-and-rails/`
+    const ld = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#page`,
+        url: pageUrl,
+        name: 'Roads & Rails: Kentucky Railroad & Parkway Map',
+        description: "Watch Kentucky's railroads and parkways appear year by year on an interactive map, from the first Lexington & Ohio line in the 1830s to the 1970s parkways.",
+        inLanguage: 'en-US',
+        isPartOf: { '@type': 'WebSite', url: `${PrerenderPages.SITE}/`, name: 'Kentucky History Drive' },
+        publisher: PrerenderPages.publisherNode(),
+        breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+        mainEntity: { '@id': `${pageUrl}#stories` },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#stories`,
+        name: 'Stories on these routes',
+        numberOfItems: list.length,
+        itemListElement: list.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.title, url: `${PrerenderPages.SITE}/stories/${s.slug}/` })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Roads & Rails', item: pageUrl },
+        ],
+      },
+    ])
+    if (!html.includes('<!-- khd-roads-stories -->') || !html.includes('<!-- khd-roads-jsonld -->')) {
+      throw new Error('prerender: /roads-and-rails/ is missing its stories or JSON-LD placeholder')
+    }
+    return html.replace('<!-- khd-roads-stories -->', () => section).replace('<!-- khd-roads-jsonld -->', () => ld)
+  }
+
   static timelineRedirectHtml() {
     return `<!doctype html>
 <html lang="en">
