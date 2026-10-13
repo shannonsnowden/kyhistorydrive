@@ -5280,8 +5280,12 @@ html[data-hp-theme="light"] .hp-plan-drive {
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
 
-/* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
-.story-photo-credit .seg { white-space: nowrap; }
+/* Photo credits: separate .seg spans, separators drawn by CSS. */
+/* Segments flow as one line of normal inline text and wrap anywhere between words; only the site
+   name stays unbroken. */
+.story-photo-credit .seg,
+.story-photo-credit .photo-license { display: inline; white-space: normal; }
+.story-photo-credit .credit-site { white-space: nowrap; }
 .story-photo-credit .seg + .seg::before { content: '· '; }
 
 /* Homepage story link → Timeline: on phones the map docks on top, story below. */
@@ -5303,8 +5307,6 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
 }
 
-/* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
-.story-photo-credit .photo-license { white-space: nowrap; }
 /* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
    caption above); the 'no known likeness exists' note stays on its own unbroken line. */
 @container (max-width: 559.98px) {
