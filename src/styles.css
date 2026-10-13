@@ -4739,8 +4739,12 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
 }
 .transport-era-list li { display: flex; align-items: center; gap: 0.35rem; }
 .transport-swatch.is-future-swatch {
+  color: color-mix(in srgb, var(--text) 60%, transparent);
   background: repeating-linear-gradient(90deg, currentColor 0 6px, transparent 6px 10px);
-  opacity: 0.5;
+}
+.transport-popup.has-more .maplibregl-popup-content {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), rgba(0, 0, 0, 0.15));
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), rgba(0, 0, 0, 0.15));
 }
 .transport-endpoint { display: flex; align-items: center; gap: 3px; pointer-events: none; }
 .transport-endpoint i { width: 7px; height: 7px; border-radius: 50%; background: #fff8ea; border: 1.5px solid #2b1d0e; }

@@ -77,7 +77,8 @@ export function transportYearFilter(year) {
 }
 
 /* Decade hues are spaced around the wheel so neighbours never share a family
- * (gold / brick red / violet / blue / cyan / green). Dark mode uses lighter
+ * (gold / brick red / violet / blue / teal-green / green). Dark 1960 is
+ * teal-green (#38d9a9) so it no longer reads like the 1880 periwinkle. Dark mode uses lighter
  * tints of the same hues so every line clears 3:1 on the dark green land. */
 export const ERA_COLORS = [
   [1830, '#b8860b'],
@@ -92,7 +93,7 @@ const ERA_COLORS_DARK = {
   1850: '#ff8787',
   1870: '#da77f2',
   1880: '#91a7ff',
-  1960: '#66d9e8',
+  1960: '#38d9a9',
   1970: '#8ce99a',
 }
 
@@ -353,6 +354,14 @@ function fitPopupAboveCredit(popup) {
   const creditH = attrib ? attrib.getBoundingClientRect().height : 0
   content.style.maxHeight = `${Math.max(120, Math.floor(canvas.height / 2 - creditH - 16))}px`
   content.style.overflowY = 'auto'
+  // Soft bottom fade while more text is below the fold, so readers know it scrolls.
+  const updateFade = () => {
+    const more = content.scrollHeight - content.scrollTop - content.clientHeight > 2
+    if (more) popup.addClassName('has-more')
+    else popup.removeClassName('has-more')
+  }
+  content.addEventListener('scroll', updateFade, { passive: true })
+  requestAnimationFrame(updateFade)
   // Pan so the whole card sits inside the canvas, above the credit.
   requestAnimationFrame(() => {
     const r = popup.getElement().getBoundingClientRect()
