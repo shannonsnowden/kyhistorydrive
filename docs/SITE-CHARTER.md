@@ -5,6 +5,9 @@ One shared strategy for every bot that works on kyhistorydrive.com (repo `shanno
 ## Mission
 Our mission: get people interested in Kentucky history, show them where it happened on the map, and help them plan a drive to go see the historic sites. Every feature and story decision serves that path from story to place to drive. For example, story links open with the map visible on the story's pin, and each story points to a nearby drive.
 
+## Portraits and images
+Put faces to names. Every person mentioned in a story should have a face readers can connect to the name. Use a real portrait where one exists; otherwise an AI portrait credited 'AI illustration · Kentucky History Drive' (never Story Studio). The Photos sidebar shows a different topic image, never the portrait.
+
 ## Audience
 Kentuckians, road-trippers and history readers who want to know what happened where they are standing. Many read on a phone in the car or at a marker, so mobile comes first.
 
