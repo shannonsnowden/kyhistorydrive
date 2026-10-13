@@ -6,12 +6,12 @@
       "name": "Daniel Boone",
       "dates": null,
       "image": {
-        "webp": "/people/portraits/daniel-boone-512.webp",
-        "jpg": "/people/portraits/daniel-boone-512.jpg"
+        "webp": "/people/portraits/daniel-boone__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/daniel-boone__ai-portrait-v2-512.jpg"
       },
-      "credit": "Chester Harding · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "athiamiowee-the-warriors-path-through-kentucky",
@@ -27,7 +27,7 @@
         "pine-mountain-and-pound-gap",
         "red-river-gorge-arches-and-the-dam-fight"
       ],
-      "sourceFile": "Chester Harding - Daniel Boone - NPG.2015.102 - National Portrait Gallery (cropped).jpg"
+      "sourceFile": null
     },
     {
       "id": "squire-boone",
@@ -116,12 +116,12 @@
       "name": "Benjamin Logan",
       "dates": null,
       "image": {
-        "webp": "/people/portraits/benjamin-logan-512.webp",
-        "jpg": "/people/portraits/benjamin-logan-512.jpg"
+        "webp": "/people/portraits/benjamin-logan__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/benjamin-logan__ai-portrait-v2-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "benjamin-logan",
@@ -132,7 +132,7 @@
         "stanford-from-st-asaph",
         "moluntha-and-logans-raid-1786"
       ],
-      "sourceFile": "General Benjamin Logan - Google Art Project.jpg"
+      "sourceFile": null
     },
     {
       "id": "ann-logan",
@@ -152,12 +152,12 @@
       "name": "George Rogers Clark",
       "dates": null,
       "image": {
-        "webp": "/people/portraits/george-rogers-clark-512.webp",
-        "jpg": "/people/portraits/george-rogers-clark-512.jpg"
+        "webp": "/people/portraits/george-rogers-clark__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/george-rogers-clark__ai-portrait-v2-512.jpg"
       },
-      "credit": "James B. Longacre / John Wesley Jarvis · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "bland-w-ballard-of-tick-creek",
@@ -172,7 +172,7 @@
         "maj-silas-harlan",
         "winchester-clark-county-seat"
       ],
-      "sourceFile": "George Rogers Clark.jpg"
+      "sourceFile": null
     },
     {
       "id": "richard-henderson",
@@ -675,17 +675,17 @@
       "name": "John Bradford",
       "dates": "1749–1830",
       "image": {
-        "webp": "/people/portraits/john-bradford-512.webp",
-        "jpg": "/people/portraits/john-bradford-512.jpg"
+        "webp": "/people/portraits/john-bradford__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/john-bradford__ai-portrait-v2-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "john-bradford-and-the-kentucke-gazette"
       ],
-      "sourceFile": "John-Bradford.jpg"
+      "sourceFile": null
     },
     {
       "id": "fielding-bradford",
@@ -2762,14 +2762,18 @@
       "id": "hugh-forbes",
       "name": "Hugh Forbes",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/hugh-forbes__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hugh-forbes__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "mount-sterling-little-mountain-town"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "enoch-smith",
@@ -4498,17 +4502,17 @@
       "name": "Col. Thomas Marshall",
       "dates": "1730–1802",
       "image": {
-        "webp": "/people/portraits/thomas-marshall-col-512.webp",
-        "jpg": "/people/portraits/thomas-marshall-col-512.jpg"
+        "webp": "/people/portraits/thomas-marshall-col__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/thomas-marshall-col__ai-portrait-v1-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-thomas-marshall-at-buck-pond"
       ],
-      "sourceFile": "Portrait of Thomas Marshall, Father of CJ John Marshall.jpg"
+      "sourceFile": null
     },
     {
       "id": "john-spurlock",

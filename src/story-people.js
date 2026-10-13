@@ -1,6 +1,6 @@
 // Story body people links + inline portraits (PR B). Data: /data/web/story-people.json, written at
 // build time by scripts/build-story-people.mjs. Links only: the story text is never changed.
-import { portraitAlt, creditWithCaption } from './portrait-captions.js'
+import { portraitAlt, creditWithCaption, aiCreditText, creditHtml } from './portrait-captions.js'
 
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
@@ -29,9 +29,9 @@ export function nameRegex(name) {
 
 export function inlinePortraitHtml(person, side) {
   if (!person || !SAFE.webp.test(person.image?.webp || '') || !SAFE.jpg.test(person.image?.jpg || '')) return ''
-  const credit = person.ai ? AI_CREDIT : creditWithCaption(person, person.credit || '')
+  const credit = person.ai ? aiCreditText(person) : creditWithCaption(person, person.credit || '')
   const cls = side === 'left' ? 'story-portrait story-portrait-inline story-portrait-left' : 'story-portrait story-portrait-inline'
-  return `<figure class="${cls}" data-person="${esc(person.id)}"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" loading="lazy" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${esc(credit)}</span></figcaption></figure>`
+  return `<figure class="${cls}" data-person="${esc(person.id)}"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" loading="lazy" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${creditHtml(credit, esc)}</span></figcaption></figure>`
 }
 
 /**

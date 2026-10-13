@@ -28,6 +28,9 @@ const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
 const people = read('public/data/people.json')
 const related = read('public/data/web/related-people.json')
 const scope = read('scripts/story-people-samples.json')
+// Portrait sweep (batches): only the listed ids are linked/portrayed in these stories.
+const sweep = read('scripts/portrait-sweep.json').stories || {}
+const slugsInScope = [...new Set([...scope.slugs, ...Object.keys(sweep)])]
 const dir = path.join(root, 'public/content/stories')
 const stories = new Set(fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'index.json').map((f) => f.slice(0, -5)))
 const byId = new Map(people.people.map((p) => [p.id, p]))
@@ -70,12 +73,14 @@ function visibleText(html) {
 
 const out = { _note: 'Built by scripts/build-story-people.mjs. Do not edit.', stories: {} }
 const report = []
-for (const slug of scope.slugs) {
-  if (!stories.has(slug)) throw new Error(`build-story-people: sample ${slug} missing`)
+for (const slug of slugsInScope) {
+  if (!stories.has(slug)) throw new Error(`build-story-people: story ${slug} missing`)
+  const sw = scope.slugs.includes(slug) ? null : sweep[slug]
+  const swIds = sw ? new Set([...(sw.links || []), ...(sw.portraits || [])]) : null
   const story = JSON.parse(fs.readFileSync(path.join(dir, `${slug}.json`), 'utf8'))
   const body = strip(story.bodyMarkdown)
   const subject = storySubject(related, people.people, story, people.storySubjects).person
-  const cands = people.people.filter((p) => (p.stories || []).includes(slug))
+  const cands = people.people.filter((p) => (p.stories || []).includes(slug) && (!swIds || swIds.has(p.id)))
   const skipped = []
   const hits = []
   for (const p of cands) {
@@ -97,6 +102,7 @@ for (const slug of scope.slugs) {
   const sidebar = story.photo?.source_url ? commonsName(story.photo.source_url) : ''
   const portraits = []
   for (const { p } of hits) {
+    if (sw && !(sw.portraits || []).includes(p.id)) continue
     if (!hasSafePortrait(p)) continue
     if (subject && p.id === subject.id) continue
     if (sidebar && p.sourceFile && p.sourceFile.replace(/_/g, ' ').toLowerCase() === sidebar) { skipped.push(`${p.name} portrait (same as Photos sidebar)`); continue }
@@ -118,9 +124,9 @@ for (const slug of scope.slugs) {
   if (figs.length > MAX_INLINE) throw new Error(`build-story-people: ${slug} has ${figs.length} portraits`)
   for (const id of figs) {
     const p = byId.get(id)
-    if (p.ai && !done.includes('AI illustration · Kentucky History Drive')) throw new Error(`build-story-people: ${slug} AI credit missing`)
+    if (p.ai && !visibleText(done).includes('AI illustration · Kentucky History Drive')) throw new Error(`build-story-people: ${slug} AI credit missing`)
   }
   report.push(`  ${slug}: links ${links.map((l) => `${l.name}→${l.href}`).join(', ') || 'none'}; portraits ${figs.join(', ') || 'none'}${skipped.length ? `; skipped ${skipped.join(', ')}` : ''}`)
 }
 fs.writeFileSync(path.join(root, 'public/data/web/story-people.json'), `${JSON.stringify(out, null, 2)}\n`)
-console.log(`build-story-people: ${scope.slugs.length} sample stories\n${report.join('\n')}`)
+console.log(`build-story-people: ${slugsInScope.length} stories (${scope.slugs.length} samples + portrait sweep)\n${report.join('\n')}`)
