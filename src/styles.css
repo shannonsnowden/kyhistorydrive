@@ -5231,6 +5231,14 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 @container (min-width: 560px) {
   .story-portrait { width: 200px; margin: 0.35rem 0 0.75rem 1.5rem; }
 }
+/* PR B inline portraits (people named in the story): alternate right/left, one per paragraph,
+   each clears its own side so two never stack. */
+.story-portrait-inline { clear: right; }
+.story-portrait-left { float: left; clear: left; margin: 0.3rem 0.9rem 0.5rem 0; }
+@container (min-width: 560px) {
+  .story-portrait-inline { width: 160px; }
+  .story-portrait-left { margin: 0.35rem 1.5rem 0.75rem 0; }
+}
 .story-reader-layout .story-body::after { content: ''; display: block; clear: both; }
 .story-reader-layout .learn-more,
 .story-reader-layout .route-map { clear: both; }

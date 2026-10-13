@@ -56,6 +56,7 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
+import { applyStoryPeople } from '../src/story-people.js'
 import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
@@ -1381,6 +1382,7 @@ class PrerenderPages {
           transcript: PrerenderPages.transcriptForFilm(film),
         })
       : ''
+    const peopleParts = PrerenderPages.storyPeopleParts(story, lead, marked.parse(bodyMarkdown), relatedBundle)
     const main = `<article class="story-reader-layout static-story${film ? ' has-film' : ''}">
         <div class="story-intro">
           ${PrerenderPages.crumbHtml(story, layer)}
@@ -1388,12 +1390,12 @@ class PrerenderPages {
             <p class="static-kicker">Timeline story</p>
             <p class="story-card-meta">${metaBits.map((bit) => `<span>${PrerenderPages.escapeHtml(bit)}</span>`).join(' · ')}</p>
             <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
-            ${lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''}
+            ${peopleParts.lead}
           </header>
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
-          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${marked.parse(bodyMarkdown)}</div>
+          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${peopleParts.body}</div>
           ${routeMapSectionHtml(story.slug, {
             headingLevel: 2,
             linkMode: 'story',
@@ -2120,13 +2122,31 @@ class PrerenderPages {
     const data = PrerenderPages.readJson(relatedFile)
     const people = PrerenderPages.readJson(peopleFile)
     if (!Array.isArray(people.people) || !people.people.length) throw new Error('prerender: public people file is empty')
-    return { data, people, portraits: portraitsByStorySlug(data, people.people) }
+    const spFile = path.join(root, 'public/data/web/story-people.json')
+    const storyPeople = fs.existsSync(spFile) ? PrerenderPages.readJson(spFile) : { stories: {} }
+    return { data, people, storyPeople, peopleById: new Map(people.people.map((p) => [p.id, p])), portraits: portraitsByStorySlug(data, people.people) }
   }
 
   /** Main subject (shared rule in src/related-people.js storySubject). */
   static storyPortrait(story, bundle) {
     if (!bundle?.people?.people) return { person: null, reason: '' }
     return storySubject(bundle.data, bundle.people.people, story, bundle.people.storySubjects)
+  }
+
+  /** PR B: people links (lead + body) and inline portraits (body only), from story-people.json. */
+  static storyPeopleParts(story, lead, bodyHtml, bundle) {
+    const leadHtml = lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''
+    const entry = bundle?.storyPeople?.stories?.[story.slug]
+    if (!entry) return { lead: leadHtml, body: bodyHtml }
+    const subject = Boolean(PrerenderPages.storyPortrait(story, bundle).person)
+    const split = '<!--kh-story-people-->'
+    const bodyStart = lead ? 1 : 0
+    const done = applyStoryPeople(`${leadHtml}${split}${bodyHtml}`, entry, bundle.peopleById, (h) => (h.startsWith('#timeline/') ? `/stories/${h.slice(10)}/` : h), {
+      minPara: bodyStart + (subject ? 1 : 0),
+      startLeft: subject,
+    })
+    const [l, ...b] = done.split(split)
+    return { lead: l, body: b.join(split) }
   }
 
   static storyPortraitHtml(person) {

@@ -12,6 +12,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { storySubject } from '../src/related-people.js'
 import { imageDims } from './image-dims.mjs'
+import { commonsName } from './dedupe-portrait-photos-lib.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
@@ -20,15 +21,7 @@ const related = read('public/data/web/related-people.json')
 const topic = read('scripts/story-photo-topic.json')
 const dir = path.join(root, 'public/content/stories')
 
-export const commonsName = (u) => {
-  let f = String(u || '').split(/[?#]/)[0].split('/').pop() || ''
-  try {
-    f = decodeURIComponent(f)
-  } catch {
-    /* keep raw */
-  }
-  return f.replace(/^File:/, '').replace(/_/g, ' ').toLowerCase()
-}
+export { commonsName }
 
 let swapped = 0
 let dropped = 0

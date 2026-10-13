@@ -107,6 +107,13 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
   const people = Object.entries(data?.people || {}).sort((a, b) => b[0].length - a[0].length)
   if (!root || !people.length) return
   const done = new Set() // target slugs already linked in this story
+  for (const a of root.querySelectorAll('a.person-link[href^="#timeline/"]')) {
+    try {
+      done.add(decodeURIComponent(a.getAttribute('href').slice(10))) // build-time links (story-people.json)
+    } catch {
+      /* ignore */
+    }
+  }
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode: (n) => (n.parentElement.closest('a, code, pre, button') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
   })
@@ -159,7 +166,7 @@ export function hasSafePortrait(person) {
  * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
  */
 const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
-const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
+export const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
 const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /**
