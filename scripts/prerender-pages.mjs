@@ -58,6 +58,7 @@ import {
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { applyStoryPeople } from '../src/story-people.js'
+import { applyTransportLink } from '../src/transport-links.js'
 import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
@@ -296,6 +297,23 @@ class PrerenderPages {
       const src = `public${loc}index.html`
       entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
     }
+    // Item 70: /roads-and-rails/ is a vite page (roads-and-rails/index.html); list it with a self-canonical.
+    const rrFile = path.join(dist, 'roads-and-rails', 'index.html')
+    const rrHtml = fs.existsSync(rrFile) ? fs.readFileSync(rrFile, 'utf8') : ''
+    if (!rrHtml.includes('<link rel="canonical" href="https://kyhistorydrive.com/roads-and-rails/"') || !rrHtml.includes('<h1>Roads &amp; Rails</h1>') || !rrHtml.includes('id="transportMap"')) {
+      throw new Error('prerender: /roads-and-rails/ is missing its canonical, h1 or map')
+    }
+    if (!/<a href="\/roads-and-rails\/" data-route="roads" class="active" aria-current="page">/.test(rrHtml)) {
+      throw new Error('prerender: /roads-and-rails/ nav item is not marked current')
+    }
+    entries.push({
+      loc: `${PrerenderPages.SITE}/roads-and-rails/`,
+      lastmod: [
+        'roads-and-rails/index.html',
+        'src/transport-map.js',
+        'public/maps/transport/sections.geojson',
+      ].reduce((max, f) => PrerenderPages.laterDate(max, dates.lastmod.get(f) || ''), '') || new Date().toISOString().slice(0, 10),
+    })
     entries.push({
       loc: `${PrerenderPages.SITE}/privacy/`,
       lastmod: dates.lastmod.get('privacy/index.html') || '',
@@ -2433,7 +2451,9 @@ class PrerenderPages {
     if (!Array.isArray(people.people) || !people.people.length) throw new Error('prerender: public people file is empty')
     const spFile = path.join(root, 'public/data/web/story-people.json')
     const storyPeople = fs.existsSync(spFile) ? PrerenderPages.readJson(spFile) : { stories: {} }
-    return { data, people, storyPeople, peopleById: new Map(people.people.map((p) => [p.id, p])), portraits: portraitsByStorySlug(data, people.people) }
+    const tlFile = path.join(root, 'public/data/web/transport-links.json')
+    const transportLinks = fs.existsSync(tlFile) ? PrerenderPages.readJson(tlFile) : { stories: {} }
+    return { data, people, storyPeople, transportLinks, peopleById: new Map(people.people.map((p) => [p.id, p])), portraits: portraitsByStorySlug(data, people.people) }
   }
 
   /** Main subject (shared rule in src/related-people.js storySubject). */
@@ -2446,15 +2466,20 @@ class PrerenderPages {
   static storyPeopleParts(story, lead, bodyHtml, bundle) {
     const leadHtml = lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''
     const entry = bundle?.storyPeople?.stories?.[story.slug]
-    if (!entry) return { lead: leadHtml, body: bodyHtml }
-    const subject = Boolean(PrerenderPages.storyPortrait(story, bundle).person)
+    // Item 70: one /roads-and-rails/ link on the first mention in the lead or body, after the people links.
+    const transport = bundle?.transportLinks?.stories?.[story.slug]
     const split = '<!--kh-story-people-->'
+    if (!entry) {
+      const [l, ...b] = applyTransportLink(`${leadHtml}${split}${bodyHtml}`, transport).split(split)
+      return { lead: l, body: b.join(split) }
+    }
+    const subject = Boolean(PrerenderPages.storyPortrait(story, bundle).person)
     const bodyStart = lead ? 1 : 0
     const done = applyStoryPeople(`${leadHtml}${split}${bodyHtml}`, entry, bundle.peopleById, (h) => (h.startsWith('#timeline/') ? `/stories/${h.slice(10)}/` : h), {
       minPara: bodyStart + (subject ? 1 : 0),
       startLeft: subject,
     })
-    const [l, ...b] = done.split(split)
+    const [l, ...b] = applyTransportLink(done, transport).split(split)
     return { lead: l, body: b.join(split) }
   }
 

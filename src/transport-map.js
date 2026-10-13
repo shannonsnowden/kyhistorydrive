@@ -1,6 +1,6 @@
 /**
- * #transport / #transport/<year>
- * Phase 1 proof of concept. GeoJSON is fetched only when this view opens.
+ * /roads-and-rails/ and /roads-and-rails/#<year> (item 70; old /#transport links forward there).
+ * GeoJSON is fetched only when the map opens.
  * A feature shows when opened <= year && (closed > year || closed is absent).
  */
 import * as maplibregl from 'maplibre-gl'
@@ -293,10 +293,10 @@ function renderLegend(year) {
 }
 
 function writeHash(year) {
-  const next = `#transport/${year}`
+  const next = `#${year}`
   if (location.hash === next) return
   const url = new URL(location.href)
-  url.hash = `transport/${year}`
+  url.hash = String(year)
   history.replaceState(null, '', url.href)
 }
 

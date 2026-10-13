@@ -3587,6 +3587,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
   .site-header.is-menu-open nav a[data-route="people"] { order: 4; }
   .site-header.is-menu-open nav a[data-route="drives"] { order: 5; }
+  .site-header.is-menu-open nav a[data-route="roads"] { order: 5; }
   .site-header.is-menu-open nav a[data-route="about"] { order: 6; }
   .site-header.is-menu-open nav a[data-route="app"] { order: 7; }
   .site-header.is-menu-open .nav-today { order: 8; }
@@ -5607,3 +5608,9 @@ html[data-hp-theme="light"] .hp-plan-drive {
 }
 .story-portrait-note { white-space: nowrap; }
 
+
+/* Item 70: /roads-and-rails/ page (mockup B). The transport map from #258 with a page title and intro. */
+.transport-controls h1 { margin: 0 0 0.45rem; color: var(--heading); font-size: 1.6rem; line-height: 1.15; }
+.transport-intro { margin: 0 0 0.6rem; font-size: 1.02rem; line-height: 1.45; color: var(--text); }
+.roads-rails-page .transport-facts h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--heading); }
+.roads-rails-page .transport-facts h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.9rem 0 0.3rem; }
