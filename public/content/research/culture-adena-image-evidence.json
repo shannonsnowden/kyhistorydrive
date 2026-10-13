@@ -4,13 +4,13 @@
   "title": "Image evidence: Adena (Early–Middle Woodland, about 500 BCE–200 CE, Bluegrass)",
   "updated": "2026-10-13",
   "summary": "Woodland gardeners and hunters of the Bluegrass and Ohio Valley who built conical burial mounds and circular earthworks such as Wright Mounds and Mt. Horeb. Their finely woven fabrics and copper and mica ornaments are well documented from mound burials.",
-  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-adena-image-evidence/)",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
   "sections": [
     {
       "heading": "Physical build",
       "items": [
         {
-          "text": "Webb and Snow's studies of Adena burials are cited in the state plan; [Speculative] specific build and stature figures were not confirmed from open sources. Show an ordinary build.",
+          "text": "[Speculative] Webb and Snow's studies of Adena burials are cited in the state plan; [Speculative] specific build and stature figures were not confirmed from open sources. Show an ordinary build.",
           "sources": [
             "v1"
           ],
@@ -106,7 +106,7 @@
       "heading": "Display note (draft)",
       "items": [
         {
-          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-adena-image-evidence/)",
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
           "sources": []
         }
       ]
@@ -121,7 +121,8 @@
   "people": [],
   "openQuestions": [
     "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
-    "Items marked [Speculative] should stay generic in the image."
+    "Items marked [Speculative] should stay generic in the image.",
+    "Re-add /research/culture-adena-image-evidence/ link after #254."
   ],
   "sources": [
     {

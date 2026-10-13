@@ -4,13 +4,13 @@
   "title": "Image evidence: Mississippian (about 1000–1550 CE, western Kentucky)",
   "updated": "2026-10-13",
   "summary": "Maize-farming towns of western Kentucky with platform mounds, plazas and stockades, such as Wickliffe, Jonathan Creek and Tolu, and later Caborn-Welborn villages like Slack Farm.",
-  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Mississippian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-mississippian-image-evidence/)",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Mississippian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
   "sections": [
     {
       "heading": "Physical build",
       "items": [
         {
-          "text": "Slack Farm forensic study counted at least 850 individuals, later reinterred; [Speculative] build and stature figures were not confirmed from open sources. Show ordinary farmers' builds.",
+          "text": "[Speculative] Slack Farm forensic study counted at least 850 individuals, later reinterred; [Speculative] build and stature figures were not confirmed from open sources. Show ordinary farmers' builds.",
           "sources": [
             "sf"
           ],
@@ -99,7 +99,7 @@
       "heading": "Display note (draft)",
       "items": [
         {
-          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Mississippian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-mississippian-image-evidence/)",
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Mississippian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
           "sources": []
         }
       ]
@@ -114,7 +114,8 @@
   "people": [],
   "openQuestions": [
     "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
-    "Items marked [Speculative] should stay generic in the image."
+    "Items marked [Speculative] should stay generic in the image.",
+    "Re-add /research/culture-mississippian-image-evidence/ link after #254."
   ],
   "sources": [
     {

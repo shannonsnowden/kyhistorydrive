@@ -4,13 +4,13 @@
   "title": "Image evidence: Paleoindian (about 11,500–10,000 years ago)",
   "updated": "2026-10-13",
   "summary": "Kentucky's first peoples, small mobile family bands who hunted Ice Age animals and later modern game. Almost no human remains or perishable clothing survive from Kentucky, so the picture rests mostly on stone tools and climate data.",
-  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Paleoindian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-paleoindian-image-evidence/)",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Paleoindian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
   "sections": [
     {
       "heading": "Physical build",
       "items": [
         {
-          "text": "No Paleoindian skeletons are reported from Kentucky; build cannot be drawn from local skeletal studies. Show an ordinary, fit adult build without exaggeration.",
+          "text": "[Speculative] No Paleoindian skeletons are reported from Kentucky; build cannot be drawn from local skeletal studies. Show an ordinary, fit adult build without exaggeration.",
           "sources": [
             "pal",
             "v1"
@@ -54,7 +54,7 @@
       "heading": "Ornaments",
       "items": [
         {
-          "text": "None documented in Kentucky; leave out or keep to a plain cord.",
+          "text": "[Speculative] None documented in Kentucky; leave out or keep to a plain cord.",
           "sources": [
             "pal"
           ],
@@ -111,7 +111,7 @@
       "heading": "Display note (draft)",
       "items": [
         {
-          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Paleoindian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-paleoindian-image-evidence/)",
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Paleoindian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
           "sources": []
         }
       ]
@@ -126,7 +126,8 @@
   "people": [],
   "openQuestions": [
     "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
-    "Items marked [Speculative] should stay generic in the image."
+    "Items marked [Speculative] should stay generic in the image.",
+    "Re-add /research/culture-paleoindian-image-evidence/ link after #254."
   ],
   "sources": [
     {

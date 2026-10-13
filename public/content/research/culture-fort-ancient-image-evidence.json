@@ -4,7 +4,7 @@
   "title": "Image evidence: Fort Ancient (about 1000–1750 CE, northern and eastern Kentucky)",
   "updated": "2026-10-13",
   "summary": "Village farmers of the middle Ohio Valley who built circular villages around plazas and low burial mounds, such as Cleek-McCabe and the Petersburg village in Boone County. Skeletal studies give actual heights and health data.",
-  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-fort-ancient-image-evidence/)",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
   "sections": [
     {
       "heading": "Physical build",
@@ -106,7 +106,7 @@
       "heading": "Display note (draft)",
       "items": [
         {
-          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive. [Research notes](/research/culture-fort-ancient-image-evidence/)",
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
           "sources": []
         }
       ]
@@ -121,7 +121,8 @@
   "people": [],
   "openQuestions": [
     "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
-    "Items marked [Speculative] should stay generic in the image."
+    "Items marked [Speculative] should stay generic in the image.",
+    "Re-add /research/culture-fort-ancient-image-evidence/ link after #254."
   ],
   "sources": [
     {
