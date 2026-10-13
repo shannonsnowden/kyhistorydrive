@@ -216,6 +216,8 @@ assert.match(creditHtml, /commons\.wikimedia\.org/)
 assert.match(creditHtml, /License:/)
 assert.match(creditHtml, /creativecommons\.org/)
 assert.match(creditHtml, /target="_blank"/)
+assert.doesNotMatch(creditHtml, /<\/a>\s*\./, 'no stray period after a link in the photo credit')
+assert.match(creditHtml, / · <span class="photo-license">/)
 
 const sourceOnly = photoCreditModel({
   image_url: '/photo.jpg',
