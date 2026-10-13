@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T13:35:10.221Z",
+  "generatedAt": "2026-10-13T13:35:33.976Z",
   "count": 234,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -221,7 +221,7 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.8,
+      "lat": 38.7,
       "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)"
@@ -653,7 +653,7 @@
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2003
       },
-      "lat": 37.1,
+      "lat": 37,
       "lon": -88.6,
       "mapConfidence": "override",
       "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah"

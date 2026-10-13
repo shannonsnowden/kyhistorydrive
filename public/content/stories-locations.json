@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T13:35:10.288Z",
+  "generatedAt": "2026-10-13T13:35:34.042Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -74,7 +74,7 @@
     },
     "dover-mound-mason-county": {
       "slug": "dover-mound-mason-county",
-      "lat": 38.8,
+      "lat": 38.7,
       "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)",
@@ -186,7 +186,7 @@
     },
     "rowlandton-mound-site-15mcn3-paducah": {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
-      "lat": 37.1,
+      "lat": 37,
       "lon": -88.6,
       "mapConfidence": "override",
       "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah",
