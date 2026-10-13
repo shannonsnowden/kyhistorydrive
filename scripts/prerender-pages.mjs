@@ -204,6 +204,16 @@ class PrerenderPages {
         dates.lastmod.get('scripts/prerender-pages.mjs') || '',
       ),
     })
+    const storiesIndexHtml = PrerenderPages.storiesIndexPage(stories, cssHrefs)
+    PrerenderPages.assertPage(storiesIndexHtml, { lat: null, lon: null }, '/stories/')
+    PrerenderPages.writePage(dist, '/stories/', storiesIndexHtml)
+    entries.push({
+      loc: `${PrerenderPages.SITE}/stories/`,
+      lastmod: stories.reduce(
+        (max, story) => PrerenderPages.laterDate(max, story.lastmod || ''),
+        dates.lastmod.get('scripts/prerender-pages.mjs') || '',
+      ),
+    })
     relatedBundle.sourcePeople = sourcePeople
     const portraitLog = { shown: [], skipped: [] }
     for (const story of stories) {
@@ -284,7 +294,7 @@ class PrerenderPages {
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
-      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, people, videos, privacy; sitemap ${sitemapCount} urls`,
+      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers) plus home, about, people, stories index, videos, privacy; sitemap ${sitemapCount} urls`,
     )
     return {
       pages: stories.length + layers.length + 1,
@@ -1420,6 +1430,183 @@ class PrerenderPages {
       routeLightbox: Boolean(route),
       main,
       rss: true,
+    })
+  }
+
+  static STORIES_ERA_ORDER = ['prehistoric', 'native', 'frontier', 'early-commonwealth', 'other']
+  /** One-story eras fold into a neighbour so no chip holds a single story. */
+  static STORIES_ERA_FOLD = { revolution: 'frontier', modern: 'other' }
+  static STORIES_ERA_LABEL = {
+    prehistoric: 'Prehistoric',
+    native: 'Native nations',
+    frontier: 'Frontier',
+    'early-commonwealth': 'Early commonwealth',
+    other: 'More Kentucky history',
+  }
+
+  /** Group live stories by era, oldest first inside each group. Unknown eras fall into "other". */
+  static storiesByEra(stories) {
+    const order = PrerenderPages.STORIES_ERA_ORDER
+    const groups = new Map(order.map((era) => [era, []]))
+    for (const story of stories) {
+      const folded = PrerenderPages.STORIES_ERA_FOLD[story.era] || story.era
+      const era = order.includes(folded) ? folded : 'other'
+      groups.get(era).push(story)
+    }
+    const year = (s) => (Number.isFinite(Number(s.yearStart)) ? Number(s.yearStart) : 99999)
+    for (const list of groups.values()) list.sort((a, b) => year(a) - year(b) || String(a.title).localeCompare(String(b.title)))
+    return [...groups.entries()].filter(([, list]) => list.length)
+  }
+
+  /** /stories/: every live story, grouped by era, with a small text + era filter. Links work without JS. */
+  static storiesIndexPage(stories, cssHrefs) {
+    const esc = PrerenderPages.escapeHtml
+    const pageUrl = `${PrerenderPages.SITE}/stories/`
+    const groups = PrerenderPages.storiesByEra(stories)
+    const ordered = groups.flatMap(([, list]) => list)
+    const description = PrerenderPages.metaDescription(
+      `All ${ordered.length} Kentucky History Drive stories, grouped by era from prehistoric mounds to the early commonwealth, with a quick filter.`,
+    )
+    const label = (era) => PrerenderPages.STORIES_ERA_LABEL[era] || era
+    const chips = [`<button type="button" class="stories-chip" data-era="" aria-pressed="true">All <span class="stories-chip-n">${ordered.length}</span></button>`]
+      .concat(groups.map(([era, list]) => `<button type="button" class="stories-chip" data-era="${esc(era)}" aria-pressed="false">${esc(label(era))} <span class="stories-chip-n">${list.length}</span></button>`))
+      .join('')
+    const item = (story) => {
+      const meta = []
+      const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+      if (years) meta.push(years)
+      if (story.county) meta.push(PrerenderPages.countyLabel(story.county, true))
+      const hay = [story.title, story.county, story.summary].filter(Boolean).join(' ').toLowerCase()
+      return `<li class="stories-item" data-q="${esc(hay)}"><a href="/stories/${esc(story.slug)}/">${esc(story.title)}</a>${meta.length ? `<span class="stories-meta">${esc(meta.join(' · '))}</span>` : ''}</li>`
+    }
+    const sections = groups
+      .map(([era, list]) => `<section class="stories-group" data-era="${esc(era)}" aria-labelledby="stories-era-${esc(era)}">
+          <h2 id="stories-era-${esc(era)}">${esc(label(era))} <span class="stories-count">(${list.length})</span></h2>
+          <ul class="stories-list">${list.map(item).join('')}</ul>
+        </section>`)
+      .join('\n        ')
+    const main = `<style>
+        .static-read:has(.stories-page) { max-width: 64rem; }
+        .stories-filter { display: flex; flex-direction: column; gap: 0.6rem; margin: 0 0 1.25rem; }
+        .stories-filter input { width: 100%; max-width: 28rem; box-sizing: border-box; padding: 0.55rem 0.75rem; font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+        .stories-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .stories-chip { min-height: 36px; padding: 0.3rem 0.8rem; font: inherit; font-size: 0.9rem; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
+        .stories-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg, #fff); font-weight: 700; }
+        .stories-chip-n { opacity: 0.75; font-size: 0.8em; }
+        .stories-group h2 { color: var(--heading); margin: 1.5rem 0 0.5rem; font-size: 1.3rem; }
+        .stories-count { color: var(--muted); font-weight: 400; font-size: 0.85em; }
+        .stories-list { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 2rem; }
+        .stories-item { break-inside: avoid; margin: 0 0 0.6rem; line-height: 1.35; }
+        .stories-item a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .stories-item a:hover, .stories-item a:focus-visible { text-decoration: underline; }
+        .stories-meta { display: block; color: var(--muted); font-size: 0.85rem; }
+        .stories-empty { color: var(--muted); }
+        @media (max-width: 700px) { .stories-list { columns: 1; } }
+      </style>
+      <article class="stories-page">
+        <nav class="story-crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Stories</span>
+        </nav>
+        <header class="story-head">
+          <p class="static-kicker">Stories</p>
+          <h1>All Kentucky history stories</h1>
+          <p class="story-lead">${ordered.length} stories, grouped by era and oldest first within each era. Open the <a href="/#map">map</a> or the <a href="/#timeline">timeline</a> to explore them by place and year.</p>
+        </header>
+        <div class="stories-filter" id="storiesFilter" hidden>
+          <label class="visually-hidden" for="storiesQuery">Filter stories</label>
+          <input id="storiesQuery" type="search" placeholder="Filter by title, county or topic…" autocomplete="off" />
+          <div class="stories-chips" role="group" aria-label="Era">${chips}</div>
+          <p class="stories-status visually-hidden" id="storiesStatus" aria-live="polite"></p>
+        </div>
+        ${sections}
+        <p class="stories-empty" id="storiesEmpty" hidden>No stories match that filter.</p>
+      </article>
+      <script>
+        (function () {
+          var box = document.getElementById('storiesFilter')
+          if (!box) return
+          box.hidden = false
+          var input = document.getElementById('storiesQuery')
+          var chips = box.querySelectorAll('.stories-chip')
+          var groups = document.querySelectorAll('.stories-group')
+          var empty = document.getElementById('storiesEmpty')
+          var status = document.getElementById('storiesStatus')
+          var era = ''
+          function apply() {
+            var q = input.value.trim().toLowerCase()
+            var total = 0
+            groups.forEach(function (g) {
+              var on = !era || g.getAttribute('data-era') === era
+              var n = 0
+              g.querySelectorAll('.stories-item').forEach(function (li) {
+                var show = on && (!q || li.getAttribute('data-q').indexOf(q) !== -1)
+                li.hidden = !show
+                if (show) n++
+              })
+              g.hidden = n === 0
+              var c = g.querySelector('.stories-count')
+              if (c) c.textContent = '(' + n + ')'
+              total += n
+            })
+            empty.hidden = total !== 0
+            status.textContent = total + (total === 1 ? ' story' : ' stories')
+          }
+          chips.forEach(function (c) {
+            c.addEventListener('click', function () {
+              era = c.getAttribute('data-era')
+              chips.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false') })
+              apply()
+            })
+          })
+          input.addEventListener('input', apply)
+        })()
+      </script>`
+    const jsonLd = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: 'All Kentucky history stories',
+        description,
+        isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
+        publisher: { '@id': PrerenderPages.ORG_ID },
+        mainEntity: { '@id': `${pageUrl}#list` },
+        breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#list`,
+        name: 'Kentucky history stories',
+        numberOfItems: ordered.length,
+        itemListElement: ordered.map((story, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: story.title,
+          url: `${PrerenderPages.SITE}/stories/${story.slug}/`,
+        })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Stories', item: pageUrl },
+        ],
+      },
+    ])
+    return PrerenderPages.shell({
+      title: 'All stories · Kentucky History Drive',
+      description,
+      canonical: pageUrl,
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'website',
+      jsonLd,
+      main,
     })
   }
 
