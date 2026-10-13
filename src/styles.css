@@ -5260,6 +5260,9 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     left: 50%;
     transform: translateX(-50%);
   }
+  /* Credit on its own line under the name so it gets the full caption width and never breaks
+     at the 180px image width (Blackfish credit in the app reader at 390). */
+  .story-portrait .story-portrait-credit { display: block; }
 }
 /* Captions at 12px or larger; --muted is AA on --panel/--bg in light (#52604c) and dark (#a8b59c). */
 .story-portrait figcaption { font-size: max(12px, 0.8rem); }
