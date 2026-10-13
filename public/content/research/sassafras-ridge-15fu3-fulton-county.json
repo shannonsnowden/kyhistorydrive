@@ -1,0 +1,93 @@
+{
+  "slug": "sassafras-ridge-15fu3-fulton-county",
+  "storySlug": "sassafras-ridge-15fu3-fulton-county",
+  "title": "Research notes: Sassafras Ridge (15Fu3)",
+  "updated": "2026-10-13",
+  "summary": "Sources for the Mississippian mound center at Sassafras Ridge. The location is address-restricted; the pin is rounded to 0.1°. Several brief details could not be checked and were cut.",
+  "sections": [
+    {
+      "heading": "Site",
+      "items": [
+        {
+          "text": "NRHP-listed (information potential); address restricted; periods of significance AD 0–1499.",
+          "sources": [
+            "npg"
+          ]
+        },
+        {
+          "text": "Studied with Adams and Wickliffe in R. Barry Lewis’s 1986 Kentucky Heritage Council report.",
+          "sources": [
+            "tdar"
+          ]
+        },
+        {
+          "text": "One of several Mississippian mound centers in Fulton and bordering counties; 2019 NAGPRA notice found no cultural affiliation with a present-day tribe.",
+          "sources": [
+            "fr"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cut",
+      "items": [
+        {
+          "text": "Mound count, ceramic types and owl-effigy fragment: only in a thesis that could not be loaded, so cut.",
+          "sources": []
+        },
+        {
+          "text": "Exact location details in the federal notice are not repeated here.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1000,
+      "event": "Mississippian occupation begins (approximate).",
+      "sources": [
+        "npg"
+      ]
+    },
+    {
+      "year": 1500,
+      "event": "Occupation ends (approximate).",
+      "sources": [
+        "npg"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "R. Barry Lewis",
+      "role": "Archaeologist, 1986 report"
+    }
+  ],
+  "openQuestions": [
+    "A loadable public source for the mound count and ceramics."
+  ],
+  "sources": [
+    {
+      "id": "npg",
+      "citation": "“Sassafras Ridge (Site 15 FU 3),” NRIS 84000285, NPGallery, National Park Service.",
+      "url": "https://npgallery.nps.gov/AssetDetail/NRIS/84000285",
+      "type": "primary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "tdar",
+      "citation": "R. Barry Lewis, Mississippian Towns of the Western Kentucky Border: the Adams, Wickliffe, and Sassafras Ridge Sites (Kentucky Heritage Council, 1986), tDAR 50000.",
+      "url": "https://core.tdar.org/document/50000/mississippian-towns-of-the-western-kentucky-border-the-adams-wickliffe-and-sassafras-ridge-sites",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "fr",
+      "citation": "“Notice of Inventory Completion: Department of Folk Studies and Anthropology at Western Kentucky University,” Federal Register, June 28, 2019.",
+      "url": "https://www.federalregister.gov/documents/2019/06/28/2019-13839/notice-of-inventory-completion-department-of-folk-studies-and-anthropology-at-western-kentucky",
+      "type": "primary",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

@@ -14,6 +14,16 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 
 maplibregl.setWorkerUrl(maplibreWorkerUrl)
+import THEME_ICONS from '../scripts/drive-theme-icons.json'
+// Mockup: existing layer icon for each stop kind (no new icons).
+const escHtml = (v) => String(v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
+const kindIcon = (k) => {
+  if (!Object.hasOwn(THEME_ICONS.stopKinds, k)) return ''
+  const v = THEME_ICONS.stopKinds[k]
+  if (typeof v !== 'string' || !v) return ''
+  if (v.startsWith('/')) return /^\/icons\/[\w-]+\.png$/.test(v) ? `<img class="kicon" src="${escHtml(v)}" alt="" width="16" height="16">` : ''
+  return `<span class="kicon" aria-hidden="true">${escHtml(v)}</span>`
+}
 import { legSize, googleUrl, appleUrl, buildLegs } from './drive-links.js'
 
 const ROAD_FACTOR = 1.3
@@ -243,7 +253,7 @@ async function main() {
         const story = s.slug ? `<a href="/stories/${encodeURIComponent(s.slug)}/">Read the story</a>` : ''
         return `<li data-i="${i}" tabindex="-1"><span class="num" aria-hidden="true">${i + 1}</span>
           <div><p class="stop-name"><span class="vh">Stop ${i + 1}: </span>${esc(s.n)}</p>
-          <p class="stop-meta"><span class="tag">${esc(data.kinds[s.k])}</span>${s.c ? esc(s.c) + ' · ' : ''}${legText(d)} from the ${i ? 'last stop' : 'start'}</p></div>
+          <p class="stop-meta"><span class="tag">${kindIcon(s.k)}${esc(data.kinds[s.k])}</span>${s.c ? esc(s.c) + ' · ' : ''}${legText(d)} from the ${i ? 'last stop' : 'start'}</p></div>
           <div class="row-links">${story}<a href="${stopUrl(s)}" target="_blank" rel="noopener noreferrer" aria-label="Directions to ${esc(s.n)}">Directions</a></div></li>`
       }).join('')
       const label = N > 1 ? `Leg ${k + 1} · ${first === lastNo ? `stop ${first}` : `stops ${first}–${lastNo}`} · about ${fmt(legMin)}` : `Stops 1–${lastNo} · about ${fmt(legMin)}`
