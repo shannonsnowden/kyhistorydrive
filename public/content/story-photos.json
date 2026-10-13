@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-13T10:03:29.173Z",
+  "generatedAt": "2026-10-13T12:33:06.906Z",
   "bySlug": {
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
+    "adams-site-15fu4": {
+      "slug": "adams-site-15fu4",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -200,12 +200,12 @@
       "slug": "capt-robert-johnson-and-big-crossing-station",
       "historyId": "great-crossing-scott-1783-1815",
       "photo": {
-        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
-        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station--topic.jpg",
+        "title": "North Fork of Elkhorn Creek at Georgetown (photographed 2008); Johnson's Station stood at the creek's bison ford, Great Crossing, about three miles west",
+        "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2008
       }
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
@@ -265,7 +265,7 @@
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -313,11 +313,12 @@
       "slug": "col-thomas-marshall-at-buck-pond",
       "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
-        "title": "John Marshall",
-        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
       }
     },
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
@@ -883,7 +884,7 @@
       "historyId": null,
       "photo": {
         "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
-        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
@@ -907,7 +908,7 @@
       "historyId": "muir-site-15js86-jessamine-county",
       "photo": {
         "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -1436,11 +1437,11 @@
   },
   "byHistoryId": {
     "adams-site-15fu4-mississippian-fulton-county": {
-      "slug": "adams-site-mississippian-town-near-hickman",
+      "slug": "adams-site-15fu4",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -1622,12 +1623,12 @@
       "slug": "capt-robert-johnson-and-big-crossing-station",
       "historyId": "great-crossing-scott-1783-1815",
       "photo": {
-        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
-        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station--topic.jpg",
+        "title": "North Fork of Elkhorn Creek at Georgetown (photographed 2008); Johnson's Station stood at the creek's bison ford, Great Crossing, about three miles west",
+        "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2008
       }
     },
     "hubbell-flatboat-fight-limestone-1791": {
@@ -1672,7 +1673,7 @@
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -1720,11 +1721,12 @@
       "slug": "col-thomas-marshall-at-buck-pond",
       "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
-        "title": "John Marshall",
-        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
       }
     },
     "daniel-trabue-house-columbia-adair-1778-1840": {
@@ -2191,7 +2193,7 @@
       "historyId": "muir-site-15js86-jessamine-county",
       "photo": {
         "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
