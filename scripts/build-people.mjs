@@ -18,6 +18,7 @@ import {
   assertPublicPeople,
   diskPath,
   findAiPortrait,
+  findLocalPhoto,
   isCaptionedFree,
   isClearFreeLicense,
   isVerifiedFree,
@@ -185,6 +186,7 @@ async function main() {
   for (const person of people) {
     if (NO_PORTRAIT_IDS.includes(person.id)) continue
     if (findAiPortrait(person.id, portraitDir)) continue
+    if (findLocalPhoto(person.id, portraitDir)) continue
     const hasSource = Boolean(person.image)
     if (person.freeToUse && person.verified && hasSource && !isClearFreeLicense(person.license)) {
       skipped.push({
@@ -246,6 +248,8 @@ async function main() {
       }
       return publicRecord(credited, aiImage, true)
     }
+    const local = findLocalPhoto(person.id, portraitDir)
+    if (local && isVerifiedFree(person)) return publicRecord(person, local, false)
     const real = realById.get(person.id)
     if (real) return publicRecord(person, real, false)
     return publicRecord(person, null, false)

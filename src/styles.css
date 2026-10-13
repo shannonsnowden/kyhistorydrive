@@ -5343,3 +5343,15 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+
+/* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
+.story-photo-credit .photo-license { white-space: nowrap; }
+/* Sidebar credit links are inline text links: no padded tap box, so no gap before the period (' .'). */
+.story-sidebar-photo-attr.story-photo-credit a { display: inline; min-height: 0; padding: 0; }
+/* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
+   caption above); the 'no known likeness exists' note stays on its own unbroken line. */
+@container (max-width: 559.98px) {
+  .story-portrait figcaption { width: auto; max-width: 100%; left: 0; transform: none; overflow-wrap: anywhere; }
+}
+.story-portrait-note { white-space: nowrap; }
+
