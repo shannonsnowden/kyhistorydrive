@@ -33,12 +33,12 @@
       "timing": "uncertain",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/Chester_Harding_-_Daniel_Boone_-_NPG.2015.102_-_National_Portrait_Gallery_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Chester_Harding_-_Daniel_Boone_-_NPG.2015.102_-_National_Portrait_Gallery_(cropped).jpg",
-      "license": "Public domain",
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "Chester Harding · Public domain · via Wikimedia Commons",
+      "credit": "AI illustration · Kentucky History Drive",
       "freeToUse": true,
       "verified": true,
-      "notes": null
+      "notes": "Canonical face: AI illustration (Oct 2026), modeled on Chester Harding, life portrait of Daniel Boone, 1820 (NPG.2015.102), public domain, https://commons.wikimedia.org/wiki/File:Chester_Harding_-_Daniel_Boone_-_NPG.2015.102_-_National_Portrait_Gallery_(cropped).jpg."
     },
     {
       "id": "squire-boone",
@@ -195,12 +195,12 @@
       "timing": "uncertain",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/General_Benjamin_Logan_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "sourcePage": "https://commons.wikimedia.org/wiki/File:General_Benjamin_Logan_-_Google_Art_Project.jpg",
-      "license": "Public domain",
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "credit": "AI illustration · Kentucky History Drive",
       "freeToUse": true,
       "verified": true,
-      "notes": "Unknown artist; date range on Commons is uncertain."
+      "notes": "Unknown artist; date range on Commons is uncertain. Canonical face: AI illustration (Oct 2026), modeled on General Benjamin Logan, unknown artist (c. 1775–1802), public domain, https://commons.wikimedia.org/wiki/File:General_Benjamin_Logan_-_Google_Art_Project.jpg."
     },
     {
       "id": "ann-logan",
@@ -238,6 +238,7 @@
         "edward-worthington-at-worthingtons-fort",
         "falls-of-the-ohio",
         "george-rogers-clark",
+        "illinois-confederation-at-cahokia",
         "levi-todd-lexington-co-founder",
         "maj-joseph-bowman",
         "maj-silas-harlan",
@@ -249,12 +250,12 @@
       "timing": "uncertain",
       "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/George_Rogers_Clark.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "sourcePage": "https://commons.wikimedia.org/wiki/File:George_Rogers_Clark.jpg",
-      "license": "Public domain",
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "James B. Longacre / John Wesley Jarvis · Public domain · via Wikimedia Commons",
+      "credit": "AI illustration · Kentucky History Drive",
       "freeToUse": true,
       "verified": true,
-      "notes": null
+      "notes": "Canonical face: AI illustration (Oct 2026), modeled on portrait of George Rogers Clark by C. D. Cook, c. 1810 (NPG.69.48; library likeness after Jarvis), public domain, https://commons.wikimedia.org/wiki/File:George_Rogers_Clark.jpg."
     },
     {
       "id": "richard-henderson",
@@ -989,12 +990,12 @@
       "timing": "uncertain",
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/John-Bradford.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "sourcePage": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
-      "license": "Public domain",
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "credit": "AI illustration · Kentucky History Drive",
       "freeToUse": true,
       "verified": true,
-      "notes": null
+      "notes": "Canonical face: AI illustration (Oct 2026), modeled on Known portrait of John Bradford, printer of the Kentucke Gazette, unknown artist, public domain, https://commons.wikimedia.org/wiki/File:John-Bradford.jpg."
     },
     {
       "id": "fielding-bradford",
@@ -1250,12 +1251,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting.",
+      "ai": true
     },
     {
       "id": "robert-johnson",
@@ -1272,12 +1274,12 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. AI illustration (Oct 2026); no known likeness exists."
     },
     {
       "id": "jemima-suggett-johnson",
@@ -1357,12 +1359,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "Wikipedia image is a modern photo of Fort Boonesborough."
+      "notes": "Wikipedia image is a modern photo of Fort Boonesborough.",
+      "ai": true
     },
     {
       "id": "fanny-callaway",
@@ -1490,12 +1493,12 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting. AI illustration (Oct 2026); no known likeness exists."
     },
     {
       "id": "egushawa",
@@ -1511,12 +1514,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting.",
+      "ai": true
     },
     {
       "id": "thomas-walker",
@@ -1560,7 +1564,7 @@
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Christopher_Gist.jpg",
       "license": "Public domain",
       "licenseUrl": null,
-      "credit": "Up-loaded by David McCoy--no name associated with art · Public domain · via Wikimedia Commons",
+      "credit": "Imagined posthumous portrait · Public domain · via Wikimedia Commons",
       "freeToUse": false,
       "verified": false,
       "notes": "1857 magazine drawing, a century after his death; no life portrait is known."
@@ -4129,12 +4133,12 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Canonical face: AI illustration (Oct 2026); no known likeness."
     },
     {
       "id": "enoch-smith",
@@ -6710,12 +6714,12 @@
       "timing": "uncertain",
       "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "sourcePage": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall,_Father_of_CJ_John_Marshall.jpg",
-      "license": "Public domain",
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "credit": "AI illustration · Kentucky History Drive",
       "freeToUse": true,
       "verified": true,
-      "notes": "Commons: the only known portrait of Thomas Marshall, reproduced in Albert J. Beveridge's Life of John Marshall."
+      "notes": "Commons: the only known portrait of Thomas Marshall, reproduced in Albert J. Beveridge's Life of John Marshall. Canonical face: AI illustration (Oct 2026), modeled on Portrait of Thomas Marshall, unknown artist, the only known portrait (reproduced in Beveridge's Life of John Marshall), public domain, https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall,_Father_of_CJ_John_Marshall.jpg."
     },
     {
       "id": "john-spurlock",
@@ -6769,16 +6773,17 @@
       ],
       "role": "Founder of Old Forester and Brown-Forman",
       "native": false,
-      "likeness": "none-known",
+      "likeness": "real-photo",
       "timing": null,
-      "image": null,
-      "sourcePage": null,
-      "license": null,
+      "image": "/people/portraits/george-garvin-brown__photo-512.jpg",
+      "sourcePage": "https://archive.org/details/memoirsofloweroh01fede/page/282/",
+      "license": "Public domain",
       "licenseUrl": null,
-      "credit": null,
-      "freeToUse": false,
-      "verified": false,
-      "notes": "No free portrait found on Commons. Needs an AI portrait."
+      "credit": "George Garvin Brown, from Memoirs of the Lower Ohio Valley (1905), p. 282. Public domain, via Internet Archive.",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Real photograph, Memoirs of the Lower Ohio Valley (1905), p. 282 (Internet Archive). Local files george-garvin-brown__photo-512.{webp,jpg} (supplied Oct 2026). Never use the Whiskey Row banner image of Brown.",
+      "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
     }
   ]
 }

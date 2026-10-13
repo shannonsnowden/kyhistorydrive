@@ -1,4 +1,5 @@
-import { portraitAlt } from './portrait-captions.js'
+import { portraitAlt, creditWithCaption, aiCreditText, creditHtml } from './portrait-captions.js'
+import { MAX_LINKS_PER_BLOCK } from './story-people.js'
 
 export { portraitAlt }
 
@@ -107,13 +108,24 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
   const people = Object.entries(data?.people || {}).sort((a, b) => b[0].length - a[0].length)
   if (!root || !people.length) return
   const done = new Set() // target slugs already linked in this story
+  for (const a of root.querySelectorAll('a.person-link[href^="#timeline/"]')) {
+    try {
+      done.add(decodeURIComponent(a.getAttribute('href').slice(10))) // build-time links (story-people.json)
+    } catch {
+      /* ignore */
+    }
+  }
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode: (n) => (n.parentElement.closest('a, code, pre, button') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+    // Never inside links, code or headings (SEO: no links in h1–h6); at most MAX_LINKS_PER_BLOCK
+    // person links per paragraph or list item (critique #280).
+    acceptNode: (n) => (n.parentElement.closest('a, code, pre, button, h1, h2, h3, h4, h5, h6') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
   })
   const nodes = []
   while (walker.nextNode()) nodes.push(walker.currentNode)
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i]
+    const block = node.parentElement?.closest('p, li, blockquote, td, th, dd, dt')
+    if (block && block.querySelectorAll('a.person-link').length >= MAX_LINKS_PER_BLOCK) continue
     for (const [name, target] of people) {
       if (target === slug || done.has(target) || (data.skip?.[name] || []).includes(slug) || !titleFor(target)) continue
       const re = new RegExp(`(^|[^\\p{L}\\p{N}])${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}]|['’]s (?:Station|Fort))`, 'u')
@@ -135,3 +147,96 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
     }
   }
 }
+
+// ---- Story subject portrait (static /stories/ pages and the map app reader share this) ----
+
+const SAFE_PORTRAIT = { webp: /^\/people\/portraits\/[\w.-]+\.webp$/, jpg: /^\/people\/portraits\/[\w.-]+\.jpg$/ }
+
+/** True when both files are self-hosted portraits (same rule for webp and jpg). */
+export function hasSafePortrait(person) {
+  return SAFE_PORTRAIT.webp.test(String(person?.image?.webp || '')) && SAFE_PORTRAIT.jpg.test(String(person?.image?.jpg || ''))
+}
+
+/**
+ * Main subject of a story: related-people.json maps the person's name to this story, or a
+ * people.json story slug equals (or starts with) the person id. More than one match → skip.
+ * If neither finds anyone, the build-time title map (people.json storySubjects: full name or alias (Capt. Robert
+ * Johnson and Big Crossing Station → robert-johnson) is used; a name followed by a place word (Red Bird
+ * River, Boone County) does not count. The portrait shows even when the Photos box has the same
+ * image (Shannon, Oct 13).
+ * Returns { person, reason }.
+ */
+/**
+ * Slug-prefix matches that are not the story's subject. The Red Bird River petroglyphs story is
+ * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
+ */
+const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
+export const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
+const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+/**
+ * Build time only (scripts/build-people.mjs): people named in a story title by full name or
+ * alias. Multi-word names match case-insensitively; one-word names (Blackfish, Hokoleskwa) only
+ * with exact case. A name followed by a place word (Red Bird River, Boone County) does not count.
+ */
+export function titlePeople(people, title, slug = '') {
+  const t = String(title || '')
+  const out = []
+  for (const p of people || []) {
+    if ((NOT_SUBJECT[slug] || []).includes(p.id)) continue
+    for (const n of [p.name, ...(p.aliases || [])].filter(Boolean)) {
+      const one = String(n).trim().split(/\s+/).length < 2
+      const m = new RegExp(`(?:^|[^\\w])${escRe(n)}(?![\\w])`, one ? '' : 'i').exec(t)
+      if (!m || PLACE_WORD.test(t.slice(m.index + m[0].length))) continue
+      out.push({ person: p, via: n === p.name ? 'name' : `alias:${n}` })
+      break
+    }
+  }
+  return out
+}
+
+/** slug → person id for stories whose title names exactly one person (ids only; aliases stay private). */
+export function buildStorySubjects(people, stories) {
+  const map = {}
+  for (const st of stories || []) {
+    const hits = titlePeople(people, st.title, st.slug)
+    if (hits.length === 1) map[st.slug] = hits[0].person.id
+  }
+  return map
+}
+
+export function storySubject(relatedData, people, story, storySubjects = null) {
+  const slug = story?.slug
+  if (!slug || !Array.isArray(people)) return { person: null, reason: '' }
+  const withImage = people.filter(hasSafePortrait)
+  const hits = new Map()
+  for (const [name, target] of Object.entries(relatedData?.people || {})) {
+    if (target !== slug) continue
+    const p = withImage.find((x) => normName(x.name) === normName(name)) || withImage.find((x) => normName(x.name) === rankless(name))
+    if (p) hits.set(p.id, p)
+  }
+  for (const p of withImage) {
+    if ((p.stories || []).some((s) => s === slug && (s === p.id || s.startsWith(`${p.id}-`)))) hits.set(p.id, p)
+  }
+  for (const id of NOT_SUBJECT[slug] || []) hits.delete(id)
+  if (!hits.size && storySubjects?.[slug]) {
+    const p = withImage.find((x) => x.id === storySubjects[slug])
+    if (p) hits.set(p.id, p)
+  }
+  if (!hits.size) return { person: null, reason: '' }
+  if (hits.size > 1) return { person: null, reason: `ambiguous: ${[...hits.keys()].join('/')}` }
+  const person = [...hits.values()][0]
+  return { person, reason: '' }
+}
+
+/** Newspaper-style portrait floated right of the first paragraph; name-first caption with credit. */
+export function storyPortraitHtml(person) {
+  if (!person || !hasSafePortrait(person)) return ''
+  const credit = person.ai ? aiCreditText(person) : creditWithCaption(person, person.credit || '')
+  const inner = creditHtml(credit, esc)
+  const linked = /^https:\/\//i.test(person.creditUrl || '')
+    ? `<a href="${esc(person.creditUrl)}" target="_blank" rel="noopener noreferrer">${inner}<span class="visually-hidden"> (opens in a new tab)</span></a>`
+    : inner
+  return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" loading="lazy" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${linked}</span></figcaption></figure>`
+}
+

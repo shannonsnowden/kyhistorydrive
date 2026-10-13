@@ -14,7 +14,7 @@
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
-import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
+import { loadPhotoVariants } from './responsive-img.js'
 import { HomepageStructure } from './homepage-structure.js'
 import {
   escapeHtml,
@@ -48,19 +48,6 @@ function wikiTitleFromUrl(url) {
     return null
   }
 }
-
-function quoteFromStory(story) {
-  if (!story) return null
-  const text = String(story.quote || story.summary || '').trim()
-  if (!text) return null
-  const href = story.href || (story.slug ? `/#timeline/${encodeURIComponent(story.slug)}` : '')
-  return {
-    text,
-    source: story.title || '',
-    href,
-  }
-}
-
 
 async function fetchWikipediaPhoto(titleOrUrl) {
   if (!titleOrUrl) return null
@@ -155,11 +142,6 @@ function heroSlides(pack) {
   return all[0] ? [all[0]] : []
 }
 
-function prefersReducedMotion() {
-  return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
-}
-
-
 function preloadLeadImage(story) {
   if (!usablePhoto(story?.photo)) return
   // The build writes the same tag into <head> (scripts/prerender-home-hero.mjs); dev only adds it here.
@@ -249,46 +231,8 @@ function markPortraitHeroImages(root) {
   })
 }
 
-function renderFeatures(pack) {
-  const root = document.getElementById('hpFeatureCards')
-  if (!root) return
-  const items = pack.features || []
-  if (!items.length) {
-    root.innerHTML = `<p class="muted">This set is a single highlight — see the story above, or open the timeline.</p>`
-    return
-  }
-  root.innerHTML = items
-    .map((item) => {
-      const hasPhoto = Boolean(usablePhoto(item.photo))
-      const media = hasPhoto
-        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}" aria-label="Read: ${escapeHtml(item.title)}" tabindex="-1">${responsivePicture({
-            src: item.photo.image_url,
-            alt: item.photo.title || item.title,
-            loading: 'lazy',
-            sizes: '(max-width: 720px) calc(100vw - 2.3rem), (max-width: 1100px) 46vw, 22rem',
-          })}</a>`
-        : ''
-      const credit = photoCredit(item.photo)
-      const mapHref = storyMapHref(item)
-      const cta = mapHref
-        ? `<a class="hp-layer-cta" href="${escapeHtml(mapHref)}">Open on the map</a>`
-        : `<a class="hp-layer-cta" href="${escapeHtml(item.href)}">Read the story</a>`
-      return `<article class="hp-feature${hasPhoto ? '' : ' hp-feature--no-photo'}">
-        ${media}
-        <div class="hp-feature-copy">
-          <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(storyYearLabel(item.yearStart))}` : ''}</p>
-          <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
-          <p class="hp-feature-deck">${escapeHtml(HomepageStructure.finishedSummary(item.summary))}</p>
-          ${cta}
-          ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
-        </div>
-      </article>`
-    })
-    .join('')
-}
-
 /**
- * Fixed-size text boxes (hero title/deck + quote): the box height is set in CSS per
+ * Fixed-size text boxes (hero title/deck): the box height is set in CSS per
  * breakpoint, so rotating slides never moves anything. If a string is too long for its
  * box at the default size, shrink the font (down to ~0.8x / 14px); if it still does not
  * fit, leave it at the minimum size and let the box scroll (with a fade hint) — never
@@ -311,7 +255,7 @@ function fitEl(el) {
   if (!el.clientHeight) return // not rendered (hidden); re-run when it becomes visible
   const over = () => el.scrollHeight > el.clientHeight + 1
   if (!over()) return
-  const target = el.firstElementChild && el.classList.contains('hp-quote-body') ? el.firstElementChild : el
+  const target = el
   const basePx = parseFloat(getComputedStyle(target).fontSize) || 16
   const isTitle = el.tagName === 'H2'
   const min = isTitle
@@ -343,19 +287,19 @@ function updateScrollHint(el) {
 let fitWatching = false
 let fitRaf = 0
 function fitHomeText() {
-  document.querySelectorAll('#hpHero .hp-fit, #hpQuote .hp-fit').forEach(fitEl)
+  document.querySelectorAll('#hpHero .hp-fit').forEach(fitEl)
   if (fitWatching) return
   fitWatching = true
   const rerun = () => {
     cancelAnimationFrame(fitRaf)
     fitRaf = requestAnimationFrame(() => {
-      document.querySelectorAll('#hpHero .hp-fit, #hpQuote .hp-fit').forEach(fitEl)
+      document.querySelectorAll('#hpHero .hp-fit').forEach(fitEl)
     })
   }
   // Width changes (resize, rotation, split view), webfont/system-font swap, late reveal.
   if (window.ResizeObserver) {
     const ro = new ResizeObserver(rerun)
-    ;['hpHero', 'hpQuote'].forEach((id) => {
+    ;['hpHero'].forEach((id) => {
       const n = document.getElementById(id)
       if (n) ro.observe(n)
     })
@@ -372,36 +316,6 @@ function fitHomeText() {
     },
     true,
   )
-}
-
-function renderQuote(story) {
-  const root = document.getElementById('hpQuote')
-  if (!root) return
-  const q = quoteFromStory(story)
-  if (!q?.text) {
-    root.hidden = true
-    root.innerHTML = ''
-    root.removeAttribute('aria-busy')
-    return
-  }
-  const next = `<blockquote>
-      <div class="hp-quote-body hp-fit"><p>${escapeHtml(q.text)}</p></div>
-      <footer>— <a href="${escapeHtml(q.href || '#')}">${escapeHtml(q.source || '')}</a></footer>
-    </blockquote>`
-  root.hidden = false
-  root.setAttribute('aria-live', 'polite')
-  if (root.innerHTML === next) return
-  const apply = () => {
-    root.innerHTML = next
-    root.classList.remove('is-changing')
-    fitHomeText()
-  }
-  if (prefersReducedMotion() || !root.querySelector('blockquote')) {
-    apply()
-    return
-  }
-  root.classList.add('is-changing')
-  window.setTimeout(apply, 180)
 }
 
 function curatedLayer(item) {
@@ -440,31 +354,13 @@ function renderLayerCards(layers, skipSlugs = []) {
 }
 
 function applyArchiveLabels(count) {
-  const labels = HomepageStructure.archiveLabels(count)
   const kicker = document.getElementById('hpExploreKicker')
   const title = document.getElementById('hp-layers-title')
-  const meta = document.getElementById('hpFeaturesMeta')
+  // The build stamps the live story count (the same list /stories/ shows); the catalog count is only a fallback.
+  const stamped = Number(title?.dataset?.storyCount)
+  const labels = HomepageStructure.archiveLabels(Number.isInteger(stamped) && stamped > 0 ? stamped : count)
   if (kicker) kicker.textContent = labels.kicker
   if (title) title.textContent = labels.title
-  if (meta) meta.textContent = labels.features
-}
-
-/** Quote copy from a story file. Falls back to the index summary. Does not edit the file. */
-async function loadQuoteStory(story) {
-  if (!story?.slug) return null
-  let text = ''
-  try {
-    const res = await fetch(`/content/stories/${encodeURIComponent(story.slug)}.json`)
-    if (res.ok) {
-      const full = await res.json()
-      text = firstSentence(full.bodyMarkdown || '')
-    }
-  } catch {
-    /* use the index summary */
-  }
-  if (!text) text = firstSentence(HomepageStructure.deckText(story.summary || ''))
-  if (!text) return null
-  return { ...story, quote: text }
 }
 
 function relatedCardHtml(item) {
@@ -646,40 +542,51 @@ async function loadPack() {
 
 let homePageStarted = false
 
+/**
+ * Homepage story cards keep a crawlable href="/stories/<slug>/". A plain left click
+ * (no modifier keys) opens the same story in the Timeline reader instead (data-timeline),
+ * as a same-document hash navigation so Back returns to the homepage.
+ */
+let timelineClicksBound = false
+function bindTimelineCardClicks() {
+  if (timelineClicksBound) return
+  timelineClicksBound = true
+  document.addEventListener('click', (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    const a = e.target instanceof Element ? e.target.closest('a[data-timeline]') : null
+    if (!a || !a.closest('#home')) return
+    const tl = a.getAttribute('data-timeline') || ''
+    if (!/^\/#timeline\/[A-Za-z0-9%._-]+$/.test(tl)) return
+    e.preventDefault()
+    try {
+      sessionStorage.setItem('khd-from-home', decodeURIComponent(tl.slice('/#timeline/'.length)))
+    } catch {}
+    location.hash = tl.slice(1)
+  })
+}
+
 export function initHomePage() {
   if (homePageStarted) return
   if (!document.getElementById('hpHero')) return
   homePageStarted = true
+  bindTimelineCardClicks()
   AdSlot.mount(document.getElementById('home'), 'home')
   renderRelatedCards()
   Promise.all([loadPack(), loadPhotoVariants(), HomepageStructure.loadCatalog()])
     .then(async ([pack, , catalog]) => {
       const slides = heroSlides(pack)
       const heroSlugs = slides.map((story) => story.slug).filter(Boolean)
-      const highlights = HomepageStructure.pickHighlights(catalog.stories, heroSlugs, 4)
-      const quotePick = HomepageStructure.pickQuote(
-        catalog.stories,
-        [...heroSlugs, ...highlights.map((story) => story.slug)],
-        {
-          heroSlugs,
-          pin: HomepageStructure.quotePinFromPack(pack, heroSlugs),
-        },
-      )
-      const quoteStory = await loadQuoteStory(quotePick)
       renderTodayNav(pack)
       renderHero(pack)
-      renderFeatures({ features: highlights })
-      renderQuote(quoteStory)
       applyArchiveLabels(catalog.count)
       renderLayerCards(
         pack.layers,
-        HomepageStructure.firstViewSkip(heroSlugs, highlights, quotePick?.slug),
+        HomepageStructure.firstViewSkip(heroSlugs, [], null),
       )
     })
     .catch((err) => {
       console.error(err)
       renderTodayNav({ stories: [] })
-      renderQuote(null)
       renderLayerCards([])
     })
 }

@@ -1,0 +1,525 @@
+{
+  "_note": "Portrait sweep (Shannon, Oct 2026): first-mention links and inline portraits from the gap audit, added in batches. build-story-people.mjs only links/portraits the listed ids for these stories. Batch 1: Thomas Marshall, Hugh Forbes, Boone/Logan/Clark/Bradford canonical faces, unlinked first mentions.",
+  "stories": {
+    "mount-sterling-little-mountain-town": {
+      "links": [
+        "hugh-forbes"
+      ],
+      "portraits": [
+        "hugh-forbes"
+      ]
+    },
+    "moneton": {
+      "links": [
+        "gabriel-arthur",
+        "thomas-batts"
+      ],
+      "portraits": []
+    },
+    "capt-nathaniel-hart": {
+      "links": [
+        "nathaniel-hart"
+      ],
+      "portraits": []
+    },
+    "capt-abraham-lincoln-on-long-run": {
+      "links": [
+        "abraham-lincoln-capt"
+      ],
+      "portraits": []
+    },
+    "michael-stoner-german-long-hunter": {
+      "links": [
+        "michael-stoner",
+        "daniel-boone"
+      ],
+      "portraits": [
+        "daniel-boone"
+      ]
+    },
+    "col-john-todd-of-lexington": {
+      "links": [
+        "john-todd"
+      ],
+      "portraits": []
+    },
+    "thomas-walker-and-cumberland-gap": {
+      "links": [
+        "thomas-walker"
+      ],
+      "portraits": []
+    },
+    "john-finley-the-trader-who-put-kentucky-on-boones-map": {
+      "links": [
+        "john-finley"
+      ],
+      "portraits": []
+    },
+    "treaty-of-logstown-1752": {
+      "links": [
+        "tanacharison"
+      ],
+      "portraits": []
+    },
+    "col-william-russell-iii": {
+      "links": [
+        "william-russell-iii"
+      ],
+      "portraits": []
+    },
+    "treaties-of-hard-labour-and-lochaber": {
+      "links": [
+        "john-stuart",
+        "john-donelson"
+      ],
+      "portraits": []
+    },
+    "capt-will-the-hunting-ground": {
+      "links": [
+        "will-emery",
+        "daniel-boone"
+      ],
+      "portraits": [
+        "daniel-boone"
+      ]
+    },
+    "hancock-taylor-fincastle-surveyor": {
+      "links": [
+        "hancock-taylor"
+      ],
+      "portraits": []
+    },
+    "pilot-knob-boones-overlook-1769": {
+      "links": [
+        "daniel-boone"
+      ],
+      "portraits": [
+        "daniel-boone"
+      ]
+    },
+    "bullitts-lick-kentuckys-first-industry": {
+      "links": [
+        "thomas-bullitt"
+      ],
+      "portraits": []
+    },
+    "leestown": {
+      "links": [
+        "hancock-lee"
+      ],
+      "portraits": []
+    },
+    "mcafee-station-on-the-salt-river": {
+      "links": [
+        "james-mcafee"
+      ],
+      "portraits": []
+    },
+    "georgetown-and-royal-spring": {
+      "links": [
+        "john-mcclelland",
+        "elijah-craig"
+      ],
+      "portraits": []
+    },
+    "ann-mcginty-and-kentuckys-first-spinning-wheel": {
+      "links": [
+        "ann-mcginty"
+      ],
+      "portraits": []
+    },
+    "stanford-from-st-asaph": {
+      "links": [],
+      "portraits": [
+        "benjamin-logan"
+      ]
+    },
+    "william-calks-1775-journal": {
+      "links": [
+        "william-calk"
+      ],
+      "portraits": []
+    },
+    "capt-john-strode-of-strodes-station": {
+      "links": [
+        "john-strode"
+      ],
+      "portraits": []
+    },
+    "paris-from-hopewell": {
+      "links": [
+        "lawrence-protzman"
+      ],
+      "portraits": []
+    },
+    "springfield-founding-and-washington-county-seat": {
+      "links": [
+        "matthew-walton"
+      ],
+      "portraits": []
+    },
+    "springfield-first-county-seat-after-statehood": {
+      "links": [
+        "matthew-walton"
+      ],
+      "portraits": []
+    },
+    "illinois-confederation-at-cahokia": {
+      "links": [
+        "george-rogers-clark"
+      ],
+      "portraits": [
+        "george-rogers-clark"
+      ],
+      "aliases": {
+        "george-rogers-clark": "Clark"
+      }
+    },
+    "col-john-bowman-at-old-chillicothe": {
+      "links": [
+        "john-bowman"
+      ],
+      "portraits": []
+    },
+    "isaac-ruddell-and-the-guns-at-ruddells-station": {
+      "links": [
+        "isaac-ruddell"
+      ],
+      "portraits": []
+    },
+    "william-christian-of-beargrass": {
+      "links": [
+        "william-christian"
+      ],
+      "portraits": []
+    },
+    "bardstown": {
+      "links": [
+        "william-bard"
+      ],
+      "portraits": []
+    },
+    "elizabethtown-from-severns-valley": {
+      "links": [
+        "andrew-hynes"
+      ],
+      "portraits": []
+    },
+    "frankfort-franks-ford-becomes-the-capital": {
+      "links": [
+        "stephen-frank"
+      ],
+      "portraits": []
+    },
+    "hodgenville-from-hodgens-mill-to-county-seat": {
+      "links": [
+        "robert-hodgen"
+      ],
+      "portraits": []
+    },
+    "lawrenceburg-from-kaufmans-station": {
+      "links": [
+        "jacob-kaufman"
+      ],
+      "portraits": []
+    },
+    "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
+      "links": [
+        "jacob-kaufman"
+      ],
+      "portraits": []
+    },
+    "shelbyville": {
+      "links": [
+        "william-shannon"
+      ],
+      "portraits": []
+    },
+    "william-hoy-and-hoys-station": {
+      "links": [
+        "william-hoy"
+      ],
+      "portraits": []
+    },
+    "battle-of-blue-licks": {
+      "links": [
+        "william-caldwell"
+      ],
+      "portraits": []
+    },
+    "bryan-station-siege-august-1782": {
+      "links": [
+        "william-caldwell"
+      ],
+      "portraits": []
+    },
+    "capt-james-estill-estills-defeat": {
+      "links": [
+        "james-estill"
+      ],
+      "portraits": []
+    },
+    "col-john-holder-at-lower-howards-creek": {
+      "links": [
+        "john-holder"
+      ],
+      "portraits": []
+    },
+    "basil-haydens-high-rye-trail": {
+      "links": [
+        "basil-hayden"
+      ],
+      "portraits": []
+    },
+    "henderson-at-red-banks": {
+      "links": [
+        "samuel-hopkins"
+      ],
+      "portraits": []
+    },
+    "washington-mason-county": {
+      "links": [
+        "arthur-fox",
+        "william-wood"
+      ],
+      "portraits": []
+    },
+    "flemingsburg-stocktons-town": {
+      "links": [
+        "john-fleming",
+        "george-stockton"
+      ],
+      "portraits": []
+    },
+    "william-whitley-sportsmans-hill": {
+      "links": [
+        "william-whitley"
+      ],
+      "portraits": []
+    },
+    "jenny-wileys-captivity-and-escape": {
+      "links": [
+        "jenny-wiley"
+      ],
+      "portraits": []
+    },
+    "covington-at-the-point": {
+      "links": [
+        "thomas-kennedy"
+      ],
+      "portraits": []
+    },
+    "jacob-spears-early-bourbon-whiskey": {
+      "links": [
+        "jacob-spears"
+      ],
+      "portraits": []
+    },
+    "russellville-from-big-boiling-spring-to-county-seat": {
+      "links": [
+        "william-cook"
+      ],
+      "portraits": []
+    },
+    "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
+      "links": [
+        "barton-stone"
+      ],
+      "portraits": []
+    },
+    "capt-william-hubbells-ohio-flatboat-stand-1791": {
+      "links": [
+        "william-hubbell"
+      ],
+      "portraits": []
+    },
+    "nicholasville-takes-shape": {
+      "links": [
+        "john-metcalf"
+      ],
+      "portraits": []
+    },
+    "versailles-takes-shape": {
+      "links": [
+        "marquis-calmes"
+      ],
+      "portraits": []
+    },
+    "winchester-clark-county-seat": {
+      "links": [
+        "john-baker"
+      ],
+      "portraits": []
+    },
+    "cynthiana-cynthia-anna-on-the-licking": {
+      "links": [
+        "robert-harrison"
+      ],
+      "portraits": []
+    },
+    "newport-at-the-licking-mouth": {
+      "links": [
+        "james-taylor-jr"
+      ],
+      "portraits": []
+    },
+    "simpsonville-takes-shape-on-the-louisville-road": {
+      "links": [
+        "john-simpson"
+      ],
+      "portraits": []
+    },
+    "jacob-beam-on-hardin-creek": {
+      "links": [
+        "jacob-beam"
+      ],
+      "portraits": []
+    },
+    "owingsville-a-town-named-on-a-wager": {
+      "links": [
+        "thomas-dye-owings",
+        "richard-menefee"
+      ],
+      "portraits": []
+    },
+    "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
+      "links": [
+        "anthony-wayne",
+        "blue-jacket"
+      ],
+      "portraits": []
+    },
+    "lancaster-at-wallaces-crossroads": {
+      "links": [
+        "william-buford"
+      ],
+      "portraits": []
+    },
+    "liberty-hall-john-browns-frankfort-house": {
+      "links": [
+        "john-brown"
+      ],
+      "portraits": []
+    },
+    "augusta-on-the-ohio-1797": {
+      "links": [
+        "philip-buckner"
+      ],
+      "portraits": []
+    },
+    "hopkinsville": {
+      "links": [
+        "bartholomew-wood"
+      ],
+      "portraits": []
+    },
+    "owensboro-yellow-banks": {
+      "links": [
+        "william-smeathers"
+      ],
+      "portraits": []
+    },
+    "yellow-banks-becomes-owensboro": {
+      "links": [
+        "william-smeathers"
+      ],
+      "portraits": []
+    },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "links": [
+        "elizabeth-patton-preston"
+      ],
+      "portraits": []
+    },
+    "bowling-green-takes-shape-on-the-barren-1798": {
+      "links": [
+        "robert-moore"
+      ],
+      "portraits": []
+    },
+    "glasgow-the-barrens": {
+      "links": [
+        "john-gorin"
+      ],
+      "portraits": []
+    },
+    "richmond-from-millers-barn": {
+      "links": [
+        "john-miller"
+      ],
+      "portraits": []
+    },
+    "burlington-boone-county-seat": {
+      "links": [
+        "john-craig"
+      ],
+      "portraits": []
+    },
+    "taylorsville-on-brashears-creek": {
+      "links": [
+        "richard-taylor"
+      ],
+      "portraits": []
+    },
+    "campbellsville-from-buckhorn-creek-to-county-seat": {
+      "links": [
+        "andrew-campbell"
+      ],
+      "portraits": []
+    },
+    "somerset": {
+      "links": [
+        "william-dodson"
+      ],
+      "portraits": []
+    },
+    "shaker-village-of-pleasant-hill": {
+      "links": [
+        "issachar-bates"
+      ],
+      "portraits": []
+    },
+    "ephraim-mcdowell-jane-todd-crawford-1809": {
+      "links": [
+        "jane-todd-crawford"
+      ],
+      "portraits": []
+    },
+    "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": {
+      "links": [
+        "catherine-spears-carpenter"
+      ],
+      "portraits": []
+    },
+    "chickasaw-hunting-grounds": {
+      "links": [
+        "andrew-jackson"
+      ],
+      "portraits": []
+    },
+    "kentucky-association-1826-lexington-race-course": {
+      "links": [
+        "henry-clay"
+      ],
+      "portraits": []
+    },
+    "paducah-at-the-tennessee-mouth": {
+      "links": [
+        "william-clark"
+      ],
+      "portraits": []
+    },
+    "henry-mckennas-fairfield-sour-mash": {
+      "links": [
+        "henry-mckenna"
+      ],
+      "portraits": []
+    },
+    "hidden-river-cave-under-horse-cave": {
+      "links": [
+        "george-a-thomas"
+      ],
+      "portraits": []
+    }
+  }
+}

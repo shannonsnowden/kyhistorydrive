@@ -6,12 +6,12 @@
       "name": "Daniel Boone",
       "dates": null,
       "image": {
-        "webp": "/people/portraits/daniel-boone-512.webp",
-        "jpg": "/people/portraits/daniel-boone-512.jpg"
+        "webp": "/people/portraits/daniel-boone__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/daniel-boone__ai-portrait-v2-512.jpg"
       },
-      "credit": "Chester Harding · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "athiamiowee-the-warriors-path-through-kentucky",
@@ -26,7 +26,8 @@
         "pilot-knob-boones-overlook-1769",
         "pine-mountain-and-pound-gap",
         "red-river-gorge-arches-and-the-dam-fight"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "squire-boone",
@@ -115,12 +116,12 @@
       "name": "Benjamin Logan",
       "dates": null,
       "image": {
-        "webp": "/people/portraits/benjamin-logan-512.webp",
-        "jpg": "/people/portraits/benjamin-logan-512.jpg"
+        "webp": "/people/portraits/benjamin-logan__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/benjamin-logan__ai-portrait-v2-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "benjamin-logan",
@@ -130,7 +131,8 @@
         "nonhelema",
         "stanford-from-st-asaph",
         "moluntha-and-logans-raid-1786"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "ann-logan",
@@ -150,12 +152,12 @@
       "name": "George Rogers Clark",
       "dates": null,
       "image": {
-        "webp": "/people/portraits/george-rogers-clark-512.webp",
-        "jpg": "/people/portraits/george-rogers-clark-512.jpg"
+        "webp": "/people/portraits/george-rogers-clark__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/george-rogers-clark__ai-portrait-v2-512.jpg"
       },
-      "credit": "James B. Longacre / John Wesley Jarvis · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "bland-w-ballard-of-tick-creek",
@@ -165,11 +167,13 @@
         "edward-worthington-at-worthingtons-fort",
         "falls-of-the-ohio",
         "george-rogers-clark",
+        "illinois-confederation-at-cahokia",
         "levi-todd-lexington-co-founder",
         "maj-joseph-bowman",
         "maj-silas-harlan",
         "winchester-clark-county-seat"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "richard-henderson",
@@ -187,7 +191,8 @@
         "henderson-at-red-banks",
         "richard-henderson",
         "treaty-of-camp-charlotte-1774"
-      ]
+      ],
+      "sourceFile": "Richard-henderson-judge.jpg"
     },
     {
       "id": "isaac-shelby",
@@ -207,7 +212,8 @@
         "col-john-holder-at-lower-howards-creek",
         "isaac-shelby-old-kings-mountain",
         "shelbyville"
-      ]
+      ],
+      "sourceFile": "Isaac shelby.jpg"
     },
     {
       "id": "susannah-shelby",
@@ -282,7 +288,8 @@
       "stories": [
         "col-john-todd-of-lexington",
         "levi-todd-lexington-co-founder"
-      ]
+      ],
+      "sourceFile": "Mary Todd Lincoln2crop.jpg"
     },
     {
       "id": "john-floyd",
@@ -300,7 +307,8 @@
         "john-floyd",
         "stanford-from-st-asaph",
         "prestonsburg-first-seat-on-the-big-sandy"
-      ]
+      ],
+      "sourceFile": "Portrait of Colonel John Floyd (1750-1783).jpg"
     },
     {
       "id": "john-finley",
@@ -401,7 +409,8 @@
       "licenseUrl": null,
       "stories": [
         "col-john-hardin-of-pleasant-run"
-      ]
+      ],
+      "sourceFile": "Martin D Hardin.jpg"
     },
     {
       "id": "martin-hardin",
@@ -447,7 +456,8 @@
         "col-robert-patterson-builds-lexington",
         "john-filson-kentucke-1784",
         "pilot-knob-boones-overlook-1769"
-      ]
+      ],
+      "sourceFile": "John-Filson.jpg"
     },
     {
       "id": "william-christian",
@@ -506,7 +516,8 @@
       "stories": [
         "carrollton-from-port-william",
         "the-travelling-church-1781"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "elijah-craig",
@@ -522,7 +533,8 @@
       "licenseUrl": null,
       "stories": [
         "georgetown-and-royal-spring"
-      ]
+      ],
+      "sourceFile": "Elijah Craig woodcut.png"
     },
     {
       "id": "benjamin-craig",
@@ -597,7 +609,8 @@
         "chickamauga-cherokee",
         "chickamauga-cherokee-hold-the-southern-flank",
         "richard-henderson"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "charles-scott",
@@ -620,7 +633,8 @@
         "mascouten-fire-nation-on-the-wabash",
         "potawatomi-fire-keepers-and-the-ohio-valley-wars",
         "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid"
-      ]
+      ],
+      "sourceFile": "Portrait of Charles Scott.jpg"
     },
     {
       "id": "daniel-trabue",
@@ -654,23 +668,25 @@
         "liberty-hall-john-browns-frankfort-house",
         "mascouten-fire-nation-on-the-wabash",
         "potawatomi-fire-keepers-and-the-ohio-valley-wars"
-      ]
+      ],
+      "sourceFile": "James Wilkinson (NPG).jpg"
     },
     {
       "id": "john-bradford",
       "name": "John Bradford",
       "dates": "1749–1830",
       "image": {
-        "webp": "/people/portraits/john-bradford-512.webp",
-        "jpg": "/people/portraits/john-bradford-512.jpg"
+        "webp": "/people/portraits/john-bradford__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/john-bradford__ai-portrait-v2-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "john-bradford-and-the-kentucke-gazette"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "fielding-bradford",
@@ -702,7 +718,8 @@
         "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
         "nonhelema",
         "treaty-of-camp-charlotte-1774"
-      ]
+      ],
+      "sourceFile": "1872 Chiefs Cornstalk Logan and Red Eagle from Frosts pictorial history of Indian.jpg"
     },
     {
       "id": "elinipsico",
@@ -731,7 +748,8 @@
       "licenseUrl": null,
       "stories": [
         "nonhelema"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "esther-whitley",
@@ -747,7 +765,8 @@
       "licenseUrl": null,
       "stories": [
         "esther-whitley-over-the-cumberlands-1775"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "william-whitley",
@@ -791,7 +810,8 @@
       "stories": [
         "bryan-station-siege-august-1782",
         "simon-girty-interpreter-at-bryan-station-1782"
-      ]
+      ],
+      "sourceFile": "Simon Girty.png"
     },
     {
       "id": "little-turtle",
@@ -810,7 +830,8 @@
         "col-john-hardin-of-pleasant-run",
         "little-turtle-and-hardins-defeat-1790",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
-      ]
+      ],
+      "sourceFile": "Little Turtle.jpg"
     },
     {
       "id": "blackfish",
@@ -829,36 +850,45 @@
         "col-john-bowman-at-old-chillicothe",
         "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
         "shawnee-chillicothe-divisions"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "blue-jacket",
       "name": "Blue Jacket",
       "dates": "c. 1743–1810",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/blue-jacket__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/blue-jacket__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "blue-jacket-weyapiersenwah",
         "simon-girty-interpreter-at-bryan-station-1782",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "robert-johnson",
       "name": "Robert Johnson",
       "dates": "1745–1815",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/robert-johnson__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/robert-johnson__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "burlington-boone-county-seat",
         "capt-robert-johnson-and-big-crossing-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jemima-suggett-johnson",
@@ -887,7 +917,8 @@
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "stories": [
         "capt-robert-johnson-and-big-crossing-station"
-      ]
+      ],
+      "sourceFile": "John Neagle, Richard Mentor Johnson, 1843, NGA 166465.jpg"
     },
     {
       "id": "john-t-johnson",
@@ -903,21 +934,26 @@
       "licenseUrl": null,
       "stories": [
         "capt-robert-johnson-and-big-crossing-station"
-      ]
+      ],
+      "sourceFile": "John-Telemachus-Johnson.jpg"
     },
     {
       "id": "richard-callaway",
       "name": "Richard Callaway",
       "dates": "1717–1780",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/richard-callaway__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/richard-callaway__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
         "col-richard-callaway-of-boonesborough"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "fanny-callaway",
@@ -992,30 +1028,38 @@
       "id": "moluntha",
       "name": "Moluntha",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/moluntha__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/moluntha__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
         "nonhelema",
         "moluntha-and-logans-raid-1786"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "egushawa",
       "name": "Egushawa",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/egushawa__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/egushawa__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "egushawa-and-the-odawa-in-kentuckys-war-years"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "thomas-walker",
@@ -1040,7 +1084,7 @@
         "webp": "/people/portraits/christopher-gist-512.webp",
         "jpg": "/people/portraits/christopher-gist-512.jpg"
       },
-      "credit": "Imagined posthumous portrait. Up-loaded by David McCoy--no name associated with art · Public domain · via Wikimedia Commons",
+      "credit": "Imagined posthumous portrait · Public domain · via Wikimedia Commons",
       "ai": false,
       "license": "Public domain",
       "licenseUrl": null,
@@ -1049,7 +1093,8 @@
         "christopher-gist-1750-51",
         "pine-mountain-and-pound-gap",
         "treaty-of-logstown-1752"
-      ]
+      ],
+      "sourceFile": "Christopher Gist.jpg"
     },
     {
       "id": "nathaniel-gist",
@@ -1326,7 +1371,8 @@
       "licenseUrl": null,
       "stories": [
         "col-robert-patterson-builds-lexington"
-      ]
+      ],
+      "sourceFile": "Robert Patterson (pioneer) (cropped).png"
     },
     {
       "id": "william-russell-iii",
@@ -1382,7 +1428,8 @@
       "stories": [
         "capt-jack-jouett",
         "jack-jouett-kentuckys-midnight-rider"
-      ]
+      ],
+      "sourceFile": "Jack jouett silhouette.svg"
     },
     {
       "id": "banastre-tarleton",
@@ -1399,7 +1446,8 @@
       "stories": [
         "capt-jack-jouett",
         "jack-jouett-kentuckys-midnight-rider"
-      ]
+      ],
+      "sourceFile": "Banastre Tarleton portrait.jpg"
     },
     {
       "id": "thomas-jefferson",
@@ -1416,7 +1464,8 @@
       "stories": [
         "capt-jack-jouett",
         "jack-jouett-kentuckys-midnight-rider"
-      ]
+      ],
+      "sourceFile": "Official Presidential portrait of Thomas Jefferson (by Rembrandt Peale, 1800).jpg"
     },
     {
       "id": "sally-robards",
@@ -1498,7 +1547,8 @@
       "licenseUrl": null,
       "stories": [
         "henry-skaggs-green-river-long-hunter"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "valentine-harman",
@@ -1631,7 +1681,8 @@
       "licenseUrl": null,
       "stories": [
         "harry-innes"
-      ]
+      ],
+      "sourceFile": "Harry Innes portrait.jpg"
     },
     {
       "id": "aaron-burr",
@@ -1647,7 +1698,8 @@
       "licenseUrl": null,
       "stories": [
         "harry-innes"
-      ]
+      ],
+      "sourceFile": "Aaron Burr Portrait (cropped).jpg"
     },
     {
       "id": "humphrey-marshall",
@@ -1680,7 +1732,8 @@
         "springfield-first-county-seat-after-statehood",
         "springfield-founding-and-washington-county-seat",
         "washington-mason-county"
-      ]
+      ],
+      "sourceFile": "Gilbert Stuart Williamstown Portrait of George Washington.jpg"
     },
     {
       "id": "john-brown",
@@ -1696,7 +1749,8 @@
       "licenseUrl": null,
       "stories": [
         "liberty-hall-john-browns-frankfort-house"
-      ]
+      ],
+      "sourceFile": "KY Sen John-Brown.jpg"
     },
     {
       "id": "esteban-miro",
@@ -1712,7 +1766,8 @@
       "licenseUrl": null,
       "stories": [
         "gen-james-wilkinson-kentuckys-agent-13"
-      ]
+      ],
+      "sourceFile": "Esteban Rodríguez Miró.jpg"
     },
     {
       "id": "ephraim-mcdowell",
@@ -1728,7 +1783,8 @@
       "licenseUrl": null,
       "stories": [
         "ephraim-mcdowell-jane-todd-crawford-1809"
-      ]
+      ],
+      "sourceFile": "Ephraim McDowell.jpg"
     },
     {
       "id": "jane-todd-crawford",
@@ -1744,7 +1800,8 @@
       "licenseUrl": null,
       "stories": [
         "ephraim-mcdowell-jane-todd-crawford-1809"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "evan-williams",
@@ -1760,7 +1817,8 @@
       "licenseUrl": null,
       "stories": [
         "evan-williams-on-the-louisville-wharf"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "e-h-taylor-jr",
@@ -1777,7 +1835,8 @@
       "stories": [
         "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
         "frederick-stitzels-barrel-racks-1879"
-      ]
+      ],
+      "sourceFile": "Edmund Haynes Taylor (1830–1923).png"
     },
     {
       "id": "john-g-carlisle",
@@ -1793,7 +1852,8 @@
       "licenseUrl": null,
       "stories": [
         "e-h-taylor-jr-and-the-bottled-in-bond-act-1897"
-      ]
+      ],
+      "sourceFile": "John Griffin Carlisle, Brady-Handy photo portrait, ca1870-1880.jpg"
     },
     {
       "id": "frederick-stitzel",
@@ -1900,7 +1960,8 @@
       "licenseUrl": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course"
-      ]
+      ],
+      "sourceFile": "Clay 1848.jpg"
     },
     {
       "id": "jesse-bledsoe",
@@ -1916,7 +1977,8 @@
       "licenseUrl": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course"
-      ]
+      ],
+      "sourceFile": "Jesse Bledsoe.jpg"
     },
     {
       "id": "elisha-warfield",
@@ -1932,7 +1994,8 @@
       "licenseUrl": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course"
-      ]
+      ],
+      "sourceFile": "DR. ELISHA WARFIELD (1771-1859) by L. Rowley Jacobs 1859 (after Healy 1845).jpg"
     },
     {
       "id": "thomas-f-marshall",
@@ -1948,7 +2011,8 @@
       "licenseUrl": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course"
-      ]
+      ],
+      "sourceFile": "Thomas-Francis-Marshall.jpg"
     },
     {
       "id": "isaac-murphy",
@@ -1964,7 +2028,8 @@
       "licenseUrl": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course"
-      ]
+      ],
+      "sourceFile": "IsaacMurphy.jpg"
     },
     {
       "id": "jimmy-winkfield",
@@ -1980,7 +2045,8 @@
       "licenseUrl": null,
       "stories": [
         "kentucky-association-1826-lexington-race-course"
-      ]
+      ],
+      "sourceFile": "Alan-A-Dale - 1902.jpg"
     },
     {
       "id": "john-meacham",
@@ -2088,7 +2154,8 @@
       "stories": [
         "frankfort-franks-ford-becomes-the-capital",
         "liberty-hall-john-browns-frankfort-house"
-      ]
+      ],
+      "sourceFile": "Gideon Shryock by Jouett.jpg"
     },
     {
       "id": "andrew-holmes",
@@ -2315,7 +2382,8 @@
       "licenseUrl": null,
       "stories": [
         "springfield-founding-and-washington-county-seat"
-      ]
+      ],
+      "sourceFile": "Thomas Herring Lincoln (cropped3x4).jpg"
     },
     {
       "id": "nancy-hanks",
@@ -2344,7 +2412,8 @@
       "licenseUrl": null,
       "stories": [
         "hodgenville-from-hodgens-mill-to-county-seat"
-      ]
+      ],
+      "sourceFile": "Lincoln, Robert (son of Abraham Lincoln) Crop.jpg"
     },
     {
       "id": "robert-hodgen",
@@ -2373,7 +2442,8 @@
       "licenseUrl": null,
       "stories": [
         "hodgenville-from-hodgens-mill-to-county-seat"
-      ]
+      ],
+      "sourceFile": "Adolph Weinman, ca 1905 (C. Klim-Check) - crop.jpg"
     },
     {
       "id": "andrew-campbell",
@@ -2664,7 +2734,8 @@
       "licenseUrl": null,
       "stories": [
         "owingsville-a-town-named-on-a-wager"
-      ]
+      ],
+      "sourceFile": "Richard-Menefee.jpg"
     },
     {
       "id": "hubbard-taylor",
@@ -2693,20 +2764,25 @@
       "licenseUrl": null,
       "stories": [
         "newport-at-the-licking-mouth"
-      ]
+      ],
+      "sourceFile": "James-Taylor,-Jr..jpg"
     },
     {
       "id": "hugh-forbes",
       "name": "Hugh Forbes",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/hugh-forbes__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hugh-forbes__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "mount-sterling-little-mountain-town"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "enoch-smith",
@@ -2995,7 +3071,8 @@
       "licenseUrl": null,
       "stories": [
         "versailles-takes-shape"
-      ]
+      ],
+      "sourceFile": "Marquis-calmes.jpg"
     },
     {
       "id": "hezekiah-briscoe",
@@ -3170,7 +3247,8 @@
       "stories": [
         "henderson-at-red-banks",
         "hopkinsville"
-      ]
+      ],
+      "sourceFile": "Portrait of Samuel Hopkins (cropped).jpg"
     },
     {
       "id": "thomas-allin",
@@ -3199,7 +3277,8 @@
       "licenseUrl": null,
       "stories": [
         "paducah-at-the-tennessee-mouth"
-      ]
+      ],
+      "sourceFile": "Portrait of William Clark (cropped).jpg"
     },
     {
       "id": "chief-paduke",
@@ -3229,7 +3308,8 @@
       "stories": [
         "lancaster-at-wallaces-crossroads",
         "paris-from-hopewell"
-      ]
+      ],
+      "sourceFile": "JGarrard.jpg"
     },
     {
       "id": "benjamin-harrison-col",
@@ -3284,7 +3364,8 @@
       "licenseUrl": null,
       "stories": [
         "covington-at-the-point"
-      ]
+      ],
+      "sourceFile": "General Leonard Covington.png"
     },
     {
       "id": "john-gano",
@@ -3552,7 +3633,8 @@
         "new-castle-henry-county-seat",
         "old-fort-earthworks-15gp1-greenup-county",
         "william-christian-of-beargrass"
-      ]
+      ],
+      "sourceFile": "Patrick henry.JPG"
     },
     {
       "id": "daniel-morgan",
@@ -3568,7 +3650,8 @@
       "licenseUrl": null,
       "stories": [
         "col-john-hardin-of-pleasant-run"
-      ]
+      ],
+      "sourceFile": "DanielMorgan.jpeg"
     },
     {
       "id": "mary-haskins",
@@ -3610,7 +3693,8 @@
       "licenseUrl": null,
       "stories": [
         "cumberland-falls"
-      ]
+      ],
+      "sourceFile": "DuPONT, COLEMAN. GENERAL LOC hec.13254 (cropped).jpg"
     },
     {
       "id": "bill-clinton",
@@ -3626,7 +3710,8 @@
       "licenseUrl": null,
       "stories": [
         "red-river-gorge-arches-and-the-dam-fight"
-      ]
+      ],
+      "sourceFile": "Bill Clinton.jpg"
     },
     {
       "id": "james-a-garfield",
@@ -3642,7 +3727,8 @@
       "licenseUrl": null,
       "stories": [
         "pine-mountain-and-pound-gap"
-      ]
+      ],
+      "sourceFile": "James Abram Garfield, photo portrait seated.jpg"
     },
     {
       "id": "leonard-stom",
@@ -3672,7 +3758,8 @@
       "stories": [
         "col-john-bowman-at-old-chillicothe",
         "gen-james-wilkinson-kentuckys-agent-13"
-      ]
+      ],
+      "sourceFile": "Theodore Roosevelt by the Pach Bros (4x5 cropped) (2).jpg"
     },
     {
       "id": "peter-hildebrand",
@@ -3702,7 +3789,8 @@
       "stories": [
         "richard-henderson",
         "treaties-of-hard-labour-and-lochaber"
-      ]
+      ],
+      "sourceFile": "Cherokee Delegations to England, 1730.png"
     },
     {
       "id": "oconostota",
@@ -3770,7 +3858,8 @@
       "licenseUrl": null,
       "stories": [
         "tellico-cession-1805-south-of-the-cumberland"
-      ]
+      ],
+      "sourceFile": "Cól-lee, a Band Chief Cherokee by George Catlin (1985.66.285) Smithsonian.jpg"
     },
     {
       "id": "return-j-meigs",
@@ -3786,7 +3875,8 @@
       "licenseUrl": null,
       "stories": [
         "tellico-cession-1805-south-of-the-cumberland"
-      ]
+      ],
+      "sourceFile": "ReturnJonathanMeigsSr.jpg"
     },
     {
       "id": "daniel-smith",
@@ -3841,7 +3931,8 @@
       "licenseUrl": null,
       "stories": [
         "treaty-of-fort-stanwix-1768"
-      ]
+      ],
+      "sourceFile": "Sir William Johnson (cropped).png"
     },
     {
       "id": "joshua-fry",
@@ -3948,7 +4039,8 @@
       "licenseUrl": null,
       "stories": [
         "simon-girty-interpreter-at-bryan-station-1782"
-      ]
+      ],
+      "sourceFile": "The Great Indian Council.jpg"
     },
     {
       "id": "matthew-elliott",
@@ -3964,7 +4056,8 @@
       "licenseUrl": null,
       "stories": [
         "simon-girty-interpreter-at-bryan-station-1782"
-      ]
+      ],
+      "sourceFile": "The Great Indian Council.jpg"
     },
     {
       "id": "henry-hamilton",
@@ -3981,7 +4074,8 @@
       "stories": [
         "illinois-confederation-at-cahokia",
         "simon-girty-interpreter-at-bryan-station-1782"
-      ]
+      ],
+      "sourceFile": "HenryHamilton.jpg"
     },
     {
       "id": "william-caldwell",
@@ -4054,7 +4148,8 @@
         "daniel-trabue-of-columbia",
         "gen-charles-scott-and-petersburg",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
-      ]
+      ],
+      "sourceFile": "Anthony Wayne, uniform.jpg"
     },
     {
       "id": "josiah-harmar",
@@ -4070,7 +4165,8 @@
       "licenseUrl": null,
       "stories": [
         "little-turtle-and-hardins-defeat-1790"
-      ]
+      ],
+      "sourceFile": "Josiah Harmar by Raphaelle Peale.jpeg"
     },
     {
       "id": "arthur-st-clair",
@@ -4086,7 +4182,8 @@
       "licenseUrl": null,
       "stories": [
         "little-turtle-and-hardins-defeat-1790"
-      ]
+      ],
+      "sourceFile": "ArthurStClairOfficialPortrait-restored.jpg"
     },
     {
       "id": "jean-baptiste-ducoigne",
@@ -4142,7 +4239,8 @@
       "stories": [
         "chickasaw-hunting-grounds",
         "russellville-from-big-boiling-spring-to-county-seat"
-      ]
+      ],
+      "sourceFile": "Andrew jackson head (cropped).jpg"
     },
     {
       "id": "charles-dickinson",
@@ -4158,7 +4256,8 @@
       "licenseUrl": null,
       "stories": [
         "russellville-from-big-boiling-spring-to-county-seat"
-      ]
+      ],
+      "sourceFile": "P15138coll25 14 full Charles Henry Dickinson.jpg"
     },
     {
       "id": "la-salle",
@@ -4174,7 +4273,8 @@
       "licenseUrl": null,
       "stories": [
         "mosopelea-ofo-the-ohio-valley"
-      ]
+      ],
+      "sourceFile": "Cavelier de la salle.jpg"
     },
     {
       "id": "jean-baptiste-franquelin",
@@ -4203,7 +4303,8 @@
       "licenseUrl": null,
       "stories": [
         "tutelo-the-totteroy"
-      ]
+      ],
+      "sourceFile": "JohnLawson.jpg"
     },
     {
       "id": "louis-xvi",
@@ -4219,7 +4320,8 @@
       "licenseUrl": null,
       "stories": [
         "george-rogers-clark"
-      ]
+      ],
+      "sourceFile": "Antoine-François Callet - Louis XVI, roi de France et de Navarre (1754-1793), revêtu du grand costume royal en 1779 - Google Art Project.jpg"
     },
     {
       "id": "francis-marion",
@@ -4235,7 +4337,8 @@
       "licenseUrl": null,
       "stories": [
         "lebanon-cedars-meeting-house-county-seat"
-      ]
+      ],
+      "sourceFile": "General Francis Marion (NYPL b13050113-421073).tiff"
     },
     {
       "id": "christopher-newport",
@@ -4264,7 +4367,8 @@
       "licenseUrl": null,
       "stories": [
         "carrollton-from-port-william"
-      ]
+      ],
+      "sourceFile": "Portrait of Charles Carroll from the Collection of the U.S. House of Representatives.jpg"
     },
     {
       "id": "edmund-pendleton",
@@ -4280,7 +4384,8 @@
       "licenseUrl": null,
       "stories": [
         "falmouth-at-the-licking-forks"
-      ]
+      ],
+      "sourceFile": "Edmund Pendleton.jpg"
     },
     {
       "id": "zachary-taylor",
@@ -4296,7 +4401,8 @@
       "licenseUrl": null,
       "stories": [
         "campbellsville-from-buckhorn-creek-to-county-seat"
-      ]
+      ],
+      "sourceFile": "Zachary Taylor restored and cropped (3.5x4.5 cropped) (2).jpg"
     },
     {
       "id": "lafayette",
@@ -4312,7 +4418,8 @@
       "licenseUrl": null,
       "stories": [
         "versailles-takes-shape"
-      ]
+      ],
+      "sourceFile": "Gilbert du Motier Marquis de Lafayette.PNG"
     },
     {
       "id": "james-madison",
@@ -4328,7 +4435,8 @@
       "licenseUrl": null,
       "stories": [
         "the-travelling-church-1781"
-      ]
+      ],
+      "sourceFile": "James Madison.jpg"
     },
     {
       "id": "alexander-campbell",
@@ -4344,7 +4452,8 @@
       "licenseUrl": null,
       "stories": [
         "cane-ridge-meeting-house-and-the-1801-camp-meeting"
-      ]
+      ],
+      "sourceFile": "Alexander Campbell, founder of the Disciples of Christ, head-and-shoulders portrait.jpg"
     },
     {
       "id": "thomas-campbell",
@@ -4360,7 +4469,8 @@
       "licenseUrl": null,
       "stories": [
         "cane-ridge-meeting-house-and-the-1801-camp-meeting"
-      ]
+      ],
+      "sourceFile": "CampbellThomas.png"
     },
     {
       "id": "stephen-f-austin",
@@ -4376,7 +4486,8 @@
       "licenseUrl": null,
       "stories": [
         "yellow-banks-becomes-owensboro"
-      ]
+      ],
+      "sourceFile": "Stephen Fuller Austin Posthumous Portrait.jpg"
     },
     {
       "id": "thomas-metcalfe",
@@ -4392,23 +4503,25 @@
       "licenseUrl": null,
       "stories": [
         "jacob-spears-early-bourbon-whiskey"
-      ]
+      ],
+      "sourceFile": "TMetcalfe.jpg"
     },
     {
       "id": "thomas-marshall-col",
       "name": "Col. Thomas Marshall",
       "dates": "1730–1802",
       "image": {
-        "webp": "/people/portraits/thomas-marshall-col-512.webp",
-        "jpg": "/people/portraits/thomas-marshall-col-512.jpg"
+        "webp": "/people/portraits/thomas-marshall-col__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/thomas-marshall-col__ai-portrait-v1-512.jpg"
       },
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-thomas-marshall-at-buck-pond"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-spurlock",
@@ -4440,14 +4553,93 @@
       "id": "george-garvin-brown",
       "name": "George Garvin Brown",
       "dates": "1846–1917",
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/george-garvin-brown__photo-512.webp",
+        "jpg": "/people/portraits/george-garvin-brown__photo-512.jpg"
+      },
+      "credit": "George Garvin Brown, from Memoirs of the Lower Ohio Valley (1905), p. 282. Public domain, via Internet Archive.",
       "ai": false,
-      "license": null,
+      "license": "Public domain",
       "licenseUrl": null,
       "stories": [
         "george-garvin-brown-and-old-forester"
-      ]
+      ],
+      "sourceFile": null,
+      "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
     }
-  ]
+  ],
+  "storySubjects": {
+    "col-richard-callaway-of-boonesborough": "richard-callaway",
+    "henry-skaggs-green-river-long-hunter": "henry-skaggs",
+    "capt-nathaniel-hart": "nathaniel-hart",
+    "capt-abraham-lincoln-on-long-run": "abraham-lincoln-capt",
+    "col-stephen-trigg-of-viney-grove": "stephen-trigg",
+    "hugh-mcgary-the-hothead-major": "hugh-mcgary",
+    "michael-stoner-german-long-hunter": "michael-stoner",
+    "christopher-gist-1750-51": "christopher-gist",
+    "col-john-todd-of-lexington": "john-todd",
+    "nonhelema": "nonhelema",
+    "thomas-walker-and-cumberland-gap": "thomas-walker",
+    "john-finley-the-trader-who-put-kentucky-on-boones-map": "john-finley",
+    "maj-silas-harlan": "silas-harlan",
+    "evan-williams-on-the-louisville-wharf": "evan-williams",
+    "mary-draper-ingles-escapes-through-kentucky-1755": "mary-draper-ingles",
+    "col-william-russell-iii": "william-russell-iii",
+    "bland-w-ballard-of-tick-creek": "bland-ballard",
+    "hancock-taylor-fincastle-surveyor": "hancock-taylor",
+    "james-knox": "james-knox",
+    "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": "cornstalk",
+    "john-floyd": "john-floyd",
+    "ann-mcginty-and-kentuckys-first-spinning-wheel": "ann-mcginty",
+    "benjamin-logan": "benjamin-logan",
+    "esther-whitley-over-the-cumberlands-1775": "esther-whitley",
+    "levi-todd-lexington-co-founder": "levi-todd",
+    "maj-joseph-bowman": "joseph-bowman",
+    "richard-henderson": "richard-henderson",
+    "william-calks-1775-journal": "william-calk",
+    "capt-john-strode-of-strodes-station": "john-strode",
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": "blackfish",
+    "daniel-trabue-of-columbia": "daniel-trabue",
+    "george-rogers-clark": "george-rogers-clark",
+    "simon-girty-interpreter-at-bryan-station-1782": "simon-girty",
+    "col-john-bowman-at-old-chillicothe": "john-bowman",
+    "col-robert-patterson-builds-lexington": "robert-patterson",
+    "edward-worthington-at-worthingtons-fort": "edward-worthington",
+    "hugh-mcgary-the-blue-licks-hothead": "hugh-mcgary",
+    "isaac-ruddell-and-the-guns-at-ruddells-station": "isaac-ruddell",
+    "william-christian-of-beargrass": "william-christian",
+    "capt-robert-johnson-and-big-crossing-station": "robert-johnson",
+    "egushawa-and-the-odawa-in-kentuckys-war-years": "egushawa",
+    "isaac-shelby-old-kings-mountain": "isaac-shelby",
+    "squire-boones-painted-stone": "squire-boone",
+    "capt-jack-jouett": "jack-jouett",
+    "jack-jouett-kentuckys-midnight-rider": "jack-jouett",
+    "william-hoy-and-hoys-station": "william-hoy",
+    "capt-james-estill-estills-defeat": "james-estill",
+    "col-john-holder-at-lower-howards-creek": "john-holder",
+    "col-thomas-marshall-at-buck-pond": "thomas-marshall-col",
+    "harry-innes": "harry-innes",
+    "john-filson-kentucke-1784": "john-filson",
+    "gen-james-wilkinson-kentuckys-agent-13": "james-wilkinson",
+    "basil-haydens-high-rye-trail": "basil-hayden",
+    "gen-charles-scott-and-petersburg": "charles-scott",
+    "col-john-hardin-of-pleasant-run": "john-hardin",
+    "moluntha-and-logans-raid-1786": "moluntha",
+    "blue-jacket-weyapiersenwah": "blue-jacket",
+    "john-bradford-and-the-kentucke-gazette": "john-bradford",
+    "william-whitley-sportsmans-hill": "william-whitley",
+    "jenny-wileys-captivity-and-escape": "jenny-wiley",
+    "jacob-spears-early-bourbon-whiskey": "jacob-spears",
+    "little-turtle-and-hardins-defeat-1790": "little-turtle",
+    "capt-william-hubbells-ohio-flatboat-stand-1791": "william-hubbell",
+    "jacob-beam-on-hardin-creek": "jacob-beam",
+    "jacob-beam-sells-old-jakes-first-barrel": "jacob-beam",
+    "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
+    "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
+    "james-crow-on-glenns-creek": "james-c-crow",
+    "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
+    "george-garvin-brown-and-old-forester": "george-garvin-brown",
+    "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
+    "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr"
+  }
 }
