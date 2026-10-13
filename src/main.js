@@ -2198,6 +2198,39 @@ function flyToFocus(targetMap, focus, zoom = 12) {
   targetMap.flyTo({ center: [focus.lon, focus.lat], zoom, essential: true })
 }
 
+/** Keep the selected pin above basemap labels and every other pin layer. */
+function raiseHighlightLayers(targetMap) {
+  for (const id of ['highlight-glow', 'highlight-core', 'highlight-hit']) {
+    if (targetMap.getLayer(id)) targetMap.moveLayer(id)
+  }
+}
+
+/** Gentle pulse on the selected pin's ring; still under prefers-reduced-motion. */
+const pulsingMaps = new WeakSet()
+function startHighlightPulse(targetMap) {
+  if (pulsingMaps.has(targetMap)) return
+  pulsingMaps.add(targetMap)
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const t0 = performance.now()
+  const tick = (now) => {
+    if (!targetMap.getLayer('highlight-glow')) return
+    if (!targetMap.__khdHighlightOn) {
+      window.setTimeout(() => requestAnimationFrame(tick), 500)
+      return
+    }
+    if (mq.matches) {
+      targetMap.setPaintProperty('highlight-glow', 'circle-radius', 20)
+      targetMap.setPaintProperty('highlight-glow', 'circle-opacity', 0.3)
+    } else {
+      const k = (Math.sin(((now - t0) / 1600) * Math.PI * 2) + 1) / 2
+      targetMap.setPaintProperty('highlight-glow', 'circle-radius', 18 + k * 8)
+      targetMap.setPaintProperty('highlight-glow', 'circle-opacity', 0.38 - k * 0.26)
+    }
+    window.setTimeout(() => requestAnimationFrame(tick), mq.matches ? 1000 : 50)
+  }
+  requestAnimationFrame(tick)
+}
+
 function ensureHighlightSource(targetMap, focus) {
   const data = {
     type: 'FeatureCollection',
@@ -2212,20 +2245,23 @@ function ensureHighlightSource(targetMap, focus) {
           ]
         : [],
   }
+  targetMap.__khdHighlightOn = data.features.length > 0
   if (targetMap.getSource('highlight')) {
     targetMap.getSource('highlight').setData(data)
+    raiseHighlightLayers(targetMap)
   } else {
     targetMap.addSource('highlight', { type: 'geojson', data })
+    // Selected story pin: solid site amber, ~28px, dark outline, soft pulse ring
     targetMap.addLayer({
       id: 'highlight-glow',
       type: 'circle',
       source: 'highlight',
       paint: {
-        'circle-radius': 18,
+        'circle-radius': 20,
         'circle-color': '#c9893a',
-        'circle-opacity': 0.25,
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#e8d5a8',
+        'circle-opacity': 0.3,
+        'circle-stroke-width': 0,
+        'circle-pitch-alignment': 'map',
       },
     })
     targetMap.addLayer({
@@ -2233,10 +2269,10 @@ function ensureHighlightSource(targetMap, focus) {
       type: 'circle',
       source: 'highlight',
       paint: {
-        'circle-radius': 7,
-        'circle-color': '#e8d5a8',
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#101812',
+        'circle-radius': 14,
+        'circle-color': '#c9893a',
+        'circle-stroke-width': 3,
+        'circle-stroke-color': '#1b140a',
       },
     })
     targetMap.addLayer({
@@ -2245,6 +2281,8 @@ function ensureHighlightSource(targetMap, focus) {
       source: 'highlight',
       paint: { 'circle-radius': 22, 'circle-opacity': 0 },
     })
+    raiseHighlightLayers(targetMap)
+    startHighlightPulse(targetMap)
     targetMap.on('mouseenter', 'highlight-hit', () => {
       targetMap.getCanvas().style.cursor = 'pointer'
     })
@@ -4163,6 +4201,13 @@ function applyHomeStoryLayout(slug) {
   const on = Boolean(slug && fromHome && fromHome === slug)
   if (on && layout.classList.contains('is-reading-wide')) {
     document.getElementById('timelineReadingToggle')?.click()
+  }
+  // Phones: the docked map must not trap one-finger page scrolls.
+  // Two-finger pinch still zooms and moves the map; + / − stay available.
+  if (timelineMap) {
+    const phone = window.matchMedia('(max-width: 900px)').matches
+    if (on && phone) timelineMap.dragPan.disable()
+    else timelineMap.dragPan.enable()
   }
   if (layout.classList.contains('is-home-story') !== on) {
     layout.classList.toggle('is-home-story', on)
