@@ -1688,6 +1688,17 @@ a.related-card:hover .related-card-chevron {
   pointer-events: auto;
   backdrop-filter: blur(8px);
 }
+.timeline-reader-jump { transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s; }
+/* Tucked while reading down a story (src/main.js watchTimelineJumpPad); returns on scroll up. */
+.timeline-reader-jump.is-tucked {
+  transform: translateY(calc(100% + 1.5rem));
+  opacity: 0;
+  visibility: hidden;
+}
+.timeline-reader-jump.is-tucked .scroll-fab { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .timeline-reader-jump { transition: none; }
+}
 
 
 /* MapLibre zoom / navigation controls */
@@ -1823,6 +1834,24 @@ a.related-card:hover .related-card-chevron {
     margin-top: 0;
     max-width: 280px;
   }
+}
+
+/* Reader kicker: makes it clear a homepage click landed on a story (critique #275). */
+.story-head .story-kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.story-head .story-kicker span { color: var(--accent); }
+/* Phones (Timeline reader): title block first, then the photo, then the body. */
+@media (max-width: 600px) {
+  .story-reader > .story-reader-layout:not(.static-story) { row-gap: 0; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-reader-main { display: contents; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-reader-main > .story-head { order: -2; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo { order: -1; margin: 0.25rem 0 1rem; }
 }
 
 /* Static story pages: sidebar beside the article on wide screens. */
@@ -2951,9 +2980,6 @@ html[data-hp-theme="light"] .hp-map-seal {
   .hp-mag-hero-copy {
     transition: none;
   }
-  .hp-mag-quote blockquote {
-    transition: none;
-  }
 }
 .hp-mag-hero-media {
   position: absolute;
@@ -3000,7 +3026,6 @@ html[data-hp-theme="light"] .hp-map-seal {
   inset: 0;
   display: block;
 }
-.hp-feature-media picture,
 .exp-media picture {
   display: block;
   width: 100%;
@@ -3094,81 +3119,39 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
   color: #c4b89a;
 }
 
-.hp-mag-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
-  gap: 1.35rem 1.2rem;
-  width: 100%;
-}
-.hp-feature {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-}
-.hp-feature-media,
 .hp-layer-media {
   display: block;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--surface);
 }
-.hp-feature-media img,
-.hp-layer-media img,
-.hp-feature-fallback {
+.hp-layer-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.35s ease;
 }
-.hp-feature:hover .hp-feature-media img,
 .hp-layer-card:hover .hp-layer-media img {
   transform: scale(1.04);
 }
-.hp-feature-fallback {
-  background:
-    radial-gradient(80% 70% at 30% 20%, rgba(201, 137, 58, 0.28), transparent 60%),
-    var(--surface);
-}
-/* Theme-only / no-asset stories: omit empty image panel (no invented photos). */
-.hp-feature--no-photo .hp-feature-copy {
-  padding-top: 1.1rem;
-}
-.hp-feature-copy,
 .hp-layer-copy {
   padding: 0.95rem 1rem 1.1rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-.hp-feature-title,
 .hp-layer-title {
   margin: 0 0 0.4rem;
   font-size: 1.15rem;
   line-height: 1.25;
 }
-.hp-feature-title a,
 .hp-layer-title a {
   color: var(--heading);
   text-decoration: none;
 }
-.hp-feature-title a:hover,
 .hp-layer-title a:hover {
   text-decoration: underline;
-}
-.hp-feature-deck {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.45;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .hp-layer-place {
   margin: 0 0 0.4rem;
@@ -3190,9 +3173,6 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
   color: var(--accent);
   text-decoration: none;
 }
-.hp-feature-copy .hp-layer-cta {
-  margin-top: auto;
-}
 .exp-sec {
   display: inline-flex;
   align-items: center;
@@ -3207,63 +3187,6 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
 }
 .hp-layer-copy .hp-photo-credit {
   margin: 0.55rem 0 0;
-}
-
-.hp-mag-quote {
-  /* Fixed box (lines reserved per breakpoint, sized for the longest current quote + 1 line). */
-  --hpq-fs: clamp(1.25rem, 2.4vw, 1.7rem);
-  --hpq-lines: 4;
-  --hpq-foot-lines: 1;
-  --hpq-body-h: calc(var(--hpq-fs) * 1.45 * var(--hpq-lines));
-  --hpq-foot-h: 44px;
-  width: 100%;
-  margin: 0;
-  padding: 2.5rem clamp(1.25rem, 5vw, 4rem);
-  background: var(--panel);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.hp-mag-quote blockquote {
-  margin: 0 auto;
-  max-width: 46rem;
-  height: calc(var(--hpq-body-h) + 0.85rem + var(--hpq-foot-h));
-  display: flex;
-  flex-direction: column;
-  transition: opacity 0.22s ease;
-}
-.hp-mag-quote.is-changing blockquote {
-  opacity: 0;
-}
-.hp-quote-body {
-  flex: 0 0 var(--hpq-body-h);
-  height: var(--hpq-body-h);
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.85rem;
-}
-.hp-mag-quote p {
-  margin: auto 0; /* centers short quotes; collapses to 0 when the text overflows (scroll) */
-  font-size: calc(var(--hpq-fs) * var(--fit, 1));
-  line-height: 1.45;
-  color: var(--heading);
-  font-style: italic;
-}
-.hp-mag-quote footer {
-  flex: 0 0 var(--hpq-foot-h);
-  min-height: 44px;
-  height: var(--hpq-foot-h);
-  overflow-y: auto;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-.hp-mag-quote a {
-  color: var(--accent);
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  min-width: 44px;
-  box-sizing: border-box;
 }
 
 .hp-layer-rail {
@@ -3370,7 +3293,6 @@ html[data-hp-theme="light"] .nav-search-hit-title {
   color: var(--heading);
 }
 html[data-hp-theme="light"] .hp-related-card:hover,
-html[data-hp-theme="light"] .hp-feature:hover,
 html[data-hp-theme="light"] .hp-layer-card:hover {
   box-shadow: 0 8px 22px rgba(40, 28, 12, 0.08);
 }
@@ -3402,13 +3324,6 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
 }
 
 @media (max-width: 700px) {
-  /* About 160px for the whole quote block, including padding. */
-  .hp-mag-quote {
-    --hpq-fs: 1.05rem;
-    --hpq-lines: 4;
-    --hpq-foot-lines: 1;
-    padding: 0.75rem 1.15rem;
-  }
   .hp-map-strip {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -3472,7 +3387,6 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   /* Stacked CTAs: always two equal rows, so the row height never depends on wrapping. */
   .hp-cta-row { flex-direction: column; align-items: flex-start; justify-content: flex-start; flex-wrap: nowrap; }
   .hp-cta-row .hp-cta { width: min(100%, 18rem); }
-  .hp-mag-features,
   .hp-layer-rail,
   .hp-related-grid { grid-template-columns: 1fr; }
   .hp-section { padding: 1.35rem 1.15rem 1.85rem; }
@@ -3796,6 +3710,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
 }
 .hp-explore { scroll-margin-top: 4.5rem; }
 .exp-shell { width: 100%; max-width: 78rem; margin: 0 auto; }
+/* Era chips start on the left gutter, under the section heading. */
+.exp-shell .exp-topbar, .exp-shell .exp-tabs, .exp-shell .exp-tabs ul { justify-content: flex-start; margin-left: 0; text-align: left; }
 .exp-topbar {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 0.9rem;
   padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;
@@ -3928,6 +3844,9 @@ html[data-hp-theme="light"] .exp-step:hover, html[data-hp-theme="light"] .exp-nu
     -webkit-box-orient: unset;
   }
   .exp-more { display: inline-flex; align-items: center; justify-content: center; }
+  /* Phones: Load more is the only control at the end of the archive. */
+  .exp-pagebar-bottom { display: none; }
+  .exp-pagebar-top .exp-pager { display: none; }
 }
 .hp-related-more { margin: 1rem 0 0; }
 .hp-related-more a,
@@ -5093,7 +5012,6 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   body.hp-page .hp-lead-block,
   body.hp-page .hp-map-strip,
   body.hp-page .hp-section,
-  body.hp-page .hp-mag-quote,
   body.hp-page footer.foot {
     max-width: none;
     margin-left: 0;
@@ -5340,6 +5258,25 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+
+/* Homepage story link → Timeline: on phones the map docks on top, story below. */
+@media (max-width: 900px) {
+  .timeline-layout.is-home-story .timeline-map-pane {
+    order: -1;
+    position: sticky;
+    top: calc(var(--tl-sticky-top, 3.5rem) + var(--tl-readbar-h, 0px));
+    z-index: 5;
+    min-height: 0;
+    max-height: none;
+    height: 38vh;
+    border-bottom: 1px solid var(--line);
+  }
+  .timeline-layout.is-home-story .timeline-map-head { padding: 0.4rem 0.75rem; }
+  .timeline-layout.is-home-story .timeline-map-head h3,
+  .timeline-layout.is-home-story .timeline-map-head .btn,
+  .timeline-layout.is-home-story .timeline-map-head button { display: none; }
+  .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
+}
 
 /* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
 .story-photo-credit .photo-license { white-space: nowrap; }
