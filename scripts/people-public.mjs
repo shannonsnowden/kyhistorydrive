@@ -41,6 +41,13 @@ export const AI_IDS = [
   'blue-jacket',
   'egushawa',
   'richard-callaway',
+  // Portrait sweep batch 1: canonical faces (Oct 2026).
+  'thomas-marshall-col',
+  'hugh-forbes',
+  'daniel-boone',
+  'benjamin-logan',
+  'george-rogers-clark',
+  'john-bradford',
   'moluntha',
   'robert-johnson',
 ]
