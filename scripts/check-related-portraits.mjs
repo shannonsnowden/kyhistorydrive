@@ -36,7 +36,8 @@ for (const [slug, id] of Object.entries(related.portraitFor || {})) {
   if (id !== null && !byId.has(id)) errors.push(`portraitFor: ${slug} -> unknown person id ${id}`)
 }
 
-const unattr = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+const ENT = { '&amp;': '&', '&quot;': '"', '&#39;': "'", '&lt;': '<', '&gt;': '>' }
+const unattr = (s) => s.replace(/&(?:amp|quot|#39|lt|gt);/g, (m) => ENT[m])
 let boxes = 0
 let faces = 0
 let pendingItems = 0
