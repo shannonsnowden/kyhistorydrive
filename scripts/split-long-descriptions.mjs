@@ -21,6 +21,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { stripMdLinks } from './strip-md-links.mjs'
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const CHECK = process.argv.includes('--check')
@@ -186,6 +187,10 @@ function main() {
     arr.forEach((e, i) => {
       for (const k of fields) {
         const id = e.id || e.marker_number || i
+        if (k !== 'inscription' && typeof e[k] === 'string') {
+          const s = stripMdLinks(e[k])
+          if (s !== e[k]) { counts['link-strip'] = (counts['link-strip'] || 0) + 1; e[k] = s }
+        }
         e[k] = fix(`${rel}#${id}.${k}`, type, e[k], k === 'inscription' ? splitInscription : (t) => splitText(t))
       }
     })
@@ -204,6 +209,10 @@ function main() {
       const id = p.id || p.slug || p.marker_number
       for (const k of ['history', 'description', 'inscription', 'bodyMarkdown']) {
         if (typeof p[k] !== 'string') continue
+        if (k === 'history' || k === 'description') {
+          const s = stripMdLinks(p[k])
+          if (s !== p[k]) { counts['link-strip'] = (counts['link-strip'] || 0) + 1; p[k] = s }
+        }
         const fn = k === 'inscription' ? splitInscription : k === 'bodyMarkdown' ? (t) => splitStoryBody(t) : (t) => splitText(t)
         p[k] = fix(`${rel}#${id}.${k}`, `layer:${path.basename(rel, '.geojson')}`, p[k], fn)
       }
