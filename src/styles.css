@@ -5234,6 +5234,8 @@ html[data-hp-theme="light"] .hp-plan-drive {
 }
 @media (max-width: 560px) {
   .hp-map-strip-link .hp-map-seal { height: 34%; top: 4%; left: 2%; }
+  /* Narrow: cap the route-and-car badge at ~80px so it clears far-western Kentucky. */
+  .hp-map-strip-link .hp-map-seal.hp-plan-badge { height: 80px; width: 80px; max-height: 34%; top: 3%; left: 1%; }
   /* Phones: the plaque moves below the map so the whole KY map shows; seal stays top-left. */
   .hp-plan-drive { position: static; transform: none; max-width: none; margin-top: 0.6rem; padding: 0.7rem 0.9rem 0.85rem; box-shadow: none; }
   .hp-plan-drive-title { font-size: 1.6rem; }
