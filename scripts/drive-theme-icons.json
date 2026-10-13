@@ -1,27 +1,85 @@
 {
-  "_note": "Drive theme -> existing site icon (map layer icons from src/main.js DATA_LAYERS). No new icons. 'fallback' = Markers layer icon, used where no layer icon matches the theme.",
+  "_note": "Drive theme -> site icon. War, frontier, rail and Native nations icons are drawn in code (scripts/icon-src/*.svg, rendered by scripts/render-icons.py).",
   "themes": {
-    "bourbon":   { "label": "Bourbon and distilleries", "img": "/icons/bourbon-glass.png" },
-    "war":       { "label": "War sites", "img": "/icons/musket-sword.png" },
-    "bridges":   { "label": "Covered bridges", "img": "/icons/covered-bridge.png" },
-    "parks":     { "label": "Parks and mountains", "img": "/icons/statepark.png" },
-    "caves":     { "label": "Caves", "emoji": "🦇" },
-    "museums":   { "label": "Capital and museums", "emoji": "🏛" },
-    "fallback":  { "label": "Frontier, Native nations and river history (no matching layer icon)", "img": "/icons/highway-marker-orange.png" }
+    "bourbon": {
+      "label": "Bourbon and distilleries",
+      "img": "/icons/bourbon-glass.png"
+    },
+    "bridges": {
+      "label": "Covered bridges",
+      "img": "/icons/covered-bridge.png"
+    },
+    "parks": {
+      "label": "Parks and mountains",
+      "img": "/icons/statepark.png"
+    },
+    "caves": {
+      "label": "Caves",
+      "emoji": "🦇"
+    },
+    "museums": {
+      "label": "Capital and museums",
+      "emoji": "🏛"
+    },
+    "war-civil": {
+      "label": "Civil War",
+      "img": "/icons/war-civil.png"
+    },
+    "war-1812": {
+      "label": "War of 1812",
+      "img": "/icons/war-1812.png"
+    },
+    "war-revolution": {
+      "label": "Revolutionary War",
+      "img": "/icons/war-revolution.png"
+    },
+    "frontier": {
+      "label": "Frontier and pioneers",
+      "img": "/icons/frontier.png"
+    },
+    "rail": {
+      "label": "Rail and transport",
+      "img": "/icons/rail.png"
+    },
+    "native": {
+      "label": "Native nations",
+      "img": "/icons/native-nations.png"
+    }
   },
   "drives": {
-    "licking-valley": "bridges", "big-sandy-pine-mountain": "parks", "bluegrass-forts": "fallback",
-    "boones-trail": "fallback", "bourbon-heritage": "bourbon", "capital-and-shakers": "museums",
-    "cave-country": "caves", "civil-war-bluegrass": "war", "civil-war-south-central": "war",
-    "northern-kentucky": "fallback", "pennyrile": "war", "western-rivers": "fallback",
-    "barton-1792": "bourbon", "buffalo-trace": "bourbon", "buffalo-trace-loop-2": "bourbon",
-    "castle-and-key": "bourbon", "four-roses": "bourbon", "heaven-hill": "bourbon", "jim-beam": "bourbon",
-    "makers-mark": "bourbon", "old-forester": "bourbon", "wild-turkey": "bourbon",
-    "wild-turkey-loop-2": "bourbon", "woodford-reserve": "bourbon"
+    "licking-valley": "bridges",
+    "big-sandy-pine-mountain": "war-civil",
+    "bluegrass-forts": "frontier",
+    "boones-trail": "frontier",
+    "bourbon-heritage": "bourbon",
+    "capital-and-shakers": "museums",
+    "cave-country": "caves",
+    "civil-war-bluegrass": "war-civil",
+    "civil-war-south-central": "war-civil",
+    "northern-kentucky": "rail",
+    "pennyrile": "war-civil",
+    "western-rivers": "native",
+    "barton-1792": "bourbon",
+    "buffalo-trace": "bourbon",
+    "buffalo-trace-loop-2": "bourbon",
+    "castle-and-key": "bourbon",
+    "four-roses": "bourbon",
+    "heaven-hill": "bourbon",
+    "jim-beam": "bourbon",
+    "makers-mark": "bourbon",
+    "old-forester": "bourbon",
+    "wild-turkey": "bourbon",
+    "wild-turkey-loop-2": "bourbon",
+    "woodford-reserve": "bourbon"
   },
   "stopKinds": {
-    "stories": "/icons/highway-marker-orange.png", "history": "📖", "war": "/icons/musket-sword.png",
-    "national": "⭐", "parks": "/icons/statepark.png", "museums": "🏛",
-    "bridges": "/icons/covered-bridge.png", "distilleries": "/icons/bourbon-glass.png"
+    "stories": "/icons/highway-marker-orange.png",
+    "history": "📖",
+    "war": "/icons/musket-sword.png",
+    "national": "⭐",
+    "parks": "/icons/statepark.png",
+    "museums": "🏛",
+    "bridges": "/icons/covered-bridge.png",
+    "distilleries": "/icons/bourbon-glass.png"
   }
 }
