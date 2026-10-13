@@ -5627,11 +5627,32 @@ html[data-hp-theme="light"] .hp-plan-drive {
   left: 12px;
   bottom: 92px; /* 40 + 44 Full state + 8 gap */
   max-height: calc(100% - 104px);
+  max-width: min(21rem, calc(100% - 4.5rem)); /* footnote fits one line, so the legend clears the Jackson Purchase pins */
+  padding-right: 0;
 }
-/* Legend 'i': each row is the button, so a 44px-tall row gives the 'i' a 44x44 hit area
-   (the row runs the full legend width). The glyph itself is unchanged. */
-#map #nationLegend button.ml-row { min-height: 44px; }
+#map #nationLegend .ml-rows, #map #nationLegend .ml-h, #map #nationLegend .ml-f { padding-right: 0.6rem; }
+#map #nationLegend button.ml-row { min-height: 1.6rem; margin: 0.04rem 0; }
+@media (min-width: 560px) {
+  #map #nationLegend.terr-maplegend { padding-top: 0.3rem; padding-bottom: 0.3rem; }
+  #map #nationLegend .ml-h { margin-bottom: 0.1rem; }
+  #map #nationLegend .ml-f { margin-top: 0.15rem; }
+}
+/* Legend 'i': compact ~28px rows; a 44x44 ::after gives the 'i' its tap area (the row is the button). */
+#map #nationLegend .ml-i { position: relative; }
+#map #nationLegend .ml-i::after { content: ''; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
+#map #nationLegend button.ml-row:hover .ml-i,
+#map #nationLegend button.ml-row:focus-visible .ml-i { outline: 2px solid #d99a45; outline-offset: 1px; }
+/* Dark mode: 1px light edge around each swatch (its own 2px border keeps the nation colour). */
+html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55); }
+#map #nationLegend .ml-chip { display: none; }
+#map #nationLegend .ml-body { display: contents; }
 @media (max-width: 559px) {
   #map .full-state-fab { display: none; }
   #map #nationLegend.terr-maplegend { left: 12px; bottom: 40px; max-height: calc(100% - 52px); }
+  #map #nationLegend .ml-chip { display: inline-flex; align-items: center; align-self: flex-start; gap: 0.3rem; pointer-events: auto; min-height: 44px; padding: 0 0.8rem; border: 1px solid #d99a45; border-radius: 999px; background: var(--chip, var(--panel)); color: var(--heading); font: 700 0.8rem system-ui, sans-serif; cursor: pointer; }
+  #map #nationLegend .ml-chip:focus-visible { outline: 2px solid #d99a45; outline-offset: 2px; }
+  #map #nationLegend.ml-open .ml-chip span { display: inline-block; transform: rotate(180deg); }
+  #map #nationLegend:not(.ml-open) .ml-body { display: none; }
+  #map #nationLegend.terr-maplegend:not(.ml-open) { padding: 0; border: 0; background: transparent; box-shadow: none; }
+  #map #nationLegend.ml-open .ml-body { display: flex; flex-direction: column; min-height: 0; overflow: auto; margin-top: 0.35rem; }
 }
