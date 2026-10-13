@@ -11,6 +11,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { storySubject } from '../src/related-people.js'
+import { imageDims } from './image-dims.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
@@ -64,3 +65,23 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !=
   fs.writeFileSync(abs, `${JSON.stringify(story, null, 2)}\n`)
 }
 console.log(`dedupe-portrait-photos: ${swapped} topic photos applied, ${dropped} dropped`)
+
+// Tall (portrait-orientation) sidebar photos: the 4:3 / 16:10 cover crop cuts them to a sliver
+// (e.g. the Point Pleasant obelisk lost its top and base). Mark them fit "contain" so the whole
+// image shows on a palette background. Never upscales: contain only scales down.
+const TALL = 1.15
+let tall = 0
+for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'index.json')) {
+  const abs = path.join(dir, file)
+  const story = JSON.parse(fs.readFileSync(abs, 'utf8'))
+  const url = story.photo?.image_url
+  if (!url || !url.startsWith('/content/')) continue
+  const d = imageDims(path.join(root, 'public', url.split(/[?#]/)[0]))
+  const want = d && d.width > 0 && d.height / d.width >= TALL ? 'contain' : undefined
+  if (story.photo.fit === want) continue
+  if (want) story.photo.fit = want
+  else delete story.photo.fit
+  if (want) tall += 1
+  fs.writeFileSync(abs, `${JSON.stringify(story, null, 2)}\n`)
+}
+console.log(`dedupe-portrait-photos: ${tall} tall sidebar photos set to fit contain`)

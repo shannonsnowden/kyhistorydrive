@@ -1012,7 +1012,7 @@ class PrerenderPages {
       : 'loading="lazy"'
     return `<aside class="story-sidebar-photo" aria-label="Story photo">
       <p class="story-sidebar-photo-heading">Photos</p>
-      <a class="story-sidebar-photo-frame" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
+      <a class="story-sidebar-photo-frame${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year}</p>
