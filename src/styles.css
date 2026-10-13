@@ -2841,6 +2841,25 @@ html[data-hp-theme="light"] .hp-map-seal {
     0 0 0 3px #6e4214,
     0 8px 20px rgba(40, 28, 12, 0.28);
 }
+/* Plan Your Drive: inline route-and-car badge (seal option A). Green and amber only; the header seal is untouched.
+   Dark is the default theme, so dark gets the stronger fill, brighter ring and a soft amber glow. */
+.hp-map-seal.hp-plan-badge {
+  --pb-green: #3d7149;
+  --pb-amber: #e3a650;
+  --pb-cream: #f6edd8;
+  display: block;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(0 0 10px rgba(227, 166, 80, 0.45)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+html[data-hp-theme="light"] .hp-map-seal.hp-plan-badge {
+  --pb-green: #2f5a3a;
+  --pb-amber: #c9893a;
+  box-shadow: none;
+  filter: drop-shadow(0 3px 6px rgba(40, 30, 10, 0.28));
+}
+.hp-plan-badge svg { display: block; width: 100%; height: 100%; }
 .hp-map-strip-copy { grid-area: copy; min-width: 0; }
 .hp-map-strip-copy h2 {
   margin: 0 0 0.4rem;
