@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T09:39:35.478Z",
+  "generatedAt": "2026-10-13T12:58:46.981Z",
   "briefDate": "2026-10-13",
   "displayDate": "Tuesday, October 13, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -45,12 +45,12 @@
       "mapHref": "/#map/history/col-thomas-marshall-buck-pond-woodford-1783-1802",
       "quote": "Col. Thomas Marshall (1730–1802) came to Kentucky as a veteran of two wars and a surveyor by trade.",
       "photo": {
-        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
-        "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain",
-        "year": null
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
       },
       "heroDeck": "Col. Thomas Marshall (1730–1802) came to Kentucky as a veteran of two wars and a surveyor by trade."
     },
@@ -71,7 +71,7 @@
       "quote": "Moluntha (died 1786), also spelled Melonthe or Malunthy, was a civil chief of the Mekoche division of the Shawnee.",
       "photo": {
         "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
-        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
@@ -172,12 +172,12 @@
       "mapHref": "/#map/history/col-thomas-marshall-buck-pond-woodford-1783-1802",
       "quote": "Col. Thomas Marshall (1730–1802) came to Kentucky as a veteran of two wars and a surveyor by trade.",
       "photo": {
-        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
-        "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain",
-        "year": null
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
       },
       "heroDeck": "Col. Thomas Marshall (1730–1802) came to Kentucky as a veteran of two wars and a surveyor by trade."
     },
@@ -198,7 +198,7 @@
       "quote": "Moluntha (died 1786), also spelled Melonthe or Malunthy, was a civil chief of the Mekoche division of the Shawnee.",
       "photo": {
         "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
-        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",

@@ -24,6 +24,7 @@
     "year": null,
     "credit": "Kentucky Ante-Bellum portraiture",
     "license": "Public domain",
-    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+    "fit": "contain"
   }
 }

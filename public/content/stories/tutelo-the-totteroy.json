@@ -29,6 +29,7 @@
     "year": 1883,
     "credit": "Horatio Hale",
     "license": "Public domain",
-    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+    "fit": "contain"
   }
 }

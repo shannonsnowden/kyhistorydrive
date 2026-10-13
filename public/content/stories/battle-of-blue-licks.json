@@ -26,6 +26,7 @@
     "year": 2006,
     "credit": "User:Kevin Myers",
     "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "fit": "contain"
   }
 }

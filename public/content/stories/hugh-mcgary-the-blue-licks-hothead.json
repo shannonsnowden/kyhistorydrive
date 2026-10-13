@@ -22,6 +22,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Nyttend · Wikimedia Commons · Public domain",
-    "year": null
+    "year": null,
+    "fit": "contain"
   }
 }

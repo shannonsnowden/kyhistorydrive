@@ -1,7 +1,224 @@
 {
-  "generatedAt": "2026-10-13T10:03:31.341Z",
+  "generatedAt": "2026-10-13T12:59:02.344Z",
   "maxBytes": 204800,
   "images": {
+    "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
+      "sha256": "2fd6d3e09c2e902e8a01f0d77deb1bf921db9e0e00bd3d7913c5568ffd0ef6a5",
+      "width": 800,
+      "height": 600,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.avif",
+          "w": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.webp",
+          "w": 800
+        }
+      ]
+    },
+    "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg": {
+      "sha256": "a49081648565c7c5f75022db94633b4aa6987470dc597db344c642d660f63806",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond--topic-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond--topic-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond--topic-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond--topic-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/moluntha-and-logans-raid-1786.jpg": {
+      "sha256": "5e0d5cb77b2d156140c047a0dd1741cc13e345ae9314f7fe27bb8a6ed60c1a17",
+      "width": 1280,
+      "height": 1280,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg": {
+      "sha256": "bfe0c73cb8c00e51887c9c90442b530b05e2ffb77fa4b8e2920153e060236349",
+      "width": 1280,
+      "height": 851,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/george-garvin-brown-and-old-forester.jpg": {
+      "sha256": "66683369dbcb0c2bf2fc03d974a621b9db4254a3be4b0b8223e34b173b66d5f7",
+      "width": 1280,
+      "height": 1707,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg": {
+      "sha256": "66b523814feb6ff8f99652e191b016ff5bdbe139eaf116729714f1b5d86e3619",
+      "width": 1500,
+      "height": 1000,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg": {
+      "sha256": "843d12d545ba54f077a18b4bf5929c39da6f16b53e7ed39f6bf226083a48eb19",
+      "width": 496,
+      "height": 746,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.avif",
+          "w": 496
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.webp",
+          "w": 496
+        }
+      ]
+    },
+    "/content/photos/stories/capt-robert-johnson-and-big-crossing-station--topic.jpg": {
+      "sha256": "28e864480243457e14d6ad33824fb737a0f59bf8c860c9972d39793c819cdb77",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station--topic-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station--topic-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station--topic-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station--topic-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/burlington-boone-county-seat.jpg": {
+      "sha256": "fbbc65db2c296186ef3aaa6f731ca704ff02c9b09b763b819261ba603f21be12",
+      "width": 1920,
+      "height": 1440,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-720.webp",
+          "w": 720
+        }
+      ]
+    },
     "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg": {
       "sha256": "bd167a358d16931fdb40b5c5a6d483326f49cb955ec3c1f89dd6d0acbe18af2f",
       "width": 616,
@@ -1319,148 +1536,6 @@
         }
       ]
     },
-    "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
-      "sha256": "2fd6d3e09c2e902e8a01f0d77deb1bf921db9e0e00bd3d7913c5568ffd0ef6a5",
-      "width": 800,
-      "height": 600,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.avif",
-          "w": 800
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.webp",
-          "w": 800
-        }
-      ]
-    },
-    "/content/photos/stories/moluntha-and-logans-raid-1786.jpg": {
-      "sha256": "5e0d5cb77b2d156140c047a0dd1741cc13e345ae9314f7fe27bb8a6ed60c1a17",
-      "width": 1280,
-      "height": 1280,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-1280.avif",
-          "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-1280.webp",
-          "w": 1280
-        }
-      ]
-    },
-    "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg": {
-      "sha256": "bfe0c73cb8c00e51887c9c90442b530b05e2ffb77fa4b8e2920153e060236349",
-      "width": 1280,
-      "height": 851,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-1280.avif",
-          "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-1280.webp",
-          "w": 1280
-        }
-      ]
-    },
-    "/content/photos/stories/george-garvin-brown-and-old-forester.jpg": {
-      "sha256": "66683369dbcb0c2bf2fc03d974a621b9db4254a3be4b0b8223e34b173b66d5f7",
-      "width": 1280,
-      "height": 1707,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-1280.avif",
-          "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-1280.webp",
-          "w": 1280
-        }
-      ]
-    },
-    "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg": {
-      "sha256": "66b523814feb6ff8f99652e191b016ff5bdbe139eaf116729714f1b5d86e3619",
-      "width": 1500,
-      "height": 1000,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-720.webp",
-          "w": 720
-        }
-      ]
-    },
-    "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg": {
-      "sha256": "843d12d545ba54f077a18b4bf5929c39da6f16b53e7ed39f6bf226083a48eb19",
-      "width": 496,
-      "height": 746,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.avif",
-          "w": 496
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.webp",
-          "w": 496
-        }
-      ]
-    },
     "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg": {
       "sha256": "3a19e447b6cb84306240876b3a85138ce1350c69c0a793b4bee5a0bfe858cf6e",
       "width": 1920,
@@ -1482,31 +1557,6 @@
         },
         {
           "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-720.webp",
-          "w": 720
-        }
-      ]
-    },
-    "/content/photos/stories/burlington-boone-county-seat.jpg": {
-      "sha256": "fbbc65db2c296186ef3aaa6f731ca704ff02c9b09b763b819261ba603f21be12",
-      "width": 1920,
-      "height": 1440,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-720.webp",
           "w": 720
         }
       ]

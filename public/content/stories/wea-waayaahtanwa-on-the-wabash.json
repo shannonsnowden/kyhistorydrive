@@ -25,6 +25,7 @@
     "year": 1830,
     "credit": "George Catlin",
     "license": "Public domain",
-    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+    "fit": "contain"
   }
 }

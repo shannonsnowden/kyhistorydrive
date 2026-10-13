@@ -32,6 +32,7 @@
     "year": 2004,
     "credit": "The original uploader was Pollinator at English Wikipedia",
     "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "fit": "contain"
   }
 }
