@@ -57,39 +57,52 @@ def make(variant,size,touch=False):
     im=im.resize((size,size),Image.LANCZOS); return im.convert('RGB') if touch else im
 A16=["................",
      "................",
-     "..AAAAAAA.......",
-     "..A..A.A....AA..",
-     "..A..A.A....AA..",
+     "................",
+     "...AAAAAA.......",
+     "...A..A.A...AA..",
+     "...A..A.A...AA..",
      "..AAAAAAAAAAAA..",
-     "..AAAAAAAAAAAAA.",
      ".AAAAAAAAAAAAAA.",
      ".A....AAAA....A.",
      "..AAAA....AAAA..",
+     "..A..A....A..A..",   # wheel hubs stay open (green) at 16px
      "..A..A....A..A..",
-     "..A..A....A..A..",
-     "..AAAA....AAAA..",
+     "...AA......AA...",
      "................",
      "................",
      "................"]
-def make16(variant):
-    im=make(variant,16); px=im.load(); g=ImageColor.getrgb(GREEN) if isinstance(GREEN,str) else GREEN
-    rows=list(A16)
-    if variant=='modelA-road': rows[14]="....AAAAAAAA...."
-    for y in range(16):
-        for x in range(16):
-            if px[x,y][3]>200 and 2<=y<=14 and 1<=x<=14: px[x,y]=tuple(g[:3])+(255,)
-            if rows[y][x]=='A': px[x,y]=tuple((ImageColor.getrgb(AMBER_HI) if isinstance(AMBER_HI,str) else AMBER_HI)[:3])+(255,)
+
+def add_rim(im):
+    """Crisp 1px #2e5a3e rim at native size: every disc pixel touching the outside becomes RIM,
+    so the disc separates from dark tabs. Car pixels never sit on the rim (grid/inset keep them inside)."""
+    n = im.size[0]; px = im.load(); a = [[px[x, y][3] for x in range(n)] for y in range(n)]
+    solid = lambda x, y: 0 <= x < n and 0 <= y < n and a[y][x] > 200
+    for y in range(n):
+        for x in range(n):
+            if a[y][x] > 40 and not all(solid(x + dx, y + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+                px[x, y] = RIM[:3] + (a[y][x],)
     return im
 
+def make16(variant):
+    im = make(variant, 16); px = im.load()
+    for y in range(16):
+        for x in range(16):
+            if px[x, y][3] > 200: px[x, y] = GREEN
+            if A16[y][x] == 'A': px[x, y] = AMBER_HI
+    if variant == 'modelA-road':
+        for x in range(4, 12): px[x, 13] = AMBER_HI
+    return add_rim(im)
+
+def disc(n):
+    return make16('modelA-disc') if n == 16 else add_rim(make('modelA-disc', n))
+
 if __name__ == '__main__':
-    disc = {16: make16('modelA-disc')}
-    for n in (32, 48, 96):
-        disc[n] = make('modelA-disc', n)
-    disc[32].save('public/favicon-32.png', optimize=True)
+    discs = {n: disc(n) for n in (16, 32, 48, 96)}
+    discs[32].save('public/favicon-32.png', optimize=True)
     for n in (48, 96):
-        disc[n].save(f'public/favicon-{n}.png', optimize=True)
+        discs[n].save(f'public/favicon-{n}.png', optimize=True)
     make('modelA-road', 512).save('public/favicon-512.png', optimize=True)
     make('modelA-road', 180, True).save('public/apple-touch-icon.png', optimize=True)
-    disc[48].save('public/favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)], append_images=[disc[16], disc[32]])
+    discs[48].save('public/favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)], append_images=[discs[16], discs[32]])
     for n in (16, 32, 48):
-        disc[n].save(f'scripts/brand-src/favicon-preview-{n}.png')
+        discs[n].save(f'scripts/brand-src/favicon-preview-{n}.png')
