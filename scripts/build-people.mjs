@@ -8,6 +8,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
+import { buildStorySubjects } from '../src/related-people.js'
 import {
   AI_IDS,
   NO_PORTRAIT_IDS,
@@ -253,6 +254,9 @@ async function main() {
   const payload = {
     source: 'data/people.json',
     people: records,
+    // slug → person id for stories whose title names one person (matched with aliases here, at
+    // build time; the aliases themselves are not published).
+    storySubjects: buildStorySubjects(people, JSON.parse(fs.readFileSync(path.join(root, 'public/content/stories.json'), 'utf8')).stories),
   }
   assertPublicPeople(payload)
   const outFile = path.join(root, PUBLIC_PEOPLE)
@@ -265,7 +269,7 @@ async function main() {
   if (records.length !== people.length) throw new Error('people: public file dropped a person')
 
   console.log(
-    `build-people: ${records.length} people, ${aiCount} AI, ${realCount} real (${downloaded} downloaded this run), ${skipped.length} skipped`,
+    `build-people: ${Object.keys(payload.storySubjects).length} title subjects; ${records.length} people, ${aiCount} AI, ${realCount} real (${downloaded} downloaded this run), ${skipped.length} skipped`,
   )
   for (const row of skipped) {
     console.log(`  skip ${row.id}: ${row.reason} [${row.license}]`)

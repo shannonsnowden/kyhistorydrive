@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T09:39:37.559Z",
+  "generatedAt": "2026-10-13T10:03:31.341Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
@@ -16,31 +16,6 @@
         {
           "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.webp",
           "w": 800
-        }
-      ]
-    },
-    "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg": {
-      "sha256": "0ac0ff0e06e893082ea3db6ea85126b2d6c40e3dddece883e556382f512ef9a8",
-      "width": 921,
-      "height": 1304,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-921.avif",
-          "w": 921
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-921.webp",
-          "w": 921
         }
       ]
     },
