@@ -168,9 +168,16 @@ class PrerenderPages {
     if (aboutHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(aboutHtml)) {
       throw new Error('prerender: about page includes the plain contact address')
     }
-    const aboutH1 = [...aboutHtml.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)].map((match) =>
-      match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
-    )
+    const aboutH1 = [...aboutHtml.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)].map((match) => {
+      // Repeat until stable so a nested tag cannot collapse into <script>.
+      let text = match[1]
+      let previous
+      do {
+        previous = text
+        text = text.replace(/<[^>]+>/g, '')
+      } while (text !== previous)
+      return text.replace(/\s+/g, ' ').trim()
+    })
     if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
       throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
     }
@@ -1017,9 +1024,10 @@ class PrerenderPages {
   /** "Photo: Name / Wikimedia Commons, " (license follows), or "Illustration: Kentucky History Drive, " for AI art. */
   static peopleCreditName(person) {
     const raw = String(person.credit || '')
-    const name = raw
-      // AI credits already open with 'AI illustration · '; the card label says 'Illustration:', so drop the prefix.
-      .replace(person.ai ? /^AI illustration\s*·\s*/i : /(?!)/, '')
+    // AI credits already open with 'AI illustration · '; the card label says 'Illustration:', so drop the prefix.
+    // Non-AI credits skip that replace. A never-matching pattern would replace the empty string with itself.
+    const withoutAiLabel = person.ai ? raw.replace(/^AI illustration\s*·\s*/i, '') : raw
+    const name = withoutAiLabel
       .replace(/\s*·\s*via Wikimedia Commons\s*$/i, '')
       .replace(new RegExp(`\\s*·\\s*${String(person.license || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`), '')
       .replace(/^[^\n:]*\.(?:jpe?g|png|tiff?):\s*/i, '')
