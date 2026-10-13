@@ -9,6 +9,7 @@ import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
+import { loadStoryPeople, applyStoryPeople } from './story-people.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
@@ -3228,6 +3229,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     if (film) reader.classList.add('has-film')
     // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
     // when the Photos sidebar already shows the same file, but the title headshot stays).
+    const storyPeople = await loadStoryPeople()
     const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
     const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
@@ -3251,7 +3253,13 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             <div class="tags">${tags}</div>
             ${mapControl ? `<div class="story-card-actions">${mapControl}</div>` : ''}
           </header>
-          <div class="story-body">${storyPortraitHtml(subject.person)}${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
+          <div class="story-body">${storyPortraitHtml(subject.person)}${applyStoryPeople(
+            marked.parse(stripSourceAttribution(s.bodyMarkdown || '')),
+            storyPeople.stories?.[meta.slug],
+            new Map((publicPeople.people || []).map((p) => [p.id, p])),
+            (h) => h,
+            { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
+          )}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
           ${extras}

@@ -1,4 +1,5 @@
 import { portraitAlt, creditWithCaption } from './portrait-captions.js'
+import { MAX_LINKS_PER_BLOCK } from './story-people.js'
 
 export { portraitAlt }
 
@@ -107,13 +108,24 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
   const people = Object.entries(data?.people || {}).sort((a, b) => b[0].length - a[0].length)
   if (!root || !people.length) return
   const done = new Set() // target slugs already linked in this story
+  for (const a of root.querySelectorAll('a.person-link[href^="#timeline/"]')) {
+    try {
+      done.add(decodeURIComponent(a.getAttribute('href').slice(10))) // build-time links (story-people.json)
+    } catch {
+      /* ignore */
+    }
+  }
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode: (n) => (n.parentElement.closest('a, code, pre, button') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+    // Never inside links, code or headings (SEO: no links in h1–h6); at most MAX_LINKS_PER_BLOCK
+    // person links per paragraph or list item (critique #280).
+    acceptNode: (n) => (n.parentElement.closest('a, code, pre, button, h1, h2, h3, h4, h5, h6') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
   })
   const nodes = []
   while (walker.nextNode()) nodes.push(walker.currentNode)
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i]
+    const block = node.parentElement?.closest('p, li, blockquote, td, th, dd, dt')
+    if (block && block.querySelectorAll('a.person-link').length >= MAX_LINKS_PER_BLOCK) continue
     for (const [name, target] of people) {
       if (target === slug || done.has(target) || (data.skip?.[name] || []).includes(slug) || !titleFor(target)) continue
       const re = new RegExp(`(^|[^\\p{L}\\p{N}])${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}]|['’]s (?:Station|Fort))`, 'u')
@@ -159,7 +171,7 @@ export function hasSafePortrait(person) {
  * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
  */
 const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
-const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
+export const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
 const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /**
