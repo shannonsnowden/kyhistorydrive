@@ -2642,6 +2642,8 @@ function focusStoryOnMaps(story) {
     if (metaEl) metaEl.textContent = `${story.title} — no map location yet`
     if (timelineMapReady) {
       ensureHighlightSource(timelineMap, null)
+      // No pin: show the default state view, not the previous story's focus
+      fitMapToKentucky(timelineMap, { duration: 0 })
     }
     return
   }
@@ -3010,7 +3012,10 @@ function timelineHeaderOffset() {
   const bar = document.querySelector('.timeline-read-bar')
   const headerH = header ? header.getBoundingClientRect().height : 0
   const barH = bar ? bar.getBoundingClientRect().height : 0
-  return headerH + barH + 8
+  // Phones opened from a homepage story link: the map is docked under the bar
+  const docked = document.querySelector('#timeline .timeline-layout.is-home-story #timelineMapPane')
+  const dockH = docked && window.matchMedia('(max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
+  return headerH + barH + dockH + 8
 }
 
 function timelineItemFor(slug) {
@@ -4142,6 +4147,29 @@ function setLegendNote(id, { focus = false, scroll = true } = {}) {
     if (focus) el.querySelector(`button.ml-row[data-nid="${id}"]`)?.focus()
   }
 }
+/**
+ * Homepage story links open #timeline/<slug> with the map in view: the map is shown
+ * (reading-wide is undone) and, on phones, docked on top with the story below it.
+ * The flag is set by the homepage click intercept (src/home-preview.js).
+ */
+function applyHomeStoryLayout(slug) {
+  const layout = document.querySelector('#timeline .timeline-layout')
+  if (!layout) return
+  let fromHome = null
+  try {
+    fromHome = sessionStorage.getItem('khd-from-home')
+    sessionStorage.removeItem('khd-from-home')
+  } catch {}
+  const on = Boolean(slug && fromHome && fromHome === slug)
+  if (on && layout.classList.contains('is-reading-wide')) {
+    document.getElementById('timelineReadingToggle')?.click()
+  }
+  if (layout.classList.contains('is-home-story') !== on) {
+    layout.classList.toggle('is-home-story', on)
+    if (timelineMap) requestAnimationFrame(() => timelineMap.resize())
+  }
+}
+
 window.addEventListener('hashchange', () => {
   if (!legendNoteId) return
   legendNoteId = null
@@ -4484,6 +4512,7 @@ async function applyRoute() {
     // Fresh visit: bare #timeline (no story slug), clear prior selection
     if (!slug) selectedStorySlug = null
     else selectedStorySlug = slug
+    applyHomeStoryLayout(slug)
     await renderTimelineList(slug)
     applyPendingStoryFocus()
     const scrollToStoryDetail = () => {

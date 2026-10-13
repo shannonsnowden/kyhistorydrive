@@ -5226,3 +5226,22 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+
+/* Homepage story link → Timeline: on phones the map docks on top, story below. */
+@media (max-width: 900px) {
+  .timeline-layout.is-home-story .timeline-map-pane {
+    order: -1;
+    position: sticky;
+    top: calc(var(--tl-sticky-top, 3.5rem) + var(--tl-readbar-h, 0px));
+    z-index: 5;
+    min-height: 0;
+    max-height: none;
+    height: 38vh;
+    border-bottom: 1px solid var(--line);
+  }
+  .timeline-layout.is-home-story .timeline-map-head { padding: 0.4rem 0.75rem; }
+  .timeline-layout.is-home-story .timeline-map-head h3,
+  .timeline-layout.is-home-story .timeline-map-head .btn,
+  .timeline-layout.is-home-story .timeline-map-head button { display: none; }
+  .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
+}
