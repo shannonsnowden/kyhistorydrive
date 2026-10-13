@@ -1,27 +1,12 @@
 {
-  "generatedAt": "2026-10-13T12:58:46.971Z",
+  "generatedAt": "2026-10-13T13:03:27.112Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
         "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
-        "title": "A map showing en:Mississippian culture mound sites on the Lower en:Ohio River",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Mississippian_sites_on_Lower_Ohio_Map_HRoe_2010.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-      }
-    },
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county",
-      "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -402,7 +387,7 @@
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -1422,7 +1407,7 @@
       "historyId": "muir-site-15js86-jessamine-county",
       "photo": {
         "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -2194,11 +2179,11 @@
   },
   "byHistoryId": {
     "adams-site-15fu4-mississippian-fulton-county": {
-      "slug": "adams-site-mississippian-town-near-hickman",
+      "slug": "adams-site-15fu4",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -2537,7 +2522,7 @@
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -3349,7 +3334,7 @@
       "historyId": "muir-site-15js86-jessamine-county",
       "photo": {
         "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",

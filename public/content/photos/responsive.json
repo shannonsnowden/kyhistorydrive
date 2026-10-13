@@ -452,23 +452,6 @@
       "avif": [],
       "webp": []
     },
-    "/content/photos/stories/adams-site-15fu4.jpg": {
-      "sha256": "147add011720ab1dd437abb95598a83cd67802f2559db5178ba50647d7282f9c",
-      "width": 800,
-      "height": 511,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/adams-site-15fu4-800.avif",
-          "w": 800
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/adams-site-15fu4-800.webp",
-          "w": 800
-        }
-      ]
-    },
     "/content/photos/stories/turk-site-carlisle-county.jpg": {
       "sha256": "7615d48c57008e910564869aec425ad45a6aff783a13d613370113ea6c70d6ac",
       "width": 1600,
