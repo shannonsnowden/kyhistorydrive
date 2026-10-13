@@ -128,7 +128,8 @@
         "col-john-bowman-at-old-chillicothe",
         "col-john-hardin-of-pleasant-run",
         "nonhelema",
-        "stanford-from-st-asaph"
+        "stanford-from-st-asaph",
+        "moluntha-and-logans-raid-1786"
       ]
     },
     {
@@ -297,7 +298,8 @@
       "licenseUrl": null,
       "stories": [
         "john-floyd",
-        "stanford-from-st-asaph"
+        "stanford-from-st-asaph",
+        "prestonsburg-first-seat-on-the-big-sandy"
       ]
     },
     {
@@ -982,7 +984,8 @@
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
-        "nonhelema"
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
       ]
     },
     {
@@ -997,7 +1000,8 @@
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
-        "nonhelema"
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
       ]
     },
     {
@@ -4388,6 +4392,61 @@
       "licenseUrl": null,
       "stories": [
         "jacob-spears-early-bourbon-whiskey"
+      ]
+    },
+    {
+      "id": "thomas-marshall-col",
+      "name": "Col. Thomas Marshall",
+      "dates": "1730–1802",
+      "image": {
+        "webp": "/people/portraits/thomas-marshall-col-512.webp",
+        "jpg": "/people/portraits/thomas-marshall-col-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-thomas-marshall-at-buck-pond"
+      ]
+    },
+    {
+      "id": "john-spurlock",
+      "name": "John Spurlock",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ]
+    },
+    {
+      "id": "john-preston-col",
+      "name": "Col. John Preston",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ]
+    },
+    {
+      "id": "george-garvin-brown",
+      "name": "George Garvin Brown",
+      "dates": "1846–1917",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "george-garvin-brown-and-old-forester"
       ]
     }
   ]
