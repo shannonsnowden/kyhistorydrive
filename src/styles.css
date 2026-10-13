@@ -5607,3 +5607,31 @@ html[data-hp-theme="light"] .hp-plan-drive {
 }
 .story-portrait-note { white-space: nowrap; }
 
+
+/* Map bottom-left corner (#map only): legend, Full state and the scale bar stack in one
+   column with 8px gaps so nothing overlaps. Scale 22px at 10px from the bottom; Full state
+   44px tall above it; the nation legend above that. Below 560px the panel's own Full state
+   button (#zoomFullState) stays, so the map-corner copy is hidden. */
+#map .maplibregl-ctrl-bottom-left .maplibregl-ctrl-scale {
+  box-sizing: border-box;
+  height: 22px;
+  margin: 0 0 10px 12px;
+}
+#map .full-state-fab {
+  left: 12px;
+  bottom: 40px; /* 10 + 22 scale + 8 gap */
+  box-sizing: border-box;
+  min-height: 44px;
+}
+#map #nationLegend.terr-maplegend {
+  left: 12px;
+  bottom: 92px; /* 40 + 44 Full state + 8 gap */
+  max-height: calc(100% - 104px);
+}
+/* Legend 'i': each row is the button, so a 44px-tall row gives the 'i' a 44x44 hit area
+   (the row runs the full legend width). The glyph itself is unchanged. */
+#map #nationLegend button.ml-row { min-height: 44px; }
+@media (max-width: 559px) {
+  #map .full-state-fab { display: none; }
+  #map #nationLegend.terr-maplegend { left: 12px; bottom: 40px; max-height: calc(100% - 52px); }
+}
