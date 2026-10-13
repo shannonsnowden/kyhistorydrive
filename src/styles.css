@@ -5308,3 +5308,6 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+
+/* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
+.story-photo-credit .photo-license { white-space: nowrap; }

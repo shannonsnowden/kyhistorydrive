@@ -728,6 +728,18 @@ function externalLink(href, label) {
   return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`
 }
 
+/**
+ * Year to show after a photo caption, or '' when the caption already names that year
+ * (e.g. "(photographed 2008)"), so the year never shows twice.
+ */
+export function photoCaptionYear(photo) {
+  const year = String(photo?.year ?? '').trim()
+  if (!year) return ''
+  if (!/^[0-9A-Za-z]+$/.test(year)) return year
+  const caption = String(photo?.title || '')
+  return new RegExp(`(^|[^0-9A-Za-z])${year}([^0-9A-Za-z]|$)`).test(caption) ? '' : year
+}
+
 export function photoCreditHtml(photo, { block = true } = {}) {
   const model = photoCreditModel(photo)
   if (!model) return ''
@@ -743,7 +755,8 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   let inner = chunks.length ? `Photo: ${chunks.join('. ')}` : 'Photo'
   if (model.license) {
     const license = model.licenseUrl ? externalLink(model.licenseUrl, model.license) : esc(model.license)
-    inner += `. License: ${license}`
+    // Keep the whole license together ("License: CC BY-SA 4.0" never splits across lines).
+    inner += `. <span class="photo-license">License: ${license}</span>`
   }
   inner += '.'
   if (block) return `<p class="story-sidebar-photo-attr story-photo-credit">${inner}</p>`

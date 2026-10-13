@@ -39,6 +39,7 @@ import {
   markerRecords,
   nearbyPlaces,
   photoCreditHtml,
+  photoCaptionYear,
   pickRelatedStories,
   relatedAndNearbyForStory,
   resolveArticleDates,
@@ -1001,7 +1002,8 @@ class PrerenderPages {
   static storyCreditHtml(photo, title, { priority = false } = {}) {
     if (!photo?.image_url) return ''
     const caption = PrerenderPages.escapeHtml(PrerenderPages.photoAlt(photo, title))
-    const year = photo.year ? ` <span class="muted">(${PrerenderPages.escapeHtml(String(photo.year))})</span>` : ''
+    const capYear = photoCaptionYear(photo)
+    const year = capYear ? ` <span class="muted">(${PrerenderPages.escapeHtml(capYear)})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
     const img = PrerenderPages.escapeHtml(photo.image_url)
     const linkLabel = PrerenderPages.escapeHtml(
