@@ -1011,16 +1011,20 @@
       "id": "hugh-mcgary",
       "name": "Hugh McGary",
       "dates": "1744–1806",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/hugh-mcgary__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hugh-mcgary__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "nonhelema",
         "moluntha-and-logans-raid-1786"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "moluntha",

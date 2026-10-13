@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T12:19:08.150Z",
+  "generatedAt": "2026-10-13T12:32:58.172Z",
   "count": 235,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -496,7 +496,7 @@
       "county": "Jessamine",
       "photo": {
         "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -589,7 +589,7 @@
       "county": "Fulton",
       "photo": {
         "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -761,7 +761,7 @@
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "title": "Cleek-McCabe: A Circular Fort Ancient Village in Boone County",
       "publishedDate": "2026-09-25",
-      "summary": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village: a ~100-foot-wide midden ring around a ~200-foot plaza,…",
+      "summary": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a about…",
       "yearStart": 1200,
       "yearEnd": 1300,
       "era": "prehistoric",
@@ -775,7 +775,7 @@
       "county": "Boone",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -2464,9 +2464,9 @@
       "summary": "Irish-born Hugh McGary (1744–1806) brought his family to Kentucky in 1775 with Daniel Boone's party and settled near Fort Harrod. Around 1779 he and his stepson James Ray built…",
       "yearStart": 1775,
       "yearEnd": 1786,
-      "era": "native",
+      "era": "frontier",
       "tags": [
-        "native",
+        "frontier",
         "kentucky",
         "native-history",
         "frontier-war"
@@ -2730,11 +2730,11 @@
       "tags": [
         "frontier",
         "kentucky",
-        "frontier-war",
         "town-founding"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
+      "county": "Washington",
       "photo": {
         "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
         "title": "Washington County Courthouse, Springfield",
@@ -3249,11 +3249,11 @@
       "tags": [
         "frontier",
         "kentucky",
-        "frontier-war",
         "town-founding"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
+      "county": "Anderson",
       "photo": {
         "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
         "title": "Anderson County Courthouse, Lawrenceburg",
