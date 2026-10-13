@@ -145,17 +145,11 @@ export function hasSafePortrait(person) {
   return SAFE_PORTRAIT.webp.test(String(person?.image?.webp || '')) && SAFE_PORTRAIT.jpg.test(String(person?.image?.jpg || ''))
 }
 
-const commonsFile = (u) =>
-  decodeURIComponent(String(u || '').split('?')[0].split('/').pop() || '')
-    .replace(/^File:/, '')
-    .replace(/_/g, ' ')
-    .toLowerCase()
-
 /**
  * Main subject of a story: related-people.json maps the person's name to this story, or a
  * people.json story slug equals (or starts with) the person id. More than one match → skip.
- * If neither finds anyone, the title is checked for a person's full name or alias (Capt. Robert
- * Johnson and Big Crossing Station → robert-johnson); a name followed by a place word (Red Bird
+ * If neither finds anyone, the build-time title map (people.json storySubjects: full name or alias (Capt. Robert
+ * Johnson and Big Crossing Station → robert-johnson) is used; a name followed by a place word (Red Bird
  * River, Boone County) does not count. The portrait shows even when the Photos box has the same
  * image (Shannon, Oct 13).
  * Returns { person, reason }.
@@ -164,25 +158,38 @@ const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
 const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
 const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
-/** People named in a story title by full name or alias (with portraits only). */
-export function titlePeople(people, title) {
+/**
+ * Build time only (scripts/build-people.mjs): people named in a story title by full name or
+ * alias. Multi-word names match case-insensitively; one-word names (Blackfish, Hokoleskwa) only
+ * with exact case. A name followed by a place word (Red Bird River, Boone County) does not count.
+ */
+export function titlePeople(people, title, slug = '') {
   const t = String(title || '')
   const out = []
-  for (const p of (people || []).filter(hasSafePortrait)) {
-    const names = [p.name, ...(p.aliases || [])] // aliases are build-only (not in public people.json)
-     .filter((n) => n && String(n).trim().split(/\s+/).length >= 2)
-    for (const n of names) {
-      const m = new RegExp(`(?:^|[^\\w])${escRe(n)}(?![\\w])`, 'i').exec(t)
-      if (!m) continue
-      if (PLACE_WORD.test(t.slice(m.index + m[0].length))) continue
-      out.push(p)
+  for (const p of people || []) {
+    if ((NOT_SUBJECT[slug] || []).includes(p.id)) continue
+    for (const n of [p.name, ...(p.aliases || [])].filter(Boolean)) {
+      const one = String(n).trim().split(/\s+/).length < 2
+      const m = new RegExp(`(?:^|[^\\w])${escRe(n)}(?![\\w])`, one ? '' : 'i').exec(t)
+      if (!m || PLACE_WORD.test(t.slice(m.index + m[0].length))) continue
+      out.push({ person: p, via: n === p.name ? 'name' : `alias:${n}` })
       break
     }
   }
   return out
 }
 
-export function storySubject(relatedData, people, story) {
+/** slug → person id for stories whose title names exactly one person (ids only; aliases stay private). */
+export function buildStorySubjects(people, stories) {
+  const map = {}
+  for (const st of stories || []) {
+    const hits = titlePeople(people, st.title, st.slug)
+    if (hits.length === 1) map[st.slug] = hits[0].person.id
+  }
+  return map
+}
+
+export function storySubject(relatedData, people, story, storySubjects = null) {
   const slug = story?.slug
   if (!slug || !Array.isArray(people)) return { person: null, reason: '' }
   const withImage = people.filter(hasSafePortrait)
@@ -196,7 +203,10 @@ export function storySubject(relatedData, people, story) {
     if ((p.stories || []).some((s) => s === slug && (s === p.id || s.startsWith(`${p.id}-`)))) hits.set(p.id, p)
   }
   for (const id of NOT_SUBJECT[slug] || []) hits.delete(id)
-  if (!hits.size) for (const p of titlePeople(people, story.title)) if (!(NOT_SUBJECT[slug] || []).includes(p.id)) hits.set(p.id, p)
+  if (!hits.size && storySubjects?.[slug]) {
+    const p = withImage.find((x) => x.id === storySubjects[slug])
+    if (p) hits.set(p.id, p)
+  }
   if (!hits.size) return { person: null, reason: '' }
   if (hits.size > 1) return { person: null, reason: `ambiguous: ${[...hits.keys()].join('/')}` }
   const person = [...hits.values()][0]

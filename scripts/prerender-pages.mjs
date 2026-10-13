@@ -2114,7 +2114,7 @@ class PrerenderPages {
   /** Main subject (shared rule in src/related-people.js storySubject). */
   static storyPortrait(story, bundle) {
     if (!bundle?.people?.people) return { person: null, reason: '' }
-    return storySubject(bundle.data, bundle.people.people, story)
+    return storySubject(bundle.data, bundle.people.people, story, bundle.people.storySubjects)
   }
 
   static storyPortraitHtml(person) {

@@ -3228,7 +3228,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     if (film) reader.classList.add('has-film')
     // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
     // when the Photos sidebar already shows the same file, but the title headshot stays).
-    const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, title: s.title, photo: sidebarPhoto || s.photo || null })
+    const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
     const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
       ${timelineReaderBarHtml('top')}
