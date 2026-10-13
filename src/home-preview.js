@@ -542,10 +542,34 @@ async function loadPack() {
 
 let homePageStarted = false
 
+/**
+ * Homepage story cards keep a crawlable href="/stories/<slug>/". A plain left click
+ * (no modifier keys) opens the same story in the Timeline reader instead (data-timeline),
+ * as a same-document hash navigation so Back returns to the homepage.
+ */
+let timelineClicksBound = false
+function bindTimelineCardClicks() {
+  if (timelineClicksBound) return
+  timelineClicksBound = true
+  document.addEventListener('click', (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    const a = e.target instanceof Element ? e.target.closest('a[data-timeline]') : null
+    if (!a || !a.closest('#home')) return
+    const tl = a.getAttribute('data-timeline') || ''
+    if (!/^\/#timeline\/[A-Za-z0-9%._-]+$/.test(tl)) return
+    e.preventDefault()
+    try {
+      sessionStorage.setItem('khd-from-home', decodeURIComponent(tl.slice('/#timeline/'.length)))
+    } catch {}
+    location.hash = tl.slice(1)
+  })
+}
+
 export function initHomePage() {
   if (homePageStarted) return
   if (!document.getElementById('hpHero')) return
   homePageStarted = true
+  bindTimelineCardClicks()
   AdSlot.mount(document.getElementById('home'), 'home')
   renderRelatedCards()
   Promise.all([loadPack(), loadPhotoVariants(), HomepageStructure.loadCatalog()])

@@ -1688,6 +1688,17 @@ a.related-card:hover .related-card-chevron {
   pointer-events: auto;
   backdrop-filter: blur(8px);
 }
+.timeline-reader-jump { transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s; }
+/* Tucked while reading down a story (src/main.js watchTimelineJumpPad); returns on scroll up. */
+.timeline-reader-jump.is-tucked {
+  transform: translateY(calc(100% + 1.5rem));
+  opacity: 0;
+  visibility: hidden;
+}
+.timeline-reader-jump.is-tucked .scroll-fab { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .timeline-reader-jump { transition: none; }
+}
 
 
 /* MapLibre zoom / navigation controls */
@@ -1823,6 +1834,24 @@ a.related-card:hover .related-card-chevron {
     margin-top: 0;
     max-width: 280px;
   }
+}
+
+/* Reader kicker: makes it clear a homepage click landed on a story (critique #275). */
+.story-head .story-kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.story-head .story-kicker span { color: var(--accent); }
+/* Phones (Timeline reader): title block first, then the photo, then the body. */
+@media (max-width: 600px) {
+  .story-reader > .story-reader-layout:not(.static-story) { row-gap: 0; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-reader-main { display: contents; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-reader-main > .story-head { order: -2; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo { order: -1; margin: 0.25rem 0 1rem; }
 }
 
 /* Static story pages: sidebar beside the article on wide screens. */
@@ -3817,6 +3846,7 @@ html[data-hp-theme="light"] .exp-step:hover, html[data-hp-theme="light"] .exp-nu
   .exp-more { display: inline-flex; align-items: center; justify-content: center; }
   /* Phones: Load more is the only control at the end of the archive. */
   .exp-pagebar-bottom { display: none; }
+  .exp-pagebar-top .exp-pager { display: none; }
 }
 .hp-related-more { margin: 1rem 0 0; }
 .hp-related-more a,

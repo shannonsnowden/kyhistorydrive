@@ -14,7 +14,7 @@ import {
   renderRailCard,
   renderSwipeCard,
   leadPreloadTag,
-  storyReaderHref,
+  storyPageHref,
 } from '../src/home-hero-render.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -49,14 +49,15 @@ fs.writeFileSync(file, html)
 
 // Guard: the static file must carry the lead and 4 cards as real links.
 const out = fs.readFileSync(file, 'utf8')
-const leadHref = storyReaderHref(lead)
+const leadHref = storyPageHref(lead)
 const problems = []
 if (!out.includes(`class="hp-lead-media-link" href="${leadHref}"`)) problems.push('lead link')
 if ((out.match(/class="hp-rail-card" href="/g) || []).length !== more.length) problems.push('rail cards')
 if ((out.match(/class="hp-swipe-card-link" href="/g) || []).length !== more.length) problems.push('swipe cards')
 if (tag && !/<head>[\s\S]*id="hpLeadPreload"[\s\S]*<\/head>/.test(out)) problems.push('head preload')
-// Shannon: homepage story cards open the in-app reader (Timeline view). The /stories/ pages stay crawlable via #crawlDirectory and /stories/.
-if (/<section id="hpHero"[\s\S]*?<\/ul>/.exec(out)?.[0].includes('href="/stories/')) problems.push('static /stories/ links on homepage cards')
+if (/<section id="hpHero"[\s\S]*?<\/ul>/.exec(out)?.[0].includes('href="/#timeline/')) problems.push('hash #timeline story links')
+// Plain left clicks on these cards open the Timeline reader via data-timeline (src/home-preview.js).
+if (!out.includes(`data-timeline="/#timeline/${encodeURIComponent(lead.slug)}"`)) problems.push('lead data-timeline')
 for (const s of [lead, ...more]) if (!fs.existsSync(path.join(dist, 'stories', s.slug, 'index.html'))) problems.push(`no /stories/${s.slug}/ page`)
 if (problems.length) throw new Error(`prerender-home-hero: missing ${problems.join(', ')}`)
 console.log(`prerender-home-hero: lead "${lead.title}" + ${more.length} cards in dist/index.html${tag ? ', preload in <head>' : ''}`)

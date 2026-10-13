@@ -3235,6 +3235,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       <div class="story-reader-layout">
         <div class="story-reader-main">
           <header class="story-head">
+            <p class="story-kicker"><span>Story</span> · on the Timeline</p>
             <div class="story-card-meta">
               <span class="story-card-icon inline" aria-hidden="true">📖</span>
               ${countyLine}
@@ -3450,6 +3451,21 @@ function watchTimelineJumpPad() {
   new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
   window.addEventListener('resize', sync)
   sync()
+  // Critique #275: with a story open the floating bar covered the reader's title (390)
+  // and body text (1280). Tuck it away while reading down; bring it back on any upward
+  // scroll, near the end of the page, or when keyboard focus moves into it.
+  let lastY = window.scrollY
+  const tuck = (on) => bar.classList.toggle('is-tucked', Boolean(on) && !bar.contains(document.activeElement))
+  new MutationObserver(() => { if (!bar.hidden) tuck(true) }).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
+  if (!bar.hidden) tuck(true)
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY
+    const nearEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 120
+    if (nearEnd || y < lastY - 8) tuck(false)
+    else if (y > lastY + 8) tuck(true)
+    if (Math.abs(y - lastY) > 8) lastY = y
+  }, { passive: true })
+  bar.addEventListener('focusin', () => bar.classList.remove('is-tucked'))
 }
 
 function setupTimelineJumpControls() {
