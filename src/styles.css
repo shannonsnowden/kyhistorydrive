@@ -4484,6 +4484,288 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   .ad-slot--sidebar { display: none !important; }
 }
 
+/* #transport proof of concept. Cream field, deep-green state, amber and green lines. */
+.transport-kicker {
+  margin: 0 0 0.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+.transport-controls h2 { margin: 0 0 0.35rem; color: var(--heading); }
+.transport-note { margin: 0 0 0.85rem; font-size: 0.88rem; line-height: 1.45; }
+.transport-year-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.transport-year-row label {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+#transportYearOut {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.transport-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  margin: 0.55rem 0 0.25rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+  cursor: pointer;
+}
+.transport-slider:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+.transport-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f6edd8;
+  border: 2px solid var(--accent-deep);
+  box-shadow: 0 1px 4px rgba(26, 20, 12, 0.35);
+}
+.transport-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f6edd8;
+  border: 2px solid var(--accent-deep);
+  box-shadow: 0 1px 4px rgba(26, 20, 12, 0.35);
+}
+.transport-scale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.transport-status { min-height: 1.1em; margin: 0.35rem 0 0; }
+.transport-legend { margin-top: 0.85rem; }
+.transport-legend-label {
+  margin: 0.85rem 0 0.3rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.transport-legend-list { list-style: none; margin: 0; padding: 0; }
+.transport-legend-list button {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  margin: 0 0 0.28rem;
+  padding: 0.28rem 0.15rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  font: inherit;
+}
+.transport-legend-list button:hover,
+.transport-legend-list button:focus-visible { background: var(--chip); }
+.transport-legend-list button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 1px;
+}
+.transport-legend-list .is-future { opacity: 0.45; }
+.transport-swatch {
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+  flex: none;
+}
+.transport-swatch.is-bridge {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  border: 2px solid var(--accent-deep);
+  box-sizing: border-box;
+}
+.transport-legend-name { flex: 1; min-width: 0; font-size: 0.88rem; line-height: 1.25; }
+.transport-legend-year {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+.transport-badge {
+  flex: none;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.05rem 0.35rem;
+}
+.transport-credit { margin: 0.85rem 0 0; font-size: 0.82rem; }
+#transportMap { width: 100%; min-height: 70vh; height: 100%; }
+.transport-section .map-canvas-wrap { min-height: 70vh; background: #f4efe4; }
+html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #100e0c; }
+#transportMap .maplibregl-ctrl-attrib {
+  background: rgba(244, 239, 228, 0.96) !important;
+  color: #1a140c !important;
+  font-size: 11px;
+  line-height: 1.35;
+  max-width: min(100% - 8px, 36rem);
+}
+#transportMap .maplibregl-ctrl-attrib a { color: #6e4214 !important; }
+.transport-popup .maplibregl-popup-content {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+.transport-popup .maplibregl-popup-close-button { color: var(--text); font-size: 1.1rem; }
+.transport-popup .maplibregl-popup-tip { border-top-color: var(--panel); }
+.transport-popup-kicker {
+  margin: 0 0 0.2rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.transport-popup-card h3 { margin: 0 0 0.25rem; color: var(--heading); font-size: 1.02rem; }
+.transport-popup-year { margin: 0 0 0.35rem; font-weight: 700; color: var(--accent); }
+.transport-popup-card p { margin: 0.3rem 0 0; font-size: 0.88rem; line-height: 1.4; }
+.transport-popup-note { color: var(--text); }
+@media (max-width: 900px) {
+  .transport-section { display: flex; flex-direction: column; }
+  .transport-controls { display: contents; }
+  .transport-head,
+  .transport-legend,
+  .transport-credit {
+    background: var(--panel);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .transport-head { order: 1; padding-top: 0.7rem; padding-bottom: 0.35rem; }
+  .transport-note { margin-bottom: 0.55rem; }
+  .transport-section .map-canvas-wrap {
+    order: 2;
+    min-height: 0;
+    height: calc(100svh - 360px);
+  }
+  #transportMap { min-height: 0; height: 100%; }
+  .transport-legend { order: 3; padding-bottom: 0.4rem; }
+  .transport-credit { order: 4; padding-bottom: 1rem; }
+}
+
+/* transport v2: counties, era legend */
+.transport-county-label {
+  font: 600 11px/1 system-ui, sans-serif;
+  color: #5e5544;
+  text-shadow: 0 0 2px #f6eedb, 0 0 2px #f6eedb;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.transport-era-list {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+}
+.transport-era-list li { display: flex; align-items: center; gap: 0.35rem; }
+.transport-swatch.is-future-swatch {
+  color: color-mix(in srgb, var(--text) 60%, transparent);
+  background: repeating-linear-gradient(90deg, currentColor 0 6px, transparent 6px 10px);
+}
+.transport-popup.has-more .maplibregl-popup-content {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), rgba(0, 0, 0, 0.15));
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), rgba(0, 0, 0, 0.15));
+}
+.transport-endpoint { display: flex; align-items: center; gap: 3px; pointer-events: none; }
+.transport-endpoint i { width: 7px; height: 7px; border-radius: 50%; background: #fff8ea; border: 1.5px solid #2b1d0e; }
+.transport-endpoint[data-place='Louisville'] b { transform: translate(-2px, -11px); }
+.transport-endpoint b {
+  font: 700 10.5px/1 system-ui, sans-serif; color: #2b1d0e; white-space: nowrap;
+  text-shadow: 0 0 2px #f6eedb, 0 0 2px #f6eedb, 0 0 3px #f6eedb;
+}
+.transport-popup-why { font-size: 0.85rem; }
+.transport-badge.is-needs-source { color: #9c2a10; border-color: currentColor; }
+@media (max-width: 600px) {
+  .transport-popup .maplibregl-popup-content {
+    max-height: 40vh;
+    overflow-y: auto;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .transport-popup h3 { font-size: 1rem; margin: 0.15rem 0; }
+  .transport-popup p { margin: 0.25rem 0; }
+}
+html[data-hp-theme='dark'] .transport-endpoint b { color: #f6edd8; text-shadow: 0 0 2px #100e0c, 0 0 3px #100e0c; }
+html[data-hp-theme='dark'] .transport-endpoint i { background: #100e0c; border-color: #f6edd8; }
+html[data-hp-theme='dark'] .transport-county-label { color: #d8ccb2; text-shadow: 0 0 2px #100e0c, 0 0 2px #100e0c; }
+html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
+.transport-facts { margin-top: 1.25rem; font-size: 0.9rem; }
+.transport-facts h3 { font-size: 1rem; margin: 0 0 0.5rem; }
+.transport-facts h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.9rem 0 0.3rem; }
+.transport-facts dt { font-weight: 700; margin-top: 0.5rem; }
+.transport-facts dd { margin: 0.1rem 0 0; }
+.transport-sources { padding-left: 1.1rem; margin: 0; }
+.transport-sources li { margin: 0.2rem 0; overflow-wrap: anywhere; }
+
+/* Critiquito 10/12: bigger legend, 44px slider target, sparse-year note */
+.transport-era-list { font-size: 0.92rem; gap: 0.45rem 1rem; }
+.transport-legend-label { font-size: 0.78rem; }
+.transport-slider { height: 44px; background: transparent; margin: 0.2rem 0 0; }
+.transport-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+}
+.transport-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+}
+.transport-slider::-webkit-slider-thumb { width: 26px; height: 26px; margin-top: -10px; }
+.transport-slider::-moz-range-thumb { width: 26px; height: 26px; }
+.transport-section .map-canvas-wrap { position: relative; }
+.transport-sparse {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 56px;
+  max-width: 22rem;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  z-index: 2;
+  pointer-events: none;
+}
+.transport-sparse[hidden] { display: none; }
+@media (max-width: 900px) {
+  /* Facts/sources sit under the map and legend on phones, not above the map. */
+  .transport-facts { order: 5; background: var(--panel); margin-top: 0; padding: 1rem; }
+}
 /* People gallery */
 .people-page .story-head h1 { margin-bottom: 0.4rem; }
 .people-group { margin: 1.5rem 0 0; }
@@ -5282,6 +5564,12 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+
+@media (max-width: 599px) {
+  .transport-popup .maplibregl-popup-close-button { top: 8px; right: 8px; width: 28px; height: 28px; line-height: 26px; }
+  .transport-popup .maplibregl-popup-content { padding-right: 2.6rem; }
+}
+
 /* Portrait sweep: the site name in a portrait credit never splits ('Kentucky | History Drive'). */
 .story-portrait .credit-site { white-space: nowrap; }
 
