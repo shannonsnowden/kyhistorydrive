@@ -5637,9 +5637,9 @@ html[data-hp-theme="light"] .hp-plan-drive {
   #map #nationLegend .ml-h { margin-bottom: 0.1rem; }
   #map #nationLegend .ml-f { margin-top: 0.15rem; }
 }
-/* Legend 'i': compact ~28px rows; a 44x44 ::after gives the 'i' its tap area (the row is the button). */
+/* Legend 'i': compact ~26px rows; ::after is 44px wide × 26px tall so it never overlaps the next row (WCAG 2.5.8 24px min). */
 #map #nationLegend .ml-i { position: relative; }
-#map #nationLegend .ml-i::after { content: ''; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
+#map #nationLegend .ml-i::after { content: ''; position: absolute; left: 50%; top: 50%; width: 44px; height: 26px; transform: translate(-50%, -50%); }
 #map #nationLegend button.ml-row:hover .ml-i,
 #map #nationLegend button.ml-row:focus-visible .ml-i { outline: 2px solid #d99a45; outline-offset: 1px; }
 /* Dark mode: 1px light edge around each swatch (its own 2px border keeps the nation colour). */
