@@ -1763,6 +1763,18 @@ a.related-card:hover .related-card-chevron {
   max-height: 200px;
   object-fit: cover;
 }
+/* Tall photos (photo.fit = "contain", set at build): show the whole image, letterboxed on the
+   palette surface, instead of a cover crop that cuts monuments to a sliver. */
+.story-sidebar-photo-frame.is-contain,
+.static-story .story-sidebar-photo-frame.is-contain { background: var(--surface); }
+.story-sidebar-photo-frame.is-contain img,
+.static-story .story-sidebar-photo-frame.is-contain img {
+  object-fit: contain;
+  object-position: center;
+}
+@media (max-width: 900px) {
+  .static-story .story-sidebar-photo-frame.is-contain img { aspect-ratio: 4 / 3; max-height: 320px; }
+}
 .story-sidebar-photo-cap {
   margin: 0.45rem 0 0.2rem;
   font-size: 0.75rem;
@@ -5197,11 +5209,11 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   .static-story .story-crumbs,
   .static-story .story-crumbs > :first-child { margin-left: 0; padding-left: 0; }
 }
-/* Inline story portrait (main subject): floats right of the first paragraph so the text wraps.
+/* Inline story portrait (main subject), static /stories/ pages and the map app reader: floats right of the first paragraph so the text wraps.
    200px on desktop, 120px on phones (so paragraph 1 stays near the top and it never stacks under
    the Photos card). Fixed border so light and dark match; 200/120 square boxes, so no layout shift. */
-.static-story .story-portrait { float: right; width: 120px; margin: 0.3rem 0 0.5rem 0.9rem; }
-.static-story .story-portrait img {
+.story-portrait { float: right; width: 120px; margin: 0.3rem 0 0.5rem 0.9rem; }
+.story-portrait img {
   display: block;
   width: 100%;
   height: auto;
@@ -5211,14 +5223,18 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   border: 1px solid rgba(120, 110, 95, 0.55);
   background: var(--chip);
 }
-.static-story .story-portrait figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.35; color: var(--muted); }
-.static-story .story-portrait-name { display: block; font-weight: 700; color: var(--heading); }
-@media (min-width: 601px) {
-  .static-story .story-portrait { width: 200px; margin: 0.35rem 0 0.75rem 1.5rem; }
+.story-portrait figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.35; color: var(--muted); }
+.story-portrait-name { display: block; font-weight: 700; color: var(--heading); }
+/* Size follows the text column, not the viewport: the map app reader column can be narrow
+   on desktop (map shown), where 200px would squeeze the text into one-word lines. */
+.story-reader-layout .story-body { container-type: inline-size; }
+@container (min-width: 560px) {
+  .story-portrait { width: 200px; margin: 0.35rem 0 0.75rem 1.5rem; }
 }
-.static-story .story-body::after { content: ''; display: block; clear: both; }
-.static-story .learn-more,
-.static-story .route-map { clear: both; }
+.story-reader-layout .story-body::after { content: ''; display: block; clear: both; }
+.story-reader-layout .learn-more,
+.story-reader-layout .route-map { clear: both; }
+
 
 /* Homepage "Plan your drive" entry. Seal art unchanged (native 576px file, shown smaller, never recolored). */
 .hp-map-strip-link .hp-map-seal {

@@ -9,7 +9,7 @@ import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
-import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
@@ -1571,7 +1571,7 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
     const imgAttrs = priority
       ? 'fetchpriority="high" loading="eager" data-lcp="story-photo"'
       : 'loading="lazy"'
-    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
+    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         <img src="${img}" alt="${caption}" ${imgAttrs} />
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
@@ -3226,6 +3226,10 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
         })
       : ''
     if (film) reader.classList.add('has-film')
+    // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
+    // when the Photos sidebar already shows the same file, but the title headshot stays).
+    const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
+    const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
       ${timelineReaderBarHtml('top')}
       <div class="story-reader-layout">
@@ -3237,7 +3241,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
               <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
             </div>
-            <h2>${escapeHtml(s.title)}</h2>
+            ${titleHtml}
             ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
@@ -3247,7 +3251,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             <div class="tags">${tags}</div>
             ${mapControl ? `<div class="story-card-actions">${mapControl}</div>` : ''}
           </header>
-          <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
+          <div class="story-body">${storyPortraitHtml(subject.person)}${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
           ${extras}
