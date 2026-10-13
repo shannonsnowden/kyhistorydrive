@@ -1,5 +1,5 @@
 {
-  "_note": "Drive theme -> site icon. War, frontier, rail and Native nations icons are drawn in code (scripts/icon-src/*.svg, rendered by scripts/render-icons.py).",
+  "_note": "Drive theme -> site icon. War, frontier, rail and Native nations icons are drawn in code (scripts/icon-src/*.svg, rendered by scripts/render-icons.py). History, national site, museums and caves are drawn the same way. *-disc.png are the older black icons downscaled (never up) to the 72px safe area.",
   "themes": {
     "bourbon": {
       "label": "Bourbon and distilleries",
@@ -7,19 +7,19 @@
     },
     "bridges": {
       "label": "Covered bridges",
-      "img": "/icons/covered-bridge.png"
+      "img": "/icons/covered-bridge-disc.png"
     },
     "parks": {
       "label": "Parks and mountains",
-      "img": "/icons/statepark.png"
+      "img": "/icons/statepark-disc.png"
     },
     "caves": {
       "label": "Caves",
-      "emoji": "🦇"
+      "img": "/icons/caves.png"
     },
     "museums": {
       "label": "Capital and museums",
-      "emoji": "🏛"
+      "img": "/icons/museums.png"
     },
     "war-civil": {
       "label": "Civil War",
@@ -74,12 +74,12 @@
   },
   "stopKinds": {
     "stories": "/icons/highway-marker-orange.png",
-    "history": "📖",
+    "history": "/icons/history.png",
     "war": "/icons/musket-sword.png",
-    "national": "⭐",
-    "parks": "/icons/statepark.png",
-    "museums": "🏛",
-    "bridges": "/icons/covered-bridge.png",
+    "national": "/icons/national.png",
+    "parks": "/icons/statepark-disc.png",
+    "museums": "/icons/museums.png",
+    "bridges": "/icons/covered-bridge-disc.png",
     "distilleries": "/icons/bourbon-glass.png"
   }
 }
