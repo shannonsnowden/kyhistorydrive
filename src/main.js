@@ -4035,6 +4035,35 @@ function addNationLayers(n, T, before) {
   nationLayerIds[n.id] = ids
 }
 
+/** On-map name labels for nations drawn far from Kentucky (index flag mapLabel), so the shape isn't anonymous. */
+const nationLabelMarkers = {}
+async function syncNationMapLabels(nations) {
+  for (const n of nations) {
+    if (!n.mapLabel) continue
+    const on = nationOn.has(n.id) && !territoryRouteSlug()
+    if (on && !nationLabelMarkers[n.id]) {
+      try {
+        const b = nationBounds(await loadNationData(n.ref), n)
+        if (!b) continue
+        const el = document.createElement('span')
+        el.className = 'terr-farlabel'
+        el.style.setProperty('--nc', n.outline || n.color)
+        const yrs = nationYears(n)
+        el.textContent = yrs ? `${n.name}, ${yrs}` : n.name
+        el.setAttribute('aria-hidden', 'true')
+        nationLabelMarkers[n.id] = new maplibregl.Marker({ element: el, anchor: 'left', offset: [6, 0] }).setLngLat([b.getEast(), b.getCenter().lat])
+      } catch (err) {
+        console.warn('nation label failed', n.id, err)
+        continue
+      }
+    }
+    const m = nationLabelMarkers[n.id]
+    if (!m) continue
+    if (on) m.addTo(map)
+    else m.remove()
+  }
+}
+
 /** Bounds of a nation's main-map shapes (all parts). */
 function nationBounds(T, n) {
   const b = new maplibregl.LngLatBounds()
@@ -4098,6 +4127,7 @@ async function syncNationLayers() {
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none')
     }
   }
+  await syncNationMapLabels(nations)
   // Label tidy-up: the legend already names every nation, so on-map labels thin out as more nations are toggled on.
   const mapEl = document.getElementById('map')
   if (mapEl) mapEl.dataset.nlab = String(nations.filter((x) => nationOn.has(x.id)).length)

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-13T12:32:58.330Z",
+  "generatedAt": "2026-10-13T13:06:16.057Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
     "county": 4,
     "override": 137,
-    "none": 38
+    "none": 37
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -328,8 +328,8 @@
       "matchedPlace": "Hardin Village Fort Ancient",
       "historyId": "hardin-village-fort-ancient"
     },
-    "erie-the-cat-nation-cleared-from-the-lake-shore": {
-      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
+    "iroquois-beaver-wars": {
+      "slug": "iroquois-beaver-wars",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -1783,14 +1783,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Big Bone Lick",
       "historyId": "big-bone-lick"
-    },
-    "iroquois-beaver-wars": {
-      "slug": "iroquois-beaver-wars",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
     },
     "kentucky-river-palisades": {
       "slug": "kentucky-river-palisades",
