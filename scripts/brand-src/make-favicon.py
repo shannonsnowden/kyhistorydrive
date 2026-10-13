@@ -26,6 +26,9 @@ def mark(size):
 
 if __name__ == '__main__':
     mark(32).save('public/favicon-32.png', optimize=True)
+    # Google Search wants a multiple of 48px; each is drawn at its own size (supersampled down, never upscaled).
+    for n in (48, 96):
+        mark(n).save(f'public/favicon-{n}.png', optimize=True)
     big = mark(48)
     big.save('public/favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)], append_images=[mark(16), mark(32)])
     for n in (16, 32, 48):
