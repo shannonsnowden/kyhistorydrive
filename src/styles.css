@@ -3669,6 +3669,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
 }
 .hp-explore { scroll-margin-top: 4.5rem; }
 .exp-shell { width: 100%; max-width: 78rem; margin: 0 auto; }
+/* Era chips start on the left gutter, under the section heading. */
+.exp-shell .exp-topbar, .exp-shell .exp-tabs, .exp-shell .exp-tabs ul { justify-content: flex-start; margin-left: 0; text-align: left; }
 .exp-topbar {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 0.9rem;
   padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;
@@ -3801,6 +3803,8 @@ html[data-hp-theme="light"] .exp-step:hover, html[data-hp-theme="light"] .exp-nu
     -webkit-box-orient: unset;
   }
   .exp-more { display: inline-flex; align-items: center; justify-content: center; }
+  /* Phones: Load more is the only control at the end of the archive. */
+  .exp-pagebar-bottom { display: none; }
 }
 .hp-related-more { margin: 1rem 0 0; }
 .hp-related-more a,

@@ -354,9 +354,11 @@ function renderLayerCards(layers, skipSlugs = []) {
 }
 
 function applyArchiveLabels(count) {
-  const labels = HomepageStructure.archiveLabels(count)
   const kicker = document.getElementById('hpExploreKicker')
   const title = document.getElementById('hp-layers-title')
+  // The build stamps the live story count (the same list /stories/ shows); the catalog count is only a fallback.
+  const stamped = Number(title?.dataset?.storyCount)
+  const labels = HomepageStructure.archiveLabels(Number.isInteger(stamped) && stamped > 0 ? stamped : count)
   if (kicker) kicker.textContent = labels.kicker
   if (title) title.textContent = labels.title
 }

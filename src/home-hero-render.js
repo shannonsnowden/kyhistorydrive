@@ -142,6 +142,12 @@ export function storyPageHref(story) {
   return safeLocalUrl(story?.href) || '/#timeline'
 }
 
+/** In-app reader (Timeline view) for homepage story cards: /#timeline/<slug>. Static pages keep storyPageHref. */
+export function storyReaderHref(story) {
+  if (story?.slug) return `/#timeline/${encodeURIComponent(story.slug)}`
+  return '/#timeline'
+}
+
 export function placeCaption(story) {
   const dataCounty = String(story?.county || '').trim()
   if (dataCounty) {
@@ -177,7 +183,7 @@ export function cardAlt(story) {
 }
 
 export function renderLeadStory(story) {
-  const href = storyPageHref(story)
+  const href = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -212,7 +218,7 @@ export function renderLeadStory(story) {
 }
 
 export function renderRailCard(story) {
-  const href = storyPageHref(story)
+  const href = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -235,7 +241,7 @@ export function renderRailCard(story) {
 }
 
 export function renderSwipeCard(story) {
-  const href = storyPageHref(story)
+  const href = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
