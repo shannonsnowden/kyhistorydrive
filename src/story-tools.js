@@ -728,6 +728,18 @@ function externalLink(href, label) {
   return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`
 }
 
+/**
+ * Year to show after a photo caption, or '' when the caption already names that year
+ * (e.g. "(photographed 2008)"), so the year never shows twice.
+ */
+export function photoCaptionYear(photo) {
+  const year = String(photo?.year ?? '').trim()
+  if (!year) return ''
+  if (!/^[0-9A-Za-z]+$/.test(year)) return year
+  const caption = String(photo?.title || '')
+  return new RegExp(`(^|[^0-9A-Za-z])${year}([^0-9A-Za-z]|$)`).test(caption) ? '' : year
+}
+
 export function photoCreditHtml(photo, { block = true } = {}) {
   const model = photoCreditModel(photo)
   if (!model) return ''
@@ -740,13 +752,16 @@ export function photoCreditHtml(photo, { block = true } = {}) {
     chunks.push(externalLink(model.sourceUrl, 'Source'))
   }
   if (!chunks.length && !model.license) return ''
-  let inner = chunks.length ? `Photo: ${chunks.join('. ')}` : 'Photo'
+  // Each piece is a nowrap .seg; CSS (.seg + .seg::before) draws the ' · ' at the start of the
+  // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
+  const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
+  if (segs.length) segs[0] = `<span class="seg">Photo: ${chunks[0]}</span>`
   if (model.license) {
     const license = model.licenseUrl ? externalLink(model.licenseUrl, model.license) : esc(model.license)
-    // Keep the whole license together ("License: CC BY-SA 4.0" never splits across lines).
-    inner += `. <span class="photo-license">License: ${license}</span>`
+    const prefix = segs.length ? '' : 'Photo: '
+    segs.push(`<span class="seg photo-license">${prefix}License: ${license}</span>`)
   }
-  inner += '.'
+  const inner = segs.join(' ')
   if (block) return `<p class="story-sidebar-photo-attr story-photo-credit">${inner}</p>`
   return `<span class="historic-photo-attr story-photo-credit">${inner}</span>`
 }

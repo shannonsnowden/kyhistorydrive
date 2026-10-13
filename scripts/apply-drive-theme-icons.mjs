@@ -31,8 +31,6 @@ const css = `<style id="theme-icons">
 /* Dark mode: a light disc behind every icon so black and dark-green art stays legible */
 [data-hp-theme=dark] .ticon{background:#f3ead8;border-color:#f3ead8}
 [data-hp-theme=dark] .dcard a:has(.tag.amber) .ticon{background:#f3e1c3;border-color:#e8c58a}
-/* Even out optical size: these older icons fill the whole 90px box */
-.ticon img[src$="/covered-bridge.png"],.ticon img[src$="/industry.png"]{transform:scale(.84)}
 .tlegend{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px;padding:10px 12px;margin:0 0 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);font-size:13px;color:var(--muted)}
 .tlegend li{display:flex;align-items:center}
 .tlegend .ticon{width:24px;height:24px;margin-right:6px;font-size:14px}.tlegend .ticon img{width:18px;height:18px}

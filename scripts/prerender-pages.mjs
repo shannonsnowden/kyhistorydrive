@@ -39,6 +39,7 @@ import {
   markerRecords,
   nearbyPlaces,
   photoCreditHtml,
+  photoCaptionYear,
   pickRelatedStories,
   relatedAndNearbyForStory,
   resolveArticleDates,
@@ -1016,7 +1017,8 @@ class PrerenderPages {
   static storyCreditHtml(photo, title, { priority = false } = {}) {
     if (!photo?.image_url) return ''
     const caption = PrerenderPages.escapeHtml(PrerenderPages.photoAlt(photo, title))
-    const year = photo.year ? ` <span class="muted">(${PrerenderPages.escapeHtml(String(photo.year))})</span>` : ''
+    const capYear = photoCaptionYear(photo)
+    const year = capYear ? ` <span class="muted">(${PrerenderPages.escapeHtml(capYear)})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
     const img = PrerenderPages.escapeHtml(photo.image_url)
     const linkLabel = PrerenderPages.escapeHtml(
@@ -3076,6 +3078,9 @@ ${rows.join('\n')}
       throw new Error('prerender: dist/index.html is missing #crawlDirectory')
     }
     html = html.replace(/<nav id="crawlDirectory"[\s\S]*?<\/nav>/, nav)
+    // One story count for the homepage archive and /stories/: the live stories list.
+    if (!/<h2 id="hp-layers-title"[^>]*>/.test(html)) throw new Error('prerender: dist/index.html is missing #hp-layers-title')
+    html = html.replace(/<h2 id="hp-layers-title"[^>]*>[^<]*<\/h2>/, `<h2 id="hp-layers-title" data-story-count="${stories.length}">Browse all ${stories.length} stories</h2>`)
     if (!html.includes('adsbygoogle.js?client=ca-pub-8587137224654033')) {
       throw new Error('prerender: homepage is missing the AdSense head tag')
     }
