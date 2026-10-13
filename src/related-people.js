@@ -103,12 +103,37 @@ export function portraitCreditText(person) {
   return person?.ai ? aiCreditText(person) : creditWithCaption(person, person?.credit || '')
 }
 
-/** Round headshot, or '' when there is no local image. width/height stay in the 32–40px range. */
+/** Initials from a display name (same rules as scripts/people-public.mjs). */
+export function initials(name) {
+  const parts = String(name || '')
+    .replace(/\([^)]*\)/g, ' ')
+    .split(/[\s,]+/)
+    .map((part) => part.replace(/^\.+|\.+$/g, ''))
+    .filter((part) => part && !/^(of|the|and|de|du|jr|sr|ii|iii|iv)$/i.test(part))
+  if (!parts.length) return '?'
+  const letters = parts.filter((part) => part.length > 1)
+  const usable = letters.length ? letters : parts
+  if (usable.length === 1) return usable[0].slice(0, 2).toUpperCase()
+  return `${usable[0][0]}${usable[usable.length - 1][0]}`.toUpperCase()
+}
+
+/** Round headshot, or '' when there is no local image. width/height stay in the 32–40px range. Alt only (no title tooltip); credit lives on the person's story portrait. */
 export function headshotHtml(person, size = 36) {
   const ready = localPortrait(person)
   if (!ready) return ''
   const n = Number(size) === 32 || Number(size) === 40 ? Number(size) : 36
-  return `<picture class="related-headshot-frame"><source srcset="${esc(ready.image.webp)}" type="image/webp"><img class="related-headshot" src="${esc(ready.image.jpg)}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" title="${esc(portraitCreditText(ready))}" loading="lazy" decoding="async"></picture>`
+  return `<picture class="related-headshot-frame"><source srcset="${esc(ready.image.webp)}" type="image/webp"><img class="related-headshot" src="${esc(ready.image.jpg)}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
+}
+
+/** 36px deep-green disc with amber initials for a person waiting on a portrait. */
+export function initialsDiscHtml(person) {
+  const label = initials(person?.name)
+  return `<span class="related-initials" aria-hidden="true">${esc(label)}</span>`
+}
+
+/** Empty 36px slot so non-person rows line up with face/initials rows. */
+export function faceSlotHtml() {
+  return `<span class="related-face-slot" aria-hidden="true"></span>`
 }
 
 // "Related people & stories" block (empty string when a story has no entries).
@@ -136,9 +161,11 @@ export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelated
       const href = esc(linkFor(x.slug))
       const title = esc(titleFor(x.slug))
       const note = x.label ? ` <span class="related-note">— ${esc(x.label)}</span>` : ''
+      const person = personFor?.get(x.slug) || null
       const shot = headshotHtml(portraits.get(x.slug))
-      if (!shot) return `<li><a href="${href}">${title}</a>${note}</li>`
-      return `<li class="has-headshot">${shot}<span class="related-person-text"><a href="${href}">${title}</a>${note}</span></li>`
+      // Face, pending-person initials disc, or empty 36px slot — every row shares the same left edge.
+      const face = shot || (person ? initialsDiscHtml(person) : faceSlotHtml())
+      return `<li class="related-row"><a class="related-row-link" href="${href}">${face}<span class="related-person-text"><span class="related-title">${title}</span>${note}</span></a></li>`
     })
     .join('')
   return `<aside class="story-related" aria-labelledby="${hid}"><h3 id="${hid}">Related people &amp; stories</h3><ul>${lis}</ul></aside>`

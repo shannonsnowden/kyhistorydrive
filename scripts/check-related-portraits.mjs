@@ -50,7 +50,7 @@ for (const page of Object.keys(related.related || {})) {
   boxes++
   const seen = new Map()
   for (const li of box[0].match(/<li[\s>][\s\S]*?<\/li>/g) || []) {
-    const href = li.match(/<a href="\/stories\/([^"/]+)\/"/)
+    const href = li.match(/<a[^>]* href="\/stories\/([^"/]+)\/"/)
     if (!href) continue
     const target = decodeURIComponent(href[1])
     const person = personFor.get(target)
