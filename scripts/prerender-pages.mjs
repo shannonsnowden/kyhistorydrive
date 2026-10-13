@@ -59,7 +59,7 @@ import {
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink } from '../src/transport-links.js'
-import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
+import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 
@@ -2453,7 +2453,7 @@ class PrerenderPages {
     const storyPeople = fs.existsSync(spFile) ? PrerenderPages.readJson(spFile) : { stories: {} }
     const tlFile = path.join(root, 'public/data/web/transport-links.json')
     const transportLinks = fs.existsSync(tlFile) ? PrerenderPages.readJson(tlFile) : { stories: {} }
-    return { data, people, storyPeople, transportLinks, peopleById: new Map(people.people.map((p) => [p.id, p])), portraits: portraitsByStorySlug(data, people.people) }
+    return { data, people, storyPeople, transportLinks, peopleById: new Map(people.people.map((p) => [p.id, p])), portraits: portraitsByStorySlug(data, people.people, people.storySubjects), personFor: personByStorySlug(data, people.people, people.storySubjects) }
   }
 
   /** Main subject (shared rule in src/related-people.js storySubject). */
@@ -2492,6 +2492,7 @@ class PrerenderPages {
     const titleFor = (slug) => all.find((item) => item.slug === slug)?.title || ''
     return relatedBlockHtml(relatedBundle.data, story.slug, titleFor, 'storyPeopleH', {
       portraits: relatedBundle.portraits,
+      personFor: relatedBundle.personFor,
       linkFor: (slug) => `/stories/${encodeURIComponent(slug)}/`,
     })
   }
