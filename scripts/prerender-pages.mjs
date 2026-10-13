@@ -214,6 +214,18 @@ class PrerenderPages {
       PrerenderPages.writePage(dist, urlPath, html)
       const pick = PrerenderPages.storyPortrait(story, relatedBundle)
       if (pick.person) portraitLog.shown.push(story.slug)
+      // Shannon's rule: the Photos sidebar never repeats the inline portrait (see dedupe-portrait-photos.mjs).
+      if (pick.person?.sourceFile && story.photo?.source_url) {
+        let f = String(story.photo.source_url).split(/[?#]/)[0].split('/').pop() || ''
+        try {
+          f = decodeURIComponent(f)
+        } catch {
+          /* keep raw */
+        }
+        if (f.replace(/^File:/, '').replace(/_/g, ' ').toLowerCase() === pick.person.sourceFile.replace(/_/g, ' ').toLowerCase()) {
+          throw new Error(`prerender: ${story.slug} sidebar photo is the same image as the ${pick.person.id} inline portrait`)
+        }
+      }
       else if (pick.reason) portraitLog.skipped.push(`${story.slug} (${pick.reason})`)
       const route = routeBySlug(story.slug)
       const images = route
