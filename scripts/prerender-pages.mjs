@@ -775,6 +775,7 @@ class PrerenderPages {
       lat: loc?.lat ?? indexRow?.lat ?? null,
       lon: loc?.lon ?? indexRow?.lon ?? null,
       photo,
+      figure: body.figure && typeof body.figure === 'object' ? body.figure : null,
       archaeological: PrerenderPages.isArchaeological(body),
     }
   }
@@ -1411,7 +1412,7 @@ class PrerenderPages {
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
-          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${peopleParts.body}</div>
+          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${PrerenderPages.storyFigureHtml(story.figure)}${peopleParts.body}</div>
           ${routeMapSectionHtml(story.slug, {
             headingLevel: 2,
             linkMode: 'story',
@@ -2456,6 +2457,14 @@ class PrerenderPages {
     })
     const [l, ...b] = done.split(split)
     return { lead: l, body: b.join(split) }
+  }
+
+  /** Item 71: optional non-portrait inline figure (e.g. a culture AI illustration) with alt, credit and a visible note. */
+  static storyFigureHtml(fig) {
+    if (!fig || !fig.webp || !fig.jpg || !fig.alt || !fig.credit) return ''
+    const e = PrerenderPages.escapeHtml
+    const note = fig.note ? `<span class="story-figure-note">${e(fig.note)}</span> ` : ''
+    return `<figure class="story-figure"><picture><source srcset="${e(fig.webp)}" type="image/webp"><img src="${e(fig.jpg)}" alt="${e(fig.alt)}" width="1280" height="720" loading="lazy" decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${e(fig.credit)}</span></figcaption></figure>`
   }
 
   static storyPortraitHtml(person) {
