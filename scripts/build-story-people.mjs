@@ -10,7 +10,10 @@
  *  - only the full public name, exact case, whole words (no surnames, no aliases);
  *  - a name followed by a place word (Red Bird River, Boone County) does not count;
  *  - a name contained in another candidate's name that also matches there is skipped;
- *  - one-word names are skipped unless they are the story's title subject.
+ *  - one-word names are skipped unless they are the story's title subject;
+ *  - exception: a per-story alias in scripts/portrait-sweep.json (`aliases: { id: 'Surname' }`)
+ *    matches that exact text for that one story only (e.g. 'Clark' → george-rogers-clark at
+ *    Cahokia). Never a global surname match.
  * Portraits: real or AI (AI credit "AI illustration · Kentucky History Drive"); never the story's
  * title-subject portrait (already shown) and never the Photos sidebar image.
  * Scope: scripts/story-people-samples.json slugs until site-wide OK.
@@ -83,21 +86,26 @@ for (const slug of slugsInScope) {
   const cands = people.people.filter((p) => (p.stories || []).includes(slug) && (!swIds || swIds.has(p.id)))
   const skipped = []
   const hits = []
+  const aliases = (sw && sw.aliases) || {}
+  const matchName = new Map()
   for (const p of cands) {
-    const one = p.name.trim().split(/\s+/).length < 2
-    if (one && subject?.id !== p.id) { skipped.push(`${p.name} (one-word name)`); continue }
-    const m = nameRegex(p.name).exec(body)
+    const alias = typeof aliases[p.id] === 'string' ? aliases[p.id].trim() : ''
+    const name = alias || p.name
+    const one = name.split(/\s+/).length < 2
+    if (one && !alias && subject?.id !== p.id) { skipped.push(`${p.name} (one-word name)`); continue }
+    const m = nameRegex(name).exec(body)
     if (!m) { skipped.push(`${p.name} (full name not in body)`); continue }
     const after = body.slice(m.index + m[0].length)
     if (PLACE_WORD.test(after)) { skipped.push(`${p.name} (followed by a place word)`); continue }
     const inside = cands.find((q) => q !== p && q.name.includes(p.name) && nameRegex(q.name).test(body))
     if (inside) { skipped.push(`${p.name} (inside ${inside.name})`); continue }
+    matchName.set(p.id, name)
     hits.push({ p, at: m.index + m[1].length })
   }
   hits.sort((a, b) => a.at - b.at)
   const links = hits.map(({ p }) => {
     const own = ownStory(p, slug)
-    return { id: p.id, name: p.name, href: own ? `#timeline/${encodeURIComponent(own)}` : `/people/#${p.id}` }
+    return { id: p.id, name: matchName.get(p.id) || p.name, href: own ? `#timeline/${encodeURIComponent(own)}` : `/people/#${p.id}` }
   })
   const sidebar = story.photo?.source_url ? commonsName(story.photo.source_url) : ''
   const portraits = []
