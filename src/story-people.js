@@ -40,6 +40,9 @@ export function inlinePortraitHtml(person, side) {
  * just before its paragraph. hrefFor maps a link target to the right URL for the page type.
  */
 export const MAX_INLINE = 3
+/** Critique #280: at most this many person links in one paragraph (or list item). A name over the
+ * cap stays pending and is linked at its next mention in a later block. */
+export const MAX_LINKS_PER_BLOCK = 3
 
 export function applyStoryPeople(html, entry, peopleById, hrefFor = (h) => h, opts = {}) {
   if (!entry || !html) return html
@@ -48,7 +51,9 @@ export function applyStoryPeople(html, entry, peopleById, hrefFor = (h) => h, op
   const linkedPara = new Map()
   const parts = String(html).split(/(<[^>]+>)/)
   let inA = 0
+  let inHeading = 0
   let para = -1
+  let blockLinks = 0
   const paraStart = []
   for (let i = 0; i < parts.length; i++) {
     const t = parts[i]
@@ -56,13 +61,18 @@ export function applyStoryPeople(html, entry, peopleById, hrefFor = (h) => h, op
     if (t[0] === '<') {
       if (/^<a[\s>]/i.test(t)) inA += 1
       else if (/^<\/a>/i.test(t)) inA = Math.max(0, inA - 1)
-      else if (/^<p[\s>]/i.test(t)) paraStart[++para] = i
+      else if (/^<h[1-6][\s>]/i.test(t)) inHeading += 1
+      else if (/^<\/h[1-6]>/i.test(t)) inHeading = Math.max(0, inHeading - 1)
+      if (/^<p[\s>]/i.test(t)) paraStart[++para] = i
+      if (/^<(?:p|li|blockquote|td|th|dd|dt)[\s>]/i.test(t)) blockLinks = 0
       continue
     }
-    if (inA || !pending.size) continue
+    // SEO: never link inside headings (h1–h6); never nest inside an existing link.
+    if (inA || inHeading || !pending.size) continue
     let text = t
     let out = ''
     for (;;) {
+      if (blockLinks >= MAX_LINKS_PER_BLOCK) break
       let best = null
       for (const l of pending.values()) {
         const m = nameRegex(l.name).exec(text)
@@ -75,6 +85,7 @@ export function applyStoryPeople(html, entry, peopleById, hrefFor = (h) => h, op
       text = text.slice(end)
       linkedPara.set(best.l.id, Math.max(0, para))
       pending.delete(best.l.id)
+      blockLinks += 1
     }
     parts[i] = out + text
   }

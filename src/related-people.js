@@ -1,4 +1,5 @@
 import { portraitAlt, creditWithCaption } from './portrait-captions.js'
+import { MAX_LINKS_PER_BLOCK } from './story-people.js'
 
 export { portraitAlt }
 
@@ -115,12 +116,16 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
     }
   }
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode: (n) => (n.parentElement.closest('a, code, pre, button') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+    // Never inside links, code or headings (SEO: no links in h1–h6); at most MAX_LINKS_PER_BLOCK
+    // person links per paragraph or list item (critique #280).
+    acceptNode: (n) => (n.parentElement.closest('a, code, pre, button, h1, h2, h3, h4, h5, h6') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
   })
   const nodes = []
   while (walker.nextNode()) nodes.push(walker.currentNode)
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i]
+    const block = node.parentElement?.closest('p, li, blockquote, td, th, dd, dt')
+    if (block && block.querySelectorAll('a.person-link').length >= MAX_LINKS_PER_BLOCK) continue
     for (const [name, target] of people) {
       if (target === slug || done.has(target) || (data.skip?.[name] || []).includes(slug) || !titleFor(target)) continue
       const re = new RegExp(`(^|[^\\p{L}\\p{N}])${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}]|['’]s (?:Station|Fort))`, 'u')

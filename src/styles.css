@@ -5239,6 +5239,20 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   .story-portrait-inline { width: 160px; }
   .story-portrait-left { margin: 0.35rem 1.5rem 0.75rem 0; }
 }
+/* Narrow text columns (phones, the app reader beside the map): no floats for PR B portraits;
+   a centered block between paragraphs so the text keeps its full width. */
+@container (max-width: 559.98px) {
+  .story-portrait-inline,
+  .story-portrait-inline.story-portrait-left {
+    float: none;
+    clear: both;
+    width: min(200px, 70%);
+    margin: 0.85rem auto 1rem;
+  }
+  .story-portrait-inline figcaption { text-align: center; }
+}
+/* Captions at 12px or larger; --muted is AA on --panel/--bg in light (#52604c) and dark (#a8b59c). */
+.story-portrait figcaption { font-size: max(12px, 0.8rem); }
 .story-reader-layout .story-body::after { content: ''; display: block; clear: both; }
 .story-reader-layout .learn-more,
 .story-reader-layout .route-map { clear: both; }

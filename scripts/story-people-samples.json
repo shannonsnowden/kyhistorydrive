@@ -1,4 +1,10 @@
 {
-  "_note": "PR B samples only. build-story-people.mjs links people and adds inline portraits for these slugs until Shannon OKs site-wide.",
-  "slugs": ["georgetown-and-royal-spring", "paris-from-hopewell", "kentucky-association-1826-lexington-race-course"]
+  "_note": "PR B samples only. build-story-people.mjs links people and adds inline portraits for these slugs until Shannon OKs site-wide. Sample 4 (Blackfish) has an AI portrait (Richard Callaway); sample 5 (Warriors' Path) has portraits beside the route map.",
+  "slugs": [
+    "georgetown-and-royal-spring",
+    "paris-from-hopewell",
+    "kentucky-association-1826-lexington-race-course",
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+    "athiamiowee-the-warriors-path-through-kentucky"
+  ]
 }

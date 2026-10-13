@@ -39,6 +39,35 @@ function ownStory(p, slug) {
   return (p.stories || []).find((s) => s !== slug && (s === p.id || s.startsWith(`${p.id}-`)) && stories.has(s)) || null
 }
 
+/** Remove <figure>…</figure> blocks with a plain indexOf scan (no regex; CodeQL-safe). */
+function dropFigures(html) {
+  let out = ''
+  let i = 0
+  for (;;) {
+    const open = html.indexOf('<figure', i)
+    if (open < 0) return out + html.slice(i)
+    out += html.slice(i, open)
+    const close = html.indexOf('</figure>', open)
+    if (close < 0) return out
+    i = close + '</figure>'.length
+  }
+}
+
+/** Text outside tags, by an indexOf scan like check-single-h1 (#273). Only used to compare
+ * before/after text in this guard; never used to sanitize anything. */
+function visibleText(html) {
+  let out = ''
+  let i = 0
+  for (;;) {
+    const lt = html.indexOf('<', i)
+    if (lt < 0) return out + html.slice(i)
+    out += html.slice(i, lt)
+    const gt = html.indexOf('>', lt + 1)
+    if (gt < 0) return out
+    i = gt + 1
+  }
+}
+
 const out = { _note: 'Built by scripts/build-story-people.mjs. Do not edit.', stories: {} }
 const report = []
 for (const slug of scope.slugs) {
@@ -78,8 +107,13 @@ for (const slug of scope.slugs) {
   // Guard: renders, only adds links/figures, never changes the text.
   const html = marked.parse(body)
   const done = applyStoryPeople(html, out.stories[slug], byId, (h) => h, { minPara: subject ? 1 : 0, startLeft: Boolean(subject) })
-  const text = (h) => h.replace(/<figure[\s\S]*?<\/figure>/g, '').replace(/<[^>]+>/g, '')
+  const text = (h) => visibleText(dropFigures(h))
   if (text(done) !== text(html)) throw new Error(`build-story-people: ${slug} text changed`)
+  for (let h = done.indexOf('<h'); h >= 0; h = done.indexOf('<h', h + 2)) {
+    if (!/[1-6]/.test(done[h + 2] || '')) continue
+    const end = done.indexOf('</h', h)
+    if (end > h && done.slice(h, end).includes('class="person-link"')) throw new Error(`build-story-people: ${slug} has a person link inside a heading`)
+  }
   const figs = [...done.matchAll(/data-person="([\w-]+)"/g)].map((m) => m[1])
   if (figs.length > MAX_INLINE) throw new Error(`build-story-people: ${slug} has ${figs.length} portraits`)
   for (const id of figs) {
