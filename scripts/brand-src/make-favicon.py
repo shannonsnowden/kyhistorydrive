@@ -1,6 +1,7 @@
 """Simplified favicon mark for seal v2: amber serif K inside an amber ring on a deep-green disc
 (site palette: amber #c9893a, brighter #d99a45 at 16px where it needs more contrast; no gold, no black).
-The full seal stays for apple-touch-icon (180px) and the header; at 16/32px only this mark reads.
+The full seal stays in the header; apple-touch-icon (180px) uses this mark, drawn natively at 180.
+At 16px and below the inner ring is dropped (rim + K only) so the K keeps its pixels.
 Run: python3 scripts/brand-src/make-favicon.py  (needs Pillow and DejaVu Serif Bold)."""
 from PIL import Image, ImageDraw, ImageFont
 AMBER = (0xc9, 0x89, 0x3a, 255)       # #c9893a
@@ -16,9 +17,10 @@ def mark(size):
     d = ImageDraw.Draw(im)
     ink = AMBER_HI if size <= 16 else AMBER
     d.ellipse((0, 0, W - 1, W - 1), fill=GREEN, outline=RIM, width=s)  # 1px rim at native size
-    ring = max(1, round(size / 16)) * s  # 1px at 16, 2px at 32
-    inset = ring + 2 * s  # clear of the 1px rim
-    d.ellipse((inset * 0.5, inset * 0.5, W - 1 - inset * 0.5, W - 1 - inset * 0.5), outline=ink, width=ring)
+    if size > 16:  # at 16px and below the inner ring muddies the K; keep just the rim and K
+        ring = max(1, round(size / 16)) * s  # 2px at 32
+        inset = ring + 2 * s  # clear of the 1px rim
+        d.ellipse((inset * 0.5, inset * 0.5, W - 1 - inset * 0.5, W - 1 - inset * 0.5), outline=ink, width=ring)
     f = ImageFont.truetype(FONT, int(W * 0.66))
     box = d.textbbox((0, 0), 'K', font=f)
     tw, th = box[2] - box[0], box[3] - box[1]
@@ -30,6 +32,8 @@ if __name__ == '__main__':
     # Google Search wants a multiple of 48px; each is drawn at its own size (supersampled down, never upscaled).
     for n in (48, 96):
         mark(n).save(f'public/favicon-{n}.png', optimize=True)
+    # Apple touch icon: same mark drawn natively at 180px (no upscaling).
+    mark(180).save('public/apple-touch-icon.png', optimize=True)
     big = mark(48)
     big.save('public/favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)], append_images=[mark(16), mark(32)])
     for n in (16, 32, 48):

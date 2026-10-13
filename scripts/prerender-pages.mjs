@@ -27,7 +27,7 @@ import {
   privacyChoicesBootHtml,
   privacyChoicesLinkHtml,
 } from './gtag-snippet.mjs'
-import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
 import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
 import {
@@ -1140,11 +1140,7 @@ class PrerenderPages {
     ${img}
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    ${faviconLinksHtml('    ')}
     ${gtagHeadHtml()}
     ${jsonLd}
     ${cssHrefs.map((href) => `<link rel="stylesheet" href="${PrerenderPages.escapeHtml(href)}" />`).join('\n    ')}
@@ -2936,6 +2932,7 @@ ${gtagHeadHtml()}
 <title>Timeline · Kentucky History Drive</title>
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="${PrerenderPages.SITE}/">
+${faviconLinksHtml()}
 <meta http-equiv="refresh" content="0; url=/#timeline">
 <script>location.replace('/#timeline')</script>
 </head>
