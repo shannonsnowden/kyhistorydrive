@@ -4478,7 +4478,8 @@
       "licenseUrl": null,
       "stories": [
         "jacob-spears-early-bourbon-whiskey"
-      ]
+      ],
+      "sourceFile": "TMetcalfe.jpg"
     },
     {
       "id": "thomas-marshall-col",
@@ -4495,7 +4496,7 @@
       "stories": [
         "col-thomas-marshall-at-buck-pond"
       ],
-      "sourceFile": "TMetcalfe.jpg"
+      "sourceFile": "Portrait of Thomas Marshall, Father of CJ John Marshall.jpg"
     },
     {
       "id": "john-spurlock",
@@ -4586,12 +4587,14 @@
     "william-hoy-and-hoys-station": "william-hoy",
     "capt-james-estill-estills-defeat": "james-estill",
     "col-john-holder-at-lower-howards-creek": "john-holder",
+    "col-thomas-marshall-at-buck-pond": "thomas-marshall-col",
     "harry-innes": "harry-innes",
     "john-filson-kentucke-1784": "john-filson",
     "gen-james-wilkinson-kentuckys-agent-13": "james-wilkinson",
     "basil-haydens-high-rye-trail": "basil-hayden",
     "gen-charles-scott-and-petersburg": "charles-scott",
     "col-john-hardin-of-pleasant-run": "john-hardin",
+    "moluntha-and-logans-raid-1786": "moluntha",
     "blue-jacket-weyapiersenwah": "blue-jacket",
     "john-bradford-and-the-kentucke-gazette": "john-bradford",
     "william-whitley-sportsmans-hill": "william-whitley",
@@ -4605,6 +4608,7 @@
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
     "james-crow-on-glenns-creek": "james-c-crow",
     "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
+    "george-garvin-brown-and-old-forester": "george-garvin-brown",
     "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr"
   }
