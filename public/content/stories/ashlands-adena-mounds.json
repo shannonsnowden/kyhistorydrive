@@ -20,5 +20,13 @@
     "yearStart": -500,
     "yearEnd": 250,
     "presenceLabel": "Adena area (archaeological culture, not a tribe)"
+  },
+  "figure": {
+    "webp": "/content/photos/stories/figures/culture-adena__ai-v1-1280.webp",
+    "jpg": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+    "alt": "AI illustration: An Adena elder in a red twined mantle beside a conical mound on a Bluegrass ridgetop at dusk",
+    "credit": "AI illustration · Kentucky History Drive",
+    "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses.",
+    "evidence": "culture-adena-image-evidence"
   }
 }
