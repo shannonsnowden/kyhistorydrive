@@ -14,46 +14,26 @@
 import { LAYER_HIGHLIGHTS, RELATED_GROUPS } from './home-preview-data.js'
 import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
-import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
-import { HeroCarousel } from './hero-carousel.js'
+import { loadPhotoVariants } from './responsive-img.js'
 import { HomepageStructure } from './homepage-structure.js'
-
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
-
-function formatDisplayDate(iso) {
-  const d = new Date(`${iso}T12:00:00`)
-  if (Number.isNaN(d.getTime())) return iso
-  return d.toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
-
-/** Card/hero year label: negative years read as BCE (Dover Mound shows 800 BCE, not -800). */
-function storyYearLabel(y) {
-  const n = Number(y)
-  if (!Number.isFinite(n) || n === 0) return ''
-  return n < 0 ? `${Math.abs(n)} BCE` : String(n)
-}
-
-function eraLabel(era) {
-  const map = {
-    prehistoric: 'Prehistoric',
-    native: 'Native',
-    frontier: 'Frontier',
-    'early-commonwealth': 'Early commonwealth',
-    other: 'Kentucky',
-  }
-  return map[era] || 'Kentucky'
-}
+import {
+  escapeHtml,
+  formatDisplayDate,
+  storyYearLabel,
+  eraLabel,
+  firstSentence,
+  heroDeckText,
+  storyMapHref,
+  isPhotoUrl,
+  usablePhoto,
+  photoCredit,
+  placeCaption,
+  cardAlt,
+  renderLeadStory,
+  renderRailCard,
+  renderSwipeCard,
+  leadPreloadTag,
+} from './home-hero-render.js'
 
 function extractWikipediaUrl(markdown) {
   const m = String(markdown || '').match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s)\]">]+/i)
@@ -67,89 +47,6 @@ function wikiTitleFromUrl(url) {
   } catch {
     return null
   }
-}
-
-function firstSentence(text) {
-  const t = String(text || '')
-    .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
-    .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
-    .replace(/\s+/g, ' ')
-    .trim()
-  if (!t) return ''
-  // Only split where a new sentence starts (capital/quote); keeps "A.D. 1200" and "O.F.C. (Old…)" intact.
-  const parts = t.split(/(?<=[.!?])\s+(?=[A-Z"'\u201C\u2018])/)
-  let out = ''
-  for (const p of parts) {
-    out = out ? `${out} ${p}` : p
-    if (
-      out.length >= 40 &&
-      /[.!?]$/.test(out) &&
-      !/\b(Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co)\.$/.test(out) &&
-      // Don't stop on a middle/first initial ("Return J. Meigs", "John C. Breckinridge").
-      !/(?:^|[\s(])[A-Z]\.$/.test(out)
-    ) {
-      break
-    }
-  }
-  return out
-}
-
-function quoteFromStory(story) {
-  if (!story) return null
-  const text = String(story.quote || story.summary || '').trim()
-  if (!text) return null
-  const href = story.href || (story.slug ? `/#timeline/${encodeURIComponent(story.slug)}` : '')
-  return {
-    text,
-    source: story.title || '',
-    href,
-  }
-}
-
-/** Hero overlay: the full first sentence. A finished sentence is not cut with an ellipsis. */
-function heroDeckText(story) {
-  // Build-time copy (scripts/build-home-preview.mjs) when present; same rules at runtime otherwise.
-  if (story?.heroDeck) return story.heroDeck
-  const quote = String(story?.quote || '').trim()
-  if (quote) return HomepageStructure.capWords(quote)
-  const summary = String(story?.summary || '').trim()
-  if (!summary) return ''
-  const stripped = HomepageStructure.deckText(summary)
-  const sentence = firstSentence(stripped)
-  if (sentence && /[.!?]$/.test(sentence)) return HomepageStructure.capWords(sentence)
-  return HomepageStructure.capWords(stripped)
-}
-
-/** Home-map deep link for a pin-backed story. Does not invent coordinates. */
-function storyMapHref(item) {
-  if (!item) return null
-  if (item.mapHref) return item.mapHref
-  if (item.historyId) return `/#map/history/${encodeURIComponent(item.historyId)}`
-  if (item.lat != null && item.lon != null && item.slug) {
-    return `/#map/stories/${encodeURIComponent(item.slug)}`
-  }
-  return null
-}
-
-function isPhotoUrl(url) {
-  const u = String(url || '').toLowerCase()
-  if (!u) return false
-  if (/\.svg(\?|$)/i.test(u)) return false
-  // Same-origin curated story heroes — skip Wikipedia schematic-map heuristics.
-  if (u.startsWith('/content/photos/stories/')) return true
-  if (
-    /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
-      u,
-    )
-  ) {
-    return false
-  }
-  if (/\/[^/?#]*\bmap\b[^/?#]*\.(jpe?g|png|gif|webp)/i.test(u)) return false
-  return true
-}
-
-function usablePhoto(photo) {
-  return photo?.image_url && isPhotoUrl(photo.image_url) ? photo : null
 }
 
 async function fetchWikipediaPhoto(titleOrUrl) {
@@ -202,6 +99,7 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
       summary: full.summary || meta.summary || '',
       era: full.era || meta.era || '',
       yearStart: full.yearStart ?? meta.yearStart ?? null,
+      county: full.county || meta.county || null,
       briefDate,
       href: `/#timeline/${encodeURIComponent(slug)}`,
       place: loc.matchedPlace || null,
@@ -226,12 +124,6 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
   }
 }
 
-function photoCredit(photo) {
-  if (!photo) return ''
-  const label = photo.attribution || photo.source_label || ''
-  const year = photo.year ? ` · ${photo.year}` : ''
-  return label ? `${label}${year}` : ''
-}
 
 function briefStories(pack) {
   if (Array.isArray(pack?.stories) && pack.stories.length) return pack.stories
@@ -250,72 +142,33 @@ function heroSlides(pack) {
   return all[0] ? [all[0]] : []
 }
 
-function prefersReducedMotion() {
-  return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)
-}
-
-function renderHeroSlide(story, index) {
-  const titleId = index === 0 ? 'hp-hero-title' : `hp-hero-title-${index}`
-  const img = usablePhoto(story.photo)
-    ? responsivePicture({
-        src: story.photo.image_url,
-        alt: story.photo.title || story.title,
-        className: 'hp-mag-hero-img',
-        loading: index === 0 ? 'eager' : 'lazy',
-        fetchPriority: index === 0 ? 'high' : '',
-        sizes: '100vw',
-      })
-    : ''
-  const credit = photoCredit(story.photo)
-  const href = story.href || `/#timeline/${encodeURIComponent(story.slug || '')}`
-  return `<article
-      class="hp-hero-slide${index === 0 ? ' is-active' : ''}"
-      data-hero-index="${index}"
-      aria-hidden="${index === 0 ? 'false' : 'true'}"
-      ${index === 0 ? '' : 'inert'}
-    >
-      <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade"></div></div>
-      <div class="hp-mag-hero-copy">
-        <p class="hp-kicker">Featured story</p>
-        <p class="hp-hero-eyebrow">${escapeHtml(eraLabel(story.era))}${story.yearStart ? ` · ${escapeHtml(storyYearLabel(story.yearStart))}` : ''}</p>
-        <h2 id="${titleId}" class="hp-fit">${escapeHtml(story.title)}</h2>
-        <p class="hp-hero-deck hp-fit">${escapeHtml(heroDeckText(story))}</p>
-        <div class="hp-cta-row">
-          <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
-          ${
-            storyMapHref(story)
-              ? `<a class="btn hp-cta" href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
-              : `<a class="btn hp-cta" href="/#timeline">All stories</a>`
-          }
-        </div>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
-      </div>
-    </article>`
-}
-
-function renderHeroControls(slides) {
-  if (slides.length < 2) return ''
-  const dots = slides
-    .map((story, i) => {
-      const label = `Show story ${i + 1} of ${slides.length}: ${story.title}`
-      return `<button type="button" class="hp-hero-dot${i === 0 ? ' is-active' : ''}" data-hero-to="${i}" aria-label="${escapeHtml(label)}" aria-current="${i === 0 ? 'true' : 'false'}"></button>`
-    })
-    .join('')
-  return `<div class="hp-hero-controls">
-      <button type="button" class="hp-hero-nav" data-hero-dir="-1" aria-label="Previous story">‹</button>
-      <div class="hp-hero-dots" role="group" aria-label="Featured stories">${dots}</div>
-      <button type="button" class="hp-hero-playback" data-hero-playback aria-pressed="false">Play</button>
-      <button type="button" class="hp-hero-nav" data-hero-dir="1" aria-label="Next story">›</button>
-    </div>
-    <p class="visually-hidden" id="hpHeroStatus" aria-live="polite"></p>`
-}
-
-function initHeroRotator(root, slides) {
-  HeroCarousel.mount(root, slides)
+function preloadLeadImage(story) {
+  if (!usablePhoto(story?.photo)) return
+  // The build writes the same tag into <head> (scripts/prerender-home-hero.mjs); dev only adds it here.
+  if (document.getElementById('hpLeadPreload')?.getAttribute('href') === story.photo.image_url) return
+  const src = story.photo.image_url
+  const existing = document.getElementById('hpLeadPreload')
+  if (existing) existing.remove()
+  const link = document.createElement('link')
+  link.id = 'hpLeadPreload'
+  link.rel = 'preload'
+  link.as = 'image'
+  link.href = src
+  link.fetchPriority = 'high'
+  // If responsive variants exist on the rendered picture, mirror imagesrcset from the first webp source.
+  const pic = document.querySelector('#hpHero picture source[type="image/webp"]')
+  if (pic?.getAttribute('srcset')) {
+    link.setAttribute('imagesrcset', pic.getAttribute('srcset'))
+    const sizes = pic.getAttribute('sizes') || '(max-width: 900px) 100vw, 66vw'
+    link.setAttribute('imagesizes', sizes)
+  }
+  document.head.appendChild(link)
 }
 
 function renderHero(pack) {
   const root = document.getElementById('hpHero')
+  const rail = document.getElementById('hpStoryRail')
+  const swipe = document.getElementById('hpStorySwipe')
   if (!root) return
   const slides = heroSlides(pack)
   if (!slides.length) {
@@ -328,18 +181,30 @@ function renderHero(pack) {
         <a class="btn hp-cta" href="/#timeline">Timeline</a>
       </div>
     </div>`
+    if (rail) rail.innerHTML = ''
+    if (swipe) swipe.innerHTML = ''
     root.removeAttribute('aria-busy')
     return
   }
-  root.innerHTML = `
-    <div class="hp-hero-viewport">
-      ${slides.map((story, i) => renderHeroSlide(story, i)).join('')}
-    </div>
-    ${renderHeroControls(slides)}`
+  const lead = slides[0]
+  const more = slides.slice(1, 5)
+  // The build wrote the lead + cards into index.html (scripts/prerender-home-hero.mjs).
+  // Keep that markup: no lead image swap on load, even if newer data picks a different lead.
+  if (root.querySelector('.hp-lead-story')) {
+    root.removeAttribute('aria-busy')
+    markPortraitHeroImages(root)
+    fitHomeText()
+    return
+  }
+  root.innerHTML = renderLeadStory(lead)
   root.removeAttribute('aria-busy')
+  if (rail) rail.innerHTML = more.map(renderRailCard).join('')
+  if (swipe) swipe.innerHTML = more.map(renderSwipeCard).join('')
   markPortraitHeroImages(root)
   fitHomeText()
-  initHeroRotator(root, slides)
+  // Preload after picture sources exist in the DOM.
+  requestAnimationFrame(() => preloadLeadImage(lead))
+  // No auto-rotation: the former carousel controls are gone.
 }
 
 /**
@@ -366,46 +231,8 @@ function markPortraitHeroImages(root) {
   })
 }
 
-function renderFeatures(pack) {
-  const root = document.getElementById('hpFeatureCards')
-  if (!root) return
-  const items = pack.features || []
-  if (!items.length) {
-    root.innerHTML = `<p class="muted">This set is a single highlight — see the story above, or open the timeline.</p>`
-    return
-  }
-  root.innerHTML = items
-    .map((item) => {
-      const hasPhoto = Boolean(usablePhoto(item.photo))
-      const media = hasPhoto
-        ? `<a class="hp-feature-media" href="${escapeHtml(item.href)}" aria-label="Read: ${escapeHtml(item.title)}" tabindex="-1">${responsivePicture({
-            src: item.photo.image_url,
-            alt: item.photo.title || item.title,
-            loading: 'lazy',
-            sizes: '(max-width: 720px) calc(100vw - 2.3rem), (max-width: 1100px) 46vw, 22rem',
-          })}</a>`
-        : ''
-      const credit = photoCredit(item.photo)
-      const mapHref = storyMapHref(item)
-      const cta = mapHref
-        ? `<a class="hp-layer-cta" href="${escapeHtml(mapHref)}">Open on the map</a>`
-        : `<a class="hp-layer-cta" href="${escapeHtml(item.href)}">Read the story</a>`
-      return `<article class="hp-feature${hasPhoto ? '' : ' hp-feature--no-photo'}">
-        ${media}
-        <div class="hp-feature-copy">
-          <p class="hp-card-layer">${escapeHtml(eraLabel(item.era))}${item.yearStart ? ` · ${escapeHtml(storyYearLabel(item.yearStart))}` : ''}</p>
-          <h3 class="hp-feature-title"><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></h3>
-          <p class="hp-feature-deck">${escapeHtml(HomepageStructure.finishedSummary(item.summary))}</p>
-          ${cta}
-          ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
-        </div>
-      </article>`
-    })
-    .join('')
-}
-
 /**
- * Fixed-size text boxes (hero title/deck + quote): the box height is set in CSS per
+ * Fixed-size text boxes (hero title/deck): the box height is set in CSS per
  * breakpoint, so rotating slides never moves anything. If a string is too long for its
  * box at the default size, shrink the font (down to ~0.8x / 14px); if it still does not
  * fit, leave it at the minimum size and let the box scroll (with a fade hint) — never
@@ -428,7 +255,7 @@ function fitEl(el) {
   if (!el.clientHeight) return // not rendered (hidden); re-run when it becomes visible
   const over = () => el.scrollHeight > el.clientHeight + 1
   if (!over()) return
-  const target = el.firstElementChild && el.classList.contains('hp-quote-body') ? el.firstElementChild : el
+  const target = el
   const basePx = parseFloat(getComputedStyle(target).fontSize) || 16
   const isTitle = el.tagName === 'H2'
   const min = isTitle
@@ -460,19 +287,19 @@ function updateScrollHint(el) {
 let fitWatching = false
 let fitRaf = 0
 function fitHomeText() {
-  document.querySelectorAll('#hpHero .hp-fit, #hpQuote .hp-fit').forEach(fitEl)
+  document.querySelectorAll('#hpHero .hp-fit').forEach(fitEl)
   if (fitWatching) return
   fitWatching = true
   const rerun = () => {
     cancelAnimationFrame(fitRaf)
     fitRaf = requestAnimationFrame(() => {
-      document.querySelectorAll('#hpHero .hp-fit, #hpQuote .hp-fit').forEach(fitEl)
+      document.querySelectorAll('#hpHero .hp-fit').forEach(fitEl)
     })
   }
   // Width changes (resize, rotation, split view), webfont/system-font swap, late reveal.
   if (window.ResizeObserver) {
     const ro = new ResizeObserver(rerun)
-    ;['hpHero', 'hpQuote'].forEach((id) => {
+    ;['hpHero'].forEach((id) => {
       const n = document.getElementById(id)
       if (n) ro.observe(n)
     })
@@ -489,36 +316,6 @@ function fitHomeText() {
     },
     true,
   )
-}
-
-function renderQuote(story) {
-  const root = document.getElementById('hpQuote')
-  if (!root) return
-  const q = quoteFromStory(story)
-  if (!q?.text) {
-    root.hidden = true
-    root.innerHTML = ''
-    root.removeAttribute('aria-busy')
-    return
-  }
-  const next = `<blockquote>
-      <div class="hp-quote-body hp-fit"><p>${escapeHtml(q.text)}</p></div>
-      <footer>— <a href="${escapeHtml(q.href || '#')}">${escapeHtml(q.source || '')}</a></footer>
-    </blockquote>`
-  root.hidden = false
-  root.setAttribute('aria-live', 'polite')
-  if (root.innerHTML === next) return
-  const apply = () => {
-    root.innerHTML = next
-    root.classList.remove('is-changing')
-    fitHomeText()
-  }
-  if (prefersReducedMotion() || !root.querySelector('blockquote')) {
-    apply()
-    return
-  }
-  root.classList.add('is-changing')
-  window.setTimeout(apply, 180)
 }
 
 function curatedLayer(item) {
@@ -557,31 +354,13 @@ function renderLayerCards(layers, skipSlugs = []) {
 }
 
 function applyArchiveLabels(count) {
-  const labels = HomepageStructure.archiveLabels(count)
   const kicker = document.getElementById('hpExploreKicker')
   const title = document.getElementById('hp-layers-title')
-  const meta = document.getElementById('hpFeaturesMeta')
+  // The build stamps the live story count (the same list /stories/ shows); the catalog count is only a fallback.
+  const stamped = Number(title?.dataset?.storyCount)
+  const labels = HomepageStructure.archiveLabels(Number.isInteger(stamped) && stamped > 0 ? stamped : count)
   if (kicker) kicker.textContent = labels.kicker
   if (title) title.textContent = labels.title
-  if (meta) meta.textContent = labels.features
-}
-
-/** Quote copy from a story file. Falls back to the index summary. Does not edit the file. */
-async function loadQuoteStory(story) {
-  if (!story?.slug) return null
-  let text = ''
-  try {
-    const res = await fetch(`/content/stories/${encodeURIComponent(story.slug)}.json`)
-    if (res.ok) {
-      const full = await res.json()
-      text = firstSentence(full.bodyMarkdown || '')
-    }
-  } catch {
-    /* use the index summary */
-  }
-  if (!text) text = firstSentence(HomepageStructure.deckText(story.summary || ''))
-  if (!text) return null
-  return { ...story, quote: text }
 }
 
 function relatedCardHtml(item) {
@@ -763,40 +542,51 @@ async function loadPack() {
 
 let homePageStarted = false
 
+/**
+ * Homepage story cards keep a crawlable href="/stories/<slug>/". A plain left click
+ * (no modifier keys) opens the same story in the Timeline reader instead (data-timeline),
+ * as a same-document hash navigation so Back returns to the homepage.
+ */
+let timelineClicksBound = false
+function bindTimelineCardClicks() {
+  if (timelineClicksBound) return
+  timelineClicksBound = true
+  document.addEventListener('click', (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    const a = e.target instanceof Element ? e.target.closest('a[data-timeline]') : null
+    if (!a || !a.closest('#home')) return
+    const tl = a.getAttribute('data-timeline') || ''
+    if (!/^\/#timeline\/[A-Za-z0-9%._-]+$/.test(tl)) return
+    e.preventDefault()
+    try {
+      sessionStorage.setItem('khd-from-home', decodeURIComponent(tl.slice('/#timeline/'.length)))
+    } catch {}
+    location.hash = tl.slice(1)
+  })
+}
+
 export function initHomePage() {
   if (homePageStarted) return
   if (!document.getElementById('hpHero')) return
   homePageStarted = true
+  bindTimelineCardClicks()
   AdSlot.mount(document.getElementById('home'), 'home')
   renderRelatedCards()
   Promise.all([loadPack(), loadPhotoVariants(), HomepageStructure.loadCatalog()])
     .then(async ([pack, , catalog]) => {
       const slides = heroSlides(pack)
       const heroSlugs = slides.map((story) => story.slug).filter(Boolean)
-      const highlights = HomepageStructure.pickHighlights(catalog.stories, heroSlugs, 4)
-      const quotePick = HomepageStructure.pickQuote(
-        catalog.stories,
-        [...heroSlugs, ...highlights.map((story) => story.slug)],
-        {
-          heroSlugs,
-          pin: HomepageStructure.quotePinFromPack(pack, heroSlugs),
-        },
-      )
-      const quoteStory = await loadQuoteStory(quotePick)
       renderTodayNav(pack)
       renderHero(pack)
-      renderFeatures({ features: highlights })
-      renderQuote(quoteStory)
       applyArchiveLabels(catalog.count)
       renderLayerCards(
         pack.layers,
-        HomepageStructure.firstViewSkip(heroSlugs, highlights, quotePick?.slug),
+        HomepageStructure.firstViewSkip(heroSlugs, [], null),
       )
     })
     .catch((err) => {
       console.error(err)
       renderTodayNav({ stories: [] })
-      renderQuote(null)
       renderLayerCards([])
     })
 }

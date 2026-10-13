@@ -1,7 +1,7 @@
 # Christopher Gist, 1750–51: house-style route map
 
 Story: "Christopher Gist, 1750–51" – https://kyhistorydrive.com/#timeline/christopher-gist-1750-51
-Built 2026-10-10 by Story Studio with `make_map.py` + shared `../routemap.py` (same house style as the Warriors' Path map). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
+Built 2026-10-10 for Kentucky History Drive with `make_map.py` + shared `../routemap.py` (same house style as the Warriors' Path map). Static final frame; reusable as a video asset. Batch 1 of the route-maps series.
 
 ## Files
 | file | size | use |
@@ -50,7 +50,7 @@ Distance (measured on the map line): about 350 miles from Old Town to Lower Shaw
 ## Uncertainty notes
 - Ohio-country leg: solid, approximate between well-located towns. Pickawillany side trip: thin dashed branch.
 - The whole Kentucky leg and the return through the mountains are dashed and labelled conjectural. Gist gives only compass courses and miles, and historians place his "lower Salt Lick Creek" anywhere from near Big Bone Lick to the Licking River. One old secondary history even has him at the Lower Blue Licks. His informants' "15 miles above the Falls" may itself have been wrong. The map draws a middle reading and labels the site "disputed."
-- "Little Cuttaway" is the Red River. The USGS name record lists "Little Cuttaway River" as another name for the Red, and Gist's journal entry for March 19, 1751 is the crossing. The house map still draws that day on the Kentucky River below Frankfort, which is the Darlington and Summers reading. Story Studio should move the line onto the Red. Some writers say he climbed Pilot Knob (Powell Co.) or left by Pound Gap. Neither is in his journal, and they are used only to shape the dashed line.
+- "Little Cuttaway" is the Red River. The USGS name record lists "Little Cuttaway River" as another name for the Red, and Gist's journal entry for March 19, 1751 is the crossing. The house map still draws that day on the Kentucky River below Frankfort, which is the Darlington and Summers reading. The map should move the line onto the Red. Some writers say he climbed Pilot Knob (Powell Co.) or left by Pound Gap. Neither is in his journal, and they are used only to shape the dashed line.
 - The fossil tooth came from a lick that traders described to Gist. Big Bone Lick is marked for context as "hearsay," not as a place he visited.
 - The Falls of the Ohio are marked "never reached."
 

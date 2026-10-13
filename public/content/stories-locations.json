@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-12T12:40:00.773Z",
+  "generatedAt": "2026-10-13T12:32:58.330Z",
   "stats": {
-    "exact": 12,
-    "fuzzy": 46,
-    "county": 6,
-    "override": 134,
-    "none": 37
+    "exact": 11,
+    "fuzzy": 45,
+    "county": 4,
+    "override": 137,
+    "none": 38
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -152,8 +152,8 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
-    "muir-site-15js86": {
-      "slug": "muir-site-15js86",
+    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
+      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
       "lat": 37.9,
       "lon": -84.6,
       "mapConfidence": "override",
@@ -168,27 +168,19 @@
       "matchedPlace": "Logan County (centroid)",
       "historyId": null
     },
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "lat": 37.9,
-      "lon": -84.6,
+    "sassafras-ridge-15fu3-fulton-county": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "lat": 36.6,
+      "lon": -89.2,
       "mapConfidence": "override",
-      "matchedPlace": "Muir Site (15Js86)",
-      "historyId": "muir-site-15js86-jessamine-county"
+      "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500"
     },
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
       "lat": 36.5,
       "lon": -89.2,
       "mapConfidence": "override",
-      "matchedPlace": "Adams Site (15Fu4)",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county"
-    },
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "lat": 36.5,
-      "lon": -89.2,
-      "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
     },
@@ -231,14 +223,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)",
       "historyId": "buckner-site-15bb12-bourbon-county"
-    },
-    "cleek-mccabe-fort-ancient-village": {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "lat": 39,
-      "lon": -84.7,
-      "mapConfidence": "exact",
-      "matchedPlace": "Cleek-McCabe Fort Ancient Village",
-      "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
@@ -438,14 +422,6 @@
       "lon": -84.67985,
       "mapConfidence": "county",
       "matchedPlace": "Lincoln County (centroid)",
-      "historyId": null
-    },
-    "hugh-mcgary-the-hothead-major": {
-      "slug": "hugh-mcgary-the-hothead-major",
-      "lat": 37.778,
-      "lon": -84.83079,
-      "mapConfidence": "county",
-      "matchedPlace": "Mercer County (centroid)",
       "historyId": null
     },
     "michael-stoner-german-long-hunter": {
@@ -752,6 +728,14 @@
       "matchedPlace": "William Whitley / Sportsman's Hill",
       "historyId": "william-whitley-sportsmans-hill"
     },
+    "hugh-mcgary-the-blue-licks-hothead": {
+      "slug": "hugh-mcgary-the-blue-licks-hothead",
+      "lat": 37.805,
+      "lon": -84.831,
+      "mapConfidence": "override",
+      "matchedPlace": "McGary's Station / Shawnee Springs",
+      "historyId": "mcgarys-station-shawnee-springs-mercer"
+    },
     "levi-todd-lexington-co-founder": {
       "slug": "levi-todd-lexington-co-founder",
       "lat": 38.0137667,
@@ -831,14 +815,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Springfield / Washington County seat",
       "historyId": "springfield-washington-county-seat"
-    },
-    "springfield-first-county-seat-after-statehood": {
-      "slug": "springfield-first-county-seat-after-statehood",
-      "lat": 37.6853,
-      "lon": -85.2222,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield",
-      "historyId": null
     },
     "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
@@ -920,14 +896,6 @@
       "matchedPlace": "Worthington's Fort (Edward Worthington)",
       "historyId": "worthingtons-fort-danville"
     },
-    "hugh-mcgary-the-blue-licks-hothead": {
-      "slug": "hugh-mcgary-the-blue-licks-hothead",
-      "lat": 37.805,
-      "lon": -84.831,
-      "mapConfidence": "override",
-      "matchedPlace": "McGary's Station / Shawnee Springs",
-      "historyId": "mcgarys-station-shawnee-springs-mercer"
-    },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "lat": 38.3351,
@@ -1000,18 +968,10 @@
       "matchedPlace": "Isaac Shelby",
       "historyId": "isaac-shelby"
     },
-    "lawrenceburg-from-kaufmans-station": {
-      "slug": "lawrenceburg-from-kaufmans-station",
-      "lat": 38.02186,
-      "lon": -84.89316,
-      "mapConfidence": "county",
-      "matchedPlace": "Anderson County (centroid)",
-      "historyId": null
-    },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
-      "lat": 38.1741739,
-      "lon": -84.8769101,
+      "lat": 38.033056,
+      "lon": -84.903056,
       "mapConfidence": "override",
       "matchedPlace": "Lawrenceburg / Kaufman's Station",
       "historyId": null
@@ -1120,6 +1080,14 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "col-thomas-marshall-at-buck-pond": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "mapConfidence": "override",
+      "matchedPlace": "Buck Pond / Col. Thomas Marshall",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802"
+    },
     "harry-innes": {
       "slug": "harry-innes",
       "lat": 38.1939,
@@ -1191,6 +1159,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)",
       "historyId": "john-hardin-pleasant-run-washington-1786-1792"
+    },
+    "moluntha-and-logans-raid-1786": {
+      "slug": "moluntha-and-logans-raid-1786",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "blue-jacket-weyapiersenwah": {
       "slug": "blue-jacket-weyapiersenwah",
@@ -1456,6 +1432,14 @@
       "matchedPlace": "Owensboro / Yellow Banks",
       "historyId": "owensboro-founding-yellow-banks"
     },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "mapConfidence": "override",
+      "matchedPlace": "Prestonsburg founding / Preston’s Station",
+      "historyId": "prestonsburg-founding-floyd-1797-1818"
+    },
     "yellow-banks-becomes-owensboro": {
       "slug": "yellow-banks-becomes-owensboro",
       "lat": 37.7759614,
@@ -1704,6 +1688,14 @@
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone",
       "historyId": "diamond-caverns-park-city-ste-genevieve-limestone"
     },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson USCT recruiting and training center",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866"
+    },
     "camp-nelson-jessamine-county": {
       "slug": "camp-nelson-jessamine-county",
       "lat": 37.78778,
@@ -1711,6 +1703,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)",
       "historyId": "camp-nelson-jessamine-1863-1865"
+    },
+    "george-garvin-brown-and-old-forester": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Forester / Whiskey Row (Louisville)",
+      "historyId": "old-forester-whiskey-row-louisville-1870"
     },
     "frederick-stitzels-barrel-racks-1879": {
       "slug": "frederick-stitzels-barrel-racks-1879",

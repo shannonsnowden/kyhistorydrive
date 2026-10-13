@@ -1,6 +1,6 @@
 /**
  * Homepage Route maps pill.
- * A 2x crop of the Story Studio card, light and dark, WebP with a JPEG fallback.
+ * A 2x crop of the route card art, light and dark, WebP with a JPEG fallback.
  * The image alt stays empty: the button's accessible name is the visible label.
  */
 export const ROUTE_MAPS_CARD_ART = '/maps/homepage-card/route-maps-pill'

@@ -1,0 +1,4641 @@
+{
+  "source": "data/people.json",
+  "people": [
+    {
+      "id": "daniel-boone",
+      "name": "Daniel Boone",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/daniel-boone__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/daniel-boone__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "athiamiowee-the-warriors-path-through-kentucky",
+        "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+        "carlisle-kincarts-peach-orchard-county-seat",
+        "henry-skaggs-green-river-long-hunter",
+        "john-finley-the-trader-who-put-kentucky-on-boones-map",
+        "lexington-ohio-railroad",
+        "michael-stoner-german-long-hunter",
+        "natural-bridge-sandstone-arch",
+        "old-mulkey-meetinghouse-1804",
+        "pilot-knob-boones-overlook-1769",
+        "pine-mountain-and-pound-gap",
+        "red-river-gorge-arches-and-the-dam-fight"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "squire-boone",
+      "name": "Squire Boone",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "shelbyville",
+        "squire-boones-painted-stone"
+      ]
+    },
+    {
+      "id": "jemima-boone",
+      "name": "Jemima Boone",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-holder-at-lower-howards-creek",
+        "col-richard-callaway-of-boonesborough"
+      ]
+    },
+    {
+      "id": "israel-boone",
+      "name": "Israel Boone",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hugh-mcgary-the-blue-licks-hothead",
+        "wyandot-on-kentuckys-northern-frontier"
+      ]
+    },
+    {
+      "id": "james-boone",
+      "name": "James Boone",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-william-russell-iii"
+      ]
+    },
+    {
+      "id": "george-boone",
+      "name": "George Boone",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "william-hoy-and-hoys-station"
+      ]
+    },
+    {
+      "id": "hannah-boone",
+      "name": "Hannah Boone Stewart Pennington",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "old-mulkey-meetinghouse-1804"
+      ]
+    },
+    {
+      "id": "benjamin-logan",
+      "name": "Benjamin Logan",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/benjamin-logan__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/benjamin-logan__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "benjamin-logan",
+        "blue-jacket-weyapiersenwah",
+        "col-john-bowman-at-old-chillicothe",
+        "col-john-hardin-of-pleasant-run",
+        "nonhelema",
+        "stanford-from-st-asaph",
+        "moluntha-and-logans-raid-1786"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "ann-logan",
+      "name": "Ann Logan Hardin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-hardin-of-pleasant-run"
+      ]
+    },
+    {
+      "id": "george-rogers-clark",
+      "name": "George Rogers Clark",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/george-rogers-clark__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/george-rogers-clark__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "bland-w-ballard-of-tick-creek",
+        "col-john-holder-at-lower-howards-creek",
+        "col-john-todd-of-lexington",
+        "drennon-springs-salt-works",
+        "edward-worthington-at-worthingtons-fort",
+        "falls-of-the-ohio",
+        "george-rogers-clark",
+        "illinois-confederation-at-cahokia",
+        "levi-todd-lexington-co-founder",
+        "maj-joseph-bowman",
+        "maj-silas-harlan",
+        "winchester-clark-county-seat"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "richard-henderson",
+      "name": "Richard Henderson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/richard-henderson-512.webp",
+        "jpg": "/people/portraits/richard-henderson-512.jpg"
+      },
+      "credit": "T. Gilbert White (painting) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "henderson-at-red-banks",
+        "richard-henderson",
+        "treaty-of-camp-charlotte-1774"
+      ],
+      "sourceFile": "Richard-henderson-judge.jpg"
+    },
+    {
+      "id": "isaac-shelby",
+      "name": "Isaac Shelby",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/isaac-shelby-512.webp",
+        "jpg": "/people/portraits/isaac-shelby-512.jpg"
+      },
+      "credit": "Matthew Harris Jouett · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "capt-nathaniel-hart",
+        "chickasaw-hunting-grounds",
+        "col-john-holder-at-lower-howards-creek",
+        "isaac-shelby-old-kings-mountain",
+        "shelbyville"
+      ],
+      "sourceFile": "Isaac shelby.jpg"
+    },
+    {
+      "id": "susannah-shelby",
+      "name": "Susannah Hart Shelby",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-nathaniel-hart"
+      ]
+    },
+    {
+      "id": "levi-todd",
+      "name": "Levi Todd",
+      "dates": "1756–1807",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-bowman-at-old-chillicothe",
+        "levi-todd-lexington-co-founder"
+      ]
+    },
+    {
+      "id": "john-todd",
+      "name": "John Todd",
+      "dates": "1750–1782",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-todd-of-lexington",
+        "hugh-mcgary-the-blue-licks-hothead",
+        "levi-todd-lexington-co-founder",
+        "manns-lick-louisvilles-salt-town",
+        "simon-girty-interpreter-at-bryan-station-1782",
+        "wyandot-on-kentuckys-northern-frontier"
+      ]
+    },
+    {
+      "id": "mary-o-todd",
+      "name": "Mary Owen Todd Russell Wallace",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "manns-lick-louisvilles-salt-town"
+      ]
+    },
+    {
+      "id": "mary-todd-lincoln",
+      "name": "Mary Todd Lincoln",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/mary-todd-lincoln-512.webp",
+        "jpg": "/people/portraits/mary-todd-lincoln-512.jpg"
+      },
+      "credit": "Mary_Todd_Lincoln2.jpg: Mathew Brady\nderivative work: Materialscientist (talk) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-john-todd-of-lexington",
+        "levi-todd-lexington-co-founder"
+      ],
+      "sourceFile": "Mary Todd Lincoln2crop.jpg"
+    },
+    {
+      "id": "john-floyd",
+      "name": "John Floyd",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-floyd-512.webp",
+        "jpg": "/people/portraits/john-floyd-512.jpg"
+      },
+      "credit": "Eugenia Johnson · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "john-floyd",
+        "stanford-from-st-asaph",
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ],
+      "sourceFile": "Portrait of Colonel John Floyd (1750-1783).jpg"
+    },
+    {
+      "id": "john-finley",
+      "name": "John Finley",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "athiamiowee-the-warriors-path-through-kentucky",
+        "john-finley-the-trader-who-put-kentucky-on-boones-map",
+        "odawa-raid-at-eskippakithiki-1753",
+        "pilot-knob-boones-overlook-1769"
+      ]
+    },
+    {
+      "id": "john-faulkner",
+      "name": "John Faulkner",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "odawa-raid-at-eskippakithiki-1753"
+      ]
+    },
+    {
+      "id": "hancock-taylor",
+      "name": "Hancock Taylor",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hancock-taylor-fincastle-surveyor",
+        "leestown"
+      ]
+    },
+    {
+      "id": "john-holder",
+      "name": "John Holder",
+      "dates": "1753–1799",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-holder-at-lower-howards-creek",
+        "william-hoy-and-hoys-station"
+      ]
+    },
+    {
+      "id": "john-hardin",
+      "name": "John Hardin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-hardin-of-pleasant-run",
+        "little-turtle-and-hardins-defeat-1790",
+        "mascouten-fire-nation-on-the-wabash"
+      ]
+    },
+    {
+      "id": "mark-hardin",
+      "name": "Mark Hardin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-hardin-of-pleasant-run"
+      ]
+    },
+    {
+      "id": "martin-d-hardin",
+      "name": "Martin D. Hardin",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/martin-d-hardin-512.webp",
+        "jpg": "/people/portraits/martin-d-hardin-512.jpg"
+      },
+      "credit": "United States Historical Society? · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-john-hardin-of-pleasant-run"
+      ],
+      "sourceFile": "Martin D Hardin.jpg"
+    },
+    {
+      "id": "martin-hardin",
+      "name": "Martin Hardin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "jacob-beam-on-hardin-creek"
+      ]
+    },
+    {
+      "id": "stephen-trigg",
+      "name": "Stephen Trigg",
+      "dates": "c. 1744–1782",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-stephen-trigg-of-viney-grove",
+        "wyandot-on-kentuckys-northern-frontier"
+      ]
+    },
+    {
+      "id": "john-filson",
+      "name": "John Filson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-filson-512.webp",
+        "jpg": "/people/portraits/john-filson-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "athiamiowee-the-warriors-path-through-kentucky",
+        "col-robert-patterson-builds-lexington",
+        "john-filson-kentucke-1784",
+        "pilot-knob-boones-overlook-1769"
+      ],
+      "sourceFile": "John-Filson.jpg"
+    },
+    {
+      "id": "william-christian",
+      "name": "William Christian",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bullitts-lick-kentuckys-first-industry",
+        "william-christian-of-beargrass"
+      ]
+    },
+    {
+      "id": "james-knox",
+      "name": "James Knox",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henry-skaggs-green-river-long-hunter",
+        "james-knox"
+      ]
+    },
+    {
+      "id": "jacob-beam",
+      "name": "Jacob Beam",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "jacob-beam-on-hardin-creek",
+        "jacob-beam-sells-old-jakes-first-barrel"
+      ]
+    },
+    {
+      "id": "lewis-craig",
+      "name": "Lewis Craig",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/lewis-craig__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/lewis-craig__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "carrollton-from-port-william",
+        "the-travelling-church-1781"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "elijah-craig",
+      "name": "Elijah Craig",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/elijah-craig-512.webp",
+        "jpg": "/people/portraits/elijah-craig-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "georgetown-and-royal-spring"
+      ],
+      "sourceFile": "Elijah Craig woodcut.png"
+    },
+    {
+      "id": "benjamin-craig",
+      "name": "Benjamin Craig",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carrollton-from-port-william"
+      ]
+    },
+    {
+      "id": "john-hawkins-craig",
+      "name": "John Hawkins Craig",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "burlington-boone-county-seat"
+      ]
+    },
+    {
+      "id": "john-strode",
+      "name": "John Strode",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-john-strode-of-strodes-station",
+        "winchester-clark-county-seat"
+      ]
+    },
+    {
+      "id": "henry-bird",
+      "name": "Henry Bird",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "delaware-lenape-in-the-1780-kentucky-raids",
+        "egushawa-and-the-odawa-in-kentuckys-war-years",
+        "falmouth-at-the-licking-forks",
+        "isaac-ruddell-and-the-guns-at-ruddells-station",
+        "ojibwe-on-birds-war-road"
+      ]
+    },
+    {
+      "id": "dragging-canoe",
+      "name": "Dragging Canoe",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/dragging-canoe__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/dragging-canoe__ai-portrait-v2-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "chickamauga-cherokee",
+        "chickamauga-cherokee-hold-the-southern-flank",
+        "richard-henderson"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "charles-scott",
+      "name": "Charles Scott",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/charles-scott-512.webp",
+        "jpg": "/people/portraits/charles-scott-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "carrollton-from-port-william",
+        "col-john-hardin-of-pleasant-run",
+        "gen-charles-scott-and-petersburg",
+        "kickapoo-on-the-kentucky-frontier",
+        "little-turtle-and-hardins-defeat-1790",
+        "mascouten-fire-nation-on-the-wabash",
+        "potawatomi-fire-keepers-and-the-ohio-valley-wars",
+        "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid"
+      ],
+      "sourceFile": "Portrait of Charles Scott.jpg"
+    },
+    {
+      "id": "daniel-trabue",
+      "name": "Daniel Trabue",
+      "dates": "1760–1840",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "daniel-trabue-of-columbia"
+      ]
+    },
+    {
+      "id": "james-wilkinson",
+      "name": "James Wilkinson",
+      "dates": "1757–1825",
+      "image": {
+        "webp": "/people/portraits/james-wilkinson-512.webp",
+        "jpg": "/people/portraits/james-wilkinson-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-john-hardin-of-pleasant-run",
+        "frankfort-franks-ford-becomes-the-capital",
+        "gen-james-wilkinson-kentuckys-agent-13",
+        "liberty-hall-john-browns-frankfort-house",
+        "mascouten-fire-nation-on-the-wabash",
+        "potawatomi-fire-keepers-and-the-ohio-valley-wars"
+      ],
+      "sourceFile": "James Wilkinson (NPG).jpg"
+    },
+    {
+      "id": "john-bradford",
+      "name": "John Bradford",
+      "dates": "1749–1830",
+      "image": {
+        "webp": "/people/portraits/john-bradford__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/john-bradford__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "john-bradford-and-the-kentucke-gazette"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "fielding-bradford",
+      "name": "Fielding Bradford",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "john-bradford-and-the-kentucke-gazette"
+      ]
+    },
+    {
+      "id": "cornstalk",
+      "name": "Cornstalk",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/cornstalk-512.webp",
+        "jpg": "/people/portraits/cornstalk-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. John Frost, L.L. D. is the author of the book; illustrator is not identified. · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+        "nonhelema",
+        "treaty-of-camp-charlotte-1774"
+      ],
+      "sourceFile": "1872 Chiefs Cornstalk Logan and Red Eagle from Frosts pictorial history of Indian.jpg"
+    },
+    {
+      "id": "elinipsico",
+      "name": "Elinipsico",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph"
+      ]
+    },
+    {
+      "id": "nonhelema",
+      "name": "Nonhelema",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/nonhelema__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/nonhelema__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "nonhelema"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "esther-whitley",
+      "name": "Esther Whitley",
+      "dates": "1755–1833",
+      "image": {
+        "webp": "/people/portraits/esther-whitley__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/esther-whitley__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "esther-whitley-over-the-cumberlands-1775"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "william-whitley",
+      "name": "William Whitley",
+      "dates": "1787–1794",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "esther-whitley-over-the-cumberlands-1775",
+        "william-whitley-sportsmans-hill"
+      ]
+    },
+    {
+      "id": "ann-harper",
+      "name": "Ann Harper",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "esther-whitley-over-the-cumberlands-1775"
+      ]
+    },
+    {
+      "id": "simon-girty",
+      "name": "Simon Girty",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/simon-girty-512.webp",
+        "jpg": "/people/portraits/simon-girty-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. Artist uncredited · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "bryan-station-siege-august-1782",
+        "simon-girty-interpreter-at-bryan-station-1782"
+      ],
+      "sourceFile": "Simon Girty.png"
+    },
+    {
+      "id": "little-turtle",
+      "name": "Little Turtle",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/little-turtle-512.webp",
+        "jpg": "/people/portraits/little-turtle-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "blue-jacket-weyapiersenwah",
+        "col-john-hardin-of-pleasant-run",
+        "little-turtle-and-hardins-defeat-1790",
+        "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
+      ],
+      "sourceFile": "Little Turtle.jpg"
+    },
+    {
+      "id": "blackfish",
+      "name": "Blackfish",
+      "dates": "c. 1729–1779",
+      "image": {
+        "webp": "/people/portraits/blackfish__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/blackfish__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+        "col-john-bowman-at-old-chillicothe",
+        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+        "shawnee-chillicothe-divisions"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "blue-jacket",
+      "name": "Blue Jacket",
+      "dates": "c. 1743–1810",
+      "image": {
+        "webp": "/people/portraits/blue-jacket__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/blue-jacket__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "blue-jacket-weyapiersenwah",
+        "simon-girty-interpreter-at-bryan-station-1782",
+        "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "robert-johnson",
+      "name": "Robert Johnson",
+      "dates": "1745–1815",
+      "image": {
+        "webp": "/people/portraits/robert-johnson__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/robert-johnson__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "burlington-boone-county-seat",
+        "capt-robert-johnson-and-big-crossing-station"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "jemima-suggett-johnson",
+      "name": "Jemima Suggett Johnson",
+      "dates": "1753–1814",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-robert-johnson-and-big-crossing-station"
+      ]
+    },
+    {
+      "id": "richard-m-johnson",
+      "name": "Richard M. Johnson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/richard-m-johnson-512.webp",
+        "jpg": "/people/portraits/richard-m-johnson-512.jpg"
+      },
+      "credit": "John Neagle · CC0 · via Wikimedia Commons",
+      "ai": false,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "stories": [
+        "capt-robert-johnson-and-big-crossing-station"
+      ],
+      "sourceFile": "John Neagle, Richard Mentor Johnson, 1843, NGA 166465.jpg"
+    },
+    {
+      "id": "john-t-johnson",
+      "name": "John T. Johnson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-t-johnson-512.webp",
+        "jpg": "/people/portraits/john-t-johnson-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "capt-robert-johnson-and-big-crossing-station"
+      ],
+      "sourceFile": "John-Telemachus-Johnson.jpg"
+    },
+    {
+      "id": "richard-callaway",
+      "name": "Richard Callaway",
+      "dates": "1717–1780",
+      "image": {
+        "webp": "/people/portraits/richard-callaway__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/richard-callaway__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+        "col-richard-callaway-of-boonesborough"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "fanny-callaway",
+      "name": "Fanny Callaway",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-holder-at-lower-howards-creek"
+      ]
+    },
+    {
+      "id": "jack-calloway",
+      "name": "Jack Calloway",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "william-hoy-and-hoys-station"
+      ]
+    },
+    {
+      "id": "john-bowman",
+      "name": "John Bowman",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+        "col-john-bowman-at-old-chillicothe"
+      ]
+    },
+    {
+      "id": "joseph-bowman",
+      "name": "Joseph Bowman",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "maj-joseph-bowman"
+      ]
+    },
+    {
+      "id": "hugh-mcgary",
+      "name": "Hugh McGary",
+      "dates": "1744–1806",
+      "image": {
+        "webp": "/people/portraits/hugh-mcgary__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hugh-mcgary__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "hugh-mcgary-the-blue-licks-hothead",
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "moluntha",
+      "name": "Moluntha",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/moluntha__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/moluntha__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "hugh-mcgary-the-blue-licks-hothead",
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "egushawa",
+      "name": "Egushawa",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/egushawa__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/egushawa__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "egushawa-and-the-odawa-in-kentuckys-war-years"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "thomas-walker",
+      "name": "Thomas Walker",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "athiamiowee-the-warriors-path-through-kentucky",
+        "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
+        "thomas-walker-and-cumberland-gap"
+      ]
+    },
+    {
+      "id": "christopher-gist",
+      "name": "Christopher Gist",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/christopher-gist-512.webp",
+        "jpg": "/people/portraits/christopher-gist-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "athiamiowee-the-warriors-path-through-kentucky",
+        "christopher-gist-1750-51",
+        "pine-mountain-and-pound-gap",
+        "treaty-of-logstown-1752"
+      ],
+      "sourceFile": "Christopher Gist.jpg"
+    },
+    {
+      "id": "nathaniel-gist",
+      "name": "Nathaniel Gist",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "gen-charles-scott-and-petersburg"
+      ]
+    },
+    {
+      "id": "gabriel-arthur",
+      "name": "Gabriel Arthur",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "athiamiowee-the-warriors-path-through-kentucky",
+        "moneton"
+      ]
+    },
+    {
+      "id": "abraham-wood",
+      "name": "Abraham Wood",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "moneton"
+      ]
+    },
+    {
+      "id": "thomas-batts",
+      "name": "Thomas Batts",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "moneton"
+      ]
+    },
+    {
+      "id": "mary-draper-ingles",
+      "name": "Mary Draper Ingles",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mary-draper-ingles-escapes-through-kentucky-1755"
+      ]
+    },
+    {
+      "id": "jenny-wiley",
+      "name": "Jenny Wiley",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "jenny-wileys-captivity-and-escape"
+      ]
+    },
+    {
+      "id": "thomas-wiley",
+      "name": "Thomas Wiley",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "jenny-wileys-captivity-and-escape"
+      ]
+    },
+    {
+      "id": "matthias-harman",
+      "name": "Matthias Harman",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "jenny-wileys-captivity-and-escape"
+      ]
+    },
+    {
+      "id": "ann-mcginty",
+      "name": "Ann McGinty",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "ann-mcginty-and-kentuckys-first-spinning-wheel"
+      ]
+    },
+    {
+      "id": "william-poage",
+      "name": "William Poage",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "ann-mcginty-and-kentuckys-first-spinning-wheel"
+      ]
+    },
+    {
+      "id": "william-hoy",
+      "name": "William Hoy",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "william-hoy-and-hoys-station"
+      ]
+    },
+    {
+      "id": "jones-hoy",
+      "name": "Jones Hoy",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "william-hoy-and-hoys-station"
+      ]
+    },
+    {
+      "id": "james-estill",
+      "name": "James Estill",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-james-estill-estills-defeat"
+      ]
+    },
+    {
+      "id": "william-miller",
+      "name": "William Miller",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-james-estill-estills-defeat"
+      ]
+    },
+    {
+      "id": "nathaniel-hart",
+      "name": "Nathaniel Hart",
+      "dates": "1734–1782",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-nathaniel-hart"
+      ]
+    },
+    {
+      "id": "william-hubbell",
+      "name": "William Hubbell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-william-hubbells-ohio-flatboat-stand-1791"
+      ]
+    },
+    {
+      "id": "daniel-light",
+      "name": "Daniel Light",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-william-hubbells-ohio-flatboat-stand-1791"
+      ]
+    },
+    {
+      "id": "william-plascut",
+      "name": "William Plascut",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-william-hubbells-ohio-flatboat-stand-1791"
+      ]
+    },
+    {
+      "id": "bland-ballard",
+      "name": "Bland W. Ballard",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bland-w-ballard-of-tick-creek"
+      ]
+    },
+    {
+      "id": "robert-tyler",
+      "name": "Robert Tyler",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bland-w-ballard-of-tick-creek"
+      ]
+    },
+    {
+      "id": "robert-patterson",
+      "name": "Robert Patterson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/robert-patterson-512.webp",
+        "jpg": "/people/portraits/robert-patterson-512.jpg"
+      },
+      "credit": "Attributed portrait. engraved by Chas B Hall · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-robert-patterson-builds-lexington"
+      ],
+      "sourceFile": "Robert Patterson (pioneer) (cropped).png"
+    },
+    {
+      "id": "william-russell-iii",
+      "name": "William Russell III",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-william-russell-iii"
+      ]
+    },
+    {
+      "id": "henry-russell",
+      "name": "Henry Russell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-william-russell-iii"
+      ]
+    },
+    {
+      "id": "william-campbell",
+      "name": "William Campbell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-william-russell-iii"
+      ]
+    },
+    {
+      "id": "jack-jouett",
+      "name": "Jack Jouett",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/jack-jouett-512.webp",
+        "jpg": "/people/portraits/jack-jouett-512.jpg"
+      },
+      "credit": "Matthew Harris Jouett · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "capt-jack-jouett",
+        "jack-jouett-kentuckys-midnight-rider"
+      ],
+      "sourceFile": "Jack jouett silhouette.svg"
+    },
+    {
+      "id": "banastre-tarleton",
+      "name": "Banastre Tarleton",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/banastre-tarleton-512.webp",
+        "jpg": "/people/portraits/banastre-tarleton-512.jpg"
+      },
+      "credit": "Humphrey Tribble · CC0 · via Wikimedia Commons",
+      "ai": false,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "stories": [
+        "capt-jack-jouett",
+        "jack-jouett-kentuckys-midnight-rider"
+      ],
+      "sourceFile": "Banastre Tarleton portrait.jpg"
+    },
+    {
+      "id": "thomas-jefferson",
+      "name": "Thomas Jefferson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/thomas-jefferson-512.webp",
+        "jpg": "/people/portraits/thomas-jefferson-512.jpg"
+      },
+      "credit": "Rembrandt Peale · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "capt-jack-jouett",
+        "jack-jouett-kentuckys-midnight-rider"
+      ],
+      "sourceFile": "Official Presidential portrait of Thomas Jefferson (by Rembrandt Peale, 1800).jpg"
+    },
+    {
+      "id": "sally-robards",
+      "name": "Sally Robards",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-jack-jouett"
+      ]
+    },
+    {
+      "id": "isaac-ruddell",
+      "name": "Isaac Ruddell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "isaac-ruddell-and-the-guns-at-ruddells-station"
+      ]
+    },
+    {
+      "id": "edward-worthington",
+      "name": "Edward Worthington",
+      "dates": "c. 1754–1804",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "edward-worthington-at-worthingtons-fort"
+      ]
+    },
+    {
+      "id": "silas-harlan",
+      "name": "Silas Harlan",
+      "dates": "c. 1752–1782",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "maj-silas-harlan"
+      ]
+    },
+    {
+      "id": "michael-stoner",
+      "name": "Michael Stoner",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "michael-stoner-german-long-hunter",
+        "pine-mountain-and-pound-gap"
+      ]
+    },
+    {
+      "id": "henry-skaggs",
+      "name": "Henry Skaggs",
+      "dates": "1724–1810",
+      "image": {
+        "webp": "/people/portraits/henry-skaggs__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/henry-skaggs__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "henry-skaggs-green-river-long-hunter"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "valentine-harman",
+      "name": "Valentine Harman",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henry-skaggs-green-river-long-hunter"
+      ]
+    },
+    {
+      "id": "thomas-slaughter",
+      "name": "Thomas Slaughter",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henry-skaggs-green-river-long-hunter"
+      ]
+    },
+    {
+      "id": "kasper-mansker",
+      "name": "Kasper Mansker",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henry-skaggs-green-river-long-hunter"
+      ]
+    },
+    {
+      "id": "joseph-drake",
+      "name": "Joseph Drake",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henry-skaggs-green-river-long-hunter"
+      ]
+    },
+    {
+      "id": "elisha-walden",
+      "name": "Elisha Walden",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henry-skaggs-green-river-long-hunter"
+      ]
+    },
+    {
+      "id": "captain-dick",
+      "name": "Captain Dick",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "james-knox"
+      ]
+    },
+    {
+      "id": "will-emery",
+      "name": "Captain Will Emery",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-will-the-hunting-ground"
+      ]
+    },
+    {
+      "id": "john-stewart",
+      "name": "John Stewart",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-will-the-hunting-ground"
+      ]
+    },
+    {
+      "id": "william-calk",
+      "name": "William Calk",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "william-calks-1775-journal"
+      ]
+    },
+    {
+      "id": "harry-innes",
+      "name": "Harry Innes",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/harry-innes-512.webp",
+        "jpg": "/people/portraits/harry-innes-512.jpg"
+      },
+      "credit": "Matthew Harris Jouett · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "harry-innes"
+      ],
+      "sourceFile": "Harry Innes portrait.jpg"
+    },
+    {
+      "id": "aaron-burr",
+      "name": "Aaron Burr",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/aaron-burr-512.webp",
+        "jpg": "/people/portraits/aaron-burr-512.jpg"
+      },
+      "credit": "John Vanderlyn · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "harry-innes"
+      ],
+      "sourceFile": "Aaron Burr Portrait (cropped).jpg"
+    },
+    {
+      "id": "humphrey-marshall",
+      "name": "Humphrey Marshall",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "gen-james-wilkinson-kentuckys-agent-13",
+        "harry-innes"
+      ]
+    },
+    {
+      "id": "george-washington",
+      "name": "George Washington",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/george-washington-512.webp",
+        "jpg": "/people/portraits/george-washington-512.jpg"
+      },
+      "credit": "Gilbert Stuart · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "harry-innes",
+        "springfield-founding-and-washington-county-seat",
+        "washington-mason-county"
+      ],
+      "sourceFile": "Gilbert Stuart Williamstown Portrait of George Washington.jpg"
+    },
+    {
+      "id": "john-brown",
+      "name": "John Brown",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-brown-512.webp",
+        "jpg": "/people/portraits/john-brown-512.jpg"
+      },
+      "credit": "John Trumbull · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "liberty-hall-john-browns-frankfort-house"
+      ],
+      "sourceFile": "KY Sen John-Brown.jpg"
+    },
+    {
+      "id": "esteban-miro",
+      "name": "Esteban Miró",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/esteban-miro-512.webp",
+        "jpg": "/people/portraits/esteban-miro-512.jpg"
+      },
+      "credit": "Andres Molinary · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "gen-james-wilkinson-kentuckys-agent-13"
+      ],
+      "sourceFile": "Esteban Rodríguez Miró.jpg"
+    },
+    {
+      "id": "ephraim-mcdowell",
+      "name": "Ephraim McDowell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/ephraim-mcdowell-512.webp",
+        "jpg": "/people/portraits/ephraim-mcdowell-512.jpg"
+      },
+      "credit": "P. H. Davenport · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "ephraim-mcdowell-jane-todd-crawford-1809"
+      ],
+      "sourceFile": "Ephraim McDowell.jpg"
+    },
+    {
+      "id": "jane-todd-crawford",
+      "name": "Jane Todd Crawford",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/jane-todd-crawford__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jane-todd-crawford__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "ephraim-mcdowell-jane-todd-crawford-1809"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "evan-williams",
+      "name": "Evan Williams",
+      "dates": "1755–1810",
+      "image": {
+        "webp": "/people/portraits/evan-williams__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/evan-williams__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "evan-williams-on-the-louisville-wharf"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "e-h-taylor-jr",
+      "name": "E. H. Taylor Jr.",
+      "dates": "1830–1923",
+      "image": {
+        "webp": "/people/portraits/e-h-taylor-jr-512.webp",
+        "jpg": "/people/portraits/e-h-taylor-jr-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
+        "frederick-stitzels-barrel-racks-1879"
+      ],
+      "sourceFile": "Edmund Haynes Taylor (1830–1923).png"
+    },
+    {
+      "id": "john-g-carlisle",
+      "name": "John G. Carlisle",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-g-carlisle-512.webp",
+        "jpg": "/people/portraits/john-g-carlisle-512.jpg"
+      },
+      "credit": "Matthew Brady · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "e-h-taylor-jr-and-the-bottled-in-bond-act-1897"
+      ],
+      "sourceFile": "John Griffin Carlisle, Brady-Handy photo portrait, ca1870-1880.jpg"
+    },
+    {
+      "id": "frederick-stitzel",
+      "name": "Frederick Stitzel",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "frederick-stitzels-barrel-racks-1879"
+      ]
+    },
+    {
+      "id": "henry-mckenna",
+      "name": "Henry McKenna",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henry-mckennas-fairfield-sour-mash"
+      ]
+    },
+    {
+      "id": "james-c-crow",
+      "name": "James C. Crow",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "james-crow-on-glenns-creek"
+      ]
+    },
+    {
+      "id": "oscar-pepper",
+      "name": "Oscar Pepper",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "james-crow-on-glenns-creek"
+      ]
+    },
+    {
+      "id": "jacob-spears",
+      "name": "Jacob Spears",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "jacob-spears-early-bourbon-whiskey"
+      ]
+    },
+    {
+      "id": "catherine-spears-carpenter",
+      "name": "Catherine Spears Carpenter",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes"
+      ]
+    },
+    {
+      "id": "basil-hayden",
+      "name": "Basil Hayden Sr.",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "basil-haydens-high-rye-trail"
+      ]
+    },
+    {
+      "id": "henry-clay",
+      "name": "Henry Clay",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/henry-clay-512.webp",
+        "jpg": "/people/portraits/henry-clay-512.jpg"
+      },
+      "credit": "Julian Vannerson or Montgomery P. Simons · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "kentucky-association-1826-lexington-race-course"
+      ],
+      "sourceFile": "Clay 1848.jpg"
+    },
+    {
+      "id": "jesse-bledsoe",
+      "name": "Jesse Bledsoe",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/jesse-bledsoe-512.webp",
+        "jpg": "/people/portraits/jesse-bledsoe-512.jpg"
+      },
+      "credit": "United States Senate Historical Office? · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "kentucky-association-1826-lexington-race-course"
+      ],
+      "sourceFile": "Jesse Bledsoe.jpg"
+    },
+    {
+      "id": "elisha-warfield",
+      "name": "Elisha Warfield",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/elisha-warfield-512.webp",
+        "jpg": "/people/portraits/elisha-warfield-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "kentucky-association-1826-lexington-race-course"
+      ],
+      "sourceFile": "DR. ELISHA WARFIELD (1771-1859) by L. Rowley Jacobs 1859 (after Healy 1845).jpg"
+    },
+    {
+      "id": "thomas-f-marshall",
+      "name": "Thomas F. Marshall",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/thomas-f-marshall-512.webp",
+        "jpg": "/people/portraits/thomas-f-marshall-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "kentucky-association-1826-lexington-race-course"
+      ],
+      "sourceFile": "Thomas-Francis-Marshall.jpg"
+    },
+    {
+      "id": "isaac-murphy",
+      "name": "Isaac Murphy",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/isaac-murphy-512.webp",
+        "jpg": "/people/portraits/isaac-murphy-512.jpg"
+      },
+      "credit": "J.H. Fenton. · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "kentucky-association-1826-lexington-race-course"
+      ],
+      "sourceFile": "IsaacMurphy.jpg"
+    },
+    {
+      "id": "jimmy-winkfield",
+      "name": "Jimmy Winkfield",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/jimmy-winkfield-512.webp",
+        "jpg": "/people/portraits/jimmy-winkfield-512.jpg"
+      },
+      "credit": "Unknown · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "kentucky-association-1826-lexington-race-course"
+      ],
+      "sourceFile": "Alan-A-Dale - 1902.jpg"
+    },
+    {
+      "id": "john-meacham",
+      "name": "John Meacham",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "shaker-village-of-pleasant-hill"
+      ]
+    },
+    {
+      "id": "issachar-bates",
+      "name": "Issachar Bates",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "shaker-village-of-pleasant-hill"
+      ]
+    },
+    {
+      "id": "benjamin-seth-youngs",
+      "name": "Benjamin Seth Youngs",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "shaker-village-of-pleasant-hill"
+      ]
+    },
+    {
+      "id": "elisha-thomas",
+      "name": "Elisha Thomas",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "shaker-village-of-pleasant-hill"
+      ]
+    },
+    {
+      "id": "john-mulkey",
+      "name": "John Mulkey",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "old-mulkey-meetinghouse-1804"
+      ]
+    },
+    {
+      "id": "philip-mulkey",
+      "name": "Philip Mulkey",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "old-mulkey-meetinghouse-1804"
+      ]
+    },
+    {
+      "id": "james-mcgready",
+      "name": "James McGready",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "russellville-from-big-boiling-spring-to-county-seat"
+      ]
+    },
+    {
+      "id": "gideon-shryock",
+      "name": "Gideon Shryock",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/gideon-shryock-512.webp",
+        "jpg": "/people/portraits/gideon-shryock-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital",
+        "liberty-hall-john-browns-frankfort-house"
+      ],
+      "sourceFile": "Gideon Shryock by Jouett.jpg"
+    },
+    {
+      "id": "andrew-holmes",
+      "name": "Andrew Holmes",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital",
+        "gen-james-wilkinson-kentuckys-agent-13"
+      ]
+    },
+    {
+      "id": "stephen-frank",
+      "name": "Stephen Frank",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "frankfort-franks-ford-becomes-the-capital"
+      ]
+    },
+    {
+      "id": "matthew-walton",
+      "name": "Matthew Walton",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "springfield-founding-and-washington-county-seat"
+      ]
+    },
+    {
+      "id": "david-caldwell",
+      "name": "David Caldwell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "springfield-founding-and-washington-county-seat"
+      ]
+    },
+    {
+      "id": "john-fleming",
+      "name": "John Fleming",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "flemingsburg-stocktons-town"
+      ]
+    },
+    {
+      "id": "george-stockton",
+      "name": "George Stockton",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "flemingsburg-stocktons-town"
+      ]
+    },
+    {
+      "id": "robert-stockton",
+      "name": "Robert Stockton",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "flemingsburg-stocktons-town"
+      ]
+    },
+    {
+      "id": "john-kincart",
+      "name": "John Kincart",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carlisle-kincarts-peach-orchard-county-seat"
+      ]
+    },
+    {
+      "id": "samuel-kincart",
+      "name": "Samuel Kincart",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carlisle-kincarts-peach-orchard-county-seat"
+      ]
+    },
+    {
+      "id": "george-nicholas",
+      "name": "George Nicholas",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carlisle-kincarts-peach-orchard-county-seat",
+        "nicholasville-takes-shape"
+      ]
+    },
+    {
+      "id": "thomas-helm",
+      "name": "Thomas Helm",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "elizabethtown-from-severns-valley"
+      ]
+    },
+    {
+      "id": "andrew-hynes",
+      "name": "Andrew Hynes",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "elizabethtown-from-severns-valley"
+      ]
+    },
+    {
+      "id": "samuel-haycraft",
+      "name": "Samuel Haycraft",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "elizabethtown-from-severns-valley"
+      ]
+    },
+    {
+      "id": "john-severns",
+      "name": "John Severns",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "elizabethtown-from-severns-valley"
+      ]
+    },
+    {
+      "id": "philip-phillips",
+      "name": "Philip Phillips",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hodgenville-from-hodgens-mill-to-county-seat"
+      ]
+    },
+    {
+      "id": "abraham-lincoln-capt",
+      "name": "Capt. Abraham Lincoln",
+      "dates": "1744–1786",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "capt-abraham-lincoln-on-long-run"
+      ]
+    },
+    {
+      "id": "thomas-lincoln",
+      "name": "Thomas Lincoln",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/thomas-lincoln-512.webp",
+        "jpg": "/people/portraits/thomas-lincoln-512.jpg"
+      },
+      "credit": "Attributed portrait. Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "springfield-founding-and-washington-county-seat"
+      ],
+      "sourceFile": "Thomas Herring Lincoln (cropped3x4).jpg"
+    },
+    {
+      "id": "nancy-hanks",
+      "name": "Nancy Hanks Lincoln",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "springfield-founding-and-washington-county-seat"
+      ]
+    },
+    {
+      "id": "robert-todd-lincoln",
+      "name": "Robert Todd Lincoln",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/robert-todd-lincoln-512.webp",
+        "jpg": "/people/portraits/robert-todd-lincoln-512.jpg"
+      },
+      "credit": "Mathew Brady · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "hodgenville-from-hodgens-mill-to-county-seat"
+      ],
+      "sourceFile": "Lincoln, Robert (son of Abraham Lincoln) Crop.jpg"
+    },
+    {
+      "id": "robert-hodgen",
+      "name": "Robert Hodgen",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hodgenville-from-hodgens-mill-to-county-seat"
+      ]
+    },
+    {
+      "id": "adolph-weinman",
+      "name": "Adolph Weinman",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/adolph-weinman-512.webp",
+        "jpg": "/people/portraits/adolph-weinman-512.jpg"
+      },
+      "credit": "Carl Klim-Check · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "hodgenville-from-hodgens-mill-to-county-seat"
+      ],
+      "sourceFile": "Adolph Weinman, ca 1905 (C. Klim-Check) - crop.jpg"
+    },
+    {
+      "id": "andrew-campbell",
+      "name": "Andrew Campbell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "campbellsville-from-buckhorn-creek-to-county-seat"
+      ]
+    },
+    {
+      "id": "bartholomew-wood",
+      "name": "Bartholomew Wood",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hopkinsville"
+      ]
+    },
+    {
+      "id": "martha-ann-wood",
+      "name": "Martha Ann Wood",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hopkinsville"
+      ]
+    },
+    {
+      "id": "arthur-fox",
+      "name": "Arthur Fox",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "washington-mason-county"
+      ]
+    },
+    {
+      "id": "william-wood",
+      "name": "William Wood",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "washington-mason-county"
+      ]
+    },
+    {
+      "id": "adam-shepherd",
+      "name": "Adam Shepherd",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "shepherdsville-on-salt-river"
+      ]
+    },
+    {
+      "id": "jacob-kaufman",
+      "name": "Jacob Kaufman",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "lawrenceburg-from-kaufmans-station-to-anderson-county-seat"
+      ]
+    },
+    {
+      "id": "william-lawrence",
+      "name": "William Lawrence",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "lawrenceburg-from-kaufmans-station-to-anderson-county-seat"
+      ]
+    },
+    {
+      "id": "richard-taylor",
+      "name": "Richard Taylor",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "taylorsville-on-brashears-creek"
+      ]
+    },
+    {
+      "id": "george-cravinston",
+      "name": "George Cravinston",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "taylorsville-on-brashears-creek"
+      ]
+    },
+    {
+      "id": "william-bridgewater",
+      "name": "William Bridgewater",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "taylorsville-on-brashears-creek"
+      ]
+    },
+    {
+      "id": "robert-jeffries",
+      "name": "Robert Jeffries",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "taylorsville-on-brashears-creek"
+      ]
+    },
+    {
+      "id": "elijah-prewitt",
+      "name": "Elijah Prewitt",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "taylorsville-on-brashears-creek"
+      ]
+    },
+    {
+      "id": "isaac-ellis",
+      "name": "Isaac Ellis",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "taylorsville-on-brashears-creek"
+      ]
+    },
+    {
+      "id": "isaac-watkins",
+      "name": "Isaac Watkins",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "simpsonville-takes-shape-on-the-louisville-road"
+      ]
+    },
+    {
+      "id": "john-simpson",
+      "name": "John Simpson",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "simpsonville-takes-shape-on-the-louisville-road"
+      ]
+    },
+    {
+      "id": "richard-radford",
+      "name": "Richard Radford",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bagdad-how-a-shelby-county-rail-stop-took-over-consolation"
+      ]
+    },
+    {
+      "id": "william-bard",
+      "name": "William Bard",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bardstown"
+      ]
+    },
+    {
+      "id": "david-bard",
+      "name": "David Bard",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bardstown"
+      ]
+    },
+    {
+      "id": "john-cockey-owings",
+      "name": "John Cockey Owings",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bardstown"
+      ]
+    },
+    {
+      "id": "thomas-dye-owings",
+      "name": "Thomas Dye Owings",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "owingsville-a-town-named-on-a-wager"
+      ]
+    },
+    {
+      "id": "richard-h-menefee",
+      "name": "Richard H. Menefee",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/richard-h-menefee-512.webp",
+        "jpg": "/people/portraits/richard-h-menefee-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "owingsville-a-town-named-on-a-wager"
+      ],
+      "sourceFile": "Richard-Menefee.jpg"
+    },
+    {
+      "id": "hubbard-taylor",
+      "name": "Hubbard Taylor",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "newport-at-the-licking-mouth"
+      ]
+    },
+    {
+      "id": "james-taylor-jr",
+      "name": "James Taylor Jr.",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/james-taylor-jr-512.webp",
+        "jpg": "/people/portraits/james-taylor-jr-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "newport-at-the-licking-mouth"
+      ],
+      "sourceFile": "James-Taylor,-Jr..jpg"
+    },
+    {
+      "id": "hugh-forbes",
+      "name": "Hugh Forbes",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/hugh-forbes__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hugh-forbes__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "mount-sterling-little-mountain-town"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "enoch-smith",
+      "name": "Enoch Smith",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mount-sterling-little-mountain-town"
+      ]
+    },
+    {
+      "id": "john-judy",
+      "name": "John Judy",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mount-sterling-little-mountain-town"
+      ]
+    },
+    {
+      "id": "samuel-spurgin",
+      "name": "Samuel Spurgin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mount-sterling-little-mountain-town"
+      ]
+    },
+    {
+      "id": "joseph-houston",
+      "name": "Joseph Houston",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "paris-from-hopewell"
+      ]
+    },
+    {
+      "id": "lawrence-protzman",
+      "name": "Lawrence Protzman",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "paris-from-hopewell"
+      ]
+    },
+    {
+      "id": "william-buford",
+      "name": "William Buford",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "lancaster-at-wallaces-crossroads"
+      ]
+    },
+    {
+      "id": "henry-paulding",
+      "name": "Henry Paulding",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "lancaster-at-wallaces-crossroads"
+      ]
+    },
+    {
+      "id": "joseph-bledsoe-jr",
+      "name": "Joseph Bledsoe Jr.",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "lancaster-at-wallaces-crossroads"
+      ]
+    },
+    {
+      "id": "john-gorin",
+      "name": "John Gorin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "glasgow-the-barrens"
+      ]
+    },
+    {
+      "id": "richard-garnett",
+      "name": "Richard Garnett",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "glasgow-the-barrens"
+      ]
+    },
+    {
+      "id": "robert-moore",
+      "name": "Robert Moore",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bowling-green-takes-shape-on-the-barren-1798"
+      ]
+    },
+    {
+      "id": "george-moore",
+      "name": "George Moore",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bowling-green-takes-shape-on-the-barren-1798"
+      ]
+    },
+    {
+      "id": "william-dodson",
+      "name": "William Dodson",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "somerset"
+      ]
+    },
+    {
+      "id": "william-shannon",
+      "name": "William Shannon",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "shelbyville"
+      ]
+    },
+    {
+      "id": "william-stewart",
+      "name": "William Stewart",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "russellville-from-big-boiling-spring-to-county-seat"
+      ]
+    },
+    {
+      "id": "william-cook",
+      "name": "William Cook",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "russellville-from-big-boiling-spring-to-county-seat"
+      ]
+    },
+    {
+      "id": "john-mcclelland",
+      "name": "John McClelland",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "georgetown-and-royal-spring"
+      ]
+    },
+    {
+      "id": "john-metcalf",
+      "name": "John Metcalf",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "nicholasville-takes-shape"
+      ]
+    },
+    {
+      "id": "john-baker",
+      "name": "John Baker",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "winchester-clark-county-seat"
+      ]
+    },
+    {
+      "id": "martin-baker-jr",
+      "name": "Martin Baker Jr.",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carlisle-kincarts-peach-orchard-county-seat"
+      ]
+    },
+    {
+      "id": "james-ellis",
+      "name": "James Ellis",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carlisle-kincarts-peach-orchard-county-seat"
+      ]
+    },
+    {
+      "id": "marquis-calmes",
+      "name": "Marquis Calmes",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/marquis-calmes-512.webp",
+        "jpg": "/people/portraits/marquis-calmes-512.jpg"
+      },
+      "credit": "w:Jacob Frymire · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "versailles-takes-shape"
+      ],
+      "sourceFile": "Marquis-calmes.jpg"
+    },
+    {
+      "id": "hezekiah-briscoe",
+      "name": "Hezekiah Briscoe",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "versailles-takes-shape"
+      ]
+    },
+    {
+      "id": "william-ellis",
+      "name": "William Ellis",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "the-travelling-church-1781"
+      ]
+    },
+    {
+      "id": "james-hawkins",
+      "name": "James Hawkins",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carrollton-from-port-william"
+      ]
+    },
+    {
+      "id": "richard-masterson",
+      "name": "Richard Masterson",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carrollton-from-port-william"
+      ]
+    },
+    {
+      "id": "sarah-masterson",
+      "name": "Sarah Masterson",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "carrollton-from-port-william"
+      ]
+    },
+    {
+      "id": "john-miller",
+      "name": "John Miller",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "richmond-from-millers-barn"
+      ]
+    },
+    {
+      "id": "dave-kennedy",
+      "name": "Dave Kennedy",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "richmond-from-millers-barn"
+      ]
+    },
+    {
+      "id": "william-kearly",
+      "name": "William Kearly",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "richmond-from-millers-barn"
+      ]
+    },
+    {
+      "id": "philip-buckner",
+      "name": "Philip Buckner",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "augusta-on-the-ohio-1797"
+      ]
+    },
+    {
+      "id": "william-smeathers",
+      "name": "William Smeathers",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "owensboro-yellow-banks",
+        "yellow-banks-becomes-owensboro"
+      ]
+    },
+    {
+      "id": "abraham-owen",
+      "name": "Abraham Owen",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "owensboro-yellow-banks",
+        "yellow-banks-becomes-owensboro"
+      ]
+    },
+    {
+      "id": "victor-collot",
+      "name": "Victor Collot",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "owensboro-yellow-banks"
+      ]
+    },
+    {
+      "id": "samuel-hopkins",
+      "name": "Samuel Hopkins",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/samuel-hopkins-512.webp",
+        "jpg": "/people/portraits/samuel-hopkins-512.jpg"
+      },
+      "credit": "Unknown artist · CC BY-SA 4.0 · via Wikimedia Commons",
+      "ai": false,
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "stories": [
+        "henderson-at-red-banks",
+        "hopkinsville"
+      ],
+      "sourceFile": "Portrait of Samuel Hopkins (cropped).jpg"
+    },
+    {
+      "id": "thomas-allin",
+      "name": "Thomas Allin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "henderson-at-red-banks"
+      ]
+    },
+    {
+      "id": "william-clark",
+      "name": "William Clark",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/william-clark-512.webp",
+        "jpg": "/people/portraits/william-clark-512.jpg"
+      },
+      "credit": "Jarvis, John Wesley, 1780-1840 · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "paducah-at-the-tennessee-mouth"
+      ],
+      "sourceFile": "Portrait of William Clark (cropped).jpg"
+    },
+    {
+      "id": "chief-paduke",
+      "name": "Chief Paduke",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "paducah-at-the-tennessee-mouth"
+      ]
+    },
+    {
+      "id": "james-garrard",
+      "name": "James Garrard",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/james-garrard-512.webp",
+        "jpg": "/people/portraits/james-garrard-512.jpg"
+      },
+      "credit": "Chester Harding · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "lancaster-at-wallaces-crossroads",
+        "paris-from-hopewell"
+      ],
+      "sourceFile": "JGarrard.jpg"
+    },
+    {
+      "id": "benjamin-harrison-col",
+      "name": "Benjamin Harrison",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "cynthiana-cynthia-anna-on-the-licking"
+      ]
+    },
+    {
+      "id": "robert-harrison",
+      "name": "Robert Harrison",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "cynthiana-cynthia-anna-on-the-licking"
+      ]
+    },
+    {
+      "id": "burr-harrison",
+      "name": "Burr Harrison",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "benjamin-logan"
+      ]
+    },
+    {
+      "id": "leonard-covington",
+      "name": "Leonard Covington",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/leonard-covington-512.webp",
+        "jpg": "/people/portraits/leonard-covington-512.jpg"
+      },
+      "credit": "Attributed to Son In Law, Benjamin L. C. Wailes, d. 1862 · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "covington-at-the-point"
+      ],
+      "sourceFile": "General Leonard Covington.png"
+    },
+    {
+      "id": "john-gano",
+      "name": "John Gano",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "covington-at-the-point"
+      ]
+    },
+    {
+      "id": "richard-gano",
+      "name": "Richard Gano",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "covington-at-the-point"
+      ]
+    },
+    {
+      "id": "thomas-carneal",
+      "name": "Thomas Carneal",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "covington-at-the-point"
+      ]
+    },
+    {
+      "id": "willis-lee",
+      "name": "Willis Lee",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "leestown"
+      ]
+    },
+    {
+      "id": "hancock-lee",
+      "name": "Hancock Lee",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "leestown"
+      ]
+    },
+    {
+      "id": "mccafee-james",
+      "name": "James McAfee",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mcafee-station-on-the-salt-river"
+      ]
+    },
+    {
+      "id": "robert-mcafee",
+      "name": "Robert McAfee",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mcafee-station-on-the-salt-river"
+      ]
+    },
+    {
+      "id": "george-mcafee",
+      "name": "George McAfee",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mcafee-station-on-the-salt-river"
+      ]
+    },
+    {
+      "id": "james-mccoun-jr",
+      "name": "James McCoun Jr.",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mcafee-station-on-the-salt-river"
+      ]
+    },
+    {
+      "id": "samuel-adams-ky",
+      "name": "Samuel Adams",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mcafee-station-on-the-salt-river"
+      ]
+    },
+    {
+      "id": "jacob-drennon",
+      "name": "Jacob Drennon",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "drennon-springs-salt-works"
+      ]
+    },
+    {
+      "id": "matthew-bracken",
+      "name": "Matthew Bracken",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "drennon-springs-salt-works"
+      ]
+    },
+    {
+      "id": "nicholas-cresswell",
+      "name": "Nicholas Cresswell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "drennon-springs-salt-works"
+      ]
+    },
+    {
+      "id": "thomas-bullitt",
+      "name": "Thomas Bullitt",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bullitts-lick-kentuckys-first-industry",
+        "manns-lick-louisvilles-salt-town"
+      ]
+    },
+    {
+      "id": "william-fleming",
+      "name": "William Fleming",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "bullitts-lick-kentuckys-first-industry"
+      ]
+    },
+    {
+      "id": "john-mann",
+      "name": "John Mann",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "manns-lick-louisvilles-salt-town"
+      ]
+    },
+    {
+      "id": "james-f-moore",
+      "name": "James F. Moore",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "manns-lick-louisvilles-salt-town"
+      ]
+    },
+    {
+      "id": "joseph-brooks",
+      "name": "Joseph Brooks",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "manns-lick-louisvilles-salt-town"
+      ]
+    },
+    {
+      "id": "william-preston",
+      "name": "William Preston",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hancock-taylor-fincastle-surveyor"
+      ]
+    },
+    {
+      "id": "patrick-henry",
+      "name": "Patrick Henry",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/patrick-henry-512.webp",
+        "jpg": "/people/portraits/patrick-henry-512.jpg"
+      },
+      "credit": "George Bagby Matthews (1857 - 1943), after Thomas Sully (1783-1872) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "drennon-springs-salt-works",
+        "maj-joseph-bowman",
+        "new-castle-henry-county-seat",
+        "old-fort-earthworks-15gp1-greenup-county",
+        "william-christian-of-beargrass"
+      ],
+      "sourceFile": "Patrick henry.JPG"
+    },
+    {
+      "id": "daniel-morgan",
+      "name": "Daniel Morgan",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/daniel-morgan-512.webp",
+        "jpg": "/people/portraits/daniel-morgan-512.jpg"
+      },
+      "credit": "Charles Willson Peale · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-john-hardin-of-pleasant-run"
+      ],
+      "sourceFile": "DanielMorgan.jpeg"
+    },
+    {
+      "id": "mary-haskins",
+      "name": "Mary Haskins Trabue",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "daniel-trabue-of-columbia"
+      ]
+    },
+    {
+      "id": "george-a-thomas",
+      "name": "George A. Thomas",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hidden-river-cave-under-horse-cave"
+      ]
+    },
+    {
+      "id": "t-coleman-du-pont",
+      "name": "T. Coleman du Pont",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/t-coleman-du-pont-512.webp",
+        "jpg": "/people/portraits/t-coleman-du-pont-512.jpg"
+      },
+      "credit": "Harris & Ewing Collection · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "cumberland-falls"
+      ],
+      "sourceFile": "DuPONT, COLEMAN. GENERAL LOC hec.13254 (cropped).jpg"
+    },
+    {
+      "id": "bill-clinton",
+      "name": "Bill Clinton",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/bill-clinton-512.webp",
+        "jpg": "/people/portraits/bill-clinton-512.jpg"
+      },
+      "credit": "Bob McNeely, The White House[1] · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "red-river-gorge-arches-and-the-dam-fight"
+      ],
+      "sourceFile": "Bill Clinton.jpg"
+    },
+    {
+      "id": "james-a-garfield",
+      "name": "James A. Garfield",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/james-a-garfield-512.webp",
+        "jpg": "/people/portraits/james-a-garfield-512.jpg"
+      },
+      "credit": "Unknown; part of Brady-Handy Photograph Collection. · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "pine-mountain-and-pound-gap"
+      ],
+      "sourceFile": "James Abram Garfield, photo portrait seated.jpg"
+    },
+    {
+      "id": "leonard-stom",
+      "name": "Leonard Stom",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mclean-drift-bank-kentuckys-first-commercial-coal-mine"
+      ]
+    },
+    {
+      "id": "theodore-roosevelt",
+      "name": "Theodore Roosevelt",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/theodore-roosevelt-512.webp",
+        "jpg": "/people/portraits/theodore-roosevelt-512.jpg"
+      },
+      "credit": "Adam Cuerden · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-john-bowman-at-old-chillicothe",
+        "gen-james-wilkinson-kentuckys-agent-13"
+      ],
+      "sourceFile": "Theodore Roosevelt by the Pach Bros (4x5 cropped) (2).jpg"
+    },
+    {
+      "id": "peter-hildebrand",
+      "name": "Peter Hildebrand",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mantle-rock-and-the-trail-of-tears"
+      ]
+    },
+    {
+      "id": "attakullakulla",
+      "name": "Attakullakulla",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/attakullakulla-512.webp",
+        "jpg": "/people/portraits/attakullakulla-512.jpg"
+      },
+      "credit": "Detail from a group scene. Engraved by Isaac Basire (1704 – 1768) After a painting by Markham 1740 – 1760 · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "richard-henderson",
+        "treaties-of-hard-labour-and-lochaber"
+      ],
+      "sourceFile": "Cherokee Delegations to England, 1730.png"
+    },
+    {
+      "id": "oconostota",
+      "name": "Oconostota",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "richard-henderson"
+      ]
+    },
+    {
+      "id": "path-killer",
+      "name": "Path Killer",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "tellico-cession-1805-south-of-the-cumberland"
+      ]
+    },
+    {
+      "id": "doublehead",
+      "name": "Doublehead",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "tellico-cession-1805-south-of-the-cumberland"
+      ]
+    },
+    {
+      "id": "the-glass",
+      "name": "The Glass",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "tellico-cession-1805-south-of-the-cumberland"
+      ]
+    },
+    {
+      "id": "john-jolly",
+      "name": "John Jolly",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-jolly-512.webp",
+        "jpg": "/people/portraits/john-jolly-512.jpg"
+      },
+      "credit": "Attributed portrait. George Catlin · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "tellico-cession-1805-south-of-the-cumberland"
+      ],
+      "sourceFile": "Cól-lee, a Band Chief Cherokee by George Catlin (1985.66.285) Smithsonian.jpg"
+    },
+    {
+      "id": "return-j-meigs",
+      "name": "Return J. Meigs",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/return-j-meigs-512.webp",
+        "jpg": "/people/portraits/return-j-meigs-512.jpg"
+      },
+      "credit": "probably H.B. Hall (NYPL record for this image does not identify engraver; see here for a  · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "tellico-cession-1805-south-of-the-cumberland"
+      ],
+      "sourceFile": "ReturnJonathanMeigsSr.jpg"
+    },
+    {
+      "id": "daniel-smith",
+      "name": "Daniel Smith",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "tellico-cession-1805-south-of-the-cumberland"
+      ]
+    },
+    {
+      "id": "john-donelson",
+      "name": "John Donelson",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaties-of-hard-labour-and-lochaber"
+      ]
+    },
+    {
+      "id": "john-stuart",
+      "name": "John Stuart",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaties-of-hard-labour-and-lochaber"
+      ]
+    },
+    {
+      "id": "william-johnson",
+      "name": "Sir William Johnson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/william-johnson-512.webp",
+        "jpg": "/people/portraits/william-johnson-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-fort-stanwix-1768"
+      ],
+      "sourceFile": "Sir William Johnson (cropped).png"
+    },
+    {
+      "id": "joshua-fry",
+      "name": "Joshua Fry",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-logstown-1752"
+      ]
+    },
+    {
+      "id": "james-patton",
+      "name": "James Patton",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-logstown-1752"
+      ]
+    },
+    {
+      "id": "lunsford-lomax",
+      "name": "Lunsford Lomax",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-logstown-1752"
+      ]
+    },
+    {
+      "id": "william-trent",
+      "name": "William Trent",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-logstown-1752"
+      ]
+    },
+    {
+      "id": "william-beverley",
+      "name": "William Beverley",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-logstown-1752"
+      ]
+    },
+    {
+      "id": "tanacharison",
+      "name": "Tanacharison",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-logstown-1752"
+      ]
+    },
+    {
+      "id": "scarouady",
+      "name": "Scarouady",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "treaty-of-logstown-1752"
+      ]
+    },
+    {
+      "id": "alexander-mckee",
+      "name": "Alexander McKee",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/alexander-mckee-512.webp",
+        "jpg": "/people/portraits/alexander-mckee-512.jpg"
+      },
+      "credit": "Detail from a group scene. Lewis Foy (1757–1825) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "simon-girty-interpreter-at-bryan-station-1782"
+      ],
+      "sourceFile": "The Great Indian Council.jpg"
+    },
+    {
+      "id": "matthew-elliott",
+      "name": "Matthew Elliott",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/matthew-elliott-512.webp",
+        "jpg": "/people/portraits/matthew-elliott-512.jpg"
+      },
+      "credit": "Detail from a group scene. Lewis Foy (1757–1825) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "simon-girty-interpreter-at-bryan-station-1782"
+      ],
+      "sourceFile": "The Great Indian Council.jpg"
+    },
+    {
+      "id": "henry-hamilton",
+      "name": "Henry Hamilton",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/henry-hamilton-512.webp",
+        "jpg": "/people/portraits/henry-hamilton-512.jpg"
+      },
+      "credit": "Attributed portrait. Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "illinois-confederation-at-cahokia",
+        "simon-girty-interpreter-at-bryan-station-1782"
+      ],
+      "sourceFile": "HenryHamilton.jpg"
+    },
+    {
+      "id": "william-caldwell",
+      "name": "William Caldwell",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "battle-of-blue-licks",
+        "bryan-station-siege-august-1782",
+        "simon-girty-interpreter-at-bryan-station-1782",
+        "wyandot-on-kentuckys-northern-frontier"
+      ]
+    },
+    {
+      "id": "matthew-arbuckle",
+      "name": "Matthew Arbuckle",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph"
+      ]
+    },
+    {
+      "id": "andrew-lewis",
+      "name": "Andrew Lewis",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph"
+      ]
+    },
+    {
+      "id": "angus-mcdonald",
+      "name": "Angus McDonald",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "col-john-hardin-of-pleasant-run"
+      ]
+    },
+    {
+      "id": "anthony-wayne",
+      "name": "Anthony Wayne",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/anthony-wayne-512.webp",
+        "jpg": "/people/portraits/anthony-wayne-512.jpg"
+      },
+      "credit": "James Sharpless (c. 1795) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "daniel-trabue-of-columbia",
+        "gen-charles-scott-and-petersburg",
+        "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
+      ],
+      "sourceFile": "Anthony Wayne, uniform.jpg"
+    },
+    {
+      "id": "josiah-harmar",
+      "name": "Josiah Harmar",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/josiah-harmar-512.webp",
+        "jpg": "/people/portraits/josiah-harmar-512.jpg"
+      },
+      "credit": "Painting by Raphaelle Peale, photo of painting by Will Brown. · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "little-turtle-and-hardins-defeat-1790"
+      ],
+      "sourceFile": "Josiah Harmar by Raphaelle Peale.jpeg"
+    },
+    {
+      "id": "arthur-st-clair",
+      "name": "Arthur St. Clair",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/arthur-st-clair-512.webp",
+        "jpg": "/people/portraits/arthur-st-clair-512.jpg"
+      },
+      "credit": "Charles Willson Peale · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "little-turtle-and-hardins-defeat-1790"
+      ],
+      "sourceFile": "ArthurStClairOfficialPortrait-restored.jpg"
+    },
+    {
+      "id": "jean-baptiste-ducoigne",
+      "name": "Jean-Baptiste Ducoigne",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "illinois-confederation-at-cahokia"
+      ]
+    },
+    {
+      "id": "pluggy",
+      "name": "Pluggy",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "edward-worthington-at-worthingtons-fort"
+      ]
+    },
+    {
+      "id": "red-bird",
+      "name": "Red Bird",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "red-bird-river-petroglyphs-clay-county"
+      ]
+    },
+    {
+      "id": "andrew-jackson",
+      "name": "Andrew Jackson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/andrew-jackson-512.webp",
+        "jpg": "/people/portraits/andrew-jackson-512.jpg"
+      },
+      "credit": "Ralph Eleaser Whiteside Earl · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "chickasaw-hunting-grounds",
+        "russellville-from-big-boiling-spring-to-county-seat"
+      ],
+      "sourceFile": "Andrew jackson head (cropped).jpg"
+    },
+    {
+      "id": "charles-dickinson",
+      "name": "Charles Dickinson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/charles-dickinson-512.webp",
+        "jpg": "/people/portraits/charles-dickinson-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "russellville-from-big-boiling-spring-to-county-seat"
+      ],
+      "sourceFile": "P15138coll25 14 full Charles Henry Dickinson.jpg"
+    },
+    {
+      "id": "la-salle",
+      "name": "René-Robert Cavelier, Sieur de La Salle",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/la-salle-512.webp",
+        "jpg": "/people/portraits/la-salle-512.jpg"
+      },
+      "credit": "Imagined posthumous portrait. Charles André Waltner (1846-1925) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "mosopelea-ofo-the-ohio-valley"
+      ],
+      "sourceFile": "Cavelier de la salle.jpg"
+    },
+    {
+      "id": "jean-baptiste-franquelin",
+      "name": "Jean-Baptiste-Louis Franquelin",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mosopelea-ofo-the-ohio-valley"
+      ]
+    },
+    {
+      "id": "john-lawson",
+      "name": "John Lawson",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-lawson-512.webp",
+        "jpg": "/people/portraits/john-lawson-512.jpg"
+      },
+      "credit": "Attributed portrait. Godfrey Kneller · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "tutelo-the-totteroy"
+      ],
+      "sourceFile": "JohnLawson.jpg"
+    },
+    {
+      "id": "louis-xvi",
+      "name": "Louis XVI",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/louis-xvi-512.webp",
+        "jpg": "/people/portraits/louis-xvi-512.jpg"
+      },
+      "credit": "Antoine-François Callet · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "george-rogers-clark"
+      ],
+      "sourceFile": "Antoine-François Callet - Louis XVI, roi de France et de Navarre (1754-1793), revêtu du grand costume royal en 1779 - Google Art Project.jpg"
+    },
+    {
+      "id": "francis-marion",
+      "name": "Francis Marion",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/francis-marion-512.webp",
+        "jpg": "/people/portraits/francis-marion-512.jpg"
+      },
+      "credit": "Scan by NYPL · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "lebanon-cedars-meeting-house-county-seat"
+      ],
+      "sourceFile": "General Francis Marion (NYPL b13050113-421073).tiff"
+    },
+    {
+      "id": "christopher-newport",
+      "name": "Christopher Newport",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "newport-at-the-licking-mouth"
+      ]
+    },
+    {
+      "id": "charles-carroll",
+      "name": "Charles Carroll of Carrollton",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/charles-carroll-512.webp",
+        "jpg": "/people/portraits/charles-carroll-512.jpg"
+      },
+      "credit": "Chester Charles Harding · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "carrollton-from-port-william"
+      ],
+      "sourceFile": "Portrait of Charles Carroll from the Collection of the U.S. House of Representatives.jpg"
+    },
+    {
+      "id": "edmund-pendleton",
+      "name": "Edmund Pendleton",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/edmund-pendleton-512.webp",
+        "jpg": "/people/portraits/edmund-pendleton-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "falmouth-at-the-licking-forks"
+      ],
+      "sourceFile": "Edmund Pendleton.jpg"
+    },
+    {
+      "id": "zachary-taylor",
+      "name": "Zachary Taylor",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/zachary-taylor-512.webp",
+        "jpg": "/people/portraits/zachary-taylor-512.jpg"
+      },
+      "credit": "Zachary_Taylor_half_plate_daguerreotype_c1843-45.png: unknown, possibly Maguire of New Orl · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "campbellsville-from-buckhorn-creek-to-county-seat"
+      ],
+      "sourceFile": "Zachary Taylor restored and cropped (3.5x4.5 cropped) (2).jpg"
+    },
+    {
+      "id": "lafayette",
+      "name": "Marquis de Lafayette",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/lafayette-512.webp",
+        "jpg": "/people/portraits/lafayette-512.jpg"
+      },
+      "credit": "Joseph-Désiré Court · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "versailles-takes-shape"
+      ],
+      "sourceFile": "Gilbert du Motier Marquis de Lafayette.PNG"
+    },
+    {
+      "id": "james-madison",
+      "name": "James Madison",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/james-madison-512.webp",
+        "jpg": "/people/portraits/james-madison-512.jpg"
+      },
+      "credit": "John Vanderlyn · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "the-travelling-church-1781"
+      ],
+      "sourceFile": "James Madison.jpg"
+    },
+    {
+      "id": "alexander-campbell",
+      "name": "Alexander Campbell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/alexander-campbell-512.webp",
+        "jpg": "/people/portraits/alexander-campbell-512.jpg"
+      },
+      "credit": "Colton, Zahm & Roberts, N.Y. · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "cane-ridge-meeting-house-and-the-1801-camp-meeting"
+      ],
+      "sourceFile": "Alexander Campbell, founder of the Disciples of Christ, head-and-shoulders portrait.jpg"
+    },
+    {
+      "id": "thomas-campbell",
+      "name": "Thomas Campbell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/thomas-campbell-512.webp",
+        "jpg": "/people/portraits/thomas-campbell-512.jpg"
+      },
+      "credit": ".\n\nThe original uploader was Johnparkw at English Wikipedia. · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "cane-ridge-meeting-house-and-the-1801-camp-meeting"
+      ],
+      "sourceFile": "CampbellThomas.png"
+    },
+    {
+      "id": "stephen-f-austin",
+      "name": "Stephen F. Austin",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/stephen-f-austin-512.webp",
+        "jpg": "/people/portraits/stephen-f-austin-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "yellow-banks-becomes-owensboro"
+      ],
+      "sourceFile": "Stephen Fuller Austin Posthumous Portrait.jpg"
+    },
+    {
+      "id": "thomas-metcalfe",
+      "name": "Thomas Metcalfe",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/thomas-metcalfe-512.webp",
+        "jpg": "/people/portraits/thomas-metcalfe-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "jacob-spears-early-bourbon-whiskey"
+      ],
+      "sourceFile": "TMetcalfe.jpg"
+    },
+    {
+      "id": "thomas-marshall-col",
+      "name": "Col. Thomas Marshall",
+      "dates": "1730–1802",
+      "image": {
+        "webp": "/people/portraits/thomas-marshall-col__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/thomas-marshall-col__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "col-thomas-marshall-at-buck-pond"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "john-spurlock",
+      "name": "John Spurlock",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ]
+    },
+    {
+      "id": "john-preston-col",
+      "name": "Col. John Preston",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ]
+    },
+    {
+      "id": "george-garvin-brown",
+      "name": "George Garvin Brown",
+      "dates": "1846–1917",
+      "image": {
+        "webp": "/people/portraits/george-garvin-brown__photo-512.webp",
+        "jpg": "/people/portraits/george-garvin-brown__photo-512.jpg"
+      },
+      "credit": "George Garvin Brown, from Memoirs of the Lower Ohio Valley (1905), p. 282. Public domain, via Internet Archive.",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "george-garvin-brown-and-old-forester"
+      ],
+      "sourceFile": null,
+      "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
+    }
+  ],
+  "storySubjects": {
+    "col-richard-callaway-of-boonesborough": "richard-callaway",
+    "henry-skaggs-green-river-long-hunter": "henry-skaggs",
+    "capt-nathaniel-hart": "nathaniel-hart",
+    "capt-abraham-lincoln-on-long-run": "abraham-lincoln-capt",
+    "col-stephen-trigg-of-viney-grove": "stephen-trigg",
+    "michael-stoner-german-long-hunter": "michael-stoner",
+    "christopher-gist-1750-51": "christopher-gist",
+    "col-john-todd-of-lexington": "john-todd",
+    "nonhelema": "nonhelema",
+    "thomas-walker-and-cumberland-gap": "thomas-walker",
+    "john-finley-the-trader-who-put-kentucky-on-boones-map": "john-finley",
+    "maj-silas-harlan": "silas-harlan",
+    "evan-williams-on-the-louisville-wharf": "evan-williams",
+    "mary-draper-ingles-escapes-through-kentucky-1755": "mary-draper-ingles",
+    "col-william-russell-iii": "william-russell-iii",
+    "bland-w-ballard-of-tick-creek": "bland-ballard",
+    "hancock-taylor-fincastle-surveyor": "hancock-taylor",
+    "james-knox": "james-knox",
+    "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": "cornstalk",
+    "john-floyd": "john-floyd",
+    "ann-mcginty-and-kentuckys-first-spinning-wheel": "ann-mcginty",
+    "benjamin-logan": "benjamin-logan",
+    "esther-whitley-over-the-cumberlands-1775": "esther-whitley",
+    "hugh-mcgary-the-blue-licks-hothead": "hugh-mcgary",
+    "levi-todd-lexington-co-founder": "levi-todd",
+    "maj-joseph-bowman": "joseph-bowman",
+    "richard-henderson": "richard-henderson",
+    "william-calks-1775-journal": "william-calk",
+    "capt-john-strode-of-strodes-station": "john-strode",
+    "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": "blackfish",
+    "daniel-trabue-of-columbia": "daniel-trabue",
+    "george-rogers-clark": "george-rogers-clark",
+    "simon-girty-interpreter-at-bryan-station-1782": "simon-girty",
+    "col-john-bowman-at-old-chillicothe": "john-bowman",
+    "col-robert-patterson-builds-lexington": "robert-patterson",
+    "edward-worthington-at-worthingtons-fort": "edward-worthington",
+    "isaac-ruddell-and-the-guns-at-ruddells-station": "isaac-ruddell",
+    "william-christian-of-beargrass": "william-christian",
+    "capt-robert-johnson-and-big-crossing-station": "robert-johnson",
+    "egushawa-and-the-odawa-in-kentuckys-war-years": "egushawa",
+    "isaac-shelby-old-kings-mountain": "isaac-shelby",
+    "squire-boones-painted-stone": "squire-boone",
+    "capt-jack-jouett": "jack-jouett",
+    "jack-jouett-kentuckys-midnight-rider": "jack-jouett",
+    "william-hoy-and-hoys-station": "william-hoy",
+    "capt-james-estill-estills-defeat": "james-estill",
+    "col-john-holder-at-lower-howards-creek": "john-holder",
+    "col-thomas-marshall-at-buck-pond": "thomas-marshall-col",
+    "harry-innes": "harry-innes",
+    "john-filson-kentucke-1784": "john-filson",
+    "gen-james-wilkinson-kentuckys-agent-13": "james-wilkinson",
+    "basil-haydens-high-rye-trail": "basil-hayden",
+    "gen-charles-scott-and-petersburg": "charles-scott",
+    "col-john-hardin-of-pleasant-run": "john-hardin",
+    "moluntha-and-logans-raid-1786": "moluntha",
+    "blue-jacket-weyapiersenwah": "blue-jacket",
+    "john-bradford-and-the-kentucke-gazette": "john-bradford",
+    "william-whitley-sportsmans-hill": "william-whitley",
+    "jenny-wileys-captivity-and-escape": "jenny-wiley",
+    "jacob-spears-early-bourbon-whiskey": "jacob-spears",
+    "little-turtle-and-hardins-defeat-1790": "little-turtle",
+    "capt-william-hubbells-ohio-flatboat-stand-1791": "william-hubbell",
+    "jacob-beam-on-hardin-creek": "jacob-beam",
+    "jacob-beam-sells-old-jakes-first-barrel": "jacob-beam",
+    "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
+    "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
+    "james-crow-on-glenns-creek": "james-c-crow",
+    "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
+    "george-garvin-brown-and-old-forester": "george-garvin-brown",
+    "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
+    "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr"
+  }
+}

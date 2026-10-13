@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-12T15:05:25.234Z",
+  "generatedAt": "2026-10-13T12:32:58.172Z",
   "count": 235,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-12"
+    "end": "2026-10-13"
   },
   "eras": [
     "early-commonwealth",
@@ -479,22 +479,29 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
     {
-      "slug": "muir-site-15js86",
-      "title": "Muir Site (15Js86)",
-      "publishedDate": "2026-09-15",
-      "summary": "West of Nicholasville on a Jessamine County ridge, Muir is an early Fort Ancient (Osborne phase) hamlet dated roughly A.D. 1000–1200. UK crews dug it in 1985 ahead of the…",
+      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+      "title": "Muir Site: Early Fort Ancient on a Jessamine Ridge",
+      "publishedDate": "2026-09-25",
+      "summary": "In 1985, before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site on a broad upland ridge west of Nicholasville. The Kentucky…",
       "yearStart": 1000,
       "yearEnd": 1200,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
         "kentucky",
-        "archaeology",
-        "frontier-war",
-        "geology"
+        "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-15",
+      "briefDate": "2026-09-25",
+      "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null
+      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -535,48 +542,40 @@
       "matchedPlace": "Logan County (centroid)"
     },
     {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "title": "Muir Site: Early Fort Ancient on a Jessamine Ridge",
-      "publishedDate": "2026-09-25",
-      "summary": "Before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site (15Js86) on a broad upland ridge west of Nicholasville. Radiocarbon and…",
-      "yearStart": 1010,
-      "yearEnd": 1255,
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
+      "publishedDate": "2026-10-13",
+      "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
+      "yearStart": 1000,
+      "yearEnd": 1500,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
         "kentucky",
-        "bourbon",
-        "archaeology",
-        "frontier-war",
-        "geology"
+        "mississippian",
+        "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-25",
+      "briefDate": "2026-10-13",
+      "county": "Fulton",
       "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
       },
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1010,
-        "yearEnd": 1255,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 37.9,
-      "lon": -84.6,
+      "lat": 36.6,
+      "lon": -89.2,
       "mapConfidence": "override",
-      "matchedPlace": "Muir Site (15Js86)"
+      "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)"
     },
     {
       "slug": "adams-site-15fu4",
       "title": "Adams Site (15Fu4)",
       "publishedDate": "2026-09-16",
-      "summary": "Near Hickman in Fulton County, on Bayou de Chien toward the Mississippi, the Adams Site is a Mississippian town built over an earlier Late Woodland village. Platform mounds…",
+      "summary": "Near Hickman in Fulton County, on Bayou de Chien, a creek that drains into the nearby Mississippi, the Adams Site (15Fu4) is a Mississippian town of about 7.25 hectares built…",
       "yearStart": 1100,
       "yearEnd": 1500,
       "era": "prehistoric",
@@ -588,37 +587,9 @@
       "source": "ky-history",
       "briefDate": "2026-09-16",
       "county": "Fulton",
-      "territory": {
-        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
-        "nation": "Mississippian, western Kentucky (archaeological culture)",
-        "yearStart": 1100,
-        "yearEnd": 1500,
-        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
-      },
-      "lat": 36.5,
-      "lon": -89.2,
-      "mapConfidence": "override",
-      "matchedPlace": "Adams Site (15Fu4)"
-    },
-    {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "title": "Adams Site Mississippian town near Hickman",
-      "publishedDate": "2026-09-21",
-      "summary": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.…",
-      "yearStart": 1100,
-      "yearEnd": 1500,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-21",
-      "county": "Fulton",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -633,7 +604,7 @@
       },
       "lat": 36.5,
       "lon": -89.2,
-      "mapConfidence": "fuzzy",
+      "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)"
     },
     {
@@ -787,54 +758,24 @@
       "matchedPlace": "Buckner Site (15Bb12)"
     },
     {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "title": "Cleek-McCabe Fort Ancient village",
-      "publishedDate": "2026-09-10",
-      "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
-      "yearStart": 1200,
-      "yearEnd": 1300,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1200,
-        "yearEnd": 1300,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 39,
-      "lon": -84.7,
-      "mapConfidence": "exact",
-      "matchedPlace": "Cleek-McCabe Fort Ancient Village"
-    },
-    {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "title": "Cleek-McCabe: A Circular Fort Ancient Village in Boone County",
       "publishedDate": "2026-09-25",
-      "summary": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a ~100-foot-wide midden ring around a ~200-foot plaza, with low burial…",
+      "summary": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a about…",
       "yearStart": 1200,
       "yearEnd": 1300,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
         "kentucky",
-        "archaeology",
-        "frontier-war",
-        "salt"
+        "archaeology"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-25",
+      "county": "Boone",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -1529,28 +1470,6 @@
       "lon": -84.67985,
       "mapConfidence": "county",
       "matchedPlace": "Lincoln County (centroid)"
-    },
-    {
-      "slug": "hugh-mcgary-the-hothead-major",
-      "title": "Hugh McGary, the hothead major",
-      "publishedDate": "2026-09-11",
-      "summary": "Irish-born Hugh McGary (1744–1806) came through the Gap with early Kentucky families, settled near Harrodsburg, and built McGary’s Station at Shawnee Springs in Mercer County…",
-      "yearStart": 1744,
-      "yearEnd": 1806,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": 37.778,
-      "lon": -84.83079,
-      "mapConfidence": "county",
-      "matchedPlace": "Mercer County (centroid)"
     },
     {
       "slug": "michael-stoner-german-long-hunter",
@@ -2344,12 +2263,13 @@
       "briefDate": "2026-10-10",
       "county": "",
       "photo": {
-        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg",
-        "title": "Cornstalk as imagined in John Frost’s 1872 pictorial history of the Indians (cropped engraving, not a life portrait)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg",
+        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph--topic.jpg",
+        "title": "Point Pleasant Battle Monument at Tu-Endie-Wei State Park, where the Kanawha meets the Ohio (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Point_Pleasant_monument.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Illustrator unidentified, from John Frost’s book · Wikimedia Commons · public domain",
-        "year": 1872
+        "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "fit": "contain"
       },
       "lat": null,
       "lon": null,
@@ -2536,6 +2456,37 @@
       "lon": -84.54252,
       "mapConfidence": "override",
       "matchedPlace": "William Whitley / Sportsman's Hill"
+    },
+    {
+      "slug": "hugh-mcgary-the-blue-licks-hothead",
+      "title": "Hugh McGary, the Blue Licks Hothead",
+      "publishedDate": "2026-09-25",
+      "summary": "Irish-born Hugh McGary (1744–1806) brought his family to Kentucky in 1775 with Daniel Boone's party and settled near Fort Harrod. Around 1779 he and his stepson James Ray built…",
+      "yearStart": 1775,
+      "yearEnd": 1786,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-25",
+      "county": "Mercer",
+      "photo": {
+        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+        "title": "Blue Licks Battlefield monument",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null,
+        "fit": "contain"
+      },
+      "lat": 37.805,
+      "lon": -84.831,
+      "mapConfidence": "override",
+      "matchedPlace": "McGary's Station / Shawnee Springs"
     },
     {
       "slug": "levi-todd-lexington-co-founder",
@@ -2772,18 +2723,18 @@
       "slug": "springfield-founding-and-washington-county-seat",
       "title": "Springfield Founding and Washington County Seat",
       "publishedDate": "2026-09-22",
-      "summary": "Washington County was the first county the new Kentucky legislature created after 1792 statehood, named for George Washington. In 1793 a site near the old Wilderness Trace was…",
+      "summary": "Washington County was the first county formed by the first Kentucky General Assembly in 1792, and it was named for George Washington. Springfield, its seat, was laid off in…",
       "yearStart": 1776,
-      "yearEnd": 1793,
+      "yearEnd": 1816,
       "era": "frontier",
       "tags": [
         "frontier",
         "kentucky",
-        "frontier-war",
         "town-founding"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
+      "county": "Washington",
       "photo": {
         "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
         "title": "Washington County Courthouse, Springfield",
@@ -2796,27 +2747,6 @@
       "lon": -85.2221819,
       "mapConfidence": "override",
       "matchedPlace": "Springfield / Washington County seat"
-    },
-    {
-      "slug": "springfield-first-county-seat-after-statehood",
-      "title": "Springfield, first county seat after statehood",
-      "publishedDate": "2026-09-12",
-      "summary": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton—Virginia…",
-      "yearStart": 1776,
-      "yearEnd": 1816,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "frontier-war",
-        "town-founding"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 37.6853,
-      "lon": -85.2222,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield"
     },
     {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
@@ -2841,7 +2771,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
-        "year": 1887
+        "year": 1887,
+        "fit": "contain"
       },
       "lat": 37.89977778,
       "lon": -84.26566667,
@@ -2998,12 +2929,13 @@
       "briefDate": "2026-10-11",
       "county": "Fayette",
       "photo": {
-        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg",
-        "title": "Simon Girty in an uncredited artist’s rendering published in 1905 (not a life portrait)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Simon_Girty.png",
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
+        "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Artist uncredited · Wikimedia Commons · public domain",
-        "year": 1905
+        "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019,
+        "fit": "contain"
       },
       "lat": 38.07586667,
       "lon": -84.41529167,
@@ -3080,36 +3012,6 @@
       "lon": -84.7208,
       "mapConfidence": "override",
       "matchedPlace": "Worthington's Fort (Edward Worthington)"
-    },
-    {
-      "slug": "hugh-mcgary-the-blue-licks-hothead",
-      "title": "Hugh McGary, the Blue Licks Hothead",
-      "publishedDate": "2026-09-25",
-      "summary": "Irish-born Hugh McGary (1744–1806) came into Kentucky in 1775 with Boone's party, settled near Fort Harrod, and built McGary's Station around 1779 at Shawnee Springs in today's…",
-      "yearStart": 1779,
-      "yearEnd": 1782,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-25",
-      "county": "Mercer",
-      "photo": {
-        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
-        "title": "Blue Licks Battlefield monument",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      },
-      "lat": 37.805,
-      "lon": -84.831,
-      "mapConfidence": "override",
-      "matchedPlace": "McGary's Station / Shawnee Springs"
     },
     {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
@@ -3201,12 +3103,12 @@
       "briefDate": "2026-10-12",
       "county": "Scott",
       "photo": {
-        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
-        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station--topic.jpg",
+        "title": "North Fork of Elkhorn Creek at Georgetown (photographed 2008); Johnson's Station stood at the creek's bison ford, Great Crossing, about three miles west",
+        "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2008
       },
       "lat": 38.21444444,
       "lon": -84.60527778,
@@ -3337,53 +3239,32 @@
       "matchedPlace": "Isaac Shelby"
     },
     {
-      "slug": "lawrenceburg-from-kaufmans-station",
-      "title": "Lawrenceburg from Kaufman’s Station",
-      "publishedDate": "2026-09-14",
-      "summary": "German immigrant Jacob Kaufman planted a frontier outpost about 1780 that locals called Kaufman’s or Coffman’s Station, a few miles west of the Kentucky River in what is now…",
-      "yearStart": 1780,
-      "yearEnd": 1827,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "bourbon",
-        "frontier-war",
-        "town-founding"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": 38.02186,
-      "lon": -84.89316,
-      "mapConfidence": "county",
-      "matchedPlace": "Anderson County (centroid)"
-    },
-    {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
       "title": "Lawrenceburg: from Kaufman's Station to Anderson County seat",
       "publishedDate": "2026-09-21",
-      "summary": "German immigrant Jacob Kaufman settled the site in the early 1780s as Kaufman's (Coffman's) Station. A post office opened in 1817 for tavern-keeper William Lawrence; Franklin County…",
+      "summary": "German immigrant Jacob Kaufman settled the site about 1780, roughly three miles west of the Kentucky River, and it was known as Kaufman's (or Coffman's) Station. A post office…",
       "yearStart": 1780,
       "yearEnd": 1827,
       "era": "frontier",
       "tags": [
         "frontier",
         "kentucky",
-        "frontier-war",
         "town-founding"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
+      "county": "Anderson",
       "photo": {
         "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
         "title": "Anderson County Courthouse, Lawrenceburg",
         "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       },
-      "lat": 38.1741739,
-      "lon": -84.8769101,
+      "lat": 38.033056,
+      "lon": -84.903056,
       "mapConfidence": "override",
       "matchedPlace": "Lawrenceburg / Kaufman's Station"
     },
@@ -3600,28 +3481,20 @@
       "slug": "battle-of-blue-licks",
       "title": "Battle of Blue Licks",
       "publishedDate": "2026-08-30",
-      "summary": "On August 19, 1782, a British and Native force ambushed about 180 Kentucky militia at the Lower Blue Licks, the largest Revolutionary War battle fought in Kentucky.",
+      "summary": "On August 19, 1782, about 182 Kentucky militia chasing Captain William Caldwell’s raiders walked into an ambush on a Licking River ridge in today’s Robertson County. Roughly 50…",
       "yearStart": 1782,
       "yearEnd": 1782,
-      "era": "revolution",
+      "era": "native",
       "tags": [
-        "battle",
-        "frontier-war",
-        "american-revolution",
+        "native",
         "kentucky",
-        "native-history"
+        "native-history",
+        "frontier-war",
+        "salt"
       ],
       "source": "ky-history",
       "briefDate": "2026-08-30",
       "county": "Robertson",
-      "photo": {
-        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
-        "title": "Blue Licks Battlefield monument, dedicated 1928",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      },
       "lat": 38.43443333333333,
       "lon": -83.99151666666667,
       "mapConfidence": "exact",
@@ -3649,7 +3522,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       },
       "lat": 38.07586667,
       "lon": -84.41529167,
@@ -3734,6 +3608,36 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "title": "Col. Thomas Marshall at Buck Pond",
+      "publishedDate": "2026-10-13",
+      "summary": "Col. Thomas Marshall (1730–1802), Revolutionary officer and father of Chief Justice John Marshall, ran Virginia’s military-land survey office in Kentucky and founded Buck Pond near Versailles.",
+      "yearStart": 1783,
+      "yearEnd": 1802,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "surveyor",
+        "revolution"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Woodford",
+      "photo": {
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
+      },
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "mapConfidence": "override",
+      "matchedPlace": "Buck Pond / Col. Thomas Marshall"
     },
     {
       "slug": "harry-innes",
@@ -3823,12 +3727,12 @@
       "briefDate": "2026-10-08",
       "county": "Franklin",
       "photo": {
-        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
-        "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
-        "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13--topic.jpg",
+        "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
-        "year": 1797
+        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
+        "year": 1796
       },
       "lat": 38.1986833,
       "lon": -84.8816833,
@@ -3873,12 +3777,12 @@
       "briefDate": "2026-10-06",
       "county": "Clark",
       "photo": {
-        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
-        "title": "Gen. Charles Scott (portrait, published 1907)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg--topic.jpg",
+        "title": "Fallen Timbers Battlefield, where Scott led Kentucky's mounted volunteers under Anthony Wayne in 1794 (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": 1907
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2010
       },
       "lat": 38.0877684,
       "lon": -84.1756194,
@@ -3955,12 +3859,42 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
         "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-        "year": 1940
+        "year": 1940,
+        "fit": "contain"
       },
       "lat": 37.69,
       "lon": -85.17,
       "mapConfidence": "override",
       "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)"
+    },
+    {
+      "slug": "moluntha-and-logans-raid-1786",
+      "title": "Moluntha and Logan’s Raid, 1786",
+      "publishedDate": "2026-10-13",
+      "summary": "In October 1786 Kentucky militia under Benjamin Logan burned Shawnee towns in Ohio, and Hugh McGary killed the aged Mekoche Shawnee leader Moluntha after he surrendered under an American flag.",
+      "yearStart": 1786,
+      "yearEnd": 1786,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "shawnee",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "blue-jacket-weyapiersenwah",
@@ -4041,12 +3975,12 @@
       "briefDate": "2026-10-09",
       "county": "Fayette",
       "photo": {
-        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
-        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette--topic.jpg",
+        "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": null
+        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
+        "year": 1887
       },
       "lat": 38.1222,
       "lon": -84.4565833,
@@ -4194,12 +4128,12 @@
       "briefDate": "2026-10-11",
       "county": "",
       "photo": {
-        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg",
-        "title": "Little Turtle, a lithograph after a lost portrait (circa 1798 original)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Little_Turtle.jpg",
+        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790--topic.jpg",
+        "title": "Kekionga, the Miami towns at present Fort Wayne, drawn by Ebenezer Denny on Harmar's 1790 campaign",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_Kekionga.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown author · Wikimedia Commons · public domain",
-        "year": 1798
+        "attribution": "Ebenezer Denny · Wikimedia Commons · public domain",
+        "year": 1790
       },
       "lat": null,
       "lon": null,
@@ -4591,7 +4525,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "year": 1902,
+        "fit": "contain"
       },
       "lat": 38.2219833,
       "lon": -85.3464,
@@ -4620,7 +4555,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.76176666666667,
       "lon": -85.3364,
@@ -4649,7 +4585,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.76176666666667,
       "lon": -85.3364,
@@ -4853,6 +4790,35 @@
       "matchedPlace": "Owensboro / Yellow Banks"
     },
     {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "title": "Prestonsburg: first seat on the Big Sandy",
+      "publishedDate": "2026-10-13",
+      "summary": "Laid out as Preston’s Station in 1797 on the Levisa Fork, Prestonsburg became the seat of a vast new Floyd County in 1800 and was formally established in 1818.",
+      "yearStart": 1797,
+      "yearEnd": 1818,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Floyd",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      },
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "mapConfidence": "override",
+      "matchedPlace": "Prestonsburg founding / Preston’s Station"
+    },
+    {
       "slug": "yellow-banks-becomes-owensboro",
       "title": "Yellow Banks becomes Owensboro",
       "publishedDate": "2026-09-24",
@@ -4950,7 +4916,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 38.4333333,
       "lon": -85.1688889,
@@ -5029,7 +4996,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       },
       "lat": 38.31245,
       "lon": -84.0282167,
@@ -5642,7 +5610,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-        "year": 1979
+        "year": 1979,
+        "fit": "contain"
       },
       "lat": 38.24611,
       "lon": -85.76889,
@@ -5701,6 +5670,39 @@
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
     },
     {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "title": "Camp Nelson and Kentucky’s U.S. Colored Troops",
+      "publishedDate": "2026-10-12",
+      "summary": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion.",
+      "yearStart": 1863,
+      "yearEnd": 1866,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "civil-war",
+        "usct",
+        "african-american",
+        "emancipation"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864,
+        "fit": "contain"
+      },
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson USCT recruiting and training center"
+    },
+    {
       "slug": "camp-nelson-jessamine-county",
       "title": "Camp Nelson, Jessamine County",
       "publishedDate": "2026-10-04",
@@ -5731,6 +5733,35 @@
       "lon": -84.59806,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
+    },
+    {
+      "slug": "george-garvin-brown-and-old-forester",
+      "title": "George Garvin Brown and Old Forester",
+      "publishedDate": "2026-10-13",
+      "summary": "In 1870 Louisville’s George Garvin Brown began selling Old Forester only in sealed glass bottles, a guarantee against watered whiskey that became the foundation of Brown-Forman.",
+      "yearStart": 1870,
+      "yearEnd": 1917,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Forester / Whiskey Row (Louisville)"
     },
     {
       "slug": "frederick-stitzels-barrel-racks-1879",

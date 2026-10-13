@@ -1,11 +1,7 @@
 {
   "adams-site-15fu4": {
     "published": "2026-09-16",
-    "modified": "2026-09-16"
-  },
-  "adams-site-mississippian-town-near-hickman": {
-    "published": "2026-09-21",
-    "modified": "2026-09-21"
+    "modified": "2026-10-13"
   },
   "andalex-village-15hk22-hopkins-county": {
     "published": "2026-10-04",
@@ -45,7 +41,7 @@
   },
   "battle-of-blue-licks": {
     "published": "2026-09-12",
-    "modified": "2026-10-12"
+    "modified": "2026-09-15"
   },
   "benjamin-logan": {
     "published": "2026-09-12",
@@ -91,6 +87,10 @@
     "published": "2026-10-04",
     "modified": "2026-10-04"
   },
+  "camp-nelson-kentucky-us-colored-troops": {
+    "published": "2026-10-12",
+    "modified": "2026-10-12"
+  },
   "campbellsville-from-buckhorn-creek-to-county-seat": {
     "published": "2026-10-12",
     "modified": "2026-10-12"
@@ -101,7 +101,7 @@
   },
   "capt-abraham-lincoln-on-long-run": {
     "published": "2026-09-12",
-    "modified": "2026-09-24"
+    "modified": "2026-10-13"
   },
   "capt-jack-jouett": {
     "published": "2026-09-20",
@@ -173,11 +173,7 @@
   },
   "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
     "published": "2026-09-25",
-    "modified": "2026-09-25"
-  },
-  "cleek-mccabe-fort-ancient-village": {
-    "published": "2026-09-12",
-    "modified": "2026-09-12"
+    "modified": "2026-10-13"
   },
   "cloudsplitter-rockshelter-menifee-county": {
     "published": "2026-09-28",
@@ -210,6 +206,10 @@
   "col-stephen-trigg-of-viney-grove": {
     "published": "2026-09-13",
     "modified": "2026-09-15"
+  },
+  "col-thomas-marshall-at-buck-pond": {
+    "published": "2026-10-13",
+    "modified": "2026-10-13"
   },
   "col-william-russell-iii": {
     "published": "2026-09-17",
@@ -335,6 +335,10 @@
     "published": "2026-10-08",
     "modified": "2026-10-08"
   },
+  "george-garvin-brown-and-old-forester": {
+    "published": "2026-10-13",
+    "modified": "2026-10-13"
+  },
   "george-rogers-clark": {
     "published": "2026-09-12",
     "modified": "2026-09-15"
@@ -365,7 +369,7 @@
   },
   "harry-innes": {
     "published": "2026-10-02",
-    "modified": "2026-10-02"
+    "modified": "2026-10-12"
   },
   "henderson-at-red-banks": {
     "published": "2026-09-20",
@@ -397,11 +401,7 @@
   },
   "hugh-mcgary-the-blue-licks-hothead": {
     "published": "2026-09-25",
-    "modified": "2026-10-12"
-  },
-  "hugh-mcgary-the-hothead-major": {
-    "published": "2026-09-12",
-    "modified": "2026-09-15"
+    "modified": "2026-10-13"
   },
   "illinois-confederation-at-cahokia": {
     "published": "2026-09-16",
@@ -495,13 +495,9 @@
     "published": "2026-09-24",
     "modified": "2026-09-24"
   },
-  "lawrenceburg-from-kaufmans-station": {
-    "published": "2026-09-24",
-    "modified": "2026-09-24"
-  },
   "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
     "published": "2026-09-21",
-    "modified": "2026-10-01"
+    "modified": "2026-10-13"
   },
   "lebanon-cedars-meeting-house-county-seat": {
     "published": "2026-09-26",
@@ -595,6 +591,10 @@
     "published": "2026-09-15",
     "modified": "2026-09-30"
   },
+  "moluntha-and-logans-raid-1786": {
+    "published": "2026-10-13",
+    "modified": "2026-10-13"
+  },
   "moneton": {
     "published": "2026-10-01",
     "modified": "2026-10-01"
@@ -611,13 +611,9 @@
     "published": "2026-09-12",
     "modified": "2026-09-15"
   },
-  "muir-site-15js86": {
-    "published": "2026-09-15",
-    "modified": "2026-09-15"
-  },
   "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
     "published": "2026-09-25",
-    "modified": "2026-09-25"
+    "modified": "2026-10-13"
   },
   "natural-bridge-sandstone-arch": {
     "published": "2026-09-20",
@@ -711,6 +707,10 @@
     "published": "2026-09-27",
     "modified": "2026-10-01"
   },
+  "prestonsburg-first-seat-on-the-big-sandy": {
+    "published": "2026-10-13",
+    "modified": "2026-10-13"
+  },
   "quapaw-the-downstream-people-of-the-ohio-valley": {
     "published": "2026-09-29",
     "modified": "2026-09-29"
@@ -755,6 +755,10 @@
     "published": "2026-09-18",
     "modified": "2026-09-18"
   },
+  "sassafras-ridge-15fu3-fulton-county": {
+    "published": "2026-10-13",
+    "modified": "2026-10-13"
+  },
   "shaker-village-of-pleasant-hill": {
     "published": "2026-10-04",
     "modified": "2026-10-04"
@@ -795,13 +799,9 @@
     "published": "2026-10-01",
     "modified": "2026-10-01"
   },
-  "springfield-first-county-seat-after-statehood": {
-    "published": "2026-09-12",
-    "modified": "2026-09-12"
-  },
   "springfield-founding-and-washington-county-seat": {
     "published": "2026-09-22",
-    "modified": "2026-09-22"
+    "modified": "2026-10-13"
   },
   "squire-boones-painted-stone": {
     "published": "2026-09-12",

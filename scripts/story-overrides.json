@@ -37,7 +37,7 @@
       "replace": [
         {
           "old": "he was sworn near present-day Danville in November 1782",
-          "new": "he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782"
+          "new": "he was sworn in at Crow’s Station, Virginia (near present-day Danville, Kentucky), in November 1782"
         },
         {
           "old": "he was sworn near present-day…",
@@ -101,13 +101,6 @@
       "lat": 37.3,
       "lon": -85.9
     },
-    "muir-site-15js86": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
-      "date": "2026-10-02",
-      "historyId": "muir-site-15js86-jessamine-county",
-      "lat": 37.9,
-      "lon": -84.6
-    },
     "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
@@ -123,13 +116,6 @@
       "lon": -84.2
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
-      "date": "2026-10-02",
-      "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
-      "lat": 39,
-      "lon": -84.7
-    },
-    "cleek-mccabe-fort-ancient-village": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
@@ -207,13 +193,6 @@
       "lon": -84.5
     },
     "adams-site-15fu4": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
-      "date": "2026-10-02",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county",
-      "lat": 36.5,
-      "lon": -89.2
-    },
-    "adams-site-mississippian-town-near-hickman": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
@@ -783,6 +762,68 @@
       "yearStart": 1799,
       "yearEnd": 1816,
       "county": "Boone"
+    },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "reason": "Distinct USCT-focused companion to camp-nelson-jessamine-county (2026-10-04). Pin NPS Camp Nelson visitor center (37.797005, -84.600577). Years 1863–1866. County Jessamine.",
+      "date": "2026-10-12",
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "yearStart": 1863,
+      "yearEnd": 1866,
+      "county": "Jessamine"
+    },
+    "col-thomas-marshall-at-buck-pond": {
+      "reason": "NRHP list coordinate for Buck Pond, Paynes Mill Rd., Versailles (38.066667, -84.686944). Private farm; view from the road. Years 1783–1802 (farm founded to Marshall’s death). County Woodford.",
+      "date": "2026-10-13",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "yearStart": 1783,
+      "yearEnd": 1802,
+      "county": "Woodford"
+    },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "reason": "Wikipedia coordinate for Prestonsburg, Kentucky (37.681667, -82.766944). Years 1797–1818. County Floyd.",
+      "date": "2026-10-13",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "yearStart": 1797,
+      "yearEnd": 1818,
+      "county": "Floyd"
+    },
+    "george-garvin-brown-and-old-forester": {
+      "reason": "Wikipedia coordinate for Whiskey Row (100 West Main Street Historic District), Louisville (38.256389, -85.7525). Years 1870–1917 (Old Forester launch to Brown’s death). County Jefferson.",
+      "date": "2026-10-13",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "yearStart": 1870,
+      "yearEnd": 1917,
+      "county": "Jefferson"
+    },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "reason": "Generalized to 0.1° (36.6, -89.2) in Fulton County near Hickman; exact site location is address-restricted and not published. Occupation years AD 1000–1500 (NRHP period of significance), not survey dates. County Fulton.",
+      "date": "2026-10-13",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "lat": 36.6,
+      "lon": -89.2,
+      "county": "Fulton"
+    },
+    "cynthiana-cynthia-anna-on-the-licking": {
+      "reason": "History entry was geocoded to far-western KY (36.66,-88.31) and tagged archaeology; pin to Cynthiana, Harrison County (38.3903,-84.2941) and category town.",
+      "date": "2026-10-13",
+      "historyId": "cynthiana-founding-robert-harrison",
+      "lat": 38.3903,
+      "lon": -84.2941
+    },
+    "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
+      "reason": "Pin was 38.1742,-84.8769, about 15 km north of town; move to downtown Lawrenceburg (Wikipedia 38.033056,-84.903056).",
+      "date": "2026-10-13",
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
+      "lat": 38.033056,
+      "lon": -84.903056
     }
   }
 }

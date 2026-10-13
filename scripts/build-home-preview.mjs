@@ -524,7 +524,7 @@ async function main() {
       'lawrenceburg-from-kaufmans-station-to-anderson-county-seat':
         'Anderson County courthouse Lawrenceburg Kentucky',
       'wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid': 'Fort Ouiatenon blockhouse',
-      'adams-site-mississippian-town-near-hickman': 'Hickman Carnegie Library Kentucky',
+      'adams-site-15fu4': 'Hickman Carnegie Library Kentucky',
       'henry-mckennas-fairfield-sour-mash': 'Fairfield Kentucky Route 48',
     }
     const photo = await resolvePhoto({
@@ -550,6 +550,7 @@ async function main() {
       summary: full.summary || meta.summary || '',
       era: full.era || meta.era || '',
       yearStart: full.yearStart ?? meta.yearStart ?? null,
+      county: full.county || meta.county || null,
       briefDate: full.briefDate || meta.briefDate || briefDate,
       href: `/#timeline/${encodeURIComponent(slug)}`,
       place: loc.matchedPlace || null,
