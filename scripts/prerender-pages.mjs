@@ -56,7 +56,7 @@ import {
   routesIndexArticleHtml,
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
-import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml, titleHeadshotHtml } from '../src/related-people.js'
+import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 
@@ -1375,12 +1375,7 @@ class PrerenderPages {
           <header class="story-head">
             <p class="static-kicker">Timeline story</p>
             <p class="story-card-meta">${metaBits.map((bit) => `<span>${PrerenderPages.escapeHtml(bit)}</span>`).join(' · ')}</p>
-            ${(() => {
-              const pick = PrerenderPages.storyPortrait(story, relatedBundle)
-              const shot = titleHeadshotHtml(pick.person || pick.sidebarSame)
-              const h1 = `<h1>${PrerenderPages.escapeHtml(story.title)}</h1>`
-              return shot ? `<div class="story-title-row">${shot}${h1}</div>` : h1
-            })()}
+            <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
             ${lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''}
           </header>
         </div>
