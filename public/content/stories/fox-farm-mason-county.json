@@ -22,5 +22,16 @@
     "yearStart": 1300,
     "yearEnd": 1650,
     "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/fox-farm-mason-county.jpg",
+    "title": "Overview of the Fox Farm Site from Fox Valley Road, located in a bend of the Holston River northeast of Seven Mile Ford in Smyth County, Virginia, United Sta…",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fox_Farm_Site_near_7MF.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2017,
+    "credit": "Nyttend",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
   }
 }

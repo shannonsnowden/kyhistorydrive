@@ -2,6 +2,7 @@
  * Story-page tools shared by prerendered /stories/ pages and the hash reader.
  * Dates passed in here are already resolved. This module never invents one.
  */
+import { ccByLicense } from './photo-credit.js'
 
 export const SITE_NAME = 'Kentucky History Drive'
 export const SITE_AUTHOR = 'Shannon Snowden'
@@ -751,15 +752,26 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   } else if (model.sourceUrl) {
     chunks.push(externalLink(model.sourceUrl, 'Source'))
   }
-  if (!chunks.length && !model.license) return ''
+  const cc = ccByLicense(photo)
+  if (!chunks.length && !model.license && !cc) return ''
   // Each piece is a nowrap .seg; CSS (.seg + .seg::before) draws the ' · ' at the start of the
   // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
   const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
   if (segs.length) segs[0] = `<span class="seg">Photo: ${chunks[0]}</span>`
-  if (model.license) {
-    const license = model.licenseUrl ? externalLink(model.licenseUrl, model.license) : esc(model.license)
+  if (model.license || cc) {
+    const href = cc?.url || model.licenseUrl
+    const label = cc?.name || model.license
+    const rel = cc ? 'license noopener noreferrer' : 'noopener noreferrer'
+    const license = href
+      ? `<a href="${esc(href)}" target="_blank" rel="${rel}">${esc(label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`
+      : esc(label)
     const prefix = segs.length ? '' : 'Photo: '
     segs.push(`<span class="seg photo-license">${prefix}License: ${license}</span>`)
+  }
+  if (cc && /^https?:\/\//i.test(model.sourceUrl || '')) {
+    segs.push(
+      `<span class="seg"><a href="${esc(model.sourceUrl)}" target="_blank" rel="noopener noreferrer">source file</a></span>`,
+    )
   }
   const inner = segs.join(' ')
   if (block) return `<p class="story-sidebar-photo-attr story-photo-credit">${inner}</p>`

@@ -16,6 +16,7 @@ import { initExploreLayer } from './explore-layer.js'
 import { AdSlot } from './ad-slot.js'
 import { loadPhotoVariants } from './responsive-img.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
 import {
   escapeHtml,
   formatDisplayDate,
@@ -85,10 +86,11 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
       /* use index row */
     }
     const wiki = extractWikipediaUrl(full.bodyMarkdown)
+    const slug = full.slug || meta.slug
     const stored = usablePhoto(full.photo) || usablePhoto(meta.photo)
     // Only try Wikipedia when the story cites a wiki URL — title fallback 404s (e.g. theme-only briefs).
-    const photo = stored || (wiki ? await fetchWikipediaPhoto(wiki) : null)
-    const slug = full.slug || meta.slug
+    // Blocked slugs stay empty unless a hand-picked file is already stored.
+    const photo = stored || (wiki && !storyBlocksAutoPhoto(slug) ? await fetchWikipediaPhoto(wiki) : null)
     const loc = locations[slug] || {}
     const lat = loc.lat ?? meta.lat ?? null
     const lon = loc.lon ?? meta.lon ?? null
@@ -123,7 +125,6 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
     quote: hero?.quote ? { text: hero.quote, source: hero.title, href: hero.href } : null,
   }
 }
-
 
 function briefStories(pack) {
   if (Array.isArray(pack?.stories) && pack.stories.length) return pack.stories

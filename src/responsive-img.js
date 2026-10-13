@@ -38,7 +38,7 @@ function sourceTag(type, list, sizes) {
 }
 
 /**
- * @param {{ src: string, alt?: string, className?: string, loading?: string, sizes?: string, fetchPriority?: string, width?: number, height?: number }} opts
+ * @param {{ src: string, alt?: string, className?: string, loading?: string, sizes?: string, fetchPriority?: string, width?: number, height?: number, dataLcp?: boolean }} opts
  */
 export function responsivePicture(opts) {
   const src = String(opts.src || '')
@@ -54,6 +54,7 @@ export function responsivePicture(opts) {
     height ? `height="${Number(height)}"` : '',
     opts.loading ? `loading="${esc(opts.loading)}"` : '',
     opts.fetchPriority ? `fetchpriority="${esc(opts.fetchPriority)}"` : '',
+    opts.dataLcp ? 'data-lcp="story-photo"' : '',
     'decoding="async"',
     'referrerpolicy="no-referrer"',
   ]

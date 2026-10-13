@@ -14,5 +14,16 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-31"
+  "briefDate": "2026-08-31",
+  "photo": {
+    "image_url": "/content/photos/stories/bardstown.jpg",
+    "title": "Oscar Getz Museum of Whiskey, within Spalding Hall, in Bardstown, Kentucky.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bardstown_Whiskey_Museum.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Bedford at English Wikipedia · Wikimedia Commons · Public domain",
+    "year": 2006,
+    "credit": "Bedford at English Wikipedia",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

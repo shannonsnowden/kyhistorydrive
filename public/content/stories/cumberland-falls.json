@@ -13,5 +13,16 @@
     "kentucky"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-17"
+  "briefDate": "2026-09-17",
+  "photo": {
+    "image_url": "/content/photos/stories/cumberland-falls.jpg",
+    "title": "Cumberland Falls is located just inside of Whitley County, Kentucky, as part of the Daniel Boone National Forest and a Kentucky state park centered around th…",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Falls,_Whitley_County,_Kentucky.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Blinutne · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2006,
+    "credit": "Blinutne",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+  }
 }

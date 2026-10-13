@@ -14,5 +14,16 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-31"
+  "briefDate": "2026-08-31",
+  "photo": {
+    "image_url": "/content/photos/stories/richard-henderson.jpg",
+    "title": "Plan of Fort Boonesborough.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Boonesborough,_Kentucky_35%D0%B0.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Richard Henderson · Wikimedia Commons · Public domain",
+    "year": 2013,
+    "credit": "Richard Henderson",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

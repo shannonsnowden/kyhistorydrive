@@ -22,5 +22,16 @@
     "yearEnd": 1795,
     "presenceLabel": "Shawnee presence and claim (Old Chillicothe 1774–80; Kentucky presence to c.1782)",
     "approxStart": true
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/shawnee-chillicothe-divisions.jpg",
+    "title": "A garden (foreground) and fields (background) on the western side of Oldtown, an unincorporated community in Xenia Township, Greene County, Ohio, United States.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2010,
+    "credit": "Nyttend",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
   }
 }

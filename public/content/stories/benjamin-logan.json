@@ -13,5 +13,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-28"
+  "briefDate": "2026-08-28",
+  "photo": {
+    "image_url": "/content/photos/stories/benjamin-logan.jpg",
+    "title": "Title: Benjamin Logan saving Harrison from being scalped Physical description: 1 print.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Benjamin_Logan_saving_Harrison_from_being_scalped_LCCN2003656942.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Popular Graphic Arts · Wikimedia Commons · Public domain",
+    "year": 1851,
+    "credit": "Popular Graphic Arts",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

@@ -16,6 +16,8 @@ import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
+import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
 import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
 import {
@@ -1453,11 +1455,35 @@ function topicPhotoScore(photo, title, placeHint) {
 
 const MIN_STORY_PHOTO_SCORE = 8
 
-async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown, existingPhoto }) {
+async function resolveStorySidebarPhoto({
+  slug,
+  title,
+  lat,
+  lon,
+  placeHint,
+  historyId,
+  bodyMarkdown,
+  existingPhoto,
+}) {
   await loadHistoricPhotoData()
   const links = photoSearchLinks(title, placeHint, {
     wikipedia_url: extractWikipediaUrl(bodyMarkdown) || wikipediaSearchUrl(title),
   })
+
+  const storedLocal = String(existingPhoto?.image_url || '').startsWith('/content/photos/')
+  if (storyBlocksAutoPhoto(slug) && !storedLocal) {
+    return {
+      image_url: null,
+      title,
+      source_label: null,
+      attribution: null,
+      credit: null,
+      source_url: null,
+      ...links,
+      loc_url: null,
+      nara_url: null,
+    }
+  }
 
   if (existingPhoto?.image_url) {
     return {
@@ -1546,7 +1572,6 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   let thumb = ''
   if (photo.image_url) {
     const href = escapeHtml(photo.source_url || photo.image_url)
-    const img = escapeHtml(photo.image_url)
     // The link wraps only an image: give it an explicit name that says where it goes and that it opens a new tab.
     let linkHost = ''
     try {
@@ -1555,11 +1580,16 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
       linkHost = ''
     }
     const linkLabel = escapeHtml(`Open ${photo.source_label || photo.credit || linkHost || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`)
-    const imgAttrs = priority
-      ? 'fetchpriority="high" loading="eager" data-lcp="story-photo"'
-      : 'loading="lazy"'
+    const img = responsivePicture({
+      src: photo.image_url,
+      alt: photo.title || title || 'Related photo',
+      loading: priority ? 'eager' : 'lazy',
+      fetchPriority: priority ? 'high' : '',
+      dataLcp: priority,
+      sizes: '(max-width: 600px) 100vw, 220px',
+    })
     thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
-        <img src="${img}" alt="${caption}" ${imgAttrs} />
+        ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
       ${photoCreditHtml(photo)}`
@@ -3162,6 +3192,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
   try {
     const markerFeaturesPromise = loadLayerFeatures('markers')
     await loadHistoricPhotoData()
+    await loadPhotoVariants()
     const s = await loadStoryBody(meta.slug)
     let historyId = meta.historyId || null
     try {
@@ -3227,6 +3258,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const canonical = storyCanonicalUrl(meta.slug)
     const relTitleFor = (sl) => relTitles[sl]
     const sidebarPhoto = await resolveStorySidebarPhoto({
+      slug: meta.slug,
       title: s.title,
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
@@ -3313,7 +3345,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
-        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: Boolean(film) })}
+        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: true })}
         ${filmHtml}
       </div>
       ${timelineReaderBarHtml('bottom')}

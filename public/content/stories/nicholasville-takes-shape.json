@@ -13,5 +13,16 @@
     "town-founding"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-07"
+  "briefDate": "2026-09-07",
+  "photo": {
+    "image_url": "/content/photos/stories/nicholasville-takes-shape.jpg",
+    "title": "Looking northward along the first two blocks of South Main Street (U.S.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · Public domain",
+    "year": 2010,
+    "credit": "Nyttend",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

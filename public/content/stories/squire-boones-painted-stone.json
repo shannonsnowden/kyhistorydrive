@@ -14,5 +14,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-02"
+  "briefDate": "2026-09-02",
+  "photo": {
+    "image_url": "/content/photos/stories/squire-boones-painted-stone.jpg",
+    "title": "Squire Boone Crossing the Mountains with Stores for His Brother Daniel, Encamped in the Wilds of Kentucky, oil on canvas",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Squire_Boone_Crossing_the_Mountains_with_Stores_for_His_Brother_Daniel.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "William Ranney · Wikimedia Commons · Public domain",
+    "year": 1852,
+    "credit": "William Ranney",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

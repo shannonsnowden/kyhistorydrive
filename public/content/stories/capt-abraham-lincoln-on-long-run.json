@@ -14,5 +14,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-11"
+  "briefDate": "2026-09-11",
+  "photo": {
+    "image_url": "/content/photos/stories/capt-abraham-lincoln-on-long-run.jpg",
+    "title": "signature of Captain Abraham Lincoln, grandfather of President Abraham Lincoln",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Capt_Abraham_Lincoln_signature.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "J. Henry Lea; John R. Hutchinson · Wikimedia Commons · Public domain",
+    "year": 1909,
+    "credit": "J. Henry Lea; John R. Hutchinson",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

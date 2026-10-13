@@ -12,5 +12,16 @@
     "kentucky"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-11"
+  "briefDate": "2026-09-11",
+  "photo": {
+    "image_url": "/content/photos/stories/lancaster-at-wallaces-crossroads.jpg",
+    "title": "The American flag flies at half-staff in memory of President George H.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lancaster,_Kentucky_War_Memorial_(46263691622).jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "PEO ACWA · Wikimedia Commons · CC BY 2.0",
+    "year": 2018,
+    "credit": "PEO ACWA",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0"
+  }
 }

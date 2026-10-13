@@ -14,5 +14,16 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-05"
+  "briefDate": "2026-09-05",
+  "photo": {
+    "image_url": "/content/photos/stories/james-crow-on-glenns-creek.jpg",
+    "title": "James C.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:James_C._Crow2.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Shckwv · Wikimedia Commons · CC BY-SA 4.0",
+    "year": 2024,
+    "credit": "Shckwv",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
 }

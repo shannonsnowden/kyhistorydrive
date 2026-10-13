@@ -15,5 +15,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-09"
+  "briefDate": "2026-09-09",
+  "photo": {
+    "image_url": "/content/photos/stories/col-richard-callaway-of-boonesborough.jpg",
+    "title": "Plaque about Col.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_-_October_2023_-_Sarah_Stierch_05.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
+    "year": 2023,
+    "credit": "Missvain",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0"
+  }
 }

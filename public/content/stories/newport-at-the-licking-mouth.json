@@ -15,5 +15,16 @@
     "salt"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-16"
+  "briefDate": "2026-09-16",
+  "photo": {
+    "image_url": "/content/photos/stories/newport-at-the-licking-mouth.jpg",
+    "title": "Mouth of the Licking River, Covington-Newport, Kentucky, 2004, by Rick Dikeman",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Licking_river.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Rdikeman at English Wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2004,
+    "credit": "Rdikeman at English Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+  }
 }

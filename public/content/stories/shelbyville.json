@@ -14,5 +14,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-28"
+  "briefDate": "2026-08-28",
+  "photo": {
+    "image_url": "/content/photos/stories/shelbyville.jpg",
+    "title": "Thelma Stovall marker at Kentucky Welcome Center, Shelbyville, Kentucky, eastbound I-64",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_Welcome_Center_Shelbyville_-_October_2023_-_Sarah_Stierch_02.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
+    "year": 2023,
+    "credit": "Missvain",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0"
+  }
 }
