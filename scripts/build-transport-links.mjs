@@ -22,7 +22,19 @@ const storyPeople = fs.existsSync(spFile) ? JSON.parse(fs.readFileSync(spFile, '
 const byId = new Map((people.people || []).map((p) => [p.id, p]))
 const dir = path.join(root, 'public/content/stories')
 const strip = (md) => String(md || '').replace(/^[ \t]*source:[ \t]*.+$/gim, '').replace(/\n{3,}/g, '\n\n').trim()
-const text = (h) => h.replace(/<[^>]*>/g, '')
+/** Text outside tags, by an indexOf scan (as in build-story-people). Only compares before/after text; never sanitizes. */
+function text(html) {
+  let out = ''
+  let i = 0
+  for (;;) {
+    const lt = html.indexOf('<', i)
+    if (lt < 0) return out + html.slice(i)
+    out += html.slice(i, lt)
+    const gt = html.indexOf('>', lt + 1)
+    if (gt < 0) return out
+    i = gt + 1
+  }
+}
 
 const out = { _note: 'Built by scripts/build-transport-links.mjs from scripts/transport-links.json. Do not edit.', stories: {} }
 const errors = []
