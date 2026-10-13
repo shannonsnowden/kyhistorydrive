@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90"><!-- Square-rigged warship with gunports and a sailor's round hat (impressment, sailors' rights) -->
+<g fill="#1f4a2e"><rect x="32" y="12" width="3" height="22"/><rect x="48" y="8" width="4" height="44"/><rect x="68" y="16" width="3" height="36"/>
+<path d="M24 16h18l-2 11H26z"/><path d="M38 14h24l-2 12H40z"/><path d="M37 29h26l-2 14H39z"/><path d="M61 22h17l-2 10H63z"/><path d="M60 35h19l-2 10H62z"/>
+<path d="M4 54h82l-6 20H12z"/></g>
+<g fill="#d08a2e"><rect x="18" y="59" width="7" height="6" rx="1"/><rect x="32" y="59" width="7" height="6" rx="1"/><rect x="46" y="59" width="7" height="6" rx="1"/><rect x="60" y="59" width="7" height="6" rx="1"/>
+<path d="M52 8l12 3-12 3z"/></g>
+<!-- sailor's round hat on the quarterdeck: impressment -->
+<g><path d="M3 50q0-17 13-17t13 17z" fill="#d08a2e"/><rect x="-1" y="48" width="34" height="6" rx="3" fill="#d08a2e"/><rect x="4" y="41" width="24" height="4" fill="#1f4a2e"/></g>
+<path d="M4 82q10-5 20 0t20 0 20 0 22 0" stroke="#d08a2e" stroke-width="4" fill="none" stroke-linecap="round"/></svg>

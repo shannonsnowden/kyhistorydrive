@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T09:45:12.776Z",
+  "generatedAt": "2026-10-13T09:39:35.469Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -304,16 +304,28 @@
         "year": 2023
       }
     },
+    "col-thomas-marshall-at-buck-pond": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
+        "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain",
+        "year": null
+      }
+    },
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
       "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph--topic.jpg",
-        "title": "Point Pleasant Battle Monument at Tu-Endie-Wei State Park, where the Kanawha meets the Ohio (photographed 2007)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Point_Pleasant_monument.jpg",
+        "image_url": "/content/photos/stories/cornstalk-hokoleskwa-point-pleasant-to-fort-randolph.jpg",
+        "title": "Cornstalk as imagined in John Frost’s 1872 pictorial history of the Indians (cropped engraving, not a life portrait)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:1872_Chiefs_Cornstalk_Logan_and_Red_Eagle_from_Frosts_pictorial_history_of_Indian.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "attribution": "Illustrator unidentified, from John Frost’s book · Wikimedia Commons · public domain",
+        "year": 1872
       }
     },
     "croley-evans-site": {
@@ -488,24 +500,36 @@
       "slug": "gen-charles-scott-and-petersburg",
       "historyId": "gen-charles-scott-canewood-clark-1785-1813",
       "photo": {
-        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg--topic.jpg",
-        "title": "Fallen Timbers Battlefield, where Scott led Kentucky's mounted volunteers under Anthony Wayne in 1794 (photographed 2010)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+        "title": "Gen. Charles Scott (portrait, published 1907)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2010
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": 1907
       }
     },
     "gen-james-wilkinson-kentuckys-agent-13": {
       "slug": "gen-james-wilkinson-kentuckys-agent-13",
       "historyId": "wilkinson-love-house-frankfort-franklin-1784-1792",
       "photo": {
-        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13--topic.jpg",
-        "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
+        "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
+        "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
-        "year": 1796
+        "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
+        "year": 1797
+      }
+    },
+    "george-garvin-brown-and-old-forester": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
       }
     },
     "harry-innes": {
@@ -668,12 +692,12 @@
       "slug": "john-bradford-and-the-kentucke-gazette",
       "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830",
       "photo": {
-        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette--topic.jpg",
-        "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
+        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
-        "year": 1887
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": null
       }
     },
     "john-finley-the-trader-who-put-kentucky-on-boones-map": {
@@ -752,12 +776,12 @@
       "slug": "little-turtle-and-hardins-defeat-1790",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790--topic.jpg",
-        "title": "Kekionga, the Miami towns at present Fort Wayne, drawn by Ebenezer Denny on Harmar's 1790 campaign",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_Kekionga.jpg",
+        "image_url": "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg",
+        "title": "Little Turtle, a lithograph after a lost portrait (circa 1798 original)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Little_Turtle.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Ebenezer Denny · Wikimedia Commons · public domain",
-        "year": 1790
+        "attribution": "Unknown author · Wikimedia Commons · public domain",
+        "year": 1798
       }
     },
     "louisville-and-portland-canal": {
@@ -854,6 +878,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Tennessee Valley Authority · Wikimedia Commons · public domain",
         "year": null
+      }
+    },
+    "moluntha-and-logans-raid-1786": {
+      "slug": "moluntha-and-logans-raid-1786",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
       }
     },
     "moneton": {
@@ -1036,6 +1072,18 @@
         "year": null
       }
     },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "quapaw-the-downstream-people-of-the-ohio-valley": {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
       "historyId": null,
@@ -1108,6 +1156,18 @@
         "year": null
       }
     },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      }
+    },
     "shaker-village-of-pleasant-hill": {
       "slug": "shaker-village-of-pleasant-hill",
       "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
@@ -1124,12 +1184,12 @@
       "slug": "simon-girty-interpreter-at-bryan-station-1782",
       "historyId": null,
       "photo": {
-        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
-        "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782.jpg",
+        "title": "Simon Girty in an uncredited artist’s rendering published in 1905 (not a life portrait)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Simon_Girty.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "attribution": "Artist uncredited · Wikimedia Commons · public domain",
+        "year": 1905
       }
     },
     "simpsonville-takes-shape-on-the-louisville-road": {
@@ -1650,6 +1710,18 @@
         "year": 2023
       }
     },
+    "col-thomas-marshall-buck-pond-woodford-1783-1802": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
+        "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain",
+        "year": null
+      }
+    },
     "daniel-trabue-house-columbia-adair-1778-1840": {
       "slug": "daniel-trabue-of-columbia",
       "historyId": "daniel-trabue-house-columbia-adair-1778-1840",
@@ -1774,24 +1846,36 @@
       "slug": "gen-charles-scott-and-petersburg",
       "historyId": "gen-charles-scott-canewood-clark-1785-1813",
       "photo": {
-        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg--topic.jpg",
-        "title": "Fallen Timbers Battlefield, where Scott led Kentucky's mounted volunteers under Anthony Wayne in 1794 (photographed 2010)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
+        "image_url": "/content/photos/stories/gen-charles-scott-and-petersburg.jpg",
+        "title": "Gen. Charles Scott (portrait, published 1907)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Charles_Scott.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2010
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": 1907
       }
     },
     "wilkinson-love-house-frankfort-franklin-1784-1792": {
       "slug": "gen-james-wilkinson-kentuckys-agent-13",
       "historyId": "wilkinson-love-house-frankfort-franklin-1784-1792",
       "photo": {
-        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13--topic.jpg",
-        "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
+        "image_url": "/content/photos/stories/gen-james-wilkinson-kentuckys-agent-13.jpg",
+        "title": "Gen. James Wilkinson, oil portrait by Charles Willson Peale, 1797",
+        "source_url": "https://commons.wikimedia.org/wiki/File:James_Wilkinson.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
-        "year": 1796
+        "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
+        "year": 1797
+      }
+    },
+    "old-forester-whiskey-row-louisville-1870": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
       }
     },
     "harry-innes-frankfort-1783-1816": {
@@ -1930,12 +2014,12 @@
       "slug": "john-bradford-and-the-kentucke-gazette",
       "historyId": "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830",
       "photo": {
-        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette--topic.jpg",
-        "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
+        "image_url": "/content/photos/stories/john-bradford-and-the-kentucke-gazette.jpg",
+        "title": "John Bradford, Kentucky’s first printer (portrait, artist unknown)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:John-Bradford.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
-        "year": 1887
+        "attribution": "Unknown artist · Wikimedia Commons · public domain",
+        "year": null
       }
     },
     "john-finley-eskippakithiki-trader": {
@@ -2226,6 +2310,18 @@
         "year": 2014
       }
     },
+    "prestonsburg-founding-floyd-1797-1818": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "red-bird-river-petroglyphs-eriline-clay": {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "historyId": "red-bird-river-petroglyphs-eriline-clay",
@@ -2284,6 +2380,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "sassafras-ridge-15fu3-fulton-1000-1500": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
       }
     },
     "pleasant-hill-shaker-village-mercer-1805-1910": {

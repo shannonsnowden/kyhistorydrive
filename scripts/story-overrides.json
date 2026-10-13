@@ -793,6 +793,58 @@
       "yearStart": 1863,
       "yearEnd": 1866,
       "county": "Jessamine"
+    },
+    "col-thomas-marshall-at-buck-pond": {
+      "reason": "NRHP list coordinate for Buck Pond, Paynes Mill Rd., Versailles (38.066667, -84.686944). Private farm; view from the road. Years 1783–1802 (farm founded to Marshall’s death). County Woodford.",
+      "date": "2026-10-13",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "yearStart": 1783,
+      "yearEnd": 1802,
+      "county": "Woodford"
+    },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "reason": "Wikipedia coordinate for Prestonsburg, Kentucky (37.681667, -82.766944). Years 1797–1818. County Floyd.",
+      "date": "2026-10-13",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "yearStart": 1797,
+      "yearEnd": 1818,
+      "county": "Floyd"
+    },
+    "george-garvin-brown-and-old-forester": {
+      "reason": "Wikipedia coordinate for Whiskey Row (100 West Main Street Historic District), Louisville (38.256389, -85.7525). Years 1870–1917 (Old Forester launch to Brown’s death). County Jefferson.",
+      "date": "2026-10-13",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "yearStart": 1870,
+      "yearEnd": 1917,
+      "county": "Jefferson"
+    },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "reason": "Generalized to 0.1° (36.6, -89.2) in Fulton County near Hickman; exact site location is address-restricted and not published. Occupation years AD 1000–1500 (NRHP period of significance), not survey dates. County Fulton.",
+      "date": "2026-10-13",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "lat": 36.6,
+      "lon": -89.2,
+      "county": "Fulton"
+    },
+    "cynthiana-cynthia-anna-on-the-licking": {
+      "reason": "History entry was geocoded to far-western KY (36.66,-88.31) and tagged archaeology; pin to Cynthiana, Harrison County (38.3903,-84.2941) and category town.",
+      "date": "2026-10-13",
+      "historyId": "cynthiana-founding-robert-harrison",
+      "lat": 38.3903,
+      "lon": -84.2941
+    },
+    "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
+      "reason": "Pin was 38.1742,-84.8769, about 15 km north of town; move to downtown Lawrenceburg (Wikipedia 38.033056,-84.903056).",
+      "date": "2026-10-13",
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
+      "lat": 38.033056,
+      "lon": -84.903056
     }
   }
 }

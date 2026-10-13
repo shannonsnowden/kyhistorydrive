@@ -815,15 +815,16 @@
     "id": "cynthiana-founding-robert-harrison",
     "name": "Cynthiana founding / Robert Harrison",
     "subtitle": "Robert Harrison",
-    "latitude": 36.6615391,
-    "longitude": -88.3107024,
+    "latitude": 38.3903,
+    "longitude": -84.2941,
     "history": "Cynthiana founding / Robert Harrison / Cynthia & Anna / South Fork Licking 1793.",
     "source_date": "2026-09-09",
     "marker_title": null,
-    "geocode_source": "photon",
-    "category": "archaeology",
+    "geocode_source": "manual",
+    "category": "town",
     "year_start": 1793,
-    "year_end": 1793
+    "year_end": 1793,
+    "geocode_note": "Cynthiana, Harrison County (38.3903, -84.2941; GNIS/Wikipedia town center). Was misgeocoded to far-western Kentucky (36.66, -88.31)."
   },
   {
     "id": "michael-stoner-holsteiner",
@@ -982,15 +983,16 @@
     "id": "lawrenceburg-founding-kaufman-s-coffman-s-station",
     "name": "Lawrenceburg founding / Kaufman’s–Coffman’s Station",
     "subtitle": "Kaufman’s–Coffman’s Station",
-    "latitude": 38.1741739,
-    "longitude": -84.8769101,
+    "latitude": 38.033056,
+    "longitude": -84.903056,
     "history": "Lawrenceburg founding / Kaufman’s–Coffman’s Station ~1780 / William Lawrence / Anderson seat 1827.",
     "source_date": "2026-09-14",
     "marker_title": null,
-    "geocode_source": "photon",
+    "geocode_source": "wikipedia-lawrenceburg",
     "category": "town",
     "year_start": 1780,
-    "year_end": 1827
+    "year_end": 1827,
+    "geocode_note": "Wikipedia coordinate for Lawrenceburg, Kentucky (38.033056, -84.903056), downtown; was 38.1742, -84.8769, about 15 km north of town."
   },
   {
     "id": "kentucky-river-palisades-high-bridge-group-ordovician",
@@ -3430,6 +3432,97 @@
       "source_label": "Library of Congress",
       "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
       "year": 1864
+    }
+  },
+  {
+    "id": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+    "name": "Buck Pond / Col. Thomas Marshall",
+    "subtitle": "Woodford County · Buck Pond (c. 1783) · Virginia surveyor general of military lands · private horse farm",
+    "latitude": 38.066667,
+    "longitude": -84.686944,
+    "history": "Col. Thomas Marshall (1730–1802) came to Kentucky as a veteran of two wars and a surveyor by trade. Born in Westmoreland County, Virginia, he is best remembered as the father of Chief Justice John Marshall. In the Revolution he was colonel of the 3rd Virginia Regiment of the Continental Army.\n\nHis regiment fought at Brandywine, covered the Continental retreat at Germantown, and wintered with Washington at Valley Forge. Ordered south, Marshall was among the troops surrendered at Charleston in 1780. While on parole he rode over the mountains to Kentucky for the first time and located the land he would later settle.\n\nIn 1783 he was appointed surveyor general of the Kentucky lands due to the officers and soldiers of Virginia’s Continental Line, and he opened his office in Lexington. Virginia had promised its veterans land instead of cash, and his office was where those promises became surveyed tracts. That made him one of the men who decided how the Bluegrass would be divided among its new owners.\n\nBuck Pond Farm’s own history dates his farm near present Versailles to 1783 and the house to 1785. Wikipedia says he moved the rest of his family from Fauquier County, Virginia, to Kentucky in 1785. The farm’s account says George Washington appointed him surveyor general of the lands of Fayette County, but Washington was not yet president in 1783; Wikipedia credits Washington only with naming him Kentucky’s collector of revenue later.\n\nFayette County voters sent Marshall to the Virginia House of Delegates for the 1787–1788 session. In 1788 he was also a delegate to the convention at Danville that weighed Kentucky’s separation from Virginia, and his family were Federalists. Around 1800 he turned Buck Pond over to his youngest son, Dr. Louis Marshall, and he died in Mason County in 1802.\n\nWikipedia notes that Marshall opposed slavery in Ohio but practiced and proposed indentured servitude for formerly enslaved people. Neither source says who labored at Buck Pond in his lifetime, so that part of the farm’s story is still untold here.\n\n## Kentucky today\n\nBuck Pond is still a Thoroughbred farm on Paynes Mill Road outside Versailles, and the farm says six generations of Marshalls lived there under the Revolutionary grant. Later owners bred the 1902 Kentucky Derby winner Alan-a-Dale and raised Spectacular Bid there. The farm is private and welcomes visitors by appointment only, so the map pin is for viewing from the road.",
+    "source_date": "2026-10-13",
+    "geocode_source": "wikipedia-nrhp-woodford-list",
+    "geocode_note": "NRHP list coordinate for Buck Pond, Paynes Mill Rd., Versailles (38.066667, -84.686944). Private farm; view from the road. Years 1783–1802 (farm founded to Marshall’s death).",
+    "category": "person",
+    "website": "https://www.buckpondfarm.com/farm-history.html",
+    "year_start": 1783,
+    "year_end": 1802,
+    "photo": {
+      "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
+      "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain"
+    }
+  },
+  {
+    "id": "prestonsburg-founding-floyd-1797-1818",
+    "name": "Prestonsburg founding / Preston’s Station",
+    "subtitle": "Floyd County seat · Preston’s Station 1797 · Floyd County 1800 · established 1818",
+    "latitude": 37.681667,
+    "longitude": -82.766944,
+    "history": "Prestonsburg sits on the Levisa Fork of the Big Sandy, on land that was part of a 100,000-acre colonial grant to the family of Elizabeth Patton Preston. Her husband, John Preston, managed the grant on her behalf. The grant was meant to open land beyond the Blue Ridge to British settlement, but French and Native resistance and a change in British policy kept it from doing much for decades.\n\nNo one settled the tract until John Spurlock of Montgomery County, Virginia, arrived in 1791. He laid out the town of Preston’s Station in 1797. The Kentucky Secretary of State’s city record says the name was later changed to honor Col. John Preston, the landowner.\n\nOn December 13, 1799, the General Assembly created Floyd County, effective June 1, 1800, from parts of Fleming, Montgomery and Mason counties. It was named for the surveyor John Floyd, and Preston’s Station became its seat.\n\nOn April 8, 1808, the first courthouse burned and took the early records with it, so Floyd County’s surviving government records begin in 1808. The post office was called Floyd Court House from 1816 until the late 1820s. The town itself was formally established in 1818.\n\nSome popular histories credit a surveyor named John Graham with the 1797 plat and give a May 3, 1797 date. The sources checked here name John Spurlock and give no day, so this story leaves both points open.\n\n## Kentucky today\n\nPrestonsburg is still the Floyd County seat. The Samuel May House, built in 1817 and now owned by the city, is the Big Sandy Valley’s oldest known brick home, and Confederate units recruited there in the Civil War. Nearby Middle Creek was the largest Civil War battle in eastern Kentucky, fought January 10, 1862.",
+    "source_date": "2026-10-13",
+    "geocode_source": "wikipedia-prestonsburg",
+    "geocode_note": "Wikipedia coordinate for Prestonsburg, Kentucky (37.681667, -82.766944). Years 1797–1818.",
+    "category": "town",
+    "website": "https://en.wikipedia.org/wiki/Prestonsburg,_Kentucky",
+    "year_start": 1797,
+    "year_end": 1818,
+    "photo": {
+      "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+      "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "year": 2014
+    }
+  },
+  {
+    "id": "old-forester-whiskey-row-louisville-1870",
+    "name": "Old Forester / Whiskey Row (Louisville)",
+    "subtitle": "Jefferson County · Whiskey Row, W. Main St. · George Garvin Brown · first sealed-bottle bourbon 1870",
+    "latitude": 38.256389,
+    "longitude": -85.7525,
+    "history": "George Garvin Brown was born in Munfordville on September 2, 1846, and moved to Louisville in 1862. He went to Male High School and started out as a wholesale drug salesman. That trade taught him something about the whiskey business: doctors and pharmacists bought it as medicine and needed to trust what was in the bottle.\n\nIn Brown’s day, distillers shipped their whiskey in barrels, casks and kegs. Bars and grocers bought it wholesale and sold it in their own bottles, and some watered or doctored it before they did. ExploreKYHistory notes that this hurt customers, the doctors who prescribed whiskey, and the distillers whose names were attached to it.\n\nIn 1870 Brown and his half-brother, J. T. S. Brown Jr., started J. T. S. Brown and Brothers. Their answer was Old Forester, sold only in sealed glass bottles so that no one between the distillery and the buyer could tamper with it. Brown signed every label as his guarantee and trademarked the name, and he first sold it through pharmacies.\n\nWhere the name came from is disputed. The usual account says it honored a Louisville physician, Dr. William Forrester, which may explain the early two-“r” spelling. ExploreKYHistory notes that other sources name Confederate general Nathan Bedford Forrest instead, and no one knows for sure why the spelling changed.\n\nBrown’s bookkeeper, George Forman, became his partner, and in 1890 the firm took the name Brown-Forman. Brown was the first president of the National Liquor Dealers’ Association in 1894 and wrote a book against Prohibition in 1910. He died in 1917 and is buried in Louisville’s Cave Hill Cemetery.\n\nDuring Prohibition, Old Forester was one of six Kentucky brands bottled under federal permits for medicinal use. A generation after Brown’s first bottles, the 1897 Bottled-in-Bond Act put a federal guarantee behind some whiskey labels too. ExploreKYHistory credits Brown’s company with the first commercially bottled bourbon, one of many bourbon “firsts” that historians still argue over.\n\n## Kentucky today\n\nOld Forester is now distilled on Louisville’s Whiskey Row, at 119 West Main Street, which Wikipedia says was the company’s home in the 1880s. Brown-Forman is still headquartered in Louisville and is still controlled by Brown’s descendants. Like Evan Williams on the wharf and Frederick Stitzel’s barrel racks, Brown’s idea helped make Louisville a center of the bourbon trade.",
+    "source_date": "2026-10-13",
+    "geocode_source": "wikipedia-whiskey-row-louisville",
+    "geocode_note": "Wikipedia coordinate for Whiskey Row (100 West Main Street Historic District), Louisville (38.256389, -85.7525). Years 1870–1917 (Old Forester launch to Brown’s death).",
+    "category": "bourbon",
+    "website": "https://explorekyhistory.ky.gov/items/show/416",
+    "year_start": 1870,
+    "year_end": 1917,
+    "photo": {
+      "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+      "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+      "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "year": 2012
+    }
+  },
+  {
+    "id": "sassafras-ridge-15fu3-fulton-1000-1500",
+    "name": "Sassafras Ridge (15Fu3), Fulton County (approximate)",
+    "subtitle": "Fulton County · Mississippian mound center · ~AD 1000–1500 · address restricted",
+    "latitude": 36.6,
+    "longitude": -89.2,
+    "history": "Sassafras Ridge (site 15Fu3) is a Mississippian mound center in Fulton County, in the far western corner of Kentucky near the Mississippi River. The National Register of Historic Places lists periods of significance reaching back to AD 0, with the Mississippian centuries of AD 1000–1499 the latest. Mississippian is the name archaeologists give a way of life, not a tribe, and the people who lived here left no name for themselves that has come down to us.\n\nMississippian towns were built by farming communities that grew corn and raised earthen platform mounds around open plazas. Archaeologist R. Barry Lewis studied Sassafras Ridge with its neighbors the Adams site and Wickliffe Mounds in a 1986 report for the Kentucky Heritage Council. He treated the three as a group of towns along the western Kentucky border.\n\nThe site is listed on the National Register for what it can still teach, and its exact location is restricted to protect it from looting. Our map pin is rounded to about 10 kilometers. Please do not go looking for it; the site is not open to the public.\n\nA 2019 federal notice covered a fragment of human bone picked up from the mound’s surface in 1978. Western Kentucky University found no cultural affiliation with any present-day tribe, which is a reminder that the people of Mississippian towns cannot be matched to a single modern nation.\n\n## Kentucky today\n\nVisitors can see a Mississippian town of the same era at Wickliffe Mounds State Historic Site in Ballard County. Fulton County later became part of the Jackson Purchase, bought from the Chickasaw in 1818, centuries after Sassafras Ridge was abandoned.",
+    "source_date": "2026-10-13",
+    "geocode_source": "generalized-fulton-county",
+    "geocode_note": "Generalized to 0.1° (36.6, -89.2) in Fulton County near Hickman; exact site location is address-restricted and not published. Occupation years AD 1000–1500 (NRHP period of significance), not survey dates.",
+    "category": "archaeology",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/84000285",
+    "year_start": 1000,
+    "year_end": 1500,
+    "photo": {
+      "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+      "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2008
     }
   }
 ]
