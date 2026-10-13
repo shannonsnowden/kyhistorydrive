@@ -2,6 +2,9 @@
 
 One shared strategy for every bot that works on kyhistorydrive.com (repo `shannonsnowden/kyhistorydrive`, deployed from `main` by AWS Amplify). Status: draft, October 2026. Facts below come from the repo and the live site.
 
+## Mission
+Our mission: get people interested in Kentucky history, show them where it happened on the map, and help them plan a drive to go see the historic sites. Every feature and story decision serves that path from story to place to drive. For example, story links open with the map visible on the story's pin, and each story points to a nearby drive.
+
 ## Audience
 Kentuckians, road-trippers and history readers who want to know what happened where they are standing. Many read on a phone in the car or at a marker, so mobile comes first.
 
