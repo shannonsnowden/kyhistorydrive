@@ -157,12 +157,6 @@ const MANUAL_OVERRIDES = {
     lon: -85.3441,
     confidence: 'override',
   },
-  'springfield-first-county-seat-after-statehood': {
-    matchName: 'Springfield',
-    lat: 37.6853,
-    lon: -85.2222,
-    confidence: 'override',
-  },
   'bland-w-ballard-of-tick-creek': {
     matchName: 'Bland W. Ballard / Tyler Station',
     lat: 38.2143528,
@@ -201,6 +195,9 @@ const MANUAL_OVERRIDES = {
   // ceded tract (outside it), so the fuzzy Falls/Clarksville pin was misleading. No History pin
   // exists for the Piankashaw; leave the story unpinned (empty override = no place match).
   'piankashaw-claims-on-the-ohio-wabash': {},
+  // Tutelo: the body names Lower Shawneetown only as a mixed town where Henderson (1992) lists
+  // Tutelo among residents; a Tutelo pin there would imply a Tutelo village in Kentucky. Unpinned.
+  'tutelo-the-totteroy': {},
   // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
   'col-john-todd-of-lexington': {
     matchName: 'Col. John Todd of Lexington',
@@ -218,12 +215,6 @@ const MANUAL_OVERRIDES = {
     matchName: 'Newt Kash Hollow (15Mf1)',
     lat: 37.9,
     lon: -83.6,
-    confidence: 'override',
-  },
-  'muir-site-15js86': {
-    matchName: 'Muir Site (15Js86)',
-    lat: 37.9,
-    lon: -84.6,
     confidence: 'override',
   },
   // Sep 16 — use iOS pin coords; leave Illinois Confederation unpinned (Cahokia)

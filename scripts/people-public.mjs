@@ -50,6 +50,7 @@ export const AI_IDS = [
   'john-bradford',
   'moluntha',
   'robert-johnson',
+  'hugh-mcgary',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
