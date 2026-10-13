@@ -222,9 +222,13 @@ export function storyPortraitHtml(person) {
   if (!person || !hasSafePortrait(person)) return ''
   const aiCredit = person.credit || 'Kentucky History Drive'
   const credit = person.ai ? (/^AI illustration\b/i.test(aiCredit) ? aiCredit : `AI illustration · ${aiCredit}`) : creditWithCaption(person, person.credit || '')
+  // Let the credit wrap inside the portrait block, breaking after 'Drive;' rather than mid-note.
+  const note = '; no known likeness exists'
+  const creditText = (text) =>
+    text.endsWith(note) ? `${esc(text.slice(0, -note.length))}; <span class="story-portrait-note">no known likeness exists</span>` : esc(text)
   const creditHtml = /^https:\/\//i.test(person.creditUrl || '')
     ? `<a href="${esc(person.creditUrl)}" target="_blank" rel="noopener noreferrer">${esc(credit)}<span class="visually-hidden"> (opens in a new tab)</span></a>`
-    : esc(credit)
+    : creditText(credit)
   return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" loading="lazy" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${creditHtml}</span></figcaption></figure>`
 }
 

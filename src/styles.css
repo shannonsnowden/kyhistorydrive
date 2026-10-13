@@ -5345,3 +5345,10 @@ html[data-hp-theme="light"] .hp-plan-drive {
 .story-photo-credit .photo-license { white-space: nowrap; }
 /* Sidebar credit links are inline text links: no padded tap box, so no gap before the period (' .'). */
 .story-sidebar-photo-attr.story-photo-credit a { display: inline; min-height: 0; padding: 0; }
+/* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
+   caption above); the 'no known likeness exists' note stays on its own unbroken line. */
+@container (max-width: 559.98px) {
+  .story-portrait figcaption { width: auto; max-width: 100%; left: 0; transform: none; overflow-wrap: anywhere; }
+}
+.story-portrait-note { white-space: nowrap; }
+
