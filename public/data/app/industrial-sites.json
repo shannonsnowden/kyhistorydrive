@@ -629,7 +629,7 @@
     "website": "https://www.bagdadrollermillsfeed.com/",
     "sources": [
       "https://www.bagdadrollermillsfeed.com/",
-      "http://towns-and-nature.blogspot.com/2026/06/bagdad-ky-1884-bagdad-roller-mills-feed.html"
+      "https://towns-and-nature.blogspot.com/2026/06/bagdad-ky-1884-bagdad-roller-mills-feed.html"
     ],
     "geocode_source": "photon",
     "nrhp": false,
@@ -736,7 +736,7 @@
     "city": "Bowling Green",
     "county": "Warren",
     "address": "401 Kentucky St, Bowling Green, KY 42101",
-    "latitude": 37.0,
+    "latitude": 37,
     "longitude": -86.43806,
     "industry_type": "railroad_depot",
     "built_year": 1925,

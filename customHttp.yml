@@ -1,7 +1,56 @@
-# Amplify custom headers (repo root). Overrides the default 1-year CloudFront
-# cache so iOS data_version bumps are visible soon after deploy.
-# https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
+# Amplify custom headers. This is the only copy. Amplify Hosting applies
+# customHttp.yml at the CloudFront edge and it overrides the console.
+# Do not copy this list into amplify.yml. That file keeps the /about 301
+# with the other rewrites. See docs/SECURITY-HEADERS.md.
+#
+# Security headers are repeated on every pattern. A more specific pattern is
+# its own CloudFront behavior and does not inherit the '**' pattern.
 customHeaders:
+  - pattern: '**'
+    headers:
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  # Drive pages and the planner offer an opt-in "Use my location" button, so geolocation is
+  # allowed for this site's own pages here only. Everywhere else it stays off.
+  - pattern: '/drives/**'
+    headers:
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(self), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  # The bare index path, in case '**' does not match it.
+  - pattern: '/drives/'
+    headers:
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(self), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/data/app/*.json'
     headers:
       - key: 'Cache-Control'
@@ -12,36 +61,321 @@ customHeaders:
         value: 'GET, HEAD, OPTIONS'
       - key: 'Content-Type'
         value: 'application/json; charset=utf-8'
-  # ads.txt is a static file (public/ads.txt). Pin text/plain so a missing
-  # console MIME guess cannot serve it as HTML. This is not a rewrite.
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/ads.txt'
     headers:
       - key: 'Content-Type'
         value: 'text/plain'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/robots.txt'
     headers:
       - key: 'Content-Type'
         value: 'text/plain; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/sitemap.xml'
     headers:
       - key: 'Content-Type'
         value: 'application/xml; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  - pattern: '/sitemap-videos.xml'
+    headers:
+      - key: 'Content-Type'
+        value: 'application/xml; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  - pattern: '/feed.xml'
+    headers:
+      - key: 'Content-Type'
+        value: 'application/rss+xml; charset=utf-8'
+      - key: 'Cache-Control'
+        value: 'public, max-age=300, must-revalidate'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/privacy'
     headers:
       - key: 'Content-Type'
         value: 'text/html; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/privacy/'
     headers:
       - key: 'Content-Type'
         value: 'text/html; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/about'
     headers:
       - key: 'Content-Type'
         value: 'text/html; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
   - pattern: '/about/'
     headers:
       - key: 'Content-Type'
         value: 'text/html; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  - pattern: '/videos'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/html; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  - pattern: '/videos/'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/html; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  - pattern: '/content/captions/**/*.vtt'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/vtt; charset=utf-8'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+  # Unhashed data and route downloads. A specific pattern does not inherit
+  # '**', so each block repeats the six security headers. Hashed /assets/*
+  # keep Amplify's one-year immutable cache. /data/app/*.json keeps the
+  # shorter rule above. The published feed is /feed.xml (cache set on that
+  # pattern). /layers/history/feed.xml and /layers/good-eats/feed.xml are
+  # not written.
+  - pattern: '/data/layers/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=300, must-revalidate'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+  - pattern: '/data/web/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=300, must-revalidate'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+  - pattern: '/data/*'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=300, must-revalidate'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+  - pattern: '/maps/routes/**/*.gpx'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=300, must-revalidate'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+  - pattern: '/maps/routes/**/*.kml'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=300, must-revalidate'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+  - pattern: '/maps/routes/**/*.geojson'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=300, must-revalidate'
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+      - key: 'Content-Security-Policy-Report-Only'
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
   # /content/photos/* is not given Cache-Control: immutable.
   # Those names are the story slug (stories/<slug>.jpg and
   # opt/stories/<slug>-<width>.avif), not a content hash. Replacing a

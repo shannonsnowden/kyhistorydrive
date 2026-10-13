@@ -1,16 +1,37 @@
-import maplibregl from 'maplibre-gl'
+import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+
+// Vite bundles this module, so import.meta.url no longer points at maplibre-gl.mjs.
+// The worker has to be set before the first Map (MapLibre GL JS 6, bundler installs).
+maplibregl.setWorkerUrl(maplibreWorkerUrl)
 import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
-import { loadRelatedPeople, relatedBlockHtml, linkPeopleInBody } from './related-people.js'
+import { loadStoryPeople, applyStoryPeople } from './story-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
+import { initTimelineReading } from './timeline-reading.js'
+import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
-import { photoCreditHtml } from './photo-credit.js'
 import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
+import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
+import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
+import {
+  citeBoxHtml,
+  correctionHtml,
+  learnMoreBlockHtml,
+  markerRecords,
+  photoCreditHtml,
+  photoCaptionYear,
+  relatedAndNearbyForStory,
+  resolveArticleDates,
+  storyCanonicalUrl,
+  wireCiteBoxes,
+} from './story-tools.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -32,32 +53,89 @@ import {
   CULTURE_EDGE,
 } from './territory.js'
 
-/** CARTO Voyager raster (OSM data). Requires VITE_CARTO_API_KEY at build time. */
+/**
+ * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
+ * build time and which is never committed. Since 25 Sep 2026 a raster request
+ * without a key is the "API KEY REQUIRED" placeholder, not a map.
+ * Vector Voyager (basemaps.cartocdn.com/gl/voyager-gl-style) still loads with
+ * no key, so dev and preview use that and screenshots stay clean.
+ */
 const CARTO_KEY = (import.meta.env.VITE_CARTO_API_KEY || '').trim()
-const cartoTile = (host) => {
-  const base = `https://${host}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png`
-  return CARTO_KEY ? `${base}?key=${encodeURIComponent(CARTO_KEY)}` : base
-}
+const CARTO_VECTOR_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json'
 
-const OSM_STYLE = {
-  version: 8,
-  name: 'OSM Voyager',
-  sources: {
-    osm: {
-      type: 'raster',
-      tiles: [cartoTile('a'), cartoTile('b'), cartoTile('c')],
-      tileSize: 256,
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+function cartoRasterStyle(key) {
+  const tile = (host) =>
+    `https://${host}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png?key=${encodeURIComponent(key)}`
+  return {
+    version: 8,
+    name: 'OSM Voyager',
+    sources: {
+      osm: {
+        type: 'raster',
+        tiles: [tile('a'), tile('b'), tile('c')],
+        tileSize: 256,
+      },
     },
-  },
-  layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
+    layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
+  }
 }
 
+const OSM_STYLE = CARTO_KEY ? cartoRasterStyle(CARTO_KEY) : CARTO_VECTOR_STYLE
+
+/**
+ * Map credits. MapLibre writes attribution from style and tile metadata as HTML
+ * (CVE-2026-85061, fixed in 6.4.1). Keep credits on this local string anyway:
+ * source metadata is cleared before the control reads it, so a remote style
+ * cannot supply the markup.
+ */
+const MAP_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>'
+
+function stripSourceAttributions(mapInstance) {
+  let sources
+  try {
+    sources = mapInstance.getStyle()?.sources
+  } catch {
+    return
+  }
+  if (!sources) return
+  for (const id of Object.keys(sources)) {
+    const source = mapInstance.getSource(id)
+    if (source && source.attribution) source.attribution = ''
+  }
+}
+
+function attachFixedAttribution(mapInstance) {
+  const scrub = () => stripSourceAttributions(mapInstance)
+  // Register before AttributionControl so metadata events clear source
+  // credits before the control copies them into innerHTML.
+  mapInstance.on('styledata', scrub)
+  mapInstance.on('sourcedata', scrub)
+  mapInstance.on('load', scrub)
+  scrub()
+  mapInstance.addControl(
+    new maplibregl.AttributionControl({
+      customAttribution: MAP_ATTRIBUTION,
+      compact: false,
+    }),
+  )
+}
 
 // Statewide Kentucky (not Bagdad close-up)
 const CENTER = [-85.76, 37.84]
 const START_ZOOM = 6.4
+
+function createBasemap(container) {
+  const mapInstance = new maplibregl.Map({
+    container,
+    style: OSM_STYLE,
+    center: CENTER,
+    zoom: START_ZOOM,
+    attributionControl: false,
+  })
+  attachFixedAttribution(mapInstance)
+  return mapInstance
+}
 const KY_BOUNDS = [
   [-89.58, 36.5], // SW
   [-81.97, 39.15], // NE
@@ -194,7 +272,7 @@ const DATA_LAYERS = [
   },
   {
     // Web-only layer (public/data/layers/caves.geojson, hand-curated, not OTA).
-    // Public show/historic caves plus county-centre markers; never wild cave locations.
+    // Public show/historic caves plus county-center markers; never wild cave locations.
     id: 'caves',
     label: 'Caves',
     icon: { type: 'emoji', glyph: '🦇' },
@@ -203,6 +281,17 @@ const DATA_LAYERS = [
     geojson: '/data/layers/caves.geojson',
     yearFilter: false,
     note: 'Public show caves are pinned. Other caves appear only by county, to protect them.',
+    // County markers draw as hollow rings so they never read as a cave pin.
+    ringKind: 'county',
+    legend: [
+      { ring: false, text: 'Public cave (exact location)' },
+      { ring: true, text: 'County with caves (not a cave location)' },
+    ],
+    statsText: (features) => {
+      const counties = features.filter((f) => f.properties?.kind === 'county').length
+      const pub = features.length - counties
+      return `${pub} public cave${pub === 1 ? '' : 's'} · ${counties} counties with caves`
+    },
   },
 ]
 
@@ -295,13 +384,6 @@ function storyShareHash(slug) {
 }
 
 const STORY_MAP_LAYERS = new Set(['stories', 'story', 'timeline'])
-
-/** Home-map deep link for a story that already has a pin. Never invents coordinates. */
-function storyPlaceHash({ historyId, slug, lat, lon } = {}) {
-  if (historyId) return `#map/history/${encodeURIComponent(historyId)}`
-  if (lat != null && lon != null && slug) return `#map/stories/${encodeURIComponent(slug)}`
-  return null
-}
 
 let storiesLocationsCache = null
 async function loadStoriesLocations() {
@@ -476,6 +558,10 @@ function parseHash() {
     return { view: 'map', placeLayer, placeId }
   }
   if (path === 'resources') return { view: 'resources' }
+  if (path === 'transport') {
+    const year = rest[0] != null && rest[0] !== '' ? Number(decodeURIComponent(rest[0])) : null
+    return { view: 'transport', year: Number.isFinite(year) ? year : null }
+  }
   if (['about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
@@ -670,7 +756,9 @@ function applyFiltersToMapInstance(targetMap) {
     const base = onTimeline ? buildTimelineMapFilter(def) : null
     const filter = base ? ['all', base, crossFilter] : crossFilter
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
-      if (targetMap.getLayer(lid)) targetMap.setFilter(lid, filter)
+      if (!targetMap.getLayer(lid)) continue
+      const offsetOnly = def.ringKind && lid === layerSymbolId(def.id)
+      targetMap.setFilter(lid, offsetOnly ? ['all', ['has', 'display_offset'], filter] : filter)
     }
   }
   for (const lid of ['stories-circle', 'stories-hit', 'stories-highlight']) {
@@ -921,9 +1009,9 @@ function collectResearchItems(linkList, extra = {}) {
     const normalized = normalizeResearchUrl(url)
     if (!normalized || isGrokipediaUrl(normalized) || seenUrl.has(normalized)) return
     seenUrl.add(normalized)
-    items.push({ label: labelForResearchUrl(normalized, label), url: normalized })
+    items.push({ label: labelForResearchUrl(normalized, label), linkText: label, url: normalized })
   }
-  for (const l of linkList || []) add(l.label, l.url)
+  for (const l of linkList || []) add(l.linkText || l.label, l.url)
   add('Kentucky Historical Society', extra.source_url)
   add('Website', extra.website)
 
@@ -950,7 +1038,7 @@ function extractResearchLinks(markdown) {
     const normalized = normalizeResearchUrl(url)
     if (!normalized || isGrokipediaUrl(normalized) || seen.has(normalized)) return
     seen.add(normalized)
-    links.push({ label: labelForResearchUrl(normalized, label), url: normalized })
+    links.push({ label: labelForResearchUrl(normalized, label), linkText: label, url: normalized })
   }
   for (const link of extractMarkdownLinks(markdown)) add(link.label, link.url)
   for (const url of extractBareHttpUrls(markdown)) {
@@ -1067,14 +1155,21 @@ function photosHtml(photos) {
     .map((p) => {
       const title = escapeHtml(p.title || 'Historic photo')
       const year = p.year ? escapeHtml(String(p.year)) : ''
-      const credit = photoCreditHtml(p)
       const href = escapeHtml(p.source_url || p.image_url)
       const img = escapeHtml(p.image_url)
-      return `<a class="historic-photo-card" href="${href}" target="_blank" rel="noopener noreferrer">
-        <img src="${img}" alt="${title}" loading="lazy" />
-        <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
-        ${credit ? `<span class="historic-photo-attr">Source: ${credit}</span>` : ''}
-      </a>`
+      const creditLine = photoCreditHtml(p, { block: false })
+      const label = escapeHtml(
+        `Open ${p.source_label || p.source || p.credit || 'photo source'}: ${p.title || 'historic photo'} (opens in a new tab)`,
+      )
+      return `<figure class="historic-photo-card">
+        <a href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}">
+          <img src="${img}" alt="${title}" loading="lazy" />
+        </a>
+        <figcaption>
+          <span class="historic-photo-cap">${title}${year ? ` · ${year}` : ''}</span>
+          ${creditLine}
+        </figcaption>
+      </figure>`
     })
     .join('')
   return `<div class="historic-photos"><div class="historic-photos-label">Historic photos</div><div class="historic-photos-grid">${cards}</div></div>`
@@ -1091,15 +1186,7 @@ function researchLinksHtml(links, title, extra = {}) {
     return !(fam && alreadyFamilies.has(fam))
   })
   if (!items.length) return ''
-  return `<div class="popup-research">
-    <div class="historic-photos-label">Learn more</div>
-    <ul class="research-list">${items
-      .map(
-        (l) =>
-          `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a></li>`,
-      )
-      .join('')}</ul>
-  </div>`
+  return learnMoreBlockHtml(items, { storyTitle: title || '' })
 }
 
 
@@ -1163,9 +1250,13 @@ function wikipediaTitleFromUrl(url) {
 }
 
 function stripHtmlCredits(html) {
-  return String(html || '')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
+  let text = String(html || '').replace(/<br\s*\/?>/gi, ' ')
+  let prev
+  do {
+    prev = text
+    text = text.replace(/<[^>]+>/g, '')
+  } while (text !== prev)
+  return text
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
@@ -1460,12 +1551,10 @@ async function resolveStorySidebarPhoto({
   }
 }
 
-function storySidebarPhotoHtml(photo, title) {
+function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
-  const sourceLabel = escapeHtml(photo.source_label || photo.credit || '')
-  const attribution = photoCreditHtml(photo)
-  const year = photo.year ? escapeHtml(String(photo.year)) : ''
+  const year = escapeHtml(photoCaptionYear(photo))
 
   const bits = [
     photo.google_url && `<a href="${escapeHtml(photo.google_url)}" target="_blank" rel="noopener noreferrer">Google</a>`,
@@ -1494,15 +1583,16 @@ function storySidebarPhotoHtml(photo, title) {
     const img = responsivePicture({
       src: photo.image_url,
       alt: photo.title || title || 'Related photo',
-      loading: 'eager',
-      fetchPriority: 'high',
+      loading: priority ? 'eager' : 'lazy',
+      fetchPriority: priority ? 'high' : '',
+      dataLcp: priority,
       sizes: '(max-width: 600px) 100vw, 220px',
     })
-    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
+    thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
-      <p class="story-sidebar-photo-attr"><span class="story-photo-source-label">Source:</span> ${attribution || sourceLabel || 'Unknown'}</p>`
+      ${photoCreditHtml(photo)}`
   } else {
     thumb = `<p class="story-sidebar-photo-attr muted">No matching thumbnail yet — use a source link above.</p>`
   }
@@ -1543,6 +1633,8 @@ function placeDetailExtrasHtml({
 }
 
 
+loadProtectedPins()
+
 function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   const name = p.name || p.title || 'Untitled'
   const metaBits = []
@@ -1558,6 +1650,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   if (p.category) metaBits.push(p.category)
   if (p.war) metaBits.push(p.war)
   const desc = stripSourceAttribution(p.inscription || p.history || p.description || p.location_text || '')
+  const descHtml = popupParagraphsHtml(desc)
   const href = p.source_url || p.website || null
   const linkLabel = p.source_url ? 'history.ky.gov' : isWikipediaUrl(href) ? 'Wikipedia' : 'Website'
   // Research URLs also appear under Learn more — don't show the same link twice.
@@ -1567,7 +1660,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
       : ''
   let lat = null
   let lon = null
-  // County cave markers sit at a county centre, not a cave: no directions links.
+  // County cave markers sit at a county center, not a cave: no directions links.
   if (p.kind === 'county') coords = null
   if (p.kind === 'county') {
     /* fall through with no lat/lon */
@@ -1609,9 +1702,10 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     <div class="map-popup">
       <div class="detail-layer">${escapeHtml(layerLabel)}</div>
       <h3>${escapeHtml(name)}</h3>
+      ${protectedPinNoteHtml(p.historyId || p.id || p.slug)}
       <div class="meta">${escapeHtml(metaBits.filter(Boolean).join(' · '))}</div>
       ${shareControlHtml(shareUrl, name)}
-      ${desc ? `<div class="popup-full-text">${linkifyPlainUrls(escapeHtml(desc))}</div>` : ''}
+      ${descHtml}
       ${relatedHtml || ''}
       ${sourcesHtml}
       ${link}
@@ -1621,40 +1715,155 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
 }
 
 
+/** Paragraph breaks from the editor stay as separate paragraphs inside the card. */
+function popupParagraphsHtml(desc) {
+  const text = String(desc || '').trim()
+  if (!text) return ''
+  const blocks = text.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean)
+  const paragraphs = (blocks.length ? blocks : [text]).map((block) => {
+    const html = linkifyPlainUrls(escapeHtml(block)).replace(/\n/g, '<br>')
+    return `<p>${html}</p>`
+  })
+  return `<div class="popup-full-text">${paragraphs.join('')}</div>`
+}
+
+function lngLatPair(lngLat) {
+  if (Array.isArray(lngLat)) return [Number(lngLat[0]), Number(lngLat[1])]
+  return [Number(lngLat.lng ?? lngLat.lon), Number(lngLat.lat)]
+}
+
+function waitForCamera(targetMap, timeout = 4000) {
+  return new Promise((resolve) => {
+    if (!targetMap?.isMoving?.()) {
+      resolve()
+      return
+    }
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      targetMap.off('moveend', finish)
+      resolve()
+    }
+    targetMap.once('moveend', finish)
+    setTimeout(finish, timeout)
+  })
+}
+
+/**
+ * Wide maps: park the pin near the top so the card opens under it and related
+ * stories stay inside the map. Narrow maps: park the pin in the lower third so
+ * the card opens above with room to scroll, and slide sideways so a centered
+ * card does not run off the left or right edge.
+ */
+async function nudgeCameraForPopup(targetMap, lngLat) {
+  if (!targetMap?.project || !targetMap.getContainer?.() || !lngLat) return
+  // A deep-link easeTo may still be queued; wait until the camera is quiet.
+  await waitForCamera(targetMap)
+  if (targetMap.isMoving?.()) await waitForCamera(targetMap)
+  else await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))
+  if (targetMap.isMoving?.()) await waitForCamera(targetMap)
+  const el = targetMap.getContainer()
+  const w = el.clientWidth
+  const h = el.clientHeight
+  if (!w || !h) return
+  const pt = targetMap.project(lngLatPair(lngLat))
+  let dx = 0
+  let dy = 0
+  if (w >= 700 && h >= 420) {
+    const targetY = Math.round(Math.min(112, Math.max(72, h * 0.16)))
+    if (pt.y > targetY + 28) dy = pt.y - targetY
+  } else if (w < 700) {
+    // Lower third: more space above the pin for the scrollable card body.
+    const targetY = Math.round(Math.min(h - 56, h * 0.68))
+    if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
+  }
+  if (w < 760) {
+    const boxW = Math.min(460, Math.max(200, w - 16))
+    const left = pt.x - boxW / 2
+    const right = left + boxW
+    if (left < 8) dx = left - 8
+    else if (right > w - 8) dx = right - (w - 8)
+  }
+  if (!dx && !dy) return
+  const c = targetMap.project(targetMap.getCenter())
+  const next = targetMap.unproject([c.x + dx, c.y + dy])
+  await new Promise((resolve) => {
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      targetMap.off('moveend', finish)
+      resolve()
+    }
+    targetMap.once('moveend', finish)
+    targetMap.easeTo({ center: next, duration: 280, essential: true })
+    setTimeout(finish, 800)
+  })
+}
+
 /** Pick popup anchor + max height so content stays inside the map canvas. */
 function popupPlacement(targetMap, lngLat) {
   const el = targetMap?.getContainer?.()
   if (!el || !lngLat) {
-    return { anchor: 'bottom', maxHeightPx: 420, maxWidth: 'min(92vw, 480px)' }
+    return { anchor: 'top', maxHeightPx: 420, maxWidth: '440px' }
   }
-  const pt = Array.isArray(lngLat)
-    ? targetMap.project(lngLat)
-    : targetMap.project([lngLat.lng ?? lngLat.lon, lngLat.lat])
+  const pt = targetMap.project(lngLatPair(lngLat))
   const w = el.clientWidth
   const h = el.clientHeight
-  const pad = 12
+  const pad = 10
+  const popupW = Math.min(460, Math.max(200, w - pad * 2))
   const spaceAbove = Math.max(0, pt.y - pad)
   const spaceBelow = Math.max(0, h - pt.y - pad)
-  const spaceLeft = Math.max(0, pt.x - pad)
-  const spaceRight = Math.max(0, w - pt.x - pad)
-
-  // Prefer the vertical side with more room (lower pins → open upward)
-  const openUp = spaceAbove >= spaceBelow
+  // Wide maps: after the top nudge the card opens below the pin. Narrow maps:
+  // prefer opening upward whenever space below is tight, so the scrollable card
+  // stays inside the canvas (Critiquito #213 phone cut-off).
+  const openUp = w >= 700
+    ? spaceBelow < 160 && spaceAbove > spaceBelow
+    : spaceBelow < 220 || spaceAbove > spaceBelow
   let anchor = openUp ? 'bottom' : 'top'
-  let avail = openUp ? spaceAbove : spaceBelow
-
-  // Nudge horizontally when near left/right edges
-  const nearLeft = spaceLeft < 140
-  const nearRight = spaceRight < 140
-  if (nearLeft && !nearRight) {
+  const half = popupW / 2
+  if (pt.x - half < pad && w - pt.x > pad + 160) {
     anchor = openUp ? 'bottom-left' : 'top-left'
-  } else if (nearRight && !nearLeft) {
+  } else if (pt.x + half > w - pad && pt.x > pad + 160) {
     anchor = openUp ? 'bottom-right' : 'top-right'
   }
+  const avail = openUp ? spaceAbove : spaceBelow
+  // Tip, offset, and a margin so the card stays inside the map, clear of the
+  // site header above the canvas and the footer below it.
+  const maxHeightPx = Math.max(w < 700 ? 96 : 120, Math.min(560, Math.floor(avail - 36)))
+  return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px` }
+}
 
-  // Leave room for tip + close control; keep a usable scroll area
-  const maxHeightPx = Math.max(140, Math.min(Math.floor(avail - 28), Math.floor(h * 0.72), 560))
-  return { anchor, maxHeightPx, maxWidth: 'min(92vw, 480px)' }
+function syncPopupFade(scroller) {
+  if (!scroller) return
+  const more = scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight > 12
+  scroller.closest('.ky-popup')?.classList.toggle('has-more', more)
+}
+
+/** If the card still sticks out of the map, shorten it or shift it back on screen. */
+function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
+  const mapRect = targetMap.getContainer().getBoundingClientRect()
+  const rect = popupEl.getBoundingClientRect()
+  let overflowY = 0
+  if (rect.bottom > mapRect.bottom - 6) overflowY = Math.max(overflowY, rect.bottom - (mapRect.bottom - 6))
+  if (rect.top < mapRect.top + 6) overflowY = Math.max(overflowY, mapRect.top + 6 - rect.top)
+  if (overflowY > 1 && scroller) {
+    // Allow a shorter card on phones so the body can scroll inside the canvas
+    // instead of clipping mid-sentence at the map edge.
+    const next = Math.max(88, Math.floor(scroller.clientHeight - overflowY - 2))
+    scroller.style.maxHeight = `${next}px`
+  }
+  const again = popupEl.getBoundingClientRect()
+  let shiftX = 0
+  if (again.left < mapRect.left + 4) shiftX = mapRect.left + 4 - again.left
+  else if (again.right > mapRect.right - 4) shiftX = mapRect.right - 4 - again.right
+  if (shiftX && popup?.setOffset) {
+    const current = popup.getOffset?.()
+    const ox = current && typeof current.x === 'number' ? current.x : 0
+    const oy = current && typeof current.y === 'number' ? current.y : 14
+    popup.setOffset([ox + shiftX, oy])
+  }
 }
 
 let historyIdToSlugCache = null
@@ -1682,9 +1891,10 @@ async function slugForPlaceProps(props) {
 async function popupRelatedHtml(props) {
   const slug = await slugForPlaceProps(props)
   if (!slug) return ''
-  const [relatedData, idx] = await Promise.all([loadRelatedPeople(), loadStories()])
+  const [relatedData, idx, publicPeople] = await Promise.all([loadRelatedPeople(), loadStories(), loadPublicPeople()])
   const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
-  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH')
+  const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits })
 }
 
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
@@ -1720,6 +1930,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (targetMap === map && shareHash.startsWith('#map/')) {
     history.replaceState(null, '', shareHash)
   }
+  await nudgeCameraForPopup(targetMap, coords)
   const place = popupPlacement(targetMap, coords)
   activePopup = new maplibregl.Popup({
     closeButton: true,
@@ -1745,10 +1956,33 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     /* related links are optional */
   }
   const content = popupEl?.querySelector('.maplibregl-popup-content')
-  if (content) {
-    content.style.maxHeight = `${place.maxHeightPx}px`
-    content.style.overflowY = 'auto'
-    content.style.webkitOverflowScrolling = 'touch'
+  const scroller = popupEl?.querySelector('.map-popup')
+  if (scroller) {
+    let maxH = place.maxHeightPx
+    if (content) {
+      const cs = getComputedStyle(content)
+      const chrome =
+        (parseFloat(cs.paddingTop) || 0) +
+        (parseFloat(cs.paddingBottom) || 0) +
+        (parseFloat(cs.borderTopWidth) || 0) +
+        (parseFloat(cs.borderBottomWidth) || 0)
+      maxH = Math.max(place.maxHeightPx < 120 ? 88 : 120, Math.floor(place.maxHeightPx - chrome))
+      // Explicit "More" cue when the body scrolls (fade alone reads as a hard cut-off).
+      if (!content.querySelector('.popup-more-hint')) {
+        const hint = document.createElement('div')
+        hint.className = 'popup-more-hint'
+        hint.setAttribute('aria-hidden', 'true')
+        hint.innerHTML = '<span>More</span>'
+        content.appendChild(hint)
+      }
+    }
+    scroller.style.maxHeight = `${maxH}px`
+    scroller.addEventListener('scroll', () => syncPopupFade(scroller), { passive: true })
+    syncPopupFade(scroller)
+    requestAnimationFrame(() => {
+      fitPopupInsideMap(targetMap, activePopup, popupEl, scroller)
+      syncPopupFade(scroller)
+    })
   }
   wireShareButtons(popupEl)
   activePopup.on('close', () => {
@@ -1770,9 +2004,15 @@ function updateStats() {
     if (!src?._data?.features) continue
     // Don't count cross-listed copies hidden because their home layer is on.
     const n = src._data.features.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
+    if (def.statsText) {
+      bits.push(def.statsText(src._data.features))
+      continue
+    }
     bits.push(`${n.toLocaleString()} ${def.label}`)
   }
-  statsEl.textContent = bits.length ? `Showing ${bits.join(' · ')}` : 'No layers enabled'
+  // A layer with its own statsText reads as a full phrase ("8 public caves · 71 counties with caves").
+  const only = bits.length === 1 && DATA_LAYERS.find((d) => layerVisibility[d.id] && d.statsText)
+  statsEl.textContent = bits.length ? (only ? bits[0] : `Showing ${bits.join(' · ')}`) : 'No layers enabled'
 }
 
 function renderLayerToggles() {
@@ -1790,7 +2030,13 @@ function renderLayerToggles() {
       ${icon}
       <span>${escapeHtml(l.label)}</span>
       <span class="swatch" style="background:${l.color}"></span>
-    </label>${noteId ? `<p class="layer-note muted" id="${noteId}">${escapeHtml(l.note)}</p>` : ''}`
+    </label>${noteId ? `<p class="layer-note muted" id="${noteId}">${escapeHtml(l.note)}</p>` : ''}${
+      l.legend
+        ? `<ul class="layer-legend" aria-label="${escapeHtml(l.label)} key">${l.legend
+            .map((k) => `<li><span class="layer-legend-dot${k.ring ? ' ring' : ''}" style="--c:${l.color}" aria-hidden="true"></span>${escapeHtml(k.text)}</li>`)
+            .join('')}</ul>`
+        : ''
+    }`
   }).join('')
 
   box.addEventListener('change', (e) => {
@@ -1806,6 +2052,48 @@ function renderLayerToggles() {
       if (input) input.checked = on
       setLayerVisible(def.id, on)
     }
+  })
+}
+
+// Tight clusters (e.g. the caves around Mammoth Cave) overlap at state zoom. Features with a
+// display_offset [dx, dy] (px) are nudged apart by a symbol layer until OFFSET_MAXZOOM, where
+// they separate on their own; the real coordinates (popups, directions) never change.
+const OFFSET_MAXZOOM = 10.5
+function dotImage(color, ring) {
+  const r = 2 // pixel ratio
+  const size = 14 * r
+  const c = document.createElement('canvas')
+  c.width = c.height = size
+  const g = c.getContext('2d')
+  g.beginPath()
+  g.arc(size / 2, size / 2, ring ? 5.2 * r : 5.5 * r, 0, Math.PI * 2)
+  g.fillStyle = ring ? 'rgba(243,234,216,0.55)' : color
+  g.globalAlpha = ring ? 1 : 0.95
+  g.fill()
+  g.globalAlpha = 1
+  g.lineWidth = (ring ? 2.5 : 1.5) * r
+  g.strokeStyle = ring ? color : '#f3ead8'
+  g.stroke()
+  return { width: size, height: size, data: g.getImageData(0, 0, size, size).data }
+}
+function addOffsetDotLayer(targetMap, def, vis) {
+  const solid = `${def.id}-dot-solid`
+  const ring = `${def.id}-dot-ring`
+  if (!targetMap.hasImage(solid)) targetMap.addImage(solid, dotImage(def.color, false), { pixelRatio: 2 })
+  if (!targetMap.hasImage(ring)) targetMap.addImage(ring, dotImage(def.color, true), { pixelRatio: 2 })
+  targetMap.addLayer({
+    id: layerSymbolId(def.id),
+    type: 'symbol',
+    source: def.id,
+    maxzoom: OFFSET_MAXZOOM,
+    filter: ['has', 'display_offset'],
+    layout: {
+      visibility: vis,
+      'icon-image': ['case', ['==', ['get', 'kind'], def.ringKind], ring, solid],
+      'icon-offset': ['get', 'display_offset'],
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+    },
   })
 }
 
@@ -1839,14 +2127,29 @@ async function addDataLayerOn(targetMap, def, visMap) {
       type: 'circle',
       source: def.id,
       layout: { visibility: vis },
-      paint: {
-        'circle-radius': circleRadius,
-        'circle-color': def.color,
-        'circle-stroke-width': 1.5,
-        'circle-stroke-color': '#f3ead8',
-        'circle-opacity': 0.95,
-      },
+      paint: def.ringKind
+        ? (() => {
+            const ring = ['==', ['get', 'kind'], def.ringKind]
+            // Features with display_offset are drawn by the offset symbol layer below zoom 10.5.
+            const offsetHidden = (v) => ['step', ['zoom'], ['case', ['has', 'display_offset'], 0, v], OFFSET_MAXZOOM, v]
+            return {
+              'circle-radius': circleRadius,
+              'circle-color': ['case', ring, '#f3ead8', def.color],
+              'circle-stroke-width': ['case', ring, 2.5, 1.5],
+              'circle-stroke-color': ['case', ring, def.color, '#f3ead8'],
+              'circle-opacity': offsetHidden(['case', ring, 0.55, 0.95]),
+              'circle-stroke-opacity': offsetHidden(1),
+            }
+          })()
+        : {
+            'circle-radius': circleRadius,
+            'circle-color': def.color,
+            'circle-stroke-width': 1.5,
+            'circle-stroke-color': '#f3ead8',
+            'circle-opacity': 0.95,
+          },
     })
+    if (def.ringKind) addOffsetDotLayer(targetMap, def, vis)
     targetMap.addLayer({
       id: layerHitId(def.id),
       type: 'circle',
@@ -1894,6 +2197,7 @@ function fitMapToKentucky(targetMap = map, opts = {}) {
 
 function flyToFocus(targetMap, focus, zoom = 12) {
   if (!targetMap || !focus || focus.lon == null || focus.lat == null) return
+  zoom = capProtectedZoom(zoom, focus.historyId, focus.slug, focus.id)
   // Skip no-op flies (filter re-renders used to re-call this and race on iPad Safari)
   try {
     const curZoom = targetMap.getZoom()
@@ -1911,6 +2215,39 @@ function flyToFocus(targetMap, focus, zoom = 12) {
   targetMap.flyTo({ center: [focus.lon, focus.lat], zoom, essential: true })
 }
 
+/** Keep the selected pin above basemap labels and every other pin layer. */
+function raiseHighlightLayers(targetMap) {
+  for (const id of ['highlight-glow', 'highlight-core', 'highlight-hit']) {
+    if (targetMap.getLayer(id)) targetMap.moveLayer(id)
+  }
+}
+
+/** Gentle pulse on the selected pin's ring; still under prefers-reduced-motion. */
+const pulsingMaps = new WeakSet()
+function startHighlightPulse(targetMap) {
+  if (pulsingMaps.has(targetMap)) return
+  pulsingMaps.add(targetMap)
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const t0 = performance.now()
+  const tick = (now) => {
+    if (!targetMap.getLayer('highlight-glow')) return
+    if (!targetMap.__khdHighlightOn) {
+      window.setTimeout(() => requestAnimationFrame(tick), 500)
+      return
+    }
+    if (mq.matches) {
+      targetMap.setPaintProperty('highlight-glow', 'circle-radius', 20)
+      targetMap.setPaintProperty('highlight-glow', 'circle-opacity', 0.3)
+    } else {
+      const k = (Math.sin(((now - t0) / 1600) * Math.PI * 2) + 1) / 2
+      targetMap.setPaintProperty('highlight-glow', 'circle-radius', 18 + k * 8)
+      targetMap.setPaintProperty('highlight-glow', 'circle-opacity', 0.38 - k * 0.26)
+    }
+    window.setTimeout(() => requestAnimationFrame(tick), mq.matches ? 1000 : 50)
+  }
+  requestAnimationFrame(tick)
+}
+
 function ensureHighlightSource(targetMap, focus) {
   const data = {
     type: 'FeatureCollection',
@@ -1925,20 +2262,23 @@ function ensureHighlightSource(targetMap, focus) {
           ]
         : [],
   }
+  targetMap.__khdHighlightOn = data.features.length > 0
   if (targetMap.getSource('highlight')) {
     targetMap.getSource('highlight').setData(data)
+    raiseHighlightLayers(targetMap)
   } else {
     targetMap.addSource('highlight', { type: 'geojson', data })
+    // Selected story pin: solid site amber, ~28px, dark outline, soft pulse ring
     targetMap.addLayer({
       id: 'highlight-glow',
       type: 'circle',
       source: 'highlight',
       paint: {
-        'circle-radius': 18,
+        'circle-radius': 20,
         'circle-color': '#c9893a',
-        'circle-opacity': 0.25,
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#e8d5a8',
+        'circle-opacity': 0.3,
+        'circle-stroke-width': 0,
+        'circle-pitch-alignment': 'map',
       },
     })
     targetMap.addLayer({
@@ -1946,10 +2286,10 @@ function ensureHighlightSource(targetMap, focus) {
       type: 'circle',
       source: 'highlight',
       paint: {
-        'circle-radius': 7,
-        'circle-color': '#e8d5a8',
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#101812',
+        'circle-radius': 14,
+        'circle-color': '#c9893a',
+        'circle-stroke-width': 3,
+        'circle-stroke-color': '#1b140a',
       },
     })
     targetMap.addLayer({
@@ -1958,6 +2298,8 @@ function ensureHighlightSource(targetMap, focus) {
       source: 'highlight',
       paint: { 'circle-radius': 22, 'circle-opacity': 0 },
     })
+    raiseHighlightLayers(targetMap)
+    startHighlightPulse(targetMap)
     targetMap.on('mouseenter', 'highlight-hit', () => {
       targetMap.getCanvas().style.cursor = 'pointer'
     })
@@ -1994,8 +2336,32 @@ function noteMapIdle(mapInstance) {
   })
 }
 
+/** Keep the WebGL canvas matched to the grid cell after the controls column settles. */
+function bindMapResize(mapInstance) {
+  if (!mapInstance || mapInstance.__khdResizeObs) return
+  const el = mapInstance.getContainer?.()
+  if (!el || typeof ResizeObserver === 'undefined') return
+  let last = ''
+  const ro = new ResizeObserver(() => {
+    const w = el.clientWidth
+    const h = el.clientHeight
+    if (!w || !h) return
+    const key = `${w}x${h}`
+    if (key === last) return
+    last = key
+    try {
+      mapInstance.resize()
+    } catch {
+      /* map removed */
+    }
+  })
+  mapInstance.__khdResizeObs = ro
+  ro.observe(el)
+}
+
 function initMap() {
   if (map) {
+    bindMapResize(map)
     requestAnimationFrame(() => {
       map.resize()
       pendingFocus = null
@@ -2011,12 +2377,8 @@ function initMap() {
     return
   }
   renderLayerToggles()
-  map = new maplibregl.Map({
-    container: 'mapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  map = createBasemap('mapCanvas')
+  bindMapResize(map)
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
   noteMapIdle(map)
@@ -2095,6 +2457,7 @@ function initMap() {
     }
 
     applyMapFilters()
+    addProtectedPinLayers(map)
 
     mapReady = true
     syncAllLayersCheckbox()
@@ -2184,26 +2547,34 @@ function updateTimelineMapCounts() {
   const el = document.getElementById('timelineMapCounts')
   const meta = document.getElementById('timelineMapMeta')
   if (!el) return
-  if (!timelineMap || !timelineMapReady) {
+  // "All" is the unfiltered state: the map waits for an era or timeframe,
+  // so the "no places in this filter" line would be a false empty result.
+  if (!timelineMap || !timelineMapReady || !timelineHasActivePlaceFilter()) {
     el.textContent = ''
-    return
-  }
-  const bits = []
-  let total = 0
-  for (const def of DATA_LAYERS) {
-    if (!timelineLayerVisibility[def.id]) continue
-    const src = timelineMap.getSource(def.id)
-    const feats = src?._data?.features
-    if (!feats) continue
-    const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
-    if (n) {
-      bits.push(`${n.toLocaleString()} ${def.label}`)
-      total += n
+    el.hidden = true
+  } else {
+    const bits = []
+    let total = 0
+    for (const def of DATA_LAYERS) {
+      if (!timelineLayerVisibility[def.id]) continue
+      const src = timelineMap.getSource(def.id)
+      const feats = src?._data?.features
+      if (!feats) continue
+      const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
+      if (n) {
+        if (def.statsText) {
+          bits.push(def.statsText(src._data.features))
+          continue
+        }
+        bits.push(`${n.toLocaleString()} ${def.label}`)
+        total += n
+      }
     }
+    el.hidden = false
+    el.textContent = bits.length
+      ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
+      : 'Map: no places in this filter (try another timeframe or era)'
   }
-  el.textContent = bits.length
-    ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
-    : 'Map: no places in this filter (try another timeframe or era)'
   if (meta && !pendingFocus) {
     const { yearMin, yearMax } = timelineState
     if (!timelineHasActivePlaceFilter()) {
@@ -2229,12 +2600,7 @@ async function initTimelineMap() {
     })
     return
   }
-  timelineMap = new maplibregl.Map({
-    container: 'timelineMapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  timelineMap = createBasemap('timelineMapCanvas')
   timelineMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
   noteMapIdle(timelineMap)
   document.getElementById('timelineZoomFullState')?.addEventListener('click', () => {
@@ -2287,12 +2653,7 @@ function initStoriesMap() {
     requestAnimationFrame(() => storiesMap.resize())
     return
   }
-  storiesMap = new maplibregl.Map({
-    container: 'storiesMapCanvas',
-    style: OSM_STYLE,
-    center: CENTER,
-    zoom: START_ZOOM,
-  })
+  storiesMap = createBasemap('storiesMapCanvas')
   storiesMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
   storiesMap.on('load', async () => {
     try {
@@ -2336,6 +2697,8 @@ function focusStoryOnMaps(story) {
     if (metaEl) metaEl.textContent = `${story.title} — no map location yet`
     if (timelineMapReady) {
       ensureHighlightSource(timelineMap, null)
+      // No pin: show the default state view, not the previous story's focus
+      fitMapToKentucky(timelineMap, { duration: 0 })
     }
     return
   }
@@ -2429,6 +2792,16 @@ async function loadStoryBody(slug) {
   const res = await fetch(`/content/stories/${encodeURIComponent(slug)}.json`)
   if (!res.ok) throw new Error('not found')
   return res.json()
+}
+
+let storyDatesCache = null
+async function loadStoryDates() {
+  if (!storyDatesCache) {
+    storyDatesCache = fetch('/content/story-dates.json')
+      .then((res) => (res.ok ? res.json() : {}))
+      .catch(() => ({}))
+  }
+  return storyDatesCache
 }
 
 function primaryStoryTag(story) {
@@ -2691,12 +3064,20 @@ let timelinePendingRestore = null
 
 function timelineHeaderOffset() {
   const header = document.querySelector('header.top')
-  return header ? header.getBoundingClientRect().height + 8 : 8
+  const bar = document.querySelector('.timeline-read-bar')
+  const headerH = header ? header.getBoundingClientRect().height : 0
+  const barH = bar ? bar.getBoundingClientRect().height : 0
+  // Phones opened from a homepage story link: the map is docked under the bar
+  const docked = document.querySelector('#timeline .timeline-layout.is-home-story #timelineMapPane')
+  const dockH = docked && window.matchMedia('(max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
+  return headerH + barH + dockH + 8
 }
 
 function timelineItemFor(slug) {
   if (!slug) return null
-  const esc = window.CSS?.escape ? window.CSS.escape(slug) : String(slug).replace(/"/g, '\\"')
+  const esc = window.CSS?.escape
+    ? window.CSS.escape(slug)
+    : String(slug).replace(/\\/g, '\\\\').replace(/"/g, '\\"')
   return document.querySelector(`#timelineList .timeline-item[data-slug="${esc}"]`)
 }
 
@@ -2798,7 +3179,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     else if (!timelineReaderRestore || timelineReaderRestore.slug !== meta.slug) timelineReaderRestore = null
     placeTimelineReaderAfter(rowItem)
   }
-  reader.classList.remove('is-empty')
+  reader.classList.remove('is-empty', 'has-film')
   reader.innerHTML = '<p class="muted">Loading…</p>'
   const jumpBar = document.getElementById('timelineReaderJump')
   if (jumpBar) jumpBar.hidden = false
@@ -2808,6 +3189,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     el.classList.toggle('selected', el.dataset.slug === meta.slug)
   })
   try {
+    const markerFeaturesPromise = loadLayerFeatures('markers')
     await loadHistoricPhotoData()
     await loadPhotoVariants()
     const s = await loadStoryBody(meta.slug)
@@ -2853,12 +3235,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const countyLine = meta.county
       ? `<span class="story-county">${escapeHtml(countyLabel(meta.county, true))}</span>`
       : ''
-    const mapHash = storyPlaceHash({
-      historyId,
-      slug: meta.slug,
-      lat: meta.lat ?? s.lat,
-      lon: meta.lon ?? s.lon,
-    })
+    // No 'Open on the map' here: the Timeline map beside the story already shows the pin.
     const extras = placeDetailExtrasHtml({
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
@@ -2869,8 +3246,14 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       layer: 'history',
       storyPhoto: s.photo || null,
     })
-    const relatedData = await loadRelatedPeople()
-    const relTitles = Object.fromEntries(((await loadStories()).stories || []).map((x) => [x.slug, x.title]))
+    const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
+    const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+    const storyIndex = await loadStories()
+    const markerFeatures = await markerFeaturesPromise
+    const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
+    const dateFile = (await loadStoryDates())[meta.slug] || {}
+    const articleDates = resolveArticleDates(s, dateFile)
+    const canonical = storyCanonicalUrl(meta.slug)
     const relTitleFor = (sl) => relTitles[sl]
     const sidebarPhoto = await resolveStorySidebarPhoto({
       slug: meta.slug,
@@ -2882,18 +3265,33 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       bodyMarkdown: s.bodyMarkdown || '',
       existingPhoto: s.photo || null,
     })
+    const film = filmForStory(meta.slug)
+    const filmHtml = film
+      ? filmPlayerHtml(film, {
+          summary: filmDescriptionFromPlain(stripSourceAttribution(s.bodyMarkdown || '')),
+          headingLevel: 3,
+          moreHtml: '<a href="/videos/">All videos</a>',
+        })
+      : ''
+    if (film) reader.classList.add('has-film')
+    // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
+    // when the Photos sidebar already shows the same file, but the title headshot stays).
+    const storyPeople = await loadStoryPeople()
+    const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
+    const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
       ${timelineReaderBarHtml('top')}
       <div class="story-reader-layout">
         <div class="story-reader-main">
           <header class="story-head">
+            <p class="story-kicker"><span>Story</span> · on the Timeline</p>
             <div class="story-card-meta">
               <span class="story-card-icon inline" aria-hidden="true">📖</span>
               ${countyLine}
               <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
               <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
             </div>
-            <h2>${escapeHtml(s.title)}</h2>
+            ${titleHtml}
             ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
@@ -2901,35 +3299,64 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
             <div class="tags">${tags}</div>
-            ${
-              mapHash
-                ? `<div class="story-card-actions">
-              <a class="btn" href="/${escapeHtml(mapHash)}">Open on the map</a>
-            </div>`
-                : ''
-            }
           </header>
-          <div class="story-body">${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor)}
+          <div class="story-body">${storyPortraitHtml(subject.person)}${applyStoryPeople(
+            marked.parse(stripSourceAttribution(s.bodyMarkdown || '')),
+            storyPeople.stories?.[meta.slug],
+            new Map((publicPeople.people || []).map((p) => [p.id, p])),
+            (h) => h,
+            { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
+          )}</div>
+          ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
           ${extras}
+          ${relatedAndNearbyForStory(
+            {
+              slug: meta.slug,
+              title: s.title,
+              era: s.era || meta.era,
+              tags: s.tags || meta.tags,
+              county: meta.county || s.county,
+              territoryNation: s.territoryNation || meta.territoryNation,
+              yearStart: s.yearStart ?? meta.yearStart,
+              yearEnd: s.yearEnd ?? meta.yearEnd,
+              lat: meta.lat ?? s.lat,
+              lon: meta.lon ?? s.lon,
+            },
+            storyIndex.stories,
+            markerRecords(markerFeatures),
+            {
+              headingLevel: 2,
+              excludeSlugs: routeBySlug(meta.slug)?.relatedStories || [],
+              excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
+              limit: 3,
+            },
+          )}
+          ${citeBoxHtml({
+            title: s.title,
+            url: canonical,
+            published: articleDates.published,
+            modified: articleDates.modified,
+            headingLevel: 3,
+          })}
+          ${correctionHtml({ title: s.title, url: canonical })}
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
-          ${
-            mapHash
-              ? `<p class="muted popup-hint">The Timeline map highlights this place. Open on the map to fly to the pin and see the full popup.</p>`
-              : ''
-          }
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
-        ${storySidebarPhotoHtml(sidebarPhoto, s.title)}
+        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: true })}
+        ${filmHtml}
       </div>
       ${timelineReaderBarHtml('bottom')}
     `
+    wireFilmCaptions(reader)
     const sidebar = reader.querySelector('.story-sidebar-photo')
     if (sidebar) AdSlot.mount(sidebar, 'sidebar')
     linkPeopleInBody(reader.querySelector('.story-body'), relatedData, meta.slug, relTitleFor)
     const summaryEl = reader.querySelector('.story-summary')
     if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)
+    wireCiteBoxes(reader)
+    applyRouteMapTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
     mountStoryTerritory(reader, meta)
     if (rowItem) {
       // In place: never jump to the bottom of the list. Only nudge if the story start is off-screen.
@@ -3054,7 +3481,44 @@ function storyMatchesFilters(s) {
   return true
 }
 
+function syncTimelineJumpPad() {
+  const bar = document.getElementById('timelineReaderJump')
+  const shown = bar && !bar.hidden
+  const h = shown ? Math.ceil(bar.getBoundingClientRect().height) : 0
+  // The bar is sticky with bottom: 0.85rem, so it covers its height plus that offset.
+  const gap = shown ? Math.ceil(parseFloat(getComputedStyle(bar).bottom) || 0) + 8 : 0
+  document.documentElement.style.setProperty('--timeline-jump-h', `${h}px`)
+  document.documentElement.style.setProperty('--timeline-jump-gap', `${gap}px`)
+}
+
+function watchTimelineJumpPad() {
+  const bar = document.getElementById('timelineReaderJump')
+  if (!bar || bar.dataset.padWatch) return
+  bar.dataset.padWatch = '1'
+  const sync = () => syncTimelineJumpPad()
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(sync).observe(bar)
+  new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
+  window.addEventListener('resize', sync)
+  sync()
+  // Critique #275: with a story open the floating bar covered the reader's title (390)
+  // and body text (1280). Tuck it away while reading down; bring it back on any upward
+  // scroll, near the end of the page, or when keyboard focus moves into it.
+  let lastY = window.scrollY
+  const tuck = (on) => bar.classList.toggle('is-tucked', Boolean(on) && !bar.contains(document.activeElement))
+  new MutationObserver(() => { if (!bar.hidden) tuck(true) }).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
+  if (!bar.hidden) tuck(true)
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY
+    const nearEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 120
+    if (nearEnd || y < lastY - 8) tuck(false)
+    else if (y > lastY + 8) tuck(true)
+    if (Math.abs(y - lastY) > 8) lastY = y
+  }, { passive: true })
+  bar.addEventListener('focusin', () => bar.classList.remove('is-tucked'))
+}
+
 function setupTimelineJumpControls() {
+  watchTimelineJumpPad()
   const wire = (id, target) => {
     const btn = document.getElementById(id)
     if (!btn || btn.dataset.ready) return
@@ -3297,9 +3761,8 @@ function scrollTimelineToFilters() {
     // Keep site header visible; land on Timeline filters
     target.scrollIntoView({ block: 'start', behavior: 'auto' })
   }
-  // Sticky header offset: nudge so nav + filters aren't under the top bar
-  const header = document.querySelector('header.top')
-  const offset = header ? header.getBoundingClientRect().height + 8 : 0
+  // Sticky header + reading bar: nudge so filters aren't covered
+  const offset = timelineHeaderOffset()
   if (offset && (filters || section)) {
     const y = window.scrollY - offset
     if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -3335,6 +3798,7 @@ async function openStoryHighlightOnHomeMap(place) {
     lat: place.lat,
     title: place.title || place.matchedPlace || place.slug,
     slug: place.slug,
+    historyId: place.historyId || null,
   }
   pendingFocus = focus
   highlightDetailProps = {
@@ -3417,7 +3881,18 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
     return false
   }
   const [lon, lat] = feature.geometry.coordinates
-  map.easeTo({ center: [lon, lat], zoom: Math.max(map.getZoom(), 12), duration: 600 })
+  const fp = feature.properties || {}
+  const zoom = capProtectedZoom(Math.max(map.getZoom(), 12), fp.historyId, fp.id, fp.slug, placeId)
+  // Wait for the zoom to settle before placing the popup. Otherwise the easeTo
+  // finishes after nudgeCameraForPopup and recenters the pin, undoing the
+  // phone lower-third offset and clipping the scrollable card (#213).
+  map.easeTo({ center: [lon, lat], zoom, duration: 600, essential: true })
+  await waitForCamera(map, 900)
+  // If easeTo had not started moving yet when waitForCamera checked, give it a
+  // beat and wait again so placement runs on the settled camera.
+  if (map.isMoving?.()) await waitForCamera(map, 900)
+  else await new Promise((r) => setTimeout(r, 50))
+  if (map.isMoving?.()) await waitForCamera(map, 900)
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
   return true
 }
@@ -3716,6 +4191,36 @@ function setLegendNote(id, { focus = false, scroll = true } = {}) {
     if (focus) el.querySelector(`button.ml-row[data-nid="${id}"]`)?.focus()
   }
 }
+/**
+ * Homepage story links open #timeline/<slug> with the map in view: the map is shown
+ * (reading-wide is undone) and, on phones, docked on top with the story below it.
+ * The flag is set by the homepage click intercept (src/home-preview.js).
+ */
+function applyHomeStoryLayout(slug) {
+  const layout = document.querySelector('#timeline .timeline-layout')
+  if (!layout) return
+  let fromHome = null
+  try {
+    fromHome = sessionStorage.getItem('khd-from-home')
+    sessionStorage.removeItem('khd-from-home')
+  } catch {}
+  const on = Boolean(slug && fromHome && fromHome === slug)
+  if (on && layout.classList.contains('is-reading-wide')) {
+    document.getElementById('timelineReadingToggle')?.click()
+  }
+  // Phones: the docked map must not trap one-finger page scrolls.
+  // Two-finger pinch still zooms and moves the map; + / − stay available.
+  if (timelineMap) {
+    const phone = window.matchMedia('(max-width: 900px)').matches
+    if (on && phone) timelineMap.dragPan.disable()
+    else timelineMap.dragPan.enable()
+  }
+  if (layout.classList.contains('is-home-story') !== on) {
+    layout.classList.toggle('is-home-story', on)
+    if (timelineMap) requestAnimationFrame(() => timelineMap.resize())
+  }
+}
+
 window.addEventListener('hashchange', () => {
   if (!legendNoteId) return
   legendNoteId = null
@@ -3973,6 +4478,7 @@ function setActiveNav(view) {
     const r = a.dataset.route
     a.classList.toggle('active', r === view)
   })
+  document.body.classList.toggle('hp-page', view === 'home')
 }
 
 async function applyRoute() {
@@ -4050,6 +4556,10 @@ async function applyRoute() {
       ensureHighlightSource(map, null)
       fitMapToKentucky(map, { duration: 0 })
     })
+  } else if (view === 'transport') {
+    const { showTransport } = await import('./transport-map.js')
+    await showTransport(parseHash().year)
+    requestAnimationFrame(scrollPageToTop)
   } else if (view === 'timeline') {
     setupTimelineFilters()
     resetTimelineFiltersOff({ keepFocus: Boolean(slug) })
@@ -4057,14 +4567,14 @@ async function applyRoute() {
     // Fresh visit: bare #timeline (no story slug), clear prior selection
     if (!slug) selectedStorySlug = null
     else selectedStorySlug = slug
+    applyHomeStoryLayout(slug)
     await renderTimelineList(slug)
     applyPendingStoryFocus()
     const scrollToStoryDetail = () => {
       const reader = document.getElementById('timelineStoryReader')
       if (!reader || reader.classList.contains('is-empty')) return false
       reader.scrollIntoView({ block: 'start', behavior: 'auto' })
-      const header = document.querySelector('header.top')
-      const offset = header ? header.getBoundingClientRect().height + 8 : 0
+      const offset = timelineHeaderOffset()
       if (offset) {
         const y = window.scrollY - offset
         if (y > 0) window.scrollTo({ top: y, left: 0, behavior: 'auto' })
@@ -4125,13 +4635,12 @@ document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('clic
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
-/** About seal is 402KB and hidden on first load. Fetch it only when About opens. */
+/** About seals carry a real src with loading="lazy", so the hidden About section never fetches them (and no img has an empty src). Kept as a fallback for browsers without lazy loading. */
 function revealAboutSeal() {
-  const img = document.querySelector('#about img.about-logo')
-  if (!img || img.getAttribute('src')) return
-  const src = img.dataset.src
-  if (!src) return
-  img.src = src
+  document.querySelectorAll('#about img.about-seal[data-src]').forEach((img) => {
+    if (img.getAttribute('src')) return
+    img.src = img.dataset.src
+  })
 }
 
 document.querySelector('a.skip-link')?.addEventListener('click', (e) => {
@@ -4161,4 +4670,5 @@ initThemeToggle()
 initSiteSearch()
 MobileNav.init()
 initHomePage()
+initTimelineReading({ getMap: () => timelineMap })
 applyRoute().catch(console.error)

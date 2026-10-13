@@ -230,7 +230,13 @@ export function deferredAdsenseLoaderHtml() {
   </script>`
 }
 
-/** Footer control that reopens AdSense Privacy & messaging. Hidden until googlefc exists. */
+/**
+ * Footer control that reopens AdSense Privacy & messaging.
+ * Hidden until googlefc.showRevocationMessage exists, which is when a consent
+ * message applies (EEA, UK, Switzerland, or a published US state message).
+ * Calling showRevocationMessage directly still works after the CMP has already
+ * drained callbackQueue.
+ */
 export function privacyChoicesLinkHtml() {
   return `<a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>`
 }
@@ -240,25 +246,22 @@ export function privacyChoicesBootHtml() {
     (function () {
       var links = document.querySelectorAll('[data-privacy-choices]');
       if (!links.length) return;
-      function googleFcReady() {
+      function revocationReady() {
         var fc = window.googlefc;
-        return !!(fc && (fc.callbackQueue || typeof fc.showRevocationMessage === 'function'));
+        return !!(fc && typeof fc.showRevocationMessage === 'function');
       }
       function openChoices(e) {
         if (window.__khdLoadAds) window.__khdLoadAds();
-        if (!googleFcReady()) {
+        if (!revocationReady()) {
           if (location.pathname.indexOf('/privacy') === 0) e.preventDefault();
           return;
         }
         e.preventDefault();
-        window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
-        window.googlefc.callbackQueue.push(function () {
-          googlefc.showRevocationMessage();
-        });
+        window.googlefc.showRevocationMessage();
       }
       links.forEach(function (link) { link.addEventListener('click', openChoices); });
       function reveal() {
-        if (!googleFcReady()) return false;
+        if (!revocationReady()) return false;
         links.forEach(function (link) { link.hidden = false; });
         return true;
       }
@@ -266,7 +269,7 @@ export function privacyChoicesBootHtml() {
       var tries = 0;
       var timer = setInterval(function () {
         tries += 1;
-        if (reveal() || tries > 40) clearInterval(timer);
+        if (reveal() || tries > 120) clearInterval(timer);
       }, 250);
     })();
   </script>`

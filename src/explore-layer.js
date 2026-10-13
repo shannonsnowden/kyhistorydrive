@@ -213,7 +213,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
       ? `<a class="exp-sec" href="${esc(item.mapHref)}" aria-label="${esc(item.title)} on the map">On the map</a>`
       : ''
     return `<article class="exp-card" data-key="${esc(item.key)}">
-      <a class="exp-media" href="${esc(item.href)}" aria-label="Read: ${esc(item.title)}" tabindex="-1" aria-hidden="true">${responsivePicture({
+      <a class="exp-media" href="${esc(item.href)}" aria-label="Read: ${esc(item.title)}" tabindex="-1">${responsivePicture({
         src: item.photo.image_url,
         alt,
         loading: 'lazy',
@@ -227,7 +227,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
           <a class="hp-layer-cta" href="${esc(item.href)}" aria-label="${esc(item.cta)}: ${esc(item.title)}">${esc(item.cta)}</a>
           ${map}
         </div>
-        <p class="hp-photo-credit exp-credit">Photo: ${credit}</p>
+        <p class="hp-photo-credit exp-credit">Photo: ${esc(credit)}</p>
       </div>
     </article>`
   }

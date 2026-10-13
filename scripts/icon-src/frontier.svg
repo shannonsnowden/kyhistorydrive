@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90"><!-- Log cabin with stone chimney -->
+<rect x="62" y="14" width="12" height="30" fill="#d08a2e"/>
+<path d="M6 44L45 14l39 30z" fill="#1f4a2e"/>
+<g fill="#1f4a2e"><rect x="12" y="46" width="66" height="7" rx="3.5"/><rect x="12" y="55" width="66" height="7" rx="3.5"/><rect x="12" y="64" width="66" height="7" rx="3.5"/><rect x="12" y="73" width="66" height="7" rx="3.5"/></g>
+<rect x="38" y="56" width="14" height="24" fill="#d08a2e"/><rect x="20" y="52" width="12" height="10" fill="#d08a2e"/></svg>

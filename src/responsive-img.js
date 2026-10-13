@@ -38,7 +38,7 @@ function sourceTag(type, list, sizes) {
 }
 
 /**
- * @param {{ src: string, alt?: string, className?: string, loading?: string, sizes?: string, fetchPriority?: string, width?: number, height?: number }} opts
+ * @param {{ src: string, alt?: string, className?: string, loading?: string, sizes?: string, fetchPriority?: string, width?: number, height?: number, dataLcp?: boolean }} opts
  */
 export function responsivePicture(opts) {
   const src = String(opts.src || '')
@@ -54,6 +54,7 @@ export function responsivePicture(opts) {
     height ? `height="${Number(height)}"` : '',
     opts.loading ? `loading="${esc(opts.loading)}"` : '',
     opts.fetchPriority ? `fetchpriority="${esc(opts.fetchPriority)}"` : '',
+    opts.dataLcp ? 'data-lcp="story-photo"' : '',
     'decoding="async"',
     'referrerpolicy="no-referrer"',
   ]
@@ -62,4 +63,17 @@ export function responsivePicture(opts) {
   const img = `<img ${attrs} />`
   if (!meta?.avif?.length && !meta?.webp?.length) return img
   return `<picture>${sourceTag('image/avif', meta.avif, sizes)}${sourceTag('image/webp', meta.webp, sizes)}${img}</picture>`
+}
+
+/** Build-time: seed the manifest without fetch (scripts/prerender-home-hero.mjs). */
+export function setPhotoVariants(data) {
+  images = data?.images || data || {}
+  manifestPromise = Promise.resolve(images)
+}
+
+/** srcset strings for a photo, or {} when no variants exist. */
+export function responsiveSources(src) {
+  const meta = images[String(src || '')]
+  const join = (list) => (list?.length ? list.map((v) => `${v.src} ${Number(v.w)}w`).join(', ') : '')
+  return { avif: join(meta?.avif), webp: join(meta?.webp) }
 }

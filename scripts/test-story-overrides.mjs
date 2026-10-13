@@ -54,7 +54,7 @@ d = read(FILES[4]); Object.assign(d.find((p) => p.id === WH), { latitude: 37.1, 
 d = read(FILES[5]); for (const x of d.documents) if (x.id === `story:${W}` || x.id === `place:${WH}`) Object.assign(x, { lat: 37.1, lon: -87.1 }); write(FILES[5], d)
 const revertText = (s) =>
   s.replaceAll('burial mounds survive in Ashland', 'burial mounds still sit in Ashland')
-    .replaceAll('he was sworn in at Crow’s Station, Virginia (near present-day Danville, Virginia), in November 1782', 'he was sworn near present-day Danville in November 1782')
+    .replaceAll('he was sworn in at Crow’s Station, Virginia (near present-day Danville, Kentucky), in November 1782', 'he was sworn near present-day Danville in November 1782')
     .replaceAll('he was sworn in at Crow’s Station, Virginia…', 'he was sworn near present-day…')
 for (const f of all()) { const p = path.join(tmp, f); const s = fs.readFileSync(p, 'utf8'); if (revertText(s) !== s) fs.writeFileSync(p, revertText(s)) }
 assert.notDeepEqual(snap(), before)
@@ -121,8 +121,8 @@ setPin('mount-horeb-earthworks', 'mount-horeb-adena-park', 38.1588727, -84.46520
 r = run([], none)
 assert.equal(r.status, 0, r.stderr)
 assert.match(r.stdout, /pin-rounding: 1 prehistoric\/archaeological story pin\(s\) rounded: dover-mound-mason-county/)
-assert.deepEqual(pinOf(DOVER), [38.76, -83.88])
-assert.deepEqual(historyPin(DOVER_H), [-83.88, 38.76])
+assert.deepEqual(pinOf(DOVER), [38.8, -83.9])
+assert.deepEqual(historyPin(DOVER_H), [-83.9, 38.8])
 assert.deepEqual(pinOf('harry-innes'), [38.193912, -84.865812])
 assert.deepEqual(historyPin('harry-innes-frankfort-1783-1816'), [-84.865812, 38.193912])
 assert.deepEqual(pinOf('page-site-lost-city-15lo1'), [36.824611, -86.848911])

@@ -216,14 +216,14 @@ const MANUAL_OVERRIDES = {
   },
   'newt-kash-hollow-15mf1': {
     matchName: 'Newt Kash Hollow (15Mf1)',
-    lat: 37.94,
-    lon: -83.59,
+    lat: 37.9,
+    lon: -83.6,
     confidence: 'override',
   },
   'muir-site-15js86': {
     matchName: 'Muir Site (15Js86)',
-    lat: 37.87,
-    lon: -84.58,
+    lat: 37.9,
+    lon: -84.6,
     confidence: 'override',
   },
   // Sep 16 — use iOS pin coords; leave Illinois Confederation unpinned (Cahokia)
@@ -241,8 +241,8 @@ const MANUAL_OVERRIDES = {
   },
   'adams-site-15fu4': {
     matchName: 'Adams Site (15Fu4)',
-    lat: 36.55,
-    lon: -89.19,
+    lat: 36.5,
+    lon: -89.2,
     confidence: 'override',
   },
   'drennon-springs-salt-works': {
@@ -266,8 +266,8 @@ const MANUAL_OVERRIDES = {
   },
   'annis-mound-village': {
     matchName: 'Annis Mound & Village (15Bt2)',
-    lat: 37.21,
-    lon: -86.68,
+    lat: 37.2,
+    lon: -86.7,
     confidence: 'override',
   },
   'cumberland-falls': {
@@ -291,14 +291,14 @@ const MANUAL_OVERRIDES = {
   },
   'chiggerville-15oh1': {
     matchName: 'Chiggerville (15Oh1)',
-    lat: 37.48,
-    lon: -86.84,
+    lat: 37.5,
+    lon: -86.8,
     confidence: 'override',
   },
   'salts-cave-15ht4': {
     matchName: 'Salts Cave (15Ht4)',
-    lat: 37.31,
-    lon: -85.88,
+    lat: 37.3,
+    lon: -85.9,
     confidence: 'override',
   },
   // Sep 19 — align with iOS pins; leave Ojibwe unpinned (theme / Bird's War Road)
@@ -316,8 +316,8 @@ const MANUAL_OVERRIDES = {
   },
   'turk-site-carlisle-county': {
     matchName: 'Turk Site (15Ce6)',
-    lat: 36.89,
-    lon: -89.09,
+    lat: 36.9,
+    lon: -89.1,
     confidence: 'override',
   },
   'lost-river-cave': {
@@ -341,8 +341,8 @@ const MANUAL_OVERRIDES = {
   },
   'hansen-site-15gp14': {
     matchName: 'Hansen Site (15GP14)',
-    lat: 38.56,
-    lon: -82.93,
+    lat: 38.6,
+    lon: -82.9,
     confidence: 'override',
   },
   'natural-bridge-sandstone-arch': {
@@ -375,15 +375,16 @@ const MANUAL_OVERRIDES = {
   },
   'lawrenceburg-from-kaufmans-station-to-anderson-county-seat': {
     matchName: "Lawrenceburg / Kaufman's Station",
-    lat: 38.1741739,
-    lon: -84.8769101,
+    // 2026-10-13: was 38.1742,-84.8769 (~15 km north); downtown per Wikipedia
+    lat: 38.033056,
+    lon: -84.903056,
     confidence: 'override',
   },
   // History pin was geocoded to Lexington (UK); site is NRHP address-restricted near Mount Sterling
   'wright-mounds-montgomery-county': {
     matchName: 'Wright Mounds (Montgomery County Adena)',
-    lat: 38.06,
-    lon: -83.94,
+    lat: 38.1,
+    lon: -83.9,
     confidence: 'override',
   },
   // 2026-09-22 morning brief
@@ -401,7 +402,7 @@ const MANUAL_OVERRIDES = {
   },
   'peter-village-early-woodland-enclosure-near-lexington': {
     matchName: 'Peter Village enclosure (15Fa166)',
-    lat: 38.05,
+    lat: 38.0,
     lon: -84.5,
     confidence: 'override',
   },
@@ -428,7 +429,7 @@ const MANUAL_OVERRIDES = {
   'buckner-site-fort-ancient-villages-on-strodes-creek': {
     matchName: 'Buckner Site (15Bb12)',
     lat: 38.2,
-    lon: -84.21,
+    lon: -84.2,
     confidence: 'override',
   },
   'jacob-beam-sells-old-jakes-first-barrel': {
@@ -452,14 +453,14 @@ const MANUAL_OVERRIDES = {
   },
   'muir-site-early-fort-ancient-on-a-jessamine-ridge': {
     matchName: 'Muir Site (15Js86)',
-    lat: 37.87,
-    lon: -84.58,
+    lat: 37.9,
+    lon: -84.6,
     confidence: 'override',
   },
   'cleek-mccabe-a-circular-fort-ancient-village-in-boone-county': {
     matchName: 'Cleek-McCabe Fort Ancient Village',
-    lat: 38.96,
-    lon: -84.74,
+    lat: 39.0,
+    lon: -84.7,
     confidence: 'override',
   },
   // Wyandot Kah-ten-tah-teh — theme-only, no KY place pin
@@ -479,8 +480,8 @@ const MANUAL_OVERRIDES = {
   // Osage Memory of the Ohio Valley — theme-only, no KY place pin
   'sweet-lick-knob-fort-ancient-gathering-place': {
     matchName: 'Sweet Lick Knob Fort Ancient public building',
-    lat: 37.69,
-    lon: -83.96,
+    lat: 37.7,
+    lon: -84.0,
     confidence: 'override',
   },
   'falmouth-at-the-licking-forks': {
@@ -505,8 +506,8 @@ const MANUAL_OVERRIDES = {
   // Potawatomi fire-keepers — theme-only, no KY place pin
   'slack-farm-15un28-union-county': {
     matchName: 'Slack Farm (15Un28) Caborn-Welborn village',
-    lat: 37.66,
-    lon: -87.95,
+    lat: 37.7,
+    lon: -88.0,
     confidence: 'override',
   },
   'the-travelling-church-1781': {
@@ -536,8 +537,8 @@ const MANUAL_OVERRIDES = {
   },
   'cloudsplitter-rockshelter-menifee-county': {
     matchName: 'Cloudsplitter Rockshelter (15Mf36)',
-    lat: 37.94,
-    lon: -83.59,
+    lat: 37.9,
+    lon: -83.6,
     confidence: 'override',
   },
   'ephraim-mcdowell-jane-todd-crawford-1809': {
@@ -567,8 +568,8 @@ const MANUAL_OVERRIDES = {
   },
   'singer-hieronymus-fort-ancient-villages-on-north-elkhorn': {
     matchName: 'Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)',
-    lat: 38.29,
-    lon: -84.58,
+    lat: 38.3,
+    lon: -84.6,
     confidence: 'override',
   },
   // 2026-09-30 morning brief (Susquehannock is theme-only, no pin)
@@ -586,8 +587,8 @@ const MANUAL_OVERRIDES = {
   },
   'dover-mound-mason-county': {
     matchName: 'Dover Mound (Adena burial mound, Mason County)',
-    lat: 38.76,
-    lon: -83.88,
+    lat: 38.8,
+    lon: -83.9,
     confidence: 'override',
   },
   'bryan-station-siege-august-1782': {
@@ -638,8 +639,8 @@ const MANUAL_OVERRIDES = {
   },
   'twin-mounds-site': {
     matchName: 'Twin Mounds Site (15Ba2 / Nolan)',
-    lat: 37.07,
-    lon: -89.14,
+    lat: 37.1,
+    lon: -89.1,
     confidence: 'override',
   },
   'nonhelema': {},
@@ -664,8 +665,8 @@ const MANUAL_OVERRIDES = {
   },
   'slone-site-15pi11-pike-county': {
     matchName: 'Slone Site (15Pi11), Pike County',
-    lat: 37.41,
-    lon: -82.33,
+    lat: 37.4,
+    lon: -82.3,
     confidence: 'override',
   },
   'louisville-nashville-railroad-opens-the-interior': {
@@ -695,8 +696,8 @@ const MANUAL_OVERRIDES = {
   },
   'andalex-village-15hk22-hopkins-county': {
     matchName: "Andalex Village (15Hk22), Hopkins County",
-    lat: 37.32,
-    lon: -87.52,
+    lat: 37.3,
+    lon: -87.5,
     confidence: 'override',
   },
   'louisville-and-portland-canal': {
@@ -722,7 +723,7 @@ const MANUAL_OVERRIDES = {
   'rowlandton-mound-site-15mcn3-paducah': {
     matchName: "Rowlandton Mound Site (15McN3), Paducah",
     lat: 37.1,
-    lon: -88.64,
+    lon: -88.6,
     confidence: 'override',
   },
   'hidden-river-cave-under-horse-cave': {
@@ -778,8 +779,8 @@ const MANUAL_OVERRIDES = {
   },
   'red-bird-river-petroglyphs-clay-county': {
     matchName: "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
-    lat: 37.16,
-    lon: -83.76,
+    lat: 37.2,
+    lon: -83.8,
     confidence: 'override',
   },
   'mclean-drift-bank-kentuckys-first-commercial-coal-mine': {
@@ -809,8 +810,8 @@ const MANUAL_OVERRIDES = {
   },
   'old-fort-earthworks-15gp1-greenup-county': {
     matchName: "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)",
-    lat: 38.72,
-    lon: -83.02,
+    lat: 38.7,
+    lon: -83.0,
     confidence: 'override',
   },
   'cane-ridge-meeting-house-and-the-1801-camp-meeting': {
@@ -843,6 +844,122 @@ const MANUAL_OVERRIDES = {
     matchName: "Mantle Rock, Trail of Tears campsite (KHS marker #1675)",
     lat: 37.3605167,
     lon: -88.4229667,
+    confidence: 'override',
+  },
+  // 2026-10-10 brief (Glasgow swapped for Old Mulkey Meetinghouse, Lost River Cave for Liberty Hall; Cornstalk intentionally unpinned: Point Pleasant is in West Virginia; Esther Whitley shares the Whitley House pin)
+  'cornstalk-hokoleskwa-point-pleasant-to-fort-randolph': {},
+  'esther-whitley-over-the-cumberlands-1775': {
+    matchName: "William Whitley / Sportsman's Hill",
+    lat: 37.4761695,
+    lon: -84.54252,
+    confidence: 'override',
+  },
+  'pine-mountain-and-pound-gap': {
+    matchName: "Pound Gap, Pine Mountain (Kentucky side, near Jenkins)",
+    lat: 37.158,
+    lon: -82.637,
+    confidence: 'override',
+  },
+  'old-mulkey-meetinghouse-1804': {
+    matchName: "Old Mulkey Meetinghouse State Historic Site, Tompkinsville",
+    lat: 36.67777778,
+    lon: -85.7075,
+    confidence: 'override',
+  },
+  'liberty-hall-john-browns-frankfort-house': {
+    matchName: "Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house)",
+    lat: 38.1998,
+    lon: -84.88117,
+    confidence: 'override',
+  },
+  // 2026-10-11 brief (no swaps; Little Turtle intentionally unpinned: 1790 battles in Indiana; Simon Girty shares the Bryan Station siege pin)
+  'simon-girty-interpreter-at-bryan-station-1782': {
+    matchName: "Bryan Station siege site",
+    lat: 38.07586667,
+    lon: -84.41529167,
+    confidence: 'override',
+  },
+  'owingsville-a-town-named-on-a-wager': {
+    matchName: "Owingsville (Bath County seat)",
+    lat: 38.13638889,
+    lon: -83.76027778,
+    confidence: 'override',
+  },
+  'manns-lick-louisvilles-salt-town': {
+    matchName: "Mann’s Lick saltworks (approximate, north of Fairdale)",
+    lat: 38.121,
+    lon: -85.7585,
+    confidence: 'override',
+  },
+  'little-turtle-and-hardins-defeat-1790': {},
+  'red-river-gorge-arches-and-the-dam-fight': {
+    matchName: "Red River Gorge Geological Area",
+    lat: 37.83388889,
+    lon: -83.60777778,
+    confidence: 'override',
+  },
+  // 2026-10-12 brief (no swaps; all five pinned — Blackfish at Boonesborough siege; Tinsley Hill generalized 0.1°)
+  'capt-robert-johnson-and-big-crossing-station': {
+    matchName: "Big Crossing Station / Great Crossing",
+    lat: 38.21444444,
+    lon: -84.60527778,
+    confidence: 'override',
+  },
+  'campbellsville-from-buckhorn-creek-to-county-seat': {
+    matchName: "Campbellsville (Taylor County seat)",
+    lat: 37.34583333,
+    lon: -85.34555556,
+    confidence: 'override',
+  },
+  'blackfish-cot-ta-wa-ma-go-chillicothe-war-chief': {
+    matchName: "Siege of Boonesborough (Sept 1778)",
+    lat: 37.89977778,
+    lon: -84.26566667,
+    confidence: 'override',
+  },
+  'tinsley-hill-15ly18-lyon-county': {
+    matchName: "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
+    lat: 37.0,
+    lon: -88.0,
+    confidence: 'override',
+  },
+  'burlington-boone-county-seat': {
+    matchName: "Burlington (Boone County seat)",
+    lat: 39.02222222,
+    lon: -84.72166667,
+    confidence: 'override',
+  },
+  // 2026-10-12 add-on: Camp Nelson USCT story (CoS request), NPS visitor center coords
+  'camp-nelson-kentucky-us-colored-troops': {
+    matchName: "Camp Nelson USCT recruiting and training center",
+    lat: 37.797005,
+    lon: -84.600577,
+    confidence: 'override',
+  },
+  // 2026-10-13 brief (no swaps; Moluntha intentionally unpinned: Logan’s Raid towns were in Ohio; Sassafras Ridge generalized 0.1°)
+  'col-thomas-marshall-at-buck-pond': {
+    matchName: "Buck Pond / Col. Thomas Marshall",
+    lat: 38.066667,
+    lon: -84.686944,
+    confidence: 'override',
+  },
+  'prestonsburg-first-seat-on-the-big-sandy': {
+    matchName: "Prestonsburg founding / Preston’s Station",
+    lat: 37.681667,
+    lon: -82.766944,
+    confidence: 'override',
+  },
+  'george-garvin-brown-and-old-forester': {
+    matchName: "Old Forester / Whiskey Row (Louisville)",
+    lat: 38.256389,
+    lon: -85.7525,
+    confidence: 'override',
+  },
+  'moluntha-and-logans-raid-1786': {},
+  'sassafras-ridge-15fu3-fulton-county': {
+    matchName: "Sassafras Ridge (15Fu3), Fulton County (approximate)",
+    lat: 36.6,
+    lon: -89.2,
     confidence: 'override',
   },
 }

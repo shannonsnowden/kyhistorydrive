@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
-    <script>(function(){var L=['/brand/khd-logo.png','/brand/khd-logo-c.png','/brand/khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
+    <script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],H=[B+'khd-logo-512.webp',B+'khd-logo-c-512.webp',B+'khd-logo-c2-512.webp'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];window.__khdLogoHi=H[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
     <title>Privacy — Kentucky History Drive</title>
     <meta
       name="description"
@@ -110,20 +110,55 @@
         message before personalized ads or analytics cookies. Visitors in US states that require it are
         shown a state privacy message. Both messages come from AdSense Privacy &amp; messaging, which is
         Google’s certified consent-management platform for those regions. The message updates Google
-        Consent Mode on the page. This site does not run a separate consent banner. The Privacy choices
-        link in the footer reopens that message when it is available.
+        Consent Mode on the page. This site does not run a separate consent banner. Visitors shown a
+        consent message can change their choice using the Privacy choices link, which appears in the
+        footer when consent applies.
       </p>
+
+      <h3>Drives and your location</h3>
+      <p>
+        The <a href="/drives/">drive pages</a> and the drive planner can use your location, but only if you
+        tap “Use my location” and allow it in your browser. Nothing asks for it before then.
+      </p>
+      <ul>
+        <li>
+          Your position is kept in this browser tab’s memory only, to work out distances and plan stops. It
+          is not saved on your device, not sent to us or anyone else, and never put in a page address or a
+          maps link.
+        </li>
+        <li>
+          Town and ZIP lookups use a list that comes with the page, so what you type stays in your browser.
+        </li>
+        <li>
+          The drive pages and the planner do not load Google Analytics or ads. The only third-party
+          requests are map tiles from CARTO (OpenStreetMap data) on the planner’s map.
+        </li>
+        <li>
+          The Google Maps and Apple Maps buttons open those apps or sites with the drive’s stops only, not
+          your starting point. What happens there is covered by
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s</a>
+          or
+          <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple’s</a>
+          privacy policy.
+        </li>
+      </ul>
 
       <h3>Other requests</h3>
       <p>
         Opening the map loads tiles from CARTO (OpenStreetMap data). The site stores your light or dark theme
         choice in local storage on this browser. Those requests are separate from advertising cookies.
       </p>
+
+      <h3>Contact</h3>
+      <!-- khd-contact-line Privacy questions: -->
     </main>
 
     <footer class="foot">
       <span>kyhistorydrive.com</span>
       <a href="/about/">About</a>
+      <a href="/people/">People</a>
+      <a href="/videos/">Videos</a>
+      <a href="/routes/">Kentucky history route maps</a>
       <a href="/privacy/" aria-current="page">Privacy</a>
       <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
       <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
