@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Header seal rotation: pick before first paint (see #brandLogo). -->
-    <script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
+    <script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],H=[B+'khd-logo-512.webp',B+'khd-logo-c-512.webp',B+'khd-logo-c2-512.webp'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];window.__khdLogoHi=H[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>
     <title>Kentucky History Drive</title>
     <meta name="description" content="Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers." />
     <link rel="canonical" href="https://kyhistorydrive.com/" />
@@ -72,15 +72,19 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
   </head>
   <body>
+    <script>(function(){var h=location.hash||'';var home=!h||h==='#'||h.indexOf('#home')===0||h.indexOf('#explore')===0;if(home)document.body.classList.add('hp-page')})()</script>
     <a class="skip-link" href="#content">Skip to content</a>
     <header class="top site-header">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" />
-          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s)})()</script>
-          <h1>Kentucky History Drive</h1>
+          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" decoding="async" />
+          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo,h=window.__khdLogoHi;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(h&&h.indexOf('/brand/')!==0)h='/brand/'+String(h).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s);if(h){im.setAttribute('srcset',s+' 176w, '+h+' 512w');im.setAttribute('sizes','(min-width: 701px) 132px, (min-width: 601px) 84px, 68px')}})()</script>
+          <div class="brand-lockup">
+            <h1>Kentucky History Drive</h1>
+            <p class="tagline">History is all around us.</p>
+            <p class="brand-subhead">Pioneers, Native nations, long hunters, soldiers and distillers. Explore the stories that made Kentucky, on a living map you can travel through time.</p>
+          </div>
         </a>
-        <p class="tagline">History is all around us.</p>
       </div>
       <div class="nav-mobile-tools" id="navMobileTools">
         <button
@@ -157,13 +161,15 @@
         <a href="/" data-route="home">Home</a>
         <a href="#map" data-route="map">Map</a>
         <a href="#timeline" data-route="timeline">Timeline</a>
+        <a href="/people/" data-route="people">People</a>
+        <a href="/drives/">Drives</a>
         <a href="#about" data-route="about">About</a>
         <button
           type="button"
           id="hpThemeToggle"
           class="hp-theme-toggle"
           data-theme-toggle
-          aria-label="Switch to light theme"
+          aria-label="Switch to light mode"
           aria-pressed="false"
         >
           <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
@@ -175,21 +181,33 @@
     <main id="content" tabindex="-1">
     <section id="home" class="view hp-home" data-view="home">
       <p class="hp-value">Pioneers, Native nations, long hunters, soldiers and distillers. Explore the stories that made Kentucky, on a living map you can travel through time.</p>
-      <section id="hpHero" class="hp-mag-hero" aria-labelledby="hp-hero-title" aria-busy="true">
-        <div class="hp-hero-skeleton" aria-hidden="true">
-          <span class="hp-skel hp-skel-kicker"></span>
-          <span class="hp-skel hp-skel-title"></span>
-          <span class="hp-skel hp-skel-title hp-skel-title-short"></span>
-          <span class="hp-skel hp-skel-deck"></span>
-          <span class="hp-skel hp-skel-deck hp-skel-deck-short"></span>
-          <span class="hp-skel hp-skel-cta"></span>
+      <div class="hp-lead-block">
+        <div class="hp-lead-grid">
+          <section id="hpHero" class="hp-mag-hero" aria-labelledby="hp-hero-title" aria-busy="true">
+            <div class="hp-hero-skeleton" aria-hidden="true">
+              <span class="hp-skel hp-skel-kicker"></span>
+              <span class="hp-skel hp-skel-title"></span>
+              <span class="hp-skel hp-skel-title hp-skel-title-short"></span>
+              <span class="hp-skel hp-skel-deck"></span>
+              <span class="hp-skel hp-skel-deck hp-skel-deck-short"></span>
+              <span class="hp-skel hp-skel-cta"></span>
+            </div>
+            <p class="visually-hidden">Loading stories…</p>
+          </section>
+          <aside class="hp-story-rail" aria-labelledby="hp-more-stories-title">
+            <h2 id="hp-more-stories-title" class="hp-more-stories-title">More Kentucky stories</h2>
+            <div id="hpStoryRail" class="hp-story-rail-list"></div>
+            <a class="hp-rail-all" href="/#timeline">Browse all stories →</a>
+          </aside>
         </div>
-        <p class="visually-hidden">Loading stories…</p>
-      </section>
+        <ul id="hpStorySwipe" class="hp-story-swipe" tabindex="0" aria-label="More Kentucky stories"></ul>
+        <p class="hp-all-stories"><a href="/#timeline">Browse all stories →</a></p>
+      </div>
 
       <!-- Static picture only. The interactive marker map is the #map route, not a second map on this page. -->
       <section class="hp-map-strip" aria-labelledby="hp-map-strip-title">
-        <a href="#map" tabindex="-1" aria-label="Open the history map">
+        <div class="hp-map-strip-fig-wrap">
+        <a href="/drives/" class="hp-map-strip-link" aria-label="Plan Your Drive: Kentucky history drives">
         <div class="hp-map-strip-figure">
         <img
           id="hpMapStripImg"
@@ -215,8 +233,11 @@
           <source type="image/avif" srcset="/brand/khd-map-seal.avif" />
           <img src="/brand/khd-map-seal.webp" width="576" height="576" alt="" loading="lazy" decoding="async" />
         </picture>
+        <span class="hp-plan-drive" aria-hidden="true"><span class="hp-plan-drive-title">Plan Your Drive</span><span class="hp-plan-drive-promise">Pick a town and time; we’ll map the stops.</span><span class="hp-plan-drive-pill">Start planning →</span></span>
         </div>
         </a>
+        <p class="hp-map-strip-explore"><a href="#map" data-route="map">Explore the map →</a></p>
+        </div>
         <div class="hp-map-strip-copy">
           <p class="hp-kicker">Map</p>
           <h2 id="hp-map-strip-title">Explore Kentucky’s history map</h2>
@@ -225,6 +246,7 @@
             <li>Add museums, covered bridges, mills, distilleries (mostly Bourbon), caves, and more.</li>
             <li>See approximate Native American territories and archaeological cultures beneath today’s roads.</li>
             <li>Tap any pin to read its marker or story. It works on your phone.</li>
+            <li>Follow the <a href="/stories/athiamiowee-the-warriors-path-through-kentucky/#route-map">Warriors' Path</a>, <a href="/stories/thomas-walker-and-cumberland-gap/#route-map">Cumberland Gap</a> and more on route maps, stop by stop.</li>
           </ul>
         </div>
         <div class="hp-thumb-row">
@@ -556,6 +578,7 @@
     <footer class="foot">
       <span>kyhistorydrive.com</span>
       <a href="/about/">About</a>
+      <a href="/people/">People</a>
       <a href="/videos/">Videos</a>
       <a href="/routes/">Kentucky history route maps</a>
       <a href="/privacy/">Privacy</a>

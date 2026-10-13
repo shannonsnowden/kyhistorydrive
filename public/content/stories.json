@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-12T10:24:20.439Z",
-  "count": 235,
+  "generatedAt": "2026-10-13T09:39:22.504Z",
+  "count": 241,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-12"
+    "end": "2026-10-13"
   },
   "eras": [
     "early-commonwealth",
@@ -533,6 +533,36 @@
       "lon": -86.84895,
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)"
+    },
+    {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
+      "publishedDate": "2026-10-13",
+      "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
+      "yearStart": 1000,
+      "yearEnd": 1500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Fulton",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      },
+      "lat": 36.6,
+      "lon": -89.2,
+      "mapConfidence": "override",
+      "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)"
     },
     {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
@@ -3382,8 +3412,8 @@
         "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
         "year": 2007
       },
-      "lat": 38.1741739,
-      "lon": -84.8769101,
+      "lat": 38.033056,
+      "lon": -84.903056,
       "mapConfidence": "override",
       "matchedPlace": "Lawrenceburg / Kaufman's Station"
     },
@@ -3728,6 +3758,36 @@
       "matchedPlace": null
     },
     {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "title": "Col. Thomas Marshall at Buck Pond",
+      "publishedDate": "2026-10-13",
+      "summary": "Col. Thomas Marshall (1730–1802), Revolutionary officer and father of Chief Justice John Marshall, ran Virginia’s military-land survey office in Kentucky and founded Buck Pond near Versailles.",
+      "yearStart": 1783,
+      "yearEnd": 1802,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "surveyor",
+        "revolution"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Woodford",
+      "photo": {
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
+        "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain",
+        "year": null
+      },
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "mapConfidence": "override",
+      "matchedPlace": "Buck Pond / Col. Thomas Marshall"
+    },
+    {
       "slug": "harry-innes",
       "title": "Harry Innes",
       "publishedDate": "2026-10-02",
@@ -3953,6 +4013,35 @@
       "lon": -85.17,
       "mapConfidence": "override",
       "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)"
+    },
+    {
+      "slug": "moluntha-and-logans-raid-1786",
+      "title": "Moluntha and Logan’s Raid, 1786",
+      "publishedDate": "2026-10-13",
+      "summary": "In October 1786 Kentucky militia under Benjamin Logan burned Shawnee towns in Ohio, and Hugh McGary killed the aged Mekoche Shawnee leader Moluntha after he surrendered under an American flag.",
+      "yearStart": 1786,
+      "yearEnd": 1786,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "shawnee",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "blue-jacket-weyapiersenwah",
@@ -4845,6 +4934,35 @@
       "matchedPlace": "Owensboro / Yellow Banks"
     },
     {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "title": "Prestonsburg: first seat on the Big Sandy",
+      "publishedDate": "2026-10-13",
+      "summary": "Laid out as Preston’s Station in 1797 on the Levisa Fork, Prestonsburg became the seat of a vast new Floyd County in 1800 and was formally established in 1818.",
+      "yearStart": 1797,
+      "yearEnd": 1818,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Floyd",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      },
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "mapConfidence": "override",
+      "matchedPlace": "Prestonsburg founding / Preston’s Station"
+    },
+    {
       "slug": "yellow-banks-becomes-owensboro",
       "title": "Yellow Banks becomes Owensboro",
       "publishedDate": "2026-09-24",
@@ -5693,6 +5811,38 @@
       "matchedPlace": "Diamond Caverns Park City / Ste. Genevieve limestone"
     },
     {
+      "slug": "camp-nelson-kentucky-us-colored-troops",
+      "title": "Camp Nelson and Kentucky’s U.S. Colored Troops",
+      "publishedDate": "2026-10-12",
+      "summary": "President Lincoln’s Emancipation Proclamation of January 1, 1863, applied only to areas in rebellion.",
+      "yearStart": 1863,
+      "yearEnd": 1866,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "civil-war",
+        "usct",
+        "african-american",
+        "emancipation"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-12",
+      "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
+        "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
+        "source_url": "https://www.loc.gov/pictures/item/2020630224/",
+        "source_label": "Library of Congress",
+        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "year": 1864
+      },
+      "lat": 37.797005,
+      "lon": -84.600577,
+      "mapConfidence": "override",
+      "matchedPlace": "Camp Nelson USCT recruiting and training center"
+    },
+    {
       "slug": "camp-nelson-jessamine-county",
       "title": "Camp Nelson, Jessamine County",
       "publishedDate": "2026-10-04",
@@ -5723,6 +5873,35 @@
       "lon": -84.59806,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
+    },
+    {
+      "slug": "george-garvin-brown-and-old-forester",
+      "title": "George Garvin Brown and Old Forester",
+      "publishedDate": "2026-10-13",
+      "summary": "In 1870 Louisville’s George Garvin Brown began selling Old Forester only in sealed glass bottles, a guarantee against watered whiskey that became the foundation of Brown-Forman.",
+      "yearStart": 1870,
+      "yearEnd": 1917,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Forester / Whiskey Row (Louisville)"
     },
     {
       "slug": "frederick-stitzels-barrel-racks-1879",

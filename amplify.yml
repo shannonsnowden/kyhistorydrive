@@ -58,3 +58,27 @@ customRules:
   - source: '/videos/'
     target: '/videos/index.html'
     status: '200'
+  # /timeline is a hash route (/#timeline). Amplify rules cannot target a #fragment, so
+  # /timeline/ serves a tiny static stub (public/timeline/index.html) that forwards with
+  # location.replace + meta refresh. Slashless /timeline follows the /about slash rules.
+  - source: '/timeline'
+    target: '/timeline/'
+    status: '301'
+  - source: '/timeline/'
+    target: '/timeline/index.html'
+    status: '200'
+  # Drives live at /drives/ (index, /drives/<slug>/ pages, /drives/build/ planner), served as
+  # static index.html files. Slashless /drives follows the /about slash rules. The old
+  # /drive-preview/ paths from the preview build redirect permanently to the same page under /drives/.
+  - source: '/drives'
+    target: '/drives/'
+    status: '301'
+  - source: '/drive-preview'
+    target: '/drives/'
+    status: '301'
+  - source: '/drive-preview/'
+    target: '/drives/'
+    status: '301'
+  - source: '/drive-preview/<*>'
+    target: '/drives/<*>'
+    status: '301'

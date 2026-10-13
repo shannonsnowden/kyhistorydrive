@@ -1,71 +1,121 @@
 {
-  "generatedAt": "2026-10-12T09:46:33.033Z",
+  "generatedAt": "2026-10-13T09:39:37.559Z",
   "maxBytes": 204800,
   "images": {
-    "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg": {
-      "sha256": "3a19e447b6cb84306240876b3a85138ce1350c69c0a793b4bee5a0bfe858cf6e",
-      "width": 1920,
-      "height": 1260,
+    "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
+      "sha256": "2fd6d3e09c2e902e8a01f0d77deb1bf921db9e0e00bd3d7913c5568ffd0ef6a5",
+      "width": 800,
+      "height": 600,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-800.avif",
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.avif",
           "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-1600.avif",
-          "w": 1600
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-800.webp",
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.webp",
           "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-1600.webp",
-          "w": 1600
         }
       ]
     },
-    "/content/photos/stories/campbellsville-from-buckhorn-creek-to-county-seat.jpg": {
-      "sha256": "2ceadbade574c8fd6c68b205fe5047f0ce9b79868542cc6a76813a31a37eb1a6",
-      "width": 1920,
-      "height": 1277,
+    "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg": {
+      "sha256": "0ac0ff0e06e893082ea3db6ea85126b2d6c40e3dddece883e556382f512ef9a8",
+      "width": 921,
+      "height": 1304,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-800.avif",
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-1600.avif",
-          "w": 1600
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-921.avif",
+          "w": 921
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-800.webp",
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/campbellsville-from-buckhorn-creek-to-county-seat-1600.webp",
-          "w": 1600
+          "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond-921.webp",
+          "w": 921
         }
       ]
     },
-    "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg": {
-      "sha256": "843d12d545ba54f077a18b4bf5929c39da6f16b53e7ed39f6bf226083a48eb19",
-      "width": 496,
-      "height": 746,
+    "/content/photos/stories/moluntha-and-logans-raid-1786.jpg": {
+      "sha256": "5e0d5cb77b2d156140c047a0dd1741cc13e345ae9314f7fe27bb8a6ed60c1a17",
+      "width": 1280,
+      "height": 1280,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.avif",
-          "w": 496
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-1280.avif",
+          "w": 1280
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.webp",
-          "w": 496
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/moluntha-and-logans-raid-1786-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg": {
+      "sha256": "bfe0c73cb8c00e51887c9c90442b530b05e2ffb77fa4b8e2920153e060236349",
+      "width": 1280,
+      "height": 851,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/george-garvin-brown-and-old-forester.jpg": {
+      "sha256": "66683369dbcb0c2bf2fc03d974a621b9db4254a3be4b0b8223e34b173b66d5f7",
+      "width": 1280,
+      "height": 1707,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/george-garvin-brown-and-old-forester-1280.webp",
+          "w": 1280
         }
       ]
     },
@@ -75,22 +125,72 @@
       "height": 1000,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-800.avif",
-          "w": 800
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-480.avif",
+          "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-1500.avif",
-          "w": 1500
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-720.avif",
+          "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-800.webp",
-          "w": 800
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-480.webp",
+          "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-1500.webp",
-          "w": 1500
+          "src": "/content/photos/opt/stories/tinsley-hill-15ly18-lyon-county-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg": {
+      "sha256": "843d12d545ba54f077a18b4bf5929c39da6f16b53e7ed39f6bf226083a48eb19",
+      "width": 496,
+      "height": 746,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.avif",
+          "w": 496
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief-496.webp",
+          "w": 496
+        }
+      ]
+    },
+    "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg": {
+      "sha256": "3a19e447b6cb84306240876b3a85138ce1350c69c0a793b4bee5a0bfe858cf6e",
+      "width": 1920,
+      "height": 1260,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-robert-johnson-and-big-crossing-station-720.webp",
+          "w": 720
         }
       ]
     },
@@ -100,113 +200,21 @@
       "height": 1440,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-1600.avif",
-          "w": 1600
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/burlington-boone-county-seat-1156.webp",
-          "w": 1156
-        }
-      ]
-    },
-    "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg": {
-      "sha256": "a53f23a7da4011975359e716ca9223354200ef593a411cce494df00c5d3f8ef4",
-      "width": 1280,
-      "height": 960,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-480.avif",
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-480.avif",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-720.avif",
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-720.avif",
           "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-480.webp",
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-480.webp",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/old-fort-earthworks-15gp1-greenup-county-720.webp",
-          "w": 720
-        }
-      ]
-    },
-    "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg": {
-      "sha256": "355866e1ecf5b394eff33c38f2c89394dc32b7355849e887a71e282408ad964c",
-      "width": 332,
-      "height": 441,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790-332.avif",
-          "w": 332
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790-332.webp",
-          "w": 332
-        }
-      ]
-    },
-    "/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg": {
-      "sha256": "1190772243bdfbedff8587913408db19af15fb667c920e0ffd0fe30f96b07a77",
-      "width": 1280,
-      "height": 919,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/esther-whitley-over-the-cumberlands-1775-720.webp",
-          "w": 720
-        }
-      ]
-    },
-    "/content/photos/stories/manns-lick-louisvilles-salt-town.jpg": {
-      "sha256": "283bb6825d7fba24d2fbfe33a2e2a2366d7210a98e508051e2f5a72fde4f5245",
-      "width": 1280,
-      "height": 964,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/manns-lick-louisvilles-salt-town-720.webp",
+          "src": "/content/photos/opt/stories/burlington-boone-county-seat-720.webp",
           "w": 720
         }
       ]

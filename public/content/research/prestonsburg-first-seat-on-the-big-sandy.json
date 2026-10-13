@@ -1,0 +1,144 @@
+{
+  "slug": "prestonsburg-first-seat-on-the-big-sandy",
+  "storySlug": "prestonsburg-first-seat-on-the-big-sandy",
+  "title": "Research notes: Prestonsburg",
+  "updated": "2026-10-13",
+  "summary": "Sources for Preston’s Station (1797), Floyd County (1799–1800), the 1808 courthouse fire, and the 1818 establishment. The brief’s John Graham and May 3, 1797 details were not confirmed.",
+  "sections": [
+    {
+      "heading": "Founding",
+      "items": [
+        {
+          "text": "Area part of the 100,000-acre grant to the family of Elizabeth Patton Preston, administered by John Preston.",
+          "sources": [
+            "wp-pburg"
+          ]
+        },
+        {
+          "text": "John Spurlock of Montgomery County, Va., arrived 1791 and laid out Preston’s Station in 1797.",
+          "sources": [
+            "wp-pburg"
+          ]
+        },
+        {
+          "text": "Renamed to honor Col. John Preston, landowner.",
+          "sources": [
+            "sos"
+          ]
+        },
+        {
+          "text": "Contested: the brief credited surveyor John Graham and a May 3, 1797 plat; its source was an AI encyclopedia and was not used.",
+          "sources": []
+        }
+      ]
+    },
+    {
+      "heading": "County seat",
+      "items": [
+        {
+          "text": "Floyd County created Dec. 13, 1799, effective June 1, 1800, from Fleming, Montgomery and Mason; named for John Floyd; seat at Preston’s Station.",
+          "sources": [
+            "wp-floyd"
+          ]
+        },
+        {
+          "text": "First courthouse burned April 8, 1808, destroying early records.",
+          "sources": [
+            "wp-floyd"
+          ]
+        },
+        {
+          "text": "Post office ‘Floyd Court House’ 1816 to late 1820s; town formally established 1818.",
+          "sources": [
+            "wp-pburg"
+          ]
+        },
+        {
+          "text": "Brief’s ‘six residents in the 1800 census’ was cut: not found in the sources.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1791,
+      "event": "John Spurlock arrives.",
+      "sources": [
+        "wp-pburg"
+      ]
+    },
+    {
+      "year": 1797,
+      "event": "Preston’s Station laid out.",
+      "sources": [
+        "wp-pburg"
+      ]
+    },
+    {
+      "year": 1800,
+      "event": "Floyd County takes effect; Preston’s Station is the seat.",
+      "sources": [
+        "wp-floyd"
+      ]
+    },
+    {
+      "year": 1808,
+      "event": "First courthouse burns.",
+      "sources": [
+        "wp-floyd"
+      ]
+    },
+    {
+      "year": 1818,
+      "event": "Town formally established.",
+      "sources": [
+        "wp-pburg"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "John Spurlock",
+      "role": "Laid out Preston’s Station",
+      "peopleId": "john-spurlock"
+    },
+    {
+      "name": "John Preston",
+      "role": "Grant administrator and namesake",
+      "peopleId": "john-preston-col"
+    },
+    {
+      "name": "John Floyd",
+      "role": "County namesake",
+      "peopleId": "john-floyd"
+    }
+  ],
+  "openQuestions": [
+    "Primary record of the 1797 plat and who drew it (Spurlock vs. Graham).",
+    "Exact date of the 1818 act establishing the town."
+  ],
+  "sources": [
+    {
+      "id": "wp-pburg",
+      "citation": "“Prestonsburg, Kentucky.” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Prestonsburg,_Kentucky",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wp-floyd",
+      "citation": "“Floyd County, Kentucky.” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Floyd_County,_Kentucky",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "sos",
+      "citation": "“Prestonsburg.” Kentucky Secretary of State, Land Office city record.",
+      "url": "https://web.sos.ky.gov/land/cities.aspx?CTR=326",
+      "type": "primary",
+      "accessed": "2026-10-13"
+    }
+  ]
+}
