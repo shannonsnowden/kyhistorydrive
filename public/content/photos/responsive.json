@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:01:52.224Z",
+  "generatedAt": "2026-10-13T09:46:04.931Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg": {
@@ -161,20 +161,28 @@
         }
       ]
     },
-    "/content/photos/stories/little-turtle-and-hardins-defeat-1790.jpg": {
-      "sha256": "355866e1ecf5b394eff33c38f2c89394dc32b7355849e887a71e282408ad964c",
-      "width": 332,
-      "height": 441,
+    "/content/photos/stories/little-turtle-and-hardins-defeat-1790--topic.jpg": {
+      "sha256": "b6036ecebd8640498524dce07ce18915935821f7fcb3ef565e00cbda84af38b4",
+      "width": 734,
+      "height": 571,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790-332.avif",
-          "w": 332
+          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790--topic-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790--topic-720.avif",
+          "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790-332.webp",
-          "w": 332
+          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790--topic-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/little-turtle-and-hardins-defeat-1790--topic-720.webp",
+          "w": 720
         }
       ]
     },
