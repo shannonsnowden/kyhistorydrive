@@ -1,7 +1,7 @@
 # Warriors' Path (Athiamiowee) – house-style static map
 
 Story: "Athiamiowee: the Warriors' Path through Kentucky" – https://kyhistorydrive.com/#timeline/athiamiowee-the-warriors-path-through-kentucky
-Built 2026-10-10 by Story Studio with `make_warriors_path_map.py` (reuses `/workspace/video-style/mary-ingles/src/mapseq.py`: parchment, Natural Earth rivers, AWS terrarium relief, burned edges, vignette, hand-lettered labels, red route). Static final frame, no animation. `make_presentation.py` builds the phone preview and the dark-site variant.
+Built 2026-10-10 for Kentucky History Drive with `make_warriors_path_map.py` (reuses `/workspace/video-style/mary-ingles/src/mapseq.py`: parchment, Natural Earth rivers, AWS terrarium relief, burned edges, vignette, hand-lettered labels, red route). Static final frame, no animation. `make_presentation.py` builds the phone preview and the dark-site variant.
 
 ## Files
 | file | size | use |
