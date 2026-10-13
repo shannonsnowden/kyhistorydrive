@@ -5,6 +5,13 @@ One shared strategy for every bot that works on kyhistorydrive.com (repo `shanno
 ## Mission
 Our mission: get people interested in Kentucky history, show them where it happened on the map, and help them plan a drive to go see the historic sites. Every feature and story decision serves that path from story to place to drive. For example, story links open with the map visible on the story's pin, and each story points to a nearby drive.
 
+## Portraits and images
+Put faces to names: every character gets a bio portrait. Real photographs are used as-is. Anyone without a real photograph gets a realistic AI portrait, modeled on an existing drawing, engraving or painting where one exists, labeled AI and credited 'AI illustration · Kentucky History Drive'. When no known likeness exists, the credit adds '; no known likeness exists' ('AI illustration · Kentucky History Drive; no known likeness exists'). Each approved portrait is that character's canonical face, reused across stories, images and mini-doc videos; don't make new versions. Story Studio keeps the reference sheets. The Photos sidebar shows a different topic image, never the portrait.
+
+- Never credit Story Studio on the site. The check-no-studio-credit build check enforces this and fails the build if a Studio credit appears in the built pages or data.
+- The 36px story headshots carry no visible AI badge; their AI status is stated in the alt text only.
+- The site never links to the private research repository. Refer to it in words (for example, 'our research notes'), never with a link.
+
 ## Audience
 Kentuckians, road-trippers and history readers who want to know what happened where they are standing. Many read on a phone in the car or at a marker, so mobile comes first.
 

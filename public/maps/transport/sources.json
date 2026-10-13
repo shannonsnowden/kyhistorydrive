@@ -1,0 +1,230 @@
+{
+  "phase": 1,
+  "status": "phase-1",
+  "dates": "Railroad opening dates are sourced per section (see sections.geojson). Parkway opening years are provisional; the Daniel Boone (Hal Rogers) Parkway year is disputed (1971 vs 1974).",
+  "verification": {
+    "date": "2026-10-12",
+    "rules": [
+      "Do not use KYTC GIS line data. It has no explicit license and may involve cost recovery.",
+      "Rail geometry is USDOT/BTS NTAD North American Rail Network Lines, public domain.",
+      "Parkway geometry is USDOT/BTS NTAD National Highway System, public domain. OpenStreetMap (ODbL, credited as (c) OpenStreetMap contributors, in a separate file) is the alternative when NTAD is not used.",
+      "Parkway opening years stay provisional pending a check against KYTC's own document."
+    ],
+    "title": "Source verification rules"
+  },
+  "filter": "A line is drawn when opened <= year and (closed > year or the feature has no closed year). This extract has no closed years.",
+  "simplify": "Douglas-Peucker at about 100 meters, then coordinates rounded to 4 decimal places. Gaps of 2 km or less between pieces of the same route were closed with a straight segment. Fragments shorter than 2 km that did not join were dropped.",
+  "retrieved": "2026-10-12",
+  "frame": {
+    "name": "Kentucky state outline",
+    "file": "/data/kentucky-outline.geojson",
+    "source": "Natural Earth",
+    "license": "Public domain",
+    "url": "https://www.naturalearthdata.com/",
+    "note": "Already on the site. Used only as the map frame, not as transport geometry."
+  },
+  "notUsed": [
+    {
+      "source": "Kentucky Transportation Cabinet GIS line data",
+      "reason": "Do not use. KYTC GIS line data has no explicit license and may involve cost recovery. Parkway lines in this extract come from the NTAD National Highway System instead.",
+      "verificationCommit": "c4b56b3"
+    },
+    {
+      "source": "OpenStreetMap",
+      "reason": "Not used. Parkway geometry is NTAD (public domain). If OpenStreetMap is used later, keep it in a separate labeled file, under the Open Database License, and credit (c) OpenStreetMap contributors.",
+      "license": "Open Database License (ODbL)"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "ntad-narn",
+      "title": "North American Rail Network Lines",
+      "publisher": "U.S. Department of Transportation, Bureau of Transportation Statistics, from the Federal Railroad Administration",
+      "series": "National Transportation Atlas Database (NTAD)",
+      "file": "rail.geojson",
+      "url": "https://services.arcgis.com/xOi1kZaI0eWDREZv/ArcGIS/rest/services/NTAD_North_American_Rail_Network_Lines/FeatureServer/0",
+      "catalog": "https://doi.org/10.21949/1528950",
+      "license": "Public domain. This NTAD dataset is a work of the United States government as defined in 17 U.S.C. § 101 and as such are not protected by any U.S. copyrights. This work is available for unrestricted public use.",
+      "retrieved": "2026-10-12"
+    },
+    {
+      "id": "ntad-nhs",
+      "title": "National Highway System",
+      "publisher": "U.S. Department of Transportation, Bureau of Transportation Statistics, from the Federal Highway Administration",
+      "series": "National Transportation Atlas Database (NTAD)",
+      "version": "NHS Version 2025.08.08",
+      "file": "parkways.geojson",
+      "url": "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/NTAD_National_Highway_System/FeatureServer/0",
+      "catalog": "https://doi.org/10.21949/1530052",
+      "dictionary": "https://doi.org/10.21949/1529838",
+      "license": "The NHS Version 2025.08.08 database, or any portion thereof, can be freely distributed as long as this metadata entry is included with each distribution. The original metadata entry cannot be modified or deleted from any data transfer. This NTAD dataset is a work of the United States government as defined in 17 U.S.C. § 101 and as such are not protected by any U.S. copyrights. This work is available for unrestricted public use.",
+      "retrieved": "2026-10-12"
+    }
+  ],
+  "features": [
+    {
+      "id": "lexington-ohio",
+      "name": "Lexington & Ohio Railroad",
+      "kind": "rail",
+      "summary": "Kentucky's first railroad. Horse-drawn cars reached Frankfort from Lexington on 31 January 1834; the first steam run followed in January 1835. The line was chartered to carry Bluegrass goods toward the Ohio River.",
+      "sources": [
+        "https://history.ky.gov/markers/lexington-ohio-rr",
+        "https://wiki.lexhistory.org/wikilex/lexington-ohio-railroad",
+        "https://explorekyhistory.ky.gov/items/show/509"
+      ]
+    },
+    {
+      "id": "louisville-frankfort",
+      "name": "Louisville & Frankfort Railroad",
+      "kind": "rail",
+      "summary": "Closed the gap from Frankfort to the Ohio River at Louisville, with through service in 1851 after the Kentucky River bridge was finished.",
+      "sources": [
+        "https://explorekyhistory.ky.gov/items/show/509"
+      ]
+    },
+    {
+      "id": "ln-main",
+      "name": "Louisville & Nashville main line",
+      "kind": "rail",
+      "summary": "Opened south from Louisville in stages from 1855, climbing Muldraugh's Hill to reach Elizabethtown in June 1858. Track met at Bowling Green on 10 August 1859, and the first through train to Nashville ran on 27 October 1859.",
+      "sources": [
+        "https://bullittcountyhistory.org/memories/rrstory.html",
+        "https://filsonhistorical.org/wp-content/uploads/researchdocs/pdf/louisvilleandnashvillerailroad_010z2.pdf",
+        "https://web.archive.org/web/20200118194822/http://www.trainweb.org/chris/17bowl.html"
+      ]
+    },
+    {
+      "id": "cincinnati-southern",
+      "name": "Cincinnati Southern Railway",
+      "kind": "rail",
+      "summary": "Built by the city of Cincinnati for a direct route to Southern markets that bypassed Louisville and the L&N. It was open to Somerset by 23 July 1877, crossing the Kentucky River on High Bridge, and through service to Chattanooga began in 1880.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Trains/ICC_valuations/Cincinnati_Southern_Railway",
+        "https://bridgestunnels.com/location/high-bridge/",
+        "https://abandonedonline.net/location/cincinnati-southern-railway/"
+      ]
+    },
+    {
+      "id": "mountain",
+      "name": "Mountain Parkway",
+      "kind": "parkway",
+      "summary": "Winchester to Campton opened 14 January 1963, and Campton to Salyersville was dedicated 1 November 1963. It was built to open up eastern Kentucky.",
+      "sources": [
+        "https://www.kentuckyroads.com/mountain_parkway/",
+        "https://bridgestunnels.com/2024/02/26/the-widening-of-the-mountain-parkway-in-kentucky/"
+      ]
+    },
+    {
+      "id": "western-kentucky",
+      "name": "Western Kentucky Parkway",
+      "kind": "parkway",
+      "summary": "Elizabethtown to near Eddyville opened in 1963, and the extension to I-24 at Eddyville followed in 1968.",
+      "sources": [
+        "https://www.kentuckyroads.com/western_kentucky_parkway/",
+        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky"
+      ]
+    },
+    {
+      "id": "bluegrass",
+      "name": "Bluegrass Parkway",
+      "kind": "parkway",
+      "summary": "Opened 27 October 1965 between Elizabethtown and the Bluegrass at Versailles.",
+      "sources": [
+        "https://exploreuk.uky.edu/fa/fa-test/?id=xt718911rt4h"
+      ]
+    },
+    {
+      "id": "purchase",
+      "name": "Purchase Parkway",
+      "kind": "parkway",
+      "summary": "Opened in 1966 (provisional) through the Jackson Purchase, from Calvert City to Fulton.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://wiki.aaroads.com/wiki/List_of_parkways_and_named_highways_in_Kentucky"
+      ]
+    },
+    {
+      "id": "pennyrile",
+      "name": "Pennyrile Parkway",
+      "kind": "parkway",
+      "summary": "Opened in 1969 (provisional) between Henderson and Hopkinsville.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://wiki.aaroads.com/wiki/List_of_parkways_and_named_highways_in_Kentucky"
+      ]
+    },
+    {
+      "id": "audubon",
+      "name": "Audubon Parkway",
+      "kind": "parkway",
+      "summary": "Opened 18 December 1970 between Henderson and Owensboro.",
+      "sources": [
+        "https://transportationhistory.org/2019/12/18/kentucky-gets-a-new-addition-to-its-parkway-network/"
+      ]
+    },
+    {
+      "id": "daniel-boone",
+      "name": "Daniel Boone (Hal Rogers) Parkway",
+      "kind": "parkway",
+      "summary": "London to Hazard. Sources disagree on the opening year: 1971 or 1974.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://wiki.aaroads.com/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://kentuckyroads.com/daniel_boone_parkway/"
+      ]
+    },
+    {
+      "id": "green-river",
+      "name": "Green River (Natcher) Parkway",
+      "kind": "parkway",
+      "summary": "Opened in 1972 (provisional) between Bowling Green and Owensboro.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://www.kentuckyroads.com/parkways/"
+      ]
+    },
+    {
+      "id": "cumberland",
+      "name": "Cumberland (Louie B. Nunn) Parkway",
+      "kind": "parkway",
+      "summary": "Opened in 1973 (provisional) from I-65 near Glasgow east to Somerset.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://wiki.aaroads.com/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://www.kentuckyroads.com/parkways/"
+      ]
+    },
+    {
+      "id": "high-bridge",
+      "name": "High Bridge",
+      "kind": "bridge",
+      "opened": 1877,
+      "openedLabel": "1877",
+      "dataset": "ntad-narn",
+      "file": "rail.geojson",
+      "summary": "High Bridge carried the Cincinnati Southern over the Kentucky River palisades; it was finished in February 1877.",
+      "sources": [
+        "https://bridgestunnels.com/location/high-bridge/"
+      ]
+    }
+  ],
+  "v2": {
+    "counties": {
+      "files": [
+        "/maps/transport/county-lines.geojson",
+        "/maps/transport/county-labels.geojson"
+      ],
+      "source": "US Census Bureau 2023 Cartographic Boundary File, counties 1:500,000 (cb_2023_us_county_500k), public domain",
+      "url": "https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip",
+      "process": "Filtered to STATEFP 21 (120 counties), mapshaper simplify 8% keep-shapes, interior lines only; labels are inner points."
+    },
+    "sections": {
+      "file": "/maps/transport/sections.geojson",
+      "note": "Each route split into opening sections. Every date is provisional; dateSourced:false marks sections whose opening year is not yet sourced. Frankfort-Louisville geometry is the modern USDOT/BTS NTAD rail line (public domain)."
+    },
+    "eraColors": "Line color steps by completion decade, light amber (1830s) to deep red-brown (1970s). Sections not yet open at the slider year are drawn faint and dashed."
+  },
+  "sectionsSourced": {
+    "note": "Per-section sources are in sections.geojson (sources[]). dateStatus is sourced or disputed. Parkway years stay provisional. whyInferred marks notes that are our inference."
+  }
+}

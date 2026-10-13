@@ -9,6 +9,7 @@ import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
+import { loadStoryPeople, applyStoryPeople } from './story-people.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
@@ -23,6 +24,7 @@ import {
   learnMoreBlockHtml,
   markerRecords,
   photoCreditHtml,
+  photoCaptionYear,
   relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -554,6 +556,10 @@ function parseHash() {
     return { view: 'map', placeLayer, placeId }
   }
   if (path === 'resources') return { view: 'resources' }
+  if (path === 'transport') {
+    const year = rest[0] != null && rest[0] !== '' ? Number(decodeURIComponent(rest[0])) : null
+    return { view: 'transport', year: Number.isFinite(year) ? year : null }
+  }
   if (['about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
@@ -1522,7 +1528,7 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
 function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
-  const year = photo.year ? escapeHtml(String(photo.year)) : ''
+  const year = escapeHtml(photoCaptionYear(photo))
 
   const bits = [
     photo.google_url && `<a href="${escapeHtml(photo.google_url)}" target="_blank" rel="noopener noreferrer">Google</a>`,
@@ -3238,6 +3244,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     if (film) reader.classList.add('has-film')
     // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
     // when the Photos sidebar already shows the same file, but the title headshot stays).
+    const storyPeople = await loadStoryPeople()
     const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
     const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
@@ -3261,7 +3268,13 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             }
             <div class="tags">${tags}</div>
           </header>
-          <div class="story-body">${storyPortraitHtml(subject.person)}${marked.parse(stripSourceAttribution(s.bodyMarkdown || ''))}</div>
+          <div class="story-body">${storyPortraitHtml(subject.person)}${applyStoryPeople(
+            marked.parse(stripSourceAttribution(s.bodyMarkdown || '')),
+            storyPeople.stories?.[meta.slug],
+            new Map((publicPeople.people || []).map((p) => [p.id, p])),
+            (h) => h,
+            { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
+          )}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
           ${extras}
@@ -4541,6 +4554,10 @@ async function applyRoute() {
       ensureHighlightSource(map, null)
       fitMapToKentucky(map, { duration: 0 })
     })
+  } else if (view === 'transport') {
+    const { showTransport } = await import('./transport-map.js')
+    await showTransport(parseHash().year)
+    requestAnimationFrame(scrollPageToTop)
   } else if (view === 'timeline') {
     setupTimelineFilters()
     resetTimelineFiltersOff({ keepFocus: Boolean(slug) })
