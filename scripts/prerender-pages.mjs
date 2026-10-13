@@ -165,8 +165,8 @@ class PrerenderPages {
     if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
       throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
     }
-    if (!aboutHtml.includes('<h2 class="about-page-title">Kentucky History Drive</h2>')) {
-      throw new Error('prerender: /about/ should demote the duplicate title to an h2')
+    if (!aboutHtml.includes('<h1 class="about-page-title">Kentucky History Drive</h1>')) {
+      throw new Error('prerender: /about/ page title should be the h1 (the header title is a <p>)')
     }
     if (!aboutHtml.includes('src="/route-map-lightbox.js"')) {
       throw new Error('prerender: /about/ is missing the seal lightbox')
@@ -2674,7 +2674,7 @@ ${rows.join('\n')}
         </nav>
         <header class="story-head">
           <p class="static-kicker">About</p>
-          <h2 class="about-page-title">Kentucky History Drive</h2>
+          <h1 class="about-page-title">Kentucky History Drive</h1>
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
         <figure class="about-seals" aria-labelledby="aboutSealsTitle">

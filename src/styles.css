@@ -127,8 +127,8 @@ html[data-hp-theme="light"] body.hp-page header.top {
     height: 64px;
   }
 }
-.brand-home:hover h1,
-.brand-home:focus-visible h1 {
+.brand-home:hover :is(h1, .brand-title),
+.brand-home:focus-visible :is(h1, .brand-title) {
   color: var(--heading);
   text-decoration: underline;
   text-underline-offset: 0.18em;
@@ -149,8 +149,9 @@ html[data-hp-theme="light"] body.hp-page header.top {
   gap: 0.12rem;
   min-width: 0;
 }
-.brand h1 {
+.brand :is(h1, .brand-title) {
   margin: 0;
+  font-weight: 700;
   font-size: clamp(1.05rem, 2.5vw, 1.35rem);
   letter-spacing: 0.02em;
   color: var(--heading);
@@ -2223,7 +2224,7 @@ html[data-hp-theme="light"] .about-seal {
   gap: 0.28rem;
   justify-content: center;
 }
-.hp-page .brand h1 {
+.hp-page .brand :is(h1, .brand-title) {
   font-size: clamp(1.55rem, 3.4vw, 2.15rem);
   line-height: 1.12;
 }
@@ -3310,11 +3311,11 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
 .hp-related-title a { text-decoration: none; color: var(--heading); }
 .hp-related-title a:hover { text-decoration: underline; }
 
-html[data-hp-theme="light"] .brand h1 {
+html[data-hp-theme="light"] .brand :is(h1, .brand-title) {
   color: var(--heading);
 }
-html[data-hp-theme="light"] .brand-home:hover h1,
-html[data-hp-theme="light"] .brand-home:focus-visible h1 {
+html[data-hp-theme="light"] .brand-home:hover :is(h1, .brand-title),
+html[data-hp-theme="light"] .brand-home:focus-visible :is(h1, .brand-title) {
   color: var(--accent-deep);
 }
 html[data-hp-theme="light"] .btn.ghost {
@@ -3426,7 +3427,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .hp-page .brand-lockup {
     align-items: center;
   }
-  .hp-page .brand h1 {
+  .hp-page .brand :is(h1, .brand-title) {
     font-size: 1.35rem;
   }
   .hp-page .tagline {
@@ -3479,9 +3480,10 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     height: 56px;
   }
   .site-header .brand-home { gap: 0.4rem; }
-  .site-header .brand h1 { font-size: 1.02rem; }
+  .site-header .brand :is(h1, .brand-title) { font-size: 1.02rem; }
+  /* The tagline sits in .brand-lockup beside the seal already; no extra indent. */
   .site-header .tagline {
-    margin-left: calc(56px + 0.4rem);
+    margin-left: 0;
     font-size: 0.75rem;
   }
   .site-header nav#mainNav {
@@ -3534,7 +3536,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     width: var(--hp-logo, 132px);
     height: var(--hp-logo, 132px);
   }
-  body.hp-page .site-header .brand h1 {
+  body.hp-page .site-header .brand :is(h1, .brand-title) {
     font-size: clamp(1.3rem, 2.6vw, 1.75rem);
   }
   body.hp-page .site-header .tagline {
@@ -3556,7 +3558,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     width: var(--hp-logo, 84px);
     height: var(--hp-logo, 84px);
   }
-  body.hp-page .site-header .brand h1 {
+  body.hp-page .site-header .brand :is(h1, .brand-title) {
     font-size: 1.15rem;
     white-space: normal !important;
     overflow: visible !important;
@@ -3597,7 +3599,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     width: 40px;
     height: 40px;
   }
-  .site-header .brand h1 {
+  .site-header .brand :is(h1, .brand-title) {
     font-size: 0.95rem;
     white-space: nowrap;
     overflow: hidden;
@@ -3639,10 +3641,11 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header.is-menu-open nav a[data-route="map"] { order: 2; }
   .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
   .site-header.is-menu-open nav a[data-route="people"] { order: 4; }
-  .site-header.is-menu-open nav a[data-route="about"] { order: 5; }
-  .site-header.is-menu-open nav a[data-route="app"] { order: 6; }
-  .site-header.is-menu-open .nav-today { order: 7; }
-  .site-header.is-menu-open .hp-theme-toggle { order: 8; }
+  .site-header.is-menu-open nav a[data-route="drives"] { order: 5; }
+  .site-header.is-menu-open nav a[data-route="about"] { order: 6; }
+  .site-header.is-menu-open nav a[data-route="app"] { order: 7; }
+  .site-header.is-menu-open .nav-today { order: 8; }
+  .site-header.is-menu-open .hp-theme-toggle { order: 9; }
   .site-header.is-menu-open nav a,
   .site-header.is-menu-open .nav-today-btn,
   .site-header.is-menu-open .hp-theme-toggle {
@@ -4875,7 +4878,7 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     align-items: flex-start;
     gap: 0.15rem;
   }
-  body.hp-page .site-header .brand h1 {
+  body.hp-page .site-header .brand :is(h1, .brand-title) {
     font-size: 1.15rem;
     line-height: 1.15;
     white-space: normal;

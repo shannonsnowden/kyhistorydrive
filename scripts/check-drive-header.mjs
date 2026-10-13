@@ -25,7 +25,12 @@ for (const f of files) {
     [/getElementById\('navMenuToggle'\)/, 'menu/theme script'],
     [/@import url\("\/[^"]+\.css"\) layer\(site\)/, 'site stylesheet'],
   ]
-  if (rel !== '/drives/') need.push([/<a href="\/drives\/">← Back to all drives<\/a>/, 'Back to all drives link'])
+  if (rel === '/drives/build/') need.push([/<p class="drive-back"><a href="\/drives\/">← Back to all drives<\/a>/, 'Back to all drives link'])
+  else if (rel !== '/drives/') {
+    need.push([/<p class="drive-back drive-back-phone"><a href="\/drives\/">← Back to all drives<\/a>/, 'phone Back to all drives link'])
+    need.push([/<a href="\/drives\/">All drives<\/a>/i, 'All drives breadcrumb'])
+  }
+  if ((html.match(/<h1[\s>]/g) || []).length > 1) errors.push(`${rel} has more than one h1`)
   for (const [re, what] of need) if (!re.test(html)) errors.push(`${rel} is missing the ${what}`)
 }
 if (files.length < 26) errors.push(`expected at least 26 /drives/ pages, found ${files.length}`)

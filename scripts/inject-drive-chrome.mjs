@@ -25,18 +25,21 @@ const GUARD_CSS = `<style>
 .drive-back{margin:0 0 8px;font-size:14px}
 .drive-back a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-decoration:none}
 .drive-back a:hover{text-decoration:underline}
+@media (min-width:701px){.drive-back-phone{display:none}}
 </style>`
 
-export function injectDriveChrome(html, { cssHrefs, isIndex }) {
+export function injectDriveChrome(html, { cssHrefs, isIndex, isPlanner }) {
   if (html.includes(MARK)) return html
   if (!/<main>/.test(html)) throw new Error('inject-drive-chrome: page has no <main>')
+  const preload = cssHrefs.map((h) => `<link rel="preload" as="style" href="${h}" />`).join('\n')
   const layered = `<style>${cssHrefs.map((h) => `@import url("${h}") layer(site);`).join('')}</style>`
   // Head: seal rotation + saved theme + layered site CSS before the page's own styles; guard after them.
   const firstStyle = html.search(/<style>|<link rel="stylesheet"/)
   if (firstStyle < 0) throw new Error('inject-drive-chrome: page has no stylesheet')
-  html = html.slice(0, firstStyle) + `${MARK}\n${sealRotationScriptHtml()}\n${THEME_JS}\n${layered}\n` + html.slice(firstStyle)
+  html = html.slice(0, firstStyle) + `${MARK}\n${sealRotationScriptHtml()}\n${THEME_JS}\n${preload}\n${layered}\n` + html.slice(firstStyle)
   html = html.replace('</head>', `${GUARD_CSS}\n</head>`)
-  const back = isIndex ? '' : '\n  <p class="drive-back"><a href="/drives/">← Back to all drives</a></p>'
+  // Drive pages have an "All drives" breadcrumb, so the back link is for phones only; the planner keeps it always.
+  const back = isIndex ? '' : `\n  <p class="drive-back${isPlanner ? '' : ' drive-back-phone'}"><a href="/drives/">← Back to all drives</a></p>`
   html = html.replace('<body>', `<body>\n${siteHeaderHtml('drives')}`)
   html = html.replace('<main>', `<main id="content" tabindex="-1">${back}`)
   // End of body: re-apply the saved theme after the page's own theme line, then the shared menu/toggle script.
@@ -58,8 +61,10 @@ function main() {
     }
   })(dir)
   for (const f of files) {
-    const isIndex = path.relative(dir, f) === 'index.html'
-    fs.writeFileSync(f, injectDriveChrome(fs.readFileSync(f, 'utf8'), { cssHrefs, isIndex }))
+    const rel = path.relative(dir, f)
+    const isIndex = rel === 'index.html'
+    const isPlanner = rel === path.join('build', 'index.html')
+    fs.writeFileSync(f, injectDriveChrome(fs.readFileSync(f, 'utf8'), { cssHrefs, isIndex, isPlanner }))
   }
   console.log(`inject-drive-chrome: site header on ${files.length} /drives/ pages`)
 }
