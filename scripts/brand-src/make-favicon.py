@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 AMBER = (0xc9, 0x89, 0x3a, 255)       # #c9893a
 AMBER_HI = (0xd9, 0x9a, 0x45, 255)    # #d99a45, used at 16px for contrast
 GREEN = (0x1f, 0x3d, 0x2a, 255)       # deep green #1f3d2a
+RIM = (0x2e, 0x5a, 0x3e, 255)         # lighter green #2e5a3e, 1px rim so the disc reads on dark tabs
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'
 
 def mark(size):
@@ -14,9 +15,9 @@ def mark(size):
     im = Image.new('RGBA', (W, W), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     ink = AMBER_HI if size <= 16 else AMBER
-    d.ellipse((0, 0, W - 1, W - 1), fill=GREEN)
+    d.ellipse((0, 0, W - 1, W - 1), fill=GREEN, outline=RIM, width=s)  # 1px rim at native size
     ring = max(1, round(size / 16)) * s  # 1px at 16, 2px at 32
-    inset = ring  # small gap from the edge
+    inset = ring + 2 * s  # clear of the 1px rim
     d.ellipse((inset * 0.5, inset * 0.5, W - 1 - inset * 0.5, W - 1 - inset * 0.5), outline=ink, width=ring)
     f = ImageFont.truetype(FONT, int(W * 0.66))
     box = d.textbbox((0, 0), 'K', font=f)
