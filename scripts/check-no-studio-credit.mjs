@@ -9,7 +9,7 @@
  * credit ends '; no known likeness exists') must show that ending wherever dist renders the
  * portrait with a visible credit (story figures, Related people, /people/ cards). Alt-only
  * headshots carry no credit and are skipped. AI people whose research record says
- * likeness 'none-known' but lack the flag are listed as warnings.
+ * likeness 'none-known' but lack the ending fail the build.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -90,9 +90,9 @@ for (const p of flagged) {
   if (!rendered) likenessHits.push(`${p.id}: no rendered credit found in dist`)
   rendered = 0
 }
-if (unflagged.length) console.warn(`check-no-studio-credit: warning: ${unflagged.length} AI portraits are likeness 'none-known' in data/people.json but their credit lacks '${NOTE}': ${unflagged.join(', ')}`)
+if (unflagged.length) likenessHits.push(...unflagged.map((id) => `data/people.json: ${id} is likeness 'none-known' but its credit lacks '${NOTE}'`))
 if (likenessHits.length) {
-  console.error(`check-no-studio-credit: ${likenessHits.length} rendered AI portrait credits are missing '${SHOWN}' (person flagged no known likeness):`)
+  console.error(`check-no-studio-credit: ${likenessHits.length} no-likeness credit problems (each needs '${SHOWN}'):`)
   for (const h of [...new Set(likenessHits)]) console.error(`  ${h}`)
   process.exit(1)
 }
