@@ -856,16 +856,20 @@
       "id": "blue-jacket",
       "name": "Blue Jacket",
       "dates": "c. 1743–1810",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/blue-jacket__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/blue-jacket__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "blue-jacket-weyapiersenwah",
         "simon-girty-interpreter-at-bryan-station-1782",
         "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "robert-johnson",
@@ -932,15 +936,19 @@
       "id": "richard-callaway",
       "name": "Richard Callaway",
       "dates": "1717–1780",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/richard-callaway__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/richard-callaway__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
         "col-richard-callaway-of-boonesborough"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "fanny-callaway",
@@ -1031,14 +1039,18 @@
       "id": "egushawa",
       "name": "Egushawa",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/egushawa__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/egushawa__ai-portrait-v1-512.jpg"
+      },
+      "credit": "Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "egushawa-and-the-odawa-in-kentuckys-war-years"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "thomas-walker",

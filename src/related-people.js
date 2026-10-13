@@ -154,6 +154,10 @@ export function hasSafePortrait(person) {
  * image (Shannon, Oct 13).
  * Returns { person, reason }.
  */
+/**
+ * Slug-prefix matches that are not the story's subject. The Red Bird River petroglyphs story is
+ * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
+ */
 const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
 const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
 const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
