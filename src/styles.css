@@ -1198,11 +1198,11 @@ a.related-card:hover .related-card-chevron {
 }
 .story-photo-credit a {
   color: var(--accent);
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0;
 }
+/* Sidebar credit links are inline text links (WCAG 2.5.8 inline exception): no tap sizing. */
+.story-sidebar-photo-attr.story-photo-credit { line-height: 1.4; }
+.story-sidebar-photo-attr.story-photo-credit a { padding-block: 2px; }
+.historic-photo-attr.story-photo-credit a { display: inline-flex; align-items: center; min-height: 44px; }
 .story-photo-credit a:focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;

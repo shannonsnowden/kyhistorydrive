@@ -460,6 +460,7 @@ assert.deepEqual(
 
 const css = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../src/styles.css'), 'utf8')
 assert.match(css, /\.route-downloads a\.btn \{[^}]*min-height:\s*44px/)
-assert.match(css, /\.story-photo-credit a \{[^}]*min-height:\s*44px/)
+assert.doesNotMatch(css, /\.story-sidebar-photo-attr\.story-photo-credit a \{[^}]*min-height/, 'sidebar credit links are inline (WCAG 2.5.8 exception)')
+assert.match(css, /\.story-sidebar-photo-attr\.story-photo-credit \{[^}]*line-height:\s*1\.4/)
 
 console.log('story quick wins: ok')
