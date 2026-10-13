@@ -32,15 +32,22 @@ function readJson(rel) {
 }
 
 function stripHtml(html) {
-  return String(html || '')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
+  let text = String(html || '')
+  let previous
+  // Repeat until stable so a nested tag cannot collapse into <script>.
+  do {
+    previous = text
+    text = text.replace(/<br\s*\/?>/gi, ' ')
+    text = text.replace(/<[^>]*>/g, '')
+  } while (text !== previous)
+  // Decode &amp; last so &amp;lt; stays &lt; instead of becoming <.
+  return text
     .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#0?39;/g, "'")
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
     .trim()
 }
