@@ -23,6 +23,7 @@ import {
   learnMoreBlockHtml,
   markerRecords,
   photoCreditHtml,
+  photoCaptionYear,
   relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -1522,7 +1523,7 @@ async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId,
 function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   if (!photo) return ''
   const caption = escapeHtml(photo.title || title || 'Related photo')
-  const year = photo.year ? escapeHtml(String(photo.year)) : ''
+  const year = escapeHtml(photoCaptionYear(photo))
 
   const bits = [
     photo.google_url && `<a href="${escapeHtml(photo.google_url)}" target="_blank" rel="noopener noreferrer">Google</a>`,

@@ -1198,11 +1198,11 @@ a.related-card:hover .related-card-chevron {
 }
 .story-photo-credit a {
   color: var(--accent);
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 0.2rem;
 }
+/* Sidebar credit links are inline text links (WCAG 2.5.8 inline exception): no tap sizing. */
+.story-sidebar-photo-attr.story-photo-credit { line-height: 1.4; }
+.story-sidebar-photo-attr.story-photo-credit a { padding-block: 2px; }
+.historic-photo-attr.story-photo-credit a { display: inline-flex; align-items: center; min-height: 44px; }
 .story-photo-credit a:focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
@@ -5280,6 +5280,14 @@ html[data-hp-theme="light"] .hp-plan-drive {
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
 
+/* Photo credits: separate .seg spans, separators drawn by CSS. */
+/* Segments flow as one line of normal inline text and wrap anywhere between words; only the site
+   name stays unbroken. */
+.story-photo-credit .seg,
+.story-photo-credit .photo-license { display: inline; white-space: normal; }
+.story-photo-credit .credit-site { white-space: nowrap; }
+.story-photo-credit .seg + .seg::before { content: '· '; }
+
 /* Homepage story link → Timeline: on phones the map docks on top, story below. */
 @media (max-width: 900px) {
   .timeline-layout.is-home-story .timeline-map-pane {
@@ -5299,10 +5307,6 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
 }
 
-/* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
-.story-photo-credit .photo-license { white-space: nowrap; }
-/* Sidebar credit links are inline text links: no padded tap box, so no gap before the period (' .'). */
-.story-sidebar-photo-attr.story-photo-credit a { display: inline; min-height: 0; padding: 0; }
 /* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
    caption above); the 'no known likeness exists' note stays on its own unbroken line. */
 @container (max-width: 559.98px) {
