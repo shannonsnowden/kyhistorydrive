@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T09:45:12.776Z",
+  "generatedAt": "2026-10-13T10:03:29.173Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -82,7 +82,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
-        "year": 1887
+        "year": 1887,
+        "fit": "contain"
       }
     },
     "blue-jacket-weyapiersenwah": {
@@ -118,7 +119,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       }
     },
     "buckner-site-fort-ancient-villages-on-strodes-creek": {
@@ -166,7 +168,8 @@
         "source_url": "https://www.loc.gov/pictures/item/2020630224/",
         "source_label": "Library of Congress",
         "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
-        "year": 1864
+        "year": 1864,
+        "fit": "contain"
       }
     },
     "campbellsville-from-buckhorn-creek-to-county-seat": {
@@ -226,7 +229,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "carrollton-from-port-william": {
@@ -289,7 +293,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
         "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-        "year": 1940
+        "year": 1940,
+        "fit": "contain"
       }
     },
     "col-john-holder-at-lower-howards-creek": {
@@ -304,6 +309,17 @@
         "year": 2023
       }
     },
+    "col-thomas-marshall-at-buck-pond": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
+        "title": "John Marshall",
+        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
+    },
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
       "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
       "historyId": null,
@@ -313,7 +329,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Point_Pleasant_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "croley-evans-site": {
@@ -508,6 +525,18 @@
         "year": 1796
       }
     },
+    "george-garvin-brown-and-old-forester": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
+      }
+    },
     "harry-innes": {
       "slug": "harry-innes",
       "historyId": "harry-innes-frankfort-1783-1816",
@@ -577,7 +606,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
@@ -613,7 +643,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "jacob-beam-sells-old-jakes-first-barrel": {
@@ -625,7 +656,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "james-knox": {
@@ -709,7 +741,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "lebanon-cedars-meeting-house-county-seat": {
@@ -781,7 +814,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-        "year": 1979
+        "year": 1979,
+        "fit": "contain"
       }
     },
     "mammoth-cave-saltpeter": {
@@ -856,6 +890,18 @@
         "year": null
       }
     },
+    "moluntha-and-logans-raid-1786": {
+      "slug": "moluntha-and-logans-raid-1786",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
+      }
+    },
     "moneton": {
       "slug": "moneton",
       "historyId": null,
@@ -889,7 +935,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "nonhelema": {
@@ -1036,6 +1083,18 @@
         "year": null
       }
     },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "quapaw-the-downstream-people-of-the-ohio-valley": {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
       "historyId": null,
@@ -1108,6 +1167,18 @@
         "year": null
       }
     },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      }
+    },
     "shaker-village-of-pleasant-hill": {
       "slug": "shaker-village-of-pleasant-hill",
       "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
@@ -1129,7 +1200,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       }
     },
     "simpsonville-takes-shape-on-the-louisville-road": {
@@ -1141,7 +1213,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "year": 1902,
+        "fit": "contain"
       }
     },
     "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
@@ -1443,7 +1516,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
-        "year": 1887
+        "year": 1887,
+        "fit": "contain"
       }
     },
     "blue-jacket-limestone-negotiation-1787-1788": {
@@ -1479,7 +1553,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       }
     },
     "buckner-site-15bb12-bourbon-county": {
@@ -1527,7 +1602,8 @@
         "source_url": "https://www.loc.gov/pictures/item/2020630224/",
         "source_label": "Library of Congress",
         "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
-        "year": 1864
+        "year": 1864,
+        "fit": "contain"
       }
     },
     "campbellsville-taylor-1814-1848": {
@@ -1587,7 +1663,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       }
     },
     "carrollton-port-william-carroll-1792-1838": {
@@ -1635,7 +1712,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
         "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-        "year": 1940
+        "year": 1940,
+        "fit": "contain"
       }
     },
     "holders-station-lower-howards-creek": {
@@ -1648,6 +1726,17 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sarah Stierch · Wikimedia Commons · CC BY 4.0",
         "year": 2023
+      }
+    },
+    "col-thomas-marshall-buck-pond-woodford-1783-1802": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
+        "title": "John Marshall",
+        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
       }
     },
     "daniel-trabue-house-columbia-adair-1778-1840": {
@@ -1794,6 +1883,18 @@
         "year": 1796
       }
     },
+    "old-forester-whiskey-row-louisville-1870": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
+      }
+    },
     "harry-innes-frankfort-1783-1816": {
       "slug": "harry-innes",
       "historyId": "harry-innes-frankfort-1783-1816",
@@ -1851,7 +1952,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "ruddells-station-harrison-county": {
@@ -1887,7 +1989,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "james-knox-skinhouse-camp-knox-1770": {
@@ -2019,7 +2122,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-        "year": 1979
+        "year": 1979,
+        "fit": "contain"
       }
     },
     "mammoth-cave-saltpeter-war-of-1812": {
@@ -2115,7 +2219,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "year": null,
+        "fit": "contain"
       }
     },
     "old-fort-earthworks-15gp1-greenup": {
@@ -2226,6 +2331,18 @@
         "year": 2014
       }
     },
+    "prestonsburg-founding-floyd-1797-1818": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "red-bird-river-petroglyphs-eriline-clay": {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "historyId": "red-bird-river-petroglyphs-eriline-clay",
@@ -2286,6 +2403,18 @@
         "year": null
       }
     },
+    "sassafras-ridge-15fu3-fulton-1000-1500": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      }
+    },
     "pleasant-hill-shaker-village-mercer-1805-1910": {
       "slug": "shaker-village-of-pleasant-hill",
       "historyId": "pleasant-hill-shaker-village-mercer-1805-1910",
@@ -2307,7 +2436,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "year": 1902,
+        "fit": "contain"
       }
     },
     "singer-hieronymus-fort-ancient-scott-county": {

@@ -129,7 +129,8 @@
         "col-john-bowman-at-old-chillicothe",
         "col-john-hardin-of-pleasant-run",
         "nonhelema",
-        "stanford-from-st-asaph"
+        "stanford-from-st-asaph",
+        "moluntha-and-logans-raid-1786"
       ],
       "sourceFile": "General Benjamin Logan - Google Art Project.jpg"
     },
@@ -303,7 +304,8 @@
       "licenseUrl": null,
       "stories": [
         "john-floyd",
-        "stanford-from-st-asaph"
+        "stanford-from-st-asaph",
+        "prestonsburg-first-seat-on-the-big-sandy"
       ],
       "sourceFile": "Portrait of Colonel John Floyd (1750-1783).jpg"
     },
@@ -1013,7 +1015,8 @@
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
-        "nonhelema"
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
       ]
     },
     {
@@ -1028,7 +1031,8 @@
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
-        "nonhelema"
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
       ]
     },
     {
@@ -4488,6 +4492,62 @@
         "jacob-spears-early-bourbon-whiskey"
       ],
       "sourceFile": "TMetcalfe.jpg"
+    },
+    {
+      "id": "thomas-marshall-col",
+      "name": "Col. Thomas Marshall",
+      "dates": "1730–1802",
+      "image": {
+        "webp": "/people/portraits/thomas-marshall-col-512.webp",
+        "jpg": "/people/portraits/thomas-marshall-col-512.jpg"
+      },
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-thomas-marshall-at-buck-pond"
+      ],
+      "sourceFile": "Portrait of Thomas Marshall, Father of CJ John Marshall.jpg"
+    },
+    {
+      "id": "john-spurlock",
+      "name": "John Spurlock",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ]
+    },
+    {
+      "id": "john-preston-col",
+      "name": "Col. John Preston",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ]
+    },
+    {
+      "id": "george-garvin-brown",
+      "name": "George Garvin Brown",
+      "dates": "1846–1917",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "george-garvin-brown-and-old-forester"
+      ]
     }
   ],
   "storySubjects": {
@@ -4539,12 +4599,14 @@
     "william-hoy-and-hoys-station": "william-hoy",
     "capt-james-estill-estills-defeat": "james-estill",
     "col-john-holder-at-lower-howards-creek": "john-holder",
+    "col-thomas-marshall-at-buck-pond": "thomas-marshall-col",
     "harry-innes": "harry-innes",
     "john-filson-kentucke-1784": "john-filson",
     "gen-james-wilkinson-kentuckys-agent-13": "james-wilkinson",
     "basil-haydens-high-rye-trail": "basil-hayden",
     "gen-charles-scott-and-petersburg": "charles-scott",
     "col-john-hardin-of-pleasant-run": "john-hardin",
+    "moluntha-and-logans-raid-1786": "moluntha",
     "blue-jacket-weyapiersenwah": "blue-jacket",
     "john-bradford-and-the-kentucke-gazette": "john-bradford",
     "william-whitley-sportsmans-hill": "william-whitley",
@@ -4558,6 +4620,7 @@
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
     "james-crow-on-glenns-creek": "james-c-crow",
     "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
+    "george-garvin-brown-and-old-forester": "george-garvin-brown",
     "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr"
   }

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-13T09:45:04.666Z",
-  "count": 236,
+  "generatedAt": "2026-10-13T10:03:22.380Z",
+  "count": 241,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-12"
+    "end": "2026-10-13"
   },
   "eras": [
     "early-commonwealth",
@@ -533,6 +533,36 @@
       "lon": -86.84895,
       "mapConfidence": "county",
       "matchedPlace": "Logan County (centroid)"
+    },
+    {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
+      "publishedDate": "2026-10-13",
+      "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
+      "yearStart": 1000,
+      "yearEnd": 1500,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Fulton",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
+      },
+      "lat": 36.6,
+      "lon": -89.2,
+      "mapConfidence": "override",
+      "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)"
     },
     {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
@@ -2349,7 +2379,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Point_Pleasant_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       },
       "lat": null,
       "lon": null,
@@ -2841,7 +2872,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
-        "year": 1887
+        "year": 1887,
+        "fit": "contain"
       },
       "lat": 37.89977778,
       "lon": -84.26566667,
@@ -3003,7 +3035,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       },
       "lat": 38.07586667,
       "lon": -84.41529167,
@@ -3104,7 +3137,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.805,
       "lon": -84.831,
@@ -3380,10 +3414,11 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       },
-      "lat": 38.1741739,
-      "lon": -84.8769101,
+      "lat": 38.033056,
+      "lon": -84.903056,
       "mapConfidence": "override",
       "matchedPlace": "Lawrenceburg / Kaufman's Station"
     },
@@ -3641,7 +3676,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "year": 2019,
+        "fit": "contain"
       },
       "lat": 38.07586667,
       "lon": -84.41529167,
@@ -3726,6 +3762,35 @@
       "lon": null,
       "mapConfidence": null,
       "matchedPlace": null
+    },
+    {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "title": "Col. Thomas Marshall at Buck Pond",
+      "publishedDate": "2026-10-13",
+      "summary": "Col. Thomas Marshall (1730–1802), Revolutionary officer and father of Chief Justice John Marshall, ran Virginia’s military-land survey office in Kentucky and founded Buck Pond near Versailles.",
+      "yearStart": 1783,
+      "yearEnd": 1802,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "surveyor",
+        "revolution"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Woodford",
+      "lat": 38.066667,
+      "lon": -84.686944,
+      "mapConfidence": "override",
+      "matchedPlace": "Buck Pond / Col. Thomas Marshall",
+      "photo": {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
+        "title": "John Marshall",
+        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
+        "source_label": "Wikipedia",
+        "attribution": "Wikipedia"
+      }
     },
     {
       "slug": "harry-innes",
@@ -3947,12 +4012,42 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
         "source_label": "Wikimedia Commons",
         "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-        "year": 1940
+        "year": 1940,
+        "fit": "contain"
       },
       "lat": 37.69,
       "lon": -85.17,
       "mapConfidence": "override",
       "matchedPlace": "Col. John Hardin’s Pleasant Run homestead (approximate)"
+    },
+    {
+      "slug": "moluntha-and-logans-raid-1786",
+      "title": "Moluntha and Logan’s Raid, 1786",
+      "publishedDate": "2026-10-13",
+      "summary": "In October 1786 Kentucky militia under Benjamin Logan burned Shawnee towns in Ohio, and Hugh McGary killed the aged Mekoche Shawnee leader Moluntha after he surrendered under an American flag.",
+      "yearStart": 1786,
+      "yearEnd": 1786,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "shawnee",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "blue-jacket-weyapiersenwah",
@@ -4583,7 +4678,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 1902
+        "year": 1902,
+        "fit": "contain"
       },
       "lat": 38.2219833,
       "lon": -85.3464,
@@ -4612,7 +4708,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.76176666666667,
       "lon": -85.3364,
@@ -4641,7 +4738,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.76176666666667,
       "lon": -85.3364,
@@ -4845,6 +4943,35 @@
       "matchedPlace": "Owensboro / Yellow Banks"
     },
     {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "title": "Prestonsburg: first seat on the Big Sandy",
+      "publishedDate": "2026-10-13",
+      "summary": "Laid out as Preston’s Station in 1797 on the Levisa Fork, Prestonsburg became the seat of a vast new Floyd County in 1800 and was formally established in 1818.",
+      "yearStart": 1797,
+      "yearEnd": 1818,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Floyd",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      },
+      "lat": 37.681667,
+      "lon": -82.766944,
+      "mapConfidence": "override",
+      "matchedPlace": "Prestonsburg founding / Preston’s Station"
+    },
+    {
       "slug": "yellow-banks-becomes-owensboro",
       "title": "Yellow Banks becomes Owensboro",
       "publishedDate": "2026-09-24",
@@ -4942,7 +5069,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": null
+        "year": null,
+        "fit": "contain"
       },
       "lat": 38.4333333,
       "lon": -85.1688889,
@@ -5021,7 +5149,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2007,
+        "fit": "contain"
       },
       "lat": 38.31245,
       "lon": -84.0282167,
@@ -5634,7 +5763,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-        "year": 1979
+        "year": 1979,
+        "fit": "contain"
       },
       "lat": 38.24611,
       "lon": -85.76889,
@@ -5717,7 +5847,8 @@
         "source_url": "https://www.loc.gov/pictures/item/2020630224/",
         "source_label": "Library of Congress",
         "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
-        "year": 1864
+        "year": 1864,
+        "fit": "contain"
       },
       "lat": 37.797005,
       "lon": -84.600577,
@@ -5755,6 +5886,35 @@
       "lon": -84.59806,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
+    },
+    {
+      "slug": "george-garvin-brown-and-old-forester",
+      "title": "George Garvin Brown and Old Forester",
+      "publishedDate": "2026-10-13",
+      "summary": "In 1870 Louisville’s George Garvin Brown began selling Old Forester only in sealed glass bottles, a guarantee against watered whiskey that became the foundation of Brown-Forman.",
+      "yearStart": 1870,
+      "yearEnd": 1917,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "bourbon"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-13",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "lat": 38.256389,
+      "lon": -85.7525,
+      "mapConfidence": "override",
+      "matchedPlace": "Old Forester / Whiskey Row (Louisville)"
     },
     {
       "slug": "frederick-stitzels-barrel-racks-1879",
