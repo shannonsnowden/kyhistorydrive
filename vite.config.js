@@ -87,6 +87,8 @@ export default defineConfig({
             html = html.replace('<!-- khd-privacy-choices -->', privacyChoicesBootHtml())
           }
           html = html.replace(/<!-- khd-contact-line\s+([\s\S]*?)\s*-->/g, (_, lead) => contactLineHtml(lead.trim()))
+          // Drive planner (/drives/build/) is analytics-free by design: it can use the visitor's location.
+          if (html.includes('<!-- khd-no-analytics -->')) return html
           return injectGtagHead(html)
         },
       },
@@ -96,11 +98,15 @@ export default defineConfig({
     outDir: 'dist',
     // Published bundles stay unmapped. scripts/check-sourcemaps.mjs fails the build if dist contains a .map file.
     sourcemap: false,
+    // public/ is copied into dist, including NOTES.md and other authoring notes.
+    // scripts/strip-authoring-notes.mjs removes those after this step.
+    // scripts/check-authoring-notes.mjs fails the build if a .md file remains.
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
         homePreview: resolve(root, 'home-preview/index.html'),
         privacy: resolve(root, 'privacy/index.html'),
+        buildDrive: resolve(root, 'drives/build/index.html'),
       },
     },
   },

@@ -43,8 +43,13 @@ html[data-hp-theme="dark"] {
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--text); }
 /* Reserve the sticky timeline jump bar when it is open, so scroll-into-view
-   stops above it. --timeline-jump-h is 0 while the bar is hidden. */
+   stops above it. --timeline-jump-h is 0 while the bar is hidden.
+   With a story open, also keep about 80px (plus the home-indicator inset)
+   so the last lines can sit clear of the floating bar. */
 html { scroll-padding-bottom: calc(var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px)); }
+html:has(#timelineReaderJump:not([hidden])) {
+  scroll-padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px) + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
+}
 /* Author display rules must not override the hidden attribute (map-section uses display:grid) */
 [hidden] { display: none !important; }
 a { color: var(--accent); }
@@ -88,6 +93,15 @@ body.privacy-doc header.top {
 html[data-hp-theme="light"] body.privacy-doc header.top {
   background: #f3ead8;
 }
+/* Home: same solid fill. At 95% alpha + blur, hero images and headings scrolled under the sticky
+   header showed through as a ghost (visible in the 1280 light shots). */
+body.hp-page header.top {
+  background: #101812;
+  backdrop-filter: none;
+}
+html[data-hp-theme="light"] body.hp-page header.top {
+  background: #f3ead8;
+}
 .brand-home {
   display: inline-flex;
   align-items: center;
@@ -113,8 +127,8 @@ html[data-hp-theme="light"] body.privacy-doc header.top {
     height: 64px;
   }
 }
-.brand-home:hover h1,
-.brand-home:focus-visible h1 {
+.brand-home:hover :is(h1, .brand-title),
+.brand-home:focus-visible :is(h1, .brand-title) {
   color: var(--heading);
   text-decoration: underline;
   text-underline-offset: 0.18em;
@@ -128,8 +142,16 @@ html[data-hp-theme="light"] body.privacy-doc header.top {
   outline-offset: 3px;
   border-radius: 8px;
 }
-.brand h1 {
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+  min-width: 0;
+}
+.brand :is(h1, .brand-title) {
   margin: 0;
+  font-weight: 700;
   font-size: clamp(1.05rem, 2.5vw, 1.35rem);
   letter-spacing: 0.02em;
   color: var(--heading);
@@ -144,13 +166,18 @@ html[data-hp-theme="light"] body.privacy-doc header.top {
 }
 .tagline {
   margin: 0;
-  margin-left: calc(88px + 0.65rem);
   color: var(--muted);
   font-size: 0.85rem;
   line-height: 1.3;
 }
-@media (max-width: 700px) {
-  .tagline { margin-left: calc(64px + 0.65rem); }
+/* Compact header: keep the pitch off non-home routes. */
+.brand-subhead {
+  display: none;
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  max-width: 28rem;
 }
 nav {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem;
@@ -463,7 +490,7 @@ a#siteSearchInput {
 #about, #app {
   scroll-margin-top: 0;
 }
-.about-logo-block {
+.about-seals {
   scroll-margin-top: 0;
 }
 .panel-wide { padding: 1.5rem 1.25rem; max-width: 64rem; margin: 0 auto; }
@@ -691,10 +718,10 @@ a.btn { text-decoration: none; display: inline-block; }
 .stories-list { display: grid; gap: 0.75rem; }
 .story-reader {
   margin-top: 1.15rem;
-  /* Bottom padding matches the sticky Home/Filters/Stories/Top/Reset bar
-     (its height plus the gap it floats above the viewport) so the last
-     lines stay above the bar at every width. */
-  padding: 1.1rem 1.15rem calc(1.35rem + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
+  /* 80px plus the home-indicator inset sits above the floating
+     Home/Filters/Stories/Top/Reset bar (its height and the gap it floats
+     above the viewport) so the last lines can scroll clear of it. */
+  padding: 1.1rem 1.15rem calc(80px + env(safe-area-inset-bottom, 0px) + var(--timeline-jump-h, 0px) + var(--timeline-jump-gap, 0px));
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -932,7 +959,7 @@ html[data-hp-theme="light"] .era-other {
 .back-link { font-size: 0.9rem; text-decoration: none; }
 .story-detail { background: var(--panel); border-radius: 12px; padding: 1.25rem 1.4rem; border: 1px solid var(--line); }
 .story-head h2 { margin: 0.4rem 0 0.5rem; color: var(--heading); }
-.story-body { line-height: 1.6; font-size: 1.02rem; }
+.story-body { line-height: 1.6; font-size: 1.02rem; max-width: 70ch; }
 .story-body { overflow-wrap: anywhere; }
 .story-body a { word-break: break-word; overflow-wrap: anywhere; }
 .story-reader-main, .story-reader-layout > * { min-width: 0; }
@@ -1107,6 +1134,8 @@ a.related-card:focus-visible {
   font-size: 1.05rem;
   line-height: 1.25;
   text-decoration: none;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 a.related-card:hover .related-card-title,
 a.related-card:focus-visible .related-card-title {
@@ -1209,6 +1238,23 @@ a.related-card:hover .related-card-chevron {
 .story-related h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--heading); }
 .story-related ul { margin: 0; padding-left: 1.1rem; }
 .story-related li { margin: 0.3rem 0; line-height: 1.45; overflow-wrap: anywhere; }
+.story-related li.has-headshot {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  list-style: none;
+  margin-left: -0.15rem;
+}
+.story-related picture.related-headshot-frame { flex: 0 0 auto; line-height: 0; margin-top: 0.12rem; }
+.related-headshot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--chip);
+  border: 1px solid var(--line);
+}
+.story-related .related-person-text { min-width: 0; }
 .story-related a, .story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { text-decoration-style: dotted; }
 .story-related a:focus-visible, .story-body a.person-link:focus-visible, .story-summary a.person-link:focus-visible, .map-popup a.person-link:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; border-radius: 2px; }
@@ -1363,7 +1409,6 @@ a.related-card:hover .related-card-chevron {
 .about-app-data {
   font-size: 0.75rem;
   margin-top: 2.25rem;
-  opacity: 0.65;
 }
 
 .hero-welcome {
@@ -1420,7 +1465,7 @@ a.related-card:hover .related-card-chevron {
   border-right: 1px solid var(--line);
   background: var(--bg);
 }
-.timeline-main .panel-head h2 { margin: 0 0 0.25rem; color: var(--heading); }
+.timeline-read-bar h2 { margin: 0; color: var(--heading); font-size: 1.35rem; line-height: 1.2; }
 .timeline-layer-toggles {
   margin: 0.75rem 0 0.35rem;
   display: grid;
@@ -1649,6 +1694,17 @@ a.related-card:hover .related-card-chevron {
   pointer-events: auto;
   backdrop-filter: blur(8px);
 }
+.timeline-reader-jump { transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s; }
+/* Tucked while reading down a story (src/main.js watchTimelineJumpPad); returns on scroll up. */
+.timeline-reader-jump.is-tucked {
+  transform: translateY(calc(100% + 1.5rem));
+  opacity: 0;
+  visibility: hidden;
+}
+.timeline-reader-jump.is-tucked .scroll-fab { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .timeline-reader-jump { transition: none; }
+}
 
 
 /* MapLibre zoom / navigation controls */
@@ -1724,6 +1780,18 @@ a.related-card:hover .related-card-chevron {
   max-height: 200px;
   object-fit: cover;
 }
+/* Tall photos (photo.fit = "contain", set at build): show the whole image, letterboxed on the
+   palette surface, instead of a cover crop that cuts monuments to a sliver. */
+.story-sidebar-photo-frame.is-contain,
+.static-story .story-sidebar-photo-frame.is-contain { background: var(--surface); }
+.story-sidebar-photo-frame.is-contain img,
+.static-story .story-sidebar-photo-frame.is-contain img {
+  object-fit: contain;
+  object-position: center;
+}
+@media (max-width: 900px) {
+  .static-story .story-sidebar-photo-frame.is-contain img { aspect-ratio: 4 / 3; max-height: 320px; }
+}
 .story-sidebar-photo-cap {
   margin: 0.45rem 0 0.2rem;
   font-size: 0.75rem;
@@ -1772,6 +1840,24 @@ a.related-card:hover .related-card-chevron {
     margin-top: 0;
     max-width: 280px;
   }
+}
+
+/* Reader kicker: makes it clear a homepage click landed on a story (critique #275). */
+.story-head .story-kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.story-head .story-kicker span { color: var(--accent); }
+/* Phones (Timeline reader): title block first, then the photo, then the body. */
+@media (max-width: 600px) {
+  .story-reader > .story-reader-layout:not(.static-story) { row-gap: 0; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-reader-main { display: contents; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-reader-main > .story-head { order: -2; }
+  .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo { order: -1; margin: 0.25rem 0 1rem; }
 }
 
 /* Static story pages: sidebar beside the article on wide screens. */
@@ -2041,47 +2127,80 @@ a.related-card:hover .related-card-chevron {
 }
 
 
-.about-logo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
+/* About "Our seals": the three header seals from #194 (black, navy c, gold-rim c2).
+   Dark ring is the existing gold #c9a227. Light ring is the existing navy #0b2a5b.
+   2px of transparent padding shows the card background between the ring and the artwork. */
+.about-seals {
   margin: 0.5rem 0 1.5rem;
-  padding: 1.25rem 1rem;
-  background: #0a0a0a;
+  padding: 1.1rem 1rem 1rem;
+  background: var(--surface);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
   border-radius: 14px;
-  box-shadow: inset 0 0 0 1px rgba(201, 137, 58, 0.15);
 }
-.about-logo {
-  width: min(360px, 88vw);
-  height: auto;
-  border-radius: 50%;
-  background: #000;
-  display: block;
-}
-.about-logo-caption {
-  margin: 0;
-  font-size: 0.85rem;
+.about-seals-title {
+  margin: 0 0 0.85rem;
+  font-size: 1.05rem;
+  color: var(--heading);
   text-align: center;
-  color: #E8DCC0;
 }
-@media (max-width: 600px) {
-  .about-logo-block {
-    max-height: 240px;
-    box-sizing: border-box;
-    overflow: hidden;
-    justify-content: center;
-    padding: 0.65rem 0.75rem;
-    gap: 0.4rem;
-  }
-  .about-logo {
-    width: auto;
-    max-width: min(200px, 70vw);
-    max-height: 168px;
-    height: auto;
-  }
+.about-seals-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
 }
+.about-seals-list li { margin: 0; }
+.about-seal {
+  display: block;
+  width: clamp(120px, 14vw, 160px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  /* 2px of the card background between the ring and the artwork's gold rim. */
+  padding: 2px;
+  border: 2px solid #c9a227;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+html[data-hp-theme="light"] .about-seal {
+  border: 2px solid #0b2a5b;
+  box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
+}
+.about-seal-btn {
+  appearance: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0;
+  line-height: 0;
+  color: inherit;
+  cursor: zoom-in;
+  border-radius: 50%;
+  vertical-align: top;
+  touch-action: manipulation;
+}
+.about-seal-btn:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+.about-seals-caption {
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  text-align: center;
+  color: var(--muted);
+}
+@media (max-width: 479px) {
+  .about-seals-list { flex-direction: column; align-items: center; gap: 0.9rem; }
+  .about-seal { width: 132px; }
+}
+
 
 
 .share-row {
@@ -2117,8 +2236,9 @@ a.related-card:hover .related-card-chevron {
   width: 100%;
 }
 .hp-page {
-  --hp-logo: 136px;
-  --hp-logo-gap: 0.8rem;
+  /* Seal ≈ title + tagline + subhead stack; never above the 512 native master. */
+  --hp-logo: 132px;
+  --hp-logo-gap: 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -2129,24 +2249,43 @@ a.related-card:hover .related-card-chevron {
   background: var(--header-bg);
   padding: 0.9rem clamp(1.25rem, 5vw, 4rem);
   gap: 1rem 1.5rem;
+  align-items: center;
+  /* Reserve seal+pad so the hero below does not jump (132px seal desktop). */
+  min-height: calc(132px + 1.8rem);
 }
 .hp-page .brand-home {
+  align-items: center;
   gap: var(--hp-logo-gap);
 }
 .hp-page .brand-logo {
   width: var(--hp-logo);
   height: var(--hp-logo);
+  max-width: 512px;
+  max-height: 512px;
   border-width: 2px;
   box-shadow:
     0 4px 18px rgba(0, 0, 0, 0.5),
     0 0 0 3px rgba(201, 137, 58, 0.28);
 }
-.hp-page .brand h1 {
-  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+.hp-page .brand-lockup {
+  gap: 0.28rem;
+  justify-content: center;
+}
+.hp-page .brand :is(h1, .brand-title) {
+  font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+  line-height: 1.12;
 }
 .hp-page .tagline {
-  margin-left: calc(var(--hp-logo) + var(--hp-logo-gap));
-  font-size: 0.92rem;
+  margin-left: 0;
+  font-size: 1.15rem;
+  color: var(--heading);
+}
+.hp-page .brand-subhead {
+  display: block;
+  font-size: 1.02rem;
+  line-height: 1.4;
+  color: var(--accent);
+  max-width: 28rem;
 }
 .hp-page nav {
   flex: 1 1 16rem;
@@ -2300,11 +2439,14 @@ a.related-card:hover .related-card-chevron {
 .hp-mag-hero {
   position: relative;
   width: 100%;
-  min-height: min(88vh, 46rem);
+  min-height: 0;
+  height: 440px;
   display: flex;
   align-items: flex-end;
   color: #f3ead8;
   background: #101812;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .hp-value {
   margin: 0;
@@ -2314,6 +2456,303 @@ a.related-card:hover .related-card-chevron {
   line-height: 1.45;
   color: var(--heading);
 }
+/* Pitch: header brand-subhead on desktop, this band on phones (rule at the end). */
+
+/* —— Lead story + More Kentucky stories rail (no auto-rotation) —— */
+.hp-lead-block {
+  padding: 1.1rem clamp(1.25rem, 5vw, 4rem) 0.35rem;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+.hp-lead-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1.25rem 1.35rem;
+  align-items: stretch;
+}
+.hp-lead-story {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+}
+.hp-lead-media-link {
+  position: absolute;
+  inset: 0 0 8.75rem 0;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  z-index: 1;
+}
+.hp-lead-media-link .hp-mag-hero-media {
+  position: absolute;
+  inset: 0;
+}
+.hp-lead-media-link .hp-mag-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hp-lead-title {
+  position: absolute;
+  z-index: 2;
+  left: 1.15rem;
+  right: 1.15rem;
+  bottom: 0.85rem;
+  margin: 0;
+  color: #f6edd8;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
+}
+.hp-mag-hero .hp-mag-hero-copy {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem 1.15rem 1rem;
+  background: rgba(8, 12, 9, 0.78);
+  pointer-events: auto;
+}
+.hp-mag-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(8, 12, 9, 0.78) 0%,
+    rgba(8, 12, 9, 0.55) 42%,
+    rgba(8, 12, 9, 0.22) 70%,
+    rgba(8, 12, 9, 0.08) 100%
+  );
+}
+.hp-mag-hero .hp-hero-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #e8c988;
+}
+.hp-mag-hero .hp-hero-deck {
+  margin: 0 0 0.65rem;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  max-width: 46ch;
+  color: #f3ead8;
+}
+.hp-mag-hero .hp-cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.hp-mag-hero .hp-photo-credit {
+  margin: 0.55rem 0 0;
+  font-size: 0.72rem;
+  color: rgba(243, 234, 216, 0.75);
+}
+.hp-story-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.hp-more-stories-title {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hp-story-rail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.hp-rail-card {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  min-height: 96px;
+}
+.hp-rail-card:hover .hp-rail-card-title,
+.hp-rail-card:focus-visible .hp-rail-card-title { color: var(--accent); }
+.hp-rail-card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+.hp-rail-card img,
+.hp-rail-card .hp-rail-card-img,
+.hp-rail-card picture {
+  width: 116px;
+  height: 96px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+}
+.hp-rail-card picture img {
+  width: 116px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.hp-rail-card-ph {
+  width: 116px;
+  height: 96px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.hp-rail-card-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: var(--heading);
+}
+.hp-rail-card-meta {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.hp-story-swipe {
+  display: none;
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  gap: 0.65rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  height: 168px;
+  outline: none;
+}
+.hp-story-swipe:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+.hp-swipe-card {
+  flex: 0 0 150px;
+  width: 150px;
+  scroll-snap-align: start;
+  margin: 0;
+}
+.hp-swipe-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.hp-swipe-card-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.hp-swipe-card img,
+.hp-swipe-card picture,
+.hp-swipe-card .hp-swipe-card-img {
+  width: 150px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  background: var(--surface);
+}
+.hp-swipe-card picture img {
+  width: 150px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.hp-swipe-card-ph {
+  width: 150px;
+  height: 90px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.hp-swipe-card-title {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  color: var(--heading);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hp-swipe-card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.hp-all-stories {
+  margin: 0.75rem 0 0.15rem;
+  font-weight: 600;
+}
+.hp-all-stories a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.hp-all-stories a:hover,
+.hp-all-stories a:focus-visible { text-decoration: underline; }
+/* Hide legacy carousel chrome */
+.hp-hero-controls,
+.hp-hero-viewport { display: none !important; }
+@media (max-width: 900px) {
+  .hp-lead-grid { grid-template-columns: 1fr; }
+  .hp-mag-hero {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hp-lead-story {
+    position: relative;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Image+title stay linked; summary/CTAs sit below the image on phones. */
+  .hp-lead-media-link {
+    position: relative;
+    inset: auto;
+    display: block;
+    height: 220px;
+    flex: 0 0 220px;
+  }
+  .hp-lead-media-link .hp-mag-hero-media { inset: 0; }
+  .hp-lead-title {
+    bottom: 0.75rem;
+    font-size: 1.35rem;
+  }
+  .hp-mag-hero .hp-mag-hero-copy {
+    position: relative;
+    background: var(--panel, #162018);
+    color: var(--text);
+    padding: 0.85rem 0.15rem 0.35rem;
+  }
+  .hp-mag-hero .hp-hero-eyebrow { color: var(--accent); }
+  .hp-mag-hero .hp-hero-deck {
+    display: block;
+    color: var(--text);
+    margin-bottom: 0.7rem;
+  }
+  .hp-mag-hero .hp-photo-credit { color: var(--muted); }
+  .hp-story-rail { display: none; }
+  .hp-story-swipe { display: flex; }
+}
+
 .hp-hero-skeleton {
   position: relative;
   z-index: 1;
@@ -2345,8 +2784,8 @@ a.related-card:hover .related-card-chevron {
   align-items: center;
   padding: 1.15rem clamp(1.25rem, 5vw, 4rem) 0.25rem;
 }
-.hp-map-strip > a[href="#map"] {
-  grid-area: figure;
+.hp-map-strip-fig-wrap { grid-area: figure; min-width: 0; }
+.hp-map-strip-link {
   display: block;
   min-width: 0;
   color: inherit;
@@ -2370,8 +2809,8 @@ a.related-card:hover .related-card-chevron {
 html[data-hp-theme="light"] .hp-map-strip-img {
   background: #f4ead6;
 }
-.hp-map-strip > a[href="#map"]:hover .hp-map-strip-img,
-.hp-map-strip > a[href="#map"]:focus-within .hp-map-strip-img {
+.hp-map-strip-link:hover .hp-map-strip-img,
+.hp-map-strip-link:focus-visible .hp-map-strip-img {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
 }
@@ -2408,6 +2847,25 @@ html[data-hp-theme="light"] .hp-map-seal {
     0 0 0 3px #6e4214,
     0 8px 20px rgba(40, 28, 12, 0.28);
 }
+/* Plan Your Drive: inline route-and-car badge (seal option A). Green and amber only; the header seal is untouched.
+   Dark is the default theme, so dark gets the stronger fill, brighter ring and a soft amber glow. */
+.hp-map-seal.hp-plan-badge {
+  --pb-green: #3d7149;
+  --pb-amber: #e3a650;
+  --pb-cream: #f6edd8;
+  display: block;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(0 0 10px rgba(227, 166, 80, 0.45)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+html[data-hp-theme="light"] .hp-map-seal.hp-plan-badge {
+  --pb-green: #2f5a3a;
+  --pb-amber: #c9893a;
+  box-shadow: none;
+  filter: drop-shadow(0 3px 6px rgba(40, 30, 10, 0.28));
+}
+.hp-plan-badge svg { display: block; width: 100%; height: 100%; }
 .hp-map-strip-copy { grid-area: copy; min-width: 0; }
 .hp-map-strip-copy h2 {
   margin: 0 0 0.4rem;
@@ -2430,8 +2888,7 @@ html[data-hp-theme="light"] .hp-map-seal {
   padding: 0.55rem 1.1rem;
 }
 .hp-hero-viewport {
-  position: absolute;
-  inset: 0;
+  display: none !important;
 }
 .hp-hero-slide {
   position: absolute;
@@ -2548,9 +3005,6 @@ html[data-hp-theme="light"] .hp-map-seal {
   .hp-mag-hero-copy {
     transition: none;
   }
-  .hp-mag-quote blockquote {
-    transition: none;
-  }
 }
 .hp-mag-hero-media {
   position: absolute;
@@ -2590,17 +3044,13 @@ html[data-hp-theme="light"] .hp-map-seal {
     object-position: 50% 0%;
   }
 }
-.hp-mag-hero-shade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(16, 24, 18, 0.12) 0%, rgba(16, 24, 18, 0.55) 48%, rgba(16, 24, 18, 0.88) 100%);
-}
+/* .hp-mag-hero-shade: see lead-block rules (~70% dark overlay) */
+
 .hp-mag-hero-media picture {
   position: absolute;
   inset: 0;
   display: block;
 }
-.hp-feature-media picture,
 .exp-media picture {
   display: block;
   width: 100%;
@@ -2694,81 +3144,39 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
   color: #c4b89a;
 }
 
-.hp-mag-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
-  gap: 1.35rem 1.2rem;
-  width: 100%;
-}
-.hp-feature {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-}
-.hp-feature-media,
 .hp-layer-media {
   display: block;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--surface);
 }
-.hp-feature-media img,
-.hp-layer-media img,
-.hp-feature-fallback {
+.hp-layer-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.35s ease;
 }
-.hp-feature:hover .hp-feature-media img,
 .hp-layer-card:hover .hp-layer-media img {
   transform: scale(1.04);
 }
-.hp-feature-fallback {
-  background:
-    radial-gradient(80% 70% at 30% 20%, rgba(201, 137, 58, 0.28), transparent 60%),
-    var(--surface);
-}
-/* Theme-only / no-asset stories: omit empty image panel (no invented photos). */
-.hp-feature--no-photo .hp-feature-copy {
-  padding-top: 1.1rem;
-}
-.hp-feature-copy,
 .hp-layer-copy {
   padding: 0.95rem 1rem 1.1rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-.hp-feature-title,
 .hp-layer-title {
   margin: 0 0 0.4rem;
   font-size: 1.15rem;
   line-height: 1.25;
 }
-.hp-feature-title a,
 .hp-layer-title a {
   color: var(--heading);
   text-decoration: none;
 }
-.hp-feature-title a:hover,
 .hp-layer-title a:hover {
   text-decoration: underline;
-}
-.hp-feature-deck {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.45;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .hp-layer-place {
   margin: 0 0 0.4rem;
@@ -2790,9 +3198,6 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
   color: var(--accent);
   text-decoration: none;
 }
-.hp-feature-copy .hp-layer-cta {
-  margin-top: auto;
-}
 .exp-sec {
   display: inline-flex;
   align-items: center;
@@ -2807,63 +3212,6 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
 }
 .hp-layer-copy .hp-photo-credit {
   margin: 0.55rem 0 0;
-}
-
-.hp-mag-quote {
-  /* Fixed box (lines reserved per breakpoint, sized for the longest current quote + 1 line). */
-  --hpq-fs: clamp(1.25rem, 2.4vw, 1.7rem);
-  --hpq-lines: 4;
-  --hpq-foot-lines: 1;
-  --hpq-body-h: calc(var(--hpq-fs) * 1.45 * var(--hpq-lines));
-  --hpq-foot-h: 44px;
-  width: 100%;
-  margin: 0;
-  padding: 2.5rem clamp(1.25rem, 5vw, 4rem);
-  background: var(--panel);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.hp-mag-quote blockquote {
-  margin: 0 auto;
-  max-width: 46rem;
-  height: calc(var(--hpq-body-h) + 0.85rem + var(--hpq-foot-h));
-  display: flex;
-  flex-direction: column;
-  transition: opacity 0.22s ease;
-}
-.hp-mag-quote.is-changing blockquote {
-  opacity: 0;
-}
-.hp-quote-body {
-  flex: 0 0 var(--hpq-body-h);
-  height: var(--hpq-body-h);
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.85rem;
-}
-.hp-mag-quote p {
-  margin: auto 0; /* centers short quotes; collapses to 0 when the text overflows (scroll) */
-  font-size: calc(var(--hpq-fs) * var(--fit, 1));
-  line-height: 1.45;
-  color: var(--heading);
-  font-style: italic;
-}
-.hp-mag-quote footer {
-  flex: 0 0 var(--hpq-foot-h);
-  min-height: 44px;
-  height: var(--hpq-foot-h);
-  overflow-y: auto;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-.hp-mag-quote a {
-  color: var(--accent);
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  min-width: 44px;
-  box-sizing: border-box;
 }
 
 .hp-layer-rail {
@@ -2923,11 +3271,11 @@ html:not([data-hp-theme="light"]) .hp-cta:focus-visible {
 .hp-related-title a { text-decoration: none; color: var(--heading); }
 .hp-related-title a:hover { text-decoration: underline; }
 
-html[data-hp-theme="light"] .brand h1 {
+html[data-hp-theme="light"] .brand :is(h1, .brand-title) {
   color: var(--heading);
 }
-html[data-hp-theme="light"] .brand-home:hover h1,
-html[data-hp-theme="light"] .brand-home:focus-visible h1 {
+html[data-hp-theme="light"] .brand-home:hover :is(h1, .brand-title),
+html[data-hp-theme="light"] .brand-home:focus-visible :is(h1, .brand-title) {
   color: var(--accent-deep);
 }
 html[data-hp-theme="light"] .btn.ghost {
@@ -2943,10 +3291,12 @@ html[data-hp-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon 
 }
 /* Header seal rotates per page load between khd-logo.png (black), khd-logo-c.png (cream center,
    navy band) and khd-logo-c2.png (cream center, gold rim edge). Inline script after #brandLogo; the
-   localStorage counter is khd-logo-n. One gold border and shadow suit all three on both headers. */
+   localStorage counter is khd-logo-n. Dark ring is gold #c9a227; light ring is navy #0b2a5b. */
 .brand-logo,
 .hp-page .brand-logo {
   background: transparent;
+  /* 2px of the header background between the ring and the artwork's gold rim. */
+  padding: 2px;
   border: 2px solid #c9a227;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -2956,7 +3306,7 @@ html[data-hp-theme="light"] .hp-page .brand-logo {
   box-shadow: 0 2px 8px rgba(40, 28, 12, 0.14);
 }
 @media (min-width: 1024px) {
-  .brand .tagline { margin-top: -8px; }
+  body:not(.hp-page) .brand .tagline { margin-top: 0; }
 }
 .brand-home:hover .brand-logo,
 .brand-home:focus-visible .brand-logo,
@@ -2968,7 +3318,6 @@ html[data-hp-theme="light"] .nav-search-hit-title {
   color: var(--heading);
 }
 html[data-hp-theme="light"] .hp-related-card:hover,
-html[data-hp-theme="light"] .hp-feature:hover,
 html[data-hp-theme="light"] .hp-layer-card:hover {
   box-shadow: 0 8px 22px rgba(40, 28, 12, 0.08);
 }
@@ -3000,13 +3349,6 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
 }
 
 @media (max-width: 700px) {
-  /* About 160px for the whole quote block, including padding. */
-  .hp-mag-quote {
-    --hpq-fs: 1.05rem;
-    --hpq-lines: 4;
-    --hpq-foot-lines: 1;
-    padding: 0.75rem 1.15rem;
-  }
   .hp-map-strip {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -3017,7 +3359,35 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
   .hp-mag-hero-copy { --hp-deck-lines: 5; --hp-credit-lines: 2; }
   .hp-page {
-    --hp-logo: 96px;
+    --hp-logo: 84px;
+  }
+  .hp-page .top {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    min-height: calc(84px + 4.5rem);
+  }
+  .hp-page .brand {
+    width: 100%;
+  }
+  .hp-page .brand-home {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 0.55rem;
+  }
+  .hp-page .brand-lockup {
+    align-items: center;
+  }
+  .hp-page .brand :is(h1, .brand-title) {
+    font-size: 1.35rem;
+  }
+  .hp-page .tagline {
+    font-size: 1.02rem;
+  }
+  .hp-page .brand-subhead {
+    font-size: 0.92rem;
+    max-width: 22rem;
   }
   .hp-page .nav-search {
     max-width: none;
@@ -3042,7 +3412,6 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   /* Stacked CTAs: always two equal rows, so the row height never depends on wrapping. */
   .hp-cta-row { flex-direction: column; align-items: flex-start; justify-content: flex-start; flex-wrap: nowrap; }
   .hp-cta-row .hp-cta { width: min(100%, 18rem); }
-  .hp-mag-features,
   .hp-layer-rail,
   .hp-related-grid { grid-template-columns: 1fr; }
   .hp-section { padding: 1.35rem 1.15rem 1.85rem; }
@@ -3062,9 +3431,10 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     height: 56px;
   }
   .site-header .brand-home { gap: 0.4rem; }
-  .site-header .brand h1 { font-size: 1.02rem; }
+  .site-header .brand :is(h1, .brand-title) { font-size: 1.02rem; }
+  /* The tagline sits in .brand-lockup beside the seal already; no extra indent. */
   .site-header .tagline {
-    margin-left: calc(56px + 0.4rem);
+    margin-left: 0;
     font-size: 0.75rem;
   }
   .site-header nav#mainNav {
@@ -3102,6 +3472,59 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
 }
 
+/* Homepage big seal: win over the compact laptop/phone header rules. */
+@media (max-width: 1400px) and (min-width: 701px) {
+  body.hp-page .site-header {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.7rem clamp(1rem, 3vw, 2.5rem);
+    gap: 0.75rem 1rem;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  body.hp-page .site-header .brand-logo {
+    width: var(--hp-logo, 132px);
+    height: var(--hp-logo, 132px);
+  }
+  body.hp-page .site-header .brand :is(h1, .brand-title) {
+    font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  }
+  body.hp-page .site-header .tagline {
+    display: block;
+    margin-left: 0;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  body.hp-page .site-header {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 0.65rem 0.75rem 0.75rem;
+    gap: 0.5rem;
+  }
+  body.hp-page .site-header .brand-logo {
+    width: var(--hp-logo, 84px);
+    height: var(--hp-logo, 84px);
+  }
+  body.hp-page .site-header .brand :is(h1, .brand-title) {
+    font-size: 1.15rem;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.2;
+  }
+  body.hp-page .site-header .tagline {
+    display: block;
+    margin-left: 0;
+  }
+  body.hp-page .site-header .brand-home {
+    max-width: none;
+  }
+}
+
 /* Phone header: one 60px bar. Wider than 600px keeps the full nav row. */
 @media (max-width: 600px) {
   .site-header {
@@ -3127,7 +3550,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     width: 40px;
     height: 40px;
   }
-  .site-header .brand h1 {
+  .site-header .brand :is(h1, .brand-title) {
     font-size: 0.95rem;
     white-space: nowrap;
     overflow: hidden;
@@ -3168,10 +3591,12 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header.is-menu-open nav a[data-route="home"] { order: 1; }
   .site-header.is-menu-open nav a[data-route="map"] { order: 2; }
   .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
-  .site-header.is-menu-open nav a[data-route="about"] { order: 4; }
-  .site-header.is-menu-open nav a[data-route="app"] { order: 5; }
-  .site-header.is-menu-open .nav-today { order: 6; }
-  .site-header.is-menu-open .hp-theme-toggle { order: 7; }
+  .site-header.is-menu-open nav a[data-route="people"] { order: 4; }
+  .site-header.is-menu-open nav a[data-route="drives"] { order: 5; }
+  .site-header.is-menu-open nav a[data-route="about"] { order: 6; }
+  .site-header.is-menu-open nav a[data-route="app"] { order: 7; }
+  .site-header.is-menu-open .nav-today { order: 8; }
+  .site-header.is-menu-open .hp-theme-toggle { order: 9; }
   .site-header.is-menu-open nav a,
   .site-header.is-menu-open .nav-today-btn,
   .site-header.is-menu-open .hp-theme-toggle {
@@ -3239,16 +3664,56 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     min-height: 44px;
     font-size: 1rem;
   }
-  /* The bar is 60px, so the hero can fill the rest of the first screen. */
-  .hp-mag-hero { min-height: calc(100svh - 60px); }
+  /* The bar is 60px and the value line above the hero is up to three lines
+     (~5.5rem). Size the hero to what is left of the first screen so the credit
+     and the control row stay on screen. */
+  .hp-mag-hero { min-height: calc(100svh - 60px - 5.5rem); }
+  .hp-mag-hero-copy {
+    /* Reserve a third credit line, then keep it above the 44px control row. */
+    --hp-credit-lines: 3;
+    padding-bottom: calc(44px + 1.6rem);
+  }
+  /* One row under the credit: ◀, dots, Play, ▶. */
   .hp-hero-controls {
     left: 0.35rem;
     right: 0.35rem;
+    bottom: 0.45rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     gap: 0;
   }
+  .hp-hero-nav,
   .hp-hero-playback {
+    flex: 0 0 auto;
+  }
+  .hp-hero-playback {
+    min-width: 44px;
+    height: 44px;
     padding: 0 0.55rem;
     font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .hp-hero-dots {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    justify-content: safe center;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .hp-hero-dots::-webkit-scrollbar { display: none; }
+  /* The painted dot stays 11px (::before). The button itself is a 44px tap
+     target, pulled together so the row fits at 390px. At 320px it may scroll. */
+  .hp-hero-dot {
+    box-sizing: content-box;
+    flex: 0 0 auto;
+    width: 11px;
+    height: 11px;
+    padding: 16.5px;
+    margin-inline: -8px;
+    scroll-snap-align: center;
   }
 }
 
@@ -3270,6 +3735,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
 }
 .hp-explore { scroll-margin-top: 4.5rem; }
 .exp-shell { width: 100%; max-width: 78rem; margin: 0 auto; }
+/* Era chips start on the left gutter, under the section heading. */
+.exp-shell .exp-topbar, .exp-shell .exp-tabs, .exp-shell .exp-tabs ul { justify-content: flex-start; margin-left: 0; text-align: left; }
 .exp-topbar {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 0.9rem;
   padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;
@@ -3402,6 +3869,9 @@ html[data-hp-theme="light"] .exp-step:hover, html[data-hp-theme="light"] .exp-nu
     -webkit-box-orient: unset;
   }
   .exp-more { display: inline-flex; align-items: center; justify-content: center; }
+  /* Phones: Load more is the only control at the end of the archive. */
+  .exp-pagebar-bottom { display: none; }
+  .exp-pagebar-top .exp-pager { display: none; }
 }
 .hp-related-more { margin: 1rem 0 0; }
 .hp-related-more a,
@@ -3565,6 +4035,9 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   line-height: 1.15;
   white-space: nowrap;
 }
+.hp-map-routes .hp-thumb-label {
+  white-space: normal;
+}
 .hp-thumb-row > a:hover {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent), 0 8px 22px rgba(0, 0, 0, 0.28);
@@ -3619,7 +4092,30 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-map-figure { margin: 0.75rem 0 0.35rem; }
 .route-map-picture { display: block; }
 .route-map-zoom { position: relative; display: block; min-width: 0; }
-.route-map-zoom img { cursor: zoom-in; }
+.route-map-open {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.route-map-open:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+.route-map-art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  line-height: 0;
+}
 .route-map-picture img {
   display: block;
   width: 100%;
@@ -3629,11 +4125,84 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
   border: 1px solid var(--line);
   border-radius: 12px;
 }
+.route-map-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+}
+.route-map-overlay[data-frame="desk-light"] { display: block; }
+html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-light"] { display: none; }
+html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display: block; }
+@media (max-width: 699px) {
+  .route-map-overlay[data-frame="desk-light"],
+  .route-map-overlay[data-frame="desk-dark"],
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-light"],
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display: none; }
+  .route-map-overlay[data-frame="phone-light"] { display: block; }
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-light"] { display: none; }
+  html[data-hp-theme="dark"] .route-map-overlay[data-frame="phone-dark"] { display: block; }
+}
+.route-map-overlay[data-frame="zoom-dark"] { display: none; }
+.route-stop {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border: 2px solid var(--heading);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--ink-on-gold);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.route-stop::before { content: attr(data-n); }
+.route-stop-conjectural {
+  border: none;
+  border-radius: 0;
+  background: var(--panel);
+  color: var(--heading);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: drop-shadow(0 0 0.6px var(--heading));
+}
+.route-stop-cluster {
+  width: auto;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 999px;
+  clip-path: none;
+}
+.route-marker-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.route-legend-hex {
+  display: inline-block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--panel);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: drop-shadow(0 0 0.6px var(--heading));
+}
 .route-map-expand {
   position: absolute;
   top: 0.55rem;
   right: 0.55rem;
-  z-index: 1;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -3671,8 +4240,50 @@ html:not([data-hp-theme="light"]) .timeline-item.selected .timeline-year { color
 .route-waypoints { margin: 0.35rem 0 0.85rem; padding-left: 1.25rem; }
 .route-waypoints li { margin: 0 0 0.35rem; }
 .route-sources { margin: 0.35rem 0 0.85rem; }
-.route-links ul { list-style: none; margin: 0; padding: 0; }
-.route-links li { margin: 0 0 0.4rem; }
+.route-map .route-links { margin: 0.5rem 0 0; }
+.route-map .route-links > h2,
+.route-map .route-links > h3 { margin: 1.25rem 0 0.75rem; }
+.route-map .related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+@media (min-width: 720px) {
+  .route-map .related-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.route-map .related-list > li { margin: 0; min-width: 0; }
+.route-map a.related-card {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 20px;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 72px;
+  padding: 0.7rem 0.85rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+.route-map a.related-card:hover { border-color: var(--accent); }
+.route-map .related-card-media { display: grid; place-items: center; width: 56px; height: 56px; }
+.route-map .related-card-pin,
+.route-map .related-card-title { color: var(--accent); }
+.route-map .related-card-copy { min-width: 0; }
+.route-map .related-card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-weight: 600;
+  line-height: 1.3;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+.route-map .related-card-meta { display: block; margin-top: 0.15rem; color: var(--muted); font-size: 0.9rem; }
+.route-map .related-card-chevron { justify-self: end; color: var(--muted); }
 .route-index-link { margin: 0.8rem 0 0; }
 .route-index-link a {
   display: inline-flex;
@@ -3768,6 +4379,7 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
 }
 .route-lightbox-stage.is-panning { cursor: grabbing; }
 .route-lightbox-canvas {
+  --map-scale: 1;
   position: absolute;
   top: 0.35rem;
   right: 0.85rem;
@@ -3792,6 +4404,38 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   opacity: 0;
 }
 .route-lightbox-img.is-ready { opacity: 1; }
+.route-lightbox.is-seal .route-lightbox-img {
+  background: transparent;
+  border-radius: 50%;
+  /* Never paint larger than the seal master's native pixels (512). */
+  max-width: min(90vw, 512px);
+  max-height: min(90vh, 512px);
+  width: auto;
+  height: auto;
+}
+.route-lightbox-overlay {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+.route-lightbox-img.is-ready ~ .route-lightbox-overlay { opacity: 1; }
+.route-lightbox-overlay .route-map-overlay {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+}
+.route-lightbox-overlay .route-stop {
+  width: calc(26px / var(--map-scale));
+  height: calc(26px / var(--map-scale));
+  border-width: calc(2px / var(--map-scale));
+  font-size: calc(12px / var(--map-scale));
+  box-shadow: 0 calc(1px / var(--map-scale)) calc(2px / var(--map-scale)) rgba(0, 0, 0, 0.35);
+}
+.route-lightbox-overlay .route-stop-cluster {
+  min-width: calc(26px / var(--map-scale));
+  padding: 0 calc(7px / var(--map-scale));
+}
 .route-lightbox-status {
   position: absolute;
   left: 50%;
@@ -3845,3 +4489,830 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   .story-sidebar-col { order: -1; max-width: 280px; }
   .ad-slot--sidebar { display: none !important; }
 }
+
+/* People gallery */
+.people-page .story-head h1 { margin-bottom: 0.4rem; }
+.people-group { margin: 1.5rem 0 0; }
+.people-group h2 { margin: 0 0 0.75rem; color: var(--heading); font-size: 1.35rem; }
+.people-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.85rem;
+}
+.people-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  margin: 0;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  min-width: 0;
+}
+.people-photo { display: block; margin: 0; }
+.people-photo img,
+.people-fallback {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--chip);
+}
+.people-fallback {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  overflow: hidden;
+}
+.people-fallback svg {
+  position: absolute;
+  width: 62%;
+  height: 70%;
+  left: 19%;
+  top: 16%;
+  color: var(--accent-deep);
+}
+.people-initials {
+  position: relative;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  color: var(--heading);
+}
+.people-card h3 {
+  margin: 0.35rem 0 0;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--heading);
+}
+.people-dates,
+.people-id { margin: 0; color: var(--muted); font-size: 0.85rem; line-height: 1.35; }
+.people-license a { color: var(--accent); }
+.people-badge {
+  align-self: flex-start;
+  margin: 0.15rem 0 0;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--ink-on-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+.people-credit,
+.people-license {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+.people-stories {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  font-size: 0.82rem;
+}
+.people-stories li { margin: 0.12rem 0; }
+.people-stories a { color: var(--accent); }
+@media (max-width: 420px) {
+  .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+  .people-card { padding: 0.45rem; }
+  .people-card h3 { font-size: 0.92rem; }
+}
+
+/* Timeline reading width: story pane full width, map slides away.
+   Column change is a width animation; the map pane moves with translate3d. */
+.timeline-read-bar {
+  position: sticky;
+  top: var(--tl-sticky-top, 4.75rem);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: -1rem -1.15rem 0.85rem;
+  padding: 0.5rem 1.15rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.timeline-main .timeline-stories-toolbar {
+  top: calc(var(--tl-sticky-top, 4.75rem) + var(--tl-readbar-h, 3.4rem) + 0.35rem);
+}
+.timeline-read-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid #2f5a48;
+  background: #1e3b2f;
+  color: #f3ead8;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.timeline-read-toggle-ico {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  display: block;
+}
+.timeline-read-label { display: none; }
+.timeline-read-label-hide,
+.timeline-read-label-show { display: none; }
+.timeline-read-toggle[aria-expanded="true"] .timeline-read-label-hide { display: inline; }
+.timeline-read-toggle[aria-expanded="false"] .timeline-read-label-show { display: inline; }
+.timeline-read-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+/* Amber marks reading mode (map hidden). aria-expanded stays tied to the map. */
+.timeline-layout.is-reading-wide .timeline-read-toggle {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+.timeline-layout.is-reading-wide .timeline-read-toggle:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+.timeline-read-toggle:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+html[data-hp-theme="light"] .timeline-read-toggle {
+  background: color-mix(in srgb, #1e3b2f 18%, var(--chip));
+  border-color: color-mix(in srgb, #1e3b2f 42%, var(--line));
+  color: var(--text);
+}
+html[data-hp-theme="light"] .timeline-read-toggle:hover,
+html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-toggle {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-toggle:hover {
+  background: var(--accent-deep);
+  color: var(--ink-on-gold);
+}
+@media (min-width: 901px) {
+  .timeline-layout {
+    grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+    transition: grid-template-columns 340ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  }
+  .timeline-main,
+  .timeline-map-pane {
+    min-width: 0;
+  }
+  .timeline-main {
+    transition: border-right-color 340ms ease;
+  }
+  .timeline-map-pane {
+    transform: translate3d(0, 0, 0);
+    transition: transform 340ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  }
+  .timeline-layout.is-reading-anim .timeline-map-pane,
+  .timeline-layout.is-reading-wide .timeline-map-pane {
+    overflow: hidden;
+  }
+  .timeline-layout.is-reading-anim .timeline-map-pane {
+    will-change: transform;
+  }
+  .timeline-layout.is-reading-wide {
+    grid-template-columns: minmax(0, 100%) minmax(0, 0%);
+  }
+  .timeline-layout.is-reading-wide .timeline-map-pane {
+    transform: translate3d(100%, 0, 0);
+    pointer-events: none;
+  }
+  .timeline-layout.is-reading-wide .timeline-main {
+    border-right-color: transparent;
+  }
+}
+@media (max-width: 900px) {
+  .timeline-section .timeline-map-pane {
+    overflow: hidden;
+    max-height: var(--tl-map-open-h, 70vh);
+    transform: translate3d(0, 0, 0);
+    transition:
+      transform 340ms cubic-bezier(0.22, 0.8, 0.2, 1),
+      max-height 340ms cubic-bezier(0.22, 0.8, 0.2, 1),
+      min-height 340ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  }
+  .timeline-layout.is-reading-wide .timeline-map-pane {
+    max-height: 0;
+    min-height: 0;
+    transform: translate3d(0, 24px, 0);
+    pointer-events: none;
+    border-bottom-width: 0;
+  }
+  .timeline-layout.is-reading-wide .timeline-main {
+    border-bottom-color: transparent;
+  }
+}
+/* Reading mode: center a column whose story text is at most 70ch.
+   The extra 2.6rem is the story card's horizontal padding and border, so the
+   body itself — not the card — is the 70ch measure. The sticky bar stays full width.
+   The photo stacks so it doesn't eat the line. */
+.timeline-layout.is-reading-wide .timeline-main > :not(.timeline-read-bar) {
+  width: min(100%, calc(70ch + 2.6rem));
+  max-width: calc(70ch + 2.6rem);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+.timeline-layout.is-reading-wide .story-body {
+  max-width: 70ch;
+}
+.timeline-layout.is-reading-wide .story-reader .story-reader-layout,
+.timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+.timeline-layout.is-reading-wide .story-reader .story-sidebar-photo {
+  position: static;
+  order: -1;
+  margin-top: 0;
+  max-width: 280px;
+}
+.timeline-layout.is-reading-instant,
+.timeline-layout.is-reading-instant .timeline-map-pane,
+.timeline-layout.is-reading-instant .timeline-main {
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-layout,
+  .timeline-layout .timeline-map-pane,
+  .timeline-layout .timeline-main {
+    transition: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .timeline-read-toggle {
+    background: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+  }
+  .timeline-read-toggle:focus-visible {
+    outline: 3px solid Highlight;
+  }
+}
+
+/* Tap-to-enlarge cue on the About seals (Critiquito batch 2) */
+.about-seal-btn { position: relative; }
+.about-seal-btn::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9893a' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 18px no-repeat;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+html[data-hp-theme="light"] .about-seal-btn::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2385500f' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E");
+}
+.about-seals-hint { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
+
+/* Homepage phone header (#261): one compact row, ~100px tall.
+   Seal 68px left, name + tagline beside it, search + menu top-right.
+   The third line (subhead) is desktop-only. Reserved height: 68px seal + 2×16px pad = 100px. */
+@media (max-width: 600px) {
+  body.hp-page {
+    --hp-logo: 68px;
+  }
+  body.hp-page .site-header {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0.35rem;
+    height: auto;
+    min-height: 100px;
+    max-height: none;
+    padding: 16px 0.35rem 16px 0.75rem;
+  }
+  body.hp-page .site-header .brand {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+  body.hp-page .site-header .brand-home {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    width: auto;
+    max-width: 100%;
+    gap: 0.65rem;
+  }
+  body.hp-page .site-header .brand-logo {
+    width: 68px;
+    height: 68px;
+    flex: 0 0 68px;
+  }
+  body.hp-page .site-header .brand-lockup {
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+  body.hp-page .site-header .brand :is(h1, .brand-title) {
+    font-size: 1.15rem;
+    line-height: 1.15;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+  body.hp-page .site-header .tagline {
+    display: block;
+    margin-left: 0;
+    font-size: 0.88rem;
+  }
+  body.hp-page .site-header .brand-subhead { display: none; }
+  body.hp-page .site-header .nav-mobile-tools {
+    align-self: flex-start;
+    flex: 0 0 auto;
+  }
+}
+
+/* #262 review fixes (Critiquito). */
+/* 1280: the lead title + kicker + summary stack from the bottom and grow upward,
+   so a 2-line title never runs under the kicker/summary. Title capped near 32px. */
+@media (min-width: 901px) {
+  .hp-lead-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hp-lead-media-link {
+    position: static;
+    inset: auto;
+    display: block;
+  }
+  .hp-lead-media-link .hp-mag-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hp-lead-title {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding: 3rem 1.15rem 0.35rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.15;
+    background: linear-gradient(to top, rgba(8, 12, 9, 0.78), rgba(8, 12, 9, 0));
+  }
+  .hp-mag-hero .hp-mag-hero-copy {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    height: auto;
+  }
+  .hp-mag-hero .hp-hero-deck {
+    height: auto;
+    overflow: visible;
+  }
+  .hp-all-stories { display: none; }
+}
+.hp-rail-all {
+  margin-top: 0.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.35rem 0;
+}
+.hp-rail-all:hover,
+.hp-rail-all:focus-visible { text-decoration: underline; }
+/* Phones/tablets: no big gap above the buttons; full-width centered buttons with 16px sides. */
+@media (max-width: 900px) {
+  .hp-mag-hero .hp-mag-hero-copy {
+    padding: 0.85rem 16px 0.5rem;
+  }
+  .hp-mag-hero .hp-hero-deck {
+    height: auto;
+    overflow: visible;
+    margin-bottom: 0.85rem;
+  }
+  .hp-mag-hero .hp-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+  .hp-mag-hero .hp-cta-row .hp-cta {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  /* Credit: full-opacity --muted for ≥4.5:1 on the light panel. */
+  .hp-mag-hero .hp-mag-hero-copy .hp-photo-credit {
+    color: var(--muted);
+    opacity: 1;
+    min-height: 0;
+  }
+}
+/* 1280: the lead fills the full row height (no empty band under it when the side list
+   is taller), and the map strip below spans both columns on the same grid edges. */
+@media (min-width: 901px) {
+  .hp-lead-grid > .hp-mag-hero {
+    height: auto !important;
+    min-height: 440px !important;
+    max-height: none !important;
+    align-self: stretch;
+  }
+  .hp-lead-grid > .hp-mag-hero > .hp-lead-story { height: 100%; }
+  .hp-page .hp-map-strip {
+    max-width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+
+/* #261: one subheading. Desktop shows it beside the seal and hides the band below;
+   phones hide the header line and keep the band. */
+@media (min-width: 601px) {
+  body.hp-page .hp-value { display: none; }
+  body.hp-page .site-header .brand-subhead {
+    font-size: 0.9rem;
+    line-height: 1.35;
+    max-width: 26rem;
+  }
+}
+
+/* #262: phone swipe titles show up to 3 lines with no ellipsis; the row's fixed
+   height grows to fit (still reserved in CSS, not set by JS). */
+.hp-story-swipe { height: 208px; }
+.hp-swipe-card-title {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  max-height: calc(0.9rem * 1.25 * 3);
+}
+/* 1280: lead capped at 440px tall; the photo covers that box. */
+@media (min-width: 901px) {
+  .hp-lead-grid > .hp-mag-hero {
+    min-height: 0 !important;
+    height: 440px !important;
+    max-height: 440px !important;
+    align-self: start;
+  }
+  .hp-lead-grid > .hp-mag-hero > .hp-lead-story {
+    height: 440px;
+    min-height: 0;
+    max-height: 440px;
+  }
+  .hp-lead-media-link .hp-mag-hero-img,
+  .hp-lead-media-link picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* 1280: side list matches the 440px lead exactly — smaller thumbs (96×80, same ratio),
+   tighter gaps; the 4 cards spread to fill the column so there is no gap under either. */
+@media (min-width: 901px) {
+  .hp-lead-grid { align-items: start; }
+  .hp-story-rail {
+    height: 440px;
+    gap: 0.45rem;
+  }
+  .hp-story-rail-list {
+    flex: 1 1 auto;
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+  .hp-rail-card {
+    grid-template-columns: 96px 1fr;
+    gap: 0.65rem;
+    min-height: 80px;
+  }
+  .hp-rail-card picture,
+  .hp-rail-card picture img,
+  .hp-rail-card .hp-rail-card-img,
+  .hp-rail-card-ph {
+    width: 96px;
+    height: 80px;
+  }
+  .hp-rail-card-title { font-size: 0.95rem; line-height: 1.25; }
+  .hp-rail-all { margin-top: 0; padding: 0.15rem 0 0; line-height: 1.3; }
+}
+
+/* Homepage container: one content width + gutter shared by every homepage band, so
+   left/right content edges line up at 1280, 1440 and 1920. Backgrounds stay full-bleed;
+   only the inner padding changes. Phones (≤900px) keep their own spacing. */
+:root {
+  --page-max: 1360px;
+  --page-gutter: clamp(1.25rem, 5vw, 4rem);
+  --page-pad: max(var(--page-gutter), calc((100% - var(--page-max)) / 2));
+}
+@media (min-width: 901px) {
+  body.hp-page .site-header,
+  body.hp-page .site-header.top {
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+  body.hp-page .hp-lead-block,
+  body.hp-page .hp-map-strip,
+  body.hp-page .hp-section,
+  body.hp-page footer.foot {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+    box-sizing: border-box;
+  }
+}
+
+/* Desktop 901–1440px: theme toggle is a 44px icon-only button so the header stays one row.
+   The accessible name comes from aria-label ("Switch to dark/light mode"). Phones and >1440 unchanged. */
+@media (min-width: 901px) and (max-width: 1440px) {
+  .site-header .hp-theme-toggle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
+    flex: 0 0 44px;
+  }
+  .site-header .hp-theme-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .site-header .hp-theme-toggle-icon { font-size: 1.15rem; }
+  .site-header .hp-theme-toggle:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+/* Map-strip route links read as links in both themes. */
+.hp-map-strip li a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+.hp-map-strip li a:hover,
+.hp-map-strip li a:focus-visible { color: var(--heading); }
+
+
+/* Story pages (/stories/<slug>/): align with the homepage container and use one reading
+   measure. --page-max / --page-gutter / --page-pad are defined identically in #263, so the two
+   merge cleanly in either order. Text blocks share --read-measure; the route map, photos and
+   film may use the full main column. Phones (≤900px) and the #timeline reader are unchanged. */
+:root {
+  --page-max: 1360px;
+  --page-gutter: clamp(1.25rem, 5vw, 4rem);
+  --page-pad: max(var(--page-gutter), calc((100% - var(--page-max)) / 2));
+  --read-measure: 43rem;
+}
+@media (min-width: 901px) {
+  body:has(main.static-read > .static-story) .site-header {
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+  main.static-read:has(> .static-story) {
+    max-width: none;
+    margin: 0;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+    box-sizing: border-box;
+  }
+  /* One measure for every text block in the article. */
+  .static-story .story-crumbs,
+  .static-story .story-head > *,
+  .static-story .story-lead,
+  .static-story .story-intro > p,
+  .static-story .story-body,
+  .static-story .story-body > *,
+  .static-story .route-map > h2,
+  .static-story .route-map > h3,
+  .static-story .route-map > p,
+  .static-story .route-map-caption,
+  .static-story .route-marker-legend,
+  .static-story .route-downloads,
+  .static-story .route-waypoints,
+  .static-story .route-sources,
+  .static-story .route-links,
+  .static-story .route-index-link,
+  .static-story .research-list,
+  .static-story .static-related,
+  .static-story .cite-story,
+  .static-story .story-correction,
+  .static-story .static-cta {
+    max-width: var(--read-measure);
+  }
+  .static-story .story-body { width: 100%; }
+  /* Media may span the full main column. */
+  .static-story .route-map,
+  .static-story .route-map-figure,
+  .static-story .film-block { max-width: none; }
+}
+/* Story type (≥901px): 18px / 1.6 body and a 20px lead inside the 43rem column; the gap
+   from the lead to the first paragraph equals paragraph spacing (1em); breadcrumb flush. */
+@media (min-width: 901px) {
+  .static-story.story-reader-layout { row-gap: 0; }
+  .static-story .story-body { font-size: 1.125rem; line-height: 1.6; }
+  .static-story .story-body p { margin: 1em 0; }
+  .static-story .story-body > :first-child { margin-top: 1em; }
+  .static-story .story-intro,
+  .static-story .story-head,
+  .static-story .story-lead { margin-bottom: 0; }
+  .static-story .story-lead { font-size: 1.25rem; line-height: 1.5; }
+  .static-story .story-reader-main > .story-body:first-child { padding-top: 0; }
+  .static-story .story-crumbs,
+  .static-story .story-crumbs > :first-child { margin-left: 0; padding-left: 0; }
+}
+/* Inline story portrait (main subject), static /stories/ pages and the map app reader: floats right of the first paragraph so the text wraps.
+   200px in wide columns; in columns under 560px (phones, app reader beside the map) it becomes a
+   centered block like the PR B portraits. Fixed border so light and dark match; 200/120 square boxes, so no layout shift. */
+.story-portrait { float: right; width: 120px; margin: 0.3rem 0 0.5rem 0.9rem; }
+.story-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(120, 110, 95, 0.55);
+  background: var(--chip);
+}
+.story-portrait figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.35; color: var(--muted); }
+.story-portrait-name { display: block; font-weight: 700; color: var(--heading); }
+/* Size follows the text column, not the viewport: the map app reader column can be narrow
+   on desktop (map shown), where 200px would squeeze the text into one-word lines. */
+.story-reader-layout .story-body { container-type: inline-size; }
+@container (min-width: 560px) {
+  .story-portrait { width: 200px; margin: 0.35rem 0 0.75rem 1.5rem; }
+}
+/* PR B inline portraits (people named in the story): alternate right/left, one per paragraph,
+   each clears its own side so two never stack. */
+.story-portrait-inline { clear: right; }
+.story-portrait-left { float: left; clear: left; margin: 0.3rem 0.9rem 0.5rem 0; }
+@container (min-width: 560px) {
+  .story-portrait-inline { width: 160px; }
+  .story-portrait-left { margin: 0.35rem 1.5rem 0.75rem 0; }
+}
+/* Narrow text columns (phones, the app reader beside the map): no floats for PR B portraits;
+   a centered block between paragraphs so the text keeps its full width. */
+@container (max-width: 559.98px) {
+  .story-portrait,
+  .story-portrait-inline,
+  .story-portrait-inline.story-portrait-left {
+    float: none;
+    clear: both;
+    width: min(180px, 70%);
+    margin: 0.85rem auto 1rem;
+  }
+  /* Caption may run wider than the 180px image (still inside the column) so short credits
+     like 'AI illustration · Kentucky History Drive' stay on one line. */
+  .story-portrait figcaption {
+    text-align: center;
+    width: max-content;
+    max-width: calc(100cqw - 1rem);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+/* Captions at 12px or larger; --muted is AA on --panel/--bg in light (#52604c) and dark (#a8b59c). */
+.story-portrait figcaption { font-size: max(12px, 0.8rem); }
+.story-reader-layout .story-body::after { content: ''; display: block; clear: both; }
+.story-reader-layout .learn-more,
+.story-reader-layout .route-map { clear: both; }
+
+
+/* Homepage "Plan your drive" entry. Seal art unchanged (native 576px file, shown smaller, never recolored). */
+.hp-map-strip-link .hp-map-seal {
+  left: 2.5%;
+  top: 5%;
+  height: 42%;
+  transform: none;
+}
+.hp-plan-drive {
+  position: absolute;
+  z-index: 2;
+  left: 58%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 0.75rem 1rem 0.85rem;
+  border-radius: 14px;
+  background: rgba(16, 24, 18, 0.9);
+  color: #f6edd8;
+  border: 1px solid rgba(201, 137, 58, 0.7);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  max-width: 92%;
+}
+html[data-hp-theme="light"] .hp-plan-drive {
+  background: rgba(255, 253, 246, 0.94);
+  color: #3d2a12;
+  border-color: rgba(133, 80, 15, 0.55);
+}
+.hp-plan-drive-title {
+  font: 800 clamp(1.5rem, 4vw, 2.9rem)/1.05 "Segoe UI", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.hp-plan-drive-promise { font-size: clamp(0.85rem, 1.4vw, 1.05rem); font-weight: 500; }
+.hp-plan-drive-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  background: #c9893a;
+  color: #1a140c;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+.hp-map-strip-link:hover .hp-plan-drive-pill,
+.hp-map-strip-link:focus-visible .hp-plan-drive-pill { background: #e0a050; }
+.hp-map-strip-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.hp-map-strip-explore { margin: 0.25rem 0 0; font-size: 0.95rem; }
+.hp-map-strip-explore a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .hp-map-strip-link .hp-map-seal { height: 34%; top: 4%; left: 2%; }
+  /* Narrow: cap the route-and-car badge at ~80px so it clears far-western Kentucky. */
+  .hp-map-strip-link .hp-map-seal.hp-plan-badge { height: 80px; width: 80px; max-height: 34%; top: 3%; left: 1%; }
+  /* Phones: the plaque moves below the map so the whole KY map shows; seal stays top-left. */
+  .hp-plan-drive { position: static; transform: none; max-width: none; margin-top: 0.6rem; padding: 0.7rem 0.9rem 0.85rem; box-shadow: none; }
+  .hp-plan-drive-title { font-size: 1.6rem; }
+  .hp-plan-drive-promise { display: block; font-size: 0.95rem; }
+  .hp-plan-drive-pill { min-height: 44px; }
+  .hp-map-strip-figure { min-height: 0; }
+}
+
+/* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
+.hp-map-strip { scroll-margin-top: 14rem; }
+@media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+
+/* Homepage story link → Timeline: on phones the map docks on top, story below. */
+@media (max-width: 900px) {
+  .timeline-layout.is-home-story .timeline-map-pane {
+    order: -1;
+    position: sticky;
+    top: calc(var(--tl-sticky-top, 3.5rem) + var(--tl-readbar-h, 0px));
+    z-index: 5;
+    min-height: 0;
+    max-height: none;
+    height: 38vh;
+    border-bottom: 1px solid var(--line);
+  }
+  .timeline-layout.is-home-story .timeline-map-head { padding: 0.4rem 0.75rem; }
+  .timeline-layout.is-home-story .timeline-map-head h3,
+  .timeline-layout.is-home-story .timeline-map-head .btn,
+  .timeline-layout.is-home-story .timeline-map-head button { display: none; }
+  .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
+}
+
+/* Photo credits: the license ("License: CC BY-SA 4.0") stays on one line. */
+.story-photo-credit .photo-license { white-space: nowrap; }
+/* Sidebar credit links are inline text links: no padded tap box, so no gap before the period (' .'). */
+.story-sidebar-photo-attr.story-photo-credit a { display: inline; min-height: 0; padding: 0; }
+/* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
+   caption above); the 'no known likeness exists' note stays on its own unbroken line. */
+@container (max-width: 559.98px) {
+  .story-portrait figcaption { width: auto; max-width: 100%; left: 0; transform: none; overflow-wrap: anywhere; }
+}
+.story-portrait-note { white-space: nowrap; }
+
