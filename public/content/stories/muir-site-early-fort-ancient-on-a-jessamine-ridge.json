@@ -2,18 +2,15 @@
   "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
   "title": "Muir Site: Early Fort Ancient on a Jessamine Ridge",
   "publishedDate": "2026-09-25",
-  "summary": "Before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site (15Js86) on a broad upland ridge west of Nicholasville. Radiocarbon and…",
-  "bodyMarkdown": "Before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site (15Js86) on a broad upland ridge west of Nicholasville. Radiocarbon and ceramics place it in the early Fort Ancient Osborne Phase, roughly 1010–1255 CE. Unlike later crowded plaza villages, Muir held only one to three rectangular single-set-post houses at a time, each with a shallow floor basin and central hearth—more a dispersed farmstead cluster than a stockaded town.\n\nResidents ate mostly deer, elk, and bear, grew corn, beans, knotweed, and sunflower, and made limestone-tempered jars with rare guilloche designs. Long, eared triangular points set Muir's flintwork apart from some northern Kentucky Fort Ancient neighbors.\nSource: [https://archaeology.ky.gov/Find-a-Site/Pages/Muir.aspx](https://archaeology.ky.gov/Find-a-Site/Pages/Muir.aspx)",
-  "yearStart": 1010,
-  "yearEnd": 1255,
+  "summary": "In 1985, before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site on a broad upland ridge west of Nicholasville. The Kentucky…",
+  "bodyMarkdown": "In 1985, before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site on a broad upland ridge west of Nicholasville. The Kentucky Archaeological Survey places it in the early [Fort Ancient](https://en.wikipedia.org/wiki/Fort_Ancient) period, about A.D. 1000–1200. Later Fort Ancient villages often had 15 to 20 houses around a central plaza, but at Muir only one to three houses seem to have been in use at any one time.\n\nThe houses were small, square to rectangular, with single-set posts along the edges of shallow basins and a small central hearth. Researchers read Muir as a sign that some early Fort Ancient households lived in more dispersed settlements than their descendants did, a glimpse of Bluegrass life before the larger plaza towns.\n\nDeer, elk and bear made up almost 90 percent of the meat eaten. Residents grew corn, beans, erect knotweed and sunflower and gathered black walnuts and hickory nuts. They made cordmarked or plain jars, where the classic guilloche decoration was rare, and long triangular arrowheads with \"ears\" at the base that set Muir's flintwork apart from some northern Kentucky Fort Ancient neighbors.\n\n## Kentucky today\n\nThe site lies under and beside modern development near Nicholasville and is not a visitor site, so its map pin is rounded to about 10 km.\nSource: [Muir (Kentucky Archaeological Survey)](https://archaeology.ky.gov/Find-a-Site/Pages/Muir.aspx)",
+  "yearStart": 1000,
+  "yearEnd": 1200,
   "era": "prehistoric",
   "tags": [
     "prehistoric",
     "kentucky",
-    "bourbon",
-    "archaeology",
-    "frontier-war",
-    "geology"
+    "archaeology"
   ],
   "source": "ky-history",
   "briefDate": "2026-09-25",
@@ -28,8 +25,9 @@
   "territory": {
     "ref": "/data/web/territories/fort-ancient-farming-villages.json",
     "nation": "Fort Ancient (archaeological culture)",
-    "yearStart": 1010,
-    "yearEnd": 1255,
+    "yearStart": 1000,
+    "yearEnd": 1200,
     "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-  }
+  },
+  "county": "Jessamine"
 }

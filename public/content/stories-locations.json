@@ -152,14 +152,6 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
-    "muir-site-15js86": {
-      "slug": "muir-site-15js86",
-      "lat": 37.9,
-      "lon": -84.6,
-      "mapConfidence": "override",
-      "matchedPlace": "Muir Site (15Js86)",
-      "historyId": "muir-site-15js86-jessamine-county"
-    },
     "page-site-lost-city-15lo1": {
       "slug": "page-site-lost-city-15lo1",
       "lat": 36.82461,
@@ -189,14 +181,6 @@
       "lat": 36.5,
       "lon": -89.2,
       "mapConfidence": "override",
-      "matchedPlace": "Adams Site (15Fu4)",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county"
-    },
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "lat": 36.5,
-      "lon": -89.2,
-      "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
     },
@@ -239,14 +223,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)",
       "historyId": "buckner-site-15bb12-bourbon-county"
-    },
-    "cleek-mccabe-fort-ancient-village": {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "lat": 39,
-      "lon": -84.7,
-      "mapConfidence": "exact",
-      "matchedPlace": "Cleek-McCabe Fort Ancient Village",
-      "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
@@ -446,14 +422,6 @@
       "lon": -84.67985,
       "mapConfidence": "county",
       "matchedPlace": "Lincoln County (centroid)",
-      "historyId": null
-    },
-    "hugh-mcgary-the-hothead-major": {
-      "slug": "hugh-mcgary-the-hothead-major",
-      "lat": 37.778,
-      "lon": -84.83079,
-      "mapConfidence": "county",
-      "matchedPlace": "Mercer County (centroid)",
       "historyId": null
     },
     "michael-stoner-german-long-hunter": {
@@ -840,14 +808,6 @@
       "matchedPlace": "Springfield / Washington County seat",
       "historyId": "springfield-washington-county-seat"
     },
-    "springfield-first-county-seat-after-statehood": {
-      "slug": "springfield-first-county-seat-after-statehood",
-      "lat": 37.6853,
-      "lon": -85.2222,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield",
-      "historyId": null
-    },
     "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
       "lat": 37.89977778,
@@ -1007,14 +967,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Isaac Shelby",
       "historyId": "isaac-shelby"
-    },
-    "lawrenceburg-from-kaufmans-station": {
-      "slug": "lawrenceburg-from-kaufmans-station",
-      "lat": 38.02186,
-      "lon": -84.89316,
-      "mapConfidence": "county",
-      "matchedPlace": "Anderson County (centroid)",
-      "historyId": null
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",

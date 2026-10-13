@@ -479,35 +479,6 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
     {
-      "slug": "muir-site-15js86",
-      "title": "Muir Site (15Js86)",
-      "publishedDate": "2026-09-15",
-      "summary": "West of Nicholasville on a Jessamine County ridge, Muir is an early Fort Ancient (Osborne phase) hamlet dated roughly A.D. 1000–1200. UK crews dug it in 1985 ahead of the…",
-      "yearStart": 1000,
-      "yearEnd": 1200,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war",
-        "geology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-15",
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1000,
-        "yearEnd": 1200,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 37.9,
-      "lon": -84.6,
-      "mapConfidence": "override",
-      "matchedPlace": "Muir Site (15Js86)"
-    },
-    {
       "slug": "page-site-lost-city-15lo1",
       "title": "Page Site / “Lost City” (15LO1)",
       "publishedDate": "2026-09-12",
@@ -628,42 +599,6 @@
       "lat": 36.5,
       "lon": -89.2,
       "mapConfidence": "override",
-      "matchedPlace": "Adams Site (15Fu4)"
-    },
-    {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "title": "Adams Site Mississippian town near Hickman",
-      "publishedDate": "2026-09-21",
-      "summary": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.…",
-      "yearStart": 1100,
-      "yearEnd": 1500,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-21",
-      "county": "Fulton",
-      "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": 2013
-      },
-      "territory": {
-        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
-        "nation": "Mississippian, western Kentucky (archaeological culture)",
-        "yearStart": 1100,
-        "yearEnd": 1500,
-        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
-      },
-      "lat": 36.5,
-      "lon": -89.2,
-      "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)"
     },
     {
@@ -815,35 +750,6 @@
       "lon": -84.2,
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)"
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "title": "Cleek-McCabe Fort Ancient village",
-      "publishedDate": "2026-09-10",
-      "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
-      "yearStart": 1200,
-      "yearEnd": 1300,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1200,
-        "yearEnd": 1300,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 39,
-      "lon": -84.7,
-      "mapConfidence": "exact",
-      "matchedPlace": "Cleek-McCabe Fort Ancient Village"
     },
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
@@ -1559,28 +1465,6 @@
       "lon": -84.67985,
       "mapConfidence": "county",
       "matchedPlace": "Lincoln County (centroid)"
-    },
-    {
-      "slug": "hugh-mcgary-the-hothead-major",
-      "title": "Hugh McGary, the hothead major",
-      "publishedDate": "2026-09-11",
-      "summary": "Irish-born Hugh McGary (1744–1806) came through the Gap with early Kentucky families, settled near Harrodsburg, and built McGary’s Station at Shawnee Springs in Mercer County…",
-      "yearStart": 1744,
-      "yearEnd": 1806,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": 37.778,
-      "lon": -84.83079,
-      "mapConfidence": "county",
-      "matchedPlace": "Mercer County (centroid)"
     },
     {
       "slug": "michael-stoner-german-long-hunter",
@@ -2829,27 +2713,6 @@
       "matchedPlace": "Springfield / Washington County seat"
     },
     {
-      "slug": "springfield-first-county-seat-after-statehood",
-      "title": "Springfield, first county seat after statehood",
-      "publishedDate": "2026-09-12",
-      "summary": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton—Virginia…",
-      "yearStart": 1776,
-      "yearEnd": 1816,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "frontier-war",
-        "town-founding"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 37.6853,
-      "lon": -85.2222,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield"
-    },
-    {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
       "title": "Blackfish, Chillicothe war chief",
       "publishedDate": "2026-10-12",
@@ -3369,28 +3232,6 @@
       "lon": -84.7919732,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Isaac Shelby"
-    },
-    {
-      "slug": "lawrenceburg-from-kaufmans-station",
-      "title": "Lawrenceburg from Kaufman’s Station",
-      "publishedDate": "2026-09-14",
-      "summary": "German immigrant Jacob Kaufman planted a frontier outpost about 1780 that locals called Kaufman’s or Coffman’s Station, a few miles west of the Kentucky River in what is now…",
-      "yearStart": 1780,
-      "yearEnd": 1827,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "bourbon",
-        "frontier-war",
-        "town-founding"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": 38.02186,
-      "lon": -84.89316,
-      "mapConfidence": "county",
-      "matchedPlace": "Anderson County (centroid)"
     },
     {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",

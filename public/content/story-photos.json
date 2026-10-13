@@ -1,18 +1,6 @@
 {
   "generatedAt": "2026-10-13T10:03:29.173Z",
   "bySlug": {
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county",
-      "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": 2013
-      }
-    },
     "andalex-village-15hk22-hopkins-county": {
       "slug": "andalex-village-15hk22-hopkins-county",
       "historyId": "andalex-village-15hk22-hopkins-county",
@@ -1447,18 +1435,6 @@
     }
   },
   "byHistoryId": {
-    "adams-site-15fu4-mississippian-fulton-county": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county",
-      "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": 2013
-      }
-    },
     "andalex-village-15hk22-hopkins-county": {
       "slug": "andalex-village-15hk22-hopkins-county",
       "historyId": "andalex-village-15hk22-hopkins-county",
