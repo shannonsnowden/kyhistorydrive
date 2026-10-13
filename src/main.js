@@ -10,6 +10,7 @@ import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
+import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
@@ -3269,6 +3270,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
             <div class="tags">${tags}</div>
+            ${takeADriveHtml(await loadStoryDrives(), meta.slug)}
           </header>
           <div class="story-body">${storyPortraitHtml(subject.person)}${applyStoryPeople(
             marked.parse(stripSourceAttribution(s.bodyMarkdown || '')),

@@ -29,6 +29,8 @@ import {
 } from './gtag-snippet.mjs'
 import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
+import { storyDrives } from './story-drives-lib.mjs'
+import { takeADriveHtml } from '../src/take-a-drive.js'
 import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
 import {
   citeBootScript,
@@ -1348,6 +1350,15 @@ class PrerenderPages {
     return markers
   }
 
+  static _storyDrives = null
+  /** Story -> drive ids, read from the drive pages (scripts/story-drives-lib.mjs). */
+  static storyDriveData() {
+    if (!PrerenderPages._storyDrives) {
+      PrerenderPages._storyDrives = storyDrives(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'))
+    }
+    return PrerenderPages._storyDrives
+  }
+
   static storyPage(story, all, cssHrefs, layers, markers = [], relatedBundle = null) {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
@@ -1408,6 +1419,7 @@ class PrerenderPages {
             <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
             ${peopleParts.lead}
           </header>
+          ${takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)}
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
