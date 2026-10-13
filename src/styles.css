@@ -5173,7 +5173,7 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 .story-portrait-inline { clear: right; }
 .story-portrait-left { float: left; clear: left; margin: 0.3rem 0.9rem 0.5rem 0; }
 @container (min-width: 560px) {
-  .story-portrait-inline { width: 160px; }
+  .story-portrait-inline { width: 200px; }
   .story-portrait-left { margin: 0.35rem 1.5rem 0.75rem 0; }
 }
 /* Narrow text columns (phones, the app reader beside the map): no floats for PR B portraits;
@@ -5282,6 +5282,8 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Any jump to the drive block lands below the sticky header (about 211px tall at 1280 and 101px at 390). */
 .hp-map-strip { scroll-margin-top: 14rem; }
 @media (max-width: 560px) { .hp-map-strip { scroll-margin-top: 7rem; } }
+/* Portrait sweep: the site name in a portrait credit never splits ('Kentucky | History Drive'). */
+.story-portrait .credit-site { white-space: nowrap; }
 
 /* Photo credits: separate .seg spans, separators drawn by CSS. */
 /* Segments flow as one line of normal inline text and wrap anywhere between words; only the site
