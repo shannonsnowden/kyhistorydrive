@@ -233,6 +233,10 @@ export function storySubject(relatedData, people, story, storySubjects = null) {
 export function storyPortraitHtml(person) {
   if (!person || !hasSafePortrait(person)) return ''
   const credit = person.ai ? aiCreditText(person) : creditWithCaption(person, person.credit || '')
-  return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${creditHtml(credit, esc)}</span></figcaption></figure>`
+  const inner = creditHtml(credit, esc)
+  const linked = /^https:\/\//i.test(person.creditUrl || '')
+    ? `<a href="${esc(person.creditUrl)}" target="_blank" rel="noopener noreferrer">${inner}<span class="visually-hidden"> (opens in a new tab)</span></a>`
+    : inner
+  return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" loading="lazy" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${linked}</span></figcaption></figure>`
 }
 

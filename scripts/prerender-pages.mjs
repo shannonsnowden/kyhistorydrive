@@ -1007,7 +1007,9 @@ class PrerenderPages {
 
   static peopleCreditLead(person) {
     const viaCommons = /via Wikimedia Commons/i.test(String(person.credit || ''))
-    if (person.ai) return `Illustration: ${PrerenderPages.peopleCreditName(person)}, `
+    // AI art: the pill already says 'AI illustration', so the credit is just the maker (and any
+    // 'no known likeness' note), e.g. 'Kentucky History Drive · no known likeness exists'.
+    if (person.ai) return PrerenderPages.peopleCreditName(person).replace(/\s*;\s*/g, ' · ')
     return `Photo: ${PrerenderPages.peopleCreditName(person)}${viaCommons ? ' / Wikimedia Commons' : ''}, `
   }
 
@@ -2471,15 +2473,20 @@ class PrerenderPages {
     return `<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10" fill="currentColor"/><path d="M12 56c2.2-12 9-18 20-18s17.8 6 20 18" fill="currentColor"/></svg>`
   }
 
-  static peopleCard(person, titleFor, identifier) {
+  static peopleCard(person, titleFor, identifier, yearsFor = () => '') {
     const name = PrerenderPages.escapeHtml(person.name)
     const line = identifier
       ? `<p class="people-id">${PrerenderPages.escapeHtml(identifier)}</p>`
       : ''
+    // Two stories about the same person ("Hugh McGary, the …") read alike; add each one's years.
+    const lead = (t) => String(t || '').split(',')[0].trim().toLowerCase()
+    const leads = (person.stories || []).map((slug) => lead(titleFor(slug))).filter(Boolean)
     const stories = (person.stories || [])
       .map((slug) => {
-        const title = titleFor(slug)
+        let title = titleFor(slug)
         if (!title) return ''
+        const years = yearsFor(slug)
+        if (years && leads.filter((l) => l === lead(title)).length > 1) title = `${title} (${years})`
         return `<li><a href="/stories/${encodeURIComponent(slug)}/">${PrerenderPages.escapeHtml(title)}</a></li>`
       })
       .filter(Boolean)
@@ -2497,7 +2504,7 @@ class PrerenderPages {
       ? `<a href="${PrerenderPages.escapeHtml(person.licenseUrl)}" rel="license">${PrerenderPages.escapeHtml(person.license)}</a>`
       : PrerenderPages.escapeHtml(person.license)
     const credit = person.image
-      ? `<p class="people-credit">${PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))}${license}</p>`
+      ? `<p class="people-credit">${PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))}${person.ai ? '' : license}</p>`
       : ''
     return `<li class="people-card" id="${PrerenderPages.escapeHtml(person.id)}">${media}<h3>${name}</h3>${line}${badge}${credit}${storyList}</li>`
   }
@@ -2526,6 +2533,11 @@ class PrerenderPages {
     const storiesBySlug = new Map(stories.map((story) => [story.slug, story]))
     const sourceById = new Map(sourcePeople.map((person) => [person.id, person]))
     const lineFor = (person) => personIdentifier(sourceById.get(person.id), storiesBySlug)
+    const yearsFor = (slug) => {
+      const st = storiesBySlug.get(slug)
+      if (!st?.yearStart) return ''
+      return st.yearEnd && st.yearEnd !== st.yearStart ? `${st.yearStart}–${st.yearEnd}` : String(st.yearStart)
+    }
     const byName = (a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
     const illustrated = peopleFile.people.filter((person) => person.image).sort(byName)
     const plain = peopleFile.people.filter((person) => !person.image).sort(byName)
@@ -2554,11 +2566,11 @@ class PrerenderPages {
         </header>
         <section class="people-group" aria-labelledby="people-portraits-heading">
           <h2 id="people-portraits-heading">Portraits</h2>
-          <ul class="people-grid">${illustrated.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person))).join('')}</ul>
+          <ul class="people-grid">${illustrated.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person), yearsFor)).join('')}</ul>
         </section>
         <section class="people-group" aria-labelledby="people-names-heading">
           <h2 id="people-names-heading">Names without a portrait yet</h2>
-          <ul class="people-grid">${plain.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person))).join('')}</ul>
+          <ul class="people-grid">${plain.map((person) => PrerenderPages.peopleCard(person, titleFor, lineFor(person), yearsFor)).join('')}</ul>
         </section>
       </article>`
     const jsonLd = PrerenderPages.jsonLdScript([
@@ -2665,7 +2677,7 @@ class PrerenderPages {
       if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
         throw new Error(`prerender: /people/ is missing alt text for ${person.id}`)
       }
-      if (!html.includes(PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))) || !html.includes(PrerenderPages.escapeHtml(person.license))) {
+      if (!html.includes(PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(person))) || (!person.ai && !html.includes(PrerenderPages.escapeHtml(person.license)))) {
         throw new Error(`prerender: /people/ is missing the credit or license for ${person.id}`)
       }
       if (!html.includes(`src="${person.image.jpg}"`) || !html.includes(`srcset="${person.image.webp}"`)) {

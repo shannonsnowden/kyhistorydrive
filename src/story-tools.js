@@ -743,7 +743,8 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   let inner = chunks.length ? `Photo: ${chunks.join('. ')}` : 'Photo'
   if (model.license) {
     const license = model.licenseUrl ? externalLink(model.licenseUrl, model.license) : esc(model.license)
-    inner += `. License: ${license}`
+    // Keep the whole license together ("License: CC BY-SA 4.0" never splits across lines).
+    inner += `. <span class="photo-license">License: ${license}</span>`
   }
   inner += '.'
   if (block) return `<p class="story-sidebar-photo-attr story-photo-credit">${inner}</p>`

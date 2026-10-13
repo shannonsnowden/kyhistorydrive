@@ -48,6 +48,8 @@ export const AI_IDS = [
   'benjamin-logan',
   'george-rogers-clark',
   'john-bradford',
+  'moluntha',
+  'robert-johnson',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
@@ -150,6 +152,14 @@ export function shippedLicenseUrl(person) {
   return null
 }
 
+/** Hand-supplied real photos: public/people/portraits/<id>__photo-512.{webp,jpg}. */
+export function findLocalPhoto(id, dir) {
+  const webp = `${id}__photo-512.webp`
+  const jpg = `${id}__photo-512.jpg`
+  if (!fs.existsSync(path.join(dir, webp)) || !fs.existsSync(path.join(dir, jpg))) return null
+  return { webp: `/people/portraits/${webp}`, jpg: `/people/portraits/${jpg}` }
+}
+
 export function realPortraitPaths(id) {
   return {
     webp: `/people/portraits/${id}-512.webp`,
@@ -208,6 +218,8 @@ export function publicRecord(person, image, ai) {
     // Commons file name only (not the page URL), so story pages can avoid showing the same
     // image twice (portrait + Photos sidebar). Null for AI illustrations.
     sourceFile: ai ? null : commonsFileName(person.sourcePage),
+    // Source page link for the portrait credit (https only); real photos only.
+    ...(!ai && /^https:\/\//i.test(person.creditUrl || '') ? { creditUrl: person.creditUrl } : {}),
   }
 }
 
@@ -231,6 +243,9 @@ export function assertPublicPeople(data) {
     ids.add(person.id)
     if (!Array.isArray(person.stories)) throw new Error(`people: ${person.id} stories is not a list`)
     if (typeof person.ai !== 'boolean') throw new Error(`people: ${person.id} ai is not a boolean`)
+    if (person.creditUrl != null && !/^https:\/\//i.test(person.creditUrl)) {
+      throw new Error(`people: ${person.id} credit URL is not an https URL`)
+    }
     if (person.licenseUrl != null && !/^https?:\/\//i.test(person.licenseUrl)) {
       throw new Error(`people: ${person.id} license URL is not an http(s) URL`)
     }

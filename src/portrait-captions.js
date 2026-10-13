@@ -41,6 +41,9 @@ export const PORTRAIT_ALTS = {
   'benjamin-logan': 'AI illustration of Benjamin Logan, Kentucky pioneer and militia general',
   'george-rogers-clark': 'AI illustration of George Rogers Clark, after his c. 1810 portrait by C. D. Cook',
   'john-bradford': 'AI illustration of John Bradford, printer of the Kentucke Gazette',
+  moluntha: 'AI illustration of Moluntha, elderly Mekoche Shawnee civil chief, about 1786',
+  'robert-johnson': "AI illustration of Robert Johnson, founder of Johnson's Station, about 1783",
+  'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
 }
 
 export function portraitAlt(person) {
@@ -62,7 +65,11 @@ export function aiCreditText(person) {
 export function creditHtml(text, esc) {
   const site = 'Kentucky History Drive'
   const s = String(text || '')
-  const at = s.indexOf(site)
-  if (at < 0) return esc(s)
-  return `${esc(s.slice(0, at))}<span class="credit-site">${esc(site)}</span>${esc(s.slice(at + site.length))}`
+  // Keep 'no known likeness exists' on its own unbroken line after 'Drive;'.
+  const note = '; no known likeness exists'
+  const body = s.endsWith(note) ? s.slice(0, -note.length) : s
+  const tail = body === s ? '' : '; <span class="story-portrait-note">no known likeness exists</span>'
+  const at = body.indexOf(site)
+  if (at < 0) return esc(body) + tail
+  return `${esc(body.slice(0, at))}<span class="credit-site">${esc(site)}</span>${esc(body.slice(at + site.length))}${tail}`
 }
