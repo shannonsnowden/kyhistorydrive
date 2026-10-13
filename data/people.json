@@ -1250,12 +1250,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting.",
+      "ai": true
     },
     {
       "id": "robert-johnson",
@@ -1357,12 +1358,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "Wikipedia image is a modern photo of Fort Boonesborough."
+      "notes": "Wikipedia image is a modern photo of Fort Boonesborough.",
+      "ai": true
     },
     {
       "id": "fanny-callaway",
@@ -1511,12 +1513,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No image on Wikipedia/Commons for the matching article. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting.",
+      "ai": true
     },
     {
       "id": "thomas-walker",
