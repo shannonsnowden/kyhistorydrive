@@ -1,0 +1,155 @@
+{
+  "slug": "george-garvin-brown-and-old-forester",
+  "storySlug": "george-garvin-brown-and-old-forester",
+  "title": "Research notes: George Garvin Brown and Old Forester",
+  "updated": "2026-10-13",
+  "summary": "Sources for Brown’s life, the 1870 launch of Old Forester in sealed bottles, the disputed name, Brown-Forman, and the Prohibition-era medicinal permit.",
+  "sections": [
+    {
+      "heading": "Brown",
+      "items": [
+        {
+          "text": "Born Munfordville Sept. 2, 1846; Louisville 1862; Male High School; wholesale drug salesman; first president National Liquor Dealers’ Association 1894; anti-Prohibition book 1910; died 1917, buried Cave Hill.",
+          "sources": [
+            "eky419"
+          ]
+        },
+        {
+          "text": "1870: J. T. S. Brown and Brothers with half-brother J. T. S. Brown Jr.; Brown-Forman name adopted 1890 for partner and bookkeeper George Forman.",
+          "sources": [
+            "eky419"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Old Forester",
+      "items": [
+        {
+          "text": "Sealed glass bottles against adulteration; signed labels; trademarked; first sold in pharmacies.",
+          "sources": [
+            "eky416",
+            "eky419",
+            "wp-of"
+          ]
+        },
+        {
+          "text": "Name: usual account Dr. William Forrester; ExploreKYHistory notes others claim Nathan Bedford Forrest. Flagged as contested.",
+          "sources": [
+            "eky416",
+            "wp-of"
+          ]
+        },
+        {
+          "text": "One of six Kentucky brands bottled for medicinal use during Prohibition.",
+          "sources": [
+            "eky416"
+          ]
+        },
+        {
+          "text": "Cut from brief: ‘at first about 90 proof’ (not in sources). ‘First bottled bourbon’ kept only as ExploreKYHistory’s claim.",
+          "sources": []
+        }
+      ]
+    },
+    {
+      "heading": "Place",
+      "items": [
+        {
+          "text": "Old Forester Distillery at 119 W. Main St., its 1880s home, on Louisville’s Whiskey Row.",
+          "sources": [
+            "wp-wr"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1846,
+      "event": "Brown born in Munfordville.",
+      "sources": [
+        "eky419"
+      ]
+    },
+    {
+      "year": 1870,
+      "event": "Old Forester launched in sealed bottles.",
+      "sources": [
+        "wp-of",
+        "eky419"
+      ]
+    },
+    {
+      "year": 1890,
+      "event": "Firm renamed Brown-Forman.",
+      "sources": [
+        "eky419"
+      ]
+    },
+    {
+      "year": 1917,
+      "event": "Brown dies.",
+      "sources": [
+        "eky419"
+      ]
+    },
+    {
+      "year": 1920,
+      "event": "Prohibition; medicinal permit.",
+      "sources": [
+        "eky416",
+        "wp-of"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "George Garvin Brown",
+      "role": "Founder of Old Forester and Brown-Forman",
+      "peopleId": "george-garvin-brown"
+    },
+    {
+      "name": "J. T. S. Brown Jr.",
+      "role": "Half-brother and first partner"
+    },
+    {
+      "name": "George Forman",
+      "role": "Bookkeeper and partner"
+    }
+  ],
+  "openQuestions": [
+    "Primary evidence for the 1870 first bottling (trademark filing, ads).",
+    "No people.json entry yet for George Garvin Brown."
+  ],
+  "sources": [
+    {
+      "id": "eky416",
+      "citation": "Tim Talbott and Christopher Beebout, “Bottled Bourbon,” ExploreKYHistory (KHS marker 2103).",
+      "url": "https://explorekyhistory.ky.gov/items/show/416",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "eky419",
+      "citation": "Whitney Todd, “Brown-Forman Established and George Garvin Brown,” ExploreKYHistory (KHS marker 2105).",
+      "url": "https://explorekyhistory.ky.gov/items/show/419",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wp-of",
+      "citation": "“Old Forester.” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Old_Forester",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wp-wr",
+      "citation": "“Whiskey Row, Louisville.” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Whiskey_Row,_Louisville",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

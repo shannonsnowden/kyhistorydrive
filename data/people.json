@@ -186,7 +186,8 @@
         "col-john-bowman-at-old-chillicothe",
         "col-john-hardin-of-pleasant-run",
         "nonhelema",
-        "stanford-from-st-asaph"
+        "stanford-from-st-asaph",
+        "moluntha-and-logans-raid-1786"
       ],
       "role": "Militia general, Logan's Station founder",
       "native": false,
@@ -428,7 +429,8 @@
       "lifeDates": null,
       "stories": [
         "john-floyd",
-        "stanford-from-st-asaph"
+        "stanford-from-st-asaph",
+        "prestonsburg-first-seat-on-the-big-sandy"
       ],
       "role": "Surveyor, Fincastle party leader",
       "native": false,
@@ -1455,7 +1457,8 @@
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
-        "nonhelema"
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
       ],
       "role": "Militia major, Blue Licks",
       "native": false,
@@ -1478,7 +1481,8 @@
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "hugh-mcgary-the-hothead-major",
-        "nonhelema"
+        "nonhelema",
+        "moluntha-and-logans-raid-1786"
       ],
       "role": "Shawnee chief killed 1786",
       "native": true,
@@ -6691,6 +6695,90 @@
       "freeToUse": true,
       "verified": true,
       "notes": null
+    },
+    {
+      "id": "thomas-marshall-col",
+      "name": "Col. Thomas Marshall",
+      "aliases": [],
+      "lifeDates": "1730–1802",
+      "stories": [
+        "col-thomas-marshall-at-buck-pond"
+      ],
+      "role": "Virginia surveyor general of military lands, Buck Pond founder",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "uncertain",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall,_Father_of_CJ_John_Marshall.jpg",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Commons: the only known portrait of Thomas Marshall, reproduced in Albert J. Beveridge's Life of John Marshall."
+    },
+    {
+      "id": "john-spurlock",
+      "name": "John Spurlock",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ],
+      "role": "Laid out Preston's Station (Prestonsburg), 1797",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No image on Wikipedia/Commons. Needs an AI portrait."
+    },
+    {
+      "id": "john-preston-col",
+      "name": "Col. John Preston",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ],
+      "role": "Preston grant administrator, Prestonsburg namesake",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No verified image. Identity of the Prestonsburg namesake is given only as Col. John Preston; do not borrow a portrait of another John Preston. Needs an AI portrait."
+    },
+    {
+      "id": "george-garvin-brown",
+      "name": "George Garvin Brown",
+      "aliases": [],
+      "lifeDates": "1846–1917",
+      "stories": [
+        "george-garvin-brown-and-old-forester"
+      ],
+      "role": "Founder of Old Forester and Brown-Forman",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No free portrait found on Commons. Needs an AI portrait."
     }
   ]
 }

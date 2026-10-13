@@ -1,0 +1,180 @@
+{
+  "slug": "moluntha-and-logans-raid-1786",
+  "storySlug": "moluntha-and-logans-raid-1786",
+  "title": "Research notes: Moluntha and Logan’s Raid, 1786",
+  "updated": "2026-10-13",
+  "summary": "Sources for Moluntha’s role, the Treaty of Fort Finney, Logan’s October 1786 raid and McGary’s killing of Moluntha, with each side’s motives. Town counts and dates differ between sources.",
+  "sections": [
+    {
+      "heading": "Shawnee side",
+      "items": [
+        {
+          "text": "Mekoche ceremonial leader from 1780; Americans mistook the role for ‘king’.",
+          "sources": [
+            "wp-mol"
+          ]
+        },
+        {
+          "text": "Signed Fort Finney reluctantly, Jan. 1786; most Shawnees rejected it; message to British: ‘We have been cheated by the Americans.’",
+          "sources": [
+            "wp-mol",
+            "wp-finney"
+          ]
+        },
+        {
+          "text": "Flew a US flag and held the treaty when he surrendered.",
+          "sources": [
+            "wp-mol",
+            "wp-raid"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Kentucky side",
+      "items": [
+        {
+          "text": "After raids and counter-raids along the Ohio, Kentucky militia launched a two-pronged 1786 campaign under Clark and Logan.",
+          "sources": [
+            "wp-nwiw"
+          ]
+        },
+        {
+          "text": "Logan led about 700 militia; McGary, bitter over Blue Licks, killed Moluntha; court-martialed and suspended one year.",
+          "sources": [
+            "wp-mcgary",
+            "wp-mol"
+          ]
+        },
+        {
+          "text": "Ensign Ebenezer Denny: ‘none but old men, women and children… the men were literally murdered.’",
+          "sources": [
+            "wp-raid"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Contested details",
+      "items": [
+        {
+          "text": "Seven towns and Oct. 6 (Moluntha, McGary articles) vs. thirteen villages and Oct. 12 (Logan’s raid infobox).",
+          "sources": [
+            "wp-mol",
+            "wp-raid",
+            "wp-mcgary"
+          ]
+        },
+        {
+          "text": "Unpinned: the towns were in present Ohio, and the story centers on Moluntha, not the Limestone launch point.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1780,
+      "event": "Moluntha becomes Mekoche speaker.",
+      "sources": [
+        "wp-mol"
+      ]
+    },
+    {
+      "year": 1786,
+      "event": "Jan. 31: Treaty of Fort Finney.",
+      "sources": [
+        "wp-finney"
+      ]
+    },
+    {
+      "year": 1786,
+      "event": "October: Logan’s raid; Moluntha killed.",
+      "sources": [
+        "wp-mol",
+        "wp-raid"
+      ]
+    },
+    {
+      "year": 1810,
+      "event": "Tecumseh cites Moluntha’s death.",
+      "sources": [
+        "wp-mol"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Moluntha",
+      "role": "Mekoche Shawnee civil chief",
+      "peopleId": "moluntha"
+    },
+    {
+      "name": "Benjamin Logan",
+      "role": "Kentucky militia commander",
+      "peopleId": "benjamin-logan"
+    },
+    {
+      "name": "Hugh McGary",
+      "role": "Militia officer who killed Moluntha",
+      "peopleId": "hugh-mcgary"
+    },
+    {
+      "name": "Nonhelema",
+      "role": "Moluntha’s wife, captured",
+      "peopleId": "nonhelema"
+    },
+    {
+      "name": "George Rogers Clark",
+      "role": "Led the Wabash prong",
+      "peopleId": "george-rogers-clark"
+    }
+  ],
+  "openQuestions": [
+    "Shawnee-authored accounts of the raid.",
+    "Court-martial record of McGary (Talbert 1962 cites it)."
+  ],
+  "sources": [
+    {
+      "id": "wp-mol",
+      "citation": "“Moluntha.” Wikipedia (citing Sugden, Calloway, Lakomäki, Talbert).",
+      "url": "https://en.wikipedia.org/wiki/Moluntha",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wp-raid",
+      "citation": "“Logan’s raid.” Wikipedia (quotes Denny’s Military Journal, 1850).",
+      "url": "https://en.wikipedia.org/wiki/Logan%27s_raid",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wp-mcgary",
+      "citation": "“Hugh McGary.” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Hugh_McGary",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wp-finney",
+      "citation": "“Fort Finney (Ohio).” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Fort_Finney_(Ohio)",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wp-nwiw",
+      "citation": "“Northwest Indian War.” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Northwest_Indian_War",
+      "type": "secondary",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "denny",
+      "citation": "Ebenezer Denny, Military Journal of Major Ebenezer Denny (Philadelphia, 1850), as quoted in the Logan’s raid article.",
+      "type": "primary",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

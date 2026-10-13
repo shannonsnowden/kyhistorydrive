@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:01:02.191Z",
+  "generatedAt": "2026-10-13T09:39:35.469Z",
   "bySlug": {
     "adams-site-mississippian-town-near-hickman": {
       "slug": "adams-site-mississippian-town-near-hickman",
@@ -304,6 +304,18 @@
         "year": 2023
       }
     },
+    "col-thomas-marshall-at-buck-pond": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
+        "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain",
+        "year": null
+      }
+    },
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
       "slug": "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
       "historyId": null,
@@ -506,6 +518,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
         "year": 1797
+      }
+    },
+    "george-garvin-brown-and-old-forester": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
       }
     },
     "harry-innes": {
@@ -856,6 +880,18 @@
         "year": null
       }
     },
+    "moluntha-and-logans-raid-1786": {
+      "slug": "moluntha-and-logans-raid-1786",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021
+      }
+    },
     "moneton": {
       "slug": "moneton",
       "historyId": null,
@@ -1036,6 +1072,18 @@
         "year": null
       }
     },
+    "prestonsburg-first-seat-on-the-big-sandy": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "quapaw-the-downstream-people-of-the-ohio-valley": {
       "slug": "quapaw-the-downstream-people-of-the-ohio-valley",
       "historyId": null,
@@ -1106,6 +1154,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
       }
     },
     "shaker-village-of-pleasant-hill": {
@@ -1650,6 +1710,18 @@
         "year": 2023
       }
     },
+    "col-thomas-marshall-buck-pond-woodford-1783-1802": {
+      "slug": "col-thomas-marshall-at-buck-pond",
+      "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
+      "photo": {
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond.jpg",
+        "title": "Col. Thomas Marshall, the only known portrait, as reproduced in Albert J. Beveridge’s Life of John Marshall",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Marshall%2C_Father_of_CJ_John_Marshall.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · reproduced by Albert J. Beveridge · Wikimedia Commons · public domain",
+        "year": null
+      }
+    },
     "daniel-trabue-house-columbia-adair-1778-1840": {
       "slug": "daniel-trabue-of-columbia",
       "historyId": "daniel-trabue-house-columbia-adair-1778-1840",
@@ -1792,6 +1864,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Charles Willson Peale · Wikimedia Commons · public domain",
         "year": 1797
+      }
+    },
+    "old-forester-whiskey-row-louisville-1870": {
+      "slug": "george-garvin-brown-and-old-forester",
+      "historyId": "old-forester-whiskey-row-louisville-1870",
+      "photo": {
+        "image_url": "/content/photos/stories/george-garvin-brown-and-old-forester.jpg",
+        "title": "J. T. S. Brown and Son’s Complex on East Main Street, Louisville (photographed 2012), part of the Brown family’s whiskey district; stand-in, not the Old Forester building at 119 W. Main",
+        "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2012
       }
     },
     "harry-innes-frankfort-1783-1816": {
@@ -2226,6 +2310,18 @@
         "year": 2014
       }
     },
+    "prestonsburg-founding-floyd-1797-1818": {
+      "slug": "prestonsburg-first-seat-on-the-big-sandy",
+      "historyId": "prestonsburg-founding-floyd-1797-1818",
+      "photo": {
+        "image_url": "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg",
+        "title": "Samuel May House, Prestonsburg (built 1817; photographed 2014)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Samuel_May_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2014
+      }
+    },
     "red-bird-river-petroglyphs-eriline-clay": {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "historyId": "red-bird-river-petroglyphs-eriline-clay",
@@ -2284,6 +2380,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons",
         "year": null
+      }
+    },
+    "sassafras-ridge-15fu3-fulton-1000-1500": {
+      "slug": "sassafras-ridge-15fu3-fulton-county",
+      "historyId": "sassafras-ridge-15fu3-fulton-1000-1500",
+      "photo": {
+        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
+        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008
       }
     },
     "pleasant-hill-shaker-village-mercer-1805-1910": {
