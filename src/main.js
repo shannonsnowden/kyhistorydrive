@@ -4535,7 +4535,7 @@ document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('clic
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
-/** About seals (the black one is 402KB) are hidden on first load. Fetch them only when About opens. */
+/** About seals carry a real src with loading="lazy", so the hidden About section never fetches them (and no img has an empty src). Kept as a fallback for browsers without lazy loading. */
 function revealAboutSeal() {
   document.querySelectorAll('#about img.about-seal[data-src]').forEach((img) => {
     if (img.getAttribute('src')) return
