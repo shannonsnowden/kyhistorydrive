@@ -9,7 +9,7 @@ import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
-import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
@@ -1882,8 +1882,9 @@ async function popupRelatedHtml(props) {
   if (!slug) return ''
   const [relatedData, idx, publicPeople] = await Promise.all([loadRelatedPeople(), loadStories(), loadPublicPeople()])
   const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
-  const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
-  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits })
+  const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+  const personFor = personByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits, personFor })
 }
 
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
@@ -3263,7 +3264,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       storyPhoto: s.photo || null,
     })
     const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
-    const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+    const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+    const personFor = personByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
     const storyIndex = await loadStories()
     const markerFeatures = await markerFeaturesPromise
     const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
@@ -3318,7 +3320,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           <div class="story-glance-mount"></div>
           <div class="story-body"></div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits, personFor })}
           ${extras}
           ${relatedAndNearbyForStory(
             {
@@ -4101,6 +4103,35 @@ function addNationLayers(n, T, before) {
   nationLayerIds[n.id] = ids
 }
 
+/** On-map name labels for nations drawn far from Kentucky (index flag mapLabel), so the shape isn't anonymous. */
+const nationLabelMarkers = {}
+async function syncNationMapLabels(nations) {
+  for (const n of nations) {
+    if (!n.mapLabel) continue
+    const on = nationOn.has(n.id) && !territoryRouteSlug()
+    if (on && !nationLabelMarkers[n.id]) {
+      try {
+        const b = nationBounds(await loadNationData(n.ref), n)
+        if (!b) continue
+        const el = document.createElement('span')
+        el.className = 'terr-farlabel'
+        el.style.setProperty('--nc', n.outline || n.color)
+        const yrs = nationYears(n)
+        el.textContent = yrs ? `${n.name}, ${yrs}` : n.name
+        el.setAttribute('aria-hidden', 'true')
+        nationLabelMarkers[n.id] = new maplibregl.Marker({ element: el, anchor: 'left', offset: [6, 0] }).setLngLat([b.getEast(), b.getCenter().lat])
+      } catch (err) {
+        console.warn('nation label failed', n.id, err)
+        continue
+      }
+    }
+    const m = nationLabelMarkers[n.id]
+    if (!m) continue
+    if (on) m.addTo(map)
+    else m.remove()
+  }
+}
+
 /** Bounds of a nation's main-map shapes (all parts). */
 function nationBounds(T, n) {
   const b = new maplibregl.LngLatBounds()
@@ -4164,6 +4195,7 @@ async function syncNationLayers() {
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none')
     }
   }
+  await syncNationMapLabels(nations)
   // Label tidy-up: the legend already names every nation, so on-map labels thin out as more nations are toggled on.
   const mapEl = document.getElementById('map')
   if (mapEl) mapEl.dataset.nlab = String(nations.filter((x) => nationOn.has(x.id)).length)
@@ -4179,6 +4211,7 @@ function nationYears(n) {
   if (n.yearStart < 0 || n.yearEnd < 0) return fmtYearSpan(n.yearStart, n.yearEnd, { approx: n.approxStart })
   return `${n.approxStart ? 'c.' : ''}${n.yearStart}–${n.yearEnd ?? ''}`
 }
+let legendChipOpen = false // phone legend chip state (<560px)
 let legendNoteId = null // nation whose note is open (one at a time); null = all notes closed
 function nationNoteHtml(n) {
   const yrs = nationYears(n)
@@ -4298,7 +4331,20 @@ function renderNationLegend(nations) {
   const shownNations = byAge(shown.filter((n) => !isCulture(n)))
   const shownCultures = byAge(shown.filter((n) => isCulture(n)))
   el.setAttribute('aria-label', shownCultures.length ? 'Archaeological cultures shown (not tribes)' : 'Native nations shown (approximate)')
-  el.innerHTML = `${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}<div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
+  el.innerHTML = `${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}<div class="ml-f">Tap a name for its note · approximate, not boundaries.</div>`
+  // Phones (<560px, CSS): the legend collapses behind a "Nations" chip so it does not cover the pins. Collapsed by default.
+  el.classList.toggle('ml-open', legendChipOpen)
+  el.insertAdjacentHTML('afterbegin', `<button type="button" class="ml-chip" aria-expanded="${legendChipOpen}" aria-controls="nationLegendBody">Nations <span aria-hidden="true">▾</span></button>`)
+  const body = document.createElement('div')
+  body.id = 'nationLegendBody'
+  body.className = 'ml-body'
+  while (el.children.length > 1) body.appendChild(el.children[1])
+  el.appendChild(body)
+  el.querySelector('button.ml-chip').addEventListener('click', (e) => {
+    legendChipOpen = !legendChipOpen
+    el.classList.toggle('ml-open', legendChipOpen)
+    e.currentTarget.setAttribute('aria-expanded', String(legendChipOpen))
+  })
   el.querySelectorAll('button.ml-row').forEach((b) => b.addEventListener('click', () => setLegendNote(b.dataset.nid)))
   if (legendNoteId) {
     const id = legendNoteId

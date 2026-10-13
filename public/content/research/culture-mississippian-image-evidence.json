@@ -1,0 +1,150 @@
+{
+  "slug": "culture-mississippian-image-evidence",
+  "storySlug": "wickliffe-mounds-mississippian-village-ballard-county",
+  "title": "Image evidence: Mississippian (about 1000–1550 CE, western Kentucky)",
+  "updated": "2026-10-13",
+  "summary": "Maize-farming towns of western Kentucky with platform mounds, plazas and stockades, such as Wickliffe, Jonathan Creek and Tolu, and later Caborn-Welborn villages like Slack Farm.",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Mississippian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
+  "sections": [
+    {
+      "heading": "Physical build",
+      "items": [
+        {
+          "text": "[Speculative] Slack Farm forensic study counted at least 850 individuals, later reinterred; [Speculative] build and stature figures were not confirmed from open sources. Show ordinary farmers' builds.",
+          "sources": [
+            "sf"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Hair and adornment",
+      "items": [
+        {
+          "text": "Bone hair pins and pottery ear plugs, shell ear pins and copper or brass ear ornaments occur in Kentucky Mississippian and Caborn-Welborn graves.",
+          "sources": [
+            "v2"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Clothing and materials",
+      "items": [
+        {
+          "text": "[Speculative] Garments are not described in these sources; woven fiber and hide clothing is an inference. Fabric-impressed salt pans show textile use.",
+          "sources": [
+            "v2"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Ornaments",
+      "items": [
+        {
+          "text": "Engraved marine-shell gorgets (e.g. cross-and-circle and triskele designs), shell beads and ear plugs; cross-and-circle symbol painted on Wickliffe pottery.",
+          "sources": [
+            "v2",
+            "wk"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Tools carried",
+      "items": [
+        {
+          "text": "Bow and small triangular arrow points; shell- and stone-bladed hoes; shell-tempered jars and bowls.",
+          "sources": [
+            "v2",
+            "sf"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Setting and landscape",
+      "items": [
+        {
+          "text": "Bluffs and floodplains of the Mississippi, Ohio and Tennessee rivers; platform mounds around a plaza; bastioned stockades at Jonathan Creek; big corn-storage pits at Slack Farm.",
+          "sources": [
+            "wk",
+            "jc",
+            "sf"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Image brief",
+      "items": [
+        {
+          "text": "A farmer on a bluff above the Mississippi–Ohio confluence, a flat-topped earthen mound and thatched houses around a plaza behind, wearing an engraved shell gorget with a cross-and-circle design and shell ear plugs, holding a hoe beside ripe corn. Hot humid floodplain light and wide brown rivers distinguish it from eastern settings.",
+          "sources": [
+            "wk",
+            "v2"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Display note (draft)",
+      "items": [
+        {
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Mississippian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "about 1000–1550 CE",
+      "text": "Mississippian (about 1000–1550 CE, western Kentucky)"
+    }
+  ],
+  "people": [],
+  "openQuestions": [
+    "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
+    "Items marked [Speculative] should stay generic in the image.",
+    "Re-add /research/culture-mississippian-image-evidence/ link after #254."
+  ],
+  "sources": [
+    {
+      "id": "jc",
+      "citation": "Kentucky Archaeological Survey, Jonathan Creek",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Jonathan-Creek.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "sf",
+      "citation": "Kentucky Archaeological Survey, Slack Farm",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Slack-Farm.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "v2",
+      "citation": "Pollack (ed.), The Archaeology of Kentucky: An Update, Vol. 2 (Mississippi and Fort Ancient chapters), Kentucky Heritage Council 2008",
+      "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol2.pdf",
+      "type": "state archaeology plan",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "wk",
+      "citation": "Kentucky Archaeological Survey, Wickliffe Mounds",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Wickliffe.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    }
+  ]
+}

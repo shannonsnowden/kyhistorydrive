@@ -43,7 +43,7 @@ export function storyProse(raw) {
   } catch {
     return ''
   }
-  return [data.title, data.summary, data.bodyMarkdown]
+  return [data.title, data.summary, data.bodyMarkdown, data.figure?.note]
     .map((part) => String(part ?? '').replace(/\s+/g, ' ').trim())
     .join('\n')
 }

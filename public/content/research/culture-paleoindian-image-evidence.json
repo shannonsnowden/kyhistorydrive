@@ -1,0 +1,155 @@
+{
+  "slug": "culture-paleoindian-image-evidence",
+  "storySlug": "big-bone-lick-older-cycle",
+  "title": "Image evidence: Paleoindian (about 11,500–10,000 years ago)",
+  "updated": "2026-10-13",
+  "summary": "Kentucky's first peoples, small mobile family bands who hunted Ice Age animals and later modern game. Almost no human remains or perishable clothing survive from Kentucky, so the picture rests mostly on stone tools and climate data.",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Paleoindian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
+  "sections": [
+    {
+      "heading": "Physical build",
+      "items": [
+        {
+          "text": "[Speculative] No Paleoindian skeletons are reported from Kentucky; build cannot be drawn from local skeletal studies. Show an ordinary, fit adult build without exaggeration.",
+          "sources": [
+            "pal",
+            "v1"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Hair and adornment",
+      "items": [
+        {
+          "text": "[Speculative] No direct evidence for hairstyles or ornaments in Kentucky. Keep hair simple (loose or tied back) and avoid invented ornaments.",
+          "sources": [
+            "pal"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Clothing and materials",
+      "items": [
+        {
+          "text": "Hides were scraped and tanned and sewn with bone or wooden needles into clothing, shelters and containers.",
+          "sources": [
+            "pal"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "[Speculative] Exact garment cut (tailored hide shirt, leggings, cloak for a cold climate) is inferred, not found.",
+          "sources": [
+            "pal"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Ornaments",
+      "items": [
+        {
+          "text": "[Speculative] None documented in Kentucky; leave out or keep to a plain cord.",
+          "sources": [
+            "pal"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Tools carried",
+      "items": [
+        {
+          "text": "Spear with a fluted Clovis point hafted with sinew; a hide or leather pouch of chert tools such as endscrapers, spokeshaves and gravers.",
+          "sources": [
+            "pal"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "No atlatl yet in the earliest period; the atlatl is linked to later, smaller points.",
+          "sources": [
+            "pal"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Setting and landscape",
+      "items": [
+        {
+          "text": "Colder climate like Canada's today; evergreen forest and grassland savanna; salt licks such as Big Bone Lick drew mastodons, ancient bison and horse; fluted points found at Big Bone Lick.",
+          "sources": [
+            "fa",
+            "pal"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Image brief",
+      "items": [
+        {
+          "text": "A small family group in heavy, plainly sewn hides at the edge of a cold spruce-and-grass savanna near a salt lick in northern Kentucky, one adult knapping a fluted chert point. Gray sky, muted greens and browns, mastodon tracks or distant bison; no feathers, beads or face paint.",
+          "sources": [
+            "pal",
+            "fa"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Display note (draft)",
+      "items": [
+        {
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Paleoindian period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "about 9500–8000 BCE",
+      "text": "Paleoindian (about 11,500–10,000 years ago)"
+    }
+  ],
+  "people": [],
+  "openQuestions": [
+    "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
+    "Items marked [Speculative] should stay generic in the image.",
+    "Re-add /research/culture-paleoindian-image-evidence/ link after #254."
+  ],
+  "sources": [
+    {
+      "id": "fa",
+      "citation": "Henderson, The Prehistoric Farmers of Boone County, Kentucky (KAS Education Series 8, 2006)",
+      "url": "https://heritage.ky.gov/Documents/Fort-Ancient-booklet.pdf",
+      "type": "state agency booklet",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "pal",
+      "citation": "Lane, Schlarb & Henderson, Prehistoric Hunters and Gatherers: Kentucky's First Pioneers (KAS Education Series 3, 1998)",
+      "url": "https://heritage.ky.gov/Documents/Paleoindian-booklet.pdf",
+      "type": "state agency booklet",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "v1",
+      "citation": "Pollack (ed.), The Archaeology of Kentucky: An Update, Vol. 1 (Paleoindian, Archaic, Woodland chapters), Kentucky Heritage Council 2008",
+      "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol1.pdf",
+      "type": "state archaeology plan",
+      "accessed": "2026-10-13"
+    }
+  ]
+}
