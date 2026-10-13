@@ -10,7 +10,6 @@
   "tags": [
     "frontier",
     "kentucky",
-    "frontier-war",
     "town-founding"
   ],
   "source": "ky-history",
@@ -22,5 +21,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
     "year": 2007
-  }
+  },
+  "county": "Anderson"
 }

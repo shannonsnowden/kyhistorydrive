@@ -10,7 +10,6 @@
   "tags": [
     "frontier",
     "kentucky",
-    "frontier-war",
     "town-founding"
   ],
   "source": "ky-history",
@@ -22,5 +21,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2008
-  }
+  },
+  "county": "Washington"
 }
