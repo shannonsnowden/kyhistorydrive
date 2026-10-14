@@ -3891,7 +3891,8 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "county": ""
     },
     {
       "slug": "blue-jacket-weyapiersenwah",
