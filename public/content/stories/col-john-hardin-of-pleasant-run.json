@@ -20,7 +20,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_27,_1940_VIEW_FROM_WEST_-_Washington_County_Courthouse,_Springfield,_Washington_County,_KY_HABS_KY,115-SPRIF,1-1.tif",
     "source_label": "Wikimedia Commons",
     "attribution": "Lester Jones / Historic American Buildings Survey · Wikimedia Commons · public domain",
-    "year": 1940
+    "year": 1940,
+    "fit": "contain"
   },
   "county": "Washington"
 }
