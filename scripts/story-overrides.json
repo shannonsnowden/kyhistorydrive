@@ -824,6 +824,11 @@
       "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
       "lat": 38.033056,
       "lon": -84.903056
+    },
+    "moluntha-and-logans-raid-1786": {
+      "reason": "Out-of-state story (Logan's 1786 raid on the Shawnee towns in Ohio). The reader inferred 'Logan County' from Benjamin Logan's name; hide the county label (daily QA 2026-10-14).",
+      "date": "2026-10-14",
+      "county": ""
     }
   }
 }
