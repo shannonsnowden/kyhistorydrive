@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-13T13:06:16.057Z",
+  "generatedAt": "2026-10-14T09:59:02.782Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
     "county": 4,
-    "override": 137,
-    "none": 37
+    "override": 140,
+    "none": 38
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -271,6 +271,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)",
       "historyId": "twin-mounds-site-15ba2-ballard-county"
+    },
+    "chambers-site-15ml109-marshall-county": {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "lat": 36.9,
+      "lon": -88.3,
+      "mapConfidence": "override",
+      "matchedPlace": "Chambers Site (15Ml109), Marshall County (approximate)",
+      "historyId": "chambers-site-15ml109-marshall-1250-1350"
     },
     "annis-mound-village": {
       "slug": "annis-mound-village",
@@ -1072,6 +1080,14 @@
       "matchedPlace": "Holder's Station / Lower Howard's Creek",
       "historyId": "holders-station-lower-howards-creek"
     },
+    "hartford-fort-hartford-on-the-rough-river": {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "lat": 37.4524,
+      "lon": -86.9105,
+      "mapConfidence": "override",
+      "matchedPlace": "Hartford / Fort Hartford (Rough River)",
+      "historyId": "hartford-fort-hartford-ohio-1782-1808"
+    },
     "wyandot-on-kentuckys-northern-frontier": {
       "slug": "wyandot-on-kentuckys-northern-frontier",
       "lat": null,
@@ -1143,6 +1159,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Henderson / Red Banks",
       "historyId": "henderson-founding-red-banks"
+    },
+    "treaty-of-fort-mcintosh-1785": {
+      "slug": "treaty-of-fort-mcintosh-1785",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "washington-mason-county": {
       "slug": "washington-mason-county",
@@ -1759,6 +1783,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Cumberland Falls",
       "historyId": "cumberland-falls"
+    },
+    "yahoo-falls-big-south-fork": {
+      "slug": "yahoo-falls-big-south-fork",
+      "lat": 36.769,
+      "lon": -84.51056,
+      "mapConfidence": "override",
+      "matchedPlace": "Yahoo Falls, Big South Fork (McCreary County)",
+      "historyId": "yahoo-falls-mccreary-1937-1987"
     },
     "carter-caves-cascade-falls": {
       "slug": "carter-caves-cascade-falls",

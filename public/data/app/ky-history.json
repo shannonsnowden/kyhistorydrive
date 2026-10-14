@@ -3524,5 +3524,74 @@
       "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
       "year": 2008
     }
+  },
+  {
+    "id": "hartford-fort-hartford-ohio-1782-1808",
+    "name": "Hartford / Fort Hartford (Rough River)",
+    "subtitle": "Ohio County seat · Fort Hartford c. 1782 · county seat 1799 · incorporated 1808",
+    "latitude": 37.4524,
+    "longitude": -86.9105,
+    "history": "Hartford sits on a bluff above the Rough River, a long tributary of the Green River that early settlers called Rough Creek. The land was part of a 4,000-acre Virginia grant to Gabriel Madison, and it was surveyed in 1782. The state historical marker for Fort Hartford says there is evidence of a settlement here that same year, the first fortified place in the lower Green River Valley.\n\nThe frontiersman William Smeathers later wrote that he and other settlers helped build “a fort at Hartford on Rough Creek” in 1782–83. Local tradition calls it the first permanent settlement in Ohio County. The stockade and its small log buildings are believed to have stood on the bluff where the town’s water plant is today.\n\nThe marker also says the fort was “often scene of bloody strife with Indians.” Shawnee and other nations north of the Ohio had never accepted the loss of their Kentucky hunting grounds, and to them stations like this one were an invasion. In April 1790 raiders struck nearby Barnett’s Station, killing two children and carrying off ten-year-old Hannah Barnett, who was held captive for six months.\n\nThe General Assembly created Ohio County in December 1798 from Hardin County and named it for the Ohio River, then its northern border. The county marker dates the first county court to 1799, and Hartford became the seat after Madison gave land for the town. Its first public building, a two-story log courthouse and jail, went up in 1799–1800.\n\nThat courthouse had a raised bench for the court and a rail for the lawyers, but it collapsed in 1813. According to the First Public Building marker, the salvaged timber was burned to celebrate Commodore Oliver Hazard Perry’s victory on Lake Erie. The post office opened as Hartford Court House in 1801, and the legislature incorporated the town in 1808.\n\nNo one is sure where the name came from. The Fort Hartford marker says it comes from the river ford where animals crossed, and “hart” is an old word for a male deer. Other accounts point to an early settler who ran a ferry here, and travelers used the ford or a ferry until the first covered bridge across the Rough River was built in 1823.\n\nKentucky today: Hartford is still the Ohio County seat, and its welcome sign famously greets visitors to the “Home of 2,000 happy people and a few soreheads.” The Ohio County Historical Society museum at 415 Mulberry Street fills the 1880 John C. Thomas House, on land Madison gave the town in 1799, and markers there honor Smeathers and the preacher William Downs, who was born in the old fort in 1782. Smeathers went on to become the first settler at Yellow Banks, today’s Owensboro, and the Chiggerville shell midden is a reminder that people lived along Ohio County’s rivers thousands of years before the fort.",
+    "source_date": "2026-10-14",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #1195, Site of Fort Hartford, N. of Hartford at the Rough River bridge, US 231 (37.4524, -86.9105). Years 1782 (survey and first settlement) to 1808 (town incorporated).",
+    "category": "town",
+    "website": "https://history.ky.gov/markers/site-of-fort-hartford",
+    "year_start": 1782,
+    "year_end": 1808,
+    "photo": {
+      "image_url": "/content/photos/stories/hartford-fort-hartford-on-the-rough-river.jpg",
+      "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "year": 2013
+    }
+  },
+  {
+    "id": "chambers-site-15ml109-marshall-1250-1350",
+    "name": "Chambers Site (15Ml109), Marshall County (approximate)",
+    "subtitle": "Marshall County · upland Mississippian village · Angelly phase ~AD 1250–1350 · location restricted",
+    "latitude": 36.9,
+    "longitude": -88.3,
+    "history": "The Chambers site (15Ml109) is a Mississippian village on a ridgetop overlooking the Middle Fork of Clarks River in Marshall County. It covers about six hectares, close to fifteen acres, and a stone-box cemetery was reported in its southwestern part. Mississippian is the name archaeologists give a way of life, not a tribe, and the villagers left no name for themselves that has come down to us.\n\nArchaeologists learned of the site by accident in the mid-1980s, when a borrow pit dug for a bridge replacement cut into it. David Pollack and Jimmy A. Railey of the Kentucky Heritage Council recorded what the pit had exposed and published their report in 1987. A suite of radiocarbon dates suggests the village was lived in from about AD 1250 to 1350.\n\nAt the edge of the pit they found two houses built with wall trenches, one about 5 by 6.4 meters and the other about 6 by 8 meters. Downslope lay a trash area some 10 by 16 meters. Test units went through more than a meter of Mississippian deposits, including the edges of a series of prepared floors and thick, dark midden.\n\nPollack and Railey thought the floors belonged to a terrace or bench that held a series of houses or outdoor work areas, swept and rebuilt again and again. Archaeologist R. Berle Clay later argued that they had clipped the edge of a low platform mound instead. The question is still open, and a mound would make Chambers more than an ordinary village.\n\nThe people of Chambers grew maize, gathered nuts, and raised native crops such as maygrass in larger amounts than other sites in the region. They ate far less fish than people on the Ohio and Mississippi, since their village stood on a minor tributary away from the big rivers and the flyways of migrating birds. Their hoes were made of both Dover chert, quarried in Tennessee, and Mill Creek chert from southern Illinois.\n\nIts pottery places Chambers in what archaeologists call the Angelly phase, with loop handles rather than the wide strap handles of later times. Serving bowls were less common than at big mound towns such as the Adams site, while cooking pans were more common. Chambers and Jonathan Creek are the best-defined Angelly phase communities in this part of Kentucky.\n\nKentucky today: Chambers is not a public site, and our map pin is rounded to about 10 kilometers to protect it from looting, so please do not go looking for it. To see a Mississippian town of the same centuries, visit Wickliffe Mounds State Historic Site in Ballard County. The later Mississippian town at Tinsley Hill, now under Lake Barkley, shows how these communities changed after Chambers was abandoned.",
+    "source_date": "2026-10-14",
+    "geocode_source": "generalized-marshall-county",
+    "geocode_note": "Generalized to 0.1° (36.9, -88.3) near the Marshall County center; the exact site on the Middle Fork of Clarks River is not published. Occupation years AD 1250–1350 (calibrated radiocarbon dates, Pollack and Railey 1987), not excavation dates.",
+    "category": "archaeology",
+    "website": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol2.pdf",
+    "year_start": 1250,
+    "year_end": 1350,
+    "photo": {
+      "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+      "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+      "year": 2012
+    }
+  },
+  {
+    "id": "yahoo-falls-mccreary-1937-1987",
+    "name": "Yahoo Falls, Big South Fork (McCreary County)",
+    "subtitle": "McCreary County · ~113-ft plunge · Yahoo Falls Recreation Area 1960s · Big South Fork NRRA 1987",
+    "latitude": 36.769,
+    "longitude": -84.51056,
+    "history": "Yahoo Falls is a single plunge of about 113 feet on Yahoo Creek in McCreary County, inside the Big South Fork National River and Recreation Area. The National Park Service calls it Kentucky’s highest waterfall. A falls in the Red River Gorge is said to beat it by a few inches, so the title is friendly ground for argument.\n\nThe creek pours off a sandstone ledge on the Cumberland Plateau in front of one of the park’s largest rock houses, a shallow cave worn back under the cliff. Hikers can walk right up to the base and even behind the falling water. In late summer the falls can shrink to a trickle, and it runs best after spring rain.\n\nThe falls lie in timberland that became part of the Cumberland National Forest when it was created in 1937; the forest was renamed the Daniel Boone National Forest in 1968. In the 1960s forest supervisor Robert Collins set out to make Yahoo Falls an easy scenic stop that would draw visitors to the Stearns Ranger District. Crews built a road to the top of the gorge, a picnic area and campsite, trails, and a long flight of steel stairs down past the cliffs.\n\nIn 1987 the land passed from the Forest Service to the National Park Service as part of Big South Fork. The 1960s picnic shelter still stands, and the Park Service restored it in 2011 with help from inmates at the nearby federal penitentiary. McCreary County and the Park Service paved the road to the falls in 2016.\n\nNo one is sure how the falls got its name, which is also spelled Ywahoo and may come from a Muscogee word. Several local legends about the name and about frontier events at the falls are often repeated, but none has been traced to records from the time, so they are left out here.\n\nKentucky today: To reach the falls, take KY 700 off U.S. 27 at Whitley City and follow the road to the Yahoo Falls picnic area and trailhead. A loop of about a mile reaches the base, the steep metal stairs can be hard for some hikers, and a spur leads to the 100-foot-long Yahoo Arch, according to Kentucky Tourism. Cumberland Falls is a short drive to the northeast.",
+    "source_date": "2026-10-14",
+    "geocode_source": "wikipedia-yahoo-falls",
+    "geocode_note": "Wikipedia / Kentucky Tourism coordinate for Yahoo Falls (36.769, -84.51056). Years 1937 (Cumberland National Forest created, including the falls) to 1987 (transferred to the National Park Service); not geologic age.",
+    "category": "landmark",
+    "website": "https://en.wikipedia.org/wiki/Yahoo_Falls",
+    "year_start": 1937,
+    "year_end": 1987,
+    "photo": {
+      "image_url": "/content/photos/stories/yahoo-falls-big-south-fork.jpg",
+      "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Mason Brock · Wikimedia Commons · public domain",
+      "year": 2008
+    }
   }
 ]

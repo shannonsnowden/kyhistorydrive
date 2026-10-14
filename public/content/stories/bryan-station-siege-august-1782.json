@@ -21,6 +21,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2019
+    "year": 2019,
+    "fit": "contain"
   }
 }
