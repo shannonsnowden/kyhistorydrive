@@ -30,6 +30,13 @@ import {
   storyCanonicalUrl,
   wireCiteBoxes,
 } from './story-tools.js'
+import {
+  consumeScrollRestore,
+  historyStateWithReturn,
+  installStoryReturn,
+  syncStoryReturn,
+  territoryBackHtml,
+} from './story-return.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -351,8 +358,8 @@ function goHome() {
 }
 
 /** Clean map view at `/#map`. Clear stale ?d= share params. */
-function goHomeMap() {
-  history.replaceState(null, '', `${location.pathname}#map`)
+function goHomeMap({ keepReturn = false } = {}) {
+  history.replaceState(keepReturn ? historyStateWithReturn() : null, '', `${location.pathname}#map`)
   applyRoute().catch(console.error)
 }
 
@@ -1749,11 +1756,9 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
     if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
   }
   if (w < 760) {
-    const boxW = Math.min(460, Math.max(200, w - 16))
-    const left = pt.x - boxW / 2
-    const right = left + boxW
-    if (left < 8) dx = left - 8
-    else if (right > w - 8) dx = right - (w - 8)
+    // Center the pin so an upward card can use a centered tip (not bottom-left).
+    const targetX = w / 2
+    if (Math.abs(pt.x - targetX) > 10) dx = pt.x - targetX
   }
   if (!dx && !dy) return
   const c = targetMap.project(targetMap.getCenter())
@@ -1776,13 +1781,21 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
 function popupPlacement(targetMap, lngLat) {
   const el = targetMap?.getContainer?.()
   if (!el || !lngLat) {
-    return { anchor: 'top', maxHeightPx: 420, maxWidth: '440px' }
+    return { anchor: 'top', maxHeightPx: 420, maxWidth: '440px', offset: 14 }
   }
   const pt = targetMap.project(lngLatPair(lngLat))
   const w = el.clientWidth
   const h = el.clientHeight
   const pad = 10
-  const popupW = Math.min(460, Math.max(200, w - pad * 2))
+  let popupW = Math.min(460, Math.max(200, w - pad * 2))
+  if (w < 700) {
+    // Phone cards stay narrow enough to clear the top-right zoom and compass
+    // column (10px margin, 32px buttons, 14px gap) without a sideways shift
+    // that would pull a centered tip off its pin.
+    const rightLimit = w - 56
+    const half = Math.min(pt.x - 12, rightLimit - pt.x)
+    if (half >= 96) popupW = Math.min(popupW, Math.floor(half * 2))
+  }
   const spaceAbove = Math.max(0, pt.y - pad)
   const spaceBelow = Math.max(0, h - pt.y - pad)
   // Wide maps: after the top nudge the card opens below the pin. Narrow maps:
@@ -1793,16 +1806,19 @@ function popupPlacement(targetMap, lngLat) {
     : spaceBelow < 220 || spaceAbove > spaceBelow
   let anchor = openUp ? 'bottom' : 'top'
   const half = popupW / 2
-  if (pt.x - half < pad && w - pt.x > pad + 160) {
-    anchor = openUp ? 'bottom-left' : 'top-left'
-  } else if (pt.x + half > w - pad && pt.x > pad + 160) {
-    anchor = openUp ? 'bottom-right' : 'top-right'
+  // Corner tips only when opening downward. Upward cards stay tip-centered over
+  // the pin so the More pill and bottom edge do not sit on the marker (#213).
+  if (!openUp) {
+    if (pt.x - half < pad && w - pt.x > pad + 160) anchor = 'top-left'
+    else if (pt.x + half > w - pad && pt.x > pad + 160) anchor = 'top-right'
   }
   const avail = openUp ? spaceAbove : spaceBelow
   // Tip, offset, and a margin so the card stays inside the map, clear of the
   // site header above the canvas and the footer below it.
   const maxHeightPx = Math.max(w < 700 ? 96 : 120, Math.min(560, Math.floor(avail - 36)))
-  return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px` }
+  // Upward: clear the pin + protected ring (~12px) plus ~8px gap under the tip.
+  const offset = openUp ? 28 : 14
+  return { anchor, maxHeightPx, maxWidth: `${Math.round(popupW)}px`, offset }
 }
 
 function syncPopupFade(scroller) {
@@ -1828,12 +1844,47 @@ function fitPopupInsideMap(targetMap, popup, popupEl, scroller) {
   let shiftX = 0
   if (again.left < mapRect.left + 4) shiftX = mapRect.left + 4 - again.left
   else if (again.right > mapRect.right - 4) shiftX = mapRect.right - 4 - again.right
+  clearPopupForStoryReturn(popupEl, scroller)
   if (shiftX && popup?.setOffset) {
     const current = popup.getOffset?.()
-    const ox = current && typeof current.x === 'number' ? current.x : 0
-    const oy = current && typeof current.y === 'number' ? current.y : 14
-    popup.setOffset([ox + shiftX, oy])
+    let ox = 0
+    let gap = 14
+    if (typeof current === 'number') {
+      gap = current
+    } else if (Array.isArray(current)) {
+      ox = Number(current[0]) || 0
+      gap = Math.abs(Number(current[1]) || 14)
+    } else if (current && typeof current === 'object') {
+      if (typeof current.x === 'number') ox = current.x
+      if (typeof current.y === 'number') gap = Math.abs(current.y) || 14
+    }
+    // Point offsets are raw screen deltas (y+ is down). Numeric offsets move
+    // away from the pin, so upward (bottom*) anchors need a negative y.
+    const cls = popupEl?.className || ''
+    const openUp = cls.includes('anchor-bottom')
+    popup.setOffset([ox + shiftX, openUp ? -gap : gap])
   }
+}
+
+/**
+ * On a phone, leave a 10px gap under the Back to story pill so a tall card
+ * does not fill the canvas and push that pill down onto the pin.
+ */
+function clearPopupForStoryReturn(popupEl, scroller) {
+  const btn = document.getElementById('storyReturn')
+  if (!btn || btn.hidden || !popupEl || !scroller) return
+  const canvas = document.getElementById('mapCanvas')
+  if (!canvas) return
+  const canvasRect = canvas.getBoundingClientRect()
+  if (canvasRect.width >= 700 || canvasRect.width < 2) return
+  const headerBottom = document.querySelector('header.top')?.getBoundingClientRect().bottom || 0
+  const visibleTop = Math.max(canvasRect.top, headerBottom)
+  const ceiling = visibleTop + 10 + (btn.offsetHeight || 44) + 10
+  const popupTop = popupEl.getBoundingClientRect().top
+  const overflow = ceiling - popupTop
+  if (overflow <= 1) return
+  const next = Math.max(88, Math.floor(scroller.clientHeight - overflow))
+  if (next < scroller.clientHeight - 1) scroller.style.maxHeight = `${next}px`
 }
 
 let historyIdToSlugCache = null
@@ -1899,7 +1950,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   const shareHash = placeShareHash(layerId, props)
   // Keep a shareable deep link in the address bar (home map only)
   if (targetMap === map && shareHash.startsWith('#map/')) {
-    history.replaceState(null, '', shareHash)
+    history.replaceState(historyStateWithReturn(), '', shareHash)
   }
   await nudgeCameraForPopup(targetMap, coords)
   const place = popupPlacement(targetMap, coords)
@@ -1907,7 +1958,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     closeButton: true,
     closeOnClick: true,
     maxWidth: place.maxWidth,
-    offset: 14,
+    offset: place.offset ?? 14,
     anchor: place.anchor,
     className: 'ky-popup',
   })
@@ -1948,21 +1999,34 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
       }
     }
     scroller.style.maxHeight = `${maxH}px`
+    clearPopupForStoryReturn(popupEl, scroller)
     scroller.addEventListener('scroll', () => syncPopupFade(scroller), { passive: true })
     syncPopupFade(scroller)
     requestAnimationFrame(() => {
       fitPopupInsideMap(targetMap, activePopup, popupEl, scroller)
       syncPopupFade(scroller)
+      syncStoryReturn()
     })
   }
   wireShareButtons(popupEl)
+  syncStoryReturn()
   activePopup.on('close', () => {
     if (activePopup) activePopup = null
     // Clear place deep link when popup closes on home map
     if (targetMap === map && parseHash().view === 'map' && parseHash().placeId) {
-      history.replaceState(null, '', '#map')
+      history.replaceState(historyStateWithReturn(), '', '#map')
     }
+    syncStoryReturn()
   })
+}
+
+/** Feature list for a GeoJSON source. MapLibre 6 stores it on `_data.geojson`. */
+function sourceFeatureList(src) {
+  const data = src?._data
+  if (!data || typeof data !== 'object') return null
+  if (Array.isArray(data.features)) return data.features
+  if (data.geojson && Array.isArray(data.geojson.features)) return data.geojson.features
+  return null
 }
 
 function updateStats() {
@@ -1971,12 +2035,12 @@ function updateStats() {
   const bits = []
   for (const def of DATA_LAYERS) {
     if (!layerVisibility[def.id]) continue
-    const src = map.getSource(def.id)
-    if (!src?._data?.features) continue
+    const feats = sourceFeatureList(map.getSource(def.id))
+    if (!feats) continue
     // Don't count cross-listed copies hidden because their home layer is on.
-    const n = src._data.features.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
+    const n = feats.filter((f) => !(f.properties?.also_on && layerVisibility[f.properties.also_on])).length
     if (def.statsText) {
-      bits.push(def.statsText(src._data.features))
+      bits.push(def.statsText(feats))
       continue
     }
     bits.push(`${n.toLocaleString()} ${def.label}`)
@@ -2360,6 +2424,11 @@ function initMap() {
   document.getElementById('heroZoomFullState')?.addEventListener('click', zoomFull)
 
   map.on('load', async () => {
+    // A story map link must not wait out every other layer. The markers file
+    // alone is large enough that the camera stays on the whole state, and the
+    // pin and popup never appear in that window.
+    const deepLink = mapDeepLink()
+    if (deepLink) pendingFocus = deepLink
     try {
       const kyRes = await fetch('/data/kentucky-outline.geojson')
       const ky = await kyRes.json()
@@ -2390,8 +2459,29 @@ function initMap() {
       }
     }
 
-    for (const def of DATA_LAYERS) {
+    const layers = DATA_LAYERS.slice()
+    if (deepLink && !STORY_MAP_LAYERS.has(deepLink.placeLayer)) {
+      const idx = layers.findIndex((def) => def.id === deepLink.placeLayer)
+      if (idx > 0) layers.unshift(layers.splice(idx, 1)[0])
+    }
+    let revealedDeepLink = false
+    const startDeepLink = async () => {
+      if (revealedDeepLink || !deepLink) return
+      revealedDeepLink = true
+      mapReady = true
+      applyFiltersToMapInstance(map)
+      await revealPlaceFromHash(deepLink)
+      // Let the flown camera and popup paint before the next layer's GeoJSON
+      // parse blocks the main thread (markers.geojson is the usual stall).
+      await new Promise((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      })
+    }
+    if (deepLink && !layers.some((def) => def.id === deepLink.placeLayer)) await startDeepLink()
+
+    for (const def of layers) {
       await addDataLayer(def)
+      if (deepLink && def.id === deepLink.placeLayer) await startDeepLink()
     }
 
     // Home defaults: Markers on + whole-state view
@@ -2434,18 +2524,22 @@ function initMap() {
     syncAllLayersCheckbox()
     syncNationLayers().catch(console.error)
     updateStats()
-    pendingFocus = null
-    ensureHighlightSource(map, null)
-    const place = parseHash()
-    if (place.view === 'map' && place.placeLayer && place.placeId) {
-      revealPlaceFromHash({
-        placeLayer: place.placeLayer,
-        placeId: place.placeId,
-      }).catch(console.error)
+    if (!revealedDeepLink) {
+      pendingFocus = null
+      ensureHighlightSource(map, null)
+      const place = mapDeepLink()
+      if (place) revealPlaceFromHash(place).catch(console.error)
+      else fitMapToKentucky(map, { duration: 0 })
     } else {
-      fitMapToKentucky(map, { duration: 0 })
+      pendingFocus = null
     }
   })
+}
+
+function mapDeepLink() {
+  const place = parseHash()
+  if (place.view !== 'map' || !place.placeLayer || !place.placeId) return null
+  return { placeLayer: place.placeLayer, placeId: place.placeId }
 }
 
 /* -------------------- Timeline map (filtered layers) -------------------- */
@@ -2528,13 +2622,12 @@ function updateTimelineMapCounts() {
     let total = 0
     for (const def of DATA_LAYERS) {
       if (!timelineLayerVisibility[def.id]) continue
-      const src = timelineMap.getSource(def.id)
-      const feats = src?._data?.features
+      const feats = sourceFeatureList(timelineMap.getSource(def.id))
       if (!feats) continue
       const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
       if (n) {
         if (def.statsText) {
-          bits.push(def.statsText(src._data.features))
+          bits.push(def.statsText(feats))
           continue
         }
         bits.push(`${n.toLocaleString()} ${def.label}`)
@@ -4430,7 +4523,7 @@ async function setupTerritoryMapControl() {
           })
           .catch(console.error)
       }
-      else goHomeMap()
+      else goHomeMap({ keepReturn: true })
     }
   }
   box.addEventListener('change', onChange)
@@ -4466,12 +4559,11 @@ async function showTerritoryMapView(slug) {
   territoryView = { slug, focalId: nation?.id || null, handle }
   const nav = document.createElement('p')
   nav.className = 'terr-back muted'
-  nav.style.margin = '.2rem .9rem .8rem'
-  nav.innerHTML = `${layerOnly ? '' : `<a href="/#timeline/${encodeURIComponent(slug)}">← Back to the story</a> · `}<a href="/#map" data-terr-exit>Back to the full map</a>`
+  nav.innerHTML = `${territoryBackHtml(layerOnly ? '' : slug)}<a href="/#map" data-terr-exit>Back to the full map</a>`
   host.appendChild(nav)
   nav.querySelector('[data-terr-exit]').addEventListener('click', (e) => {
     e.preventDefault()
-    goHomeMap()
+    goHomeMap({ keepReturn: true })
   })
   syncNationRows()
   await refreshTerritoryOthers()
@@ -4495,7 +4587,17 @@ function setActiveNav(view) {
   document.body.classList.toggle('hp-page', view === 'home')
 }
 
+function restoreWindowScroll(y) {
+  const apply = () => window.scrollTo({ top: y, left: 0, behavior: 'auto' })
+  apply()
+  requestAnimationFrame(apply)
+  setTimeout(apply, 50)
+  setTimeout(apply, 180)
+  setTimeout(apply, 420)
+}
+
 async function applyRoute() {
+  const savedScroll = consumeScrollRestore()
   const { view, slug } = parseHash()
   document.querySelectorAll('.view').forEach((el) => {
     const v = el.dataset.view
@@ -4530,13 +4632,13 @@ async function applyRoute() {
           const slug = territoryRouteSlug()
           const meta = slug ? (await loadStories()).stories.find((x) => x.slug === slug) : null
           const pinHash = meta && meta.lat != null && meta.lon != null ? `#map/stories/${encodeURIComponent(slug)}` : '#map'
-          history.replaceState(null, '', `${location.pathname}${pinHash}`)
+          history.replaceState(historyStateWithReturn(), '', `${location.pathname}${pinHash}`)
           applyRoute().catch(console.error)
         }
       })
       .catch((err) => {
         console.error(err)
-        history.replaceState(null, '', `${location.pathname}#map`)
+        history.replaceState(historyStateWithReturn(), '', `${location.pathname}#map`)
         applyRoute().catch(console.error)
       })
     requestAnimationFrame(scrollPageToTop)
@@ -4595,16 +4697,22 @@ async function applyRoute() {
       }
       return true
     }
-    requestAnimationFrame(() => {
-      if (slug) {
-        if (scrollToStoryDetail()) return
-        window.setTimeout(() => {
-          if (!scrollToStoryDetail()) scrollTimelineToFilters()
-        }, 100)
-        return
-      }
-      scrollTimelineToFilters()
-    })
+    if (savedScroll != null) {
+      restoreWindowScroll(savedScroll)
+    } else {
+      requestAnimationFrame(() => {
+        if (slug) {
+          if (scrollToStoryDetail()) return
+          window.setTimeout(() => {
+            if (!scrollToStoryDetail()) scrollTimelineToFilters()
+          }, 100)
+          return
+        }
+        scrollTimelineToFilters()
+      })
+    }
+  } else if (savedScroll != null && (view === 'home' || view === 'about' || view === 'app' || view === 'resources')) {
+    restoreWindowScroll(savedScroll)
   } else if (view === 'home' && parseHash().explore) {
     // #explore/...: explore-layer.js scrolls to the section; do not pin to the top
   } else if (view === 'home' || view === 'about' || view === 'app' || view === 'resources') {
@@ -4619,6 +4727,7 @@ async function applyRoute() {
     setTimeout(pinTop, 50)
     setTimeout(pinTop, 150)
   }
+  syncStoryReturn()
 }
 
 window.addEventListener('hashchange', () => {
@@ -4678,6 +4787,11 @@ document.querySelector('#mainNav a[data-route="map"]')?.addEventListener('click'
   goHomeMap()
 })
 
+installStoryReturn({
+  onNavigate: () => applyRoute().catch(console.error),
+  isMapView: () => parseHash().view === 'map',
+  isTerritory: () => Boolean(territoryRouteSlug()),
+})
 syncDeepLinkFromQuery()
 ensureHomeHash()
 initThemeToggle()

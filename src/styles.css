@@ -1334,9 +1334,29 @@ a.related-card:hover .related-card-chevron {
   box-sizing: border-box;
 }
 .ky-popup .maplibregl-popup-close-button {
+  /* 44px hit area (WCAG 2.5.5); glyph stays visually small in the corner. */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--muted);
-  font-size: 1.15rem;
-  padding: 0.15rem 0.45rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  background: transparent;
+  border: 0;
+  border-radius: 0 10px 0 10px;
+  cursor: pointer;
+}
+.ky-popup .maplibregl-popup-close-button:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: -3px;
 }
 .ky-popup .maplibregl-popup-close-button:hover { color: var(--accent); }
 .ky-popup .maplibregl-popup-tip {
@@ -1345,7 +1365,7 @@ a.related-card:hover .related-card-chevron {
 }
 .map-popup h3 {
   margin: 0.2rem 0 0.35rem;
-  padding-right: 1.4rem;
+  padding-right: 2.4rem;
   font-size: 1.05rem;
   color: var(--heading);
   line-height: 1.25;
@@ -1387,26 +1407,66 @@ a.related-card:hover .related-card-chevron {
   width: 100%;
 }
 .map-canvas-wrap #mapCanvas { flex: 1 1 auto; min-height: 60vh; width: 100%; height: auto; }
+/* Back to story and Full state share one map control: chip fill, amber edge, 44px. */
+.full-state-fab,
+.story-return {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--accent);
+  background: var(--chip);
+  color: var(--text);
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(16, 24, 18, 0.28);
+  touch-action: manipulation;
+}
+.full-state-fab:hover,
+.story-return:hover {
+  background: #c9893a;
+  border-color: var(--heading);
+  color: #1a140c;
+}
+.full-state-fab:focus-visible,
+.story-return:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
 .full-state-fab {
   position: absolute;
   left: 12px;
   bottom: 28px;
   z-index: 2;
-  border: 1px solid var(--accent);
-  background: var(--chip);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 0.5rem 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
 }
-.full-state-fab:hover {
-  background: #c9893a;
-  border-color: var(--heading);
-  color: #1a140c;
+.map-canvas-wrap > .story-return {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  left: 10px;
+  max-width: calc(100% - 4.75rem);
+}
+.terr-back {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  margin: 0.35rem 0.9rem 0.9rem;
+}
+.terr-back .story-return { position: static; }
+.route-card-map {
+  display: inline-flex;
+  margin-top: 0.55rem;
+  min-height: 44px;
+  align-items: center;
 }
 
 .about-credits-heading {

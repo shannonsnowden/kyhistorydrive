@@ -389,7 +389,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
 <p class="terr-span">${esc(T.stories?.[slug]?.presenceNote || T.presenceNote)}</p>
 <p class="terr-src"><b>Source:</b> <span class="terr-srclist"></span></p>`
   const openLink = mode === 'card'
-    ? `<a class="terr-open" href="/${territoryMapHash(slug)}">Open full-screen territory map →</a>`
+    ? `<a class="terr-open" data-story-map href="/${territoryMapHash(slug)}">Open full-screen territory map →</a>`
     : `<div class="terr-legend" data-legend></div>`
   const body = mode === 'card'
     ? `${head}<div class="terr-map"></div>${controls}${eraBox}${openLink}<p class="terr-foot">${footer}</p>`
