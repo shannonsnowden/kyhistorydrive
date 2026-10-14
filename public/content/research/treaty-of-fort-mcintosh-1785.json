@@ -1,0 +1,133 @@
+{
+  "slug": "treaty-of-fort-mcintosh-1785",
+  "storySlug": "treaty-of-fort-mcintosh-1785",
+  "title": "Research notes: Treaty of Fort McIntosh, 1785",
+  "updated": "2026-10-14",
+  "summary": "Sources for the January 21, 1785 treaty with the Wyandot, Delaware, Ojibwe and Odawa. Out-of-state (Beaver, Pennsylvania), so the story has no map pin.",
+  "sections": [
+    {
+      "heading": "The treaty",
+      "items": [
+        {
+          "text": "Signed January 21, 1785 at Fort McIntosh (Beaver, Pa.); ten articles; commissioners George Rogers Clark, Richard Butler, Arthur Lee.",
+          "sources": [
+            "text",
+            "wiki"
+          ]
+        },
+        {
+          "text": "Article I: three chiefs (one Wyandot, two Delaware) held as hostages until prisoners “white and black” are restored.",
+          "sources": [
+            "text"
+          ]
+        },
+        {
+          "text": "Articles III–VI: boundary from the Cuyahoga to the Tuscarawas, Fort Laurens, Pickawillany portage, Great Miami (Maumee) and Lake Erie; land inside allotted to the Wyandot and Delaware; settlers there lose U.S. protection; land outside acknowledged as American.",
+          "sources": [
+            "text"
+          ]
+        },
+        {
+          "text": "Most signers lacked authority from their nations; later chiefs questioned its legality.",
+          "sources": [
+            "wiki"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Aftermath",
+      "items": [
+        {
+          "text": "Most Ohio Country nations rejected it, especially the Shawnee, who lost their southwestern Ohio lands; it led to the Western (Northwestern) Confederacy later in 1785 and foreshadowed the Northwest Indian War.",
+          "sources": [
+            "wiki"
+          ]
+        },
+        {
+          "text": "Greenville (1795) drew an almost identical line.",
+          "sources": [
+            "wiki"
+          ]
+        },
+        {
+          "text": "Fort built 1778, named for Gen. Lachlan McIntosh; NRHP 1975.",
+          "sources": [
+            "fort"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1778,
+      "event": "Fort McIntosh built.",
+      "sources": [
+        "fort"
+      ]
+    },
+    {
+      "year": 1784,
+      "event": "Treaty of Fort Stanwix with the Six Nations.",
+      "sources": [
+        "wiki"
+      ]
+    },
+    {
+      "year": 1785,
+      "event": "Treaty of Fort McIntosh signed January 21.",
+      "sources": [
+        "text"
+      ]
+    },
+    {
+      "year": 1795,
+      "event": "Treaty of Greenville redraws a nearly identical line.",
+      "sources": [
+        "wiki"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "George Rogers Clark",
+      "role": "U.S. commissioner"
+    },
+    {
+      "name": "Richard Butler",
+      "role": "U.S. commissioner"
+    },
+    {
+      "name": "Arthur Lee",
+      "role": "U.S. commissioner"
+    }
+  ],
+  "openQuestions": [
+    "Names and standing of the individual Native signers.",
+    "How the Wyandot and Delaware councils themselves answered the treaty in 1785."
+  ],
+  "sources": [
+    {
+      "id": "text",
+      "citation": "“Treaty with the Wyandot, etc., 1785,” in Charles J. Kappler, Indian Affairs: Laws and Treaties, vol. 2 (Oklahoma State University digital edition).",
+      "url": "https://treaties.okstate.edu/treaties/treaty-with-the-wyandot-etc-1785-0006",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "wiki",
+      "citation": "“Treaty of Fort McIntosh,” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Treaty_of_Fort_McIntosh",
+      "type": "secondary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "fort",
+      "citation": "“Fort McIntosh (Pennsylvania),” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Fort_McIntosh_(Pennsylvania)",
+      "type": "secondary",
+      "accessed": "2026-10-14"
+    }
+  ]
+}
