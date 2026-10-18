@@ -5861,3 +5861,6 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
   .research-people li { margin: 0; }
   .research-people a { display: inline-flex; align-items: center; min-height: 44px; }
 }
+@media (max-width: 600px) {
+  .story-glance th[scope="row"] { width: 33%; overflow-wrap: normal; word-break: normal; hyphens: manual; font-size: 0.82rem; }
+}
