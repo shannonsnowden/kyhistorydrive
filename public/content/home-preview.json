@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T13:09:18.137Z",
+  "generatedAt": "2026-10-18T19:30:05.163Z",
   "briefDate": "2026-10-18",
   "displayDate": "Sunday, October 18, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -82,7 +82,7 @@
     {
       "slug": "treaty-of-fort-mcintosh-1785",
       "title": "Treaty of Fort McIntosh, 1785",
-      "summary": "At Fort McIntosh in January 1785, U.S. commissioners including George Rogers Clark drew a reservation line through the Ohio Country with Wyandot, Delaware, Ojibwe and Odawa leaders. The Shawnee, left out but placed on the American side of the line, rejected it.",
+      "summary": "At Fort McIntosh in January 1785, U.S. commissioners including George Rogers Clark drew a reservation line through the Ohio Country with Native leaders.",
       "era": "native",
       "yearStart": 1785,
       "county": null,
@@ -209,7 +209,7 @@
     {
       "slug": "treaty-of-fort-mcintosh-1785",
       "title": "Treaty of Fort McIntosh, 1785",
-      "summary": "At Fort McIntosh in January 1785, U.S. commissioners including George Rogers Clark drew a reservation line through the Ohio Country with Wyandot, Delaware, Ojibwe and Odawa leaders. The Shawnee, left out but placed on the American side of the line, rejected it.",
+      "summary": "At Fort McIntosh in January 1785, U.S. commissioners including George Rogers Clark drew a reservation line through the Ohio Country with Native leaders.",
       "era": "native",
       "yearStart": 1785,
       "county": null,
