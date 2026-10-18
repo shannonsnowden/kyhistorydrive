@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T11:58:39.557Z",
+  "generatedAt": "2026-10-18T12:19:11.674Z",
   "briefDate": "2026-10-18",
   "displayDate": "Sunday, October 18, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -18,7 +18,7 @@
       "lon": -84.7707833,
       "historyId": null,
       "mapHref": "/#map/stories/walker-daniel-danvilles-namesake",
-      "quote": "Walker Daniel was a young Virginia lawyer when he came to central Kentucky in 1781.",
+      "quote": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783.",
       "photo": {
         "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
         "title": "Constitution Square State Historic Site, Danville",
@@ -27,7 +27,7 @@
         "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
         "year": 2024
       },
-      "heroDeck": "Walker Daniel was a young Virginia lawyer when he came to central Kentucky in 1781."
+      "heroDeck": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783."
     }
   ],
   "hero": {
@@ -44,7 +44,7 @@
     "lon": -84.7707833,
     "historyId": null,
     "mapHref": "/#map/stories/walker-daniel-danvilles-namesake",
-    "quote": "Walker Daniel was a young Virginia lawyer when he came to central Kentucky in 1781.",
+    "quote": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783.",
     "photo": {
       "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
       "title": "Constitution Square State Historic Site, Danville",
@@ -53,7 +53,7 @@
       "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
       "year": 2024
     },
-    "heroDeck": "Walker Daniel was a young Virginia lawyer when he came to central Kentucky in 1781."
+    "heroDeck": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783."
   },
   "features": [],
   "layers": [
@@ -326,7 +326,7 @@
     }
   ],
   "quote": {
-    "text": "Walker Daniel was a young Virginia lawyer when he came to central Kentucky in 1781.",
+    "text": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783.",
     "source": "Walker Daniel, Danville’s namesake",
     "href": "/#timeline/walker-daniel-danvilles-namesake"
   }
