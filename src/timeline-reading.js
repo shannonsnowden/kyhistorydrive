@@ -241,9 +241,9 @@ export function initTimelineReading({ getMap, focusPin } = {}) {
   })
 
   // Real button: Enter and Space fire click. No extra key handler (that would toggle twice).
-  // Phones (<=560px): the docked map scrolls away with the page. While it is off-screen the bar
+  // Phones and tablets (<=900px): the docked map scrolls away with the page. While it is off-screen the bar
   // reads "Show map" and jumps back to the map (and the story's pin) instead of collapsing it.
-  const dockMq = window.matchMedia('(max-width: 560px)')
+  const dockMq = window.matchMedia('(max-width: 900px)')
   let mapOffscreen = false
   function syncOffscreen() {
     const on = mapOffscreen && dockMq.matches && layout.classList.contains('is-home-story') &&
