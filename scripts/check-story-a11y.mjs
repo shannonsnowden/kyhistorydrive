@@ -31,8 +31,11 @@ function assertSource() {
   if (!styles.includes('grid-template-columns: 56px minmax(0, 1fr) 20px')) {
     fail('related card grid is missing')
   }
-  if (!styles.includes('grid-template-columns: repeat(2, 1fr)')) {
+  if (!styles.includes('grid-template-columns: repeat(2, minmax(0, 1fr))')) {
     fail('related list is missing the two-column layout')
+  }
+  if (!/\.related-card-title \{[^}]*line-clamp:\s*2/.test(styles) || !styles.includes('overflow-wrap: break-word')) {
+    fail('related card titles must clamp to 2 lines and break on word boundaries')
   }
   if (!styles.includes('align-items: stretch') || !/\.related-card-meta \{[^}]*line-clamp:\s*2/.test(styles)) {
     fail('related cards must stretch to one row height and clamp the meta line to 2 lines')
