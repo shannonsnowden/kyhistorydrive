@@ -4683,6 +4683,7 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
   .transport-controls { display: contents; }
   .transport-head,
   .transport-legend,
+  .transport-sections,
   .transport-credit {
     background: var(--panel);
     padding-left: 1rem;
@@ -4697,7 +4698,8 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
   }
   #transportMap { min-height: 0; height: 100%; }
   .transport-legend { order: 3; padding-bottom: 0.4rem; }
-  .transport-credit { order: 4; padding-bottom: 1rem; }
+  .transport-sections { order: 6; padding-top: 0.4rem; padding-bottom: 0.4rem; }
+  .transport-credit { order: 7; padding-bottom: 1rem; }
 }
 
 /* transport v2: counties, era legend */
@@ -4794,7 +4796,7 @@ html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
 .transport-sparse[hidden] { display: none; }
 @media (max-width: 900px) {
   /* Facts/sources sit under the map and legend on phones, not above the map. */
-  .transport-facts { order: 5; background: var(--panel); margin-top: 0; padding: 1rem; }
+  .transport-facts { order: 8; background: var(--panel); margin-top: 0; padding: 1rem; }
 }
 /* People gallery */
 .people-page .story-head h1 { margin-bottom: 0.4rem; }
@@ -5725,3 +5727,19 @@ html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter
   .roads-rails-page .transport-controls { max-height: none; }
   .roads-rails-page .transport-section .map-canvas-wrap, .roads-rails-page #transportMap { min-height: 0; }
 }
+
+/* Railroad sections collapse (Critiquito #291) */
+.transport-sections { margin-top: 1rem; }
+.transport-rail-details > summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--heading);
+  border: 1px solid var(--border, rgba(127,127,127,0.35));
+  border-radius: 8px;
+}
+.transport-rail-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.transport-rail-details[open] > summary { margin-bottom: 0.4rem; }

@@ -78,11 +78,11 @@ export function transportYearFilter(year) {
 
 /* Decade hues are spaced around the wheel so neighbours never share a family
  * (on-palette since Critiquito #291: gold / burnt sienna / umber / forest green / teal / olive green). Dark 1960 is
- * teal-green (#38d9a9) so it stays clear of the 1880 mint, and dark 1970 is lime
- * (#c0eb75) so it stays clear of that teal. Dark mode uses lighter
+ * cyan (#3bc9db) so it stays clear of the 1880 mint, and dark 1970 is lime
+ * (#c0eb75) so it stays clear of that cyan. Light 1830 is #9a6f00 for 3:1+ on the land. Dark mode uses lighter
  * tints of the same hues so every line clears 3:1 on the dark green land. */
 export const ERA_COLORS = [
-  [1830, '#b8860b'],
+  [1830, '#9a6f00'],
   [1850, '#a0461b'],
   [1870, '#5c4033'],
   [1880, '#2f6b3a'],
@@ -94,7 +94,7 @@ const ERA_COLORS_DARK = {
   1850: '#f4a46a',
   1870: '#d9c2a0',
   1880: '#7fd18b',
-  1960: '#38d9a9',
+  1960: '#3bc9db',
   1970: '#c0eb75',
 }
 
@@ -265,6 +265,14 @@ function renderLegend(year) {
     html += `<li><i class="transport-swatch" style="background:${esc(c)}" aria-hidden="true"></i>${esc(d)}s</li>`
   }
   html += '<li><i class="transport-swatch is-future-swatch" aria-hidden="true"></i>Not yet open</li></ul>'
+  list.innerHTML = html
+  renderSections(year)
+}
+
+function renderSections(year) {
+  const wrap = document.getElementById('transportSections')
+  if (!wrap || !sections) return
+  let html = ''
   const groups = [
     ['rail', 'Railroad sections'],
     ['parkway', 'Parkways'],
@@ -272,13 +280,13 @@ function renderLegend(year) {
   for (const [kind, label] of groups) {
     const items = sections.features.map((f) => f.properties).filter((f) => f.kind === kind)
     const seen = new Set()
-    html += `<p class="transport-legend-label">${esc(label)}</p><ul class="transport-legend-list">`
+    let rows = ''
     for (const f of items) {
       if (seen.has(f.id)) continue
       seen.add(f.id)
       const on = f.opened <= year
       const title = `${f.routeName}: ${f.from} to ${f.to}`
-      html += `<li class="${on ? 'is-on' : 'is-future'}">
+      rows += `<li class="${on ? 'is-on' : 'is-future'}">
           <button type="button" data-year="${esc(f.opened > 2000 ? 2000 : f.opened)}">
           <i class="transport-swatch" style="background:${esc(eraColorFor(f.opened))}" aria-hidden="true"></i>
           <span class="transport-legend-name">${esc(title)}</span>
@@ -287,10 +295,18 @@ function renderLegend(year) {
         </button>
       </li>`
     }
-    html += '</ul>'
+    if (kind === 'rail') {
+      html += `<details class="transport-rail-details" data-k="rail"><summary>${esc(label)} (${seen.size})</summary><ul class="transport-legend-list">${rows}</ul></details>`
+    } else {
+      html += `<p class="transport-legend-label">${esc(label)}</p><ul class="transport-legend-list">${rows}</ul>`
+    }
   }
-  list.innerHTML = html
+  const prev = wrap.querySelector('details.transport-rail-details')
+  const wasOpen = prev ? prev.open : false
+  wrap.innerHTML = html
+  if (wasOpen) wrap.querySelector('details.transport-rail-details').open = true
 }
+
 
 function writeHash(year) {
   const next = `#${year}`
@@ -448,15 +464,17 @@ async function boot() {
       writeHash(year)
     })
   }
-  if (legend && !legend.dataset.wired) {
-    legend.dataset.wired = '1'
-    legend.addEventListener('click', (event) => {
+  for (const el of [legend, document.getElementById('transportSections')]) {
+  if (el && !el.dataset.wired) {
+    el.dataset.wired = '1'
+    el.addEventListener('click', (event) => {
       const btn = event.target.closest('[data-year]')
       if (!btn) return
       const year = clampTransportYear(Number(btn.dataset.year))
       applyYear(year)
       writeHash(year)
     })
+  }
   }
   window.addEventListener('resize', () => {
     if (map) map.resize()
