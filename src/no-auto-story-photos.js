@@ -19,6 +19,8 @@ export const NO_AUTO_STORY_PHOTOS = [
   'paris-from-hopewell',
   'ojibwe-on-birds-war-road',
   'col-john-todd-of-lexington',
+  // Commons 'Fox Farm Site' is the Smyth County, Virginia site, not Mason County (Editor 10/18).
+  'fox-farm-mason-county',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

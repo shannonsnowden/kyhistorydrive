@@ -15,13 +15,14 @@
   "briefDate": "2026-09-11",
   "photo": {
     "image_url": "/content/photos/stories/lancaster-at-wallaces-crossroads.jpg",
-    "title": "The American flag flies at half-staff in memory of President George H.",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Lancaster,_Kentucky_War_Memorial_(46263691622).jpg",
+    "title": "Garrard County Courthouse, Lancaster",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Garrard_County_Kentucky_Courthouse.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "PEO ACWA · Wikimedia Commons · CC BY 2.0",
-    "year": 2018,
-    "credit": "PEO ACWA",
-    "license": "CC BY 2.0",
-    "license_url": "https://creativecommons.org/licenses/by/2.0"
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007,
+    "credit": "W.marsh",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "fit": "contain"
   }
 }

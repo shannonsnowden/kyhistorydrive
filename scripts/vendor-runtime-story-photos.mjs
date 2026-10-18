@@ -273,6 +273,22 @@ function licenseDecision(meta) {
   return { ok: true, reason: '', license, license_url }
 }
 
+// Abbreviations whose period never ends a sentence (Col., Mt., U.S., George H. W. Bush, St., Jr.).
+const CAPTION_ABBREV = /(?:^|[\s(])(?:[A-Z]|Col|Gen|Capt|Lt|Maj|Sgt|Gov|Pres|Rev|Dr|Mr|Mrs|Ms|Jr|Sr|St|Ste|Mt|Ft|Co|Twp|Hwy|Rd|Ave|No|Vol|ca|c|U\.S|U\.S\.A|[A-Z]\.[A-Z])\.$/
+
+/** First real sentence of a Commons description; abbreviation periods do not end it. */
+export function firstCaptionSentence(desc) {
+  const text = String(desc || '').trim()
+  const re = /[.!?](?=\s+[A-Z0-9"“(])/g
+  let m
+  while ((m = re.exec(text))) {
+    const head = text.slice(0, m.index + 1)
+    if (CAPTION_ABBREV.test(head)) continue
+    return head
+  }
+  return text
+}
+
 function captionFrom(meta, fileName) {
   const objectName = stripHtml(meta?.ObjectName?.value).replace(/_/g, ' ')
   const desc = stripHtml(meta?.ImageDescription?.value)
@@ -282,7 +298,7 @@ function captionFrom(meta, fileName) {
   const bareFile = pretty.toLowerCase()
   if (objectName && objectName.toLowerCase() !== bareFile && objectName.length <= 140) return objectName
   if (desc) {
-    const sentence = desc.split(/(?<=[.!?])\s+/)[0]
+    const sentence = firstCaptionSentence(desc)
     if (sentence.length <= 160) return sentence
     return `${sentence.slice(0, 157)}…`
   }
