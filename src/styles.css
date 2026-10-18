@@ -961,7 +961,88 @@ html[data-hp-theme="light"] .era-other {
 .story-head h2 { margin: 0.4rem 0 0.5rem; color: var(--heading); }
 .story-body { line-height: 1.6; font-size: 1.02rem; max-width: 70ch; }
 .story-body { overflow-wrap: anywhere; }
-.story-body a { word-break: break-word; overflow-wrap: anywhere; }
+.story-body a { word-break: break-word; overflow-wrap: anywhere; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.story-body h2,
+.story-body h3,
+.story-body h4 {
+  color: var(--heading);
+  line-height: 1.25;
+  margin: 1.45rem 0 0.45rem;
+}
+.story-body h2 { font-size: 1.35rem; }
+.story-body h3 { font-size: 1.12rem; }
+.story-body ul,
+.story-body ol { margin: 0.4rem 0 0.9rem; padding-left: 1.25rem; }
+.story-body li { margin: 0.3rem 0; }
+.story-body li > p { margin: 0.35rem 0; }
+.story-glance-mount:empty { display: none; }
+.story-research-link { margin: 0.35rem 0 1rem; }
+.story-research-link a { color: var(--accent); font-weight: 700; }
+.story-glance {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.35rem 0 1rem;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  table-layout: fixed;
+}
+.story-glance caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--heading);
+  padding: 0.15rem 0.15rem 0.45rem;
+}
+.story-glance th,
+.story-glance td {
+  border-top: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  vertical-align: top;
+  text-align: left;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.story-glance th[scope="row"] {
+  width: 28%;
+  font-weight: 700;
+  color: var(--heading);
+  background: color-mix(in srgb, var(--accent) 28%, var(--chip));
+}
+.story-glance td {
+  background: color-mix(in srgb, #243628 22%, var(--panel));
+}
+html[data-hp-theme="light"] .story-glance td {
+  background: color-mix(in srgb, #1a241c 8%, var(--panel));
+}
+.story-glance-list { margin: 0; padding-left: 1.1rem; }
+.story-glance-list li { margin: 0.2rem 0; }
+.story-glance a { color: var(--accent); }
+@media (max-width: 520px) {
+  .story-glance { font-size: 0.92rem; }
+  .story-glance th[scope="row"] { width: 34%; }
+  .story-glance th,
+  .story-glance td { padding: 0.45rem 0.5rem; }
+}
+.research-notes .back-link { margin: 0 0 0.85rem; }
+.research-notes .back-link a { color: var(--accent); font-weight: 700; }
+.research-updated { margin: 0 0 1rem; color: var(--muted); }
+.research-section { margin: 1.35rem 0; }
+.research-section h2,
+.research-section h3 { color: var(--heading); line-height: 1.25; }
+.research-section h2 { font-size: 1.35rem; margin: 0 0 0.55rem; }
+.research-section h3 { font-size: 1.05rem; margin: 1rem 0 0.4rem; }
+.research-section ul,
+.research-section ol { margin: 0; padding-left: 1.25rem; }
+.research-section li { margin: 0.4rem 0; overflow-wrap: anywhere; }
+.research-cites { color: var(--muted); font-size: 0.88em; }
+.research-cites a { color: var(--accent); }
+.research-year { font-weight: 700; color: var(--heading); }
+.research-role { color: var(--muted); }
+.research-people a,
+.research-notes a { color: var(--accent); }
 .story-reader-main, .story-reader-layout > * { min-width: 0; }
 .story-source, .popup-research, .research-list li, .research-list a { overflow-wrap: anywhere; }
 .timeline-list > li { min-width: 0; }
@@ -4520,6 +4601,47 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   .ad-slot--sidebar { display: none !important; }
 }
 
+/* Critiquito 10/12: glance sources under the table; readable citation chips; Back pill */
+.story-glance-sources { margin: 0.4rem 0 1rem; font-size: 0.92rem; }
+.story-glance-sources a { color: var(--accent); display: inline-flex; align-items: center; min-height: 44px; }
+.research-cites { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; margin-left: 0.25rem; vertical-align: middle; }
+.research-cite {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  text-decoration: none;
+}
+a.research-cite { color: var(--accent); }
+a.research-cite:hover, a.research-cite:focus-visible { background: var(--chip, rgba(201,137,58,.15)); }
+a.research-cite:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.research-cite.is-plain { color: var(--muted); border-style: dashed; }
+.research-notes .back-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.research-notes .back-pill:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+.research-notes .back-pill::before { content: "← "; white-space: pre; }
+@media (max-width: 600px) {
+  .story-glance { font-size: 0.86rem; line-height: 1.35; }
+  .story-glance th[scope="row"] { width: 27%; }
+  .story-glance th, .story-glance td { padding: 0.35rem 0.45rem; }
+  .story-glance-list { padding-left: 0.9rem; }
+  .story-glance-list li { margin: 0.1rem 0; }
+}
 /* #transport proof of concept. Cream field, deep-green state, amber and green lines. */
 .transport-kicker {
   margin: 0 0 0.2rem;
@@ -5050,18 +5172,34 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
     border-bottom-color: transparent;
   }
 }
-/* Reading mode: center a column whose story text is at most 70ch.
+/* Reading mode: center a wider column whose story text is at most 96ch.
+   With the map shown, the story column is ~52% of the viewport and the body
+   is held to 70ch. Hiding the map must give a visibly wider measure, so the
+   cap rises to 96ch (comfortable upper bound for long-form reading).
    The extra 2.6rem is the story card's horizontal padding and border, so the
-   body itself — not the card — is the 70ch measure. The sticky bar stays full width.
-   The photo stacks so it doesn't eat the line. */
+   body itself — not the card — is the 96ch measure. The sticky bar stays full width.
+   The photo stacks so it doesn't eat the line.
+   Paragraphs and other body text are capped at ~78ch inside it (below). */
+.timeline-layout.is-reading-wide {
+  --tl-read-measure: 96ch;
+}
 .timeline-layout.is-reading-wide .timeline-main > :not(.timeline-read-bar) {
-  width: min(100%, calc(70ch + 2.6rem));
-  max-width: calc(70ch + 2.6rem);
+  width: min(100%, calc(var(--tl-read-measure) + 2.6rem));
+  max-width: calc(var(--tl-read-measure) + 2.6rem);
   margin-inline: auto;
   box-sizing: border-box;
 }
 .timeline-layout.is-reading-wide .story-body {
-  max-width: 70ch;
+  max-width: var(--tl-read-measure);
+}
+/* Within the wide column, body text keeps a ~78ch reading measure while
+   media (figures, images, maps, video) still use the full column width. */
+.timeline-layout.is-reading-wide {
+  --tl-text-measure: 78ch;
+}
+.timeline-layout.is-reading-wide .story-body > :is(p, ul, ol, dl, blockquote, h2, h3, h4, h5, h6, .story-summary),
+.timeline-layout.is-reading-wide .story-summary {
+  max-width: var(--tl-text-measure);
 }
 .timeline-layout.is-reading-wide .story-reader .story-reader-layout,
 .timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
@@ -5773,4 +5911,14 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 .story-sidebar-photo.is-links-only .story-sidebar-photo-links a + a { border-top: 1px solid var(--line); }
 @media (max-width: 600px) {
   .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo.is-links-only { margin-top: 0.75rem; }
+}
+/* Critiquito 10/18 (#254): 44px citation chips; 44px people rows at phone width */
+.research-cites { gap: 0.5rem; }
+.research-cite { min-height: 44px; }
+@media (max-width: 600px) {
+  .research-people li { margin: 0; }
+  .research-people a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 600px) {
+  .story-glance th[scope="row"] { width: 33%; overflow-wrap: normal; word-break: normal; hyphens: manual; font-size: 0.82rem; }
 }
