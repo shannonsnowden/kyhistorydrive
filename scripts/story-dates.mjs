@@ -1,8 +1,8 @@
 /**
  * Real published and last-revised dates for each story file.
  * Published is the first git commit. Last revised is the latest commit that
- * changes the story's title, summary, or body. Bulk data commits and
- * whitespace-only formatting do not count. Nothing here uses today's date
+ * changes the story's title or body. Summary-only edits (meta and card copy),
+ * bulk data commits, and whitespace-only formatting do not count. Nothing here uses today's date
  * or a story brief date.
  */
 import { execFileSync } from 'node:child_process'
@@ -35,7 +35,10 @@ export function gitFileDates(cwd = root) {
   return { lastmod, created }
 }
 
-/** Reader-facing story text, with whitespace collapsed so a paragraph split is not a revision. */
+/**
+ * Reader-facing story text, with whitespace collapsed so a paragraph split is not a revision.
+ * The summary is left out: it is meta and card copy, so a summary-only edit does not change Last revised.
+ */
 export function storyProse(raw) {
   let data
   try {
@@ -43,7 +46,7 @@ export function storyProse(raw) {
   } catch {
     return ''
   }
-  return [data.title, data.summary, data.bodyMarkdown, data.figure?.note]
+  return [data.title, data.bodyMarkdown, data.figure?.note]
     .map((part) => String(part ?? '').replace(/\s+/g, ' ').trim())
     .join('\n')
 }
