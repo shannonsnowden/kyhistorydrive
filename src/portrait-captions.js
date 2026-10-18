@@ -46,10 +46,10 @@ export const PORTRAIT_ALTS = {
   'robert-johnson': "AI illustration of Robert Johnson, founder of Johnson's Station, about 1783",
   // Item 69: related-box people and Jack Jouett.
   'john-todd': "AI illustration of John Todd, Kentucky militia colonel, about 1782",
-  'levi-todd': "AI illustration of Levi Todd, Kentucky frontier officer, about 1782",
+  'levi-todd': "AI illustration of Levi Todd, Lexington co-founder and militia officer: a young man with tied-back hair in a brown coat and ruffled shirt, about 1782",
   'john-finley': "AI illustration of John Finley, trader and long hunter who guided Daniel Boone, about 1769",
   'john-hardin': "AI illustration of Col. John Hardin, Kentucky militia officer, about 1790",
-  'stephen-trigg': "AI illustration of Stephen Trigg, Kentucky settler and officer, about 1782",
+  'stephen-trigg': "AI illustration of Colonel Stephen Trigg, killed at Blue Licks: a heavyset, greying man in a brown coat and white cravat, about 1782",
   'john-bowman': "AI illustration of Col. John Bowman of Harrodsburg, about 1779",
   'john-strode': "AI illustration of John Strode, founder of Strode's Station, about 1780",
   'jacob-beam': "AI illustration of Jacob Beam, Kentucky miller and distiller, about 1795",

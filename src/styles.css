@@ -4892,8 +4892,16 @@ html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
   padding: 0;
   font-size: 0.82rem;
 }
-.people-stories li { margin: 0.12rem 0; }
-.people-stories a { color: var(--accent); }
+.people-stories li { margin: 0; }
+/* Story links are 44px tap targets (WCAG 2.5.5), text stays left/centred in the block. */
+.people-stories a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  line-height: 1.25;
+}
+.people-license a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 420px) {
   .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
   .people-card { padding: 0.45rem; }
