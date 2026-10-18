@@ -141,3 +141,14 @@ html:not([data-hp-theme=light]) .terr-tag.nd{color:#fff3a0;background:rgba(240,2
 .terr-maplegend button.ml-culture i{background-repeat:repeat;background-size:10px 10px}
 .terr-notepanel .ml-culture-line{font-style:italic}
 .terr-legend i[data-texture]{background-repeat:repeat}
+
+/* Critiquito 10/12: on-map label for far-off nations (Osage); dark-mode swatches always visible */
+.terr-farlabel{font:700 13px/1.15 system-ui,sans-serif;color:var(--heading,#2b1d0e);background:rgba(246,237,216,.92);border:1.5px solid var(--nc);border-radius:6px;padding:3px 7px;white-space:nowrap;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+html[data-hp-theme="dark"] .terr-farlabel{background:rgba(16,22,18,.92);color:#f6edd8}
+html[data-hp-theme="dark"] .terr-maplegend i,
+html[data-hp-theme="dark"] .terr-nation-row .swatch{box-shadow:0 0 0 1.5px rgba(246,237,216,.85)}
+
+/* Critiquito 10/13: keep the nations legend clear of the 50 mi scale bar; let the far-off nation label wrap inside narrow viewports */
+.terr-maplegend{bottom:3.4rem}
+@media (max-width:520px){.terr-maplegend{bottom:3.1rem}}
+.terr-farlabel{white-space:normal;max-width:min(12rem,42vw);text-wrap:balance;overflow-wrap:anywhere}

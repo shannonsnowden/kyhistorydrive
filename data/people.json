@@ -94,7 +94,6 @@
       "lifeDates": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
-        "hugh-mcgary-the-hothead-major",
         "wyandot-on-kentuckys-northern-frontier"
       ],
       "role": "Daniel Boone's son, killed at Blue Licks",
@@ -242,7 +241,8 @@
         "levi-todd-lexington-co-founder",
         "maj-joseph-bowman",
         "maj-silas-harlan",
-        "winchester-clark-county-seat"
+        "winchester-clark-county-seat",
+        "treaty-of-fort-mcintosh-1785"
       ],
       "role": "Revolutionary general, Illinois campaign",
       "native": false,
@@ -1459,7 +1459,6 @@
       "lifeDates": "1744–1806",
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
-        "hugh-mcgary-the-hothead-major",
         "nonhelema",
         "moluntha-and-logans-raid-1786"
       ],
@@ -1469,12 +1468,12 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article. AI illustration (Oct 2026)."
     },
     {
       "id": "moluntha",
@@ -1483,7 +1482,6 @@
       "lifeDates": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
-        "hugh-mcgary-the-hothead-major",
         "nonhelema",
         "moluntha-and-logans-raid-1786"
       ],
@@ -2547,7 +2545,6 @@
       "lifeDates": null,
       "stories": [
         "harry-innes",
-        "springfield-first-county-seat-after-statehood",
         "springfield-founding-and-washington-county-seat",
         "washington-mason-county"
       ],
@@ -3212,7 +3209,6 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "springfield-first-county-seat-after-statehood",
         "springfield-founding-and-washington-county-seat"
       ],
       "role": "General, surveyor, Springfield",
@@ -3745,7 +3741,6 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "lawrenceburg-from-kaufmans-station",
         "lawrenceburg-from-kaufmans-station-to-anderson-county-seat"
       ],
       "role": "Kaufman's Station founder",
@@ -3767,7 +3762,6 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "lawrenceburg-from-kaufmans-station",
         "lawrenceburg-from-kaufmans-station-to-anderson-county-seat"
       ],
       "role": "Tavern keeper, Lawrenceburg namesake",
@@ -4800,7 +4794,8 @@
       "lifeDates": null,
       "stories": [
         "owensboro-yellow-banks",
-        "yellow-banks-becomes-owensboro"
+        "yellow-banks-becomes-owensboro",
+        "hartford-fort-hartford-on-the-rough-river"
       ],
       "role": "Owensboro frontiersman",
       "native": false,
@@ -6784,6 +6779,27 @@
       "verified": true,
       "notes": "Real photograph, Memoirs of the Lower Ohio Valley (1905), p. 282 (Internet Archive). Local files george-garvin-brown__photo-512.{webp,jpg} (supplied Oct 2026). Never use the Whiskey Row banner image of Brown.",
       "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
+    },
+    {
+      "id": "gabriel-madison",
+      "name": "Gabriel Madison",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "hartford-fort-hartford-on-the-rough-river"
+      ],
+      "role": "Virginia grantee, gave land for Hartford",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No Wikipedia article or Commons likeness found."
     }
   ]
 }

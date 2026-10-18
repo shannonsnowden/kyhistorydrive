@@ -101,13 +101,6 @@
       "lat": 37.3,
       "lon": -85.9
     },
-    "muir-site-15js86": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
-      "date": "2026-10-02",
-      "historyId": "muir-site-15js86-jessamine-county",
-      "lat": 37.9,
-      "lon": -84.6
-    },
     "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
@@ -123,13 +116,6 @@
       "lon": -84.2
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
-      "date": "2026-10-02",
-      "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
-      "lat": 39,
-      "lon": -84.7
-    },
-    "cleek-mccabe-fort-ancient-village": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
@@ -207,13 +193,6 @@
       "lon": -84.5
     },
     "adams-site-15fu4": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
-      "date": "2026-10-02",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county",
-      "lat": 36.5,
-      "lon": -89.2
-    },
-    "adams-site-mississippian-town-near-hickman": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
@@ -845,6 +824,44 @@
       "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
       "lat": 38.033056,
       "lon": -84.903056
+    },
+    "moluntha-and-logans-raid-1786": {
+      "reason": "Out-of-state story (Logan's 1786 raid on the Shawnee towns in Ohio). The reader inferred 'Logan County' from Benjamin Logan's name; hide the county label (daily QA 2026-10-14).",
+      "date": "2026-10-14",
+      "county": ""
+    },
+    "hartford-fort-hartford-on-the-rough-river": {
+      "reason": "KHS marker #1195, Site of Fort Hartford, N. of Hartford at the Rough River bridge, US 231 (37.4524, -86.9105). Years 1782 (survey and first settlement) to 1808 (town incorporated). County Ohio.",
+      "date": "2026-10-14",
+      "historyId": "hartford-fort-hartford-ohio-1782-1808",
+      "lat": 37.4524,
+      "lon": -86.9105,
+      "yearStart": 1782,
+      "yearEnd": 1808,
+      "county": "Ohio"
+    },
+    "treaty-of-fort-mcintosh-1785": {
+      "reason": "Out-of-state story (treaty signed at Fort McIntosh, Beaver, Pennsylvania); no Kentucky pin. Hide the county label so the reader does not infer one from a person's name (e.g. Clark).",
+      "date": "2026-10-14",
+      "county": ""
+    },
+    "chambers-site-15ml109-marshall-county": {
+      "reason": "Generalized to 0.1° (36.9, -88.3) near the Marshall County center; the exact site on the Middle Fork of Clarks River is not published. Occupation years AD 1250–1350 (calibrated radiocarbon dates, Pollack and Railey 1987), not excavation dates. County Marshall.",
+      "date": "2026-10-14",
+      "historyId": "chambers-site-15ml109-marshall-1250-1350",
+      "lat": 36.9,
+      "lon": -88.3,
+      "county": "Marshall"
+    },
+    "yahoo-falls-big-south-fork": {
+      "reason": "Wikipedia / Kentucky Tourism coordinate for Yahoo Falls (36.769, -84.51056). Years 1937 (Cumberland National Forest created, including the falls) to 1987 (transferred to the National Park Service); not geologic age. County McCreary.",
+      "date": "2026-10-14",
+      "historyId": "yahoo-falls-mccreary-1937-1987",
+      "lat": 36.769,
+      "lon": -84.51056,
+      "yearStart": 1937,
+      "yearEnd": 1987,
+      "county": "McCreary"
     }
   }
 }

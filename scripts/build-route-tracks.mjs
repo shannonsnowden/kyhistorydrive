@@ -152,9 +152,9 @@ function main() {
     const dir = path.join(routesRoot, slug)
     const gpx = gpxDocument({ title, url, approximate: true, points })
     const kml = kmlDocument({ title, url, approximate: true, points })
-    for (const token of leaked) {
+    for (const [i, token] of leaked.entries()) {
       if (gpx.includes(token) || kml.includes(token)) {
-        throw new Error(`route tracks: ${slug} still publishes ${token}`)
+        throw new Error(`route tracks: ${slug} still publishes retired protected value #${i + 1} (${gpxName}/${kmlName})`)
       }
     }
     fs.writeFileSync(path.join(dir, gpxName), gpx)

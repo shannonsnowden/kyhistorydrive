@@ -10,7 +10,7 @@ import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
-import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
@@ -556,6 +556,10 @@ function parseHash() {
     return { view: 'map', placeLayer, placeId }
   }
   if (path === 'resources') return { view: 'resources' }
+  if (path === 'transport') {
+    const year = rest[0] != null && rest[0] !== '' ? Number(decodeURIComponent(rest[0])) : null
+    return { view: 'transport', year: Number.isFinite(year) ? year : null }
+  }
   if (['about', 'app'].includes(path)) return { view: path }
   return { view: 'map' }
 }
@@ -1559,12 +1563,13 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
       ${photoCreditHtml(photo)}`
-  } else {
-    thumb = `<p class="story-sidebar-photo-attr muted">No matching thumbnail yet — use a source link above.</p>`
+  } else if (!linkRow) {
+    // No photo and no source links: nothing to show, so no empty Photos box.
+    return ''
   }
 
-  return `<aside class="story-sidebar-photo" aria-label="Story photo">
-      <p class="story-sidebar-photo-heading">Photos</p>
+  return `<aside class="story-sidebar-photo${thumb ? '' : ' is-links-only'}" aria-label="Story photo">
+      <p class="story-sidebar-photo-heading">${thumb ? 'Photos' : 'Find photos'}</p>
       ${linkRow}
       ${thumb}
     </aside>`
@@ -1859,8 +1864,9 @@ async function popupRelatedHtml(props) {
   if (!slug) return ''
   const [relatedData, idx, publicPeople] = await Promise.all([loadRelatedPeople(), loadStories(), loadPublicPeople()])
   const relTitles = Object.fromEntries((idx?.stories || []).map((x) => [x.slug, x.title]))
-  const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
-  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits })
+  const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+  const personFor = personByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+  return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits, personFor })
 }
 
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
@@ -3035,7 +3041,8 @@ function timelineHeaderOffset() {
   const barH = bar ? bar.getBoundingClientRect().height : 0
   // Phones opened from a homepage story link: the map is docked under the bar
   const docked = document.querySelector('#timeline .timeline-layout.is-home-story #timelineMapPane')
-  const dockH = docked && window.matchMedia('(max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
+  // Only while it is sticky (561–900px); at <=560px it scrolls away with the page.
+  const dockH = docked && window.matchMedia('(min-width: 561px) and (max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
   return headerH + barH + dockH + 8
 }
 
@@ -3212,7 +3219,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       storyPhoto: s.photo || null,
     })
     const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
-    const portraits = portraitsByStorySlug(relatedData, publicPeople.people)
+    const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
+    const personFor = personByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
     const storyIndex = await loadStories()
     const markerFeatures = await markerFeaturesPromise
     const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
@@ -3272,7 +3280,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
           )}</div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits })}
+          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits, personFor })}
           ${extras}
           ${relatedAndNearbyForStory(
             {
@@ -4031,6 +4039,35 @@ function addNationLayers(n, T, before) {
   nationLayerIds[n.id] = ids
 }
 
+/** On-map name labels for nations drawn far from Kentucky (index flag mapLabel), so the shape isn't anonymous. */
+const nationLabelMarkers = {}
+async function syncNationMapLabels(nations) {
+  for (const n of nations) {
+    if (!n.mapLabel) continue
+    const on = nationOn.has(n.id) && !territoryRouteSlug()
+    if (on && !nationLabelMarkers[n.id]) {
+      try {
+        const b = nationBounds(await loadNationData(n.ref), n)
+        if (!b) continue
+        const el = document.createElement('span')
+        el.className = 'terr-farlabel'
+        el.style.setProperty('--nc', n.outline || n.color)
+        const yrs = nationYears(n)
+        el.textContent = yrs ? `${n.name}, ${yrs}` : n.name
+        el.setAttribute('aria-hidden', 'true')
+        nationLabelMarkers[n.id] = new maplibregl.Marker({ element: el, anchor: 'left', offset: [6, 0] }).setLngLat([b.getEast(), b.getCenter().lat])
+      } catch (err) {
+        console.warn('nation label failed', n.id, err)
+        continue
+      }
+    }
+    const m = nationLabelMarkers[n.id]
+    if (!m) continue
+    if (on) m.addTo(map)
+    else m.remove()
+  }
+}
+
 /** Bounds of a nation's main-map shapes (all parts). */
 function nationBounds(T, n) {
   const b = new maplibregl.LngLatBounds()
@@ -4094,6 +4131,7 @@ async function syncNationLayers() {
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none')
     }
   }
+  await syncNationMapLabels(nations)
   // Label tidy-up: the legend already names every nation, so on-map labels thin out as more nations are toggled on.
   const mapEl = document.getElementById('map')
   if (mapEl) mapEl.dataset.nlab = String(nations.filter((x) => nationOn.has(x.id)).length)
@@ -4109,6 +4147,7 @@ function nationYears(n) {
   if (n.yearStart < 0 || n.yearEnd < 0) return fmtYearSpan(n.yearStart, n.yearEnd, { approx: n.approxStart })
   return `${n.approxStart ? 'c.' : ''}${n.yearStart}–${n.yearEnd ?? ''}`
 }
+let legendChipOpen = false // phone legend chip state (<560px)
 let legendNoteId = null // nation whose note is open (one at a time); null = all notes closed
 function nationNoteHtml(n) {
   const yrs = nationYears(n)
@@ -4228,7 +4267,20 @@ function renderNationLegend(nations) {
   const shownNations = byAge(shown.filter((n) => !isCulture(n)))
   const shownCultures = byAge(shown.filter((n) => isCulture(n)))
   el.setAttribute('aria-label', shownCultures.length ? 'Archaeological cultures shown (not tribes)' : 'Native nations shown (approximate)')
-  el.innerHTML = `${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}<div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
+  el.innerHTML = `${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}<div class="ml-f">Tap a name for its note · approximate, not boundaries.</div>`
+  // Phones (<560px, CSS): the legend collapses behind a "Nations" chip so it does not cover the pins. Collapsed by default.
+  el.classList.toggle('ml-open', legendChipOpen)
+  el.insertAdjacentHTML('afterbegin', `<button type="button" class="ml-chip" aria-expanded="${legendChipOpen}" aria-controls="nationLegendBody">Nations <span aria-hidden="true">▾</span></button>`)
+  const body = document.createElement('div')
+  body.id = 'nationLegendBody'
+  body.className = 'ml-body'
+  while (el.children.length > 1) body.appendChild(el.children[1])
+  el.appendChild(body)
+  el.querySelector('button.ml-chip').addEventListener('click', (e) => {
+    legendChipOpen = !legendChipOpen
+    el.classList.toggle('ml-open', legendChipOpen)
+    e.currentTarget.setAttribute('aria-expanded', String(legendChipOpen))
+  })
   el.querySelectorAll('button.ml-row').forEach((b) => b.addEventListener('click', () => setLegendNote(b.dataset.nid)))
   if (legendNoteId) {
     const id = legendNoteId
@@ -4520,6 +4572,10 @@ async function applyRoute() {
       ensureHighlightSource(map, null)
       fitMapToKentucky(map, { duration: 0 })
     })
+  } else if (view === 'transport') {
+    const { showTransport } = await import('./transport-map.js')
+    await showTransport(parseHash().year)
+    requestAnimationFrame(scrollPageToTop)
   } else if (view === 'timeline') {
     setupTimelineFilters()
     resetTimelineFiltersOff({ keepFocus: Boolean(slug) })
@@ -4630,5 +4686,16 @@ initThemeToggle()
 initSiteSearch()
 MobileNav.init()
 initHomePage()
-initTimelineReading({ getMap: () => timelineMap })
+initTimelineReading({
+  getMap: () => timelineMap,
+  // "Show map" on phones: re-center the current story's pin and move keyboard focus to the map.
+  focusPin: () => {
+    const story = selectedStorySlug && storiesBySlug[selectedStorySlug]
+    if (story && timelineMapReady && story.lat != null && story.lon != null) {
+      try { timelineMap.easeTo({ center: [story.lon, story.lat], duration: 400 }) } catch {}
+    }
+    const canvas = timelineMap?.getCanvas?.()
+    if (canvas) canvas.focus({ preventScroll: true })
+  },
+})
 applyRoute().catch(console.error)

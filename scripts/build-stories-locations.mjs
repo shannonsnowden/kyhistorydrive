@@ -157,12 +157,6 @@ const MANUAL_OVERRIDES = {
     lon: -85.3441,
     confidence: 'override',
   },
-  'springfield-first-county-seat-after-statehood': {
-    matchName: 'Springfield',
-    lat: 37.6853,
-    lon: -85.2222,
-    confidence: 'override',
-  },
   'bland-w-ballard-of-tick-creek': {
     matchName: 'Bland W. Ballard / Tyler Station',
     lat: 38.2143528,
@@ -201,6 +195,9 @@ const MANUAL_OVERRIDES = {
   // ceded tract (outside it), so the fuzzy Falls/Clarksville pin was misleading. No History pin
   // exists for the Piankashaw; leave the story unpinned (empty override = no place match).
   'piankashaw-claims-on-the-ohio-wabash': {},
+  // Tutelo: the body names Lower Shawneetown only as a mixed town where Henderson (1992) lists
+  // Tutelo among residents; a Tutelo pin there would imply a Tutelo village in Kentucky. Unpinned.
+  'tutelo-the-totteroy': {},
   // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
   'col-john-todd-of-lexington': {
     matchName: 'Col. John Todd of Lexington',
@@ -218,12 +215,6 @@ const MANUAL_OVERRIDES = {
     matchName: 'Newt Kash Hollow (15Mf1)',
     lat: 37.9,
     lon: -83.6,
-    confidence: 'override',
-  },
-  'muir-site-15js86': {
-    matchName: 'Muir Site (15Js86)',
-    lat: 37.9,
-    lon: -84.6,
     confidence: 'override',
   },
   // Sep 16 — use iOS pin coords; leave Illinois Confederation unpinned (Cahokia)
@@ -390,8 +381,9 @@ const MANUAL_OVERRIDES = {
   // 2026-09-22 morning brief
   'john-finley-the-trader-who-put-kentucky-on-boone-s-map': {
     matchName: 'John Finley',
-    lat: 37.93955,
-    lon: -83.9975333,
+    // Protected Eskippakithiki / Indian Old Fields site: 0.1° only (pin-rounding.json forceSlugs).
+    lat: 37.9,
+    lon: -84.0,
     confidence: 'override',
   },
   'springfield-founding-and-washington-county-seat': {
@@ -960,6 +952,26 @@ const MANUAL_OVERRIDES = {
     matchName: "Sassafras Ridge (15Fu3), Fulton County (approximate)",
     lat: 36.6,
     lon: -89.2,
+    confidence: 'override',
+  },
+  // 2026-10-14 brief (swap: Taylorsville → Hartford; Walker Daniel deferred until his portrait lands; Fort McIntosh unpinned: Pennsylvania; Chambers generalized 0.1°)
+  'hartford-fort-hartford-on-the-rough-river': {
+    matchName: "Hartford / Fort Hartford (Rough River)",
+    lat: 37.4524,
+    lon: -86.9105,
+    confidence: 'override',
+  },
+  'treaty-of-fort-mcintosh-1785': {},
+  'chambers-site-15ml109-marshall-county': {
+    matchName: "Chambers Site (15Ml109), Marshall County (approximate)",
+    lat: 36.9,
+    lon: -88.3,
+    confidence: 'override',
+  },
+  'yahoo-falls-big-south-fork': {
+    matchName: "Yahoo Falls, Big South Fork (McCreary County)",
+    lat: 36.769,
+    lon: -84.51056,
     confidence: 'override',
   },
 }
