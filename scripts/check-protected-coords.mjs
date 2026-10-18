@@ -42,23 +42,24 @@ function namesProtected(o) {
   }
   return null
 }
-function coordsIn(o, depth = 0, out = []) {
+// Findings name only the field path, never the value: failure output lands in Amplify build logs.
+function coordsIn(o, depth = 0, out = [], at = '') {
   if (!o || typeof o !== 'object' || depth > 4) return out
   for (const [k, v] of Object.entries(o)) {
-    if (['lat', 'lon', 'lng', 'latitude', 'longitude'].includes(k) && fine(v)) out.push(`${k}=${v}`)
+    if (['lat', 'lon', 'lng', 'latitude', 'longitude'].includes(k) && fine(v)) out.push(at + k)
     else if (k === 'coordinates' && Array.isArray(v)) {
       const flat = v.flat(3).filter((x) => typeof x === 'number')
-      if (flat.length <= 3 && flat.some(fine)) out.push(`coordinates=[${flat}]`)
-    } else if (v && typeof v === 'object' && ['geometry', 'geo', 'location', 'position', 'properties'].includes(k)) coordsIn(v, depth + 1, out)
+      if (flat.length <= 3 && flat.some(fine)) out.push(at + 'coordinates')
+    } else if (v && typeof v === 'object' && ['geometry', 'geo', 'location', 'position', 'properties'].includes(k)) coordsIn(v, depth + 1, out, `${at}${k}.`)
   }
   return out
 }
-function walk(o, file, owner = null) {
-  if (Array.isArray(o)) return o.forEach((x) => walk(x, file, owner))
+function walk(o, file, owner = null, at = '$') {
+  if (Array.isArray(o)) return o.forEach((x, i) => walk(x, file, owner, `${at}[${i}]`))
   if (!o || typeof o !== 'object') return
   const id = namesProtected(o) || namesProtected(o.properties || {}) || owner
-  if (id) for (const c of coordsIn(o)) errors.push(`${file}: ${id} ${c}`)
-  for (const [k, v] of Object.entries(o)) if (v && typeof v === 'object') walk(v, file, ids.has(k) ? k : id) // keyed maps, e.g. sites["marker:1274"]
+  if (id) for (const c of coordsIn(o)) errors.push(`${file}: ${id} at ${at}.${c}`)
+  for (const [k, v] of Object.entries(o)) if (v && typeof v === 'object') walk(v, file, ids.has(k) ? k : id, `${at}.${k}`) // keyed maps, e.g. sites["marker:1274"]
 }
 
 // Text files: a protected id followed within WINDOW chars (GPX/KML: also 200 before) by a fine KY lat/lon pair.
@@ -71,12 +72,13 @@ const idRe = new RegExp(`(?:^|[^a-z0-9-])(${[...ids].sort((x, y) => y.length - x
 function textScan(text, file) {
   for (const m of text.matchAll(idRe)) {
     const back = /\.(gpx|kml)$/.test(file) ? 200 : 0 // GPX/KML put the name after the coordinates
+    const start = Math.max(0, m.index - back)
     const seg = text.slice(Math.max(0, m.index - back), m.index + WINDOW)
     for (const p of seg.matchAll(PAIR)) {
       if (!fineStr(p[1]) && !fineStr(p[2])) continue
       let lat = Number(p[1]), lon = Number(p[2])
       if (lat < 0 && lon > 0) [lat, lon] = [lon, lat]
-      if (lat > 36 && lat < 39.5 && lon > -89.7 && lon < -81.8) errors.push(`${file}: ${m[1]} near ${lat},${lon}`)
+      if (lat > 36 && lat < 39.5 && lon > -89.7 && lon < -81.8) errors.push(`${file}: ${m[1]} fine coordinate pair at line ${text.slice(0, start + p.index).split('\n').length}`)
     }
   }
 }
@@ -104,7 +106,12 @@ const t0 = Date.now()
 const argHashes = process.argv.indexOf('--hashes')
 const hashFile = argHashes > 0 ? path.resolve(process.argv[argHashes + 1]) : path.join(path.dirname(fileURLToPath(import.meta.url)), 'protected-coords.hashes.json')
 const KEY = process.env.PROTECTED_COORDS_KEY || ''
-const list = JSON.parse(fs.readFileSync(hashFile, 'utf8'))
+let list
+// JSON.parse errors quote file text; never let hash or key-check values reach the log.
+try { list = JSON.parse(fs.readFileSync(hashFile, 'utf8')) } catch (e) {
+  console.error(`check-protected-coords: cannot read ${path.basename(hashFile)} (${e.code || e.name}; contents redacted)`)
+  process.exit(1)
+}
 if (!KEY) {
   console.error('check-protected-coords: PROTECTED_COORDS_KEY is not set. Add it under Amplify > Hosting > Environment variables (secret), or export it locally.')
   process.exit(1)
@@ -190,7 +197,7 @@ const uniq = [...new Set(errors)]
 errors.length = 0
 errors.push(...uniq)
 if (errors.length) {
-  console.error(`check-protected-coords: ${errors.length} protected coordinate problem(s) in dist:`)
+  console.error(`check-protected-coords: ${errors.length} protected coordinate problem(s) in dist (values redacted):`)
   for (const e of errors.slice(0, 50)) console.error('  ' + e)
   process.exit(1)
 }

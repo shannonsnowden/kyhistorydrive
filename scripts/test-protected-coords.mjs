@@ -60,7 +60,11 @@ for (const [name, files, env, want] of cases) {
   const r = spawnSync(process.execPath, [path.join(root, 'scripts/check-protected-coords.mjs'), '--dist', makeDist(files), '--hashes', hashFile], { encoding: 'utf8', env: { ...baseEnv, ...env } })
   const ok = r.status === want
   console.log(`${ok ? 'ok  ' : 'FAIL'} ${name}: exit ${r.status}${ok ? '' : ` (expected ${want})`}`)
-  if (!ok) { failed++; console.log(r.stdout + r.stderr) }
+  // Redaction: no case may print a coordinate-like number, a fake point's digits or a 32-hex keyed hash.
+  const out = r.stdout + r.stderr
+  const leak = /-?\d{2,3}\.\d{2,}/.test(out) || /\b[0-9a-f]{32}\b/.test(out) || out.includes(TEST_KEY)
+  if (leak) console.log(`FAIL ${name}: output carries a coordinate, hash or key (redaction)`)
+  if (!ok || leak) { failed++; if (!ok) console.log(`  (${out.split('\n').length} output lines suppressed)`) }
 }
 fs.rmSync(tmp, { recursive: true, force: true })
 if (failed) { console.error(`test-protected-coords: ${failed} case(s) failed`); process.exit(1) }
