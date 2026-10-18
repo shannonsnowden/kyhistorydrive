@@ -20,7 +20,7 @@
     "file": "/data/kentucky-outline.geojson",
     "source": "Natural Earth",
     "license": "Public domain",
-    "url": "https://www.naturalearthdata.com/",
+    "url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/",
     "note": "Already on the site. Used only as the map frame, not as transport geometry."
   },
   "notUsed": [
@@ -99,7 +99,7 @@
       "kind": "rail",
       "summary": "Built by the city of Cincinnati for a direct route to Southern markets that bypassed Louisville and the L&N. It was open to Somerset by 23 July 1877, crossing the Kentucky River on High Bridge, and through service to Chattanooga began in 1880.",
       "sources": [
-        "https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Trains/ICC_valuations/Cincinnati_Southern_Railway",
+        "https://grokipedia.com/page/Cincinnati,_New_Orleans_and_Texas_Pacific_Railway",
         "https://bridgestunnels.com/location/high-bridge/",
         "https://abandonedonline.net/location/cincinnati-southern-railway/"
       ]

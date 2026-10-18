@@ -5912,6 +5912,11 @@ html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter
 }
 .transport-rail-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .transport-rail-details[open] > summary { margin-bottom: 0.4rem; }
+.transport-rail-details > summary { list-style: none; gap: 0.5rem; }
+.transport-rail-details > summary::-webkit-details-marker { display: none; }
+.transport-rail-details > summary::marker { content: ''; }
+.transport-rail-details > summary::before { content: '\25B8'; display: inline-block; width: 1em; text-align: center; color: var(--accent); font-size: 1.05em; line-height: 1; }
+.transport-rail-details[open] > summary::before { content: '\25BE'; }
 
 /* Photos sidebar with source links but no thumbnail: just the links, no trailing divider. */
 .story-sidebar-photo.is-links-only .story-sidebar-photo-links { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }

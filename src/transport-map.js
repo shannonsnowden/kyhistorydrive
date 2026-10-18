@@ -41,7 +41,7 @@ const COLORS = {
 const ATTRIBUTION =
   'Rail: <a href="https://services.arcgis.com/xOi1kZaI0eWDREZv/ArcGIS/rest/services/NTAD_North_American_Rail_Network_Lines/FeatureServer/0" target="_blank" rel="noopener noreferrer">USDOT/BTS NTAD</a> North American Rail Network (public domain). ' +
   'Roads: <a href="https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/NTAD_National_Highway_System/FeatureServer/0" target="_blank" rel="noopener noreferrer">FHWA/BTS NTAD</a> National Highway System (public domain). ' +
-  'Outline: <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a>.'
+  'Outline: <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" target="_blank" rel="noopener noreferrer">Natural Earth</a>.'
 
 let map = null
 let bootPromise = null
@@ -301,11 +301,21 @@ function renderSections(year) {
       html += `<p class="transport-legend-label">${esc(label)}</p><ul class="transport-legend-list">${rows}</ul>`
     }
   }
-  const prev = wrap.querySelector('details.transport-rail-details')
-  const wasOpen = prev ? prev.open : false
+  // Editor #291: never rebuild on (or around) a toggle. The open state lives in railSectionsOpen,
+  // updated from the toggle event (fired after the browser flips it), and an unchanged list is left alone.
+  if (!wrap.dataset.toggleWired) {
+    wrap.dataset.toggleWired = '1'
+    wrap.addEventListener('toggle', (event) => {
+      if (event.target.matches?.('details.transport-rail-details')) railSectionsOpen = event.target.open
+    }, true)
+  }
+  if (html === lastSectionsHtml && wrap.querySelector('details.transport-rail-details')) return
+  lastSectionsHtml = html
   wrap.innerHTML = html
-  if (wasOpen) wrap.querySelector('details.transport-rail-details').open = true
+  if (railSectionsOpen) wrap.querySelector('details.transport-rail-details').open = true
 }
+let railSectionsOpen = false
+let lastSectionsHtml = ''
 
 
 function writeHash(year) {
