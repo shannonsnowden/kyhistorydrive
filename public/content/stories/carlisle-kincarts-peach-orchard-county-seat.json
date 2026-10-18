@@ -20,7 +20,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Nicholas_County_Kentucky_Courthouse.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2007
+    "year": 2007,
+    "fit": "contain"
   },
   "county": "Nicholas"
 }

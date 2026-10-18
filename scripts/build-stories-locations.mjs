@@ -953,6 +953,26 @@ const MANUAL_OVERRIDES = {
     lon: -89.2,
     confidence: 'override',
   },
+  // 2026-10-14 brief (swap: Taylorsville → Hartford; Walker Daniel deferred until his portrait lands; Fort McIntosh unpinned: Pennsylvania; Chambers generalized 0.1°)
+  'hartford-fort-hartford-on-the-rough-river': {
+    matchName: "Hartford / Fort Hartford (Rough River)",
+    lat: 37.4524,
+    lon: -86.9105,
+    confidence: 'override',
+  },
+  'treaty-of-fort-mcintosh-1785': {},
+  'chambers-site-15ml109-marshall-county': {
+    matchName: "Chambers Site (15Ml109), Marshall County (approximate)",
+    lat: 36.9,
+    lon: -88.3,
+    confidence: 'override',
+  },
+  'yahoo-falls-big-south-fork': {
+    matchName: "Yahoo Falls, Big South Fork (McCreary County)",
+    lat: 36.769,
+    lon: -84.51056,
+    confidence: 'override',
+  },
 }
 
 

@@ -241,7 +241,8 @@
         "levi-todd-lexington-co-founder",
         "maj-joseph-bowman",
         "maj-silas-harlan",
-        "winchester-clark-county-seat"
+        "winchester-clark-county-seat",
+        "treaty-of-fort-mcintosh-1785"
       ],
       "role": "Revolutionary general, Illinois campaign",
       "native": false,
@@ -4793,7 +4794,8 @@
       "lifeDates": null,
       "stories": [
         "owensboro-yellow-banks",
-        "yellow-banks-becomes-owensboro"
+        "yellow-banks-becomes-owensboro",
+        "hartford-fort-hartford-on-the-rough-river"
       ],
       "role": "Owensboro frontiersman",
       "native": false,
@@ -6777,6 +6779,27 @@
       "verified": true,
       "notes": "Real photograph, Memoirs of the Lower Ohio Valley (1905), p. 282 (Internet Archive). Local files george-garvin-brown__photo-512.{webp,jpg} (supplied Oct 2026). Never use the Whiskey Row banner image of Brown.",
       "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
+    },
+    {
+      "id": "gabriel-madison",
+      "name": "Gabriel Madison",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "hartford-fort-hartford-on-the-rough-river"
+      ],
+      "role": "Virginia grantee, gave land for Hartford",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No Wikipedia article or Commons likeness found."
     }
   ]
 }
