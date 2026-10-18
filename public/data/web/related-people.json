@@ -1240,6 +1240,20 @@
     "slug": "camp-nelson-kentucky-us-colored-troops",
     "label": "Same place: the USCT regiments raised at Camp Nelson and the 1865 emancipation laws"
    }
+  ],
+  "walker-daniel-danvilles-namesake": [
+   {
+    "slug": "danville-and-constitution-square",
+    "label": "Same place: the town he laid out at Crow’s Station"
+   },
+   {
+    "slug": "bullitts-lick-kentuckys-first-industry",
+    "label": "Same event: he was killed in 1784 on his way to Bullitt’s Lick"
+   },
+   {
+    "slug": "george-rogers-clark",
+    "label": "Same event: he sat on the commission that allotted Clark’s grant"
+   }
   ]
  }
 }
