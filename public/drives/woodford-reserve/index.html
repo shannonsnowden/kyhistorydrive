@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/woodford-reserve/#trip","name":"Woodford Reserve: Glenn's Creek, Versailles and Midway · Loop 1: Versailles and Midway","description":"Starting at Woodford Reserve on Glenn's Creek: Versailles, Jack Jouett's house, Midway's mill and cemetery, and Woodford County's rail history.","url":"https://kyhistorydrive.com/drives/woodford-reserve/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Woodford Reserve (Old Oscar Pepper Distillery)","identifier":"woodford-reserve","url":"https://kyhistorydrive.com/stories/james-crow-on-glenns-creek/","geo":{"@type":"GeoCoordinates","latitude":38.1133,"longitude":-84.8135}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Bluegrass Railroad and Museum","identifier":"bluegrass-railroad-museum","geo":{"@type":"GeoCoordinates","latitude":38.0459,"longitude":-84.7598}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Woodford County Historical Society Museum (Versailles)","identifier":"woodford-county-historical-society-museum","url":"https://kyhistorydrive.com/stories/versailles-takes-shape/","geo":{"@type":"GeoCoordinates","latitude":38.0523,"longitude":-84.7301}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Weisenberger Mill","identifier":"weisenberger-mill","geo":{"@type":"GeoCoordinates","latitude":38.1261,"longitude":-84.6369}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Sons & Daughters of Relief Cemetery (Midway)","identifier":"sons-daughters-of-relief-cemetery","geo":{"@type":"GeoCoordinates","latitude":38.1509,"longitude":-84.6875}}},{"@type":"ListItem","position":6,"item":{"@type":"Place","name":"Stone House at Fisher's Mill","identifier":"stone-house-at-fisher-s-mill"}}]}}</script>
@@ -80,7 +81,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
       <ol class="stops" id="stops"><li class=""><span class="num" aria-hidden="true">1</span>
     <div><p class="stop-name">1. Woodford Reserve (Old Oscar Pepper Distillery)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span>NHL district. Working distillery; tours by reservation, fees apply.</p><p class="stop-meta">Elijah Pepper's distillery, later the Oscar Pepper Distillery, where James C. Crow worked in the mid-1800s on sour mash and barrel-aging methods; a National Historic Landmark. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Woodford_Reserve" rel="noopener noreferrer" target="_blank">Wikipedia: Woodford Reserve</a>; <a href="https://www.woodfordreserve.com/" rel="noopener noreferrer" target="_blank">Woodford Reserve</a></span></p></div>
     
-    <div class="links"><a class="story" href="/stories/james-crow-on-glenns-creek/">James Crow on Glenn's Creek →</a></div></li>
+    <div class="links"><a class="story" id="stop-james-crow-on-glenns-creek" href="/stories/james-crow-on-glenns-creek/">James Crow on Glenn's Creek →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">2</span>
     <div><p class="stop-name">2. Bluegrass Railroad and Museum</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Limited hours</span>Heritage railroad. Seasonal excursions; tickets required.</p><p class="stop-meta">A heritage railroad and museum in Woodford County Park, with excursions and rolling-stock exhibits. <span class="note">Sources: <a href="https://www.bluegrassrailroad.com/" rel="noopener noreferrer" target="_blank">Bluegrass Railroad and Museum</a></span></p></div>
     <span class="leg">10 mi, about 17 min from stop 1</span>
@@ -88,7 +89,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">3</span>
     <div><p class="stop-name">3. Woodford County Historical Society Museum (Versailles)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Limited hours</span>Town founded 1792. Free museum; limited open days.</p><p class="stop-meta">Versailles was founded on June 23, 1792, on land owned by the child Hezekiah Briscoe; his guardian Marquis Calmes named it for Versailles, France, in honor of Lafayette. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Versailles,_Kentucky" rel="noopener noreferrer" target="_blank">Wikipedia: Versailles, Kentucky</a>; <a href="https://www.woodfordcountykyhistoricalsociety.com/museum" rel="noopener noreferrer" target="_blank">Woodford County Historical Society: Museum</a></span></p></div>
     <span class="leg">2.2 mi, about 6 min from stop 2</span>
-    <div class="links"><a class="story" href="/stories/versailles-takes-shape/">Versailles Takes Shape →</a></div></li>
+    <div class="links"><a class="story" id="stop-versailles-takes-shape" href="/stories/versailles-takes-shape/">Versailles Takes Shape →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">4</span>
     <div><p class="stop-name">4. Weisenberger Mill</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Limited hours</span>Mill site since 1818. Working mill with a small retail shop; check hours.</p><p class="stop-meta">A mill has stood on South Elkhorn Creek since 1818; Augustus Weisenberger bought it in 1865, and the present mill building dates to 1913. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Weisenberger_Mills_and_Related_Buildings" rel="noopener noreferrer" target="_blank">Wikipedia: Weisenberger Mills and Related Buildings</a>; <a href="https://weisenberger.com/" rel="noopener noreferrer" target="_blank">Weisenberger Mill</a></span></p></div>
     <span class="leg">10.4 mi, about 21 min from stop 3</span>
@@ -158,6 +159,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/woodford-reserve.
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, round trip back to the start (estimate)</span><span>Theme: <b>Mills, a town of 1792 and Midway&#x27;s African American history</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -165,7 +167,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -173,6 +175,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}${i===STOPS.length-1 && route.legs.length>=STOPS.length ? `<span class="leg">Return to stop 1: ${route.legs[STOPS.length-1][0]} mi, about ${route.legs[STOPS.length-1][1]} min</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

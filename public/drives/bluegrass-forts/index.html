@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/bluegrass-forts/#trip","name":"Bluegrass Forts and Stations","description":"From James Harrod's 1774 settlement to the springs where Lexington was named, then east to the stations near Winchester and Boonesborough that settlers held.","url":"https://kyhistorydrive.com/drives/bluegrass-forts/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Old Fort Harrod State Park","identifier":"old-fort-harrod","url":"https://kyhistorydrive.com/stories/maj-joseph-bowman/","geo":{"@type":"GeoCoordinates","latitude":37.762,"longitude":-84.8485}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"McConnell Springs","identifier":"mcconnell-springs","url":"https://kyhistorydrive.com/stories/lexington-named/","geo":{"@type":"GeoCoordinates","latitude":38.0549,"longitude":-84.5277}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Bryan's Station Memorial","identifier":"bryans-station","url":"https://kyhistorydrive.com/stories/bryan-station-siege-august-1782/","geo":{"@type":"GeoCoordinates","latitude":38.0767,"longitude":-84.4113}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Capt. John Strode marker (KHS #1047)","identifier":"capt-john-strode-strode-s-station-1779-clark-county","url":"https://kyhistorydrive.com/stories/capt-john-strode-of-strodes-station/","geo":{"@type":"GeoCoordinates","latitude":38.0089,"longitude":-84.2147}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Lower Howard's Creek Nature & Heritage Preserve (Holder's Station area)","identifier":"holders-station-lower-howards-creek","url":"https://kyhistorydrive.com/stories/col-john-holder-at-lower-howards-creek/","geo":{"@type":"GeoCoordinates","latitude":37.9181,"longitude":-84.2727}}}]}}</script>
@@ -80,23 +81,23 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
       <ol class="stops" id="stops"><li class=""><span class="num" aria-hidden="true">1</span>
     <div><p class="stop-name">1. Old Fort Harrod State Park</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Limited hours</span>Founded 1774. State park; admission charged for the fort, seasonal hours.</p><p class="stop-meta">Commemorates James Harrod's 1774 settlement at Harrodsburg, with a reconstructed fort and pioneer cemetery. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Fort_Harrod" rel="noopener noreferrer" target="_blank">Wikipedia: Fort Harrod</a>; <a href="https://parks.ky.gov/harrodsburg/parks/historic/old-fort-harrod-state-park" rel="noopener noreferrer" target="_blank">Kentucky State Parks: Old Fort Harrod</a></span></p></div>
     
-    <div class="links"><a class="story" href="/stories/maj-joseph-bowman/">Maj. Joseph Bowman →</a><a class="story" href="/stories/ann-mcginty-and-kentuckys-first-spinning-wheel/">Ann McGinty and Kentucky's first spinning wheel →</a></div></li>
+    <div class="links"><a class="story" id="stop-maj-joseph-bowman" href="/stories/maj-joseph-bowman/">Maj. Joseph Bowman →</a><a class="story" id="stop-ann-mcginty-and-kentuckys-first-spinning-wheel" href="/stories/ann-mcginty-and-kentuckys-first-spinning-wheel/">Ann McGinty and Kentucky's first spinning wheel →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">2</span>
     <div><p class="stop-name">2. McConnell Springs</p><p class="stop-meta"><span class="tag">Public</span>Named June 1775. Free city park and nature area.</p><p class="stop-meta">In early June 1775 William McConnell's party camped here and named the site Lexington after news of the April 19, 1775 battle; permanent settlement came in 1779. <span class="note">Sources: <a href="https://history.ky.gov/markers/lexington-named" rel="noopener noreferrer" target="_blank">KHS marker #554: Lexington Named</a>; <a href="https://www.lexingtonky.gov/playing/parks-natural-areas/natural-areas/mcconnell-springs-park" rel="noopener noreferrer" target="_blank">LFUCG: McConnell Springs Park</a></span></p></div>
     <span class="leg">36.7 mi, about 47 min from stop 1</span>
-    <div class="links"><a class="story" href="/stories/lexington-named/">Lexington named →</a><a class="story" href="/stories/col-robert-patterson-builds-lexington/">Col. Robert Patterson builds Lexington →</a></div></li>
+    <div class="links"><a class="story" id="stop-lexington-named" href="/stories/lexington-named/">Lexington named →</a><a class="story" id="stop-col-robert-patterson-builds-lexington" href="/stories/col-robert-patterson-builds-lexington/">Col. Robert Patterson builds Lexington →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">3</span>
     <div><p class="stop-name">3. Bryan's Station Memorial</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>Siege Aug. 15–16, 1782. Roadside memorial wall on Bryan Station Road; surrounding land is private.</p><p class="stop-meta">Fortified in 1779. On Aug. 15, 1782, Capt. William Caldwell led Shawnee and Delaware warriors and Canadian Rangers against the station; the next day they burned crops, killed livestock and withdrew toward Blue Licks. <span class="note">Sources: <a href="https://history.ky.gov/markers/bryans-station" rel="noopener noreferrer" target="_blank">KHS marker #21: Bryan's Station</a>; <a href="https://www.battlefields.org/visit/battlefields/bryans-station" rel="noopener noreferrer" target="_blank">American Battlefield Trust: Bryan's Station</a></span></p></div>
     <span class="leg">9.2 mi, about 16 min from stop 2</span>
-    <div class="links"><a class="story" href="/stories/bryan-station-siege-august-1782/">Bryan Station Siege, August 1782 →</a><a class="story" href="/stories/simon-girty-interpreter-at-bryan-station-1782/">Simon Girty, the frontier's most hated interpreter →</a></div></li>
+    <div class="links"><a class="story" id="stop-bryan-station-siege-august-1782" href="/stories/bryan-station-siege-august-1782/">Bryan Station Siege, August 1782 →</a><a class="story" id="stop-simon-girty-interpreter-at-bryan-station-1782" href="/stories/simon-girty-interpreter-at-bryan-station-1782/">Simon Girty, the frontier's most hated interpreter →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">4</span>
     <div><p class="stop-name">4. Capt. John Strode marker (KHS #1047)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>Built 1779. Roadside marker on US 60 west of Winchester; the station site itself is not open.</p><p class="stop-meta">John Strode built Strode's Station in 1779, the largest fortified settlement in early Clark County; it was attacked in 1781, when two men were killed. <span class="note">Sources: <a href="https://history.ky.gov/markers/capt-john-strode" rel="noopener noreferrer" target="_blank">KHS marker #1047: Capt. John Strode</a>; <a href="https://www.hmdb.org/m.asp?m=159696" rel="noopener noreferrer" target="_blank">HMdb: Capt. John Strode</a></span></p></div>
     <span class="leg">14 mi, about 21 min from stop 3</span>
-    <div class="links"><a class="story" href="/stories/capt-john-strode-of-strodes-station/">Capt. John Strode of Strode's Station →</a></div></li>
+    <div class="links"><a class="story" id="stop-capt-john-strode-of-strodes-station" href="/stories/capt-john-strode-of-strodes-station/">Capt. John Strode of Strode's Station →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">5</span>
     <div><p class="stop-name">5. Lower Howard's Creek Nature &amp; Heritage Preserve (Holder's Station area)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Limited hours</span>Station 1782. Nature preserve; check access and hours before visiting.</p><p class="stop-meta">Col. John Holder, who had commanded Fort Boonesborough in 1779, built Holder's Station near the mouth of Lower Howard's Creek in 1782; much of the valley is now a nature and heritage preserve. <span class="note">Sources: <a href="https://explorekyhistory.ky.gov/items/show/905" rel="noopener noreferrer" target="_blank">ExploreKYHistory: Colonel John Holder</a></span></p></div>
     <span class="leg">10.4 mi, about 14 min from stop 4</span>
-    <div class="links"><a class="story" href="/stories/col-john-holder-at-lower-howards-creek/">Col. John Holder at Lower Howard's Creek →</a></div></li></ol>
+    <div class="links"><a class="story" id="stop-col-john-holder-at-lower-howards-creek" href="/stories/col-john-holder-at-lower-howards-creek/">Col. John Holder at Lower Howard's Creek →</a></div></li></ol>
       <div class="go" id="go"></div>
       <p class="note">Directions cover the public stops only. Access, fees and hours are general; verify before visiting. Context: Fort Boonesborough is on the Boone&#x27;s Trail drive. Peter Village, Muir and Singer-Hieronymus are protected archaeological sites; they are mentioned only as approximate context and are not stops.</p>
     </section>
@@ -148,6 +149,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/bluegrass-forts.j
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, one way (estimate)</span><span>Theme: <b>Frontier forts, stations and the 1782 raids</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -155,7 +157,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -163,6 +165,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

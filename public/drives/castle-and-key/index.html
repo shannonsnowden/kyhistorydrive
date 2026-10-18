@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/castle-and-key/#trip","name":"Castle & Key: Glenn's Creek to the capital · Loop 1: Frankfort museums and the Elkhorn","description":"Starting at Castle & Key on Glenn's Creek: the State Arsenal, the Kentucky Historical Society, Daniel Boone's grave and the Switzer covered bridge.","url":"https://kyhistorydrive.com/drives/castle-and-key/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Castle & Key (Old Taylor Distillery)","identifier":"castle-key","url":"https://kyhistorydrive.com/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897/","geo":{"@type":"GeoCoordinates","latitude":38.1467,"longitude":-84.8326}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Kentucky Military History Museum (State Arsenal)","identifier":"kentucky-military-history-museum","geo":{"@type":"GeoCoordinates","latitude":38.1976,"longitude":-84.8763}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Thomas D. Clark Center for Kentucky History","identifier":"thomas-d-clark-center","geo":{"@type":"GeoCoordinates","latitude":38.199,"longitude":-84.8748}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Frankfort Cemetery (Daniel Boone grave)","identifier":"frankfort-cemetery","geo":{"@type":"GeoCoordinates","latitude":38.1978,"longitude":-84.8672}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Switzer Covered Bridge","identifier":"switzer","geo":{"@type":"GeoCoordinates","latitude":38.2539,"longitude":-84.7522}}}]}}</script>
@@ -80,7 +81,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
       <ol class="stops" id="stops"><li class=""><span class="num" aria-hidden="true">1</span>
     <div><p class="stop-name">1. Castle &amp; Key (Old Taylor Distillery)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span>Founded 1887. Working distillery; tours and tastings by reservation, fees apply.</p><p class="stop-meta">Col. E.H. Taylor Jr. founded the distillery in 1887; the restored grounds are now Castle &amp; Key. <span class="note">Sources: <a href="https://castleandkey.com" rel="noopener noreferrer" target="_blank">Castle &amp; Key</a></span></p></div>
     
-    <div class="links"><a class="story" href="/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897/">E.H. Taylor Jr. and the Bottled-in-Bond Act, 1897 →</a></div></li>
+    <div class="links"><a class="story" id="stop-e-h-taylor-jr-and-the-bottled-in-bond-act-1897" href="/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897/">E.H. Taylor Jr. and the Bottled-in-Bond Act, 1897 →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">2</span>
     <div><p class="stop-name">2. Kentucky Military History Museum (State Arsenal)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Limited hours</span>Arsenal built 1850. Kentucky Historical Society museum; check open days.</p><p class="stop-meta">The State Arsenal was built in 1850, seized by Confederates in September 1862 and retaken by Union forces in October; it became a military history museum in 1973. <span class="note">Sources: <a href="https://history.ky.gov/markers/state-arsenal" rel="noopener noreferrer" target="_blank">KHS marker #1490: State Arsenal</a>; <a href="https://history.ky.gov/visit/kentucky-military-history-museum" rel="noopener noreferrer" target="_blank">Kentucky Historical Society: Kentucky Military History Museum</a></span></p></div>
     <span class="leg">8.6 mi, about 18 min from stop 1</span>
@@ -148,6 +149,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/castle-and-key.js
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, round trip back to the start (estimate)</span><span>Theme: <b>State history, a Civil War arsenal and a covered bridge · 1 hour drive plus stop time</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -155,7 +157,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -163,6 +165,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}${i===STOPS.length-1 && route.legs.length>=STOPS.length ? `<span class="leg">Return to stop 1: ${route.legs[STOPS.length-1][0]} mi, about ${route.legs[STOPS.length-1][1]} min</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

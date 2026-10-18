@@ -5,6 +5,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { parseJsLiteral } from './js-literal.mjs'
 
 const ENT = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#x27;': "'", '&#39;': "'" }
 const plain = (s) => {
@@ -12,6 +13,10 @@ const plain = (s) => {
   for (let prev; prev !== out;) { prev = out; out = out.replace(/<[^<>]*>/g, '') }
   return out.replace(/[<>]/g, '').replace(/\s+/g, ' ').trim()
 }
+
+export const STORY_SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+/** Anchor id for a story's stop on a drive page (first stop that lists it). */
+export const stopAnchor = (slug) => `stop-${slug}`
 
 export const DRIVE_ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
@@ -27,7 +32,7 @@ export function storyDrives(root) {
     const html = fs.readFileSync(path.join(DP, id, 'index.html'), 'utf8')
     const m = html.match(/const STOPS = (\[[\s\S]*?\n\])/)
     if (!m) continue
-    const stops = new Function(`return ${m[1]}`)()
+    const stops = parseJsLiteral(m[1])
     const h1 = html.match(/<h1>([\s\S]*?)<\/h1>/)
     drives[id] = { name: plain(h1 ? h1[1] : id) }
     for (const s of stops) for (const [slug] of s.stories || []) {

@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/heaven-hill/#trip","name":"Heaven Hill: Bardstown and the road to Lincoln's birthplace · Loop 1: Bardstown, New Haven and Lincoln's birthplace","description":"Starting at Heaven Hill in Bardstown: the town's founding, Federal Hill, Spalding Hall and Union Church.","url":"https://kyhistorydrive.com/drives/heaven-hill/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":8,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Heaven Hill Distillery (Bardstown)","identifier":"heaven-hill","geo":{"@type":"GeoCoordinates","latitude":37.7932,"longitude":-85.4657}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Bardstown courthouse square (KHS #1668)","identifier":"bardstown","url":"https://kyhistorydrive.com/stories/bardstown/","geo":{"@type":"GeoCoordinates","latitude":37.8089,"longitude":-85.4665}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Spalding Hall (Oscar Getz Museum of Whiskey History)","identifier":"oscar-getz-museum","geo":{"@type":"GeoCoordinates","latitude":37.8154,"longitude":-85.4702}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Bardstown African American Heritage Museum (Union Church)","identifier":"bardstown-african-american-heritage-museum","geo":{"@type":"GeoCoordinates","latitude":37.8127,"longitude":-85.4634}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Civil War Museum of the Western Theater","identifier":"civil-war-museum-bardstown","geo":{"@type":"GeoCoordinates","latitude":37.8111,"longitude":-85.4623}}},{"@type":"ListItem","position":6,"item":{"@type":"Place","name":"My Old Kentucky Home State Park (Federal Hill)","identifier":"my-old-kentucky-home","geo":{"@type":"GeoCoordinates","latitude":37.8068,"longitude":-85.4567}}},{"@type":"ListItem","position":7,"item":{"@type":"Place","name":"Kentucky Railway Museum (New Haven)","identifier":"kentucky-railway-museum","geo":{"@type":"GeoCoordinates","latitude":37.6655,"longitude":-85.5874}}},{"@type":"ListItem","position":8,"item":{"@type":"Place","name":"Abraham Lincoln Birthplace National Historical Park","identifier":"abraham-lincoln-birthplace","url":"https://kyhistorydrive.com/stories/hodgenville-from-hodgens-mill-to-county-seat/","geo":{"@type":"GeoCoordinates","latitude":37.5312,"longitude":-85.7369}}}]}}</script>
@@ -84,7 +85,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">2</span>
     <div><p class="stop-name">2. Bardstown courthouse square (KHS #1668)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>Laid off 1780. Downtown marker; public square.</p><p class="stop-meta">William Bard laid off the town in 1780 as agent for his brother David and John C. Owings; the first log courthouse was built in 1785. <span class="note">Sources: <a href="https://history.ky.gov/markers/bardstown" rel="noopener noreferrer" target="_blank">KHS marker #1668: Bardstown</a></span></p></div>
     <span class="leg">2.2 mi, about 4 min from stop 1</span>
-    <div class="links"><a class="story" href="/stories/bardstown/">Bardstown →</a></div></li>
+    <div class="links"><a class="story" id="stop-bardstown" href="/stories/bardstown/">Bardstown →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">3</span>
     <div><p class="stop-name">3. Spalding Hall (Oscar Getz Museum of Whiskey History)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Limited hours</span>Built 1826. Museum; set hours.</p><p class="stop-meta">Built in 1826 as part of St. Joseph College; during the Civil War the college building served as a hospital. It now houses the Oscar Getz whiskey museum. <span class="note">Sources: <a href="https://history.ky.gov/markers/spalding-hall" rel="noopener noreferrer" target="_blank">KHS marker #1897: Spalding Hall</a>; <a href="https://en.wikipedia.org/wiki/Spalding_Hall" rel="noopener noreferrer" target="_blank">Wikipedia: Spalding Hall</a>; <a href="https://www.oscargetzwhiskeymuseum.com/" rel="noopener noreferrer" target="_blank">Oscar Getz Museum</a></span></p></div>
     <span class="leg">0.7 mi, about 2 min from stop 2</span>
@@ -108,7 +109,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">8</span>
     <div><p class="stop-name">8. Abraham Lincoln Birthplace National Historical Park</p><p class="stop-meta"><span class="tag">Public</span>Born Feb. 12, 1809. National Park Service site; free.</p><p class="stop-meta">Abraham Lincoln was born on Sinking Spring Farm on Feb. 12, 1809; a symbolic cabin sits inside the 1911 Memorial Building. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Abraham_Lincoln_Birthplace_National_Historical_Park" rel="noopener noreferrer" target="_blank">Wikipedia: Abraham Lincoln Birthplace NHP</a>; <a href="https://www.nps.gov/abli/" rel="noopener noreferrer" target="_blank">NPS: Abraham Lincoln Birthplace</a></span></p></div>
     <span class="leg">15.1 mi, about 24 min from stop 7</span>
-    <div class="links"><a class="story" href="/stories/hodgenville-from-hodgens-mill-to-county-seat/">Hodgenville: from Hodgen's Mill to a county seat →</a></div></li></ol>
+    <div class="links"><a class="story" id="stop-hodgenville-from-hodgens-mill-to-county-seat" href="/stories/hodgenville-from-hodgens-mill-to-county-seat/">Hodgenville: from Hodgen's Mill to a county seat →</a></div></li></ol>
       <div class="go" id="go"></div>
       <p class="note">Directions cover the public stops only. Access, fees and hours are general; verify before visiting.</p>
     </section>
@@ -178,6 +179,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/heaven-hill.json'
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, round trip back to the start (estimate)</span><span>Theme: <b>Town founding, a plantation house, a church and college, railroading and Lincoln&#x27;s birth</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -185,7 +187,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -193,6 +195,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}${i===STOPS.length-1 && route.legs.length>=STOPS.length ? `<span class="leg">Return to stop 1: ${route.legs[STOPS.length-1][0]} mi, about ${route.legs[STOPS.length-1][1]} min</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

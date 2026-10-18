@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/civil-war-south-central/#trip","name":"Civil War in South Central Kentucky","description":"From the January 1862 Union victory at Mill Springs to Morgan's 1863 raid at Tebbs Bend and Lebanon.","url":"https://kyhistorydrive.com/drives/civil-war-south-central/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Mill Springs Battlefield National Monument","identifier":"mill-springs-battlefield-nm","geo":{"@type":"GeoCoordinates","latitude":37.0577,"longitude":-84.7387}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Tebbs Bend Battlefield","identifier":"tebbs-bend","geo":{"@type":"GeoCoordinates","latitude":37.2378,"longitude":-85.3536}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Battle of Lebanon marker (KHS #600)","identifier":"lebanon-civil-war","url":"https://kyhistorydrive.com/stories/lebanon-cedars-meeting-house-county-seat/","geo":{"@type":"GeoCoordinates","latitude":37.5697,"longitude":-85.2528}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Battle for the Bridge Historic Preserve (Munfordville)","identifier":"battle-for-the-bridge","geo":{"@type":"GeoCoordinates","latitude":37.2573,"longitude":-85.8878}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Rowlett's Station marker (KHS #1504)","identifier":"rowletts-station","geo":{"@type":"GeoCoordinates","latitude":37.2704,"longitude":-85.8991}}},{"@type":"ListItem","position":6,"item":{"@type":"Place","name":"Fort Williams marker (KHS #1290)","identifier":"fort-williams-glasgow","url":"https://kyhistorydrive.com/stories/glasgow-the-barrens/","geo":{"@type":"GeoCoordinates","latitude":36.9977,"longitude":-85.9256}}}]}}</script>
@@ -88,7 +89,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">3</span>
     <div><p class="stop-name">3. Battle of Lebanon marker (KHS #600)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>July 5, 1863. Roadside marker at the old railroad station.</p><p class="stop-meta">On July 5, 1863, Morgan's raiders, on the way to Ohio, fought about 380 Union troops under Col. C.S. Hanson here; after a seven-hour fight the Union force surrendered. <span class="note">Sources: <a href="https://history.ky.gov/markers/battle-of-lebanon" rel="noopener noreferrer" target="_blank">KHS marker #600: Battle of Lebanon</a>; <a href="https://en.wikipedia.org/wiki/Battle_of_Lebanon" rel="noopener noreferrer" target="_blank">Wikipedia: Battle of Lebanon</a></span></p></div>
     <span class="leg">29 mi, about 36 min from stop 2</span>
-    <div class="links"><a class="story" href="/stories/lebanon-cedars-meeting-house-county-seat/">Lebanon: Cedars, Meeting House, County Seat →</a></div></li>
+    <div class="links"><a class="story" id="stop-lebanon-cedars-meeting-house-county-seat" href="/stories/lebanon-cedars-meeting-house-county-seat/">Lebanon: Cedars, Meeting House, County Seat →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">4</span>
     <div><p class="stop-name">4. Battle for the Bridge Historic Preserve (Munfordville)</p><p class="stop-meta"><span class="tag">Public</span>Sept. 14–17, 1862. Preserve with trails; free.</p><p class="stop-meta">Confederates under Braxton Bragg's army besieged the Union garrison guarding the L&amp;N bridge over the Green River; Col. John T. Wilder surrendered on September 17, 1862. The preserve also protects earthworks and the Woodson house. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Battle_of_Munfordville" rel="noopener noreferrer" target="_blank">Wikipedia: Battle of Munfordville</a>; <a href="https://www.visitmunfordville.com/battle-for-the-bridge" rel="noopener noreferrer" target="_blank">Visit Munfordville: Battle for the Bridge</a></span></p></div>
     <span class="leg">55 mi, about 80 min from stop 3</span>
@@ -100,7 +101,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">6</span>
     <div><p class="stop-name">6. Fort Williams marker (KHS #1290)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>Oct. 6, 1863. Marker between Glasgow Municipal Cemetery and US 31-E bypass.</p><p class="stop-meta">A Union fort built in spring 1863; on October 6 the 25th Tennessee captured 142 men and over 200 horses. Gen. Joseph H. Lewis of the Orphan Brigade is buried in the nearby cemetery. <span class="note">Sources: <a href="https://history.ky.gov/markers/fort-williams" rel="noopener noreferrer" target="_blank">KHS marker #1290: Fort Williams</a></span></p></div>
     <span class="leg">25.4 mi, about 38 min from stop 5</span>
-    <div class="links"><a class="story" href="/stories/glasgow-the-barrens/">Glasgow &amp; the Barrens →</a></div></li></ol>
+    <div class="links"><a class="story" id="stop-glasgow-the-barrens" href="/stories/glasgow-the-barrens/">Glasgow &amp; the Barrens →</a></div></li></ol>
       <div class="go" id="go"></div>
       <p class="note">Directions cover the public stops only. Access, fees and hours are general; verify before visiting.</p>
     </section>
@@ -158,6 +159,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/civil-war-south-c
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, one way (estimate)</span><span>Theme: <b>Battles of 1861–1863 along the Green and Cumberland</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -165,7 +167,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -173,6 +175,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

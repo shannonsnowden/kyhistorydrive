@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/jim-beam/#trip","name":"Jim Beam: Clermont, Salt River salt and Civil War forts · Loop 1: Salt River and Fort Duffield","description":"Starting at Jim Beam in Clermont: the Bullitt's Lick salt works, the Salt River falls at Shepherdsville, and a Union fort above West Point.","url":"https://kyhistorydrive.com/drives/jim-beam/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Jim Beam (Clermont)","identifier":"jim-beam","url":"https://kyhistorydrive.com/stories/jacob-beam-on-hardin-creek/","geo":{"@type":"GeoCoordinates","latitude":37.9298,"longitude":-85.6527}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Mystery Cemetery marker (KHS #1415)","identifier":"mystery-cemetery-bullitt","geo":{"@type":"GeoCoordinates","latitude":37.9183,"longitude":-85.599}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Bullitt County History Museum (Shepherdsville)","identifier":"bullitt-county-history-museum","url":"https://kyhistorydrive.com/stories/shepherdsville-on-salt-river/","geo":{"@type":"GeoCoordinates","latitude":37.9881,"longitude":-85.7161}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Bullitt's Lick marker (KHS #133)","identifier":"bullitts-lick-kentuckys-first-industry","url":"https://kyhistorydrive.com/stories/bullitts-lick-kentuckys-first-industry/","geo":{"@type":"GeoCoordinates","latitude":38.0008,"longitude":-85.764}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Fort Duffield Park & Historic Site","identifier":"fort-duffield","geo":{"@type":"GeoCoordinates","latitude":37.9943,"longitude":-85.9427}}}]}}</script>
@@ -80,7 +81,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
       <ol class="stops" id="stops"><li class=""><span class="num" aria-hidden="true">1</span>
     <div><p class="stop-name">1. Jim Beam (Clermont)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span>Rebuilt 1933–34. Working distillery; tours by reservation, fees apply.</p><p class="stop-meta">James B. Beam rebuilt the family distillery at Clermont in 1933–34 after Prohibition; the brand took the name Jim Beam in 1943. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Jim_Beam" rel="noopener noreferrer" target="_blank">Wikipedia: Jim Beam</a>; <a href="https://www.jimbeam.com" rel="noopener noreferrer" target="_blank">Jim Beam</a></span></p></div>
     
-    <div class="links"><a class="story" href="/stories/jacob-beam-on-hardin-creek/">Jacob Beam on Hardin Creek →</a></div></li>
+    <div class="links"><a class="story" id="stop-jacob-beam-on-hardin-creek" href="/stories/jacob-beam-on-hardin-creek/">Jacob Beam on Hardin Creek →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">2</span>
     <div><p class="stop-name">2. Mystery Cemetery marker (KHS #1415)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>c. 1854. Roadside marker on KY 245.</p><p class="stop-meta">Unmarked graves believed to be those of railroad workers who died of cholera around 1854, or of Civil War soldiers; the marker gives both possibilities. <span class="note">Sources: <a href="https://history.ky.gov/markers/mystery-cemetery" rel="noopener noreferrer" target="_blank">KHS marker #1415: Mystery Cemetery</a></span></p></div>
     <span class="leg">4.1 mi, about 7 min from stop 1</span>
@@ -88,11 +89,11 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">3</span>
     <div><p class="stop-name">3. Bullitt County History Museum (Shepherdsville)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Limited hours</span>Town est. 1793. Free; weekday hours.</p><p class="stop-meta">Shepherdsville was established at the falls of the Salt River in 1793 on Adam Shepherd's land; the county history museum is in the courthouse. <span class="note">Sources: <a href="https://bullittcountyhistory.org/" rel="noopener noreferrer" target="_blank">Bullitt County History Museum</a></span></p></div>
     <span class="leg">12.2 mi, about 19 min from stop 2</span>
-    <div class="links"><a class="story" href="/stories/shepherdsville-on-salt-river/">Shepherdsville on Salt River →</a></div></li>
+    <div class="links"><a class="story" id="stop-shepherdsville-on-salt-river" href="/stories/shepherdsville-on-salt-river/">Shepherdsville on Salt River →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">4</span>
     <div><p class="stop-name">4. Bullitt's Lick marker (KHS #133)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>Located 1773. Marker only.</p><p class="stop-meta">Located by Capt. Thomas Bullitt in 1773; an early commercial salt works that supplied Kentucky settlements and the Illinois country. <span class="note">Sources: <a href="https://history.ky.gov/markers/bullitts-lick" rel="noopener noreferrer" target="_blank">KHS marker #133: Bullitt's Lick</a>; <a href="https://en.wikipedia.org/wiki/Bullitt%27s_Lick" rel="noopener noreferrer" target="_blank">Wikipedia: Bullitt's Lick</a></span></p></div>
     <span class="leg">3.2 mi, about 6 min from stop 3</span>
-    <div class="links"><a class="story" href="/stories/bullitts-lick-kentuckys-first-industry/">Bullitt's Lick: Kentucky's first industry →</a></div></li>
+    <div class="links"><a class="story" id="stop-bullitts-lick-kentuckys-first-industry" href="/stories/bullitts-lick-kentuckys-first-industry/">Bullitt's Lick: Kentucky's first industry →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">5</span>
     <div><p class="stop-name">5. Fort Duffield Park &amp; Historic Site</p><p class="stop-meta"><span class="tag">Public</span>Built Nov. 1861. Public park with trails; open daylight hours.</p><p class="stop-meta">Built in November 1861 by the 9th Michigan Infantry to guard Union supplies at Louisville and the L&amp;N line; men who died of disease or accident were buried on the hill. <span class="note">Sources: <a href="https://history.ky.gov/markers/fort-duffield" rel="noopener noreferrer" target="_blank">KHS marker #2449: Fort Duffield</a>; <a href="https://en.wikipedia.org/wiki/Fort_Duffield" rel="noopener noreferrer" target="_blank">Wikipedia: Fort Duffield</a></span></p></div>
     <span class="leg">12.9 mi, about 24 min from stop 4</span>
@@ -148,6 +149,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/jim-beam.json').t
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, round trip back to the start (estimate)</span><span>Theme: <b>Salt-making, a 1793 town and a Union fort</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -155,7 +157,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -163,6 +165,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}${i===STOPS.length-1 && route.legs.length>=STOPS.length ? `<span class="leg">Return to stop 1: ${route.legs[STOPS.length-1][0]} mi, about ${route.legs[STOPS.length-1][1]} min</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

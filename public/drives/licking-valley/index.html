@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/licking-valley/#trip","name":"Licking Valley: Stations, Blue Licks and Covered Bridges","description":"Follow the Licking River country from the 1780 British-Indian expedition against Ruddell's and Martin's stations to the 1782 Battle of Blue Licks.","url":"https://kyhistorydrive.com/drives/licking-valley/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Ruddell's Station site","identifier":"ruddles-station","url":"https://kyhistorydrive.com/stories/isaac-ruddell-and-the-guns-at-ruddells-station/"}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Martin's Station site","identifier":"martins-station","url":"https://kyhistorydrive.com/stories/delaware-lenape-in-the-1780-kentucky-raids/"}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Colville Covered Bridge","identifier":"colville","geo":{"@type":"GeoCoordinates","latitude":38.3247,"longitude":-84.2033}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Blue Licks Battlefield State Resort Park","identifier":"blue-licks-battlefield","url":"https://kyhistorydrive.com/stories/battle-of-blue-licks/","geo":{"@type":"GeoCoordinates","latitude":38.4293,"longitude":-83.9939}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Johnson Creek Covered Bridge","identifier":"johnson-creek","geo":{"@type":"GeoCoordinates","latitude":38.4811,"longitude":-83.9769}}},{"@type":"ListItem","position":6,"item":{"@type":"Place","name":"Goddard Covered Bridge","identifier":"goddard","geo":{"@type":"GeoCoordinates","latitude":38.3622,"longitude":-83.6156}}},{"@type":"ListItem","position":7,"item":{"@type":"Place","name":"Washington, Mason County","identifier":"washington-mason-county","url":"https://kyhistorydrive.com/stories/washington-mason-county/","geo":{"@type":"GeoCoordinates","latitude":38.6159,"longitude":-83.8085}}}]}}</script>
@@ -80,11 +81,11 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
       <ol class="stops" id="stops"><li class="private"><span class="num" aria-hidden="true">1</span>
     <div><p class="stop-name">1. Ruddell's Station site</p><p class="stop-meta"><span class="tag warn">Private land: marker only</span>Captured June 1780. Marker only. The site is on private farmland.</p></div>
     
-    <div class="links"><a class="story" href="/stories/isaac-ruddell-and-the-guns-at-ruddells-station/">Isaac Ruddell and the guns at Ruddell's Station →</a><a class="story" href="/stories/ojibwe-on-birds-war-road/">Ojibwe on Bird's War Road →</a></div></li>
+    <div class="links"><a class="story" id="stop-isaac-ruddell-and-the-guns-at-ruddells-station" href="/stories/isaac-ruddell-and-the-guns-at-ruddells-station/">Isaac Ruddell and the guns at Ruddell's Station →</a><a class="story" id="stop-ojibwe-on-birds-war-road" href="/stories/ojibwe-on-birds-war-road/">Ojibwe on Bird's War Road →</a></div></li>
 <li class="private"><span class="num" aria-hidden="true">2</span>
     <div><p class="stop-name">2. Martin's Station site</p><p class="stop-meta"><span class="tag warn">Private land: marker only</span>Captured June 1780. Marker only. The site is on private farmland.</p></div>
     <span class="leg">6.2 mi, about 19 min from stop 1</span>
-    <div class="links"><a class="story" href="/stories/delaware-lenape-in-the-1780-kentucky-raids/">Delaware (Lenape) in the 1780 Kentucky raids →</a><a class="story" href="/stories/cynthiana-cynthia-anna-on-the-licking/">Cynthiana: Cynthia &amp; Anna on the Licking →</a></div></li>
+    <div class="links"><a class="story" id="stop-delaware-lenape-in-the-1780-kentucky-raids" href="/stories/delaware-lenape-in-the-1780-kentucky-raids/">Delaware (Lenape) in the 1780 Kentucky raids →</a><a class="story" id="stop-cynthiana-cynthia-anna-on-the-licking" href="/stories/cynthiana-cynthia-anna-on-the-licking/">Cynthiana: Cynthia &amp; Anna on the Licking →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">3</span>
     <div><p class="stop-name">3. Colville Covered Bridge</p><p class="stop-meta"><span class="tag">Public</span>Built 1877. Covered bridge on a public road over Hinkston Creek; drive-through.</p></div>
     <span class="leg">5.6 mi, about 16 min from stop 2</span>
@@ -92,7 +93,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">4</span>
     <div><p class="stop-name">4. Blue Licks Battlefield State Resort Park</p><p class="stop-meta"><span class="tag">Public</span>Battle August 19, 1782. Public state park.</p></div>
     <span class="leg">19.2 mi, about 30 min from stop 3</span>
-    <div class="links"><a class="story" href="/stories/battle-of-blue-licks/">Battle of Blue Licks →</a><a class="story" href="/stories/hugh-mcgary-the-blue-licks-hothead/">Hugh McGary, the Blue Licks Hothead →</a></div></li>
+    <div class="links"><a class="story" id="stop-battle-of-blue-licks" href="/stories/battle-of-blue-licks/">Battle of Blue Licks →</a><a class="story" id="stop-hugh-mcgary-the-blue-licks-hothead" href="/stories/hugh-mcgary-the-blue-licks-hothead/">Hugh McGary, the Blue Licks Hothead →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">5</span>
     <div><p class="stop-name">5. Johnson Creek Covered Bridge</p><p class="stop-meta"><span class="tag">Public</span>Built 1874. Closed to vehicles; view it from the roadside pull-off.</p></div>
     <span class="leg">4.7 mi, about 8 min from stop 4</span>
@@ -104,7 +105,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">7</span>
     <div><p class="stop-name">7. Washington, Mason County</p><p class="stop-meta"><span class="tag">Public</span>Founded 1786. Historic town; visitor center and some buildings keep seasonal hours.</p></div>
     <span class="leg">26.3 mi, about 33 min from stop 6</span>
-    <div class="links"><a class="story" href="/stories/washington-mason-county/">Washington, Mason County →</a></div></li></ol>
+    <div class="links"><a class="story" id="stop-washington-mason-county" href="/stories/washington-mason-county/">Washington, Mason County →</a></div></li></ol>
       <div class="go" id="go"></div>
       <p class="note">Directions cover the public stops only. Ruddell's and Martin's station sites are on private farmland: they're shown on the map for context, with no directions. Please don't enter private land.</p>
     </section>
@@ -144,11 +145,12 @@ const [route, base] = await Promise.all([fetch('/drives/licking-valley-route.jso
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, one way</span><span>Theme: <b>Revolutionary-era raids and covered bridges</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const tag = s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>'
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -156,6 +158,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

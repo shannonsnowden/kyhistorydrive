@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/civil-war-bluegrass/#trip","name":"Civil War in the Bluegrass","description":"From Kentucky's largest Civil War battle at Perryville to the Union recruiting camps at Camp Dick Robinson and Camp Nelson, the 1862 fight at Richmond.","url":"https://kyhistorydrive.com/drives/civil-war-bluegrass/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Perryville Battlefield State Historic Site","identifier":"perryville-battlefield","geo":{"@type":"GeoCoordinates","latitude":37.6751,"longitude":-84.9705}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Camp Dick Robinson marker (KHS #1750)","identifier":"camp-dick-robinson","geo":{"@type":"GeoCoordinates","latitude":37.6455,"longitude":-84.7125}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Camp Nelson National Monument","identifier":"camp-nelson-nm","url":"https://kyhistorydrive.com/stories/camp-nelson-jessamine-county/","geo":{"@type":"GeoCoordinates","latitude":37.7904,"longitude":-84.5985}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Richmond Battlefield Park","identifier":"richmond-battlefield-park","geo":{"@type":"GeoCoordinates","latitude":37.6847,"longitude":-84.2581}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Hunt-Morgan House (Hopemont)","identifier":"hunt-morgan-house","geo":{"@type":"GeoCoordinates","latitude":38.0501,"longitude":-84.4961}}}]}}</script>
@@ -88,7 +89,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">3</span>
     <div><p class="stop-name">3. Camp Nelson National Monument</p><p class="stop-meta"><span class="tag">Public</span>Depot from April 1863. National Park Service site; free. The national cemetery is next door.</p><p class="stop-meta">Established as a fortified Union supply depot in April 1863, Camp Nelson became a large recruitment and training center for U.S. Colored Troops and a refugee camp for their families. <span class="note">Sources: <a href="https://www.nps.gov/cane/" rel="noopener noreferrer" target="_blank">National Park Service: Camp Nelson</a>; <a href="https://history.ky.gov/markers/camp-nelson" rel="noopener noreferrer" target="_blank">KHS marker #1515: Camp Nelson</a></span></p></div>
     <span class="leg">15.5 mi, about 26 min from stop 2</span>
-    <div class="links"><a class="story" href="/stories/camp-nelson-jessamine-county/">Camp Nelson, Jessamine County →</a></div></li>
+    <div class="links"><a class="story" id="stop-camp-nelson-jessamine-county" href="/stories/camp-nelson-jessamine-county/">Camp Nelson, Jessamine County →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">4</span>
     <div><p class="stop-name">4. Richmond Battlefield Park</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Limited hours</span>Aug. 29–30, 1862. County park and visitor center; visitor center hours are limited.</p><p class="stop-meta">Gen. Edmund Kirby Smith's Confederate Army of Kentucky defeated Union forces here in August 1862; days later, on Sept. 2, Frankfort fell to Confederate forces. <span class="note">Sources: <a href="https://www.battlefields.org/learn/civil-war/battles/richmond" rel="noopener noreferrer" target="_blank">American Battlefield Trust: Richmond</a>; <a href="https://en.wikipedia.org/wiki/Battle_of_Richmond" rel="noopener noreferrer" target="_blank">Wikipedia: Battle of Richmond</a></span></p></div>
     <span class="leg">39.4 mi, about 55 min from stop 3</span>
@@ -148,6 +149,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/civil-war-bluegra
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, one way (estimate)</span><span>Theme: <b>Union camps, USCT recruitment and the 1862 invasion</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -155,7 +157,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -163,6 +165,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

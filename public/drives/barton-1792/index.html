@@ -51,6 +51,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
+.stops li{scroll-margin-top:72px}.stops li:has(.story:target){outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 </style>
 <!-- khd-drive-jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/barton-1792/#trip","name":"Barton 1792: Bardstown and the Catholic Holy Land · Loop 1: Bardstown to Loretto","description":"Starting at Barton 1792 on the edge of Bardstown: Spalding Hall, Federal Hill, and the Holy Cross and Loretto country to the south.","url":"https://kyhistorydrive.com/drives/barton-1792/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Barton 1792 Distillery","identifier":"barton-1792","geo":{"@type":"GeoCoordinates","latitude":37.8056,"longitude":-85.4774}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Spalding Hall (Oscar Getz Museum of Whiskey History)","identifier":"oscar-getz-museum","geo":{"@type":"GeoCoordinates","latitude":37.8154,"longitude":-85.4702}}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"My Old Kentucky Home State Park (Federal Hill)","identifier":"my-old-kentucky-home","geo":{"@type":"GeoCoordinates","latitude":37.8068,"longitude":-85.4567}}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Holy Cross Church and Catholic Pioneers marker (KHS #913)","identifier":"holy-cross-catholic-pioneers","url":"https://kyhistorydrive.com/stories/basil-haydens-high-rye-trail/","geo":{"@type":"GeoCoordinates","latitude":37.6741,"longitude":-85.4469}}},{"@type":"ListItem","position":5,"item":{"@type":"Place","name":"Maker's Mark Distillery (Burks' Distillery)","identifier":"makers-mark","geo":{"@type":"GeoCoordinates","latitude":37.6468,"longitude":-85.349}}}]}}</script>
@@ -92,7 +93,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 <li class=""><span class="num" aria-hidden="true">4</span>
     <div><p class="stop-name">4. Holy Cross Church and Catholic Pioneers marker (KHS #913)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Marker only</span>Settled 1785; church 1792. Roadside marker at KY 49/KY 457; active parish church (grounds only unless services are open).</p><p class="stop-meta">Basil Hayden Sr. led Maryland Catholic families to Pottinger's Creek in 1785; the first Catholic church west of the Alleghenies was built here in 1792, and the present church in 1823. <span class="note">Sources: <a href="https://history.ky.gov/markers/catholic-pioneers" rel="noopener noreferrer" target="_blank">KHS marker #913: Catholic Pioneers</a>; <a href="https://explorekyhistory.ky.gov/items/show/254" rel="noopener noreferrer" target="_blank">ExploreKYHistory: Catholic Pioneers</a></span></p></div>
     <span class="leg">10.4 mi, about 16 min from stop 3</span>
-    <div class="links"><a class="story" href="/stories/basil-haydens-high-rye-trail/">Basil Hayden's High-Rye Trail →</a></div></li>
+    <div class="links"><a class="story" id="stop-basil-haydens-high-rye-trail" href="/stories/basil-haydens-high-rye-trail/">Basil Hayden's High-Rye Trail →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">5</span>
     <div><p class="stop-name">5. Maker's Mark Distillery (Burks' Distillery)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span>Bought 1953. Working distillery; tours by reservation, fees apply.</p><p class="stop-meta">Bill Samuels Sr. bought the Burks' Distillery at Loretto on October 1, 1953; it became a National Historic Landmark in 1980, the first U.S. distillery so recognized while its landmark buildings were in active production. <span class="note">Sources: <a href="https://en.wikipedia.org/wiki/Maker%27s_Mark" rel="noopener noreferrer" target="_blank">Wikipedia: Maker's Mark</a>; <a href="https://www.makersmark.com/" rel="noopener noreferrer" target="_blank">Maker's Mark</a></span></p></div>
     <span class="leg">8.6 mi, about 18 min from stop 4</span>
@@ -148,6 +149,7 @@ const [route, base] = await Promise.all([fetch('/drives/routes/barton-1792.json'
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, round trip back to the start (estimate)</span><span>Theme: <b>A college town, Federal Hill and Kentucky&#x27;s early Catholic settlements</b></span>`
 
 // Stop list
+const seenStop = new Set()
 $('stops').innerHTML = STOPS.map((s, i) => {
   const leg = i ? route.legs[i-1] : null
   const FL = { private:'Private land', marker:'Marker only', paid:'Paid admission', limited:'Limited hours', reservation:'Reservation needed' }
@@ -155,7 +157,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
   const src = (s.sources||[]).length ? `<p class="stop-meta">${esc(s.note)} <span class="note">Sources: ${s.sources.map(([t,u]) => `<a href="${esc(u)}" rel="noopener noreferrer" target="_blank">${esc(t)}</a>`).join('; ')}</span></p>` : ''
   const onmap = ''
   const links = s.stories.length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${esc(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${seenStop.has(slug) ? '' : (seenStop.add(slug), ` id="stop-${slug}"`)} href="/stories/${slug}/">${esc(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
@@ -163,6 +165,9 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}${i===STOPS.length-1 && route.legs.length>=STOPS.length ? `<span class="leg">Return to stop 1: ${route.legs[STOPS.length-1][0]} mi, about ${route.legs[STOPS.length-1][1]} min</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
+
+// #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
+{ const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
 // Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
 function google(list){

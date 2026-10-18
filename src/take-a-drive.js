@@ -1,11 +1,11 @@
-// 'Take a Drive' button: links a story to each drive it is a stop on, via /drives/?drive=<id>.
+// 'Take a Drive' button: links a story to its stop on a drive page, /drives/<id>/#stop-<slug>.
+// One button for the first drive; any other drives go in a compact 'Also on:' row.
 // Pure HTML builders, shared by the static story pages (prerender) and the Timeline panel (main.js).
 // Data: /data/web/story-drives.json, built from the drive pages by scripts/build-story-drives.mjs.
 
 // Same route-and-car mark as the homepage Plan Your Drive badge (seal option A). Green and amber only.
 export const TAKE_A_DRIVE_ICON = `<svg class="take-a-drive-icon" viewBox="0 0 120 120" width="40" height="40" aria-hidden="true" focusable="false">
 <circle cx="60" cy="60" r="57" fill="var(--pb-green)" stroke="var(--pb-amber)" stroke-width="3"/>
-<circle cx="60" cy="60" r="50" fill="none" stroke="var(--pb-amber)" stroke-opacity=".35" stroke-width="1.2"/>
 <path d="M28 84 C 40 84, 40 62, 56 62 S 74 40, 92 38" fill="none" stroke="var(--pb-cream)" stroke-opacity=".9" stroke-width="7" stroke-linecap="round"/>
 <path d="M28 84 C 40 84, 40 62, 56 62 S 74 40, 92 38" fill="none" stroke="var(--pb-amber)" stroke-width="2.4" stroke-dasharray="5 5" stroke-linecap="round"/>
 <circle cx="28" cy="84" r="5" fill="var(--pb-amber)" stroke="var(--pb-cream)" stroke-width="2"/>
@@ -22,19 +22,22 @@ const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
 const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
-export const takeADriveHref = (id) => `/drives/?drive=${encodeURIComponent(id)}`
+export const takeADriveHref = (id, slug) => `/drives/${encodeURIComponent(id)}/#stop-${encodeURIComponent(slug)}`
 
-/** One button per drive the story is on; '' when it is on none. data: story-drives.json. */
+/** A button for the story's first drive plus an 'Also on:' row for the rest; '' when it is on none. data: story-drives.json. */
 export function takeADriveHtml(data, slug) {
+  if (!ID_RE.test(String(slug || ''))) return ''
   const ids = (data?.stories?.[slug] || []).filter((id) => ID_RE.test(id) && data.drives?.[id])
   if (!ids.length) return ''
-  const links = ids
-    .map((id) => {
-      const name = data.drives[id].name
-      return `<a class="take-a-drive-btn" href="${esc(takeADriveHref(id))}" data-drive="${esc(id)}" aria-label="Take a Drive: ${esc(name)}">${TAKE_A_DRIVE_ICON}<span class="take-a-drive-text"><span class="take-a-drive-title">Take a Drive</span><span class="take-a-drive-name">${esc(name)}</span></span></a>`
-    })
-    .join('')
-  return `<nav class="take-a-drive" data-take-a-drive aria-label="Drives with this story">${links}</nav>`
+  const [first, ...rest] = ids
+  const name = data.drives[first].name
+  const btn = `<a class="take-a-drive-btn" href="${esc(takeADriveHref(first, slug))}" data-drive="${esc(first)}" aria-label="Take a Drive: ${esc(name)}">${TAKE_A_DRIVE_ICON}<span class="take-a-drive-text"><span class="take-a-drive-title">Take a Drive</span><span class="take-a-drive-name">${esc(name)}</span></span></a>`
+  const also = rest.length
+    ? `<p class="take-a-drive-also"><span class="take-a-drive-also-label">Also on:</span> ${rest
+        .map((id) => `<a class="take-a-drive-alt" href="${esc(takeADriveHref(id, slug))}" data-drive="${esc(id)}">${esc(data.drives[id].name)}</a>`)
+        .join('<span class="take-a-drive-sep" aria-hidden="true"> · </span>')}</p>`
+    : ''
+  return `<nav class="take-a-drive" data-take-a-drive aria-label="Drives with this story">${btn}${also}</nav>`
 }
 
 let cache = null
