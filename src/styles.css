@@ -5687,6 +5687,8 @@ html[data-hp-theme="light"] .take-a-drive {
 .take-a-drive-also-label { font-weight: 700; }
 .take-a-drive-alt { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
 .take-a-drive-alt:focus-visible { outline: 3px solid var(--pb-amber); outline-offset: 2px; }
+/* Light mode: --accent (#9a5f1c) on the cream panel is 4.36:1; --accent-deep passes AA. */
+html[data-hp-theme="light"] .take-a-drive-alt { color: var(--accent-deep); }
 /* Map bottom-left corner (#map only): legend, Full state and the scale bar stack in one
    column with 8px gaps so nothing overlaps. Scale 22px at 10px from the bottom; Full state
    44px tall above it; the nation legend above that. Below 560px the panel's own Full state

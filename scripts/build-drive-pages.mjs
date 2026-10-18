@@ -13,6 +13,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const SITE = 'https://kyhistorydrive.com'
+import { parseJsLiteral } from './js-literal.mjs'
 const DP = 'public/drives'
 const SUFFIX = ' · Kentucky History Drive'
 
@@ -102,7 +103,7 @@ function stopLi(s, i, leg, anchorIds) {
     ? `<p class="stop-meta">${escText(s.note)} <span class="note">Sources: ${s.sources.map(([t, u]) => `<a href="${escText(u)}" rel="noopener noreferrer" target="_blank">${escText(t)}</a>`).join('; ')}</span></p>`
     : s.note ? `<p class="stop-meta">${escText(s.note)}</p>` : ''
   const links = (s.stories || []).length
-    ? s.stories.map(([slug, t]) => `<a class="story"${anchorIds && !anchorIds.has(slug) && anchorIds.add(slug) ? ` id="stop-${slug}"` : ''} href="/stories/${slug}/">${escText(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${anchorIds && !anchorIds.has(slug) && anchorIds.add(slug) ? ` id="stop-${escText(slug)}"` : ''} href="/stories/${encodeURIComponent(slug)}/">${escText(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i + 1}</span>
     <div><p class="stop-name">${i + 1}. ${escText(s.name)}</p><p class="stop-meta">${tag}${escText(s.when)}. ${escText(s.access)}</p>${src}</div>
@@ -119,7 +120,7 @@ for (const slug of slugs) {
   const before = html
   const m = html.match(/const STOPS = (\[[\s\S]*?\n\])/)
   if (!m) throw new Error(`build-drive-pages: ${slug} has no STOPS`)
-  const stops = new Function(`return ${m[1]}`)()
+  const stops = parseJsLiteral(m[1])
   const routeFile = [path.join(DP, 'routes', `${slug}.json`), path.join(DP, `${slug}-route.json`)].find((f) => fs.existsSync(f))
   if (!routeFile) throw new Error(`build-drive-pages: ${slug} has no route file`)
   const route = JSON.parse(fs.readFileSync(routeFile, 'utf8'))
