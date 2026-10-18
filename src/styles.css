@@ -6128,10 +6128,10 @@ html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter
   .static-story.story-reader-layout > .story-sidebar-photo { margin: 1rem 0; }
 }
 
-/* Dark-mode header seal halo: the gold ring faded into the dark header. A cream rim outside the
-   ring lifts it to well over 3:1 against the header. CSS only; the seal artwork and its colors are
+/* Dark-mode header seal halo: the gold ring faded into the dark header. A crisp cream rim outside the
+   ring (no soft glow, per Editor follow-up to #318) lifts it to well over 3:1 against the header. CSS only; the seal artwork and its colors are
    untouched, so it works with any seal asset. Light mode keeps its navy ring. */
 html:not([data-hp-theme="light"]) .brand-logo,
 html:not([data-hp-theme="light"]) .hp-page .brand-logo {
-  box-shadow: 0 0 0 2px #f6edd8, 0 0 10px 2px rgba(246, 237, 216, 0.28), 0 2px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 2px #f6edd8, 0 2px 8px rgba(0, 0, 0, 0.35);
 }
