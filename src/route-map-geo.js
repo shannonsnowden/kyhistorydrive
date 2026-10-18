@@ -31,6 +31,9 @@ const IDENTITY = { x0: 0, y0: 0, x1: 1, y1: 1 }
 export const BADGE = 26
 export const DESK_VIEW = [820, 460]
 export const PHONE_VIEW = [350, 197]
+/** Range pill width = PILL_PAD + PILL_CHAR per character (12px bold, measured with margin). */
+export const PILL_PAD = 16
+export const PILL_CHAR = 7.8
 /** The painted double-rule frame, as a fraction of the image; badges stay inside it. */
 export const FRAME_INSET = [0.03, 0.04]
 export function frameInset(viewW, viewH) {
@@ -313,7 +316,9 @@ const BADGE_AT = {
     11: [0.365, 0.86],
   },
 }
-const PHONE_BADGE_AT = {}
+const PHONE_BADGE_AT = {
+  // Hand spots where the nearest clear spot would run a leader across a label.
+  }
 
 /**
  * Phone crops that show only the Kentucky leg: stops off the crop pin to the
@@ -361,7 +366,7 @@ function placedPoint(spec, slot, index, stop) {
 /** Badge as a capsule in view pixels: center, half straight length, radius. */
 function badgeShape(item, viewW, viewH) {
   const text = item.label || String(item.number)
-  const w = item.cluster ? Math.max(BADGE, 14 + 7.2 * text.length) : BADGE
+  const w = item.cluster ? Math.max(BADGE, PILL_PAD + PILL_CHAR * text.length) : BADGE
   return { x: item.point[0] * viewW, y: item.point[1] * viewH, h: (w - BADGE) / 2, r: BADGE / 2 }
 }
 
@@ -389,6 +394,33 @@ function segHitsRect(a, b, rect) {
   return false
 }
 
+/**
+ * The leader dot marks the stop's spot on the painted line; when that spot is
+ * inside a label box, the dot moves to the nearest point 3px outside it so it
+ * never sits on the lettering.
+ */
+export function dotClear(p, rects, viewW, viewH) {
+  let x = p[0] * viewW
+  let y = p[1] * viewH
+  for (let n = 0; n < 4; n++) {
+    const hit = rects.find((r) => x > r[0] - 3 && x < r[2] + 3 && y > r[1] - 3 && y < r[3] + 3)
+    if (!hit) break
+    const opts = [[x - hit[0] + 3, -1, 0], [hit[2] + 3 - x, 1, 0], [y - hit[1] + 3, 0, -1], [hit[3] + 3 - y, 0, 1]].sort((a, b) => a[0] - b[0])
+    x += opts[0][1] * opts[0][0]
+    y += opts[0][2] * opts[0][0]
+  }
+  return [x / viewW, y / viewH]
+}
+
+/**
+ * State and region names in spaced capitals (KENTUCKY, ILLINOIS) are area
+ * lettering, not place labels: a badge may not cover one, but a thin leader
+ * may cross it, as roads and rivers do on the painting.
+ */
+export function isAreaLabel(name) {
+  return /^[A-Z][A-Z .]{4,}$/.test(String(name || '').trim())
+}
+
 /** Clearance (px) between a badge and a label box; below 0 means they overlap. */
 export function badgeLabelGap(shape, rect) {
   return segRectDist(shape.x - shape.h, shape.x + shape.h, shape.y, rect) - shape.r
@@ -408,41 +440,47 @@ export function badgeBadgeGap(a, b) {
  */
 function placeBadges(items, labels, viewW, viewH, prefer = {}) {
   const rects = (labels || []).map((l) => [l[0] * viewW, l[1] * viewH, l[2] * viewW, l[3] * viewH])
+  const crossable = (labels || []).map((l) => isAreaLabel(l[4]))
   const placed = []
   // Keep 4px of air: OCR boxes can clip a first letter.
-  const gap = viewW < 400 ? 6 : 2
+  const gap = viewW < 400 ? 6 : 3
   const cost = (shape, from) => {
     let bad = 0
     // A leader may not run across a label either.
-    if (from) for (const rect of rects) if (segHitsRect(from, [shape.x, shape.y], rect)) bad += 0.25
-    for (const rect of rects) bad += Math.max(0, gap - badgeLabelGap(shape, rect))
-    for (const other of placed) bad += Math.max(0, gap - badgeBadgeGap(shape, other.shape))
+    // A leader may not run across a label: a hard cost, like an overlap.
+    if (from) rects.forEach((rect, i) => { if (!crossable[i] && segHitsRect(from, [shape.x, shape.y], rect)) bad += 6 })
+    for (const rect of rects) bad += 4 * Math.max(0, gap - badgeLabelGap(shape, rect))
+    for (const other of placed) bad += 4 * Math.max(0, gap - badgeBadgeGap(shape, other.shape))
     // Stay inside the painted frame (FRAME_INSET), never clipped by the image edge.
     const [mx, my] = frameInset(viewW, viewH)
     const edge = Math.min(shape.x - shape.h - shape.r - mx, viewW - mx - shape.x - shape.h - shape.r, shape.y - shape.r - my, viewH - my - shape.y - shape.r)
-    if (edge < 0) bad -= edge
+    if (edge < 1) bad += 4 * (1 - edge)
     return bad
   }
   return items.map((item) => {
     const at = badgeShape(item, viewW, viewH)
+    // Leaders start at the dot, which sits clear of the labels.
+    const dot = dotClear(item.point, rects, viewW, viewH)
+    const from = [dot[0] * viewW, dot[1] * viewH]
     const want = prefer[item.number]
     // A hand-picked spot (BADGE_AT) is where the search starts.
     const base = want ? { ...at, x: want[0] * viewW, y: want[1] * viewH } : at
-    let best = { shape: base, bad: cost(base, want ? [at.x, at.y] : null), r: want ? Math.hypot(base.x - at.x, base.y - at.y) : 0 }
+    let best = { shape: base, bad: cost(base, want ? from : null), r: want ? Math.hypot(base.x - at.x, base.y - at.y) : 0 }
     if (globalThis.__badgeDebug && want) globalThis.__badgeDebug(item.number, best.bad, rects.map((r, i) => [i, +badgeLabelGap(base, r).toFixed(2)]).filter((x) => x[1] < 1), placed.map((o) => +badgeBadgeGap(base, o.shape).toFixed(1)).filter((g) => g < 1))
     if (best.bad > 0) {
-      for (let r = 3; r <= 96 && best.bad > 0; r += 3) {
-        for (let k = 0; k < 24; k++) {
-          const a = (k * Math.PI) / 12
+      for (let r = 3; r <= 200 && best.bad > 0; r += 3) {
+        for (let k = 0; k < 36; k++) {
+          const a = (k * Math.PI) / 18
           const shape = { ...base, x: base.x + r * Math.cos(a), y: base.y + r * Math.sin(a) }
-          const bad = cost(shape, [at.x, at.y])
+          // Prefer the nearest clear spot: a long leader is a cost too.
+          const bad = cost(shape, from) + 0.15 * Math.max(0, Math.hypot(shape.x - at.x, shape.y - at.y) - 20)
           if (bad < best.bad - 1e-9) best = { shape, bad, r: Math.hypot(shape.x - at.x, shape.y - at.y) }
         }
       }
     }
     const out = {
       ...item,
-      anchor: item.point,
+      anchor: dot,
       point: [best.shape.x / viewW, best.shape.y / viewH],
       leader: best.r >= 6,
     }
@@ -482,8 +520,8 @@ function clusterPhone(items) {
   }
   return groups.map((group) => {
     if (group.length === 1) return group[0]
-    const x = group.reduce((sum, item) => sum + item.point[0], 0) / group.length
-    const y = group.reduce((sum, item) => sum + item.point[1], 0) / group.length
+    // A range badge points at the stop where its range begins.
+    const [x, y] = group[0].point
     const first = group[0].number
     const last = group[group.length - 1].number
     return {
@@ -552,11 +590,12 @@ export function routeMapLayout(route, kind = 'desk') {
   // between its neighbours (or joins their range badge on a phone).
   items.forEach((item, i) => {
     if (item.point) return
+    // It shares the previous stop's spot, so it joins that badge's range or
+    // steps out with a leader to it; it never floats between two stops.
     const before = items.slice(0, i).reverse().find((o) => o.point && !o.pinned)
     const after = items.slice(i + 1).find((o) => o.point && !o.pinned)
     const a = before || after
-    const b = after || before
-    item.point = a ? [(a.point[0] + b.point[0]) / 2, (a.point[1] + b.point[1]) / 2] : [0.5, 0.5]
+    item.point = a ? [a.point[0], a.point[1]] : [0.5, 0.5]
   })
   if (phone) items = clusterPhone(items)
   const labels = ROUTE_MAP_LABELS[route.slug]?.[phone ? 'phone' : 'light']

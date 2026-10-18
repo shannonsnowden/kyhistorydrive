@@ -28,7 +28,7 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spreadBadges, labelBox } from '../public/drives/badge-spread.js'
 import { ROUTE_MAP_LABELS } from '../src/route-map-labels.js'
-import { BADGE, DESK_VIEW, PHONE_VIEW, badgeLabelGap, badgeBadgeGap, frameInset } from '../src/route-map-geo.js'
+import { BADGE, DESK_VIEW, PHONE_VIEW, PILL_PAD, PILL_CHAR, badgeLabelGap, badgeBadgeGap, frameInset, isAreaLabel } from '../src/route-map-geo.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -271,7 +271,7 @@ export function labelOverlaps(id, marks, labels, view, { badge = BADGE } = {}) {
   const errs = []
   const [vw, vh] = view
   const shapes = marks.map((m) => {
-    const w = m.cluster ? Math.max(badge, 14 + 7.2 * m.label.length) : badge
+    const w = m.cluster ? Math.max(badge, PILL_PAD + PILL_CHAR * m.label.length) : badge
     return { m, x: (m.b[0] / 16) * vw, y: (m.b[1] / 9) * vh, h: (w - badge) / 2, r: badge / 2 }
   })
   const [mx, my] = frameInset(vw, vh)
@@ -279,15 +279,28 @@ export function labelOverlaps(id, marks, labels, view, { badge = BADGE } = {}) {
     // Inside the painted frame: never clipped by the image edge.
     const out = Math.max(mx - (s.x - s.h - s.r), s.x + s.h + s.r - (vw - mx), my - (s.y - s.r), s.y + s.r - (vh - my))
     if (out > 0.5) errs.push(`${id}: badge ${s.m.label} runs ${out.toFixed(1)}px past the map frame`)
+    const dot = [(s.m.p[0] / 16) * vw, (s.m.p[1] / 9) * vh]
+    const moved = Math.hypot(dot[0] - s.x, dot[1] - s.y) >= 6
     for (const l of labels || []) {
       const rect = [l[0] * vw, l[1] * vh, l[2] * vw, l[3] * vh]
+      if (moved && dot[0] > rect[0] && dot[0] < rect[2] && dot[1] > rect[1] && dot[1] < rect[3]) errs.push(`${id}: badge ${s.m.label}'s leader dot sits on the label "${l[4]}"`)
+      if (moved && !isAreaLabel(l[4])) {
+        // The leader, from its dot to the badge edge, may not cross a label.
+        const len = Math.hypot(s.x - dot[0], s.y - dot[1])
+        for (let t = 4 / len; t < 1 - (s.r + 1) / len; t += 1 / len) {
+          const x = dot[0] + t * (s.x - dot[0])
+          const y = dot[1] + t * (s.y - dot[1])
+          if (x > rect[0] && x < rect[2] && y > rect[1] && y < rect[3]) { errs.push(`${id}: badge ${s.m.label}'s leader crosses the label "${l[4]}"`); break }
+        }
+      }
       const gap = badgeLabelGap(s, rect)
       if (gap < 0) errs.push(`${id}: badge ${s.m.label} covers the label "${l[4]}" (${(-gap).toFixed(1)}px)`)
     }
   }
   for (let i = 0; i < shapes.length; i++) {
     for (let j = i + 1; j < shapes.length; j++) {
-      if (badgeBadgeGap(shapes[i], shapes[j]) < 0) errs.push(`${id}: badges ${shapes[i].m.label} and ${shapes[j].m.label} overlap`)
+      // Touching counts: badges need 2px of air between them.
+      if (badgeBadgeGap(shapes[i], shapes[j]) < 2) errs.push(`${id}: badges ${shapes[i].m.label} and ${shapes[j].m.label} touch or overlap`)
     }
   }
   return errs
