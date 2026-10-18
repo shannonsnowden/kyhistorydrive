@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-13T09:39:22.643Z",
+  "generatedAt": "2026-10-14T09:59:02.782Z",
   "stats": {
-    "exact": 12,
-    "fuzzy": 46,
-    "county": 6,
-    "override": 139,
+    "exact": 11,
+    "fuzzy": 45,
+    "county": 4,
+    "override": 140,
     "none": 38
   },
   "locations": {
@@ -152,8 +152,8 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
-    "muir-site-15js86": {
-      "slug": "muir-site-15js86",
+    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
+      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
       "lat": 37.9,
       "lon": -84.6,
       "mapConfidence": "override",
@@ -176,27 +176,11 @@
       "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)",
       "historyId": "sassafras-ridge-15fu3-fulton-1000-1500"
     },
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "lat": 37.9,
-      "lon": -84.6,
-      "mapConfidence": "override",
-      "matchedPlace": "Muir Site (15Js86)",
-      "historyId": "muir-site-15js86-jessamine-county"
-    },
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
       "lat": 36.5,
       "lon": -89.2,
       "mapConfidence": "override",
-      "matchedPlace": "Adams Site (15Fu4)",
-      "historyId": "adams-site-15fu4-mississippian-fulton-county"
-    },
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "lat": 36.5,
-      "lon": -89.2,
-      "mapConfidence": "fuzzy",
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
     },
@@ -239,14 +223,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Buckner Site (15Bb12)",
       "historyId": "buckner-site-15bb12-bourbon-county"
-    },
-    "cleek-mccabe-fort-ancient-village": {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "lat": 39,
-      "lon": -84.7,
-      "mapConfidence": "exact",
-      "matchedPlace": "Cleek-McCabe Fort Ancient Village",
-      "historyId": "cleek-mccabe-fort-ancient-village-boone-county"
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
@@ -295,6 +271,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)",
       "historyId": "twin-mounds-site-15ba2-ballard-county"
+    },
+    "chambers-site-15ml109-marshall-county": {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "lat": 36.9,
+      "lon": -88.3,
+      "mapConfidence": "override",
+      "matchedPlace": "Chambers Site (15Ml109), Marshall County (approximate)",
+      "historyId": "chambers-site-15ml109-marshall-1250-1350"
     },
     "annis-mound-village": {
       "slug": "annis-mound-village",
@@ -352,8 +336,8 @@
       "matchedPlace": "Hardin Village Fort Ancient",
       "historyId": "hardin-village-fort-ancient"
     },
-    "erie-the-cat-nation-cleared-from-the-lake-shore": {
-      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
+    "iroquois-beaver-wars": {
+      "slug": "iroquois-beaver-wars",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -448,14 +432,6 @@
       "matchedPlace": "Lincoln County (centroid)",
       "historyId": null
     },
-    "hugh-mcgary-the-hothead-major": {
-      "slug": "hugh-mcgary-the-hothead-major",
-      "lat": 37.778,
-      "lon": -84.83079,
-      "mapConfidence": "county",
-      "matchedPlace": "Mercer County (centroid)",
-      "historyId": null
-    },
     "michael-stoner-german-long-hunter": {
       "slug": "michael-stoner-german-long-hunter",
       "lat": 37.8909,
@@ -530,8 +506,8 @@
     },
     "john-finley-the-trader-who-put-kentucky-on-boones-map": {
       "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
@@ -546,8 +522,8 @@
     },
     "odawa-raid-at-eskippakithiki-1753": {
       "slug": "odawa-raid-at-eskippakithiki-1753",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley",
       "historyId": "john-finley-eskippakithiki-trader"
@@ -760,6 +736,14 @@
       "matchedPlace": "William Whitley / Sportsman's Hill",
       "historyId": "william-whitley-sportsmans-hill"
     },
+    "hugh-mcgary-the-blue-licks-hothead": {
+      "slug": "hugh-mcgary-the-blue-licks-hothead",
+      "lat": 37.805,
+      "lon": -84.831,
+      "mapConfidence": "override",
+      "matchedPlace": "McGary's Station / Shawnee Springs",
+      "historyId": "mcgarys-station-shawnee-springs-mercer"
+    },
     "levi-todd-lexington-co-founder": {
       "slug": "levi-todd-lexington-co-founder",
       "lat": 38.0137667,
@@ -839,14 +823,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Springfield / Washington County seat",
       "historyId": "springfield-washington-county-seat"
-    },
-    "springfield-first-county-seat-after-statehood": {
-      "slug": "springfield-first-county-seat-after-statehood",
-      "lat": 37.6853,
-      "lon": -85.2222,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield",
-      "historyId": null
     },
     "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
@@ -928,14 +904,6 @@
       "matchedPlace": "Worthington's Fort (Edward Worthington)",
       "historyId": "worthingtons-fort-danville"
     },
-    "hugh-mcgary-the-blue-licks-hothead": {
-      "slug": "hugh-mcgary-the-blue-licks-hothead",
-      "lat": 37.805,
-      "lon": -84.831,
-      "mapConfidence": "override",
-      "matchedPlace": "McGary's Station / Shawnee Springs",
-      "historyId": "mcgarys-station-shawnee-springs-mercer"
-    },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "lat": 38.3351,
@@ -1007,14 +975,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Isaac Shelby",
       "historyId": "isaac-shelby"
-    },
-    "lawrenceburg-from-kaufmans-station": {
-      "slug": "lawrenceburg-from-kaufmans-station",
-      "lat": 38.02186,
-      "lon": -84.89316,
-      "mapConfidence": "county",
-      "matchedPlace": "Anderson County (centroid)",
-      "historyId": null
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
@@ -1120,6 +1080,14 @@
       "matchedPlace": "Holder's Station / Lower Howard's Creek",
       "historyId": "holders-station-lower-howards-creek"
     },
+    "hartford-fort-hartford-on-the-rough-river": {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "lat": 37.4524,
+      "lon": -86.9105,
+      "mapConfidence": "override",
+      "matchedPlace": "Hartford / Fort Hartford (Rough River)",
+      "historyId": "hartford-fort-hartford-ohio-1782-1808"
+    },
     "wyandot-on-kentuckys-northern-frontier": {
       "slug": "wyandot-on-kentuckys-northern-frontier",
       "lat": null,
@@ -1191,6 +1159,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Henderson / Red Banks",
       "historyId": "henderson-founding-red-banks"
+    },
+    "treaty-of-fort-mcintosh-1785": {
+      "slug": "treaty-of-fort-mcintosh-1785",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "washington-mason-county": {
       "slug": "washington-mason-county",
@@ -1808,6 +1784,14 @@
       "matchedPlace": "Cumberland Falls",
       "historyId": "cumberland-falls"
     },
+    "yahoo-falls-big-south-fork": {
+      "slug": "yahoo-falls-big-south-fork",
+      "lat": 36.769,
+      "lon": -84.51056,
+      "mapConfidence": "override",
+      "matchedPlace": "Yahoo Falls, Big South Fork (McCreary County)",
+      "historyId": "yahoo-falls-mccreary-1937-1987"
+    },
     "carter-caves-cascade-falls": {
       "slug": "carter-caves-cascade-falls",
       "lat": 38.3767,
@@ -1831,14 +1815,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Big Bone Lick",
       "historyId": "big-bone-lick"
-    },
-    "iroquois-beaver-wars": {
-      "slug": "iroquois-beaver-wars",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
     },
     "kentucky-river-palisades": {
       "slug": "kentucky-river-palisades",

@@ -21,7 +21,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:UnionStationLouisville.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
-    "year": 1979
+    "year": 1979,
+    "fit": "contain"
   },
   "county": "Jefferson"
 }

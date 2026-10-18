@@ -27,7 +27,7 @@ import {
   privacyChoicesBootHtml,
   privacyChoicesLinkHtml,
 } from './gtag-snippet.mjs'
-import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
 import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
 import {
@@ -58,7 +58,7 @@ import {
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { applyStoryPeople } from '../src/story-people.js'
-import { portraitsByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
+import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 
@@ -775,6 +775,7 @@ class PrerenderPages {
       lat: loc?.lat ?? indexRow?.lat ?? null,
       lon: loc?.lon ?? indexRow?.lon ?? null,
       photo,
+      figure: body.figure && typeof body.figure === 'object' ? body.figure : null,
       archaeological: PrerenderPages.isArchaeological(body),
     }
   }
@@ -1140,9 +1141,7 @@ class PrerenderPages {
     ${img}
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    ${faviconLinksHtml('    ')}
     ${gtagHeadHtml()}
     ${jsonLd}
     ${cssHrefs.map((href) => `<link rel="stylesheet" href="${PrerenderPages.escapeHtml(href)}" />`).join('\n    ')}
@@ -1411,7 +1410,7 @@ class PrerenderPages {
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
-          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${peopleParts.body}</div>
+          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>
           ${routeMapSectionHtml(story.slug, {
             headingLevel: 2,
             linkMode: 'story',
@@ -2433,7 +2432,7 @@ class PrerenderPages {
     if (!Array.isArray(people.people) || !people.people.length) throw new Error('prerender: public people file is empty')
     const spFile = path.join(root, 'public/data/web/story-people.json')
     const storyPeople = fs.existsSync(spFile) ? PrerenderPages.readJson(spFile) : { stories: {} }
-    return { data, people, storyPeople, peopleById: new Map(people.people.map((p) => [p.id, p])), portraits: portraitsByStorySlug(data, people.people) }
+    return { data, people, storyPeople, peopleById: new Map(people.people.map((p) => [p.id, p])), portraits: portraitsByStorySlug(data, people.people, people.storySubjects), personFor: personByStorySlug(data, people.people, people.storySubjects) }
   }
 
   /** Main subject (shared rule in src/related-people.js storySubject). */
@@ -2458,6 +2457,22 @@ class PrerenderPages {
     return { lead: l, body: b.join(split) }
   }
 
+  /** Item 71: optional non-portrait inline figure (e.g. a culture AI illustration) with alt, credit and a visible note. */
+  /** priority: no lead photo or film above it, so the figure is the first image under the h1 (likely LCP): load it eagerly. */
+  static storyFigureHtml(fig, { priority = false } = {}) {
+    if (!fig || !fig.webp || !fig.jpg || !fig.alt || !fig.credit) return ''
+    // Security: figure files must be our own /content/ assets (no external or protocol-relative URLs).
+    for (const src of [fig.webp, fig.jpg]) {
+      if (!String(src).startsWith('/content/') || String(src).includes('..')) {
+        throw new Error(`prerender: story figure src must start with /content/ (got ${src})`)
+      }
+    }
+    const e = PrerenderPages.escapeHtml
+    const load = priority ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'
+    const note = fig.note ? `<span class="story-figure-note">${e(fig.note)}</span> ` : ''
+    return `<figure class="story-figure"><picture><source srcset="${e(fig.webp)}" type="image/webp"><img src="${e(fig.jpg)}" alt="${e(fig.alt)}" width="1280" height="720" ${load} decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${e(fig.credit)}</span></figcaption></figure>`
+  }
+
   static storyPortraitHtml(person) {
     return storyPortraitHtml(person)
   }
@@ -2467,6 +2482,7 @@ class PrerenderPages {
     const titleFor = (slug) => all.find((item) => item.slug === slug)?.title || ''
     return relatedBlockHtml(relatedBundle.data, story.slug, titleFor, 'storyPeopleH', {
       portraits: relatedBundle.portraits,
+      personFor: relatedBundle.personFor,
       linkFor: (slug) => `/stories/${encodeURIComponent(slug)}/`,
     })
   }
@@ -2934,6 +2950,7 @@ ${gtagHeadHtml()}
 <title>Timeline · Kentucky History Drive</title>
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="${PrerenderPages.SITE}/">
+${faviconLinksHtml()}
 <meta http-equiv="refresh" content="0; url=/#timeline">
 <script>location.replace('/#timeline')</script>
 </head>

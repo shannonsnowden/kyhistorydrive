@@ -20,5 +20,13 @@
     "yearStart": 1100,
     "yearEnd": 1350,
     "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+  },
+  "figure": {
+    "webp": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.webp",
+    "jpg": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+    "alt": "AI illustration: A Mississippian farmer with a stone hoe and shell gorget above a platform-mound town in western Kentucky",
+    "credit": "AI illustration · Kentucky History Drive",
+    "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Mississippian period in Kentucky; details without direct evidence are informed guesses.",
+    "evidence": "culture-mississippian-image-evidence"
   }
 }

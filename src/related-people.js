@@ -50,27 +50,74 @@ function localPortrait(person) {
   return person
 }
 
-/** Story slug -> person, when that story is the person's own story and a local portrait exists. */
-export function portraitsByStorySlug(relatedData, people) {
-  const withImage = (people || []).map(localPortrait).filter(Boolean)
-  const byName = new Map(withImage.map((person) => [normName(person.name), person]))
-  const map = new Map()
-  const assign = (slug, person) => {
-    if (!slug || !person || map.has(slug)) return
-    map.set(slug, person)
+function realFirst(list) {
+  const real = list.find((p) => !p.ai)
+  return real || list[0] || null
+}
+
+/**
+ * Story slug -> person (any people.json person, with or without a portrait). Rules, in order:
+ * related-people.json portraitFor (explicit; null = not a person's story), then name links, id-prefix story slugs and
+ * people.json storySubjects. When several people match, a real photo wins over an AI portrait.
+ * Faces only ever come from people.json, so each person keeps one canonical face.
+ */
+export function personByStorySlug(relatedData, people, storySubjects = null, { imageOnly = false } = {}) {
+  const pool = (people || []).filter((p) => p?.id && (!imageOnly || localPortrait(p)))
+  const byId = new Map(pool.map((p) => [p.id, p]))
+  const byName = new Map()
+  for (const p of pool) if (!byName.has(normName(p.name))) byName.set(normName(p.name), p)
+  const candidates = new Map()
+  const add = (slug, person) => {
+    if (!slug || !person) return
+    const list = candidates.get(slug) || []
+    if (!list.includes(person)) list.push(person)
+    candidates.set(slug, list)
   }
   for (const [name, slug] of Object.entries(relatedData?.people || {})) {
-    assign(slug, byName.get(normName(name)) || byName.get(rankless(name)))
+    add(slug, byName.get(normName(name)) || byName.get(rankless(name)))
   }
-  for (const person of withImage) {
+  for (const person of pool) {
     for (const slug of person.stories || []) {
-      if (slug === person.id || String(slug).startsWith(`${person.id}-`)) assign(slug, person)
+      if (slug === person.id || String(slug).startsWith(`${person.id}-`)) add(slug, person)
     }
+  }
+  for (const [slug, id] of Object.entries(storySubjects || {})) add(slug, byId.get(id))
+  const map = new Map()
+  for (const [slug, list] of candidates) map.set(slug, realFirst(list))
+  for (const [slug, id] of Object.entries(relatedData?.portraitFor || {})) {
+    // null: the story is not a person's own story (a name link points there, e.g. a nation story).
+    if (id === null) map.delete(slug)
+    else if (byId.has(id)) map.set(slug, byId.get(id))
+    else map.delete(slug) // unknown ids are reported by scripts/check-related-portraits.mjs
   }
   return map
 }
 
-/** Round headshot, or '' when there is no local image. width/height stay in the 32–40px range. */
+/** Story slug -> person with a local portrait (the face shown in Related boxes). */
+export function portraitsByStorySlug(relatedData, people, storySubjects = null) {
+  return personByStorySlug(relatedData, people, storySubjects, { imageOnly: true })
+}
+
+/** Credit text for a portrait (AI credit keeps its '; no known likeness exists' ending). */
+export function portraitCreditText(person) {
+  return person?.ai ? aiCreditText(person) : creditWithCaption(person, person?.credit || '')
+}
+
+/** Initials from a display name (same rules as scripts/people-public.mjs). */
+export function initials(name) {
+  const parts = String(name || '')
+    .replace(/\([^)]*\)/g, ' ')
+    .split(/[\s,]+/)
+    .map((part) => part.replace(/^\.+|\.+$/g, ''))
+    .filter((part) => part && !/^(of|the|and|de|du|jr|sr|ii|iii|iv)$/i.test(part))
+  if (!parts.length) return '?'
+  const letters = parts.filter((part) => part.length > 1)
+  const usable = letters.length ? letters : parts
+  if (usable.length === 1) return usable[0].slice(0, 2).toUpperCase()
+  return `${usable[0][0]}${usable[usable.length - 1][0]}`.toUpperCase()
+}
+
+/** Round headshot, or '' when there is no local image. width/height stay in the 32–40px range. Alt only (no title tooltip); credit lives on the person's story portrait. */
 export function headshotHtml(person, size = 36) {
   const ready = localPortrait(person)
   if (!ready) return ''
@@ -78,12 +125,31 @@ export function headshotHtml(person, size = 36) {
   return `<picture class="related-headshot-frame"><source srcset="${esc(ready.image.webp)}" type="image/webp"><img class="related-headshot" src="${esc(ready.image.jpg)}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
 }
 
+/** 36px deep-green disc with amber initials for a person waiting on a portrait. */
+export function initialsDiscHtml(person) {
+  const label = initials(person?.name)
+  return `<span class="related-initials" aria-hidden="true">${esc(label)}</span>`
+}
+
+/** Empty 36px slot so non-person rows line up with face/initials rows. */
+export function faceSlotHtml() {
+  return `<span class="related-face-slot" aria-hidden="true"></span>`
+}
+
 // "Related people & stories" block (empty string when a story has no entries).
 export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelatedH', options = {}) {
   const seen = new Set()
+  const seenPeople = new Set()
+  const personFor = options.personFor instanceof Map ? options.personFor : null
   const items = (data?.related?.[slug] || []).filter((x) => {
     if (!x?.slug || x.slug === slug || seen.has(x.slug) || !titleFor(x.slug)) return false
     seen.add(x.slug)
+    // One person once per box (two stories about the same person keep the first link).
+    const pid = personFor?.get(x.slug)?.id
+    if (pid) {
+      if (seenPeople.has(pid)) return false
+      seenPeople.add(pid)
+    }
     return true
   })
   if (!items.length) return ''
@@ -95,9 +161,11 @@ export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelated
       const href = esc(linkFor(x.slug))
       const title = esc(titleFor(x.slug))
       const note = x.label ? ` <span class="related-note">— ${esc(x.label)}</span>` : ''
+      const person = personFor?.get(x.slug) || null
       const shot = headshotHtml(portraits.get(x.slug))
-      if (!shot) return `<li><a href="${href}">${title}</a>${note}</li>`
-      return `<li class="has-headshot">${shot}<span class="related-person-text"><a href="${href}">${title}</a>${note}</span></li>`
+      // Face, pending-person initials disc, or empty 36px slot — every row shares the same left edge.
+      const face = shot || (person ? initialsDiscHtml(person) : faceSlotHtml())
+      return `<li class="related-row"><a class="related-row-link" href="${href}">${face}<span class="related-person-text"><span class="related-title">${title}</span>${note}</span></a></li>`
     })
     .join('')
   return `<aside class="story-related" aria-labelledby="${hid}"><h3 id="${hid}">Related people &amp; stories</h3><ul>${lis}</ul></aside>`
@@ -232,7 +300,7 @@ export function storySubject(relatedData, people, story, storySubjects = null) {
 /** Newspaper-style portrait floated right of the first paragraph; name-first caption with credit. */
 export function storyPortraitHtml(person) {
   if (!person || !hasSafePortrait(person)) return ''
-  const credit = person.ai ? aiCreditText(person) : creditWithCaption(person, person.credit || '')
+  const credit = portraitCreditText(person)
   const inner = creditHtml(credit, esc)
   const linked = /^https:\/\//i.test(person.creditUrl || '')
     ? `<a href="${esc(person.creditUrl)}" target="_blank" rel="noopener noreferrer">${inner}<span class="visually-hidden"> (opens in a new tab)</span></a>`
