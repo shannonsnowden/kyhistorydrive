@@ -77,23 +77,23 @@ export function transportYearFilter(year) {
 }
 
 /* Decade hues are spaced around the wheel so neighbours never share a family
- * (gold / brick red / violet / blue / teal-green / green). Dark 1960 is
- * teal-green (#38d9a9) so it no longer reads like the 1880 periwinkle, and dark 1970 is lime
+ * (on-palette since Critiquito #291: gold / burnt sienna / umber / forest green / teal / olive green). Dark 1960 is
+ * teal-green (#38d9a9) so it stays clear of the 1880 mint, and dark 1970 is lime
  * (#c0eb75) so it stays clear of that teal. Dark mode uses lighter
  * tints of the same hues so every line clears 3:1 on the dark green land. */
 export const ERA_COLORS = [
   [1830, '#b8860b'],
-  [1850, '#c92a2a'],
-  [1870, '#862e9c'],
-  [1880, '#3b5bdb'],
+  [1850, '#a0461b'],
+  [1870, '#5c4033'],
+  [1880, '#2f6b3a'],
   [1960, '#0c8599'],
   [1970, '#5c940d'],
 ]
 const ERA_COLORS_DARK = {
   1830: '#ffd43b',
-  1850: '#ff8787',
-  1870: '#da77f2',
-  1880: '#91a7ff',
+  1850: '#f4a46a',
+  1870: '#d9c2a0',
+  1880: '#7fd18b',
   1960: '#38d9a9',
   1970: '#c0eb75',
 }

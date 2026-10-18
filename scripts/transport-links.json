@@ -26,10 +26,12 @@
     "shepherdsville-on-salt-river": "Wilderness Road",
     "taylorsville-on-brashears-creek": "Steamboats",
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": "Warriors' Path",
-    "yellow-banks-becomes-owensboro": "flatboat"
+    "yellow-banks-becomes-owensboro": "flatboat",
+    "hartford-fort-hartford-on-the-rough-river": "ran a ferry"
   },
   "allowlist": {
     "kentucky-river-palisades": "Clays Ferry is only a place name for the cliffs, not travel.",
-    "mclean-drift-bank-kentuckys-first-commercial-coal-mine": "The ferry only explains a place name (Stom's landing); the story is about coal mining."
+    "mclean-drift-bank-kentuckys-first-commercial-coal-mine": "The ferry only explains a place name (Stom's landing); the story is about coal mining.",
+    "treaty-of-fort-mcintosh-1785": "The only transport word (flatboat) is inside a link to the Hubbell story; this story is about the treaty."
   }
 }

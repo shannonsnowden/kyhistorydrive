@@ -304,7 +304,7 @@ class PrerenderPages {
     if (!rrHtml.includes('<link rel="canonical" href="https://kyhistorydrive.com/roads-and-rails/"') || !rrHtml.includes('<h1>Roads &amp; Rails</h1>') || !rrHtml.includes('id="transportMap"')) {
       throw new Error('prerender: /roads-and-rails/ is missing its canonical, h1 or map')
     }
-    if ((rrHtml.match(/<li><a href="\/stories\//g) || []).length < 1 || !rrHtml.includes('href="/drives/"') || !rrHtml.includes('"@type":"CollectionPage"')) {
+    if ((rrHtml.match(/<li><a class="transport-story-link" href="\/stories\//g) || []).length < 1 || !rrHtml.includes('href="/drives/"') || !rrHtml.includes('"@type":"CollectionPage"')) {
       throw new Error('prerender: /roads-and-rails/ is missing its story list, drives link or JSON-LD')
     }
     if (!/<a href="\/roads-and-rails\/" data-route="roads" class="active" aria-current="page">/.test(rrHtml)) {
@@ -2988,7 +2988,11 @@ class PrerenderPages {
     if (!list.length) throw new Error('prerender: /roads-and-rails/ has no linked stories')
     const esc = PrerenderPages.escapeHtml
     const rows = list
-      .map((s) => `        <li><a href="/stories/${encodeURIComponent(s.slug)}/">${esc(s.title)}</a>${s.yearStart ? ` <span class="muted">(${esc(s.yearStart)})</span>` : ''}</li>`)
+      .map((s) => {
+        const slug = encodeURIComponent(s.slug)
+        const onMap = s.lat != null && s.lon != null ? `<a class="transport-story-map" href="/#map/stories/${slug}">On the map</a>` : ''
+        return `        <li><a class="transport-story-link" href="/stories/${slug}/"><span>${esc(s.title)}${s.yearStart ? ` <span class="muted">(${esc(s.yearStart)})</span>` : ''}</span></a>${onMap}</li>`
+      })
       .join('\n')
     const section = `<section class="transport-stories" aria-labelledby="transportStoriesH">
         <h2 id="transportStoriesH">Stories on these routes</h2>
