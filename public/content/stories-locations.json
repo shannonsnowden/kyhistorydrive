@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-14T09:59:02.782Z",
+  "generatedAt": "2026-10-18T13:09:17.479Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
     "county": 4,
-    "override": 140,
+    "override": 141,
     "none": 38
   },
   "locations": {
@@ -1039,6 +1039,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Craig's Station / Travelling Church (Gilbert's Creek)",
       "historyId": "craigs-station-travelling-church-gilberts-creek"
+    },
+    "walker-daniel-danvilles-namesake": {
+      "slug": "walker-daniel-danvilles-namesake",
+      "lat": 37.64565,
+      "lon": -84.7707833,
+      "mapConfidence": "override",
+      "matchedPlace": "Walker Daniel marker, Danville (KHS #190)",
+      "historyId": "walker-daniel-danville-boyle-1781-1787"
     },
     "william-hoy-and-hoys-station": {
       "slug": "william-hoy-and-hoys-station",

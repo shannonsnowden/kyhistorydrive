@@ -29,6 +29,7 @@ export const NO_PORTRAIT_IDS = [
 
 /** Approved AI illustrations already in the repo. Dragging Canoe is v2. */
 export const AI_IDS = [
+  'walker-daniel',
   'blackfish',
   'dragging-canoe',
   'esther-whitley',
@@ -51,6 +52,28 @@ export const AI_IDS = [
   'moluntha',
   'robert-johnson',
   'hugh-mcgary',
+  // Item 69: related-box people (no known likeness) and Jack Jouett (after his silhouette), Oct 2026.
+  'john-todd',
+  'levi-todd',
+  'john-finley',
+  'john-hardin',
+  'stephen-trigg',
+  'john-bowman',
+  'john-strode',
+  'jacob-beam',
+  'daniel-trabue',
+  'silas-harlan',
+  'squire-boone',
+  'hancock-taylor',
+  'john-holder',
+  'william-hoy',
+  'william-christian',
+  'isaac-ruddell',
+  'james-knox',
+  'william-russell-iii',
+  'william-whitley',
+  'michael-stoner',
+  'jack-jouett',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
