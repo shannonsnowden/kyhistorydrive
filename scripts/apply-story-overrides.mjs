@@ -215,9 +215,10 @@ if (fs.existsSync(RULES)) {
   }
   const skipS = new Set(rules.skipSlugs)
   const skipH = new Set(rules.skipHistoryIds)
+  const forceS = new Set(okList(rules.forceSlugs) ? rules.forceSlugs : [])
   const rnd = (x) => Number(x.toFixed(dec))
   for (const st of load(F.index)?.data.stories || []) {
-    if (!(st.era === 'prehistoric' || (st.tags || []).includes('archaeology'))) continue
+    if (!(forceS.has(st.slug) || st.era === 'prehistoric' || (st.tags || []).includes('archaeology'))) continue
     if (skipS.has(st.slug) || !isNum(st.lat) || !isNum(st.lon)) continue
     const hid = load(F.locs)?.data.locations?.[st.slug]?.historyId || null
     if (hid && skipH.has(hid)) continue
@@ -228,6 +229,36 @@ if (fs.existsSync(RULES)) {
     if (lat === st.lat && lon === st.lon) continue
     const n = applyPin(targets(st.slug, hid), lat, lon)
     if (n) rounding.rounded.push(st.slug)
+  }
+}
+
+// Markers sharing a protected pin (pin-rounding.json roundMarkerNumbers): coordinates only; number and text untouched.
+// markers.phase1.json / app search-index are committed snapshots (only SYNC_FROM_MARKERS rewrites them, and sync re-runs this script).
+if (fs.existsSync(RULES)) {
+  const rules = JSON.parse(fs.readFileSync(RULES, 'utf8'))
+  const nums = Array.isArray(rules.roundMarkerNumbers) ? rules.roundMarkerNumbers.map(String) : []
+  const rnd = (x) => Number(Number(x).toFixed(rules.decimals))
+  const set = (file, o, la, lo) => {
+    if (!o || !isNum(o[la]) || !isNum(o[lo])) return
+    const a = rnd(o[la]), b = rnd(o[lo])
+    if (a !== o[la] || b !== o[lo]) { o[la] = a; o[lo] = b; file.dirty = true }
+  }
+  const pack = load(`${D}/app/markers.phase1.json`)
+  const mgeo = load(`${D}/markers.geojson`)
+  const appS = load(F.appSearch)
+  const webS = load(F.search)
+  for (const n of nums) {
+    rounding.protectedIds.push(`marker:${n}`)
+    const arr = Array.isArray(pack?.data) ? pack.data : pack?.data?.markers || []
+    arr.forEach((m) => String(m.marker_number) === n && set(pack, m, 'latitude', 'longitude'))
+    mgeo?.data.features?.forEach((f) => {
+      const c = f.geometry?.coordinates
+      if (String(f.properties?.marker_number) !== n || !Array.isArray(c)) return
+      const r = [rnd(c[0]), rnd(c[1])]
+      if (r[0] !== c[0] || r[1] !== c[1]) { c[0] = r[0]; c[1] = r[1]; mgeo.dirty = true }
+    })
+    if (appS) set(appS, appS.data.sites?.[`marker:${n}`], 'latitude', 'longitude')
+    webS?.data.documents?.forEach((d) => d.id === `place:markers:${n}` && set(webS, d, 'lat', 'lon'))
   }
 }
 

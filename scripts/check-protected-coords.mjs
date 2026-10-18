@@ -23,6 +23,9 @@ const fineStr = (s) => /\.\d{2,}/.test(s)
 const errors = []
 
 function namesProtected(o) {
+  if (o.marker_number != null && ids.has(`marker:${o.marker_number}`)) return `marker:${o.marker_number}`
+  const pm = typeof o.id === 'string' && o.id.match(/^place:markers:(\d+)$/)
+  if (pm && ids.has(`marker:${pm[1]}`)) return `marker:${pm[1]}`
   for (const k of ['id', 'identifier', 'slug', 'historyId', 'storySlug', 'story_slug', 'history_id']) if (ids.has(o[k])) return o[k]
   for (const k of ['url', '@id']) {
     const m = typeof o[k] === 'string' && o[k].match(/\/stories\/([^/#?]+)/)
@@ -46,7 +49,7 @@ function walk(o, file, owner = null) {
   if (!o || typeof o !== 'object') return
   const id = namesProtected(o) || namesProtected(o.properties || {}) || owner
   if (id) for (const c of coordsIn(o)) errors.push(`${file}: ${id} ${c}`)
-  for (const v of Object.values(o)) if (v && typeof v === 'object') walk(v, file, id)
+  for (const [k, v] of Object.entries(o)) if (v && typeof v === 'object') walk(v, file, ids.has(k) ? k : id) // keyed maps, e.g. sites["marker:1274"]
 }
 
 // Text files: a protected id followed within WINDOW chars (GPX/KML: also 200 before) by a fine KY lat/lon pair.

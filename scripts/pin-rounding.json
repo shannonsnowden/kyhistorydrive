@@ -32,5 +32,14 @@
     "saltpeter-cave-carter-caves-15cr99",
     "ward-site-15mcl11-mclean-county-late-archaic",
     "wickliffe-mounds"
-  ]
+  ],
+  "forceSlugs": [
+    "john-finley-the-trader-who-put-kentucky-on-boones-map",
+    "odawa-raid-at-eskippakithiki-1753"
+  ],
+  "forceComment": "Rounded even though not prehistoric/archaeology: their pin is the protected Eskippakithiki / Indian Old Fields site.",
+  "roundMarkerNumbers": [
+    "1274"
+  ],
+  "markerComment": "KHS markers whose sign coordinates equal a protected site (1274 Indian Old Fields = Eskippakithiki). apply-story-overrides rounds their lat/lon only in markers.phase1.json, markers.geojson and both search indexes, and lists them as marker:<n> in protected-pins.json."
 }
