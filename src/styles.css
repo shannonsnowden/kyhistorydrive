@@ -1115,7 +1115,7 @@ html[data-hp-theme="light"] .story-glance td {
   outline-offset: 2px;
 }
 .story-nearby,
-.static-related { margin: 0; max-width: 100%; }
+.static-related { margin: 0; max-width: 100%; container-type: inline-size; container-name: related; }
 .story-nearby > h2,
 .story-nearby > h3,
 .static-related > h2,
@@ -1139,9 +1139,11 @@ html[data-hp-theme="light"] .story-glance td {
   width: 100%;
   max-width: 100%;
 }
-@media (min-width: 720px) {
+/* Two columns only when the list itself is wide enough for a two-line title.
+   A 1280px window still has a narrow story column beside the photo. */
+@container related (min-width: 42rem) {
   .related-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
 }
@@ -1206,6 +1208,10 @@ a.related-card:focus-visible {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   overflow: hidden;
+  max-width: 100%;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
   color: var(--accent);
   font-weight: 600;
   font-size: 1.05rem;
