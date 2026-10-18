@@ -13,6 +13,9 @@ const esc = (s) =>
 /** Figure files must be our own /content/ assets (no external, protocol-relative or traversal URLs). */
 export function isSafeFigureSrc(src) {
   const v = String(src || '')
+  // Reject any percent-encoding or backslash outright, before the prefix and '..' checks,
+  // so encoded traversal (%2e%2e, %252e) or backslash paths can never slip through.
+  if (/[%\\]/.test(v)) return false
   return v.startsWith('/content/') && !v.startsWith('//') && !v.includes('..')
 }
 
