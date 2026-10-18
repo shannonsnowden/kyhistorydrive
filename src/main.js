@@ -1570,12 +1570,13 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
       ${photoCreditHtml(photo)}`
-  } else {
-    thumb = `<p class="story-sidebar-photo-attr muted">No matching thumbnail yet — use a source link above.</p>`
+  } else if (!linkRow) {
+    // No photo and no source links: nothing to show, so no empty Photos box.
+    return ''
   }
 
-  return `<aside class="story-sidebar-photo" aria-label="Story photo">
-      <p class="story-sidebar-photo-heading">Photos</p>
+  return `<aside class="story-sidebar-photo${thumb ? '' : ' is-links-only'}" aria-label="Story photo">
+      <p class="story-sidebar-photo-heading">${thumb ? 'Photos' : 'Find photos'}</p>
       ${linkRow}
       ${thumb}
     </aside>`
@@ -3133,7 +3134,8 @@ function timelineHeaderOffset() {
   const barH = bar ? bar.getBoundingClientRect().height : 0
   // Phones opened from a homepage story link: the map is docked under the bar
   const docked = document.querySelector('#timeline .timeline-layout.is-home-story #timelineMapPane')
-  const dockH = docked && window.matchMedia('(max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
+  // Only while it is sticky (561–900px); at <=560px it scrolls away with the page.
+  const dockH = docked && window.matchMedia('(min-width: 561px) and (max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
   return headerH + barH + dockH + 8
 }
 
@@ -4798,5 +4800,16 @@ initThemeToggle()
 initSiteSearch()
 MobileNav.init()
 initHomePage()
-initTimelineReading({ getMap: () => timelineMap })
+initTimelineReading({
+  getMap: () => timelineMap,
+  // "Show map" on phones: re-center the current story's pin and move keyboard focus to the map.
+  focusPin: () => {
+    const story = selectedStorySlug && storiesBySlug[selectedStorySlug]
+    if (story && timelineMapReady && story.lat != null && story.lon != null) {
+      try { timelineMap.easeTo({ center: [story.lon, story.lat], duration: 400 }) } catch {}
+    }
+    const canvas = timelineMap?.getCanvas?.()
+    if (canvas) canvas.focus({ preventScroll: true })
+  },
+})
 applyRoute().catch(console.error)

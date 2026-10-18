@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T12:33:06.906Z",
+  "generatedAt": "2026-10-14T09:59:10.591Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -243,6 +243,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2013
+      }
+    },
+    "chambers-site-15ml109-marshall-county": {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "historyId": "chambers-site-15ml109-marshall-1250-1350",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+        "year": 2012
       }
     },
     "chickamauga-cherokee-hold-the-southern-flank": {
@@ -523,7 +535,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2012
+        "year": 2012,
+        "fit": "contain"
       }
     },
     "harry-innes": {
@@ -536,6 +549,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
+      }
+    },
+    "hartford-fort-hartford-on-the-rough-river": {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "historyId": "hartford-fort-hartford-ohio-1782-1808",
+      "photo": {
+        "image_url": "/content/photos/stories/hartford-fort-hartford-on-the-rough-river.jpg",
+        "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
       }
     },
     "henry-mckennas-fairfield-sour-mash": {
@@ -1338,6 +1363,18 @@
         "year": null
       }
     },
+    "treaty-of-fort-mcintosh-1785": {
+      "slug": "treaty-of-fort-mcintosh-1785",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-fort-mcintosh-1785.jpg",
+        "title": "Looking east across the site of Fort McIntosh, Beaver, Pennsylvania (photographed 2009)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_McIntosh_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2009
+      }
+    },
     "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
       "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
       "historyId": null,
@@ -1420,6 +1457,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
         "year": null
+      }
+    },
+    "yahoo-falls-big-south-fork": {
+      "slug": "yahoo-falls-big-south-fork",
+      "historyId": "yahoo-falls-mccreary-1937-1987",
+      "photo": {
+        "image_url": "/content/photos/stories/yahoo-falls-big-south-fork.jpg",
+        "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mason Brock · Wikimedia Commons · public domain",
+        "year": 2008
       }
     },
     "yellow-banks-becomes-owensboro": {
@@ -1668,6 +1717,18 @@
         "year": 2013
       }
     },
+    "chambers-site-15ml109-marshall-1250-1350": {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "historyId": "chambers-site-15ml109-marshall-1250-1350",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+        "year": 2012
+      }
+    },
     "cleek-mccabe-fort-ancient-village-boone-county": {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
@@ -1882,7 +1943,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2012
+        "year": 2012,
+        "fit": "contain"
       }
     },
     "harry-innes-frankfort-1783-1816": {
@@ -1895,6 +1957,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
+      }
+    },
+    "hartford-fort-hartford-ohio-1782-1808": {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "historyId": "hartford-fort-hartford-ohio-1782-1808",
+      "photo": {
+        "image_url": "/content/photos/stories/hartford-fort-hartford-on-the-rough-river.jpg",
+        "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
       }
     },
     "hidden-river-cave-horse-cave-1890-1943": {
@@ -2584,6 +2658,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2017
+      }
+    },
+    "yahoo-falls-mccreary-1937-1987": {
+      "slug": "yahoo-falls-big-south-fork",
+      "historyId": "yahoo-falls-mccreary-1937-1987",
+      "photo": {
+        "image_url": "/content/photos/stories/yahoo-falls-big-south-fork.jpg",
+        "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mason Brock · Wikimedia Commons · public domain",
+        "year": 2008
       }
     }
   }
