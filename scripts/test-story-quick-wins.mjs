@@ -3,12 +3,14 @@
  * correction links, and NOTES.md waypoint parsing.
  */
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
+import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseRouteNotes, parseSingleCoordinate } from './route-notes.mjs'
 import { isProtectedWaypoint, roundProtectedWaypoint } from './protected-waypoints.mjs'
-import { modifiedFromProseHistory, textRevisionForFile } from './story-dates.mjs'
+import { modifiedFromProseHistory, storyProse, textRevisionForFile } from './story-dates.mjs'
 import {
   CITE_AUTHOR_FALLBACK,
   SITE_NAME,
@@ -193,6 +195,40 @@ assert.equal(camp.modified, '2026-10-04')
 const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
 assert.equal(mantle.published, '2026-10-09')
 assert.equal(mantle.modified, '2026-10-09')
+
+// Summary-only edits are meta/card copy, not a revision (Editor ruling, #319).
+{
+  const base = { slug: 's', title: 'T', summary: 'Old summary.', bodyMarkdown: 'Body text.', figure: { note: 'N' } }
+  const summaryOnly = { ...base, summary: 'A finished new summary sentence.' }
+  const bodyEdit = { ...base, bodyMarkdown: 'Body text, revised.' }
+  assert.equal(storyProse(JSON.stringify(summaryOnly)), storyProse(JSON.stringify(base)))
+  assert.notEqual(storyProse(JSON.stringify(bodyEdit)), storyProse(JSON.stringify(base)))
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'story-dates-'))
+  try {
+    const git = (args, date) =>
+      execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@t', ...args], {
+        cwd: tmp,
+        env: { ...process.env, GIT_AUTHOR_DATE: `${date}T12:00:00Z`, GIT_COMMITTER_DATE: `${date}T12:00:00Z` },
+        stdio: 'pipe',
+      })
+    const write = (obj, date, msg) => {
+      fs.writeFileSync(path.join(tmp, 'story.json'), `${JSON.stringify(obj, null, 2)}\n`)
+      git(['add', 'story.json'], date)
+      git(['commit', '-q', '-m', msg], date)
+    }
+    git(['init', '-q'], '2026-10-01')
+    write(base, '2026-10-01', 'publish')
+    write(summaryOnly, '2026-10-18', 'summary only')
+    let dates = textRevisionForFile(tmp, 'story.json')
+    assert.equal(dates.published, '2026-10-01')
+    assert.equal(dates.modified, '2026-10-01')
+    write({ ...summaryOnly, bodyMarkdown: 'Body text, revised.' }, '2026-10-20', 'body edit')
+    dates = textRevisionForFile(tmp, 'story.json')
+    assert.equal(dates.modified, '2026-10-20')
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true })
+  }
+}
 
 const credit = photoCreditModel({
   image_url: '/photo.jpg',
