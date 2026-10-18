@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T09:59:10.591Z",
+  "generatedAt": "2026-10-18T13:09:18.129Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -1411,6 +1411,18 @@
         "year": 2010
       }
     },
+    "walker-daniel-danvilles-namesake": {
+      "slug": "walker-daniel-danvilles-namesake",
+      "historyId": "walker-daniel-danville-boyle-1781-1787",
+      "photo": {
+        "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
+        "title": "Constitution Square State Historic Site, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Constitution_Square_State_Historic_Site_-_May_2024_-_Sarah_Stierch.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
+        "year": 2024
+      }
+    },
     "washington-mason-county": {
       "slug": "washington-mason-county",
       "historyId": "washington-mason-county-founding-1785-1786",
@@ -2622,6 +2634,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2010
+      }
+    },
+    "walker-daniel-danville-boyle-1781-1787": {
+      "slug": "walker-daniel-danvilles-namesake",
+      "historyId": "walker-daniel-danville-boyle-1781-1787",
+      "photo": {
+        "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
+        "title": "Constitution Square State Historic Site, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Constitution_Square_State_Historic_Site_-_May_2024_-_Sarah_Stierch.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
+        "year": 2024
       }
     },
     "washington-mason-county-founding-1785-1786": {
