@@ -662,7 +662,7 @@ export function relatedAndNearbyForStory(
   story,
   all,
   markers,
-  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc } = {},
+  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '' } = {},
 ) {
   const related = pickRelatedStories(story, all, excludeSlugs)
   const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
@@ -672,7 +672,8 @@ export function relatedAndNearbyForStory(
     slug: other.slug,
     title: other.title,
     detail: storyDetail(other),
-    thumb: thumbFor(other) || '',
+    // Person cards always use the canonical portrait.
+    thumb: portraitFor(other.slug) || thumbFor(other) || '',
   }))
   const nearby = nearbyPlaces(story, all, markers, {
     limit,
@@ -685,7 +686,7 @@ export function relatedAndNearbyForStory(
       ...row,
       title: other?.title || row.title,
       detail: other ? storyDetail(other) : '',
-      thumb: other ? thumbFor(other) || '' : '',
+      thumb: other ? portraitFor(other.slug) || thumbFor(other) || '' : '',
     }
   })
   return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel })

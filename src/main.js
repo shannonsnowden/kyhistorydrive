@@ -10,7 +10,7 @@ import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
-import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
@@ -3305,9 +3305,13 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             markerRecords(markerFeatures),
             {
               headingLevel: 2,
-              excludeSlugs: routeBySlug(meta.slug)?.relatedStories || [],
+              excludeSlugs: [
+                ...(routeBySlug(meta.slug)?.relatedStories || []),
+                ...relatedBlockSlugs(relatedData, meta.slug, relTitleFor, { personFor }),
+              ],
               excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
               limit: 3,
+              portraitFor: (slug) => portraitThumbSrc(portraits.get(slug) || personFor.get(slug)),
             },
           )}
           ${citeBoxHtml({
