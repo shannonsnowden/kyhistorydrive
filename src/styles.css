@@ -6135,3 +6135,91 @@ html:not([data-hp-theme="light"]) .brand-logo,
 html:not([data-hp-theme="light"]) .hp-page .brand-logo {
   box-shadow: 0 0 0 2px #f6edd8, 0 2px 8px rgba(0, 0, 0, 0.35);
 }
+
+/* ===== DESIGN MOCKUP: Roads & Rails left pane (branch mockup/roads-rails-left-pane) ===== */
+:root { --rr-rail: #9a5f1c; --rr-road: #2f6b3a; }
+html[data-hp-theme='dark'] { --rr-rail: #e2b15a; --rr-road: #7fd18b; }
+.rr-mock .transport-controls { overflow-y: auto; }
+.rr-mock .transport-head .transport-intro, .rr-mock .transport-head #transportProv { display: none; }
+.rr-mock .rr-pane .transport-intro, .rr-mock .rr-pane #transportProv { display: block; }
+.rr-pane { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.6rem; }
+.rr-sec { border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+.rr-sec > summary {
+  list-style: none; display: flex; align-items: center; gap: 0.5rem;
+  min-height: 44px; padding: 0 0.85rem; cursor: pointer; border-radius: 10px;
+}
+.rr-sec > summary::-webkit-details-marker { display: none; }
+.rr-sec > summary:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.rr-sec-title { font-weight: 700; color: var(--heading); font-size: 0.98rem; flex: 1; }
+.rr-sec-meta { font-size: 0.75rem; color: var(--muted); }
+.rr-chev { width: 0.55rem; height: 0.55rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); transition: transform .15s; margin-top: -4px; }
+.rr-sec[open] > summary .rr-chev { transform: rotate(-135deg); margin-top: 4px; }
+.rr-sec[open] > summary { border-bottom: 1px solid var(--line); border-radius: 10px 10px 0 0; }
+.rr-sec-body { padding: 0.6rem 0.85rem 0.75rem; }
+.rr-sec-body .transport-legend { margin-top: 0.35rem; }
+.rr-sec-body .transport-era-list { margin-bottom: 0; }
+.rr-allnone { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem; }
+.rr-allnone button {
+  min-height: 32px; padding: 0 0.8rem; border-radius: 999px; border: 1px solid var(--accent);
+  background: transparent; color: var(--heading); font: inherit; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+}
+.rr-allnone button:hover, .rr-allnone button:focus-visible { background: var(--chip); }
+.rr-count { margin-left: auto; font-size: 0.75rem; color: var(--muted); }
+.rr-rows { list-style: none; margin: 0; padding: 0; }
+.rr-row { display: grid; grid-template-columns: 22px 1fr auto; gap: 0.55rem; align-items: start; padding: 0.5rem 0; border-top: 1px solid var(--line); }
+.rr-row:first-child { border-top: 0; }
+.rr-swatch { width: 22px; height: 5px; border-radius: 3px; margin-top: 0.5rem; background: var(--rr-rail); }
+.rr-swatch.is-parkway { background: var(--rr-road); }
+.rr-row-top { display: flex; gap: 0.5rem; align-items: baseline; }
+.rr-row-name { flex: 1; font-weight: 700; font-size: 0.9rem; line-height: 1.25; }
+.rr-row-year { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); font-size: 0.85rem; }
+.rr-row-year abbr { text-decoration: none; margin-left: 1px; }
+.rr-row-desc { margin: 0.15rem 0 0; font-size: 0.8rem; line-height: 1.35; color: var(--muted); }
+.rr-row.is-off .rr-row-name, .rr-row.is-off .rr-row-year { color: var(--muted); }
+.rr-row.is-off .rr-swatch { opacity: 0.35; }
+.rr-switch { position: relative; display: inline-block; width: 44px; height: 26px; margin-top: 0.1rem; }
+.rr-switch input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; z-index: 1; }
+.rr-switch span { position: absolute; inset: 0; border-radius: 999px; background: var(--chip); border: 1px solid var(--line); transition: background .15s; }
+.rr-switch span::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #f6edd8; box-shadow: 0 1px 3px rgba(0,0,0,.35); transition: transform .15s; }
+.rr-switch input:checked + span { background: var(--rr-road); border-color: var(--rr-road); }
+.rr-switch input:checked + span::after { transform: translateX(18px); }
+.rr-switch input:focus-visible + span { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.rr-ticks { position: relative; height: 22px; margin: -6px 11px 0; }
+.rr-tick {
+  position: absolute; top: 0; transform: translateX(-50%); width: 24px; height: 22px; padding: 0;
+  border: 0; background: transparent; cursor: pointer; display: flex; justify-content: center;
+}
+.rr-tick::before { content: ''; width: 2px; height: 10px; border-radius: 1px; background: var(--rr-road); }
+.rr-tick.is-rail::before { background: var(--rr-rail); }
+.rr-tick.is-merged::before { width: 8px; height: 8px; border-radius: 50%; margin-top: 1px; }
+.rr-tick b { position: absolute; top: 10px; font-size: 0.6rem; color: var(--muted); }
+.rr-tip {
+  display: none; position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 5;
+  width: max-content; max-width: 220px; padding: 0.35rem 0.55rem; border-radius: 8px;
+  background: var(--panel); color: var(--text); border: 1px solid var(--accent); font-size: 0.75rem; line-height: 1.3;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25); text-align: left;
+}
+.rr-tick:hover .rr-tip, .rr-tick:focus-visible .rr-tip, .rr-tick.is-shown .rr-tip { display: block; }
+.rr-tick:first-child .rr-tip { left: 0; transform: none; }
+.rr-tick:last-child .rr-tip { left: auto; right: 0; transform: none; }
+.rr-tick:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 1px; border-radius: 4px; }
+.rr-line-label {
+  font: 700 11px/1 system-ui, sans-serif; white-space: nowrap; pointer-events: none; letter-spacing: 0.02em;
+  color: #6e4214; text-shadow: 0 0 2px #f6eedb, 0 0 2px #f6eedb, 0 0 3px #f6eedb;
+}
+.rr-line-label.is-parkway { color: #24532d; font-style: italic; }
+html[data-hp-theme='dark'] .rr-line-label { color: #f6e7c1; text-shadow: 0 0 2px #100e0c, 0 0 3px #100e0c; }
+html[data-hp-theme='dark'] .rr-line-label.is-parkway { color: #c0eb75; }
+@media (max-width: 900px) {
+  .rr-mock .rr-pane { order: 3; background: var(--panel); padding: 0.5rem 1rem 1rem; margin: 0; }
+  .rr-mock .transport-head { padding-bottom: 0.5rem; }
+}
+@media (max-width: 900px) {
+  .rr-mock .rr-pane { display: contents; }
+  .rr-mock #rrSec-timeline { order: 2; margin: 0 1rem 0.5rem; }
+  .rr-mock .transport-section .map-canvas-wrap { order: 3; height: 56svh; }
+  .rr-mock #rrSec-rail, .rr-mock #rrSec-parkway, .rr-mock #rrSec-about { order: 4; margin: 0.5rem 1rem 0; }
+  .rr-mock #rrSec-about { margin-bottom: 1rem; }
+  .rr-mock .transport-head { background: var(--panel); }
+  .rr-line-label { font-size: 10px; }
+}

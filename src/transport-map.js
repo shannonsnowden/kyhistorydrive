@@ -102,7 +102,7 @@ function eraList(theme = themeName()) {
   return theme === 'dark' ? ERA_COLORS.map(([d]) => [d, ERA_COLORS_DARK[d]]) : ERA_COLORS
 }
 
-function eraColorFor(year, theme) {
+export function eraColorFor(year, theme) {
   const list = eraList(theme)
   let color = list[0][1]
   for (const [d, c] of list) if (year >= d) color = c
@@ -210,12 +210,26 @@ function applyColors() {
   map.setPaintProperty('bridge-circle', 'circle-stroke-color', c.bridgeStroke)
 }
 
+// Mockup (left pane): sections hidden by the per-line toggles.
+let hiddenSections = new Set()
+let currentYear = DEFAULT_YEAR
+export function getTransportMap() { return map }
+export function getTransportSections() { return sections }
+export function setHiddenSections(ids) {
+  hiddenSections = new Set(ids)
+  if (map) applyYear(currentYear)
+}
+function visibleFilter(year) {
+  return ['all', transportYearFilter(year), ['!', ['in', ['get', 'id'], ['literal', [...hiddenSections]]]]]
+}
+
 function applyYear(year) {
-  const filter = transportYearFilter(year)
+  currentYear = year
+  const filter = visibleFilter(year)
   for (const id of ['sec-casing', 'sec-line']) {
     if (map.getLayer(id)) map.setFilter(id, filter)
   }
-  if (map.getLayer('sec-future')) map.setFilter('sec-future', futureFilter(year))
+  if (map.getLayer('sec-future')) map.setFilter('sec-future', ['all', futureFilter(year), ['!', ['in', ['get', 'id'], ['literal', [...hiddenSections]]]]])
   const bridge = ['all', filter, ['==', ['get', 'kind'], 'bridge']]
   if (map.getLayer('bridge-circle')) map.setFilter('bridge-circle', bridge)
   const section = document.getElementById('transport')
@@ -234,6 +248,7 @@ function applyYear(year) {
   syncEndpoints(year)
   renderLegend(year)
   renderSparseNote(year)
+  window.dispatchEvent(new CustomEvent('transport:year', { detail: year }))
 }
 
 /** Early years show only one or two lines; say so, so the map doesn't read as a load failure. */
