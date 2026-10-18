@@ -4749,7 +4749,13 @@ a.research-cite:focus-visible { outline: 3px solid var(--focus-ring); outline-of
   outline: 3px solid var(--focus-ring);
   outline-offset: 1px;
 }
-.transport-legend-list .is-future { opacity: 0.45; }
+.transport-legend-list .is-future { opacity: 1; }
+/* Critiquito #291: not-yet-open rows are buttons, so text stays at full opacity in the muted color (4.5:1+);
+   only the swatch is faded. */
+.transport-legend-list .is-future button,
+.transport-legend-list .is-future .transport-legend-name,
+.transport-legend-list .is-future .transport-legend-year { color: var(--muted); }
+.transport-legend-list .is-future .transport-swatch { opacity: 0.45; }
 .transport-swatch {
   width: 24px;
   height: 4px;
