@@ -1,0 +1,205 @@
+{
+  "slug": "hartford-fort-hartford-on-the-rough-river",
+  "storySlug": "hartford-fort-hartford-on-the-rough-river",
+  "title": "Research notes: Hartford and Fort Hartford",
+  "updated": "2026-10-14",
+  "summary": "Sources for Hartford’s founding as Fort Hartford on the Rough River and its rise as the Ohio County seat. Swapped in for Taylorsville, which already has a story (2026-09-10).",
+  "sections": [
+    {
+      "heading": "Founding",
+      "items": [
+        {
+          "text": "Part of Gabriel Madison’s 4,000-acre Virginia grant; surveyed 1782; evidence of a 1782 settlement, first fortified place in the lower Green River Valley.",
+          "sources": [
+            "m1195",
+            "wiki"
+          ]
+        },
+        {
+          "text": "William Smeathers’ account of building “a fort at Hartford on Rough Creek” in 1782–83; stockade believed to stand on the bluff now used by the water plant.",
+          "sources": [
+            "wiki"
+          ]
+        },
+        {
+          "text": "Barnett’s Station raid, April 1790: two children killed, Hannah Barnett (10) held captive six months.",
+          "sources": [
+            "m1463"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "County seat",
+      "items": [
+        {
+          "text": "Ohio County formed December 1798 from Hardin County, named for the Ohio River; first county court 1799.",
+          "sources": [
+            "m1144",
+            "wiki"
+          ]
+        },
+        {
+          "text": "Madison’s land grant for the town; seat chosen the year after the county’s formation.",
+          "sources": [
+            "wiki",
+            "m1829"
+          ]
+        },
+        {
+          "text": "Log courthouse and jail 1799–1800; collapsed 1813; salvaged timber burned to celebrate Perry’s Lake Erie victory.",
+          "sources": [
+            "m1196"
+          ]
+        },
+        {
+          "text": "Post office Hartford Court House 1801; town incorporated 1808.",
+          "sources": [
+            "wiki"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Name",
+      "items": [
+        {
+          "text": "Marker: name from the river ford where animals crossed; Wikipedia: origin uncertain, ford or a ferry-keeping settler.",
+          "sources": [
+            "m1195",
+            "wiki"
+          ]
+        },
+        {
+          "text": "First covered bridge over the Rough River here, 1823; earlier crossings by ford or ferry.",
+          "sources": [
+            "m1259"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cut",
+      "items": [
+        {
+          "text": "Which nation’s warriors raided Hartford and Barnett’s Station: not stated in the sources, so not named.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1782,
+      "event": "Madison grant surveyed; first settlement and fort.",
+      "sources": [
+        "m1195"
+      ]
+    },
+    {
+      "year": 1798,
+      "event": "Ohio County created.",
+      "sources": [
+        "m1144"
+      ]
+    },
+    {
+      "year": 1799,
+      "event": "First county court; Madison gives land for the town.",
+      "sources": [
+        "m1144",
+        "m1829"
+      ]
+    },
+    {
+      "year": 1801,
+      "event": "Hartford Court House post office.",
+      "sources": [
+        "wiki"
+      ]
+    },
+    {
+      "year": 1808,
+      "event": "Town incorporated.",
+      "sources": [
+        "wiki"
+      ]
+    },
+    {
+      "year": 1813,
+      "event": "Log courthouse collapses.",
+      "sources": [
+        "m1196"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Gabriel Madison",
+      "role": "Virginia grantee, gave land for the town"
+    },
+    {
+      "name": "William Smeathers",
+      "role": "Frontiersman, helped build the fort"
+    },
+    {
+      "name": "Hannah Barnett",
+      "role": "Captured at Barnett’s Station, 1790"
+    }
+  ],
+  "openQuestions": [
+    "A primary record for the exact date the first fort was built.",
+    "The true origin of the name Hartford."
+  ],
+  "sources": [
+    {
+      "id": "m1195",
+      "citation": "KHS Historical Marker #1195, “Site of Fort Hartford.”",
+      "url": "https://history.ky.gov/markers/site-of-fort-hartford",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "m1144",
+      "citation": "KHS Historical Marker #1144, “County Named, 1798.”",
+      "url": "https://history.ky.gov/markers/county-named-1798-814",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "m1196",
+      "citation": "KHS Historical Marker #1196, “First Public Building.”",
+      "url": "https://history.ky.gov/markers/first-public-building",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "m1259",
+      "citation": "KHS Historical Marker #1259, “First Bridge.”",
+      "url": "https://history.ky.gov/markers/first-bridge",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "m1463",
+      "citation": "KHS Historical Marker #1463, “Barnett’s Station.”",
+      "url": "https://history.ky.gov/markers/barnetts-station",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "m1829",
+      "citation": "KHS Historical Marker #1829, “John C. Thomas House.”",
+      "url": "https://history.ky.gov/markers/john-c-thomas-house",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "wiki",
+      "citation": "“Hartford, Kentucky,” Wikipedia (citing the Kentucky Encyclopedia and the 1988 NRHP form for the Downtown Hartford Historic District).",
+      "url": "https://en.wikipedia.org/wiki/Hartford,_Kentucky",
+      "type": "secondary",
+      "accessed": "2026-10-14"
+    }
+  ]
+}

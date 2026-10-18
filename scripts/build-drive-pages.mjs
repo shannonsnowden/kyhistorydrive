@@ -56,6 +56,7 @@ const INTROS = {
 Object.assign(DESCS, {
   'cave-country': "From Bowling Green's Lost River Cave to Mammoth Cave and Horse Cave: karst country where saltpetre was mined for the War of 1812 and show caves opened by 1816.",
   'buffalo-trace-loop-2': "Glenn's Creek distilling history near Frankfort: Buffalo Trace, the 1887 Old Taylor Distillery, the former Old Crow Distillery and the Oscar Pepper Distillery.",
+  'boones-trail': "From Cumberland Gap along Thomas Walker's 1750 Indian road to Logan's and Whitley's stations, Boone's fort and Pilot Knob, where Boone first saw Kentucky.",
   'wild-turkey-loop-2': "From the Ripys' 1891 distillery at Tyrone to Lawrenceburg's Kaufman's Station and Shaker Village of Pleasant Hill, home to a Shaker community from 1806 to 1910.",
 })
 
@@ -153,7 +154,7 @@ for (const slug of slugs) {
     },
   }
   html = setLd(html, [trip, crumbs([['Home', `${SITE}/`], ['Drives', `${SITE}/drives/`], [h1, url]])])
-  cards.push({ slug, name: h1, url })
+  cards.push({ slug, name: h1, url, intro, stops: stops.length, miles: route.miles, minutes: route.minutes })
   if (html !== before) { fs.writeFileSync(file, html); changed++ }
 }
 
@@ -183,5 +184,13 @@ idx = setLd(idx, [
   },
   crumbs([['Home', `${SITE}/`], ['Drives', `${SITE}/drives/`]]),
 ])
+// Card facts: when a page's STOPS count no longer matches its /drives/ card, rewrite that card's
+// blurb, stop count, miles and minutes from the page intro and route file. Other cards are left as written.
+const fmtMin = (m) => `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`
+for (const c of cards) {
+  const re = new RegExp(`(<a href="/drives/${c.slug}/">[\\s\\S]*?<p class="muted">)([\\s\\S]*?)(</p>\\s*<p class="facts"><span><b>)(\\d+)(</b> stops</span><span>About <b>)\\d+( mi</b></span><span>About <b>)[^<]*(</b>)`)
+  idx = idx.replace(re, (all, a, blurb, b, n, d, e, f) => Number(n) === c.stops ? all
+    : `${a}${esc(c.intro)}${b}${c.stops}${d}${Math.round(c.miles)}${e}${fmtMin(c.minutes)}${f}`)
+}
 if (idx !== before) { fs.writeFileSync(idxFile, idx); changed++ }
 console.log(`build-drive-pages: ${cards.length} drive pages + index (JSON-LD, prerendered stops); ${changed} file(s) updated`)

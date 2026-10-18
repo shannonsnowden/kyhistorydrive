@@ -1,0 +1,137 @@
+{
+  "slug": "yahoo-falls-big-south-fork",
+  "storySlug": "yahoo-falls-big-south-fork",
+  "title": "Research notes: Yahoo Falls",
+  "updated": "2026-10-14",
+  "summary": "Sources for Yahoo Falls in Big South Fork. Pin years are its public history (national forest 1937 to the Park Service in 1987), not geologic age.",
+  "sections": [
+    {
+      "heading": "The falls",
+      "items": [
+        {
+          "text": "About 113 ft single plunge on Yahoo Creek; NPS calls it Kentucky’s highest waterfall.",
+          "sources": [
+            "nps16",
+            "wiki"
+          ]
+        },
+        {
+          "text": "A Red River Gorge falls is said to exceed it by a few inches.",
+          "sources": [
+            "wiki"
+          ]
+        },
+        {
+          "text": "Falls in front of one of the park’s largest rock houses; walk behind; trickle in summer; 100-ft Yahoo Arch spur.",
+          "sources": [
+            "kt"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Public history",
+      "items": [
+        {
+          "text": "Cumberland National Forest created 1937; renamed Daniel Boone National Forest 1968.",
+          "sources": [
+            "wiki",
+            "nps11"
+          ]
+        },
+        {
+          "text": "1960s Yahoo Falls Recreation Area by forest supervisor Robert Collins: road, picnic area, campsite, trails, steel stairs.",
+          "sources": [
+            "wiki",
+            "nps16"
+          ]
+        },
+        {
+          "text": "Transferred to the NPS for Big South Fork in 1987; picnic shelter restored 2011; road paved 2016.",
+          "sources": [
+            "nps11",
+            "nps16"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cut",
+      "items": [
+        {
+          "text": "Local legends about the name and frontier events at the falls: not traced to contemporary records, so left out.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1937,
+      "event": "Cumberland National Forest created.",
+      "sources": [
+        "wiki"
+      ]
+    },
+    {
+      "year": 1968,
+      "event": "Renamed Daniel Boone National Forest.",
+      "sources": [
+        "nps11"
+      ]
+    },
+    {
+      "year": 1987,
+      "event": "Land transferred to the NPS.",
+      "sources": [
+        "nps11"
+      ]
+    },
+    {
+      "year": 2016,
+      "event": "Yahoo Falls Road paved.",
+      "sources": [
+        "nps16"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Robert Collins",
+      "role": "Forest supervisor, 1960s recreation area"
+    }
+  ],
+  "openQuestions": [
+    "The exact year the recreation area opened."
+  ],
+  "sources": [
+    {
+      "id": "nps11",
+      "citation": "“Rededication of Restored Yahoo Falls Picnic Shelter,” Big South Fork NRRA news release, August 18, 2011.",
+      "url": "https://www.nps.gov/biso/learn/news/rededication-of-restored-yahoo-falls-picnic-shelter.htm",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "nps16",
+      "citation": "“Yahoo Falls Road Improvement Project to Start June 20,” Big South Fork NRRA news release, 2016.",
+      "url": "https://www.nps.gov/biso/learn/news/yahoo-falls-road-improvement-project-to-start-june-20.htm",
+      "type": "primary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "wiki",
+      "citation": "“Yahoo Falls,” Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Yahoo_Falls",
+      "type": "secondary",
+      "accessed": "2026-10-14"
+    },
+    {
+      "id": "kt",
+      "citation": "“Waterfalls, Arches and Wildlife: Hiking Yahoo Falls,” Kentucky Tourism, 2023.",
+      "url": "https://www.kentuckytourism.com/trip-planning/travel-inspiration/articles/2023/07/25/waterfalls-arches-and-wildlife---hiking-yahoo-falls",
+      "type": "secondary",
+      "accessed": "2026-10-14"
+    }
+  ]
+}

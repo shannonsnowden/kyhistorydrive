@@ -23,7 +23,8 @@
     "source_url": "https://www.loc.gov/pictures/item/2020630224/",
     "source_label": "Library of Congress",
     "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
-    "year": 1864
+    "year": 1864,
+    "fit": "contain"
   },
   "county": "Jessamine"
 }
