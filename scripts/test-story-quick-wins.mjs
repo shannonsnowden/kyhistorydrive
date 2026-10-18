@@ -189,10 +189,10 @@ assert.equal(
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const camp = textRevisionForFile(root, 'public/content/stories/camp-nelson-jessamine-county.json')
 assert.equal(camp.published, '2026-10-04')
-assert.equal(camp.modified, '2026-10-18')
+assert.equal(camp.modified, '2026-10-04')
 const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
 assert.equal(mantle.published, '2026-10-09')
-assert.equal(mantle.modified, '2026-10-18')
+assert.equal(mantle.modified, '2026-10-09')
 
 const credit = photoCreditModel({
   image_url: '/photo.jpg',
