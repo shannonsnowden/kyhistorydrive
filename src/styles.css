@@ -5854,3 +5854,10 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 @media (max-width: 600px) {
   .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo.is-links-only { margin-top: 0.75rem; }
 }
+/* Critiquito 10/18 (#254): 44px citation chips; 44px people rows at phone width */
+.research-cites { gap: 0.5rem; }
+.research-cite { min-height: 44px; }
+@media (max-width: 600px) {
+  .research-people li { margin: 0; }
+  .research-people a { display: inline-flex; align-items: center; min-height: 44px; }
+}

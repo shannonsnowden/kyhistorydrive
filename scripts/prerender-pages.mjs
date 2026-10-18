@@ -576,21 +576,21 @@ class PrerenderPages {
    * sentence is cut on a word, with no ellipsis, only when it is itself
    * longer than 160 characters.
    */
-  static storyMetaDescription(text) {
+  static storyMetaDescription(text, max = 160) {
     const plain = PrerenderPages.plainText(text)
     if (!plain) return ''
     const sentences = PrerenderPages.splitSentences(plain)
     if (!sentences.length) return ''
     const first = sentences[0]
-    if (first.length > 160) {
-      const window = first.slice(0, 160)
+    if (first.length > max) {
+      const window = first.slice(0, max)
       const space = window.lastIndexOf(' ')
       return (space > 0 ? window.slice(0, space) : window).trim()
     }
     let acc = ''
     for (const sentence of sentences) {
       const next = acc ? `${acc} ${sentence}` : sentence
-      if (next.length > 160) break
+      if (next.length > max) break
       acc = next
     }
     return acc
@@ -601,15 +601,15 @@ class PrerenderPages {
     return /[.!?]["'”’)\]]*$/.test(String(text || ''))
   }
 
-  static assertStoryMeta(description, source, urlPath) {
+  static assertStoryMeta(description, source, urlPath, max = 160) {
     if (!description) throw new Error(`prerender: ${urlPath} meta description is empty`)
-    if (description.length > 160) {
+    if (description.length > max) {
       throw new Error(`prerender: ${urlPath} description is ${description.length} characters`)
     }
     if (/(?:\u2026|\.\.\.)\s*$/u.test(description)) {
       throw new Error(`prerender: ${urlPath} meta description ends with an ellipsis`)
     }
-    const expected = PrerenderPages.storyMetaDescription(source)
+    const expected = PrerenderPages.storyMetaDescription(source, max)
     if (description !== expected) {
       throw new Error(`prerender: ${urlPath} meta description does not follow the sentence rule`)
     }
@@ -1382,10 +1382,15 @@ class PrerenderPages {
     const urlPath = `/research/${notes.slug}/`
     const pageUrl = `${PrerenderPages.SITE}${urlPath}`
     if (!article) throw new Error(`prerender: ${urlPath} did not render`)
-    const description = PrerenderPages.storyMetaDescription(notes.summary)
-    PrerenderPages.assertStoryMeta(description, notes.summary, urlPath)
+    // SEO 10/18: research metas stay at 155 or less; titles at 60 or less (suffix only when it fits).
+    const description = PrerenderPages.storyMetaDescription(notes.summary, 155)
+    PrerenderPages.assertStoryMeta(description, notes.summary, urlPath, 155)
+    const baseTitle = String(notes.seoTitle || notes.title).trim()
+    const suffixed = `${baseTitle} · Kentucky History Drive`
+    const title = suffixed.length <= 60 ? suffixed : baseTitle
+    if (title.length > 60) throw new Error(`prerender: ${urlPath} title is ${title.length} characters`)
     return PrerenderPages.shell({
-      title: `${notes.title} · Kentucky History Drive`,
+      title,
       description,
       canonical: `${PrerenderPages.SITE}${urlPath}`,
       cssHrefs,
