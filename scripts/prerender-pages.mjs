@@ -2360,6 +2360,13 @@ class PrerenderPages {
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
     }
+    // Editor 10/18 (#199): human-made art is labeled as art, never 'Photo:' or 'AI illustration'.
+    if (story.photo?.artwork) {
+      const credit = (html.match(/<p class="story-sidebar-photo-attr[\s\S]*?<\/p>/) || [''])[0]
+      if (!credit.includes(`${PrerenderPages.escapeHtml(story.photo.artwork)} · `) || /AI illustration|>Photo: /.test(credit)) {
+        throw new Error(`prerender: ${urlPath} artwork credit must read '${story.photo.artwork} · <artist>'`)
+      }
+    }
     if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
     if (!html.includes(PrerenderPages.rssAlternateLink())) {
       throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)

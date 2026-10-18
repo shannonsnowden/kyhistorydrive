@@ -74,6 +74,8 @@ export function photoCreditHtml(photo, { includeYear = false } = {}) {
       html += ` · <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">source file</a>`
     }
   }
+  const artwork = String(photo.artwork || '').trim()
+  if (artwork && !raw.toLowerCase().startsWith(artwork.toLowerCase())) html = `${escapeHtml(artwork)} · ${html}`
   if (includeYear && photo.year) html += `${html ? ' · ' : ''}${escapeHtml(String(photo.year))}`
   return html
 }

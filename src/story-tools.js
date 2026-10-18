@@ -757,7 +757,10 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   // Each piece is a nowrap .seg; CSS (.seg + .seg::before) draws the ' · ' at the start of the
   // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
   const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
-  if (segs.length) segs[0] = `<span class="seg">Photo: ${chunks[0]}</span>`
+  // Human-made art (e.g. Herb Roe's paintings) leads with its own label, never 'Photo:' or 'AI illustration'.
+  const artwork = String(photo?.artwork || '').trim()
+  const lead = artwork ? `${esc(artwork)} · ` : 'Photo: '
+  if (segs.length) segs[0] = `<span class="seg">${lead}${chunks[0]}</span>`
   if (model.license || cc) {
     const href = cc?.url || model.licenseUrl
     const label = cc?.name || model.license
@@ -765,7 +768,7 @@ export function photoCreditHtml(photo, { block = true } = {}) {
     const license = href
       ? `<a href="${esc(href)}" target="_blank" rel="${rel}">${esc(label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`
       : esc(label)
-    const prefix = segs.length ? '' : 'Photo: '
+    const prefix = segs.length ? '' : lead
     segs.push(`<span class="seg photo-license">${prefix}License: ${license}</span>`)
   }
   if (cc && /^https?:\/\//i.test(model.sourceUrl || '')) {
