@@ -33,15 +33,19 @@
       "id": "squire-boone",
       "name": "Squire Boone",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/squire-boone__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/squire-boone__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "shelbyville",
         "squire-boones-painted-stone"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jemima-boone",
@@ -232,24 +236,31 @@
       "id": "levi-todd",
       "name": "Levi Todd",
       "dates": "1756–1807",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/levi-todd__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/levi-todd__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-john-bowman-at-old-chillicothe",
         "levi-todd-lexington-co-founder"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-todd",
       "name": "John Todd",
       "dates": "1750–1782",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-todd__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-todd__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-john-todd-of-lexington",
@@ -258,7 +269,8 @@
         "manns-lick-louisvilles-salt-town",
         "simon-girty-interpreter-at-bryan-station-1782",
         "wyandot-on-kentuckys-northern-frontier"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "mary-o-todd",
@@ -314,17 +326,21 @@
       "id": "john-finley",
       "name": "John Finley",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-finley__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-finley__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "athiamiowee-the-warriors-path-through-kentucky",
         "john-finley-the-trader-who-put-kentucky-on-boones-map",
         "odawa-raid-at-eskippakithiki-1753",
         "pilot-knob-boones-overlook-1769"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-faulkner",
@@ -343,44 +359,56 @@
       "id": "hancock-taylor",
       "name": "Hancock Taylor",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/hancock-taylor__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hancock-taylor__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "hancock-taylor-fincastle-surveyor",
         "leestown"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-holder",
       "name": "John Holder",
       "dates": "1753–1799",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-holder__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-holder__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-john-holder-at-lower-howards-creek",
         "william-hoy-and-hoys-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-hardin",
       "name": "John Hardin",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-hardin__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-hardin__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-john-hardin-of-pleasant-run",
         "little-turtle-and-hardins-defeat-1790",
         "mascouten-fire-nation-on-the-wabash"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "mark-hardin",
@@ -429,15 +457,19 @@
       "id": "stephen-trigg",
       "name": "Stephen Trigg",
       "dates": "c. 1744–1782",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/stephen-trigg__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/stephen-trigg__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-stephen-trigg-of-viney-grove",
         "wyandot-on-kentuckys-northern-frontier"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-filson",
@@ -463,43 +495,55 @@
       "id": "william-christian",
       "name": "William Christian",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-christian__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-christian__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "bullitts-lick-kentuckys-first-industry",
         "william-christian-of-beargrass"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "james-knox",
       "name": "James Knox",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/james-knox__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/james-knox__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "henry-skaggs-green-river-long-hunter",
         "james-knox"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jacob-beam",
       "name": "Jacob Beam",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jacob-beam__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jacob-beam__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "jacob-beam-on-hardin-creek",
         "jacob-beam-sells-old-jakes-first-barrel"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "lewis-craig",
@@ -566,15 +610,19 @@
       "id": "john-strode",
       "name": "John Strode",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-strode__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-strode__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-john-strode-of-strodes-station",
         "winchester-clark-county-seat"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "henry-bird",
@@ -640,14 +688,18 @@
       "id": "daniel-trabue",
       "name": "Daniel Trabue",
       "dates": "1760–1840",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/daniel-trabue__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/daniel-trabue__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "daniel-trabue-of-columbia"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "james-wilkinson",
@@ -772,15 +824,19 @@
       "id": "william-whitley",
       "name": "William Whitley",
       "dates": "1787–1794",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-whitley__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-whitley__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "esther-whitley-over-the-cumberlands-1775",
         "william-whitley-sportsmans-hill"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "ann-harper",
@@ -985,15 +1041,19 @@
       "id": "john-bowman",
       "name": "John Bowman",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-bowman__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-bowman__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
         "col-john-bowman-at-old-chillicothe"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "joseph-bowman",
@@ -1233,14 +1293,18 @@
       "id": "william-hoy",
       "name": "William Hoy",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-hoy__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-hoy__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "william-hoy-and-hoys-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jones-hoy",
@@ -1380,14 +1444,18 @@
       "id": "william-russell-iii",
       "name": "William Russell III",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-russell-iii__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-russell-iii__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-william-russell-iii"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "henry-russell",
@@ -1420,18 +1488,18 @@
       "name": "Jack Jouett",
       "dates": null,
       "image": {
-        "webp": "/people/portraits/jack-jouett-512.webp",
-        "jpg": "/people/portraits/jack-jouett-512.jpg"
+        "webp": "/people/portraits/jack-jouett__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jack-jouett__ai-portrait-v1-512.jpg"
       },
-      "credit": "Matthew Harris Jouett · Public domain · via Wikimedia Commons",
-      "ai": false,
-      "license": "Public domain",
+      "credit": "AI illustration · Kentucky History Drive; based on silhouette by Matthew Harris Jouett",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-jack-jouett",
         "jack-jouett-kentuckys-midnight-rider"
       ],
-      "sourceFile": "Jack jouett silhouette.svg"
+      "sourceFile": null
     },
     {
       "id": "banastre-tarleton",
@@ -1486,14 +1554,18 @@
       "id": "isaac-ruddell",
       "name": "Isaac Ruddell",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/isaac-ruddell__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/isaac-ruddell__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "isaac-ruddell-and-the-guns-at-ruddells-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "edward-worthington",
@@ -1512,28 +1584,36 @@
       "id": "silas-harlan",
       "name": "Silas Harlan",
       "dates": "c. 1752–1782",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/silas-harlan__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/silas-harlan__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "maj-silas-harlan"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "michael-stoner",
       "name": "Michael Stoner",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/michael-stoner__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/michael-stoner__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "michael-stoner-german-long-hunter",
         "pine-mountain-and-pound-gap"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "henry-skaggs",
