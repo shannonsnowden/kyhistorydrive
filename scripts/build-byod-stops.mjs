@@ -12,6 +12,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { parseJsLiteral } from './js-literal.mjs'
 
 const L = (f) => JSON.parse(fs.readFileSync(path.resolve('public/data/layers', f + '.geojson'), 'utf8')).features
 const prot = new Set(JSON.parse(fs.readFileSync('public/data/web/protected-pins.json', 'utf8')).ids || [])
@@ -125,7 +126,7 @@ for (const slug of fs.readdirSync(DP)) {
   if (!fs.existsSync(file) || slug === 'build') continue
   const m = fs.readFileSync(file, 'utf8').match(/const STOPS = (\[[\s\S]*?\n\])/)
   if (!m) continue
-  const stops = new Function(`return ${m[1]}`)()
+  const stops = parseJsLiteral(m[1])
   // JSON-LD: Place.geo by stop identifier. A sensitive, private or approximate stop may carry no geo
   // finer than 0.1° (build-drive-pages emits none); a public stop's geo must match its STOPS entry.
   const ldGeo = new Map()
