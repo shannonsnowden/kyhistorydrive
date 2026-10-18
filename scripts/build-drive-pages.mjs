@@ -153,7 +153,7 @@ for (const slug of slugs) {
     },
   }
   html = setLd(html, [trip, crumbs([['Home', `${SITE}/`], ['Drives', `${SITE}/drives/`], [h1, url]])])
-  cards.push({ slug, name: h1, url })
+  cards.push({ slug, name: h1, url, intro, stops: stops.length, miles: route.miles, minutes: route.minutes })
   if (html !== before) { fs.writeFileSync(file, html); changed++ }
 }
 
@@ -183,5 +183,13 @@ idx = setLd(idx, [
   },
   crumbs([['Home', `${SITE}/`], ['Drives', `${SITE}/drives/`]]),
 ])
+// Card facts: when a page's STOPS count no longer matches its /drives/ card, rewrite that card's
+// blurb, stop count, miles and minutes from the page intro and route file. Other cards are left as written.
+const fmtMin = (m) => `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`
+for (const c of cards) {
+  const re = new RegExp(`(<a href="/drives/${c.slug}/">[\\s\\S]*?<p class="muted">)([\\s\\S]*?)(</p>\\s*<p class="facts"><span><b>)(\\d+)(</b> stops</span><span>About <b>)\\d+( mi</b></span><span>About <b>)[^<]*(</b>)`)
+  idx = idx.replace(re, (all, a, blurb, b, n, d, e, f) => Number(n) === c.stops ? all
+    : `${a}${esc(c.intro)}${b}${c.stops}${d}${Math.round(c.miles)}${e}${fmtMin(c.minutes)}${f}`)
+}
 if (idx !== before) { fs.writeFileSync(idxFile, idx); changed++ }
 console.log(`build-drive-pages: ${cards.length} drive pages + index (JSON-LD, prerendered stops); ${changed} file(s) updated`)
