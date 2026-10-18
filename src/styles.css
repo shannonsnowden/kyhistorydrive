@@ -5918,15 +5918,18 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .timeline-layout.is-home-story .timeline-map-head button { display: none; }
   .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
 }
-/* Phones (<=560px): the docked map is not sticky. It sits on top, shorter, and scrolls away
-   with the page, so the story card never slides under it (Chiggerville / iPhone bug). */
-@media (max-width: 560px) {
+/* Phones and tablets (<=900px): the docked map is not sticky. It sits on top and scrolls away
+   with the page, so the story card never slides under it (Chiggerville / iPhone bug; the
+   561-900px overlap from the #302 design re-check). Phones get a shorter map. */
+@media (max-width: 900px) {
   .timeline-layout.is-home-story .timeline-map-pane {
     position: relative;
     top: auto;
     z-index: auto;
-    height: 32vh;
   }
+}
+@media (max-width: 560px) {
+  .timeline-layout.is-home-story .timeline-map-pane { height: 32vh; }
 }
 
 /* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content

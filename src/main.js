@@ -3203,11 +3203,9 @@ function timelineHeaderOffset() {
   const bar = document.querySelector('.timeline-read-bar')
   const headerH = header ? header.getBoundingClientRect().height : 0
   const barH = bar ? bar.getBoundingClientRect().height : 0
-  // Phones opened from a homepage story link: the map is docked under the bar
-  const docked = document.querySelector('#timeline .timeline-layout.is-home-story #timelineMapPane')
-  // Only while it is sticky (561–900px); at <=560px it scrolls away with the page.
-  const dockH = docked && window.matchMedia('(min-width: 561px) and (max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
-  return headerH + barH + dockH + 8
+  // The docked map (homepage story link, <=900px) scrolls away with the page, so it never
+  // covers the story and adds nothing to the offset.
+  return headerH + barH + 8
 }
 
 function timelineItemFor(slug) {
