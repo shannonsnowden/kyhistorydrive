@@ -29,7 +29,7 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 - **iPhone app (coming soon)**: OTA data from `public/data/app/ky-history-manifest.json`. Bump `data_version` when that data changes.
 
 ## Standards
-- **Sourcing**: Primary or official sources first: history.ky.gov (KHS markers), then state and federal archives (KDLA, NARA, LOC/Chronicling America), then HMdb, then peer-reviewed or reputable published histories, with Wikipedia last as a pointer, never the only source. Link the page for the specific item, never a homepage.
+- **Sourcing**: Primary or official sources first: [history.ky.gov](https://history.ky.gov) (KHS markers), then state and federal archives (KDLA, NARA, LOC/Chronicling America), then HMdb, then peer-reviewed or reputable published histories. Encyclopedia pointers: Grokipedia first, Wikipedia only when Grokipedia has no suitable article (Shannon, 2026-10-18). An encyclopedia page is a pointer, never the only source for a fact; primary, scholarly and agency sources still come first. Link the page for the specific item, never a homepage.
 - **Claims**: Every factual claim a reader could question (dates, names, numbers, quotes) traces to at least one linked source in Learn more.
 - **Disagreement**: When sources disagree, the story says so plainly.
 - **Oral history**: Family tradition and oral history are labeled as such.
@@ -40,7 +40,7 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 - **Fairness** (Shannon, 2026-10-11): Every story must be fair to the Shawnee and to every people it covers. Present Native nations, settlers and all groups with balance, using their own perspectives and names where sources allow, and avoid one-sided framing.
 - **Native nations**: every new story gets a territory map, or a tag only when the source is oral tradition. Archaeological cultures get a shape only when sources place them in an area. Timeline map pages exist only when the map shows real change over time. Never remove panel layers. Outside tribal review was skipped; stories rely on cited sources.
 - **Years**: event or occupation years only, never dig, WPA, NRHP or study dates. BCE years are stored as negative numbers. Use culture defaults when there's no date.
-- **Source links**: every source link must return 200. No Grokipedia or AI-generated pages, and no search-results pages. Soften or remove unsupported claims.
+- **Source links**: every source link must return 200. No other AI-generated pages, and no search-results pages. Encyclopedia pointers: Grokipedia first, Wikipedia only when Grokipedia has no suitable article (Shannon, 2026-10-18). An encyclopedia page is a pointer, never the only source for a fact; primary, scholarly and agency sources still come first. Soften or remove unsupported claims.
 - **No duplicates**: no repeats of stories already on the site. Swap the story and flag it.
 - **County, tags and era**: set County explicitly, and set tags and era by hand.
 - **Cultures vs tribes**: archaeological cultures are not tribes. Theme-only topics get no pin.
@@ -151,3 +151,14 @@ Engineer Bot builds, then Critiquito reviews design, then SEO & AEO Desk reviews
 | Story Studio | Agreed (with edits, 2026-10-11) |
 | Research Bot | Agreed (with edits, 2026-10-11) |
 | KY Website Editor | Agreed (author, 2026-10-11) |
+
+## Team workflow: Superpowers skills
+Standing rule from Shannon, October 18, 2026: the Superpowers skills plugin is part of everything the web team does.
+- **brainstorming** and **writing-plans** before features (for example, the animated route map).
+- **test-driven-development**.
+- **systematic-debugging**.
+- **requesting-code-review** and **receiving-code-review**.
+- **verification-before-completion** before anything is called done, Merged-and-Live, or Live. Never mark a card Live without checking the actual live build or page.
+- Do NOT adopt **using-superpowers**.
+
+Chain of command is unchanged: web-team bots report to KY Website Editor, who reports to Chief of Staff, who talks with Shannon.
