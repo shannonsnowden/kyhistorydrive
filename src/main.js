@@ -3314,13 +3314,13 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
             </div>
             ${titleHtml}
+            ${tags ? `<div class="tags">${tags}</div>` : ''}
             ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
                 ? ''
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
-            <div class="tags">${tags}</div>
             ${takeADriveHtml(await loadStoryDrives(), meta.slug)}
           </header>
           <div class="story-glance-mount"></div>
