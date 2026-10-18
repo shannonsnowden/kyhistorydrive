@@ -610,10 +610,21 @@ class PrerenderPages {
     return trimmed
   }
 
-  /** Body prose, or the finished summary when a story has no body. */
+  /**
+   * Meta description source. Prefer the story's own summary when it is a finished, whole-sentence
+   * summary of 155 characters or less (SEO & AEO Desk, #304): it is written as the answer, while the
+   * body's first sentence can be cut mid-phrase. Otherwise fall back to the body prose, then to the
+   * finished summary when a story has no body.
+   */
   static storyDescriptionSource(story) {
-    return PrerenderPages.plainText(story.bodyMarkdown) || PrerenderPages.finishedSummary(story.summary)
+    const summary = PrerenderPages.finishedSummary(story.summary)
+    if (summary && summary.length <= PrerenderPages.SUMMARY_META_MAX && PrerenderPages.endsWithSentence(summary)) {
+      return summary
+    }
+    return PrerenderPages.plainText(story.bodyMarkdown) || summary
   }
+
+  static SUMMARY_META_MAX = 155
 
   /**
    * Story meta description: whole sentences only, up to 160 characters.
@@ -1530,7 +1541,7 @@ class PrerenderPages {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
-    const description = PrerenderPages.storyMetaDescription(bodyPlain || summary)
+    const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
