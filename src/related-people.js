@@ -118,11 +118,16 @@ export function initials(name) {
 }
 
 /** Round headshot, or '' when there is no local image. width/height stay in the 32–40px range. Alt only (no title tooltip); credit lives on the person's story portrait. */
+// 96px thumbnails sit beside every 512px portrait (2x+ for a 36px disc, ~4KB instead of ~40KB).
+function thumb96(src) {
+  return String(src).replace(/-512\.(webp|jpg)$/, '-96.$1')
+}
+
 export function headshotHtml(person, size = 36) {
   const ready = localPortrait(person)
   if (!ready) return ''
   const n = Number(size) === 32 || Number(size) === 40 ? Number(size) : 36
-  return `<picture class="related-headshot-frame"><source srcset="${esc(ready.image.webp)}" type="image/webp"><img class="related-headshot" src="${esc(ready.image.jpg)}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
+  return `<picture class="related-headshot-frame"><source srcset="${esc(thumb96(ready.image.webp))}" type="image/webp"><img class="related-headshot" src="${esc(thumb96(ready.image.jpg))}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
 }
 
 /** 36px deep-green disc with amber initials for a person waiting on a portrait. */
