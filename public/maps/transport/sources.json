@@ -1,7 +1,7 @@
 {
   "phase": 1,
   "status": "phase-1",
-  "dates": "Railroad opening dates are sourced per section (see sections.geojson). Parkway opening years are provisional; the Daniel Boone (Hal Rogers) Parkway year is disputed (1971 vs 1974).",
+  "dates": "Railroad opening dates are sourced per section (see sections.geojson). Parkway opening years are provisional; the Daniel Boone (Hal Rogers) Parkway opened in 1971 (dedicated Oct 28, 1971 in Manchester).",
   "verification": {
     "date": "2026-10-12",
     "rules": [
@@ -20,7 +20,7 @@
     "file": "/data/kentucky-outline.geojson",
     "source": "Natural Earth",
     "license": "Public domain",
-    "url": "https://www.naturalearthdata.com/",
+    "url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/",
     "note": "Already on the site. Used only as the map frame, not as transport geometry."
   },
   "notUsed": [
@@ -99,7 +99,7 @@
       "kind": "rail",
       "summary": "Built by the city of Cincinnati for a direct route to Southern markets that bypassed Louisville and the L&N. It was open to Somerset by 23 July 1877, crossing the Kentucky River on High Bridge, and through service to Chattanooga began in 1880.",
       "sources": [
-        "https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Trains/ICC_valuations/Cincinnati_Southern_Railway",
+        "https://grokipedia.com/page/Cincinnati,_New_Orleans_and_Texas_Pacific_Railway",
         "https://bridgestunnels.com/location/high-bridge/",
         "https://abandonedonline.net/location/cincinnati-southern-railway/"
       ]
@@ -121,7 +121,7 @@
       "summary": "Elizabethtown to near Eddyville opened in 1963, and the extension to I-24 at Eddyville followed in 1968.",
       "sources": [
         "https://www.kentuckyroads.com/western_kentucky_parkway/",
-        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky"
+        "https://grokipedia.com/page/Western_Kentucky_Parkway"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "kind": "parkway",
       "summary": "Opened in 1966 (provisional) through the Jackson Purchase, from Calvert City to Fulton.",
       "sources": [
-        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://grokipedia.com/page/purchase_parkway",
         "https://wiki.aaroads.com/wiki/List_of_parkways_and_named_highways_in_Kentucky"
       ]
     },
@@ -179,7 +179,7 @@
       "kind": "parkway",
       "summary": "Opened in 1972 (provisional) between Bowling Green and Owensboro.",
       "sources": [
-        "https://en.wikipedia.org/wiki/List_of_parkways_and_named_highways_in_Kentucky",
+        "https://grokipedia.com/page/william_h_natcher_parkway",
         "https://www.kentuckyroads.com/parkways/"
       ]
     },
