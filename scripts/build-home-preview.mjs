@@ -264,6 +264,7 @@ function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
     source_label: row.source_label || 'Wikimedia Commons',
     attribution: row.attribution,
     year: row.year || null,
+    ...(row.cardThumb === false ? { cardThumb: false } : {}),
   }
 }
 

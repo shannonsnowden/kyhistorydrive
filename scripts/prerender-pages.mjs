@@ -68,7 +68,7 @@ import {
   researchPageHref,
 } from '../src/story-markdown.js'
 import { applyStoryPeople } from '../src/story-people.js'
-import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
+import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 
@@ -223,6 +223,7 @@ class PrerenderPages {
       ),
     })
     const relatedBundle = PrerenderPages.loadRelatedBundle(root)
+    PrerenderPages.portraitForSlug = (slug) => portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug))
     const sourcePeople = PrerenderPages.readJson(path.join(root, 'data/people.json')).people || []
     const peopleHtml = PrerenderPages.peoplePage(relatedBundle.people, stories, cssHrefs, sourcePeople)
     PrerenderPages.assertPage(peopleHtml, { lat: null, lon: null }, '/people/')
@@ -1275,7 +1276,7 @@ class PrerenderPages {
 `
   }
 
-  /** Specific subject tags, then county, then distance. Title is only a tiebreak. */
+  /** Two or more specific tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
     return pickRelatedStories(story, all, excludeSlugs)
   }
@@ -1288,15 +1289,20 @@ class PrerenderPages {
     return bits.join(' · ')
   }
 
-  static relatedAndNearbySection(story, all, markers) {
+  static relatedAndNearbySection(story, all, markers, relatedBundle = null) {
     const route = routeBySlug(story.slug)
-    const routeSlugs = route?.relatedStories || []
+    // Never repeat a story already in the Related people & stories box.
+    const peopleSlugs = relatedBundle
+      ? relatedBlockSlugs(relatedBundle.data, story.slug, (slug) => all.find((item) => item.slug === slug)?.title || '', { personFor: relatedBundle.personFor })
+      : []
+    const routeSlugs = [...(route?.relatedStories || []), ...peopleSlugs]
     const routeMarkerIds = (route?.markers || []).map((marker) => String(marker.number))
     return relatedAndNearbyForStory(story, all, markers, {
       excludeSlugs: routeSlugs,
       excludeMarkerIds: routeMarkerIds,
       limit: 3,
       thumbFor: (item) => PrerenderPages.existingThumb(item),
+      portraitFor: (slug) => (relatedBundle ? portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug)) : ''),
     })
   }
 
@@ -1564,7 +1570,7 @@ class PrerenderPages {
           })}
           ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
           ${PrerenderPages.relatedPeopleSection(story, all, relatedBundle)}
-          ${PrerenderPages.relatedAndNearbySection(story, all, markers)}
+          ${PrerenderPages.relatedAndNearbySection(story, all, markers, relatedBundle)}
           ${citeBoxHtml({
             title: story.title,
             url: storyCanonicalUrl(story.slug),
@@ -2483,14 +2489,26 @@ class PrerenderPages {
     }
     if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
     const routeForNearby = routeBySlug(story.slug)
+    // Editor 10/18 (#247): no story appears in both the Related people & stories box and Related and nearby.
+    const peopleBoxSlugs = peopleAside ? [...peopleAside[0].matchAll(/href="\/stories\/([^"/]+)\//g)].map((match) => match[1]) : []
+    const nearbyBoxSlugs = [...related[0].matchAll(/href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
+    const repeated = nearbyBoxSlugs.filter((slug) => peopleBoxSlugs.includes(slug))
+    if (repeated.length) throw new Error(`prerender: ${urlPath} repeats ${repeated.join(', ')} in Related people & stories and Related and nearby`)
+    if (new Set(nearbyBoxSlugs).size !== nearbyBoxSlugs.length) throw new Error(`prerender: ${urlPath} repeats a story inside Related and nearby`)
+    // Person cards always show the canonical portrait, never a pin or story photo.
+    for (const card of related[0].match(/<li class="(?:related-story|nearby-place)">[\s\S]*?<\/li>/g) || []) {
+      const slug = (card.match(/href="\/stories\/([^"/]+)\//) || [])[1]
+      const want = slug && PrerenderPages.portraitForSlug ? PrerenderPages.portraitForSlug(slug) : ''
+      if (want && !card.includes(`src="${want}"`)) throw new Error(`prerender: ${urlPath} person card ${slug} is not using the canonical portrait`)
+    }
     const relatedSlugs = [...related[0].matchAll(/<li class="related-story">[\s\S]*?href="\/stories\/([^"/]+)\//g)].map((match) => match[1])
-    const expectedRelated = PrerenderPages.relatedStories(story, all, routeForNearby?.relatedStories || []).map((item) => item.slug)
+    const expectedRelated = PrerenderPages.relatedStories(story, all, [...(routeForNearby?.relatedStories || []), ...peopleBoxSlugs]).map((item) => item.slug)
     if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
-      throw new Error(`prerender: ${urlPath} related stories are not ranked by subject tags, county, then distance`)
+      throw new Error(`prerender: ${urlPath} related stories are not ranked by two or more subject tags, then county, then distance`)
     }
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
-      excludeSlugs: [...(routeForNearby?.relatedStories || []), ...relatedSlugs],
+      excludeSlugs: [...(routeForNearby?.relatedStories || []), ...peopleBoxSlugs, ...relatedSlugs],
       excludeMarkerIds: (routeForNearby?.markers || []).map((marker) => String(marker.number)),
     })
     const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
