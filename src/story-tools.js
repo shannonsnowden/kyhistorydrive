@@ -396,7 +396,8 @@ function cardMetaHtml(row) {
 function nearbyRowHtml(row) {
   const href = row.kind === 'marker' ? markerMapHref(row.id) : `/stories/${encodeURIComponent(row.slug)}/`
   const liClass = row.related ? 'related-story' : 'nearby-place'
-  return `<li class="${liClass}"><a class="related-card" href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span></span>${CHEVRON_ICON}</a></li>`
+  const mapAttr = row.kind === 'marker' ? ' data-story-map' : ''
+  return `<li class="${liClass}"><a class="related-card"${mapAttr} href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span></span>${CHEVRON_ICON}</a></li>`
 }
 
 function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby' } = {}) {

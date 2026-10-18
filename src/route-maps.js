@@ -466,15 +466,22 @@ export function routeMapSectionHtml(slug, { headingLevel = 2, linkMode = 'story'
     </section>`
 }
 
-export function routesIndexArticleHtml(titleFor) {
+export function routesIndexArticleHtml(titleFor, mapHrefFor = null) {
   const cards = ROUTE_MAPS.map((route) => {
     const title = (titleFor && titleFor(route.slug)) || route.slug
+    const rawMap = mapHrefFor ? mapHrefFor(route.slug) : ''
+    const mapLink = rawMap
+      ? `<a class="btn ghost route-card-map" data-story-map href="${esc(rawMap)}">Open on the map</a>`
+      : ''
     return `<li class="route-card">
         ${routeMapZoomHtml(route, { thumb: true })}
-        <a class="route-card-link" href="/stories/${esc(route.slug)}/#route-map">
-          <h2>${esc(title)}</h2>
-          <p class="muted">${esc(route.era)}</p>
-        </a>
+        <div class="route-card-copy">
+          <a class="route-card-link" href="/stories/${esc(route.slug)}/#route-map">
+            <h2>${esc(title)}</h2>
+            <p class="muted">${esc(route.era)}</p>
+          </a>
+          ${mapLink}
+        </div>
       </li>`
   }).join('')
   return `<article>
