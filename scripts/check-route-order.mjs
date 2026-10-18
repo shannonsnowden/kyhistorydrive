@@ -26,12 +26,19 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { spreadBadges } from '../public/drives/badge-spread.js'
+import { spreadBadges, labelBox } from '../public/drives/badge-spread.js'
+import { ROUTE_MAP_LABELS } from '../src/route-map-labels.js'
+import { BADGE, DESK_VIEW, PHONE_VIEW, badgeLabelGap, badgeBadgeGap } from '../src/route-map-geo.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
 /** Justified exceptions: { 'kind:slug': { stops: [numbers], reason } } */
 export const ALLOW = {
+  'route:athiamiowee-the-warriors-path-through-kentucky': {
+    stops: [4],
+    reason:
+      "Badges 3 and 4 anchor to their painted rings, and the painting puts the Red River ring a little north of the Eskippakithiki ring (the coordinates say the reverse). The numbers keep travel order; a repaint is its own ticket.",
+  },
   'route:george-rogers-clark': {
     stops: [6, 7],
     reason:
@@ -165,6 +172,7 @@ export function checkDrives({ only = null, mutate = null } = {}) {
     const html = fs.readFileSync(file, 'utf8')
     const stops = driveStops(html)
     if (!stops) continue
+    const errs0 = []
     if (mutate) mutate(stops)
     const src = html.match(/fetch\('(\/drives\/(?!ky-base|ky-places)[^']+\.json)'\)/)
     if (!src) {
@@ -181,10 +189,43 @@ export function checkDrives({ only = null, mutate = null } = {}) {
     // Page map: 4:3 viewBox, badge radius 5.2 of a 260-wide view.
     const w = Math.max(Math.max(...xs) - Math.min(...xs), (Math.max(...ys) - Math.min(...ys)) * 4 / 3)
     const wView = w * (1 + 12 / 260)
+    // Badge/label layout exactly as the page draws it (ky-base.json projection,
+    // 4:3 view, k = w / 260), on the desktop map (600px) and a 390px phone
+    // (324px map, badges at least 20px across).
+    const P = JSON.parse(fs.readFileSync(path.join(root, 'public/drives/ky-base.json'), 'utf8')).proj
+    const proj = (lon, lat) => [(lon - P.LON0) * P.K * P.SC, (P.LAT1 - lat) * P.SC]
+    const lp = raw.map(([lon, lat]) => proj(lon, lat))
+    const sp = stops.map((s) => proj(s.lon, s.lat))
+    const all = lp.concat(sp)
+    const pxs = all.map((q) => q[0]), pys = all.map((q) => q[1])
+    let vw = Math.max(...pxs) - Math.min(...pxs) + 12, vh = Math.max(...pys) - Math.min(...pys) + 12
+    if (vw / vh < 4 / 3) vw = vh * 4 / 3
+    const k = vw / 260
+    const lblM = html.match(/\nconst lbl = (\[.*?\])\n/)
+    const lbl = lblM ? JSON.parse(lblM[1].replace(/'/g, '"')) : []
+    const boxes = lbl.map(([n, lon, lat]) => { const [x, y] = proj(lon, lat); return [...labelBox(x, y, n, k), n] })
+    const spread = /import \{ spreadBadges, labelBox \} from '\/drives\/badge-spread\.js'/.test(html)
+    const layouts = [600, 324].map((px) => {
+      const u = vw / px
+      const br = Math.max(5.2 * k, 10 * u)
+      const at = spread ? spreadBadges(sp, 2 * br + 0.6 * k, boxes.map((b) => b.slice(0, 4))) : sp
+      return { px, br, at }
+    })
+    for (const { px, br, at } of layouts) {
+      at.forEach((q, i) => {
+        for (const b of boxes) {
+          const dx = q[0] - Math.max(b[0], Math.min(q[0], b[2]))
+          const dy = q[1] - Math.max(b[1], Math.min(q[1], b[3]))
+          if (Math.hypot(dx, dy) < br * 0.98) errs0.push(`drive:${slug} (${px}px map): badge ${i + 1} covers the label "${b[4]}"`)
+        }
+        for (let j = i + 1; j < at.length; j++) if (Math.hypot(q[0] - at[j][0], q[1] - at[j][1]) < 2 * br * 0.98) errs0.push(`drive:${slug} (${px}px map): badges ${i + 1} and ${j + 1} overlap`)
+      })
+    }
+    // Back into the planar frame for the order check: a badge's offset from its stop.
     const pts = stops.map((s) => pj(s.lon, s.lat))
-    // Pages that load /drives/badge-spread.js draw badges at the spread layout.
-    const spread = /import \{ spreadBadges \} from '\/drives\/badge-spread\.js'/.test(html)
-    const shown = spread ? spreadBadges(pts, (wView * 10.6) / 260) : pts
+    const kmPerUnit = w / vw
+    const shownP = layouts[0].at.map((q, i) => [pts[i][0] + (q[0] - sp[i][0]) * kmPerUnit, pts[i][1] - (q[1] - sp[i][1]) * kmPerUnit])
+    const shown = shownP
     const res = checkOrder({
       id: `drive:${slug}`,
       badgeAt: shown,
@@ -195,20 +236,55 @@ export function checkDrives({ only = null, mutate = null } = {}) {
       // Badges are 10.4 units across in a 260-unit view; flag centers closer than ~80% of that.
       badge: (wView * 8.5) / 260,
     })
-    rows.push({ kind: 'drive', slug, stops: stops.length, ...res })
+    rows.push({ kind: 'drive', slug, stops: stops.length, ...res, errs: errs0.concat(res.errs || []) })
   }
   return rows
 }
 
 /* ---------- story route maps ---------- */
 
-/** Desk-light badges as drawn, in 16x9 units of the painting. */
-export function storyMarks(route, { routeMapOverlayHtml }) {
+/**
+ * Badges as drawn in one slot of the overlay markup, in 16x9 units of the
+ * painting: p = the point on the painted line the stop belongs to (data-at),
+ * b = where the badge is drawn (it can step out with a leader).
+ */
+export function storyMarks(route, { routeMapOverlayHtml }, frame = 'desk-light') {
   const html = routeMapOverlayHtml(route)
-  const slot = html.match(/data-frame="desk-light"[^>]*>(.*?)<\/div>/)[1]
-  return [...slot.matchAll(/left:([\d.-]+)%;top:([\d.-]+)%" data-n="([^"]+)"/g)].map((m) => ({
-    n: +m[3], name: route.stops[+m[3] - 1]?.stop, p: [(+m[1] / 100) * 16, (+m[2] / 100) * 9],
+  const slot = html.match(new RegExp(`data-frame="${frame}"[^>]*>(.*?)<\\/div>`))[1]
+  return [...slot.matchAll(/class="([^"]+)" style="left:([\d.-]+)%;top:([\d.-]+)%" data-n="([^"]+)" data-at="([\d.-]+),([\d.-]+)"/g)].map((m) => ({
+    n: parseInt(m[4], 10),
+    label: m[4],
+    cluster: m[1].includes('route-stop-cluster'),
+    name: route.stops[parseInt(m[4], 10) - 1]?.stop,
+    p: [(+m[5] / 100) * 16, (+m[6] / 100) * 9],
+    b: [(+m[2] / 100) * 16, (+m[3] / 100) * 9],
   }))
+}
+
+/**
+ * Badge-label overlaps for one slot. view = slot size in px; labels are
+ * [l, t, r, b, name] image fractions. Returns error strings.
+ */
+export function labelOverlaps(id, marks, labels, view, { badge = BADGE } = {}) {
+  const errs = []
+  const [vw, vh] = view
+  const shapes = marks.map((m) => {
+    const w = m.cluster ? Math.max(badge, 14 + 7.2 * m.label.length) : badge
+    return { m, x: (m.b[0] / 16) * vw, y: (m.b[1] / 9) * vh, h: (w - badge) / 2, r: badge / 2 }
+  })
+  for (const s of shapes) {
+    for (const l of labels || []) {
+      const rect = [l[0] * vw, l[1] * vh, l[2] * vw, l[3] * vh]
+      const gap = badgeLabelGap(s, rect)
+      if (gap < 0) errs.push(`${id}: badge ${s.m.label} covers the label "${l[4]}" (${(-gap).toFixed(1)}px)`)
+    }
+  }
+  for (let i = 0; i < shapes.length; i++) {
+    for (let j = i + 1; j < shapes.length; j++) {
+      if (badgeBadgeGap(shapes[i], shapes[j]) < 0) errs.push(`${id}: badges ${shapes[i].m.label} and ${shapes[j].m.label} overlap`)
+    }
+  }
+  return errs
 }
 
 /** Traced segments are in travel order; join them into one path. */
@@ -229,11 +305,25 @@ export async function checkStoryMaps({ lines } = {}) {
     }
     const marks = storyMarks(route, { routeMapOverlayHtml })
     const errs = []
+    const labels = ROUTE_MAP_LABELS[route.slug] || {}
+    if (!labels.light) errs.push(`route:${route.slug}: no label boxes in src/route-map-labels.js`)
+    errs.push(...labelOverlaps(`route:${route.slug} (1280)`, marks, labels.light, DESK_VIEW))
+    errs.push(...labelOverlaps(`route:${route.slug} (390)`, storyMarks(route, { routeMapOverlayHtml }, 'phone-light'), labels.phone, PHONE_VIEW))
+    if (!labels.phone) errs.push(`route:${route.slug}: no phone label boxes in src/route-map-labels.js`)
+    // Every stop number shows at 390, alone or inside a range badge like 2–3.
+    const phoneMarks = storyMarks(route, { routeMapOverlayHtml }, 'phone-light')
+    const covered = new Set()
+    for (const m of phoneMarks) {
+      const [a, b = a] = m.label.split('\u2013').map((v) => parseInt(v, 10))
+      for (let n = a; n <= b; n++) covered.add(n)
+    }
+    const missing = route.stops.map((_, i) => i + 1).filter((n) => !covered.has(n))
+    if (missing.length) errs.push(`route:${route.slug} (390): stop number(s) ${missing.join(', ')} not shown`)
     const numbers = marks.map((m) => m.n)
     const want = route.stops.map((_, i) => i + 1)
     if (numbers.join() !== want.join()) errs.push(`route:${route.slug}: map shows ${numbers.join(',')} but the list has 1–${want.length}`)
     const line = storyLine(traced)
-    const res = checkOrder({ id: `route:${route.slug}`, stops: marks, line, near: 0.25, badge: 0.52 })
+    const res = checkOrder({ id: `route:${route.slug}`, stops: marks, line, near: 0.25 })
     rows.push({ kind: 'route', slug: route.slug, stops: route.stops.length, errs: errs.concat(res.errs), positions: res.positions })
   }
   return rows
