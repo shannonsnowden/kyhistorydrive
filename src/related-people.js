@@ -118,11 +118,16 @@ export function initials(name) {
 }
 
 /** Round headshot, or '' when there is no local image. width/height stay in the 32–40px range. Alt only (no title tooltip); credit lives on the person's story portrait. */
+// 96px thumbnails sit beside every 512px portrait (2x+ for a 36px disc, ~4KB instead of ~40KB).
+function thumb96(src) {
+  return String(src).replace(/-512\.(webp|jpg)$/, '-96.$1')
+}
+
 export function headshotHtml(person, size = 36) {
   const ready = localPortrait(person)
   if (!ready) return ''
   const n = Number(size) === 32 || Number(size) === 40 ? Number(size) : 36
-  return `<picture class="related-headshot-frame"><source srcset="${esc(ready.image.webp)}" type="image/webp"><img class="related-headshot" src="${esc(ready.image.jpg)}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
+  return `<picture class="related-headshot-frame"><source srcset="${esc(thumb96(ready.image.webp))}" type="image/webp"><img class="related-headshot" src="${esc(thumb96(ready.image.jpg))}" width="${n}" height="${n}" alt="${esc(portraitAlt(ready))}" loading="lazy" decoding="async"></picture>`
 }
 
 /** 36px deep-green disc with amber initials for a person waiting on a portrait. */
@@ -137,11 +142,12 @@ export function faceSlotHtml() {
 }
 
 // "Related people & stories" block (empty string when a story has no entries).
-export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelatedH', options = {}) {
+/** Story slugs the "Related people & stories" box shows, in order (shared with the Related and nearby dedupe). */
+export function relatedBlockItems(data, slug, titleFor, options = {}) {
   const seen = new Set()
   const seenPeople = new Set()
   const personFor = options.personFor instanceof Map ? options.personFor : null
-  const items = (data?.related?.[slug] || []).filter((x) => {
+  return (data?.related?.[slug] || []).filter((x) => {
     if (!x?.slug || x.slug === slug || seen.has(x.slug) || !titleFor(x.slug)) return false
     seen.add(x.slug)
     // One person once per box (two stories about the same person keep the first link).
@@ -152,6 +158,22 @@ export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelated
     }
     return true
   })
+}
+
+export function relatedBlockSlugs(data, slug, titleFor, options = {}) {
+  return relatedBlockItems(data, slug, titleFor, options).map((x) => x.slug)
+}
+
+/** Canonical 96px portrait for a person card, or '' when the person has no local portrait. */
+export function portraitThumbSrc(person) {
+  const ready = localPortrait(person)
+  return ready ? thumb96(ready.image.jpg) : ''
+}
+
+// "Related people & stories" block (empty string when a story has no entries).
+export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelatedH', options = {}) {
+  const personFor = options.personFor instanceof Map ? options.personFor : null
+  const items = relatedBlockItems(data, slug, titleFor, options)
   if (!items.length) return ''
   const hid = String(headingId || 'storyRelatedH').replace(/[^\w-]/g, '') || 'storyRelatedH'
   const portraits = options.portraits instanceof Map ? options.portraits : new Map()
@@ -305,6 +327,6 @@ export function storyPortraitHtml(person) {
   const linked = /^https:\/\//i.test(person.creditUrl || '')
     ? `<a href="${esc(person.creditUrl)}" target="_blank" rel="noopener noreferrer">${inner}<span class="visually-hidden"> (opens in a new tab)</span></a>`
     : inner
-  return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" loading="lazy" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span> <span class="story-portrait-credit">${linked}</span></figcaption></figure>`
+  return `<figure class="story-portrait"><picture><source srcset="${esc(person.image.webp)}" type="image/webp"><img src="${esc(person.image.jpg)}" width="200" height="200" alt="${esc(portraitAlt(person))}" loading="lazy" decoding="async"></picture><figcaption><span class="story-portrait-name">${esc(person.name)}</span>${person.captionNote ? ` <span class="story-portrait-note">${esc(person.captionNote)}</span>` : ''} <span class="story-portrait-credit">${linked}</span></figcaption></figure>`
 }
 

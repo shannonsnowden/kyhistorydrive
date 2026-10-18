@@ -959,9 +959,92 @@ html[data-hp-theme="light"] .era-other {
 .back-link { font-size: 0.9rem; text-decoration: none; }
 .story-detail { background: var(--panel); border-radius: 12px; padding: 1.25rem 1.4rem; border: 1px solid var(--line); }
 .story-head h2 { margin: 0.4rem 0 0.5rem; color: var(--heading); }
+/* Tag chips sit directly under the story title, above Share and the summary. */
+.story-head h2 + .tags { margin: 0 0 0.65rem; }
 .story-body { line-height: 1.6; font-size: 1.02rem; max-width: 70ch; }
 .story-body { overflow-wrap: anywhere; }
-.story-body a { word-break: break-word; overflow-wrap: anywhere; }
+.story-body a { word-break: break-word; overflow-wrap: anywhere; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.story-body h2,
+.story-body h3,
+.story-body h4 {
+  color: var(--heading);
+  line-height: 1.25;
+  margin: 1.45rem 0 0.45rem;
+}
+.story-body h2 { font-size: 1.35rem; }
+.story-body h3 { font-size: 1.12rem; }
+.story-body ul,
+.story-body ol { margin: 0.4rem 0 0.9rem; padding-left: 1.25rem; }
+.story-body li { margin: 0.3rem 0; }
+.story-body li > p { margin: 0.35rem 0; }
+.story-glance-mount:empty { display: none; }
+.story-research-link { margin: 0.35rem 0 1rem; }
+.story-research-link a { color: var(--accent); font-weight: 700; }
+.story-glance {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.35rem 0 1rem;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  table-layout: fixed;
+}
+.story-glance caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--heading);
+  padding: 0.15rem 0.15rem 0.45rem;
+}
+.story-glance th,
+.story-glance td {
+  border-top: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  vertical-align: top;
+  text-align: left;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.story-glance th[scope="row"] {
+  width: 28%;
+  font-weight: 700;
+  color: var(--heading);
+  background: color-mix(in srgb, var(--accent) 28%, var(--chip));
+}
+.story-glance td {
+  background: color-mix(in srgb, #243628 22%, var(--panel));
+}
+html[data-hp-theme="light"] .story-glance td {
+  background: color-mix(in srgb, #1a241c 8%, var(--panel));
+}
+.story-glance-list { margin: 0; padding-left: 1.1rem; }
+.story-glance-list li { margin: 0.2rem 0; }
+.story-glance a { color: var(--accent); }
+@media (max-width: 520px) {
+  .story-glance { font-size: 0.92rem; }
+  .story-glance th[scope="row"] { width: 34%; }
+  .story-glance th,
+  .story-glance td { padding: 0.45rem 0.5rem; }
+}
+.research-notes .back-link { margin: 0 0 0.85rem; }
+.research-notes .back-link a { color: var(--accent); font-weight: 700; }
+.research-updated { margin: 0 0 1rem; color: var(--muted); }
+.research-section { margin: 1.35rem 0; }
+.research-section h2,
+.research-section h3 { color: var(--heading); line-height: 1.25; }
+.research-section h2 { font-size: 1.35rem; margin: 0 0 0.55rem; }
+.research-section h3 { font-size: 1.05rem; margin: 1rem 0 0.4rem; }
+.research-section ul,
+.research-section ol { margin: 0; padding-left: 1.25rem; }
+.research-section li { margin: 0.4rem 0; overflow-wrap: anywhere; }
+.research-cites { color: var(--muted); font-size: 0.88em; }
+.research-cites a { color: var(--accent); }
+.research-year { font-weight: 700; color: var(--heading); }
+.research-role { color: var(--muted); }
+.research-people a,
+.research-notes a { color: var(--accent); }
 .story-reader-main, .story-reader-layout > * { min-width: 0; }
 .story-source, .popup-research, .research-list li, .research-list a { overflow-wrap: anywhere; }
 .timeline-list > li { min-width: 0; }
@@ -1032,7 +1115,7 @@ html[data-hp-theme="light"] .era-other {
   outline-offset: 2px;
 }
 .story-nearby,
-.static-related { margin: 0; max-width: 100%; }
+.static-related { margin: 0; max-width: 100%; container-type: inline-size; container-name: related; }
 .story-nearby > h2,
 .story-nearby > h3,
 .static-related > h2,
@@ -1056,9 +1139,11 @@ html[data-hp-theme="light"] .era-other {
   width: 100%;
   max-width: 100%;
 }
-@media (min-width: 720px) {
+/* Two columns only when the list itself is wide enough for a two-line title.
+   A 1280px window still has a narrow story column beside the photo. */
+@container related (min-width: 42rem) {
   .related-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
 }
@@ -1123,6 +1208,10 @@ a.related-card:focus-visible {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   overflow: hidden;
+  max-width: 100%;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
   color: var(--accent);
   font-weight: 600;
   font-size: 1.05rem;
@@ -1277,6 +1366,13 @@ a.related-card:hover .related-card-chevron {
   border: 1px solid var(--line);
 }
 .story-related .related-face-slot { display: block; }
+/* Phones: when a related row wraps, keep the face/disc at the top of the row, like the photos (Editor nit, item 69). */
+@media (max-width: 560px) {
+  .story-related a.related-row-link { align-items: flex-start; }
+  .story-related a.related-row-link > picture.related-headshot-frame,
+  .story-related a.related-row-link > .related-initials,
+  .story-related a.related-row-link > .related-face-slot { margin-top: 0.15rem; }
+}
 .story-related .related-person-text { min-width: 0; }
 .story-related a, .story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { text-decoration-style: dotted; }
@@ -1854,6 +1950,11 @@ a.related-card:hover .related-card-chevron {
   background: #0c120e;
   margin-top: 0.65rem;
 }
+.story-sidebar-photo-frame picture,
+.story-sidebar-photo-thumb picture {
+  display: block;
+  width: 100%;
+}
 .story-sidebar-photo-frame img,
 .story-sidebar-photo-thumb img {
   display: block;
@@ -1886,6 +1987,13 @@ a.related-card:hover .related-card-chevron {
   font-size: 0.7rem;
   line-height: 1.35;
   color: var(--muted);
+}
+.story-sidebar-photo-attr a,
+.hp-photo-credit a,
+.historic-photo-attr a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 .story-photo-source-label {
   color: var(--accent);
@@ -4246,14 +4354,47 @@ html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display:
   transform: translate(-50%, -50%);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
-.route-stop::before { content: attr(data-n); }
+.route-stop::before { content: attr(data-n); white-space: nowrap; }
+.route-stop { white-space: nowrap; }
 .route-stop-conjectural {
   border: none;
   border-radius: 0;
-  background: var(--panel);
+  background: var(--heading);
   color: var(--heading);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 0.6px var(--heading));
+  box-shadow: none;
+}
+/* Hexagon outline: the badge is the outline colour; ::after is the fill. */
+.route-stop-conjectural::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  background: var(--panel);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.route-stop-conjectural::before { position: relative; }
+/* Leaders from a stepped-out badge back to its point on the painted line. */
+.route-stop-leaders {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.route-stop-leaders line {
+  stroke: #2e5a3e;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+}
+.route-stop-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #2e5a3e;
+  box-shadow: 0 0 0 1.5px var(--panel);
+  transform: translate(-50%, -50%);
 }
 .route-stop-cluster {
   width: auto;
@@ -4273,13 +4414,20 @@ html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display:
   line-height: 1.45;
 }
 .route-legend-hex {
+  position: relative;
   display: inline-block;
   flex: none;
   width: 16px;
   height: 16px;
+  background: var(--heading);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.route-legend-hex::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
   background: var(--panel);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 0.6px var(--heading));
 }
 .route-map-expand {
   position: absolute;
@@ -4515,6 +4663,13 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   font-size: calc(12px / var(--map-scale));
   box-shadow: 0 calc(1px / var(--map-scale)) calc(2px / var(--map-scale)) rgba(0, 0, 0, 0.35);
 }
+.route-lightbox-overlay .route-stop-conjectural::after { inset: calc(2px / var(--map-scale)); }
+.route-lightbox-overlay .route-stop-leaders line { stroke-width: calc(1.5px / var(--map-scale)); }
+.route-lightbox-overlay .route-stop-dot {
+  width: calc(4px / var(--map-scale));
+  height: calc(4px / var(--map-scale));
+  box-shadow: 0 0 0 calc(1.5px / var(--map-scale)) var(--panel);
+}
 .route-lightbox-overlay .route-stop-cluster {
   min-width: calc(26px / var(--map-scale));
   padding: 0 calc(7px / var(--map-scale));
@@ -4573,6 +4728,47 @@ html[data-hp-theme="dark"] .route-lightbox-backdrop {
   .ad-slot--sidebar { display: none !important; }
 }
 
+/* Critiquito 10/12: glance sources under the table; readable citation chips; Back pill */
+.story-glance-sources { margin: 0.4rem 0 1rem; font-size: 0.92rem; }
+.story-glance-sources a { color: var(--accent); display: inline-flex; align-items: center; min-height: 44px; }
+.research-cites { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; margin-left: 0.25rem; vertical-align: middle; }
+.research-cite {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  text-decoration: none;
+}
+a.research-cite { color: var(--accent); }
+a.research-cite:hover, a.research-cite:focus-visible { background: var(--chip, rgba(201,137,58,.15)); }
+a.research-cite:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.research-cite.is-plain { color: var(--muted); border-style: dashed; }
+.research-notes .back-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.research-notes .back-pill:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+.research-notes .back-pill::before { content: "← "; white-space: pre; }
+@media (max-width: 600px) {
+  .story-glance { font-size: 0.86rem; line-height: 1.35; }
+  .story-glance th[scope="row"] { width: 27%; }
+  .story-glance th, .story-glance td { padding: 0.35rem 0.45rem; }
+  .story-glance-list { padding-left: 0.9rem; }
+  .story-glance-list li { margin: 0.1rem 0; }
+}
 /* #transport proof of concept. Cream field, deep-green state, amber and green lines. */
 .transport-kicker {
   margin: 0 0 0.2rem;
@@ -4945,8 +5141,16 @@ html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
   padding: 0;
   font-size: 0.82rem;
 }
-.people-stories li { margin: 0.12rem 0; }
-.people-stories a { color: var(--accent); }
+.people-stories li { margin: 0; }
+/* Story links are 44px tap targets (WCAG 2.5.5), text stays left/centred in the block. */
+.people-stories a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  line-height: 1.25;
+}
+.people-license a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 420px) {
   .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
   .people-card { padding: 0.45rem; }
@@ -5095,18 +5299,34 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
     border-bottom-color: transparent;
   }
 }
-/* Reading mode: center a column whose story text is at most 70ch.
+/* Reading mode: center a wider column whose story text is at most 96ch.
+   With the map shown, the story column is ~52% of the viewport and the body
+   is held to 70ch. Hiding the map must give a visibly wider measure, so the
+   cap rises to 96ch (comfortable upper bound for long-form reading).
    The extra 2.6rem is the story card's horizontal padding and border, so the
-   body itself — not the card — is the 70ch measure. The sticky bar stays full width.
-   The photo stacks so it doesn't eat the line. */
+   body itself — not the card — is the 96ch measure. The sticky bar stays full width.
+   The photo stacks so it doesn't eat the line.
+   Paragraphs and other body text are capped at ~78ch inside it (below). */
+.timeline-layout.is-reading-wide {
+  --tl-read-measure: 96ch;
+}
 .timeline-layout.is-reading-wide .timeline-main > :not(.timeline-read-bar) {
-  width: min(100%, calc(70ch + 2.6rem));
-  max-width: calc(70ch + 2.6rem);
+  width: min(100%, calc(var(--tl-read-measure) + 2.6rem));
+  max-width: calc(var(--tl-read-measure) + 2.6rem);
   margin-inline: auto;
   box-sizing: border-box;
 }
 .timeline-layout.is-reading-wide .story-body {
-  max-width: 70ch;
+  max-width: var(--tl-read-measure);
+}
+/* Within the wide column, body text keeps a ~78ch reading measure while
+   media (figures, images, maps, video) still use the full column width. */
+.timeline-layout.is-reading-wide {
+  --tl-text-measure: 78ch;
+}
+.timeline-layout.is-reading-wide .story-body > :is(p, ul, ol, dl, blockquote, h2, h3, h4, h5, h6, .story-summary),
+.timeline-layout.is-reading-wide .story-summary {
+  max-width: var(--tl-text-measure);
 }
 .timeline-layout.is-reading-wide .story-reader .story-reader-layout,
 .timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
@@ -5574,6 +5794,7 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 }
 /* Captions at 12px or larger; --muted is AA on --panel/--bg in light (#52604c) and dark (#a8b59c). */
 .story-portrait figcaption { font-size: max(12px, 0.8rem); }
+.story-portrait .story-portrait-note { display: block; color: var(--muted); }
 .story-reader-layout .story-body::after { content: ''; display: block; clear: both; }
 .story-reader-layout .learn-more,
 .story-reader-layout .route-map { clear: both; }
@@ -5707,6 +5928,48 @@ html[data-hp-theme="light"] .hp-plan-drive {
 .story-portrait-note { white-space: nowrap; }
 
 
+/* Take a Drive: story -> /drives/?drive=<id>. Same route-and-car mark as Plan Your Drive; green and amber only.
+   Each button is at least 44px tall. Dark is the default theme. */
+.take-a-drive {
+  --pb-green: #356440; /* dark: cream text on this is AA (see PR notes) */
+  --pb-amber: #e3a650;
+  --pb-cream: #f6edd8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin: 0.75rem 0 0.25rem;
+}
+html[data-hp-theme="light"] .take-a-drive {
+  --pb-green: #2f5a3a;
+  --pb-amber: #c9893a;
+}
+.take-a-drive-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 0.3rem 1rem 0.3rem 0.35rem;
+  border: 2px solid var(--pb-amber);
+  border-radius: 999px;
+  background: var(--pb-green);
+  color: var(--pb-cream);
+  text-decoration: none;
+  line-height: 1.2;
+}
+.take-a-drive-btn:hover { background: color-mix(in srgb, var(--pb-green) 85%, var(--pb-amber)); }
+.take-a-drive-btn:focus-visible { outline: 3px solid var(--pb-amber); outline-offset: 3px; }
+.take-a-drive-icon { flex: none; width: 40px; height: 40px; display: block; }
+.take-a-drive-text { display: flex; flex-direction: column; min-width: 0; }
+.take-a-drive-title { font-weight: 700; font-size: 1rem; color: var(--pb-cream); }
+.take-a-drive-name { font-size: 0.82rem; color: var(--pb-cream); overflow-wrap: anywhere; }
+.take-a-drive-also { margin: 0; font-size: 0.9rem; line-height: 1.3; color: var(--muted); }
+.take-a-drive-also-label { font-weight: 700; }
+.take-a-drive-alt { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
+.take-a-drive-alt:focus-visible { outline: 3px solid var(--pb-amber); outline-offset: 2px; }
+/* Light mode: --accent (#9a5f1c) on the cream panel is 4.36:1; --accent-deep passes AA. */
+html[data-hp-theme="light"] .take-a-drive-alt { color: var(--accent-deep); }
 /* Map bottom-left corner (#map only): legend, Full state and the scale bar stack in one
    column with 8px gaps so nothing overlaps. Scale 22px at 10px from the bottom; Full state
    44px tall above it; the nation legend above that. Below 560px the panel's own Full state
@@ -5776,4 +6039,14 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 .story-sidebar-photo.is-links-only .story-sidebar-photo-links a + a { border-top: 1px solid var(--line); }
 @media (max-width: 600px) {
   .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo.is-links-only { margin-top: 0.75rem; }
+}
+/* Critiquito 10/18 (#254): 44px citation chips; 44px people rows at phone width */
+.research-cites { gap: 0.5rem; }
+.research-cite { min-height: 44px; }
+@media (max-width: 600px) {
+  .research-people li { margin: 0; }
+  .research-people a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 600px) {
+  .story-glance th[scope="row"] { width: 33%; overflow-wrap: normal; word-break: normal; hyphens: manual; font-size: 0.82rem; }
 }

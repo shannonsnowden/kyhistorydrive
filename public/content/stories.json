@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-18T10:50:06.698Z",
-  "count": 238,
+  "generatedAt": "2026-10-18T14:23:36.972Z",
+  "count": 239,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-14"
+    "end": "2026-10-18"
   },
   "eras": [
     "early-commonwealth",
@@ -667,7 +667,7 @@
       "slug": "wickliffe-mounds-mississippian-village-ballard-county",
       "title": "Wickliffe Mounds Mississippian village Ballard County",
       "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Wickliffe Mounds, a Mississippian village and mound center in Ballard County near the Mississippi–Ohio confluence.",
+      "summary": "Around 1100 CE, Mississippian farmers settled on a bluff above the Mississippi–Ohio confluence in Ballard County and built a mound town that lasted until about 1350.",
       "yearStart": 1100,
       "yearEnd": 1350,
       "era": "prehistoric",
@@ -3476,6 +3476,36 @@
       "matchedPlace": "Craig's Station / Travelling Church (Gilbert's Creek)"
     },
     {
+      "slug": "walker-daniel-danvilles-namesake",
+      "title": "Walker Daniel, Danville’s namesake",
+      "publishedDate": "2026-10-18",
+      "summary": "Virginia lawyer Walker Daniel laid out the town at Crow’s Station in 1783, served as the District of Kentucky’s first attorney general, and was killed in 1784; the town was named Danville for him in 1787.",
+      "yearStart": 1781,
+      "yearEnd": 1787,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-18",
+      "county": "Boyle",
+      "photo": {
+        "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
+        "title": "Constitution Square State Historic Site, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Constitution_Square_State_Historic_Site_-_May_2024_-_Sarah_Stierch.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
+        "year": 2024
+      },
+      "lat": 37.64565,
+      "lon": -84.7707833,
+      "mapConfidence": "override",
+      "matchedPlace": "Walker Daniel marker, Danville (KHS #190)"
+    },
+    {
       "slug": "william-hoy-and-hoys-station",
       "title": "William Hoy and Hoy’s Station",
       "publishedDate": "2026-10-04",
@@ -3508,7 +3538,7 @@
       "slug": "battle-of-blue-licks",
       "title": "Battle of Blue Licks",
       "publishedDate": "2026-08-30",
-      "summary": "On August 19, 1782, about 182 Kentucky militia chasing Captain William Caldwell’s raiders walked into an ambush on a Licking River ridge in today’s Robertson County. Roughly 50…",
+      "summary": "In August 1782 Kentucky militia chasing Caldwell's rangers and their mainly Wyandot and Great Lakes allies were ambushed at Blue Licks; 60 to 77 died.",
       "yearStart": 1782,
       "yearEnd": 1782,
       "era": "native",

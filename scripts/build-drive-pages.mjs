@@ -13,6 +13,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const SITE = 'https://kyhistorydrive.com'
+import { parseJsLiteral } from './js-literal.mjs'
 const DP = 'public/drives'
 const SUFFIX = ' · Kentucky History Drive'
 
@@ -96,14 +97,14 @@ const crumbs = (items) => ({
 })
 
 const FL = { private: 'Private land', marker: 'Marker only', paid: 'Paid admission', limited: 'Limited hours', reservation: 'Reservation needed' }
-function stopLi(s, i, leg) {
+function stopLi(s, i, leg, anchorIds) {
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') +
     (s.flags || []).filter((f) => !(s.private && f === 'private')).map((f) => `<span class="tag${f === 'private' ? ' warn' : ''}">${FL[f] || escText(f)}</span>`).join('')
   const src = (s.sources || []).length
     ? `<p class="stop-meta">${escText(s.note)} <span class="note">Sources: ${s.sources.map(([t, u]) => `<a href="${escText(u)}" rel="noopener noreferrer" target="_blank">${escText(t)}</a>`).join('; ')}</span></p>`
     : s.note ? `<p class="stop-meta">${escText(s.note)}</p>` : ''
   const links = (s.stories || []).length
-    ? s.stories.map(([slug, t]) => `<a class="story" href="/stories/${slug}/">${escText(t)} →</a>`).join('')
+    ? s.stories.map(([slug, t]) => `<a class="story"${anchorIds && !anchorIds.has(slug) && anchorIds.add(slug) ? ` id="stop-${escText(slug)}"` : ''} href="/stories/${encodeURIComponent(slug)}/">${escText(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i + 1}</span>
     <div><p class="stop-name">${i + 1}. ${escText(s.name)}</p><p class="stop-meta">${tag}${escText(s.when)}. ${escText(s.access)}</p>${src}</div>
@@ -120,7 +121,7 @@ for (const slug of slugs) {
   const before = html
   const m = html.match(/const STOPS = (\[[\s\S]*?\n\])/)
   if (!m) throw new Error(`build-drive-pages: ${slug} has no STOPS`)
-  const stops = new Function(`return ${m[1]}`)()
+  const stops = parseJsLiteral(m[1])
   const routeFile = [path.join(DP, 'routes', `${slug}.json`), path.join(DP, `${slug}-route.json`)].find((f) => fs.existsSync(f))
   if (!routeFile) throw new Error(`build-drive-pages: ${slug} has no route file`)
   const route = JSON.parse(fs.readFileSync(routeFile, 'utf8'))
@@ -130,7 +131,7 @@ for (const slug of slugs) {
   const title = (TITLES[slug] || h1) + SUFFIX
   const desc = DESCS[slug] || fit(intro)
   html = setHead(html, title, desc)
-  html = html.replace(/<ol class="stops" id="stops">[\s\S]*?<\/ol>/, `<ol class="stops" id="stops">${stops.map((s, i) => stopLi(s, i, i ? route.legs?.[i - 1] : null)).join('\n')}</ol>`)
+  html = html.replace(/<ol class="stops" id="stops">[\s\S]*?<\/ol>/, `<ol class="stops" id="stops">${((ids) => stops.map((s, i) => stopLi(s, i, i ? route.legs?.[i - 1] : null, ids)))(new Set()).join('\n')}</ol>`)
   const url = `${SITE}/drives/${slug}/`
   const trip = {
     '@context': 'https://schema.org',

@@ -18,6 +18,7 @@ for (const f of files) {
     title: raw.title,
     publishedDate: raw.publishedDate,
     summary: raw.summary,
+    proseChars: String(raw.bodyMarkdown || '').length,
     yearStart: raw.yearStart,
     yearEnd: raw.yearEnd,
     era: raw.era,

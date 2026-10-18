@@ -14,5 +14,17 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-04"
+  "briefDate": "2026-09-04",
+  "photo": {
+    "image_url": "/content/photos/stories/john-filson-kentucke-1784.jpg",
+    "title": "Manuscript copy of John Filson's 1784 map of Kentucke",
+    "source_url": "https://commons.wikimedia.org/wiki/File:This_map_of_Kentucke,_LOC_73691819.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "John Filson · Wikimedia Commons · Public domain",
+    "year": null,
+    "credit": "John Filson",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+    "artwork": "map"
+  }
 }

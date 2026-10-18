@@ -19,5 +19,17 @@
     "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
     "nation": "Six Nations (Haudenosaunee)",
     "presenceLabel": "Conquest claim, no mapped area"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/iroquois-beaver-wars.jpg",
+    "title": "Champlain's battle with the Iroquois at Ticonderoga, July 1609",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Champlain%27s_Battle_with_the_Iroquois,_Ticonderoga,_July,_1609_(NYPL_b12647398-79471)_(cropped).tiff",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Detroit Publishing Company · NYPL via Wikimedia Commons · Public domain",
+    "year": "after 1898",
+    "credit": "Detroit Publishing Company",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+    "artwork": "print"
   }
 }

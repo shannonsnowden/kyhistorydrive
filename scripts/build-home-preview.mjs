@@ -18,6 +18,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { HomepageStructure } from '../src/homepage-structure.js'
+import { storyBlocksAutoPhoto } from '../src/no-auto-story-photos.js'
 
 const HERO_DECK_OVERRIDES_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'hero-deck-overrides.json')
 const heroDeckDoc = fs.existsSync(HERO_DECK_OVERRIDES_FILE)
@@ -263,6 +264,7 @@ function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
     source_label: row.source_label || 'Wikimedia Commons',
     attribution: row.attribution,
     year: row.year || null,
+    ...(row.cardThumb === false ? { cardThumb: false } : {}),
   }
 }
 
@@ -385,6 +387,9 @@ async function resolvePhoto({
   if (curated?.thumb_url || curated?.ext) {
     return vendorCuratedPhoto(slug, curated)
   }
+  if (storyBlocksAutoPhoto(slug)) {
+    return isLocalPhoto(existing) ? existing : null
+  }
   if (isLocalPhoto(existing) || (existing?.image_url && isPhotoUrl(existing.image_url))) {
     return existing
   }
@@ -415,6 +420,7 @@ function loadStory(slug) {
 function writeStoryPhoto(slug, photo) {
   const next = publicPhoto(photo)
   if (!next?.image_url) return false
+  if (storyBlocksAutoPhoto(slug) && !isLocalPhoto(next)) return false
   const file = path.join(ROOT, 'public/content/stories', `${slug}.json`)
   if (!fs.existsSync(file)) return false
   const raw = JSON.parse(fs.readFileSync(file, 'utf8'))
@@ -510,6 +516,16 @@ async function main() {
   }
   for (const s of todays) if (!slugs.includes(s.slug)) slugs.push(s.slug)
   if (!slugs.length) throw new Error(`no stories with briefDate ${briefDate}`)
+  // Carry-forward (scripts/hero-deck-overrides.json "carryForward"): earlier briefs whose stories
+  // follow today's on a thin pack day, each in its own brief order.
+  for (const d of (heroDeckDoc.carryForward || {})[briefDate] || []) {
+    const older = index.stories.filter((s) => s.briefDate === d)
+    for (const h of briefOrder(d)) {
+      const hit = older.find((s) => s.slug === h) || older.find((s) => slugify(s.title || '') === h)
+      if (hit && !slugs.includes(hit.slug)) slugs.push(hit.slug)
+    }
+    for (const s of older) if (!slugs.includes(s.slug)) slugs.push(s.slug)
+  }
 
   const cards = []
   for (const slug of slugs) {

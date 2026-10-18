@@ -13,5 +13,16 @@
     "frontier-war"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-28"
+  "briefDate": "2026-08-28",
+  "photo": {
+    "image_url": "/content/photos/stories/william-whitley-sportsmans-hill.jpg",
+    "title": "William Whitley House near Stanford, 1940",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_30,_1940_NORTHEAST_ELEVATION_(FRONT)_-_Colonel_William_Whitley_House,_Stanford-Crab_Orchard_Pike,_Stanford,_HABS_KY,69-_,1-2.tif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Lester Jones, Historic American Buildings Survey · Wikimedia Commons · Public domain",
+    "year": 1940,
+    "credit": "Lester Jones, Historic American Buildings Survey",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+  }
 }

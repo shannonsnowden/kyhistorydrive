@@ -144,7 +144,7 @@ function variantWidths(entry) {
   return [...(entry?.avif || []), ...(entry?.webp || [])].map((v) => v.w)
 }
 
-async function optimizePhoto(url, previous, widths) {
+export async function optimizePhoto(url, previous, widths) {
   const rel = url.replace(/^\//, '')
   const abs = path.join(ROOT, 'public', rel)
   if (!fs.existsSync(abs)) {
@@ -257,6 +257,24 @@ async function main() {
     const entry = await optimizePhoto(url, previous[url], CARD_WIDTHS)
     if (entry) images[url] = entry
   }
+  // Story pages that are not on the homepage still keep AVIF/WebP srcsets
+  // written for vendored photos. Regenerates only when the JPEG changes.
+  for (const [url, prev] of Object.entries(previous)) {
+    if (images[url] || !url.startsWith('/content/photos/stories/')) continue
+    const abs = path.join(ROOT, 'public', url.replace(/^\//, ''))
+    const filesOk =
+      fs.existsSync(abs) &&
+      [...(prev.avif || []), ...(prev.webp || [])].every((v) => {
+        const file = path.join(ROOT, 'public', String(v.src || '').replace(/^\//, ''))
+        return fs.existsSync(file) && fs.statSync(file).size <= MAX_BYTES
+      })
+    if (filesOk && prev.sha256 === sha256(fs.readFileSync(abs)) && prev.avif?.length) {
+      images[url] = prev
+      continue
+    }
+    const entry = await optimizePhoto(url, prev)
+    if (entry) images[url] = entry
+  }
   const manifest = {
     generatedAt: new Date().toISOString(),
     maxBytes: MAX_BYTES,
@@ -267,7 +285,10 @@ async function main() {
   console.log(`wrote ${path.relative(ROOT, MANIFEST_PATH)} (${Object.keys(images).length} photos)`)
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+const isDirect = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+if (isDirect) {
+  main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+}

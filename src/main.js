@@ -5,17 +5,19 @@ import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&ur
 // Vite bundles this module, so import.meta.url no longer points at maplibre-gl.mjs.
 // The worker has to be set before the first Map (MapLibre GL JS 6, bundler installs).
 maplibregl.setWorkerUrl(maplibreWorkerUrl)
-import { marked } from 'marked'
 import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
-import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
+import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
+import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
 import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
 import {
@@ -37,6 +39,15 @@ import {
   syncStoryReturn,
   territoryBackHtml,
 } from './story-return.js'
+import { storyPinLinkHtml } from './story-pin.js'
+import { battlePinIconIds, DEFAULT_BATTLE_PIN_ICON, stampBattlePins } from './battle-pins.js'
+import {
+  markdownWithoutGlanceSection,
+  mountGlanceTable,
+  renderStoryHtml,
+  researchPageHref,
+  storyPlainText,
+} from './story-markdown.js'
 import './territory.css'
 import {
   storyHasTerritory,
@@ -300,18 +311,6 @@ const DATA_LAYERS = [
   },
 ]
 
-marked.setOptions({ breaks: true })
-marked.use({
-  renderer: {
-    link({ href, title, tokens }) {
-      const text = this.parser.parseInline(tokens)
-      const t = title ? ` title="${title}"` : ''
-      const safeHref = String(href || '').replace(/"/g, '&quot;')
-      return `<a href="${safeHref}"${t} target="_blank" rel="noopener noreferrer">${text}</a>`
-    },
-  },
-})
-
 /** Turn plain http(s) URLs in already-escaped text into new-tab links. */
 function linkifyPlainUrls(escapedText) {
   return String(escapedText || '').replace(
@@ -571,6 +570,22 @@ function parseHash() {
   return { view: 'map' }
 }
 
+/** Load Story Studio battle art when the file exists. Missing files keep the default pin. */
+async function readyBattlePinIcons(targetMap) {
+  const ready = new Set()
+  for (const id of battlePinIconIds()) {
+    if (!/^[a-z0-9-]+$/.test(id) || id === DEFAULT_BATTLE_PIN_ICON) continue
+    try {
+      const res = await fetch(`/icons/${id}.png`)
+      if (!res.ok) continue
+      if (await loadImage(targetMap, id, `/icons/${id}.png`)) ready.add(id)
+    } catch {
+      /* Story Studio has not shipped this icon. */
+    }
+  }
+  return ready
+}
+
 async function loadImage(map, id, url) {
   if (map.hasImage(id)) return true
   try {
@@ -763,7 +778,13 @@ function applyFiltersToMapInstance(targetMap) {
     for (const lid of [layerCircleId(def.id), layerHitId(def.id), layerSymbolId(def.id)]) {
       if (!targetMap.getLayer(lid)) continue
       const offsetOnly = def.ringKind && lid === layerSymbolId(def.id)
-      targetMap.setFilter(lid, offsetOnly ? ['all', ['has', 'display_offset'], filter] : filter)
+      const battleIcons = def.id === 'war' && lid === layerSymbolId(def.id)
+      const battleCircle = def.id === 'war' && lid === layerCircleId(def.id)
+      let next = filter
+      if (offsetOnly) next = ['all', ['has', 'display_offset'], filter]
+      else if (battleIcons) next = ['all', ['has', 'pinIcon'], filter]
+      else if (battleCircle) next = ['all', ['!', ['has', 'pinIcon']], filter]
+      targetMap.setFilter(lid, next)
     }
   }
   for (const lid of ['stories-circle', 'stories-hit', 'stories-highlight']) {
@@ -1460,11 +1481,35 @@ function topicPhotoScore(photo, title, placeHint) {
 
 const MIN_STORY_PHOTO_SCORE = 8
 
-async function resolveStorySidebarPhoto({ title, lat, lon, placeHint, historyId, bodyMarkdown, existingPhoto }) {
+async function resolveStorySidebarPhoto({
+  slug,
+  title,
+  lat,
+  lon,
+  placeHint,
+  historyId,
+  bodyMarkdown,
+  existingPhoto,
+}) {
   await loadHistoricPhotoData()
   const links = photoSearchLinks(title, placeHint, {
     wikipedia_url: extractWikipediaUrl(bodyMarkdown) || wikipediaSearchUrl(title),
   })
+
+  const storedLocal = String(existingPhoto?.image_url || '').startsWith('/content/photos/')
+  if (storyBlocksAutoPhoto(slug) && !storedLocal) {
+    return {
+      image_url: null,
+      title,
+      source_label: null,
+      attribution: null,
+      credit: null,
+      source_url: null,
+      ...links,
+      loc_url: null,
+      nara_url: null,
+    }
+  }
 
   if (existingPhoto?.image_url) {
     return {
@@ -1553,7 +1598,6 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
   let thumb = ''
   if (photo.image_url) {
     const href = escapeHtml(photo.source_url || photo.image_url)
-    const img = escapeHtml(photo.image_url)
     // The link wraps only an image: give it an explicit name that says where it goes and that it opens a new tab.
     let linkHost = ''
     try {
@@ -1562,11 +1606,16 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
       linkHost = ''
     }
     const linkLabel = escapeHtml(`Open ${photo.source_label || photo.credit || linkHost || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`)
-    const imgAttrs = priority
-      ? 'fetchpriority="high" loading="eager" data-lcp="story-photo"'
-      : 'loading="lazy"'
+    const img = responsivePicture({
+      src: photo.image_url,
+      alt: photo.title || title || 'Related photo',
+      loading: priority ? 'eager' : 'lazy',
+      fetchPriority: priority ? 'high' : '',
+      dataLcp: priority,
+      sizes: '(max-width: 600px) 100vw, 220px',
+    })
     thumb = `<a class="story-sidebar-photo-frame story-sidebar-photo-thumb${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
-        <img src="${img}" alt="${caption}" ${imgAttrs} />
+        ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year ? ` <span class="muted">(${year})</span>` : ''}</p>
       ${photoCreditHtml(photo)}`
@@ -1627,7 +1676,8 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   }
   if (p.category) metaBits.push(p.category)
   if (p.war) metaBits.push(p.war)
-  const desc = stripSourceAttribution(p.inscription || p.history || p.description || p.location_text || '')
+  const rawDesc = stripSourceAttribution(p.inscription || p.history || p.description || p.location_text || '')
+  const desc = /\]\(|(?:^|\n)#{1,6}\s/m.test(rawDesc) ? storyPlainText(rawDesc) : rawDesc
   const descHtml = popupParagraphsHtml(desc)
   const href = p.source_url || p.website || null
   const linkLabel = p.source_url ? 'history.ky.gov' : isWikipediaUrl(href) ? 'Wikipedia' : 'Website'
@@ -2138,6 +2188,7 @@ async function addDataLayerOn(targetMap, def, visMap) {
     const res = await fetch(def.geojson)
     if (!res.ok) throw new Error(String(res.status))
     const data = await res.json()
+    if (def.id === 'war') stampBattlePins(data, await readyBattlePinIcons(targetMap))
     cacheLayerFeatures(def.id, data)
     if (targetMap.getSource(def.id)) return
     targetMap.addSource(def.id, { type: 'geojson', data })
@@ -2158,7 +2209,7 @@ async function addDataLayerOn(targetMap, def, visMap) {
       11,
     ]
     const hitRadius = def.hitRadius ?? 16
-    targetMap.addLayer({
+    const circleLayer = {
       id: layerCircleId(def.id),
       type: 'circle',
       source: def.id,
@@ -2184,8 +2235,25 @@ async function addDataLayerOn(targetMap, def, visMap) {
             'circle-stroke-color': '#f3ead8',
             'circle-opacity': 0.95,
           },
-    })
+    }
+    if (def.id === 'war') circleLayer.filter = ['!', ['has', 'pinIcon']]
+    targetMap.addLayer(circleLayer)
     if (def.ringKind) addOffsetDotLayer(targetMap, def, vis)
+    if (def.id === 'war') {
+      targetMap.addLayer({
+        id: layerSymbolId(def.id),
+        type: 'symbol',
+        source: def.id,
+        filter: ['has', 'pinIcon'],
+        layout: {
+          visibility: vis,
+          'icon-image': ['get', 'pinIcon'],
+          'icon-size': 0.28,
+          'icon-allow-overlap': true,
+          'icon-ignore-placement': true,
+        },
+      })
+    }
     targetMap.addLayer({
       id: layerHitId(def.id),
       type: 'circle',
@@ -2940,9 +3008,11 @@ async function enrichStoriesCounties(stories) {
   }
 
   for (const s of stories) {
+    const loc = locations[s.slug] || {}
+    if (!s.historyId && loc.historyId) s.historyId = loc.historyId
+    if (!s.matchedPlace && loc.matchedPlace) s.matchedPlace = loc.matchedPlace
     // county set in the story JSON wins; an explicit '' means "no county label" (out-of-state / unpinned stories).
     if (s.county != null) continue
-    const loc = locations[s.slug] || {}
     let county = ''
     const histId = loc.historyId || s.historyId
     if (histId && historyById.get(histId)?.county) {
@@ -3257,7 +3327,18 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
   try {
     const markerFeaturesPromise = loadLayerFeatures('markers')
     await loadHistoricPhotoData()
+    await loadPhotoVariants()
     const s = await loadStoryBody(meta.slug)
+    let researchNotes = null
+    try {
+      const researchRes = await fetch(`/content/research/${encodeURIComponent(meta.slug)}.json`)
+      if (researchRes.ok) {
+        const data = await researchRes.json()
+        if (data && (data.storySlug === meta.slug || data.slug === meta.slug)) researchNotes = data
+      }
+    } catch {
+      researchNotes = null
+    }
     let historyId = meta.historyId || null
     try {
       const locations = await loadStoriesLocations()
@@ -3322,6 +3403,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     const canonical = storyCanonicalUrl(meta.slug)
     const relTitleFor = (sl) => relTitles[sl]
     const sidebarPhoto = await resolveStorySidebarPhoto({
+      slug: meta.slug,
       title: s.title,
       lat: meta.lat ?? s.lat,
       lon: meta.lon ?? s.lon,
@@ -3357,21 +3439,17 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
             </div>
             ${titleHtml}
+            ${tags ? `<div class="tags">${tags}</div>` : ''}
             ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
                 ? ''
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
-            <div class="tags">${tags}</div>
+            ${takeADriveHtml(await loadStoryDrives(), meta.slug)}
           </header>
-          <div class="story-body">${storyPortraitHtml(subject.person)}${applyStoryPeople(
-            marked.parse(stripSourceAttribution(s.bodyMarkdown || '')),
-            storyPeople.stories?.[meta.slug],
-            new Map((publicPeople.people || []).map((p) => [p.id, p])),
-            (h) => h,
-            { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
-          )}</div>
+          <div class="story-glance-mount"></div>
+          <div class="story-body"></div>
           ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
           ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits, personFor })}
           ${extras}
@@ -3387,14 +3465,22 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               yearEnd: s.yearEnd ?? meta.yearEnd,
               lat: meta.lat ?? s.lat,
               lon: meta.lon ?? s.lon,
+              historyId,
+              matchedPlace: meta.matchedPlace || '',
+              bodyMarkdown: s.bodyMarkdown || '',
+              proseChars: meta.proseChars,
             },
             storyIndex.stories,
             markerRecords(markerFeatures),
             {
               headingLevel: 2,
-              excludeSlugs: routeBySlug(meta.slug)?.relatedStories || [],
+              excludeSlugs: [
+                ...(routeBySlug(meta.slug)?.relatedStories || []),
+                ...relatedBlockSlugs(relatedData, meta.slug, relTitleFor, { personFor }),
+              ],
               excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
               limit: 3,
+              portraitFor: (slug) => portraitThumbSrc(portraits.get(slug) || personFor.get(slug)),
             },
           )}
           ${citeBoxHtml({
@@ -3408,15 +3494,39 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
           ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
           <p class="story-source muted">Kentucky History Drive</p>
         </div>
-        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: Boolean(film) })}
+        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: true })}
         ${filmHtml}
       </div>
       ${timelineReaderBarHtml('bottom')}
     `
     wireFilmCaptions(reader)
+    const glanceMount = reader.querySelector('.story-glance-mount')
+    mountGlanceTable(glanceMount, s.glance, researchNotes)
+    const bodyEl = reader.querySelector('.story-body')
+    const safeHtml = renderStoryHtml(
+      markdownWithoutGlanceSection(stripSourceAttribution(s.bodyMarkdown || ''), Boolean(s.glance)),
+    )
+    const withPeople = applyStoryPeople(
+      safeHtml,
+      storyPeople.stories?.[meta.slug],
+      new Map((publicPeople.people || []).map((p) => [p.id, p])),
+      (h) => h,
+      { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
+    )
+    bodyEl.innerHTML = `${storyPortraitHtml(subject.person)}${withPeople}`
+    const notesHref = researchPageHref(researchNotes?.slug)
+    if (notesHref && glanceMount) {
+      const notesLink = document.createElement('p')
+      notesLink.className = 'story-research-link'
+      const notesAnchor = document.createElement('a')
+      notesAnchor.href = notesHref
+      notesAnchor.textContent = `Research notes and sources for the ${String(s.title || '').replace(/^the\s+/i, '').replace(/\s*\(.*\)\s*$/, '')}`
+      notesLink.appendChild(notesAnchor)
+      glanceMount.insertAdjacentElement('afterend', notesLink)
+    }
     const sidebar = reader.querySelector('.story-sidebar-photo')
     if (sidebar) AdSlot.mount(sidebar, 'sidebar')
-    linkPeopleInBody(reader.querySelector('.story-body'), relatedData, meta.slug, relTitleFor)
+    linkPeopleInBody(bodyEl, relatedData, meta.slug, relTitleFor)
     const summaryEl = reader.querySelector('.story-summary')
     if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
     wireShareButtons(reader)

@@ -20,7 +20,10 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2011
+    "year": 2011,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "territory": {
     "ref": "/data/web/territories/fort-ancient-farming-villages.json",
