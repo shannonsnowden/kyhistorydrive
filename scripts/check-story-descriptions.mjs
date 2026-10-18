@@ -3,8 +3,10 @@
  * Every story meta description is at most 155 characters, follows the prerender rule,
  * and matches the built page. Unfinished metas (no ending punctuation, an ellipsis, or
  * over 155 characters) are listed, and so are metas that don't name the story's subject and a
- * place (title and place fields). Counts show how many use the summary vs the body. Warn-only for now: KY History is rewriting the cut-off
- * summaries. Set META_CHECK=strict (or pass --strict) to fail the build on any unfinished meta.
+ * place (title words, place fields, or a named place such as "Barren River", "Cumberland Gap",
+ * "Fort McIntosh" or the Ohio/Wabash/Scioto/Tennessee/Mississippi). Counts show how many use the
+ * summary vs the body. Strict by default: any unfinished meta or missing subject/place fails the
+ * build. META_CHECK=warn (or --warn) only lists them, for local drafting.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -18,7 +20,7 @@ const problems = []
 const unfinished = []
 const missing = []
 const kinds = { summary: 0, body: 0 }
-const strict = process.env.META_CHECK === 'strict' || process.argv.includes('--strict')
+const strict = process.env.META_CHECK !== 'warn' && !process.argv.includes('--warn')
 
 const abbrevSample =
   'He met Col. Boone and Gen. Scott c. AD 1750, with Capt. Bird, Lt. Col. Todd, near St. Asaph and Mt. Sterling, where Dr. Walker and Rev. Metcalf joined Baker Jr. and Baker Sr. at camp. Then he left.'
@@ -57,6 +59,18 @@ for (const story of stories) {
   }
 }
 
+// Self-test: the widened place matcher (SEO & AEO Desk, #317 follow-up).
+for (const [title, text, want] of [
+  ['Henry Skaggs, Green River long hunter', 'Henry Skaggs was among the earliest long hunters through Cumberland Gap.', true],
+  ['Wea (Waayaahtanwa) on the Wabash', 'The Wea were a Miami–Illinois-speaking people of the middle Wabash.', true],
+  ['Treaty of Fort McIntosh, 1785', 'Commissioners met Native leaders at Fort McIntosh in 1785.', true],
+  ['Simon Girty', 'Simon Girty was born in 1741 in Lancaster County, Pennsylvania.', true],
+  ['Moluntha', 'Moluntha was a civil chief of the Mekoche division of the Shawnee.', false],
+]) {
+  const sp = PrerenderPages.metaSubjectPlace({ title }, text)
+  if (!sp.subject || sp.place !== want) problems.push(`check-story-descriptions: place matcher self-test failed: ${text}`)
+}
+
 // Self-test: the cut rule never ends mid-number or adds an ellipsis.
 const adams = PrerenderPages.storyMetaDescription(
   'Near Hickman in Fulton County, on Bayou de Chien, a creek that drains into the nearby Mississippi, the Adams Site (15Fu4) is a Mississippian town of about 7.25 hectares built over an earlier Late Woodland village.',
@@ -67,7 +81,7 @@ if (/7\.25$|\d$/.test(adams) || adams.length > 155 || /\u2026|\.\.\.$/.test(adam
 
 if (unfinished.length) {
   const say = strict ? console.error : console.warn
-  say(`check-story-descriptions: ${unfinished.length} unfinished meta description(s)${strict ? '' : ' (warn-only; META_CHECK=strict fails the build)'}:`)
+  say(`check-story-descriptions: ${unfinished.length} unfinished meta description(s)${strict ? '' : ' (warn-only; unset META_CHECK=warn to fail the build)'}:`)
   for (const line of unfinished) say(`  ${line}`)
   if (strict) problems.push(`check-story-descriptions: ${unfinished.length} unfinished meta description(s)`)
 }
