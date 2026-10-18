@@ -215,9 +215,10 @@ if (fs.existsSync(RULES)) {
   }
   const skipS = new Set(rules.skipSlugs)
   const skipH = new Set(rules.skipHistoryIds)
+  const forceS = new Set(okList(rules.forceSlugs) ? rules.forceSlugs : [])
   const rnd = (x) => Number(x.toFixed(dec))
   for (const st of load(F.index)?.data.stories || []) {
-    if (!(st.era === 'prehistoric' || (st.tags || []).includes('archaeology'))) continue
+    if (!(forceS.has(st.slug) || st.era === 'prehistoric' || (st.tags || []).includes('archaeology'))) continue
     if (skipS.has(st.slug) || !isNum(st.lat) || !isNum(st.lon)) continue
     const hid = load(F.locs)?.data.locations?.[st.slug]?.historyId || null
     if (hid && skipH.has(hid)) continue
