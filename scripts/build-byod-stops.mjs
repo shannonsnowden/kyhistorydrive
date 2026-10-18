@@ -28,6 +28,7 @@ for (const layer of ['stories', 'history', 'war']) for (const f of L(layer)) if 
 // Caves are blocked by default (show caves included). Named exceptions need Security Watch sign-off,
 // with the pin on the visitor center / parking entrance, never a cave opening.
 const CAVE_ALLOW = new Set([
+  'pilot-knob-snp', // Security Watch OK 2026-10-18: public KNP trailhead on Brush Creek Rd, 37.9121,-83.9450; linked to the protected Finley story for narrative only, not that site
   'diamond-caverns-decorated-limestone', // Security Watch OK 2026-10-12: visitor center on Mammoth Cave Pkwy, 37.1166,-86.0630 (ISCA listing; OSM road frontage)
   'mammoth-cave-np', // Security Watch OK 2026-10-12: NPS visitor center building, 37.1870,-86.1013 (OSM way 856343907)
   'mammoth-cave-saltpeter', 'mammoth-cave-saltpeter-war-of-1812', // same park; re-pinned at the visitor center (source pins sit at the Historic Entrance)
