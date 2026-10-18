@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * Every story meta description uses whole sentences up to 160 characters.
- * A description may end without sentence punctuation only when the first
- * sentence itself is longer than 160 and was cut on a word.
+ * Every story meta description is at most 155 characters, follows the prerender rule,
+ * and matches the built page. Unfinished metas (no ending punctuation, an ellipsis, or
+ * over 155 characters) are listed. Warn-only for now: KY History is rewriting the cut-off
+ * summaries. Set META_CHECK=strict (or pass --strict) to fail the build on any unfinished meta.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -13,6 +14,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
 const stories = PrerenderPages.loadStories(root)
 const problems = []
+const unfinished = []
+const strict = process.env.META_CHECK === 'strict' || process.argv.includes('--strict')
 
 const abbrevSample =
   'He met Col. Boone and Gen. Scott c. AD 1750, with Capt. Bird, Lt. Col. Todd, near St. Asaph and Mt. Sterling, where Dr. Walker and Rev. Metcalf joined Baker Jr. and Baker Sr. at camp. Then he left.'
@@ -23,13 +26,14 @@ if (abbrevSentences.length !== 2 || /\b(?:Col|Gen|Capt|Lt|St|Mt|Dr|Jr|Sr|Rev|c)\
 
 for (const story of stories) {
   const urlPath = `/stories/${story.slug}/`
-  const source = PrerenderPages.storyDescriptionSource(story)
-  const description = PrerenderPages.storyMetaDescription(source)
+  const choice = PrerenderPages.storyDescriptionChoice(story)
+  const description = PrerenderPages.storyDescription(story)
   try {
-    PrerenderPages.assertStoryMeta(description, source, urlPath)
+    PrerenderPages.assertStoryMeta(description, choice.source, urlPath, PrerenderPages.META_MAX, choice.opts)
   } catch (err) {
     problems.push(err.message)
   }
+  if (!PrerenderPages.isFinishedMeta(description)) unfinished.push(`${urlPath} (${description.length}): ${description}`)
   const file = path.join(dist, urlPath, 'index.html')
   if (!fs.existsSync(file)) {
     problems.push(`check-story-descriptions: missing ${urlPath}`)
@@ -42,6 +46,21 @@ for (const story of stories) {
   }
 }
 
+// Self-test: the cut rule never ends mid-number or adds an ellipsis.
+const adams = PrerenderPages.storyMetaDescription(
+  'Near Hickman in Fulton County, on Bayou de Chien, a creek that drains into the nearby Mississippi, the Adams Site (15Fu4) is a Mississippian town of about 7.25 hectares built over an earlier Late Woodland village.',
+)
+if (/7\.25$|\d$/.test(adams) || adams.length > 155 || /\u2026|\.\.\.$/.test(adams)) {
+  problems.push(`check-story-descriptions: clause cut self-test failed: ${adams}`)
+}
+
+if (unfinished.length) {
+  const say = strict ? console.error : console.warn
+  say(`check-story-descriptions: ${unfinished.length} unfinished meta description(s)${strict ? '' : ' (warn-only; META_CHECK=strict fails the build)'}:`)
+  for (const line of unfinished) say(`  ${line}`)
+  if (strict) problems.push(`check-story-descriptions: ${unfinished.length} unfinished meta description(s)`)
+}
+
 if (problems.length) {
   console.error(problems.slice(0, 30).join('\n'))
   console.error(`check-story-descriptions: ${problems.length} problem(s)`)
@@ -49,5 +68,5 @@ if (problems.length) {
 }
 
 console.log(
-  `check-story-descriptions: ${stories.length} story meta descriptions end on a sentence, or on a word when the first sentence is over 160 characters`,
+  `check-story-descriptions: ${stories.length} story meta descriptions at most 155 characters; ${stories.length - unfinished.length} finished, ${unfinished.length} unfinished (${strict ? 'strict' : 'warn-only'})`,
 )
