@@ -959,6 +959,8 @@ html[data-hp-theme="light"] .era-other {
 .back-link { font-size: 0.9rem; text-decoration: none; }
 .story-detail { background: var(--panel); border-radius: 12px; padding: 1.25rem 1.4rem; border: 1px solid var(--line); }
 .story-head h2 { margin: 0.4rem 0 0.5rem; color: var(--heading); }
+/* Tag chips sit directly under the story title, above Share and the summary. */
+.story-head h2 + .tags { margin: 0 0 0.65rem; }
 .story-body { line-height: 1.6; font-size: 1.02rem; max-width: 70ch; }
 .story-body { overflow-wrap: anywhere; }
 .story-body a { word-break: break-word; overflow-wrap: anywhere; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
