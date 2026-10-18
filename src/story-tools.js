@@ -2,6 +2,8 @@
  * Story-page tools shared by prerendered /stories/ pages and the hash reader.
  * Dates passed in here are already resolved. This module never invents one.
  */
+import { ccByLicense, artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS } from './photo-credit.js'
+export { artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS }
 
 export const SITE_NAME = 'Kentucky History Drive'
 export const SITE_AUTHOR = 'Shannon Snowden'
@@ -893,6 +895,8 @@ function externalLink(href, label) {
  * (e.g. "(photographed 2008)"), so the year never shows twice.
  */
 export function photoCaptionYear(photo) {
+  // Period art carries its year in the credit line instead.
+  if (artworkLead(photo) && photo.artwork !== 'reconstruction') return ''
   const year = String(photo?.year ?? '').trim()
   if (!year) return ''
   if (!/^[0-9A-Za-z]+$/.test(year)) return year
@@ -911,15 +915,34 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   } else if (model.sourceUrl) {
     chunks.push(externalLink(model.sourceUrl, 'Source'))
   }
-  if (!chunks.length && !model.license) return ''
+  const cc = ccByLicense(photo)
+  if (!chunks.length && !model.license && !cc && !photo?.rights) return ''
   // Each piece is a nowrap .seg; CSS (.seg + .seg::before) draws the ' · ' at the start of the
   // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
   const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
-  if (segs.length) segs[0] = `<span class="seg">Photo: ${chunks[0]}</span>`
-  if (model.license) {
-    const license = model.licenseUrl ? externalLink(model.licenseUrl, model.license) : esc(model.license)
-    const prefix = segs.length ? '' : 'Photo: '
+  // Human-made art (e.g. Herb Roe's paintings) leads with its own label, never 'Photo:' or 'AI illustration'.
+  const artwork = artworkLead(photo)
+  const lead = artwork ? esc(artwork) : 'Photo: '
+  const first = artwork && model.photographer && photo?.artwork !== 'reconstruction' && photo?.year ? `${chunks[0]}, ${esc(String(photo.year))}` : chunks[0]
+  if (segs.length) segs[0] = `<span class="seg">${lead}${first}</span>`
+  // A rights statement that is not a license (e.g. LoC 'No known restrictions') shows as written.
+  const rights = String(photo?.rights || '').trim()
+  if (rights && !model.license && !cc) {
+    segs.push(`<span class="seg photo-license">${segs.length ? '' : lead}${esc(rights)}</span>`)
+  } else if (model.license || cc) {
+    const href = cc?.url || model.licenseUrl
+    const label = cc?.name || model.license
+    const rel = cc ? 'license noopener noreferrer' : 'noopener noreferrer'
+    const license = href
+      ? `<a href="${esc(href)}" target="_blank" rel="${rel}">${esc(label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`
+      : esc(label)
+    const prefix = segs.length ? '' : lead
     segs.push(`<span class="seg photo-license">${prefix}License: ${license}</span>`)
+  }
+  if (cc && /^https?:\/\//i.test(model.sourceUrl || '')) {
+    segs.push(
+      `<span class="seg"><a href="${esc(model.sourceUrl)}" target="_blank" rel="noopener noreferrer">source file</a></span>`,
+    )
   }
   const inner = segs.join(' ')
   if (block) return `<p class="story-sidebar-photo-attr story-photo-credit">${inner}</p>`

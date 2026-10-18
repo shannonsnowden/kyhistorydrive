@@ -20,8 +20,11 @@
     "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
     "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
-    "year": 1920
+    "attribution": "Kraemer Art Company postcard · Wikimedia Commons · Public domain",
+    "year": 1920,
+    "artwork": "print",
+    "credit": "Kraemer Art Company postcard",
+    "license": "Public domain"
   },
   "county": "Fayette"
 }

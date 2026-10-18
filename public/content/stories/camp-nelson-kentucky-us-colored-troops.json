@@ -21,10 +21,12 @@
     "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
     "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
     "source_url": "https://www.loc.gov/pictures/item/2020630224/",
-    "source_label": "Library of Congress",
-    "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+    "source_label": "Liljenquist Family Collection, Library of Congress",
+    "attribution": "Unknown photographer · Liljenquist Family Collection, Library of Congress",
     "year": 1864,
-    "fit": "contain"
+    "fit": "contain",
+    "credit": "Unknown photographer",
+    "rights": "No known restrictions"
   },
   "county": "Jessamine"
 }

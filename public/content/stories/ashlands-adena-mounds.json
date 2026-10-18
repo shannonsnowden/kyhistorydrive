@@ -21,6 +21,17 @@
     "yearEnd": 250,
     "presenceLabel": "Adena area (archaeological culture, not a tribe)"
   },
+  "photo": {
+    "image_url": "/content/photos/stories/ashlands-adena-mounds.jpg",
+    "title": "Marker at the Ashland Adena mounds, excavated in 1870",
+    "source_url": "https://commons.wikimedia.org/wiki/File:INDIAN_MOUNDS_IN_CENTRAL_PARK.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "JERRYE & ROY KLOTZ MD · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2012,
+    "credit": "JERRYE & ROY KLOTZ MD",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
   "figure": {
     "webp": "/content/photos/stories/figures/culture-adena__ai-v1-1280.webp",
     "jpg": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",

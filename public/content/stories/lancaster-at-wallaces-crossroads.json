@@ -12,5 +12,17 @@
     "kentucky"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-11"
+  "briefDate": "2026-09-11",
+  "photo": {
+    "image_url": "/content/photos/stories/lancaster-at-wallaces-crossroads.jpg",
+    "title": "Garrard County Courthouse, Lancaster",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Garrard_County_Kentucky_Courthouse.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2007,
+    "credit": "W.marsh",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "fit": "contain"
+  }
 }

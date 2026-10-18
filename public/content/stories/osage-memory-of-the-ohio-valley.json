@@ -20,8 +20,10 @@
     "title": "Osage delegation to Washington, D.C.",
     "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Unknown · Wikimedia Commons · Public domain",
-    "year": null
+    "attribution": "Unknown photographer · Wikimedia Commons · Public domain",
+    "year": null,
+    "credit": "Unknown photographer",
+    "license": "Public domain"
   },
   "territory": {
     "ref": "/data/web/territories/osage-missouri-homeland-and-ohio-valley-memory.json",

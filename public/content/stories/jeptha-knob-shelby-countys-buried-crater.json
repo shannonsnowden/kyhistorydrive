@@ -19,8 +19,11 @@
     "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
     "source_url": "https://apps.nationalmap.gov/3depdem/",
     "source_label": "USGS 3D Elevation Program",
-    "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
-    "year": 2026
+    "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS 3D Elevation Program · Public domain",
+    "year": 2026,
+    "artwork": "map",
+    "credit": "U.S. Geological Survey, 3D Elevation Program",
+    "license": "Public domain"
   },
   "county": "Shelby"
 }

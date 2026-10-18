@@ -21,7 +21,10 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
     "source_label": "Wikimedia Commons",
     "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2021
+    "year": 2021,
+    "artwork": "map",
+    "credit": "Kevin1776",
+    "license": "CC BY-SA 4.0"
   },
   "county": ""
 }

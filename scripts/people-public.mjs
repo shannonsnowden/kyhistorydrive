@@ -244,6 +244,8 @@ export function publicRecord(person, image, ai) {
     sourceFile: ai ? null : commonsFileName(person.sourcePage),
     // Source page link for the portrait credit (https only); real photos only.
     ...(!ai && /^https:\/\//i.test(person.creditUrl || '') ? { creditUrl: person.creditUrl } : {}),
+    // Short source note shown in the portrait caption, never in the credit (e.g. Jack Jouett's silhouette).
+    ...(String(person.captionNote || '').trim() ? { captionNote: String(person.captionNote).trim() } : {}),
   }
 }
 
