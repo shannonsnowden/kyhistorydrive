@@ -20,8 +20,11 @@
     "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "territory": {
     "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",

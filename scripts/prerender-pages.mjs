@@ -18,6 +18,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import sharp from 'sharp'
+import { ccByLicense } from '../src/photo-credit.js'
 import {
   GA_MEASUREMENT_ID,
   deferredAdsenseLoaderHtml,
@@ -46,6 +48,10 @@ import {
   resolveArticleDates,
   storyCanonicalUrl,
   storyThumbSrc,
+  artworkLead,
+  ARTWORK_LEADS,
+  looksLikeUnlabeledArtwork,
+  REVIEWED_ARTWORK_SLUGS,
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
@@ -86,6 +92,7 @@ class PrerenderPages {
   static LOGO = 'https://kyhistorydrive.com/brand/khd-logo-512.png'
   static ADSENSE =
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>'
+  static photoSizes = {}
   static COUNTY_DISPLAY = { Larue: 'LaRue' }
   static ERA_LABEL = {
     prehistoric: 'Prehistoric',
@@ -134,6 +141,10 @@ class PrerenderPages {
     if (/3840|HIRES_WIDTH|-route-map-'/.test(lightboxJs)) {
       throw new Error('prerender: route map lightbox still requests the old hi-res WebP')
     }
+    const manifestPath = path.join(root, 'public/content/photos/responsive.json')
+    PrerenderPages.photoVariants = fs.existsSync(manifestPath)
+      ? PrerenderPages.readJson(manifestPath).images || {}
+      : {}
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
     const stories = PrerenderPages.liveStories(PrerenderPages.loadStories(root))
     const researchNotes = PrerenderPages.loadResearch(root)
@@ -145,6 +156,7 @@ class PrerenderPages {
       researchByStory.set(notes.storySlug, notes)
     }
     const markers = PrerenderPages.loadHistoricalMarkers(root)
+    await PrerenderPages.collectPhotoSizes(root, stories)
     PrerenderPages.assertOverridesApplied(root, stories)
     const layers = await PrerenderPages.loadLayers(root)
     const dates = PrerenderPages.gitFileDates(root)
@@ -175,9 +187,16 @@ class PrerenderPages {
     if (aboutHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(aboutHtml)) {
       throw new Error('prerender: about page includes the plain contact address')
     }
-    const aboutH1 = [...aboutHtml.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)].map((match) =>
-      match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
-    )
+    const aboutH1 = [...aboutHtml.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)].map((match) => {
+      // Repeat until stable so a nested tag cannot collapse into <script>.
+      let text = match[1]
+      let previous
+      do {
+        previous = text
+        text = text.replace(/<[^>]+>/g, '')
+      } while (text !== previous)
+      return text.replace(/\s+/g, ' ').trim()
+    })
     if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
       throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
     }
@@ -998,6 +1017,25 @@ class PrerenderPages {
     })
   }
 
+  static storyPictureHtml(src, alt, { priority = false } = {}) {
+    const size = PrerenderPages.photoSizes?.[src]
+    const dim =
+      size?.width && size?.height ? ` width="${Number(size.width)}" height="${Number(size.height)}"` : ''
+    const loading = priority
+      ? ' loading="eager" fetchpriority="high" data-lcp="story-photo"'
+      : ' loading="lazy"'
+    const img = `<img src="${PrerenderPages.escapeHtml(src)}" alt="${alt}"${dim}${loading} decoding="async" />`
+    const meta = PrerenderPages.photoVariants?.[src]
+    if (!meta?.avif?.length && !meta?.webp?.length) return img
+    const sizes = '(max-width: 600px) 100vw, 220px'
+    const source = (type, list) => {
+      if (!list?.length) return ''
+      const srcset = list.map((v) => `${PrerenderPages.escapeHtml(v.src)} ${Number(v.w)}w`).join(', ')
+      return `<source type="${type}" srcset="${srcset}" sizes="${sizes}" />`
+    }
+    return `<picture>${source('image/avif', meta.avif)}${source('image/webp', meta.webp)}${img}</picture>`
+  }
+
   static photoAbsolute(url) {
     if (!url) return ''
     if (/^https?:\/\//i.test(url)) return url
@@ -1007,9 +1045,10 @@ class PrerenderPages {
   /** "Photo: Name / Wikimedia Commons, " (license follows), or "Illustration: Kentucky History Drive, " for AI art. */
   static peopleCreditName(person) {
     const raw = String(person.credit || '')
-    const name = raw
-      // AI credits already open with 'AI illustration · '; the card label says 'Illustration:', so drop the prefix.
-      .replace(person.ai ? /^AI illustration\s*·\s*/i : /(?!)/, '')
+    // AI credits already open with 'AI illustration · '; the card label says 'Illustration:', so drop the prefix.
+    // Non-AI credits skip that replace. A never-matching pattern would replace the empty string with itself.
+    const withoutAiLabel = person.ai ? raw.replace(/^AI illustration\s*·\s*/i, '') : raw
+    const name = withoutAiLabel
       .replace(/\s*·\s*via Wikimedia Commons\s*$/i, '')
       .replace(new RegExp(`\\s*·\\s*${String(person.license || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`), '')
       .replace(/^[^\n:]*\.(?:jpe?g|png|tiff?):\s*/i, '')
@@ -1038,17 +1077,14 @@ class PrerenderPages {
     const capYear = photoCaptionYear(photo)
     const year = capYear ? ` <span class="muted">(${PrerenderPages.escapeHtml(capYear)})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
-    const img = PrerenderPages.escapeHtml(photo.image_url)
+    const img = PrerenderPages.storyPictureHtml(photo.image_url, caption, { priority })
     const linkLabel = PrerenderPages.escapeHtml(
       `Open ${photo.source_label || photo.credit || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`,
     )
-    const imgAttrs = priority
-      ? 'fetchpriority="high" loading="eager" data-lcp="story-photo"'
-      : 'loading="lazy"'
     return `<aside class="story-sidebar-photo" aria-label="Story photo">
       <p class="story-sidebar-photo-heading">Photos</p>
       <a class="story-sidebar-photo-frame${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
-        <img src="${img}" alt="${caption}" ${imgAttrs} />
+        ${img}
       </a>
       <p class="story-sidebar-photo-cap">${caption}${year}</p>
       ${photoCreditHtml(photo)}
@@ -1057,9 +1093,8 @@ class PrerenderPages {
 
   static layerCreditHtml(photo) {
     if (!photo?.image_url) return ''
-    const label = photo.attribution || photo.source_label || ''
-    const year = photo.year ? ` · ${photo.year}` : ''
-    const credit = label ? `${label}${year}` : ''
+    const capYear = photoCaptionYear(photo)
+    const year = capYear ? ` <span class="muted">(${PrerenderPages.escapeHtml(capYear)})</span>` : ''
     const caption = PrerenderPages.escapeHtml(photo.title || 'Layer photo')
     const img = PrerenderPages.escapeHtml(photo.image_url)
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
@@ -1071,8 +1106,8 @@ class PrerenderPages {
         <img src="${img}" alt="${caption}" loading="lazy" />
       </a>
       <figcaption>
-        <p class="story-sidebar-photo-cap">${caption}</p>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${PrerenderPages.escapeHtml(credit)}</p>` : ''}
+        <p class="story-sidebar-photo-cap">${caption}${year}</p>
+        ${photoCreditHtml(photo)}
       </figcaption>
     </figure>`
   }
@@ -1275,7 +1310,24 @@ class PrerenderPages {
     })
   }
 
-  static storyJsonLd(story, description, image, imageAlt, layer) {
+  /** Photo pages use an ImageObject so width and height match og:image. A route map stays in the list. */
+  static articleImageField(image, imageWidth, imageHeight, routeLd) {
+    const photoSized = image && image !== PrerenderPages.LOGO && Number(imageWidth) > 0 && Number(imageHeight) > 0
+    const photoNode = photoSized
+      ? {
+          '@type': 'ImageObject',
+          url: image,
+          width: Number(imageWidth),
+          height: Number(imageHeight),
+        }
+      : null
+    if (photoNode && routeLd) return [photoNode, routeLd.contentUrl]
+    if (photoNode) return photoNode
+    if (routeLd) return [routeLd.contentUrl]
+    return [image || PrerenderPages.LOGO]
+  }
+
+  static storyJsonLd(story, description, image, imageAlt, layer, imageWidth, imageHeight) {
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const geo = PrerenderPages.publicGeo(story)
     const placeName = story.matchedPlace || story.title
@@ -1305,7 +1357,7 @@ class PrerenderPages {
       description,
       mainEntityOfPage: canonical,
       url: canonical,
-      image: routeLd ? [image || PrerenderPages.LOGO, routeLd.contentUrl] : [image || PrerenderPages.LOGO],
+      image: PrerenderPages.articleImageField(image, imageWidth, imageHeight, routeLd),
       ...(dates.published ? { datePublished: dates.published } : {}),
       ...(dates.modified ? { dateModified: dates.modified } : {}),
       author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
@@ -1521,7 +1573,7 @@ class PrerenderPages {
           </header>
           ${takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)}
         </div>
-        ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
+        ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: true })}
         <div class="story-reader-main">
           <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>
           ${routeMapSectionHtml(story.slug, {
@@ -1548,6 +1600,9 @@ class PrerenderPages {
         </div>
         ${filmHtml}
       </article>`
+    const imageSize = photo ? PrerenderPages.photoSizes?.[photo.image_url] : null
+    const imageWidth = imageSize?.width || (!photo && route ? 1600 : 0)
+    const imageHeight = imageSize?.height || (!photo && route ? 900 : 0)
     return PrerenderPages.shell({
       title,
       description,
@@ -1555,9 +1610,17 @@ class PrerenderPages {
       cssHrefs,
       image: ogImage,
       imageAlt: ogAlt,
-      imageWidth: !photo && route ? 1600 : 0,
-      imageHeight: !photo && route ? 900 : 0,
-      jsonLd: PrerenderPages.storyJsonLd(story, description, image, imageAlt, layer),
+      imageWidth,
+      imageHeight,
+      jsonLd: PrerenderPages.storyJsonLd(
+        story,
+        description,
+        image,
+        imageAlt,
+        layer,
+        imageWidth,
+        imageHeight,
+      ),
       routeLightbox: Boolean(route),
       main,
       rss: true,
@@ -2320,6 +2383,19 @@ class PrerenderPages {
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
     }
+    // A map, painting, print, drawing, signature etc. must carry its medium, never fall back to 'Photo:'.
+    if (looksLikeUnlabeledArtwork(story.photo) || (REVIEWED_ARTWORK_SLUGS.has(story.slug) && story.photo?.image_url && !artworkLead(story.photo))) {
+      throw new Error(`prerender: ${urlPath} photo looks like art or a document (source or caption) but has no photo.artwork medium`)
+    }
+    // Editor 10/18 (#199): human-made art is labeled by medium (or as a modern reconstruction), never 'Photo:' or 'AI illustration'.
+    if (story.photo?.artwork) {
+      const lead = artworkLead(story.photo)
+      if (!lead) throw new Error(`prerender: ${urlPath} photo.artwork '${story.photo.artwork}' must be one of ${Object.keys(ARTWORK_LEADS).join(', ')}`)
+      const credit = (html.match(/<p class="story-sidebar-photo-attr[\s\S]*?<\/p>/) || [''])[0]
+      if (!credit.includes(PrerenderPages.escapeHtml(lead)) || /AI illustration|Photo: /.test(credit)) {
+        throw new Error(`prerender: ${urlPath} artwork credit must start '${lead}<artist>' and never say Photo: or AI illustration`)
+      }
+    }
     if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
     if (!html.includes(PrerenderPages.rssAlternateLink())) {
       throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
@@ -2532,6 +2608,14 @@ class PrerenderPages {
     if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} og:image is not the ${expectedKind}`)
     }
+    const articleImage = article?.image
+    const articleImageUrl =
+      typeof articleImage === 'string'
+        ? articleImage
+        : articleImage?.url || (Array.isArray(articleImage) ? articleImage[0]?.url || articleImage[0] : '')
+    if (articleImageUrl !== expectedImage) {
+      throw new Error(`prerender: ${urlPath} Article image is not the og:image`)
+    }
     if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} twitter:image is missing`)
     }
@@ -2546,6 +2630,38 @@ class PrerenderPages {
       }
       if (html.includes('property="og:image" content="' + PrerenderPages.LOGO + '"')) {
         throw new Error(`prerender: ${urlPath} used the logo instead of the story photo`)
+      }
+      const size = PrerenderPages.photoSizes?.[story.photo.image_url]
+      if (!size?.width || !size?.height) {
+        throw new Error(`prerender: ${urlPath} story photo is missing width and height`)
+      }
+      if (!html.includes(`property="og:image:width" content="${size.width}"`)) {
+        throw new Error(`prerender: ${urlPath} og:image:width is missing`)
+      }
+      if (!html.includes(`property="og:image:height" content="${size.height}"`)) {
+        throw new Error(`prerender: ${urlPath} og:image:height is missing`)
+      }
+      const imageNode = Array.isArray(article?.image)
+        ? article.image.find((item) => item && typeof item === 'object' && item.url === photo)
+        : article?.image
+      if (imageNode?.width !== size.width || imageNode?.height !== size.height) {
+        throw new Error(`prerender: ${urlPath} Article image size does not match og:image`)
+      }
+      if (!html.includes(`width="${size.width}"`) || !html.includes(`height="${size.height}"`)) {
+        throw new Error(`prerender: ${urlPath} in-page photo is missing width and height`)
+      }
+      if (!html.includes('loading="eager"') || !html.includes('fetchpriority="high"')) {
+        throw new Error(`prerender: ${urlPath} main photo is not eager`)
+      }
+      const cc = ccByLicense(story.photo)
+      if (cc) {
+        const licenseHref = `href="${PrerenderPages.escapeHtml(cc.url)}"`
+        if (!html.includes(licenseHref) || !html.includes('rel="license noopener noreferrer"')) {
+          throw new Error(`prerender: ${urlPath} CC license is not linked`)
+        }
+        if (!html.includes('>source file</a>')) {
+          throw new Error(`prerender: ${urlPath} is missing the source file link`)
+        }
       }
     }
     const film = filmForStory(story.slug)
@@ -3207,6 +3323,22 @@ ${rows.join('\n')}
 </urlset>
 `
     fs.writeFileSync(file, xml)
+  }
+
+  static async collectPhotoSizes(root, stories) {
+    const sizes = {}
+    for (const [url, meta] of Object.entries(PrerenderPages.photoVariants || {})) {
+      if (meta?.width > 0 && meta?.height > 0) sizes[url] = { width: meta.width, height: meta.height }
+    }
+    for (const story of stories) {
+      const url = story.photo?.image_url
+      if (!url || sizes[url] || !String(url).startsWith('/content/photos/')) continue
+      const abs = path.join(root, 'public', url.replace(/^\//, ''))
+      if (!fs.existsSync(abs)) continue
+      const meta = await sharp(abs).metadata()
+      if (meta.width > 0 && meta.height > 0) sizes[url] = { width: meta.width, height: meta.height }
+    }
+    PrerenderPages.photoSizes = sizes
   }
 
   static aboutPage(cssHrefs) {

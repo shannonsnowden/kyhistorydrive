@@ -20,8 +20,11 @@
     "title": "Three Delaware Indians (George Catlin)",
     "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
-    "year": 1861
+    "attribution": "George Catlin · Wikimedia Commons · CC0",
+    "year": "1861–1869",
+    "artwork": "painting",
+    "credit": "George Catlin",
+    "license": "CC0"
   },
   "territory": {
     "ref": "/data/web/territories/delaware-lenape-ohio-kentucky-and-indiana.json",

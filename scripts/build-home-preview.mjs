@@ -18,6 +18,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { HomepageStructure } from '../src/homepage-structure.js'
+import { storyBlocksAutoPhoto } from '../src/no-auto-story-photos.js'
 
 const HERO_DECK_OVERRIDES_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'hero-deck-overrides.json')
 const heroDeckDoc = fs.existsSync(HERO_DECK_OVERRIDES_FILE)
@@ -386,6 +387,9 @@ async function resolvePhoto({
   if (curated?.thumb_url || curated?.ext) {
     return vendorCuratedPhoto(slug, curated)
   }
+  if (storyBlocksAutoPhoto(slug)) {
+    return isLocalPhoto(existing) ? existing : null
+  }
   if (isLocalPhoto(existing) || (existing?.image_url && isPhotoUrl(existing.image_url))) {
     return existing
   }
@@ -416,6 +420,7 @@ function loadStory(slug) {
 function writeStoryPhoto(slug, photo) {
   const next = publicPhoto(photo)
   if (!next?.image_url) return false
+  if (storyBlocksAutoPhoto(slug) && !isLocalPhoto(next)) return false
   const file = path.join(ROOT, 'public/content/stories', `${slug}.json`)
   if (!fs.existsSync(file)) return false
   const raw = JSON.parse(fs.readFileSync(file, 'utf8'))
