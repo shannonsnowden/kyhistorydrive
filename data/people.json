@@ -6800,6 +6800,28 @@
       "freeToUse": false,
       "verified": false,
       "notes": "No Wikipedia article or Commons likeness found."
+    },
+    {
+      "id": "walker-daniel",
+      "name": "Walker Daniel",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "walker-daniel-danvilles-namesake"
+      ],
+      "role": "Virginia lawyer, founder of Danville, first attorney general of the District of Kentucky",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness (no portrait found). Canonical face: AI illustration (Oct 2026).",
+      "ai": true
     }
   ]
 }

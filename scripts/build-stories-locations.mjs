@@ -974,6 +974,13 @@ const MANUAL_OVERRIDES = {
     lon: -84.51056,
     confidence: 'override',
   },
+  // 2026-10-18: Walker Daniel (deferred from 2026-10-14 until his AI portrait landed)
+  'walker-daniel-danvilles-namesake': {
+    matchName: "Walker Daniel marker, Danville (KHS #190)",
+    lat: 37.64565,
+    lon: -84.7707833,
+    confidence: 'override',
+  },
 }
 
 

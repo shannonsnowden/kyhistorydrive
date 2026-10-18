@@ -162,13 +162,18 @@ assert.equal(HomepageStructure.editorQuotePin(overrides), null, '#189 and the Ed
 function slugsForDate(date) {
   return liveCatalog.filter((s) => s.briefDate === date).map((s) => s.slug)
 }
+// Today's pack plus any carry-forward briefs configured in hero-deck-overrides.json.
+function packSlugsForDate(date) {
+  const extra = ((overrides.carryForward || {})[date] || []).flatMap((d) => slugsForDate(d))
+  return [...slugsForDate(date), ...extra]
+}
 const dates = [...new Set(liveCatalog.map((s) => s.briefDate).filter(Boolean))].sort()
 const latest = dates[dates.length - 1]
 const previous = dates[dates.length - 2]
 assert.ok(latest && previous)
 assert.equal(pack.briefDate, latest, 'home-preview.json briefDate is behind the story catalog')
 const packSlugs = (pack.stories || []).map((s) => s.slug).filter(Boolean).sort()
-assert.deepEqual(packSlugs, slugsForDate(latest).sort(), 'home-preview.json is not today’s hero set')
+assert.deepEqual(packSlugs, packSlugsForDate(latest).sort(), 'home-preview.json is not today’s hero set')
 const mirrorSlug = HomepageStructure.slugFromHref(pack.quote?.href)
 assert.ok(packSlugs.includes(mirrorSlug), 'pack quote href is not one of today’s stories')
 assert.equal(
@@ -178,7 +183,7 @@ assert.equal(
 )
 
 function quoteFor(date) {
-  const heroSlugsForDay = slugsForDate(date)
+  const heroSlugsForDay = packSlugsForDate(date)
   const highlights = HomepageStructure.pickHighlights(liveCatalog, heroSlugsForDay, 4)
   const exclude = [...heroSlugsForDay, ...highlights.map((s) => s.slug)]
   const picked = HomepageStructure.pickQuote(liveCatalog, exclude, { heroSlugs: heroSlugsForDay })

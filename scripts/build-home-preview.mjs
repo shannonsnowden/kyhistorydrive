@@ -510,6 +510,16 @@ async function main() {
   }
   for (const s of todays) if (!slugs.includes(s.slug)) slugs.push(s.slug)
   if (!slugs.length) throw new Error(`no stories with briefDate ${briefDate}`)
+  // Carry-forward (scripts/hero-deck-overrides.json "carryForward"): earlier briefs whose stories
+  // follow today's on a thin pack day, each in its own brief order.
+  for (const d of (heroDeckDoc.carryForward || {})[briefDate] || []) {
+    const older = index.stories.filter((s) => s.briefDate === d)
+    for (const h of briefOrder(d)) {
+      const hit = older.find((s) => s.slug === h) || older.find((s) => slugify(s.title || '') === h)
+      if (hit && !slugs.includes(hit.slug)) slugs.push(hit.slug)
+    }
+    for (const s of older) if (!slugs.includes(s.slug)) slugs.push(s.slug)
+  }
 
   const cards = []
   for (const slug of slugs) {

@@ -1,9 +1,34 @@
 {
-  "generatedAt": "2026-10-14T09:59:10.602Z",
-  "briefDate": "2026-10-14",
-  "displayDate": "Wednesday, October 14, 2026",
+  "generatedAt": "2026-10-18T13:09:18.137Z",
+  "briefDate": "2026-10-18",
+  "displayDate": "Sunday, October 18, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
   "stories": [
+    {
+      "slug": "walker-daniel-danvilles-namesake",
+      "title": "Walker Daniel, Danville’s namesake",
+      "summary": "Virginia lawyer Walker Daniel laid out the town at Crow’s Station in 1783, served as the District of Kentucky’s first attorney general, and was killed in 1784; the town was named Danville for him in 1787.",
+      "era": "frontier",
+      "yearStart": 1781,
+      "county": "Boyle",
+      "briefDate": "2026-10-18",
+      "href": "/#timeline/walker-daniel-danvilles-namesake",
+      "place": "Walker Daniel marker, Danville (KHS #190)",
+      "lat": 37.64565,
+      "lon": -84.7707833,
+      "historyId": "walker-daniel-danville-boyle-1781-1787",
+      "mapHref": "/#map/history/walker-daniel-danville-boyle-1781-1787",
+      "quote": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783.",
+      "photo": {
+        "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
+        "title": "Constitution Square State Historic Site, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Constitution_Square_State_Historic_Site_-_May_2024_-_Sarah_Stierch.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
+        "year": 2024
+      },
+      "heroDeck": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783."
+    },
     {
       "slug": "chambers-site-15ml109-marshall-county",
       "title": "Chambers Site (15Ml109): an upland Mississippian village",
@@ -106,31 +131,56 @@
     }
   ],
   "hero": {
-    "slug": "chambers-site-15ml109-marshall-county",
-    "title": "Chambers Site (15Ml109): an upland Mississippian village",
-    "summary": "On a Marshall County ridgetop above the Middle Fork of Clarks River, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
-    "era": "prehistoric",
-    "yearStart": 1250,
-    "county": "Marshall",
-    "briefDate": "2026-10-14",
-    "href": "/#timeline/chambers-site-15ml109-marshall-county",
-    "place": "Chambers Site (15Ml109), Marshall County (approximate)",
-    "lat": 36.9,
-    "lon": -88.3,
-    "historyId": "chambers-site-15ml109-marshall-1250-1350",
-    "mapHref": "/#map/history/chambers-site-15ml109-marshall-1250-1350",
-    "quote": "The Chambers site (15Ml109) is a Mississippian village on a ridgetop overlooking the Middle Fork of Clarks River in Marshall County.",
+    "slug": "walker-daniel-danvilles-namesake",
+    "title": "Walker Daniel, Danville’s namesake",
+    "summary": "Virginia lawyer Walker Daniel laid out the town at Crow’s Station in 1783, served as the District of Kentucky’s first attorney general, and was killed in 1784; the town was named Danville for him in 1787.",
+    "era": "frontier",
+    "yearStart": 1781,
+    "county": "Boyle",
+    "briefDate": "2026-10-18",
+    "href": "/#timeline/walker-daniel-danvilles-namesake",
+    "place": "Walker Daniel marker, Danville (KHS #190)",
+    "lat": 37.64565,
+    "lon": -84.7707833,
+    "historyId": "walker-daniel-danville-boyle-1781-1787",
+    "mapHref": "/#map/history/walker-daniel-danville-boyle-1781-1787",
+    "quote": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783.",
     "photo": {
-      "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-      "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+      "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
+      "title": "Constitution Square State Historic Site, Danville",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Constitution_Square_State_Historic_Site_-_May_2024_-_Sarah_Stierch.jpg",
       "source_label": "Wikimedia Commons",
-      "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-      "year": 2012
+      "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
+      "year": 2024
     },
-    "heroDeck": "The Chambers site (15Ml109) is a Mississippian village on a ridgetop overlooking the Middle Fork of Clarks River in Marshall County."
+    "heroDeck": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783."
   },
   "features": [
+    {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "title": "Chambers Site (15Ml109): an upland Mississippian village",
+      "summary": "On a Marshall County ridgetop above the Middle Fork of Clarks River, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
+      "era": "prehistoric",
+      "yearStart": 1250,
+      "county": "Marshall",
+      "briefDate": "2026-10-14",
+      "href": "/#timeline/chambers-site-15ml109-marshall-county",
+      "place": "Chambers Site (15Ml109), Marshall County (approximate)",
+      "lat": 36.9,
+      "lon": -88.3,
+      "historyId": "chambers-site-15ml109-marshall-1250-1350",
+      "mapHref": "/#map/history/chambers-site-15ml109-marshall-1250-1350",
+      "quote": "The Chambers site (15Ml109) is a Mississippian village on a ridgetop overlooking the Middle Fork of Clarks River in Marshall County.",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "heroDeck": "The Chambers site (15Ml109) is a Mississippian village on a ridgetop overlooking the Middle Fork of Clarks River in Marshall County."
+    },
     {
       "slug": "hartford-fort-hartford-on-the-rough-river",
       "title": "Hartford: Fort Hartford on the Rough River",
@@ -477,8 +527,8 @@
     }
   ],
   "quote": {
-    "text": "The Chambers site (15Ml109) is a Mississippian village on a ridgetop overlooking the Middle Fork of Clarks River in Marshall County.",
-    "source": "Chambers Site (15Ml109): an upland Mississippian village",
-    "href": "/#timeline/chambers-site-15ml109-marshall-county"
+    "text": "Danville is named for Walker Daniel, a young Virginia lawyer who came to central Kentucky in 1781 and laid out the town at Crow’s Station in 1783.",
+    "source": "Walker Daniel, Danville’s namesake",
+    "href": "/#timeline/walker-daniel-danvilles-namesake"
   }
 }
