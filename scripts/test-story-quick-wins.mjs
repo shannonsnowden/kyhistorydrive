@@ -30,6 +30,7 @@ import {
   learnMoreLinkText,
   pickRelatedStories,
   relatedAndNearbyHtml,
+  storyThumbSrc,
   photoCreditHtml,
   photoCreditModel,
   resolveArticleDates,
@@ -425,7 +426,121 @@ const ranked = pickRelatedStories(rankedHere, [
 ])
 assert.deepEqual(
   ranked.map((story) => story.slug),
-  ['two-tags', 'one-tag', 'county', 'broad-years', 'close'],
+  ['two-tags', 'county', 'broad-years', 'close', 'one-tag'],
+)
+const thinMuir = {
+  slug: 'muir-site-15js86',
+  title: 'Muir Site (15Js86)',
+  matchedPlace: 'Muir Site (15Js86)',
+  historyId: 'muir-site-15js86-jessamine-county',
+  county: 'Jessamine',
+  lat: 37.9,
+  lon: -84.6,
+  bodyMarkdown: 'short ridge note',
+  tags: ['archaeology'],
+}
+const richMuir = {
+  slug: 'muir-long',
+  title: 'Muir Site: Early Fort Ancient on a Jessamine Ridge',
+  matchedPlace: 'Muir Site (15Js86)',
+  historyId: 'muir-site-15js86-jessamine-county',
+  county: 'Jessamine',
+  lat: 37.9,
+  lon: -84.6,
+  bodyMarkdown: 'a much longer article about the same Jessamine ridge and its houses',
+  tags: ['archaeology'],
+  photo: { image_url: '/content/photos/stories/muir.jpg', cardThumb: false, title: 'Main Street, Nicholasville' },
+}
+const deduped = pickRelatedStories(
+  { slug: 'camp', title: 'Camp Nelson', county: 'Jessamine', lat: 37.79, lon: -84.6, era: 'other', tags: ['other'] },
+  [
+    { slug: 'camp', title: 'Camp Nelson', county: 'Jessamine', lat: 37.79, lon: -84.6 },
+    thinMuir,
+    richMuir,
+    { slug: 'town', title: 'Nicholasville Takes Shape', county: 'Jessamine', lat: 37.8, lon: -84.58, bodyMarkdown: 'town' },
+  ],
+)
+assert.deepEqual(
+  deduped.map((story) => story.slug),
+  ['town', 'muir-long'],
+)
+assert.equal(storyThumbSrc(richMuir), '')
+assert.equal(storyThumbSrc({ slug: 'x', title: 'X', photo: { image_url: '/content/photos/stories/x.jpg' } }), '/content/photos/opt/stories/x-112.webp')
+const sharedPin = pickRelatedStories(
+  { slug: 'here', title: 'Here', lat: 38, lon: -85, tags: [] },
+  [
+    { slug: 'here', title: 'Here', lat: 38, lon: -85 },
+    {
+      slug: 'lincoln',
+      title: 'Capt. Abraham Lincoln on Long Run',
+      historyId: 'shared-pin',
+      lat: 38.2,
+      lon: -85.4,
+      bodyMarkdown: 'lincoln',
+    },
+    {
+      slug: 'painted',
+      title: "Squire Boone's Painted Stone",
+      historyId: 'shared-pin',
+      lat: 38.2,
+      lon: -85.4,
+      bodyMarkdown: 'painted stone station',
+    },
+  ],
+)
+assert.deepEqual(
+  sharedPin.map((story) => story.slug).sort(),
+  ['lincoln', 'painted'],
+)
+const beamKept = pickRelatedStories(
+  { slug: 'origin', title: 'Origin', lat: 37, lon: -85 },
+  [
+    { slug: 'origin', title: 'Origin', lat: 37, lon: -85 },
+    {
+      slug: 'beam-a',
+      title: 'Jacob Beam on Hardin Creek',
+      historyId: 'beam',
+      lat: 37.76,
+      lon: -85.33,
+      bodyMarkdown: 'longer beam story text',
+    },
+    {
+      slug: 'beam-b',
+      title: "Jacob Beam sells Old Jake's first barrel",
+      historyId: 'beam',
+      lat: 37.76,
+      lon: -85.33,
+      bodyMarkdown: 'short',
+    },
+  ],
+)
+assert.deepEqual(
+  beamKept.map((story) => story.slug),
+  ['beam-a'],
+)
+const springfieldKept = pickRelatedStories(
+  { slug: 'o', title: 'O', lat: 38, lon: -84 },
+  [
+    { slug: 'o', title: 'O', lat: 38, lon: -84 },
+    {
+      slug: 's1',
+      title: 'Springfield Founding and Washington County Seat',
+      lat: 37.6853413,
+      lon: -85.2221819,
+      bodyMarkdown: 'the longer founding story',
+    },
+    {
+      slug: 's2',
+      title: 'Springfield, first county seat after statehood',
+      lat: 37.6853,
+      lon: -85.2222,
+      bodyMarkdown: 'short',
+    },
+  ],
+)
+assert.deepEqual(
+  springfieldKept.map((story) => story.slug),
+  ['s1'],
 )
 const byDistance = pickRelatedStories(
   { slug: 'h', title: 'H', era: 'x', tags: [], yearStart: 1, yearEnd: 1, county: 'A', lat: 38, lon: -85 },
