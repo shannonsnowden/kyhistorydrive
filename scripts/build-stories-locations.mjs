@@ -381,8 +381,9 @@ const MANUAL_OVERRIDES = {
   // 2026-09-22 morning brief
   'john-finley-the-trader-who-put-kentucky-on-boone-s-map': {
     matchName: 'John Finley',
-    lat: 37.93955,
-    lon: -83.9975333,
+    // Protected Eskippakithiki / Indian Old Fields site: 0.1° only (pin-rounding.json forceSlugs).
+    lat: 37.9,
+    lon: -84.0,
     confidence: 'override',
   },
   'springfield-founding-and-washington-county-seat': {
@@ -971,6 +972,13 @@ const MANUAL_OVERRIDES = {
     matchName: "Yahoo Falls, Big South Fork (McCreary County)",
     lat: 36.769,
     lon: -84.51056,
+    confidence: 'override',
+  },
+  // 2026-10-18: Walker Daniel (deferred from 2026-10-14 until his AI portrait landed)
+  'walker-daniel-danvilles-namesake': {
+    matchName: "Walker Daniel marker, Danville (KHS #190)",
+    lat: 37.64565,
+    lon: -84.7707833,
     confidence: 'override',
   },
 }

@@ -1277,6 +1277,13 @@ a.related-card:hover .related-card-chevron {
   border: 1px solid var(--line);
 }
 .story-related .related-face-slot { display: block; }
+/* Phones: when a related row wraps, keep the face/disc at the top of the row, like the photos (Editor nit, item 69). */
+@media (max-width: 560px) {
+  .story-related a.related-row-link { align-items: flex-start; }
+  .story-related a.related-row-link > picture.related-headshot-frame,
+  .story-related a.related-row-link > .related-initials,
+  .story-related a.related-row-link > .related-face-slot { margin-top: 0.15rem; }
+}
 .story-related .related-person-text { min-width: 0; }
 .story-related a, .story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .story-body a.person-link, .story-summary a.person-link, .map-popup a.person-link { text-decoration-style: dotted; }
@@ -4885,8 +4892,16 @@ html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
   padding: 0;
   font-size: 0.82rem;
 }
-.people-stories li { margin: 0.12rem 0; }
-.people-stories a { color: var(--accent); }
+.people-stories li { margin: 0; }
+/* Story links are 44px tap targets (WCAG 2.5.5), text stays left/centred in the block. */
+.people-stories a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  line-height: 1.25;
+}
+.people-license a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 420px) {
   .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
   .people-card { padding: 0.45rem; }
@@ -5035,18 +5050,34 @@ html[data-hp-theme="light"] .timeline-layout.is-reading-wide .timeline-read-togg
     border-bottom-color: transparent;
   }
 }
-/* Reading mode: center a column whose story text is at most 70ch.
+/* Reading mode: center a wider column whose story text is at most 96ch.
+   With the map shown, the story column is ~52% of the viewport and the body
+   is held to 70ch. Hiding the map must give a visibly wider measure, so the
+   cap rises to 96ch (comfortable upper bound for long-form reading).
    The extra 2.6rem is the story card's horizontal padding and border, so the
-   body itself — not the card — is the 70ch measure. The sticky bar stays full width.
-   The photo stacks so it doesn't eat the line. */
+   body itself — not the card — is the 96ch measure. The sticky bar stays full width.
+   The photo stacks so it doesn't eat the line.
+   Paragraphs and other body text are capped at ~78ch inside it (below). */
+.timeline-layout.is-reading-wide {
+  --tl-read-measure: 96ch;
+}
 .timeline-layout.is-reading-wide .timeline-main > :not(.timeline-read-bar) {
-  width: min(100%, calc(70ch + 2.6rem));
-  max-width: calc(70ch + 2.6rem);
+  width: min(100%, calc(var(--tl-read-measure) + 2.6rem));
+  max-width: calc(var(--tl-read-measure) + 2.6rem);
   margin-inline: auto;
   box-sizing: border-box;
 }
 .timeline-layout.is-reading-wide .story-body {
-  max-width: 70ch;
+  max-width: var(--tl-read-measure);
+}
+/* Within the wide column, body text keeps a ~78ch reading measure while
+   media (figures, images, maps, video) still use the full column width. */
+.timeline-layout.is-reading-wide {
+  --tl-text-measure: 78ch;
+}
+.timeline-layout.is-reading-wide .story-body > :is(p, ul, ol, dl, blockquote, h2, h3, h4, h5, h6, .story-summary),
+.timeline-layout.is-reading-wide .story-summary {
+  max-width: var(--tl-text-measure);
 }
 .timeline-layout.is-reading-wide .story-reader .story-reader-layout,
 .timeline-layout.is-reading-wide .story-reader.has-film .story-reader-layout {
@@ -5628,6 +5659,16 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .timeline-layout.is-home-story .timeline-map-head button { display: none; }
   .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
 }
+/* Phones (<=560px): the docked map is not sticky. It sits on top, shorter, and scrolls away
+   with the page, so the story card never slides under it (Chiggerville / iPhone bug). */
+@media (max-width: 560px) {
+  .timeline-layout.is-home-story .timeline-map-pane {
+    position: relative;
+    top: auto;
+    z-index: auto;
+    height: 32vh;
+  }
+}
 
 /* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
    caption above); the 'no known likeness exists' note stays on its own unbroken line. */
@@ -5692,3 +5733,18 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 .story-figure figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.4; color: var(--muted); }
 .story-figure-credit { display: block; margin-top: 0.2rem; font-weight: 600; }
 @container (max-width: 559.98px) { .story-figure { float: none; width: min(360px, 100%); margin: 0.85rem auto 1rem; } }
+
+/* Photos sidebar with source links but no thumbnail: just the links, no trailing divider. */
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+
+/* "Find photos" box: each source is a full-width 44px tap row; no shadow, a little space above. */
+.story-sidebar-photo.is-links-only { margin-top: 0.75rem; box-shadow: none; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links { display: block; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links > span[aria-hidden] { display: none; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links a {
+  display: flex; align-items: center; width: 100%; min-height: 44px; font-size: 0.8rem;
+}
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links a + a { border-top: 1px solid var(--line); }
+@media (max-width: 600px) {
+  .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo.is-links-only { margin-top: 0.75rem; }
+}
