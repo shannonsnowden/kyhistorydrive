@@ -257,7 +257,7 @@ class PrerenderPages {
     const portraitLog = { shown: [], skipped: [] }
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
-      const description = PrerenderPages.storyMetaDescription(PrerenderPages.storyDescriptionSource(story))
+      const description = PrerenderPages.storyDescription(story)
       const notes = researchByStory.get(story.slug) || null
       const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers, relatedBundle, notes)
       PrerenderPages.assertPage(html, story, urlPath)
@@ -611,35 +611,276 @@ class PrerenderPages {
     return trimmed
   }
 
-  /** Body prose, or the finished summary when a story has no body. */
+  /**
+   * Meta description source text (kept for callers that need the raw source). The
+   * description itself comes from storyDescription, which fits each candidate first.
+   */
   static storyDescriptionSource(story) {
-    return PrerenderPages.plainText(story.bodyMarkdown) || PrerenderPages.finishedSummary(story.summary)
+    return PrerenderPages.storyDescriptionChoice(story).source
+  }
+
+  static SUMMARY_META_MAX = 155
+  static META_MAX = 155
+  static META_CLAUSE_MIN = 70
+
+  /**
+   * Named entities and numbers that make a meta specific: capitalised words not at
+   * a sentence start, and any number. Used to compare summary and first-sentence metas.
+   */
+  static metaKeyTerms(text) {
+    const terms = new Set()
+    const words = String(text || '').split(/\s+/)
+    words.forEach((raw, i) => {
+      const w = raw.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '').replace(/[’']s$/u, '')
+      if (!w) return
+      if (/\d/.test(w)) { terms.add(w.toLowerCase()); return }
+      const sentenceStart = i === 0 || /[.!?]["'”’)\]]*$/.test(words[i - 1])
+      if (!sentenceStart && /^\p{Lu}/u.test(w)) terms.add(w.toLowerCase())
+    })
+    return terms
   }
 
   /**
-   * Story meta description: whole sentences only, up to 160 characters.
-   * The next sentence is added only when it fits completely. The first
-   * sentence is cut on a word, with no ellipsis, only when it is itself
-   * longer than 160 characters.
+   * SEO & AEO Desk, #317: the summary meta is used only when it is finished and at least
+   * as specific as the first-sentence meta (it keeps every named entity and number the
+   * first-sentence meta has). Otherwise the first-sentence meta stays, e.g. Lexington keeps
+   * the battle it is named for and Big Bone Lick keeps Boone County.
    */
-  static storyMetaDescription(text, max = 160) {
+  static META_STOP = new Set(['the', 'and', 'of', 'in', 'on', 'at', 'to', 'for', 'from', 'with', 'by', 'a', 'an', 'its', 'his', 'her', 'their', 'first', 'site', 'county', 'kentucky', 'kentuckys', 'story', 'takes', 'shape', 'becomes', 'into', 'over', 'near', 'river', 'creek', 'town', 'village'])
+
+  /** Lower-case letter/digit words of a string (word loop, no regex replace). */
+  static metaWords(text) {
+    const out = []
+    for (const m of String(text || '').toLowerCase().matchAll(/[\p{L}\p{N}]+/gu)) out.push(m[0])
+    return out
+  }
+
+  /** A text names a term when one of its words starts with the term's stem (handles "Shawnee"/"Shawnees", possessives). */
+  static metaNames(textWords, term) {
+    const stem = term.length > 5 ? term.slice(0, term.length - 2) : term
+    return textWords.some((w) => w.startsWith(stem))
+  }
+
+  /** Subject terms: significant title words (4+ letters, not a stop word, not a site number). */
+  static metaSubjectTerms(story) {
+    return [...new Set(PrerenderPages.metaWords(story.title))].filter(
+      (w) => w.length >= 4 && !PrerenderPages.META_STOP.has(w) && !/\d/.test(w),
+    )
+  }
+
+  /** Place terms: county, file county, matched place and territory words; Kentucky when a story has none. */
+  static metaPlaceTerms(story) {
+    const fields = [story.county, story.fileCounty, story.matchedPlace, story.territoryNation]
+    const terms = new Set()
+    for (const f of fields) {
+      for (const w of PrerenderPages.metaWords(f)) {
+        if (w.length >= 4 && !PrerenderPages.META_STOP.has(w) && !/\d/.test(w)) terms.add(w)
+      }
+    }
+    return [...terms]
+  }
+
+  /** SEO & AEO Desk / Editor rule: a meta names the story's subject and a place. */
+  static metaSubjectPlace(story, text) {
+    const words = PrerenderPages.metaWords(text)
+    const subjects = PrerenderPages.metaSubjectTerms(story)
+    const places = PrerenderPages.metaPlaceTerms(story)
+    const subject = !subjects.length || subjects.some((t) => PrerenderPages.metaNames(words, t))
+    const place = places.length
+      ? places.some((t) => PrerenderPages.metaNames(words, t)) || words.includes('kentucky')
+      : words.includes('kentucky') || words.includes('ohio')
+    return { subject, place }
+  }
+
+  /** Summary qualifies as the meta: 120-155 chars, one finished sentence, names subject and place. */
+  static summaryQualifies(story) {
+    const plain = PrerenderPages.plainText(story.summary)
+    if (!plain || plain.length < 120 || plain.length > PrerenderPages.META_MAX) return false
+    if (!PrerenderPages.isFinishedMeta(plain)) return false
+    if (PrerenderPages.splitSentences(plain).length !== 1) return false
+    const { subject, place } = PrerenderPages.metaSubjectPlace(story, plain)
+    return subject && place
+  }
+
+  /**
+   * Editor + SEO rule (Oct 18): use the summary when it is 120-155 characters, one finished
+   * sentence, and names the subject and a place (checked against title and place fields).
+   * Otherwise use the body's opening sentence(s) with the clean-cut rules. A story can pin
+   * either side with metaSource: "body" | "summary" in its story JSON.
+   */
+  static storyDescriptionChoice(story) {
+    const summaryPlain = PrerenderPages.plainText(story.summary)
+    const bodySource = PrerenderPages.plainText(story.bodyMarkdown)
+    const useSummary =
+      story.metaSource === 'summary' ? Boolean(summaryPlain) : story.metaSource === 'body' ? false : PrerenderPages.summaryQualifies(story)
+    if (useSummary) {
+      const description = PrerenderPages.storyMetaDescription(summaryPlain)
+      if (description) return { source: summaryPlain, description, kind: 'summary' }
+    }
+    const fromBody = PrerenderPages.storyMetaDescription(bodySource)
+    if (fromBody) return { source: bodySource, description: fromBody, kind: 'body' }
+    if (story.metaSource !== 'body') {
+      // No body text that cuts cleanly: whole sentences of the summary written before any "…" cut.
+      const truncated = /(?:\u2026|\.\.\.)\s*$/u.test(summaryPlain)
+      let summarySource = PrerenderPages.finishedSummary(story.summary)
+      if (truncated) {
+        const whole = PrerenderPages.splitSentences(summarySource).filter((x) => PrerenderPages.endsWithSentence(x))
+        summarySource = whole.slice(0, -1).join(' ')
+      }
+      const opts = { clause: !truncated }
+      const fromSummary = PrerenderPages.storyMetaDescription(summarySource, PrerenderPages.META_MAX, opts)
+      if (fromSummary) return { source: summarySource, description: fromSummary, opts, kind: 'summary' }
+    }
+    const opts = { nextSentence: true }
+    return { source: bodySource, description: PrerenderPages.storyMetaDescription(bodySource, PrerenderPages.META_MAX, opts), opts, kind: 'body' }
+  }
+
+
+  static storyDescription(story) {
+    return PrerenderPages.storyDescriptionChoice(story).description
+  }
+
+  /** Finished meta: not empty, at most 155 characters, sentence punctuation, no ellipsis. */
+  static isFinishedMeta(text, max = PrerenderPages.META_MAX) {
+    const d = String(text || '')
+    return Boolean(d) && d.length <= max && !/(?:\u2026|\.\.\.)\s*$/u.test(d) && PrerenderPages.endsWithSentence(d)
+  }
+
+  /** Brackets and quotes are balanced, so a clause cut never lands inside them. */
+  static balancedClause(text) {
+    const t = String(text || '')
+    const count = (re) => (t.match(re) || []).length
+    return (
+      count(/\(/g) === count(/\)/g) &&
+      count(/\[/g) === count(/\]/g) &&
+      count(/“/g) === count(/”/g) &&
+      count(/"/g) % 2 === 0
+    )
+  }
+
+  /**
+   * Story meta description, up to 155 characters, never cut mid-phrase and never with an ellipsis:
+   * 1. the longest run of complete leading sentences that fits;
+   * 2. otherwise the first sentence ended at its last comma or semicolon clause boundary
+   *    at least 70 characters in, closed with a period;
+   * 3. otherwise empty (the caller falls back to the other candidate).
+   */
+  static storyMetaDescription(text, max = PrerenderPages.META_MAX, { clause = true, nextSentence = false, verbless = false } = {}) {
     const plain = PrerenderPages.plainText(text)
     if (!plain) return ''
     const sentences = PrerenderPages.splitSentences(plain)
     if (!sentences.length) return ''
-    const first = sentences[0]
-    if (first.length > max) {
-      const window = first.slice(0, max)
-      const space = window.lastIndexOf(' ')
-      return (space > 0 ? window.slice(0, space) : window).trim()
-    }
     let acc = ''
     for (const sentence of sentences) {
+      if (!PrerenderPages.endsWithSentence(sentence)) break
       const next = acc ? `${acc} ${sentence}` : sentence
       if (next.length > max) break
       acc = next
     }
-    return acc
+    if (acc) return acc
+    if (!clause) return ''
+    const cut = PrerenderPages.clauseMeta(sentences[0], max) || (verbless ? PrerenderPages.clauseCut(sentences[0], max, PrerenderPages.META_PUNCT_BOUNDARY, PrerenderPages.META_CLAUSE_MIN, false, true) : '')
+    if (cut || !nextSentence) return cut
+    // Last resort: the next whole sentence of the opening paragraph that fits (never a fragment).
+    const next = sentences.slice(1, 4).find((x) => x.length <= max && x.length >= 50 && PrerenderPages.endsWithSentence(x))
+    if (next) return next
+    // Nothing finished fits. Cut on a word (no ellipsis) so the page still has a meta; the
+    // unfinished-meta check lists it until the story gets a finished 120-155 character summary.
+    const window = sentences[0].slice(0, max)
+    const space = window.lastIndexOf(' ')
+    return (space > 0 ? window.slice(0, space) : window)
+      .replace(/[\s,;:–—-]+$/u, '')
+      .replace(/\s+(?:and|or|but|of|the|a|an|to|in|on|at|by|for|with|from|into)$/i, '')
+      .replace(/[\s,;:–—-]+$/u, '')
+      .trim()
+  }
+
+  /** A clause head reads as a clause: it has a verb, not just a place phrase. */
+  static META_VERB =
+    /\b(?:is|was|are|were|has|had|have|became|becomes|sits|sat|stands|stood|lay|lies|runs|ran|led|left|built|took|held|made|came|went|rode|won|grew|began|fought|fell|gave|met|sold|bought|chose|drew|wrote|saw|kept|set|brought|knew|became|\p{L}{3,}ed)\b/iu
+
+  /**
+   * End a long first sentence at a clean boundary at least 70 characters in: a comma or
+   * semicolon, a dash, an opening parenthesis, or a conjunction or relative word. The head
+   * must have a verb, balanced brackets and quotes, must not end on a function word or a
+   * one- or two-word list item, and is closed with a period. Never cuts inside a word or number.
+   */
+  static clauseMeta(first, max = PrerenderPages.META_MAX) {
+    const punct = /[,;]\s(?!\d)|(?<!\d)\s*—\s*|\s—\s|\s–\s|\s+-\s+|\s+(?=(?:while|when|where|which|who|whose|after|before|until|because)\s)/gu
+    // Second choice: drop a trailing prepositional phrase, keeping at least 100 characters.
+    const prep = /\s+(?=(?:in|near|on|at|for|with|from|during|by|of|that|built|including|into|across|along|between|around|toward|against|over|under|through|beside|below|above)\s)/gu
+    return (
+      PrerenderPages.clauseCut(first, max, punct, PrerenderPages.META_CLAUSE_MIN) ||
+      PrerenderPages.clauseCut(first, max, prep, 100, true) ||
+      PrerenderPages.clauseCut(first, max, punct, 50) ||
+      PrerenderPages.clauseCut(first, max, prep, 60, true)
+    )
+  }
+
+  /** Comma, semicolon or dash clause boundaries (shared by story and research metas). */
+  static META_PUNCT_BOUNDARY = /[,;]\s(?!\d)|(?<!\d)\s*—\s*|\s—\s|\s–\s|\s+-\s+/gu
+
+  static PARTICIPLE_ADVERBS = new Set(['often', 'later', 'also', 'once', 'widely', 'commonly', 'usually', 'sometimes', 'long', 'first'])
+  static PARTICIPLE_PREPS = new Set(['as', 'by', 'in', 'from', 'for', 'with', 'to', 'of', 'at', 'on'])
+
+  /**
+   * True when the text has an -ed word (3+ letters before "ed") that reads as a finite verb:
+   * not right after an adverb such as "often" ("often treated"), and not followed by a
+   * preposition such as "as" or "by" ("treated as"). Word-by-word, no regex replace.
+   */
+  static hasFiniteEdVerb(text) {
+    const words = []
+    for (const m of String(text || '').matchAll(/[A-Za-z0-9_]+/g)) {
+      words.push({ word: m[0], start: m.index, end: m.index + m[0].length })
+    }
+    const isEd = (w, minStem) => w.length >= minStem + 2 && /^[\p{L}]+$/u.test(w) && w.slice(-2).toLowerCase() === 'ed'
+    const gapIsSpace = (a, b) => b.start > a.end && /^\s+$/.test(text.slice(a.end, b.start))
+    for (let i = 0; i < words.length; i++) {
+      const cur = words[i]
+      if (!isEd(cur.word, 3)) continue
+      const prev = words[i - 1]
+      if (prev && PrerenderPages.PARTICIPLE_ADVERBS.has(prev.word.toLowerCase()) && gapIsSpace(prev, cur)) continue
+      const next = words[i + 1]
+      if (next && PrerenderPages.PARTICIPLE_PREPS.has(next.word.toLowerCase()) && gapIsSpace(cur, next)) continue
+      return true
+    }
+    return false
+  }
+
+  static clauseCut(first, max, re, min, lastNeedsVerb = false, verbless = false) {
+    // Note: story tiers reuse one /g regex, so a later tier resumes where an earlier one stopped.
+    // Story metas depend on that (kept byte-identical); only the shared research regex is reset.
+    if (verbless) re.lastIndex = 0
+    let best = ''
+    let m
+    while ((m = re.exec(first))) {
+      const head = first.slice(0, m.index).replace(/[\s,;:–—-]+$/u, '').trim()
+      if (head.length + 1 > max) break
+      if (head.length < min) continue
+      if (!PrerenderPages.balancedClause(head)) continue
+      // The verb must sit in the main clause, not only in an appositive ("a ... officer with ... in what became").
+      const segs = head.split(/[,;]\s|\s*[—–]\s*/)
+      const mainSegs = segs.filter((seg, i) => !/^(?:and\s+)?\p{L}+ed\b/iu.test(seg.trim()) && (i === 0 || i === segs.length - 1 || !/^(?:a|an|the)\s/i.test(seg.trim())))
+      const verbIn = (seg, i) => {
+        const t = seg.replace(/\bin what became\b.*$/i, '').replace(/^\s*(?:a|an|the)\s.*?\b(?:whose|that|which|who|where)\b.*$/i, '')
+        // In a segment that opens like a noun phrase, an -ed word is usually a participle, not the verb.
+        if (i > 0 && /^\s*(?:a|an|the)\s/i.test(seg)) {
+          if (/\b(?:is|was|are|were|has|had|have|became|becomes|stands|stood|sits|sat|lies|lay|remains|cuts|runs|holds|rises|flows|forms)\b/i.test(t)) return true
+          return PrerenderPages.hasFiniteEdVerb(t)
+        }
+        return PrerenderPages.META_VERB.test(t)
+      }
+      if (!verbless && !segs.some((seg, i) => mainSegs.includes(seg) && verbIn(seg, i))) continue
+      // Dropping a trailing phrase: the clause it leaves must have its own verb.
+      if (lastNeedsVerb && !verbIn(segs[segs.length - 1], segs.length - 1)) continue
+      if (/\b(?:and|or|but|of|the|a|an|to|in|on|at|by|for|with|from|about|c|ca|than|its|their|his|her|even|also|only|just|still|then|very|more|most|except|rather|such|owned|occupied|located|known|called|named|used|west|east|north|south|part|parts|most|one|some|many|all|each|both|million|thousand|hundred|top|end|side|edge|kind|series|number|group|chain|line|mouth|head|forks?|bank|banks|first|last|half|out|up|down|back|across|upstream|downstream|just|near|beside|sits|stands|lies|few|weeks|days|years|months|miles|feet|acres|hectares)$/i.test(head)) continue
+      if (/\b(?:a|an|the)\s+\S+$/i.test(head) && /^\s*[,;]/.test(first.slice(m.index))) continue
+      const lastSeg = head.split(/[,;]\s|\s*[—–]\s*/).pop()
+      if (/^(?:while|when|where|after|before|although|though|because|if|as|since|until|whose|which|who)\b/i.test(lastSeg.trim())) continue
+      if (/[,;]\s/.test(head) && lastSeg.trim().split(/\s+/).length <= 2) continue
+      best = `${head}.`
+    }
+    return best
   }
 
   /** Sentence punctuation, allowing a closing quote or parenthesis after it. */
@@ -647,7 +888,7 @@ class PrerenderPages {
     return /[.!?]["'”’)\]]*$/.test(String(text || ''))
   }
 
-  static assertStoryMeta(description, source, urlPath, max = 160) {
+  static assertStoryMeta(description, source, urlPath, max = PrerenderPages.META_MAX, opts = {}) {
     if (!description) throw new Error(`prerender: ${urlPath} meta description is empty`)
     if (description.length > max) {
       throw new Error(`prerender: ${urlPath} description is ${description.length} characters`)
@@ -655,13 +896,9 @@ class PrerenderPages {
     if (/(?:\u2026|\.\.\.)\s*$/u.test(description)) {
       throw new Error(`prerender: ${urlPath} meta description ends with an ellipsis`)
     }
-    const expected = PrerenderPages.storyMetaDescription(source, max)
+    const expected = PrerenderPages.storyMetaDescription(source, max, opts)
     if (description !== expected) {
       throw new Error(`prerender: ${urlPath} meta description does not follow the sentence rule`)
-    }
-    const first = PrerenderPages.splitSentences(PrerenderPages.plainText(source))[0] || ''
-    if (first.length <= 160 && !PrerenderPages.endsWithSentence(description)) {
-      throw new Error(`prerender: ${urlPath} meta description does not end with sentence punctuation`)
     }
   }
 
@@ -837,6 +1074,7 @@ class PrerenderPages {
       figure: body.figure && typeof body.figure === 'object' ? body.figure : null,
       archaeological: PrerenderPages.isArchaeological(body),
       glance: body.glance && typeof body.glance === 'object' ? body.glance : null,
+      metaSource: body.metaSource === 'body' || body.metaSource === 'summary' ? body.metaSource : '',
     }
   }
 
@@ -1479,8 +1717,11 @@ class PrerenderPages {
     const pageUrl = `${PrerenderPages.SITE}${urlPath}`
     if (!article) throw new Error(`prerender: ${urlPath} did not render`)
     // SEO 10/18: research metas stay at 155 or less; titles at 60 or less (suffix only when it fits).
-    const description = PrerenderPages.storyMetaDescription(notes.summary, 155)
-    PrerenderPages.assertStoryMeta(description, notes.summary, urlPath, 155)
+    // Same clean-cut rules as stories. Research summaries are often verbless noun phrases, so a
+    // comma/semicolon/dash clause cut is allowed without a verb before falling back to a word cut.
+    const metaOpts = { nextSentence: true, verbless: true }
+    const description = PrerenderPages.storyMetaDescription(notes.summary, 155, metaOpts)
+    PrerenderPages.assertStoryMeta(description, notes.summary, urlPath, 155, metaOpts)
     const baseTitle = String(notes.seoTitle || notes.title).trim()
     const suffixed = `${baseTitle} · Kentucky History Drive`
     const title = suffixed.length <= 60 ? suffixed : baseTitle
@@ -1531,7 +1772,7 @@ class PrerenderPages {
     const title = `${story.title} · Kentucky History Drive`
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
-    const description = PrerenderPages.storyMetaDescription(bodyPlain || summary)
+    const description = PrerenderPages.storyDescription(story)
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
@@ -2409,7 +2650,8 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} does not link to its research notes`)
       }
     }
-    PrerenderPages.assertStoryMeta(description, PrerenderPages.storyDescriptionSource(story), urlPath)
+    const choice = PrerenderPages.storyDescriptionChoice(story)
+    PrerenderPages.assertStoryMeta(description, choice.source, urlPath, PrerenderPages.META_MAX, choice.opts)
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
     }
@@ -3144,7 +3386,9 @@ class PrerenderPages {
     const description = films.length
       ? PrerenderPages.storyMetaDescription(
           PrerenderPages.filmPlain(stories.find((item) => item.slug === films[0].storySlug)),
-        )
+          PrerenderPages.META_MAX,
+          { nextSentence: true },
+        ) || lead
       : lead
     const image = films[0]?.poster || PrerenderPages.LOGO
     const main = `<article class="videos-page">
