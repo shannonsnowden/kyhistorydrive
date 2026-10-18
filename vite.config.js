@@ -77,9 +77,8 @@ export default defineConfig({
       transformIndexHtml: {
         order: 'pre',
         handler(html) {
-          if (html.includes('<!-- khd-site-header -->')) {
-            html = html.replace('<!-- khd-site-header -->', siteHeaderHtml(''))
-          }
+          // <!-- khd-site-header --> or <!-- khd-site-header roads --> (marks that nav item as the current page).
+          html = html.replace(/<!-- khd-site-header(?:\s+([a-z]+))? -->/, (_, route) => siteHeaderHtml(route || ''))
           if (html.includes('<!-- khd-site-chrome -->')) {
             html = html.replace('<!-- khd-site-chrome -->', siteChromeScriptHtml())
           }
@@ -107,6 +106,7 @@ export default defineConfig({
         homePreview: resolve(root, 'home-preview/index.html'),
         privacy: resolve(root, 'privacy/index.html'),
         buildDrive: resolve(root, 'drives/build/index.html'),
+        roadsAndRails: resolve(root, 'roads-and-rails/index.html'),
       },
     },
   },

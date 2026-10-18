@@ -3784,10 +3784,11 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
   .site-header.is-menu-open nav a[data-route="people"] { order: 4; }
   .site-header.is-menu-open nav a[data-route="drives"] { order: 5; }
-  .site-header.is-menu-open nav a[data-route="about"] { order: 6; }
-  .site-header.is-menu-open nav a[data-route="app"] { order: 7; }
-  .site-header.is-menu-open .nav-today { order: 8; }
-  .site-header.is-menu-open .hp-theme-toggle { order: 9; }
+  .site-header.is-menu-open nav a[data-route="roads"] { order: 6; }
+  .site-header.is-menu-open nav a[data-route="about"] { order: 7; }
+  .site-header.is-menu-open nav a[data-route="app"] { order: 8; }
+  .site-header.is-menu-open .nav-today { order: 9; }
+  .site-header.is-menu-open .hp-theme-toggle { order: 10; }
   .site-header.is-menu-open nav a,
   .site-header.is-menu-open .nav-today-btn,
   .site-header.is-menu-open .hp-theme-toggle {
@@ -4869,7 +4870,13 @@ a.research-cite:focus-visible { outline: 3px solid var(--focus-ring); outline-of
   outline: 3px solid var(--focus-ring);
   outline-offset: 1px;
 }
-.transport-legend-list .is-future { opacity: 0.45; }
+.transport-legend-list .is-future { opacity: 1; }
+/* Critiquito #291: not-yet-open rows are buttons, so text stays at full opacity in the muted color (4.5:1+);
+   only the swatch is faded. */
+.transport-legend-list .is-future button,
+.transport-legend-list .is-future .transport-legend-name,
+.transport-legend-list .is-future .transport-legend-year { color: var(--muted); }
+.transport-legend-list .is-future .transport-swatch { opacity: 0.45; }
 .transport-swatch {
   width: 24px;
   height: 4px;
@@ -4938,6 +4945,7 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
   .transport-controls { display: contents; }
   .transport-head,
   .transport-legend,
+  .transport-sections,
   .transport-credit {
     background: var(--panel);
     padding-left: 1rem;
@@ -4952,7 +4960,8 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
   }
   #transportMap { min-height: 0; height: 100%; }
   .transport-legend { order: 3; padding-bottom: 0.4rem; }
-  .transport-credit { order: 4; padding-bottom: 1rem; }
+  .transport-sections { order: 6; padding-top: 0.4rem; padding-bottom: 0.4rem; }
+  .transport-credit { order: 7; padding-bottom: 1rem; }
 }
 
 /* transport v2: counties, era legend */
@@ -5049,7 +5058,7 @@ html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
 .transport-sparse[hidden] { display: none; }
 @media (max-width: 900px) {
   /* Facts/sources sit under the map and legend on phones, not above the map. */
-  .transport-facts { order: 5; background: var(--panel); margin-top: 0; padding: 1rem; }
+  .transport-facts { order: 8; background: var(--panel); margin-top: 0; padding: 1rem; }
 }
 /* People gallery */
 .people-page .story-head h1 { margin-bottom: 0.4rem; }
@@ -5928,6 +5937,24 @@ html[data-hp-theme="light"] .hp-plan-drive {
 .story-portrait-note { white-space: nowrap; }
 
 
+/* Item 70: /roads-and-rails/ page (mockup B). The transport map from #258 with a page title and intro. */
+.transport-controls h1 { margin: 0 0 0.45rem; color: var(--heading); font-size: 1.6rem; line-height: 1.15; }
+.transport-intro { margin: 0 0 0.6rem; font-size: 1.02rem; line-height: 1.45; color: var(--text); }
+.roads-rails-page .transport-facts h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--heading); }
+.roads-rails-page .transport-facts h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.9rem 0 0.3rem; }
+
+/* Roads & Rails: static story list and drive link (SEO #291). */
+.transport-stories { margin-top: 1.25rem; font-size: 0.9rem; }
+.roads-rails-page .transport-stories h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--heading); }
+/* Critiquito #291: 44px block rows, each with a small 'On the map' step to the story's pin. */
+.transport-story-list { margin: 0; padding: 0; list-style: none; }
+.transport-story-list li { display: flex; align-items: stretch; gap: 0.5rem; margin: 0; border-bottom: 1px solid var(--line); }
+.transport-story-list li:last-child { border-bottom: 0; }
+.transport-story-link { display: flex; align-items: center; flex: 1; min-width: 0; min-height: 44px; padding: 0.3rem 0; }
+.transport-story-map { display: flex; align-items: center; flex: none; min-height: 44px; padding: 0 0.25rem; font-size: 0.8rem; font-weight: 600; color: var(--accent); white-space: nowrap; }
+.transport-plan { margin: 0.75rem 0 0; }
+.transport-plan-link { font-weight: 700; color: var(--accent); }
+@media (max-width: 900px) { .transport-stories { order: 5; background: var(--panel); margin-top: 0; padding: 1rem; } }
 /* Take a Drive: story -> /drives/?drive=<id>. Same route-and-car mark as Plan Your Drive; green and amber only.
    Each button is at least 44px tall. Dark is the default theme. */
 .take-a-drive {
@@ -6025,6 +6052,41 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 .story-figure figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.4; color: var(--muted); }
 .story-figure-credit { display: block; margin-top: 0.2rem; font-weight: 600; }
 @container (max-width: 559.98px) { .story-figure { float: none; width: min(360px, 100%); margin: 0.85rem auto 1rem; } }
+
+/* Critiquito #291: the map credit strip follows the theme. */
+html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib { background: rgba(16, 14, 12, 0.92) !important; color: #e8dcc4 !important; }
+html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib a { color: #e2b15a !important; }
+html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter: invert(1); }
+/* Critiquito #291: no empty band under the footer on desktop. The map section grows to fill the
+   viewport between the header and the footer. */
+@media (min-width: 901px) {
+  body.roads-rails-page { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+  .roads-rails-page main#content { flex: 1 1 0; min-height: 560px; display: flex; flex-direction: column; }
+  .roads-rails-page #transport { flex: 1 1 0; min-height: 0; grid-template-rows: minmax(0, 1fr); }
+  .roads-rails-page .transport-controls { max-height: none; }
+  .roads-rails-page .transport-section .map-canvas-wrap, .roads-rails-page #transportMap { min-height: 0; }
+}
+
+/* Railroad sections collapse (Critiquito #291) */
+.transport-sections { margin-top: 1rem; }
+.transport-rail-details > summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--heading);
+  border: 1px solid var(--border, rgba(127,127,127,0.35));
+  border-radius: 8px;
+}
+.transport-rail-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.transport-rail-details[open] > summary { margin-bottom: 0.4rem; }
+.transport-rail-details > summary { list-style: none; gap: 0.5rem; }
+.transport-rail-details > summary::-webkit-details-marker { display: none; }
+.transport-rail-details > summary::marker { content: ''; }
+.transport-rail-details > summary::before { content: '\25B8'; display: inline-block; width: 1em; text-align: center; color: var(--accent); font-size: 1.05em; line-height: 1; }
+.transport-rail-details[open] > summary::before { content: '\25BE'; }
 
 /* Photos sidebar with source links but no thumbnail: just the links, no trailing divider. */
 .story-sidebar-photo.is-links-only .story-sidebar-photo-links { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
