@@ -4147,6 +4147,7 @@ function nationYears(n) {
   if (n.yearStart < 0 || n.yearEnd < 0) return fmtYearSpan(n.yearStart, n.yearEnd, { approx: n.approxStart })
   return `${n.approxStart ? 'c.' : ''}${n.yearStart}–${n.yearEnd ?? ''}`
 }
+let legendChipOpen = false // phone legend chip state (<560px)
 let legendNoteId = null // nation whose note is open (one at a time); null = all notes closed
 function nationNoteHtml(n) {
   const yrs = nationYears(n)
@@ -4266,7 +4267,20 @@ function renderNationLegend(nations) {
   const shownNations = byAge(shown.filter((n) => !isCulture(n)))
   const shownCultures = byAge(shown.filter((n) => isCulture(n)))
   el.setAttribute('aria-label', shownCultures.length ? 'Archaeological cultures shown (not tribes)' : 'Native nations shown (approximate)')
-  el.innerHTML = `${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}<div class="ml-f">Tap a name to read its note below the map. General areas are not boundaries.</div>`
+  el.innerHTML = `${shownCultures.length ? `<div class="ml-h ml-h-cult" data-cult-group><span>Archaeological cultures (not tribes)</span></div><div class="ml-rows">${shownCultures.map(cultureRow).join('')}</div>` : ''}${shownNations.length ? `<div class="ml-h"><span>Native nations (approximate)</span></div><div class="ml-rows">${shownNations.map(nationRow).join('')}</div>` : ''}<div class="ml-f">Tap a name for its note · approximate, not boundaries.</div>`
+  // Phones (<560px, CSS): the legend collapses behind a "Nations" chip so it does not cover the pins. Collapsed by default.
+  el.classList.toggle('ml-open', legendChipOpen)
+  el.insertAdjacentHTML('afterbegin', `<button type="button" class="ml-chip" aria-expanded="${legendChipOpen}" aria-controls="nationLegendBody">Nations <span aria-hidden="true">▾</span></button>`)
+  const body = document.createElement('div')
+  body.id = 'nationLegendBody'
+  body.className = 'ml-body'
+  while (el.children.length > 1) body.appendChild(el.children[1])
+  el.appendChild(body)
+  el.querySelector('button.ml-chip').addEventListener('click', (e) => {
+    legendChipOpen = !legendChipOpen
+    el.classList.toggle('ml-open', legendChipOpen)
+    e.currentTarget.setAttribute('aria-expanded', String(legendChipOpen))
+  })
   el.querySelectorAll('button.ml-row').forEach((b) => b.addEventListener('click', () => setLegendNote(b.dataset.nid)))
   if (legendNoteId) {
     const id = legendNoteId

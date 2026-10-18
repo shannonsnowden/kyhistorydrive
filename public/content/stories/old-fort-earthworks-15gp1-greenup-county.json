@@ -24,5 +24,13 @@
     "attribution": "Nyttend · Wikimedia Commons · public domain",
     "year": 2012
   },
-  "county": "Greenup"
+  "county": "Greenup",
+  "figure": {
+    "webp": "/content/photos/stories/figures/culture-hopewell-middle-woodland__ai-v1-1280.webp",
+    "jpg": "/content/photos/stories/figures/culture-hopewell-middle-woodland__ai-v1-1280.jpg",
+    "alt": "AI illustration: A Hopewell-era person with copper and mica ornaments above square earthworks on the Ohio River",
+    "credit": "AI illustration · Kentucky History Drive",
+    "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Hopewell-related Middle Woodland period in Kentucky; details without direct evidence are informed guesses.",
+    "evidence": "culture-hopewell-image-evidence"
+  }
 }

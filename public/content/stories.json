@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-13T13:06:15.876Z",
-  "count": 234,
+  "generatedAt": "2026-10-14T09:59:02.633Z",
+  "count": 238,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-13"
+    "end": "2026-10-14"
   },
   "eras": [
     "early-commonwealth",
@@ -964,6 +964,36 @@
       "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)"
     },
     {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "title": "Chambers Site (15Ml109): an upland Mississippian village",
+      "publishedDate": "2026-10-14",
+      "summary": "On a Marshall County ridgetop above the Middle Fork of Clarks River, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
+      "yearStart": 1250,
+      "yearEnd": 1350,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "Marshall",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "lat": 36.9,
+      "lon": -88.3,
+      "mapConfidence": "override",
+      "matchedPlace": "Chambers Site (15Ml109), Marshall County (approximate)"
+    },
+    {
       "slug": "annis-mound-village",
       "title": "Annis Mound & Village",
       "publishedDate": "2026-09-17",
@@ -1729,8 +1759,8 @@
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
         "year": 1851
       },
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
@@ -1772,8 +1802,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
@@ -3577,6 +3607,35 @@
       "matchedPlace": "Holder's Station / Lower Howard's Creek"
     },
     {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "title": "Hartford: Fort Hartford on the Rough River",
+      "publishedDate": "2026-10-14",
+      "summary": "Settled by about 1782 at a ford on the Rough River, Hartford grew from a frontier fort on Gabriel Madison’s Virginia grant into the seat of Ohio County in 1799 and was incorporated in 1808.",
+      "yearStart": 1782,
+      "yearEnd": 1808,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "Ohio",
+      "photo": {
+        "image_url": "/content/photos/stories/hartford-fort-hartford-on-the-rough-river.jpg",
+        "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
+      },
+      "lat": 37.4524,
+      "lon": -86.9105,
+      "mapConfidence": "override",
+      "matchedPlace": "Hartford / Fort Hartford (Rough River)"
+    },
+    {
       "slug": "wyandot-on-kentuckys-northern-frontier",
       "title": "Wyandot on Kentucky’s northern frontier",
       "publishedDate": "2026-09-14",
@@ -3806,6 +3865,37 @@
       "matchedPlace": "Henderson / Red Banks"
     },
     {
+      "slug": "treaty-of-fort-mcintosh-1785",
+      "title": "Treaty of Fort McIntosh, 1785",
+      "publishedDate": "2026-10-14",
+      "summary": "At Fort McIntosh in January 1785, U.S. commissioners including George Rogers Clark drew a reservation line through the Ohio Country with Wyandot, Delaware, Ojibwe and Odawa leaders. The Shawnee, left out but placed on the American side of the line, rejected it.",
+      "yearStart": 1785,
+      "yearEnd": 1785,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-fort-mcintosh-1785.jpg",
+        "title": "Looking east across the site of Fort McIntosh, Beaver, Pennsylvania (photographed 2009)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_McIntosh_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2009
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "washington-mason-county",
       "title": "Washington, Mason County",
       "publishedDate": "2026-10-03",
@@ -3880,6 +3970,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-13",
+      "county": "",
       "photo": {
         "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
         "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
@@ -5753,7 +5844,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2012
+        "year": 2012,
+        "fit": "contain"
       },
       "lat": 38.256389,
       "lon": -85.7525,
@@ -5917,6 +6009,36 @@
       "lon": -84.33956666666667,
       "mapConfidence": "override",
       "matchedPlace": "Cumberland Falls"
+    },
+    {
+      "slug": "yahoo-falls-big-south-fork",
+      "title": "Yahoo Falls: Kentucky’s tallest waterfall",
+      "publishedDate": "2026-10-14",
+      "summary": "In McCreary County’s Big South Fork, Yahoo Falls drops about 113 feet into a deep rock house. The Forest Service opened it to visitors in the 1960s, and the National Park Service has managed it since 1987.",
+      "yearStart": 1937,
+      "yearEnd": 1987,
+      "era": "modern",
+      "tags": [
+        "modern",
+        "kentucky",
+        "geology",
+        "parks"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "McCreary",
+      "photo": {
+        "image_url": "/content/photos/stories/yahoo-falls-big-south-fork.jpg",
+        "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mason Brock · Wikimedia Commons · public domain",
+        "year": 2008
+      },
+      "lat": 36.769,
+      "lon": -84.51056,
+      "mapConfidence": "override",
+      "matchedPlace": "Yahoo Falls, Big South Fork (McCreary County)"
     },
     {
       "slug": "carter-caves-cascade-falls",

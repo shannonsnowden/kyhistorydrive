@@ -20,7 +20,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
-    "year": 2007
+    "year": 2007,
+    "fit": "contain"
   },
   "county": "Anderson"
 }

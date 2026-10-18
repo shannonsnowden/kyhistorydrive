@@ -1149,5 +1149,45 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2008
+  },
+  "hartford-fort-hartford-on-the-rough-river": {
+    "ext": "jpg",
+    "commonsFile": "Ohio_County_Courthouse,_Hartford.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ohio_County_Courthouse%2C_Hartford.jpg?width=1280",
+    "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": 2013
+  },
+  "treaty-of-fort-mcintosh-1785": {
+    "ext": "jpg",
+    "commonsFile": "Fort_McIntosh_Site.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_McIntosh_Site.jpg?width=1280",
+    "title": "Looking east across the site of Fort McIntosh, Beaver, Pennsylvania (photographed 2009)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_McIntosh_Site.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": 2009
+  },
+  "chambers-site-15ml109-marshall-county": {
+    "ext": "jpg",
+    "commonsFile": "Clarks_River_in_the_fall_(6887005449).jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Clarks_River_in_the_fall_%286887005449%29.jpg?width=1280",
+    "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+    "year": 2012
+  },
+  "yahoo-falls-big-south-fork": {
+    "ext": "jpg",
+    "commonsFile": "Yahoo_Falls.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Yahoo_Falls.JPG?width=1280",
+    "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Mason Brock · Wikimedia Commons · public domain",
+    "year": 2008
   }
 }

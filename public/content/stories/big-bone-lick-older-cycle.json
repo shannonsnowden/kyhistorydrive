@@ -17,5 +17,13 @@
     "geology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-08-27"
+  "briefDate": "2026-08-27",
+  "figure": {
+    "webp": "/content/photos/stories/figures/culture-paleoindian__ai-v1-1280.webp",
+    "jpg": "/content/photos/stories/figures/culture-paleoindian__ai-v1-1280.jpg",
+    "alt": "AI illustration: A Paleoindian family at a salt lick in northern Kentucky about 11,000 years ago, one adult shaping a fluted spear point",
+    "credit": "AI illustration · Kentucky History Drive",
+    "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Paleoindian period in Kentucky; details without direct evidence are informed guesses.",
+    "evidence": "culture-paleoindian-image-evidence"
+  }
 }
