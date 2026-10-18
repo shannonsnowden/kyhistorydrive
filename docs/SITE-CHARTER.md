@@ -10,6 +10,7 @@ Put faces to names: every character gets a bio portrait. Real photographs are us
 
 - Never credit Story Studio on the site. The check-no-studio-credit build check enforces this and fails the build if a Studio credit appears in the built pages or data.
 - The 36px story headshots carry no visible AI badge; their AI status is stated in the alt text only.
+- Landscape story figures (16:9 culture AI illustrations, `.story-figure`) are an exception to the centered 180–200px mobile block: under 560px they are centered at min(360px, 100%) wide, because a 200px-wide 16:9 scene is only about 112px tall and unreadable. Portraits keep the 180–200px rule. On wider columns they float right at min(360px, 50%). The caption (AI note and credit) is at least 0.8125rem.
 - The site never links to the private research repository. Refer to it in words (for example, 'our research notes'), never with a link.
 
 ## Audience
