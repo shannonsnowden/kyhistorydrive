@@ -18,7 +18,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { marked } from 'marked'
 import sharp from 'sharp'
 import { ccByLicense } from '../src/photo-credit.js'
 import {
@@ -136,7 +135,6 @@ class PrerenderPages {
     if (/3840|HIRES_WIDTH|-route-map-'/.test(lightboxJs)) {
       throw new Error('prerender: route map lightbox still requests the old hi-res WebP')
     }
-    PrerenderPages.configureMarked()
     const manifestPath = path.join(root, 'public/content/photos/responsive.json')
     PrerenderPages.photoVariants = fs.existsSync(manifestPath)
       ? PrerenderPages.readJson(manifestPath).images || {}
