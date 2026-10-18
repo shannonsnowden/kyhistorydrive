@@ -232,6 +232,36 @@ if (fs.existsSync(RULES)) {
   }
 }
 
+// Markers sharing a protected pin (pin-rounding.json roundMarkerNumbers): coordinates only; number and text untouched.
+// markers.phase1.json / app search-index are committed snapshots (only SYNC_FROM_MARKERS rewrites them, and sync re-runs this script).
+if (fs.existsSync(RULES)) {
+  const rules = JSON.parse(fs.readFileSync(RULES, 'utf8'))
+  const nums = Array.isArray(rules.roundMarkerNumbers) ? rules.roundMarkerNumbers.map(String) : []
+  const rnd = (x) => Number(Number(x).toFixed(rules.decimals))
+  const set = (file, o, la, lo) => {
+    if (!o || !isNum(o[la]) || !isNum(o[lo])) return
+    const a = rnd(o[la]), b = rnd(o[lo])
+    if (a !== o[la] || b !== o[lo]) { o[la] = a; o[lo] = b; file.dirty = true }
+  }
+  const pack = load(`${D}/app/markers.phase1.json`)
+  const mgeo = load(`${D}/markers.geojson`)
+  const appS = load(F.appSearch)
+  const webS = load(F.search)
+  for (const n of nums) {
+    rounding.protectedIds.push(`marker:${n}`)
+    const arr = Array.isArray(pack?.data) ? pack.data : pack?.data?.markers || []
+    arr.forEach((m) => String(m.marker_number) === n && set(pack, m, 'latitude', 'longitude'))
+    mgeo?.data.features?.forEach((f) => {
+      const c = f.geometry?.coordinates
+      if (String(f.properties?.marker_number) !== n || !Array.isArray(c)) return
+      const r = [rnd(c[0]), rnd(c[1])]
+      if (r[0] !== c[0] || r[1] !== c[1]) { c[0] = r[0]; c[1] = r[1]; mgeo.dirty = true }
+    })
+    if (appS) set(appS, appS.data.sites?.[`marker:${n}`], 'latitude', 'longitude')
+    webS?.data.documents?.forEach((d) => d.id === `place:markers:${n}` && set(webS, d, 'lat', 'lon'))
+  }
+}
+
 // Web-only list of generalized pins: the map popup adds an "approximate location" note for these ids
 // (story slugs and History ids). Not part of the app/OTA data.
 const PROTECTED_OUT = path.resolve('public/data/web/protected-pins.json')
