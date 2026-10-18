@@ -6135,3 +6135,72 @@ html:not([data-hp-theme="light"]) .brand-logo,
 html:not([data-hp-theme="light"]) .hp-page .brand-logo {
   box-shadow: 0 0 0 2px #f6edd8, 0 2px 8px rgba(0, 0, 0, 0.35);
 }
+
+/* Roads & Rails opening ticks (#291 follow-up): one tick per opening, merged when crowded. */
+.transport-ticks { position: relative; height: 30px; margin: -6px 0 0.15rem; }
+.transport-tick {
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 30px;
+  margin: 0 0 0 -12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--muted);
+  -webkit-tap-highlight-color: transparent;
+}
+.transport-tick-mark {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  width: 3px;
+  height: 12px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: var(--muted);
+}
+.transport-tick.is-past .transport-tick-mark { background: var(--accent); }
+.transport-tick.is-merged .transport-tick-mark { width: 5px; margin-left: -2.5px; }
+.transport-tick-count {
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  transform: translateX(-50%);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.transport-tick.is-past .transport-tick-count { color: var(--accent); }
+.transport-tick:hover .transport-tick-mark,
+.transport-tick.is-tip-open .transport-tick-mark { background: var(--heading); height: 14px; }
+.transport-tick:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 0; border-radius: 4px; }
+.transport-tip {
+  position: absolute;
+  bottom: calc(100% + 34px);
+  transform: translateX(-50%);
+  z-index: 5;
+  min-width: 9rem;
+  max-width: min(18rem, 90vw);
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(16, 24, 18, 0.35);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+.transport-tip[hidden] { display: none; }
+.transport-tip-head { margin: 0; font-weight: 600; }
+.transport-tip-head span, .transport-tip-year { color: var(--accent); font-variant-numeric: tabular-nums; font-weight: 700; }
+.transport-tip ul { margin: 0.3rem 0 0; padding: 0; list-style: none; }
+.transport-tip li { margin: 0.12rem 0; }
+.transport-year { position: relative; }
+@media (pointer: fine) and (min-width: 600px) {
+  .transport-tick { width: 14px; margin-left: -7px; }
+}

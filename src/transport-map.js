@@ -4,9 +4,11 @@
  * A feature shows when opened <= year && (closed > year || closed is absent).
  */
 import * as maplibregl from 'maplibre-gl'
+import { TIMELINE_MAX_YEAR, groupTicks, openingEvents, sliderMinYear } from './transport-timeline.js'
 
-const MIN_YEAR = 1800
-const MAX_YEAR = 2000
+// The start year comes from the data (earliest opening minus TIMELINE_PAD_YEARS), set once sections load.
+let minYear = null
+const MAX_YEAR = TIMELINE_MAX_YEAR
 const DEFAULT_YEAR = 1880
 
 const COLORS = {
@@ -52,7 +54,7 @@ const sourceById = new Map()
 
 export function clampTransportYear(year) {
   if (year == null || !Number.isFinite(year)) return DEFAULT_YEAR
-  return Math.min(MAX_YEAR, Math.max(MIN_YEAR, Math.round(year)))
+  return Math.min(MAX_YEAR, Math.max(minYear ?? 0, Math.round(year)))
 }
 
 function themeName() {
@@ -70,9 +72,15 @@ function esc(value) {
 /** opened <= year && (closed > year || !closed) */
 export function transportYearFilter(year) {
   return [
-    'all',
-    ['<=', ['get', 'opened'], year],
-    ['any', ['!', ['has', 'closed']], ['>', ['get', 'closed'], year]],
+    'any',
+    // Undated 'Before 1775' trails show from the slider start.
+    ['==', ['get', 'undated'], true],
+    [
+      'all',
+      ['has', 'opened'],
+      ['<=', ['get', 'opened'], year],
+      ['any', ['!', ['has', 'closed']], ['>', ['get', 'closed'], year]],
+    ],
   ]
 }
 
@@ -109,11 +117,22 @@ function eraColorFor(year, theme) {
   return color
 }
 
+/* Roads and traces before the railroads (#291 follow-up) take a kind colour, not a decade colour. */
+const KIND_COLORS = {
+  light: { road: '#b4610f', trail: '#3f6b35' },
+  dark: { road: '#f0b45a', trail: '#9fd08a' },
+}
+
+function kindColorFor(kind, theme = themeName()) {
+  return KIND_COLORS[theme === 'light' ? 'light' : 'dark'][kind] || null
+}
+
 function eraColorExpr(theme) {
   const list = eraList(theme)
-  const expr = ['step', ['get', 'opened'], list[0][1]]
+  const expr = ['step', ['coalesce', ['get', 'opened'], 0], list[0][1]]
   for (const [d, c] of list.slice(1)) expr.push(d, c)
-  return expr
+  const k = KIND_COLORS[theme === 'light' ? 'light' : 'dark']
+  return ['match', ['get', 'kind'], 'trail', k.trail, 'road', k.road, expr]
 }
 
 /* 3px lines (4px from county zoom), parkways a touch thinner, on a 1px casing. */
@@ -121,7 +140,7 @@ const LINE_W = ['interpolate', ['linear'], ['zoom'], 7, ['match', ['get', 'kind'
 const CASE_W = ['interpolate', ['linear'], ['zoom'], 7, ['match', ['get', 'kind'], 'parkway', 4.6, 5], 8.5, ['match', ['get', 'kind'], 'parkway', 5.4, 6]]
 
 function futureFilter(year) {
-  return ['>', ['get', 'opened'], year]
+  return ['all', ['has', 'opened'], ['>', ['get', 'opened'], year]]
 }
 
 async function fetchJson(url) {
@@ -234,6 +253,123 @@ function applyYear(year) {
   syncEndpoints(year)
   renderLegend(year)
   renderSparseNote(year)
+  syncTicks(year)
+}
+
+/* ---- Opening ticks (#291 follow-up) ---- */
+let timelineEvents = []
+let tickWidth = 0
+
+function setupTimeline() {
+  const slider = document.getElementById('transportYear')
+  if (slider && minYear != null) {
+    slider.min = String(minYear)
+    slider.setAttribute('aria-valuemin', String(minYear))
+    slider.setAttribute('aria-valuemax', String(MAX_YEAR))
+  }
+  const scaleMin = document.getElementById('transportScaleMin')
+  if (scaleMin && minYear != null) scaleMin.textContent = String(minYear)
+  const wrap = document.getElementById('transportTicks')
+  if (!wrap || wrap.dataset.wired) return
+  wrap.dataset.wired = '1'
+  wrap.addEventListener('click', (event) => {
+    const btn = event.target.closest('.transport-tick')
+    if (!btn) return
+    // Tap or Enter/Space: open its tooltip and move the map to that year.
+    showTip(btn)
+    const year = clampTransportYear(Number(btn.dataset.year))
+    applyYear(year)
+    writeHash(year)
+    btn.focus()
+  })
+  wrap.addEventListener('focusin', (event) => {
+    const btn = event.target.closest('.transport-tick')
+    if (btn) showTip(btn)
+  })
+  wrap.addEventListener('focusout', (event) => {
+    if (!wrap.contains(event.relatedTarget)) hideTips()
+  })
+  wrap.addEventListener('pointerover', (event) => {
+    const btn = event.target.closest('.transport-tick')
+    if (btn && event.pointerType === 'mouse') showTip(btn)
+  })
+  wrap.addEventListener('pointerleave', (event) => {
+    if (event.pointerType === 'mouse' && !wrap.contains(document.activeElement)) hideTips()
+  })
+  wrap.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') hideTips()
+  })
+  document.addEventListener('pointerdown', (event) => {
+    if (!wrap.contains(event.target)) hideTips()
+  })
+  if (typeof ResizeObserver === 'function') {
+    new ResizeObserver(() => renderTicks()).observe(wrap)
+  }
+  renderTicks()
+}
+
+function showTip(btn) {
+  hideTips(btn)
+  const tip = document.getElementById(btn.getAttribute('aria-describedby'))
+  if (!tip) return
+  tip.hidden = false
+  btn.classList.add('is-tip-open')
+  // Keep the tooltip inside the controls column.
+  tip.style.transform = ''
+  const box = tip.getBoundingClientRect()
+  const host = btn.parentElement.getBoundingClientRect()
+  let shift = 0
+  if (box.left < host.left) shift = host.left - box.left
+  else if (box.right > host.right) shift = host.right - box.right
+  if (shift) tip.style.transform = `translateX(calc(-50% + ${Math.round(shift)}px))`
+}
+
+function hideTips(except) {
+  document.querySelectorAll('#transportTicks .transport-tick.is-tip-open').forEach((b) => {
+    if (b === except) return
+    b.classList.remove('is-tip-open')
+    const tip = document.getElementById(b.getAttribute('aria-describedby'))
+    if (tip) tip.hidden = true
+  })
+}
+
+function renderTicks(force = false) {
+  const wrap = document.getElementById('transportTicks')
+  if (!wrap || minYear == null || !timelineEvents.length) return
+  const slider = document.getElementById('transportYear')
+  const width = Math.max(0, (slider?.getBoundingClientRect().width || wrap.getBoundingClientRect().width) - 26)
+  if (width === tickWidth && wrap.childElementCount && !force) return
+  tickWidth = width
+  const focusedYear = wrap.contains(document.activeElement) ? document.activeElement.dataset.year : null
+  // Mouse users get tighter ticks (14px apart); touch and phone widths keep 24px targets apart.
+  const coarse = window.matchMedia?.('(pointer: coarse)').matches || window.innerWidth < 600
+  const ticks = groupTicks(timelineEvents, { min: minYear, max: MAX_YEAR, widthPx: width, minGapPx: coarse ? 24 : 14 })
+  let html = ''
+  ticks.forEach((t, i) => {
+    const years = t.year === t.lastYear ? String(t.year) : `${t.year}–${t.lastYear}`
+    const names = t.events.map((e) => `${e.name} (${e.year})`).join('; ')
+    const aria = t.events.length > 1
+      ? `${years}: ${t.events.length} openings: ${names}. Show ${t.year}.`
+      : `${t.year}: ${t.events[0].name} opens. Show ${t.year}.`
+    const tipRows = t.events.map((e) => `<li><span class="transport-tip-year">${esc(e.year)}</span> ${esc(e.name)}</li>`).join('')
+    html += `<button type="button" class="transport-tick${t.events.length > 1 ? ' is-merged' : ''}" data-year="${esc(t.year)}"
+      data-count="${esc(t.events.length)}" style="left:calc(13px + (100% - 26px) * ${(t.pct / 100).toFixed(4)})"
+      aria-label="${esc(aria)}" aria-describedby="transportTip${i}"><span class="transport-tick-mark" aria-hidden="true"></span>${t.events.length > 1 ? `<span class="transport-tick-count" aria-hidden="true">+${t.events.length - 1}</span>` : ''}</button>
+      <div id="transportTip${i}" class="transport-tip" role="tooltip" hidden style="left:calc(13px + (100% - 26px) * ${(t.pct / 100).toFixed(4)})">
+        <p class="transport-tip-head">${esc(t.label)} <span>${esc(years)}</span></p>${t.events.length > 1 ? `<ul>${tipRows}</ul>` : ''}</div>`
+  })
+  wrap.innerHTML = html
+  wrap.dataset.ticks = String(ticks.length)
+  wrap.dataset.events = String(timelineEvents.length)
+  const current = Number(document.getElementById('transport')?.dataset.year || DEFAULT_YEAR)
+  syncTicks(current)
+  if (focusedYear) wrap.querySelector(`.transport-tick[data-year="${CSS.escape(focusedYear)}"]`)?.focus()
+}
+
+function syncTicks(year) {
+  document.querySelectorAll('#transportTicks .transport-tick').forEach((b) => {
+    b.classList.toggle('is-past', Number(b.dataset.year) <= year)
+  })
 }
 
 /** Early years show only one or two lines; say so, so the map doesn't read as a load failure. */
@@ -243,7 +379,7 @@ function renderSparseNote(year) {
   const open = new Set(
     sections.features
       .map((f) => f.properties)
-      .filter((p) => p.opened <= year && (p.closed == null || p.closed > year))
+      .filter((p) => p.undated === true || (p.opened <= year && (p.closed == null || p.closed > year)))
       .map((p) => p.routeName || p.id),
   )
   if (open.size > 2) {
@@ -264,6 +400,8 @@ function renderLegend(year) {
   for (const [d, c] of eraList()) {
     html += `<li><i class="transport-swatch" style="background:${esc(c)}" aria-hidden="true"></i>${esc(d)}s</li>`
   }
+  html += `<li><i class="transport-swatch" style="background:${esc(kindColorFor('road'))}" aria-hidden="true"></i>Early roads</li>`
+  html += `<li><i class="transport-swatch" style="background:${esc(kindColorFor('trail'))}" aria-hidden="true"></i>Trails before 1775</li>`
   html += '<li><i class="transport-swatch is-future-swatch" aria-hidden="true"></i>Not yet open</li></ul>'
   list.innerHTML = html
   renderSections(year)
@@ -274,6 +412,8 @@ function renderSections(year) {
   if (!wrap || !sections) return
   let html = ''
   const groups = [
+    ['trail', 'Before 1775'],
+    ['road', 'Early roads and traces'],
     ['rail', 'Railroad sections'],
     ['parkway', 'Parkways'],
   ]
@@ -284,11 +424,12 @@ function renderSections(year) {
     for (const f of items) {
       if (seen.has(f.id)) continue
       seen.add(f.id)
-      const on = f.opened <= year
+      const on = f.undated === true || f.opened <= year
       const title = `${f.routeName}: ${f.from} to ${f.to}`
+      const jump = f.undated === true ? (minYear ?? year) : f.opened > 2000 ? 2000 : f.opened
       rows += `<li class="${on ? 'is-on' : 'is-future'}">
-          <button type="button" data-year="${esc(f.opened > 2000 ? 2000 : f.opened)}">
-          <i class="transport-swatch" style="background:${esc(eraColorFor(f.opened))}" aria-hidden="true"></i>
+          <button type="button" data-year="${esc(jump)}">
+          <i class="transport-swatch" style="background:${esc(kindColorFor(f.kind) || eraColorFor(f.opened))}" aria-hidden="true"></i>
           <span class="transport-legend-name">${esc(title)}</span>
           <span class="transport-legend-year">${esc(f.openedLabel || f.opened)}</span>
           ${f.dateStatus === 'needs-source' ? '<span class="transport-badge is-needs-source">Needs source</span>' : f.dateStatus === 'disputed' ? '<span class="transport-badge">Disputed</span>' : f.provisional ? '<span class="transport-badge">Provisional</span>' : ''}
@@ -335,7 +476,10 @@ function popupHtml(props) {
     <p class="transport-popup-year">Opened ${esc(meta?.openedLabel || props.opened)}</p>
   </div>`
   }
-  const kind = props.kind === 'parkway' ? 'Parkway' : 'Railroad section'
+  const kind = { parkway: 'Parkway', road: 'Early road', trail: 'Trail' }[props.kind] || 'Railroad section'
+  const label = String(props.openedLabel || props.opened || '')
+  const yearLine = /^\d/.test(label) ? `Opened ${label}` : label.charAt(0).toUpperCase() + label.slice(1)
+  const undated = props.undated === true || String(props.undated) === 'true'
   let srcs = []
   try {
     srcs = typeof props.sources === 'string' ? JSON.parse(props.sources) : props.sources || []
@@ -348,15 +492,16 @@ function popupHtml(props) {
     .join(' ')
   const status = props.dateStatus
   const statusText =
-    status === 'needs-source' ? 'Date needs source.' : status === 'disputed' ? 'Sources disagree on the year.' : props.provisional === true || String(props.provisional) === 'true' ? 'Provisional date.' : 'Sourced date.'
+    undated ? 'Undated; sourced route.' : status === 'needs-source' ? 'Date needs source.' : status === 'disputed' ? 'Sources disagree on the year.' : props.provisional === true || String(props.provisional) === 'true' ? 'Provisional date.' : 'Sourced date.'
   const inferred = props.whyInferred === true || String(props.whyInferred) === 'true'
   return `<div class="transport-popup-card">
     <p class="transport-popup-kicker">${esc(kind)}</p>
     <h3>${esc(props.routeName)}</h3>
     <p>${esc(props.from)} to ${esc(props.to)}</p>
-    <p class="transport-popup-year">Opened ${esc(props.openedLabel || props.opened)}</p>
+    <p class="transport-popup-year">${esc(yearLine)}</p>
     ${props.dateNote ? `<p class="transport-popup-note">${esc(props.dateNote)}</p>` : ''}
-    ${props.why ? `<p class="transport-popup-why"><strong>Why it ran here:</strong> ${esc(props.why)}${inferred ? ' <em>(inferred)</em>' : ''}</p>` : ''}
+    ${props.note && (props.kind === 'road' || props.kind === 'trail') ? `<p class="transport-popup-note">${esc(props.note)}</p>` : ''}
+    ${props.why ? `<p class="transport-popup-why"><strong>${props.kind === 'trail' ? 'About it' : 'Why it ran here'}:</strong> ${esc(props.why)}${inferred ? ' <em>(inferred)</em>' : ''}</p>` : ''}
     <p class="transport-popup-note"><strong>${esc(statusText)}</strong>${links ? ` Sources: ${links}` : ''}</p>
   </div>`
 }
@@ -427,6 +572,8 @@ async function boot() {
     fetchJson('/maps/transport/endpoints.geojson'),
   ])
   sections = secs
+  timelineEvents = openingEvents(secs.features)
+  minYear = sliderMinYear(timelineEvents)
   sources = src
   sourceById.clear()
   for (const f of src.features || []) sourceById.set(f.id, f)
@@ -466,6 +613,7 @@ async function boot() {
   }
   const slider = document.getElementById('transportYear')
   const legend = document.getElementById('transportLegend')
+  setupTimeline()
   if (slider && !slider.dataset.wired) {
     slider.dataset.wired = '1'
     slider.addEventListener('input', () => {
@@ -556,7 +704,7 @@ function addCountyLabels(labels) {
 }
 
 export async function showTransport(yearInput) {
-  const year = clampTransportYear(yearInput)
+  let year = clampTransportYear(yearInput)
   const status = document.getElementById('transportStatus')
   if (!bootPromise) {
     bootPromise = boot().catch((err) => {
@@ -573,6 +721,8 @@ export async function showTransport(yearInput) {
     if (status) status.textContent = 'The transport lines could not be loaded.'
     return
   }
+  // Re-clamp now that the data-driven start year is known.
+  year = clampTransportYear(yearInput)
   applyYear(year)
   writeHash(year)
   requestAnimationFrame(() => {

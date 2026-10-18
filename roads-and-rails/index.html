@@ -62,8 +62,8 @@
         <h1>Roads &amp; Rails</h1>
         <p class="transport-intro">How Kentuckians moved, from river landings and turnpikes to railroads and the parkway system. Drag the year slider to watch the network grow, decade by decade.</p>
         <p id="transportProv" class="muted transport-note">
-          Railroads and parkways appear in the year they opened. Railroad dates are sourced;
-          parkway years are provisional where noted.
+          Roads, railroads and parkways appear in the year they opened; trails older than 1775 show from
+          the start. Road and railroad dates are sourced; parkway years are provisional where noted.
         </p>
         <div class="transport-year">
           <div class="transport-year-row">
@@ -74,16 +74,15 @@
             id="transportYear"
             class="transport-slider"
             type="range"
-            min="1800"
             max="2000"
             step="1"
             value="1880"
-            aria-valuemin="1800"
             aria-valuemax="2000"
             aria-valuenow="1880"
             aria-describedby="transportProv"
           />
-          <div class="transport-scale" aria-hidden="true"><span>1800</span><span>2000</span></div>
+          <div id="transportTicks" class="transport-ticks" role="group" aria-label="Railroad and parkway openings"></div>
+          <div class="transport-scale" aria-hidden="true"><span id="transportScaleMin"></span><span>2000</span></div>
         </div>
         <p id="transportStatus" class="muted transport-status" role="status"></p>
         <p id="transportLive" class="visually-hidden" aria-live="polite"></p>
@@ -95,9 +94,22 @@
         <a href="#transportFactsH">Sources and licenses</a>
       </p>
       <section class="transport-facts" aria-labelledby="transportFactsH">
-      <h2 id="transportFactsH">Railroads and parkways on this map</h2>
+      <h2 id="transportFactsH">Trails, roads, railroads and parkways on this map</h2>
+      <h3>Before 1775</h3><dl>
+      <dt>Warriors&#x27; Path (Athiamiowee)</dt><dd>A Native trail used for centuries before settlers came. Cherokee and Shawnee travelled it through Cumberland Gap, by Flat Lick and Manchester, and down Station Camp Creek to the Kentucky River.</dd>
+      <dt>Alanant-o-wamiowee (Great Buffalo Path)</dt><dd>A buffalo trace centuries old that linked the salt licks, from the Ohio River fords at Covington by Big Bone Lick, Drennon Lick, Georgetown, Paris and the Blue Licks to Limestone (Maysville).</dd>
+      <dt>Skaggs&#x27; Trace</dt><dd>A long hunters&#x27; trail in use before 1775. At Hazel Patch it turned west toward Crab Orchard, and Boone left it at that fork.</dd>
+      </dl>
+      <h3>Early roads and traces</h3><dl>
+      <dt>Boone&#x27;s Trace</dt><dd>Blazed March&#x2013;April 1775 from the Long Island of the Holston through Cumberland Gap and Hazel Patch to Fort Boonesborough. It was a marked trace, not a wagon road.</dd>
+      <dt>Wilderness Road</dt><dd>A trace in 1775 through Cumberland Gap, Hazel Patch and Crab Orchard toward the Falls of the Ohio. It was a wagon road by 1796, and Kentucky made it a toll road in 1797.</dd>
+      <dt>Limestone Trace (Smith&#x27;s Wagon Road)</dt><dd>Maysville to Lexington by Washington, Mayslick, the Blue Licks and Paris. A wagon first crossed it in summer 1783.</dd>
+      <dt>Zane&#x27;s Trace</dt><dd>Cut in 1796&#x2013;97 from Wheeling through Chillicothe to the Ohio River opposite Maysville, where a ferry crossed. It is shown on the map from 1797.</dd>
+      <dt>Maysville&#x2013;Lexington Turnpike</dt><dd>President Jackson vetoed federal stock in the road on 27 May 1830. State and private money finished the macadam road by 1835.</dd>
+      </dl>
+      <p class="muted">Early road and trail lines are generalized through public waypoint towns, not surveyed routes.</p>
       <h3>Railroads</h3><dl>
-      <dt>Lexington &amp; Ohio Railroad</dt><dd>Kentucky&#x27;s first railroad. Horse-drawn cars reached Frankfort from Lexington on 31 January 1834; the first steam run followed in January 1835. The line was chartered to carry Bluegrass goods toward the Ohio River.</dd>
+      <dt>Lexington &amp; Ohio Railroad</dt><dd>Kentucky&#x27;s first railroad, chartered 27 January 1830. About 1.5 miles of track from Lexington were laid by August 1832. Horse-drawn cars reached Frankfort from Lexington on 31 January 1834; the first steam run followed in January 1835. The line was chartered to carry Bluegrass goods toward the Ohio River.</dd>
       <dt>Louisville &amp; Frankfort Railroad</dt><dd>Closed the gap from Frankfort to the Ohio River at Louisville, with through service in 1851 after the Kentucky River bridge was finished.</dd>
       <dt>Louisville &amp; Nashville main line</dt><dd>Opened south from Louisville in stages from 1855, climbing Muldraugh&#x27;s Hill to reach Elizabethtown in June 1858. Track met at Bowling Green on 10 August 1859, and the first through train to Nashville ran on 27 October 1859.</dd>
       <dt>Cincinnati Southern Railway</dt><dd>Built by the city of Cincinnati for a direct route to Southern markets that bypassed Louisville and the L&amp;N. It was open to Somerset by 23 July 1877, crossing the Kentucky River on High Bridge, and through service to Chattanooga began in 1880.</dd>
@@ -114,6 +126,26 @@
       <dt>Cumberland (Louie B. Nunn) Parkway</dt><dd>Opened in 1973 (provisional) from I-65 near Glasgow east to Somerset.</dd>
       </dl>
       <h3>Sources</h3><ul class="transport-sources">
+      <li><a href="https://grokipedia.com/page/Great_Indian_Warpath" rel="noopener noreferrer nofollow" target="_blank">grokipedia.com</a> (Warriors&#x27; Path (Athiamiowee))</li>
+      <li><a href="https://www.nps.gov/cuga/learn/historyculture/warriors-path.htm" rel="noopener noreferrer nofollow" target="_blank">nps.gov</a> (Warriors&#x27; Path (Athiamiowee))</li>
+      <li><a href="https://boonetrace1775.com/Early-Roads-Into-Kentucky---Neil-Hammon.pdf" rel="noopener noreferrer nofollow" target="_blank">boonetrace1775.com</a> (Warriors&#x27; Path (Athiamiowee))</li>
+      <li><a href="https://oldwashingtonky.com/buffalo-traces/" rel="noopener noreferrer nofollow" target="_blank">oldwashingtonky.com</a> (Alanant-o-wamiowee (Great Buffalo Path))</li>
+      <li><a href="https://transportation.ky.gov/Archaeology/Documents/spotlight4interactive.pdf" rel="noopener noreferrer nofollow" target="_blank">transportation.ky.gov</a> (Alanant-o-wamiowee (Great Buffalo Path))</li>
+      <li><a href="https://explorekyhistory.ky.gov/items/show/411" rel="noopener noreferrer nofollow" target="_blank">explorekyhistory.ky.gov</a> (Skaggs&#x27; Trace)</li>
+      <li><a href="https://history.ky.gov/markers/boone-trace" rel="noopener noreferrer nofollow" target="_blank">history.ky.gov</a> (Boone&#x27;s Trace)</li>
+      <li><a href="https://history.ky.gov/markers/the-hazel-patch" rel="noopener noreferrer nofollow" target="_blank">history.ky.gov</a> (Boone&#x27;s Trace)</li>
+      <li><a href="https://grokipedia.com/page/Wilderness_Road" rel="noopener noreferrer nofollow" target="_blank">grokipedia.com</a> (Wilderness Road)</li>
+      <li><a href="https://explorekyhistory.ky.gov/items/show/411" rel="noopener noreferrer nofollow" target="_blank">explorekyhistory.ky.gov</a> (Wilderness Road)</li>
+      <li><a href="https://oldwashingtonky.com/wp-content/uploads/2021/04/Local_scale_turnpike_roads_in_nineteenth.pdf" rel="noopener noreferrer nofollow" target="_blank">oldwashingtonky.com</a> (Wilderness Road)</li>
+      <li><a href="https://npshistory.com/publications/cuga/location-wilderness-rd.pdf" rel="noopener noreferrer nofollow" target="_blank">npshistory.com</a> (Wilderness Road)</li>
+      <li><a href="https://transportation.ky.gov/Archaeology/Documents/spotlight4interactive.pdf" rel="noopener noreferrer nofollow" target="_blank">transportation.ky.gov</a> (Limestone Trace (Smith&#x27;s Wagon Road))</li>
+      <li><a href="https://resources.ohiohistory.org/ohj/search/display.php?ipp=20&amp;page=20&amp;pages=442-463&amp;searchterm=crawford&amp;vol=18" rel="noopener noreferrer nofollow" target="_blank">resources.ohiohistory.org</a> (Limestone Trace (Smith&#x27;s Wagon Road))</li>
+      <li><a href="https://en.wikipedia.org/wiki/Zane%27s_Trace" rel="noopener noreferrer nofollow" target="_blank">en.wikipedia.org</a> (Zane&#x27;s Trace)</li>
+      <li><a href="https://en.wikipedia.org/wiki/Maysville_Road_veto" rel="noopener noreferrer nofollow" target="_blank">en.wikipedia.org</a> (Maysville–Lexington Turnpike)</li>
+      <li><a href="https://transportation.ky.gov/Archaeology/Documents/spotlight4interactive.pdf" rel="noopener noreferrer nofollow" target="_blank">transportation.ky.gov</a> (Maysville–Lexington Turnpike)</li>
+      <li><a href="https://oldwashingtonky.com/wp-content/uploads/2021/04/Local_scale_turnpike_roads_in_nineteenth.pdf" rel="noopener noreferrer nofollow" target="_blank">oldwashingtonky.com</a> (Maysville–Lexington Turnpike)</li>
+      <li><a href="https://explorekyhistory.ky.gov/items/show/509" rel="noopener noreferrer nofollow" target="_blank">explorekyhistory.ky.gov</a> (Lexington &amp; Ohio Railroad)</li>
+      <li><a href="https://en.wikipedia.org/wiki/Lexington_and_Ohio_Railroad" rel="noopener noreferrer nofollow" target="_blank">en.wikipedia.org</a> (Lexington &amp; Ohio Railroad)</li>
       <li><a href="https://history.ky.gov/markers/lexington-ohio-rr" rel="noopener noreferrer nofollow" target="_blank">history.ky.gov</a> (Lexington &amp; Ohio Railroad)</li>
       <li><a href="https://wiki.lexhistory.org/wikilex/lexington-ohio-railroad" rel="noopener noreferrer nofollow" target="_blank">wiki.lexhistory.org</a> (Lexington &amp; Ohio Railroad)</li>
       <li><a href="https://explorekyhistory.ky.gov/items/show/509" rel="noopener noreferrer nofollow" target="_blank">explorekyhistory.ky.gov</a> (Lexington &amp; Ohio Railroad)</li>
