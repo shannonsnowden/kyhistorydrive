@@ -69,7 +69,10 @@ for (const page of Object.keys(related.related || {})) {
       continue
     }
     faces++
-    if (!hasImage(person) || unattr(img[1]) !== person.image.jpg || !src || unattr(src[1]) !== person.image.webp) {
+    // Faces use the 96px thumbnail of the people.json image; the thumbnail must exist on disk.
+    const thumb = (u) => String(u).replace(/-512\.(webp|jpg)$/, '-96.$1')
+    const okFace = (got, want) => got === want || (got === thumb(want) && fs.existsSync(path.join(root, 'public', got)))
+    if (!hasImage(person) || !okFace(unattr(img[1]), person.image.jpg) || !src || !okFace(unattr(src[1]), person.image.webp)) {
       errors.push(`${page}: face for ${person.id} (${unattr(img[1])}) is not the people.json image ${person.image?.jpg || 'none'}`)
     }
   }
