@@ -4,6 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import * as maplibregl from 'maplibre-gl'
 import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import { showTransport } from './transport-map.js'
+import { mountTransportPane } from './transport-pane.js'
 
 // The worker has to be set before the first Map (MapLibre GL JS 6, bundler installs).
 maplibregl.setWorkerUrl(maplibreWorkerUrl)
@@ -13,6 +14,8 @@ function yearFromHash() {
   return m ? Number(m[1]) : null
 }
 
+// The pane's rows are prerendered, so wire them before the map data arrives.
+mountTransportPane()
 showTransport(yearFromHash())
 window.addEventListener('hashchange', () => {
   const year = yearFromHash()
