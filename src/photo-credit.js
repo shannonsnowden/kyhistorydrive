@@ -92,6 +92,8 @@ export const ARTWORK_LEADS = {
   print: 'Print: ',
   drawing: 'Drawing: ',
   map: 'Map: ',
+  // Medium not confirmed by the source (e.g. a halftone plate in a book of portraits).
+  portrait: 'Portrait: ',
 }
 
 export function artworkLead(photo) {
