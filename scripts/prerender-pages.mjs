@@ -702,7 +702,7 @@ class PrerenderPages {
    *    at least 70 characters in, closed with a period;
    * 3. otherwise empty (the caller falls back to the other candidate).
    */
-  static storyMetaDescription(text, max = PrerenderPages.META_MAX, { clause = true, nextSentence = false } = {}) {
+  static storyMetaDescription(text, max = PrerenderPages.META_MAX, { clause = true, nextSentence = false, verbless = false } = {}) {
     const plain = PrerenderPages.plainText(text)
     if (!plain) return ''
     const sentences = PrerenderPages.splitSentences(plain)
@@ -716,7 +716,7 @@ class PrerenderPages {
     }
     if (acc) return acc
     if (!clause) return ''
-    const cut = PrerenderPages.clauseMeta(sentences[0], max)
+    const cut = PrerenderPages.clauseMeta(sentences[0], max) || (verbless ? PrerenderPages.clauseCut(sentences[0], max, PrerenderPages.META_PUNCT_BOUNDARY, PrerenderPages.META_CLAUSE_MIN, false, true) : '')
     if (cut || !nextSentence) return cut
     // Last resort: the next whole sentence of the opening paragraph that fits (never a fragment).
     const next = sentences.slice(1, 4).find((x) => x.length <= max && x.length >= 50 && PrerenderPages.endsWithSentence(x))
@@ -754,7 +754,40 @@ class PrerenderPages {
     )
   }
 
-  static clauseCut(first, max, re, min, lastNeedsVerb = false) {
+  /** Comma, semicolon or dash clause boundaries (shared by story and research metas). */
+  static META_PUNCT_BOUNDARY = /[,;]\s(?!\d)|(?<!\d)\s*—\s*|\s—\s|\s–\s|\s+-\s+/gu
+
+  static PARTICIPLE_ADVERBS = new Set(['often', 'later', 'also', 'once', 'widely', 'commonly', 'usually', 'sometimes', 'long', 'first'])
+  static PARTICIPLE_PREPS = new Set(['as', 'by', 'in', 'from', 'for', 'with', 'to', 'of', 'at', 'on'])
+
+  /**
+   * True when the text has an -ed word (3+ letters before "ed") that reads as a finite verb:
+   * not right after an adverb such as "often" ("often treated"), and not followed by a
+   * preposition such as "as" or "by" ("treated as"). Word-by-word, no regex replace.
+   */
+  static hasFiniteEdVerb(text) {
+    const words = []
+    for (const m of String(text || '').matchAll(/[A-Za-z0-9_]+/g)) {
+      words.push({ word: m[0], start: m.index, end: m.index + m[0].length })
+    }
+    const isEd = (w, minStem) => w.length >= minStem + 2 && /^[\p{L}]+$/u.test(w) && w.slice(-2).toLowerCase() === 'ed'
+    const gapIsSpace = (a, b) => b.start > a.end && /^\s+$/.test(text.slice(a.end, b.start))
+    for (let i = 0; i < words.length; i++) {
+      const cur = words[i]
+      if (!isEd(cur.word, 3)) continue
+      const prev = words[i - 1]
+      if (prev && PrerenderPages.PARTICIPLE_ADVERBS.has(prev.word.toLowerCase()) && gapIsSpace(prev, cur)) continue
+      const next = words[i + 1]
+      if (next && PrerenderPages.PARTICIPLE_PREPS.has(next.word.toLowerCase()) && gapIsSpace(cur, next)) continue
+      return true
+    }
+    return false
+  }
+
+  static clauseCut(first, max, re, min, lastNeedsVerb = false, verbless = false) {
+    // Note: story tiers reuse one /g regex, so a later tier resumes where an earlier one stopped.
+    // Story metas depend on that (kept byte-identical); only the shared research regex is reset.
+    if (verbless) re.lastIndex = 0
     let best = ''
     let m
     while ((m = re.exec(first))) {
@@ -770,11 +803,11 @@ class PrerenderPages {
         // In a segment that opens like a noun phrase, an -ed word is usually a participle, not the verb.
         if (i > 0 && /^\s*(?:a|an|the)\s/i.test(seg)) {
           if (/\b(?:is|was|are|were|has|had|have|became|becomes|stands|stood|sits|sat|lies|lay|remains|cuts|runs|holds|rises|flows|forms)\b/i.test(t)) return true
-          return /\b\p{L}{3,}ed\b(?!\s+(?:as|by|in|from|for|with|to|of|at|on)\b)/iu.test(t.replace(/\b(?:often|later|also|once|widely|commonly|usually|sometimes|long|first)\s+\p{L}+ed\b/giu, ''))
+          return PrerenderPages.hasFiniteEdVerb(t)
         }
         return PrerenderPages.META_VERB.test(t)
       }
-      if (!segs.some((seg, i) => mainSegs.includes(seg) && verbIn(seg, i))) continue
+      if (!verbless && !segs.some((seg, i) => mainSegs.includes(seg) && verbIn(seg, i))) continue
       // Dropping a trailing phrase: the clause it leaves must have its own verb.
       if (lastNeedsVerb && !verbIn(segs[segs.length - 1], segs.length - 1)) continue
       if (/\b(?:and|or|but|of|the|a|an|to|in|on|at|by|for|with|from|about|c|ca|than|its|their|his|her|even|also|only|just|still|then|very|more|most|except|rather|such|owned|occupied|located|known|called|named|used|west|east|north|south|part|parts|most|one|some|many|all|each|both|million|thousand|hundred|top|end|side|edge|kind|series|number|group|chain|line|mouth|head|forks?|bank|banks|first|last|half|out|up|down|back|across|upstream|downstream|just|near|beside|sits|stands|lies|few|weeks|days|years|months|miles|feet|acres|hectares)$/i.test(head)) continue
@@ -1620,8 +1653,11 @@ class PrerenderPages {
     const pageUrl = `${PrerenderPages.SITE}${urlPath}`
     if (!article) throw new Error(`prerender: ${urlPath} did not render`)
     // SEO 10/18: research metas stay at 155 or less; titles at 60 or less (suffix only when it fits).
-    const description = PrerenderPages.storyMetaDescription(notes.summary, 155, { nextSentence: true })
-    PrerenderPages.assertStoryMeta(description, notes.summary, urlPath, 155, { nextSentence: true })
+    // Same clean-cut rules as stories. Research summaries are often verbless noun phrases, so a
+    // comma/semicolon/dash clause cut is allowed without a verb before falling back to a word cut.
+    const metaOpts = { nextSentence: true, verbless: true }
+    const description = PrerenderPages.storyMetaDescription(notes.summary, 155, metaOpts)
+    PrerenderPages.assertStoryMeta(description, notes.summary, urlPath, 155, metaOpts)
     const baseTitle = String(notes.seoTitle || notes.title).trim()
     const suffixed = `${baseTitle} · Kentucky History Drive`
     const title = suffixed.length <= 60 ? suffixed : baseTitle
