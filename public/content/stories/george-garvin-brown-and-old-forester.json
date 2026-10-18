@@ -20,7 +20,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Nyttend · Wikimedia Commons · public domain",
-    "year": 2012
+    "year": 2012,
+    "fit": "contain"
   },
   "county": "Jefferson"
 }

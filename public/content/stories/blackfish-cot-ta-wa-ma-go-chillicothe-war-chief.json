@@ -21,7 +21,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
-    "year": 1887
+    "year": 1887,
+    "fit": "contain"
   },
   "county": "Madison"
 }

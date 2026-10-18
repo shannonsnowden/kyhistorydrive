@@ -170,7 +170,8 @@
         "levi-todd-lexington-co-founder",
         "maj-joseph-bowman",
         "maj-silas-harlan",
-        "winchester-clark-county-seat"
+        "winchester-clark-county-seat",
+        "treaty-of-fort-mcintosh-1785"
       ],
       "sourceFile": null
     },
@@ -3199,7 +3200,8 @@
       "licenseUrl": null,
       "stories": [
         "owensboro-yellow-banks",
-        "yellow-banks-becomes-owensboro"
+        "yellow-banks-becomes-owensboro",
+        "hartford-fort-hartford-on-the-rough-river"
       ]
     },
     {
@@ -4563,6 +4565,19 @@
       ],
       "sourceFile": null,
       "creditUrl": "https://archive.org/details/memoirsofloweroh01fede/page/282/"
+    },
+    {
+      "id": "gabriel-madison",
+      "name": "Gabriel Madison",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "hartford-fort-hartford-on-the-rough-river"
+      ]
     }
   ],
   "storySubjects": {

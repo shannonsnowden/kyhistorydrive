@@ -775,6 +775,7 @@ class PrerenderPages {
       lat: loc?.lat ?? indexRow?.lat ?? null,
       lon: loc?.lon ?? indexRow?.lon ?? null,
       photo,
+      figure: body.figure && typeof body.figure === 'object' ? body.figure : null,
       archaeological: PrerenderPages.isArchaeological(body),
     }
   }
@@ -1409,7 +1410,7 @@ class PrerenderPages {
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
-          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${peopleParts.body}</div>
+          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>
           ${routeMapSectionHtml(story.slug, {
             headingLevel: 2,
             linkMode: 'story',
@@ -2454,6 +2455,22 @@ class PrerenderPages {
     })
     const [l, ...b] = done.split(split)
     return { lead: l, body: b.join(split) }
+  }
+
+  /** Item 71: optional non-portrait inline figure (e.g. a culture AI illustration) with alt, credit and a visible note. */
+  /** priority: no lead photo or film above it, so the figure is the first image under the h1 (likely LCP): load it eagerly. */
+  static storyFigureHtml(fig, { priority = false } = {}) {
+    if (!fig || !fig.webp || !fig.jpg || !fig.alt || !fig.credit) return ''
+    // Security: figure files must be our own /content/ assets (no external or protocol-relative URLs).
+    for (const src of [fig.webp, fig.jpg]) {
+      if (!String(src).startsWith('/content/') || String(src).includes('..')) {
+        throw new Error(`prerender: story figure src must start with /content/ (got ${src})`)
+      }
+    }
+    const e = PrerenderPages.escapeHtml
+    const load = priority ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'
+    const note = fig.note ? `<span class="story-figure-note">${e(fig.note)}</span> ` : ''
+    return `<figure class="story-figure"><picture><source srcset="${e(fig.webp)}" type="image/webp"><img src="${e(fig.jpg)}" alt="${e(fig.alt)}" width="1280" height="720" ${load} decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${e(fig.credit)}</span></figcaption></figure>`
   }
 
   static storyPortraitHtml(person) {

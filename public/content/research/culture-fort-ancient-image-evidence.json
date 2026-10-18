@@ -1,0 +1,150 @@
+{
+  "slug": "culture-fort-ancient-image-evidence",
+  "storySlug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
+  "title": "Image evidence: Fort Ancient (about 1000–1750 CE, northern and eastern Kentucky)",
+  "updated": "2026-10-13",
+  "summary": "Village farmers of the middle Ohio Valley who built circular villages around plazas and low burial mounds, such as Cleek-McCabe and the Petersburg village in Boone County. Skeletal studies give actual heights and health data.",
+  "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
+  "sections": [
+    {
+      "heading": "Physical build",
+      "items": [
+        {
+          "text": "Petersburg study: men averaged about 5 ft 6–5 ft 7 in and women about 5 ft 3–5 ft 4 in; cradleboarding flattened the backs of heads.",
+          "sources": [
+            "fa"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Hair and adornment",
+      "items": [
+        {
+          "text": "Copper hair ornaments and rolled copper beads worn by a few people.",
+          "sources": [
+            "fa"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "[Speculative] Tattoos, braided turkey feathers and stretched earlobes in the KAS portraits are borrowed from later historic accounts and are explicitly not known for Petersburg.",
+          "sources": [
+            "fa"
+          ],
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "heading": "Clothing and materials",
+      "items": [
+        {
+          "text": "Hides and skins for clothing, footwear and bags; Indian hemp and native thistle fiber for cord, bags and clothing. Leather sewn with marginella beads in lines was preserved at a Jessamine County burial.",
+          "sources": [
+            "fa",
+            "v2"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Ornaments",
+      "items": [
+        {
+          "text": "Disk shell-bead necklaces and bracelets, marginella beads, bird-wing-bone beads, pierced bear-canine pendants; after 1400, engraved rattlesnake and weeping-eye shell gorgets.",
+          "sources": [
+            "fa",
+            "v2"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Tools carried",
+      "items": [
+        {
+          "text": "Bow and small triangular arrowheads; bone awls; mussel-shell hoes and scoops; ground sandstone discoidals; pipes.",
+          "sources": [
+            "fa",
+            "v2"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Setting and landscape",
+      "items": [
+        {
+          "text": "Ohio River and Bluegrass valleys; circular village of bark-covered houses around a clean plaza with cemetery zone; corn, beans and squash; salt licks and cane.",
+          "sources": [
+            "fa",
+            "cm"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "heading": "Image brief",
+      "items": [
+        {
+          "text": "A woman about 5 ft 4 in at the edge of a circular Ohio Valley village of bark-covered houses around a plaza, in a fringed hide dress, with disk shell-bead necklaces and a copper hair ornament, grinding corn. Autumn hardwoods and river bottomland; no tattoos or headdress since those are undocumented here.",
+          "sources": [
+            "fa",
+            "cm"
+          ],
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "heading": "Display note (draft)",
+      "items": [
+        {
+          "text": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "about 1000–1750 CE",
+      "text": "Fort Ancient (about 1000–1750 CE, northern and eastern Kentucky)"
+    }
+  ],
+  "people": [],
+  "openQuestions": [
+    "Confirm stature and build figures from the original skeletal reports before stating any numbers in captions.",
+    "Items marked [Speculative] should stay generic in the image.",
+    "Re-add /research/culture-fort-ancient-image-evidence/ link after #254."
+  ],
+  "sources": [
+    {
+      "id": "cm",
+      "citation": "Kentucky Archaeological Survey, Cleek-McCabe",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Cleek-McCabe.aspx",
+      "type": "state agency site page",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "fa",
+      "citation": "Henderson, The Prehistoric Farmers of Boone County, Kentucky (KAS Education Series 8, 2006)",
+      "url": "https://heritage.ky.gov/Documents/Fort-Ancient-booklet.pdf",
+      "type": "state agency booklet",
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "v2",
+      "citation": "Pollack (ed.), The Archaeology of Kentucky: An Update, Vol. 2 (Mississippi and Fort Ancient chapters), Kentucky Heritage Council 2008",
+      "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol2.pdf",
+      "type": "state archaeology plan",
+      "accessed": "2026-10-13"
+    }
+  ]
+}
