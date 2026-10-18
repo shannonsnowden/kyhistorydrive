@@ -8,6 +8,17 @@ import { eraColorFor, getTransportMap, getTransportSections, setHiddenSections }
 const PAD = 5 // years before the earliest opening
 const esc = (v) => String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const firstSentence = (t) => { const m = /^(.+?[.!?])(\s|$)/.exec(t.trim()); return m ? m[1] : t.trim() }
+// WCAG contrast helpers: light-mode labels use a darker variant of the line's own era colour.
+const LABEL_BG = '#f3ead8' // darkest cream behind the map (page --bg); halo is #f6eedb
+const lum = (hex) => { const v = hex.match(/\w\w/g).map((h) => { const c = parseInt(h, 16) / 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4 }); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2] }
+export const contrast = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05) }
+export function darkerFor(hex, target = 4.6, bg = LABEL_BG) {
+  let [r, g, b] = hex.match(/\w\w/g).map((h) => parseInt(h, 16)); let out = hex
+  while (contrast(out, bg) < target) { r *= 0.94; g *= 0.94; b *= 0.94; out = '#' + [r, g, b].map((c) => Math.round(c).toString(16).padStart(2, '0')).join('') }
+  return out
+}
+const LEX = [-84.4884, 38.0644] // Lexington: Lexington & Ohio, L&N and Cincinnati Southern meet here
+const LEX_REVEAL_ZOOM = 8 // below this, labels avoid the junction (they reveal as you zoom in)
 const norm = (n) => n.replace(/\s*\(.*?\)/g, '').replace(/ main line| Railway| Railroad/g, '').trim().toLowerCase()
 
 /** Rows come from the existing "Railroads and parkways on this map" list; sections match by name. */
@@ -30,9 +41,12 @@ function buildRows(facts, secs) {
       if (!ids.length) continue
       const opened = Math.min(...ids.map((p) => p.opened))
       const first = ids.find((p) => p.opened === opened)
+      // The page's own facts text flags a disputed year ("Sources disagree ... 1971 or 1974").
+      const dis = /disagree[^.]*?(\d{4}) or (\d{4})/i.exec(desc)
       rows.push({
-        name, kind, opened, desc: firstSentence(desc),
-        label: first.openedLabel || String(opened),
+        name, kind, opened, desc, short: firstSentence(desc),
+        disputed: !!dis || ids.some((p) => p.dateStatus === 'disputed'),
+        label: dis ? `${dis[1]}/${dis[2].slice(2)}` : first.openedLabel || String(opened),
         provisional: ids.some((p) => p.provisional),
         ids: ids.map((p) => p.id),
       })
@@ -63,10 +77,12 @@ export function mountPaneMockup() {
   const sec = (id, title, open, extra = '') =>
     `<details class="rr-sec" id="rrSec-${id}" ${open ? 'open' : ''}><summary><span class="rr-sec-title">${title}</span>${extra}<span class="rr-chev" aria-hidden="true"></span></summary><div class="rr-sec-body"></div></details>`
   const groupHtml = (g) => {
-    const rows = g.rows.map((r) => `<li class="rr-row" data-ids="${esc(r.ids.join(' '))}" data-opened="${r.opened}">
+    const rows = g.rows.map((r, i) => `<li class="rr-row" data-ids="${esc(r.ids.join(' '))}" data-opened="${r.opened}">
         <i class="rr-swatch is-${r.kind}" style="background:${esc(eraColorFor(r.opened))}" aria-hidden="true"></i>
         <div class="rr-row-text"><div class="rr-row-top"><span class="rr-row-name">${esc(r.name)}</span><span class="rr-row-year">${esc(r.label)}${r.provisional ? '<abbr title="Provisional year">*</abbr>' : ''}</span></div>
-        <p class="rr-row-desc">${esc(r.desc)}</p></div>
+        ${r.disputed ? '<span class="transport-badge rr-badge">Disputed</span>' : ''}
+        <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-${g.kind}-${i}">${esc(r.desc)}</p>
+        ${r.desc.length > 40 ? `<button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-${g.kind}-${i}">More<span class="visually-hidden"> about ${esc(r.name)}</span></button>` : ''}</div></div>
         <label class="rr-switch"><input type="checkbox" checked aria-label="Show ${esc(r.name)}"><span aria-hidden="true"></span></label>
       </li>`).join('')
     return `<div class="rr-allnone" role="group" aria-label="${g.title}: show all or none"><button type="button" data-all="1">All</button><button type="button" data-all="0">None</button><span class="rr-count"></span></div><ul class="rr-rows">${rows}</ul>`
@@ -80,36 +96,85 @@ export function mountPaneMockup() {
     sec('about', 'About this map', false)
   head.after(pane)
   const body = (id) => pane.querySelector(`#rrSec-${id} .rr-sec-body`)
-  body('timeline').append(yearBox, legend)
+  const legWrap = document.createElement('details')
+  legWrap.className = 'rr-legend'
+  legWrap.open = !window.matchMedia('(max-width: 600px)').matches // collapsed by default on phones
+  legWrap.innerHTML = '<summary>Map key</summary>'
+  legWrap.append(legend)
+  const sym = document.createElement('ul')
+  sym.className = 'rr-symbols'
+  sym.innerHTML = '<li><i class="rr-sym-bridge" aria-hidden="true"></i>High Bridge (Cincinnati Southern, 1877)</li><li><i class="rr-sym-town" aria-hidden="true"></i>Town where a line starts or ends</li>'
+  legWrap.append(sym)
+  body('timeline').append(yearBox, legWrap)
   for (const g of groups) body(g.kind).innerHTML = groupHtml(g)
   body('about').append(intro, prov)
   const srcH = document.createElement('h3'); srcH.textContent = 'Sources and licenses'; srcH.id = 'transportFactsH2'
   body('about').append(srcH, sources, srcNote)
+  // Phones: the line groups live in a bottom sheet over the map, so toggling a line keeps the map in view.
+  const wrap = document.querySelector('.transport-section .map-canvas-wrap')
+  const sheet = document.createElement('section')
+  sheet.className = 'rr-sheet'
+  sheet.setAttribute('aria-label', 'Lines on this map')
+  const nLines = groups.reduce((n, g) => n + g.rows.length, 0)
+  sheet.innerHTML = `<button type="button" class="rr-sheet-handle" aria-expanded="false" aria-controls="rrSheetBody"><span class="rr-grab" aria-hidden="true"></span><span>Railroads and highways</span><span class="rr-sec-meta">${nLines} lines</span><span class="rr-chev" aria-hidden="true"></span></button><div class="rr-sheet-body" id="rrSheetBody"></div>`
+  wrap.append(sheet)
+  const handle = sheet.querySelector('.rr-sheet-handle')
+  handle.addEventListener('click', () => {
+    const open = !sheet.classList.contains('is-open')
+    sheet.classList.toggle('is-open', open); handle.setAttribute('aria-expanded', String(open))
+  })
+  const mq = window.matchMedia('(max-width: 900px)')
+  const placeGroups = () => {
+    const target = mq.matches ? sheet.querySelector('.rr-sheet-body') : null
+    for (const g of groups) {
+      const el = pane.querySelector(`#rrSec-${g.kind}`) || sheet.querySelector(`#rrSec-${g.kind}`)
+      if (target) target.append(el); else pane.querySelector('#rrSec-about').before(el)
+    }
+  }
   facts.hidden = true
   aside.querySelector('#transportSections').hidden = true
   aside.querySelector('.transport-credit').hidden = true
 
   // Toggles
   const sync = () => {
-    for (const ul of pane.querySelectorAll('.rr-rows')) {
+    for (const ul of document.querySelectorAll('.rr-rows')) {
       const rows = [...ul.children]
       const on = rows.filter((li) => li.querySelector('input').checked).length
       ul.previousElementSibling.querySelector('.rr-count').textContent = `${on} of ${rows.length} shown`
     }
     hidden.clear()
-    for (const li of pane.querySelectorAll('.rr-row')) {
+    for (const li of document.querySelectorAll('.rr-row')) {
       li.classList.toggle('is-off', !li.querySelector('input').checked)
       if (!li.querySelector('input').checked) li.dataset.ids.split(' ').forEach((id) => hidden.add(id))
     }
     setHiddenSections([...hidden])
   }
   pane.addEventListener('change', sync)
-  pane.addEventListener('click', (e) => {
+  sheet.addEventListener('change', sync)
+  const rowClick = (e) => {
+    const more = e.target.closest('.rr-more')
+    if (more) {
+      const li = more.closest('.rr-row'); const open = !li.classList.contains('is-expanded')
+      li.classList.toggle('is-expanded', open); more.setAttribute('aria-expanded', String(open))
+      more.firstChild.textContent = open ? 'Less' : 'More'
+      return
+    }
+    const li = e.target.closest('.rr-row')
+    if (li && !e.target.closest('.rr-switch') && !e.target.closest('a, abbr')) {
+      const i = li.querySelector('input'); i.checked = !i.checked; sync()
+    }
+  }
+  pane.addEventListener('click', rowClick)
+  sheet.addEventListener('click', rowClick)
+  const allNone = (e) => {
     const b = e.target.closest('[data-all]')
     if (!b) return
     b.parentElement.nextElementSibling.querySelectorAll('input').forEach((i) => { i.checked = b.dataset.all === '1' })
     sync()
-  })
+  }
+  pane.addEventListener('click', allNone)
+  sheet.addEventListener('click', allNone)
+  placeGroups(); mq.addEventListener('change', placeGroups)
 
   // Timeline: data-driven start and opening ticks
   const slider = document.getElementById('transportYear')
@@ -169,12 +234,15 @@ export function mountPaneMockup() {
     el.className = `rr-line-label is-${r.kind}`
     el.textContent = r.name.replace(/\s*\(.*?\)/, '').replace('Louisville & Nashville main line', 'L&N main line').replace(/ Railroad| Railway/, '').replace(/ Parkway$/, ' Pkwy')
     el.setAttribute('aria-hidden', 'true')
+    el.style.setProperty('--rr-label', darkerFor(eraColorFor(r.opened, 'light')))
     const m = new maplibregl.Marker({ element: el, rotationAlignment: 'map' })
     return { r, line: best, el, m, added: false }
   })
   const placeLabels = () => {
     const year = Number(document.getElementById('transport')?.dataset.year || 1880)
     const placed = []
+    const lexPt = map.project(LEX); const nearLex = map.getZoom() < LEX_REVEAL_ZOOM
+    labels.sort((a, b) => (a.lexBusy ? 1 : 0) - (b.lexBusy ? 1 : 0))
     // rail first, then by opening year
     for (const L of labels) {
       const show = L.r.opened <= year && !L.r.ids.every((id) => hidden.has(id))
@@ -192,6 +260,8 @@ export function mountPaneMockup() {
         if (ang > 90) ang -= 180; if (ang < -90) ang += 180
         const t = seg[i] ? (tot * frac - acc) / seg[i] : 0
         const mid = { x: pts[i].x + (pts[i + 1].x - pts[i].x) * t, y: pts[i].y + (pts[i + 1].y - pts[i].y) * t }
+        // Near the Lexington junction three lines meet: labels there wait for zoom.
+        if (nearLex && Math.hypot(mid.x - lexPt.x, mid.y - lexPt.y) < 70) { L.lexBusy = true; continue }
         L.m.setLngLat(map.unproject([mid.x, mid.y])).setRotation(ang).setOffset([0, -8])
         if (!L.added) { L.m.addTo(map); L.added = true }
         L.el.style.visibility = ''

@@ -93,9 +93,9 @@ const ERA_COLORS_DARK = {
   1830: '#ffd43b',
   1850: '#f4a46a',
   1870: '#d9c2a0',
-  1880: '#7fd18b',
+  1880: '#5fbf73', // mockup v2: deeper green, apart from the 1970s lime
   1960: '#3bc9db',
-  1970: '#c0eb75',
+  1970: '#d9e86a', // mockup v2: yellower lime, apart from the 1880s green
 }
 
 function eraList(theme = themeName()) {
