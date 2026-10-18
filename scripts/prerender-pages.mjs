@@ -641,10 +641,11 @@ class PrerenderPages {
   }
 
   /**
-   * SEO & AEO Desk, #317: the summary meta is used only when it is finished and at least
-   * as specific as the first-sentence meta (it keeps every named entity and number the
-   * first-sentence meta has). Otherwise the first-sentence meta stays, e.g. Lexington keeps
-   * the battle it is named for and Big Bone Lick keeps Boone County.
+   * Story meta rule (Editor + SEO & AEO Desk, Oct 18; see storyDescriptionChoice): the summary is
+   * the meta when it is 120-155 characters, one finished sentence, and names the story's subject
+   * and a place; otherwise the body's opening sentence(s) are cut cleanly (never mid-phrase, no
+   * ellipsis, at most 155). A story can pin either side with metaSource: "body" | "summary".
+   * META_STOP lists title/place words too generic to count as a subject or place term.
    */
   static META_STOP = new Set(['the', 'and', 'of', 'in', 'on', 'at', 'to', 'for', 'from', 'with', 'by', 'a', 'an', 'its', 'his', 'her', 'their', 'first', 'site', 'county', 'kentucky', 'kentuckys', 'story', 'takes', 'shape', 'becomes', 'into', 'over', 'near', 'river', 'creek', 'town', 'village'])
 
@@ -680,15 +681,47 @@ class PrerenderPages {
     return [...terms]
   }
 
+  /** Title proper nouns (capitalised, 3+ letters, not a stop word), e.g. "Wea", kept case-sensitive. */
+  static metaTitleProperNouns(story) {
+    const out = []
+    for (const m of String(story.title || '').matchAll(/\p{Lu}[\p{L}’']{2,}/gu)) {
+      if (!PrerenderPages.META_STOP.has(m[0].toLowerCase())) out.push(m[0])
+    }
+    return out
+  }
+
+  /**
+   * Named places in the text itself (SEO & AEO Desk, #317 follow-up): "Capitalised + River, Creek,
+   * Gap, Fork, Lick, Valley, Falls, Station, County or Lake" (Barren River, Cumberland Gap,
+   * McFadden's Station, Lancaster County), "Lake Erie", "Fort X", and the Ohio, Wabash, Scioto,
+   * Tennessee and Mississippi rivers.
+   */
+  static META_PLACE_PATTERNS = [
+    /\p{Lu}[\p{L}’'.-]*\s+(?:River|Creek|Gap|Fork|Lick|Valley|Falls|Station|County|Lake)\b/u,
+    /\bLake\s+\p{Lu}\p{L}+/u,
+    /\bFort\s+\p{Lu}\p{L}+/u,
+    /\b(?:Ohio|Wabash|Scioto|Tennessee|Mississippi)\b/u,
+  ]
+
+  static metaNamesPlace(text) {
+    return PrerenderPages.META_PLACE_PATTERNS.some((re) => re.test(String(text || '')))
+  }
+
   /** SEO & AEO Desk / Editor rule: a meta names the story's subject and a place. */
   static metaSubjectPlace(story, text) {
     const words = PrerenderPages.metaWords(text)
     const subjects = PrerenderPages.metaSubjectTerms(story)
     const places = PrerenderPages.metaPlaceTerms(story)
-    const subject = !subjects.length || subjects.some((t) => PrerenderPages.metaNames(words, t))
-    const place = places.length
-      ? places.some((t) => PrerenderPages.metaNames(words, t)) || words.includes('kentucky')
-      : words.includes('kentucky') || words.includes('ohio')
+    const proper = PrerenderPages.metaTitleProperNouns(story)
+    const textWords = new Set(String(text || '').match(/[\p{L}’']+/gu) || [])
+    const subject =
+      !subjects.length ||
+      subjects.some((t) => PrerenderPages.metaNames(words, t)) ||
+      proper.some((t) => textWords.has(t))
+    const place =
+      (places.length
+        ? places.some((t) => PrerenderPages.metaNames(words, t)) || words.includes('kentucky')
+        : words.includes('kentucky') || words.includes('ohio')) || PrerenderPages.metaNamesPlace(text)
     return { subject, place }
   }
 
@@ -793,6 +826,22 @@ class PrerenderPages {
       .replace(/\s+(?:and|or|but|of|the|a|an|to|in|on|at|by|for|with|from|into)$/i, '')
       .replace(/[\s,;:–—-]+$/u, '')
       .trim()
+  }
+
+  /**
+   * /videos/ meta: whole leading sentences when they fit; otherwise the first sentence with one
+   * short comma-set aside dropped (", then about twenty-three and pregnant,"), so the sentence
+   * keeps its ending ("west with her two young sons") instead of being cut at a comma.
+   */
+  static videosMetaDescription(text, max = PrerenderPages.META_MAX) {
+    const whole = PrerenderPages.storyMetaDescription(text, max, { clause: false })
+    if (whole) return whole
+    const first = PrerenderPages.splitSentences(PrerenderPages.plainText(text))[0] || ''
+    for (const m of first.matchAll(/, ([^,;—–()]{3,60}),\s/gu)) {
+      const shorter = `${first.slice(0, m.index)} ${first.slice(m.index + m[0].length)}`
+      if (shorter.length <= max && PrerenderPages.isFinishedMeta(shorter, max)) return shorter
+    }
+    return PrerenderPages.storyMetaDescription(text, max, { nextSentence: true })
   }
 
   /** A clause head reads as a clause: it has a verb, not just a place phrase. */
@@ -3384,11 +3433,7 @@ class PrerenderPages {
     }
     const lead = 'Films published by Kentucky History Drive.'
     const description = films.length
-      ? PrerenderPages.storyMetaDescription(
-          PrerenderPages.filmPlain(stories.find((item) => item.slug === films[0].storySlug)),
-          PrerenderPages.META_MAX,
-          { nextSentence: true },
-        ) || lead
+      ? PrerenderPages.videosMetaDescription(PrerenderPages.filmPlain(stories.find((item) => item.slug === films[0].storySlug))) || lead
       : lead
     const image = films[0]?.poster || PrerenderPages.LOGO
     const main = `<article class="videos-page">
