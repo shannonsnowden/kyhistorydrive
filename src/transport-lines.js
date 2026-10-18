@@ -5,7 +5,7 @@
  * facts text; years come from sections.geojson.
  */
 
-/* Decade and kind colours for the lines (light / dark). Dark 1880 and 1970 follow mockup v2 so the
+/* Decade and kind colours for the lines (light / dark). Dark 1880 follows mockup v2; dark 1970 and the trail colours follow Critiquito's #326 fixes so the
  * deeper green and the yellower lime stay apart (ΔE76 28 -> 41). */
 export const ERA_COLORS = [
   [1830, '#9a6f00'],
@@ -21,11 +21,11 @@ export const ERA_COLORS_DARK = {
   1870: '#d9c2a0',
   1880: '#5fbf73',
   1960: '#3bc9db',
-  1970: '#d9e86a',
+  1970: '#d4f06a',
 }
 export const KIND_COLORS = {
-  light: { road: '#b4610f', trail: '#3f6b35' },
-  dark: { road: '#f0b45a', trail: '#9fd08a' },
+  light: { road: '#b4610f', trail: '#6e5a1e' },
+  dark: { road: '#f0b45a', trail: '#f2ecd8' },
 }
 
 export function eraKey(year) {

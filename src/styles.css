@@ -6100,51 +6100,42 @@ html:not([data-hp-theme="light"]) .hp-page .brand-logo {
   box-shadow: 0 0 0 2px #f6edd8, 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
-/* Roads & Rails opening ticks (#291 follow-up): one tick per opening, merged when crowded. */
-.transport-ticks { position: relative; height: 30px; margin: -6px 0 0.15rem; }
+/* Roads & Rails opening ticks (#291 follow-up; Critiquito #326): one tick per opening year, each with a
+ * visible label. Crowded labels stagger onto extra rows with leader lines. Marks and labels share one colour
+ * (--text), explained in the legend; leaders are --muted decoration. */
+.transport-ticks { --tick-label-size: 11px; position: relative; height: 40px; margin: -8px 0 0.2rem; }
+.transport-tick-lines { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.transport-tick-mark { stroke: var(--text); stroke-width: 2; stroke-linecap: round; }
+.transport-tick-lead { fill: none; stroke: var(--muted); stroke-width: 1; }
 .transport-tick {
   position: absolute;
-  top: 0;
-  width: 24px;
-  height: 30px;
-  margin: 0 0 0 -12px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  color: var(--muted);
-  -webkit-tap-highlight-color: transparent;
-}
-.transport-tick-mark {
-  position: absolute;
-  left: 50%;
-  top: 2px;
-  width: 3px;
-  height: 12px;
-  margin-left: -1.5px;
-  border-radius: 2px;
-  background: var(--muted);
-}
-.transport-tick.is-past .transport-tick-mark { background: var(--accent); }
-.transport-tick.is-merged .transport-tick-mark { width: 5px; margin-left: -2.5px; }
-.transport-tick-count {
-  position: absolute;
-  left: 50%;
-  top: 15px;
-  transform: translateX(-50%);
-  font-size: 0.66rem;
+  margin: 0;
+  padding: 0 3px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
+  font-size: var(--tick-label-size);
   font-weight: 700;
   line-height: 1;
-  color: var(--muted);
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
-.transport-tick.is-past .transport-tick-count { color: var(--accent); }
-.transport-tick:hover .transport-tick-mark,
-.transport-tick.is-tip-open .transport-tick-mark { background: var(--heading); height: 14px; }
-.transport-tick:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 0; border-radius: 4px; }
+.transport-tick[aria-current='true'] { border-color: var(--text); }
+.transport-tick:hover,
+.transport-tick.is-tip-open { border-color: var(--muted); text-decoration: underline; }
+.transport-tick:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 1px; }
+.transport-swatch.is-tick-swatch { width: 2px; height: 12px; border-radius: 1px; background: var(--text); }
+.transport-swatch.is-trail-swatch {
+  background: radial-gradient(circle, currentColor 1.6px, transparent 1.9px) 0 50% / 6px 6px repeat-x;
+}
 .transport-tip {
   position: absolute;
-  bottom: calc(100% + 34px);
   transform: translateX(-50%);
   z-index: 5;
   min-width: 9rem;
@@ -6161,7 +6152,7 @@ html:not([data-hp-theme="light"]) .hp-page .brand-logo {
 }
 .transport-tip[hidden] { display: none; }
 .transport-tip-head { margin: 0; font-weight: 600; }
-.transport-tip-head span, .transport-tip-year { color: var(--accent); font-variant-numeric: tabular-nums; font-weight: 700; }
+.transport-tip-head span { color: var(--accent); font-variant-numeric: tabular-nums; font-weight: 700; }
 .transport-tip ul { margin: 0.3rem 0 0; padding: 0; list-style: none; }
 .transport-tip li { margin: 0.12rem 0; }
 .transport-year { position: relative; }
@@ -6247,15 +6238,15 @@ html[data-hp-theme='dark'] .rr-switch input:checked + span { background: #c9893a
 .rr-row[data-c='1960'] { --rr-c: #0c8599; }
 .rr-row[data-c='1970'] { --rr-c: #5c940d; }
 .rr-row[data-c='road'] { --rr-c: #b4610f; }
-.rr-row[data-c='trail'] { --rr-c: #3f6b35; }
+.rr-row[data-c='trail'] { --rr-c: #6e5a1e; }
 html[data-hp-theme='dark'] .rr-row[data-c='1830'] { --rr-c: #ffd43b; }
 html[data-hp-theme='dark'] .rr-row[data-c='1850'] { --rr-c: #f4a46a; }
 html[data-hp-theme='dark'] .rr-row[data-c='1870'] { --rr-c: #d9c2a0; }
 html[data-hp-theme='dark'] .rr-row[data-c='1880'] { --rr-c: #5fbf73; }
 html[data-hp-theme='dark'] .rr-row[data-c='1960'] { --rr-c: #3bc9db; }
-html[data-hp-theme='dark'] .rr-row[data-c='1970'] { --rr-c: #d9e86a; }
+html[data-hp-theme='dark'] .rr-row[data-c='1970'] { --rr-c: #d4f06a; }
 html[data-hp-theme='dark'] .rr-row[data-c='road'] { --rr-c: #f0b45a; }
-html[data-hp-theme='dark'] .rr-row[data-c='trail'] { --rr-c: #9fd08a; }
+html[data-hp-theme='dark'] .rr-row[data-c='trail'] { --rr-c: #f2ecd8; }
 .rr-row[data-c='trail'] .rr-swatch { background: repeating-linear-gradient(90deg, var(--rr-c) 0 4px, transparent 4px 7px); }
 /* Map key */
 .rr-legend { margin-top: 0.35rem; }
