@@ -3593,5 +3593,28 @@
       "attribution": "Mason Brock · Wikimedia Commons · public domain",
       "year": 2008
     }
+  },
+  {
+    "id": "walker-daniel-danville-boyle-1781-1787",
+    "name": "Walker Daniel marker, Danville (KHS #190)",
+    "subtitle": "Boyle County · Danville laid out 1783 · first District attorney general · killed 1784 · town named 1787",
+    "latitude": 37.64565,
+    "longitude": -84.7707833,
+    "history": "Walker Daniel was a young Virginia lawyer when he came to central Kentucky in 1781. One man who knew him called him “a young gentleman of rare talents” who “gave promise of great distinction,” according to ExploreKYHistory. The next year he bought land from John Crow, founder of Crow’s Station, near present Danville.\n\nIn 1783, Kentucky was still part of Virginia, and the new District of Kentucky needed its own court. Daniel was appointed the district’s first attorney general, its chief prosecutor. He “laid off a part of seventy-six acres for a town” at Crow’s Station and gave land for the court, where a crude two-room log courthouse and a jail of hewn logs “at least nine inches thick” were built.\n\nThe district court soon moved to the public square that became Constitution Square, where the conventions that led to statehood would meet. In 1784 Daniel wrote to Virginia Governor Benjamin Harrison that Kentuckians wanted a separate state. He blamed what he called “the cruelties & Depredations of the Savages” and argued that a Kentucky government would care more about keeping peace with its Native neighbors than distant Virginia did.\n\nThose “neighbors” saw the war very differently: Shawnee and other nations north of the Ohio were fighting to keep settlers off hunting grounds they had never agreed to give up. Daniel served on the commission at the Falls of the Ohio that allotted land in George Rogers Clark’s grant to the soldiers of the Illinois Regiment. In August 1784 he set out from the Falls toward his brother’s place at Bullitt’s Lick.\n\nAbout six miles from the saltworks, a party of about seven warriors attacked Daniel and two companions. A Virginia newspaper reported that Daniel and a man named Keightly were killed on the spot, and that a third man, Johnston, escaped with a wound across his chest. The attackers took scalps but left the men’s money and clothes.\n\nDaniel’s brother Robert sold the rest of the town lots and placed the springs in trust for the townspeople. In 1787 the Virginia act that formally established the town recognized the lots Walker Daniel had laid off “in his lifetime,” and the town was named Danville in his honor.\n\n## Kentucky today\n\nDanville is the Boyle County seat, and state historical marker #190 for Walker Daniel stands at Second and Main streets, near Constitution Square. Nearby markers tell of John Crow’s station and the district court where Daniel served as prosecutor.",
+    "source_date": "2026-10-18",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #190, Walker Daniel, 2nd & Main St., Danville (37.64565, -84.7707833). Years 1781 (arrival) to 1787 (town established and named).",
+    "category": "person",
+    "website": "https://history.ky.gov/markers/walker-daniel",
+    "year_start": 1781,
+    "year_end": 1787,
+    "photo": {
+      "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
+      "title": "Constitution Square State Historic Site, Danville",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Constitution_Square_State_Historic_Site_-_May_2024_-_Sarah_Stierch.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
+      "year": 2024
+    }
   }
 ]
