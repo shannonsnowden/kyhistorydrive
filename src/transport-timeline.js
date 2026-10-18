@@ -46,25 +46,71 @@ function pctFor(year, min, max) {
   return Math.min(100, Math.max(0, ((year - min) / (max - min)) * 100))
 }
 
+/** Visible tick label: the year, plus a count when several openings share it ('1963 · 3'). */
+export function tickLabel(t) {
+  return t.events.length > 1 ? `${t.year} · ${t.events.length}` : String(t.year)
+}
+
 /**
- * Group events into ticks. Same-year events always share a tick; a tick closer than minGapPx to the
- * previous tick joins it. Each tick: { year, lastYear, pct, events, label }.
+ * Group events into ticks: one tick per distinct year (Critiquito #326: no proximity merging).
+ * Each tick: { year, lastYear, pct, events, label }. Extra options are accepted and ignored.
  */
-export function groupTicks(events, { min, max = TIMELINE_MAX_YEAR, widthPx = 300, minGapPx = TICK_MIN_GAP_PX } = {}) {
+export function groupTicks(events, { min, max = TIMELINE_MAX_YEAR } = {}) {
   const sorted = [...(events || [])].sort((a, b) => a.year - b.year || a.name.localeCompare(b.name))
   const ticks = []
   for (const e of sorted) {
-    const pct = pctFor(Math.min(e.year, max), min, max)
     const last = ticks[ticks.length - 1]
-    if (last && (last.lastYear === e.year || ((pct - last.pct) / 100) * widthPx < minGapPx)) {
+    if (last && last.year === e.year) {
       last.events.push(e)
-      last.lastYear = e.year
       continue
     }
-    ticks.push({ year: e.year, lastYear: e.year, pct, events: [e] })
+    ticks.push({ year: e.year, lastYear: e.year, pct: pctFor(Math.min(e.year, max), min, max), events: [e] })
   }
-  for (const t of ticks) {
-    t.label = t.events.length > 1 ? `${t.events[0].name} +${t.events.length - 1}` : t.events[0].name
-  }
+  for (const t of ticks) t.label = tickLabel(t)
   return ticks
+}
+
+/**
+ * Place tick labels in rows under the track so none overlap and all stay inside [0, widthPx].
+ * Labels sit as close to their mark as they can; a leader line joins label and mark. Ticks closer
+ * than minGapPx always use at least two rows (staggered), and more rows are added only when needed.
+ * Returns { rows, items: [{ year, label, markX, x, w, row }] } (x is the label's left edge).
+ */
+export function layoutTickLabels(ticks, { widthPx, labelWidth, gapPx = 3, minGapPx = TICK_MIN_GAP_PX, maxRows = 8 } = {}) {
+  const base = (ticks || []).map((t) => {
+    const w = Math.min(widthPx, labelWidth(t))
+    return { year: t.year, label: t.label, markX: (t.pct / 100) * widthPx, w }
+  })
+  if (!base.length) return { rows: 0, items: [] }
+  const crowded = base.some((b, i) => i && b.markX - base[i - 1].markX < minGapPx)
+  let best = null
+  for (let rows = crowded ? 2 : 1; rows <= maxRows; rows++) {
+    const ends = new Array(rows).fill(-Infinity)
+    const items = base.map((b) => {
+      const want = Math.max(0, Math.min(widthPx - b.w, b.markX - b.w / 2))
+      let row = 0
+      let x = Infinity
+      for (let r = 0; r < rows; r++) {
+        const cand = Math.max(want, ends[r] + gapPx)
+        if (Math.abs(cand - want) < Math.abs(x - want) - 0.01) { x = cand; row = r }
+      }
+      ends[row] = x + b.w
+      return { ...b, x, row }
+    })
+    // Pull any row that runs past the right edge back left, keeping its order.
+    let ok = true
+    for (let r = 0; r < rows; r++) {
+      const row = items.filter((it) => it.row === r)
+      let limit = widthPx
+      for (let i = row.length - 1; i >= 0; i--) {
+        row[i].x = Math.min(row[i].x, limit - row[i].w)
+        limit = row[i].x - gapPx
+      }
+      if (row.length && row[0].x < -0.01) ok = false
+    }
+    best = { rows, items }
+    if (ok) break
+  }
+  for (const it of best.items) it.x = Math.max(0, Math.round(it.x * 10) / 10)
+  return best
 }

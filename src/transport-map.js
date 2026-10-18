@@ -4,7 +4,7 @@
  * A feature shows when opened <= year && (closed > year || closed is absent).
  */
 import * as maplibregl from 'maplibre-gl'
-import { TIMELINE_MAX_YEAR, groupTicks, openingEvents, sliderMinYear } from './transport-timeline.js'
+import { TIMELINE_MAX_YEAR, groupTicks, layoutTickLabels, openingEvents, sliderMinYear } from './transport-timeline.js'
 
 // The start year comes from the data (earliest opening minus TIMELINE_PAD_YEARS), set once sections load.
 let minYear = null
@@ -103,7 +103,7 @@ const ERA_COLORS_DARK = {
   1870: '#d9c2a0',
   1880: '#7fd18b',
   1960: '#3bc9db',
-  1970: '#c0eb75',
+  1970: '#d4f06a',
 }
 
 function eraList(theme = themeName()) {
@@ -117,10 +117,13 @@ function eraColorFor(year, theme) {
   return color
 }
 
-/* Roads and traces before the railroads (#291 follow-up) take a kind colour, not a decade colour. */
+/* Roads and traces before the railroads (#291 follow-up) take a kind colour, not a decade colour.
+ * Critiquito #326: trails were the same green as the 1880s rails. Trails are now olive-brown (light) / cream
+ * (dark), drawn thinner and dotted (round dots, never the long dashes that mean 'not yet open'). Dark 1970 moved
+ * to a yellower lime (#d4f06a) so it stays clear of the 1880 mint. */
 const KIND_COLORS = {
-  light: { road: '#b4610f', trail: '#3f6b35' },
-  dark: { road: '#f0b45a', trail: '#9fd08a' },
+  light: { road: '#b4610f', trail: '#6e5a1e' },
+  dark: { road: '#f0b45a', trail: '#f2ecd8' },
 }
 
 function kindColorFor(kind, theme = themeName()) {
@@ -138,6 +141,11 @@ function eraColorExpr(theme) {
 /* 3px lines (4px from county zoom), parkways a touch thinner, on a 1px casing. */
 const LINE_W = ['interpolate', ['linear'], ['zoom'], 7, ['match', ['get', 'kind'], 'parkway', 2.6, 3], 8.5, ['match', ['get', 'kind'], 'parkway', 3.4, 4]]
 const CASE_W = ['interpolate', ['linear'], ['zoom'], 7, ['match', ['get', 'kind'], 'parkway', 4.6, 5], 8.5, ['match', ['get', 'kind'], 'parkway', 5.4, 6]]
+
+/* Trails: a 2.2-2.8px row of round dots (dash 0 + round cap), no casing. */
+const TRAIL_FILTER = ['==', ['get', 'kind'], 'trail']
+const NOT_TRAIL = ['!=', ['get', 'kind'], 'trail']
+const TRAIL_W = ['interpolate', ['linear'], ['zoom'], 7, 2.2, 8.5, 2.8]
 
 function futureFilter(year) {
   return ['all', ['has', 'opened'], ['>', ['get', 'opened'], year]]
@@ -187,7 +195,7 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
         id: 'sec-casing',
         type: 'line',
         source: 'sections',
-        filter: transportYearFilter(DEFAULT_YEAR),
+        filter: ['all', NOT_TRAIL, transportYearFilter(DEFAULT_YEAR)],
         layout: { 'line-cap': 'round', 'line-join': 'round' },
         paint: { 'line-color': c.casing, 'line-width': CASE_W },
       },
@@ -195,9 +203,17 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
         id: 'sec-line',
         type: 'line',
         source: 'sections',
-        filter: transportYearFilter(DEFAULT_YEAR),
+        filter: ['all', NOT_TRAIL, transportYearFilter(DEFAULT_YEAR)],
         layout: { 'line-cap': 'round', 'line-join': 'round' },
         paint: { 'line-color': eraColorExpr(theme), 'line-width': LINE_W },
+      },
+      {
+        id: 'sec-trail',
+        type: 'line',
+        source: 'sections',
+        filter: TRAIL_FILTER,
+        layout: { 'line-cap': 'round', 'line-join': 'round' },
+        paint: { 'line-color': KIND_COLORS[theme === 'light' ? 'light' : 'dark'].trail, 'line-width': TRAIL_W, 'line-dasharray': [0, 2] },
       },
       {
         id: 'bridge-circle',
@@ -224,6 +240,7 @@ function applyColors() {
   map.setPaintProperty('land-line', 'line-color', c.landLine)
   map.setPaintProperty('sec-casing', 'line-color', c.casing)
   map.setPaintProperty('sec-line', 'line-color', eraColorExpr(theme))
+  if (map.getLayer('sec-trail')) map.setPaintProperty('sec-trail', 'line-color', kindColorFor('trail', theme))
   map.setPaintProperty('sec-future', 'line-color', c.future)
   map.setPaintProperty('bridge-circle', 'circle-color', c.bridge)
   map.setPaintProperty('bridge-circle', 'circle-stroke-color', c.bridgeStroke)
@@ -232,7 +249,7 @@ function applyColors() {
 function applyYear(year) {
   const filter = transportYearFilter(year)
   for (const id of ['sec-casing', 'sec-line']) {
-    if (map.getLayer(id)) map.setFilter(id, filter)
+    if (map.getLayer(id)) map.setFilter(id, ['all', NOT_TRAIL, filter])
   }
   if (map.getLayer('sec-future')) map.setFilter('sec-future', futureFilter(year))
   const bridge = ['all', filter, ['==', ['get', 'kind'], 'bridge']]
@@ -322,6 +339,7 @@ function showTip(btn) {
   if (box.left < host.left) shift = host.left - box.left
   else if (box.right > host.right) shift = host.right - box.right
   if (shift) tip.style.transform = `translateX(calc(-50% + ${Math.round(shift)}px))`
+  syncTicks(Number(document.getElementById('transport')?.dataset.year))
 }
 
 function hideTips(except) {
@@ -333,42 +351,68 @@ function hideTips(except) {
   })
 }
 
+let measureCtx = null
+function labelWidthFn(wrap) {
+  measureCtx = measureCtx || document.createElement('canvas').getContext('2d')
+  const cs = getComputedStyle(wrap)
+  measureCtx.font = `700 ${cs.getPropertyValue('--tick-label-size').trim() || '11px'} ${cs.fontFamily}`
+  // Text plus 3px padding each side.
+  return (t) => Math.ceil(measureCtx.measureText(t.label).width) + 6
+}
+
+/* Critiquito #326: one tick per opening year, each with a visible 'year' or 'year · n' label. Labels that
+ * would collide stagger onto extra rows under the track, joined to their mark by a leader line. The label
+ * is the button (a 24px+ target on touch); the mark is decoration. All ticks share one colour. */
 function renderTicks(force = false) {
   const wrap = document.getElementById('transportTicks')
   if (!wrap || minYear == null || !timelineEvents.length) return
   const slider = document.getElementById('transportYear')
-  const width = Math.max(0, (slider?.getBoundingClientRect().width || wrap.getBoundingClientRect().width) - 26)
+  const full = slider?.getBoundingClientRect().width || wrap.getBoundingClientRect().width
+  // The thumb centre runs 13px in from each end of the slider.
+  const width = Math.max(0, full - 26)
   if (width === tickWidth && wrap.childElementCount && !force) return
   tickWidth = width
   const focusedYear = wrap.contains(document.activeElement) ? document.activeElement.dataset.year : null
-  // Mouse users get tighter ticks (14px apart); touch and phone widths keep 24px targets apart.
   const coarse = window.matchMedia?.('(pointer: coarse)').matches || window.innerWidth < 600
-  const ticks = groupTicks(timelineEvents, { min: minYear, max: MAX_YEAR, widthPx: width, minGapPx: coarse ? 24 : 14 })
+  const rowH = coarse ? 26 : 22
+  const markH = 10
+  const lead = 8
+  const ticks = groupTicks(timelineEvents, { min: minYear, max: MAX_YEAR })
+  const lay = layoutTickLabels(ticks, { widthPx: full, labelWidth: labelWidthFn(wrap) })
+  // layoutTickLabels works on the full width; map each mark onto the thumb's travel.
+  const markX = (t) => 13 + (t.pct / 100) * width
+  let svg = ''
   let html = ''
   ticks.forEach((t, i) => {
-    const years = t.year === t.lastYear ? String(t.year) : `${t.year}–${t.lastYear}`
-    const names = t.events.map((e) => `${e.name} (${e.year})`).join('; ')
+    const it = lay.items[i]
+    const mx = markX(t)
+    const top = markH + lead + it.row * rowH
+    const cx = it.x + it.w / 2
+    svg += `<line class="transport-tick-mark" x1="${mx.toFixed(1)}" y1="0" x2="${mx.toFixed(1)}" y2="${markH}"/>`
+    svg += `<polyline class="transport-tick-lead" points="${mx.toFixed(1)},${markH} ${mx.toFixed(1)},${markH + 3} ${cx.toFixed(1)},${top}"/>`
+    const names = t.events.map((e) => `${e.name}${t.events.length > 1 ? '' : ''}`).join('; ')
     const aria = t.events.length > 1
-      ? `${years}: ${t.events.length} openings: ${names}. Show ${t.year}.`
+      ? `${t.year}: ${t.events.length} openings: ${names}. Show ${t.year}.`
       : `${t.year}: ${t.events[0].name} opens. Show ${t.year}.`
-    const tipRows = t.events.map((e) => `<li><span class="transport-tip-year">${esc(e.year)}</span> ${esc(e.name)}</li>`).join('')
-    html += `<button type="button" class="transport-tick${t.events.length > 1 ? ' is-merged' : ''}" data-year="${esc(t.year)}"
-      data-count="${esc(t.events.length)}" style="left:calc(13px + (100% - 26px) * ${(t.pct / 100).toFixed(4)})"
-      aria-label="${esc(aria)}" aria-describedby="transportTip${i}"><span class="transport-tick-mark" aria-hidden="true"></span>${t.events.length > 1 ? `<span class="transport-tick-count" aria-hidden="true">+${t.events.length - 1}</span>` : ''}</button>
-      <div id="transportTip${i}" class="transport-tip" role="tooltip" hidden style="left:calc(13px + (100% - 26px) * ${(t.pct / 100).toFixed(4)})">
-        <p class="transport-tip-head">${esc(t.label)} <span>${esc(years)}</span></p>${t.events.length > 1 ? `<ul>${tipRows}</ul>` : ''}</div>`
+    const tipRows = t.events.map((e) => `<li>${esc(e.name)}</li>`).join('')
+    html += `<button type="button" class="transport-tick" data-year="${esc(t.year)}" data-count="${esc(t.events.length)}"
+      style="left:${it.x}px;top:${top}px;width:${it.w}px;height:${rowH - 2}px" aria-label="${esc(aria)}"
+      aria-describedby="transportTip${i}">${esc(t.label)}</button>
+      <div id="transportTip${i}" class="transport-tip" role="tooltip" hidden style="left:${cx.toFixed(1)}px;top:${top + rowH}px">
+        <p class="transport-tip-head"><span>${esc(t.year)}</span> ${t.events.length > 1 ? `${esc(t.events.length)} openings` : esc(t.events[0].name)}</p>${t.events.length > 1 ? `<ul>${tipRows}</ul>` : ''}</div>`
   })
-  wrap.innerHTML = html
+  const height = markH + lead + lay.rows * rowH
+  wrap.style.height = `${height}px`
+  wrap.innerHTML = `<svg class="transport-tick-lines" width="${full}" height="${height}" aria-hidden="true" focusable="false">${svg}</svg>${html}`
   wrap.dataset.ticks = String(ticks.length)
   wrap.dataset.events = String(timelineEvents.length)
-  const current = Number(document.getElementById('transport')?.dataset.year || DEFAULT_YEAR)
-  syncTicks(current)
+  wrap.dataset.rows = String(lay.rows)
   if (focusedYear) wrap.querySelector(`.transport-tick[data-year="${CSS.escape(focusedYear)}"]`)?.focus()
 }
 
 function syncTicks(year) {
   document.querySelectorAll('#transportTicks .transport-tick').forEach((b) => {
-    b.classList.toggle('is-past', Number(b.dataset.year) <= year)
+    b.setAttribute('aria-current', Number(b.dataset.year) === year ? 'true' : 'false')
   })
 }
 
@@ -401,7 +445,8 @@ function renderLegend(year) {
     html += `<li><i class="transport-swatch" style="background:${esc(c)}" aria-hidden="true"></i>${esc(d)}s</li>`
   }
   html += `<li><i class="transport-swatch" style="background:${esc(kindColorFor('road'))}" aria-hidden="true"></i>Early roads</li>`
-  html += `<li><i class="transport-swatch" style="background:${esc(kindColorFor('trail'))}" aria-hidden="true"></i>Trails before 1775</li>`
+  html += `<li><i class="transport-swatch is-trail-swatch" style="color:${esc(kindColorFor('trail'))}" aria-hidden="true"></i>Trails before 1775 (dotted)</li>`
+  html += '<li><i class="transport-swatch is-tick-swatch" aria-hidden="true"></i>Timeline tick: openings that year</li>'
   html += '<li><i class="transport-swatch is-future-swatch" aria-hidden="true"></i>Not yet open</li></ul>'
   list.innerHTML = html
   renderSections(year)
@@ -429,7 +474,7 @@ function renderSections(year) {
       const jump = f.undated === true ? (minYear ?? year) : f.opened > 2000 ? 2000 : f.opened
       rows += `<li class="${on ? 'is-on' : 'is-future'}">
           <button type="button" data-year="${esc(jump)}">
-          <i class="transport-swatch" style="background:${esc(kindColorFor(f.kind) || eraColorFor(f.opened))}" aria-hidden="true"></i>
+          <i class="transport-swatch${f.kind === 'trail' ? ' is-trail-swatch' : ''}" style="${f.kind === 'trail' ? 'color' : 'background'}:${esc(kindColorFor(f.kind) || eraColorFor(f.opened))}" aria-hidden="true"></i>
           <span class="transport-legend-name">${esc(title)}</span>
           <span class="transport-legend-year">${esc(f.openedLabel || f.opened)}</span>
           ${f.dateStatus === 'needs-source' ? '<span class="transport-badge is-needs-source">Needs source</span>' : f.dateStatus === 'disputed' ? '<span class="transport-badge">Disputed</span>' : f.provisional ? '<span class="transport-badge">Provisional</span>' : ''}
@@ -546,7 +591,7 @@ function fitPopupAboveCredit(popup) {
 }
 
 function wireMap() {
-  for (const id of ['sec-line', 'bridge-circle']) {
+  for (const id of ['sec-line', 'sec-trail', 'bridge-circle']) {
     map.on('mouseenter', id, () => {
       map.getCanvas().style.cursor = 'pointer'
     })
