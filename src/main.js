@@ -9,7 +9,7 @@ import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
-import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
+import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
 import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
@@ -2884,9 +2884,11 @@ async function enrichStoriesCounties(stories) {
   }
 
   for (const s of stories) {
+    const loc = locations[s.slug] || {}
+    if (!s.historyId && loc.historyId) s.historyId = loc.historyId
+    if (!s.matchedPlace && loc.matchedPlace) s.matchedPlace = loc.matchedPlace
     // county set in the story JSON wins; an explicit '' means "no county label" (out-of-state / unpinned stories).
     if (s.county != null) continue
-    const loc = locations[s.slug] || {}
     let county = ''
     const histId = loc.historyId || s.historyId
     if (histId && historyById.get(histId)?.county) {
@@ -3336,14 +3338,22 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               yearEnd: s.yearEnd ?? meta.yearEnd,
               lat: meta.lat ?? s.lat,
               lon: meta.lon ?? s.lon,
+              historyId,
+              matchedPlace: meta.matchedPlace || '',
+              bodyMarkdown: s.bodyMarkdown || '',
+              proseChars: meta.proseChars,
             },
             storyIndex.stories,
             markerRecords(markerFeatures),
             {
               headingLevel: 2,
-              excludeSlugs: routeBySlug(meta.slug)?.relatedStories || [],
+              excludeSlugs: [
+                ...(routeBySlug(meta.slug)?.relatedStories || []),
+                ...relatedBlockSlugs(relatedData, meta.slug, relTitleFor, { personFor }),
+              ],
               excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
               limit: 3,
+              portraitFor: (slug) => portraitThumbSrc(portraits.get(slug) || personFor.get(slug)),
             },
           )}
           ${citeBoxHtml({

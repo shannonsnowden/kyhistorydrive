@@ -142,11 +142,12 @@ export function faceSlotHtml() {
 }
 
 // "Related people & stories" block (empty string when a story has no entries).
-export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelatedH', options = {}) {
+/** Story slugs the "Related people & stories" box shows, in order (shared with the Related and nearby dedupe). */
+export function relatedBlockItems(data, slug, titleFor, options = {}) {
   const seen = new Set()
   const seenPeople = new Set()
   const personFor = options.personFor instanceof Map ? options.personFor : null
-  const items = (data?.related?.[slug] || []).filter((x) => {
+  return (data?.related?.[slug] || []).filter((x) => {
     if (!x?.slug || x.slug === slug || seen.has(x.slug) || !titleFor(x.slug)) return false
     seen.add(x.slug)
     // One person once per box (two stories about the same person keep the first link).
@@ -157,6 +158,22 @@ export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelated
     }
     return true
   })
+}
+
+export function relatedBlockSlugs(data, slug, titleFor, options = {}) {
+  return relatedBlockItems(data, slug, titleFor, options).map((x) => x.slug)
+}
+
+/** Canonical 96px portrait for a person card, or '' when the person has no local portrait. */
+export function portraitThumbSrc(person) {
+  const ready = localPortrait(person)
+  return ready ? thumb96(ready.image.jpg) : ''
+}
+
+// "Related people & stories" block (empty string when a story has no entries).
+export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelatedH', options = {}) {
+  const personFor = options.personFor instanceof Map ? options.personFor : null
+  const items = relatedBlockItems(data, slug, titleFor, options)
   if (!items.length) return ''
   const hid = String(headingId || 'storyRelatedH').replace(/[^\w-]/g, '') || 'storyRelatedH'
   const portraits = options.portraits instanceof Map ? options.portraits : new Map()
