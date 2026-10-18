@@ -74,6 +74,7 @@ import {
 } from '../src/story-markdown.js'
 import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink } from '../src/transport-links.js'
+import { storyFigureHtml } from '../src/story-figure.js'
 import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
@@ -3071,18 +3072,9 @@ class PrerenderPages {
 
   /** Item 71: optional non-portrait inline figure (e.g. a culture AI illustration) with alt, credit and a visible note. */
   /** priority: no lead photo or film above it, so the figure is the first image under the h1 (likely LCP): load it eagerly. */
+  /** Shared with the SPA reader via src/story-figure.js (Critiquito #5 on #288); strict throws on non-/content/ srcs. */
   static storyFigureHtml(fig, { priority = false } = {}) {
-    if (!fig || !fig.webp || !fig.jpg || !fig.alt || !fig.credit) return ''
-    // Security: figure files must be our own /content/ assets (no external or protocol-relative URLs).
-    for (const src of [fig.webp, fig.jpg]) {
-      if (!String(src).startsWith('/content/') || String(src).includes('..')) {
-        throw new Error(`prerender: story figure src must start with /content/ (got ${src})`)
-      }
-    }
-    const e = PrerenderPages.escapeHtml
-    const load = priority ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'
-    const note = fig.note ? `<span class="story-figure-note">${e(fig.note)}</span> ` : ''
-    return `<figure class="story-figure"><picture><source srcset="${e(fig.webp)}" type="image/webp"><img src="${e(fig.jpg)}" alt="${e(fig.alt)}" width="1280" height="720" ${load} decoding="async"></picture><figcaption>${note}<span class="story-figure-credit">${e(fig.credit)}</span></figcaption></figure>`
+    return storyFigureHtml(fig, { priority, strict: true })
   }
 
   static storyPortraitHtml(person) {

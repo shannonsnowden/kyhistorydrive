@@ -19,6 +19,7 @@ import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
 import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
+import { storyFigureHtml } from './story-figure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
 import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
 import {
@@ -3203,11 +3204,9 @@ function timelineHeaderOffset() {
   const bar = document.querySelector('.timeline-read-bar')
   const headerH = header ? header.getBoundingClientRect().height : 0
   const barH = bar ? bar.getBoundingClientRect().height : 0
-  // Phones opened from a homepage story link: the map is docked under the bar
-  const docked = document.querySelector('#timeline .timeline-layout.is-home-story #timelineMapPane')
-  // Only while it is sticky (561–900px); at <=560px it scrolls away with the page.
-  const dockH = docked && window.matchMedia('(min-width: 561px) and (max-width: 900px)').matches ? docked.getBoundingClientRect().height : 0
-  return headerH + barH + dockH + 8
+  // The docked map (homepage story link, <=900px) scrolls away with the page, so it never
+  // covers the story and adds nothing to the offset.
+  return headerH + barH + 8
 }
 
 function timelineItemFor(slug) {
@@ -3515,7 +3514,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       (h) => h,
       { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
     )
-    bodyEl.innerHTML = `${storyPortraitHtml(subject.person)}${applyTransportLink(
+    bodyEl.innerHTML = `${storyPortraitHtml(subject.person)}${storyFigureHtml(s.figure)}${applyTransportLink(
       withPeople,
       transportLinks.stories?.[meta.slug],
     )}`
