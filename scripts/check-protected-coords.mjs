@@ -8,10 +8,19 @@
  *    url names a protected id may not carry lat/lon/latitude/longitude/coordinates with >1 decimal.
  * 2. Text (JS, GPX, KML, MD, HTML): a protected id followed within 400 chars (GPX/KML: also 200 before) by a Kentucky lat/lon
  *    pair with >1 decimal fails.
- * Usage: node scripts/check-protected-coords.mjs [--dist dist]
+ * 3. Keyed proximity scan (needs env PROTECTED_COORDS_KEY; missing or wrong key fails the build): every
+ *    Kentucky lat/lon pair (either order, incl. bare arrays such as route lines and STOPS) in
+ *    dist/** .json/.geojson/.html/.js/.gpx/.kml files finer than 0.1° that lies within 200 m of a point in
+ *    scripts/protected-coords.hashes.json fails. Output names only file, JSON path/offset and distance.
+ * 4. List completeness: a story, History or marker record within 200 m of a listed point must have its id
+ *    in protected-pins.json.
+ * Fixtures: scripts/test-protected-coords.mjs (fake key, fake points).
+ * Usage: node scripts/check-protected-coords.mjs [--dist dist] [--hashes file]
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { extractPairs, keyCheck, proximityMatcher, RADIUS_M } from './lib/coord-pairs.mjs'
 
 const argDist = process.argv.indexOf('--dist')
 const dist = path.resolve(argDist > 0 ? process.argv[argDist + 1] : 'dist')
@@ -91,12 +100,105 @@ for (const f of files(dist)) {
     }
   }
 }
+
+// ---- 3/4: keyed proximity scan and list completeness ----
+const t0 = Date.now()
+const argHashes = process.argv.indexOf('--hashes')
+const hashFile = argHashes > 0 ? path.resolve(process.argv[argHashes + 1]) : path.join(path.dirname(fileURLToPath(import.meta.url)), 'protected-coords.hashes.json')
+const KEY = process.env.PROTECTED_COORDS_KEY || ''
+let list
+// JSON.parse errors quote file text; never let hash or key-check values reach the log.
+try { list = JSON.parse(fs.readFileSync(hashFile, 'utf8')) } catch (e) {
+  console.error(`check-protected-coords: cannot read ${path.basename(hashFile)} (${e.code || e.name}; contents redacted)`)
+  process.exit(1)
+}
+if (!KEY) {
+  console.error('check-protected-coords: PROTECTED_COORDS_KEY is not set. Add it under Amplify > Hosting > Environment variables (secret), or export it locally.')
+  process.exit(1)
+}
+if (list.schema !== 3 || list.keyCheck !== keyCheck(KEY)) {
+  console.error(`check-protected-coords: PROTECTED_COORDS_KEY does not match ${path.basename(hashFile)} (keyCheck mismatch or old schema). Fix the env var or regenerate with scripts/build-protected-coord-hashes.mjs.`)
+  process.exit(1)
+}
+const near = proximityMatcher(list, KEY)
+const SCAN = new Set(['.json', '.geojson', '.html', '.js', '.gpx', '.kml'])
+const fineNum = (s) => /\.\d{2,}/.test(s)
+let scanned = 0
+for (const f of files(dist)) {
+  if (!SCAN.has(path.extname(f))) continue
+  const rel = path.relative(dist, f)
+  const text = fs.readFileSync(f, 'utf8')
+  scanned++
+  const hits = new Map()
+  for (const p of extractPairs(text)) {
+    const [la, lo] = p.split(',')
+    if (!fineNum(la) && !fineNum(lo)) continue
+    const d = near(Number(la), Number(lo))
+    if (d != null) hits.set(p, d)
+  }
+  if (!hits.size) continue
+  // Locate each hit by JSON path when the file parses, else by character offset. Values are never printed.
+  let where = null
+  if (/\.(json|geojson)$/.test(f)) {
+    try {
+      where = new Map()
+      const at = (o, pth) => {
+        if (Array.isArray(o)) {
+          if (o.length >= 2 && typeof o[0] === 'number' && typeof o[1] === 'number') for (const k of [`${o[1]},${o[0]}`, `${o[0]},${o[1]}`]) if (hits.has(k) && !where.has(k)) where.set(k, pth)
+          return o.forEach((x, i) => at(x, `${pth}[${i}]`))
+        }
+        if (!o || typeof o !== 'object') return
+        for (const [a, b] of [['lat', 'lon'], ['lat', 'lng'], ['latitude', 'longitude']]) if (typeof o[a] === 'number' && typeof o[b] === 'number') { const k = `${o[a]},${o[b]}`; if (hits.has(k) && !where.has(k)) where.set(k, pth || '$') }
+        for (const [k, v] of Object.entries(o)) at(v, `${pth}.${k}`)
+      }
+      at(JSON.parse(text), '$')
+    } catch { where = null }
+  }
+  for (const [p, d] of hits) {
+    const [la, lo] = p.split(',')
+    const off = text.indexOf(la) >= 0 ? text.indexOf(la) : text.indexOf(lo)
+    errors.push(`${rel}:${where?.get(p) || `@${off}`} within ${Math.round(d)} m of a protected site`)
+  }
+}
+// List completeness: records with an id within 200 m of a listed point must be protected.
+const RECORDS = ['data/layers/stories.geojson', 'data/layers/history.geojson', 'data/markers.geojson', 'data/app/ky-history.json', 'data/app/markers.phase1.json', 'content/stories-locations.json']
+function recId(o, key) {
+  if (o.marker_number != null) return `marker:${o.marker_number}`
+  const pm = typeof o.id === 'string' && o.id.match(/^place:markers:(\d+)$/)
+  if (pm) return `marker:${pm[1]}`
+  return o.slug || o.historyId || o.id || o.storySlug || key || null
+}
+for (const f of RECORDS) {
+  const p = path.join(dist, f)
+  if (!fs.existsSync(p)) continue
+  let d
+  try { d = JSON.parse(fs.readFileSync(p, 'utf8')) } catch { continue }
+  const visit = (o, pth, key) => {
+    if (Array.isArray(o)) return o.forEach((x, i) => visit(x, `${pth}[${i}]`))
+    if (!o || typeof o !== 'object') return
+    const pr = o.properties || o
+    let la, lo
+    const g = o.geometry?.coordinates
+    if (o.geometry?.type === 'Point' && Array.isArray(g)) [lo, la] = g
+    else for (const [a, b] of [['lat', 'lon'], ['lat', 'lng'], ['latitude', 'longitude']]) if (typeof pr[a] === 'number' && typeof pr[b] === 'number') [la, lo] = [pr[a], pr[b]]
+    const id = la != null && recId(pr, key)
+    if (id && typeof id === 'string' && !ids.has(id) && !ids.has(id.replace(/^(history|story):/, ''))) {
+      const dm = near(la, lo)
+      if (dm != null) errors.push(`${f}:${pth} record ${id} is within ${Math.round(dm)} m of a protected site but not in protected-pins.json`)
+    }
+    for (const [k, v] of Object.entries(o)) if (v && typeof v === 'object' && k !== 'geometry') visit(v, `${pth}.${k}`, k)
+  }
+  visit(d, '$')
+}
+const keyedMs = Date.now() - t0
+const st = near.stats()
+
 const uniq = [...new Set(errors)]
 errors.length = 0
 errors.push(...uniq)
 if (errors.length) {
-  console.error(`check-protected-coords: ${errors.length} protected coordinate(s) finer than 0.1° in dist (values redacted):`)
+  console.error(`check-protected-coords: ${errors.length} protected coordinate problem(s) in dist (values redacted):`)
   for (const e of errors.slice(0, 50)) console.error('  ' + e)
   process.exit(1)
 }
-console.log(`check-protected-coords: ${ids.size} protected ids; none carries a coordinate finer than 0.1° in dist`)
+console.log(`check-protected-coords: ${ids.size} protected ids, ${list.count} keyed points; no coordinate finer than 0.1° within ${RADIUS_M} m of a protected site in ${scanned} files (${st.pairs} pairs, ${(keyedMs / 1000).toFixed(1)}s); records near protected sites are all listed`)
