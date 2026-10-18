@@ -1759,8 +1759,8 @@
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
         "year": 1851
       },
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
@@ -1802,8 +1802,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
