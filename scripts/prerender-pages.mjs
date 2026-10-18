@@ -645,33 +645,95 @@ class PrerenderPages {
    * first-sentence meta has). Otherwise the first-sentence meta stays, e.g. Lexington keeps
    * the battle it is named for and Big Bone Lick keeps Boone County.
    */
+  static META_STOP = new Set(['the', 'and', 'of', 'in', 'on', 'at', 'to', 'for', 'from', 'with', 'by', 'a', 'an', 'its', 'his', 'her', 'their', 'first', 'site', 'county', 'kentucky', 'kentuckys', 'story', 'takes', 'shape', 'becomes', 'into', 'over', 'near', 'river', 'creek', 'town', 'village'])
+
+  /** Lower-case letter/digit words of a string (word loop, no regex replace). */
+  static metaWords(text) {
+    const out = []
+    for (const m of String(text || '').toLowerCase().matchAll(/[\p{L}\p{N}]+/gu)) out.push(m[0])
+    return out
+  }
+
+  /** A text names a term when one of its words starts with the term's stem (handles "Shawnee"/"Shawnees", possessives). */
+  static metaNames(textWords, term) {
+    const stem = term.length > 5 ? term.slice(0, term.length - 2) : term
+    return textWords.some((w) => w.startsWith(stem))
+  }
+
+  /** Subject terms: significant title words (4+ letters, not a stop word, not a site number). */
+  static metaSubjectTerms(story) {
+    return [...new Set(PrerenderPages.metaWords(story.title))].filter(
+      (w) => w.length >= 4 && !PrerenderPages.META_STOP.has(w) && !/\d/.test(w),
+    )
+  }
+
+  /** Place terms: county, file county, matched place and territory words; Kentucky when a story has none. */
+  static metaPlaceTerms(story) {
+    const fields = [story.county, story.fileCounty, story.matchedPlace, story.territoryNation]
+    const terms = new Set()
+    for (const f of fields) {
+      for (const w of PrerenderPages.metaWords(f)) {
+        if (w.length >= 4 && !PrerenderPages.META_STOP.has(w) && !/\d/.test(w)) terms.add(w)
+      }
+    }
+    return [...terms]
+  }
+
+  /** SEO & AEO Desk / Editor rule: a meta names the story's subject and a place. */
+  static metaSubjectPlace(story, text) {
+    const words = PrerenderPages.metaWords(text)
+    const subjects = PrerenderPages.metaSubjectTerms(story)
+    const places = PrerenderPages.metaPlaceTerms(story)
+    const subject = !subjects.length || subjects.some((t) => PrerenderPages.metaNames(words, t))
+    const place = places.length
+      ? places.some((t) => PrerenderPages.metaNames(words, t)) || words.includes('kentucky')
+      : words.includes('kentucky') || words.includes('ohio')
+    return { subject, place }
+  }
+
+  /** Summary qualifies as the meta: 120-155 chars, one finished sentence, names subject and place. */
+  static summaryQualifies(story) {
+    const plain = PrerenderPages.plainText(story.summary)
+    if (!plain || plain.length < 120 || plain.length > PrerenderPages.META_MAX) return false
+    if (!PrerenderPages.isFinishedMeta(plain)) return false
+    if (PrerenderPages.splitSentences(plain).length !== 1) return false
+    const { subject, place } = PrerenderPages.metaSubjectPlace(story, plain)
+    return subject && place
+  }
+
+  /**
+   * Editor + SEO rule (Oct 18): use the summary when it is 120-155 characters, one finished
+   * sentence, and names the subject and a place (checked against title and place fields).
+   * Otherwise use the body's opening sentence(s) with the clean-cut rules. A story can pin
+   * either side with metaSource: "body" | "summary" in its story JSON.
+   */
   static storyDescriptionChoice(story) {
     const summaryPlain = PrerenderPages.plainText(story.summary)
-    const truncated = /(?:\u2026|\.\.\.)\s*$/u.test(summaryPlain)
-    let summarySource = PrerenderPages.finishedSummary(story.summary)
-    // A summary cut with an ellipsis: its last kept "sentence" may end at the cut, so drop it
-    // and never clause-trim it. Only whole sentences written before the cut can be used.
-    if (truncated) {
-      const whole = PrerenderPages.splitSentences(summarySource).filter((x) => PrerenderPages.endsWithSentence(x))
-      summarySource = whole.slice(0, -1).join(' ')
-    }
     const bodySource = PrerenderPages.plainText(story.bodyMarkdown)
-    const fromSummary = truncated
-      ? PrerenderPages.storyMetaDescription(summarySource, PrerenderPages.META_MAX, { clause: false })
-      : PrerenderPages.storyMetaDescription(summarySource)
-    const fromBody = PrerenderPages.storyMetaDescription(bodySource)
-    const finished = (d) => PrerenderPages.isFinishedMeta(d)
-    if (finished(fromSummary)) {
-      if (!finished(fromBody)) return { source: summarySource, description: fromSummary }
-      const have = PrerenderPages.metaKeyTerms(fromSummary)
-      const need = [...PrerenderPages.metaKeyTerms(fromBody)]
-      if (need.every((t) => have.has(t))) return { source: summarySource, description: fromSummary }
+    const useSummary =
+      story.metaSource === 'summary' ? Boolean(summaryPlain) : story.metaSource === 'body' ? false : PrerenderPages.summaryQualifies(story)
+    if (useSummary) {
+      const description = PrerenderPages.storyMetaDescription(summaryPlain)
+      if (description) return { source: summaryPlain, description, kind: 'summary' }
     }
-    if (fromBody) return { source: bodySource, description: fromBody }
-    if (fromSummary) return { source: summarySource, description: fromSummary }
+    const fromBody = PrerenderPages.storyMetaDescription(bodySource)
+    if (fromBody) return { source: bodySource, description: fromBody, kind: 'body' }
+    if (story.metaSource !== 'body') {
+      // No body text that cuts cleanly: whole sentences of the summary written before any "…" cut.
+      const truncated = /(?:\u2026|\.\.\.)\s*$/u.test(summaryPlain)
+      let summarySource = PrerenderPages.finishedSummary(story.summary)
+      if (truncated) {
+        const whole = PrerenderPages.splitSentences(summarySource).filter((x) => PrerenderPages.endsWithSentence(x))
+        summarySource = whole.slice(0, -1).join(' ')
+      }
+      const opts = { clause: !truncated }
+      const fromSummary = PrerenderPages.storyMetaDescription(summarySource, PrerenderPages.META_MAX, opts)
+      if (fromSummary) return { source: summarySource, description: fromSummary, opts, kind: 'summary' }
+    }
     const opts = { nextSentence: true }
-    return { source: bodySource, description: PrerenderPages.storyMetaDescription(bodySource, PrerenderPages.META_MAX, opts), opts }
+    return { source: bodySource, description: PrerenderPages.storyMetaDescription(bodySource, PrerenderPages.META_MAX, opts), opts, kind: 'body' }
   }
+
 
   static storyDescription(story) {
     return PrerenderPages.storyDescriptionChoice(story).description
@@ -1011,6 +1073,7 @@ class PrerenderPages {
       figure: body.figure && typeof body.figure === 'object' ? body.figure : null,
       archaeological: PrerenderPages.isArchaeological(body),
       glance: body.glance && typeof body.glance === 'object' ? body.glance : null,
+      metaSource: body.metaSource === 'body' || body.metaSource === 'summary' ? body.metaSource : '',
     }
   }
 

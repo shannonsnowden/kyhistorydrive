@@ -2,7 +2,8 @@
 /**
  * Every story meta description is at most 155 characters, follows the prerender rule,
  * and matches the built page. Unfinished metas (no ending punctuation, an ellipsis, or
- * over 155 characters) are listed. Warn-only for now: KY History is rewriting the cut-off
+ * over 155 characters) are listed, and so are metas that don't name the story's subject and a
+ * place (title and place fields). Counts show how many use the summary vs the body. Warn-only for now: KY History is rewriting the cut-off
  * summaries. Set META_CHECK=strict (or pass --strict) to fail the build on any unfinished meta.
  */
 import fs from 'node:fs'
@@ -15,6 +16,8 @@ const dist = path.join(root, 'dist')
 const stories = PrerenderPages.loadStories(root)
 const problems = []
 const unfinished = []
+const missing = []
+const kinds = { summary: 0, body: 0 }
 const strict = process.env.META_CHECK === 'strict' || process.argv.includes('--strict')
 
 const abbrevSample =
@@ -34,6 +37,14 @@ for (const story of stories) {
     problems.push(err.message)
   }
   if (!PrerenderPages.isFinishedMeta(description)) unfinished.push(`${urlPath} (${description.length}): ${description}`)
+  kinds[choice.kind] = (kinds[choice.kind] || 0) + 1
+  const sp = PrerenderPages.metaSubjectPlace(story, description)
+  if (!sp.subject || !sp.place) {
+    missing.push(`${urlPath} [missing ${[!sp.subject && 'subject', !sp.place && 'place'].filter(Boolean).join('+')}]: ${description}`)
+  }
+  if (choice.kind === 'summary' && !story.metaSource && PrerenderPages.summaryQualifies(story) && (!sp.subject || !sp.place)) {
+    problems.push(`check-story-descriptions: ${urlPath} summary meta does not name subject and place`)
+  }
   const file = path.join(dist, urlPath, 'index.html')
   if (!fs.existsSync(file)) {
     problems.push(`check-story-descriptions: missing ${urlPath}`)
@@ -60,6 +71,12 @@ if (unfinished.length) {
   for (const line of unfinished) say(`  ${line}`)
   if (strict) problems.push(`check-story-descriptions: ${unfinished.length} unfinished meta description(s)`)
 }
+if (missing.length) {
+  const say = strict ? console.error : console.warn
+  say(`check-story-descriptions: ${missing.length} meta description(s) missing subject or place${strict ? '' : ' (warn-only)'}:`)
+  for (const line of missing) say(`  ${line}`)
+  if (strict) problems.push(`check-story-descriptions: ${missing.length} meta description(s) missing subject or place`)
+}
 
 if (problems.length) {
   console.error(problems.slice(0, 30).join('\n'))
@@ -68,5 +85,5 @@ if (problems.length) {
 }
 
 console.log(
-  `check-story-descriptions: ${stories.length} story meta descriptions at most 155 characters; ${stories.length - unfinished.length} finished, ${unfinished.length} unfinished (${strict ? 'strict' : 'warn-only'})`,
+  `check-story-descriptions: ${stories.length} story meta descriptions at most 155 characters; ${kinds.summary} from summary, ${kinds.body} from body; ${stories.length - unfinished.length} finished, ${unfinished.length} unfinished, ${missing.length} missing subject/place (${strict ? 'strict' : 'warn-only'})`,
 )
