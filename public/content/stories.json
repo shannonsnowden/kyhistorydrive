@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-13T10:03:22.380Z",
-  "count": 241,
+  "generatedAt": "2026-10-18T10:50:06.698Z",
+  "count": 238,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-13"
+    "end": "2026-10-14"
   },
   "eras": [
     "early-commonwealth",
@@ -479,22 +479,29 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
     {
-      "slug": "muir-site-15js86",
-      "title": "Muir Site (15Js86)",
-      "publishedDate": "2026-09-15",
-      "summary": "West of Nicholasville on a Jessamine County ridge, Muir is an early Fort Ancient (Osborne phase) hamlet dated roughly A.D. 1000–1200. UK crews dug it in 1985 ahead of the…",
+      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+      "title": "Muir Site: Early Fort Ancient on a Jessamine Ridge",
+      "publishedDate": "2026-09-25",
+      "summary": "In 1985, before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site on a broad upland ridge west of Nicholasville. The Kentucky…",
       "yearStart": 1000,
       "yearEnd": 1200,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
         "kentucky",
-        "archaeology",
-        "frontier-war",
-        "geology"
+        "archaeology"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-15",
+      "briefDate": "2026-09-25",
+      "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null
+      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -565,48 +572,10 @@
       "matchedPlace": "Sassafras Ridge (15Fu3), Fulton County (approximate)"
     },
     {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "title": "Muir Site: Early Fort Ancient on a Jessamine Ridge",
-      "publishedDate": "2026-09-25",
-      "summary": "Before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site (15Js86) on a broad upland ridge west of Nicholasville. Radiocarbon and…",
-      "yearStart": 1010,
-      "yearEnd": 1255,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "bourbon",
-        "archaeology",
-        "frontier-war",
-        "geology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-25",
-      "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      },
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1010,
-        "yearEnd": 1255,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 37.9,
-      "lon": -84.6,
-      "mapConfidence": "override",
-      "matchedPlace": "Muir Site (15Js86)"
-    },
-    {
       "slug": "adams-site-15fu4",
       "title": "Adams Site (15Fu4)",
       "publishedDate": "2026-09-16",
-      "summary": "Near Hickman in Fulton County, on Bayou de Chien toward the Mississippi, the Adams Site is a Mississippian town built over an earlier Late Woodland village. Platform mounds…",
+      "summary": "Near Hickman in Fulton County, on Bayou de Chien, a creek that drains into the nearby Mississippi, the Adams Site (15Fu4) is a Mississippian town of about 7.25 hectares built…",
       "yearStart": 1100,
       "yearEnd": 1500,
       "era": "prehistoric",
@@ -618,37 +587,9 @@
       "source": "ky-history",
       "briefDate": "2026-09-16",
       "county": "Fulton",
-      "territory": {
-        "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
-        "nation": "Mississippian, western Kentucky (archaeological culture)",
-        "yearStart": 1100,
-        "yearEnd": 1500,
-        "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
-      },
-      "lat": 36.5,
-      "lon": -89.2,
-      "mapConfidence": "override",
-      "matchedPlace": "Adams Site (15Fu4)"
-    },
-    {
-      "slug": "adams-site-mississippian-town-near-hickman",
-      "title": "Adams Site Mississippian town near Hickman",
-      "publishedDate": "2026-09-21",
-      "summary": "Adams (15Fu4) on Bayou de Chien in Fulton County is a roughly 7-hectare Mississippian center with platform mounds and plazas built over an earlier Late Woodland village.…",
-      "yearStart": 1100,
-      "yearEnd": 1500,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-21",
-      "county": "Fulton",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -663,7 +604,7 @@
       },
       "lat": 36.5,
       "lon": -89.2,
-      "mapConfidence": "fuzzy",
+      "mapConfidence": "override",
       "matchedPlace": "Adams Site (15Fu4)"
     },
     {
@@ -817,54 +758,24 @@
       "matchedPlace": "Buckner Site (15Bb12)"
     },
     {
-      "slug": "cleek-mccabe-fort-ancient-village",
-      "title": "Cleek-McCabe Fort Ancient village",
-      "publishedDate": "2026-09-10",
-      "summary": "On Mud Lick Creek’s floodplain in Boone County (near Walton), Cleek-McCabe was a thirteenth-century Fort Ancient farming town: a ~100-foot midden ring around a ~200-foot plaza,…",
-      "yearStart": 1200,
-      "yearEnd": 1300,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-10",
-      "territory": {
-        "ref": "/data/web/territories/fort-ancient-farming-villages.json",
-        "nation": "Fort Ancient (archaeological culture)",
-        "yearStart": 1200,
-        "yearEnd": 1300,
-        "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
-      },
-      "lat": 39,
-      "lon": -84.7,
-      "mapConfidence": "exact",
-      "matchedPlace": "Cleek-McCabe Fort Ancient Village"
-    },
-    {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "title": "Cleek-McCabe: A Circular Fort Ancient Village in Boone County",
       "publishedDate": "2026-09-25",
-      "summary": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a ~100-foot-wide midden ring around a ~200-foot plaza, with low burial…",
+      "summary": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a about…",
       "yearStart": 1200,
       "yearEnd": 1300,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
         "kentucky",
-        "archaeology",
-        "frontier-war",
-        "salt"
+        "archaeology"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-25",
+      "county": "Boone",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -1051,6 +962,36 @@
       "lon": -89.1,
       "mapConfidence": "override",
       "matchedPlace": "Twin Mounds Site (15Ba2 / Nolan)"
+    },
+    {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "title": "Chambers Site (15Ml109): an upland Mississippian village",
+      "publishedDate": "2026-10-14",
+      "summary": "On a Marshall County ridgetop above the Middle Fork of Clarks River, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
+      "yearStart": 1250,
+      "yearEnd": 1350,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "mississippian",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "Marshall",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+        "year": 2012
+      },
+      "lat": 36.9,
+      "lon": -88.3,
+      "mapConfidence": "override",
+      "matchedPlace": "Chambers Site (15Ml109), Marshall County (approximate)"
     },
     {
       "slug": "annis-mound-village",
@@ -1260,12 +1201,12 @@
       "matchedPlace": "Hardin Village Fort Ancient"
     },
     {
-      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
-      "title": "Erie — the Cat Nation cleared from the lake shore",
-      "publishedDate": "2026-09-24",
-      "summary": "The Erie (Erielhénon, “people of the long tail”), called la Nation du Chat by the French, were an Iroquoian people of fortified maize villages along southern Lake Erie. In the…",
-      "yearStart": 1654,
-      "yearEnd": 1656,
+      "slug": "iroquois-beaver-wars",
+      "title": "Iroquois Beaver Wars",
+      "publishedDate": "2026-08-27",
+      "summary": "In the 1600s the Haudenosaunee (Six Nations) fought wars across the Great Lakes and Ohio Valley, and later used them to claim rights over Kentucky.",
+      "yearStart": 1640,
+      "yearEnd": 1768,
       "era": "native",
       "tags": [
         "native",
@@ -1274,14 +1215,11 @@
         "frontier-war"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-24",
-      "photo": {
-        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
-        "title": "Erie / Cat Nation territory (historical map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
+      "briefDate": "2026-08-27",
+      "territory": {
+        "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
+        "nation": "Six Nations (Haudenosaunee)",
+        "presenceLabel": "Conquest claim, no mapped area"
       },
       "lat": null,
       "lon": null,
@@ -1292,9 +1230,9 @@
       "slug": "erie-the-cat-nation",
       "title": "Erie, the Cat Nation",
       "publishedDate": "2026-09-11",
-      "summary": "South of Lake Erie, the Eriehronon—“People of the Long Tail,” called La Nation du Chat by the French—farmed and traded until Haudenosaunee armies smashed their confederacy in…",
+      "summary": "The Erie were an Iroquoian people whose homeland lay south of Lake Erie. The Haudenosaunee dispersed them around 1654–57.",
       "yearStart": 1654,
-      "yearEnd": 1656,
+      "yearEnd": 1657,
       "era": "native",
       "tags": [
         "native",
@@ -1561,28 +1499,6 @@
       "matchedPlace": "Lincoln County (centroid)"
     },
     {
-      "slug": "hugh-mcgary-the-hothead-major",
-      "title": "Hugh McGary, the hothead major",
-      "publishedDate": "2026-09-11",
-      "summary": "Irish-born Hugh McGary (1744–1806) came through the Gap with early Kentucky families, settled near Harrodsburg, and built McGary’s Station at Shawnee Springs in Mercer County…",
-      "yearStart": 1744,
-      "yearEnd": 1806,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war",
-        "salt"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-11",
-      "lat": 37.778,
-      "lon": -84.83079,
-      "mapConfidence": "county",
-      "matchedPlace": "Mercer County (centroid)"
-    },
-    {
       "slug": "michael-stoner-german-long-hunter",
       "title": "Michael Stoner, German long hunter",
       "publishedDate": "2026-09-10",
@@ -1843,8 +1759,8 @@
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
         "year": 1851
       },
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
@@ -1886,8 +1802,8 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
-      "lat": 37.93955,
-      "lon": -83.9975333,
+      "lat": 37.9,
+      "lon": -84,
       "mapConfidence": "fuzzy",
       "matchedPlace": "John Finley"
     },
@@ -2569,6 +2485,37 @@
       "matchedPlace": "William Whitley / Sportsman's Hill"
     },
     {
+      "slug": "hugh-mcgary-the-blue-licks-hothead",
+      "title": "Hugh McGary, the Blue Licks Hothead",
+      "publishedDate": "2026-09-25",
+      "summary": "Irish-born Hugh McGary (1744–1806) brought his family to Kentucky in 1775 with Daniel Boone's party and settled near Fort Harrod. Around 1779 he and his stepson James Ray built…",
+      "yearStart": 1775,
+      "yearEnd": 1786,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-09-25",
+      "county": "Mercer",
+      "photo": {
+        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
+        "title": "Blue Licks Battlefield monument",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null,
+        "fit": "contain"
+      },
+      "lat": 37.805,
+      "lon": -84.831,
+      "mapConfidence": "override",
+      "matchedPlace": "McGary's Station / Shawnee Springs"
+    },
+    {
       "slug": "levi-todd-lexington-co-founder",
       "title": "Levi Todd, Lexington Co-Founder",
       "publishedDate": "2026-09-30",
@@ -2803,18 +2750,18 @@
       "slug": "springfield-founding-and-washington-county-seat",
       "title": "Springfield Founding and Washington County Seat",
       "publishedDate": "2026-09-22",
-      "summary": "Washington County was the first county the new Kentucky legislature created after 1792 statehood, named for George Washington. In 1793 a site near the old Wilderness Trace was…",
+      "summary": "Washington County was the first county formed by the first Kentucky General Assembly in 1792, and it was named for George Washington. Springfield, its seat, was laid off in…",
       "yearStart": 1776,
-      "yearEnd": 1793,
+      "yearEnd": 1816,
       "era": "frontier",
       "tags": [
         "frontier",
         "kentucky",
-        "frontier-war",
         "town-founding"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-22",
+      "county": "Washington",
       "photo": {
         "image_url": "/content/photos/stories/springfield-founding-and-washington-county-seat.jpg",
         "title": "Washington County Courthouse, Springfield",
@@ -2827,27 +2774,6 @@
       "lon": -85.2221819,
       "mapConfidence": "override",
       "matchedPlace": "Springfield / Washington County seat"
-    },
-    {
-      "slug": "springfield-first-county-seat-after-statehood",
-      "title": "Springfield, first county seat after statehood",
-      "publishedDate": "2026-09-12",
-      "summary": "Washington County was the first county the new Kentucky Assembly created (June 1792), carved wholly from Nelson and named for George Washington. Gen. Matthew Walton—Virginia…",
-      "yearStart": 1776,
-      "yearEnd": 1816,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "frontier-war",
-        "town-founding"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-12",
-      "lat": 37.6853,
-      "lon": -85.2222,
-      "mapConfidence": "override",
-      "matchedPlace": "Springfield"
     },
     {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
@@ -3005,7 +2931,7 @@
         "nation": "Illinois Confederation (Kaskaskia, Cahokia)",
         "yearStart": 1778,
         "yearEnd": 1803,
-        "presenceLabel": "Illinois (Illiniwek) town or declared claim in this area"
+        "presenceLabel": "Illinois (Illiniwek) towns and 1803 claim (regional context; none in Kentucky)"
       },
       "lat": null,
       "lon": null,
@@ -3115,37 +3041,6 @@
       "matchedPlace": "Worthington's Fort (Edward Worthington)"
     },
     {
-      "slug": "hugh-mcgary-the-blue-licks-hothead",
-      "title": "Hugh McGary, the Blue Licks Hothead",
-      "publishedDate": "2026-09-25",
-      "summary": "Irish-born Hugh McGary (1744–1806) came into Kentucky in 1775 with Boone's party, settled near Fort Harrod, and built McGary's Station around 1779 at Shawnee Springs in today's…",
-      "yearStart": 1779,
-      "yearEnd": 1782,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-25",
-      "county": "Mercer",
-      "photo": {
-        "image_url": "/content/photos/stories/hugh-mcgary-the-blue-licks-hothead.jpg",
-        "title": "Blue Licks Battlefield monument",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null,
-        "fit": "contain"
-      },
-      "lat": 37.805,
-      "lon": -84.831,
-      "mapConfidence": "override",
-      "matchedPlace": "McGary's Station / Shawnee Springs"
-    },
-    {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "title": "Isaac Ruddell and the Guns at Ruddell’s Station",
       "publishedDate": "2026-09-22",
@@ -3235,12 +3130,12 @@
       "briefDate": "2026-10-12",
       "county": "Scott",
       "photo": {
-        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
-        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station--topic.jpg",
+        "title": "North Fork of Elkhorn Creek at Georgetown (photographed 2008); Johnson's Station stood at the creek's bison ford, Great Crossing, about three miles west",
+        "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2008
       },
       "lat": 38.21444444,
       "lon": -84.60527778,
@@ -3371,43 +3266,21 @@
       "matchedPlace": "Isaac Shelby"
     },
     {
-      "slug": "lawrenceburg-from-kaufmans-station",
-      "title": "Lawrenceburg from Kaufman’s Station",
-      "publishedDate": "2026-09-14",
-      "summary": "German immigrant Jacob Kaufman planted a frontier outpost about 1780 that locals called Kaufman’s or Coffman’s Station, a few miles west of the Kentucky River in what is now…",
-      "yearStart": 1780,
-      "yearEnd": 1827,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "bourbon",
-        "frontier-war",
-        "town-founding"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-14",
-      "lat": 38.02186,
-      "lon": -84.89316,
-      "mapConfidence": "county",
-      "matchedPlace": "Anderson County (centroid)"
-    },
-    {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
       "title": "Lawrenceburg: from Kaufman's Station to Anderson County seat",
       "publishedDate": "2026-09-21",
-      "summary": "German immigrant Jacob Kaufman settled the site in the early 1780s as Kaufman's (Coffman's) Station. A post office opened in 1817 for tavern-keeper William Lawrence; Franklin County…",
+      "summary": "German immigrant Jacob Kaufman settled the site about 1780, roughly three miles west of the Kentucky River, and it was known as Kaufman's (or Coffman's) Station. A post office…",
       "yearStart": 1780,
       "yearEnd": 1827,
       "era": "frontier",
       "tags": [
         "frontier",
         "kentucky",
-        "frontier-war",
         "town-founding"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-21",
+      "county": "Anderson",
       "photo": {
         "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
         "title": "Anderson County Courthouse, Lawrenceburg",
@@ -3734,6 +3607,35 @@
       "matchedPlace": "Holder's Station / Lower Howard's Creek"
     },
     {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "title": "Hartford: Fort Hartford on the Rough River",
+      "publishedDate": "2026-10-14",
+      "summary": "Settled by about 1782 at a ford on the Rough River, Hartford grew from a frontier fort on Gabriel Madison’s Virginia grant into the seat of Ohio County in 1799 and was incorporated in 1808.",
+      "yearStart": 1782,
+      "yearEnd": 1808,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "Ohio",
+      "photo": {
+        "image_url": "/content/photos/stories/hartford-fort-hartford-on-the-rough-river.jpg",
+        "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
+      },
+      "lat": 37.4524,
+      "lon": -86.9105,
+      "mapConfidence": "override",
+      "matchedPlace": "Hartford / Fort Hartford (Rough River)"
+    },
+    {
       "slug": "wyandot-on-kentuckys-northern-frontier",
       "title": "Wyandot on Kentucky’s northern frontier",
       "publishedDate": "2026-09-14",
@@ -3780,17 +3682,18 @@
       "source": "ky-history",
       "briefDate": "2026-10-13",
       "county": "Woodford",
+      "photo": {
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
+      },
       "lat": 38.066667,
       "lon": -84.686944,
       "mapConfidence": "override",
-      "matchedPlace": "Buck Pond / Col. Thomas Marshall",
-      "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
-        "title": "John Marshall",
-        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
-      }
+      "matchedPlace": "Buck Pond / Col. Thomas Marshall"
     },
     {
       "slug": "harry-innes",
@@ -3962,6 +3865,37 @@
       "matchedPlace": "Henderson / Red Banks"
     },
     {
+      "slug": "treaty-of-fort-mcintosh-1785",
+      "title": "Treaty of Fort McIntosh, 1785",
+      "publishedDate": "2026-10-14",
+      "summary": "At Fort McIntosh in January 1785, U.S. commissioners including George Rogers Clark drew a reservation line through the Ohio Country with Wyandot, Delaware, Ojibwe and Odawa leaders. The Shawnee, left out but placed on the American side of the line, rejected it.",
+      "yearStart": 1785,
+      "yearEnd": 1785,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "treaty",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-fort-mcintosh-1785.jpg",
+        "title": "Looking east across the site of Fort McIntosh, Beaver, Pennsylvania (photographed 2009)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_McIntosh_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2009
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "washington-mason-county",
       "title": "Washington, Mason County",
       "publishedDate": "2026-10-03",
@@ -4036,9 +3970,10 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-10-13",
+      "county": "",
       "photo": {
         "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
-        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
@@ -5469,7 +5404,7 @@
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
       "publishedDate": "2026-08-27",
-      "summary": "Stub topic from the Aug 27 brief rotation: Catherine Spears Carpenter’s 1818 Casey County sweet-mash and sour-mash recipes — among the earliest written whiskey formulas in…",
+      "summary": "An 1818 sheet in Casey County's Carpenter Family Papers holds two handwritten whiskey recipes, one sweet mash and one sour mash, among Kentucky's earliest.",
       "yearStart": 1818,
       "yearEnd": 1818,
       "era": "early-commonwealth",
@@ -5909,7 +5844,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2012
+        "year": 2012,
+        "fit": "contain"
       },
       "lat": 38.256389,
       "lon": -85.7525,
@@ -6075,6 +6011,36 @@
       "matchedPlace": "Cumberland Falls"
     },
     {
+      "slug": "yahoo-falls-big-south-fork",
+      "title": "Yahoo Falls: Kentucky’s tallest waterfall",
+      "publishedDate": "2026-10-14",
+      "summary": "In McCreary County’s Big South Fork, Yahoo Falls drops about 113 feet into a deep rock house. The Forest Service opened it to visitors in the 1960s, and the National Park Service has managed it since 1987.",
+      "yearStart": 1937,
+      "yearEnd": 1987,
+      "era": "modern",
+      "tags": [
+        "modern",
+        "kentucky",
+        "geology",
+        "parks"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-14",
+      "county": "McCreary",
+      "photo": {
+        "image_url": "/content/photos/stories/yahoo-falls-big-south-fork.jpg",
+        "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mason Brock · Wikimedia Commons · public domain",
+        "year": 2008
+      },
+      "lat": 36.769,
+      "lon": -84.51056,
+      "mapConfidence": "override",
+      "matchedPlace": "Yahoo Falls, Big South Fork (McCreary County)"
+    },
+    {
       "slug": "carter-caves-cascade-falls",
       "title": "Carter Caves & Cascade Falls",
       "publishedDate": "2026-09-13",
@@ -6130,7 +6096,7 @@
       "slug": "big-bone-lick-older-cycle",
       "title": "Big Bone Lick (older cycle)",
       "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Big Bone Lick in Boone County — Pleistocene fossils and a long Native and colonial salt-and-curiosity site (older brief cycle).",
+      "summary": "Big Bone Lick's salt springs held Ice Age bones. In 1807 William Clark dug there, counted as the first organized vertebrate fossil excavation in the U.S.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",
@@ -6149,33 +6115,6 @@
       "lon": -84.775606,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Big Bone Lick"
-    },
-    {
-      "slug": "iroquois-beaver-wars",
-      "title": "Iroquois Beaver Wars",
-      "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Iroquois Beaver Wars pressure, Shawnee hunting ground use, and the “middle ground” depopulation story that reshaped the Ohio Valley before Anglo stations.",
-      "yearStart": null,
-      "yearEnd": null,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-08-27",
-      "county": "",
-      "territory": {
-        "ref": "/data/web/territories/six-nations-fort-stanwix-line-of-property.json",
-        "nation": "Six Nations (Haudenosaunee)",
-        "presenceLabel": "Conquest claim, no mapped area"
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
     },
     {
       "slug": "kentucky-river-palisades",
@@ -6203,7 +6142,7 @@
       "slug": "lexington-named",
       "title": "Lexington named",
       "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Lexington named / Harrod’s Town pairing (cross-reference briefs 08-13 and 08-15).",
+      "summary": "In early June 1775, William McConnell's party camped at a spring on Elkhorn Creek. They named it Lexington after the April battle in Massachusetts.",
       "yearStart": null,
       "yearEnd": null,
       "era": "other",
@@ -6263,7 +6202,7 @@
       "slug": "osage-memory-of-the-ohio-valley",
       "title": "Osage Memory of the Ohio Valley",
       "publishedDate": "2026-09-26",
-      "summary": "The Osage (Wah-zha-zhe; Ni-U-Ko'n-Ska, \"Children of the Middle Waters\") are a Dhegiha Siouan people whose oral tradition and Nation Historic Preservation scholarship place…",
+      "summary": "Osage Nation oral tradition traces the Osage and other Dhegiha Siouan peoples to an ancestral homeland in the Ohio Valley.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",
@@ -6288,7 +6227,7 @@
         "nation": "Osage (Wazhazhe, Ni-U-Kon-Ska)",
         "yearStart": 1673,
         "yearEnd": 1823,
-        "presenceLabel": "Osage villages in Missouri (nothing drawn in Kentucky)",
+        "presenceLabel": "Osage Nation oral tradition: Ohio Valley homeland (villages drawn in Missouri; nothing in Kentucky)",
         "yearText": "c.1673 to c.1823"
       },
       "lat": null,
@@ -6300,7 +6239,7 @@
       "slug": "potawatomi-fire-keepers-and-the-ohio-valley-wars",
       "title": "Potawatomi fire-keepers and the Ohio Valley wars",
       "publishedDate": "2026-09-27",
-      "summary": "The Potawatomi (Bodéwadmi, \"keepers of the fire\") were the youngest sibling of the Anishinaabe Council of Three Fires. In the Beaver Wars they fought as French-allied…",
+      "summary": "The Potawatomi (Bodéwadmi, \"keepers of the fire\") are an Anishinaabe people of the western Great Lakes, part of the Council of Three Fires with the Ojibwe and Odawa.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",
@@ -6417,14 +6356,6 @@
         "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2007
       },
-      "territory": {
-        "ref": "/data/web/territories/susquehannock-lower-susquehanna-and-conestoga.json",
-        "nation": "Susquehannock (Conestoga)",
-        "yearStart": 1550,
-        "yearEnd": 1763,
-        "presenceLabel": "Susquehannock or Conestoga village in this area",
-        "approxStart": true
-      },
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -6498,7 +6429,7 @@
       "slug": "yuchi-on-the-green-river-maps",
       "title": "Yuchi on the Green River maps",
       "publishedDate": "2026-09-05",
-      "summary": "John R. Swanton's federal tribal handbook notes that early colonial maps place a Yuchi (Euchee) town on a Kentucky river matching the Green. The Yuchi were a language-isolate…",
+      "summary": "John R. Swanton's 1953 handbook of North American tribes reports that some early maps placed a Yuchi town on a Kentucky river that appears to be the Green.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-13T10:03:29.173Z",
+  "generatedAt": "2026-10-14T09:59:10.591Z",
   "bySlug": {
-    "adams-site-mississippian-town-near-hickman": {
-      "slug": "adams-site-mississippian-town-near-hickman",
+    "adams-site-15fu4": {
+      "slug": "adams-site-15fu4",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -200,12 +200,12 @@
       "slug": "capt-robert-johnson-and-big-crossing-station",
       "historyId": "great-crossing-scott-1783-1815",
       "photo": {
-        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
-        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station--topic.jpg",
+        "title": "North Fork of Elkhorn Creek at Georgetown (photographed 2008); Johnson's Station stood at the creek's bison ford, Great Crossing, about three miles west",
+        "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2008
       }
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
@@ -245,6 +245,18 @@
         "year": 2013
       }
     },
+    "chambers-site-15ml109-marshall-county": {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "historyId": "chambers-site-15ml109-marshall-1250-1350",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+        "year": 2012
+      }
+    },
     "chickamauga-cherokee-hold-the-southern-flank": {
       "slug": "chickamauga-cherokee-hold-the-southern-flank",
       "historyId": null,
@@ -265,7 +277,7 @@
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -313,11 +325,12 @@
       "slug": "col-thomas-marshall-at-buck-pond",
       "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
-        "title": "John Marshall",
-        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
       }
     },
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
@@ -429,18 +442,6 @@
         "year": 2020
       }
     },
-    "erie-the-cat-nation-cleared-from-the-lake-shore": {
-      "slug": "erie-the-cat-nation-cleared-from-the-lake-shore",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
-        "title": "Erie / Cat Nation territory (historical map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
-      }
-    },
     "erie-the-cat-nation": {
       "slug": "erie-the-cat-nation",
       "historyId": null,
@@ -534,7 +535,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2012
+        "year": 2012,
+        "fit": "contain"
       }
     },
     "harry-innes": {
@@ -547,6 +549,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
+      }
+    },
+    "hartford-fort-hartford-on-the-rough-river": {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "historyId": "hartford-fort-hartford-ohio-1782-1808",
+      "photo": {
+        "image_url": "/content/photos/stories/hartford-fort-hartford-on-the-rough-river.jpg",
+        "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
       }
     },
     "henry-mckennas-fairfield-sour-mash": {
@@ -895,7 +909,7 @@
       "historyId": null,
       "photo": {
         "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
-        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021); no portrait of Moluntha is known",
+        "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
@@ -919,7 +933,7 @@
       "historyId": "muir-site-15js86-jessamine-county",
       "photo": {
         "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -1349,6 +1363,18 @@
         "year": null
       }
     },
+    "treaty-of-fort-mcintosh-1785": {
+      "slug": "treaty-of-fort-mcintosh-1785",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-fort-mcintosh-1785.jpg",
+        "title": "Looking east across the site of Fort McIntosh, Beaver, Pennsylvania (photographed 2009)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_McIntosh_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2009
+      }
+    },
     "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
       "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
       "historyId": null,
@@ -1433,6 +1459,18 @@
         "year": null
       }
     },
+    "yahoo-falls-big-south-fork": {
+      "slug": "yahoo-falls-big-south-fork",
+      "historyId": "yahoo-falls-mccreary-1937-1987",
+      "photo": {
+        "image_url": "/content/photos/stories/yahoo-falls-big-south-fork.jpg",
+        "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mason Brock · Wikimedia Commons · public domain",
+        "year": 2008
+      }
+    },
     "yellow-banks-becomes-owensboro": {
       "slug": "yellow-banks-becomes-owensboro",
       "historyId": "owensboro-founding-yellow-banks",
@@ -1448,11 +1486,11 @@
   },
   "byHistoryId": {
     "adams-site-15fu4-mississippian-fulton-county": {
-      "slug": "adams-site-mississippian-town-near-hickman",
+      "slug": "adams-site-15fu4",
       "historyId": "adams-site-15fu4-mississippian-fulton-county",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-mississippian-town-near-hickman.jpg",
-        "title": "Hickman Carnegie Library, Fulton County",
+        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
+        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -1634,12 +1672,12 @@
       "slug": "capt-robert-johnson-and-big-crossing-station",
       "historyId": "great-crossing-scott-1783-1815",
       "photo": {
-        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station.jpg",
-        "title": "Downtown Georgetown (photographed 2007), a few miles east of Great Crossing; no historic image of Big Crossing Station is known",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Georgetown_Kentucky.JPG",
+        "image_url": "/content/photos/stories/capt-robert-johnson-and-big-crossing-station--topic.jpg",
+        "title": "North Fork of Elkhorn Creek at Georgetown (photographed 2008); Johnson's Station stood at the creek's bison ford, Great Crossing, about three miles west",
+        "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2007
+        "year": 2008
       }
     },
     "hubbell-flatboat-fight-limestone-1791": {
@@ -1679,12 +1717,24 @@
         "year": 2013
       }
     },
+    "chambers-site-15ml109-marshall-1250-1350": {
+      "slug": "chambers-site-15ml109-marshall-county",
+      "historyId": "chambers-site-15ml109-marshall-1250-1350",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
+        "year": 2012
+      }
+    },
     "cleek-mccabe-fort-ancient-village-boone-county": {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Boone County Courthouse, Burlington",
+        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -1732,11 +1782,12 @@
       "slug": "col-thomas-marshall-at-buck-pond",
       "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
       "photo": {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/John_Marshall_by_Henry_Inman%2C_1832.jpg",
-        "title": "John Marshall",
-        "source_url": "https://en.wikipedia.org/wiki/John_Marshall",
-        "source_label": "Wikipedia",
-        "attribution": "Wikipedia"
+        "image_url": "/content/photos/stories/col-thomas-marshall-at-buck-pond--topic.jpg",
+        "title": "Buck Pond historical marker at Paynes Mill Road and Lexington Road (US 60), east of Versailles, Woodford County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2008
       }
     },
     "daniel-trabue-house-columbia-adair-1778-1840": {
@@ -1892,7 +1943,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:J.T.S._Brown_and_Son%27s_Complex.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2012
+        "year": 2012,
+        "fit": "contain"
       }
     },
     "harry-innes-frankfort-1783-1816": {
@@ -1905,6 +1957,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Sydney Poore & Russell Poore · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
+      }
+    },
+    "hartford-fort-hartford-ohio-1782-1808": {
+      "slug": "hartford-fort-hartford-on-the-rough-river",
+      "historyId": "hartford-fort-hartford-ohio-1782-1808",
+      "photo": {
+        "image_url": "/content/photos/stories/hartford-fort-hartford-on-the-rough-river.jpg",
+        "title": "Ohio County Courthouse on the square in Hartford (photographed 2013)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ohio_County_Courthouse%2C_Hartford.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": 2013
       }
     },
     "hidden-river-cave-horse-cave-1890-1943": {
@@ -2203,7 +2267,7 @@
       "historyId": "muir-site-15js86-jessamine-county",
       "photo": {
         "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Main Street, Nicholasville",
+        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -2594,6 +2658,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2017
+      }
+    },
+    "yahoo-falls-mccreary-1937-1987": {
+      "slug": "yahoo-falls-big-south-fork",
+      "historyId": "yahoo-falls-mccreary-1937-1987",
+      "photo": {
+        "image_url": "/content/photos/stories/yahoo-falls-big-south-fork.jpg",
+        "title": "Yahoo Falls, Big South Fork, McCreary County (photographed 2008)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mason Brock · Wikimedia Commons · public domain",
+        "year": 2008
       }
     }
   }

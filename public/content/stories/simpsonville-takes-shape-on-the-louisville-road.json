@@ -21,6 +21,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Bank_of_Simpsonville,_KY_1902.JPG",
     "source_label": "Wikimedia Commons",
     "attribution": "Publichall · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 1902
+    "year": 1902,
+    "fit": "contain"
   }
 }

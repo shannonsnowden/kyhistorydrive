@@ -21,6 +21,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Wikimedia Commons",
-    "year": null
+    "year": null,
+    "fit": "contain"
   }
 }

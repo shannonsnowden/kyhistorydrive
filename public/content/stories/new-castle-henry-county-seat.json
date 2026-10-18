@@ -20,6 +20,7 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Henry_County,_Kentucky_courthouse.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
-    "year": null
+    "year": null,
+    "fit": "contain"
   }
 }
