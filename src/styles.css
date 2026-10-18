@@ -5640,6 +5640,16 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .timeline-layout.is-home-story .timeline-map-head button { display: none; }
   .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
 }
+/* Phones (<=560px): the docked map is not sticky. It sits on top, shorter, and scrolls away
+   with the page, so the story card never slides under it (Chiggerville / iPhone bug). */
+@media (max-width: 560px) {
+  .timeline-layout.is-home-story .timeline-map-pane {
+    position: relative;
+    top: auto;
+    z-index: auto;
+    height: 32vh;
+  }
+}
 
 /* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
    caption above); the 'no known likeness exists' note stays on its own unbroken line. */
@@ -5704,3 +5714,18 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 .story-figure figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.4; color: var(--muted); }
 .story-figure-credit { display: block; margin-top: 0.2rem; font-weight: 600; }
 @container (max-width: 559.98px) { .story-figure { float: none; width: min(360px, 100%); margin: 0.85rem auto 1rem; } }
+
+/* Photos sidebar with source links but no thumbnail: just the links, no trailing divider. */
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+
+/* "Find photos" box: each source is a full-width 44px tap row; no shadow, a little space above. */
+.story-sidebar-photo.is-links-only { margin-top: 0.75rem; box-shadow: none; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links { display: block; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links > span[aria-hidden] { display: none; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links a {
+  display: flex; align-items: center; width: 100%; min-height: 44px; font-size: 0.8rem;
+}
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links a + a { border-top: 1px solid var(--line); }
+@media (max-width: 600px) {
+  .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo.is-links-only { margin-top: 0.75rem; }
+}

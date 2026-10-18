@@ -1,0 +1,112 @@
+{
+  "slug": "chambers-site-15ml109-marshall-county",
+  "storySlug": "chambers-site-15ml109-marshall-county",
+  "title": "Research notes: Chambers Site (15Ml109)",
+  "updated": "2026-10-14",
+  "summary": "Sources for the upland Mississippian village at Chambers, Marshall County. Pin generalized to 0.1° at the county center; occupation years from radiocarbon dates, not the 1980s excavation.",
+  "sections": [
+    {
+      "heading": "Site",
+      "items": [
+        {
+          "text": "Large village on a ridgetop above the Middle Fork of Clarks River; 6 ha; stone-box cemetery reported in the southwest part.",
+          "sources": [
+            "upd"
+          ]
+        },
+        {
+          "text": "Found in a bridge-replacement borrow pit in the mid-1980s; Pollack and Railey 1987 report.",
+          "sources": [
+            "upd"
+          ]
+        },
+        {
+          "text": "Calibrated radiocarbon dates suggest occupation AD 1250–1350; Angelly phase by its handles.",
+          "sources": [
+            "upd"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Findings",
+      "items": [
+        {
+          "text": "Two wall-trench houses (5 × 6.4 m; 6 × 8 m), trash area 10 × 16 m, over 1 m of deposits with prepared floors and midden.",
+          "sources": [
+            "upd"
+          ]
+        },
+        {
+          "text": "Terrace/bench interpretation (Pollack and Railey) vs. edge of a platform mound (Clay 1997).",
+          "sources": [
+            "upd"
+          ]
+        },
+        {
+          "text": "Maize, nutshell, maygrass; less fish (5%) than river sites, no migratory birds; Dover and Mill Creek chert hoes.",
+          "sources": [
+            "upd"
+          ]
+        },
+        {
+          "text": "Pans 17% vs. 6% at Adams; bowls 16% vs. 37%.",
+          "sources": [
+            "upd"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cut",
+      "items": [
+        {
+          "text": "Deer hunting (in the brief) is not stated in the source pages read, so it was cut.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1250,
+      "event": "Occupation begins (approximate, radiocarbon).",
+      "sources": [
+        "upd"
+      ]
+    },
+    {
+      "year": 1350,
+      "event": "Occupation ends (approximate).",
+      "sources": [
+        "upd"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "David Pollack",
+      "role": "Archaeologist, 1987 report"
+    },
+    {
+      "name": "Jimmy A. Railey",
+      "role": "Archaeologist, 1987 report"
+    },
+    {
+      "name": "R. Berle Clay",
+      "role": "Archaeologist, mound interpretation (1997)"
+    }
+  ],
+  "openQuestions": [
+    "Whether the prepared floors are the edge of a platform mound."
+  ],
+  "sources": [
+    {
+      "id": "upd",
+      "citation": "David Pollack, ed., The Archaeology of Kentucky: An Update, vol. 2 (Kentucky Heritage Council, 2008), Mississippi Period chapter, pp. 629–633.",
+      "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol2.pdf",
+      "type": "secondary",
+      "accessed": "2026-10-14"
+    }
+  ]
+}
