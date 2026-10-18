@@ -5918,15 +5918,18 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .timeline-layout.is-home-story .timeline-map-head button { display: none; }
   .timeline-layout.is-home-story #timelineMapCanvas { min-height: 0; flex: 1; }
 }
-/* Phones (<=560px): the docked map is not sticky. It sits on top, shorter, and scrolls away
-   with the page, so the story card never slides under it (Chiggerville / iPhone bug). */
-@media (max-width: 560px) {
+/* Phones and tablets (<=900px): the docked map is not sticky. It sits on top and scrolls away
+   with the page, so the story card never slides under it (Chiggerville / iPhone bug; the
+   561-900px overlap from the #302 design re-check). Phones get a shorter map. */
+@media (max-width: 900px) {
   .timeline-layout.is-home-story .timeline-map-pane {
     position: relative;
     top: auto;
     z-index: auto;
-    height: 32vh;
   }
+}
+@media (max-width: 560px) {
+  .timeline-layout.is-home-story .timeline-map-pane { height: 32vh; }
 }
 
 /* Narrow columns: the portrait caption wraps inside the 180px block (overrides the max-content
@@ -6049,8 +6052,9 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 /* Item 71: inline non-portrait story figure (culture AI illustrations) with a visible note and credit. */
 .story-figure { float: right; clear: right; width: min(360px, 50%); margin: 0.3rem 0 0.75rem 1.2rem; }
 .story-figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; border: 1px solid rgba(120, 110, 95, 0.55); background: var(--chip); }
-.story-figure figcaption { margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.4; color: var(--muted); }
+.story-figure figcaption { margin-top: 0.35rem; font-size: 0.8125rem; line-height: 1.4; color: var(--muted); }
 .story-figure-credit { display: block; margin-top: 0.2rem; font-weight: 600; }
+/* Documented exception (SITE-CHARTER, Portraits and images): landscape 16:9 figures stay min(360px, 100%) under 560px, not the 180-200px portrait block, so the scene stays readable (Critiquito #6 on #288). */
 @container (max-width: 559.98px) { .story-figure { float: none; width: min(360px, 100%); margin: 0.85rem auto 1rem; } }
 
 /* Critiquito #291: the map credit strip follows the theme. */
@@ -6111,4 +6115,23 @@ html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter
 }
 @media (max-width: 600px) {
   .story-glance th[scope="row"] { width: 33%; overflow-wrap: normal; word-break: normal; hyphens: manual; font-size: 0.82rem; }
+}
+
+/* Story lede gap (Critiquito via KY History): at <=900px the lead's 1rem bottom margin stacked on
+   the first paragraph's top margin (the two sit in different grid items, so they never collapse),
+   plus the layout's 16px row gap left about 28-44px where paragraphs use 12px. Drop both so the gap
+   from the lede to the next paragraph equals paragraph spacing, as it already does at >=901px. The
+   photo aside keeps its own spacing via its margin. */
+@media (max-width: 900px) {
+  .static-story .story-intro .story-lead { margin-bottom: 0; }
+  .static-story.story-reader-layout { row-gap: 0; }
+  .static-story.story-reader-layout > .story-sidebar-photo { margin: 1rem 0; }
+}
+
+/* Dark-mode header seal halo: the gold ring faded into the dark header. A cream rim outside the
+   ring lifts it to well over 3:1 against the header. CSS only; the seal artwork and its colors are
+   untouched, so it works with any seal asset. Light mode keeps its navy ring. */
+html:not([data-hp-theme="light"]) .brand-logo,
+html:not([data-hp-theme="light"]) .hp-page .brand-logo {
+  box-shadow: 0 0 0 2px #f6edd8, 0 0 10px 2px rgba(246, 237, 216, 0.28), 0 2px 8px rgba(0, 0, 0, 0.35);
 }
