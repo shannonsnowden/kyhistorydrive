@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-14T09:59:02.633Z",
-  "count": 238,
+  "generatedAt": "2026-10-18T13:09:17.346Z",
+  "count": 239,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-14"
+    "end": "2026-10-18"
   },
   "eras": [
     "early-commonwealth",
@@ -3476,6 +3476,36 @@
       "matchedPlace": "Craig's Station / Travelling Church (Gilbert's Creek)"
     },
     {
+      "slug": "walker-daniel-danvilles-namesake",
+      "title": "Walker Daniel, Danville’s namesake",
+      "publishedDate": "2026-10-18",
+      "summary": "Virginia lawyer Walker Daniel laid out the town at Crow’s Station in 1783, served as the District of Kentucky’s first attorney general, and was killed in 1784; the town was named Danville for him in 1787.",
+      "yearStart": 1781,
+      "yearEnd": 1787,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "town-founding",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-18",
+      "county": "Boyle",
+      "photo": {
+        "image_url": "/content/photos/stories/walker-daniel-danvilles-namesake.jpg",
+        "title": "Constitution Square State Historic Site, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Constitution_Square_State_Historic_Site_-_May_2024_-_Sarah_Stierch.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
+        "year": 2024
+      },
+      "lat": 37.64565,
+      "lon": -84.7707833,
+      "mapConfidence": "override",
+      "matchedPlace": "Walker Daniel marker, Danville (KHS #190)"
+    },
+    {
       "slug": "william-hoy-and-hoys-station",
       "title": "William Hoy and Hoy’s Station",
       "publishedDate": "2026-10-04",
@@ -3508,7 +3538,7 @@
       "slug": "battle-of-blue-licks",
       "title": "Battle of Blue Licks",
       "publishedDate": "2026-08-30",
-      "summary": "On August 19, 1782, about 182 Kentucky militia chasing Captain William Caldwell’s raiders walked into an ambush on a Licking River ridge in today’s Robertson County. Roughly 50…",
+      "summary": "In August 1782 Kentucky militia chasing Caldwell's rangers and their mainly Wyandot and Great Lakes allies were ambushed at Blue Licks; 60 to 77 died.",
       "yearStart": 1782,
       "yearEnd": 1782,
       "era": "native",
@@ -5404,7 +5434,7 @@
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
       "publishedDate": "2026-08-27",
-      "summary": "Stub topic from the Aug 27 brief rotation: Catherine Spears Carpenter’s 1818 Casey County sweet-mash and sour-mash recipes — among the earliest written whiskey formulas in…",
+      "summary": "An 1818 sheet in Casey County's Carpenter Family Papers holds two handwritten whiskey recipes, one sweet mash and one sour mash, among Kentucky's earliest.",
       "yearStart": 1818,
       "yearEnd": 1818,
       "era": "early-commonwealth",
@@ -6096,7 +6126,7 @@
       "slug": "big-bone-lick-older-cycle",
       "title": "Big Bone Lick (older cycle)",
       "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Big Bone Lick in Boone County — Pleistocene fossils and a long Native and colonial salt-and-curiosity site (older brief cycle).",
+      "summary": "Big Bone Lick's salt springs held Ice Age bones. In 1807 William Clark dug there, counted as the first organized vertebrate fossil excavation in the U.S.",
       "yearStart": null,
       "yearEnd": null,
       "era": "native",
@@ -6142,7 +6172,7 @@
       "slug": "lexington-named",
       "title": "Lexington named",
       "publishedDate": "2026-08-27",
-      "summary": "Stub topic: Lexington named / Harrod’s Town pairing (cross-reference briefs 08-13 and 08-15).",
+      "summary": "In early June 1775, William McConnell's party camped at a spring on Elkhorn Creek. They named it Lexington after the April battle in Massachusetts.",
       "yearStart": null,
       "yearEnd": null,
       "era": "other",

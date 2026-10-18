@@ -1,0 +1,103 @@
+{
+  "slug": "walker-daniel-danvilles-namesake",
+  "storySlug": "walker-daniel-danvilles-namesake",
+  "title": "Walker Daniel, Danville’s namesake",
+  "updated": "2026-10-18",
+  "summary": "Virginia lawyer Walker Daniel laid out the town at Crow’s Station in 1783, was the District of Kentucky’s first attorney general and was killed in 1784; Danville was named for him in 1787.",
+  "sections": [
+    {
+      "heading": "Danville's founding",
+      "items": [
+        {
+          "text": "Daniel bought land from John Crow in 1782, laid off a town at Crow's Station in 1783 and gave land for the district court; the 1787 Virginia act named the town Danville for him.",
+          "sources": [
+            "ekh",
+            "khs-190"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Attorney general and death",
+      "items": [
+        {
+          "text": "First attorney general of the District of Kentucky (1783); killed in August 1784 near Bullitt's Lick by a party of about seven warriors, per a Virginia newspaper report.",
+          "sources": [
+            "ekh",
+            "khs-190"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1781",
+      "event": "Arrives in central Kentucky",
+      "sources": [
+        "ekh"
+      ]
+    },
+    {
+      "year": "1783",
+      "event": "District attorney general; lays off town at Crow's Station",
+      "sources": [
+        "ekh"
+      ]
+    },
+    {
+      "year": "1784",
+      "event": "Killed near Bullitt's Lick",
+      "sources": [
+        "ekh"
+      ]
+    },
+    {
+      "year": "1787",
+      "event": "Town established and named Danville",
+      "sources": [
+        "ekh"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Walker Daniel",
+      "role": "Founder of Danville; first district attorney general"
+    },
+    {
+      "name": "John Crow",
+      "role": "Founder of Crow's Station"
+    },
+    {
+      "name": "Robert Daniel",
+      "role": "Brother; sold remaining lots"
+    }
+  ],
+  "openQuestions": [
+    "Identity of the attacking party's nation is not given in the sources."
+  ],
+  "sources": [
+    {
+      "id": "ekh",
+      "citation": "ExploreKYHistory: Walker Daniel",
+      "url": "https://explorekyhistory.ky.gov/items/show/114",
+      "type": "web",
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "khs-190",
+      "citation": "KHS marker #190: Walker Daniel",
+      "url": "https://history.ky.gov/markers/walker-daniel",
+      "type": "web",
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "khs-courthouse",
+      "citation": "KHS marker: Site of Log Courthouse",
+      "url": "https://history.ky.gov/markers/site-of-log-courthouse",
+      "type": "web",
+      "accessed": "2026-10-18"
+    }
+  ]
+}

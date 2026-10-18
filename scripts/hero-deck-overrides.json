@@ -11,5 +11,11 @@
       "reason": "Automatic cut ended mid-sentence with an ellipsis (\"…for the Mill Creek Baptist Church…\"); editorial QA 2026-10-10.",
       "date": "2026-10-10"
     }
+  },
+  "_carryForward": "carryForward: pack date -> earlier brief dates whose stories follow today's on the homepage (in that brief's order). Use when a pack is thin (e.g. a single deferred story on a day with no brief).",
+  "carryForward": {
+    "2026-10-18": [
+      "2026-10-14"
+    ]
   }
 }
