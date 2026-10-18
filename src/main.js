@@ -19,6 +19,7 @@ import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
 import { storyBlocksAutoPhoto } from './no-auto-story-photos.js'
+import { storyFigureHtml } from './story-figure.js'
 import { filmDescriptionFromPlain, filmForStory, filmPlayerHtml, wireFilmCaptions } from './films.js'
 import { applyRouteMapTheme, routeBySlug, routeMapSectionHtml } from './route-maps.js'
 import {
@@ -3513,7 +3514,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       (h) => h,
       { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
     )
-    bodyEl.innerHTML = `${storyPortraitHtml(subject.person)}${applyTransportLink(
+    bodyEl.innerHTML = `${storyPortraitHtml(subject.person)}${storyFigureHtml(s.figure)}${applyTransportLink(
       withPeople,
       transportLinks.stories?.[meta.slug],
     )}`
