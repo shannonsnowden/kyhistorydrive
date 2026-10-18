@@ -17,8 +17,13 @@
  *  - Drive pages: public/drives/<slug>/index.html STOPS (number = index + 1)
  *    against the OSRM line in the JSON that page fetches.
  *  - Story route maps: src/route-maps.js stops placed by src/route-map-geo.js
- *    (desk-light slot, the frame dark and zoom share) against the painted
- *    red line traced in scripts/route-map-lines.json (light-image fractions).
+ *    against the painted red line traced in scripts/route-map-lines.json
+ *    (light-image fractions). Badge spacing, labels, painted route arrows and
+ *    the frame are checked in all four theme slots (1280 and 390, light and
+ *    dark), each on its own art size, and light and dark must place every
+ *    badge at the same pixel offset. The desk slots are checked at DESK_VIEW
+ *    (820px), narrower than any story map at 1280 (914 or 1152px), so a pass
+ *    holds at every 1280 width (badges are fixed px; positions scale up).
  *
  * `node scripts/check-route-order.mjs --self-test` proves the check fails on
  * deliberately broken fixtures.
@@ -28,7 +33,7 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spreadBadges, labelBox } from '../public/drives/badge-spread.js'
 import { ROUTE_MAP_LABELS } from '../src/route-map-labels.js'
-import { BADGE, DESK_VIEW, PHONE_VIEW, PILL_PAD, PILL_CHAR, badgeLabelGap, badgeBadgeGap, frameInset, isAreaLabel } from '../src/route-map-geo.js'
+import { BADGE, DESK_VIEW, PHONE_VIEW, PILL_PAD, PILL_CHAR, DARK_ASPECT, ROUTE_FRAMES, badgeLabelGap, badgeBadgeGap, frameInset, isAreaLabel } from '../src/route-map-geo.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -250,16 +255,22 @@ export function checkDrives({ only = null, mutate = null } = {}) {
  * painting: p = the point on the painted line the stop belongs to (data-at),
  * b = where the badge is drawn (it can step out with a leader).
  */
+const overlayCache = new Map()
 export function storyMarks(route, { routeMapOverlayHtml }, frame = 'desk-light') {
-  const html = routeMapOverlayHtml(route)
+  const key = routeMapOverlayHtml
+  if (!overlayCache.has(key)) overlayCache.set(key, new Map())
+  const per = overlayCache.get(key)
+  if (!per.has(route)) per.set(route, routeMapOverlayHtml(route))
+  const html = per.get(route)
   const slot = html.match(new RegExp(`data-frame="${frame}"[^>]*>(.*?)<\\/div>`))[1]
-  return [...slot.matchAll(/class="([^"]+)" style="left:([\d.-]+)%;top:([\d.-]+)%" data-n="([^"]+)" data-at="([\d.-]+),([\d.-]+)"/g)].map((m) => ({
+  return [...slot.matchAll(/class="([^"]+)" style="left:([\d.-]+)%;top:([\d.-]+)%" data-n="([^"]+)" data-at="([\d.-]+),([\d.-]+)"(?: data-pt="([\d.-]+),([\d.-]+)")?/g)].map((m) => ({
     n: parseInt(m[4], 10),
     label: m[4],
     cluster: m[1].includes('route-stop-cluster'),
     name: route.stops[parseInt(m[4], 10) - 1]?.stop,
     p: [(+m[5] / 100) * 16, (+m[6] / 100) * 9],
     b: [(+m[2] / 100) * 16, (+m[3] / 100) * 9],
+    pt: m[7] ? [(+m[7] / 100) * 16, (+m[8] / 100) * 9] : null,
   }))
 }
 
@@ -281,6 +292,8 @@ export function labelOverlaps(id, marks, labels, view, { badge = BADGE } = {}) {
     if (out > 0.5) errs.push(`${id}: badge ${s.m.label} runs ${out.toFixed(1)}px past the map frame`)
     const dot = [(s.m.p[0] / 16) * vw, (s.m.p[1] / 9) * vh]
     const moved = Math.hypot(dot[0] - s.x, dot[1] - s.y) >= 6
+    // A stepped-out badge must show its leader and dot: the dot sits clear of the badge.
+    if (moved) { const show = Math.hypot(Math.max(0, Math.abs(dot[0] - s.x) - s.h), dot[1] - s.y) - s.r; if (show < 6) errs.push(`${id}: badge ${s.m.label}'s leader is hidden under it (dot ${show.toFixed(1)}px from its edge)`) }
     for (const l of labels || []) {
       const rect = [l[0] * vw, l[1] * vh, l[2] * vw, l[3] * vh]
       if (moved && dot[0] > rect[0] && dot[0] < rect[2] && dot[1] > rect[1] && dot[1] < rect[3]) errs.push(`${id}: badge ${s.m.label}'s leader dot sits on the label "${l[4]}"`)
@@ -299,8 +312,8 @@ export function labelOverlaps(id, marks, labels, view, { badge = BADGE } = {}) {
   }
   for (let i = 0; i < shapes.length; i++) {
     for (let j = i + 1; j < shapes.length; j++) {
-      // Touching counts: badges need 2px of air between them.
-      if (badgeBadgeGap(shapes[i], shapes[j]) < 2) errs.push(`${id}: badges ${shapes[i].m.label} and ${shapes[j].m.label} touch or overlap`)
+      // Touching counts: badges need 4px of air between them (2-3px reads as touching).
+      if (badgeBadgeGap(shapes[i], shapes[j]) < 4) errs.push(`${id}: badges ${shapes[i].m.label} and ${shapes[j].m.label} touch or overlap`)
     }
   }
   return errs
@@ -326,8 +339,37 @@ export async function checkStoryMaps({ lines } = {}) {
     const errs = []
     const labels = ROUTE_MAP_LABELS[route.slug] || {}
     if (!labels.light) errs.push(`route:${route.slug}: no label boxes in src/route-map-labels.js`)
-    errs.push(...labelOverlaps(`route:${route.slug} (1280)`, marks, labels.light, DESK_VIEW))
-    errs.push(...labelOverlaps(`route:${route.slug} (390)`, storyMarks(route, { routeMapOverlayHtml }, 'phone-light'), labels.phone, PHONE_VIEW))
+    // Every theme slot is checked on its own art: the dark images are taller
+    // (DARK_ASPECT) and register the light frame through an inset box, so their
+    // labels (and painted route arrows, merged into the label lists) move with it.
+    const fr = ROUTE_FRAMES[route.slug]
+    const through = (box, list) => (list || []).map((l) => [box.x0 + l[0] * (box.x1 - box.x0), box.y0 + l[1] * (box.y1 - box.y0), box.x0 + l[2] * (box.x1 - box.x0), box.y0 + l[3] * (box.y1 - box.y0), l[4]])
+    const slots = [
+      ['desk-light', '1280 light', labels.light, DESK_VIEW],
+      ['desk-dark', '1280 dark', fr && through(fr.dark, labels.light), [DESK_VIEW[0], DESK_VIEW[0] * DARK_ASPECT.desk]],
+      ['phone-light', '390 light', labels.phone, PHONE_VIEW],
+      ['phone-dark', '390 dark', fr && through(fr.phoneDark, labels.phone), [PHONE_VIEW[0], PHONE_VIEW[0] * DARK_ASPECT.phone]],
+    ]
+    for (const [slot, tag, list, view] of slots) {
+      // Fail closed: a slot must exist in the markup.
+      let sm
+      try { sm = storyMarks(route, { routeMapOverlayHtml }, slot) } catch { errs.push(`route:${route.slug}: no ${slot} overlay`); continue }
+      errs.push(...labelOverlaps(`route:${route.slug} (${tag})`, sm, list, view))
+    }
+    // Same placement in light and dark: each badge keeps the same pixel offset from its dot.
+    for (const [a, b, view, darkView, tag] of [['desk-light', 'desk-dark', DESK_VIEW, [DESK_VIEW[0], DESK_VIEW[0] * DARK_ASPECT.desk], '1280'], ['phone-light', 'phone-dark', PHONE_VIEW, [PHONE_VIEW[0], PHONE_VIEW[0] * DARK_ASPECT.phone], '390']]) {
+      const L = storyMarks(route, { routeMapOverlayHtml }, a)
+      const D = storyMarks(route, { routeMapOverlayHtml }, b)
+      L.forEach((m, i) => {
+        const d = D[i]
+        if (!d || d.label !== m.label) { errs.push(`route:${route.slug} (${tag}): light and dark show different badges`); return }
+        // Offsets in px: badge minus the stop's own spot (data-pt).
+        const off = (q, v) => { const o = q.pt || q.p; return [((q.b[0] - o[0]) / 16) * v[0], ((q.b[1] - o[1]) / 9) * v[1]] }
+        const [lx, ly] = off(m, view)
+        const [dx, dy] = off(d, darkView)
+        if (Math.hypot(lx - dx, ly - dy) > 4) errs.push(`route:${route.slug} (${tag}): badge ${m.label} sits ${Math.hypot(lx - dx, ly - dy).toFixed(1)}px differently in dark than light`)
+      })
+    }
     if (!labels.phone) errs.push(`route:${route.slug}: no phone label boxes in src/route-map-labels.js`)
     // Every stop number shows at 390, alone or inside a range badge like 2–3.
     const phoneMarks = storyMarks(route, { routeMapOverlayHtml }, 'phone-light')

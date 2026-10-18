@@ -36,6 +36,8 @@ export const PILL_PAD = 16
 export const PILL_CHAR = 7.8
 /** The painted double-rule frame, as a fraction of the image; badges stay inside it. */
 export const FRAME_INSET = [0.03, 0.04]
+/** Height / width of the dark art (-dark 1600x994, -phone-dark 804x463); the light art is 16:9. */
+export const DARK_ASPECT = { desk: 994 / 1600, phone: 463 / 804 }
 export function frameInset(viewW, viewH) {
   return [FRAME_INSET[0] * viewW, FRAME_INSET[1] * viewH]
 }
@@ -303,7 +305,13 @@ const PHONE_MARK = {
  * and keeps a leader to its point. Light-image (or phone-image) fractions.
  */
 const BADGE_AT = {
+  'christopher-gist-1750-51': {
+    // Salt Lick: south, between the Louisville and Frankfort labels, so the leader clears '(site disputed)' in dark too.
+    10: [0.272, 0.57],
+  },
   'athiamiowee-the-warriors-path-through-kentucky': {
+    // East of the Lower Shawneetown plate: the frame top leaves no room above Cabin Creek.
+    1: [0.625, 0.075],
     2: [0.44, 0.241],
     3: [0.45, 0.324],
     4: [0.405, 0.241],
@@ -318,6 +326,11 @@ const BADGE_AT = {
 }
 const PHONE_BADGE_AT = {
   // Hand spots where the nearest clear spot would run a leader across a label.
+  'george-rogers-clark': {
+    // 4 and 7–8 share Kaskaskia's point, whose dot sits west of the plate: 4 below it, 7–8 to the west.
+    4: [0.185, 0.66],
+    7: [0.105, 0.545],
+  },
   }
 
 /**
@@ -438,54 +451,73 @@ export function badgeBadgeGap(a, b) {
  * leader back to the point. Labels are light-image (or phone-image)
  * fractions; positions are returned as fractions of the same image.
  */
-function placeBadges(items, labels, viewW, viewH, prefer = {}) {
-  const rects = (labels || []).map((l) => [l[0] * viewW, l[1] * viewH, l[2] * viewW, l[3] * viewH])
+function placeBadges(items, labels, viewW, viewH, prefer = {}, frames = [{ name: 'light', box: IDENTITY, vh: viewH }]) {
+  // One placement for every theme: a badge keeps the same pixel offset from
+  // its stop in light and dark, and the search scores that offset against the
+  // labels and the other badges in each frame (the dark art registers the
+  // light frame through an inset box, so its stops sit a little closer).
+  const mapF = (box, p) => [box.x0 + p[0] * (box.x1 - box.x0), box.y0 + p[1] * (box.y1 - box.y0)]
+  // Each frame is its own image at the same width: the dark art is taller
+  // (vh), so a fixed pixel offset is the same on screen in every theme.
+  const F = frames.map(({ name, box, vh = viewH }) => {
+    const rects = (labels || []).map((l) => {
+      const a = mapF(box, [l[0], l[1]])
+      const b = mapF(box, [l[2], l[3]])
+      return [a[0] * viewW, a[1] * vh, b[0] * viewW, b[1] * vh]
+    })
+    return { name, box, vh, rects }
+  })
   const crossable = (labels || []).map((l) => isAreaLabel(l[4]))
   const placed = []
   // Keep 4px of air: OCR boxes can clip a first letter.
   const gap = viewW < 400 ? 6 : 3
-  const cost = (shape, from) => {
+  const [mx, my] = frameInset(viewW, viewH)
+  const costIn = (f, fi, shape, from) => {
     let bad = 0
-    // A leader may not run across a label either.
     // A leader may not run across a label: a hard cost, like an overlap.
-    if (from) rects.forEach((rect, i) => { if (!crossable[i] && segHitsRect(from, [shape.x, shape.y], rect)) bad += 6 })
-    for (const rect of rects) bad += 4 * Math.max(0, gap - badgeLabelGap(shape, rect))
-    for (const other of placed) bad += 4 * Math.max(0, gap - badgeBadgeGap(shape, other.shape))
+    if (from) f.rects.forEach((rect, i) => { if (!crossable[i] && segHitsRect(from, [shape.x, shape.y], rect)) bad += 30 })
+    for (const rect of f.rects) bad += 4 * Math.max(0, gap - badgeLabelGap(shape, rect))
+    // Badges keep 6px between them (the check fails under 4px): 2-3px reads as touching.
+    for (const other of placed) bad += 4 * Math.max(0, 6 - badgeBadgeGap(shape, other.shapes[fi]))
+    // A stepped-out badge must show its leader: the dot sits at least 8px outside the badge.
+    if (from) { const show = segRectDist(shape.x - shape.h, shape.x + shape.h, shape.y, [from[0], from[1], from[0], from[1]]) - shape.r; if (show < 8) bad += 3 * (8 - show) }
     // Stay inside the painted frame (FRAME_INSET), never clipped by the image edge.
-    const [mx, my] = frameInset(viewW, viewH)
-    const edge = Math.min(shape.x - shape.h - shape.r - mx, viewW - mx - shape.x - shape.h - shape.r, shape.y - shape.r - my, viewH - my - shape.y - shape.r)
-    if (edge < 1) bad += 4 * (1 - edge)
+    const edge = Math.min(shape.x - shape.h - shape.r - mx, viewW - mx - shape.x - shape.h - shape.r, shape.y - shape.r - my, f.vh - my - shape.y - shape.r)
+    // Clipping by the frame is never a fair trade for a shorter leader.
+    if (edge < 1) bad += 12 * (1 - edge)
     return bad
   }
   return items.map((item) => {
-    const at = badgeShape(item, viewW, viewH)
-    // Leaders start at the dot, which sits clear of the labels.
-    const dot = dotClear(item.point, rects, viewW, viewH)
-    const from = [dot[0] * viewW, dot[1] * viewH]
+    const per = F.map((f) => {
+      const pt = mapF(f.box, item.point)
+      const at = badgeShape({ ...item, point: pt }, viewW, f.vh)
+      // Leaders start at the dot, which sits clear of the labels.
+      const dot = dotClear(pt, f.rects, viewW, f.vh)
+      return { at, dot, from: [dot[0] * viewW, dot[1] * f.vh] }
+    })
     const want = prefer[item.number]
-    // A hand-picked spot (BADGE_AT) is where the search starts.
-    const base = want ? { ...at, x: want[0] * viewW, y: want[1] * viewH } : at
-    let best = { shape: base, bad: cost(base, want ? from : null), r: want ? Math.hypot(base.x - at.x, base.y - at.y) : 0 }
-    if (globalThis.__badgeDebug && want) globalThis.__badgeDebug(item.number, best.bad, rects.map((r, i) => [i, +badgeLabelGap(base, r).toFixed(2)]).filter((x) => x[1] < 1), placed.map((o) => +badgeBadgeGap(base, o.shape).toFixed(1)).filter((g) => g < 1))
+    // A hand-picked spot (BADGE_AT, light-image fraction) sets the starting offset.
+    const o0 = want ? [want[0] * viewW - per[0].at.x, want[1] * F[0].vh - per[0].at.y] : [0, 0]
+    const shapesAt = (o) => per.map((q) => ({ ...q.at, x: q.at.x + o[0], y: q.at.y + o[1] }))
+    const total = (o, withLeader) => shapesAt(o).reduce((sum, sh, fi) => sum + costIn(F[fi], fi, sh, withLeader ? per[fi].from : null), 0)
+    let best = { o: o0, bad: total(o0, Boolean(want)) }
     if (best.bad > 0) {
       for (let r = 3; r <= 200 && best.bad > 0; r += 3) {
         for (let k = 0; k < 36; k++) {
           const a = (k * Math.PI) / 18
-          const shape = { ...base, x: base.x + r * Math.cos(a), y: base.y + r * Math.sin(a) }
+          const o = [o0[0] + r * Math.cos(a), o0[1] + r * Math.sin(a)]
           // Prefer the nearest clear spot: a long leader is a cost too.
-          const bad = cost(shape, from) + 0.15 * Math.max(0, Math.hypot(shape.x - at.x, shape.y - at.y) - 20)
-          if (bad < best.bad - 1e-9) best = { shape, bad, r: Math.hypot(shape.x - at.x, shape.y - at.y) }
+          const bad = total(o, true) + 0.15 * Math.max(0, Math.hypot(o[0], o[1]) - 20)
+          if (bad < best.bad - 1e-9) best = { o, bad }
         }
       }
     }
-    const out = {
-      ...item,
-      anchor: dot,
-      point: [best.shape.x / viewW, best.shape.y / viewH],
-      leader: best.r >= 6,
-    }
-    placed.push({ shape: best.shape })
-    return out
+    const shapes = shapesAt(best.o)
+    const leader = Math.hypot(best.o[0], best.o[1]) >= 6
+    const byFrame = {}
+    F.forEach((f, fi) => { byFrame[f.name] = { anchor: per[fi].dot, at: [per[fi].at.x / viewW, per[fi].at.y / f.vh], point: [shapes[fi].x / viewW, shapes[fi].y / f.vh] } })
+    placed.push({ shapes })
+    return { ...item, anchor: byFrame[F[0].name].anchor, point: byFrame[F[0].name].point, leader, frames: byFrame }
   })
 }
 
@@ -543,7 +575,9 @@ function markerSpan(item) {
   if (item.cluster) classes.push('route-stop-cluster')
   else if (item.conjectural) classes.push('route-stop-conjectural')
   const label = item.label || String(item.number)
-  return `<span class="${classes.join(' ')}" style="left:${pct(item.point[0])}%;top:${pct(item.point[1])}%" data-n="${label}" data-at="${pct(item.anchor[0])},${pct(item.anchor[1])}"></span>`
+  // data-pt: the stop's own spot before the badge stepped out (checks compare light and dark offsets).
+  const pt = item.at ? ` data-pt="${pct(item.at[0])},${pct(item.at[1])}"` : ''
+  return `<span class="${classes.join(' ')}" style="left:${pct(item.point[0])}%;top:${pct(item.point[1])}%" data-n="${label}" data-at="${pct(item.anchor[0])},${pct(item.anchor[1])}"${pt}></span>`
 }
 
 /** Short leaders from a stepped-out badge back to its point on the painted line. */
@@ -599,7 +633,10 @@ export function routeMapLayout(route, kind = 'desk') {
   })
   if (phone) items = clusterPhone(items)
   const labels = ROUTE_MAP_LABELS[route.slug]?.[phone ? 'phone' : 'light']
-  return placeBadges(items, labels, viewW, viewH, (phone ? PHONE_BADGE_AT : BADGE_AT)[route.slug])
+  const frames = phone
+    ? [{ name: 'phone-light', box: IDENTITY, vh: viewH }, { name: 'phone-dark', box: frame.phoneDark, vh: viewW * DARK_ASPECT.phone }]
+    : [{ name: 'desk-light', box: IDENTITY, vh: viewH }, { name: 'desk-dark', box: frame.dark, vh: viewW * DARK_ASPECT.desk }]
+  return placeBadges(items, labels, viewW, viewH, (phone ? PHONE_BADGE_AT : BADGE_AT)[route.slug], frames)
 }
 
 function slotHtml(name, route, layouts) {
@@ -610,7 +647,8 @@ function slotHtml(name, route, layouts) {
     : name === 'phone-dark' ? frame.phoneDark
     : IDENTITY
   const map = (p) => [box.x0 + p[0] * (box.x1 - box.x0), box.y0 + p[1] * (box.y1 - box.y0)]
-  const items = layouts[phone ? 'phone' : 'desk'].map((item) => ({ ...item, point: map(item.point), anchor: map(item.anchor) }))
+  // Placement is shared by every theme (see placeBadges): use this frame's own spot when it has one.
+  const items = layouts[phone ? 'phone' : 'desk'].map((item) => (item.frames && item.frames[name] ? { ...item, ...item.frames[name] } : { ...item, point: map(item.point), anchor: map(item.anchor) }))
   const dots = items.filter((item) => item.leader).map((item) => `<i class="route-stop-dot" style="left:${pct(item.anchor[0])}%;top:${pct(item.anchor[1])}%"></i>`).join('')
   return `<div class="route-map-overlay" data-frame="${name}" aria-hidden="true">${leaderSvg(items)}${dots}${items.map(markerSpan).join('')}</div>`
 }

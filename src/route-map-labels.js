@@ -451,3 +451,41 @@ export const ROUTE_MAP_LABELS = {
     ],
   },
 }
+
+/**
+ * Direction-of-travel arrowheads painted on the route line (centres, image
+ * fractions, read off the light and phone art). A badge may not cover one;
+ * a leader may cross it like area lettering. Merged into the label lists as
+ * 'ROUTE ARROW' boxes so placement and check-route-order both see them.
+ */
+export const ROUTE_MAP_ARROWS = {
+  'christopher-gist-1750-51': {
+    light: [[0.299, 0.417], [0.43, 0.677], [0.625, 0.764]],
+    phone: [[0.42, 0.365], [0.732, 0.95]],
+  },
+  'thomas-walker-and-cumberland-gap': {
+    light: [[0.476, 0.482], [0.711, 0.341], [0.669, 0.531], [0.391, 0.69]],
+    phone: [[0.381, 0.206], [0.869, 0.377], [0.698, 0.77]],
+  },
+  'william-calks-1775-journal': {
+    light: [[0.664, 0.446], [0.143, 0.611]],
+    phone: [[0.363, 0.32], [0.43, 0.63]],
+  },
+  'george-rogers-clark': {
+    light: [[0.264, 0.335], [0.481, 0.226], [0.26, 0.62], [0.463, 0.69]],
+    phone: [[0.266, 0.326], [0.476, 0.214], [0.268, 0.597], [0.465, 0.66], [0.712, 0.49]],
+  },
+  'mantle-rock-and-the-trail-of-tears': {
+    light: [[0.469, 0.335], [0.758, 0.69]],
+    phone: [[0.383, 0.325], [0.548, 0.507], [0.75, 0.807]],
+  },
+}
+const ARROW_HALF = { light: [0.016, 0.028], phone: [0.024, 0.042] }
+for (const [slug, kinds] of Object.entries(ROUTE_MAP_ARROWS)) {
+  for (const [kind, pts] of Object.entries(kinds)) {
+    const list = ROUTE_MAP_LABELS[slug]?.[kind]
+    if (!list) continue
+    const [hx, hy] = ARROW_HALF[kind]
+    for (const [x, y] of pts) list.push([x - hx, y - hy, x + hx, y + hy, 'ROUTE ARROW'])
+  }
+}
