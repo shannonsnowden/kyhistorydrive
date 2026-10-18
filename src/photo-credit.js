@@ -74,8 +74,28 @@ export function photoCreditHtml(photo, { includeYear = false } = {}) {
       html += ` · <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">source file</a>`
     }
   }
-  const artwork = String(photo.artwork || '').trim()
-  if (artwork && !raw.toLowerCase().startsWith(artwork.toLowerCase())) html = `${escapeHtml(artwork)} · ${html}`
+  const lead = artworkLead(photo)
+  if (lead) html = `${escapeHtml(lead)}${html}`
   if (includeYear && photo.year) html += `${html ? ' · ' : ''}${escapeHtml(String(photo.year))}`
   return html
 }
+
+/**
+ * Human-made art never says 'Photo:' or 'AI illustration' (Editor 10/18, #199).
+ * 'reconstruction' is only for modern art that reconstructs the past (Herb Roe);
+ * period art is labeled by medium, then artist and year.
+ */
+export const ARTWORK_LEADS = {
+  reconstruction: "Artist's reconstruction · ",
+  painting: 'Painting: ',
+  engraving: 'Engraving: ',
+  print: 'Print: ',
+  drawing: 'Drawing: ',
+  map: 'Map: ',
+}
+
+export function artworkLead(photo) {
+  const kind = String(photo?.artwork || '').trim()
+  return kind ? ARTWORK_LEADS[kind] || '' : ''
+}
+

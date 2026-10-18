@@ -2,7 +2,8 @@
  * Story-page tools shared by prerendered /stories/ pages and the hash reader.
  * Dates passed in here are already resolved. This module never invents one.
  */
-import { ccByLicense } from './photo-credit.js'
+import { ccByLicense, artworkLead, ARTWORK_LEADS } from './photo-credit.js'
+export { artworkLead, ARTWORK_LEADS }
 
 export const SITE_NAME = 'Kentucky History Drive'
 export const SITE_AUTHOR = 'Shannon Snowden'
@@ -734,6 +735,8 @@ function externalLink(href, label) {
  * (e.g. "(photographed 2008)"), so the year never shows twice.
  */
 export function photoCaptionYear(photo) {
+  // Period art carries its year in the credit line instead.
+  if (artworkLead(photo) && photo.artwork !== 'reconstruction') return ''
   const year = String(photo?.year ?? '').trim()
   if (!year) return ''
   if (!/^[0-9A-Za-z]+$/.test(year)) return year
@@ -758,9 +761,10 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
   const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
   // Human-made art (e.g. Herb Roe's paintings) leads with its own label, never 'Photo:' or 'AI illustration'.
-  const artwork = String(photo?.artwork || '').trim()
-  const lead = artwork ? `${esc(artwork)} · ` : 'Photo: '
-  if (segs.length) segs[0] = `<span class="seg">${lead}${chunks[0]}</span>`
+  const artwork = artworkLead(photo)
+  const lead = artwork ? esc(artwork) : 'Photo: '
+  const first = artwork && model.photographer && photo?.artwork !== 'reconstruction' && photo?.year ? `${chunks[0]}, ${esc(String(photo.year))}` : chunks[0]
+  if (segs.length) segs[0] = `<span class="seg">${lead}${first}</span>`
   if (model.license || cc) {
     const href = cc?.url || model.licenseUrl
     const label = cc?.name || model.license

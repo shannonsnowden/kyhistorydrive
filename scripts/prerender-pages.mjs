@@ -46,6 +46,8 @@ import {
   resolveArticleDates,
   storyCanonicalUrl,
   storyThumbSrc,
+  artworkLead,
+  ARTWORK_LEADS,
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
@@ -2360,11 +2362,13 @@ class PrerenderPages {
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
     }
-    // Editor 10/18 (#199): human-made art is labeled as art, never 'Photo:' or 'AI illustration'.
+    // Editor 10/18 (#199): human-made art is labeled by medium (or as a modern reconstruction), never 'Photo:' or 'AI illustration'.
     if (story.photo?.artwork) {
+      const lead = artworkLead(story.photo)
+      if (!lead) throw new Error(`prerender: ${urlPath} photo.artwork '${story.photo.artwork}' must be one of ${Object.keys(ARTWORK_LEADS).join(', ')}`)
       const credit = (html.match(/<p class="story-sidebar-photo-attr[\s\S]*?<\/p>/) || [''])[0]
-      if (!credit.includes(`${PrerenderPages.escapeHtml(story.photo.artwork)} · `) || /AI illustration|>Photo: /.test(credit)) {
-        throw new Error(`prerender: ${urlPath} artwork credit must read '${story.photo.artwork} · <artist>'`)
+      if (!credit.includes(PrerenderPages.escapeHtml(lead)) || /AI illustration|Photo: /.test(credit)) {
+        throw new Error(`prerender: ${urlPath} artwork credit must start '${lead}<artist>' and never say Photo: or AI illustration`)
       }
     }
     if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)

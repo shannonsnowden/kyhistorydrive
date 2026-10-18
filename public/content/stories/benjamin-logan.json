@@ -16,13 +16,14 @@
   "briefDate": "2026-08-28",
   "photo": {
     "image_url": "/content/photos/stories/benjamin-logan.jpg",
-    "title": "Benjamin Logan saving Harrison from being scalped, an 1851 print",
+    "title": "Benjamin Logan saving Harrison from being scalped",
     "source_url": "https://commons.wikimedia.org/wiki/File:Benjamin_Logan_saving_Harrison_from_being_scalped_LCCN2003656942.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Popular Graphic Arts · Wikimedia Commons · Public domain",
+    "attribution": "Nagel & Weingartner · Library of Congress via Wikimedia Commons · Public domain",
     "year": 1851,
-    "credit": "Popular Graphic Arts",
+    "credit": "Nagel & Weingartner",
     "license": "Public domain",
-    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+    "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+    "artwork": "print"
   }
 }
