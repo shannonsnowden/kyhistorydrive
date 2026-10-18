@@ -68,7 +68,7 @@ export function pickReadingAnchor(root, lineY) {
   return containing || next
 }
 
-export function initTimelineReading({ getMap } = {}) {
+export function initTimelineReading({ getMap, focusPin } = {}) {
   const layout = document.querySelector('#timeline .timeline-layout')
   const story = document.getElementById('timelineStoryPane')
   const mapPane = document.getElementById('timelineMapPane')
@@ -241,8 +241,35 @@ export function initTimelineReading({ getMap } = {}) {
   })
 
   // Real button: Enter and Space fire click. No extra key handler (that would toggle twice).
+  // Phones (<=560px): the docked map scrolls away with the page. While it is off-screen the bar
+  // reads "Show map" and jumps back to the map (and the story's pin) instead of collapsing it.
+  const dockMq = window.matchMedia('(max-width: 560px)')
+  let mapOffscreen = false
+  function syncOffscreen() {
+    const on = mapOffscreen && dockMq.matches && layout.classList.contains('is-home-story') &&
+      !layout.classList.contains('is-reading-wide')
+    layout.classList.toggle('is-map-offscreen', on)
+    if (on) button.setAttribute('aria-expanded', 'false')
+    else syncButton()
+    return on
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      for (const e of entries) mapOffscreen = !e.isIntersecting
+      syncOffscreen()
+    }).observe(mapPane)
+    dockMq.addEventListener?.('change', syncOffscreen)
+  }
+
   button.addEventListener('click', () => {
+    if (syncOffscreen()) {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      mapPane.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+      if (typeof focusPin === 'function') focusPin()
+      return
+    }
     setWide(!layout.classList.contains('is-reading-wide'))
+    syncOffscreen()
   })
 
   const phoneMq = window.matchMedia(PHONE_QUERY)

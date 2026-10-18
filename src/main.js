@@ -4686,5 +4686,16 @@ initThemeToggle()
 initSiteSearch()
 MobileNav.init()
 initHomePage()
-initTimelineReading({ getMap: () => timelineMap })
+initTimelineReading({
+  getMap: () => timelineMap,
+  // "Show map" on phones: re-center the current story's pin and move keyboard focus to the map.
+  focusPin: () => {
+    const story = selectedStorySlug && storiesBySlug[selectedStorySlug]
+    if (story && timelineMapReady && story.lat != null && story.lon != null) {
+      try { timelineMap.easeTo({ center: [story.lon, story.lat], duration: 400 }) } catch {}
+    }
+    const canvas = timelineMap?.getCanvas?.()
+    if (canvas) canvas.focus({ preventScroll: true })
+  },
+})
 applyRoute().catch(console.error)

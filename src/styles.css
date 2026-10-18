@@ -5705,3 +5705,15 @@ html:not([data-hp-theme="light"]) #map #nationLegend .ml-row i { box-shadow: 0 0
 
 /* Photos sidebar with source links but no thumbnail: just the links, no trailing divider. */
 .story-sidebar-photo.is-links-only .story-sidebar-photo-links { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+
+/* "Find photos" box: each source is a full-width 44px tap row; no shadow, a little space above. */
+.story-sidebar-photo.is-links-only { margin-top: 0.75rem; box-shadow: none; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links { display: block; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links > span[aria-hidden] { display: none; }
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links a {
+  display: flex; align-items: center; width: 100%; min-height: 44px; font-size: 0.8rem;
+}
+.story-sidebar-photo.is-links-only .story-sidebar-photo-links a + a { border-top: 1px solid var(--line); }
+@media (max-width: 600px) {
+  .story-reader > .story-reader-layout:not(.static-story) > .story-sidebar-photo.is-links-only { margin-top: 0.75rem; }
+}
