@@ -6116,3 +6116,22 @@ html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter
 @media (max-width: 600px) {
   .story-glance th[scope="row"] { width: 33%; overflow-wrap: normal; word-break: normal; hyphens: manual; font-size: 0.82rem; }
 }
+
+/* Story lede gap (Critiquito via KY History): at <=900px the lead's 1rem bottom margin stacked on
+   the first paragraph's top margin (the two sit in different grid items, so they never collapse),
+   plus the layout's 16px row gap left about 28-44px where paragraphs use 12px. Drop both so the gap
+   from the lede to the next paragraph equals paragraph spacing, as it already does at >=901px. The
+   photo aside keeps its own spacing via its margin. */
+@media (max-width: 900px) {
+  .static-story .story-intro .story-lead { margin-bottom: 0; }
+  .static-story.story-reader-layout { row-gap: 0; }
+  .static-story.story-reader-layout > .story-sidebar-photo { margin: 1rem 0; }
+}
+
+/* Dark-mode header seal halo: the gold ring faded into the dark header. A cream rim outside the
+   ring lifts it to well over 3:1 against the header. CSS only; the seal artwork and its colors are
+   untouched, so it works with any seal asset. Light mode keeps its navy ring. */
+html:not([data-hp-theme="light"]) .brand-logo,
+html:not([data-hp-theme="light"]) .hp-page .brand-logo {
+  box-shadow: 0 0 0 2px #f6edd8, 0 0 10px 2px rgba(246, 237, 216, 0.28), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
