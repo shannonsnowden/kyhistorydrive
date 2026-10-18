@@ -1,0 +1,318 @@
+#!/usr/bin/env node
+/**
+ * check-route-order: numbered stops must follow the route line.
+ *
+ * Each stop is projected onto its route polyline and must land at a later
+ * distance along the line than the stop before it (within a tolerance).
+ * Projection walks forward: stop i is placed on the nearest part of the line
+ * at or after stop i-1. If some earlier part of the line is much nearer than
+ * that forward placement, the number backtracks and the check fails. This
+ * handles loops and out-and-back legs without special cases; the ALLOW list
+ * below is only for a route whose order is justified despite a backtrack.
+ *
+ * Also checked: stop 1 sits at the start of the line and the last stop at
+ * its end (a clear start and end), and no two numbered badges overlap.
+ *
+ * Sources:
+ *  - Drive pages: public/drives/<slug>/index.html STOPS (number = index + 1)
+ *    against the OSRM line in the JSON that page fetches.
+ *  - Story route maps: src/route-maps.js stops placed by src/route-map-geo.js
+ *    (desk-light slot, the frame dark and zoom share) against the painted
+ *    red line traced in scripts/route-map-lines.json (light-image fractions).
+ *
+ * `node scripts/check-route-order.mjs --self-test` proves the check fails on
+ * deliberately broken fixtures.
+ */
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+import { spreadBadges } from '../public/drives/badge-spread.js'
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+
+/** Justified exceptions: { 'kind:slug': { stops: [numbers], reason } } */
+export const ALLOW = {
+  'route:george-rogers-clark': {
+    stops: [6, 7],
+    reason:
+      'Stop 6 (Vincennes, July 1778) was won over by Father Gibault and Leonard Helm, so the painting draws no 1778 line to it; its badge sits beside the Vincennes dot. Stop 7 then restarts at Kaskaskia for the 1779 winter march, which is the only line into Vincennes.',
+  },
+}
+
+const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1])
+
+function segProject(p, a, b) {
+  const dx = b[0] - a[0]
+  const dy = b[1] - a[1]
+  const len2 = dx * dx + dy * dy
+  let t = len2 ? ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / len2 : 0
+  t = Math.max(0, Math.min(1, t))
+  const q = [a[0] + t * dx, a[1] + t * dy]
+  return { t, d: dist(p, q) }
+}
+
+/** Measure along the polyline; returns cumulative lengths. */
+function cumulative(line) {
+  const cum = [0]
+  for (let i = 1; i < line.length; i++) cum.push(cum[i - 1] + dist(line[i - 1], line[i]))
+  return cum
+}
+
+function nearest(line, cum, p, fromPos = -Infinity, slack = 0) {
+  const cands = []
+  for (let i = 1; i < line.length; i++) {
+    if (cum[i] < fromPos) continue
+    const { t, d } = segProject(p, line[i - 1], line[i])
+    let pos = cum[i - 1] + t * (cum[i] - cum[i - 1])
+    let dd = d
+    if (pos < fromPos) {
+      pos = fromPos
+      const a = line[i - 1]
+      const b = line[i]
+      const f = (fromPos - cum[i - 1]) / (cum[i] - cum[i - 1] || 1)
+      dd = dist(p, [a[0] + f * (b[0] - a[0]), a[1] + f * (b[1] - a[1])])
+    }
+    cands.push({ pos, d: dd })
+  }
+  if (!cands.length) return null
+  const minD = Math.min(...cands.map((c) => c.d))
+  // Earliest pass that is about as near as the nearest one: on a loop or an
+  // out-and-back the line passes a stop twice, and travel takes the first.
+  return cands.find((c) => c.d <= minD + slack)
+}
+
+/**
+ * stops: [{ n, name, p:[x,y] }], line: [[x,y]...] in the same planar units.
+ * opts.near: how far off the line a stop may sit and still count as on it.
+ * opts.badge: minimum spacing between numbered badges (0 = skip).
+ * opts.ends: require first/last stop at the line's ends, within this length fraction.
+ */
+export function checkOrder({ id, stops, line, near, badge = 0, badgeAt = null, ends = 0.12, allow = ALLOW[id] }) {
+  const errs = []
+  const cum = cumulative(line)
+  const total = cum[cum.length - 1]
+  const tol = Math.max(near * 0.5, total * 0.002)
+  const ok = new Set(allow?.stops || [])
+  let prev = 0
+  const placed = []
+  stops.forEach((s, idx) => {
+    const fwd = nearest(line, cum, s.p, prev - tol, near * 0.5)
+    const glob = nearest(line, cum, s.p)
+    if (!fwd) {
+      errs.push(`${id}: stop ${s.n} (${s.name}) has no line left after stop ${stops[idx - 1]?.n}`)
+      return
+    }
+    const limit = s.coarse ? Math.max(near * 2, s.coarse) : near * 2
+    if (glob.d > limit && !ok.has(s.n)) errs.push(`${id}: stop ${s.n} (${s.name}) is ${glob.d.toFixed(3)} off the route line (limit ${limit.toFixed(3)})`)
+    // A much nearer point earlier on the line = this number jumps back.
+    if (fwd.d > glob.d + near && glob.pos < prev - tol && ok.has(s.n)) {
+      // Allowed restart (see ALLOW): carry on from where this stop really is.
+      placed.push({ s, pos: glob.pos })
+      prev = glob.pos
+      return
+    }
+    if (fwd.d > glob.d + near && glob.pos < prev - tol) {
+      errs.push(`${id}: stop ${s.n} (${s.name}) backtracks: it lies on the line before stop ${stops[idx - 1].n} (at ${(glob.pos / total * 100).toFixed(1)}% vs ${(prev / total * 100).toFixed(1)}%)`)
+      placed.push({ s, pos: glob.pos })
+      return
+    }
+    placed.push({ s, pos: fwd.pos })
+    prev = Math.max(prev, fwd.pos)
+  })
+  const closed = dist(line[0], line[line.length - 1]) < near * 2
+  if (ends && placed.length) {
+    const first = placed[0]
+    const last = placed[placed.length - 1]
+    if (first.pos > total * ends) errs.push(`${id}: stop ${first.s.n} is not at the start of the line (${(first.pos / total * 100).toFixed(1)}% along)`)
+    if (!closed && last.pos < total * (1 - ends)) errs.push(`${id}: last stop ${last.s.n} is not at the end of the line (${(last.pos / total * 100).toFixed(1)}% along)`)
+  }
+  if (badge) {
+    for (let i = 0; i < stops.length; i++) {
+      for (let j = i + 1; j < stops.length; j++) {
+        const a = badgeAt ? badgeAt[i] : stops[i].p
+        const b = badgeAt ? badgeAt[j] : stops[j].p
+        if (dist(a, b) < badge) errs.push(`${id}: badges ${stops[i].n} and ${stops[j].n} overlap`)
+      }
+    }
+  }
+  return { errs, positions: placed.map((x) => +(x.pos / (total || 1)).toFixed(3)) }
+}
+
+/* ---------- drive pages ---------- */
+
+function driveStops(html) {
+  const m = html.match(/const STOPS = \[([\s\S]*?)\n\]\n/)
+  if (!m) return null
+  const out = []
+  const re = /\{\s*id:\s*['"]([^'"]+)['"]\s*,\s*name:\s*("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')\s*,\s*lat:\s*(-?[\d.]+)\s*,\s*lon:\s*(-?[\d.]+)/g
+  let r
+  while ((r = re.exec(m[1]))) out.push({ id: r[1], name: r[2].slice(1, -1), lat: +r[3], lon: +r[4], coarse: !/\.\d{2}/.test(r[3]) || !/\.\d{2}/.test(r[4]) })
+  return out
+}
+
+/** Equirectangular km around the route's mean latitude. */
+function planar(lat0) {
+  const k = Math.cos((lat0 * Math.PI) / 180)
+  return (lon, lat) => [lon * 111.32 * k, lat * 110.57]
+}
+
+export function checkDrives({ only = null, mutate = null } = {}) {
+  const dir = path.join(root, 'public/drives')
+  const rows = []
+  for (const slug of fs.readdirSync(dir).sort()) {
+    const file = path.join(dir, slug, 'index.html')
+    if (!fs.existsSync(file) || slug === 'routes' || (only && slug !== only)) continue
+    const html = fs.readFileSync(file, 'utf8')
+    const stops = driveStops(html)
+    if (!stops) continue
+    if (mutate) mutate(stops)
+    const src = html.match(/fetch\('(\/drives\/(?!ky-base|ky-places)[^']+\.json)'\)/)
+    if (!src) {
+      rows.push({ kind: 'drive', slug, errs: [`drive:${slug}: no route line found`] })
+      continue
+    }
+    const data = JSON.parse(fs.readFileSync(path.join(root, 'public', src[1]), 'utf8'))
+    const raw = data.line
+    const lat0 = raw.reduce((s, p) => s + p[1], 0) / raw.length
+    const pj = planar(lat0)
+    const line = raw.map(([lon, lat]) => pj(lon, lat))
+    const xs = line.map((p) => p[0]).concat(stops.map((s) => pj(s.lon, s.lat)[0]))
+    const ys = line.map((p) => p[1]).concat(stops.map((s) => pj(s.lon, s.lat)[1]))
+    // Page map: 4:3 viewBox, badge radius 5.2 of a 260-wide view.
+    const w = Math.max(Math.max(...xs) - Math.min(...xs), (Math.max(...ys) - Math.min(...ys)) * 4 / 3)
+    const wView = w * (1 + 12 / 260)
+    const pts = stops.map((s) => pj(s.lon, s.lat))
+    // Pages that load /drives/badge-spread.js draw badges at the spread layout.
+    const spread = /import \{ spreadBadges \} from '\/drives\/badge-spread\.js'/.test(html)
+    const shown = spread ? spreadBadges(pts, (wView * 10.6) / 260) : pts
+    const res = checkOrder({
+      id: `drive:${slug}`,
+      badgeAt: shown,
+      // Protected sites are published at 0.1 degree, up to ~8 km from the road.
+      stops: stops.map((s, i) => ({ n: i + 1, name: s.name, p: pj(s.lon, s.lat), coarse: s.coarse ? 8 : 0 })),
+      line,
+      near: Math.max(1.5, w * 0.02),
+      // Badges are 10.4 units across in a 260-unit view; flag centers closer than ~80% of that.
+      badge: (wView * 8.5) / 260,
+    })
+    rows.push({ kind: 'drive', slug, stops: stops.length, ...res })
+  }
+  return rows
+}
+
+/* ---------- story route maps ---------- */
+
+/** Desk-light badges as drawn, in 16x9 units of the painting. */
+export function storyMarks(route, { routeMapOverlayHtml }) {
+  const html = routeMapOverlayHtml(route)
+  const slot = html.match(/data-frame="desk-light"[^>]*>(.*?)<\/div>/)[1]
+  return [...slot.matchAll(/left:([\d.-]+)%;top:([\d.-]+)%" data-n="([^"]+)"/g)].map((m) => ({
+    n: +m[3], name: route.stops[+m[3] - 1]?.stop, p: [(+m[1] / 100) * 16, (+m[2] / 100) * 9],
+  }))
+}
+
+/** Traced segments are in travel order; join them into one path. */
+export function storyLine(traced) {
+  return traced.segments.map((seg) => seg.map(([x, y]) => [x * 16, y * 9])).flat()
+}
+
+export async function checkStoryMaps({ lines } = {}) {
+  const { ROUTE_MAPS } = await import(pathToFileURL(path.join(root, 'src/route-maps.js')).href)
+  const { routeMapOverlayHtml } = await import(pathToFileURL(path.join(root, 'src/route-map-geo.js')).href)
+  lines = lines || JSON.parse(fs.readFileSync(path.join(root, 'scripts/route-map-lines.json'), 'utf8'))
+  const rows = []
+  for (const route of ROUTE_MAPS) {
+    const traced = lines[route.slug]
+    if (!traced) {
+      rows.push({ kind: 'route', slug: route.slug, errs: [`route:${route.slug}: no traced line in scripts/route-map-lines.json`] })
+      continue
+    }
+    const marks = storyMarks(route, { routeMapOverlayHtml })
+    const errs = []
+    const numbers = marks.map((m) => m.n)
+    const want = route.stops.map((_, i) => i + 1)
+    if (numbers.join() !== want.join()) errs.push(`route:${route.slug}: map shows ${numbers.join(',')} but the list has 1–${want.length}`)
+    const line = storyLine(traced)
+    const res = checkOrder({ id: `route:${route.slug}`, stops: marks, line, near: 0.25, badge: 0.52 })
+    rows.push({ kind: 'route', slug: route.slug, stops: route.stops.length, errs: errs.concat(res.errs), positions: res.positions })
+  }
+  return rows
+}
+
+/* ---------- self test ---------- */
+
+async function selfTest() {
+  const line = [[0, 0], [10, 0], [10, 10], [0, 10]]
+  const good = [[0, 0], [5, 0], [10, 5], [5, 10], [0, 10]].map((p, i) => ({ n: i + 1, name: `s${i + 1}`, p }))
+  const cases = [
+    ['in order', good, 0],
+    ['two swapped', [good[0], good[2], good[1], good[3], good[4]].map((s, i) => ({ ...s, n: i + 1 })), 1],
+    ['reversed', [...good].reverse().map((s, i) => ({ ...s, n: i + 1 })), 1],
+    ['ends early', good.slice(0, 3), 1],
+    ['stop off the line', [...good.slice(0, 2), { n: 3, name: 'far', p: [20, 20] }, ...good.slice(3)].map((s, i) => ({ ...s, n: i + 1 })), 1],
+    ['overlapping badges', [good[0], { ...good[1], p: [5, 0] }, { ...good[1], n: 3, p: [5.05, 0] }, good[3], good[4]].map((s, i) => ({ ...s, n: i + 1 })), 1],
+  ]
+  // Out-and-back: line returns along itself; the forward walk keeps it in order.
+  const ob = [[0, 0], [10, 0], [0, 0.01]]
+  const obStops = [[0, 0], [5, 0], [10, 0], [5, 0.01], [0, 0.01]].map((p, i) => ({ n: i + 1, name: `o${i + 1}`, p }))
+  let failed = 0
+  for (const [name, stops, wantErr] of cases) {
+    const { errs } = checkOrder({ id: `fixture:${name}`, stops, line, near: 0.5, badge: name === 'overlapping badges' ? 0.5 : 0, allow: null })
+    const got = errs.length ? 1 : 0
+    console.log(`${got === wantErr ? 'ok  ' : 'FAIL'} ${name}: ${errs.length ? errs.join(' | ') : 'passes'}`)
+    if (got !== wantErr) failed++
+  }
+  // Real data, deliberately broken: the Gist map with two badges swapped,
+  // and a drive with two stops swapped.
+  const { ROUTE_MAPS } = await import(pathToFileURL(path.join(root, 'src/route-maps.js')).href)
+  const gist = ROUTE_MAPS.find((r) => r.slug === 'christopher-gist-1750-51')
+  const lines = JSON.parse(fs.readFileSync(path.join(root, 'scripts/route-map-lines.json'), 'utf8'))
+  const swapped = { ...gist, stops: [...gist.stops] }
+  ;[swapped.stops[3], swapped.stops[4]] = [swapped.stops[4], swapped.stops[3]]
+  const geo = await import(pathToFileURL(path.join(root, 'src/route-map-geo.js')).href)
+  const broken = [
+    ['gist badges 4 and 13 swapped', () => {
+      const marks = storyMarks(gist, geo)
+      ;[marks[3].p, marks[12].p] = [marks[12].p, marks[3].p]
+      return checkOrder({ id: 'fixture:gist', stops: marks, line: storyLine(lines[gist.slug]), near: 0.25, allow: null }).errs
+    }],
+    ['gist line reversed', () => {
+      const line = storyLine(lines[gist.slug]).reverse()
+      return checkOrder({ id: 'fixture:gist-rev', stops: storyMarks(gist, geo), line, near: 0.25, allow: null }).errs
+    }],
+    ['clark without its allowlist', () => {
+      const clark = ROUTE_MAPS.find((r) => r.slug === 'george-rogers-clark')
+      return checkOrder({ id: 'fixture:clark', stops: storyMarks(clark, geo), line: storyLine(lines[clark.slug]), near: 0.25, allow: null }).errs
+    }],
+    ['boones-trail stops 2 and 4 swapped', () => checkDrives({ only: 'boones-trail', mutate: (st) => { [st[1], st[3]] = [st[3], st[1]] } })[0].errs],
+  ]
+  for (const [name, run] of broken) {
+    const errs = run()
+    console.log(`${errs.length ? 'ok  ' : 'FAIL'} ${name}: ${errs[0] || 'passes (should fail)'}`)
+    if (!errs.length) failed++
+  }
+  const r = checkOrder({ id: 'fixture:out-and-back', stops: obStops, line: ob, near: 0.5, allow: null })
+  console.log(`${r.errs.length ? 'FAIL' : 'ok  '} out-and-back: ${r.errs.join(' | ') || 'passes'}`)
+  if (r.errs.length) failed++
+  return failed
+}
+
+async function main() {
+  if (process.argv.includes('--self-test')) {
+    const failed = await selfTest()
+    if (failed) { console.error(`check-route-order self-test: ${failed} case(s) wrong`); process.exit(1) }
+    console.log('check-route-order self-test: broken fixtures fail, good ones pass')
+    return
+  }
+  const rows = [...(await checkStoryMaps()), ...checkDrives()]
+  const errs = rows.flatMap((r) => r.errs)
+  for (const r of rows) console.log(`${r.errs.length ? 'FAIL' : 'ok  '} ${r.kind} ${r.slug} (${r.stops ?? '?'} stops)${process.argv.includes('-v') ? ' ' + JSON.stringify(r.positions) : ''}`)
+  if (errs.length) {
+    console.error(errs.join('\n'))
+    console.error(`check-route-order: ${errs.length} problem(s)`)
+    process.exit(1)
+  }
+  console.log(`check-route-order: ${rows.length} routes, stops follow the line`)
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main()

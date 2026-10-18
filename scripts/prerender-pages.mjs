@@ -1947,7 +1947,8 @@ class PrerenderPages {
     if (!block.includes(`aria-describedby="route-map-hint-${route.slug}"`) || !block.includes('Opens a larger view of this map.')) {
       throw new Error(`prerender: ${urlPath} route map image is missing its description`)
     }
-    const geoStops = route.stops.flatMap((stop, index) => (stop.geo ? [index + 1] : []))
+    // Desk and zoom show every stop, numbered without gaps, on the painted line.
+    const geoStops = route.stops.map((_, index) => index + 1)
     for (const frame of ['desk-light', 'desk-dark', 'zoom-dark']) {
       const slot = block.match(new RegExp(`data-frame="${frame}"[^>]*>([\\s\\S]*?)<\\/div>`))
       const nums = slot ? [...slot[1].matchAll(/data-n="(\d+)"/g)].map((match) => Number(match[1])) : []

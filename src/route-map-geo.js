@@ -81,58 +81,114 @@ export const ROUTE_FRAMES = {
 }
 
 /**
- * Marker centers as fractions of the light image, beside the painted label.
- * Missing stops fall back to the frame.
+ * Marker centers as fractions of the light image, on the painted red line in
+ * travel order (traced in scripts/route-map-lines.json; the build check
+ * scripts/check-route-order.mjs projects each one onto that trace). Where
+ * painted points sit closer than one badge, the badge steps to the side of
+ * the line rather than onto a neighbour. Stops without a coordinate get a
+ * slot too, so the numbers run without gaps. Missing stops fall back to the
+ * frame.
  */
 const LIGHT_MARK = {
   'athiamiowee-the-warriors-path-through-kentucky': {
-    0: [0.453, 0.106],
-    2: [0.389, 0.317],
-    3: [0.384, 0.278],
-    4: [0.393, 0.361],
-    5: [0.394, 0.394],
-    7: [0.419, 0.522],
-    8: [0.416, 0.539],
-    9: [0.425, 0.594],
-    10: [0.372, 0.856],
+    0: [0.487, 0.063],
+    1: [0.438, 0.209],
+    2: [0.389, 0.314],
+    3: [0.359, 0.278],
+    4: [0.417, 0.353],
+    5: [0.389, 0.4],
+    6: [0.421, 0.465],
+    7: [0.411, 0.529],
+    8: [0.445, 0.553],
+    9: [0.417, 0.6],
+    10: [0.372, 0.858],
   },
+  // Every stop sits on the painted red line in travel order (1 Old Town to
+  // 17 the Yadkin), including stops with no coordinate of their own.
   'christopher-gist-1750-51': {
-    0: [0.759, 0.256],
-    3: [0.44, 0.233],
-    5: [0.391, 0.444],
-    6: [0.331, 0.178],
-    // Beside the repainted "little Cuttaway (Red River)" label.
-    10: [0.399, 0.643],
-    12: [0.51, 0.656],
-    13: [0.581, 0.606],
-    14: [0.579, 0.622],
-    15: [0.617, 0.678],
+    0: [0.757, 0.256],
+    1: [0.725, 0.156],
+    2: [0.628, 0.082],
+    3: [0.503, 0.139],
+    4: [0.419, 0.261],
+    5: [0.418, 0.407],
+    6: [0.32, 0.153],
+    7: [0.381, 0.426],
+    8: [0.338, 0.413],
+    9: [0.286, 0.439],
+    10: [0.344, 0.558],
+    11: [0.456, 0.683],
+    12: [0.554, 0.651],
+    13: [0.579, 0.606],
+    14: [0.608, 0.647],
+    15: [0.623, 0.711],
     16: [0.604, 0.856],
   },
   'thomas-walker-and-cumberland-gap': {
-    0: [0.861, 0.322],
-    6: [0.218, 0.644],
-    7: [0.217, 0.6],
-    8: [0.219, 0.622],
-    11: [0.304, 0.422],
-    13: [0.587, 0.422],
-    15: [0.687, 0.344],
+    0: [0.863, 0.32],
+    1: [0.838, 0.367],
+    2: [0.728, 0.498],
+    3: [0.601, 0.57],
+    4: [0.468, 0.656],
+    5: [0.349, 0.691],
+    6: [0.23, 0.728],
+    7: [0.247, 0.667],
+    8: [0.199, 0.653],
+    9: [0.211, 0.499],
+    10: [0.262, 0.396],
+    11: [0.356, 0.426],
+    12: [0.461, 0.478],
+    13: [0.559, 0.431],
+    14: [0.622, 0.385],
+    15: [0.686, 0.342],
+    16: [0.766, 0.302],
+    17: [0.806, 0.324],
   },
   'william-calks-1775-journal': {
-    1: [0.839, 0.267],
-    15: [0.174, 0.656],
-    16: [0.149, 0.622],
-    19: [0.128, 0.556],
+    0: [0.898, 0.172],
+    1: [0.831, 0.278],
+    2: [0.771, 0.351],
+    3: [0.702, 0.395],
+    4: [0.646, 0.478],
+    5: [0.6, 0.523],
+    6: [0.555, 0.57],
+    7: [0.503, 0.63],
+    8: [0.451, 0.651],
+    9: [0.4, 0.641],
+    10: [0.347, 0.633],
+    11: [0.313, 0.688],
+    12: [0.268, 0.701],
+    13: [0.222, 0.698],
+    14: [0.188, 0.733],
+    15: [0.168, 0.68],
+    16: [0.174, 0.616],
+    17: [0.131, 0.63],
+    18: [0.161, 0.552],
+    19: [0.126, 0.537],
+    20: [0.146, 0.476],
+    21: [0.107, 0.444],
+    22: [0.122, 0.378],
   },
   'george-rogers-clark': {
-    1: [0.333, 0.767],
-    3: [0.171, 0.544],
-    5: [0.345, 0.411],
+    0: [0.896, 0.368],
+    1: [0.361, 0.827],
+    2: [0.266, 0.637],
+    3: [0.144, 0.51],
+    4: [0.082, 0.24],
+    5: [0.611, 0.173],
+    6: [0.182, 0.471],
+    7: [0.441, 0.226],
+    8: [0.509, 0.225],
+    9: [0.575, 0.198],
   },
   'mantle-rock-and-the-trail-of-tears': {
-    1: [0.649, 0.556],
-    2: [0.576, 0.467],
-    3: [0.49, 0.356],
+    0: [0.781, 0.75],
+    1: [0.691, 0.614],
+    2: [0.581, 0.454],
+    3: [0.479, 0.359],
+    4: [0.441, 0.317],
+    5: [0.406, 0.284],
+    6: [0.134, 0.266],
   },
 }
 
@@ -338,8 +394,10 @@ function slotHtml(name, spec, route) {
   const viewW = phone ? 350 : 820
   const viewH = phone ? 197 : 460
   let items = []
+  const table = phone ? PHONE_MARK[spec.slug] : LIGHT_MARK[spec.slug]
   route.stops.forEach((stop, index) => {
-    if (!stop.geo) return
+    // A stop with no coordinate is shown only where it has a painted-line slot.
+    if (!stop.geo && !(table && table[index])) return
     items.push({
       point: placedPoint(spec, name, index, stop),
       number: index + 1,
