@@ -24,7 +24,23 @@
  * protected site.
  */
 
+import { ROUTE_MAP_LABELS } from './route-map-labels.js'
+
 const IDENTITY = { x0: 0, y0: 0, x1: 1, y1: 1 }
+/** Badge diameter and the slot sizes (px) the layout is solved for. */
+export const BADGE = 26
+export const DESK_VIEW = [820, 460]
+export const PHONE_VIEW = [350, 197]
+/** Range pill width = PILL_PAD + PILL_CHAR per character (12px bold, measured with margin). */
+export const PILL_PAD = 16
+export const PILL_CHAR = 7.8
+/** The painted double-rule frame, as a fraction of the image; badges stay inside it. */
+export const FRAME_INSET = [0.03, 0.04]
+/** Height / width of the dark art (-dark 1600x994, -phone-dark 804x463); the light art is 16:9. */
+export const DARK_ASPECT = { desk: 994 / 1600, phone: 463 / 804 }
+export function frameInset(viewW, viewH) {
+  return [FRAME_INSET[0] * viewW, FRAME_INSET[1] * viewH]
+}
 
 function bounds(west, east, south, north) {
   return { west, east, south, north }
@@ -81,58 +97,119 @@ export const ROUTE_FRAMES = {
 }
 
 /**
- * Marker centers as fractions of the light image, beside the painted label.
- * Missing stops fall back to the frame.
+ * Marker centers as fractions of the light image, on the painted red line in
+ * travel order (traced in scripts/route-map-lines.json; the build check
+ * scripts/check-route-order.mjs projects each one onto that trace). Where
+ * painted points sit closer than one badge, the badge steps to the side of
+ * the line rather than onto a neighbour. Stops without a coordinate get a
+ * slot too, so the numbers run without gaps. Missing stops fall back to the
+ * frame.
  */
 const LIGHT_MARK = {
   'athiamiowee-the-warriors-path-through-kentucky': {
-    0: [0.453, 0.106],
-    2: [0.389, 0.317],
-    3: [0.384, 0.278],
-    4: [0.393, 0.361],
-    5: [0.394, 0.394],
-    7: [0.419, 0.522],
-    8: [0.416, 0.539],
-    9: [0.425, 0.594],
-    10: [0.372, 0.856],
+    0: [0.487, 0.063],
+    1: [0.445, 0.222],
+    // 3 and 4 anchor to their painted rings. The painting puts the Red River
+    // ring a little north of Eskippakithiki (a repaint is its own ticket).
+    2: [0.39, 0.314],
+    3: [0.384, 0.277],
+    4: [0.393, 0.352],
+    5: [0.393, 0.388],
+    6: [0.429, 0.487],
+    7: [0.411, 0.529],
+    8: [0.445, 0.553],
+    9: [0.417, 0.6],
+    10: [0.372, 0.858],
   },
+  // Every stop sits on the painted red line in travel order (1 Old Town to
+  // 17 the Yadkin), including stops with no coordinate of their own.
   'christopher-gist-1750-51': {
-    0: [0.759, 0.256],
-    3: [0.44, 0.233],
-    5: [0.391, 0.444],
-    6: [0.331, 0.178],
-    // Beside the repainted "little Cuttaway (Red River)" label.
-    10: [0.399, 0.643],
-    12: [0.51, 0.656],
-    13: [0.581, 0.606],
-    14: [0.579, 0.622],
-    15: [0.617, 0.678],
+    0: [0.757, 0.256],
+    1: [0.725, 0.156],
+    2: [0.628, 0.082],
+    3: [0.503, 0.139],
+    4: [0.419, 0.261],
+    5: [0.418, 0.407],
+    6: [0.32, 0.153],
+    7: [0.381, 0.426],
+    8: [0.338, 0.413],
+    9: [0.286, 0.439],
+    10: [0.344, 0.558],
+    11: [0.456, 0.683],
+    12: [0.554, 0.651],
+    13: [0.579, 0.606],
+    14: [0.608, 0.647],
+    15: [0.623, 0.711],
     16: [0.604, 0.856],
   },
   'thomas-walker-and-cumberland-gap': {
-    0: [0.861, 0.322],
-    6: [0.218, 0.644],
-    7: [0.217, 0.6],
-    8: [0.219, 0.622],
-    11: [0.304, 0.422],
-    13: [0.587, 0.422],
-    15: [0.687, 0.344],
+    0: [0.863, 0.32],
+    1: [0.838, 0.367],
+    2: [0.728, 0.498],
+    3: [0.601, 0.57],
+    4: [0.468, 0.656],
+    5: [0.349, 0.691],
+    6: [0.23, 0.728],
+    7: [0.247, 0.667],
+    8: [0.199, 0.653],
+    9: [0.211, 0.499],
+    10: [0.262, 0.396],
+    11: [0.356, 0.426],
+    12: [0.461, 0.478],
+    13: [0.559, 0.431],
+    14: [0.622, 0.385],
+    15: [0.686, 0.342],
+    16: [0.766, 0.302],
+    17: [0.806, 0.324],
   },
   'william-calks-1775-journal': {
-    1: [0.839, 0.267],
-    15: [0.174, 0.656],
-    16: [0.149, 0.622],
-    19: [0.128, 0.556],
+    0: [0.898, 0.172],
+    1: [0.831, 0.278],
+    2: [0.771, 0.351],
+    3: [0.702, 0.395],
+    4: [0.646, 0.478],
+    5: [0.6, 0.523],
+    6: [0.555, 0.57],
+    7: [0.503, 0.63],
+    8: [0.451, 0.651],
+    9: [0.4, 0.641],
+    10: [0.347, 0.633],
+    11: [0.313, 0.688],
+    12: [0.268, 0.701],
+    13: [0.222, 0.698],
+    14: [0.188, 0.733],
+    15: [0.168, 0.68],
+    // 17-19 sit on the painted line north of the Cumberland Gap ring, in
+    // travel order (Cumberland Ford, Richland Creek, Laurel River by London).
+    16: [0.167, 0.65],
+    17: [0.136, 0.587],
+    18: [0.128, 0.552],
+    19: [0.126, 0.537],
+    // 21 (Roundstone Creek, no coordinate) shares the Rockcastle ring: a
+    // separate dot there crowded 18-20 so no leader could clear them.
+    21: [0.107, 0.444],
+    22: [0.122, 0.378],
   },
   'george-rogers-clark': {
-    1: [0.333, 0.767],
-    3: [0.171, 0.544],
-    5: [0.345, 0.411],
+    0: [0.896, 0.368],
+    1: [0.361, 0.827],
+    2: [0.266, 0.637],
+    3: [0.144, 0.51],
+    4: [0.082, 0.24],
+    5: [0.611, 0.173],
+    6: [0.182, 0.471],
+    7: [0.441, 0.226],
+    8: [0.509, 0.225],
+    9: [0.575, 0.198],
   },
   'mantle-rock-and-the-trail-of-tears': {
-    1: [0.649, 0.556],
-    2: [0.576, 0.467],
-    3: [0.49, 0.356],
+    0: [0.781, 0.75],
+    1: [0.691, 0.614],
+    2: [0.581, 0.454],
+    3: [0.479, 0.359],
+    4: [0.441, 0.317],
+    5: [0.406, 0.284],
+    6: [0.134, 0.266],
   },
 }
 
@@ -225,6 +302,77 @@ const PHONE_MARK = {
   },
 }
 
+/**
+ * Hand-picked badge spots (by stop number) where the painting is too
+ * crowded for the automatic step-out: the badge sits clear of every label
+ * and keeps a leader to its point. Light-image (or phone-image) fractions.
+ */
+const BADGE_AT = {
+  'christopher-gist-1750-51': {
+    // Salt Lick: south, between the Louisville and Frankfort labels, so the leader clears '(site disputed)' in dark too.
+    10: [0.272, 0.57],
+  },
+  'william-calks-1775-journal': {
+    // The Kentucky leg (13-23) is hand-pinned in view px of the 820x460 desk
+    // slot: badges fan into open ground south and west of the label stack so
+    // every leader clears every other badge, label and arrow.
+    13: [230 / 820, 378 / 460, 'pin'],
+    14: [175 / 820, 385 / 460, 'pin'],
+    15: [70 / 820, 340 / 460, 'pin'],
+    16: [200 / 820, 352 / 460, 'pin'],
+    17: [165 / 820, 276 / 460, 'pin'],
+    18: [82 / 820, 287 / 460, 'pin'],
+    19: [120 / 820, 237 / 460, 'pin'],
+    20: [40 / 820, 230 / 460, 'pin'],
+    21: [78 / 820, 222 / 460, 'pin'],
+    22: [38 / 820, 195 / 460, 'pin'],
+    23: [62 / 820, 165 / 460, 'pin'],
+  },
+  'athiamiowee-the-warriors-path-through-kentucky': {
+    // East of the Lower Shawneetown plate: the frame top leaves no room above Cabin Creek.
+    1: [0.625, 0.075],
+    2: [0.44, 0.241],
+    3: [0.45, 0.324],
+    4: [0.405, 0.241],
+    5: [0.389, 0.352],
+    6: [0.41, 0.42],
+    7: [0.48, 0.488],
+    8: [0.395, 0.485],
+    9: [0.4, 0.5625],
+    10: [0.41, 0.64],
+    11: [0.365, 0.86],
+  },
+}
+const PHONE_BADGE_AT = {
+  'christopher-gist-1750-51': {
+    // 11–12 just east of its dot, under '(disputed)', and 13–16 east of its
+    // own dot: 13–16's leader runs below the 11–12 pill, never through it.
+    11: [0.4286, 0.523],
+    13: [0.809, 0.63],
+  },
+  // Hand spots where the nearest clear spot would run a leader across a label.
+  'george-rogers-clark': {
+    // 4 and 7–8 share Kaskaskia's point, whose dot sits west of the plate: 4 below it, 7–8 to the west.
+    4: [0.185, 0.67],
+    7: [0.105, 0.535],
+  },
+  }
+
+/**
+ * Phone crops that show only the Kentucky leg: stops off the crop pin to the
+ * map edge (image fractions, by stop number) instead of sitting by an
+ * unrelated painted label. Gist 1–5 come from the northeast (Maryland,
+ * Pennsylvania, the Muskingum) and 7 is Pickawillany, north of the Ohio.
+ */
+const PHONE_PIN = {
+  'christopher-gist-1750-51': {
+    // 1–5 on the east edge, below the Expand button; 7 on the north edge.
+    1: [0.97, 0.34], 2: [0.97, 0.34], 3: [0.97, 0.34], 4: [0.97, 0.34], 5: [0.97, 0.34],
+    // The title cartouche spans the top, so 7's edge is the cartouche's foot.
+    7: [0.45, 0.145],
+  },
+}
+
 function mercY(lat) {
   const phi = (lat * Math.PI) / 180
   return Math.log(Math.tan(Math.PI / 4 + phi / 2))
@@ -253,29 +401,222 @@ function placedPoint(spec, slot, index, stop) {
   return project(frame, box, stop.geo[1], stop.geo[0])
 }
 
-function screenDistance(a, b, viewW, viewH) {
-  const dx = (a[0] - b[0]) * viewW
-  const dy = (a[1] - b[1]) * viewH
+/** Badge as a capsule in view pixels: center, half straight length, radius. */
+function badgeShape(item, viewW, viewH) {
+  const text = item.label || String(item.number)
+  const w = item.cluster ? Math.max(BADGE, PILL_PAD + PILL_CHAR * text.length) : BADGE
+  return { x: item.point[0] * viewW, y: item.point[1] * viewH, h: (w - BADGE) / 2, r: BADGE / 2 }
+}
+
+function segRectDist(x0, x1, y, rect) {
+  // Distance from the horizontal segment (x0..x1, y) to an axis-aligned box.
+  const dy = y < rect[1] ? rect[1] - y : y > rect[3] ? y - rect[3] : 0
+  const dx = x1 < rect[0] ? rect[0] - x1 : x0 > rect[2] ? x0 - rect[2] : 0
   return Math.hypot(dx, dy)
 }
 
-/** Pull a repeated town off the marker already sitting there. */
-function separateOverlaps(items, viewW, viewH) {
-  const placed = []
-  for (const item of items) {
-    let x = item.point[0]
-    let y = item.point[1]
-    let n = 0
-    while (n < 6 && placed.some((other) => screenDistance([x, y], other.point, viewW, viewH) < 28)) {
-      n += 1
-      const stepX = (32 * n) / viewW
-      const stepY = (32 * n) / viewH
-      x = item.point[0] + (n % 2 === 0 ? -stepX : stepX)
-      y = item.point[1] + stepY
-    }
-    placed.push({ ...item, point: [x, y] })
+function segSegDist(a, b) {
+  // Two horizontal segments.
+  const dx = Math.max(0, Math.max(a.x - a.h, b.x - b.h) - Math.min(a.x + a.h, b.x + b.h))
+  return Math.hypot(dx, a.y - b.y)
+}
+
+/** Does the segment a-b pass through the box (beyond its first few px)? */
+function segHitsRect(a, b, rect) {
+  const len = Math.hypot(b[0] - a[0], b[1] - a[1])
+  for (let t = Math.min(1, 4 / (len || 1)); t <= 1; t += 1 / (len || 1)) {
+    const x = a[0] + t * (b[0] - a[0])
+    const y = a[1] + t * (b[1] - a[1])
+    // 1px of slack: the overlay rounds positions to 0.1%.
+    if (x > rect[0] - 1 && x < rect[2] + 1 && y > rect[1] - 1 && y < rect[3] + 1) return true
   }
-  return placed
+  return false
+}
+
+/**
+ * The leader dot marks the stop's spot on the painted line; when that spot is
+ * inside a label box, the dot moves to the nearest point 3px outside it so it
+ * never sits on the lettering.
+ */
+export function dotClear(p, rects, viewW, viewH) {
+  let x = p[0] * viewW
+  let y = p[1] * viewH
+  for (let n = 0; n < 4; n++) {
+    const hit = rects.find((r) => x > r[0] - 3 && x < r[2] + 3 && y > r[1] - 3 && y < r[3] + 3)
+    if (!hit) break
+    const opts = [[x - hit[0] + 3, -1, 0], [hit[2] + 3 - x, 1, 0], [y - hit[1] + 3, 0, -1], [hit[3] + 3 - y, 0, 1]].sort((a, b) => a[0] - b[0])
+    x += opts[0][1] * opts[0][0]
+    y += opts[0][2] * opts[0][0]
+  }
+  return [x / viewW, y / viewH]
+}
+
+/**
+ * State and region names in spaced capitals (KENTUCKY, ILLINOIS) are area
+ * lettering, not place labels: a badge may not cover one, but a thin leader
+ * may cross it, as roads and rivers do on the painting.
+ */
+export function isAreaLabel(name) {
+  return /^[A-Z][A-Z .]{4,}$/.test(String(name || '').trim())
+}
+
+/** Clearance (px) between a badge and a label box; below 0 means they overlap. */
+export function badgeLabelGap(shape, rect) {
+  return segRectDist(shape.x - shape.h, shape.x + shape.h, shape.y, rect) - shape.r
+}
+
+/**
+ * Clearance (px) between a leader (dot a to badge centre b) and another
+ * badge's capsule; below 0 means the leader runs through it.
+ */
+export function leaderBadgeGap(a, b, shape) {
+  const p = [shape.x - shape.h, shape.y]
+  const q = [shape.x + shape.h, shape.y]
+  const ptSeg = (c, u, v) => {
+    const dx = v[0] - u[0], dy = v[1] - u[1]
+    const l2 = dx * dx + dy * dy
+    const t = l2 ? Math.max(0, Math.min(1, ((c[0] - u[0]) * dx + (c[1] - u[1]) * dy) / l2)) : 0
+    return Math.hypot(c[0] - u[0] - t * dx, c[1] - u[1] - t * dy)
+  }
+  const cross = (o, u, v) => (u[0] - o[0]) * (v[1] - o[1]) - (u[1] - o[1]) * (v[0] - o[0])
+  const d1 = cross(p, q, a), d2 = cross(p, q, b), d3 = cross(a, b, p), d4 = cross(a, b, q)
+  const hit = ((d1 > 0) !== (d2 > 0)) && ((d3 > 0) !== (d4 > 0))
+  const d = hit ? 0 : Math.min(ptSeg(a, p, q), ptSeg(b, p, q), ptSeg(p, a, b), ptSeg(q, a, b))
+  return d - shape.r
+}
+
+/** Clearance (px) between two badges; below 0 means they overlap. */
+export function badgeBadgeGap(a, b) {
+  return segSegDist(a, b) - a.r - b.r
+}
+
+/**
+ * Keep every badge clear of the painted labels (fixed obstacles) and of the
+ * badges before it. A badge stays on its point when it can; otherwise it
+ * steps out on the nearest free spot, travelling in stop order, and keeps a
+ * leader back to the point. Labels are light-image (or phone-image)
+ * fractions; positions are returned as fractions of the same image.
+ */
+function placeBadges(items, labels, viewW, viewH, prefer = {}, frames = [{ name: 'light', box: IDENTITY, vh: viewH }]) {
+  // One placement for every theme: a badge keeps the same pixel offset from
+  // its stop in light and dark, and the search scores that offset against the
+  // labels and the other badges in each frame (the dark art registers the
+  // light frame through an inset box, so its stops sit a little closer).
+  const mapF = (box, p) => [box.x0 + p[0] * (box.x1 - box.x0), box.y0 + p[1] * (box.y1 - box.y0)]
+  // Each frame is its own image at the same width: the dark art is taller
+  // (vh), so a fixed pixel offset is the same on screen in every theme.
+  const F = frames.map(({ name, box, vh = viewH }) => {
+    const rects = (labels || []).map((l) => {
+      const a = mapF(box, [l[0], l[1]])
+      const b = mapF(box, [l[2], l[3]])
+      return [a[0] * viewW, a[1] * vh, b[0] * viewW, b[1] * vh]
+    })
+    return { name, box, vh, rects }
+  })
+  const crossable = (labels || []).map((l) => isAreaLabel(l[4]))
+  // Leaders keep LEAD_AIR px of air from every badge but their own, and a
+  // badge keeps the same air from every other badge's leader and dot.
+  const LEAD_AIR = 6
+  // Keep 4px of air: OCR boxes can clip a first letter.
+  const gap = viewW < 400 ? 6 : 3
+  const [mx, my] = frameInset(viewW, viewH)
+  const costIn = (f, fi, shape, from) => {
+    let bad = 0
+    // A leader may not run across a label: a hard cost, like an overlap.
+    if (from) f.rects.forEach((rect, i) => { if (!crossable[i] && segHitsRect(from, [shape.x, shape.y], rect)) bad += 200 })
+    for (const rect of f.rects) { const g = badgeLabelGap(shape, rect); bad += 4 * Math.max(0, gap - g) + 40 * Math.max(0, 0.8 - g) }
+    // A stepped-out badge must show its leader: the dot sits at least 8px outside the badge.
+    if (from) { const show = segRectDist(shape.x - shape.h, shape.x + shape.h, shape.y, [from[0], from[1], from[0], from[1]]) - shape.r; if (show < 8) bad += 3 * (8 - show) + 40 * Math.max(0, 6.8 - show) }
+    // Stay inside the painted frame (FRAME_INSET), never clipped by the image edge.
+    const edge = Math.min(shape.x - shape.h - shape.r - mx, viewW - mx - shape.x - shape.h - shape.r, shape.y - shape.r - my, f.vh - my - shape.y - shape.r)
+    // Clipping by the frame is never a fair trade for a shorter leader.
+    if (edge < 1) bad += 40 * (1 - edge)
+    return bad
+  }
+  // Badge air the placer aims for: the check's floors (6px badge to badge,
+  // 4px leader to badge) plus room for the overlay's 0.1% rounding.
+  const BADGE_AIR = 7.5
+  const prep = items.map((item) => {
+    const per = F.map((f) => {
+      const pt = mapF(f.box, item.point)
+      const at = badgeShape({ ...item, point: pt }, viewW, f.vh)
+      // Leaders start at the dot, which sits clear of the labels.
+      const dot = dotClear(pt, f.rects, viewW, f.vh)
+      return { at, dot, from: [dot[0] * viewW, dot[1] * f.vh] }
+    })
+    const want = prefer[item.number]
+    // A hand-picked spot (BADGE_AT, light-image fraction) sets the starting offset.
+    const o0 = want ? [want[0] * viewW - per[0].at.x, want[1] * F[0].vh - per[0].at.y] : [0, 0]
+    // A range badge always steps out with a leader and dot to the stop its range starts at.
+    const mustLead = Boolean(want) || Boolean(item.cluster && !item.pinned)
+    return { per, o0, mustLead, pin: Boolean(want && want[2] === 'pin') }
+  })
+  const shapesAt = (i, o) => prep[i].per.map((q) => ({ ...q.at, x: q.at.x + o[0], y: q.at.y + o[1] }))
+  const state = items.map(() => null)
+  const cost = (i, o) => {
+    const lead = Math.hypot(o[0], o[1]) > 1e-9 || prep[i].mustLead
+    let bad = 0
+    shapesAt(i, o).forEach((sh, fi) => {
+      const from = lead ? prep[i].per[fi].from : null
+      bad += costIn(F[fi], fi, sh, from)
+      for (let j = 0; j < items.length; j++) {
+        if (j === i || !state[j]) continue
+        const os = state[j].shapes[fi]
+        { const g = badgeBadgeGap(sh, os); bad += 4 * Math.max(0, BADGE_AIR - g) + 40 * Math.max(0, 6.8 - g) }
+        if (from) { const g = leaderBadgeGap(from, [sh.x, sh.y], os); if (g < LEAD_AIR) bad += 8 * (LEAD_AIR - g) + 40 * Math.max(0, 4.8 - g) }
+        const of = state[j].from[fi]
+        if (of) { const g = leaderBadgeGap(of, [os.x, os.y], sh); if (g < LEAD_AIR) bad += 8 * (LEAD_AIR - g) + 40 * Math.max(0, 4.8 - g) }
+      }
+    })
+    return bad
+  }
+  const place = (i) => {
+    const { o0, per } = prep[i]
+    const score = (o) => cost(i, o) + 0.15 * Math.max(0, Math.hypot(o[0], o[1]) - 20)
+    let best = { o: o0, bad: cost(i, o0) }
+    // A pinned hand spot ([x, y, 'pin']) is final: the other badges arrange around it.
+    if (prep[i].pin) { state[i] = { o: o0, bad: best.bad, shapes: shapesAt(i, o0), from: per.map((q) => q.from) }; return }
+    if (state[i]) { const cur = { o: state[i].o, bad: score(state[i].o) }; if (cur.bad < best.bad) best = cur }
+    if (best.bad > 0) {
+      for (let r = 3; r <= 200 && best.bad > 0; r += 3) {
+        for (let k = 0; k < 36; k++) {
+          const a = (k * Math.PI) / 18
+          const o = [o0[0] + r * Math.cos(a), o0[1] + r * Math.sin(a)]
+          // Prefer the nearest clear spot: a long leader is a cost too.
+          const bad = score(o)
+          if (bad < best.bad - 1e-9) best = { o, bad }
+        }
+      }
+    }
+    const leader = Math.hypot(best.o[0], best.o[1]) >= 6
+    state[i] = { o: best.o, bad: best.bad, shapes: shapesAt(i, best.o), from: leader ? per.map((q) => q.from) : [] }
+  }
+  // Travel order first, then a few passes that re-place each badge against
+  // all the others, so an early badge moves off a later badge's leader. The
+  // same again in reverse order; the layout with fewer clashes wins.
+  const run = (order) => {
+    state.fill(null)
+    order.forEach((i) => place(i))
+    for (let round = 0; round < 4; round++) {
+      let changed = false
+      order.forEach((i) => { const before = state[i].o; place(i); if (before[0] !== state[i].o[0] || before[1] !== state[i].o[1]) changed = true })
+      if (!changed) break
+    }
+    const total = state.reduce((sum, st, i) => sum + cost(i, st.o), 0)
+    return { total, snap: state.slice() }
+  }
+  const fwd = items.map((_, i) => i)
+  let pick = run(fwd)
+  if (pick.total > 0) { const rev = run(fwd.slice().reverse()); if (rev.total < pick.total) pick = rev }
+  pick.snap.forEach((st, i) => { state[i] = st })
+  return items.map((item, i) => {
+    const { per } = prep[i]
+    const shapes = state[i].shapes
+    const leader = Math.hypot(state[i].o[0], state[i].o[1]) >= 6
+    const byFrame = {}
+    F.forEach((f, fi) => { byFrame[f.name] = { anchor: per[fi].dot, at: [per[fi].at.x / viewW, per[fi].at.y / f.vh], point: [shapes[fi].x / viewW, shapes[fi].y / f.vh] } })
+    return { ...item, anchor: byFrame[F[0].name].anchor, point: byFrame[F[0].name].point, leader, frames: byFrame }
+  })
 }
 
 /**
@@ -298,7 +639,7 @@ function clusterPhone(items) {
   const groups = []
   for (const item of items) {
     const prev = groups[groups.length - 1]
-    if (prev) {
+    if (prev && Boolean(prev[0].pinned) === Boolean(item.pinned)) {
       const [w, h] = span(prev.concat(item))
       if (w <= maxW && h <= maxH) {
         prev.push(item)
@@ -309,8 +650,8 @@ function clusterPhone(items) {
   }
   return groups.map((group) => {
     if (group.length === 1) return group[0]
-    const x = group.reduce((sum, item) => sum + item.point[0], 0) / group.length
-    const y = group.reduce((sum, item) => sum + item.point[1], 0) / group.length
+    // A range badge points at the stop where its range begins.
+    const [x, y] = group[0].point
     const first = group[0].number
     const last = group[group.length - 1].number
     return {
@@ -323,45 +664,97 @@ function clusterPhone(items) {
   })
 }
 
+function pct(v) {
+  return (v * 100).toFixed(1)
+}
+
 function markerSpan(item) {
-  const left = (item.point[0] * 100).toFixed(1)
-  const top = (item.point[1] * 100).toFixed(1)
   const classes = ['route-stop']
   if (item.cluster) classes.push('route-stop-cluster')
   else if (item.conjectural) classes.push('route-stop-conjectural')
   const label = item.label || String(item.number)
-  return `<span class="${classes.join(' ')}" style="left:${left}%;top:${top}%" data-n="${label}"></span>`
+  // data-pt: the stop's own spot before the badge stepped out (checks compare light and dark offsets).
+  const pt = item.at ? ` data-pt="${pct(item.at[0])},${pct(item.at[1])}"` : ''
+  return `<span class="${classes.join(' ')}" style="left:${pct(item.point[0])}%;top:${pct(item.point[1])}%" data-n="${label}" data-at="${pct(item.anchor[0])},${pct(item.anchor[1])}"${pt}></span>`
 }
 
-function slotHtml(name, spec, route) {
-  const phone = name.startsWith('phone')
-  const viewW = phone ? 350 : 820
-  const viewH = phone ? 197 : 460
+/** Short leaders from a stepped-out badge back to its point on the painted line. */
+function leaderSvg(items) {
+  const lines = items.filter((item) => item.leader)
+  if (!lines.length) return ''
+  return `<svg class="route-stop-leaders" viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">${lines
+    .map((item) => `<line vector-effect="non-scaling-stroke" x1="${pct(item.anchor[0])}" y1="${pct(item.anchor[1])}" x2="${pct(item.point[0])}" y2="${pct(item.point[1])}"/>`)
+    .join('')}</svg>`
+}
+
+/**
+ * Badge layout for one image (desk light or phone light), in fractions of
+ * that image. Dark and zoom slots reuse it through their inset boxes.
+ */
+export function routeMapLayout(route, kind = 'desk') {
+  const frame = ROUTE_FRAMES[route.slug]
+  if (!frame) return []
+  const spec = { slug: route.slug, frame }
+  const phone = kind === 'phone'
+  const slot = phone ? 'phone-light' : 'desk-light'
+  const viewW = phone ? PHONE_VIEW[0] : DESK_VIEW[0]
+  const viewH = phone ? PHONE_VIEW[1] : DESK_VIEW[1]
+  const table = phone ? PHONE_MARK[spec.slug] : LIGHT_MARK[spec.slug]
+  const pins = phone ? PHONE_PIN[spec.slug] || {} : {}
   let items = []
   route.stops.forEach((stop, index) => {
-    if (!stop.geo) return
-    items.push({
-      point: placedPoint(spec, name, index, stop),
-      number: index + 1,
-      conjectural: Boolean(stop.conjectural),
-      cluster: false,
-    })
+    const number = index + 1
+    const base = { number, conjectural: Boolean(stop.conjectural), cluster: false }
+    if (pins[number]) {
+      // Off this crop: the badge pins to the map edge and its leader runs to
+      // the edge, pointing the way the route goes.
+      items.push({ ...base, point: pins[number], pinned: true })
+      return
+    }
+    // A stop with no coordinate and no painted-line slot is filled in below.
+    if (!stop.geo && !(table && table[index])) {
+      items.push({ ...base, point: null })
+      return
+    }
+    items.push({ ...base, point: placedPoint(spec, slot, index, stop) })
+  })
+  // Every number appears: a stop with no point of its own sits on the line
+  // between its neighbours (or joins their range badge on a phone).
+  items.forEach((item, i) => {
+    if (item.point) return
+    // It shares the previous stop's spot, so it joins that badge's range or
+    // steps out with a leader to it; it never floats between two stops.
+    const before = items.slice(0, i).reverse().find((o) => o.point && !o.pinned)
+    const after = items.slice(i + 1).find((o) => o.point && !o.pinned)
+    const a = before || after
+    item.point = a ? [a.point[0], a.point[1]] : [0.5, 0.5]
   })
   if (phone) items = clusterPhone(items)
-  items = separateOverlaps(items, viewW, viewH)
-  return `<div class="route-map-overlay" data-frame="${name}" aria-hidden="true">${items.map(markerSpan).join('')}</div>`
+  const labels = ROUTE_MAP_LABELS[route.slug]?.[phone ? 'phone' : 'light']
+  const frames = phone
+    ? [{ name: 'phone-light', box: IDENTITY, vh: viewH }, { name: 'phone-dark', box: frame.phoneDark, vh: viewW * DARK_ASPECT.phone }]
+    : [{ name: 'desk-light', box: IDENTITY, vh: viewH }, { name: 'desk-dark', box: frame.dark, vh: viewW * DARK_ASPECT.desk }]
+  return placeBadges(items, labels, viewW, viewH, (phone ? PHONE_BADGE_AT : BADGE_AT)[route.slug], frames)
+}
+
+function slotHtml(name, route, layouts) {
+  const frame = ROUTE_FRAMES[route.slug]
+  const phone = name.startsWith('phone')
+  const box = name === 'desk-dark' ? frame.dark
+    : name === 'zoom-dark' ? frame.zoomDark
+    : name === 'phone-dark' ? frame.phoneDark
+    : IDENTITY
+  const map = (p) => [box.x0 + p[0] * (box.x1 - box.x0), box.y0 + p[1] * (box.y1 - box.y0)]
+  // Placement is shared by every theme (see placeBadges): use this frame's own spot when it has one.
+  const items = layouts[phone ? 'phone' : 'desk'].map((item) => (item.frames && item.frames[name] ? { ...item, ...item.frames[name] } : { ...item, point: map(item.point), anchor: map(item.anchor) }))
+  const dots = items.filter((item) => item.leader).map((item) => `<i class="route-stop-dot" style="left:${pct(item.anchor[0])}%;top:${pct(item.anchor[1])}%"></i>`).join('')
+  return `<div class="route-map-overlay" data-frame="${name}" aria-hidden="true">${leaderSvg(items)}${dots}${items.map(markerSpan).join('')}</div>`
 }
 
 /** Five aligned overlays: desk light, desk dark, zoom dark, phone light, phone dark. */
 export function routeMapOverlayHtml(route) {
   const frame = ROUTE_FRAMES[route.slug]
   if (!frame) return ''
-  const spec = { slug: route.slug, frame }
-  return [
-    slotHtml('desk-light', spec, route),
-    slotHtml('desk-dark', spec, route),
-    slotHtml('zoom-dark', spec, route),
-    slotHtml('phone-light', spec, route),
-    slotHtml('phone-dark', spec, route),
-  ].join('')
+  const layouts = { desk: routeMapLayout(route, 'desk'), phone: routeMapLayout(route, 'phone') }
+  return ['desk-light', 'desk-dark', 'zoom-dark', 'phone-light', 'phone-dark'].map((name) => slotHtml(name, route, layouts)).join('')
 }
