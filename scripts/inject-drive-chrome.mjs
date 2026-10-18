@@ -7,13 +7,13 @@
  *
  * The site stylesheet is imported into a cascade layer, so each drive page's own unlayered CSS still
  * wins for its content; the header then reverts to the site (layer) styles with all: revert-layer,
- * so drive rules such as h1{} or button{} cannot restyle it. No analytics is added here.
+ * so drive rules such as h1{} or button{} cannot restyle it. Adds the shared favicon links. No analytics is added here.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { PrerenderPages } from './prerender-pages.mjs'
-import { sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 
 const MARK = '<!-- khd-drive-chrome -->'
 
@@ -36,7 +36,7 @@ export function injectDriveChrome(html, { cssHrefs, isIndex, isPlanner }) {
   // Head: seal rotation + saved theme + layered site CSS before the page's own styles; guard after them.
   const firstStyle = html.search(/<style>|<link rel="stylesheet"/)
   if (firstStyle < 0) throw new Error('inject-drive-chrome: page has no stylesheet')
-  html = html.slice(0, firstStyle) + `${MARK}\n${sealRotationScriptHtml()}\n${THEME_JS}\n${preload}\n${layered}\n` + html.slice(firstStyle)
+  html = html.slice(0, firstStyle) + `${MARK}\n${faviconLinksHtml()}\n${sealRotationScriptHtml()}\n${THEME_JS}\n${preload}\n${layered}\n` + html.slice(firstStyle)
   html = html.replace('</head>', `${GUARD_CSS}\n</head>`)
   // Drive pages have an "All drives" breadcrumb, so the back link is for phones only; the planner keeps it always.
   const back = isIndex ? '' : `\n  <p class="drive-back${isPlanner ? '' : ' drive-back-phone'}"><a href="/drives/">← Back to all drives</a></p>`
