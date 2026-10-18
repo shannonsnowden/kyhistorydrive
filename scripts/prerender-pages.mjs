@@ -28,6 +28,8 @@ import {
 } from './gtag-snippet.mjs'
 import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
+import { storyDrives } from './story-drives-lib.mjs'
+import { takeADriveHtml } from '../src/take-a-drive.js'
 import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
 import {
   citeBootScript,
@@ -1368,6 +1370,15 @@ class PrerenderPages {
     return markers
   }
 
+  static _storyDrives = null
+  /** Story -> drive ids, read from the drive pages (scripts/story-drives-lib.mjs). */
+  static storyDriveData() {
+    if (!PrerenderPages._storyDrives) {
+      PrerenderPages._storyDrives = storyDrives(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'))
+    }
+    return PrerenderPages._storyDrives
+  }
+
   static loadResearch(root) {
     const dir = path.join(root, 'public/content/research')
     if (!fs.existsSync(dir)) return []
@@ -1508,6 +1519,7 @@ class PrerenderPages {
             ${glanceHtml}
             ${researchLink}
           </header>
+          ${takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)}
         </div>
         ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: Boolean(film) })}
         <div class="story-reader-main">
