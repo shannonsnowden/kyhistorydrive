@@ -20,8 +20,11 @@
     "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
     "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
-    "year": 1796
+    "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · Public domain",
+    "year": "surveyed 1796",
+    "credit": "Georges-Henri-Victor Collot",
+    "license": "Public domain",
+    "artwork": "map"
   },
   "county": "Franklin"
 }

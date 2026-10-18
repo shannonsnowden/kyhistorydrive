@@ -2,8 +2,8 @@
  * Story-page tools shared by prerendered /stories/ pages and the hash reader.
  * Dates passed in here are already resolved. This module never invents one.
  */
-import { ccByLicense, artworkLead, ARTWORK_LEADS } from './photo-credit.js'
-export { artworkLead, ARTWORK_LEADS }
+import { ccByLicense, artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS } from './photo-credit.js'
+export { artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS }
 
 export const SITE_NAME = 'Kentucky History Drive'
 export const SITE_AUTHOR = 'Shannon Snowden'
@@ -916,7 +916,7 @@ export function photoCreditHtml(photo, { block = true } = {}) {
     chunks.push(externalLink(model.sourceUrl, 'Source'))
   }
   const cc = ccByLicense(photo)
-  if (!chunks.length && !model.license && !cc) return ''
+  if (!chunks.length && !model.license && !cc && !photo?.rights) return ''
   // Each piece is a nowrap .seg; CSS (.seg + .seg::before) draws the ' · ' at the start of the
   // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
   const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
@@ -925,7 +925,11 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   const lead = artwork ? esc(artwork) : 'Photo: '
   const first = artwork && model.photographer && photo?.artwork !== 'reconstruction' && photo?.year ? `${chunks[0]}, ${esc(String(photo.year))}` : chunks[0]
   if (segs.length) segs[0] = `<span class="seg">${lead}${first}</span>`
-  if (model.license || cc) {
+  // A rights statement that is not a license (e.g. LoC 'No known restrictions') shows as written.
+  const rights = String(photo?.rights || '').trim()
+  if (rights && !model.license && !cc) {
+    segs.push(`<span class="seg photo-license">${segs.length ? '' : lead}${esc(rights)}</span>`)
+  } else if (model.license || cc) {
     const href = cc?.url || model.licenseUrl
     const label = cc?.name || model.license
     const rel = cc ? 'license noopener noreferrer' : 'noopener noreferrer'

@@ -43,6 +43,10 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !=
       attribution: row.attribution,
       year: row.year ?? null,
     }
+    // Credit fields the Photos sidebar needs (artwork medium, named credit, license, rights statement).
+    for (const key of ['credit', 'license', 'license_url', 'artwork', 'rights']) {
+      if (row[key]) next[key] = row[key]
+    }
   } else if (person.sourceFile && story.photo && commonsName(story.photo.source_url) === person.sourceFile.replace(/_/g, ' ').toLowerCase()) {
     next = undefined
   }

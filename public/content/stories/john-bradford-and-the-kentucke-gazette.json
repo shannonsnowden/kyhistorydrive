@@ -20,8 +20,11 @@
     "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
     "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
     "source_label": "Wikimedia Commons",
-    "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
-    "year": 1887
+    "attribution": "William Henry Perrin · Wikimedia Commons · Public domain",
+    "year": 1887,
+    "credit": "William Henry Perrin",
+    "license": "Public domain",
+    "artwork": "print"
   },
   "county": "Fayette"
 }

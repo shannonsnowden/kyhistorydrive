@@ -59,7 +59,10 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
-    "year": 1851
+    "year": "1851–1852",
+    "credit": "George Caleb Bingham",
+    "license": "Public domain",
+    "artwork": "painting"
   },
   "peter-village-early-woodland-enclosure-near-lexington": {
     "ext": "jpg",
@@ -68,8 +71,11 @@
     "title": "Peter Village enclosure (Squier & Davis 1848)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-    "year": 1848
+    "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+    "year": 1848,
+    "credit": "Ephraim George Squier and Edwin Hamilton Davis",
+    "license": "Public domain",
+    "artwork": "engraving"
   },
   "isaac-ruddell-and-the-guns-at-ruddells-station": {
     "ext": "jpg",
@@ -99,8 +105,11 @@
     "title": "Three Delaware Indians (George Catlin)",
     "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
-    "year": 1861
+    "attribution": "George Catlin · Wikimedia Commons · CC0",
+    "year": "1861–1869",
+    "credit": "George Catlin",
+    "license": "CC0",
+    "artwork": "painting"
   },
   "simpsonville-takes-shape-on-the-louisville-road": {
     "ext": "jpg",
@@ -129,11 +138,12 @@
     "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
-    "year": null,
+    "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later; CC BY-SA 4.0",
+    "year": 2010,
     "credit": "Chuck Hamilton",
     "license": "GFDL 1.2 or later; CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artwork": "map"
   },
   "jack-jouett-kentuckys-midnight-rider": {
     "ext": "jpg",
@@ -281,8 +291,10 @@
     "title": "Osage delegation to Washington, D.C.",
     "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Unknown · Wikimedia Commons · Public domain",
-    "year": null
+    "attribution": "Unknown photographer · Wikimedia Commons · Public domain",
+    "year": null,
+    "credit": "Unknown photographer",
+    "license": "Public domain"
   },
   "sweet-lick-knob-fort-ancient-gathering-place": {
     "ext": "jpg",
@@ -331,8 +343,10 @@
     "title": "Potawatomi group, c. 1920",
     "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
     "source_label": "Wikimedia Commons",
-    "attribution": "Unknown · Wikimedia Commons · Public domain",
-    "year": null
+    "attribution": "Unknown photographer · Wikimedia Commons · Public domain",
+    "year": null,
+    "credit": "Unknown photographer",
+    "license": "Public domain"
   },
   "slack-farm-15un28-union-county": {
     "ext": "jpg",
@@ -391,8 +405,11 @@
     "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
     "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
-    "year": 1795
+    "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+    "year": "about 1795",
+    "credit": "Unidentified painter",
+    "license": "Public domain",
+    "artwork": "painting"
   },
   "cloudsplitter-rockshelter-menifee-county": {
     "ext": "jpg",
@@ -442,7 +459,10 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2011
+    "year": 2011,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "quapaw-the-downstream-people-of-the-ohio-valley": {
     "ext": "jpg",
@@ -461,8 +481,11 @@
     "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
-    "year": 1778
+    "attribution": "Levi Todd · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+    "year": 1778,
+    "credit": "Levi Todd",
+    "license": "Public domain",
+    "artwork": "signature"
   },
   "new-castle-henry-county-seat": {
     "ext": "jpg",
@@ -491,8 +514,11 @@
     "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
     "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2009,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "bryan-station-siege-august-1782": {
     "ext": "jpg",
@@ -541,8 +567,11 @@
     "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "mammoth-cave-saltpeter": {
     "ext": "jpg",
@@ -591,8 +620,11 @@
     "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "nonhelema": {
     "ext": "jpg",
@@ -631,8 +663,11 @@
     "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
     "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
-    "year": 1795
+    "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+    "year": "about 1795",
+    "credit": "Unidentified painter",
+    "license": "Public domain",
+    "artwork": "painting"
   },
   "slone-site-15pi11-pike-county": {
     "ext": "jpg",
@@ -641,8 +676,11 @@
     "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "louisville-nashville-railroad-opens-the-interior": {
     "ext": "jpg",
@@ -691,8 +729,11 @@
     "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "louisville-and-portland-canal": {
     "ext": "jpg",
@@ -741,8 +782,11 @@
     "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
     "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2003
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2003,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "hidden-river-cave-under-horse-cave": {
     "ext": "jpg",
@@ -791,8 +835,11 @@
     "title": "Painting of the Treaty of Greenville, 1795, made around the time of the treaty",
     "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Unknown artist · Wikimedia Commons · public domain",
-    "year": 1795
+    "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+    "year": "about 1795",
+    "credit": "Unidentified painter",
+    "license": "Public domain",
+    "artwork": "painting"
   },
   "jeptha-knob-shelby-countys-buried-crater": {
     "ext": "jpg",
@@ -801,8 +848,11 @@
     "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
     "source_url": "https://apps.nationalmap.gov/3depdem/",
     "source_label": "USGS 3D Elevation Program",
-    "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
-    "year": 2026
+    "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS 3D Elevation Program · Public domain",
+    "year": 2026,
+    "credit": "U.S. Geological Survey, 3D Elevation Program",
+    "license": "Public domain",
+    "artwork": "map"
   },
   "daniel-trabue-of-columbia": {
     "ext": "jpg",
@@ -929,8 +979,11 @@
     "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
     "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
-    "year": 1920
+    "attribution": "Kraemer Art Company postcard · Wikimedia Commons · Public domain",
+    "year": 1920,
+    "credit": "Kraemer Art Company postcard",
+    "license": "Public domain",
+    "artwork": "print"
   },
   "treaty-of-logstown-1752": {
     "ext": "jpg",
@@ -1079,8 +1132,11 @@
     "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
-    "year": 1887
+    "attribution": "Howard Pyle, Harper's Weekly · Wikimedia Commons · Public domain",
+    "year": 1887,
+    "credit": "Howard Pyle, Harper's Weekly",
+    "license": "Public domain",
+    "artwork": "print"
   },
   "tinsley-hill-15ly18-lyon-county": {
     "ext": "jpg",
@@ -1106,9 +1162,11 @@
     "thumb_url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/68700/68761r.jpg",
     "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
     "source_url": "https://www.loc.gov/pictures/item/2020630224/",
-    "source_label": "Library of Congress",
-    "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
-    "year": 1864
+    "source_label": "Liljenquist Family Collection, Library of Congress",
+    "attribution": "Unknown photographer · Liljenquist Family Collection, Library of Congress",
+    "year": 1864,
+    "credit": "Unknown photographer",
+    "rights": "No known restrictions"
   },
   "prestonsburg-first-seat-on-the-big-sandy": {
     "ext": "jpg",
@@ -1138,7 +1196,10 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
     "source_label": "Wikimedia Commons",
     "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2021
+    "year": 2021,
+    "credit": "Kevin1776",
+    "license": "CC BY-SA 4.0",
+    "artwork": "map"
   },
   "sassafras-ridge-15fu3-fulton-county": {
     "ext": "jpg",

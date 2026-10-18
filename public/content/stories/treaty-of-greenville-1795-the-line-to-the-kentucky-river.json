@@ -20,8 +20,11 @@
     "title": "Painting of the Treaty of Greenville, 1795, made around the time of the treaty",
     "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Unknown artist · Wikimedia Commons · public domain",
-    "year": 1795
+    "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+    "year": "about 1795",
+    "artwork": "painting",
+    "credit": "Unidentified painter",
+    "license": "Public domain"
   },
   "county": ""
 }

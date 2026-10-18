@@ -19,8 +19,11 @@
     "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
     "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2009,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "territory": {
     "ref": "/data/web/territories/adena-mounds-and-earthworks.json",

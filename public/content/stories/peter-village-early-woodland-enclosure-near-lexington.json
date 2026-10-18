@@ -20,8 +20,11 @@
     "title": "Peter Village enclosure (Squier & Davis 1848)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-    "year": 1848
+    "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+    "year": 1848,
+    "artwork": "engraving",
+    "credit": "Ephraim George Squier and Edwin Hamilton Davis",
+    "license": "Public domain"
   },
   "territory": {
     "ref": "/data/web/territories/adena-mounds-and-earthworks.json",

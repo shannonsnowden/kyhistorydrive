@@ -19,8 +19,11 @@
     "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
     "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2010,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "county": "Hopkins"
 }

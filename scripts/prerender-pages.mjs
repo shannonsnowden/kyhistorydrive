@@ -48,6 +48,8 @@ import {
   storyThumbSrc,
   artworkLead,
   ARTWORK_LEADS,
+  looksLikeUnlabeledArtwork,
+  REVIEWED_ARTWORK_SLUGS,
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
@@ -2367,6 +2369,10 @@ class PrerenderPages {
     PrerenderPages.assertStoryMeta(description, PrerenderPages.storyDescriptionSource(story), urlPath)
     if (!html.includes(`name="description" content="${PrerenderPages.escapeHtml(description)}"`)) {
       throw new Error(`prerender: ${urlPath} meta description does not match the story rule`)
+    }
+    // A map, painting, print, drawing, signature etc. must carry its medium, never fall back to 'Photo:'.
+    if (looksLikeUnlabeledArtwork(story.photo) || (REVIEWED_ARTWORK_SLUGS.has(story.slug) && story.photo?.image_url && !artworkLead(story.photo))) {
+      throw new Error(`prerender: ${urlPath} photo looks like art or a document (source or caption) but has no photo.artwork medium`)
     }
     // Editor 10/18 (#199): human-made art is labeled by medium (or as a modern reconstruction), never 'Photo:' or 'AI illustration'.
     if (story.photo?.artwork) {

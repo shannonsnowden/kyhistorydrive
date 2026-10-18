@@ -94,6 +94,9 @@ export const ARTWORK_LEADS = {
   map: 'Map: ',
   // Medium not confirmed by the source (e.g. a halftone plate in a book of portraits).
   portrait: 'Portrait: ',
+  lithograph: 'Lithograph: ',
+  signature: 'Signature: ',
+  document: 'Document: ',
 }
 
 export function artworkLead(photo) {
@@ -101,3 +104,54 @@ export function artworkLead(photo) {
   return kind ? ARTWORK_LEADS[kind] || '' : ''
 }
 
+
+/** Words in a source file name or caption that mark a non-photograph (Editor 10/18, #199). */
+export const NON_PHOTO_PATTERN = /\b(maps?|painting|paintings|oil on canvas|engraving|engraved|lithograph|lithographs|prints?|drawing|drawn|illustration|plate|postcard|signature|signed|portrait|silhouette)\b/i
+
+export const CAPTION_NON_PHOTO = /\b(map of|painting|oil on canvas|engraving|lithograph|postcard|signature of)\b/i
+
+/** True when a story photo looks like art or a document but has no artwork medium. */
+export function looksLikeUnlabeledArtwork(photo) {
+  if (!photo?.image_url || artworkLead(photo)) return false
+  let file = ''
+  try {
+    file = decodeURIComponent(String(photo.source_url || '').split('/').pop() || '')
+  } catch {
+    file = String(photo.source_url || '')
+  }
+  // Captions often say 'no portrait is known' or 'an illustration of', so only strong words count there.
+  return NON_PHOTO_PATTERN.test(file.replace(/[_]+/g, ' ')) || CAPTION_NON_PHOTO.test(String(photo.title || ''))
+}
+
+/** Reviewed non-photographs (Editor 10/18, #199): each must keep a photo.artwork medium. */
+export const REVIEWED_ARTWORK_SLUGS = new Set([
+  'annis-mound-village',
+  'benjamin-logan',
+  'blackfish-cot-ta-wa-ma-go-chillicothe-war-chief',
+  'bland-w-ballard-of-tick-creek',
+  'blue-jacket-weyapiersenwah',
+  'capt-abraham-lincoln-on-long-run',
+  'chickamauga-cherokee-hold-the-southern-flank',
+  'delaware-winter-camps-on-kentucky-ground',
+  'egushawa-and-the-odawa-in-kentuckys-war-years',
+  'erie-the-cat-nation',
+  'gen-james-wilkinson-kentuckys-agent-13',
+  'iroquois-beaver-wars',
+  'jeptha-knob-shelby-countys-buried-crater',
+  'john-bradford-and-the-kentucke-gazette',
+  'john-filson-kentucke-1784',
+  'john-finley-the-trader-who-put-kentucky-on-boones-map',
+  'john-floyd',
+  'kentucky-association-1826-lexington-race-course',
+  'levi-todd-lexington-co-founder',
+  'little-turtle-and-hardins-defeat-1790',
+  'moluntha-and-logans-raid-1786',
+  'mount-horeb-earthworks',
+  'peter-village-early-woodland-enclosure-near-lexington',
+  'richard-henderson',
+  'squire-boones-painted-stone',
+  'treaty-of-fort-stanwix-1768',
+  'treaty-of-greenville-1795-the-line-to-the-kentucky-river',
+  'tutelo-the-totteroy',
+  'wea-waayaahtanwa-on-the-wabash',
+])

@@ -24,11 +24,12 @@
     "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
-    "year": null,
+    "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later; CC BY-SA 4.0",
+    "year": 2010,
     "credit": "Chuck Hamilton",
     "license": "GFDL 1.2 or later; CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artwork": "map"
   },
   "territory": {
     "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",

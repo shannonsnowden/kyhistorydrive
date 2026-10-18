@@ -20,11 +20,11 @@
     "title": "War Department militia record for John Floyd, 8th (Wilcox's) Kentucky Militia",
     "source_url": "https://commons.wikimedia.org/wiki/File:Floyd,_John_-_State-_Kentucky_-_Regiment-_8_(Wilcox%27s)_Kentucky_Militia_-_DPLA_-_e6d6fe738f152db2fce091380edd0af3.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "War Department. The Adjutant General's Office. 3/4/1907-9/18/1947 · Wikimedia Commons · Public domain",
-    "year": null,
-    "credit": "War Department. The Adjutant General's Office. 3/4/1907-9/18/1947",
+    "attribution": "War Department, Adjutant General's Office · Wikimedia Commons · Public domain",
+    "credit": "War Department, Adjutant General's Office",
     "license": "Public domain",
     "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
-    "fit": "contain"
+    "fit": "contain",
+    "artwork": "document"
   }
 }

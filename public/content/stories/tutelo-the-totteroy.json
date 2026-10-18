@@ -22,14 +22,15 @@
   },
   "photo": {
     "image_url": "/content/photos/stories/tutelo-the-totteroy.jpg",
-    "title": "Nikonha, a Tutelo man, in 1870",
+    "title": "Nikonha, a Tutelo man",
     "source_url": "https://commons.wikimedia.org/wiki/File:Nikonha,_tutelo_-_1870.png",
     "source_label": "Wikimedia Commons",
-    "attribution": "Horatio Hale · Wikimedia Commons · Public domain",
+    "attribution": "Horatio Hale, after an 1870 photograph · Wikimedia Commons · Public domain",
     "year": 1883,
-    "credit": "Horatio Hale",
+    "credit": "Horatio Hale, after an 1870 photograph",
     "license": "Public domain",
     "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
-    "fit": "contain"
+    "fit": "contain",
+    "artwork": "print"
   }
 }

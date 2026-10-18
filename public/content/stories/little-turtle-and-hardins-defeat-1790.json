@@ -21,8 +21,11 @@
     "title": "Kekionga, the Miami towns at present Fort Wayne, drawn by Ebenezer Denny on Harmar's 1790 campaign",
     "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_Kekionga.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Ebenezer Denny · Wikimedia Commons · public domain",
-    "year": 1790
+    "attribution": "Ebenezer Denny · Wikimedia Commons · Public domain",
+    "year": 1790,
+    "credit": "Ebenezer Denny",
+    "license": "Public domain",
+    "artwork": "map"
   },
   "county": ""
 }

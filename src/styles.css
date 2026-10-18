@@ -5685,6 +5685,7 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 }
 /* Captions at 12px or larger; --muted is AA on --panel/--bg in light (#52604c) and dark (#a8b59c). */
 .story-portrait figcaption { font-size: max(12px, 0.8rem); }
+.story-portrait .story-portrait-note { display: block; color: var(--muted); }
 .story-reader-layout .story-body::after { content: ''; display: block; clear: both; }
 .story-reader-layout .learn-more,
 .story-reader-layout .route-map { clear: both; }
