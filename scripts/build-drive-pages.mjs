@@ -56,6 +56,7 @@ const INTROS = {
 Object.assign(DESCS, {
   'cave-country': "From Bowling Green's Lost River Cave to Mammoth Cave and Horse Cave: karst country where saltpetre was mined for the War of 1812 and show caves opened by 1816.",
   'buffalo-trace-loop-2': "Glenn's Creek distilling history near Frankfort: Buffalo Trace, the 1887 Old Taylor Distillery, the former Old Crow Distillery and the Oscar Pepper Distillery.",
+  'boones-trail': "From Cumberland Gap along Thomas Walker's 1750 Indian road to Logan's and Whitley's stations, Boone's fort and Pilot Knob, where Boone first saw Kentucky.",
   'wild-turkey-loop-2': "From the Ripys' 1891 distillery at Tyrone to Lawrenceburg's Kaufman's Station and Shaker Village of Pleasant Hill, home to a Shaker community from 1806 to 1910.",
 })
 
