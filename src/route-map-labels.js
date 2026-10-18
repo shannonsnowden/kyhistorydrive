@@ -34,8 +34,19 @@ export const ROUTE_MAP_LABELS = {
       [0, 0.6, 0.29, 0.95, 'legend'],
       [0, 0.905, 1, 1, 'credits'],
     ],
+    // Phone: the cream label plates painted on the -phone.png art, found by
+    // brightness (title cartouche included), plus the Expand button.
     phone: [
+      [0.6, 0.17, 0.91, 0.26, 'Lower Shawneetown (by eye)'],
       [0.68, 0.02, 0.98, 0.2, 'Expand button'],
+      [0.0256, 0.0342, 0.9744, 0.1435, 'title cartouche'],
+      [0.659, 0.1822, 0.7205, 0.2323, 'label plate 2'],
+      [0.6936, 0.1822, 0.9013, 0.2506, 'label plate 3'],
+      [0.2462, 0.3804, 0.4385, 0.4465, 'label plate 4'],
+      [0.4949, 0.5695, 0.6192, 0.6355, 'label plate 5'],
+      [0.2526, 0.7904, 0.4872, 0.861, 'label plate 6'],
+      [0.5346, 0.8405, 0.7603, 0.9112, 'label plate 7'],
+      // Earlier hand/OCR boxes: plates the brightness pass misses on dark ground.
       [0.03, 0.05, 0.31, 0.12, 'title'],
       [0.83, 0.05, 0.95, 0.13, 'scale'],
       [0.62, 0.19, 0.9, 0.25, 'Lower Shawneetown'],
@@ -86,9 +97,16 @@ export const ROUTE_MAP_LABELS = {
       [0, 0.905, 0.82, 1, 'credits'],
     ],
     // OCR-measured phone labels.
+    // Phone: the cream label plates painted on the -phone.png art, found by
+    // brightness (title cartouche included), plus the Expand button.
     phone: [
       [0.68, 0.02, 0.98, 0.2, 'Expand button'],
-      // Measured by eye from the 390 shot where OCR missed or clipped them.
+      [0.0256, 0.0342, 0.9744, 0.1435, 'title cartouche'],
+      [0.4064, 0.1754, 0.6077, 0.2437, 'label plate 2'],
+      [0.4218, 0.4761, 0.6474, 0.5444, 'label plate 3'],
+      [0.2769, 0.861, 0.5038, 0.9317, 'label plate 4'],
+      [0.6026, 0.8656, 0.8308, 0.9385, 'label plate 5'],
+      // Earlier hand/OCR boxes: plates the brightness pass misses on dark ground.
       [0.02, 0.03, 0.42, 0.13, 'title'],
       [0.4, 0.17, 0.61, 0.25, 'Boonesborough'],
       [0.41, 0.48, 0.65, 0.55, 'Rockcastle River'],
@@ -165,8 +183,17 @@ export const ROUTE_MAP_LABELS = {
       [0.072, 0.9303, 0.2583, 0.9497, "Terrain Tiles (SRTM USGS). Map by KY History Drive,"],
       [0.2776, 0.9309, 0.3618, 0.9497, "All positions approximate."],
     ],
+    // Phone: the cream label plates painted on the -phone.png art, found by
+    // brightness (title cartouche included), plus the Expand button.
     phone: [
       [0.68, 0.02, 0.98, 0.2, 'Expand button'],
+      [0.0256, 0.0342, 0.9744, 0.1435, 'title cartouche'],
+      [0.0679, 0.2232, 0.3038, 0.2893, 'label plate 2'],
+      [0.4462, 0.2346, 0.6026, 0.303, 'label plate 3'],
+      [0.3833, 0.6993, 0.5846, 0.7699, 'label plate 4'],
+      [0.0936, 0.7039, 0.2962, 0.7745, 'label plate 5'],
+      [0.2231, 0.8041, 0.3526, 0.877, 'label plate 6'],
+      // Earlier hand/OCR boxes: plates the brightness pass misses on dark ground.
       [0.03, 0.04, 0.33, 0.12, 'title'],
       [0.1474, 0.0357, 0.253, 0.1298, "WALKER,"],
       [0.8453, 0.0562, 0.906, 0.0934, "miles"],
@@ -242,10 +269,19 @@ export const ROUTE_MAP_LABELS = {
       [0.2776, 0.9309, 0.3555, 0.9497, "All positions approxima"],
       [0.3776, 0.9303, 0.5564, 0.9519, "Kentucky course ts reconstructed from compass bearings"],
     ],
+    // Phone: the cream label plates painted on the -phone.png art, found by
+    // brightness (title cartouche included), plus the Expand button.
     phone: [
       [0.68, 0.02, 0.98, 0.2, 'Expand button'],
+      [0.0256, 0.0342, 0.9744, 0.1435, 'title cartouche'],
+      [0.559, 0.205, 0.8385, 0.2711, 'label plate 2'],
+      [0.1718, 0.2437, 0.3603, 0.3121, 'label plate 3'],
+      [0.0859, 0.3781, 0.2615, 0.4442, 'label plate 4'],
+      [0.2385, 0.3781, 0.3692, 0.4442, 'label plate 5'],
+      [0.1744, 0.5535, 0.3397, 0.6219, 'label plate 6'],
+      [0.2628, 0.656, 0.5077, 0.7244, 'label plate 7'],
+      // Earlier hand/OCR boxes: plates the brightness pass misses on dark ground.
       [0.02, 0.03, 0.53, 0.13, 'title'],
-      [0.68, 0.02, 0.98, 0.2, 'Expand button'],
       [0.5585, 0.2149, 0.8385, 0.265, "Lower Shawneetown"],
       [0.1701, 0.2582, 0.2949, 0.3196, "Big Bone"],
       [0.2201, 0.3478, 0.3688, 0.4563, "(disputed)"],
@@ -320,8 +356,18 @@ export const ROUTE_MAP_LABELS = {
       [0.312, 0.9303, 0.4968, 0.9497, "site is now cut off by the Mi: ippi. Map by KY ry"],
       [0.5301, 0.9309, 0.6121, 0.9497, "All positions approximate"],
     ],
+    // Phone: the cream label plates painted on the -phone.png art, found by
+    // brightness (title cartouche included), plus the Expand button.
     phone: [
       [0.68, 0.02, 0.98, 0.2, 'Expand button'],
+      [0.0256, 0.0296, 0.9744, 0.1481, 'title cartouche'],
+      [0.5974, 0.1663, 0.7359, 0.2323, 'label plate 2'],
+      [0.1141, 0.2118, 0.2218, 0.2779, 'label plate 3'],
+      [0.709, 0.262, 0.8667, 0.328, 'label plate 4'],
+      [0.2167, 0.4465, 0.3526, 0.5125, 'label plate 5'],
+      [0.6718, 0.5353, 0.7141, 0.6036, 'label plate 6'],
+      [0.1821, 0.7859, 0.2423, 0.8519, 'label plate 7'],
+      // Earlier hand/OCR boxes: plates the brightness pass misses on dark ground.
       [0.03, 0.04, 0.5, 0.14, 'title'],
       [0.1432, 0.0357, 0.4013, 0.1268, "Tumors Campatcn,"],
       [0.0329, 0.06, 0.1398, 0.126, "Crarx\u2019s"],
@@ -385,8 +431,16 @@ export const ROUTE_MAP_LABELS = {
       [0.1923, 0.9303, 0.333, 0.9497, "are modern cour Map by KY History Dr"],
       [0.3642, 0.9309, 0.4483, 0.9497, "All positions approximate."],
     ],
+    // Phone: the cream label plates painted on the -phone.png art, found by
+    // brightness (title cartouche included), plus the Expand button.
     phone: [
+      [0.36, 0.17, 0.57, 0.27, 'Mantle Rock (by eye)'],
       [0.68, 0.02, 0.98, 0.2, 'Expand button'],
+      [0.0256, 0.0296, 0.9744, 0.1458, 'title cartouche'],
+      [0.4731, 0.6469, 0.6346, 0.7175, 'label plate 2'],
+      [0.3423, 0.7904, 0.3782, 0.8292, 'label plate 3'],
+      [0.7923, 0.8178, 0.9321, 0.8838, 'label plate 4'],
+      // Earlier hand/OCR boxes: plates the brightness pass misses on dark ground.
       [0.0316, 0.0638, 0.1124, 0.1123, "\"TRAIL"],
       [0.1513, 0.0646, 0.241, 0.1123, "TEARS:"],
       [0.8068, 0.0555, 0.8675, 0.0934, "miles"],

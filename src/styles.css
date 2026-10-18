@@ -4186,7 +4186,8 @@ html[data-hp-theme="dark"] .route-map-overlay[data-frame="desk-dark"] { display:
   transform: translate(-50%, -50%);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
-.route-stop::before { content: attr(data-n); }
+.route-stop::before { content: attr(data-n); white-space: nowrap; }
+.route-stop { white-space: nowrap; }
 .route-stop-conjectural {
   border: none;
   border-radius: 0;

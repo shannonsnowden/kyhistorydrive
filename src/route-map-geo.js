@@ -31,6 +31,11 @@ const IDENTITY = { x0: 0, y0: 0, x1: 1, y1: 1 }
 export const BADGE = 26
 export const DESK_VIEW = [820, 460]
 export const PHONE_VIEW = [350, 197]
+/** The painted double-rule frame, as a fraction of the image; badges stay inside it. */
+export const FRAME_INSET = [0.03, 0.04]
+export function frameInset(viewW, viewH) {
+  return [FRAME_INSET[0] * viewW, FRAME_INSET[1] * viewH]
+}
 
 function bounds(west, east, south, north) {
   return { west, east, south, north }
@@ -318,10 +323,10 @@ const PHONE_BADGE_AT = {}
  */
 const PHONE_PIN = {
   'christopher-gist-1750-51': {
-    // 1–5 on the east edge, below the Expand button; 7 on the north edge,
-    // between the title and the button.
-    1: [1, 0.34], 2: [1, 0.34], 3: [1, 0.34], 4: [1, 0.34], 5: [1, 0.34],
-    7: [0.6, 0],
+    // 1–5 on the east edge, below the Expand button; 7 on the north edge.
+    1: [0.97, 0.34], 2: [0.97, 0.34], 3: [0.97, 0.34], 4: [0.97, 0.34], 5: [0.97, 0.34],
+    // The title cartouche spans the top, so 7's edge is the cartouche's foot.
+    7: [0.45, 0.145],
   },
 }
 
@@ -405,14 +410,16 @@ function placeBadges(items, labels, viewW, viewH, prefer = {}) {
   const rects = (labels || []).map((l) => [l[0] * viewW, l[1] * viewH, l[2] * viewW, l[3] * viewH])
   const placed = []
   // Keep 4px of air: OCR boxes can clip a first letter.
-  const gap = viewW < 400 ? 4 : 0.5
+  const gap = viewW < 400 ? 6 : 2
   const cost = (shape, from) => {
     let bad = 0
     // A leader may not run across a label either.
     if (from) for (const rect of rects) if (segHitsRect(from, [shape.x, shape.y], rect)) bad += 0.25
     for (const rect of rects) bad += Math.max(0, gap - badgeLabelGap(shape, rect))
     for (const other of placed) bad += Math.max(0, gap - badgeBadgeGap(shape, other.shape))
-    const edge = Math.min(shape.x - shape.h - shape.r, viewW - shape.x - shape.h - shape.r, shape.y - shape.r, viewH - shape.y - shape.r)
+    // Stay inside the painted frame (FRAME_INSET), never clipped by the image edge.
+    const [mx, my] = frameInset(viewW, viewH)
+    const edge = Math.min(shape.x - shape.h - shape.r - mx, viewW - mx - shape.x - shape.h - shape.r, shape.y - shape.r - my, viewH - my - shape.y - shape.r)
     if (edge < 0) bad -= edge
     return bad
   }

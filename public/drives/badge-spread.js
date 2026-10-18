@@ -36,8 +36,30 @@ function pushOutOfBox(p, r, box) {
   return true
 }
 
-export function spreadBadges(points, min, labels = []) {
+export function spreadBadges(points, min, labels = [], minLead = 0) {
   const out = points.map((p) => [p[0], p[1]])
+  for (let round = 0; round < 20; round++) {
+    relax(out, min, labels)
+    if (!minLead) break
+    // A badge that had to move steps far enough out that its leader shows
+    // beyond the badge (fanned out from its stop, not half on top of it).
+    let short = false
+    out.forEach((p, i) => {
+      const dx = p[0] - points[i][0]
+      const dy = p[1] - points[i][1]
+      const d = Math.hypot(dx, dy)
+      if (d > min * 0.03 && d < minLead * 0.98) {
+        p[0] = points[i][0] + (dx / d) * minLead
+        p[1] = points[i][1] + (dy / d) * minLead
+        short = true
+      }
+    })
+    if (!short) break
+  }
+  return out
+}
+
+function relax(out, min, labels) {
   for (let pass = 0; pass < 200; pass++) {
     let moved = false
     for (let i = 0; i < out.length; i++) {
@@ -64,5 +86,4 @@ export function spreadBadges(points, min, labels = []) {
     for (const p of out) for (const box of labels) if (pushOutOfBox(p, min / 2, box)) moved = true
     if (!moved) break
   }
-  return out
 }

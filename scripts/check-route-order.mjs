@@ -28,7 +28,7 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spreadBadges, labelBox } from '../public/drives/badge-spread.js'
 import { ROUTE_MAP_LABELS } from '../src/route-map-labels.js'
-import { BADGE, DESK_VIEW, PHONE_VIEW, badgeLabelGap, badgeBadgeGap } from '../src/route-map-geo.js'
+import { BADGE, DESK_VIEW, PHONE_VIEW, badgeLabelGap, badgeBadgeGap, frameInset } from '../src/route-map-geo.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -208,7 +208,7 @@ export function checkDrives({ only = null, mutate = null } = {}) {
     const layouts = [600, 324].map((px) => {
       const u = vw / px
       const br = Math.max(5.2 * k, 10 * u)
-      const at = spread ? spreadBadges(sp, 2 * br + 0.6 * k, boxes.map((b) => b.slice(0, 4))) : sp
+      const at = spread ? spreadBadges(sp, 2 * br + 0.6 * k, boxes.map((b) => b.slice(0, 4)), 2.2 * br) : sp
       return { px, br, at }
     })
     for (const { px, br, at } of layouts) {
@@ -218,6 +218,8 @@ export function checkDrives({ only = null, mutate = null } = {}) {
           const dy = q[1] - Math.max(b[1], Math.min(q[1], b[3]))
           if (Math.hypot(dx, dy) < br * 0.98) errs0.push(`drive:${slug} (${px}px map): badge ${i + 1} covers the label "${b[4]}"`)
         }
+        const off = Math.hypot(q[0] - sp[i][0], q[1] - sp[i][1])
+        if (off > 0.3 * k && off < 1.6 * br) errs0.push(`drive:${slug} (${px}px map): badge ${i + 1} moved off its stop but its leader is hidden under it`)
         for (let j = i + 1; j < at.length; j++) if (Math.hypot(q[0] - at[j][0], q[1] - at[j][1]) < 2 * br * 0.98) errs0.push(`drive:${slug} (${px}px map): badges ${i + 1} and ${j + 1} overlap`)
       })
     }
@@ -272,7 +274,11 @@ export function labelOverlaps(id, marks, labels, view, { badge = BADGE } = {}) {
     const w = m.cluster ? Math.max(badge, 14 + 7.2 * m.label.length) : badge
     return { m, x: (m.b[0] / 16) * vw, y: (m.b[1] / 9) * vh, h: (w - badge) / 2, r: badge / 2 }
   })
+  const [mx, my] = frameInset(vw, vh)
   for (const s of shapes) {
+    // Inside the painted frame: never clipped by the image edge.
+    const out = Math.max(mx - (s.x - s.h - s.r), s.x + s.h + s.r - (vw - mx), my - (s.y - s.r), s.y + s.r - (vh - my))
+    if (out > 0.5) errs.push(`${id}: badge ${s.m.label} runs ${out.toFixed(1)}px past the map frame`)
     for (const l of labels || []) {
       const rect = [l[0] * vw, l[1] * vh, l[2] * vw, l[3] * vh]
       const gap = badgeLabelGap(s, rect)
