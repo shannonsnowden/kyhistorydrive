@@ -1,7 +1,7 @@
 {
   "phase": 1,
   "status": "phase-1",
-  "dates": "Railroad opening dates are sourced per section (see sections.geojson). Parkway opening years are provisional; the Daniel Boone (Hal Rogers) Parkway year is disputed (1971 vs 1974).",
+  "dates": "Railroad opening dates are sourced per section (see sections.geojson). Parkway opening years are provisional; the Daniel Boone (Hal Rogers) Parkway opened in 1971 (dedicated Oct 28, 1971 in Manchester).",
   "verification": {
     "date": "2026-10-12",
     "rules": [
