@@ -89,7 +89,7 @@ export const ROUTE_MAP_LABELS = {
       [0.5519, 0.4467, 0.6412, 0.4822, 'Crow\'s Ferry'],
       [0.742, 0.478, 0.81, 0.522, 'Calk\'s route'],
       [0.7881, 0.3578, 0.8444, 0.3689, 'Charlottesville'],
-      [0.8425, 0.2744, 0.9087, 0.3089, 'Rapidan'],
+      [0.834, 0.268, 0.912, 0.318, 'Rapidan'],
       [0.7937, 0.1422, 0.8881, 0.1789, 'Prince William Co.'],
       [0.9056, 0.1456, 0.9400, 0.1578, 'Manassas'],
       [0.4281, 0.1989, 0.6012, 0.2322, 'WEST VIRGINIA'],
@@ -218,6 +218,8 @@ export const ROUTE_MAP_LABELS = {
       [0.0711, 0.1403, 0.1671, 0.1686, "Exploring the"],
       [0.1926, 0.1403, 0.2492, 0.1686, "Company"],
       [0.402, 0.1464, 0.4949, 0.1852, "(Wyandot town)"],
+      // Hand-measured: OCR missed the plate's first word.
+      [0.333, 0.143, 0.405, 0.19, "Muskingum"],
       [0.5614, 0.147, 0.5952, 0.1641, "late Nov."],
       [0.292, 0.1664, 0.318, 0.1863, "Piqua"],
       [0.0517, 0.1759, 0.2692, 0.1958, "Old Town Lower Shawneetown Kentucky the Yadkin"],
@@ -300,6 +302,8 @@ export const ROUTE_MAP_LABELS = {
       [0.2617, 0.0948, 0.3568, 0.1197, "the Jlinois Country"],
       [0.2951, 0.1381, 0.3752, 0.1569, "drowned lands, Feb."],
       [0.4214, 0.1392, 0.5627, 0.1619, "Vincennes Fort Sackville"],
+      // Hand-measured: the small town label beside the Vincennes dot.
+      [0.576, 0.176, 0.627, 0.198, "Vincennes"],
       [0.7339, 0.1398, 0.8492, 0.1686, "George Rogers Clark,"],
       [0.4183, 0.1642, 0.5449, 0.1852, "Gibault Helm win the town, July"],
       [0.4407, 0.182, 0.5455, 0.2013, "Hamilton surrenders Feb. 2S,"],

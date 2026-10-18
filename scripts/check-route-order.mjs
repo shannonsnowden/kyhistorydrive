@@ -33,7 +33,7 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spreadBadges, labelBox } from '../public/drives/badge-spread.js'
 import { ROUTE_MAP_LABELS } from '../src/route-map-labels.js'
-import { BADGE, DESK_VIEW, PHONE_VIEW, PILL_PAD, PILL_CHAR, DARK_ASPECT, ROUTE_FRAMES, badgeLabelGap, badgeBadgeGap, frameInset, isAreaLabel } from '../src/route-map-geo.js'
+import { BADGE, DESK_VIEW, PHONE_VIEW, PILL_PAD, PILL_CHAR, DARK_ASPECT, ROUTE_FRAMES, badgeLabelGap, badgeBadgeGap, leaderBadgeGap, frameInset, isAreaLabel } from '../src/route-map-geo.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -312,8 +312,18 @@ export function labelOverlaps(id, marks, labels, view, { badge = BADGE } = {}) {
   }
   for (let i = 0; i < shapes.length; i++) {
     for (let j = i + 1; j < shapes.length; j++) {
-      // Touching counts: badges need 4px of air between them (2-3px reads as touching).
-      if (badgeBadgeGap(shapes[i], shapes[j]) < 4) errs.push(`${id}: badges ${shapes[i].m.label} and ${shapes[j].m.label} touch or overlap`)
+      // Touching counts: badges need 6px of air between them, the same floor the placer uses.
+      if (badgeBadgeGap(shapes[i], shapes[j]) < 6) errs.push(`${id}: badges ${shapes[i].m.label} and ${shapes[j].m.label} touch or overlap`)
+    }
+  }
+  // A leader never crosses or grazes a badge that isn't its own (4px of air at least).
+  for (const s of shapes) {
+    const dot = [(s.m.p[0] / 16) * vw, (s.m.p[1] / 9) * vh]
+    if (Math.hypot(dot[0] - s.x, dot[1] - s.y) < 6) continue
+    for (const o of shapes) {
+      if (o === s) continue
+      const g = leaderBadgeGap(dot, [s.x, s.y], o)
+      if (g < 4) errs.push(`${id}: badge ${s.m.label}'s leader ${g < 0 ? 'crosses' : 'grazes'} badge ${o.m.label} (${g.toFixed(1)}px)`)
     }
   }
   return errs
@@ -441,6 +451,17 @@ async function selfTest() {
     const errs = run()
     console.log(`${errs.length ? 'ok  ' : 'FAIL'} ${name}: ${errs[0] || 'passes (should fail)'}`)
     if (!errs.length) failed++
+  }
+  // A leader running through another badge must fail.
+  {
+    const marks = [
+      { n: 1, label: '1', cluster: false, p: [2, 4.5], b: [6, 4.5] },
+      { n: 2, label: '2', cluster: false, p: [4, 4.5], b: [4, 4.5] },
+    ]
+    const errs = labelOverlaps('fixture:leader-through-badge', marks, [], [800, 450])
+    const hit = errs.some((e) => /leader (crosses|grazes) badge/.test(e))
+    console.log(`${hit ? 'ok  ' : 'FAIL'} leader through another badge: ${errs.find((e) => /leader/.test(e)) || 'passes (should fail)'}`)
+    if (!hit) failed++
   }
   const r = checkOrder({ id: 'fixture:out-and-back', stops: obStops, line: ob, near: 0.5, allow: null })
   console.log(`${r.errs.length ? 'FAIL' : 'ok  '} out-and-back: ${r.errs.join(' | ') || 'passes'}`)
