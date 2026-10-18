@@ -68,7 +68,7 @@ export function pickReadingAnchor(root, lineY) {
   return containing || next
 }
 
-export function initTimelineReading({ getMap } = {}) {
+export function initTimelineReading({ getMap, focusPin } = {}) {
   const layout = document.querySelector('#timeline .timeline-layout')
   const story = document.getElementById('timelineStoryPane')
   const mapPane = document.getElementById('timelineMapPane')
@@ -241,8 +241,49 @@ export function initTimelineReading({ getMap } = {}) {
   })
 
   // Real button: Enter and Space fire click. No extra key handler (that would toggle twice).
+  // Phones (<=560px): the docked map scrolls away with the page. While it is off-screen the bar
+  // reads "Show map" and jumps back to the map (and the story's pin) instead of collapsing it.
+  const dockMq = window.matchMedia('(max-width: 560px)')
+  let mapOffscreen = false
+  function syncOffscreen() {
+    const on = mapOffscreen && dockMq.matches && layout.classList.contains('is-home-story') &&
+      !layout.classList.contains('is-reading-wide')
+    layout.classList.toggle('is-map-offscreen', on)
+    if (on) button.setAttribute('aria-expanded', 'false')
+    else syncButton()
+    return on
+  }
+  // Seed the on-screen state synchronously so first paint never reads "Show map"
+  // while the map is visible; the observer refines it once it fires.
+  function mapInViewport() {
+    const r = mapPane.getBoundingClientRect()
+    return r.bottom > 0 && r.top < window.innerHeight && r.height > 0
+  }
+  mapOffscreen = !mapInViewport()
+  syncOffscreen()
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      for (const e of entries) mapOffscreen = !e.isIntersecting
+      syncOffscreen()
+    }).observe(mapPane)
+    dockMq.addEventListener?.('change', syncOffscreen)
+  }
+
   button.addEventListener('click', () => {
+    if (syncOffscreen()) {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      // Land the map below the sticky header and read bar so its top (and the + zoom) stay visible.
+      const header = document.querySelector('header.top')
+      const headerH = header ? header.getBoundingClientRect().height : 0
+      const barSticky = getComputedStyle(bar).position === 'sticky' || getComputedStyle(bar).position === 'fixed'
+      const offset = Math.ceil(headerH + (barSticky ? bar.getBoundingClientRect().height : 0)) + 8
+      const y = mapPane.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' })
+      if (typeof focusPin === 'function') focusPin()
+      return
+    }
     setWide(!layout.classList.contains('is-reading-wide'))
+    syncOffscreen()
   })
 
   const phoneMq = window.matchMedia(PHONE_QUERY)
