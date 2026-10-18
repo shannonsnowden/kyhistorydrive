@@ -862,6 +862,16 @@
       "yearStart": 1937,
       "yearEnd": 1987,
       "county": "McCreary"
+    },
+    "walker-daniel-danvilles-namesake": {
+      "reason": "KHS marker #190, Walker Daniel, 2nd & Main St., Danville (37.64565, -84.7707833). Years 1781 (arrival) to 1787 (town established and named). County Boyle.",
+      "date": "2026-10-18",
+      "historyId": "walker-daniel-danville-boyle-1781-1787",
+      "lat": 37.64565,
+      "lon": -84.7707833,
+      "yearStart": 1781,
+      "yearEnd": 1787,
+      "county": "Boyle"
     }
   }
 }
