@@ -65,28 +65,39 @@ try {
     if (width >= 900) {
       // Editor: Highways header above the fold at 1280x800.
       const box = await page.locator('#rrSec-highways > summary').boundingBox()
-      // Editor #327: every line is named. Across 1880 (roads, trails, railroads) and 2000 (parkways) all 21 rows
-      // have a placed label at the default view or within one zoom step in.
-      const labelled = new Set()
-      for (const yr of ['1880', '2000']) {
-        for (const dz of [0, 0.5, 1]) {
-          const got = await page.evaluate(async ({ yr, dz }) => {
-            const m = window.__khdTransportMap
-            if (!m) return null
-            const s = document.getElementById('transportYear')
-            s.value = yr
-            s.dispatchEvent(new Event('input', { bubbles: true }))
-            window.__khdTransportZoom0 ??= m.getZoom()
-            m.jumpTo({ zoom: window.__khdTransportZoom0 + dz })
-            await new Promise((r) => setTimeout(r, 1500))
-            return [...new Set(m.queryRenderedFeatures({ layers: ['sec-label', 'sec-label-lex'] }).map((f) => f.properties.row))]
-          }, { yr, dz })
-          if (!got) { tag('map handle missing'); break }
-          got.forEach((r) => labelled.add(r))
-          console.log(`check-transport-sections: ${yr} at default zoom +${dz}: ${got.length} lines labelled`)
+      // Editor #327: every line is named, checked per year and per theme (not pooled across years): each line
+      // drawn in that year must have a rendered label at the default zoom or within one zoom step in.
+      const rowOf = await page.evaluate(() => Object.fromEntries([...document.querySelectorAll('.rr-row')].flatMap((r) => r.dataset.ids.split(' ').map((id) => [id, r.dataset.key]))))
+      for (const theme of ['light', 'dark']) {
+        for (const yr of ['1880', '2000']) {
+          const visible = new Set()
+          const labelled = new Set()
+          for (const dz of [0, 0.5, 1]) {
+            const got = await page.evaluate(async ({ yr, dz, theme }) => {
+              const m = window.__khdTransportMap
+              if (!m) return null
+              document.documentElement.setAttribute('data-hp-theme', theme)
+              const s = document.getElementById('transportYear')
+              s.value = yr
+              s.dispatchEvent(new Event('input', { bubbles: true }))
+              window.__khdTransportZoom0 ??= m.getZoom()
+              m.jumpTo({ zoom: window.__khdTransportZoom0 + dz })
+              await new Promise((r) => setTimeout(r, 1500))
+              const all = m.queryRenderedFeatures()
+              return {
+                lines: [...new Set(all.filter((f) => f.layer.id === 'sec-line' || f.layer.id === 'sec-trail').map((f) => f.properties.id))],
+                labels: [...new Set(all.filter((f) => f.layer.id === 'sec-label' || f.layer.id === 'sec-label-lex').map((f) => f.properties.row))],
+              }
+            }, { yr, dz, theme })
+            if (!got) { tag('map handle missing'); break }
+            got.lines.forEach((id) => rowOf[id] && visible.add(rowOf[id]))
+            got.labels.forEach((r) => labelled.add(r))
+          }
+          const missing = [...visible].filter((r) => !labelled.has(r)).sort()
+          console.log(`check-transport-sections: ${theme} ${yr}: ${labelled.size} of ${visible.size} visible lines labelled by default zoom +1${missing.length ? ` (missing ${missing.join(', ')})` : ''}`)
+          if (missing.length) tag(`${theme} ${yr}: no label by default zoom +1 for ${missing.join(', ')}`)
         }
       }
-      if (labelled.size !== nRows) tag(`only ${labelled.size} of ${nRows} lines labelled within one zoom step`)
       await page.evaluate(() => { const m = window.__khdTransportMap; m.jumpTo({ zoom: window.__khdTransportZoom0 }); const s = document.getElementById('transportYear'); s.value = '1880'; s.dispatchEvent(new Event('input', { bubbles: true })) })
       if (!box || box.y + box.height > Math.min(height, (await page.locator('.transport-controls').boundingBox()).y + (await page.locator('.transport-controls').boundingBox()).height)) tag(`Highways header below the fold (bottom ${box && Math.round(box.y + box.height)} > ${height})`)
     } else {

@@ -97,6 +97,9 @@ assert.equal(lp['text-halo-color'], LABEL_HALO_LIGHT, 'cream halo in light mode'
 assert.ok(lp['text-halo-width'] >= 2.5, 'halo at least 2.5px')
 assert.equal(lp['text-halo-blur'], 0, 'crisp halo')
 const ll = labelLayout()
+// Editor #327 (2000 view): candidates every <=120px, so a long trail like Warriors' Path can sit clear of a
+// crossing parkway label (Daniel Boone Pkwy) instead of only at its centre.
+assert.ok(ll['symbol-spacing'] <= 120, `symbol-spacing ${ll['symbol-spacing']} gives long lines more than one candidate`)
 assert.match(ll['symbol-placement'], /^line(-center)?$/, 'labels follow their line')
 assert.ok(/\[0,-0\.9\d*\]/.test(JSON.stringify(ll['text-offset'])) && /\[0,0\.9\d*\]/.test(JSON.stringify(ll['text-offset'])), 'labels offset from their own line (above, or below where lines share a corridor)')
 

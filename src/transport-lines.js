@@ -82,7 +82,7 @@ export function labelColor(theme, kind, opened) {
 export function labelLayout() {
   return {
     'symbol-placement': 'line',
-    'symbol-spacing': 260,
+    'symbol-spacing': 120,
     'symbol-sort-key': ['get', 'labelRank'],
     'text-field': ['step', ['zoom'], ['get', 'labelShort'], LABEL_FULL_ZOOM, ['get', 'label']],
     'text-font': ['Open Sans Semibold'],
