@@ -7,7 +7,7 @@
  *    (drag the handle to resize, Esc closes, focus moves in on open and back to the handle on close);
  *  - the Map key starts collapsed at <=600px; a fade at the pane's foot says more is below.
  */
-import { buildLineRows, countShown, hiddenIdsFor } from './transport-lines.js'
+import { SHEET_TITLE, buildLineRows, countShown, hiddenIdsFor, sheetMaxHeight, sheetOpenHeight } from './transport-lines.js'
 import { getHiddenSections, setHiddenSections } from './transport-map.js'
 
 const PHONE = '(max-width: 900px)'
@@ -89,9 +89,9 @@ export function mountTransportPane() {
   const nLines = rowEls().length
   const sheet = document.createElement('section')
   sheet.className = 'rr-sheet'
-  sheet.setAttribute('aria-label', 'Railroads and highways on this map')
+  sheet.setAttribute('aria-label', `${SHEET_TITLE} on this map`)
   sheet.innerHTML = `<button type="button" class="rr-sheet-handle" aria-expanded="false" aria-controls="rrSheetBody">
-      <span class="rr-grab" aria-hidden="true"></span><span class="rr-sheet-title">Railroads and highways</span>
+      <span class="rr-grab" aria-hidden="true"></span><span class="rr-sheet-title">${SHEET_TITLE}</span>
       <span class="rr-sec-meta">${nLines} lines</span><span class="rr-chev" aria-hidden="true"></span></button>
     <div class="rr-sheet-body" id="rrSheetBody" tabindex="-1" hidden></div>`
   const handle = sheet.querySelector('.rr-sheet-handle')
@@ -101,10 +101,13 @@ export function mountTransportPane() {
     sheet.classList.toggle('is-open', open)
     handle.setAttribute('aria-expanded', String(open))
     body.hidden = !open
-    sheet.style.height = open && height ? `${height}px` : ''
+    const h = height || (wrap ? sheetOpenHeight(window.innerHeight, wrap.getBoundingClientRect().height) : 0)
+    sheet.style.height = open && h ? `${h}px` : ''
     if (open && focus) body.focus({ preventScroll: true })
     if (!open && focus && sheet.contains(document.activeElement)) handle.focus({ preventScroll: true })
     if (open) requestAnimationFrame(syncMore)
+    // Keep Kentucky in the strip of map above the sheet, so a switch's effect is visible.
+    window.dispatchEvent(new CustomEvent('transport:sheet', { detail: { height: open ? h : 0 } }))
   }
   let dragged = false
   handle.addEventListener('click', () => {
@@ -116,7 +119,7 @@ export function mountTransportPane() {
     if (!wrap) return
     const startY = event.clientY
     const startH = sheet.getBoundingClientRect().height
-    const maxH = wrap.getBoundingClientRect().height * 0.88
+    const maxH = sheetMaxHeight(wrap.getBoundingClientRect().height)
     let moved = false
     handle.setPointerCapture(event.pointerId)
     const move = (e) => {
@@ -147,7 +150,7 @@ export function mountTransportPane() {
     if (!wrap || (event.key !== 'ArrowUp' && event.key !== 'ArrowDown')) return
     event.preventDefault()
     const h = sheet.classList.contains('is-open') ? sheet.getBoundingClientRect().height : 44
-    const next = Math.min(wrap.getBoundingClientRect().height * 0.88, Math.max(44, h + (event.key === 'ArrowUp' ? 60 : -60)))
+    const next = Math.min(sheetMaxHeight(wrap.getBoundingClientRect().height), Math.max(44, h + (event.key === 'ArrowUp' ? 60 : -60)))
     setOpen(next > 96, { focus: false, height: next > 96 ? next : undefined })
   })
   document.addEventListener('keydown', (event) => {

@@ -6205,9 +6205,9 @@ html:not([data-hp-theme="light"]) .hp-page .brand-logo {
 .rr-row:first-child { border-top-color: transparent; }
 .rr-row:hover { background: color-mix(in srgb, var(--chip) 45%, transparent); }
 .rr-row-text { min-width: 0; }
-.rr-row-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.45rem; margin: 0; }
-.rr-row-name { flex: 1 1 auto; min-width: 0; font-weight: 700; font-size: 0.88rem; line-height: 1.25; color: var(--heading); }
-.rr-row-year { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 0.82rem; color: var(--accent); white-space: nowrap; }
+.rr-row-top { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 0.45rem; margin: 0; }
+.rr-row-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; font-size: 0.88rem; line-height: 1.25; color: var(--heading); }
+.rr-row-year { flex: none; font-variant-numeric: tabular-nums; font-weight: 700; font-size: 0.82rem; color: var(--accent); white-space: nowrap; }
 .rr-row-year abbr { text-decoration: none; margin-left: 1px; }
 .rr-badge { margin: 0; font-size: 0.66rem; padding: 0 0.35rem; }
 .rr-desc-line { display: flex; align-items: baseline; gap: 0.4rem; min-width: 0; }
@@ -6288,10 +6288,10 @@ html[data-hp-theme='dark'] .rr-sym-town { background: #100e0c; border-color: #f6
   .roads-rails-page .rr-sec-body .transport-year { margin-top: 0; }
   .rr-sheet {
     position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; display: flex; flex-direction: column;
-    height: 44px; max-height: 88%; background: var(--panel); border-top: 1px solid var(--line);
+    height: 44px; max-height: 100%; background: var(--panel); border-top: 1px solid var(--line);
     border-radius: 14px 14px 0 0; box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.18); transition: height 0.2s;
   }
-  .rr-sheet.is-open { height: 52%; }
+  .rr-sheet.is-open { height: min(50svh, 80%); }
   .rr-sheet.is-dragging { transition: none; }
   .rr-sheet-handle {
     position: relative; display: flex; align-items: center; gap: 0.5rem; flex: none; min-height: 44px; padding: 6px 1rem 0;

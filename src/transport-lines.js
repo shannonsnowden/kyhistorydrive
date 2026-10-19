@@ -72,7 +72,50 @@ export function darkerFor(hex, target = 4.6, bg = LABEL_BG) {
 /** Light mode: darker variant of the line colour (>= 4.5:1 on cream). Dark mode: the line colour. */
 export function labelColor(theme, kind, opened) {
   const c = lineColor(theme, kind, opened)
-  return theme === 'light' ? darkerFor(c) : c
+  if (theme !== 'light') return c
+  // Roads and trails (amber/olive on cream): darker than the line, at >= 6.5:1 (Critiquito #327).
+  if (KIND_COLORS.light[kind]) return darkerFor(c, 6.5)
+  return darkerFor(c)
+}
+
+/* ---- Map line labels (MapLibre symbol layer; shared with src/transport-map.js) ---- */
+export function labelLayout() {
+  return {
+    'symbol-placement': 'line',
+    'symbol-spacing': 420,
+    'symbol-sort-key': ['get', 'labelRank'],
+    'text-field': ['get', 'label'],
+    'text-font': ['Open Sans Semibold'],
+    'text-size': ['interpolate', ['linear'], ['zoom'], 6, 10.5, 9, 13],
+    'text-letter-spacing': 0.02,
+    'text-max-angle': 30,
+    'text-padding': 4,
+    // Set the name beside its line, not on top of it (Critiquito #327).
+    'text-offset': [0, -0.95],
+    'text-allow-overlap': false,
+    'text-ignore-placement': false,
+    'text-keep-upright': true,
+  }
+}
+/** Paint for the labels; `colorExpr` is the MapLibre colour expression built by the map. */
+export function labelPaint(theme, colorExpr) {
+  return {
+    ...(colorExpr ? { 'text-color': colorExpr } : {}),
+    'text-halo-color': theme === 'light' ? LABEL_HALO_LIGHT : LABEL_HALO_DARK,
+    'text-halo-width': 2.5,
+    'text-halo-blur': 0,
+  }
+}
+
+/* ---- Phone bottom sheet ---- */
+export const SHEET_TITLE = 'Lines'
+/** Opens at half the viewport, but always leaves at least 20% of the map showing. */
+export function sheetOpenHeight(viewportH, mapH) {
+  return Math.round(Math.min(viewportH * 0.5, mapH * 0.8))
+}
+/** Dragging can take the sheet up to the full map height. */
+export function sheetMaxHeight(mapH) {
+  return Math.round(mapH)
 }
 
 /** Short map label: no parenthetical, "Pkwy", "L&N", no "Railroad/Railway". */

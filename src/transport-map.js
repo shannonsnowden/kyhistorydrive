@@ -13,6 +13,8 @@ import {
   LABEL_HALO_LIGHT,
   LINE_GROUPS,
   labelColor,
+  labelLayout,
+  labelPaint,
   shortLabel,
 } from './transport-lines.js'
 
@@ -187,32 +189,6 @@ function labelColorExpr(theme) {
   return ['match', ['get', 'kind'], 'trail', labelColor(theme, 'trail'), 'road', labelColor(theme, 'road'), expr]
 }
 
-function labelLayout() {
-  return {
-    'symbol-placement': 'line',
-    'symbol-spacing': 420,
-    'symbol-sort-key': ['get', 'labelRank'],
-    'text-field': ['get', 'label'],
-    'text-font': ['Open Sans Semibold'],
-    'text-size': ['interpolate', ['linear'], ['zoom'], 6, 10.5, 9, 13],
-    'text-letter-spacing': 0.02,
-    'text-max-angle': 30,
-    'text-padding': 4,
-    'text-allow-overlap': false,
-    'text-ignore-placement': false,
-    'text-keep-upright': true,
-  }
-}
-
-function labelPaint(theme) {
-  return {
-    'text-color': labelColorExpr(theme),
-    'text-halo-color': theme === 'light' ? LABEL_HALO_LIGHT : LABEL_HALO_DARK,
-    'text-halo-width': 2,
-    'text-halo-blur': 0.5,
-  }
-}
-
 function labelFilter(year, junction) {
   return ['all', transportYearFilter(year), notHidden(), ['==', ['get', 'lexJunction'], junction]]
 }
@@ -296,7 +272,7 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
           'circle-stroke-width': 2,
         },
       },
-      { id: 'sec-label', type: 'symbol', source: 'sections', filter: labelFilter(DEFAULT_YEAR, false), layout: labelLayout(), paint: labelPaint(theme) },
+      { id: 'sec-label', type: 'symbol', source: 'sections', filter: labelFilter(DEFAULT_YEAR, false), layout: labelLayout(), paint: labelPaint(theme, labelColorExpr(theme)) },
       {
         id: 'sec-label-lex',
         type: 'symbol',
@@ -304,7 +280,7 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
         minzoom: LEX_REVEAL_ZOOM,
         filter: labelFilter(DEFAULT_YEAR, true),
         layout: { ...labelLayout(), 'symbol-sort-key': ['+', 10, ['get', 'labelRank']] },
-        paint: labelPaint(theme),
+        paint: labelPaint(theme, labelColorExpr(theme)),
       },
       {
         // Topmost symbol layer, so it is placed first: below zoom 8 this invisible box keeps line
@@ -334,7 +310,7 @@ function applyColors() {
   map.setPaintProperty('bridge-circle', 'circle-color', c.bridge)
   map.setPaintProperty('bridge-circle', 'circle-stroke-color', c.bridgeStroke)
   for (const id of ['sec-label', 'sec-label-lex']) {
-    for (const [k, v] of Object.entries(labelPaint(theme))) map.setPaintProperty(id, k, v)
+    for (const [k, v] of Object.entries(labelPaint(theme, labelColorExpr(theme)))) map.setPaintProperty(id, k, v)
   }
 }
 
@@ -705,16 +681,25 @@ async function boot() {
     renderLegend(year)
   })
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-hp-theme'] })
+  const KY_FIT = [
+    [-89.58, 36.45],
+    [-81.96, 39.17],
+  ]
+  // Bottom padding clears the credits strip (so 'toward Chattanooga' stays readable) or the open phone sheet.
+  const fitKentucky = (sheetH = 0) => {
+    const bottom = Math.max(18 + creditsHeight(container), sheetH + 12)
+    const h = container.clientHeight
+    if (h - bottom - 18 < 60) return
+    map.fitBounds(KY_FIT, { padding: { top: 18, left: 18, right: 18, bottom }, duration: 0 })
+  }
   if (!fitted) {
-    map.fitBounds(
-      [
-        [-89.58, 36.45],
-        [-81.96, 39.17],
-      ],
-      // Bottom padding clears the credits strip so 'toward Chattanooga' stays readable.
-      { padding: { top: 18, left: 18, right: 18, bottom: 18 + creditsHeight(container) }, duration: 0 },
-    )
+    fitKentucky()
     fitted = true
+  }
+  if (!window.__khdSheetFit) {
+    window.__khdSheetFit = true
+    // An instant refit: an eased one is cancelled by the sheet's own resize/redraw.
+    window.addEventListener('transport:sheet', (e) => fitKentucky(Number(e.detail?.height) || 0))
   }
   const slider = document.getElementById('transportYear')
   const legend = document.getElementById('transportLegend')

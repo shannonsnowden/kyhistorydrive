@@ -15,6 +15,13 @@ import {
   labelColor,
   contrast,
   shortLabel,
+  lineColor,
+  LABEL_HALO_LIGHT,
+  labelLayout,
+  labelPaint,
+  SHEET_TITLE,
+  sheetOpenHeight,
+  sheetMaxHeight,
 } from '../src/transport-lines.js'
 
 const secs = JSON.parse(readFileSync(new URL('../public/maps/transport/sections.geojson', import.meta.url), 'utf8'))
@@ -76,5 +83,38 @@ for (const r of rows) {
 }
 assert.equal(shortLabel('Cumberland (Louie B. Nunn) Parkway'), 'Cumberland Pkwy')
 assert.equal(shortLabel('Louisville & Nashville main line'), 'L&N main line')
+
+// Critiquito #327: trace labels (light) darker than the line, a cream halo, and set off the line.
+for (const kind of ['road', 'trail']) {
+  const c = labelColor('light', kind)
+  assert.ok(contrast(c, LABEL_BG) >= 5, `${kind} label ${c} is ${contrast(c, LABEL_BG).toFixed(2)}:1 on cream (want >= 5)`)
+  assert.ok(contrast(c, LABEL_HALO_LIGHT) >= 4.5, `${kind} label ${c} on its halo`)
+  assert.notEqual(c, lineColor('light', kind), `${kind} label is darker than its line`)
+}
+const lp = labelPaint('light')
+assert.equal(lp['text-halo-color'], LABEL_HALO_LIGHT, 'cream halo in light mode')
+assert.ok(lp['text-halo-width'] >= 2.5, 'halo at least 2.5px')
+assert.equal(lp['text-halo-blur'], 0, 'crisp halo')
+const ll = labelLayout()
+assert.equal(ll['symbol-placement'], 'line')
+assert.ok(Array.isArray(ll['text-offset']) && Math.abs(ll['text-offset'][1]) >= 0.8, 'labels offset from their own line')
+
+// Phone sheet: opens at half the viewport, drags up to the full map; its own scroll; titled "Lines".
+assert.equal(SHEET_TITLE, 'Lines')
+assert.equal(sheetOpenHeight(844, 614), 422, 'half of an 844px viewport')
+assert.equal(sheetOpenHeight(844, 440), 352, 'never covers more than 80% of a short map')
+assert.equal(sheetMaxHeight(614), 614, 'drag up to full')
+const css = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
+const pane = readFileSync(new URL('../src/transport-pane.js', import.meta.url), 'utf8')
+assert.ok(!/Railroads and highways/.test(pane), 'old sheet header is gone')
+assert.match(css, /\.rr-sheet\.is-open\s*\{[^}]*height:\s*min\(50svh/, 'sheet opens at 50svh')
+assert.match(css, /\.rr-sheet-body\s*\{[^}]*overflow-y:\s*auto[^}]*overscroll-behavior:\s*contain/, 'sheet body scrolls on its own')
+assert.match(pane, /\['rrSec-rail', 'rrSec-highways'\]/, 'only the line groups move into the sheet (About and stories stay on the page)')
+const mapSrc = readFileSync(new URL('../src/transport-map.js', import.meta.url), 'utf8')
+assert.match(pane, /new CustomEvent\('transport:sheet'/, 'the sheet tells the map its height')
+assert.match(mapSrc, /addEventListener\('transport:sheet'/, 'the map refits Kentucky above the open sheet')
+// Long names truncate so the year stays on the right.
+assert.match(css, /\.rr-row-top\s*\{[^}]*flex-wrap:\s*nowrap/, 'row top never wraps')
+assert.match(css, /\.rr-row-name\s*\{[^}]*text-overflow:\s*ellipsis[^}]*white-space:\s*nowrap/, 'names ellipsize')
 
 console.log(`test-transport-rows: ${rows.length} prerendered rows in ${groups.length} groups; All/None and labels OK`)
