@@ -19,6 +19,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import sharp from 'sharp'
+import { MD_LINK_RE } from '../src/markdown-links.js'
 import { ccByLicense } from '../src/photo-credit.js'
 import {
   GA_MEASUREMENT_ID,
@@ -55,7 +56,6 @@ import {
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
-import { MD_LINK_RE } from '../src/markdown-links.js'
   ROUTE_MAPS,
   absoluteUrl,
   routeBySlug,
