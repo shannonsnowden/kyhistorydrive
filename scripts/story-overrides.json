@@ -879,7 +879,8 @@
       "historyId": "david-rice-home-greensburg-green-1798-1816",
       "lat": 37.262,
       "lon": -85.5013,
-      "county": "Green"
+      "county": "Green",
+      "yearStart": 1783
     },
     "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
       "reason": "KHS marker #1251, Oldham County, 1824, courthouse lawn, KY 53/146, La Grange; Main Street tracks one block away. Years 1827 (town laid out) to 1840 (incorporated). County Oldham.",

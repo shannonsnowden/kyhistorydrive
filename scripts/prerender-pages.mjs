@@ -55,6 +55,7 @@ import {
 } from '../src/story-tools.js'
 import { FILMS, filmCardHtml, filmDescriptionFromPlain, filmForStory, filmPlayerHtml, videoObjectNode } from '../src/films.js'
 import {
+import { MD_LINK_RE } from '../src/markdown-links.js'
   ROUTE_MAPS,
   absoluteUrl,
   routeBySlug,
@@ -481,7 +482,7 @@ class PrerenderPages {
   static plainText(text) {
     return String(text || '')
       .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
-      .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
+      .replace(MD_LINK_RE, '$1')
       .replace(/[#*_>`]/g, '')
       .replace(/\s+/g, ' ')
       .trim()

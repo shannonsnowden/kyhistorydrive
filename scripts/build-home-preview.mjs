@@ -20,6 +20,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { HomepageStructure } from '../src/homepage-structure.js'
 import { storyBlocksAutoPhoto } from '../src/no-auto-story-photos.js'
 import { parseBriefOrder } from './lib/brief-order.mjs'
+import { MD_LINK_RE } from '../src/markdown-links.js'
 
 const HERO_DECK_OVERRIDES_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'hero-deck-overrides.json')
 const heroDeckDoc = fs.existsSync(HERO_DECK_OVERRIDES_FILE)
@@ -96,7 +97,7 @@ function wikiTitleFromUrl(url) {
 function firstSentence(text) {
   const t = String(text || '')
     .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
-    .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
+    .replace(MD_LINK_RE, '$1')
     .replace(/\s+/g, ' ')
     .trim()
   if (!t) return ''
