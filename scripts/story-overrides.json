@@ -922,6 +922,25 @@
       "yearStart": 1829,
       "yearEnd": 1835,
       "county": "Mason"
+    },
+    "jack-jouett-kentuckys-midnight-rider": {
+      "reason": "KY History Oct 19 (Phase 0): county Woodford (KHS marker #78, Jack Jouett House); the old Jefferson label came from 'Thomas Jefferson' in the text. End year 1822 (Jouett died 1 Mar 1822). Pin subtitle names the county, marker and house. Pin point unchanged.",
+      "date": "2026-10-19",
+      "historyId": "capt-jack-jouett-midnight-ride-1781",
+      "county": "Woodford",
+      "yearEnd": 1822,
+      "replace": [
+        {
+          "old": "Midnight ride 1781 · in KY from 1782 · Woodford house 1797",
+          "new": "Woodford County / Craig’s Creek · KHS marker #78 · house c.1797"
+        }
+      ]
+    },
+    "col-john-holder-at-lower-howards-creek": {
+      "reason": "Phase 0 county fix (Shannon item 87): the Clark label came from 'George Rogers Clark' in the summary; once guesses need the word County, the nearest-pin fallback says Madison. The story body places Holder's Station in Clark County, so set it.",
+      "date": "2026-10-19",
+      "historyId": "holders-station-lower-howards-creek",
+      "county": "Clark"
     }
   }
 }

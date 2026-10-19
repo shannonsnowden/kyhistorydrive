@@ -3975,7 +3975,7 @@
       "summary": "In June 1781 Jack Jouett rode about forty miles to warn Jefferson of British cavalry, and by 1782 he had moved west to what became Kentucky.",
       "proseChars": 712,
       "yearStart": 1781,
-      "yearEnd": 1797,
+      "yearEnd": 1822,
       "era": "frontier",
       "tags": [
         "frontier",
@@ -3994,7 +3994,8 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
+      "county": "Woodford"
     },
     {
       "slug": "the-travelling-church-1781",
@@ -4200,7 +4201,8 @@
       "lat": 37.918134,
       "lon": -84.272709,
       "mapConfidence": "override",
-      "matchedPlace": "Holder's Station / Lower Howard's Creek"
+      "matchedPlace": "Holder's Station / Lower Howard's Creek",
+      "county": "Clark"
     },
     {
       "slug": "hartford-fort-hartford-on-the-rough-river",
