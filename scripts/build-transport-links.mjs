@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
 import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink, ROADS_RAILS_HREF } from '../src/transport-links.js'
+import { ROADS_RAILS_FLAG, roadsRailsEnabled } from './roads-rails-flag.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
@@ -37,6 +38,14 @@ function text(html) {
 }
 
 const out = { _note: 'Built by scripts/build-transport-links.mjs from scripts/transport-links.json. Do not edit.', stories: {} }
+// Roads & Rails left the live site on Oct 19: no story links to it unless KHD_ROADS_RAILS=1.
+// scripts/transport-links.json keeps the phrases so the links come back with the flag.
+if (!roadsRailsEnabled()) {
+  fs.mkdirSync(path.join(root, 'public/data/web'), { recursive: true })
+  fs.writeFileSync(path.join(root, 'public/data/web/transport-links.json'), `${JSON.stringify(out, null, 2)}\n`)
+  console.log(`build-transport-links: ${ROADS_RAILS_FLAG} is off; 0 story links (${Object.keys(config.stories || {}).length} kept in scripts/transport-links.json)`)
+  process.exit(0)
+}
 const errors = []
 for (const [slug, phrase] of Object.entries(config.stories || {})) {
   const file = path.join(dir, `${slug}.json`)
