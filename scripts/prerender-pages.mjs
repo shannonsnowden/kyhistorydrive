@@ -20,6 +20,7 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import sharp from 'sharp'
 import { MD_LINK_RE } from '../src/markdown-links.js'
+import { countyMatcher } from '../src/county-guess.js'
 import { ccByLicense } from '../src/photo-credit.js'
 import {
   GA_MEASUREMENT_ID,
@@ -1136,24 +1137,15 @@ class PrerenderPages {
     return null
   }
 
-  /** County fill copied from enrichStoriesCounties in src/main.js. Output is a county name only. */
+  /** County fill copied from enrichStoriesCounties in src/main.js. Output is a county name only. Text guesses need "<Name> County" (src/county-guess.js). */
   static enrichCounties(stories, { centroids, historyFeatures, locations }) {
-    const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
-    const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const countyRe = countyNames.length
-      ? new RegExp(`\\b(${countyNames.map(escapeRe).join('|')})(?:\\s+County)?\\b`, 'i')
-      : null
+    const countyFromText = countyMatcher(Object.keys(centroids))
     const historyById = new Map()
     const historyByName = new Map()
     for (const f of historyFeatures) {
       const p = f.properties || {}
       if (p.id) historyById.set(p.id, p)
       if (p.name) historyByName.set(String(p.name).toLowerCase(), p)
-    }
-    const countyFromText = (blob) => {
-      if (!countyRe || !blob) return ''
-      const m = String(blob).match(countyRe)
-      return m ? m[1].replace(/\b\w/g, (ch) => ch.toUpperCase()) : ''
     }
     const nearestHistoryCounty = (lat, lon) => {
       if (lat == null || lon == null || !historyFeatures.length) return ''
@@ -1186,8 +1178,8 @@ class PrerenderPages {
         )
       }
       if (!county && (s.mapConfidence === 'county' || loc.mapConfidence === 'county')) {
-        const guess = countyFromText(`${s.matchedPlace || loc.matchedPlace || ''} County`)
-        county = guess || countyFromText(s.matchedPlace || loc.matchedPlace || '')
+        // A county-centroid pin's matchedPlace is the county name itself.
+        county = countyFromText(`${s.matchedPlace || loc.matchedPlace || ''} County`)
       }
       if (!county) county = nearestHistoryCounty(s.lat, s.lon)
       s.county = county || ''

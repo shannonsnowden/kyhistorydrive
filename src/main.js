@@ -42,6 +42,7 @@ import {
   territoryBackHtml,
 } from './story-return.js'
 import { storyPinLinkHtml } from './story-pin.js'
+import { countyMatcher } from './county-guess.js'
 import { battlePinIconIds, DEFAULT_BATTLE_PIN_ICON, stampBattlePins } from './battle-pins.js'
 import {
   markdownWithoutGlanceSection,
@@ -2968,11 +2969,7 @@ async function enrichStoriesCounties(stories) {
     /* ignore */
   }
 
-  const countyNames = Object.keys(centroids).sort((a, b) => b.length - a.length)
-  const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const countyRe = countyNames.length
-    ? new RegExp('\\b(' + countyNames.map(escapeRe).join('|') + ')(?:\\s+County)?\\b', 'i')
-    : null
+  const countyFromText = countyMatcher(Object.keys(centroids))
 
   const historyById = new Map()
   const historyByName = new Map()
@@ -2983,12 +2980,6 @@ async function enrichStoriesCounties(stories) {
     if (p.county && f.geometry && f.geometry.coordinates) {
       /* keep for nearest */
     }
-  }
-
-  function countyFromText(blob) {
-    if (!countyRe || !blob) return ''
-    const m = String(blob).match(countyRe)
-    return m ? m[1].replace(/\b\w/g, (ch) => ch.toUpperCase()) : ''
   }
 
   function nearestHistoryCounty(lat, lon) {
@@ -3032,8 +3023,7 @@ async function enrichStoriesCounties(stories) {
     }
     if (!county && (s.mapConfidence === 'county' || loc.mapConfidence === 'county')) {
       // matchedPlace often is the county name for centroid pins
-      const guess = countyFromText(`${s.matchedPlace || loc.matchedPlace || ''} County`)
-      county = guess || countyFromText(s.matchedPlace || loc.matchedPlace || '')
+      county = countyFromText(`${s.matchedPlace || loc.matchedPlace || ''} County`)
     }
     if (!county) county = nearestHistoryCounty(s.lat, s.lon)
     s.county = county || ''
