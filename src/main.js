@@ -3483,6 +3483,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
               excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
               limit: 3,
               portraitFor: (slug) => portraitThumbSrc(portraits.get(slug) || personFor.get(slug)),
+              personFor: (slug) => portraits.get(slug) || personFor.get(slug) || null,
             },
           )}
           ${citeBoxHtml({
