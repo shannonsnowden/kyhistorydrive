@@ -46,6 +46,9 @@ try {
     await page.route('**/*', (r) => (r.request().url().startsWith(origin) ? r.continue() : r.abort()))
     await page.goto(`${origin}/roads-and-rails/`, { waitUntil: 'load' })
     await page.waitForSelector('.transport-controls[data-pane-ready]', { timeout: 30000 })
+    // Wait for the data-driven ticks: their label rows change the Timeline's height.
+    await page.waitForSelector('#transportTicks .transport-tick', { timeout: 30000 })
+    await page.waitForTimeout(600)
     const tag = (m) => fails.push(`${width}: ${m}`)
     if ((await page.locator('.rr-row').count()) !== nRows) tag(`rows ${await page.locator('.rr-row').count()} != ${nRows}`)
     // Sections open and close.
@@ -62,7 +65,7 @@ try {
     if (width >= 900) {
       // Editor: Highways header above the fold at 1280x800.
       const box = await page.locator('#rrSec-highways > summary').boundingBox()
-      if (!box || box.y + box.height > height) tag(`Highways header below the fold (bottom ${box && Math.round(box.y + box.height)} > ${height})`)
+      if (!box || box.y + box.height > Math.min(height, (await page.locator('.transport-controls').boundingBox()).y + (await page.locator('.transport-controls').boundingBox()).height)) tag(`Highways header below the fold (bottom ${box && Math.round(box.y + box.height)} > ${height})`)
     } else {
       const handle = page.locator('.rr-sheet-handle')
       await handle.click()

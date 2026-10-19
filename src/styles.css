@@ -6103,7 +6103,7 @@ html:not([data-hp-theme="light"]) .hp-page .brand-logo {
 /* Roads & Rails opening ticks (#291 follow-up; Critiquito #326): one tick per opening year, each with a
  * visible label. Crowded labels stagger onto extra rows with leader lines. Marks and labels share one colour
  * (--text), explained in the legend; leaders are --muted decoration. */
-.transport-ticks { --tick-label-size: 11px; position: relative; height: 40px; margin: -8px 0 0.2rem; }
+.transport-ticks { --tick-label-size: 12px; position: relative; height: 40px; margin: -8px 0 0.2rem; }
 .transport-tick-lines { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
 .transport-tick-mark { stroke: var(--text); stroke-width: 2; stroke-linecap: round; }
 .transport-tick-lead { fill: none; stroke: var(--muted); stroke-width: 1; }
@@ -6156,8 +6156,10 @@ html:not([data-hp-theme="light"]) .hp-page .brand-logo {
 .transport-tip ul { margin: 0.3rem 0 0; padding: 0; list-style: none; }
 .transport-tip li { margin: 0.12rem 0; }
 .transport-year { position: relative; }
-@media (pointer: fine) and (min-width: 600px) {
-  .transport-tick { width: 14px; margin-left: -7px; }
+/* Critiquito #326 notes: labels stay 12px (no narrow fine-pointer override); the '2000' end label hides on
+ * phones while a tick's card is open, so the card never sits on it. */
+@media (max-width: 600px) {
+  .transport-year.is-tip-open .transport-scale span:last-child { visibility: hidden; }
 }
 
 /* ===== Roads & Rails left pane + line labels (mockup v2, approved Oct 18) ===== */

@@ -179,6 +179,27 @@ export function mountTransportPane() {
   pane.addEventListener('toggle', () => requestAnimationFrame(fade), true)
   window.addEventListener('resize', () => { fade(); syncMore() })
 
+  /* ---- Editor: at 1280x800 the Highways and parkways header must be reachable above the fold ----
+   * Until the reader opens or closes something, collapse the Map key and then Railroads (its header keeps
+   * a "4 lines" summary) while the Highways header would sit below the pane's visible bottom. */
+  let userTouched = false
+  pane.addEventListener('click', (e) => { if (e.isTrusted && e.target.closest('summary')) userTouched = true }, true)
+  const fit = () => {
+    if (userTouched || mq.matches) return
+    const hw = document.querySelector('#rrSec-highways > summary')
+    if (!hw) return
+    const bottom = Math.min(aside.getBoundingClientRect().bottom, window.innerHeight)
+    const below = () => hw.getBoundingClientRect().bottom > bottom - 8
+    for (const d of [legend, document.getElementById('rrSec-rail')]) {
+      if (!below()) break
+      if (d?.open) d.open = false
+    }
+    fade()
+  }
+  window.addEventListener('transport:year', () => requestAnimationFrame(fit))
+  window.addEventListener('resize', fit)
+  requestAnimationFrame(fit)
+
   window.__khdTransportHidden = getHiddenSections
   sync()
   requestAnimationFrame(() => { syncMore(); fade() })

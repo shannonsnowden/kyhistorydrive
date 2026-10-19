@@ -427,6 +427,7 @@ function showTip(btn) {
   if (!tip) return
   tip.hidden = false
   btn.classList.add('is-tip-open')
+  btn.closest('.transport-year')?.classList.add('is-tip-open')
   // Keep the tooltip inside the controls column.
   tip.style.transform = ''
   const box = tip.getBoundingClientRect()
@@ -445,6 +446,7 @@ function hideTips(except) {
     const tip = document.getElementById(b.getAttribute('aria-describedby'))
     if (tip) tip.hidden = true
   })
+  if (!document.querySelector('#transportTicks .transport-tick.is-tip-open')) document.querySelector('.transport-year')?.classList.remove('is-tip-open')
 }
 
 let measureCtx = null
@@ -479,13 +481,15 @@ function renderTicks(force = false) {
   const markX = (t) => 13 + (t.pct / 100) * width
   let svg = ''
   let html = ''
+  const leads = []
   ticks.forEach((t, i) => {
     const it = lay.items[i]
     const mx = markX(t)
     const top = markH + lead + it.row * rowH
     const cx = it.x + it.w / 2
     svg += `<line class="transport-tick-mark" x1="${mx.toFixed(1)}" y1="0" x2="${mx.toFixed(1)}" y2="${markH}"/>`
-    svg += `<polyline class="transport-tick-lead" points="${mx.toFixed(1)},${markH} ${mx.toFixed(1)},${markH + 3} ${cx.toFixed(1)},${top}"/>`
+    // One straight leader from the mark to its label (no kink, so no 'double slash'); fanned in order below.
+    leads.push({ mx, cx, top })
     const names = t.events.map((e) => `${e.name}${t.events.length > 1 ? '' : ''}`).join('; ')
     const aria = t.events.length > 1
       ? `${t.year}: ${t.events.length} openings: ${names}. Show ${t.year}.`
@@ -496,6 +500,17 @@ function renderTicks(force = false) {
       aria-describedby="transportTip${i}">${esc(t.label)}</button>
       <div id="transportTip${i}" class="transport-tip" role="tooltip" hidden style="left:${cx.toFixed(1)}px;top:${top + rowH}px">
         <p class="transport-tip-head"><span>${esc(t.year)}</span> ${t.events.length > 1 ? `${esc(t.events.length)} openings` : esc(t.events[0].name)}</p>${t.events.length > 1 ? `<ul>${tipRows}</ul>` : ''}</div>`
+  })
+  // Fan leaders in tick order: each one ends at a point on its label's top edge that keeps the end points
+  // in the same left-to-right order as the marks, so neighbouring leaders never cross.
+  let prevEnd = -Infinity
+  leads.forEach((l, i) => {
+    const it = lay.items[i]
+    const lo = it.x + 3
+    const hi = it.x + it.w - 3
+    const end = Math.min(hi, Math.max(lo, l.mx, prevEnd + 2))
+    prevEnd = end
+    svg += `<line class="transport-tick-lead" x1="${l.mx.toFixed(1)}" y1="${markH}" x2="${end.toFixed(1)}" y2="${l.top}"/>`
   })
   const height = markH + lead + lay.rows * rowH
   wrap.style.height = `${height}px`
