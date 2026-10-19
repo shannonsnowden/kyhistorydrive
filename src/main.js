@@ -4716,9 +4716,14 @@ async function applyRoute() {
   const savedScroll = consumeScrollRestore()
   const { view, slug } = parseHash()
   if (view === 'transport') {
-    // Item 70: the transport map lives at /roads-and-rails/. Old #transport links forward there (client-side only).
-    const { year } = parseHash()
-    location.replace(`/roads-and-rails/${Number.isFinite(year) ? `#${year}` : ''}`)
+    // Roads & Rails left the live site on Oct 19: old #transport links go to the map. With the
+    // KHD_ROADS_RAILS=1 build flag they forward to /roads-and-rails/ again (item 70, client-side only).
+    if (import.meta.env.KHD_ROADS_RAILS === '1') {
+      const { year } = parseHash()
+      location.replace(`/roads-and-rails/${Number.isFinite(year) ? `#${year}` : ''}`)
+    } else {
+      location.replace('#map')
+    }
     return
   }
   document.querySelectorAll('.view').forEach((el) => {

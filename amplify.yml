@@ -126,3 +126,26 @@ customRules:
   - source: '/drive-preview/<*>'
     target: '/drives/<*>'
     status: '301'
+  # Roads & Rails was taken off the live site by Shannon on Oct 19, 2026. Every old URL 301s to the
+  # map (/). Rules cannot target #map, so scripts/prerender-pages.mjs also writes noindex stubs at
+  # /roads-and-rails/ and /roads-rails/ that forward to /#map (these rules have been ignored live before).
+  # The code is kept: KHD_ROADS_RAILS=1 rebuilds the page (scripts/roads-rails-flag.mjs). Remove this
+  # block to relaunch.
+  - source: '/roads-and-rails'
+    target: '/'
+    status: '301'
+  - source: '/roads-and-rails/'
+    target: '/'
+    status: '301'
+  - source: '/roads-and-rails/index.html'
+    target: '/'
+    status: '301'
+  - source: '/roads-rails'
+    target: '/'
+    status: '301'
+  - source: '/roads-rails/'
+    target: '/'
+    status: '301'
+  - source: '/roads-rails/index.html'
+    target: '/'
+    status: '301'
