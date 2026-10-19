@@ -1,3 +1,5 @@
+import { roadsRailsEnabled } from './roads-rails-flag.mjs'
+
 /** Root-absolute seal files. A path without the leading slash resolves under /about/ or /stories/ and 404s. */
 export function sealRotationScriptHtml() {
   return `<script>(function(){var B='/brand/',L=[B+'khd-logo.png',B+'khd-logo-c.png',B+'khd-logo-c2.png'],H=[B+'khd-logo-512.webp',B+'khd-logo-c-512.webp',B+'khd-logo-c2-512.webp'],i;try{var n=parseInt(localStorage.getItem('khd-logo-n'),10);i=isNaN(n)?Math.floor(Math.random()*L.length):(n+1)%L.length;localStorage.setItem('khd-logo-n',String(i))}catch(e){i=Math.floor(Math.random()*L.length)}document.documentElement.setAttribute('data-logo',String(i));window.__khdLogo=L[i];window.__khdLogoHi=H[i];if(i>0){var k=document.createElement('link');k.rel='preload';k.as='image';k.href=L[i];document.head.appendChild(k)}})()</script>`
@@ -64,7 +66,8 @@ export function siteChromeScriptHtml() {
   }
 
 /** Same header as the homepage. Search and Today’s stories link back; the menu is a few lines of script. */
-export function siteHeaderHtml(activeRoute = '') {
+/** opts.roadsRails: show the Roads & Rails nav item (default: the KHD_ROADS_RAILS build flag; off since Oct 19). */
+export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnabled() } = {}) {
   const item = (route, href, label) => {
       const current = route === activeRoute ? ' class="active" aria-current="page"' : ''
       return `<a href="${href}" data-route="${route}"${current}>${label}</a>`
@@ -110,8 +113,7 @@ export function siteHeaderHtml(activeRoute = '') {
         ${item('timeline', '/#timeline', 'Timeline')}
         ${item('people', '/people/', 'People')}
         ${item('drives', '/drives/', 'Drives')}
-        ${item('roads', '/roads-and-rails/', 'Roads &amp; Rails')}
-        ${item('about', '/about/', 'About')}
+        ${roadsRails ? `${item('roads', '/roads-and-rails/', 'Roads &amp; Rails')}\n        ` : ''}${item('about', '/about/', 'About')}
         <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
           <span class="hp-theme-toggle-icon" aria-hidden="true">☀</span>
           <span class="hp-theme-toggle-label">Light</span>

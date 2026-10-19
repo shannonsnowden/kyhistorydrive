@@ -1,7 +1,7 @@
 /**
  * Compact header for viewports 600px and below.
  * One bar holds the logo, title, a search icon, and a menu button.
- * The menu discloses Home, Map, Timeline, People, Drives, Roads & Rails, About, App, Today's stories, and the theme toggle.
+ * The menu discloses Home, Map, Timeline, People, Drives, (Roads & Rails with KHD_ROADS_RAILS=1), About, App, Today's stories, and the theme toggle.
  */
 export class MobileNav {
   static QUERY = '(max-width: 600px)'
@@ -60,7 +60,7 @@ export class MobileNav {
 
   /**
    * On a phone, put the links in the same order they are shown and tabbed:
-   * Home, Map, Timeline, People, Drives, Roads & Rails, About, App, Today's stories, theme. Wider screens
+   * Home, Map, Timeline, People, Drives, (Roads & Rails with KHD_ROADS_RAILS=1), About, App, Today's stories, theme. Wider screens
    * keep the original header order.
    */
   static layout() {
