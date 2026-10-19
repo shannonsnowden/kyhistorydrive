@@ -92,9 +92,9 @@ assert.equal(siteSource.includes('target='), false)
 
 assert.equal(battlePinIconId('revolutionary', new Set()), DEFAULT_BATTLE_PIN_ICON)
 assert.equal(battlePinIconId('civil', new Set()), DEFAULT_BATTLE_PIN_ICON)
-assert.equal(battlePinIconId('revolutionary', new Set(['battle-revolutionary'])), 'battle-revolutionary')
-assert.equal(battlePinIconId('nope', new Set(['battle-revolutionary'])), DEFAULT_BATTLE_PIN_ICON)
-assert.equal(battlePinIconForPlace({ war: 'civil', site_type: 'fort' }, new Set(['battle-civil'])), '')
+assert.equal(battlePinIconId('revolutionary', new Set(['war-revolution'])), 'war-revolution')
+assert.equal(battlePinIconId('nope', new Set(['war-revolution'])), DEFAULT_BATTLE_PIN_ICON)
+assert.equal(battlePinIconForPlace({ war: 'civil', site_type: 'fort' }, new Set(['war-civil'])), '')
 assert.equal(battlePinIconForPlace({ war: 'civil', site_type: 'battlefield' }, new Set()), DEFAULT_BATTLE_PIN_ICON)
 const features = {
   features: [
@@ -105,9 +105,9 @@ const features = {
 }
 assert.equal(stampBattlePins(features, new Set()), 0)
 assert.equal(features.features[0].properties.pinIcon, undefined)
-assert.equal(stampBattlePins(features, new Set(['battle-civil'])), 1)
+assert.equal(stampBattlePins(features, new Set(['war-civil'])), 1)
 assert.equal(features.features[0].properties.pinIcon, undefined)
-assert.equal(features.features[1].properties.pinIcon, 'battle-civil')
+assert.equal(features.features[1].properties.pinIcon, 'war-civil')
 assert.equal(features.features[2].properties.pinIcon, undefined)
 
 console.log('test-story-markdown: links, glance, research notes, and battle pin icons ok')

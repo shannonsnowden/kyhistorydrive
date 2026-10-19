@@ -1,18 +1,20 @@
 /**
  * War-site battle pins.
  *
- * The `war` field on a war-site record maps to an icon id. Story Studio will
- * add the art at /icons/<id>.png. Until that file is on the site, a battle
- * keeps the current default icon (the war-layer musket and sword).
+ * The `war` field on a war-site record maps to that war's icon, the same
+ * one-icon-per-war set the drive pages use (public/icons/war-*.png, drawn from
+ * scripts/icon-src/war-*.svg). If an icon file fails to load, a battle keeps
+ * the default icon (the war-layer musket and sword).
  * Forts, camps, and other war sites are not battle pins.
+ * Every id here must exist as /icons/<id>.png (scripts/check-map-icons.mjs).
  */
 
 export const DEFAULT_BATTLE_PIN_ICON = 'musket-sword'
 
-/** Icon ids Story Studio owns. Keys are the war-site `war` field. */
+/** Per-war icon ids. Keys are the war-site `war` field. */
 export const WAR_BATTLE_PIN_ICONS = {
-  revolutionary: 'battle-revolutionary',
-  civil: 'battle-civil',
+  revolutionary: 'war-revolution',
+  civil: 'war-civil',
 }
 
 const BATTLE_SITE_TYPES = new Set(['battlefield', 'battle'])

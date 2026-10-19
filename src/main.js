@@ -572,7 +572,7 @@ function parseHash() {
   return { view: 'map' }
 }
 
-/** Load Story Studio battle art when the file exists. Missing files keep the default pin. */
+/** Load the per-war battle pin icons (src/battle-pins.js). A file that fails to load keeps the default pin. */
 async function readyBattlePinIcons(targetMap) {
   const ready = new Set()
   for (const id of battlePinIconIds()) {
@@ -582,7 +582,7 @@ async function readyBattlePinIcons(targetMap) {
       if (!res.ok) continue
       if (await loadImage(targetMap, id, `/icons/${id}.png`)) ready.add(id)
     } catch {
-      /* Story Studio has not shipped this icon. */
+      /* Icon unavailable: keep the default pin. */
     }
   }
   return ready
