@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-18T13:09:17.479Z",
+  "generatedAt": "2026-10-19T09:31:46.838Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
     "county": 4,
-    "override": 141,
+    "override": 146,
     "none": 38
   },
   "locations": {
@@ -103,6 +103,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Mount Horeb Adena / Adena Park",
       "historyId": "mount-horeb-adena-park"
+    },
+    "the-c-and-o-mounds-at-paintsville": {
+      "slug": "the-c-and-o-mounds-at-paintsville",
+      "lat": 37.8,
+      "lon": -82.8,
+      "mapConfidence": "override",
+      "matchedPlace": "C. and O. Mounds, Paintsville (approximate)",
+      "historyId": null
     },
     "peter-village-enclosure-15fa166": {
       "slug": "peter-village-enclosure-15fa166",
@@ -1488,6 +1496,14 @@
       "matchedPlace": "Bowling Green founding / Bolin Green (1798)",
       "historyId": "bowling-green-founding-bolin-green-1798"
     },
+    "father-david-rice-and-kentuckys-first-presbyterian-churches": {
+      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+      "lat": 37.262,
+      "lon": -85.5013,
+      "mapConfidence": "override",
+      "matchedPlace": "Father David Rice home marker, Greensburg (KHS #844)",
+      "historyId": null
+    },
     "glasgow-the-barrens": {
       "slug": "glasgow-the-barrens",
       "lat": 36.9818833,
@@ -1608,6 +1624,14 @@
       "matchedPlace": "Mammoth Cave saltpeter (War of 1812)",
       "historyId": "mammoth-cave-saltpeter-war-of-1812"
     },
+    "river-raisin-1813-kentuckys-winter-defeat-in-michigan": {
+      "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+      "lat": 38.2103,
+      "lon": -84.5593,
+      "mapConfidence": "override",
+      "matchedPlace": "Remember the Raisin: Kentucky volunteers' muster, Georgetown (KHS #508)",
+      "historyId": null
+    },
     "saltpeter-cave-at-carter-caves": {
       "slug": "saltpeter-cave-at-carter-caves",
       "lat": 38.3767,
@@ -1656,6 +1680,14 @@
       "matchedPlace": "Louisville and Portland Canal (locks)",
       "historyId": "louisville-portland-canal-1826-1830"
     },
+    "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
+      "slug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
+      "lat": 38.3959,
+      "lon": -85.3744,
+      "mapConfidence": "override",
+      "matchedPlace": "La Grange courthouse square and Main Street tracks",
+      "historyId": null
+    },
     "paducah-at-the-tennessee-mouth": {
       "slug": "paducah-at-the-tennessee-mouth",
       "lat": 37.0864667,
@@ -1663,6 +1695,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Paducah — 1827 William Clark plat",
       "historyId": "paducah-1827-clark-plat"
+    },
+    "the-maysville-road-and-jacksons-veto-1830": {
+      "slug": "the-maysville-road-and-jacksons-veto-1830",
+      "lat": 38.6423,
+      "lon": -83.7814,
+      "mapConfidence": "override",
+      "matchedPlace": "Maysville–Lexington Turnpike (US 68), Maysville Hill (KHS #144)",
+      "historyId": null
     },
     "lexington-ohio-railroad": {
       "slug": "lexington-ohio-railroad",

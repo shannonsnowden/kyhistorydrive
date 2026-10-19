@@ -553,7 +553,7 @@
         "webp": "/people/portraits/lewis-craig__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/lewis-craig__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -649,7 +649,7 @@
         "webp": "/people/portraits/dragging-canoe__ai-portrait-v2-512.webp",
         "jpg": "/people/portraits/dragging-canoe__ai-portrait-v2-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -794,7 +794,7 @@
         "webp": "/people/portraits/nonhelema__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/nonhelema__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -811,7 +811,7 @@
         "webp": "/people/portraits/esther-whitley__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/esther-whitley__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -897,7 +897,7 @@
         "webp": "/people/portraits/blackfish__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/blackfish__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -917,7 +917,7 @@
         "webp": "/people/portraits/blue-jacket__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/blue-jacket__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -1001,7 +1001,7 @@
         "webp": "/people/portraits/richard-callaway__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/richard-callaway__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -1114,7 +1114,7 @@
         "webp": "/people/portraits/egushawa__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/egushawa__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -1407,7 +1407,8 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "bland-w-ballard-of-tick-creek"
+        "bland-w-ballard-of-tick-creek",
+        "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
       ]
     },
     {
@@ -1491,7 +1492,7 @@
         "webp": "/people/portraits/jack-jouett__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/jack-jouett__ai-portrait-v1-512.jpg"
       },
-      "credit": "AI illustration · Kentucky History Drive; based on silhouette by Matthew Harris Jouett",
+      "credit": "AI illustration · Kentucky History Drive",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -1499,7 +1500,8 @@
         "capt-jack-jouett",
         "jack-jouett-kentuckys-midnight-rider"
       ],
-      "sourceFile": null
+      "sourceFile": null,
+      "captionNote": "Based on a silhouette by Matthew Harris Jouett"
     },
     {
       "id": "banastre-tarleton",
@@ -1623,7 +1625,7 @@
         "webp": "/people/portraits/henry-skaggs__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/henry-skaggs__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -1875,7 +1877,7 @@
         "webp": "/people/portraits/jane-todd-crawford__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/jane-todd-crawford__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -1892,7 +1894,7 @@
         "webp": "/people/portraits/evan-williams__ai-portrait-v1-512.webp",
         "jpg": "/people/portraits/evan-williams__ai-portrait-v1-512.jpg"
       },
-      "credit": "Kentucky History Drive",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "ai": true,
       "license": "Original AI illustration",
       "licenseUrl": null,
@@ -2040,7 +2042,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "kentucky-association-1826-lexington-race-course"
+        "kentucky-association-1826-lexington-race-course",
+        "the-maysville-road-and-jacksons-veto-1830"
       ],
       "sourceFile": "Clay 1848.jpg"
     },
@@ -2730,7 +2733,8 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "simpsonville-takes-shape-on-the-louisville-road"
+        "simpsonville-takes-shape-on-the-louisville-road",
+        "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
       ]
     },
     {
@@ -4317,7 +4321,8 @@
       "licenseUrl": null,
       "stories": [
         "chickasaw-hunting-grounds",
-        "russellville-from-big-boiling-spring-to-county-seat"
+        "russellville-from-big-boiling-spring-to-county-seat",
+        "the-maysville-road-and-jacksons-veto-1830"
       ],
       "sourceFile": "Andrew jackson head (cropped).jpg"
     },
@@ -4496,7 +4501,8 @@
       "license": "Public domain",
       "licenseUrl": null,
       "stories": [
-        "versailles-takes-shape"
+        "versailles-takes-shape",
+        "la-grange-the-oldham-county-seat-with-trains-on-main-street"
       ],
       "sourceFile": "Gilbert du Motier Marquis de Lafayette.PNG"
     },
@@ -4658,6 +4664,40 @@
       "stories": [
         "hartford-fort-hartford-on-the-rough-river"
       ]
+    },
+    {
+      "id": "walker-daniel",
+      "name": "Walker Daniel",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/walker-daniel__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/walker-daniel__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "walker-daniel-danvilles-namesake"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "david-rice",
+      "name": "David Rice",
+      "dates": "1733–1816",
+      "image": {
+        "webp": "/people/portraits/david-rice__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/david-rice__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "father-david-rice-and-kentuckys-first-presbyterian-churches"
+      ],
+      "sourceFile": null
     }
   ],
   "storySubjects": {
@@ -4705,6 +4745,7 @@
     "squire-boones-painted-stone": "squire-boone",
     "capt-jack-jouett": "jack-jouett",
     "jack-jouett-kentuckys-midnight-rider": "jack-jouett",
+    "walker-daniel-danvilles-namesake": "walker-daniel",
     "william-hoy-and-hoys-station": "william-hoy",
     "capt-james-estill-estills-defeat": "james-estill",
     "col-john-holder-at-lower-howards-creek": "john-holder",
@@ -4725,6 +4766,7 @@
     "capt-william-hubbells-ohio-flatboat-stand-1791": "william-hubbell",
     "jacob-beam-on-hardin-creek": "jacob-beam",
     "jacob-beam-sells-old-jakes-first-barrel": "jacob-beam",
+    "father-david-rice-and-kentuckys-first-presbyterian-churches": "david-rice",
     "campbellsville-from-buckhorn-creek-to-county-seat": "andrew-campbell",
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": "catherine-spears-carpenter",
     "james-crow-on-glenns-creek": "james-c-crow",
