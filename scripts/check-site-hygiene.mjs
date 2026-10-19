@@ -27,7 +27,25 @@ const read = (rel) => {
 }
 const hrefs = (html) => [...html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/gi)].map((m) => m[1].replace(/&amp;/g, '&'))
 const robots = (html) => (html.match(/<meta\s+name="robots"\s+content="([^"]*)"/i) || [])[1] || ''
-const text = (html) => html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;|&rsquo;|’/g, "'").replace(/\s+/g, ' ')
+/**
+ * Drop every <tag ...>...</tag ...> block. Scans with indexOf, not a regex, and
+ * repeats until none are left; an unclosed block drops the rest of the page.
+ */
+const dropBlocks = (html, tag) => {
+  const open = `<${tag}`
+  const close = `</${tag}`
+  let out = html
+  for (;;) {
+    const lower = out.toLowerCase()
+    const start = lower.indexOf(open)
+    if (start < 0) return out
+    const end = lower.indexOf(close, start + open.length)
+    if (end < 0) return out.slice(0, start)
+    const gt = lower.indexOf('>', end + close.length)
+    out = `${out.slice(0, start)} ${gt < 0 ? '' : out.slice(gt + 1)}`
+  }
+}
+const text = (html) => dropBlocks(dropBlocks(html, 'script'), 'style').replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;|&rsquo;|’/g, "'").replace(/\s+/g, ' ')
 /** Path of a link on page `pageUrl` when it stays on this site, else null. */
 const sitePath = (href, pageUrl) => {
   let u
@@ -98,7 +116,7 @@ for (const f of drivePages) {
   if (!foot) fail(`${rel}: missing the site footer`)
   else if (!hrefs(foot).some((h) => sitePath(h, pageUrl) === '/privacy/')) fail(`${rel}: footer has no Privacy link`)
   // Links in the page markup (template strings inside <script> are not links).
-  for (const h of hrefs(html.replace(/<script[\s\S]*?<\/script>/gi, ''))) {
+  for (const h of hrefs(dropBlocks(html, 'script'))) {
     const p = sitePath(h, pageUrl)
     if (p == null || p === '/') continue
     if (!built(p)) fail(`${rel}: link "${h}" resolves to ${p}, which is not built`)
