@@ -83,4 +83,19 @@ const html = readFileSync(new URL('../roads-and-rails/index.html', import.meta.u
 const sliderTag = /<input[^>]*id="transportYear"[^>]*>/.exec(html)?.[0] || ''
 assert.ok(sliderTag && !/\smin="|aria-valuemin="/.test(sliderTag), 'slider min is set from data, not hard-coded in the page')
 assert.ok(html.includes('id="transportTicks"'), 'tick container present')
+// Editor #326: ticks are small visually but need a >=44x44px tap target (charter), via an invisible pseudo-element.
+const css = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
+const hitRule = /\.transport-tick::before\s*\{([^}]*)\}/.exec(css)?.[1] || ''
+assert.ok(hitRule, '.transport-tick::before hit-area rule present')
+const px = (prop) => Number(new RegExp(`(?:^|;|\\s)${prop}\\s*:\\s*(\\d+)px`).exec(hitRule)?.[1] || 0)
+assert.ok(px('min-width') >= 44, 'tick hit area min-width >= 44px')
+assert.ok(px('min-height') >= 44, 'tick hit area min-height >= 44px')
+assert.ok(/content\s*:\s*''/.test(hitRule) && /position\s*:\s*absolute/.test(hitRule), 'hit area is an absolute, empty pseudo-element')
+assert.ok([...hitRule.matchAll(/background(?:-color)?\s*:\s*([^;]+)/g)].every((m) => m[1].trim() === 'transparent') && !/border\s*:|outline\s*:/.test(hitRule), 'hit area is invisible')
+const lime = secs.features.find((f) => f.properties.id === 'limestone-trace')?.properties.sources || []
+assert.ok(!lime.some((u) => /\/search\//.test(u)), 'no search-results URLs in Limestone Trace sources')
+const mays = secs.features.find((f) => f.properties.id === 'maysville-turnpike')?.properties.sources || []
+assert.equal(mays[0], 'https://grokipedia.com/page/Maysville_Road_veto', 'Maysville sources lead with Grokipedia')
+assert.ok(!/resources\.ohiohistory\.org\/ohj\/search\//.test(html), 'page source list has no search-results URL')
+assert.ok(html.indexOf('https://grokipedia.com/page/Maysville_Road_veto') > -1 && html.indexOf('https://grokipedia.com/page/Maysville_Road_veto') < html.indexOf('https://en.wikipedia.org/wiki/Maysville_Road_veto'), 'page lists Grokipedia before Wikipedia for the Maysville Road')
 console.log(`test-transport-timeline: OK (${events.length} events, ${ticks.length} ticks, min ${min}, pad ${TIMELINE_PAD_YEARS})`)
