@@ -149,7 +149,8 @@ export function mountTransportPane() {
     // Arrow keys resize too, for keyboard users.
     if (!wrap || (event.key !== 'ArrowUp' && event.key !== 'ArrowDown')) return
     event.preventDefault()
-    const h = sheet.classList.contains('is-open') ? sheet.getBoundingClientRect().height : 44
+    // Step from the target height, not the mid-transition one.
+    const h = sheet.classList.contains('is-open') ? parseFloat(sheet.style.height) || sheet.getBoundingClientRect().height : 44
     const next = Math.min(sheetMaxHeight(wrap.getBoundingClientRect().height), Math.max(44, h + (event.key === 'ArrowUp' ? 60 : -60)))
     setOpen(next > 96, { focus: false, height: next > 96 ? next : undefined })
   })

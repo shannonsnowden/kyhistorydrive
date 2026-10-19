@@ -65,6 +65,29 @@ try {
     if (width >= 900) {
       // Editor: Highways header above the fold at 1280x800.
       const box = await page.locator('#rrSec-highways > summary').boundingBox()
+      // Editor #327: every line is named. Across 1880 (roads, trails, railroads) and 2000 (parkways) all 21 rows
+      // have a placed label at the default view or within one zoom step in.
+      const labelled = new Set()
+      for (const yr of ['1880', '2000']) {
+        for (const dz of [0, 0.5, 1]) {
+          const got = await page.evaluate(async ({ yr, dz }) => {
+            const m = window.__khdTransportMap
+            if (!m) return null
+            const s = document.getElementById('transportYear')
+            s.value = yr
+            s.dispatchEvent(new Event('input', { bubbles: true }))
+            window.__khdTransportZoom0 ??= m.getZoom()
+            m.jumpTo({ zoom: window.__khdTransportZoom0 + dz })
+            await new Promise((r) => setTimeout(r, 1500))
+            return [...new Set(m.queryRenderedFeatures({ layers: ['sec-label', 'sec-label-lex'] }).map((f) => f.properties.row))]
+          }, { yr, dz })
+          if (!got) { tag('map handle missing'); break }
+          got.forEach((r) => labelled.add(r))
+          console.log(`check-transport-sections: ${yr} at default zoom +${dz}: ${got.length} lines labelled`)
+        }
+      }
+      if (labelled.size !== nRows) tag(`only ${labelled.size} of ${nRows} lines labelled within one zoom step`)
+      await page.evaluate(() => { const m = window.__khdTransportMap; m.jumpTo({ zoom: window.__khdTransportZoom0 }); const s = document.getElementById('transportYear'); s.value = '1880'; s.dispatchEvent(new Event('input', { bubbles: true })) })
       if (!box || box.y + box.height > Math.min(height, (await page.locator('.transport-controls').boundingBox()).y + (await page.locator('.transport-controls').boundingBox()).height)) tag(`Highways header below the fold (bottom ${box && Math.round(box.y + box.height)} > ${height})`)
     } else {
       const handle = page.locator('.rr-sheet-handle')
@@ -73,6 +96,19 @@ try {
       const focusIn = await page.evaluate(() => !!document.activeElement?.closest('.rr-sheet-body'))
       if (!focusIn) tag('focus did not move into the sheet')
       if (!(await page.locator('.rr-sheet #rrSec-rail').count())) tag('Railroads not in the sheet')
+      // Editor #327: open snap about 46% of the map (max 50%); drag (keyboard resize) up to the full map.
+      await page.waitForTimeout(400)
+      const cover = await page.evaluate(() => document.querySelector('.rr-sheet').getBoundingClientRect().height / document.querySelector('.transport-section .map-canvas-wrap').getBoundingClientRect().height)
+      console.log(`check-transport-sections: 390 sheet covers ${(cover * 100).toFixed(1)}% of the map`)
+      if (cover < 0.42 || cover > 0.5) tag(`sheet open covers ${(cover * 100).toFixed(1)}% of the map (want ~46%, max 50%)`)
+      await handle.focus()
+      for (let i = 0; i < 10; i++) await handle.press('ArrowUp')
+      await page.waitForTimeout(400)
+      const full = await page.evaluate(() => document.querySelector('.rr-sheet').getBoundingClientRect().height / document.querySelector('.transport-section .map-canvas-wrap').getBoundingClientRect().height)
+      if (full < 0.98) tag(`sheet drags only to ${(full * 100).toFixed(1)}% of the map`)
+      await handle.click()
+      await handle.click()
+      await page.waitForTimeout(300)
     }
     // None / All / whole-row toggle on Railroads.
     const rail = page.locator('#rrSec-rail')

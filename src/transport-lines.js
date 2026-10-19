@@ -82,16 +82,16 @@ export function labelColor(theme, kind, opened) {
 export function labelLayout() {
   return {
     'symbol-placement': 'line',
-    'symbol-spacing': 420,
+    'symbol-spacing': 260,
     'symbol-sort-key': ['get', 'labelRank'],
-    'text-field': ['get', 'label'],
+    'text-field': ['step', ['zoom'], ['get', 'labelShort'], LABEL_FULL_ZOOM, ['get', 'label']],
     'text-font': ['Open Sans Semibold'],
-    'text-size': ['interpolate', ['linear'], ['zoom'], 6, 10.5, 9, 13],
+    'text-size': ['interpolate', ['linear'], ['zoom'], 6, 10, 7.5, 11.5, 9, 13],
     'text-letter-spacing': 0.02,
-    'text-max-angle': 30,
-    'text-padding': 4,
+    'text-max-angle': 35,
+    'text-padding': 1,
     // Set the name beside its line, not on top of it (Critiquito #327).
-    'text-offset': [0, -0.95],
+    'text-offset': ['case', ['==', ['get', 'labelSide'], 1], ['literal', [0, 0.95]], ['literal', [0, -0.95]]],
     'text-allow-overlap': false,
     'text-ignore-placement': false,
     'text-keep-upright': true,
@@ -109,9 +109,10 @@ export function labelPaint(theme, colorExpr) {
 
 /* ---- Phone bottom sheet ---- */
 export const SHEET_TITLE = 'Lines'
-/** Opens at half the viewport, but always leaves at least 20% of the map showing. */
+/** Opens at 46% of the map height (mockup v2; Editor caps it at half), leaving the top of the map in view. */
+export const SHEET_OPEN_FRAC = 0.46
 export function sheetOpenHeight(viewportH, mapH) {
-  return Math.round(Math.min(viewportH * 0.5, mapH * 0.8))
+  return Math.round(mapH * SHEET_OPEN_FRAC)
 }
 /** Dragging can take the sheet up to the full map height. */
 export function sheetMaxHeight(mapH) {
@@ -295,4 +296,84 @@ export function linesHtml(groups) {
     </details>`)
   }
   return '\n    ' + out.join('\n    ') + '\n    '
+}
+
+/* ---- One label line per row (Editor #327: every line is named on the map) ----
+ * The drawn sections are detailed and split, so MapLibre's line placement rejects most of them. Each row
+ * gets one chained, simplified line with no sharp turns, used only for its name. */
+const LABEL_PRIORITY = { rail: 0, parkway: 1, road: 2, trail: 3 }
+function dpSimplify(pts, tol) {
+  if (pts.length < 3) return pts
+  const [a, b] = [pts[0], pts[pts.length - 1]]
+  const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1e-12
+  let max = 0, at = 0
+  for (let i = 1; i < pts.length - 1; i++) {
+    const d = Math.abs(dy * pts[i][0] - dx * pts[i][1] + b[0] * a[1] - b[1] * a[0]) / len
+    if (d > max) { max = d; at = i }
+  }
+  if (max <= tol) return [a, b]
+  return [...dpSimplify(pts.slice(0, at + 1), tol).slice(0, -1), ...dpSimplify(pts.slice(at), tol)]
+}
+function turnDeg(a, b, c) {
+  const d = Math.abs(Math.atan2(c[1] - b[1], c[0] - b[0]) - Math.atan2(b[1] - a[1], b[0] - a[0])) * 180 / Math.PI
+  return d > 180 ? 360 - d : d
+}
+function chain(lines) {
+  const near = (p, q) => Math.hypot(p[0] - q[0], p[1] - q[1]) < 0.03
+  const left = lines.map((l) => [...l])
+  let out = left.shift()
+  let grew = true
+  while (grew && left.length) {
+    grew = false
+    for (let i = 0; i < left.length; i++) {
+      const l = left[i], s = out[0], e = out[out.length - 1]
+      let add = null
+      if (near(e, l[0])) add = () => { out = [...out, ...l.slice(1)] }
+      else if (near(e, l[l.length - 1])) add = () => { out = [...out, ...l.slice(0, -1).reverse()] }
+      else if (near(s, l[l.length - 1])) add = () => { out = [...l.slice(0, -1), ...out] }
+      else if (near(s, l[0])) add = () => { out = [...l.slice(1).reverse(), ...out] }
+      if (add) { add(); left.splice(i, 1); grew = true; break }
+    }
+  }
+  return out
+}
+/* Below zoom 7.5 short lines carry a compact name so it fits along them; the full name shows from 7.5. */
+export const LABEL_FULL_ZOOM = 7.5
+const COMPACT_LABELS = {
+  'lexington-ohio': 'L&O', 'louisville-frankfort': 'L&F', 'daniel-boone': 'Boone Pkwy', 'green-river': 'Green River',
+  'cincinnati-southern': 'Cin. Southern', mountain: 'Mountain', purchase: 'Purchase', audubon: 'Audubon', pennyrile: 'Pennyrile', 'western-kentucky': 'W. Ky. Pkwy',
+  'alanant-o-wamiowee': 'Buffalo Path', 'maysville-turnpike': 'Turnpike', 'limestone-trace': 'Limestone', 'skaggs-trace': "Skaggs'",
+}
+/* Lines that share a corridor with another named line put their name on the other side of it. */
+const BELOW_LINE = new Set(['maysville-turnpike', 'skaggs-trace', 'boone-trace', 'audubon', 'alanant-o-wamiowee', 'warriors-path'])
+export function compactLabel(key, name) {
+  return COMPACT_LABELS[key] || shortLabel(name)
+}
+export function labelLines(features) {
+  const byId = new Map((features || []).map((f) => [f.properties?.id, f]))
+  const out = []
+  for (const g of buildLineRows(features)) {
+    for (const r of g.rows) {
+      const fs = r.ids.map((id) => byId.get(id)).filter((f) => f?.geometry?.type === 'LineString')
+      if (!fs.length) continue
+      // Simplify, then keep the longest run without a sharp turn, so the name stays on the drawn line.
+      const dp = dpSimplify(chain(fs.map((f) => f.geometry.coordinates)), 0.1)
+      const seg = (a, b) => Math.hypot(b[0] - a[0], b[1] - a[1])
+      let best = [dp[0], dp[1]], cur = [dp[0], dp[1]]
+      const len = (run) => run.slice(1).reduce((n, p, i) => n + seg(run[i], p), 0)
+      for (let i = 2; i < dp.length; i++) {
+        if (turnDeg(dp[i - 2], dp[i - 1], dp[i]) < 30) cur.push(dp[i])
+        else cur = [dp[i - 1], dp[i]]
+        if (len(cur) > len(best)) best = [...cur]
+      }
+      const pts = best
+      const first = fs.find((f) => Number(f.properties.opened) === r.opened) || fs[0]
+      out.push({
+        type: 'Feature',
+        geometry: { type: 'LineString', coordinates: pts },
+        properties: { ...first.properties, row: r.key, label: shortLabel(r.name), labelShort: compactLabel(r.key, r.name), labelSide: BELOW_LINE.has(r.key) ? 1 : -1, labelRank: LABEL_PRIORITY[r.kind] ?? 4 },
+      })
+    }
+  }
+  return out
 }

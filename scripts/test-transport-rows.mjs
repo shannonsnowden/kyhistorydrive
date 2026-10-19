@@ -22,6 +22,7 @@ import {
   SHEET_TITLE,
   sheetOpenHeight,
   sheetMaxHeight,
+  labelLines,
 } from '../src/transport-lines.js'
 
 const secs = JSON.parse(readFileSync(new URL('../public/maps/transport/sections.geojson', import.meta.url), 'utf8'))
@@ -96,23 +97,53 @@ assert.equal(lp['text-halo-color'], LABEL_HALO_LIGHT, 'cream halo in light mode'
 assert.ok(lp['text-halo-width'] >= 2.5, 'halo at least 2.5px')
 assert.equal(lp['text-halo-blur'], 0, 'crisp halo')
 const ll = labelLayout()
-assert.equal(ll['symbol-placement'], 'line')
-assert.ok(Array.isArray(ll['text-offset']) && Math.abs(ll['text-offset'][1]) >= 0.8, 'labels offset from their own line')
+assert.match(ll['symbol-placement'], /^line(-center)?$/, 'labels follow their line')
+assert.ok(/\[0,-0\.9\d*\]/.test(JSON.stringify(ll['text-offset'])) && /\[0,0\.9\d*\]/.test(JSON.stringify(ll['text-offset'])), 'labels offset from their own line (above, or below where lines share a corridor)')
 
 // Phone sheet: opens at half the viewport, drags up to the full map; its own scroll; titled "Lines".
 assert.equal(SHEET_TITLE, 'Lines')
-assert.equal(sheetOpenHeight(844, 614), 422, 'half of an 844px viewport')
-assert.equal(sheetOpenHeight(844, 440), 352, 'never covers more than 80% of a short map')
+assert.equal(sheetOpenHeight(844, 614), 282, 'opens at 46% of the map (mockup v2)')
+assert.ok(sheetOpenHeight(844, 440) / 440 <= 0.5, 'never more than half the map')
 assert.equal(sheetMaxHeight(614), 614, 'drag up to full')
 const css = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
 const pane = readFileSync(new URL('../src/transport-pane.js', import.meta.url), 'utf8')
 assert.ok(!/Railroads and highways/.test(pane), 'old sheet header is gone')
-assert.match(css, /\.rr-sheet\.is-open\s*\{[^}]*height:\s*min\(50svh/, 'sheet opens at 50svh')
+assert.match(css, /\.rr-sheet\.is-open\s*\{[^}]*height:\s*46%/, 'sheet opens at 46% of the map')
 assert.match(css, /\.rr-sheet-body\s*\{[^}]*overflow-y:\s*auto[^}]*overscroll-behavior:\s*contain/, 'sheet body scrolls on its own')
 assert.match(pane, /\['rrSec-rail', 'rrSec-highways'\]/, 'only the line groups move into the sheet (About and stories stay on the page)')
 const mapSrc = readFileSync(new URL('../src/transport-map.js', import.meta.url), 'utf8')
 assert.match(pane, /new CustomEvent\('transport:sheet'/, 'the sheet tells the map its height')
 assert.match(mapSrc, /addEventListener\('transport:sheet'/, 'the map refits Kentucky above the open sheet')
+// Editor #327: every line is named on the map. One simplified label line per row (all 21), smooth enough
+// for symbol-placement line, carrying the row's id, kind and earliest opening year for the filters.
+{
+  const labels = labelLines(secs.features)
+  assert.equal(labels.length, rows.length, 'one label line per row')
+  const turn = (a, b, c) => {
+    const d1 = Math.atan2(b[1] - a[1], b[0] - a[0]), d2 = Math.atan2(c[1] - b[1], c[0] - b[0])
+    let d = Math.abs(d2 - d1) * 180 / Math.PI
+    return d > 180 ? 360 - d : d
+  }
+  for (const r of rows) {
+    const f = labels.find((l) => l.properties.row === r.key)
+    assert.ok(f, `${r.name} has a label line`)
+    const cs = f.geometry.coordinates
+    assert.equal(f.geometry.type, 'LineString')
+    assert.ok(cs.length >= 2 && cs.length <= 40, `${r.name} label line simplified (${cs.length} points)`)
+    const drawn = r.ids.flatMap((id) => secs.features.find((x) => x.properties.id === id).geometry.coordinates)
+    const off = (p) => Math.min(...drawn.map((q) => Math.hypot(p[0] - q[0], p[1] - q[1])))
+    for (const p of cs) assert.ok(off(p) < 0.12, `${r.name} label line stays on the drawn line`)
+    assert.ok(r.ids.includes(f.properties.id), `${r.name} label carries a section id for the row toggle`)
+    assert.equal(f.properties.label, shortLabel(r.name))
+    assert.ok(f.properties.labelShort && f.properties.labelShort.length <= f.properties.label.length, `${r.name} compact label`)
+    if (r.kind === 'rail' || r.kind === 'parkway') {
+      const span = Math.hypot(cs[cs.length - 1][0] - cs[0][0], cs[cs.length - 1][1] - cs[0][1])
+      assert.ok(span > 0.15, `${r.name} label line long enough to hold its name`)
+      for (let i = 1; i < cs.length - 1; i++) assert.ok(turn(cs[i - 1], cs[i], cs[i + 1]) < 31, `${r.name} label line has no sharp turn`)
+    }
+  }
+  assert.match(readFileSync(new URL('../src/transport-map.js', import.meta.url), 'utf8'), /source:\s*'lineLabels'/, 'label layers read the per-line label source')
+}
 // Long names truncate so the year stays on the right.
 assert.match(css, /\.rr-row-top\s*\{[^}]*flex-wrap:\s*nowrap/, 'row top never wraps')
 assert.match(css, /\.rr-row-name\s*\{[^}]*text-overflow:\s*ellipsis[^}]*white-space:\s*nowrap/, 'names ellipsize')

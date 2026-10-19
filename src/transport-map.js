@@ -14,8 +14,8 @@ import {
   LINE_GROUPS,
   labelColor,
   labelLayout,
+  labelLines,
   labelPaint,
-  shortLabel,
 } from './transport-lines.js'
 
 // The start year comes from the data (earliest opening minus TIMELINE_PAD_YEARS), set once sections load.
@@ -155,30 +155,12 @@ export function getHiddenSections() {
 /* ---- Line labels: MapLibre symbol layer along each line (mockup v2) ---- */
 const LEXINGTON = [-84.4884, 38.0644]
 const LEX_REVEAL_ZOOM = 8
-const LABEL_PRIORITY = { rail: 0, parkway: 1, road: 2, trail: 3 }
-const rowNameById = new Map()
-for (const g of LINE_GROUPS) for (const r of g.rows) for (const id of r.ids) rowNameById.set(id, r.name)
-
-/** Add label, priority and Lexington-junction flags to each section feature (client-side only). */
-function labelledSections(secs) {
-  const near = ([lng, lat]) => Math.hypot((lng - LEXINGTON[0]) * Math.cos((LEXINGTON[1] * Math.PI) / 180), lat - LEXINGTON[1]) < 0.06
-  const span = (cs) => Math.max(...cs.map((c) => c[0])) - Math.min(...cs.map((c) => c[0])) + Math.max(...cs.map((c) => c[1])) - Math.min(...cs.map((c) => c[1]))
+/** One simplified label line per row (labelLines) plus the Lexington-junction flag (client-side only). */
+function labelledLines(secs) {
   return {
-    ...secs,
-    features: secs.features.map((f) => {
-      const p = f.properties || {}
-      const coords = f.geometry?.type === 'LineString' ? f.geometry.coordinates : []
-      return {
-        ...f,
-        properties: {
-          ...p,
-          label: shortLabel(rowNameById.get(p.id) || p.routeName || ''),
-          labelRank: LABEL_PRIORITY[p.kind] ?? 4,
-          // Short lines that start or end at the Lexington junction: their labels wait for zoom 8.
-          lexJunction: coords.length > 0 && (near(coords[0]) || near(coords[coords.length - 1])) && span(coords) < 0.6,
-        },
-      }
-    }),
+    type: 'FeatureCollection',
+    // Editor #327: every line is named from the default view, so no label waits for zoom 8 any more.
+    features: labelLines(secs.features).map((f) => ({ ...f, properties: { ...f.properties, lexJunction: false } })),
   }
 }
 
@@ -211,7 +193,8 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
       rail: { type: 'geojson', data: rail },
       parkways: { type: 'geojson', data: roads },
       counties: { type: 'geojson', data: counties },
-      sections: { type: 'geojson', data: labelledSections(secs) },
+      sections: { type: 'geojson', data: secs },
+      lineLabels: { type: 'geojson', data: labelledLines(secs), buffer: 512, tolerance: 0 },
       lexBlock: { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: LEXINGTON } } },
     },
     layers: [
@@ -272,11 +255,11 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
           'circle-stroke-width': 2,
         },
       },
-      { id: 'sec-label', type: 'symbol', source: 'sections', filter: labelFilter(DEFAULT_YEAR, false), layout: labelLayout(), paint: labelPaint(theme, labelColorExpr(theme)) },
+      { id: 'sec-label', type: 'symbol', source: 'lineLabels', filter: labelFilter(DEFAULT_YEAR, false), layout: labelLayout(), paint: labelPaint(theme, labelColorExpr(theme)) },
       {
         id: 'sec-label-lex',
         type: 'symbol',
-        source: 'sections',
+        source: 'lineLabels',
         minzoom: LEX_REVEAL_ZOOM,
         filter: labelFilter(DEFAULT_YEAR, true),
         layout: { ...labelLayout(), 'symbol-sort-key': ['+', 10, ['get', 'labelRank']] },
@@ -289,7 +272,7 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
         type: 'symbol',
         source: 'lexBlock',
         maxzoom: LEX_REVEAL_ZOOM,
-        layout: { 'text-field': 'MMMMMM\nMMMMMM', 'text-font': ['Open Sans Semibold'], 'text-size': 20, 'text-allow-overlap': true, 'text-ignore-placement': false },
+        layout: { 'text-field': 'MMM', 'text-font': ['Open Sans Semibold'], 'text-size': 12, 'text-allow-overlap': true, 'text-ignore-placement': false },
         paint: { 'text-opacity': 0 },
       },
     ],
@@ -675,6 +658,7 @@ async function boot() {
   })
   wireMap()
   await new Promise((resolve) => map.once('load', resolve))
+  window.__khdTransportMap = map // read-only hook for the build's label check
   if (window.innerWidth < 600) {
     container.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show')
   }
