@@ -4,7 +4,7 @@
  * A feature shows when opened <= year && (closed > year || closed is absent).
  */
 import * as maplibregl from 'maplibre-gl'
-import { TIMELINE_MAX_YEAR, groupTicks, layoutTickLabels, openingEvents, sliderMinYear } from './transport-timeline.js'
+import { TICK_HIT_MIN_H, TIMELINE_MAX_YEAR, groupTicks, layoutTickLabels, openingEvents, sliderMinYear, tickHitAreas } from './transport-timeline.js'
 
 // The start year comes from the data (earliest opening minus TIMELINE_PAD_YEARS), set once sections load.
 let minYear = null
@@ -374,19 +374,25 @@ function renderTicks(force = false) {
   tickWidth = width
   const focusedYear = wrap.contains(document.activeElement) ? document.activeElement.dataset.year : null
   const coarse = window.matchMedia?.('(pointer: coarse)').matches || window.innerWidth < 600
-  const rowH = coarse ? 26 : 22
+  // Touch: each label row is a 44px band, the label's own tap target (Critiquito: no overlapping targets).
+  const rowH = coarse ? TICK_HIT_MIN_H : 22
+  const labelH = coarse ? 22 : 20
   const markH = 10
   const lead = 8
   const ticks = groupTicks(timelineEvents, { min: minYear, max: MAX_YEAR })
-  const lay = layoutTickLabels(ticks, { widthPx: full, labelWidth: labelWidthFn(wrap) })
+  // Touch: 4px between labels so each tap area (split at the midpoint) is >= 36px wide (Editor #326).
+  const lay = layoutTickLabels(ticks, { widthPx: full, labelWidth: labelWidthFn(wrap), gapPx: coarse ? 4 : 3 })
   // layoutTickLabels works on the full width; map each mark onto the thumb's travel.
   const markX = (t) => 13 + (t.pct / 100) * width
+  const hits = tickHitAreas(lay.items, { top0: markH + lead, rowH, widthPx: full })
   let svg = ''
   let html = ''
   ticks.forEach((t, i) => {
     const it = lay.items[i]
     const mx = markX(t)
-    const top = markH + lead + it.row * rowH
+    const hit = hits[i]
+    // Label centred in its band; the leader meets the label's top edge.
+    const top = hit.y + Math.round((rowH - labelH) / 2)
     const cx = it.x + it.w / 2
     svg += `<line class="transport-tick-mark" x1="${mx.toFixed(1)}" y1="0" x2="${mx.toFixed(1)}" y2="${markH}"/>`
     svg += `<polyline class="transport-tick-lead" points="${mx.toFixed(1)},${markH} ${mx.toFixed(1)},${markH + 3} ${cx.toFixed(1)},${top}"/>`
@@ -396,9 +402,9 @@ function renderTicks(force = false) {
       : `${t.year}: ${t.events[0].name} opens. Show ${t.year}.`
     const tipRows = t.events.map((e) => `<li>${esc(e.name)}</li>`).join('')
     html += `<button type="button" class="transport-tick" data-year="${esc(t.year)}" data-count="${esc(t.events.length)}"
-      style="left:${it.x}px;top:${top}px;width:${it.w}px;height:${rowH - 2}px" aria-label="${esc(aria)}"
-      aria-describedby="transportTip${i}">${esc(t.label)}</button>
-      <div id="transportTip${i}" class="transport-tip" role="tooltip" hidden style="left:${cx.toFixed(1)}px;top:${top + rowH}px">
+      style="left:${hit.x}px;top:${hit.y}px;width:${hit.w}px;height:${hit.h}px" aria-label="${esc(aria)}"
+      aria-describedby="transportTip${i}"><span class="transport-tick-label" style="left:${(it.x - hit.x).toFixed(1)}px;top:${top - hit.y}px;width:${it.w}px;height:${labelH}px">${esc(t.label)}</span></button>
+      <div id="transportTip${i}" class="transport-tip" role="tooltip" hidden style="left:${cx.toFixed(1)}px;top:${top + labelH + 4}px">
         <p class="transport-tip-head"><span>${esc(t.year)}</span> ${t.events.length > 1 ? `${esc(t.events.length)} openings` : esc(t.events[0].name)}</p>${t.events.length > 1 ? `<ul>${tipRows}</ul>` : ''}</div>`
   })
   const height = markH + lead + lay.rows * rowH

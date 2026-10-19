@@ -14,6 +14,8 @@ import {
   tickLabel,
   layoutTickLabels,
   TICK_MIN_GAP_PX,
+  TICK_HIT_MIN_H,
+  tickHitAreas,
 } from '../src/transport-timeline.js'
 
 const secs = JSON.parse(readFileSync(new URL('../public/maps/transport/sections.geojson', import.meta.url), 'utf8'))
@@ -83,15 +85,33 @@ const html = readFileSync(new URL('../roads-and-rails/index.html', import.meta.u
 const sliderTag = /<input[^>]*id="transportYear"[^>]*>/.exec(html)?.[0] || ''
 assert.ok(sliderTag && !/\smin="|aria-valuemin="/.test(sliderTag), 'slider min is set from data, not hard-coded in the page')
 assert.ok(html.includes('id="transportTicks"'), 'tick container present')
-// Editor #326: ticks are small visually but need a >=44x44px tap target (charter), via an invisible pseudo-element.
+// Editor #326: the button is the tap target (>=44px tall on touch, sized by tickHitAreas); the small visible
+// label is a span inside it. The old centred 44px ::before overlapped neighbours across rows.
 const css = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
-const hitRule = /\.transport-tick::before\s*\{([^}]*)\}/.exec(css)?.[1] || ''
-assert.ok(hitRule, '.transport-tick::before hit-area rule present')
-const px = (prop) => Number(new RegExp(`(?:^|;|\\s)${prop}\\s*:\\s*(\\d+)px`).exec(hitRule)?.[1] || 0)
-assert.ok(px('min-width') >= 44, 'tick hit area min-width >= 44px')
-assert.ok(px('min-height') >= 44, 'tick hit area min-height >= 44px')
-assert.ok(/content\s*:\s*''/.test(hitRule) && /position\s*:\s*absolute/.test(hitRule), 'hit area is an absolute, empty pseudo-element')
-assert.ok([...hitRule.matchAll(/background(?:-color)?\s*:\s*([^;]+)/g)].every((m) => m[1].trim() === 'transparent') && !/border\s*:|outline\s*:/.test(hitRule), 'hit area is invisible')
+assert.match(css, /\.transport-tick-label\s*\{[^}]*position:\s*absolute/, 'visible label is an inner span')
+assert.match(js, /tickHitAreas\(/, 'the map sizes tick buttons with tickHitAreas')
+assert.match(js, /gapPx:\s*coarse \? 4/, 'touch labels are laid out 4px apart')
+assert.ok(!/\.transport-tick::before\s*\{[^}]*min-width:\s*44px/.test(css), 'no centred 44px ::before (it overlapped neighbours)')
+{
+  const ticks390 = groupTicks(events, { min: sliderMinYear(events), max: TIMELINE_MAX_YEAR })
+  const widthPx = 342
+  const lay = layoutTickLabels(ticks390, { widthPx, labelWidth: (t) => Math.max(32, Math.ceil(t.label.length * 7.2) + 6), gapPx: 4 })
+  const hits = tickHitAreas(lay.items, { top0: 18, rowH: TICK_HIT_MIN_H, widthPx })
+  assert.equal(TICK_HIT_MIN_H, 44)
+  assert.equal(hits.length, lay.items.length)
+  hits.forEach((h, i) => {
+    const it = lay.items[i]
+    assert.ok(h.h >= 44, `${it.year} hit area is ${h.h}px tall`)
+    assert.ok(h.w >= 36, `${it.year} hit area is ${h.w}px wide (>= 36)`)
+    assert.ok(h.x <= it.x + 0.01 && h.x + h.w >= it.x + it.w - 0.01, `${it.year} hit area covers its label`)
+  })
+  for (let i = 0; i < hits.length; i++)
+    for (let j = i + 1; j < hits.length; j++) {
+      const p = hits[i], q = hits[j]
+      const ov = p.x < q.x + q.w - 0.01 && q.x < p.x + p.w - 0.01 && p.y < q.y + q.h - 0.01 && q.y < p.y + p.h - 0.01
+      assert.ok(!ov, `tick hit areas ${lay.items[i].year} and ${lay.items[j].year} overlap at 390`)
+    }
+}
 // Editor #326 source fixes. CodeQL js/incomplete-url-substring-sanitization: parse URLs and compare host + path exactly, never substrings.
 const parseUrl = (u) => { try { return new URL(u) } catch { return null } }
 const isHostPath = (u, host, path) => !!u && u.hostname === host && u.pathname === path
