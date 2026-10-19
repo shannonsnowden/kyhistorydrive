@@ -119,7 +119,8 @@ export function layoutTickLabels(ticks, { widthPx, labelWidth, gapPx = 3, minGap
  * >= 44px on touch) and, within the row, reaches up to 22px past its text but never past the midpoint to
  * a neighbour, so no two targets overlap and an off-centre tap cannot pick the next year. */
 export const TICK_HIT_MIN_H = 44
-export function tickHitAreas(items, { top0 = 0, rowH = TICK_HIT_MIN_H, widthPx = Infinity, reach = 22 } = {}) {
+export const TICK_HIT_MIN_W = 36
+export function tickHitAreas(items, { top0 = 0, rowH = TICK_HIT_MIN_H, widthPx = Infinity, reach = 22, minW = TICK_HIT_MIN_W, edgeSlack = 12 } = {}) {
   const out = items.map(() => null)
   const rows = new Map()
   items.forEach((it, i) => { if (!rows.has(it.row)) rows.set(it.row, []); rows.get(it.row).push(i) })
@@ -129,8 +130,18 @@ export function tickHitAreas(items, { top0 = 0, rowH = TICK_HIT_MIN_H, widthPx =
       const it = items[i]
       const prev = k ? items[idx[k - 1]] : null
       const next = k < idx.length - 1 ? items[idx[k + 1]] : null
-      const left = Math.max(0, it.x - reach, prev ? (prev.x + prev.w + it.x) / 2 : -Infinity)
-      const right = Math.min(widthPx, it.x + it.w + reach, next ? (it.x + it.w + next.x) / 2 : Infinity)
+      const lo = prev ? (prev.x + prev.w + it.x) / 2 : -edgeSlack
+      const hi = next ? (it.x + it.w + next.x) / 2 : widthPx + edgeSlack
+      let left = Math.max(0, it.x - reach, lo)
+      let right = Math.min(widthPx, it.x + it.w + reach, hi)
+      // Editor #326: at least minW wide, centred on the label where possible. Near the container edge the
+      // area may run up to edgeSlack px past it (into the card padding), but never past a neighbour's midpoint.
+      if (right - left < minW) {
+        const c = it.x + it.w / 2
+        left = Math.max(lo, Math.min(left, c - minW / 2))
+        right = Math.min(hi, Math.max(right, c + minW / 2))
+        if (right - left < minW) { left = Math.max(lo, right - minW); right = Math.min(hi, left + minW) }
+      }
       const l = Math.ceil(left * 10) / 10
       const r = Math.floor(right * 10) / 10
       out[i] = { x: l, y: top0 + row * rowH, w: Math.round((r - l) * 10) / 10, h: rowH }

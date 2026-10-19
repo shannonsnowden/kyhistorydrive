@@ -85,11 +85,33 @@ const html = readFileSync(new URL('../roads-and-rails/index.html', import.meta.u
 const sliderTag = /<input[^>]*id="transportYear"[^>]*>/.exec(html)?.[0] || ''
 assert.ok(sliderTag && !/\smin="|aria-valuemin="/.test(sliderTag), 'slider min is set from data, not hard-coded in the page')
 assert.ok(html.includes('id="transportTicks"'), 'tick container present')
-// Editor #326 + Critiquito: the button is the tap target (>=44px tall on touch, sized by tickHitAreas);
-// the small visible label is a span inside it.
+// Editor #326: the button is the tap target (>=44px tall on touch, sized by tickHitAreas); the small visible
+// label is a span inside it. The old centred 44px ::before overlapped neighbours across rows.
 const css = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
 assert.match(css, /\.transport-tick-label\s*\{[^}]*position:\s*absolute/, 'visible label is an inner span')
 assert.match(js, /tickHitAreas\(/, 'the map sizes tick buttons with tickHitAreas')
+assert.match(js, /gapPx:\s*coarse \? 4/, 'touch labels are laid out 4px apart')
+assert.ok(!/\.transport-tick::before\s*\{[^}]*min-width:\s*44px/.test(css), 'no centred 44px ::before (it overlapped neighbours)')
+{
+  const ticks390 = groupTicks(events, { min: sliderMinYear(events), max: TIMELINE_MAX_YEAR })
+  const widthPx = 342
+  const lay = layoutTickLabels(ticks390, { widthPx, labelWidth: (t) => Math.max(32, Math.ceil(t.label.length * 7.2) + 6), gapPx: 4 })
+  const hits = tickHitAreas(lay.items, { top0: 18, rowH: TICK_HIT_MIN_H, widthPx })
+  assert.equal(TICK_HIT_MIN_H, 44)
+  assert.equal(hits.length, lay.items.length)
+  hits.forEach((h, i) => {
+    const it = lay.items[i]
+    assert.ok(h.h >= 44, `${it.year} hit area is ${h.h}px tall`)
+    assert.ok(h.w >= 36, `${it.year} hit area is ${h.w}px wide (>= 36)`)
+    assert.ok(h.x <= it.x + 0.01 && h.x + h.w >= it.x + it.w - 0.01, `${it.year} hit area covers its label`)
+  })
+  for (let i = 0; i < hits.length; i++)
+    for (let j = i + 1; j < hits.length; j++) {
+      const p = hits[i], q = hits[j]
+      const ov = p.x < q.x + q.w - 0.01 && q.x < p.x + p.w - 0.01 && p.y < q.y + q.h - 0.01 && q.y < p.y + p.h - 0.01
+      assert.ok(!ov, `tick hit areas ${lay.items[i].year} and ${lay.items[j].year} overlap at 390`)
+    }
+}
 // Editor #326 source fixes. CodeQL js/incomplete-url-substring-sanitization: parse URLs and compare host + path exactly, never substrings.
 const parseUrl = (u) => { try { return new URL(u) } catch { return null } }
 const isHostPath = (u, host, path) => !!u && u.hostname === host && u.pathname === path
@@ -104,26 +126,4 @@ assert.ok(!hrefs.some((u) => u.hostname === 'resources.ohiohistory.org' && u.pat
 const grokIdx = hrefs.findIndex((u) => isHostPath(u, 'grokipedia.com', '/page/Maysville_Road_veto'))
 const wikiIdx = hrefs.findIndex((u) => isHostPath(u, 'en.wikipedia.org', '/wiki/Maysville_Road_veto'))
 assert.ok(grokIdx > -1 && (wikiIdx === -1 || grokIdx < wikiIdx), 'page lists Grokipedia before Wikipedia for the Maysville Road')
-
-// Critiquito #326/#327: at 390 every staggered label is its own >=44px-tall tap target, and no two overlap.
-{
-  const ticks390 = groupTicks(events, { min: sliderMinYear(events), max: TIMELINE_MAX_YEAR })
-  const widthPx = 342 // slider width at 390 (390 - page and card padding)
-  const lay = layoutTickLabels(ticks390, { widthPx, labelWidth: (t) => Math.ceil(t.label.length * 7.2) + 6 })
-  const hits = tickHitAreas(lay.items, { top0: 18, rowH: TICK_HIT_MIN_H, widthPx })
-  assert.equal(TICK_HIT_MIN_H, 44)
-  assert.equal(hits.length, lay.items.length)
-  hits.forEach((h, i) => {
-    const it = lay.items[i]
-    assert.ok(h.h >= 44, `${it.year} hit area is ${h.h}px tall`)
-    assert.ok(h.x <= it.x + 0.01 && h.x + h.w >= it.x + it.w - 0.01, `${it.year} hit area covers its label`)
-  })
-  for (let i = 0; i < hits.length; i++)
-    for (let j = i + 1; j < hits.length; j++) {
-      const a = hits[i], b = hits[j]
-      const ov = a.x < b.x + b.w - 0.01 && b.x < a.x + a.w - 0.01 && a.y < b.y + b.h - 0.01 && b.y < a.y + a.h - 0.01
-      assert.ok(!ov, `tick hit areas ${lay.items[i].year} and ${lay.items[j].year} overlap at 390`)
-    }
-  assert.ok(!/\.transport-tick::before\s*\{[^}]*min-width:\s*44px/.test(css), 'no centred 44px ::before (it overlapped neighbours)')
-}
 console.log(`test-transport-timeline: OK (${events.length} events, ${ticks.length} ticks, min ${min}, pad ${TIMELINE_PAD_YEARS})`)
