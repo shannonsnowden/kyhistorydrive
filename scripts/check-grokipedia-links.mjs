@@ -9,6 +9,7 @@
  * Usage: node scripts/check-grokipedia-links.mjs public/content/stories/<slug>.json [...more files]
  */
 import fs from 'node:fs'
+import { slugCandidates, stripHtml } from './lib/grokipedia-links.mjs'
 
 const files = process.argv.slice(2)
 if (!files.length) {
@@ -16,7 +17,6 @@ if (!files.length) {
   process.exit(2)
 }
 const LINK = /https:\/\/grokipedia\.com\/page\/(?:[^\s()"\]]|\([^\s)"]*\))+/g
-const strip = (h) => h.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ')
 const links = new Map()
 for (const f of files) {
   const text = fs.readFileSync(f, 'utf8')
@@ -28,16 +28,27 @@ for (const f of files) {
   }
 }
 let bad = 0
-for (const [url, info] of links) {
+async function article(url) {
   const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 kyhistorydrive-linkcheck' } })
   const html = await res.text()
-  const title = ((html.match(/<title>([^<]*)<\/title>/) || [])[1] || '').replace(/\s*—\s*Grokipedia\s*$/, '').trim()
-  const body = strip(html)
+  const title = stripHtml((html.match(/<title>([^<]*)<\/title>/i) || [])[1] || '').replace(/\s*—\s*Grokipedia\s*$/, '').trim()
+  const body = stripHtml(html)
   const at = body.indexOf('Fact-checked by Grok')
   const lead = at >= 0 ? body.slice(at).replace(/^Fact-checked by Grok · [^·]*? ago\s*/, '').slice(0, 160) : ''
   const missing = res.status !== 200 || /Article Not Found/i.test(title + ' ' + body.slice(0, 2000)) || !lead
-  if (missing) bad++
-  console.log(`${missing ? 'MISSING' : 'ok     '} ${url}\n         link text: "${info.phrase}" | article: "${title}"\n         lead: ${lead || '(none)'}`)
+  return { title, lead, missing }
+}
+for (const [url, info] of links) {
+  const [asWritten, lower] = slugCandidates(url)
+  const a = await article(asWritten)
+  let note = ''
+  if (lower) {
+    // Grokipedia's canonical slugs are lower case (david_rice_presbyterian_minister); suggest one when it exists.
+    const b = await article(lower)
+    if (!b.missing) note = a.missing ? `\n         SUGGEST: ${lower} ("${b.title}")` : `\n         lower-case slug also works: ${lower}`
+  }
+  if (a.missing) bad++
+  console.log(`${a.missing ? 'MISSING' : 'ok     '} ${url}\n         link text: "${info.phrase}" | article: "${a.title}"\n         lead: ${a.lead || '(none)'}${note}`)
 }
 console.log(`check-grokipedia-links: ${links.size} link(s), ${bad} missing. Confirm each article's subject matches its link text.`)
 process.exit(bad ? 1 : 0)
