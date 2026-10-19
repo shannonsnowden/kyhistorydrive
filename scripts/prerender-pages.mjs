@@ -30,7 +30,7 @@ import {
   privacyChoicesBootHtml,
   privacyChoicesLinkHtml,
 } from './gtag-snippet.mjs'
-import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteFooterHtml, siteHeaderHtml } from './site-chrome.mjs'
 import { contactLineHtml } from './contact-reveal.mjs'
 import { storyDrives } from './story-drives-lib.mjs'
 import { takeADriveHtml } from '../src/take-a-drive.js'
@@ -312,7 +312,7 @@ class PrerenderPages {
     if (!PrerenderPages.isoDate(videosLast)) {
       throw new Error('prerender: /videos/ is missing lastmod')
     }
-    entries.push({ loc: `${PrerenderPages.SITE}/videos/`, lastmod: videosLast })
+    // /videos/ is noindex for now (Shannon item 93), so it stays out of the sitemap; its lastmod is still checked.
     const videoSitemap = path.join(dist, 'sitemap-videos.xml')
     PrerenderPages.writeVideoSitemap(videoSitemap, FILMS, stories)
     const videoXml = fs.readFileSync(videoSitemap, 'utf8')
@@ -332,7 +332,7 @@ class PrerenderPages {
       dates.lastmod.get('src/route-maps.js') || '',
     )
     if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
-    entries.push({ loc: `${PrerenderPages.SITE}/routes/`, lastmod: routesLast })
+    // /routes/ is noindex for now (Shannon item 93), so it stays out of the sitemap.
     for (const notes of researchNotes) {
       const story = stories.find((item) => item.slug === notes.storySlug)
       if (!story) throw new Error(`prerender: research ${notes.slug} is not tied to a live story`)
@@ -388,6 +388,15 @@ class PrerenderPages {
     // /timeline/ forwards to the /#timeline hash route. Amplify rules cannot target a #fragment,
     // so this stub redirects in the browser. Deliberately not in the sitemap.
     PrerenderPages.writePage(dist, '/timeline/', PrerenderPages.timelineRedirectHtml())
+    // Phase 0: a real "not found" page, written twice with the same root-absolute markup.
+    // Amplify 301s /x.html to /x/ even when the file exists, so /404/ (dist/404/index.html) is the
+    // address that actually serves; /404.html stays for hosts that read it. Until the console rule
+    // /<*> -> /404/index.html (404) is set, index.html sends unknown paths to /404/ (khd-404-guard).
+    const notFoundHtml = PrerenderPages.notFoundPage(cssHrefs)
+    PrerenderPages.assertNotFound(notFoundHtml)
+    fs.writeFileSync(path.join(dist, '404.html'), notFoundHtml)
+    fs.mkdirSync(path.join(dist, '404'), { recursive: true })
+    fs.writeFileSync(path.join(dist, '404', 'index.html'), notFoundHtml)
     console.log(`prerender: inline portraits on ${portraitLog.shown.length} stories; skipped ${portraitLog.skipped.length}: ${portraitLog.skipped.join(', ')}`)
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
@@ -1467,7 +1476,7 @@ class PrerenderPages {
     return `<link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="${PrerenderPages.SITE}/feed.xml" />`
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', routeLightbox = false, rss = false }) {
+  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', routeLightbox = false, rss = false, robots = '', ads = true }) {
     const t = PrerenderPages.escapeHtml(title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
@@ -1496,12 +1505,13 @@ class PrerenderPages {
     ${sealRotationScriptHtml()}
     <title>${t}</title>
     <meta name="description" content="${d}" />
-    <link rel="canonical" href="${c}" />
+    ${robots ? `<meta name="robots" content="${PrerenderPages.escapeHtml(robots)}" />` : ''}
+    ${c ? `<link rel="canonical" href="${c}" />` : ''}
     ${rss ? PrerenderPages.rssAlternateLink() : ''}
     <meta property="og:type" content="${PrerenderPages.escapeHtml(ogType)}" />
     <meta property="og:site_name" content="Kentucky History Drive" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="${c}" />
+    ${c ? `<meta property="og:url" content="${c}" />` : ''}
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
     ${img}
@@ -1576,18 +1586,9 @@ class PrerenderPages {
     <main id="content" class="static-read" tabindex="-1">
       ${main}
     </main>
-    <footer class="foot">
-      <span>kyhistorydrive.com</span>
-      <a href="/about/">About</a>
-      <a href="/people/">People</a>
-      <a href="/videos/">Videos</a>
-      <a href="/routes/">Kentucky history route maps</a>
-      <a href="/privacy/">Privacy</a>
-      ${privacyChoicesLinkHtml()}
-      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
-    </footer>
-    ${deferredAdsenseLoaderHtml()}
-    ${privacyChoicesBootHtml()}
+    ${siteFooterHtml(ads ? privacyChoicesLinkHtml() : '')}
+    ${ads ? deferredAdsenseLoaderHtml() : ''}
+    ${ads ? privacyChoicesBootHtml() : ''}
     ${staticPageBootHtml()}
     ${PrerenderPages.siteChromeScript()}
     ${routeMapThemeScript()}
@@ -2190,6 +2191,11 @@ class PrerenderPages {
           input.addEventListener('input', apply)
           clear.addEventListener('click', reset)
           document.getElementById('storiesReset').addEventListener('click', reset)
+          // ?q= from the 404 page's search form fills the filter (shown as text only).
+          try {
+            var q0 = new URLSearchParams(location.search).get('q')
+            if (q0) input.value = String(q0).slice(0, 100)
+          } catch (e) {}
           apply()
         })()
       </script>`
@@ -2283,6 +2289,8 @@ class PrerenderPages {
       title: 'Route maps · Kentucky History Drive',
       description,
       canonical,
+      // Shannon item 93: noindex until the page is filled out; follow so its story links still count.
+      robots: PrerenderPages.THIN_ROBOTS,
       cssHrefs,
       image: PrerenderPages.LOGO,
       imageAlt: 'Kentucky History Drive official seal',
@@ -3489,6 +3497,8 @@ class PrerenderPages {
       title: 'Videos · Kentucky History Drive',
       description,
       canonical: pageUrl,
+      // Shannon item 93: noindex until the page is filled out; follow so its story links still count.
+      robots: PrerenderPages.THIN_ROBOTS,
       cssHrefs,
       image,
       imageAlt: films[0]?.title || 'Kentucky History Drive official seal',
@@ -3659,6 +3669,94 @@ ${rows}
       throw new Error('prerender: /roads-and-rails/ is missing its stories or JSON-LD placeholder')
     }
     return html.replace('<!-- khd-roads-stories -->', () => section).replace('<!-- khd-roads-jsonld -->', () => ld)
+  }
+
+  /** Pages marked noindex,follow until they are filled out (Shannon item 93). Kept out of the sitemap. */
+  static THIN_ROBOTS = 'noindex, follow'
+  static NOINDEX_PATHS = ['/videos/', '/routes/']
+
+  /**
+   * /404.html: "We couldn't find that page", a story search (GET /stories/?q=, which the list filter reads),
+   * Browse all stories and Home. noindex, no canonical, no ads (error pages carry no ads). All links are
+   * root-absolute because Amplify serves this file at any depth.
+   */
+  static notFoundPage(cssHrefs) {
+    const main = `<style>
+        body:has(.not-found) { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+        body:has(.not-found) > main { flex: 1 0 auto; min-height: 0; }
+        .not-found { max-width: 40rem; margin: 2.5rem auto 3rem; }
+        .not-found h1 { margin: 0 0 0.75rem; color: var(--heading); }
+        .not-found-lede { margin: 0 0 1.25rem; }
+        .not-found-search { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: flex-end; margin: 0 0 1.5rem; }
+        .not-found-search label { flex: 1 0 100%; font-weight: 600; }
+        .not-found-search input { flex: 1 1 16rem; height: 44px; min-height: 44px; box-sizing: border-box; padding: 0 0.75rem; font: inherit; line-height: 1.25; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+        .not-found-search button { height: 44px; min-height: 44px; box-sizing: border-box; padding: 0 1.1rem; font: inherit; font-weight: 600; border-radius: 10px; border: 0; background: var(--accent); color: var(--bg, #fff); cursor: pointer; }
+        .not-found-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
+        .not-found-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+      </style>
+      <article class="not-found">
+        <h1>We couldn’t find that page</h1>
+        <p class="not-found-lede">The address may be mistyped, or the page may have moved. Search the stories, browse the full list, or start again from the home page.</p>
+        <form class="not-found-search" action="/stories/" method="get" role="search">
+          <label for="notFoundQuery">Search stories</label>
+          <input id="notFoundQuery" name="q" type="search" maxlength="100" placeholder="A person, place, county or topic" autocomplete="off" required />
+          <button type="submit">Search</button>
+        </form>
+        <script>/* khd-404-from */(function(){
+          // /404/?from=<path>. The search box gets the last segment, dashes as spaces.
+          // Value only: no HTML, and no regular expression built from the parameter.
+          var input = document.getElementById('notFoundQuery')
+          if (!input) return
+          var raw = ''
+          try { raw = new URLSearchParams(location.search).get('from') } catch (e) { return }
+          if (raw == null) return
+          var from = String(raw)
+          if (from.length > 100) from = from.slice(0, 100)
+          var parts = from.split('/')
+          var last = ''
+          for (var i = 0; i < parts.length; i++) if (parts[i]) last = parts[i]
+          var lower = last.toLowerCase()
+          if (lower.slice(-5) === '.html') last = last.slice(0, -5)
+          else if (lower.slice(-4) === '.htm') last = last.slice(0, -4)
+          var out = ''
+          var pendingSpace = false
+          for (var j = 0; j < last.length && out.length < 100; j++) {
+            var c = last.charAt(j)
+            var gap = c === '-' || c === '_' || c === ' ' || c === '\t'
+            if (gap) { if (out) pendingSpace = true; continue }
+            if (pendingSpace) { if (out.length >= 99) break; out += ' '; pendingSpace = false }
+            out += c
+          }
+          if (out) input.value = out
+        })()</script>
+        <ul class="not-found-links">
+          <li><a href="/stories/">Browse all stories</a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </article>`
+    return PrerenderPages.shell({
+      title: 'Page not found · Kentucky History Drive',
+      description: 'This page could not be found on Kentucky History Drive. Search the stories, browse all stories, or go to the home page.',
+      canonical: '',
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'website',
+      robots: 'noindex, follow',
+      ads: false,
+      main,
+    })
+  }
+
+  static assertNotFound(html) {
+    if (!html.includes('<h1>We couldn’t find that page</h1>')) throw new Error('prerender: 404.html is missing its heading')
+    if (html.includes('rel="canonical"') || !html.includes('<meta name="robots" content="noindex, follow" />')) {
+      throw new Error('prerender: 404.html must be noindex with no canonical')
+    }
+    if (html.includes('adsbygoogle')) throw new Error('prerender: 404.html must not load ads')
+    if (!html.includes('class="top site-header"') || !html.includes('class="foot"')) throw new Error('prerender: 404.html is missing the site header or footer')
+    const gaProblems = missingGaSnippet(html)
+    if (gaProblems.length) throw new Error(`prerender: 404.html ${gaProblems.join('; ')}`)
   }
 
   static timelineRedirectHtml() {
@@ -3923,8 +4021,15 @@ ${rows.join('\n')}
     if (!String(entries[entries.length - 1].loc).endsWith('/privacy/') || rows.at(-1).includes('/privacy</loc>')) {
       throw new Error('prerender: sitemap privacy URL must be /privacy/ and must be last')
     }
-    if (!rows.some((row) => row.includes('/routes/</loc>') || row.includes('/routes/</loc>'))) {
-      throw new Error('prerender: sitemap is missing /routes/')
+    // A noindex page must not be listed (Shannon item 93: /videos/ and /routes/ for now).
+    for (const entry of entries) {
+      let pathname = ''
+      try {
+        pathname = new URL(entry.loc).pathname
+      } catch {
+        throw new Error(`prerender: sitemap URL ${entry.loc} does not parse`)
+      }
+      if (PrerenderPages.NOINDEX_PATHS.includes(pathname)) throw new Error(`prerender: sitemap lists noindex page ${pathname}`)
     }
     if (imageCount !== ROUTE_MAPS.length) {
       throw new Error(`prerender: sitemap has ${imageCount} route map images, expected ${ROUTE_MAPS.length}`)

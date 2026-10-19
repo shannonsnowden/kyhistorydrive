@@ -124,7 +124,6 @@ function scanRoots(root) {
     path.join(root, 'scripts'),
     path.join(root, 'public'),
     path.join(root, 'privacy'),
-    path.join(root, 'home-preview'),
     path.join(root, 'index.html'),
   ]
   return entries.filter((entry) => fs.existsSync(entry))

@@ -93,6 +93,8 @@ body.privacy-doc header.top {
 html[data-hp-theme="light"] body.privacy-doc header.top {
   background: #f3ead8;
 }
+.privacy-page h1 { margin: 0 0 0.35rem; color: var(--heading); }
+.privacy-updated { margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; }
 /* Home: same solid fill. At 95% alpha + blur, hero images and headings scrolled under the sticky
    header showed through as a ghost (visible in the 1280 light shots). */
 body.hp-page header.top {

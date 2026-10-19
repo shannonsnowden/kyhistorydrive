@@ -7,13 +7,15 @@
  *
  * The site stylesheet is imported into a cascade layer, so each drive page's own unlayered CSS still
  * wins for its content; the header then reverts to the site (layer) styles with all: revert-layer,
- * so drive rules such as h1{} or button{} cannot restyle it. Adds the shared favicon links. No analytics is added here.
+ * so drive rules such as h1{} or button{} cannot restyle it. The shared site footer (with Privacy) goes after
+ * </main> with the same guard. Adds the shared favicon links. No analytics is added here, so the footer has no
+ * AdSense "Privacy choices" link.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { PrerenderPages } from './prerender-pages.mjs'
-import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteHeaderHtml } from './site-chrome.mjs'
+import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteFooterHtml, siteHeaderHtml } from './site-chrome.mjs'
 
 const MARK = '<!-- khd-drive-chrome -->'
 
@@ -21,7 +23,7 @@ const MARK = '<!-- khd-drive-chrome -->'
 const THEME_JS = `<script>(function(){try{var q=new URLSearchParams(location.search).get('theme'),s=localStorage.getItem('khd-theme')||localStorage.getItem('khd-home-preview-theme'),t=q==='dark'||q==='light'?q:s==='dark'||s==='light'?s:null;if(t)document.documentElement.setAttribute('data-hp-theme',t)}catch(e){}})()</script>`
 
 const GUARD_CSS = `<style>
-.skip-link,header.site-header,header.site-header *{all:revert-layer}
+.skip-link,header.site-header,header.site-header *,footer.foot,footer.foot *{all:revert-layer}
 .drive-back{margin:0 0 8px;font-size:14px}
 .drive-back a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-decoration:none}
 .drive-back a:hover{text-decoration:underline}
@@ -42,6 +44,10 @@ export function injectDriveChrome(html, { cssHrefs, isIndex, isPlanner }) {
   const back = isIndex ? '' : `\n  <p class="drive-back${isPlanner ? '' : ' drive-back-phone'}"><a href="/drives/">← Back to all drives</a></p>`
   html = html.replace('<body>', `<body>\n${siteHeaderHtml('drives')}`)
   html = html.replace('<main>', `<main id="content" tabindex="-1">${back}`)
+  // Site footer right after the page's main content (Phase 0: Privacy link on every drive page).
+  const end = html.lastIndexOf('</main>')
+  if (end < 0) throw new Error('inject-drive-chrome: page has no </main>')
+  html = html.slice(0, end + '</main>'.length) + `\n${siteFooterHtml()}` + html.slice(end + '</main>'.length)
   // End of body: re-apply the saved theme after the page's own theme line, then the shared menu/toggle script.
   const i = html.lastIndexOf('</body>')
   return html.slice(0, i) + `${THEME_JS}\n${siteChromeScriptHtml()}\n` + html.slice(i)

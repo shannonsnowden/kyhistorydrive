@@ -43,7 +43,7 @@ import {
 } from './story-return.js'
 import { storyPinLinkHtml } from './story-pin.js'
 import { countyMatcher } from './county-guess.js'
-import { battlePinIconIds, DEFAULT_BATTLE_PIN_ICON, stampBattlePins } from './battle-pins.js'
+import { battlePinIconIds, BATTLE_PIN_DISC, DEFAULT_BATTLE_PIN_ICON, drawBattlePin, stampBattlePins } from './battle-pins.js'
 import {
   markdownWithoutGlanceSection,
   mountGlanceTable,
@@ -573,7 +573,7 @@ function parseHash() {
   return { view: 'map' }
 }
 
-/** Load Story Studio battle art when the file exists. Missing files keep the default pin. */
+/** Load the per-war battle pin icons (src/battle-pins.js). A file that fails to load keeps the default pin. */
 async function readyBattlePinIcons(targetMap) {
   const ready = new Set()
   for (const id of battlePinIconIds()) {
@@ -581,12 +581,34 @@ async function readyBattlePinIcons(targetMap) {
     try {
       const res = await fetch(`/icons/${id}.png`)
       if (!res.ok) continue
-      if (await loadImage(targetMap, id, `/icons/${id}.png`)) ready.add(id)
+      if (await loadBattlePinImage(targetMap, id, `/icons/${id}.png`)) ready.add(id)
     } catch {
-      /* Story Studio has not shipped this icon. */
+      /* Icon unavailable: keep the default pin. */
     }
   }
   return ready
+}
+
+/** A war icon composited on the cream disc with a dark ring, so it reads on light and dark maps. */
+async function loadBattlePinImage(map, id, url) {
+  if (map.hasImage(id)) return true
+  try {
+    const result = await map.loadImage(url)
+    const art = result?.data ?? result
+    if (!art) return false
+    const size = BATTLE_PIN_DISC.diameter * BATTLE_PIN_DISC.pixelRatio
+    const canvas = document.createElement('canvas')
+    canvas.width = size
+    canvas.height = size
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return false
+    drawBattlePin(ctx, art, BATTLE_PIN_DISC)
+    if (!map.hasImage(id)) map.addImage(id, ctx.getImageData(0, 0, size, size), { pixelRatio: BATTLE_PIN_DISC.pixelRatio })
+    return true
+  } catch (err) {
+    console.warn('battle pin load failed', url, err)
+    return false
+  }
 }
 
 async function loadImage(map, id, url) {
@@ -2251,7 +2273,8 @@ async function addDataLayerOn(targetMap, def, visMap) {
         layout: {
           visibility: vis,
           'icon-image': ['get', 'pinIcon'],
-          'icon-size': 0.28,
+          /* Battle pins are drawn at their final size (BATTLE_PIN_DISC). */
+          'icon-size': 1,
           'icon-allow-overlap': true,
           'icon-ignore-placement': true,
         },

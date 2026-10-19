@@ -117,7 +117,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
-        homePreview: resolve(root, 'home-preview/index.html'),
         privacy: resolve(root, 'privacy/index.html'),
         buildDrive: resolve(root, 'drives/build/index.html'),
         ...(roadsRails ? { roadsAndRails: resolve(root, 'roads-and-rails/index.html') } : {}),

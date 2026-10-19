@@ -133,3 +133,19 @@ export function faviconLinksHtml(indent = '') {
     '<link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
   ].join('\n' + indent)
 }
+
+/**
+ * Shared site footer (prerendered pages, /drives/, 404). `extra` is inserted after Privacy, e.g. the
+ * AdSense "Privacy choices" link on pages that load ads. Root-absolute links so it works at any depth.
+ */
+export function siteFooterHtml(extra = '') {
+  return `<footer class="foot">
+      <span>kyhistorydrive.com</span>
+      <a href="/about/">About</a>
+      <a href="/people/">People</a>
+      <a href="/videos/">Videos</a>
+      <a href="/routes/">Kentucky history route maps</a>
+      <a href="/privacy/">Privacy</a>${extra ? `\n      ${extra}` : ''}
+      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+    </footer>`
+}
