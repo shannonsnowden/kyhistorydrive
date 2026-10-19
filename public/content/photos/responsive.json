@@ -1,32 +1,7 @@
 {
-  "generatedAt": "2026-10-19T09:32:50.733Z",
+  "generatedAt": "2026-10-19T09:42:47.804Z",
   "maxBytes": 204800,
   "images": {
-    "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg": {
-      "sha256": "4c6a1edc72a27ea284c28eb1e637da7e83f0959772332cdf04330124ad4b6dcc",
-      "width": 1280,
-      "height": 960,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.avif",
-          "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.webp",
-          "w": 1280
-        }
-      ]
-    },
     "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg": {
       "sha256": "83d52b3cb87e5620b532945cdded64d50a556b31db3602ff21862048b8bfbf80",
       "width": 1280,
@@ -48,6 +23,31 @@
         },
         {
           "src": "/content/photos/opt/stories/father-david-rice-and-kentuckys-first-presbyterian-churches-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg": {
+      "sha256": "1db2b635778005a79040404ba224522992a0c3c4380b35c88e646029a285a89b",
+      "width": 1280,
+      "height": 791,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-1280.webp",
           "w": 1280
         }
       ]
@@ -77,27 +77,27 @@
         }
       ]
     },
-    "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg": {
-      "sha256": "1db2b635778005a79040404ba224522992a0c3c4380b35c88e646029a285a89b",
+    "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg": {
+      "sha256": "4c6a1edc72a27ea284c28eb1e637da7e83f0959772332cdf04330124ad4b6dcc",
       "width": 1280,
-      "height": 791,
+      "height": 960,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-800.avif",
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-1280.avif",
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.avif",
           "w": 1280
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-800.webp",
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.webp",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-1280.webp",
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.webp",
           "w": 1280
         }
       ]

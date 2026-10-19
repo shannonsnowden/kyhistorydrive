@@ -1,34 +1,9 @@
 {
-  "generatedAt": "2026-10-19T09:31:55.429Z",
+  "generatedAt": "2026-10-19T09:42:45.841Z",
   "briefDate": "2026-10-19",
   "displayDate": "Monday, October 19, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
   "stories": [
-    {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "title": "The C. and O. Mounds at Paintsville",
-      "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "era": "prehistoric",
-      "yearStart": -500,
-      "county": "Johnson",
-      "briefDate": "2026-10-19",
-      "href": "/#timeline/the-c-and-o-mounds-at-paintsville",
-      "place": "C. and O. Mounds, Paintsville (approximate)",
-      "lat": 37.8,
-      "lon": -82.8,
-      "historyId": null,
-      "mapHref": "/#map/stories/the-c-and-o-mounds-at-paintsville",
-      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
-      },
-      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
-    },
     {
       "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
       "title": "Father David Rice and Kentucky’s first Presbyterian churches",
@@ -41,8 +16,8 @@
       "place": "Father David Rice home marker, Greensburg (KHS #844)",
       "lat": 37.262,
       "lon": -85.5013,
-      "historyId": null,
-      "mapHref": "/#map/stories/father-david-rice-and-kentuckys-first-presbyterian-churches",
+      "historyId": "david-rice-home-greensburg-green-1798-1816",
+      "mapHref": "/#map/history/david-rice-home-greensburg-green-1798-1816",
       "quote": "David Rice was about fifty years old when he crossed the mountains into Kentucky in 1783.",
       "photo": {
         "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
@@ -53,31 +28,6 @@
         "year": 2012
       },
       "heroDeck": "David Rice was about fifty years old when he crossed the mountains into Kentucky in 1783."
-    },
-    {
-      "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
-      "title": "River Raisin, 1813: Kentucky’s winter defeat in Michigan",
-      "summary": "Kentucky volunteers who mustered at Georgetown in 1812 were defeated at the River Raisin in January 1813 by British troops and Wyandot-led warriors.",
-      "era": "frontier",
-      "yearStart": 1812,
-      "county": "Scott",
-      "briefDate": "2026-10-19",
-      "href": "/#timeline/river-raisin-1813-kentuckys-winter-defeat-in-michigan",
-      "place": "Remember the Raisin: Kentucky volunteers' muster, Georgetown (KHS #508)",
-      "lat": 38.2103,
-      "lon": -84.5593,
-      "historyId": null,
-      "mapHref": "/#map/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan",
-      "quote": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit.",
-      "photo": {
-        "image_url": "/content/photos/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan.jpg",
-        "title": "River Raisin National Battlefield Park, Monroe, Michigan (photographed 2010)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:River_Raisin_National_Battlefield_Park.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Notorious4life · Wikimedia Commons · public domain",
-        "year": 2010
-      },
-      "heroDeck": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit."
     },
     {
       "slug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
@@ -91,8 +41,8 @@
       "place": "La Grange courthouse square and Main Street tracks",
       "lat": 38.3959,
       "lon": -85.3744,
-      "historyId": null,
-      "mapHref": "/#map/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street",
+      "historyId": "la-grange-oldham-1827-1840",
+      "mapHref": "/#map/history/la-grange-oldham-1827-1840",
       "quote": "Oldham County was cut from Jefferson, Shelby and Henry counties in the 1820s, the state’s 74th county.",
       "photo": {
         "image_url": "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg",
@@ -103,6 +53,56 @@
         "year": 2010
       },
       "heroDeck": "Oldham County was cut from Jefferson, Shelby and Henry counties in the 1820s, the state’s 74th county."
+    },
+    {
+      "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+      "title": "River Raisin, 1813: Kentucky’s winter defeat in Michigan",
+      "summary": "Kentucky volunteers who mustered at Georgetown in 1812 were defeated at the River Raisin in January 1813 by British troops and Wyandot-led warriors.",
+      "era": "frontier",
+      "yearStart": 1812,
+      "county": "Scott",
+      "briefDate": "2026-10-19",
+      "href": "/#timeline/river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+      "place": "Remember the Raisin: Kentucky volunteers' muster, Georgetown (KHS #508)",
+      "lat": 38.2103,
+      "lon": -84.5593,
+      "historyId": "river-raisin-muster-georgetown-scott-1812-1813",
+      "mapHref": "/#map/history/river-raisin-muster-georgetown-scott-1812-1813",
+      "quote": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit.",
+      "photo": {
+        "image_url": "/content/photos/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan.jpg",
+        "title": "River Raisin National Battlefield Park, Monroe, Michigan (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:River_Raisin_National_Battlefield_Park.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Notorious4life · Wikimedia Commons · public domain",
+        "year": 2010
+      },
+      "heroDeck": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit."
+    },
+    {
+      "slug": "the-c-and-o-mounds-at-paintsville",
+      "title": "The C. and O. Mounds at Paintsville",
+      "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
+      "era": "prehistoric",
+      "yearStart": -500,
+      "county": "Johnson",
+      "briefDate": "2026-10-19",
+      "href": "/#timeline/the-c-and-o-mounds-at-paintsville",
+      "place": "C. and O. Mounds, Paintsville (approximate)",
+      "lat": 37.8,
+      "lon": -82.8,
+      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
+      "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
+      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
+      "photo": {
+        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
+        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009
+      },
+      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     },
     {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
@@ -116,8 +116,8 @@
       "place": "Maysville–Lexington Turnpike (US 68), Maysville Hill (KHS #144)",
       "lat": 38.6423,
       "lon": -83.7814,
-      "historyId": null,
-      "mapHref": "/#map/stories/the-maysville-road-and-jacksons-veto-1830",
+      "historyId": "maysville-lexington-turnpike-mason-1829-1835",
+      "mapHref": "/#map/history/maysville-lexington-turnpike-mason-1829-1835",
       "quote": "Long before it was a road, the way from the Ohio River at Limestone, now Maysville, to the Bluegrass was a buffalo trace that Native hunters used between the salt licks.",
       "photo": {
         "image_url": "/content/photos/stories/the-maysville-road-and-jacksons-veto-1830.jpg",
@@ -131,55 +131,55 @@
     }
   ],
   "hero": {
-    "slug": "the-c-and-o-mounds-at-paintsville",
-    "title": "The C. and O. Mounds at Paintsville",
-    "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-    "era": "prehistoric",
-    "yearStart": -500,
-    "county": "Johnson",
+    "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+    "title": "Father David Rice and Kentucky’s first Presbyterian churches",
+    "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
+    "era": "frontier",
+    "yearStart": 1798,
+    "county": "Green",
     "briefDate": "2026-10-19",
-    "href": "/#timeline/the-c-and-o-mounds-at-paintsville",
-    "place": "C. and O. Mounds, Paintsville (approximate)",
-    "lat": 37.8,
-    "lon": -82.8,
-    "historyId": null,
-    "mapHref": "/#map/stories/the-c-and-o-mounds-at-paintsville",
-    "quote": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
+    "href": "/#timeline/father-david-rice-and-kentuckys-first-presbyterian-churches",
+    "place": "Father David Rice home marker, Greensburg (KHS #844)",
+    "lat": 37.262,
+    "lon": -85.5013,
+    "historyId": "david-rice-home-greensburg-green-1798-1816",
+    "mapHref": "/#map/history/david-rice-home-greensburg-green-1798-1816",
+    "quote": "David Rice was about fifty years old when he crossed the mountains into Kentucky in 1783.",
     "photo": {
-      "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-      "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
+      "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
+      "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
       "source_label": "Wikimedia Commons",
-      "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-      "year": 2009
+      "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+      "year": 2012
     },
-    "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
+    "heroDeck": "David Rice was about fifty years old when he crossed the mountains into Kentucky in 1783."
   },
   "features": [
     {
-      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
-      "title": "Father David Rice and Kentucky’s first Presbyterian churches",
-      "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
+      "slug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
+      "title": "La Grange: the Oldham County seat with trains on Main Street",
+      "summary": "La Grange began in 1827 at a crossroads named for Lafayette’s estate, became the Oldham County seat in 1838, and still runs trains down Main Street.",
       "era": "frontier",
-      "yearStart": 1798,
-      "county": "Green",
+      "yearStart": 1827,
+      "county": "Oldham",
       "briefDate": "2026-10-19",
-      "href": "/#timeline/father-david-rice-and-kentuckys-first-presbyterian-churches",
-      "place": "Father David Rice home marker, Greensburg (KHS #844)",
-      "lat": 37.262,
-      "lon": -85.5013,
-      "historyId": null,
-      "mapHref": "/#map/stories/father-david-rice-and-kentuckys-first-presbyterian-churches",
-      "quote": "David Rice was about fifty years old when he crossed the mountains into Kentucky in 1783.",
+      "href": "/#timeline/la-grange-the-oldham-county-seat-with-trains-on-main-street",
+      "place": "La Grange courthouse square and Main Street tracks",
+      "lat": 38.3959,
+      "lon": -85.3744,
+      "historyId": "la-grange-oldham-1827-1840",
+      "mapHref": "/#map/history/la-grange-oldham-1827-1840",
+      "quote": "Oldham County was cut from Jefferson, Shelby and Henry counties in the 1820s, the state’s 74th county.",
       "photo": {
-        "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
-        "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
+        "image_url": "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg",
+        "title": "A freight train on Main Street, La Grange (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:La_Grange_KY_-_train_on_Main_Street.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
-        "year": 2012
+        "attribution": "Morgan from Halifax, Nova Scotia · Wikimedia Commons · CC BY 2.0",
+        "year": 2010
       },
-      "heroDeck": "David Rice was about fifty years old when he crossed the mountains into Kentucky in 1783."
+      "heroDeck": "Oldham County was cut from Jefferson, Shelby and Henry counties in the 1820s, the state’s 74th county."
     },
     {
       "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
@@ -193,8 +193,8 @@
       "place": "Remember the Raisin: Kentucky volunteers' muster, Georgetown (KHS #508)",
       "lat": 38.2103,
       "lon": -84.5593,
-      "historyId": null,
-      "mapHref": "/#map/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+      "historyId": "river-raisin-muster-georgetown-scott-1812-1813",
+      "mapHref": "/#map/history/river-raisin-muster-georgetown-scott-1812-1813",
       "quote": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit.",
       "photo": {
         "image_url": "/content/photos/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan.jpg",
@@ -207,29 +207,29 @@
       "heroDeck": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit."
     },
     {
-      "slug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
-      "title": "La Grange: the Oldham County seat with trains on Main Street",
-      "summary": "La Grange began in 1827 at a crossroads named for Lafayette’s estate, became the Oldham County seat in 1838, and still runs trains down Main Street.",
-      "era": "frontier",
-      "yearStart": 1827,
-      "county": "Oldham",
+      "slug": "the-c-and-o-mounds-at-paintsville",
+      "title": "The C. and O. Mounds at Paintsville",
+      "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
+      "era": "prehistoric",
+      "yearStart": -500,
+      "county": "Johnson",
       "briefDate": "2026-10-19",
-      "href": "/#timeline/la-grange-the-oldham-county-seat-with-trains-on-main-street",
-      "place": "La Grange courthouse square and Main Street tracks",
-      "lat": 38.3959,
-      "lon": -85.3744,
-      "historyId": null,
-      "mapHref": "/#map/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street",
-      "quote": "Oldham County was cut from Jefferson, Shelby and Henry counties in the 1820s, the state’s 74th county.",
+      "href": "/#timeline/the-c-and-o-mounds-at-paintsville",
+      "place": "C. and O. Mounds, Paintsville (approximate)",
+      "lat": 37.8,
+      "lon": -82.8,
+      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
+      "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
+      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
       "photo": {
-        "image_url": "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg",
-        "title": "A freight train on Main Street, La Grange (photographed 2010)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:La_Grange_KY_-_train_on_Main_Street.jpg",
+        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
+        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Morgan from Halifax, Nova Scotia · Wikimedia Commons · CC BY 2.0",
-        "year": 2010
+        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009
       },
-      "heroDeck": "Oldham County was cut from Jefferson, Shelby and Henry counties in the 1820s, the state’s 74th county."
+      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     },
     {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
@@ -243,8 +243,8 @@
       "place": "Maysville–Lexington Turnpike (US 68), Maysville Hill (KHS #144)",
       "lat": 38.6423,
       "lon": -83.7814,
-      "historyId": null,
-      "mapHref": "/#map/stories/the-maysville-road-and-jacksons-veto-1830",
+      "historyId": "maysville-lexington-turnpike-mason-1829-1835",
+      "mapHref": "/#map/history/maysville-lexington-turnpike-mason-1829-1835",
       "quote": "Long before it was a road, the way from the Ohio River at Limestone, now Maysville, to the Bluegrass was a buffalo trace that Native hunters used between the salt licks.",
       "photo": {
         "image_url": "/content/photos/stories/the-maysville-road-and-jacksons-veto-1830.jpg",
@@ -527,8 +527,8 @@
     }
   ],
   "quote": {
-    "text": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
-    "source": "The C. and O. Mounds at Paintsville",
-    "href": "/#timeline/the-c-and-o-mounds-at-paintsville"
+    "text": "David Rice was about fifty years old when he crossed the mountains into Kentucky in 1783.",
+    "source": "Father David Rice and Kentucky’s first Presbyterian churches",
+    "href": "/#timeline/father-david-rice-and-kentuckys-first-presbyterian-churches"
   }
 }
