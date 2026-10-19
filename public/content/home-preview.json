@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T00:03:29.572Z",
+  "generatedAt": "2026-10-18T20:26:07.986Z",
   "briefDate": "2026-10-18",
   "displayDate": "Sunday, October 18, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -82,7 +82,7 @@
     {
       "slug": "treaty-of-fort-mcintosh-1785",
       "title": "Treaty of Fort McIntosh, 1785",
-      "summary": "In 1785 at Fort McIntosh, Pennsylvania, U.S. commissioners including George Rogers Clark signed a treaty with Wyandot, Delaware, Ojibwe and Odawa leaders.",
+      "summary": "On January 21, 1785, at Fort McIntosh, U.S. commissioners including George Rogers Clark signed a treaty with Wyandot, Delaware, Ojibwe and Odawa leaders.",
       "era": "native",
       "yearStart": 1785,
       "county": null,
@@ -209,7 +209,7 @@
     {
       "slug": "treaty-of-fort-mcintosh-1785",
       "title": "Treaty of Fort McIntosh, 1785",
-      "summary": "In 1785 at Fort McIntosh, Pennsylvania, U.S. commissioners including George Rogers Clark signed a treaty with Wyandot, Delaware, Ojibwe and Odawa leaders.",
+      "summary": "On January 21, 1785, at Fort McIntosh, U.S. commissioners including George Rogers Clark signed a treaty with Wyandot, Delaware, Ojibwe and Odawa leaders.",
       "era": "native",
       "yearStart": 1785,
       "county": null,
