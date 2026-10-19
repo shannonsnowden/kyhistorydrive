@@ -94,7 +94,6 @@ export const AI_IDS = [
   'scarouady',
   'tanacharison',
   'the-glass',
-  'will-emery',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [

@@ -3,8 +3,7 @@
  "_portraits": "\"portraitFor\": story slug -> people.json person id, for person stories the name/id/title rules miss (faces always come from people.json); null marks a story that a name links to but that is not that person's own story. \"pendingPortraits\": people with their own story but no approved portrait yet; scripts/check-related-portraits.mjs lets their Related-box links show no face and fails once one of them has a portrait (remove the id then).",
  "portraitFor": {
   "john-finley-the-trader-who-put-kentucky-on-boones-map": "john-finley",
-  "ojibwe-on-birds-war-road": null,
-  "capt-will-the-hunting-ground": "will-emery"
+  "ojibwe-on-birds-war-road": null
  },
  "pendingPortraits": [],
  "people": {

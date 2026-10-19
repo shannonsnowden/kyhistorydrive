@@ -2457,13 +2457,12 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": "Original AI illustration",
+      "license": null,
       "licenseUrl": null,
-      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "credit": null,
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting. Canonical face: AI illustration (approval item 92, Oct 19, 2026).",
-      "ai": true
+      "notes": "No Wikipedia article or Commons likeness found. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
     },
     {
       "id": "john-stewart",
