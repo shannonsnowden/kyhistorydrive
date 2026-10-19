@@ -32,6 +32,8 @@ import {
   learnMoreLinkText,
   pickRelatedStories,
   relatedAndNearbyHtml,
+  relatedAndNearbyForStory,
+  relatedCardPortraitAlt,
   storyThumbSrc,
   photoCreditHtml,
   photoCreditModel,
@@ -346,6 +348,29 @@ assert.match(merged, /nearby-miles">1.2 miles</)
 assert.match(merged, /related-card-chevron/)
 assert.match(merged, /aria-hidden="true"/)
 assert.ok(merged.indexOf('Related one') < merged.indexOf('A marker'))
+
+// Related-card portraits never render with an empty alt (SEO finding on #331). Story photo thumbs stay decorative.
+assert.equal(relatedCardPortraitAlt({ name: 'John Finley', ai: true }), 'AI illustration of John Finley')
+assert.equal(relatedCardPortraitAlt({ name: 'Henry Clay', ai: false }), 'Henry Clay')
+assert.equal(relatedCardPortraitAlt(null), '')
+const finleyCards = relatedAndNearbyForStory(
+  { slug: 'boone-story', title: 'Boone story', tags: ['long-hunters', 'boone'], county: 'Madison', lat: 37.7, lon: -84.3 },
+  [
+    { slug: 'boone-story', title: 'Boone story', tags: ['long-hunters', 'boone'], county: 'Madison', lat: 37.7, lon: -84.3 },
+    { slug: 'finley-story', title: 'John Finley story', tags: ['long-hunters', 'boone'], county: 'Madison', lat: 37.71, lon: -84.31 },
+    { slug: 'photo-story', title: 'Photo story', tags: ['long-hunters', 'boone'], county: 'Madison', lat: 37.72, lon: -84.32, photo: { image_url: '/content/photos/x.jpg' } },
+  ],
+  [],
+  {
+    portraitFor: (slug) => (slug === 'finley-story' ? '/people/portraits/john-finley__ai-portrait-v1-96.jpg' : ''),
+    personFor: (slug) => (slug === 'finley-story' ? { id: 'john-finley', name: 'John Finley', ai: true } : null),
+  },
+)
+assert.match(finleyCards, /<img class="related-card-img" src="\/people\/portraits\/john-finley__ai-portrait-v1-96\.jpg"[^>]* alt="AI illustration of John Finley"/)
+for (const m of finleyCards.matchAll(/<img class="related-card-img" src="(\/people\/portraits\/[^"]+)"[^>]*>/g)) {
+  assert.doesNotMatch(m[0], /alt=""/, `related-card portrait ${m[1]} has an empty alt`)
+}
+assert.match(finleyCards, /src="\/content\/photos\/opt\/stories\/x-112\.webp"[^>]* alt=""/)
 
 assert.equal(compactYearRange(1812, 1815), '1812\u20131815')
 assert.equal(compactYearRange(-800, 700), '800 BCE\u2013700 CE')

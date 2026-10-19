@@ -376,10 +376,19 @@ const PIN_ICON = `<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="
 
 const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.25 10.75 8 6 12.75" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 
+/** Alt for a person's portrait on a related card: 'AI illustration of <name>' for AI portraits, else the name. */
+export function relatedCardPortraitAlt(person) {
+  const name = String(person?.name || '').trim()
+  if (!name) return ''
+  return person.ai ? `AI illustration of ${name}` : name
+}
+
 function cardMediaHtml(row) {
   if (row.kind !== 'marker' && row.thumb) {
     const src = esc(row.thumb)
-    return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
+    // Person portraits carry alt text; a story photo thumb stays decorative (the title is beside it).
+    const alt = esc(row.thumbAlt || '')
+    return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="${alt}" width="56" height="56" loading="lazy" decoding="async"></span>`
   }
   return `<span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span>`
 }
@@ -665,8 +674,14 @@ export function relatedAndNearbyForStory(
   story,
   all,
   markers,
-  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '' } = {},
+  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', personFor = () => null } = {},
 ) {
+  // Person cards always use the canonical portrait, with the standard portrait alt.
+  const media = (other) => {
+    const portrait = portraitFor(other.slug) || ''
+    if (portrait) return { thumb: portrait, thumbAlt: relatedCardPortraitAlt(personFor(other.slug)) }
+    return { thumb: thumbFor(other) || '', thumbAlt: '' }
+  }
   const related = pickRelatedStories(story, all, excludeSlugs)
   const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
   const relatedRows = related.map((other) => ({
@@ -675,8 +690,7 @@ export function relatedAndNearbyForStory(
     slug: other.slug,
     title: other.title,
     detail: storyDetail(other),
-    // Person cards always use the canonical portrait.
-    thumb: portraitFor(other.slug) || thumbFor(other) || '',
+    ...media(other),
   }))
   const nearby = nearbyPlaces(story, all, markers, {
     limit,
@@ -689,7 +703,7 @@ export function relatedAndNearbyForStory(
       ...row,
       title: other?.title || row.title,
       detail: other ? storyDetail(other) : '',
-      thumb: other ? portraitFor(other.slug) || thumbFor(other) || '' : '',
+      ...(other ? media(other) : { thumb: '', thumbAlt: '' }),
     }
   })
   return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel })
