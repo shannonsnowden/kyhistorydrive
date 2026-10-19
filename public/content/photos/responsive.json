@@ -1,29 +1,229 @@
 {
-  "generatedAt": "2026-10-14T10:00:05.166Z",
+  "generatedAt": "2026-10-19T11:01:02.102Z",
   "maxBytes": 204800,
   "images": {
+    "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg": {
+      "sha256": "83d52b3cb87e5620b532945cdded64d50a556b31db3602ff21862048b8bfbf80",
+      "width": 1280,
+      "height": 855,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/father-david-rice-and-kentuckys-first-presbyterian-churches-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/father-david-rice-and-kentuckys-first-presbyterian-churches-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/father-david-rice-and-kentuckys-first-presbyterian-churches-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/father-david-rice-and-kentuckys-first-presbyterian-churches-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg": {
+      "sha256": "1db2b635778005a79040404ba224522992a0c3c4380b35c88e646029a285a89b",
+      "width": 1280,
+      "height": 791,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan.jpg": {
+      "sha256": "6c07c44c6109a4953d856ee2a9375677b7cff345436358d62e939b3e8061935a",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg": {
+      "sha256": "4c6a1edc72a27ea284c28eb1e637da7e83f0959772332cdf04330124ad4b6dcc",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/the-maysville-road-and-jacksons-veto-1830.jpg": {
+      "sha256": "22465eba0d754cf47c14595de6bf90669ececdcee72d182f111388d5afa8b0b5",
+      "width": 1280,
+      "height": 806,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/the-maysville-road-and-jacksons-veto-1830-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-maysville-road-and-jacksons-veto-1830-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/the-maysville-road-and-jacksons-veto-1830-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-maysville-road-and-jacksons-veto-1830-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
     "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg": {
       "sha256": "3537f8f3db9fcb280e26325f28b84a98925207b57871cb5e355ae673a57c19f6",
       "width": 1280,
       "height": 853,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-800.avif",
-          "w": 800
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.avif",
+          "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-1280.avif",
-          "w": 1280
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.avif",
+          "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-800.webp",
-          "w": 800
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.webp",
+          "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-1280.webp",
-          "w": 1280
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/treaty-of-fort-mcintosh-1785.jpg": {
+      "sha256": "fa7388de87d17e53bd0576bed01a9f2275396f5c42ba4e2e1449dc2dc0a90321",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/walker-daniel-danvilles-namesake.jpg": {
+      "sha256": "18686c3e73ec971098c5068bc32c0a45b891bd0ba8aacb84a3b394f6aaa58de2",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/walker-daniel-danvilles-namesake-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/walker-daniel-danvilles-namesake-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/walker-daniel-danvilles-namesake-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/walker-daniel-danvilles-namesake-720.webp",
+          "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg": {
+      "sha256": "bfe0c73cb8c00e51887c9c90442b530b05e2ffb77fa4b8e2920153e060236349",
+      "width": 1280,
+      "height": 851,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-720.webp",
+          "w": 720
         }
       ]
     },
@@ -48,31 +248,6 @@
         },
         {
           "src": "/content/photos/opt/stories/hartford-fort-hartford-on-the-rough-river-1280.webp",
-          "w": 1280
-        }
-      ]
-    },
-    "/content/photos/stories/treaty-of-fort-mcintosh-1785.jpg": {
-      "sha256": "fa7388de87d17e53bd0576bed01a9f2275396f5c42ba4e2e1449dc2dc0a90321",
-      "width": 1280,
-      "height": 960,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-1280.avif",
-          "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/treaty-of-fort-mcintosh-1785-1280.webp",
           "w": 1280
         }
       ]
@@ -173,31 +348,6 @@
         },
         {
           "src": "/content/photos/opt/stories/col-thomas-marshall-at-buck-pond--topic-720.webp",
-          "w": 720
-        }
-      ]
-    },
-    "/content/photos/stories/prestonsburg-first-seat-on-the-big-sandy.jpg": {
-      "sha256": "bfe0c73cb8c00e51887c9c90442b530b05e2ffb77fa4b8e2920153e060236349",
-      "width": 1280,
-      "height": 851,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-720.webp",
           "w": 720
         }
       ]

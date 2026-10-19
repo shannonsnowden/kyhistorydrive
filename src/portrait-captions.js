@@ -34,6 +34,7 @@ export function creditWithCaption(person, credit) {
 
 /** Hand-written alt text for portraits that need more than the name (illustration briefs). */
 export const PORTRAIT_ALTS = {
+  'david-rice': 'AI illustration of Father David Rice, Presbyterian minister and founder of Concord Church in Danville, about 1792',
   'walker-daniel': "AI illustration of Walker Daniel, Danville lawyer and Kentucky's first attorney general, about 1784",
   // Portrait sweep batch 1 (canonical faces).
   'thomas-marshall-col': 'AI illustration of Col. Thomas Marshall, Virginia surveyor and Buck Pond founder, about 1795',

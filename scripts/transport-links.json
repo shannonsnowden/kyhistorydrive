@@ -14,6 +14,7 @@
     "esther-whitley-over-the-cumberlands-1775": "Wilderness Road",
     "evan-williams-on-the-louisville-wharf": "flatboat",
     "falls-of-the-ohio": "flatboats",
+    "hartford-fort-hartford-on-the-rough-river": "a ferry",
     "henry-skaggs-green-river-long-hunter": "Wilderness Road",
     "john-finley-the-trader-who-put-kentucky-on-boones-map": "Wilderness Road",
     "lexington-ohio-railroad": "first railroad",
@@ -26,12 +27,13 @@
     "shepherdsville-on-salt-river": "Wilderness Road",
     "taylorsville-on-brashears-creek": "Steamboats",
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": "Warriors' Path",
-    "yellow-banks-becomes-owensboro": "flatboat",
-    "hartford-fort-hartford-on-the-rough-river": "a ferry"
+    "yellow-banks-becomes-owensboro": "flatboat"
   },
   "allowlist": {
     "kentucky-river-palisades": "Clays Ferry is only a place name for the cliffs, not travel.",
+    "la-grange-the-oldham-county-seat-with-trains-on-main-street": "Roads & Rails page is being removed (Editor #329); the railroad links inline to its Grokipedia topic page.",
     "mclean-drift-bank-kentuckys-first-commercial-coal-mine": "The ferry only explains a place name (Stom's landing); the story is about coal mining.",
+    "the-maysville-road-and-jacksons-veto-1830": "Roads & Rails page is being removed (Editor #329); the turnpike links inline to Grokipedia toll road and Maysville Road veto pages.",
     "treaty-of-fort-mcintosh-1785": "The only transport word (flatboat) is inside a link to the Hubbell story; this story is about the treaty."
   }
 }

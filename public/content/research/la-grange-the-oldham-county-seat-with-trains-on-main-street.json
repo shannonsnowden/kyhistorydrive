@@ -1,0 +1,136 @@
+{
+  "slug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
+  "storySlug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
+  "title": "La Grange: the Oldham County seat with trains on Main Street",
+  "updated": "2026-10-19",
+  "summary": "La Grange began in 1827 at a crossroads named for Lafayette’s estate, became the Oldham County seat in 1838, and still runs trains down Main Street.",
+  "sections": [
+    {
+      "heading": "County and name",
+      "items": [
+        {
+          "text": "Oldham County formed from Jefferson, Shelby and Henry, 74th county, named for Col. William Oldham, killed at St. Clair's Defeat 1791.",
+          "sources": [
+            "khs-1251"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Founding and seat fight",
+      "items": [
+        {
+          "text": "Taylor's 1827 town at the crossroads, named for Lafayette's La Grange; court 1827, Westport sessions 1828, La Grange permanently 1838; incorporated Jan 23 1840.",
+          "sources": [
+            "gk",
+            "khs-2594"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Railroad",
+      "items": [
+        {
+          "text": "Louisville & Frankfort RR down Main Street; arrival 1850 or late 1850s (Grokipedia gives both). CSX 20-30 trains/day today.",
+          "sources": [
+            "gk"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Enslavement and education",
+      "items": [
+        {
+          "text": "Westport court records of enslavement, Henry Bibb family (marker 2594). Rosenwald school 1921-22 (marker 2418).",
+          "sources": [
+            "khs-2594",
+            "khs-2418"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1824",
+      "event": "Oldham County organized; Westport the seat",
+      "sources": [
+        "khs-1251",
+        "gk"
+      ]
+    },
+    {
+      "year": "1827",
+      "event": "La Grange laid out; court moves",
+      "sources": [
+        "gk"
+      ]
+    },
+    {
+      "year": "1828",
+      "event": "Court sessions at Westport",
+      "sources": [
+        "khs-2594"
+      ]
+    },
+    {
+      "year": "1838",
+      "event": "Seat permanently at La Grange",
+      "sources": [
+        "gk",
+        "khs-2594"
+      ]
+    },
+    {
+      "year": "1840",
+      "event": "Incorporated Jan 23",
+      "sources": [
+        "gk"
+      ]
+    },
+    {
+      "year": "1850s",
+      "event": "Louisville & Frankfort Railroad on Main Street",
+      "sources": [
+        "gk"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "gk",
+      "citation": "Grokipedia: La Grange, Kentucky",
+      "url": "https://grokipedia.com/page/La_Grange,_Kentucky",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "khs-1251",
+      "citation": "KHS marker #1251: Oldham County, 1824",
+      "url": "https://history.ky.gov/markers/oldham-county-1824",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "khs-2594",
+      "citation": "KHS marker #2594: Westport Courthouse",
+      "url": "https://history.ky.gov/markers/westport-courthouse",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "khs-2418",
+      "citation": "KHS marker #2418: LaGrange Training School",
+      "url": "https://history.ky.gov/markers/lagrange-training-school",
+      "type": "web",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "openQuestions": [
+    "Railroad arrival: 1850 vs late 1850s (both in Grokipedia).",
+    "County act date: brief gives Dec 15, 1823; marker titles it 1824."
+  ],
+  "people": []
+}

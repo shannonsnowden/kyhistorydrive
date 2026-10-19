@@ -1260,5 +1260,55 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
     "year": 2024
+  },
+  "father-david-rice-and-kentuckys-first-presbyterian-churches": {
+    "ext": "jpg",
+    "commonsFile": "DanvilleKY-firstpresbyterianchurch-obl.JPG",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/DanvilleKY-firstpresbyterianchurch-obl.JPG?width=1280",
+    "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+    "year": 2012
+  },
+  "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
+    "ext": "jpg",
+    "commonsFile": "La Grange KY - train on Main Street.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/La_Grange_KY_-_train_on_Main_Street.jpg?width=1280",
+    "title": "A freight train on Main Street, La Grange (photographed 2010)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:La_Grange_KY_-_train_on_Main_Street.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Morgan from Halifax, Nova Scotia · Wikimedia Commons · CC BY 2.0",
+    "year": 2010
+  },
+  "river-raisin-1813-kentuckys-winter-defeat-in-michigan": {
+    "ext": "jpg",
+    "commonsFile": "River Raisin National Battlefield Park.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/River_Raisin_National_Battlefield_Park.jpg?width=1280",
+    "title": "River Raisin National Battlefield Park, Monroe, Michigan (photographed 2010)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:River_Raisin_National_Battlefield_Park.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Notorious4life · Wikimedia Commons · public domain",
+    "year": 2010
+  },
+  "the-c-and-o-mounds-at-paintsville": {
+    "ext": "jpg",
+    "commonsFile": "Levisa Fork in Paintsville.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Levisa_Fork_in_Paintsville.jpg?width=1280",
+    "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2009
+  },
+  "the-maysville-road-and-jacksons-veto-1830": {
+    "ext": "jpg",
+    "commonsFile": "America's Highways 1776–1976 - 1830—The Maysville Turnpike.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/America%27s_Highways_1776%E2%80%931976_-_1830%E2%80%94The_Maysville_Turnpike.jpg?width=1280",
+    "title": "“1830—The Maysville Turnpike,” illustration from the Federal Highway Administration’s America’s Highways 1776–1976",
+    "source_url": "https://commons.wikimedia.org/wiki/File:America%27s_Highways_1776%E2%80%931976_-_1830%E2%80%94The_Maysville_Turnpike.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Federal Highway Administration · Wikimedia Commons · public domain",
+    "year": 1976
   }
 }

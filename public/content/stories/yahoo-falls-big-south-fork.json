@@ -21,7 +21,8 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
     "source_label": "Wikimedia Commons",
     "attribution": "Mason Brock · Wikimedia Commons · public domain",
-    "year": 2008
+    "year": 2008,
+    "fit": "contain"
   },
   "county": "McCreary"
 }

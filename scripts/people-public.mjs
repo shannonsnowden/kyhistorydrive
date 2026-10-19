@@ -29,6 +29,7 @@ export const NO_PORTRAIT_IDS = [
 
 /** Approved AI illustrations already in the repo. Dragging Canoe is v2. */
 export const AI_IDS = [
+  'david-rice',
   'walker-daniel',
   'blackfish',
   'dragging-canoe',
