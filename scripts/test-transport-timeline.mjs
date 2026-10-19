@@ -92,10 +92,18 @@ assert.ok(px('min-width') >= 44, 'tick hit area min-width >= 44px')
 assert.ok(px('min-height') >= 44, 'tick hit area min-height >= 44px')
 assert.ok(/content\s*:\s*''/.test(hitRule) && /position\s*:\s*absolute/.test(hitRule), 'hit area is an absolute, empty pseudo-element')
 assert.ok([...hitRule.matchAll(/background(?:-color)?\s*:\s*([^;]+)/g)].every((m) => m[1].trim() === 'transparent') && !/border\s*:|outline\s*:/.test(hitRule), 'hit area is invisible')
-const lime = secs.features.find((f) => f.properties.id === 'limestone-trace')?.properties.sources || []
-assert.ok(!lime.some((u) => /\/search\//.test(u)), 'no search-results URLs in Limestone Trace sources')
-const mays = secs.features.find((f) => f.properties.id === 'maysville-turnpike')?.properties.sources || []
-assert.equal(mays[0], 'https://grokipedia.com/page/Maysville_Road_veto', 'Maysville sources lead with Grokipedia')
-assert.ok(!/resources\.ohiohistory\.org\/ohj\/search\//.test(html), 'page source list has no search-results URL')
-assert.ok(html.indexOf('https://grokipedia.com/page/Maysville_Road_veto') > -1 && html.indexOf('https://grokipedia.com/page/Maysville_Road_veto') < html.indexOf('https://en.wikipedia.org/wiki/Maysville_Road_veto'), 'page lists Grokipedia before Wikipedia for the Maysville Road')
+// Editor #326 source fixes. CodeQL js/incomplete-url-substring-sanitization: parse URLs and compare host + path exactly, never substrings.
+const parseUrl = (u) => { try { return new URL(u) } catch { return null } }
+const isHostPath = (u, host, path) => !!u && u.hostname === host && u.pathname === path
+const isSearchResults = (u) => !!u && (u.hostname === 'resources.ohiohistory.org' && u.pathname.startsWith('/ohj/search/') || u.pathname.split('/').includes('search'))
+const lime = (secs.features.find((f) => f.properties.id === 'limestone-trace')?.properties.sources || []).map(parseUrl)
+assert.ok(lime.length && lime.every(Boolean), 'Limestone Trace sources parse as URLs')
+assert.ok(!lime.some(isSearchResults), 'no search-results URLs in Limestone Trace sources')
+const mays = (secs.features.find((f) => f.properties.id === 'maysville-turnpike')?.properties.sources || []).map(parseUrl)
+assert.ok(isHostPath(mays[0], 'grokipedia.com', '/page/Maysville_Road_veto'), 'Maysville sources lead with Grokipedia')
+const hrefs = [...html.matchAll(/href="([^"]*)"/g)].map((m) => parseUrl(m[1].replace(/&amp;/g, '&'))).filter(Boolean)
+assert.ok(!hrefs.some((u) => u.hostname === 'resources.ohiohistory.org' && u.pathname.startsWith('/ohj/search/')), 'page source list has no Ohio History search-results URL')
+const grokIdx = hrefs.findIndex((u) => isHostPath(u, 'grokipedia.com', '/page/Maysville_Road_veto'))
+const wikiIdx = hrefs.findIndex((u) => isHostPath(u, 'en.wikipedia.org', '/wiki/Maysville_Road_veto'))
+assert.ok(grokIdx > -1 && (wikiIdx === -1 || grokIdx < wikiIdx), 'page lists Grokipedia before Wikipedia for the Maysville Road')
 console.log(`test-transport-timeline: OK (${events.length} events, ${ticks.length} ticks, min ${min}, pad ${TIMELINE_PAD_YEARS})`)
