@@ -388,11 +388,15 @@ class PrerenderPages {
     // /timeline/ forwards to the /#timeline hash route. Amplify rules cannot target a #fragment,
     // so this stub redirects in the browser. Deliberately not in the sitemap.
     PrerenderPages.writePage(dist, '/timeline/', PrerenderPages.timelineRedirectHtml())
-    // Phase 0: a real "not found" page. Amplify serves it for missing paths once the console 404 rule
-    // targets /404.html; until then index.html sends unknown paths here (see the khd-404-guard in index.html).
+    // Phase 0: a real "not found" page, written twice with the same root-absolute markup.
+    // Amplify 301s /x.html to /x/ even when the file exists, so /404/ (dist/404/index.html) is the
+    // address that actually serves; /404.html stays for hosts that read it. Until the console rule
+    // /<*> -> /404/index.html (404) is set, index.html sends unknown paths to /404/ (khd-404-guard).
     const notFoundHtml = PrerenderPages.notFoundPage(cssHrefs)
     PrerenderPages.assertNotFound(notFoundHtml)
     fs.writeFileSync(path.join(dist, '404.html'), notFoundHtml)
+    fs.mkdirSync(path.join(dist, '404'), { recursive: true })
+    fs.writeFileSync(path.join(dist, '404', 'index.html'), notFoundHtml)
     console.log(`prerender: inline portraits on ${portraitLog.shown.length} stories; skipped ${portraitLog.skipped.length}: ${portraitLog.skipped.join(', ')}`)
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
@@ -3678,13 +3682,15 @@ ${rows}
    */
   static notFoundPage(cssHrefs) {
     const main = `<style>
+        body:has(.not-found) { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+        body:has(.not-found) > main { flex: 1 0 auto; min-height: 0; }
         .not-found { max-width: 40rem; margin: 2.5rem auto 3rem; }
         .not-found h1 { margin: 0 0 0.75rem; color: var(--heading); }
         .not-found-lede { margin: 0 0 1.25rem; }
         .not-found-search { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: flex-end; margin: 0 0 1.5rem; }
         .not-found-search label { flex: 1 0 100%; font-weight: 600; }
-        .not-found-search input { flex: 1 1 16rem; min-height: 44px; box-sizing: border-box; padding: 0.55rem 0.75rem; font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
-        .not-found-search button { min-height: 44px; padding: 0 1.1rem; font: inherit; font-weight: 600; border-radius: 10px; border: 0; background: var(--accent); color: var(--bg, #fff); cursor: pointer; }
+        .not-found-search input { flex: 1 1 16rem; height: 44px; min-height: 44px; box-sizing: border-box; padding: 0 0.75rem; font: inherit; line-height: 1.25; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+        .not-found-search button { height: 44px; min-height: 44px; box-sizing: border-box; padding: 0 1.1rem; font: inherit; font-weight: 600; border-radius: 10px; border: 0; background: var(--accent); color: var(--bg, #fff); cursor: pointer; }
         .not-found-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
         .not-found-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
       </style>
@@ -3696,6 +3702,33 @@ ${rows}
           <input id="notFoundQuery" name="q" type="search" maxlength="100" placeholder="A person, place, county or topic" autocomplete="off" required />
           <button type="submit">Search</button>
         </form>
+        <script>/* khd-404-from */(function(){
+          // /404/?from=<path>. The search box gets the last segment, dashes as spaces.
+          // Value only: no HTML, and no regular expression built from the parameter.
+          var input = document.getElementById('notFoundQuery')
+          if (!input) return
+          var raw = ''
+          try { raw = new URLSearchParams(location.search).get('from') } catch (e) { return }
+          if (raw == null) return
+          var from = String(raw)
+          if (from.length > 100) from = from.slice(0, 100)
+          var parts = from.split('/')
+          var last = ''
+          for (var i = 0; i < parts.length; i++) if (parts[i]) last = parts[i]
+          var lower = last.toLowerCase()
+          if (lower.slice(-5) === '.html') last = last.slice(0, -5)
+          else if (lower.slice(-4) === '.htm') last = last.slice(0, -4)
+          var out = ''
+          var pendingSpace = false
+          for (var j = 0; j < last.length && out.length < 100; j++) {
+            var c = last.charAt(j)
+            var gap = c === '-' || c === '_' || c === ' ' || c === '\t'
+            if (gap) { if (out) pendingSpace = true; continue }
+            if (pendingSpace) { if (out.length >= 99) break; out += ' '; pendingSpace = false }
+            out += c
+          }
+          if (out) input.value = out
+        })()</script>
         <ul class="not-found-links">
           <li><a href="/stories/">Browse all stories</a></li>
           <li><a href="/">Home</a></li>

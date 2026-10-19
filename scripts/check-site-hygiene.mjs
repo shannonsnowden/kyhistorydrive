@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
  * check-site-hygiene: Phase 0 site fixes (Shannon items 87/93), checked on the built dist/.
- *  - /404.html: "We couldn't find that page", a story search form, Browse all stories (/stories/), Home; noindex.
- *  - index.html sends a visitor on an unknown path (Amplify serves index.html there) to /404.html.
+ *  - /404.html and /404/index.html (the same page; Amplify 301s /404.html to /404/): "We couldn't find
+ *    that page", a story search form, Browse all stories (/stories/), Home; noindex; root-absolute URLs.
+ *  - index.html sends a visitor on an unknown path (Amplify serves index.html there) to /404/?from=<path>;
+ *    the guard's skip logic is run against sample paths, and so is the 404 page's ?from= pre-fill.
  *  - Every /drives/ page has the shared site footer with a Privacy link.
  *  - No same-site link on a /drives/ page points at a file that is not built (the Loop 1 bug).
  *  - /home-preview/ and /drive-preview/ are not built (their redirects can fire).
@@ -14,6 +16,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import vm from 'node:vm'
 
 const argv = process.argv.slice(2)
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -65,36 +68,106 @@ const built = (p) => {
   return fs.existsSync(f) && fs.statSync(f).isFile()
 }
 
-// 404 page
-const nf = read('404.html')
-if (!nf) fail('dist/404.html is missing')
-else {
+// 404 page, at both addresses
+/** Body of the first inline <script> carrying `marker`, found with indexOf (no tag regex). */
+const inlineScript = (html, marker) => {
+  const at = html.indexOf(marker)
+  if (at < 0) return ''
+  const open = html.lastIndexOf('<script>', at)
+  const close = html.indexOf('</script>', at)
+  return open < 0 || close < 0 ? '' : html.slice(open + '<script>'.length, close)
+}
+const nfFiles = ['404.html', '404/index.html']
+const nfPages = nfFiles.map((rel) => [rel, read(rel)])
+for (const [rel, nf] of nfPages) {
+  if (!nf) {
+    fail(`dist/${rel} is missing`)
+    continue
+  }
+  const pageUrl = `${SITE}/${rel.replace(/index\.html$/, '')}`
   const t = text(nf)
-  if (!/<h1[^>]*>\s*We couldn(?:'|&#x27;|’)t find that page\s*<\/h1>/i.test(nf)) fail("404.html: h1 must be \"We couldn't find that page\"")
-  if (!/\bnoindex\b/.test(robots(nf))) fail('404.html: needs meta robots noindex')
-  if (/rel="canonical"/.test(nf)) fail('404.html: must not have a canonical')
-  const links = new Set(hrefs(nf).map((h) => sitePath(h, `${SITE}/404.html`)))
-  if (!links.has('/stories/') || !/Browse all stories/.test(t)) fail('404.html: needs a "Browse all stories" link to /stories/')
-  if (!links.has('/')) fail('404.html: needs a Home link to /')
+  if (!/<h1[^>]*>\s*We couldn(?:'|&#x27;|’)t find that page\s*<\/h1>/i.test(nf)) fail(`${rel}: h1 must be "We couldn't find that page"`)
+  if (!/\bnoindex\b/.test(robots(nf))) fail(`${rel}: needs meta robots noindex`)
+  if (/rel="canonical"/.test(nf)) fail(`${rel}: must not have a canonical`)
+  const links = new Set(hrefs(nf).map((h) => sitePath(h, pageUrl)))
+  if (!links.has('/stories/') || !/Browse all stories/.test(t)) fail(`${rel}: needs a "Browse all stories" link to /stories/`)
+  if (!links.has('/')) fail(`${rel}: needs a Home link to /`)
   const form = nf.match(/<form\b[^>]*>[\s\S]*?<\/form>/i)?.[0] || ''
   const action = (form.match(/\baction="([^"]*)"/) || [])[1]
-  if (!form || sitePath(action || '', `${SITE}/404.html`) !== '/stories/' || !/method="get"/i.test(form) || !/<input\b[^>]*\bname="q"/.test(form)) {
-    fail('404.html: needs a GET search form to /stories/ with an input named q')
+  if (!form || sitePath(action || '', pageUrl) !== '/stories/' || !/method="get"/i.test(form) || !/<input\b[^>]*\bname="q"/.test(form)) {
+    fail(`${rel}: needs a GET search form to /stories/ with an input named q`)
   }
-  if (!/class="foot"/.test(nf)) fail('404.html: needs the site footer')
-  // Root-absolute assets only: 404.html is served at any depth.
+  if (!/class="foot"/.test(nf)) fail(`${rel}: needs the site footer`)
+  // Root-absolute assets only: the page is served at /404/ and at any missing depth.
   for (const m of nf.matchAll(/\b(?:src|href)="([^"]+)"/g)) {
     const v = m[1]
     if (/^(?:[a-z]+:|\/|#|data:)/i.test(v)) continue
-    fail(`404.html: relative URL "${v}" breaks at nested paths`)
+    fail(`${rel}: relative URL "${v}" breaks at nested paths`)
   }
+}
+if (nfPages[0][1] && nfPages[1][1] && nfPages[0][1] !== nfPages[1][1]) fail('404.html and 404/index.html must be the same page')
+
+// ?from= pre-fill on the 404 page: value only, last segment, dashes to spaces, capped at 100.
+const fromJs = inlineScript(nfPages[1][1] || '', 'khd-404-from')
+if (!fromJs) fail('404/index.html: missing the ?from= pre-fill script')
+else {
+  if (/innerHTML|outerHTML|insertAdjacentHTML|document\.write/.test(fromJs)) fail('404 ?from= pre-fill must set the input value only')
+  for (const banned of ['RegExp', '.replace(/', '.match(', '.test(', '.search(', 'eval(', 'Function(']) {
+    if (fromJs.includes(banned)) fail(`404 ?from= pre-fill must not use ${banned} (Security: no pattern built from or run on input)`)
+  }
+  const prefill = (search) => {
+    const input = { value: '' }
+    vm.runInNewContext(fromJs, { URLSearchParams, String, location: { search }, document: { getElementById: (id) => (id === 'notFoundQuery' ? input : null) } })
+    return input.value
+  }
+  const q = (from) => `?${new URLSearchParams({ from })}`
+  const cases = [
+    ['', ''],
+    [q('/people/walker-daniel/'), 'walker daniel'],
+    [q('/stories/battle-of-blue-licks'), 'battle of blue licks'],
+    [q('/old-page.html'), 'old page'],
+    [q('/<img src=x onerror=alert(1)>/'), '<img src=x onerror=alert(1)>'],
+  ]
+  for (const [search, want] of cases) {
+    const got = prefill(search)
+    if (got !== want) fail(`404 ?from= pre-fill: ${JSON.stringify(search)} gave ${JSON.stringify(got)}, want ${JSON.stringify(want)}`)
+  }
+  if (prefill(q(`/${'a'.repeat(300)}`)).length > 100) fail('404 ?from= pre-fill must cap at 100 characters')
 }
 const stories = read('stories/index.html') || ''
 if (!/URLSearchParams\(location\.search\)\.get\('q'\)/.test(stories)) fail('/stories/: filter must read ?q= from the 404 search form')
 
-// Unknown-path guard on the homepage document.
+// Unknown-path guard on the homepage document, run against sample paths.
 const home = read('index.html') || ''
-if (!/<script>[^<]*khd-404-guard[^<]*location\.replace\('\/404\.html'\)/.test(home)) fail('index.html: missing the unknown-path guard to /404.html')
+const guardJs = inlineScript(home, 'khd-404-guard')
+if (!guardJs) fail('index.html: missing the khd-404-guard script')
+else {
+  if (home.indexOf('khd-404-guard') > home.indexOf('<script', home.indexOf('khd-404-guard') + 1) && home.indexOf('<script type="module"') > -1 && home.indexOf('<script type="module"') < home.indexOf('khd-404-guard')) {
+    fail('index.html: khd-404-guard must run before the app module')
+  }
+  const guard = (pathname, search = '', hash = '') => {
+    let target = null
+    vm.runInNewContext(guardJs, { encodeURIComponent, location: { pathname, search, hash, replace: (u) => { target = u } } })
+    return target
+  }
+  const stay = [['/'], ['/index.html'], ['/404/'], ['/404.html'], ['/404/index.html'], ['/', '?utm=x'], ['/', '?utm_source=news&d=map', '#map'], ['/', '', '#timeline/battle-of-blue-licks']]
+  for (const [p, s = '', h = ''] of stay) {
+    const got = guard(p, s, h)
+    if (got !== null) fail(`khd-404-guard: ${p}${s}${h} must stay put, but goes to ${got}`)
+  }
+  for (const p of ['/people/walker-daniel/', '/no/such/page.html', '/stories/missing-story/']) {
+    const got = guard(p, '?x=1')
+    let u = null
+    try {
+      u = got == null ? null : new URL(got, SITE)
+    } catch {
+      u = null
+    }
+    if (!u || u.origin !== SITE || u.pathname !== '/404/' || u.searchParams.get('from') !== p) {
+      fail(`khd-404-guard: ${p} must go to /404/?from=${encodeURIComponent(p)}, got ${got}`)
+    } else if (!built(u.pathname)) fail('khd-404-guard target /404/ is not built')
+  }
+}
 
 // Drive pages
 const driveDir = path.join(dist, 'drives')
@@ -157,4 +230,4 @@ if (problems.length) {
   console.error(`check-site-hygiene: ${problems.length} problem(s):\n  ${problems.join('\n  ')}`)
   process.exit(1)
 }
-console.log(`check-site-hygiene: 404 page, ${drivePages.length} drive footers and links, no preview stubs, privacy h1 + date, ${locs.length} sitemap URLs with /videos/ and /routes/ noindexed and out`)
+console.log(`check-site-hygiene: 404 page at /404.html and /404/ (guard + ?from= cases), ${drivePages.length} drive footers and links, no preview stubs, privacy h1 + date, ${locs.length} sitemap URLs with /videos/ and /routes/ noindexed and out`)
