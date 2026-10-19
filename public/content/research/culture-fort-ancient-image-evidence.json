@@ -3,7 +3,7 @@
   "storySlug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
   "title": "Image evidence: Fort Ancient (about 1000–1750 CE, northern and eastern Kentucky)",
   "seoTitle": "Fort Ancient image evidence: research notes",
-  "updated": "2026-10-13",
+  "updated": "2026-10-18",
   "summary": "Village farmers of the middle Ohio Valley who built circular plaza villages and low burial mounds, such as Cleek-McCabe and Petersburg in Boone County. Skeletal studies give actual heights and health data.",
   "displayNote": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses. AI illustration · Kentucky History Drive.",
   "sections": [
@@ -87,6 +87,28 @@
             "cm"
           ],
           "confidence": "high"
+        },
+        {
+          "text": "No palisade or stockade is reported at Cleek-McCabe; the Kentucky Archaeological Survey describes a midden ring around a plaza, with low burial mounds on the east and west sides and the remains of one burned house.",
+          "sources": [
+            "cm"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "In Kentucky, palisades encircled some but not all circular Fort Ancient villages; nearby Florence, of the same period, lacks one, while SunWatch near Dayton (about 1200) was palisaded.",
+          "sources": [
+            "v2",
+            "sw"
+          ],
+          "confidence": "high"
+        },
+        {
+          "text": "Fort Ancient house walls were single-set hardwood posts (later sometimes set in wall trenches), mostly covered with bark, thatch or mats; wattle and daub is rare.",
+          "sources": [
+            "v2"
+          ],
+          "confidence": "high"
         }
       ]
     },
@@ -146,6 +168,13 @@
       "url": "https://heritage.ky.gov/Documents/TheArchaeologyofKYAnUpdateVol2.pdf",
       "type": "state archaeology plan",
       "accessed": "2026-10-13"
+    },
+    {
+      "id": "sw",
+      "citation": "SunWatch Indian Village (Grokipedia)",
+      "type": "encyclopedia",
+      "url": "https://grokipedia.com/page/sunwatch_indian_village",
+      "accessed": "2026-10-18"
     }
   ]
 }
