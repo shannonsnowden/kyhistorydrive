@@ -5,6 +5,18 @@
  */
 import * as maplibregl from 'maplibre-gl'
 import { TICK_HIT_MIN_H, TIMELINE_MAX_YEAR, groupTicks, layoutTickLabels, openingEvents, sliderMinYear, tickHitAreas } from './transport-timeline.js'
+import {
+  ERA_COLORS,
+  ERA_COLORS_DARK,
+  KIND_COLORS,
+  LABEL_HALO_DARK,
+  LABEL_HALO_LIGHT,
+  LINE_GROUPS,
+  labelColor,
+  labelLayout,
+  labelLines,
+  labelPaint,
+} from './transport-lines.js'
 
 // The start year comes from the data (earliest opening minus TIMELINE_PAD_YEARS), set once sections load.
 let minYear = null
@@ -84,27 +96,9 @@ export function transportYearFilter(year) {
   ]
 }
 
-/* Decade hues are spaced around the wheel so neighbours never share a family
- * (on-palette since Critiquito #291: gold / burnt sienna / umber / forest green / teal / olive green). Dark 1960 is
- * cyan (#3bc9db) so it stays clear of the 1880 mint, and dark 1970 is lime
- * (#c0eb75) so it stays clear of that cyan. Light 1830 is #9a6f00 for 3:1+ on the land. Dark mode uses lighter
- * tints of the same hues so every line clears 3:1 on the dark green land. */
-export const ERA_COLORS = [
-  [1830, '#9a6f00'],
-  [1850, '#a0461b'],
-  [1870, '#5c4033'],
-  [1880, '#2f6b3a'],
-  [1960, '#0c8599'],
-  [1970, '#5c940d'],
-]
-const ERA_COLORS_DARK = {
-  1830: '#ffd43b',
-  1850: '#f4a46a',
-  1870: '#d9c2a0',
-  1880: '#7fd18b',
-  1960: '#3bc9db',
-  1970: '#d4f06a',
-}
+/* Decade and kind colours live in transport-lines.js (shared with the left-pane rows and labels).
+ * Dark 1880 #5fbf73 and 1970 #d9e86a follow mockup v2. */
+export { ERA_COLORS }
 
 function eraList(theme = themeName()) {
   return theme === 'dark' ? ERA_COLORS.map(([d]) => [d, ERA_COLORS_DARK[d]]) : ERA_COLORS
@@ -117,15 +111,7 @@ function eraColorFor(year, theme) {
   return color
 }
 
-/* Roads and traces before the railroads (#291 follow-up) take a kind colour, not a decade colour.
- * Critiquito #326: trails were the same green as the 1880s rails. Trails are now olive-brown (light) / cream
- * (dark), drawn thinner and dotted (round dots, never the long dashes that mean 'not yet open'). Dark 1970 moved
- * to a yellower lime (#d4f06a) so it stays clear of the 1880 mint. */
-const KIND_COLORS = {
-  light: { road: '#b4610f', trail: '#6e5a1e' },
-  dark: { road: '#f0b45a', trail: '#f2ecd8' },
-}
-
+/* Roads and traces before the railroads (#291 follow-up) take a kind colour, not a decade colour. */
 function kindColorFor(kind, theme = themeName()) {
   return KIND_COLORS[theme === 'light' ? 'light' : 'dark'][kind] || null
 }
@@ -151,6 +137,44 @@ function futureFilter(year) {
   return ['all', ['has', 'opened'], ['>', ['get', 'opened'], year]]
 }
 
+/* ---- Per-line toggles (left pane) ---- */
+let hiddenSections = new Set()
+let currentYear = DEFAULT_YEAR
+function notHidden() {
+  return ['!', ['in', ['get', 'id'], ['literal', [...hiddenSections]]]]
+}
+/** Hide these section ids (the rows switched off in the left pane) and redraw. */
+export function setHiddenSections(ids) {
+  hiddenSections = new Set(ids)
+  if (map && map.isStyleLoaded()) applyYear(currentYear)
+}
+export function getHiddenSections() {
+  return [...hiddenSections]
+}
+
+/* ---- Line labels: MapLibre symbol layer along each line (mockup v2) ---- */
+const LEXINGTON = [-84.4884, 38.0644]
+const LEX_REVEAL_ZOOM = 8
+/** One simplified label line per row (labelLines) plus the Lexington-junction flag (client-side only). */
+function labelledLines(secs) {
+  return {
+    type: 'FeatureCollection',
+    // Editor #327: every line is named from the default view, so no label waits for zoom 8 any more.
+    features: labelLines(secs.features).map((f) => ({ ...f, properties: { ...f.properties, lexJunction: false } })),
+  }
+}
+
+function labelColorExpr(theme) {
+  const list = ERA_COLORS.map(([d]) => [d, labelColor(theme, 'rail', d)])
+  const expr = ['step', ['coalesce', ['get', 'opened'], 0], list[0][1]]
+  for (const [d, c] of list.slice(1)) expr.push(d, c)
+  return ['match', ['get', 'kind'], 'trail', labelColor(theme, 'trail'), 'road', labelColor(theme, 'road'), expr]
+}
+
+function labelFilter(year, junction) {
+  return ['all', transportYearFilter(year), notHidden(), ['==', ['get', 'lexJunction'], junction]]
+}
+
 async function fetchJson(url) {
   const res = await fetch(url)
   if (!res.ok) throw new Error(`${url} ${res.status}`)
@@ -162,12 +186,16 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
   return {
     version: 8,
     name: 'Kentucky transport',
+    // Self-hosted glyphs (Open Sans Semibold, OFL) for the along-line labels.
+    glyphs: '/fonts/glyphs/{fontstack}/{range}.pbf',
     sources: {
       kentucky: { type: 'geojson', data: ky },
       rail: { type: 'geojson', data: rail },
       parkways: { type: 'geojson', data: roads },
       counties: { type: 'geojson', data: counties },
       sections: { type: 'geojson', data: secs },
+      lineLabels: { type: 'geojson', data: labelledLines(secs), buffer: 512, tolerance: 0 },
+      lexBlock: { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: LEXINGTON } } },
     },
     layers: [
       { id: 'bg', type: 'background', paint: { 'background-color': c.bg } },
@@ -227,6 +255,26 @@ function styleFor(theme, ky, rail, roads, counties, secs) {
           'circle-stroke-width': 2,
         },
       },
+      { id: 'sec-label', type: 'symbol', source: 'lineLabels', filter: labelFilter(DEFAULT_YEAR, false), layout: labelLayout(), paint: labelPaint(theme, labelColorExpr(theme)) },
+      {
+        id: 'sec-label-lex',
+        type: 'symbol',
+        source: 'lineLabels',
+        minzoom: LEX_REVEAL_ZOOM,
+        filter: labelFilter(DEFAULT_YEAR, true),
+        layout: { ...labelLayout(), 'symbol-sort-key': ['+', 10, ['get', 'labelRank']] },
+        paint: labelPaint(theme, labelColorExpr(theme)),
+      },
+      {
+        // Topmost symbol layer, so it is placed first: below zoom 8 this invisible box keeps line
+        // labels clear of the Lexington junction.
+        id: 'lex-blocker',
+        type: 'symbol',
+        source: 'lexBlock',
+        maxzoom: LEX_REVEAL_ZOOM,
+        layout: { 'text-field': 'MMM', 'text-font': ['Open Sans Semibold'], 'text-size': 12, 'text-allow-overlap': true, 'text-ignore-placement': false },
+        paint: { 'text-opacity': 0 },
+      },
     ],
   }
 }
@@ -244,14 +292,20 @@ function applyColors() {
   map.setPaintProperty('sec-future', 'line-color', c.future)
   map.setPaintProperty('bridge-circle', 'circle-color', c.bridge)
   map.setPaintProperty('bridge-circle', 'circle-stroke-color', c.bridgeStroke)
+  for (const id of ['sec-label', 'sec-label-lex']) {
+    for (const [k, v] of Object.entries(labelPaint(theme, labelColorExpr(theme)))) map.setPaintProperty(id, k, v)
+  }
 }
 
 function applyYear(year) {
-  const filter = transportYearFilter(year)
+  currentYear = year
+  const filter = ['all', transportYearFilter(year), notHidden()]
   for (const id of ['sec-casing', 'sec-line']) {
     if (map.getLayer(id)) map.setFilter(id, ['all', NOT_TRAIL, filter])
   }
-  if (map.getLayer('sec-future')) map.setFilter('sec-future', futureFilter(year))
+  if (map.getLayer('sec-future')) map.setFilter('sec-future', ['all', futureFilter(year), notHidden()])
+  if (map.getLayer('sec-label')) map.setFilter('sec-label', labelFilter(year, false))
+  if (map.getLayer('sec-label-lex')) map.setFilter('sec-label-lex', labelFilter(year, true))
   const bridge = ['all', filter, ['==', ['get', 'kind'], 'bridge']]
   if (map.getLayer('bridge-circle')) map.setFilter('bridge-circle', bridge)
   const section = document.getElementById('transport')
@@ -271,6 +325,7 @@ function applyYear(year) {
   renderLegend(year)
   renderSparseNote(year)
   syncTicks(year)
+  window.dispatchEvent(new CustomEvent('transport:year', { detail: year }))
 }
 
 /* ---- Opening ticks (#291 follow-up) ---- */
@@ -331,6 +386,7 @@ function showTip(btn) {
   if (!tip) return
   tip.hidden = false
   btn.classList.add('is-tip-open')
+  btn.closest('.transport-year')?.classList.add('is-tip-open')
   // Keep the tooltip inside the controls column.
   tip.style.transform = ''
   const box = tip.getBoundingClientRect()
@@ -349,6 +405,7 @@ function hideTips(except) {
     const tip = document.getElementById(b.getAttribute('aria-describedby'))
     if (tip) tip.hidden = true
   })
+  if (!document.querySelector('#transportTicks .transport-tick.is-tip-open')) document.querySelector('.transport-year')?.classList.remove('is-tip-open')
 }
 
 let measureCtx = null
@@ -455,59 +512,8 @@ function renderLegend(year) {
   html += '<li><i class="transport-swatch is-tick-swatch" aria-hidden="true"></i>Timeline tick: openings that year</li>'
   html += '<li><i class="transport-swatch is-future-swatch" aria-hidden="true"></i>Not yet open</li></ul>'
   list.innerHTML = html
-  renderSections(year)
 }
 
-function renderSections(year) {
-  const wrap = document.getElementById('transportSections')
-  if (!wrap || !sections) return
-  let html = ''
-  const groups = [
-    ['trail', 'Before 1775'],
-    ['road', 'Early roads and traces'],
-    ['rail', 'Railroad sections'],
-    ['parkway', 'Parkways'],
-  ]
-  for (const [kind, label] of groups) {
-    const items = sections.features.map((f) => f.properties).filter((f) => f.kind === kind)
-    const seen = new Set()
-    let rows = ''
-    for (const f of items) {
-      if (seen.has(f.id)) continue
-      seen.add(f.id)
-      const on = f.undated === true || f.opened <= year
-      const title = `${f.routeName}: ${f.from} to ${f.to}`
-      const jump = f.undated === true ? (minYear ?? year) : f.opened > 2000 ? 2000 : f.opened
-      rows += `<li class="${on ? 'is-on' : 'is-future'}">
-          <button type="button" data-year="${esc(jump)}">
-          <i class="transport-swatch${f.kind === 'trail' ? ' is-trail-swatch' : ''}" style="${f.kind === 'trail' ? 'color' : 'background'}:${esc(kindColorFor(f.kind) || eraColorFor(f.opened))}" aria-hidden="true"></i>
-          <span class="transport-legend-name">${esc(title)}</span>
-          <span class="transport-legend-year">${esc(f.openedLabel || f.opened)}</span>
-          ${f.dateStatus === 'needs-source' ? '<span class="transport-badge is-needs-source">Needs source</span>' : f.dateStatus === 'disputed' ? '<span class="transport-badge">Disputed</span>' : f.provisional ? '<span class="transport-badge">Provisional</span>' : ''}
-        </button>
-      </li>`
-    }
-    if (kind === 'rail') {
-      html += `<details class="transport-rail-details" data-k="rail"><summary>${esc(label)} (${seen.size})</summary><ul class="transport-legend-list">${rows}</ul></details>`
-    } else {
-      html += `<p class="transport-legend-label">${esc(label)}</p><ul class="transport-legend-list">${rows}</ul>`
-    }
-  }
-  // Editor #291: never rebuild on (or around) a toggle. The open state lives in railSectionsOpen,
-  // updated from the toggle event (fired after the browser flips it), and an unchanged list is left alone.
-  if (!wrap.dataset.toggleWired) {
-    wrap.dataset.toggleWired = '1'
-    wrap.addEventListener('toggle', (event) => {
-      if (event.target.matches?.('details.transport-rail-details')) railSectionsOpen = event.target.open
-    }, true)
-  }
-  if (html === lastSectionsHtml && wrap.querySelector('details.transport-rail-details')) return
-  lastSectionsHtml = html
-  wrap.innerHTML = html
-  if (railSectionsOpen) wrap.querySelector('details.transport-rail-details').open = true
-}
-let railSectionsOpen = false
-let lastSectionsHtml = ''
 
 
 function writeHash(year) {
@@ -640,6 +646,7 @@ async function boot() {
   })
   wireMap()
   await new Promise((resolve) => map.once('load', resolve))
+  window.__khdTransportMap = map // read-only hook for the build's label check
   if (window.innerWidth < 600) {
     container.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show')
   }
@@ -651,16 +658,25 @@ async function boot() {
     renderLegend(year)
   })
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-hp-theme'] })
+  const KY_FIT = [
+    [-89.58, 36.45],
+    [-81.96, 39.17],
+  ]
+  // Bottom padding clears the credits strip (so 'toward Chattanooga' stays readable) or the open phone sheet.
+  const fitKentucky = (sheetH = 0) => {
+    const bottom = Math.max(18 + creditsHeight(container), sheetH + 12)
+    const h = container.clientHeight
+    if (h - bottom - 18 < 60) return
+    map.fitBounds(KY_FIT, { padding: { top: 18, left: 18, right: 18, bottom }, duration: 0 })
+  }
   if (!fitted) {
-    map.fitBounds(
-      [
-        [-89.58, 36.45],
-        [-81.96, 39.17],
-      ],
-      // Bottom padding clears the credits strip so 'toward Chattanooga' stays readable.
-      { padding: { top: 18, left: 18, right: 18, bottom: 18 + creditsHeight(container) }, duration: 0 },
-    )
+    fitKentucky()
     fitted = true
+  }
+  if (!window.__khdSheetFit) {
+    window.__khdSheetFit = true
+    // An instant refit: an eased one is cancelled by the sheet's own resize/redraw.
+    window.addEventListener('transport:sheet', (e) => fitKentucky(Number(e.detail?.height) || 0))
   }
   const slider = document.getElementById('transportYear')
   const legend = document.getElementById('transportLegend')
@@ -673,7 +689,7 @@ async function boot() {
       writeHash(year)
     })
   }
-  for (const el of [legend, document.getElementById('transportSections')]) {
+  for (const el of [legend]) {
   if (el && !el.dataset.wired) {
     el.dataset.wired = '1'
     el.addEventListener('click', (event) => {
@@ -717,8 +733,20 @@ function declutterEndpoints() {
     label.style.visibility = ''
     const r = label.getBoundingClientRect()
     const hit = placed.some((p) => r.left < p.right + 2 && r.right > p.left - 2 && r.top < p.bottom + 1 && r.bottom > p.top - 1)
-    if (hit) label.style.visibility = 'hidden'
+    if (hit || underLineLabel(r)) label.style.visibility = 'hidden'
     else placed.push(r)
+  }
+}
+
+/** Line names outrank town names: true when a placed line label overlaps this town name box. */
+function underLineLabel(r) {
+  if (!map || !map.getLayer('sec-label')) return false
+  const box = map.getCanvas().getBoundingClientRect()
+  const layers = ['sec-label', 'sec-label-lex'].filter((id) => map.getLayer(id))
+  try {
+    return map.queryRenderedFeatures([[r.left - box.left, r.top - box.top], [r.right - box.left, r.bottom - box.top]], { layers }).length > 0
+  } catch {
+    return false
   }
 }
 
@@ -751,6 +779,7 @@ function addCountyLabels(labels) {
   }
   map.on('zoomend', sync)
   map.on('moveend', declutterEndpoints)
+  map.on('idle', declutterEndpoints)
   sync()
 }
 

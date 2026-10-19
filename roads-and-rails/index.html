@@ -57,14 +57,14 @@
 
     <main id="content" tabindex="-1">
   <section id="transport" class="map-section transport-section">
-    <aside class="controls transport-controls">
+    <aside class="controls transport-controls" aria-label="Roads and Rails map controls">
       <div class="transport-head">
         <h1>Roads &amp; Rails</h1>
-        <p class="transport-intro">How Kentuckians moved, from river landings and turnpikes to railroads and the parkway system. Drag the year slider to watch the network grow, decade by decade.</p>
-        <p id="transportProv" class="muted transport-note">
-          Roads, railroads and parkways appear in the year they opened; trails older than 1775 show from
-          the start. Road and railroad dates are sourced; parkway years are provisional where noted.
-        </p>
+      </div>
+      <div class="rr-pane">
+    <details class="rr-sec" id="rrSec-timeline" open>
+      <summary><h2 class="rr-sec-title">Timeline</h2><span class="rr-sec-meta">Drag the year</span><span class="rr-chev" aria-hidden="true"></span></summary>
+      <div class="rr-sec-body">
         <div class="transport-year">
           <div class="transport-year-row">
             <label for="transportYear">Year</label>
@@ -86,46 +86,233 @@
         </div>
         <p id="transportStatus" class="muted transport-status" role="status"></p>
         <p id="transportLive" class="visually-hidden" aria-live="polite"></p>
+        <details class="rr-legend" id="rrLegend" open>
+          <summary>Map key</summary>
+          <div id="transportLegend" class="transport-legend"></div>
+          <ul class="rr-symbols">
+            <li><i class="rr-sym-bridge" aria-hidden="true"></i>High Bridge (Cincinnati Southern, 1877)</li>
+            <li><i class="rr-sym-town" aria-hidden="true"></i>Town where a line starts or ends</li>
+          </ul>
+        </details>
       </div>
-      <div id="transportLegend" class="transport-legend"></div>
-      <!-- khd-roads-stories -->
-      <div id="transportSections" class="transport-sections"></div>
-      <p class="transport-credit muted">
-        <a href="#transportFactsH">Sources and licenses</a>
-      </p>
-      <section class="transport-facts" aria-labelledby="transportFactsH">
-      <h2 id="transportFactsH">Trails, roads, railroads and parkways on this map</h2>
-      <h3>Before 1775</h3><dl>
-      <dt>Warriors&#x27; Path (Athiamiowee)</dt><dd>A Native trail used for centuries before settlers came. Cherokee and Shawnee travelled it through Cumberland Gap, by Flat Lick and Manchester, and down Station Camp Creek to the Kentucky River.</dd>
-      <dt>Alanant-o-wamiowee (Great Buffalo Path)</dt><dd>A buffalo trace centuries old that linked the salt licks, from the Ohio River fords at Covington by Big Bone Lick, Drennon Lick, Georgetown, Paris and the Blue Licks to Limestone (Maysville).</dd>
-      <dt>Skaggs&#x27; Trace</dt><dd>A long hunters&#x27; trail in use before 1775. At Hazel Patch it turned west toward Crab Orchard, and Boone left it at that fork.</dd>
-      </dl>
-      <h3>Early roads and traces</h3><dl>
-      <dt>Boone&#x27;s Trace</dt><dd>Blazed March&#x2013;April 1775 from the Long Island of the Holston through Cumberland Gap and Hazel Patch to Fort Boonesborough. It was a marked trace, not a wagon road.</dd>
-      <dt>Wilderness Road</dt><dd>A trace in 1775 through Cumberland Gap, Hazel Patch and Crab Orchard toward the Falls of the Ohio. It was a wagon road by 1796, and Kentucky made it a toll road in 1797.</dd>
-      <dt>Limestone Trace (Smith&#x27;s Wagon Road)</dt><dd>Maysville to Lexington by Washington, Mayslick, the Blue Licks and Paris. A wagon first crossed it in summer 1783.</dd>
-      <dt>Zane&#x27;s Trace</dt><dd>Cut in 1796&#x2013;97 from Wheeling through Chillicothe to the Ohio River opposite Maysville, where a ferry crossed. It is shown on the map from 1797.</dd>
-      <dt>Maysville&#x2013;Lexington Turnpike</dt><dd>President Jackson vetoed federal stock in the road on 27 May 1830. State and private money finished the macadam road by 1835.</dd>
-      </dl>
-      <p class="muted">Early road and trail lines are generalized through public waypoint towns, not surveyed routes.</p>
-      <h3>Railroads</h3><dl>
-      <dt>Lexington &amp; Ohio Railroad</dt><dd>Kentucky&#x27;s first railroad, chartered 27 January 1830. About 1.5 miles of track from Lexington were laid by August 1832. Horse-drawn cars reached Frankfort from Lexington on 31 January 1834; the first steam run followed in January 1835. The line was chartered to carry Bluegrass goods toward the Ohio River.</dd>
-      <dt>Louisville &amp; Frankfort Railroad</dt><dd>Closed the gap from Frankfort to the Ohio River at Louisville, with through service in 1851 after the Kentucky River bridge was finished.</dd>
-      <dt>Louisville &amp; Nashville main line</dt><dd>Opened south from Louisville in stages from 1855, climbing Muldraugh&#x27;s Hill to reach Elizabethtown in June 1858. Track met at Bowling Green on 10 August 1859, and the first through train to Nashville ran on 27 October 1859.</dd>
-      <dt>Cincinnati Southern Railway</dt><dd>Built by the city of Cincinnati for a direct route to Southern markets that bypassed Louisville and the L&amp;N. It was open to Somerset by 23 July 1877, crossing the Kentucky River on High Bridge, and through service to Chattanooga began in 1880.</dd>
-      </dl>
-      <h3>Parkways</h3><dl>
-      <dt>Mountain Parkway</dt><dd>Winchester to Campton opened 14 January 1963, and Campton to Salyersville was dedicated 1 November 1963. It was built to open up eastern Kentucky.</dd>
-      <dt>Western Kentucky Parkway</dt><dd>Elizabethtown to near Eddyville opened in 1963, and the extension to I-24 at Eddyville followed in 1968.</dd>
-      <dt>Bluegrass Parkway</dt><dd>Opened 27 October 1965 between Elizabethtown and the Bluegrass at Versailles.</dd>
-      <dt>Purchase Parkway</dt><dd>Opened in 1966 (provisional) through the Jackson Purchase, from Calvert City to Fulton.</dd>
-      <dt>Pennyrile Parkway</dt><dd>Opened in 1969 (provisional) between Henderson and Hopkinsville.</dd>
-      <dt>Audubon Parkway</dt><dd>Opened 18 December 1970 between Henderson and Owensboro.</dd>
-      <dt>Daniel Boone (Hal Rogers) Parkway</dt><dd>London to Hazard. Sources disagree on the opening year: 1971 or 1974.</dd>
-      <dt>Green River (Natcher) Parkway</dt><dd>Opened in 1972 (provisional) between Bowling Green and Owensboro.</dd>
-      <dt>Cumberland (Louie B. Nunn) Parkway</dt><dd>Opened in 1973 (provisional) from I-65 near Glasgow east to Somerset.</dd>
-      </dl>
-      <h3>Sources</h3><ul class="transport-sources">
+    </details>
+    <!-- khd-rr-lines:start -->
+    <details class="rr-sec rr-lines" id="rrSec-rail" open>
+      <summary><h2 class="rr-sec-title">Railroads</h2><span class="rr-sec-meta">4 lines</span><span class="rr-chev" aria-hidden="true"></span></summary>
+      <div class="rr-sec-body">
+        <div class="rr-group" data-group="rail">
+          <div class="rr-allnone" role="group" aria-label="Railroads: show all or none">
+            <button type="button" data-all="1">All</button><button type="button" data-all="0">None</button>
+            <span class="rr-count" aria-live="polite">4 of 4 shown</span>
+          </div>
+          <ul class="rr-rows" aria-label="Railroads">
+          <li class="rr-row" data-key="lexington-ohio" data-ids="lexington-ohio-0 lexington-ohio-1" data-c="1830" data-opened="1832">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-lexington-ohio">Lexington &amp; Ohio Railroad</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1832</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-lexington-ohio">Kentucky&#x27;s first railroad, chartered 27 January 1830. About 1.5 miles of track from Lexington were laid by August 1832. Horse-drawn cars reached Frankfort from Lexington on 31 January 1834; the first steam run followed in January 1835. The line was chartered to carry Bluegrass goods toward the Ohio River.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-lexington-ohio" hidden>More<span class="visually-hidden"> about Lexington &amp; Ohio Railroad</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Lexington &amp; Ohio Railroad on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="louisville-frankfort" data-ids="lexington-ohio-2" data-c="1850" data-opened="1851">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-louisville-frankfort">Louisville &amp; Frankfort Railroad</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1851</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-louisville-frankfort">Closed the gap from Frankfort to the Ohio River at Louisville, with through service in 1851 after the Kentucky River bridge was finished.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-louisville-frankfort" hidden>More<span class="visually-hidden"> about Louisville &amp; Frankfort Railroad</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Louisville &amp; Frankfort Railroad on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="ln-main" data-ids="ln-main-1 ln-main-2 ln-main-3" data-c="1850" data-opened="1858">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-ln-main">Louisville &amp; Nashville main line</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1855–1858</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-ln-main">Opened south from Louisville in stages from 1855, climbing Muldraugh&#x27;s Hill to reach Elizabethtown in June 1858. Track met at Bowling Green on 10 August 1859, and the first through train to Nashville ran on 27 October 1859.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-ln-main" hidden>More<span class="visually-hidden"> about Louisville &amp; Nashville main line</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Louisville &amp; Nashville main line on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="cincinnati-southern" data-ids="cs-north-1 cs-south-1 cs-south-2" data-c="1870" data-opened="1877">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-cincinnati-southern">Cincinnati Southern Railway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1877</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-cincinnati-southern">Built by the city of Cincinnati for a direct route to Southern markets that bypassed Louisville and the L&amp;N. It was open to Somerset by 23 July 1877, crossing the Kentucky River on High Bridge, and through service to Chattanooga began in 1880.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-cincinnati-southern" hidden>More<span class="visually-hidden"> about Cincinnati Southern Railway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Cincinnati Southern Railway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+    <details class="rr-sec rr-lines" id="rrSec-highways" open>
+      <summary><h2 class="rr-sec-title">Highways and parkways</h2><span class="rr-sec-meta">17 lines</span><span class="rr-chev" aria-hidden="true"></span></summary>
+      <div class="rr-sec-body">
+        <h3 class="rr-group-title" id="rrGroup-parkway">Parkways</h3>
+        <div class="rr-group" data-group="parkway">
+          <div class="rr-allnone" role="group" aria-label="Parkways: show all or none">
+            <button type="button" data-all="1">All</button><button type="button" data-all="0">None</button>
+            <span class="rr-count" aria-live="polite">9 of 9 shown</span>
+          </div>
+          <ul class="rr-rows" aria-label="Parkways">
+          <li class="rr-row" data-key="mountain" data-ids="mountain-1 mountain-2" data-c="1960" data-opened="1963">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-mountain">Mountain Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1963<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-mountain">Winchester to Campton opened 14 January 1963, and Campton to Salyersville was dedicated 1 November 1963. It was built to open up eastern Kentucky.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-mountain" hidden>More<span class="visually-hidden"> about Mountain Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Mountain Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="western-kentucky" data-ids="western-kentucky-1 western-kentucky-2" data-c="1960" data-opened="1963">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-western-kentucky">Western Kentucky Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1963<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-western-kentucky">Elizabethtown to near Eddyville opened in 1963, and the extension to I-24 at Eddyville followed in 1968.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-western-kentucky" hidden>More<span class="visually-hidden"> about Western Kentucky Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Western Kentucky Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="bluegrass" data-ids="bluegrass-1" data-c="1960" data-opened="1965">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-bluegrass">Bluegrass Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1965<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-bluegrass">Opened 27 October 1965 between Elizabethtown and the Bluegrass at Versailles.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-bluegrass" hidden>More<span class="visually-hidden"> about Bluegrass Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Bluegrass Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="purchase" data-ids="purchase-1" data-c="1960" data-opened="1966">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-purchase">Purchase Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1966<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-purchase">Opened in 1966 (provisional) through the Jackson Purchase, from Calvert City to Fulton.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-purchase" hidden>More<span class="visually-hidden"> about Purchase Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Purchase Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="pennyrile" data-ids="pennyrile-1 pennyrile-2" data-c="1960" data-opened="1969">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-pennyrile">Pennyrile Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1969<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-pennyrile">Opened in 1969 (provisional) between Henderson and Hopkinsville.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-pennyrile" hidden>More<span class="visually-hidden"> about Pennyrile Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Pennyrile Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="audubon" data-ids="audubon-1" data-c="1970" data-opened="1970">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-audubon">Audubon Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1970<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-audubon">Opened 18 December 1970 between Henderson and Owensboro.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-audubon" hidden>More<span class="visually-hidden"> about Audubon Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Audubon Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="daniel-boone" data-ids="daniel-boone-1" data-c="1970" data-opened="1971">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-daniel-boone">Daniel Boone (Hal Rogers) Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1971/74</span> <span class="transport-badge rr-badge">Disputed</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-daniel-boone">London to Hazard. Sources disagree on the opening year: 1971 or 1974.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-daniel-boone" hidden>More<span class="visually-hidden"> about Daniel Boone (Hal Rogers) Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Daniel Boone (Hal Rogers) Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="green-river" data-ids="green-river-1" data-c="1970" data-opened="1972">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-green-river">Green River (Natcher) Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1972<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-green-river">Opened in 1972 (provisional) between Bowling Green and Owensboro.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-green-river" hidden>More<span class="visually-hidden"> about Green River (Natcher) Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Green River (Natcher) Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="cumberland" data-ids="cumberland-1" data-c="1970" data-opened="1973">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-cumberland">Cumberland (Louie B. Nunn) Parkway</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1973<abbr title="Provisional year" aria-label="provisional">*</abbr></span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-cumberland">Opened in 1973 (provisional) from I-65 near Glasgow east to Somerset.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-cumberland" hidden>More<span class="visually-hidden"> about Cumberland (Louie B. Nunn) Parkway</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Cumberland (Louie B. Nunn) Parkway on the map"><span aria-hidden="true"></span></label>
+          </li>
+          </ul>
+        </div>
+        <h3 class="rr-group-title" id="rrGroup-early">Early roads and trails</h3>
+        <div class="rr-group" data-group="early">
+          <div class="rr-allnone" role="group" aria-label="Early roads and trails: show all or none">
+            <button type="button" data-all="1">All</button><button type="button" data-all="0">None</button>
+            <span class="rr-count" aria-live="polite">8 of 8 shown</span>
+          </div>
+          <ul class="rr-rows" aria-label="Early roads and trails">
+          <li class="rr-row" data-key="warriors-path" data-ids="warriors-path" data-c="trail">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-warriors-path">Warriors&#x27; Path (Athiamiowee)</span> <span class="rr-row-year"><span class="visually-hidden">, </span>Before 1775</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-warriors-path">A Native trail used for centuries before settlers came. Cherokee and Shawnee travelled it through Cumberland Gap, by Flat Lick and Manchester, and down Station Camp Creek to the Kentucky River.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-warriors-path" hidden>More<span class="visually-hidden"> about Warriors&#x27; Path (Athiamiowee)</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Warriors&#x27; Path (Athiamiowee) on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="alanant-o-wamiowee" data-ids="alanant-o-wamiowee" data-c="trail">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-alanant-o-wamiowee">Alanant-o-wamiowee (Great Buffalo Path)</span> <span class="rr-row-year"><span class="visually-hidden">, </span>Before 1775</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-alanant-o-wamiowee">A buffalo trace centuries old that linked the salt licks, from the Ohio River fords at Covington by Big Bone Lick, Drennon Lick, Georgetown, Paris and the Blue Licks to Limestone (Maysville).</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-alanant-o-wamiowee" hidden>More<span class="visually-hidden"> about Alanant-o-wamiowee (Great Buffalo Path)</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Alanant-o-wamiowee (Great Buffalo Path) on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="skaggs-trace" data-ids="skaggs-trace" data-c="trail">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-skaggs-trace">Skaggs&#x27; Trace</span> <span class="rr-row-year"><span class="visually-hidden">, </span>Before 1775</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-skaggs-trace">A long hunters&#x27; trail in use before 1775. At Hazel Patch it turned west toward Crab Orchard, and Boone left it at that fork.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-skaggs-trace" hidden>More<span class="visually-hidden"> about Skaggs&#x27; Trace</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Skaggs&#x27; Trace on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="boone-trace" data-ids="boone-trace" data-c="road" data-opened="1775">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-boone-trace">Boone&#x27;s Trace</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1775</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-boone-trace">Blazed March–April 1775 from the Long Island of the Holston through Cumberland Gap and Hazel Patch to Fort Boonesborough. It was a marked trace, not a wagon road.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-boone-trace" hidden>More<span class="visually-hidden"> about Boone&#x27;s Trace</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Boone&#x27;s Trace on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="wilderness-road" data-ids="wilderness-road" data-c="road" data-opened="1775">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-wilderness-road">Wilderness Road</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1775</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-wilderness-road">A trace in 1775 through Cumberland Gap, Hazel Patch and Crab Orchard toward the Falls of the Ohio. It was a wagon road by 1796, and Kentucky made it a toll road in 1797.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-wilderness-road" hidden>More<span class="visually-hidden"> about Wilderness Road</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Wilderness Road on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="limestone-trace" data-ids="limestone-trace" data-c="road" data-opened="1783">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-limestone-trace">Limestone Trace (Smith&#x27;s Wagon Road)</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1783</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-limestone-trace">Maysville to Lexington by Washington, Mayslick, the Blue Licks and Paris. A wagon first crossed it in summer 1783.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-limestone-trace" hidden>More<span class="visually-hidden"> about Limestone Trace (Smith&#x27;s Wagon Road)</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Limestone Trace (Smith&#x27;s Wagon Road) on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="zanes-trace" data-ids="zanes-trace" data-c="road" data-opened="1797">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-zanes-trace">Zane&#x27;s Trace</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>1797</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-zanes-trace">Cut in 1796–97 from Wheeling through Chillicothe to the Ohio River opposite Maysville, where a ferry crossed. It is shown on the map from 1797.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-zanes-trace" hidden>More<span class="visually-hidden"> about Zane&#x27;s Trace</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Zane&#x27;s Trace on the map"><span aria-hidden="true"></span></label>
+          </li>
+          <li class="rr-row" data-key="maysville-turnpike" data-ids="maysville-turnpike" data-c="road" data-opened="1835">
+            <i class="rr-swatch" aria-hidden="true"></i>
+            <div class="rr-row-text">
+              <p class="rr-row-top"><span class="rr-row-name" id="rrName-maysville-turnpike">Maysville–Lexington Turnpike</span> <span class="rr-row-year"><span class="visually-hidden">, opened </span>by 1835</span></p>
+              <div class="rr-desc-line"><p class="rr-row-desc" id="rrDesc-maysville-turnpike">President Jackson vetoed federal stock in the road on 27 May 1830. State and private money finished the macadam road by 1835.</p><button type="button" class="rr-more" aria-expanded="false" aria-controls="rrDesc-maysville-turnpike" hidden>More<span class="visually-hidden"> about Maysville–Lexington Turnpike</span></button></div>
+            </div>
+            <label class="rr-switch"><input type="checkbox" role="switch" checked aria-label="Show Maysville–Lexington Turnpike on the map"><span aria-hidden="true"></span></label>
+          </li>
+          </ul>
+        </div>
+        <p class="muted rr-note">Early road and trail lines are generalized through public waypoint towns, not surveyed routes. Parkway years marked * are provisional.</p>
+      </div>
+    </details>
+    <!-- khd-rr-lines:end -->
+    <details class="rr-sec" id="rrSec-about">
+      <summary><h2 class="rr-sec-title">About this map</h2><span class="rr-chev" aria-hidden="true"></span></summary>
+      <div class="rr-sec-body">
+        <p class="transport-intro">How Kentuckians moved, from river landings and turnpikes to railroads and the parkway system. Drag the year slider to watch the network grow, decade by decade.</p>
+        <p id="transportProv" class="muted transport-note">
+          Roads, railroads and parkways appear in the year they opened; trails older than 1775 show from
+          the start. Road and railroad dates are sourced; parkway years are provisional where noted.
+        </p>
+        <h3 id="transportFactsH">Sources and licenses</h3>
+        <ul class="transport-sources">
       <li><a href="https://grokipedia.com/page/Great_Indian_Warpath" rel="noopener noreferrer nofollow" target="_blank">grokipedia.com</a> (Warriors&#x27; Path (Athiamiowee))</li>
       <li><a href="https://www.nps.gov/cuga/learn/historyculture/warriors-path.htm" rel="noopener noreferrer nofollow" target="_blank">nps.gov</a> (Warriors&#x27; Path (Athiamiowee))</li>
       <li><a href="https://boonetrace1775.com/Early-Roads-Into-Kentucky---Neil-Hammon.pdf" rel="noopener noreferrer nofollow" target="_blank">boonetrace1775.com</a> (Warriors&#x27; Path (Athiamiowee))</li>
@@ -169,7 +356,11 @@
       <li><a href="https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/NTAD_National_Highway_System/FeatureServer/0" rel="noopener noreferrer nofollow" target="_blank">National Transportation Atlas Database (NTAD) National Highway System</a> (The NHS Version 2025.08.08 database, or any portion thereof, can be freely distributed as long as this metadata entry is included with each distribution. The original metadata entry cannot be modified or deleted from any data transfer. This NTAD dataset is a work of the United States government as defined in 17 U.S.C. § 101 and as such are not protected by any U.S. copyrights. This work is available for unrestricted public use.)</li>
       <li><a href="https://www2.census.gov/geo/tiger/GENZ2023/" rel="noopener noreferrer nofollow" target="_blank">US Census Bureau cartographic boundary files, counties 2023</a> (public domain)</li>
       <li><a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" rel="noopener noreferrer nofollow" target="_blank">Natural Earth</a> state outline (public domain)</li>
-      </ul><p class="muted">Railroad dates are sourced per section. Parkway years are provisional where noted. <a href="/maps/transport/sources.json">Full source data (JSON)</a></p></section>
+      </ul><p class="muted">Railroad dates are sourced per section. Parkway years are provisional where noted. <a href="/maps/transport/sources.json">Full source data (JSON)</a></p>
+      </div>
+    </details>
+      </div>
+      <!-- khd-roads-stories -->
     </aside>
     <div class="map-canvas-wrap">
       <div id="transportMap" role="region" aria-label="Kentucky transportation map in 1880"></div>

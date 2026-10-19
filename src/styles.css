@@ -4907,7 +4907,6 @@ a.research-cite:focus-visible { outline: 3px solid var(--focus-ring); outline-of
   border-radius: 999px;
   padding: 0.05rem 0.35rem;
 }
-.transport-credit { margin: 0.85rem 0 0; font-size: 0.82rem; }
 #transportMap { width: 100%; min-height: 70vh; height: 100%; }
 .transport-section .map-canvas-wrap { min-height: 70vh; background: #f4efe4; }
 html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #100e0c; }
@@ -4943,10 +4942,7 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
 @media (max-width: 900px) {
   .transport-section { display: flex; flex-direction: column; }
   .transport-controls { display: contents; }
-  .transport-head,
-  .transport-legend,
-  .transport-sections,
-  .transport-credit {
+  .transport-head {
     background: var(--panel);
     padding-left: 1rem;
     padding-right: 1rem;
@@ -4959,9 +4955,6 @@ html[data-hp-theme="dark"] .transport-section .map-canvas-wrap { background: #10
     height: calc(100svh - 360px);
   }
   #transportMap { min-height: 0; height: 100%; }
-  .transport-legend { order: 3; padding-bottom: 0.4rem; }
-  .transport-sections { order: 6; padding-top: 0.4rem; padding-bottom: 0.4rem; }
-  .transport-credit { order: 7; padding-bottom: 1rem; }
 }
 
 /* transport v2: counties, era legend */
@@ -5013,11 +5006,6 @@ html[data-hp-theme='dark'] .transport-endpoint b { color: #f6edd8; text-shadow: 
 html[data-hp-theme='dark'] .transport-endpoint i { background: #100e0c; border-color: #f6edd8; }
 html[data-hp-theme='dark'] .transport-county-label { color: #d8ccb2; text-shadow: 0 0 2px #100e0c, 0 0 2px #100e0c; }
 html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
-.transport-facts { margin-top: 1.25rem; font-size: 0.9rem; }
-.transport-facts h3 { font-size: 1rem; margin: 0 0 0.5rem; }
-.transport-facts h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.9rem 0 0.3rem; }
-.transport-facts dt { font-weight: 700; margin-top: 0.5rem; }
-.transport-facts dd { margin: 0.1rem 0 0; }
 .transport-sources { padding-left: 1.1rem; margin: 0; }
 .transport-sources li { margin: 0.2rem 0; overflow-wrap: anywhere; }
 
@@ -5058,8 +5046,7 @@ html[data-hp-theme='dark'] .transport-badge.is-needs-source { color: #ff9b7a; }
 .transport-sparse[hidden] { display: none; }
 @media (max-width: 900px) {
   /* Facts/sources sit under the map and legend on phones, not above the map. */
-  .transport-facts { order: 8; background: var(--panel); margin-top: 0; padding: 1rem; }
-}
+  }
 /* People gallery */
 .people-page .story-head h1 { margin-bottom: 0.4rem; }
 .people-group { margin: 1.5rem 0 0; }
@@ -5943,9 +5930,7 @@ html[data-hp-theme="light"] .hp-plan-drive {
 /* Item 70: /roads-and-rails/ page (mockup B). The transport map from #258 with a page title and intro. */
 .transport-controls h1 { margin: 0 0 0.45rem; color: var(--heading); font-size: 1.6rem; line-height: 1.15; }
 .transport-intro { margin: 0 0 0.6rem; font-size: 1.02rem; line-height: 1.45; color: var(--text); }
-.roads-rails-page .transport-facts h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--heading); }
-.roads-rails-page .transport-facts h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.9rem 0 0.3rem; }
-
+.roads-rails-page .roads-rails-page 
 /* Roads & Rails: static story list and drive link (SEO #291). */
 .transport-stories { margin-top: 1.25rem; font-size: 0.9rem; }
 .roads-rails-page .transport-stories h2 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--heading); }
@@ -6071,27 +6056,6 @@ html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter
   .roads-rails-page .transport-section .map-canvas-wrap, .roads-rails-page #transportMap { min-height: 0; }
 }
 
-/* Railroad sections collapse (Critiquito #291) */
-.transport-sections { margin-top: 1rem; }
-.transport-rail-details > summary {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 0.5rem;
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--heading);
-  border: 1px solid var(--border, rgba(127,127,127,0.35));
-  border-radius: 8px;
-}
-.transport-rail-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.transport-rail-details[open] > summary { margin-bottom: 0.4rem; }
-.transport-rail-details > summary { list-style: none; gap: 0.5rem; }
-.transport-rail-details > summary::-webkit-details-marker { display: none; }
-.transport-rail-details > summary::marker { content: ''; }
-.transport-rail-details > summary::before { content: '\25B8'; display: inline-block; width: 1em; text-align: center; color: var(--accent); font-size: 1.05em; line-height: 1; }
-.transport-rail-details[open] > summary::before { content: '\25BE'; }
-
 /* Photos sidebar with source links but no thumbnail: just the links, no trailing divider. */
 .story-sidebar-photo.is-links-only .story-sidebar-photo-links { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
 
@@ -6139,7 +6103,7 @@ html:not([data-hp-theme="light"]) .hp-page .brand-logo {
 /* Roads & Rails opening ticks (#291 follow-up; Critiquito #326): one tick per opening year, each with a
  * visible label. Crowded labels stagger onto extra rows with leader lines. Marks and labels share one colour
  * (--text), explained in the legend; leaders are --muted decoration. */
-.transport-ticks { --tick-label-size: 11px; position: relative; height: 40px; margin: -8px 0 0.2rem; }
+.transport-ticks { --tick-label-size: 12px; position: relative; height: 40px; margin: -8px 0 0.2rem; }
 .transport-tick-lines { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
 .transport-tick-mark { stroke: var(--text); stroke-width: 2; stroke-linecap: round; }
 .transport-tick-lead { fill: none; stroke: var(--muted); stroke-width: 1; }
@@ -6205,3 +6169,155 @@ html:not([data-hp-theme="light"]) .hp-page .brand-logo {
 .transport-tip ul { margin: 0.3rem 0 0; padding: 0; list-style: none; }
 .transport-tip li { margin: 0.12rem 0; }
 .transport-year { position: relative; }
+/* Critiquito #326 notes: labels stay 12px (no narrow fine-pointer override); the '2000' end label hides on
+ * phones while a tick's card is open, so the card never sits on it. */
+@media (max-width: 600px) {
+  .transport-year.is-tip-open .transport-scale span:last-child { visibility: hidden; }
+}
+
+/* ===== Roads & Rails left pane + line labels (mockup v2, approved Oct 18) ===== */
+.roads-rails-page .transport-controls { position: relative; padding-bottom: 0; }
+.roads-rails-page .transport-head h1 { margin: 0 0 0.15rem; font-size: 1.45rem; }
+.rr-pane { display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.35rem; padding-bottom: 1rem; }
+.rr-sec { border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+.rr-sec > summary {
+  list-style: none; display: flex; align-items: center; gap: 0.5rem;
+  min-height: 44px; padding: 0 0.85rem; cursor: pointer; border-radius: 10px;
+}
+.rr-sec > summary::-webkit-details-marker { display: none; }
+.rr-sec > summary:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.rr-sec-title { margin: 0; flex: 1; font-size: 0.98rem; font-weight: 700; line-height: 1.2; color: var(--heading); }
+.rr-sec-meta { font-size: 0.75rem; color: var(--muted); }
+.rr-chev {
+  width: 0.55rem; height: 0.55rem; margin-top: -4px; flex: none;
+  border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg); transition: transform 0.15s;
+}
+.rr-sec[open] > summary .rr-chev { transform: rotate(-135deg); margin-top: 4px; }
+.rr-sec[open] > summary { border-bottom: 1px solid var(--line); border-radius: 10px 10px 0 0; }
+.rr-sec-body { padding: 0.5rem 0.75rem 0.6rem; }
+.rr-sec-body > p { margin: 0 0 0.6rem; font-size: 0.88rem; line-height: 1.45; }
+.rr-sec-body h3 { margin: 0.75rem 0 0.35rem; font-size: 0.9rem; color: var(--heading); }
+.rr-sec-body .transport-sources { font-size: 0.82rem; }
+.rr-group-title { margin: 0.5rem 0 0.25rem !important; font-size: 0.75rem !important; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted) !important; }
+.rr-group-title:first-child { margin-top: 0 !important; }
+.rr-note { margin: 0.5rem 0 0 !important; font-size: 0.75rem !important; }
+.rr-allnone { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.2rem; }
+.rr-allnone button {
+  min-height: 32px; min-width: 44px; padding: 0 0.75rem; border-radius: 999px; border: 1px solid var(--accent);
+  background: transparent; color: var(--heading); font: inherit; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+}
+.rr-allnone button:hover, .rr-allnone button:focus-visible { background: var(--chip); }
+.rr-allnone button:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.rr-count { margin-left: auto; font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rr-rows { list-style: none; margin: 0; padding: 0; }
+.rr-row {
+  display: grid; grid-template-columns: 22px minmax(0, 1fr) 44px; gap: 0.5rem; align-items: center;
+  min-height: 44px; padding: 0.2rem 0.25rem; margin: 0 -0.25rem; border-top: 1px solid var(--line); border-radius: 6px; cursor: pointer;
+}
+.rr-row:first-child { border-top-color: transparent; }
+.rr-row:hover { background: color-mix(in srgb, var(--chip) 45%, transparent); }
+.rr-row-text { min-width: 0; }
+.rr-row-top { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 0.45rem; margin: 0; }
+.rr-row-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; font-size: 0.88rem; line-height: 1.25; color: var(--heading); }
+.rr-row-year { flex: none; font-variant-numeric: tabular-nums; font-weight: 700; font-size: 0.82rem; color: var(--accent); white-space: nowrap; }
+.rr-row-year abbr { text-decoration: none; margin-left: 1px; }
+.rr-badge { margin: 0; font-size: 0.66rem; padding: 0 0.35rem; }
+.rr-desc-line { display: flex; align-items: baseline; gap: 0.4rem; min-width: 0; }
+.rr-row-desc { flex: 1; min-width: 0; margin: 0.05rem 0 0; font-size: 0.78rem; line-height: 1.35; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rr-row.is-expanded .rr-desc-line { flex-direction: column; gap: 0; }
+.rr-row.is-expanded .rr-row-desc { white-space: normal; }
+.rr-more {
+  flex: none; min-height: 24px; padding: 0 0.1rem; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 0.75rem; font-weight: 700; color: var(--accent); text-decoration: underline;
+}
+.rr-more:focus-visible { outline: 3px solid var(--focus-ring); border-radius: 3px; }
+.rr-more[hidden] { display: none; }
+.rr-row.is-off .rr-row-name, .rr-row.is-off .rr-row-year { color: var(--muted); }
+.rr-row.is-off .rr-swatch { opacity: 0.35; }
+/* 44x44 switch target; the 44x26 track sits in the middle. */
+.rr-switch { position: relative; display: block; width: 44px; height: 44px; }
+.rr-switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.rr-switch span { position: absolute; left: 0; right: 0; top: 9px; height: 26px; border-radius: 999px; background: var(--chip); border: 1px solid var(--line); box-sizing: border-box; transition: background 0.15s; }
+.rr-switch span::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #f6edd8; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35); transition: transform 0.15s; }
+.rr-switch input:checked + span { background: #2f6b3a; border-color: #2f6b3a; }
+.rr-switch input:checked + span::after { transform: translateX(16px); }
+.rr-switch input:focus-visible + span { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+html[data-hp-theme='dark'] .rr-switch input:checked + span { background: #c9893a; border-color: #c9893a; }
+/* Swatches: the colour each line is drawn in (transport-lines.js), per theme. */
+.rr-swatch { display: block; width: 22px; height: 5px; border-radius: 3px; background: var(--rr-c); }
+.rr-row[data-c='1830'] { --rr-c: #9a6f00; }
+.rr-row[data-c='1850'] { --rr-c: #a0461b; }
+.rr-row[data-c='1870'] { --rr-c: #5c4033; }
+.rr-row[data-c='1880'] { --rr-c: #2f6b3a; }
+.rr-row[data-c='1960'] { --rr-c: #0c8599; }
+.rr-row[data-c='1970'] { --rr-c: #5c940d; }
+.rr-row[data-c='road'] { --rr-c: #b4610f; }
+.rr-row[data-c='trail'] { --rr-c: #6e5a1e; }
+html[data-hp-theme='dark'] .rr-row[data-c='1830'] { --rr-c: #ffd43b; }
+html[data-hp-theme='dark'] .rr-row[data-c='1850'] { --rr-c: #f4a46a; }
+html[data-hp-theme='dark'] .rr-row[data-c='1870'] { --rr-c: #d9c2a0; }
+html[data-hp-theme='dark'] .rr-row[data-c='1880'] { --rr-c: #5fbf73; }
+html[data-hp-theme='dark'] .rr-row[data-c='1960'] { --rr-c: #3bc9db; }
+html[data-hp-theme='dark'] .rr-row[data-c='1970'] { --rr-c: #d4f06a; }
+html[data-hp-theme='dark'] .rr-row[data-c='road'] { --rr-c: #f0b45a; }
+html[data-hp-theme='dark'] .rr-row[data-c='trail'] { --rr-c: #f2ecd8; }
+.rr-row[data-c='trail'] .rr-swatch { background: repeating-linear-gradient(90deg, var(--rr-c) 0 4px, transparent 4px 7px); }
+/* Map key */
+.rr-legend { margin-top: 0.35rem; }
+.rr-legend > summary {
+  list-style: none; display: flex; align-items: center; gap: 0.35rem; min-height: 32px; cursor: pointer;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+}
+.rr-legend > summary::-webkit-details-marker { display: none; }
+.rr-legend > summary::before { content: '\25B8'; color: var(--accent); }
+.rr-legend[open] > summary::before { content: '\25BE'; }
+.rr-legend > summary:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; border-radius: 4px; }
+.rr-legend .transport-legend { margin-top: 0.1rem; }
+.rr-legend .transport-legend-label { display: none; }
+.rr-legend .transport-era-list { margin: 0; font-size: 0.82rem; gap: 0.25rem 0.9rem; }
+.rr-symbols { list-style: none; margin: 0.35rem 0 0; padding: 0; font-size: 0.82rem; display: grid; gap: 0.25rem; }
+.rr-symbols li { display: flex; align-items: center; gap: 0.5rem; }
+.rr-sym-bridge { width: 12px; height: 12px; border-radius: 50%; background: #fff8ea; border: 2px solid #2b1d0e; margin: 0 5px; box-sizing: border-box; }
+.rr-sym-town { width: 8px; height: 8px; border-radius: 50%; background: #fff8ea; border: 1.5px solid #2b1d0e; margin: 0 7px; box-sizing: border-box; }
+html[data-hp-theme='dark'] .rr-sym-bridge { background: #f6edd8; border-color: #e2b15a; }
+html[data-hp-theme='dark'] .rr-sym-town { background: #100e0c; border-color: #f6edd8; }
+/* Desktop: the pane scrolls; a soft fade at its foot says more is below (Editor: Highways reachable at 1280). */
+@media (min-width: 901px) {
+  .roads-rails-page .transport-controls { overflow-y: auto; overscroll-behavior: contain; }
+  .roads-rails-page .transport-controls.has-more-below::after {
+    content: ''; position: sticky; display: block; bottom: 0; height: 36px; margin: -36px -1rem 0;
+    background: linear-gradient(to bottom, transparent, var(--panel)); pointer-events: none;
+  }
+  .rr-sheet { display: none; }
+}
+/* Phones and tablets: Timeline above the map, line groups in a bottom sheet over the map. */
+@media (max-width: 900px) {
+  .roads-rails-page .rr-pane { display: contents; }
+  .roads-rails-page #rrSec-timeline { order: 2; margin: 0.35rem 1rem 0.5rem; }
+  .roads-rails-page .transport-section .map-canvas-wrap { order: 3; position: relative; height: calc(100svh - 230px); min-height: 440px; }
+  .roads-rails-page #rrSec-about { order: 4; margin: 0.6rem 1rem 0; }
+  .roads-rails-page .transport-stories { order: 5; padding: 0 1rem 1rem; }
+  .roads-rails-page .rr-sec-body .transport-year { margin-top: 0; }
+  .rr-sheet {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; display: flex; flex-direction: column;
+    height: 44px; max-height: 100%; background: var(--panel); border-top: 1px solid var(--line);
+    border-radius: 14px 14px 0 0; box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.18); transition: height 0.2s;
+  }
+  .rr-sheet.is-open { height: 46%; }
+  .rr-sheet.is-dragging { transition: none; }
+  .rr-sheet-handle {
+    position: relative; display: flex; align-items: center; gap: 0.5rem; flex: none; min-height: 44px; padding: 6px 1rem 0;
+    border: 0; background: none; font: inherit; font-weight: 700; color: var(--heading); cursor: grab; text-align: left; touch-action: none;
+  }
+  .rr-sheet-handle:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: -3px; border-radius: 14px 14px 0 0; }
+  .rr-sheet-title { flex: 1; }
+  .rr-grab { position: absolute; top: 5px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: var(--muted); opacity: 0.6; }
+  .rr-sheet:not(.is-open) .rr-chev { transform: rotate(-135deg); margin-top: 4px; }
+  .rr-sheet-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 0.75rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .rr-sheet-body:focus { outline: none; }
+  .rr-sheet-body:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: -3px; }
+  .rr-sheet-body[hidden] { display: none; }
+  .roads-rails-page .transport-section .maplibregl-ctrl-bottom-right,
+  .roads-rails-page .transport-section .maplibregl-ctrl-bottom-left { bottom: 44px; }
+}
