@@ -25,7 +25,7 @@ const FILE = path.resolve(argVal('--file') || path.join(HERE, 'story-overrides.j
 const RULES = path.resolve(argVal('--rules') || path.join(HERE, 'pin-rounding.json'))
 const CHECK = argv.includes('--check')
 
-const ALLOWED = new Set(['reason', 'date', 'historyId', 'lat', 'lon', 'county', 'yearStart', 'yearEnd', 'replace'])
+const ALLOWED = new Set(['reason', 'date', 'historyId', 'lat', 'lon', 'county', 'yearStart', 'yearEnd', 'yearsStoryOnly', 'replace'])
 const fail = (msg) => {
   console.error(`story-overrides: ${msg}`)
   process.exit(1)
@@ -107,9 +107,9 @@ function targets(slug, historyId) {
   const sg = load(F.sgeo)
   sg?.data.features?.forEach((f) => (f.properties?.slug === slug || f.properties?.id === slug) && add(f, { file: sg, geo: true, years: 'camel' }))
   const hg = load(F.hgeo)
-  if (historyId) hg?.data.features?.forEach((f) => f.properties?.id === historyId && add(f, { file: hg, geo: true, county: 'add', years: 'both' }))
+  if (historyId) hg?.data.features?.forEach((f) => f.properties?.id === historyId && add(f, { file: hg, geo: true, county: 'add', years: 'both', history: true }))
   const kyh = load(F.kyh)
-  if (historyId && Array.isArray(kyh?.data)) kyh.data.forEach((p) => p.id === historyId && add(p, { file: kyh, lat: 'latitude', lon: 'longitude', years: 'snake' }))
+  if (historyId && Array.isArray(kyh?.data)) kyh.data.forEach((p) => p.id === historyId && add(p, { file: kyh, lat: 'latitude', lon: 'longitude', years: 'snake', history: true }))
   const si = load(F.search)
   si?.data.documents?.forEach((d) => (d.id === `story:${slug}` || (historyId && d.id === `place:${historyId}`)) && add(d, { file: si, lat: 'lat', lon: 'lon' }))
   const as = load(F.appSearch)
@@ -172,6 +172,8 @@ for (const [slug, o] of Object.entries(spec.overrides)) {
     let n = 0
     for (const t of ts) {
       if (!t.years) continue
+      // yearsStoryOnly: set the story's years but leave the linked History pin's own years alone.
+      if (o.yearsStoryOnly && t.history) continue
       const holder = t.geo ? t.obj.properties : t.obj
       if (t.years === 'add' || t.years === 'camel' || t.years === 'both') n += setVal(t, holder, key, o[key], t.years === 'add' ? 'add' : 'exists')
       if (t.years === 'snake' || t.years === 'both') n += setVal(t, holder, snake, o[key], 'exists')

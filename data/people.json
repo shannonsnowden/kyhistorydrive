@@ -1975,7 +1975,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "bland-w-ballard-of-tick-creek"
+        "bland-w-ballard-of-tick-creek",
+        "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
       ],
       "role": "Scout, legislator",
       "native": false,
@@ -2893,7 +2894,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "kentucky-association-1826-lexington-race-course"
+        "kentucky-association-1826-lexington-race-course",
+        "the-maysville-road-and-jacksons-veto-1830"
       ],
       "role": "Statesman, Kentucky Association founder",
       "native": false,
@@ -3952,7 +3954,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "simpsonville-takes-shape-on-the-louisville-road"
+        "simpsonville-takes-shape-on-the-louisville-road",
+        "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
       ],
       "role": "Lawyer, Speaker, Simpsonville namesake",
       "native": false,
@@ -6360,7 +6363,8 @@
       "lifeDates": null,
       "stories": [
         "chickasaw-hunting-grounds",
-        "russellville-from-big-boiling-spring-to-county-seat"
+        "russellville-from-big-boiling-spring-to-county-seat",
+        "the-maysville-road-and-jacksons-veto-1830"
       ],
       "role": "President, Jackson Purchase",
       "native": false,
@@ -6597,7 +6601,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "versailles-takes-shape"
+        "versailles-takes-shape",
+        "la-grange-the-oldham-county-seat-with-trains-on-main-street"
       ],
       "role": "Versailles honoree",
       "native": false,
@@ -6843,6 +6848,31 @@
       "freeToUse": false,
       "verified": false,
       "notes": "No known likeness (no portrait found). Canonical face: AI illustration (Oct 2026).",
+      "ai": true
+    },
+    {
+      "id": "david-rice",
+      "name": "David Rice",
+      "aliases": [
+        "Father Rice",
+        "Father David Rice"
+      ],
+      "lifeDates": "1733–1816",
+      "stories": [
+        "father-david-rice-and-kentuckys-first-presbyterian-churches"
+      ],
+      "role": "Presbyterian minister, founder of Concord Church in Danville, 1792 convention delegate",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known likeness (no public-domain portrait or engraving found, Commons search Oct 19, 2026). Canonical face: AI illustration (Oct 2026).",
       "ai": true
     }
   ]

@@ -19,6 +19,8 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { HomepageStructure } from '../src/homepage-structure.js'
 import { storyBlocksAutoPhoto } from '../src/no-auto-story-photos.js'
+import { parseBriefOrder } from './lib/brief-order.mjs'
+import { MD_LINK_RE } from '../src/markdown-links.js'
 
 const HERO_DECK_OVERRIDES_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'hero-deck-overrides.json')
 const heroDeckDoc = fs.existsSync(HERO_DECK_OVERRIDES_FILE)
@@ -29,8 +31,6 @@ const heroDeckOverrides = heroDeckDoc.overrides || {}
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const UA = 'kyhistorydrive-home-preview/1.0 (https://github.com/shannonsnowden/kyhistorydrive)'
-const EMOJI_HEADER =
-  /^(?:[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]|[\u{1F1E0}-\u{1F1FF}])\uFE0F?\s+(.+)$/u
 
 function slugify(s) {
   return String(s)
@@ -97,7 +97,7 @@ function wikiTitleFromUrl(url) {
 function firstSentence(text) {
   const t = String(text || '')
     .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
-    .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
+    .replace(MD_LINK_RE, '$1')
     .replace(/\s+/g, ' ')
     .trim()
   if (!t) return ''
@@ -142,12 +142,7 @@ function formatDisplayDate(iso) {
 function briefOrder(briefDate) {
   const file = path.join(ROOT, 'public/content/raw-briefs', `${briefDate}.md`)
   if (!fs.existsSync(file)) return []
-  const slugs = []
-  for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
-    const m = line.match(EMOJI_HEADER)
-    if (m) slugs.push(slugify(m[1]))
-  }
-  return slugs
+  return parseBriefOrder(fs.readFileSync(file, 'utf8'))
 }
 
 async function wikiJson(url) {

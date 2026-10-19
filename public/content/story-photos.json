@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T13:09:18.129Z",
+  "generatedAt": "2026-10-19T11:01:00.022Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -21,8 +21,11 @@
         "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
@@ -35,6 +38,37 @@
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2007
+      }
+    },
+    "annis-mound-village": {
+      "slug": "annis-mound-village",
+      "historyId": "annis-mound-village-15bt2-butler-county",
+      "photo": {
+        "image_url": "/content/photos/stories/annis-mound-village.jpg",
+        "title": "Annis Mound and Village, about 1250–1300 CE",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Annis_Mound_%26_Village_illustration_HRoe_2019_350px.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artwork": "reconstruction"
+      }
+    },
+    "ashlands-adena-mounds": {
+      "slug": "ashlands-adena-mounds",
+      "historyId": "ashland-adena-mounds",
+      "photo": {
+        "image_url": "/content/photos/stories/ashlands-adena-mounds.jpg",
+        "title": "Marker at the Ashland Adena mounds, excavated in 1870",
+        "source_url": "https://commons.wikimedia.org/wiki/File:INDIAN_MOUNDS_IN_CENTRAL_PARK.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "JERRYE & ROY KLOTZ MD · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2012,
+        "credit": "JERRYE & ROY KLOTZ MD",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "athiamiowee-the-warriors-path-through-kentucky": {
@@ -73,6 +107,49 @@
         "year": null
       }
     },
+    "bardstown": {
+      "slug": "bardstown",
+      "historyId": "bardstown-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/bardstown.jpg",
+        "title": "Oscar Getz Museum of Whiskey in Spalding Hall, Bardstown",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bardstown_Whiskey_Museum.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bedford at English Wikipedia · Wikimedia Commons · Public domain",
+        "year": 2006,
+        "credit": "Bedford at English Wikipedia",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
+    "battle-of-blue-licks": {
+      "slug": "battle-of-blue-licks",
+      "historyId": "battle-of-blue-licks",
+      "photo": {
+        "image_url": "/content/photos/stories/battle-of-blue-licks.jpg",
+        "title": "Blue Licks Battlefield monument, dedicated 1928",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null,
+        "fit": "contain"
+      }
+    },
+    "benjamin-logan": {
+      "slug": "benjamin-logan",
+      "historyId": "logans-station",
+      "photo": {
+        "image_url": "/content/photos/stories/benjamin-logan.jpg",
+        "title": "Benjamin Logan saving Harrison from being scalped",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Benjamin_Logan_saving_Harrison_from_being_scalped_LCCN2003656942.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nagel & Weingartner · Library of Congress via Wikimedia Commons · Public domain",
+        "credit": "Nagel & Weingartner",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "print"
+      }
+    },
     "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
       "historyId": "boonesborough-siege-blackfish-1778",
@@ -81,9 +158,29 @@
         "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "attribution": "Howard Pyle, Harper's Weekly · Wikimedia Commons · Public domain",
         "year": 1887,
-        "fit": "contain"
+        "fit": "contain",
+        "artwork": "print",
+        "credit": "Howard Pyle, Harper's Weekly",
+        "license": "Public domain"
+      }
+    },
+    "bland-w-ballard-of-tick-creek": {
+      "slug": "bland-w-ballard-of-tick-creek",
+      "historyId": "bland-ballard-tyler-station",
+      "photo": {
+        "image_url": "/content/photos/stories/bland-w-ballard-of-tick-creek.jpg",
+        "title": "Portrait of Bland W. Ballard",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bland_Ballard_2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Kentucky Ante-Bellum Portraiture via Wikimedia Commons · Public domain",
+        "year": null,
+        "credit": "Unknown artist",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "fit": "contain",
+        "artwork": "portrait"
       }
     },
     "blue-jacket-weyapiersenwah": {
@@ -94,8 +191,11 @@
         "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
-        "year": 1795
+        "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+        "year": "about 1795",
+        "artwork": "painting",
+        "credit": "Unidentified painter",
+        "license": "Public domain"
       }
     },
     "bowling-green-takes-shape-on-the-barren-1798": {
@@ -166,10 +266,12 @@
         "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
         "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
         "source_url": "https://www.loc.gov/pictures/item/2020630224/",
-        "source_label": "Library of Congress",
-        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "source_label": "Liljenquist Family Collection, Library of Congress",
+        "attribution": "Unknown photographer · Liljenquist Family Collection, Library of Congress",
         "year": 1864,
-        "fit": "contain"
+        "fit": "contain",
+        "credit": "Unknown photographer",
+        "rights": "No known restrictions"
       }
     },
     "campbellsville-from-buckhorn-creek-to-county-seat": {
@@ -196,6 +298,22 @@
         "year": 1934
       }
     },
+    "capt-abraham-lincoln-on-long-run": {
+      "slug": "capt-abraham-lincoln-on-long-run",
+      "historyId": "squire-boone-painted-stone",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-abraham-lincoln-on-long-run.jpg",
+        "title": "Signature of Capt. Abraham Lincoln, the president's grandfather",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Capt_Abraham_Lincoln_signature.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Capt. Abraham Lincoln, reproduced by J. Henry Lea and John R. Hutchinson · Wikimedia Commons · Public domain",
+        "year": 1909,
+        "credit": "Capt. Abraham Lincoln, reproduced by J. Henry Lea and John R. Hutchinson",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "signature"
+      }
+    },
     "capt-robert-johnson-and-big-crossing-station": {
       "slug": "capt-robert-johnson-and-big-crossing-station",
       "historyId": "great-crossing-scott-1783-1815",
@@ -205,7 +323,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2008
+        "year": 2008,
+        "license": "CC BY-SA 3.0"
       }
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
@@ -265,11 +384,27 @@
         "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later / CC BY-SA 4.0",
-        "year": null,
+        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later; CC BY-SA 4.0",
+        "year": 2010,
         "credit": "Chuck Hamilton",
         "license": "GFDL 1.2 or later; CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artwork": "map"
+      }
+    },
+    "chickamauga-cherokee": {
+      "slug": "chickamauga-cherokee",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/chickamauga-cherokee.jpg",
+        "title": "View of Chickamauga Camp",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Camp,_View_of_-_NARA_-_279720.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Tennessee Valley Authority · Wikimedia Commons · Public domain",
+        "year": 1937,
+        "credit": "Tennessee Valley Authority",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
@@ -321,6 +456,36 @@
         "year": 2023
       }
     },
+    "col-richard-callaway-of-boonesborough": {
+      "slug": "col-richard-callaway-of-boonesborough",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/col-richard-callaway-of-boonesborough.jpg",
+        "title": "Plaque about Col. Richard Callaway at Fort Boonesborough",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Boonesborough_-_October_2023_-_Sarah_Stierch_05.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
+        "year": 2023,
+        "credit": "Missvain",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      }
+    },
+    "col-robert-patterson-builds-lexington": {
+      "slug": "col-robert-patterson-builds-lexington",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/col-robert-patterson-builds-lexington.jpg",
+        "title": "Downtown Lexington today",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Outskirts_of_Lexington,_Kentucky_(14497063772).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2014,
+        "credit": "Ken Lund from Reno, Nevada, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      }
+    },
     "col-thomas-marshall-at-buck-pond": {
       "slug": "col-thomas-marshall-at-buck-pond",
       "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802",
@@ -330,7 +495,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2008
+        "year": 2008,
+        "license": "CC BY-SA 4.0"
       }
     },
     "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
@@ -343,7 +509,23 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Brian M. Powell · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2007,
+        "license": "CC BY-SA 3.0",
         "fit": "contain"
+      }
+    },
+    "covington-at-the-point": {
+      "slug": "covington-at-the-point",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/covington-at-the-point.jpg",
+        "title": "Covington, looking upstream from the Roebling Suspension Bridge",
+        "source_url": "https://commons.wikimedia.org/wiki/File:87k048_Mike_Fink_restaurant_and_Shirley_B_on_Ohio_River_at_Covington,_Kentucky_(8489653650).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "William Alden from Louisville, Kentucky, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 1987,
+        "credit": "William Alden from Louisville, Kentucky, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
     "croley-evans-site": {
@@ -354,8 +536,26 @@
         "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "cumberland-falls": {
+      "slug": "cumberland-falls",
+      "historyId": "cumberland-falls",
+      "photo": {
+        "image_url": "/content/photos/stories/cumberland-falls.jpg",
+        "title": "Cumberland Falls in Whitley County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Falls,_Whitley_County,_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Blinutne · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2006,
+        "credit": "Blinutne",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
       }
     },
     "daniel-trabue-of-columbia": {
@@ -370,6 +570,22 @@
         "year": 2012
       }
     },
+    "danville-and-constitution-square": {
+      "slug": "danville-and-constitution-square",
+      "historyId": "danville-constitution-square",
+      "photo": {
+        "image_url": "/content/photos/stories/danville-and-constitution-square.jpg",
+        "title": "Monument to Kentucky's first constitution, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_Constitution_Monument_Danville,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Acdixon · Wikimedia Commons · CC0",
+        "year": 2012,
+        "credit": "Acdixon",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "fit": "contain"
+      }
+    },
     "delaware-winter-camps-on-kentucky-ground": {
       "slug": "delaware-winter-camps-on-kentucky-ground",
       "historyId": null,
@@ -378,8 +594,11 @@
         "title": "Three Delaware Indians (George Catlin)",
         "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin,_Three_Delaware_Indians,_1861-1869,_NGA_50422.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "George Catlin · National Gallery of Art / Wikimedia Commons · CC0",
-        "year": 1861
+        "attribution": "George Catlin · Wikimedia Commons · CC0",
+        "year": "1861–1869",
+        "artwork": "painting",
+        "credit": "George Catlin",
+        "license": "CC0"
       }
     },
     "dover-mound-mason-county": {
@@ -390,8 +609,11 @@
         "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
         "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
@@ -426,8 +648,26 @@
         "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
-        "year": 1795
+        "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+        "year": "about 1795",
+        "artwork": "painting",
+        "credit": "Unidentified painter",
+        "license": "Public domain"
+      }
+    },
+    "elizabethtown-from-severns-valley": {
+      "slug": "elizabethtown-from-severns-valley",
+      "historyId": "elizabethtown-founding-severns-valley",
+      "photo": {
+        "image_url": "/content/photos/stories/elizabethtown-from-severns-valley.jpg",
+        "title": "Hardin County Courthouse on Courthouse Square, Elizabethtown",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hardin_County_Courthouse_in_Elizabethtown.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2011,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "ephraim-mcdowell-jane-todd-crawford-1809": {
@@ -450,8 +690,12 @@
         "title": "Erie / Cat Nation territory (historical map)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
+        "attribution": "Uncredited Wikimedia Commons contributor · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008,
+        "artwork": "map",
+        "credit": "Uncredited Wikimedia Commons contributor",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "esther-whitley-over-the-cumberlands-1775": {
@@ -466,6 +710,21 @@
         "year": 2019
       }
     },
+    "falls-of-the-ohio": {
+      "slug": "falls-of-the-ohio",
+      "historyId": "falls-of-the-ohio",
+      "photo": {
+        "image_url": "/content/photos/stories/falls-of-the-ohio.jpg",
+        "title": "Looking southeast from the Falls of the Ohio",
+        "source_url": "https://commons.wikimedia.org/wiki/File:87h034_Falls_of_the_Ohio_(7316656018).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "William Alden from Louisville, Kentucky, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 1987,
+        "credit": "William Alden from Louisville, Kentucky, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      }
+    },
     "falmouth-at-the-licking-forks": {
       "slug": "falmouth-at-the-licking-forks",
       "historyId": "falmouth-licking-forks-pendleton",
@@ -476,6 +735,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
         "year": null
+      }
+    },
+    "father-david-rice-and-kentuckys-first-presbyterian-churches": {
+      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+      "historyId": "david-rice-home-greensburg-green-1798-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
+        "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+        "year": 2012
       }
     },
     "flemingsburg-stocktons-town": {
@@ -511,7 +782,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2010
+        "year": 2010,
+        "license": "Public domain"
       }
     },
     "gen-james-wilkinson-kentuckys-agent-13": {
@@ -522,8 +794,11 @@
         "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
         "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
-        "year": 1796
+        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · Public domain",
+        "year": "surveyed 1796",
+        "credit": "Georges-Henri-Victor Collot",
+        "license": "Public domain",
+        "artwork": "map"
       }
     },
     "george-garvin-brown-and-old-forester": {
@@ -536,6 +811,67 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2012,
+        "fit": "contain"
+      }
+    },
+    "george-rogers-clark": {
+      "slug": "george-rogers-clark",
+      "historyId": "george-rogers-clark-corn-island",
+      "photo": {
+        "image_url": "/content/photos/stories/george-rogers-clark.jpg",
+        "title": "George Rogers Clark Memorial Bridge over the Ohio at Louisville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Rogers_Clark_Memorial_Bridge-1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Vxla from Chicago, US · Wikimedia Commons · CC BY 2.0",
+        "year": 2009,
+        "credit": "Vxla from Chicago, US",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      }
+    },
+    "georgetown-and-royal-spring": {
+      "slug": "georgetown-and-royal-spring",
+      "historyId": "georgetown-royal-spring",
+      "photo": {
+        "image_url": "/content/photos/stories/georgetown-and-royal-spring.jpg",
+        "title": "Royal Spring, Georgetown's water source since 1775",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Spring1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "credit": "FloNight (Sydney Poore) and Russell Poore",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "great-saltpetre-cave": {
+      "slug": "great-saltpetre-cave",
+      "historyId": "great-saltpetre-cave",
+      "photo": {
+        "image_url": "/content/photos/stories/great-saltpetre-cave.jpg",
+        "title": "Sign inside Great Saltpetre Cave",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Great_Saltpetre_Cave,_sign1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Grorp · Wikimedia Commons · CC0",
+        "year": 2024,
+        "credit": "Grorp",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      }
+    },
+    "hancock-taylor-fincastle-surveyor": {
+      "slug": "hancock-taylor-fincastle-surveyor",
+      "historyId": "richmond-founding-2",
+      "photo": {
+        "image_url": "/content/photos/stories/hancock-taylor-fincastle-surveyor.jpg",
+        "title": "Kentucky Historical Marker for Hancock Taylor, killed surveying in 1774",
+        "source_url": "https://commons.wikimedia.org/wiki/File:2021-09-19_Hancock_Taylor_Marker_Richmond_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Seblake · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021,
+        "credit": "Seblake",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
         "fit": "contain"
       }
     },
@@ -624,6 +960,22 @@
         "fit": "contain"
       }
     },
+    "iroquois-beaver-wars": {
+      "slug": "iroquois-beaver-wars",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/iroquois-beaver-wars.jpg",
+        "title": "Champlain's battle with the Iroquois at Ticonderoga, July 1609",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Champlain%27s_Battle_with_the_Iroquois,_Ticonderoga,_July,_1609_(NYPL_b12647398-79471)_(cropped).tiff",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Detroit Publishing Company · NYPL via Wikimedia Commons · Public domain",
+        "year": "after 1898",
+        "credit": "Detroit Publishing Company",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "print"
+      }
+    },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "historyId": "ruddells-station-harrison-county",
@@ -674,6 +1026,21 @@
         "fit": "contain"
       }
     },
+    "james-crow-on-glenns-creek": {
+      "slug": "james-crow-on-glenns-creek",
+      "historyId": "james-crow-oscar-pepper",
+      "photo": {
+        "image_url": "/content/photos/stories/james-crow-on-glenns-creek.jpg",
+        "title": "James C. Crow",
+        "source_url": "https://commons.wikimedia.org/wiki/File:James_C._Crow2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Shckwv · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2024,
+        "credit": "Shckwv",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    },
     "james-knox": {
       "slug": "james-knox",
       "historyId": "james-knox-skinhouse-camp-knox-1770",
@@ -706,8 +1073,11 @@
         "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
         "source_url": "https://apps.nationalmap.gov/3depdem/",
         "source_label": "USGS 3D Elevation Program",
-        "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
-        "year": 2026
+        "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS 3D Elevation Program · Public domain",
+        "year": 2026,
+        "artwork": "map",
+        "credit": "U.S. Geological Survey, 3D Elevation Program",
+        "license": "Public domain"
       }
     },
     "john-bradford-and-the-kentucke-gazette": {
@@ -718,8 +1088,27 @@
         "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
         "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
-        "year": 1887
+        "attribution": "William Henry Perrin · Wikimedia Commons · Public domain",
+        "year": 1887,
+        "credit": "William Henry Perrin",
+        "license": "Public domain",
+        "artwork": "print"
+      }
+    },
+    "john-filson-kentucke-1784": {
+      "slug": "john-filson-kentucke-1784",
+      "historyId": "john-filson",
+      "photo": {
+        "image_url": "/content/photos/stories/john-filson-kentucke-1784.jpg",
+        "title": "Manuscript copy of John Filson's 1784 map of Kentucke",
+        "source_url": "https://commons.wikimedia.org/wiki/File:This_map_of_Kentucke,_LOC_73691819.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "John Filson · Wikimedia Commons · Public domain",
+        "year": null,
+        "credit": "John Filson",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "map"
       }
     },
     "john-finley-the-trader-who-put-kentucky-on-boones-map": {
@@ -731,7 +1120,26 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
-        "year": 1851
+        "year": "1851–1852",
+        "artwork": "painting",
+        "credit": "George Caleb Bingham",
+        "license": "Public domain"
+      }
+    },
+    "john-floyd": {
+      "slug": "john-floyd",
+      "historyId": "floyds-station",
+      "photo": {
+        "image_url": "/content/photos/stories/john-floyd.jpg",
+        "title": "War Department militia record for John Floyd, 8th (Wilcox's) Kentucky Militia",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Floyd,_John_-_State-_Kentucky_-_Regiment-_8_(Wilcox%27s)_Kentucky_Militia_-_DPLA_-_e6d6fe738f152db2fce091380edd0af3.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "War Department, Adjutant General's Office · Wikimedia Commons · Public domain",
+        "credit": "War Department, Adjutant General's Office",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "fit": "contain",
+        "artwork": "document"
       }
     },
     "kentucky-association-1826-lexington-race-course": {
@@ -742,8 +1150,54 @@
         "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
         "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
-        "year": 1920
+        "attribution": "Kraemer Art Company postcard · Wikimedia Commons · Public domain",
+        "year": 1920,
+        "artwork": "print",
+        "credit": "Kraemer Art Company postcard",
+        "license": "Public domain"
+      }
+    },
+    "kentucky-river-palisades": {
+      "slug": "kentucky-river-palisades",
+      "historyId": "kentucky-river-palisades-high-bridge-group-ordovician",
+      "photo": {
+        "image_url": "/content/photos/stories/kentucky-river-palisades.jpg",
+        "title": "The Kentucky River Palisades up close",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_River_Palisades_Close_up.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher Wayne Hensley · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008,
+        "credit": "Christopher Wayne Hensley",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
+      "slug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
+      "historyId": "la-grange-oldham-1827-1840",
+      "photo": {
+        "image_url": "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg",
+        "title": "A freight train on Main Street, La Grange (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:La_Grange_KY_-_train_on_Main_Street.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Morgan from Halifax, Nova Scotia · Wikimedia Commons · CC BY 2.0",
+        "year": 2010
+      }
+    },
+    "lancaster-at-wallaces-crossroads": {
+      "slug": "lancaster-at-wallaces-crossroads",
+      "historyId": "lancaster-founding-wallace-s-crossroads",
+      "photo": {
+        "image_url": "/content/photos/stories/lancaster-at-wallaces-crossroads.jpg",
+        "title": "Garrard County Courthouse, Lancaster",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Garrard_County_Kentucky_Courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "credit": "W.marsh",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "fit": "contain"
       }
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
@@ -779,8 +1233,27 @@
         "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
-        "year": 1778
+        "attribution": "Levi Todd · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+        "year": 1778,
+        "artwork": "signature",
+        "credit": "Levi Todd",
+        "license": "Public domain"
+      }
+    },
+    "lexington-named": {
+      "slug": "lexington-named",
+      "historyId": "lexington-named",
+      "photo": {
+        "image_url": "/content/photos/stories/lexington-named.jpg",
+        "title": "Memorial at the Lexington History Center, the old Fayette County Courthouse",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Birth_of_Kentucky_memorial_-_Lexington,_Kentucky_-_DSC09082.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Daderot · Wikimedia Commons · CC0",
+        "year": 2012,
+        "credit": "Daderot",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "fit": "contain"
       }
     },
     "liberty-hall-john-browns-frankfort-house": {
@@ -803,8 +1276,26 @@
         "title": "Kekionga, the Miami towns at present Fort Wayne, drawn by Ebenezer Denny on Harmar's 1790 campaign",
         "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_Kekionga.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Ebenezer Denny · Wikimedia Commons · public domain",
-        "year": 1790
+        "attribution": "Ebenezer Denny · Wikimedia Commons · Public domain",
+        "year": 1790,
+        "credit": "Ebenezer Denny",
+        "license": "Public domain",
+        "artwork": "map"
+      }
+    },
+    "lost-river-cave": {
+      "slug": "lost-river-cave",
+      "historyId": "lost-river-cave-bowling-green",
+      "photo": {
+        "image_url": "/content/photos/stories/lost-river-cave.jpg",
+        "title": "Entrance to Lost River Cave, Bowling Green",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lost_River_Cave_entrance.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2014,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "louisville-and-portland-canal": {
@@ -830,6 +1321,21 @@
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
         "year": 1979,
         "fit": "contain"
+      }
+    },
+    "maj-joseph-bowman": {
+      "slug": "maj-joseph-bowman",
+      "historyId": "maj-joseph-bowman-harrodsburg",
+      "photo": {
+        "image_url": "/content/photos/stories/maj-joseph-bowman.jpg",
+        "title": "Joseph Bowman's grave marker, Old Cathedral Cemetery, Vincennes",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Bowman_marker.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mingusboodle (talk) · Wikimedia Commons · Public domain",
+        "year": 2008,
+        "credit": "Mingusboodle (talk)",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "mammoth-cave-saltpeter": {
@@ -904,6 +1410,22 @@
         "year": null
       }
     },
+    "mingo-camps-south-of-the-ohio": {
+      "slug": "mingo-camps-south-of-the-ohio",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/mingo-camps-south-of-the-ohio.jpg",
+        "title": "Statue of Chief Logan, Chief Logan State Park, West Virginia",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Statue_of_Chief_Logan_the_Orator_(Logan,_West_Virginia).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "The original uploader was Pollinator at English Wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2004,
+        "credit": "The original uploader was Pollinator at English Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fit": "contain"
+      }
+    },
     "moluntha-and-logans-raid-1786": {
       "slug": "moluntha-and-logans-raid-1786",
       "historyId": null,
@@ -913,7 +1435,10 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
         "source_label": "Wikimedia Commons",
         "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2021
+        "year": 2021,
+        "artwork": "map",
+        "credit": "Kevin1776",
+        "license": "CC BY-SA 4.0"
       }
     },
     "moneton": {
@@ -928,6 +1453,37 @@
         "year": 2016
       }
     },
+    "mount-horeb-earthworks": {
+      "slug": "mount-horeb-earthworks",
+      "historyId": "mount-horeb-adena-park",
+      "photo": {
+        "image_url": "/content/photos/stories/mount-horeb-earthworks.jpg",
+        "title": "Mount Horeb Site 1, an Adena ring ditch and timber circle",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Horeb_Site_1_HRoe_2022_350px.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2022,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artwork": "reconstruction"
+      }
+    },
+    "mount-sterling-little-mountain-town": {
+      "slug": "mount-sterling-little-mountain-town",
+      "historyId": "mount-sterling-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/mount-sterling-little-mountain-town.jpg",
+        "title": "Mt. Sterling, Kentucky",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Sterling,_Kentucky_(14311593050).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2014,
+        "credit": "Ken Lund from Reno, Nevada, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      }
+    },
     "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
       "historyId": "muir-site-15js86-jessamine-county",
@@ -938,6 +1494,22 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    "natural-bridge-sandstone-arch": {
+      "slug": "natural-bridge-sandstone-arch",
+      "historyId": "natural-bridge-corbin-sandstone",
+      "photo": {
+        "image_url": "/content/photos/stories/natural-bridge-sandstone-arch.jpg",
+        "title": "Steps up to the arch at Natural Bridge State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Natural_Bridge_State_Resort_Park_in_Slade,_Kentucky_(47613983601).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "PEO ACWA · Wikimedia Commons · CC BY 2.0",
+        "year": 2019,
+        "credit": "PEO ACWA",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "fit": "contain"
       }
     },
     "new-castle-henry-county-seat": {
@@ -951,6 +1523,36 @@
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null,
         "fit": "contain"
+      }
+    },
+    "newport-at-the-licking-mouth": {
+      "slug": "newport-at-the-licking-mouth",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/newport-at-the-licking-mouth.jpg",
+        "title": "Mouth of the Licking River between Covington and Newport, 2004",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Licking_river.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Rdikeman at English Wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2004,
+        "credit": "Rdikeman at English Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    },
+    "nicholasville-takes-shape": {
+      "slug": "nicholasville-takes-shape",
+      "historyId": "nicholasville-founding-rev-john-metcalf-1798",
+      "photo": {
+        "image_url": "/content/photos/stories/nicholasville-takes-shape.jpg",
+        "title": "South Main Street, Nicholasville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2010,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "nonhelema": {
@@ -997,8 +1599,10 @@
         "title": "Osage delegation to Washington, D.C.",
         "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_an_Osage_delegation_to_Washington_D.C.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown · Wikimedia Commons · Public domain",
-        "year": null
+        "attribution": "Unknown photographer · Wikimedia Commons · Public domain",
+        "year": null,
+        "credit": "Unknown photographer",
+        "license": "Public domain"
       }
     },
     "owensboro-yellow-banks": {
@@ -1045,8 +1649,11 @@
         "title": "Peter Village enclosure (Squier & Davis 1848)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848
+        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+        "year": 1848,
+        "artwork": "engraving",
+        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
+        "license": "Public domain"
       }
     },
     "phosphatic-limestone-and-horse-country": {
@@ -1093,8 +1700,10 @@
         "title": "Potawatomi group, c. 1920",
         "source_url": "https://commons.wikimedia.org/wiki/File:Potawatomi_1920.gif",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown · Wikimedia Commons · Public domain",
-        "year": null
+        "attribution": "Unknown photographer · Wikimedia Commons · Public domain",
+        "year": null,
+        "credit": "Unknown photographer",
+        "license": "Public domain"
       }
     },
     "prestonsburg-first-seat-on-the-big-sandy": {
@@ -1145,6 +1754,33 @@
         "year": 2006
       }
     },
+    "richard-henderson": {
+      "slug": "richard-henderson",
+      "historyId": "richard-henderson-transylvania",
+      "photo": {
+        "image_url": "/content/photos/stories/richard-henderson.jpg",
+        "title": "Plan of Fort Boonesborough",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boonesborough,_Kentucky_35%D0%B0.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Richard Henderson, copied by James Hall · Wikimedia Commons · Public domain",
+        "credit": "Richard Henderson, copied by James Hall",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "drawing"
+      }
+    },
+    "river-raisin-1813-kentuckys-winter-defeat-in-michigan": {
+      "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+      "historyId": "river-raisin-muster-georgetown-scott-1812-1813",
+      "photo": {
+        "image_url": "/content/photos/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan.jpg",
+        "title": "River Raisin National Battlefield Park, Monroe, Michigan (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:River_Raisin_National_Battlefield_Park.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Notorious4life · Wikimedia Commons · public domain",
+        "year": 2010
+      }
+    },
     "rowlandton-mound-site-15mcn3-paducah": {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
@@ -1153,8 +1789,11 @@
         "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
         "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2003
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2003,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "russellville-from-big-boiling-spring-to-county-seat": {
@@ -1205,6 +1844,51 @@
         "year": 2007
       }
     },
+    "shawnee-chillicothe-divisions": {
+      "slug": "shawnee-chillicothe-divisions",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/shawnee-chillicothe-divisions.jpg",
+        "title": "Fields at Oldtown near Xenia, Greene County, Ohio, site of Old Chillicothe",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2010,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
+    "shelbyville": {
+      "slug": "shelbyville",
+      "historyId": "shelbyville-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/shelbyville.jpg",
+        "title": "Thelma Stovall marker at the Kentucky Welcome Center, Shelbyville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_Welcome_Center_Shelbyville_-_October_2023_-_Sarah_Stierch_02.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
+        "year": 2023,
+        "credit": "Missvain",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      }
+    },
+    "shepherdsville-on-salt-river": {
+      "slug": "shepherdsville-on-salt-river",
+      "historyId": "shepherdsville-founding-adam-shepherd",
+      "photo": {
+        "image_url": "/content/photos/stories/shepherdsville-on-salt-river.jpg",
+        "title": "Downtown Shepherdsville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_shepherdsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null,
+        "credit": "W.marsh",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    },
     "simon-girty-interpreter-at-bryan-station-1782": {
       "slug": "simon-girty-interpreter-at-bryan-station-1782",
       "historyId": null,
@@ -1215,6 +1899,7 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2019,
+        "license": "CC BY-SA 4.0",
         "fit": "contain"
       }
     },
@@ -1240,7 +1925,10 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2011
+        "year": 2011,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "slack-farm-15un28-union-county": {
@@ -1263,8 +1951,11 @@
         "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "somerset": {
@@ -1289,6 +1980,37 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bedford at en.wikipedia · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2008
+      }
+    },
+    "squire-boones-painted-stone": {
+      "slug": "squire-boones-painted-stone",
+      "historyId": "squire-boone-painted-stone",
+      "photo": {
+        "image_url": "/content/photos/stories/squire-boones-painted-stone.jpg",
+        "title": "Squire Boone Crossing the Mountains with Stores for His Brother Daniel",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Squire_Boone_Crossing_the_Mountains_with_Stores_for_His_Brother_Daniel.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "William Ranney · Wikimedia Commons · Public domain",
+        "year": 1852,
+        "credit": "William Ranney",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "painting"
+      }
+    },
+    "stanford-from-st-asaph": {
+      "slug": "stanford-from-st-asaph",
+      "historyId": "stanford-founding-st-asaph",
+      "photo": {
+        "image_url": "/content/photos/stories/stanford-from-st-asaph.jpg",
+        "title": "Commercial district, Stanford",
+        "source_url": "https://commons.wikimedia.org/wiki/File:StanfordKY-Commercial-District.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+        "year": 2014,
+        "credit": "Joel Bradshaw",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
       }
     },
     "susquehannock-and-the-ohio-valley-door": {
@@ -1327,6 +2049,30 @@
         "year": null
       }
     },
+    "the-c-and-o-mounds-at-paintsville": {
+      "slug": "the-c-and-o-mounds-at-paintsville",
+      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
+      "photo": {
+        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
+        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009
+      }
+    },
+    "the-maysville-road-and-jacksons-veto-1830": {
+      "slug": "the-maysville-road-and-jacksons-veto-1830",
+      "historyId": "maysville-lexington-turnpike-mason-1829-1835",
+      "photo": {
+        "image_url": "/content/photos/stories/the-maysville-road-and-jacksons-veto-1830.jpg",
+        "title": "“1830—The Maysville Turnpike,” illustration from the Federal Highway Administration’s America’s Highways 1776–1976",
+        "source_url": "https://commons.wikimedia.org/wiki/File:America%27s_Highways_1776%E2%80%931976_-_1830%E2%80%94The_Maysville_Turnpike.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Federal Highway Administration · Wikimedia Commons · public domain",
+        "year": 1976
+      }
+    },
     "the-travelling-church-1781": {
       "slug": "the-travelling-church-1781",
       "historyId": "craigs-station-travelling-church-gilberts-creek",
@@ -1363,6 +2109,21 @@
         "year": null
       }
     },
+    "treaty-of-camp-charlotte-1774": {
+      "slug": "treaty-of-camp-charlotte-1774",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-camp-charlotte-1774.jpg",
+        "title": "Camp Charlotte site plaque, Pickaway County, Ohio",
+        "source_url": "https://commons.wikimedia.org/wiki/File:CampCharlotte2.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Aesopposea · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2013,
+        "credit": "Aesopposea",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
     "treaty-of-fort-mcintosh-1785": {
       "slug": "treaty-of-fort-mcintosh-1785",
       "historyId": null,
@@ -1375,6 +2136,22 @@
         "year": 2009
       }
     },
+    "treaty-of-fort-stanwix-1768": {
+      "slug": "treaty-of-fort-stanwix-1768",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/treaty-of-fort-stanwix-1768.jpg",
+        "title": "The 1768 Fort Stanwix line, from Halsey's 1901 map",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Frontier_of_NY_in_Revolution2.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Francis W. Halsey · Wikimedia Commons · Public domain",
+        "year": 1901,
+        "credit": "Francis W. Halsey",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "map"
+      }
+    },
     "treaty-of-greenville-1795-the-line-to-the-kentucky-river": {
       "slug": "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
       "historyId": null,
@@ -1383,8 +2160,11 @@
         "title": "Painting of the Treaty of Greenville, 1795, made around the time of the treaty",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Unknown artist · Wikimedia Commons · public domain",
-        "year": 1795
+        "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+        "year": "about 1795",
+        "artwork": "painting",
+        "credit": "Unidentified painter",
+        "license": "Public domain"
       }
     },
     "treaty-of-logstown-1752": {
@@ -1399,6 +2179,38 @@
         "year": 2009
       }
     },
+    "turk-site-carlisle-county": {
+      "slug": "turk-site-carlisle-county",
+      "historyId": "turk-site-15ce6-carlisle-county",
+      "photo": {
+        "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
+        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2013,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
+    "tutelo-the-totteroy": {
+      "slug": "tutelo-the-totteroy",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/tutelo-the-totteroy.jpg",
+        "title": "Nikonha, a Tutelo man",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Nikonha,_tutelo_-_1870.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Horatio Hale, after an 1870 photograph · Wikimedia Commons · Public domain",
+        "year": 1883,
+        "credit": "Horatio Hale, after an 1870 photograph",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "fit": "contain",
+        "artwork": "print"
+      }
+    },
     "twin-mounds-site": {
       "slug": "twin-mounds-site",
       "historyId": "twin-mounds-site-15ba2-ballard-county",
@@ -1407,8 +2219,11 @@
         "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "walker-daniel-danvilles-namesake": {
@@ -1447,6 +2262,23 @@
         "year": 2008
       }
     },
+    "wea-waayaahtanwa-on-the-wabash": {
+      "slug": "wea-waayaahtanwa-on-the-wabash",
+      "historyId": "wea-waayaahtanwa-ouiatenon",
+      "photo": {
+        "image_url": "/content/photos/stories/wea-waayaahtanwa-on-the-wabash.jpg",
+        "title": "Go-to-ków-páh-ah, Stands by Himself, a Distinguished Brave",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin_-_Go-to-k%C3%B3w-p%C3%A1h-ah,_Stands_by_Himself,_a_Distinguished_Brave_-_1985.66.248_-_Smithsonian_American_Art_Museum.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "George Catlin · Wikimedia Commons · Public domain",
+        "year": 1830,
+        "credit": "George Catlin",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "fit": "contain",
+        "artwork": "painting"
+      }
+    },
     "william-hoy-and-hoys-station": {
       "slug": "william-hoy-and-hoys-station",
       "historyId": "hoys-station-madison-1781-1782",
@@ -1457,6 +2289,36 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Bubba73 · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2017
+      }
+    },
+    "william-whitley-sportsmans-hill": {
+      "slug": "william-whitley-sportsmans-hill",
+      "historyId": "william-whitley-sportsmans-hill",
+      "photo": {
+        "image_url": "/content/photos/stories/william-whitley-sportsmans-hill.jpg",
+        "title": "William Whitley House near Stanford, 1940",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_30,_1940_NORTHEAST_ELEVATION_(FRONT)_-_Colonel_William_Whitley_House,_Stanford-Crab_Orchard_Pike,_Stanford,_HABS_KY,69-_,1-2.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Lester Jones, Historic American Buildings Survey · Wikimedia Commons · Public domain",
+        "year": 1940,
+        "credit": "Lester Jones, Historic American Buildings Survey",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
+    "winchester-clark-county-seat": {
+      "slug": "winchester-clark-county-seat",
+      "historyId": "winchester-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/winchester-clark-county-seat.jpg",
+        "title": "Winchester, the Clark County seat",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Winchester,_Kentucky_(14311597270).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2014,
+        "credit": "Ken Lund from Reno, Nevada, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {
@@ -1480,7 +2342,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Mason Brock · Wikimedia Commons · public domain",
-        "year": 2008
+        "year": 2008,
+        "fit": "contain"
       }
     },
     "yellow-banks-becomes-owensboro": {
@@ -1517,8 +2380,42 @@
         "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "annis-mound-village-15bt2-butler-county": {
+      "slug": "annis-mound-village",
+      "historyId": "annis-mound-village-15bt2-butler-county",
+      "photo": {
+        "image_url": "/content/photos/stories/annis-mound-village.jpg",
+        "title": "Annis Mound and Village, about 1250–1300 CE",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Annis_Mound_%26_Village_illustration_HRoe_2019_350px.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2019,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artwork": "reconstruction"
+      }
+    },
+    "ashland-adena-mounds": {
+      "slug": "ashlands-adena-mounds",
+      "historyId": "ashland-adena-mounds",
+      "photo": {
+        "image_url": "/content/photos/stories/ashlands-adena-mounds.jpg",
+        "title": "Marker at the Ashland Adena mounds, excavated in 1870",
+        "source_url": "https://commons.wikimedia.org/wiki/File:INDIAN_MOUNDS_IN_CENTRAL_PARK.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "JERRYE & ROY KLOTZ MD · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2012,
+        "credit": "JERRYE & ROY KLOTZ MD",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "warriors-path-athiamiowee-gray-hawk-jackson-1674-1769": {
@@ -1557,6 +2454,49 @@
         "year": null
       }
     },
+    "bardstown-founding": {
+      "slug": "bardstown",
+      "historyId": "bardstown-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/bardstown.jpg",
+        "title": "Oscar Getz Museum of Whiskey in Spalding Hall, Bardstown",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bardstown_Whiskey_Museum.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Bedford at English Wikipedia · Wikimedia Commons · Public domain",
+        "year": 2006,
+        "credit": "Bedford at English Wikipedia",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
+    "battle-of-blue-licks": {
+      "slug": "battle-of-blue-licks",
+      "historyId": "battle-of-blue-licks",
+      "photo": {
+        "image_url": "/content/photos/stories/battle-of-blue-licks.jpg",
+        "title": "Blue Licks Battlefield monument, dedicated 1928",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Blue_Licks_Battlefield_monument.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null,
+        "fit": "contain"
+      }
+    },
+    "logans-station": {
+      "slug": "benjamin-logan",
+      "historyId": "logans-station",
+      "photo": {
+        "image_url": "/content/photos/stories/benjamin-logan.jpg",
+        "title": "Benjamin Logan saving Harrison from being scalped",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Benjamin_Logan_saving_Harrison_from_being_scalped_LCCN2003656942.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nagel & Weingartner · Library of Congress via Wikimedia Commons · Public domain",
+        "credit": "Nagel & Weingartner",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "print"
+      }
+    },
     "boonesborough-siege-blackfish-1778": {
       "slug": "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
       "historyId": "boonesborough-siege-blackfish-1778",
@@ -1565,9 +2505,29 @@
         "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
+        "attribution": "Howard Pyle, Harper's Weekly · Wikimedia Commons · Public domain",
         "year": 1887,
-        "fit": "contain"
+        "fit": "contain",
+        "artwork": "print",
+        "credit": "Howard Pyle, Harper's Weekly",
+        "license": "Public domain"
+      }
+    },
+    "bland-ballard-tyler-station": {
+      "slug": "bland-w-ballard-of-tick-creek",
+      "historyId": "bland-ballard-tyler-station",
+      "photo": {
+        "image_url": "/content/photos/stories/bland-w-ballard-of-tick-creek.jpg",
+        "title": "Portrait of Bland W. Ballard",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bland_Ballard_2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown artist · Kentucky Ante-Bellum Portraiture via Wikimedia Commons · Public domain",
+        "year": null,
+        "credit": "Unknown artist",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "fit": "contain",
+        "artwork": "portrait"
       }
     },
     "blue-jacket-limestone-negotiation-1787-1788": {
@@ -1578,8 +2538,11 @@
         "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
-        "year": 1795
+        "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+        "year": "about 1795",
+        "artwork": "painting",
+        "credit": "Unidentified painter",
+        "license": "Public domain"
       }
     },
     "bowling-green-founding-bolin-green-1798": {
@@ -1650,10 +2613,12 @@
         "image_url": "/content/photos/stories/camp-nelson-kentucky-us-colored-troops.jpg",
         "title": "Pvt. William Wright, Co. H, 114th U.S. Colored Infantry, a regiment organized at Camp Nelson (ambrotype or tintype, between 1864 and 1867)",
         "source_url": "https://www.loc.gov/pictures/item/2020630224/",
-        "source_label": "Library of Congress",
-        "attribution": "Liljenquist Family Collection, Library of Congress Prints and Photographs Division · no known restrictions on publication",
+        "source_label": "Liljenquist Family Collection, Library of Congress",
+        "attribution": "Unknown photographer · Liljenquist Family Collection, Library of Congress",
         "year": 1864,
-        "fit": "contain"
+        "fit": "contain",
+        "credit": "Unknown photographer",
+        "rights": "No known restrictions"
       }
     },
     "campbellsville-taylor-1814-1848": {
@@ -1680,6 +2645,22 @@
         "year": 1934
       }
     },
+    "squire-boone-painted-stone": {
+      "slug": "squire-boones-painted-stone",
+      "historyId": "squire-boone-painted-stone",
+      "photo": {
+        "image_url": "/content/photos/stories/squire-boones-painted-stone.jpg",
+        "title": "Squire Boone Crossing the Mountains with Stores for His Brother Daniel",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Squire_Boone_Crossing_the_Mountains_with_Stores_for_His_Brother_Daniel.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "William Ranney · Wikimedia Commons · Public domain",
+        "year": 1852,
+        "credit": "William Ranney",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "painting"
+      }
+    },
     "great-crossing-scott-1783-1815": {
       "slug": "capt-robert-johnson-and-big-crossing-station",
       "historyId": "great-crossing-scott-1783-1815",
@@ -1689,7 +2670,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:North_Fork_of_Elkhorn_Creek,_Georgetown,_Kentucky.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2008
+        "year": 2008,
+        "license": "CC BY-SA 3.0"
       }
     },
     "hubbell-flatboat-fight-limestone-1791": {
@@ -1799,7 +2781,23 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Buck_Pond_P6170306.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2008
+        "year": 2008,
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    "cumberland-falls": {
+      "slug": "cumberland-falls",
+      "historyId": "cumberland-falls",
+      "photo": {
+        "image_url": "/content/photos/stories/cumberland-falls.jpg",
+        "title": "Cumberland Falls in Whitley County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Falls,_Whitley_County,_Kentucky.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Blinutne · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2006,
+        "credit": "Blinutne",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
       }
     },
     "daniel-trabue-house-columbia-adair-1778-1840": {
@@ -1814,6 +2812,22 @@
         "year": 2012
       }
     },
+    "danville-constitution-square": {
+      "slug": "danville-and-constitution-square",
+      "historyId": "danville-constitution-square",
+      "photo": {
+        "image_url": "/content/photos/stories/danville-and-constitution-square.jpg",
+        "title": "Monument to Kentucky's first constitution, Danville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_Constitution_Monument_Danville,_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Acdixon · Wikimedia Commons · CC0",
+        "year": 2012,
+        "credit": "Acdixon",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "fit": "contain"
+      }
+    },
     "dover-mound-adena-mason-county": {
       "slug": "dover-mound-mason-county",
       "historyId": "dover-mound-adena-mason-county",
@@ -1822,8 +2836,11 @@
         "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
         "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe (chromesun.com) · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "old-taylor-distillery-bottled-in-bond-1897": {
@@ -1858,8 +2875,26 @@
         "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
         "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
-        "year": 1795
+        "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
+        "year": "about 1795",
+        "artwork": "painting",
+        "credit": "Unidentified painter",
+        "license": "Public domain"
+      }
+    },
+    "elizabethtown-founding-severns-valley": {
+      "slug": "elizabethtown-from-severns-valley",
+      "historyId": "elizabethtown-founding-severns-valley",
+      "photo": {
+        "image_url": "/content/photos/stories/elizabethtown-from-severns-valley.jpg",
+        "title": "Hardin County Courthouse on Courthouse Square, Elizabethtown",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hardin_County_Courthouse_in_Elizabethtown.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2011,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "ephraim-mcdowell-house-danville-1809": {
@@ -1875,15 +2910,33 @@
       }
     },
     "william-whitley-sportsmans-hill": {
-      "slug": "esther-whitley-over-the-cumberlands-1775",
+      "slug": "william-whitley-sportsmans-hill",
       "historyId": "william-whitley-sportsmans-hill",
       "photo": {
-        "image_url": "/content/photos/stories/esther-whitley-over-the-cumberlands-1775.jpg",
-        "title": "The William Whitley House near Crab Orchard (photographed 2019), Esther Whitley’s home; no portrait of her is known to the site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:William_Whitley_House_—_Lincoln_County,_Kentucky.jpg",
+        "image_url": "/content/photos/stories/william-whitley-sportsmans-hill.jpg",
+        "title": "William Whitley House near Stanford, 1940",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Lester_Jones,_Photographer_May_30,_1940_NORTHEAST_ELEVATION_(FRONT)_-_Colonel_William_Whitley_House,_Stanford-Crab_Orchard_Pike,_Stanford,_HABS_KY,69-_,1-2.tif",
         "source_label": "Wikimedia Commons",
-        "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019
+        "attribution": "Lester Jones, Historic American Buildings Survey · Wikimedia Commons · Public domain",
+        "year": 1940,
+        "credit": "Lester Jones, Historic American Buildings Survey",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
+    "falls-of-the-ohio": {
+      "slug": "falls-of-the-ohio",
+      "historyId": "falls-of-the-ohio",
+      "photo": {
+        "image_url": "/content/photos/stories/falls-of-the-ohio.jpg",
+        "title": "Looking southeast from the Falls of the Ohio",
+        "source_url": "https://commons.wikimedia.org/wiki/File:87h034_Falls_of_the_Ohio_(7316656018).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "William Alden from Louisville, Kentucky, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 1987,
+        "credit": "William Alden from Louisville, Kentucky, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
     "falmouth-licking-forks-pendleton": {
@@ -1896,6 +2949,18 @@
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC BY-SA 2.0",
         "year": null
+      }
+    },
+    "david-rice-home-greensburg-green-1798-1816": {
+      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+      "historyId": "david-rice-home-greensburg-green-1798-1816",
+      "photo": {
+        "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
+        "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+        "year": 2012
       }
     },
     "flemingsburg-stockton-fleming-1787-1812": {
@@ -1931,7 +2996,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Fallen_Timbers_Battlefield.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
-        "year": 2010
+        "year": 2010,
+        "license": "Public domain"
       }
     },
     "wilkinson-love-house-frankfort-franklin-1784-1792": {
@@ -1942,8 +3008,11 @@
         "title": "Road from Limestone to Frankfort, the town Wilkinson laid out, from Georges-Henri-Victor Collot's 1796 survey",
         "source_url": "https://commons.wikimedia.org/wiki/File:Road_from_Limestone_to_Frankfort_in_the_state_of_Kentucky._PL._22._(IA_dr_road-from-limestone-to-frankfort-in-the-state-of-kentucky-pl-22-00104104).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · public domain",
-        "year": 1796
+        "attribution": "Georges-Henri-Victor Collot · Wikimedia Commons · Public domain",
+        "year": "surveyed 1796",
+        "credit": "Georges-Henri-Victor Collot",
+        "license": "Public domain",
+        "artwork": "map"
       }
     },
     "old-forester-whiskey-row-louisville-1870": {
@@ -1956,6 +3025,67 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2012,
+        "fit": "contain"
+      }
+    },
+    "george-rogers-clark-corn-island": {
+      "slug": "george-rogers-clark",
+      "historyId": "george-rogers-clark-corn-island",
+      "photo": {
+        "image_url": "/content/photos/stories/george-rogers-clark.jpg",
+        "title": "George Rogers Clark Memorial Bridge over the Ohio at Louisville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Rogers_Clark_Memorial_Bridge-1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Vxla from Chicago, US · Wikimedia Commons · CC BY 2.0",
+        "year": 2009,
+        "credit": "Vxla from Chicago, US",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      }
+    },
+    "georgetown-royal-spring": {
+      "slug": "georgetown-and-royal-spring",
+      "historyId": "georgetown-royal-spring",
+      "photo": {
+        "image_url": "/content/photos/stories/georgetown-and-royal-spring.jpg",
+        "title": "Royal Spring, Georgetown's water source since 1775",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Spring1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "credit": "FloNight (Sydney Poore) and Russell Poore",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "great-saltpetre-cave": {
+      "slug": "great-saltpetre-cave",
+      "historyId": "great-saltpetre-cave",
+      "photo": {
+        "image_url": "/content/photos/stories/great-saltpetre-cave.jpg",
+        "title": "Sign inside Great Saltpetre Cave",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Great_Saltpetre_Cave,_sign1.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Grorp · Wikimedia Commons · CC0",
+        "year": 2024,
+        "credit": "Grorp",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      }
+    },
+    "richmond-founding-2": {
+      "slug": "hancock-taylor-fincastle-surveyor",
+      "historyId": "richmond-founding-2",
+      "photo": {
+        "image_url": "/content/photos/stories/hancock-taylor-fincastle-surveyor.jpg",
+        "title": "Kentucky Historical Marker for Hancock Taylor, killed surveying in 1774",
+        "source_url": "https://commons.wikimedia.org/wiki/File:2021-09-19_Hancock_Taylor_Marker_Richmond_KY.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Seblake · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2021,
+        "credit": "Seblake",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
         "fit": "contain"
       }
     },
@@ -2069,6 +3199,21 @@
         "fit": "contain"
       }
     },
+    "james-crow-oscar-pepper": {
+      "slug": "james-crow-on-glenns-creek",
+      "historyId": "james-crow-oscar-pepper",
+      "photo": {
+        "image_url": "/content/photos/stories/james-crow-on-glenns-creek.jpg",
+        "title": "James C. Crow",
+        "source_url": "https://commons.wikimedia.org/wiki/File:James_C._Crow2.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Shckwv · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2024,
+        "credit": "Shckwv",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    },
     "james-knox-skinhouse-camp-knox-1770": {
       "slug": "james-knox",
       "historyId": "james-knox-skinhouse-camp-knox-1770",
@@ -2101,8 +3246,11 @@
         "title": "Jeptha Knob from above: USGS 3DEP lidar shaded relief of the knob's ring of ridges and radiating ravines, east of Clay Village (generated 2026)",
         "source_url": "https://apps.nationalmap.gov/3depdem/",
         "source_label": "USGS 3D Elevation Program",
-        "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS The National Map · public domain",
-        "year": 2026
+        "attribution": "U.S. Geological Survey, 3D Elevation Program · USGS 3D Elevation Program · Public domain",
+        "year": 2026,
+        "artwork": "map",
+        "credit": "U.S. Geological Survey, 3D Elevation Program",
+        "license": "Public domain"
       }
     },
     "john-bradford-fairfield-kentucky-gazette-fayette-1787-1830": {
@@ -2113,8 +3261,27 @@
         "title": "First print shop of the Kentucke Gazette, Lexington, from William Henry Perrin's 1887 history",
         "source_url": "https://commons.wikimedia.org/wiki/File:Kentucke_Gazette_Printing_House.png",
         "source_label": "Wikimedia Commons",
-        "attribution": "William Henry Perrin · Wikimedia Commons · public domain",
-        "year": 1887
+        "attribution": "William Henry Perrin · Wikimedia Commons · Public domain",
+        "year": 1887,
+        "credit": "William Henry Perrin",
+        "license": "Public domain",
+        "artwork": "print"
+      }
+    },
+    "john-filson": {
+      "slug": "john-filson-kentucke-1784",
+      "historyId": "john-filson",
+      "photo": {
+        "image_url": "/content/photos/stories/john-filson-kentucke-1784.jpg",
+        "title": "Manuscript copy of John Filson's 1784 map of Kentucke",
+        "source_url": "https://commons.wikimedia.org/wiki/File:This_map_of_Kentucke,_LOC_73691819.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "John Filson · Wikimedia Commons · Public domain",
+        "year": null,
+        "credit": "John Filson",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "map"
       }
     },
     "john-finley-eskippakithiki-trader": {
@@ -2126,7 +3293,26 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:George_Caleb_Bingham_-_Daniel_Boone_escorting_settlers_through_the_Cumberland_Gap.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "George Caleb Bingham · Wikimedia Commons · Public domain",
-        "year": 1851
+        "year": "1851–1852",
+        "artwork": "painting",
+        "credit": "George Caleb Bingham",
+        "license": "Public domain"
+      }
+    },
+    "floyds-station": {
+      "slug": "john-floyd",
+      "historyId": "floyds-station",
+      "photo": {
+        "image_url": "/content/photos/stories/john-floyd.jpg",
+        "title": "War Department militia record for John Floyd, 8th (Wilcox's) Kentucky Militia",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Floyd,_John_-_State-_Kentucky_-_Regiment-_8_(Wilcox%27s)_Kentucky_Militia_-_DPLA_-_e6d6fe738f152db2fce091380edd0af3.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "War Department, Adjutant General's Office · Wikimedia Commons · Public domain",
+        "credit": "War Department, Adjutant General's Office",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "fit": "contain",
+        "artwork": "document"
       }
     },
     "kentucky-association-race-course-lexington-fayette-1826-1933": {
@@ -2137,8 +3323,54 @@
         "title": "Kentucky Association race track, Lexington, on a 1920 postcard",
         "source_url": "https://commons.wikimedia.org/wiki/File:KentuckyAssociationRacetrack-1920.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Kraemer Art Company postcard · Wikimedia Commons · public domain",
-        "year": 1920
+        "attribution": "Kraemer Art Company postcard · Wikimedia Commons · Public domain",
+        "year": 1920,
+        "artwork": "print",
+        "credit": "Kraemer Art Company postcard",
+        "license": "Public domain"
+      }
+    },
+    "kentucky-river-palisades-high-bridge-group-ordovician": {
+      "slug": "kentucky-river-palisades",
+      "historyId": "kentucky-river-palisades-high-bridge-group-ordovician",
+      "photo": {
+        "image_url": "/content/photos/stories/kentucky-river-palisades.jpg",
+        "title": "The Kentucky River Palisades up close",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_River_Palisades_Close_up.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Christopher Wayne Hensley · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2008,
+        "credit": "Christopher Wayne Hensley",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "la-grange-oldham-1827-1840": {
+      "slug": "la-grange-the-oldham-county-seat-with-trains-on-main-street",
+      "historyId": "la-grange-oldham-1827-1840",
+      "photo": {
+        "image_url": "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg",
+        "title": "A freight train on Main Street, La Grange (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:La_Grange_KY_-_train_on_Main_Street.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Morgan from Halifax, Nova Scotia · Wikimedia Commons · CC BY 2.0",
+        "year": 2010
+      }
+    },
+    "lancaster-founding-wallace-s-crossroads": {
+      "slug": "lancaster-at-wallaces-crossroads",
+      "historyId": "lancaster-founding-wallace-s-crossroads",
+      "photo": {
+        "image_url": "/content/photos/stories/lancaster-at-wallaces-crossroads.jpg",
+        "title": "Garrard County Courthouse, Lancaster",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Garrard_County_Kentucky_Courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "credit": "W.marsh",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "fit": "contain"
       }
     },
     "lebanon-marion-county-seat": {
@@ -2161,8 +3393,27 @@
         "title": "Levi Todd's signature on a 1778 Kaskaskia promissory note witnessed by George Rogers Clark (archival document)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Promise_to_pay_Anthony_Peltier,_signed_Levi_Todd,_witnessed_by_George_Rogers_Clark,_August_3,_1778_-_DPLA_-_c36847f6ff629adc2678fb7e933c28c0_(page_1).jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Levi Todd (signer) · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
-        "year": 1778
+        "attribution": "Levi Todd · Missouri Historical Society via DPLA / Wikimedia Commons · Public domain",
+        "year": 1778,
+        "artwork": "signature",
+        "credit": "Levi Todd",
+        "license": "Public domain"
+      }
+    },
+    "lexington-named": {
+      "slug": "lexington-named",
+      "historyId": "lexington-named",
+      "photo": {
+        "image_url": "/content/photos/stories/lexington-named.jpg",
+        "title": "Memorial at the Lexington History Center, the old Fayette County Courthouse",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Birth_of_Kentucky_memorial_-_Lexington,_Kentucky_-_DSC09082.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Daderot · Wikimedia Commons · CC0",
+        "year": 2012,
+        "credit": "Daderot",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "fit": "contain"
       }
     },
     "liberty-hall-john-brown-frankfort-franklin-1796-1837": {
@@ -2175,6 +3426,21 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2018
+      }
+    },
+    "lost-river-cave-bowling-green": {
+      "slug": "lost-river-cave",
+      "historyId": "lost-river-cave-bowling-green",
+      "photo": {
+        "image_url": "/content/photos/stories/lost-river-cave.jpg",
+        "title": "Entrance to Lost River Cave, Bowling Green",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lost_River_Cave_entrance.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2014,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "louisville-portland-canal-1826-1830": {
@@ -2200,6 +3466,21 @@
         "attribution": "Jack Boucher / HABS · Wikimedia Commons · public domain",
         "year": 1979,
         "fit": "contain"
+      }
+    },
+    "maj-joseph-bowman-harrodsburg": {
+      "slug": "maj-joseph-bowman",
+      "historyId": "maj-joseph-bowman-harrodsburg",
+      "photo": {
+        "image_url": "/content/photos/stories/maj-joseph-bowman.jpg",
+        "title": "Joseph Bowman's grave marker, Old Cathedral Cemetery, Vincennes",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Bowman_marker.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Mingusboodle (talk) · Wikimedia Commons · Public domain",
+        "year": 2008,
+        "credit": "Mingusboodle (talk)",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "mammoth-cave-saltpeter-war-of-1812": {
@@ -2274,6 +3555,37 @@
         "year": null
       }
     },
+    "mount-horeb-adena-park": {
+      "slug": "mount-horeb-earthworks",
+      "historyId": "mount-horeb-adena-park",
+      "photo": {
+        "image_url": "/content/photos/stories/mount-horeb-earthworks.jpg",
+        "title": "Mount Horeb Site 1, an Adena ring ditch and timber circle",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Horeb_Site_1_HRoe_2022_350px.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2022,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artwork": "reconstruction"
+      }
+    },
+    "mount-sterling-founding": {
+      "slug": "mount-sterling-little-mountain-town",
+      "historyId": "mount-sterling-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/mount-sterling-little-mountain-town.jpg",
+        "title": "Mt. Sterling, Kentucky",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Sterling,_Kentucky_(14311593050).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2014,
+        "credit": "Ken Lund from Reno, Nevada, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      }
+    },
     "muir-site-15js86-jessamine-county": {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
       "historyId": "muir-site-15js86-jessamine-county",
@@ -2284,6 +3596,22 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    "natural-bridge-corbin-sandstone": {
+      "slug": "natural-bridge-sandstone-arch",
+      "historyId": "natural-bridge-corbin-sandstone",
+      "photo": {
+        "image_url": "/content/photos/stories/natural-bridge-sandstone-arch.jpg",
+        "title": "Steps up to the arch at Natural Bridge State Resort Park",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Natural_Bridge_State_Resort_Park_in_Slade,_Kentucky_(47613983601).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "PEO ACWA · Wikimedia Commons · CC BY 2.0",
+        "year": 2019,
+        "credit": "PEO ACWA",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "fit": "contain"
       }
     },
     "new-castle-henry-county-seat-1798": {
@@ -2297,6 +3625,21 @@
         "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
         "year": null,
         "fit": "contain"
+      }
+    },
+    "nicholasville-founding-rev-john-metcalf-1798": {
+      "slug": "nicholasville-takes-shape",
+      "historyId": "nicholasville-founding-rev-john-metcalf-1798",
+      "photo": {
+        "image_url": "/content/photos/stories/nicholasville-takes-shape.jpg",
+        "title": "South Main Street, Nicholasville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2010,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "old-fort-earthworks-15gp1-greenup": {
@@ -2367,8 +3710,11 @@
         "title": "Peter Village enclosure (Squier & Davis 1848)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and en:Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848
+        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
+        "year": 1848,
+        "artwork": "engraving",
+        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
+        "license": "Public domain"
       }
     },
     "inner-bluegrass-phosphatic-limestone-horse-country": {
@@ -2443,6 +3789,33 @@
         "year": 2006
       }
     },
+    "richard-henderson-transylvania": {
+      "slug": "richard-henderson",
+      "historyId": "richard-henderson-transylvania",
+      "photo": {
+        "image_url": "/content/photos/stories/richard-henderson.jpg",
+        "title": "Plan of Fort Boonesborough",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Boonesborough,_Kentucky_35%D0%B0.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Richard Henderson, copied by James Hall · Wikimedia Commons · Public domain",
+        "credit": "Richard Henderson, copied by James Hall",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "artwork": "drawing"
+      }
+    },
+    "river-raisin-muster-georgetown-scott-1812-1813": {
+      "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+      "historyId": "river-raisin-muster-georgetown-scott-1812-1813",
+      "photo": {
+        "image_url": "/content/photos/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan.jpg",
+        "title": "River Raisin National Battlefield Park, Monroe, Michigan (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:River_Raisin_National_Battlefield_Park.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Notorious4life · Wikimedia Commons · public domain",
+        "year": 2010
+      }
+    },
     "rowlandton-mound-site-15mcn3-mccracken": {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
@@ -2451,8 +3824,11 @@
         "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
         "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2003
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2003,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "russellville-logan-court-house-logan-1790-1810": {
@@ -2503,6 +3879,36 @@
         "year": 2007
       }
     },
+    "shelbyville-founding": {
+      "slug": "shelbyville",
+      "historyId": "shelbyville-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/shelbyville.jpg",
+        "title": "Thelma Stovall marker at the Kentucky Welcome Center, Shelbyville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_Welcome_Center_Shelbyville_-_October_2023_-_Sarah_Stierch_02.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
+        "year": 2023,
+        "credit": "Missvain",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      }
+    },
+    "shepherdsville-founding-adam-shepherd": {
+      "slug": "shepherdsville-on-salt-river",
+      "historyId": "shepherdsville-founding-adam-shepherd",
+      "photo": {
+        "image_url": "/content/photos/stories/shepherdsville-on-salt-river.jpg",
+        "title": "Downtown Shepherdsville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_shepherdsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": null,
+        "credit": "W.marsh",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    },
     "simpsonville-laid-out-1816": {
       "slug": "simpsonville-takes-shape-on-the-louisville-road",
       "historyId": "simpsonville-laid-out-1816",
@@ -2525,7 +3931,10 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2011
+        "year": 2011,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "slack-farm-15un28-union-county": {
@@ -2548,8 +3957,11 @@
         "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "somerset-founding-pulaski-seat-1801": {
@@ -2576,6 +3988,21 @@
         "year": 2008
       }
     },
+    "stanford-founding-st-asaph": {
+      "slug": "stanford-from-st-asaph",
+      "historyId": "stanford-founding-st-asaph",
+      "photo": {
+        "image_url": "/content/photos/stories/stanford-from-st-asaph.jpg",
+        "title": "Commercial district, Stanford",
+        "source_url": "https://commons.wikimedia.org/wiki/File:StanfordKY-Commercial-District.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+        "year": 2014,
+        "credit": "Joel Bradshaw",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      }
+    },
     "sweet-lick-knob-fort-ancient-estill": {
       "slug": "sweet-lick-knob-fort-ancient-gathering-place",
       "historyId": "sweet-lick-knob-fort-ancient-estill",
@@ -2586,6 +4013,30 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons · Public domain",
         "year": null
+      }
+    },
+    "c-and-o-mounds-paintsville-johnson-adena": {
+      "slug": "the-c-and-o-mounds-at-paintsville",
+      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
+      "photo": {
+        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
+        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2009
+      }
+    },
+    "maysville-lexington-turnpike-mason-1829-1835": {
+      "slug": "the-maysville-road-and-jacksons-veto-1830",
+      "historyId": "maysville-lexington-turnpike-mason-1829-1835",
+      "photo": {
+        "image_url": "/content/photos/stories/the-maysville-road-and-jacksons-veto-1830.jpg",
+        "title": "“1830—The Maysville Turnpike,” illustration from the Federal Highway Administration’s America’s Highways 1776–1976",
+        "source_url": "https://commons.wikimedia.org/wiki/File:America%27s_Highways_1776%E2%80%931976_-_1830%E2%80%94The_Maysville_Turnpike.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Federal Highway Administration · Wikimedia Commons · public domain",
+        "year": 1976
       }
     },
     "craigs-station-travelling-church-gilberts-creek": {
@@ -2624,6 +4075,21 @@
         "year": null
       }
     },
+    "turk-site-15ce6-carlisle-county": {
+      "slug": "turk-site-carlisle-county",
+      "historyId": "turk-site-15ce6-carlisle-county",
+      "photo": {
+        "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
+        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2013,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
     "twin-mounds-site-15ba2-ballard-county": {
       "slug": "twin-mounds-site",
       "historyId": "twin-mounds-site-15ba2-ballard-county",
@@ -2632,8 +4098,11 @@
         "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe, www.chromesun.com · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2010,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "walker-daniel-danville-boyle-1781-1787": {
@@ -2661,15 +4130,20 @@
       }
     },
     "wea-waayaahtanwa-ouiatenon": {
-      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+      "slug": "wea-waayaahtanwa-on-the-wabash",
       "historyId": "wea-waayaahtanwa-ouiatenon",
       "photo": {
-        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
-        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
+        "image_url": "/content/photos/stories/wea-waayaahtanwa-on-the-wabash.jpg",
+        "title": "Go-to-ków-páh-ah, Stands by Himself, a Distinguished Brave",
+        "source_url": "https://commons.wikimedia.org/wiki/File:George_Catlin_-_Go-to-k%C3%B3w-p%C3%A1h-ah,_Stands_by_Himself,_a_Distinguished_Brave_-_1985.66.248_-_Smithsonian_American_Art_Museum.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
-        "year": 2008
+        "attribution": "George Catlin · Wikimedia Commons · Public domain",
+        "year": 1830,
+        "credit": "George Catlin",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
+        "fit": "contain",
+        "artwork": "painting"
       }
     },
     "hoys-station-madison-1781-1782": {
@@ -2684,6 +4158,21 @@
         "year": 2017
       }
     },
+    "winchester-founding": {
+      "slug": "winchester-clark-county-seat",
+      "historyId": "winchester-founding",
+      "photo": {
+        "image_url": "/content/photos/stories/winchester-clark-county-seat.jpg",
+        "title": "Winchester, the Clark County seat",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Winchester,_Kentucky_(14311597270).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Ken Lund from Reno, Nevada, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 2014,
+        "credit": "Ken Lund from Reno, Nevada, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      }
+    },
     "yahoo-falls-mccreary-1937-1987": {
       "slug": "yahoo-falls-big-south-fork",
       "historyId": "yahoo-falls-mccreary-1937-1987",
@@ -2693,7 +4182,8 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Yahoo_Falls.JPG",
         "source_label": "Wikimedia Commons",
         "attribution": "Mason Brock · Wikimedia Commons · public domain",
-        "year": 2008
+        "year": 2008,
+        "fit": "contain"
       }
     }
   }

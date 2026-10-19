@@ -1,0 +1,110 @@
+{
+  "slug": "the-maysville-road-and-jacksons-veto-1830",
+  "storySlug": "the-maysville-road-and-jacksons-veto-1830",
+  "title": "The Maysville Road and Jackson’s veto, 1830",
+  "updated": "2026-10-19",
+  "summary": "The Maysville Road from the Ohio to Lexington drew Andrew Jackson’s 1830 veto of federal aid, yet Kentucky finished the turnpike in 1835 on today’s US 68.",
+  "sections": [
+    {
+      "heading": "Trace to turnpike",
+      "items": [
+        {
+          "text": "Buffalo trace and settler road Maysville-Washington-Paris-Lexington; 1829 charter (marker: Maysville and Washington Turnpike Co., Jan 29 1829; Grokipedia: MWP&L Turnpike Road Co.).",
+          "sources": [
+            "khs-144",
+            "gk"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bill and veto",
+      "items": [
+        {
+          "text": "Letcher bill, $150,000 stock; House 102-86 Apr 29 1830; Senate May 15; veto May 27 1830; Van Buren drafted.",
+          "sources": [
+            "gk"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Completion",
+      "items": [
+        {
+          "text": "First four miles done Nov 7 1830, earliest macadam west of Alleghenies; opened to Lexington 1835 with 13 tollhouses, 6 covered bridges.",
+          "sources": [
+            "khs-144"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1829",
+      "event": "Turnpike company chartered",
+      "sources": [
+        "khs-144",
+        "gk"
+      ]
+    },
+    {
+      "year": "1830",
+      "event": "House passes bill Apr 29; Senate May 15",
+      "sources": [
+        "gk"
+      ]
+    },
+    {
+      "year": "1830",
+      "event": "Jackson's veto, May 27",
+      "sources": [
+        "gk"
+      ]
+    },
+    {
+      "year": "1830",
+      "event": "First four miles finished Nov 7",
+      "sources": [
+        "khs-144"
+      ]
+    },
+    {
+      "year": "1835",
+      "event": "Road opened to Lexington",
+      "sources": [
+        "khs-144",
+        "gk"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "gk",
+      "citation": "Grokipedia: Maysville Road veto",
+      "url": "https://grokipedia.com/page/Maysville_Road_veto",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "khs-144",
+      "citation": "KHS marker #144: Maysville Road",
+      "url": "https://history.ky.gov/markers/maysville-road",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "gk-as",
+      "citation": "Grokipedia: American System",
+      "url": "https://grokipedia.com/page/American_System_(economic_plan)",
+      "type": "web",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "openQuestions": [
+    "Charter: marker names the Maysville and Washington Turnpike Company (Jan 29, 1829); Grokipedia names the MWP&L company; earlier research noted 1827 vs 1829.",
+    "Anti-repeat: no existing story or History pin; the turnpike also appears as a transport map line. Story links topic pages (Grokipedia) instead of a site map page."
+  ],
+  "people": []
+}

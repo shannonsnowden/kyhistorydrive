@@ -5,6 +5,7 @@
  */
 import { HomepageStructure } from './homepage-structure.js'
 import { responsivePicture, responsiveSources } from './responsive-img.js'
+import { MD_LINK_RE } from './markdown-links.js'
 
 export function escapeHtml(s) {
   return String(s)
@@ -46,7 +47,7 @@ export function eraLabel(era) {
 export function firstSentence(text) {
   const t = String(text || '')
     .replace(/^[ \t]*source:[ \t]*.+$/gim, '')
-    .replace(/\[([^\]]*)\]\([^)]+\)/g, '$1')
+    .replace(MD_LINK_RE, '$1')
     .replace(/\s+/g, ' ')
     .trim()
   if (!t) return ''

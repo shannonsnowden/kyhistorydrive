@@ -1,0 +1,123 @@
+{
+  "slug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+  "storySlug": "river-raisin-1813-kentuckys-winter-defeat-in-michigan",
+  "title": "River Raisin, 1813: Kentucky’s winter defeat in Michigan",
+  "updated": "2026-10-19",
+  "summary": "Kentucky volunteers who mustered at Georgetown in 1812 were defeated at the River Raisin in January 1813 by British troops and Wyandot-led warriors.",
+  "sections": [
+    {
+      "heading": "Muster",
+      "items": [
+        {
+          "text": "Kentucky volunteers rendezvoused at Georgetown Aug 15 1812 (marker 508).",
+          "sources": [
+            "khs-508"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Allied nations",
+      "items": [
+        {
+          "text": "About 800 warriors, Wyandot, Shawnee, Potawatomi, Odawa, Ojibwe; Wyandot chiefs Roundhead and Walk-in-the-Water; resisting American expansion since Greenville.",
+          "sources": [
+            "gk"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Battle",
+      "items": [
+        {
+          "text": "Jan 18 Frenchtown taken; Jan 22 Procter's attack, Winchester captured, ~500 surrender; ~359 killed, 495 captured/missing (Grokipedia); British 24 killed; Native losses unrecorded.",
+          "sources": [
+            "gk"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Jan 23 killings (contested)",
+      "items": [
+        {
+          "text": "30-60 wounded prisoners killed; 'massacre' framing American; causes debated (revenge, Procter's failure to guard).",
+          "sources": [
+            "gk"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Legacy",
+      "items": [
+        {
+          "text": "Remember the Raisin, Thames; nine counties named (marker 508); Ballard captured, Simpson killed.",
+          "sources": [
+            "khs-508",
+            "gk"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1812",
+      "event": "Muster at Georgetown, Aug 15",
+      "sources": [
+        "khs-508"
+      ]
+    },
+    {
+      "year": "1813",
+      "event": "Frenchtown taken Jan 18",
+      "sources": [
+        "gk"
+      ]
+    },
+    {
+      "year": "1813",
+      "event": "Battle Jan 22; prisoners killed Jan 23",
+      "sources": [
+        "gk"
+      ]
+    },
+    {
+      "year": "1813",
+      "event": "Battle of the Thames, Oct",
+      "sources": [
+        "gk"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "gk",
+      "citation": "Grokipedia: Battle of Frenchtown",
+      "url": "https://grokipedia.com/page/Battle_of_Frenchtown",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "khs-508",
+      "citation": "KHS marker #508: Remember the Raisin",
+      "url": "https://history.ky.gov/markers/remember-the-raisin",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "nps",
+      "citation": "National Park Service: River Raisin National Battlefield Park",
+      "url": "https://www.nps.gov/rira/index.htm",
+      "type": "web",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "openQuestions": [
+    "Casualty totals vary by source (Grokipedia also gives 'over 400' killed in another section); marker says not half of 1,050 reached home.",
+    "Number killed Jan 23: 30–60 per Grokipedia; other accounts higher."
+  ],
+  "people": []
+}

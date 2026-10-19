@@ -40,3 +40,7 @@ Archaeological site pins are published generalized: tier A sites use a county-le
 Exempt (never rounded): `skipSlugs` / `skipHistoryIds` in `pin-rounding.json`, which holds the tier C public sites (parks, caves, towns, museums) and the already county-level sites. To exempt a new public site, add its story slug and its History id to those two lists. To generalize a new site more coarsely than 2 decimals (county centroid), add an override entry instead.
 
 Not changed by design: roadside marker positions (`markers.geojson`, `public/data/app/markers.phase1.json`, `marker:` entries in the search indexes) and the iOS app repo.
+
+### Daily pack link checks (content, not status)
+
+Before opening a pack PR, run `node scripts/check-grokipedia-links.mjs public/content/stories/<slug>.json public/content/research/<slug>.json ...` for every new story and research outline. It fails on a missing Grokipedia article and prints each article's title and first sentence. Confirm the subject matches the link text: a 200 is not enough (Grokipedia `Roundhead` is the English Civil War faction and `James_Winchester` is a football player; the right pages are `roundhead_wyandot` and Wikipedia `James_Winchester_(general)`).
