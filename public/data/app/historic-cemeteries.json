@@ -405,10 +405,10 @@
     "cemetery_type": "municipal",
     "nrhp": "74000872",
     "history": "Hilltop rural cemetery overlooking the capital, incorporated in 1844 and NRHP-listed (74000872). Daniel and Rebecca Boone were reinterred here in 1845; nineteen Kentucky governors including William Goebel, Vice President Richard Mentor Johnson, and Marine hero Presley O'Bannon also rest on the bluff.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Frankfort_Cemetery",
+    "why_historic_url": "https://grokipedia.com/page/Frankfort_Cemetery",
     "website": "https://www.frankfortcemetery.org/",
     "sources": [
-      "https://en.wikipedia.org/wiki/Frankfort_Cemetery",
+      "https://grokipedia.com/page/Frankfort_Cemetery",
       "https://www.frankfortcemetery.org/",
       "https://history.ky.gov/markers/daniel-boones-grave"
     ],
@@ -632,10 +632,10 @@
     "cemetery_type": "municipal",
     "nrhp": "79000999",
     "history": "Louisville's premier Victorian garden cemetery and arboretum, chartered in 1848 and listed on the National Register in 1979. It holds the graves of Louisville founder George Rogers Clark, Muhammad Ali, and Colonel Harland Sanders, plus Union and Confederate Civil War burials including Cave Hill National Cemetery within its grounds.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Cave_Hill_Cemetery",
+    "why_historic_url": "https://grokipedia.com/page/Cave_Hill_Cemetery",
     "website": "https://cavehillcemetery.com/",
     "sources": [
-      "https://en.wikipedia.org/wiki/Cave_Hill_Cemetery",
+      "https://grokipedia.com/page/Cave_Hill_Cemetery",
       "https://cavehillcemetery.com/"
     ],
     "geocode_source": "nrhp",
@@ -682,7 +682,7 @@
     "website": "https://www.cem.va.gov/cems/nchp/cavehill.asp",
     "sources": [
       "https://www.cem.va.gov/cems/nchp/cavehill.asp",
-      "https://en.wikipedia.org/wiki/Cave_Hill_Cemetery"
+      "https://grokipedia.com/page/Cave_Hill_Cemetery"
     ],
     "geocode_source": "manual",
     "marker_number": null,
@@ -919,7 +919,7 @@
     "sources": [
       "https://parks.ky.gov/junction-city/parks/historic/isaac-shelby-cemetery-state-historic-site",
       "https://history.ky.gov/markers/travelers-rest-2",
-      "https://en.wikipedia.org/wiki/Isaac_Shelby"
+      "https://grokipedia.com/page/Isaac_Shelby"
     ],
     "geocode_source": "manual",
     "marker_number": "2233",
@@ -928,7 +928,7 @@
         "name": "Isaac Shelby",
         "lifespan": "1750–1826",
         "significance": "First and fifth governor of Kentucky; Revolutionary War officer",
-        "bio_url": "https://en.wikipedia.org/wiki/Isaac_Shelby"
+        "bio_url": "https://grokipedia.com/page/Isaac_Shelby"
       }
     ]
   },
@@ -989,9 +989,9 @@
     "cemetery_type": "pioneer",
     "nrhp": null,
     "history": "Grave of Matthew Lyon, Revolutionary War soldier, Vermont congressman prosecuted under the Alien and Sedition Acts, and later western Kentucky settler. Lyon County takes its name from him; the KHS marker interprets his national and Kentucky significance.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Matthew_Lyon",
+    "why_historic_url": "https://grokipedia.com/page/Matthew_Lyon",
     "sources": [
-      "https://en.wikipedia.org/wiki/Matthew_Lyon",
+      "https://grokipedia.com/page/Matthew_Lyon",
       "https://history.ky.gov/markers/matthew-lyon-grave"
     ],
     "geocode_source": "khs-marker",
@@ -1001,7 +1001,7 @@
         "name": "Matthew Lyon",
         "lifespan": "1749–1822",
         "significance": "Congressman; namesake of Lyon County; Alien and Sedition Acts defendant",
-        "bio_url": "https://en.wikipedia.org/wiki/Matthew_Lyon"
+        "bio_url": "https://grokipedia.com/page/Matthew_Lyon"
       }
     ]
   },
@@ -1064,9 +1064,9 @@
     "cemetery_type": "municipal",
     "nrhp": null,
     "history": "Historic Paducah cemetery best known as the burial place of author and humorist Irvin S. Cobb. A KHS marker interprets Cobb's career and interment at Mount Kenton.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Irvin_S._Cobb",
+    "why_historic_url": "https://grokipedia.com/page/Irvin_S._Cobb",
     "sources": [
-      "https://en.wikipedia.org/wiki/Irvin_S._Cobb",
+      "https://grokipedia.com/page/Irvin_S._Cobb",
       "https://history.ky.gov/markers/irvin-s-cobb"
     ],
     "geocode_source": "photon",
@@ -1076,7 +1076,7 @@
         "name": "Irvin S. Cobb",
         "lifespan": "1876–1944",
         "significance": "Paducah-born author, humorist, and journalist",
-        "bio_url": "https://en.wikipedia.org/wiki/Irvin_S._Cobb"
+        "bio_url": "https://grokipedia.com/page/Irvin_S._Cobb"
       }
     ]
   },

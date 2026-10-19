@@ -945,7 +945,7 @@
     "geocode_source": "photon",
     "sources": [
       "https://glennscreekdistillery.com/",
-      "https://en.wikipedia.org/wiki/Old_Crow"
+      "https://grokipedia.com/page/Old_Crow"
     ]
   },
   {
@@ -980,7 +980,7 @@
     "geocode_source": "manual",
     "sources": [
       "https://heavenhilldistillery.com/",
-      "https://en.wikipedia.org/wiki/Heaven_Hill"
+      "https://grokipedia.com/page/Heaven_Hill"
     ]
   }
 ]
