@@ -114,3 +114,27 @@ export function layoutTickLabels(ticks, { widthPx, labelWidth, gapPx = 3, minGap
   for (const it of best.items) it.x = Math.max(0, Math.round(it.x * 10) / 10)
   return best
 }
+
+/* Critiquito #326/#327: tap targets for the staggered labels. Each label owns its row band (rowH tall,
+ * >= 44px on touch) and, within the row, reaches up to 22px past its text but never past the midpoint to
+ * a neighbour, so no two targets overlap and an off-centre tap cannot pick the next year. */
+export const TICK_HIT_MIN_H = 44
+export function tickHitAreas(items, { top0 = 0, rowH = TICK_HIT_MIN_H, widthPx = Infinity, reach = 22 } = {}) {
+  const out = items.map(() => null)
+  const rows = new Map()
+  items.forEach((it, i) => { if (!rows.has(it.row)) rows.set(it.row, []); rows.get(it.row).push(i) })
+  for (const [row, idx] of rows) {
+    idx.sort((a, b) => items[a].x - items[b].x)
+    idx.forEach((i, k) => {
+      const it = items[i]
+      const prev = k ? items[idx[k - 1]] : null
+      const next = k < idx.length - 1 ? items[idx[k + 1]] : null
+      const left = Math.max(0, it.x - reach, prev ? (prev.x + prev.w + it.x) / 2 : -Infinity)
+      const right = Math.min(widthPx, it.x + it.w + reach, next ? (it.x + it.w + next.x) / 2 : Infinity)
+      const l = Math.ceil(left * 10) / 10
+      const r = Math.floor(right * 10) / 10
+      out[i] = { x: l, y: top0 + row * rowH, w: Math.round((r - l) * 10) / 10, h: rowH }
+    })
+  }
+  return out
+}

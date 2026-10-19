@@ -14,6 +14,8 @@ import {
   tickLabel,
   layoutTickLabels,
   TICK_MIN_GAP_PX,
+  TICK_HIT_MIN_H,
+  tickHitAreas,
 } from '../src/transport-timeline.js'
 
 const secs = JSON.parse(readFileSync(new URL('../public/maps/transport/sections.geojson', import.meta.url), 'utf8'))
@@ -83,19 +85,37 @@ const html = readFileSync(new URL('../roads-and-rails/index.html', import.meta.u
 const sliderTag = /<input[^>]*id="transportYear"[^>]*>/.exec(html)?.[0] || ''
 assert.ok(sliderTag && !/\smin="|aria-valuemin="/.test(sliderTag), 'slider min is set from data, not hard-coded in the page')
 assert.ok(html.includes('id="transportTicks"'), 'tick container present')
-// Editor #326: ticks are small visually but need a >=44x44px tap target (charter), via an invisible pseudo-element.
+// Editor #326 + Critiquito: the button is the tap target (>=44px tall on touch, sized by tickHitAreas);
+// the small visible label is a span inside it.
 const css = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
-const hitRule = /\.transport-tick::before\s*\{([^}]*)\}/.exec(css)?.[1] || ''
-assert.ok(hitRule, '.transport-tick::before hit-area rule present')
-const px = (prop) => Number(new RegExp(`(?:^|;|\\s)${prop}\\s*:\\s*(\\d+)px`).exec(hitRule)?.[1] || 0)
-assert.ok(px('min-width') >= 44, 'tick hit area min-width >= 44px')
-assert.ok(px('min-height') >= 44, 'tick hit area min-height >= 44px')
-assert.ok(/content\s*:\s*''/.test(hitRule) && /position\s*:\s*absolute/.test(hitRule), 'hit area is an absolute, empty pseudo-element')
-assert.ok([...hitRule.matchAll(/background(?:-color)?\s*:\s*([^;]+)/g)].every((m) => m[1].trim() === 'transparent') && !/border\s*:|outline\s*:/.test(hitRule), 'hit area is invisible')
+assert.match(css, /\.transport-tick-label\s*\{[^}]*position:\s*absolute/, 'visible label is an inner span')
+assert.match(js, /tickHitAreas\(/, 'the map sizes tick buttons with tickHitAreas')
 const lime = secs.features.find((f) => f.properties.id === 'limestone-trace')?.properties.sources || []
 assert.ok(!lime.some((u) => /\/search\//.test(u)), 'no search-results URLs in Limestone Trace sources')
 const mays = secs.features.find((f) => f.properties.id === 'maysville-turnpike')?.properties.sources || []
 assert.equal(mays[0], 'https://grokipedia.com/page/Maysville_Road_veto', 'Maysville sources lead with Grokipedia')
 assert.ok(!/resources\.ohiohistory\.org\/ohj\/search\//.test(html), 'page source list has no search-results URL')
 assert.ok(html.indexOf('https://grokipedia.com/page/Maysville_Road_veto') > -1 && html.indexOf('https://grokipedia.com/page/Maysville_Road_veto') < html.indexOf('https://en.wikipedia.org/wiki/Maysville_Road_veto'), 'page lists Grokipedia before Wikipedia for the Maysville Road')
+
+// Critiquito #326/#327: at 390 every staggered label is its own >=44px-tall tap target, and no two overlap.
+{
+  const ticks390 = groupTicks(events, { min: sliderMinYear(events), max: TIMELINE_MAX_YEAR })
+  const widthPx = 342 // slider width at 390 (390 - page and card padding)
+  const lay = layoutTickLabels(ticks390, { widthPx, labelWidth: (t) => Math.ceil(t.label.length * 7.2) + 6 })
+  const hits = tickHitAreas(lay.items, { top0: 18, rowH: TICK_HIT_MIN_H, widthPx })
+  assert.equal(TICK_HIT_MIN_H, 44)
+  assert.equal(hits.length, lay.items.length)
+  hits.forEach((h, i) => {
+    const it = lay.items[i]
+    assert.ok(h.h >= 44, `${it.year} hit area is ${h.h}px tall`)
+    assert.ok(h.x <= it.x + 0.01 && h.x + h.w >= it.x + it.w - 0.01, `${it.year} hit area covers its label`)
+  })
+  for (let i = 0; i < hits.length; i++)
+    for (let j = i + 1; j < hits.length; j++) {
+      const a = hits[i], b = hits[j]
+      const ov = a.x < b.x + b.w - 0.01 && b.x < a.x + a.w - 0.01 && a.y < b.y + b.h - 0.01 && b.y < a.y + a.h - 0.01
+      assert.ok(!ov, `tick hit areas ${lay.items[i].year} and ${lay.items[j].year} overlap at 390`)
+    }
+  assert.ok(!/\.transport-tick::before\s*\{[^}]*min-width:\s*44px/.test(css), 'no centred 44px ::before (it overlapped neighbours)')
+}
 console.log(`test-transport-timeline: OK (${events.length} events, ${ticks.length} ticks, min ${min}, pad ${TIMELINE_PAD_YEARS})`)
