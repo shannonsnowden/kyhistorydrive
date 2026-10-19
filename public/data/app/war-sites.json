@@ -30,7 +30,7 @@
     "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7811",
     "geocode_source": "photon",
     "sources": [
-      "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park"
+      "https://grokipedia.com/page/Fort_Boonesborough_State_Park"
     ]
   },
   {
@@ -560,10 +560,10 @@
     "war": "civil",
     "site_type": "cemetery",
     "history": "Hilltop cemetery with Confederate monument traditions and graves of political and military figures. Overlooks the capital once defended from Fort Hill earthworks.",
-    "website": "https://en.wikipedia.org/wiki/Frankfort_Cemetery",
+    "website": "https://grokipedia.com/page/Frankfort_Cemetery",
     "geocode_source": "nominatim",
     "sources": [
-      "https://en.wikipedia.org/wiki/Frankfort_Cemetery"
+      "https://grokipedia.com/page/Frankfort_Cemetery"
     ]
   },
   {
