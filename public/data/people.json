@@ -1752,18 +1752,14 @@
       "id": "will-emery",
       "name": "Captain Will Emery",
       "dates": null,
-      "image": {
-        "webp": "/people/portraits/will-emery__ai-portrait-v1-512.webp",
-        "jpg": "/people/portraits/will-emery__ai-portrait-v1-512.jpg"
-      },
-      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
-      "ai": true,
-      "license": "Original AI illustration",
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
       "licenseUrl": null,
       "stories": [
         "capt-will-the-hunting-ground"
-      ],
-      "sourceFile": null
+      ]
     },
     {
       "id": "john-stewart",
