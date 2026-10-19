@@ -75,6 +75,25 @@ export const AI_IDS = [
   'william-whitley',
   'michael-stoner',
   'jack-jouett',
+  // Item 92: unmerged AI portraits approved as canonical faces (no known likeness), Oct 19, 2026. Path Killer is v2.
+  'israel-boone',
+  'jemima-boone',
+  'ann-logan',
+  'burr-harrison',
+  'captain-dick',
+  'doublehead',
+  'elinipsico',
+  'fanny-callaway',
+  'george-boone',
+  'hannah-boone',
+  'james-boone',
+  'jean-baptiste-ducoigne',
+  'oconostota',
+  'path-killer',
+  'pluggy',
+  'scarouady',
+  'tanacharison',
+  'the-glass',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
