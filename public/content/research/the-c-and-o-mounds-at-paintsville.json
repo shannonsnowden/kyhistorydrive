@@ -1,0 +1,95 @@
+{
+  "slug": "the-c-and-o-mounds-at-paintsville",
+  "storySlug": "the-c-and-o-mounds-at-paintsville",
+  "title": "The C. and O. Mounds at Paintsville",
+  "updated": "2026-10-19",
+  "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
+  "sections": [
+    {
+      "heading": "Site",
+      "items": [
+        {
+          "text": "Two mounds 1,600 ft apart on Levisa Fork floodplain, sites Jo 2 and Jo 9; excavated with WPA sponsorship, published by Webb 1942.",
+          "sources": [
+            "tdar",
+            "clay"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Paired-post circles",
+      "items": [
+        {
+          "text": "Both mounds over circular paired-post patterns, first recognized under Wright Mounds; overlapping alignments suggest reuse over time.",
+          "sources": [
+            "clay"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "C&O pattern and revision",
+      "items": [
+        {
+          "text": "Webb: mound = important person over house, dispersed hamlets, cremated lesser dead (Webb 1942:361-362). Later digs found no villages; circles now read as mortuary structures.",
+          "sources": [
+            "clay"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "c. 500 BC–AD 250",
+      "event": "Adena mound building in the Ohio Valley (general range; no site-specific dates used)",
+      "sources": [
+        "gk-adena"
+      ]
+    },
+    {
+      "year": "1942",
+      "event": "Webb publishes the C. and O. Mounds",
+      "sources": [
+        "tdar"
+      ]
+    },
+    {
+      "year": "1998",
+      "event": "Clay's reassessment of the C&O pattern",
+      "sources": [
+        "clay"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdar",
+      "citation": "tDAR: Webb 1942, The C. and O. Mounds at Paintsville",
+      "url": "https://core.tdar.org/document/176231/the-c-and-o-mounds-at-paintsville-sites-jo-2-and-jo-9-johnson-county-kentucky",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "clay",
+      "citation": "R. Berle Clay 1998, The Essential Features of Adena Ritual (PDF)",
+      "url": "https://portola.press/wp-content/uploads/2019/05/clay-1998-adena-ritual.pdf",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "gk-adena",
+      "citation": "Grokipedia: Adena culture",
+      "url": "https://grokipedia.com/page/Adena_culture",
+      "type": "web",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "openQuestions": [
+    "No site-specific radiocarbon dates found; pin uses the general Adena range (-500 to 250), same as other Adena pins.",
+    "Brief's site numbers 15Jo2/15Jo9 and Haag/Snow chapter credits not confirmed from the cited records; story says Jo 2 and Jo 9 per tDAR.",
+    "Origin of the 'C. and O.' name not confirmed."
+  ],
+  "people": []
+}

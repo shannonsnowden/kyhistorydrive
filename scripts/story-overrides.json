@@ -872,6 +872,54 @@
       "yearStart": 1781,
       "yearEnd": 1787,
       "county": "Boyle"
+    },
+    "father-david-rice-and-kentuckys-first-presbyterian-churches": {
+      "reason": "KHS marker #844, Home of Early Minister, adjacent to 119 N. Main St., Greensburg. Years 1798 (arrival in Greensburg area per marker) to 1816 (death). County Green.",
+      "date": "2026-10-19",
+      "historyId": "david-rice-home-greensburg-green-1798-1816",
+      "lat": 37.262,
+      "lon": -85.5013,
+      "county": "Green"
+    },
+    "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
+      "reason": "KHS marker #1251, Oldham County, 1824, courthouse lawn, KY 53/146, La Grange; Main Street tracks one block away. Years 1827 (town laid out) to 1840 (incorporated). County Oldham.",
+      "date": "2026-10-19",
+      "historyId": "la-grange-oldham-1827-1840",
+      "lat": 38.3959,
+      "lon": -85.3744,
+      "yearStart": 1827,
+      "yearEnd": 1840,
+      "county": "Oldham"
+    },
+    "river-raisin-1813-kentuckys-winter-defeat-in-michigan": {
+      "reason": "KHS marker #508, Remember the Raisin, Georgetown courthouse lawn, US 25/460 (muster site; battlefield is in Monroe, Michigan). Years 1812 (muster) to 1813 (battle). County Scott.",
+      "date": "2026-10-19",
+      "historyId": "river-raisin-muster-georgetown-scott-1812-1813",
+      "lat": 38.2103,
+      "lon": -84.5593,
+      "yearStart": 1812,
+      "yearEnd": 1813,
+      "county": "Scott"
+    },
+    "the-c-and-o-mounds-at-paintsville": {
+      "reason": "Generalized to 0.1° near Paintsville; the exact mound sites are not published here. Years: general Adena range (c. 500 BC–AD 250), not excavation dates. County Johnson.",
+      "date": "2026-10-19",
+      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
+      "lat": 37.8,
+      "lon": -82.8,
+      "yearStart": -500,
+      "yearEnd": 250,
+      "county": "Johnson"
+    },
+    "the-maysville-road-and-jacksons-veto-1830": {
+      "reason": "KHS marker #144, Maysville Road, top of Maysville Hill near the Country Club, US 68. Years 1829 (charter) to 1835 (opened to Lexington). County Mason.",
+      "date": "2026-10-19",
+      "historyId": "maysville-lexington-turnpike-mason-1829-1835",
+      "lat": 38.6423,
+      "lon": -83.7814,
+      "yearStart": 1829,
+      "yearEnd": 1835,
+      "county": "Mason"
     }
   }
 }

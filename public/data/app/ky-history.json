@@ -3616,5 +3616,143 @@
       "attribution": "Sarah Stierch (Missvain), CC0, via Wikimedia Commons",
       "year": 2024
     }
+  },
+  {
+    "id": "david-rice-home-greensburg-green-1798-1816",
+    "name": "Father David Rice home marker, Greensburg (KHS #844)",
+    "subtitle": "Green County · Presbyterian minister · Greensburg home c. 1798–1816",
+    "latitude": 37.262,
+    "longitude": -85.5013,
+    "history": "State historical marker #844 in Greensburg marks the home of the Rev. David Rice, called Father Rice, who organized the first Presbyterian churches west of the Alleghenies in 1784. Born in Virginia in 1733, he came to Kentucky in 1783, founded Rice's School, or Transylvania Seminary, near Danville in 1785 and urged gradual emancipation at the 1792 constitutional convention.\n\nThe marker says he came to the Greensburg area in 1798 and formed two churches here; a Danville church history dates his move to Green County to 1793. He died in 1816 and is buried at Danville.",
+    "source_date": "2026-10-19",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #844, Home of Early Minister, adjacent to 119 N. Main St., Greensburg. Years 1798 (arrival in Greensburg area per marker) to 1816 (death).",
+    "category": "person",
+    "website": "https://history.ky.gov/markers/home-of-early-minister",
+    "year_start": 1798,
+    "year_end": 1816,
+    "photo": {
+      "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
+      "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+      "year": 2012
+    }
+  },
+  {
+    "id": "concord-church-danville-boyle-1784-1789",
+    "name": "Concord Church / First Presbyterian Church, Danville (KHS #754)",
+    "subtitle": "Boyle County · organized by David Rice 1784 · on Main Street from 1789",
+    "latitude": 37.6461,
+    "longitude": -84.7776,
+    "history": "David Rice organized Concord Church at Danville in 1784. The First Presbyterian Church of Danville counts it as the first of four congregations he gathered that year, and state marker #754 calls it the earliest of its denomination west of the Alleghenies. The congregation moved to its present Main Street location in 1789.",
+    "source_date": "2026-10-19",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #754, Presbyterian Church, 500 W. Main St., Danville. Years 1784 (organized) to 1789 (moved to Main Street site).",
+    "category": "church",
+    "website": "https://history.ky.gov/markers/presbyterian-church",
+    "year_start": 1784,
+    "year_end": 1789,
+    "photo": {
+      "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
+      "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+      "year": 2012
+    }
+  },
+  {
+    "id": "la-grange-oldham-1827-1840",
+    "name": "La Grange courthouse square and Main Street tracks",
+    "subtitle": "Oldham County seat · laid out 1827 · permanent seat 1838 · incorporated 1840",
+    "latitude": 38.3959,
+    "longitude": -85.3744,
+    "history": "La Grange was laid out in 1827 where the Shelbyville–Westport road crossed the Louisville–New Castle road, on land surveyor William Berry Taylor donated. It was named for Lafayette's French estate. The Oldham County court moved here in 1827, returned to Westport, and settled in La Grange for good in 1838; the town was incorporated in 1840.\n\nIn the 1850s the Louisville and Frankfort Railroad laid its tracks straight down Main Street, and freight trains still run between the shops today.",
+    "source_date": "2026-10-19",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #1251, Oldham County, 1824, courthouse lawn, KY 53/146, La Grange; Main Street tracks one block away. Years 1827 (town laid out) to 1840 (incorporated).",
+    "category": "town",
+    "website": "https://history.ky.gov/markers/oldham-county-1824",
+    "year_start": 1827,
+    "year_end": 1840,
+    "photo": {
+      "image_url": "/content/photos/stories/la-grange-the-oldham-county-seat-with-trains-on-main-street.jpg",
+      "title": "A freight train on Main Street, La Grange (photographed 2010)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:La_Grange_KY_-_train_on_Main_Street.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Morgan from Halifax, Nova Scotia · Wikimedia Commons · CC BY 2.0",
+      "year": 2010
+    }
+  },
+  {
+    "id": "river-raisin-muster-georgetown-scott-1812-1813",
+    "name": "Remember the Raisin: Kentucky volunteers' muster, Georgetown (KHS #508)",
+    "subtitle": "Scott County · muster Aug 15, 1812 · River Raisin Jan 1813",
+    "latitude": 38.2103,
+    "longitude": -84.5593,
+    "history": "Kentucky volunteers mustered on the Georgetown courthouse lawn on August 15, 1812, ordered north toward Detroit. In January 1813 they took Frenchtown on the River Raisin, in present Monroe, Michigan, but on January 22 British troops, Canadian militia and about 800 warriors led by the Wyandot chiefs Roundhead and Walk-in-the-Water defeated them. The next day warriors killed an estimated 30 to 60 wounded prisoners, an event Americans called a massacre.\n\nOf about 1,050 Kentuckians, the marker says, not half reached home. Nine Kentucky counties are named for officers lost in the campaign.",
+    "source_date": "2026-10-19",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #508, Remember the Raisin, Georgetown courthouse lawn, US 25/460 (muster site; battlefield is in Monroe, Michigan). Years 1812 (muster) to 1813 (battle).",
+    "category": "battle",
+    "website": "https://history.ky.gov/markers/remember-the-raisin",
+    "year_start": 1812,
+    "year_end": 1813,
+    "photo": {
+      "image_url": "/content/photos/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan.jpg",
+      "title": "River Raisin National Battlefield Park, Monroe, Michigan (photographed 2010)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:River_Raisin_National_Battlefield_Park.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Notorious4life · Wikimedia Commons · public domain",
+      "year": 2010
+    }
+  },
+  {
+    "id": "c-and-o-mounds-paintsville-johnson-adena",
+    "name": "C. and O. Mounds, Paintsville (approximate)",
+    "subtitle": "Johnson County · Adena burial mounds on the Levisa Fork · Early Woodland · location generalized",
+    "latitude": 37.8,
+    "longitude": -82.8,
+    "history": "On the Levisa Fork floodplain at Paintsville, Adena people raised two burial mounds about 1,600 feet apart, each over circular rings of paired posts. William S. Webb's University of Kentucky crews excavated them with Works Progress Administration support and published them in 1942.\n\nWebb read each mound as the grave of an important person over a house, with small hamlets along the river. Later work has not found those villages, and many archaeologists now see the post circles as ceremonial structures. The sites are not public; this pin is generalized to about 10 km.",
+    "source_date": "2026-10-19",
+    "geocode_source": "generalized-paintsville",
+    "geocode_note": "Generalized to 0.1° near Paintsville; the exact mound sites are not published here. Years: general Adena range (c. 500 BC–AD 250), not excavation dates.",
+    "category": "archaeology",
+    "website": "https://core.tdar.org/document/176231/the-c-and-o-mounds-at-paintsville-sites-jo-2-and-jo-9-johnson-county-kentucky",
+    "year_start": -500,
+    "year_end": 250,
+    "photo": {
+      "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
+      "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2009
+    }
+  },
+  {
+    "id": "maysville-lexington-turnpike-mason-1829-1835",
+    "name": "Maysville–Lexington Turnpike (US 68), Maysville Hill (KHS #144)",
+    "subtitle": "Mason County · turnpike chartered 1829 · Jackson veto 1830 · opened to Lexington 1835",
+    "latitude": 38.6423,
+    "longitude": -83.7814,
+    "history": "The road from Maysville through Washington and Paris to Lexington began as a buffalo trace and settler path. A turnpike company was chartered in 1829, and in 1830 Congress voted to buy $150,000 of its stock, but on May 27, 1830, President Andrew Jackson vetoed the bill, calling the road a local project.\n\nKentucky built it anyway. The first four miles, Maysville to Washington, were finished in November 1830 as the earliest macadamized road west of the Alleghenies, and the road opened to Lexington in 1835 with thirteen tollhouses. US 68 follows it today.",
+    "source_date": "2026-10-19",
+    "geocode_source": "khs-marker",
+    "geocode_note": "KHS marker #144, Maysville Road, top of Maysville Hill near the Country Club, US 68. Years 1829 (charter) to 1835 (opened to Lexington).",
+    "category": "transport",
+    "website": "https://history.ky.gov/markers/maysville-road",
+    "year_start": 1829,
+    "year_end": 1835,
+    "photo": {
+      "image_url": "/content/photos/stories/the-maysville-road-and-jacksons-veto-1830.jpg",
+      "title": "“1830—The Maysville Turnpike,” illustration from the Federal Highway Administration’s America’s Highways 1776–1976",
+      "source_url": "https://commons.wikimedia.org/wiki/File:America%27s_Highways_1776%E2%80%931976_-_1830%E2%80%94The_Maysville_Turnpike.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Federal Highway Administration · Wikimedia Commons · public domain",
+      "year": 1976
+    }
   }
 ]

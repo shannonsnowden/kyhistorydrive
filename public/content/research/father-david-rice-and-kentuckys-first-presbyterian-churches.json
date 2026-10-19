@@ -1,0 +1,155 @@
+{
+  "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+  "storySlug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+  "title": "Father David Rice and Kentucky’s first Presbyterian churches",
+  "updated": "2026-10-19",
+  "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
+  "sections": [
+    {
+      "heading": "Arrival and churches",
+      "items": [
+        {
+          "text": "Rice came to Kentucky in 1783 and organized Concord Church at Danville in 1784; the church counts it first of four that year, marker 754 says one of three. Congregation moved to Main Street in 1789.",
+          "sources": [
+            "pres",
+            "khs-754"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Teacher and presbytery",
+      "items": [
+        {
+          "text": "Founded Rice's School / Transylvania Seminary near Danville in 1785 (marker 844); first moderator of the Transylvania Presbytery.",
+          "sources": [
+            "khs-844",
+            "pres"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "1792 convention",
+      "items": [
+        {
+          "text": "Delegate to the 1792 convention; argued for gradual emancipation in Slavery, Inconsistent with Justice and Good Policy; failed; Article IX protected slavery.",
+          "sources": [
+            "ekh",
+            "pres"
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Green County",
+      "items": [
+        {
+          "text": "Church history: moved to Green County 1793. Marker 844: came to Greensburg area 1798, formed two churches. Died 1816 in Green County, buried at Danville.",
+          "sources": [
+            "pres",
+            "khs-844",
+            "wp"
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1733",
+      "event": "Born in Hanover County, Virginia",
+      "sources": [
+        "wp"
+      ]
+    },
+    {
+      "year": "1783",
+      "event": "Comes to Kentucky",
+      "sources": [
+        "pres",
+        "ekh"
+      ]
+    },
+    {
+      "year": "1784",
+      "event": "Organizes Concord Church, Danville",
+      "sources": [
+        "pres",
+        "khs-754"
+      ]
+    },
+    {
+      "year": "1785",
+      "event": "Rice's School / Transylvania Seminary",
+      "sources": [
+        "khs-844"
+      ]
+    },
+    {
+      "year": "1792",
+      "event": "Constitutional convention; argues gradual emancipation",
+      "sources": [
+        "ekh"
+      ]
+    },
+    {
+      "year": "1793 or 1798",
+      "event": "Moves to Green County (sources differ)",
+      "sources": [
+        "pres",
+        "khs-844"
+      ]
+    },
+    {
+      "year": "1816",
+      "event": "Dies in Green County",
+      "sources": [
+        "wp"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "pres",
+      "citation": "First Presbyterian Church of Danville: Our History",
+      "url": "https://www.presbydan.org/our-history96867eb2",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "ekh",
+      "citation": "ExploreKYHistory: Home of Early Minister (marker 844)",
+      "url": "https://explorekyhistory.ky.gov/items/show/174",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "khs-844",
+      "citation": "KHS marker #844: Home of Early Minister",
+      "url": "https://history.ky.gov/markers/home-of-early-minister",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "khs-754",
+      "citation": "KHS marker #754: Presbyterian Church (Danville)",
+      "url": "https://history.ky.gov/markers/presbyterian-church",
+      "type": "web",
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "wp",
+      "citation": "Wikipedia: David Rice (Presbyterian minister)",
+      "url": "https://en.wikipedia.org/wiki/David_Rice_(Presbyterian_minister)",
+      "type": "web",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "openQuestions": [
+    "Move to Green County: 1793 (church history) or 1798 (marker 844).",
+    "Concord Church: first of four congregations in 1784 (church) or one of three (marker 754).",
+    "Brief's McAfee's Station first-sermon tradition and convention resignation not used: not in the cited sources."
+  ],
+  "people": []
+}

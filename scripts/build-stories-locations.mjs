@@ -981,6 +981,37 @@ const MANUAL_OVERRIDES = {
     lon: -84.7707833,
     confidence: 'override',
   },
+  // 2026-10-19 brief (Rice pinned at Greensburg #844, Concord Church as second History pin; River Raisin at Georgetown muster #508; C&O generalized 0.1°)
+  'father-david-rice-and-kentuckys-first-presbyterian-churches': {
+    matchName: "Father David Rice home marker, Greensburg (KHS #844)",
+    lat: 37.262,
+    lon: -85.5013,
+    confidence: 'override',
+  },
+  'la-grange-the-oldham-county-seat-with-trains-on-main-street': {
+    matchName: "La Grange courthouse square and Main Street tracks",
+    lat: 38.3959,
+    lon: -85.3744,
+    confidence: 'override',
+  },
+  'river-raisin-1813-kentuckys-winter-defeat-in-michigan': {
+    matchName: "Remember the Raisin: Kentucky volunteers' muster, Georgetown (KHS #508)",
+    lat: 38.2103,
+    lon: -84.5593,
+    confidence: 'override',
+  },
+  'the-c-and-o-mounds-at-paintsville': {
+    matchName: "C. and O. Mounds, Paintsville (approximate)",
+    lat: 37.8,
+    lon: -82.8,
+    confidence: 'override',
+  },
+  'the-maysville-road-and-jacksons-veto-1830': {
+    matchName: "Maysville–Lexington Turnpike (US 68), Maysville Hill (KHS #144)",
+    lat: 38.6423,
+    lon: -83.7814,
+    confidence: 'override',
+  },
 }
 
 
