@@ -65,3 +65,10 @@ ${headExtra ? `${headExtra}\n` : ''}<title>Map · Kentucky History Drive</title>
 </html>
 `
 }
+
+/**
+ * Page-only assets (Security, #330): shipped only with KHD_ROADS_RAILS=1. With the flag off,
+ * scripts/prune-roads-rails-assets.mjs removes them from dist right after vite copies public/.
+ * Paths are relative to dist/; a trailing slash means the whole directory.
+ */
+export const ROADS_RAILS_ASSETS = Object.freeze(['maps/transport/', 'brand/og-roads-and-rails.png', 'data/web/transport-links.json'])

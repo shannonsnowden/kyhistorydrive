@@ -18,6 +18,7 @@ import {
   roadsRailsRedirectHtml,
   applyRoadsRailsBlocks,
   isRoadsRailsPath,
+  ROADS_RAILS_ASSETS,
 } from './roads-rails-flag.mjs'
 import { siteHeaderHtml } from './site-chrome.mjs'
 
@@ -107,5 +108,15 @@ assert.ok(canon && new URL(canon[1]).href === `${SITE}/`, 'stub canonical is the
 const refresh = /<meta http-equiv="refresh" content="0; url=([^"]+)">/.exec(stub)
 assert.ok(refresh && new URL(refresh[1], `${SITE}/roads-and-rails/`).href === `${SITE}/#map`, 'stub meta refresh goes to the map')
 assert.equal(roadsLinks(stub).length, 0, 'stub links nowhere under /roads-and-rails')
+
+// Page-only assets (Security, #330): pruned right after vite build, and the reader skips the links file.
+for (const want of ['maps/transport/', 'brand/og-roads-and-rails.png', 'data/web/transport-links.json']) {
+  assert.ok(ROADS_RAILS_ASSETS.includes(want), `asset list covers ${want}`)
+}
+const build = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')).scripts.build.split(' && ')
+assert.equal(build[build.indexOf('vite build') + 1], 'node scripts/prune-roads-rails-assets.mjs', 'assets are pruned right after vite build')
+assert.ok(build.indexOf('node scripts/check-roads-rails-removed.mjs') < build.indexOf('node scripts/check-protected-coords.mjs'), 'removal check runs before check-protected-coords')
+assert.equal(build[build.length - 1], 'node scripts/check-protected-coords.mjs', 'check-protected-coords runs last')
+assert.ok(/KHD_ROADS_RAILS === '1' \? await loadTransportLinks\(\)/.test(mainSrc), 'main.js only fetches transport links with the flag')
 
 console.log(`test-roads-rails-flag: ok (${ROADS_RAILS_OLD_PATHS.length} redirect variants; flag ${ROADS_RAILS_FLAG})`)

@@ -32,7 +32,9 @@ Nav: **Home | Map | Timeline | About | App** (logo also goes Home)
 Shannon took Roads & Rails off the live site on Oct 19, 2026. The code and data stay in the repo
 (`roads-and-rails/index.html`, `src/roads-and-rails.js`, `src/transport-*.js`, `public/maps/transport/`,
 `scripts/*transport*`). The default build leaves out the page, its nav item, the inline story links and its
-sitemap entry, skips the transport checks (`scripts/roads-rails-checks.mjs`), and writes noindex stubs at
+sitemap entry, skips the transport checks (`scripts/roads-rails-checks.mjs`), prunes the page-only assets from
+`dist/` (`maps/transport/`, `brand/og-roads-and-rails.png`, `data/web/transport-links.json`; `scripts/prune-roads-rails-assets.mjs`),
+and writes noindex stubs at
 `/roads-and-rails/` and `/roads-rails/` that forward to `/#map`. `amplify.yml` 301s the old URLs to `/`.
 
 `KHD_ROADS_RAILS=1 npm run build` (or `npm run build:roads-rails`) builds it all again and runs its checks.

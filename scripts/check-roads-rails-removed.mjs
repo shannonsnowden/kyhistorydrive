@@ -10,7 +10,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { roadsRailsEnabled, isRoadsRailsPath, ROADS_RAILS_FLAG } from './roads-rails-flag.mjs'
+import { roadsRailsEnabled, isRoadsRailsPath, ROADS_RAILS_ASSETS, ROADS_RAILS_FLAG } from './roads-rails-flag.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = process.env.CHECK_RR_DIST || path.join(root, 'dist')
@@ -55,6 +55,7 @@ const rrFile = path.join(dist, 'roads-and-rails', 'index.html')
 const rrHtml = fs.existsSync(rrFile) ? fs.readFileSync(rrFile, 'utf8') : ''
 
 let pages = 0
+let dataFiles = 0
 if (!on) {
   for (const [name, part] of [['header', header], ['nav (mobile menu)', nav], ['footer', footer], ['homepage', home]]) {
     if (hrefs(part, `${SITE}/`).some(isRR)) errors.push(`homepage ${name} links to Roads & Rails`)
@@ -68,9 +69,35 @@ if (!on) {
     if (/data-route="roads"/.test(html)) errors.push(`${path.relative(dist, f)}: roads nav item`)
     if (/class="transport-link"/.test(html)) errors.push(`${path.relative(dist, f)}: injected transport story link`)
   }
+  // Story and layer data the app renders at runtime (markdown links and HTML hrefs inside JSON), so a
+  // link hardcoded in story markdown or JSON is caught too, not only the build-injected ones.
+  let jsonFiles = 0
+  ;(function walkJson(dir) {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const f = path.join(dir, e.name)
+      if (e.isDirectory()) walkJson(f)
+      else if (/\.(json|geojson)$/.test(e.name)) {
+        jsonFiles += 1
+        const text = fs.readFileSync(f, 'utf8')
+        const targets = [...text.matchAll(/\]\(\s*([^)\s"]+)/g), ...text.matchAll(/href=\\?"([^"\\]+)/g)].map((m) => m[1])
+        for (const t of targets) {
+          let u
+          try {
+            u = new URL(t, `${SITE}/`)
+          } catch {
+            continue
+          }
+          if (isRR(u)) errors.push(`${path.relative(dist, f)}: link to ${u.pathname}`)
+        }
+      }
+    }
+  })(dist)
+  dataFiles = jsonFiles
   if (sitemapRR.length) errors.push(`sitemap.xml lists ${sitemapRR.map((u) => u.pathname).join(', ')}`)
-  const tl = path.join(dist, 'data/web/transport-links.json')
-  if (fs.existsSync(tl) && Object.keys(JSON.parse(fs.readFileSync(tl, 'utf8')).stories || {}).length) errors.push('data/web/transport-links.json still lists stories')
+  // Page-only assets must not ship (Security, #330).
+  for (const rel of ROADS_RAILS_ASSETS) {
+    if (fs.existsSync(path.join(dist, rel))) errors.push(`dist/${rel} ships with the flag off`)
+  }
   for (const p of ['roads-and-rails', 'roads-rails']) {
     const f = path.join(dist, p, 'index.html')
     const html = fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : ''
@@ -85,6 +112,11 @@ if (!on) {
   if (!/id="transportMap"/.test(rrHtml)) errors.push('flag on: /roads-and-rails/ is not the map page')
   if (!hrefs(nav, `${SITE}/`).some(isRR)) errors.push('flag on: homepage nav has no Roads & Rails link')
   if (sitemapRR.length !== 1) errors.push(`flag on: sitemap.xml should list /roads-and-rails/ once (found ${sitemapRR.length})`)
+  for (const rel of ROADS_RAILS_ASSETS) {
+    if (!fs.existsSync(path.join(dist, rel))) errors.push(`flag on: dist/${rel} is missing`)
+  }
+  const transportDir = path.join(dist, 'maps/transport')
+  if (!fs.existsSync(transportDir) || !fs.readdirSync(transportDir).some((f) => f.endsWith('.geojson'))) errors.push('flag on: dist/maps/transport has no .geojson')
 }
 
 if (errors.length) {
@@ -93,4 +125,4 @@ if (errors.length) {
 }
 console.log(on
   ? `check-roads-rails-removed: ${ROADS_RAILS_FLAG}=1, /roads-and-rails/ is built, in the nav and in sitemap.xml`
-  : `check-roads-rails-removed: ${pages} built pages and ${locs.length} sitemap URLs have no Roads & Rails link; /roads-and-rails/ and /roads-rails/ are stubs to the map`)
+  : `check-roads-rails-removed: ${pages} built pages and ${locs.length} sitemap URLs have no Roads & Rails link (${dataFiles} data files scanned for hardcoded links); /roads-and-rails/ and /roads-rails/ are stubs to the map`)

@@ -3424,7 +3424,8 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
     // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
     // when the Photos sidebar already shows the same file, but the title headshot stays).
     const storyPeople = await loadStoryPeople()
-    const transportLinks = await loadTransportLinks()
+    // Roads & Rails is off unless KHD_ROADS_RAILS=1; the links file isn't shipped then (#330).
+    const transportLinks = import.meta.env.KHD_ROADS_RAILS === '1' ? await loadTransportLinks() : { stories: {} }
     const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
     const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
     reader.innerHTML = `
