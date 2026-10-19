@@ -57,15 +57,26 @@
     },
     "treaty-of-logstown-1752": {
       "links": [
-        "tanacharison"
+        "tanacharison",
+        "scarouady"
       ],
-      "portraits": []
+      "portraits": [
+        "tanacharison",
+        "scarouady"
+      ],
+      "aliases": {
+        "tanacharison": "Tanacharison",
+        "scarouady": "Scarouady"
+      }
     },
     "col-william-russell-iii": {
       "links": [
-        "william-russell-iii"
+        "william-russell-iii",
+        "james-boone"
       ],
-      "portraits": []
+      "portraits": [
+        "james-boone"
+      ]
     },
     "treaties-of-hard-labour-and-lochaber": {
       "links": [
@@ -80,7 +91,8 @@
         "daniel-boone"
       ],
       "portraits": [
-        "daniel-boone"
+        "daniel-boone",
+        "will-emery"
       ]
     },
     "hancock-taylor-fincastle-surveyor": {
@@ -160,10 +172,12 @@
     },
     "illinois-confederation-at-cahokia": {
       "links": [
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "jean-baptiste-ducoigne"
       ],
       "portraits": [
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "jean-baptiste-ducoigne"
       ],
       "aliases": {
         "george-rogers-clark": "Clark"
@@ -225,9 +239,12 @@
     },
     "william-hoy-and-hoys-station": {
       "links": [
-        "william-hoy"
+        "william-hoy",
+        "george-boone"
       ],
-      "portraits": []
+      "portraits": [
+        "george-boone"
+      ]
     },
     "battle-of-blue-licks": {
       "links": [
@@ -249,9 +266,14 @@
     },
     "col-john-holder-at-lower-howards-creek": {
       "links": [
-        "john-holder"
+        "john-holder",
+        "jemima-boone",
+        "fanny-callaway"
       ],
-      "portraits": []
+      "portraits": [
+        "jemima-boone",
+        "fanny-callaway"
+      ]
     },
     "basil-haydens-high-rye-trail": {
       "links": [
@@ -508,6 +530,114 @@
         "george-a-thomas"
       ],
       "portraits": []
+    },
+    "hugh-mcgary-the-blue-licks-hothead": {
+      "links": [
+        "israel-boone"
+      ],
+      "portraits": [
+        "israel-boone"
+      ]
+    },
+    "wyandot-on-kentuckys-northern-frontier": {
+      "links": [
+        "israel-boone"
+      ],
+      "portraits": [
+        "israel-boone"
+      ]
+    },
+    "col-richard-callaway-of-boonesborough": {
+      "links": [
+        "jemima-boone"
+      ],
+      "portraits": [
+        "jemima-boone"
+      ]
+    },
+    "col-john-hardin-of-pleasant-run": {
+      "links": [
+        "ann-logan"
+      ],
+      "portraits": [
+        "ann-logan"
+      ],
+      "aliases": {
+        "ann-logan": "Ann Logan"
+      }
+    },
+    "benjamin-logan": {
+      "links": [
+        "burr-harrison"
+      ],
+      "portraits": [
+        "burr-harrison"
+      ]
+    },
+    "james-knox": {
+      "links": [
+        "captain-dick"
+      ],
+      "portraits": [
+        "captain-dick"
+      ]
+    },
+    "tellico-cession-1805-south-of-the-cumberland": {
+      "links": [
+        "path-killer",
+        "doublehead",
+        "the-glass"
+      ],
+      "portraits": [
+        "path-killer",
+        "doublehead",
+        "the-glass"
+      ],
+      "aliases": {
+        "doublehead": "Doublehead",
+        "the-glass": "Glass"
+      }
+    },
+    "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
+      "links": [
+        "elinipsico"
+      ],
+      "portraits": [
+        "elinipsico"
+      ],
+      "aliases": {
+        "elinipsico": "Elinipsico"
+      }
+    },
+    "old-mulkey-meetinghouse-1804": {
+      "links": [
+        "hannah-boone"
+      ],
+      "portraits": [
+        "hannah-boone"
+      ]
+    },
+    "richard-henderson": {
+      "links": [
+        "oconostota"
+      ],
+      "portraits": [
+        "oconostota"
+      ],
+      "aliases": {
+        "oconostota": "Oconostota"
+      }
+    },
+    "edward-worthington-at-worthingtons-fort": {
+      "links": [
+        "pluggy"
+      ],
+      "portraits": [
+        "pluggy"
+      ],
+      "aliases": {
+        "pluggy": "Pluggy"
+      }
     }
   }
 }
