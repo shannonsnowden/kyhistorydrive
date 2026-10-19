@@ -6135,3 +6135,73 @@ html:not([data-hp-theme="light"]) .brand-logo,
 html:not([data-hp-theme="light"]) .hp-page .brand-logo {
   box-shadow: 0 0 0 2px #f6edd8, 0 2px 8px rgba(0, 0, 0, 0.35);
 }
+
+/* Roads & Rails opening ticks (#291 follow-up; Critiquito #326): one tick per opening year, each with a
+ * visible label. Crowded labels stagger onto extra rows with leader lines. Marks and labels share one colour
+ * (--text), explained in the legend; leaders are --muted decoration. */
+.transport-ticks { --tick-label-size: 11px; position: relative; height: 40px; margin: -8px 0 0.2rem; }
+.transport-tick-lines { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.transport-tick-mark { stroke: var(--text); stroke-width: 2; stroke-linecap: round; }
+.transport-tick-lead { fill: none; stroke: var(--muted); stroke-width: 1; }
+.transport-tick {
+  /* The button is the tap target (a >=44px band on touch, sized in JS); it draws nothing itself. */
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.transport-tick-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 3px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: var(--tick-label-size);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.transport-tick[aria-current='true'] .transport-tick-label { border-color: var(--text); }
+.transport-tick:hover .transport-tick-label,
+.transport-tick.is-tip-open .transport-tick-label { border-color: var(--muted); text-decoration: underline; }
+.transport-tick:focus-visible { outline: none; }
+.transport-tick:focus-visible .transport-tick-label { outline: 3px solid var(--focus-ring); outline-offset: 1px; }
+.transport-swatch.is-tick-swatch { width: 2px; height: 12px; border-radius: 1px; background: var(--text); }
+.transport-swatch.is-trail-swatch {
+  background: radial-gradient(circle, currentColor 1.6px, transparent 1.9px) 0 50% / 6px 6px repeat-x;
+}
+.transport-tip {
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 5;
+  min-width: 9rem;
+  max-width: min(18rem, 90vw);
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(16, 24, 18, 0.35);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+.transport-tip[hidden] { display: none; }
+.transport-tip-head { margin: 0; font-weight: 600; }
+.transport-tip-head span { color: var(--accent); font-variant-numeric: tabular-nums; font-weight: 700; }
+.transport-tip ul { margin: 0.3rem 0 0; padding: 0; list-style: none; }
+.transport-tip li { margin: 0.12rem 0; }
+.transport-year { position: relative; }
