@@ -77,7 +77,12 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
   </head>
   <body>
+    <!-- khd-roads-rails:on -->
     <script>(function(){var t=/^#transport(?:\/(\d{4}))?\/?$/.exec(location.hash||'');if(t){location.replace('/roads-and-rails/'+(t[1]?'#'+t[1]:''));}})()</script>
+    <!-- /khd-roads-rails:on -->
+    <!-- khd-roads-rails:off -->
+    <script>(function(){var t=/^#transport(?:\/(\d{4}))?\/?$/.exec(location.hash||'');if(t){location.replace('#map');}})()</script>
+    <!-- /khd-roads-rails:off -->
     <script>(function(){var h=location.hash||'';var home=!h||h==='#'||h.indexOf('#home')===0||h.indexOf('#explore')===0;if(home)document.body.classList.add('hp-page')})()</script>
     <a class="skip-link" href="#content">Skip to content</a>
     <header class="top site-header">
@@ -169,7 +174,9 @@
         <a href="#timeline" data-route="timeline">Timeline</a>
         <a href="/people/" data-route="people">People</a>
         <a href="/drives/" data-route="drives">Drives</a>
+        <!-- khd-roads-rails:on -->
         <a href="/roads-and-rails/" data-route="roads">Roads &amp; Rails</a>
+        <!-- /khd-roads-rails:on -->
         <a href="#about" data-route="about">About</a>
         <button
           type="button"

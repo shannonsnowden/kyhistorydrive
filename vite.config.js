@@ -4,8 +4,11 @@ import { fileURLToPath } from 'node:url'
 import { injectGtagHead, privacyChoicesBootHtml } from './scripts/gtag-snippet.mjs'
 import { siteChromeScriptHtml, siteHeaderHtml } from './scripts/site-chrome.mjs'
 import { contactLineHtml } from './scripts/contact-reveal.mjs'
+import { applyRoadsRailsBlocks, isRoadsRailsPath, roadsRailsEnabled } from './scripts/roads-rails-flag.mjs'
 
 const root = dirname(fileURLToPath(import.meta.url))
+// Roads & Rails is off the live site (Oct 19). KHD_ROADS_RAILS=1 builds the page, nav item and #transport forward again.
+const roadsRails = roadsRailsEnabled()
 
 /** Chrome only treats a track as captions when the file is served as WebVTT. */
 function vttMime() {
@@ -54,6 +57,13 @@ function privacyPath() {
       return
     }
     if (path === '/videos/') req.url = `/videos/index.html${search}`
+    // Same 301 as amplify.yml while Roads & Rails is off, so dev and preview match the live redirect.
+    if (!roadsRails && isRoadsRailsPath(path)) {
+      res.statusCode = 301
+      res.setHeader('Location', '/')
+      res.end()
+      return
+    }
     next()
   }
   return {
@@ -69,6 +79,8 @@ function privacyPath() {
 
 export default defineConfig({
   base: '/',
+  // src/main.js reads this to pick the #transport forward (map, or /roads-and-rails/ with the flag).
+  define: { 'import.meta.env.KHD_ROADS_RAILS': JSON.stringify(roadsRails ? '1' : '') },
   plugins: [
     vttMime(),
     privacyPath(),
@@ -77,6 +89,8 @@ export default defineConfig({
       transformIndexHtml: {
         order: 'pre',
         handler(html) {
+          // <!-- khd-roads-rails:on|off --> blocks: keep the one for the KHD_ROADS_RAILS mode.
+          html = applyRoadsRailsBlocks(html, roadsRails)
           // <!-- khd-site-header --> or <!-- khd-site-header roads --> (marks that nav item as the current page).
           html = html.replace(/<!-- khd-site-header(?:\s+([a-z]+))? -->/, (_, route) => siteHeaderHtml(route || ''))
           if (html.includes('<!-- khd-site-chrome -->')) {
@@ -105,7 +119,7 @@ export default defineConfig({
         main: resolve(root, 'index.html'),
         privacy: resolve(root, 'privacy/index.html'),
         buildDrive: resolve(root, 'drives/build/index.html'),
-        roadsAndRails: resolve(root, 'roads-and-rails/index.html'),
+        ...(roadsRails ? { roadsAndRails: resolve(root, 'roads-and-rails/index.html') } : {}),
       },
     },
   },

@@ -75,6 +75,7 @@ import {
 } from '../src/story-markdown.js'
 import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink } from '../src/transport-links.js'
+import { ROADS_RAILS_STUB_DIRS, roadsRailsEnabled, roadsRailsRedirectHtml } from './roads-rails-flag.mjs'
 import { storyFigureHtml } from '../src/story-figure.js'
 import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
@@ -349,27 +350,36 @@ class PrerenderPages {
       const src = `public${loc}index.html`
       entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
     }
-    // Item 70: /roads-and-rails/ is a vite page (roads-and-rails/index.html); list it with a self-canonical.
-    const rrFile = path.join(dist, 'roads-and-rails', 'index.html')
-    if (fs.existsSync(rrFile)) fs.writeFileSync(rrFile, PrerenderPages.roadsRailsFill(fs.readFileSync(rrFile, 'utf8'), stories, root))
-    const rrHtml = fs.existsSync(rrFile) ? fs.readFileSync(rrFile, 'utf8') : ''
-    if (!rrHtml.includes('<link rel="canonical" href="https://kyhistorydrive.com/roads-and-rails/"') || !rrHtml.includes('<h1>Roads &amp; Rails</h1>') || !rrHtml.includes('id="transportMap"')) {
-      throw new Error('prerender: /roads-and-rails/ is missing its canonical, h1 or map')
+    // Roads & Rails left the live site on Oct 19: unless KHD_ROADS_RAILS=1, it is not built, not in the
+    // sitemap, and /roads-and-rails/ and /roads-rails/ get noindex stubs that forward to the map
+    // (amplify.yml 301s them to / too; those rules have been ignored live before).
+    if (roadsRailsEnabled()) {
+      // Item 70: /roads-and-rails/ is a vite page (roads-and-rails/index.html); list it with a self-canonical.
+      const rrFile = path.join(dist, 'roads-and-rails', 'index.html')
+      if (fs.existsSync(rrFile)) fs.writeFileSync(rrFile, PrerenderPages.roadsRailsFill(fs.readFileSync(rrFile, 'utf8'), stories, root))
+      const rrHtml = fs.existsSync(rrFile) ? fs.readFileSync(rrFile, 'utf8') : ''
+      if (!rrHtml.includes('<link rel="canonical" href="https://kyhistorydrive.com/roads-and-rails/"') || !rrHtml.includes('<h1>Roads &amp; Rails</h1>') || !rrHtml.includes('id="transportMap"')) {
+        throw new Error('prerender: /roads-and-rails/ is missing its canonical, h1 or map')
+      }
+      if ((rrHtml.match(/<li><a class="transport-story-link" href="\/stories\//g) || []).length < 1 || !rrHtml.includes('href="/drives/"') || !rrHtml.includes('"@type":"CollectionPage"')) {
+        throw new Error('prerender: /roads-and-rails/ is missing its story list, drives link or JSON-LD')
+      }
+      if (!/<a href="\/roads-and-rails\/" data-route="roads" class="active" aria-current="page">/.test(rrHtml)) {
+        throw new Error('prerender: /roads-and-rails/ nav item is not marked current')
+      }
+      entries.push({
+        loc: `${PrerenderPages.SITE}/roads-and-rails/`,
+        lastmod: [
+          'roads-and-rails/index.html',
+          'src/transport-map.js',
+          'public/maps/transport/sections.geojson',
+        ].reduce((max, f) => PrerenderPages.laterDate(max, dates.lastmod.get(f) || ''), '') || new Date().toISOString().slice(0, 10),
+      })
+    } else {
+      for (const dir of ROADS_RAILS_STUB_DIRS) {
+        PrerenderPages.writePage(dist, dir, roadsRailsRedirectHtml(`${gtagHeadHtml()}\n${faviconLinksHtml()}`))
+      }
     }
-    if ((rrHtml.match(/<li><a class="transport-story-link" href="\/stories\//g) || []).length < 1 || !rrHtml.includes('href="/drives/"') || !rrHtml.includes('"@type":"CollectionPage"')) {
-      throw new Error('prerender: /roads-and-rails/ is missing its story list, drives link or JSON-LD')
-    }
-    if (!/<a href="\/roads-and-rails\/" data-route="roads" class="active" aria-current="page">/.test(rrHtml)) {
-      throw new Error('prerender: /roads-and-rails/ nav item is not marked current')
-    }
-    entries.push({
-      loc: `${PrerenderPages.SITE}/roads-and-rails/`,
-      lastmod: [
-        'roads-and-rails/index.html',
-        'src/transport-map.js',
-        'public/maps/transport/sections.geojson',
-      ].reduce((max, f) => PrerenderPages.laterDate(max, dates.lastmod.get(f) || ''), '') || new Date().toISOString().slice(0, 10),
-    })
     entries.push({
       loc: `${PrerenderPages.SITE}/privacy/`,
       lastmod: dates.lastmod.get('privacy/index.html') || '',
