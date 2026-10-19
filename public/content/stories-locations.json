@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T10:12:32.298Z",
+  "generatedAt": "2026-10-19T10:34:53.483Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -1120,6 +1120,14 @@
       "matchedPlace": "Buck Pond / Col. Thomas Marshall",
       "historyId": "col-thomas-marshall-buck-pond-woodford-1783-1802"
     },
+    "father-david-rice-and-kentuckys-first-presbyterian-churches": {
+      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+      "lat": 37.262,
+      "lon": -85.5013,
+      "mapConfidence": "override",
+      "matchedPlace": "Father David Rice home marker, Greensburg (KHS #844)",
+      "historyId": "david-rice-home-greensburg-green-1798-1816"
+    },
     "harry-innes": {
       "slug": "harry-innes",
       "lat": 38.1939,
@@ -1495,14 +1503,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Bowling Green founding / Bolin Green (1798)",
       "historyId": "bowling-green-founding-bolin-green-1798"
-    },
-    "father-david-rice-and-kentuckys-first-presbyterian-churches": {
-      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
-      "lat": 37.262,
-      "lon": -85.5013,
-      "mapConfidence": "override",
-      "matchedPlace": "Father David Rice home marker, Greensburg (KHS #844)",
-      "historyId": "david-rice-home-greensburg-green-1798-1816"
     },
     "glasgow-the-barrens": {
       "slug": "glasgow-the-barrens",

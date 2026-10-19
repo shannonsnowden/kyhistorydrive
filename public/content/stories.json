@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T10:12:32.172Z",
+  "generatedAt": "2026-10-19T10:34:53.363Z",
   "count": 244,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -350,7 +350,7 @@
       "title": "The C. and O. Mounds at Paintsville",
       "publishedDate": "2026-10-19",
       "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "proseChars": 3263,
+      "proseChars": 3261,
       "yearStart": -500,
       "yearEnd": 250,
       "era": "prehistoric",
@@ -4296,6 +4296,37 @@
       "matchedPlace": "Buck Pond / Col. Thomas Marshall"
     },
     {
+      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
+      "title": "Father David Rice and Kentucky’s first Presbyterian churches",
+      "publishedDate": "2026-10-19",
+      "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
+      "proseChars": 3684,
+      "yearStart": 1783,
+      "yearEnd": 1816,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "religion",
+        "slavery"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-10-19",
+      "county": "Green",
+      "photo": {
+        "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
+        "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
+        "year": 2012
+      },
+      "lat": 37.262,
+      "lon": -85.5013,
+      "mapConfidence": "override",
+      "matchedPlace": "Father David Rice home marker, Greensburg (KHS #844)"
+    },
+    {
       "slug": "harry-innes",
       "title": "Harry Innes",
       "publishedDate": "2026-10-02",
@@ -5732,37 +5763,6 @@
       "matchedPlace": "Bowling Green founding / Bolin Green (1798)"
     },
     {
-      "slug": "father-david-rice-and-kentuckys-first-presbyterian-churches",
-      "title": "Father David Rice and Kentucky’s first Presbyterian churches",
-      "publishedDate": "2026-10-19",
-      "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
-      "proseChars": 3694,
-      "yearStart": 1783,
-      "yearEnd": 1816,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky",
-        "religion",
-        "slavery"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-10-19",
-      "county": "Green",
-      "photo": {
-        "image_url": "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg",
-        "title": "First Presbyterian Church, Danville, descendant of Rice’s Concord Church (photographed 2012)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:DanvilleKY-firstpresbyterianchurch-obl.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Joel Bradshaw · Wikimedia Commons · CC0",
-        "year": 2012
-      },
-      "lat": 37.262,
-      "lon": -85.5013,
-      "mapConfidence": "override",
-      "matchedPlace": "Father David Rice home marker, Greensburg (KHS #844)"
-    },
-    {
       "slug": "glasgow-the-barrens",
       "title": "Glasgow & the Barrens",
       "publishedDate": "2026-09-18",
@@ -6201,7 +6201,7 @@
       "title": "River Raisin, 1813: Kentucky’s winter defeat in Michigan",
       "publishedDate": "2026-10-19",
       "summary": "Kentucky volunteers who mustered at Georgetown in 1812 were defeated at the River Raisin in January 1813 by British troops and Wyandot-led warriors.",
-      "proseChars": 3872,
+      "proseChars": 3868,
       "yearStart": 1812,
       "yearEnd": 1813,
       "era": "frontier",
