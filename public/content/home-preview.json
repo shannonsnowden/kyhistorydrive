@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T09:42:45.841Z",
+  "generatedAt": "2026-10-19T10:12:41.844Z",
   "briefDate": "2026-10-19",
   "displayDate": "Monday, October 19, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -9,7 +9,7 @@
       "title": "Father David Rice and Kentucky’s first Presbyterian churches",
       "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
       "era": "frontier",
-      "yearStart": 1798,
+      "yearStart": 1783,
       "county": "Green",
       "briefDate": "2026-10-19",
       "href": "/#timeline/father-david-rice-and-kentuckys-first-presbyterian-churches",
@@ -93,7 +93,7 @@
       "lon": -82.8,
       "historyId": "c-and-o-mounds-paintsville-johnson-adena",
       "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
-      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
+      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
       "photo": {
         "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
         "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
@@ -102,7 +102,7 @@
         "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2009
       },
-      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
+      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     },
     {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
@@ -135,7 +135,7 @@
     "title": "Father David Rice and Kentucky’s first Presbyterian churches",
     "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
     "era": "frontier",
-    "yearStart": 1798,
+    "yearStart": 1783,
     "county": "Green",
     "briefDate": "2026-10-19",
     "href": "/#timeline/father-david-rice-and-kentuckys-first-presbyterian-churches",
@@ -220,7 +220,7 @@
       "lon": -82.8,
       "historyId": "c-and-o-mounds-paintsville-johnson-adena",
       "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
-      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
+      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
       "photo": {
         "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
         "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
@@ -229,7 +229,7 @@
         "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2009
       },
-      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River) at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
+      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     },
     {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
