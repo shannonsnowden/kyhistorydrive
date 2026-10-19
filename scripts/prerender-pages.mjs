@@ -1632,6 +1632,7 @@ class PrerenderPages {
       limit: 3,
       thumbFor: (item) => PrerenderPages.existingThumb(item),
       portraitFor: (slug) => (relatedBundle ? portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug)) : ''),
+      personFor: (slug) => (relatedBundle ? relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug) || null : null),
     })
   }
 
