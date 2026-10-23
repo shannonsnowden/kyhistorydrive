@@ -232,11 +232,23 @@ function finiteCoord(value) {
   return Number.isFinite(n) ? n : null
 }
 
+function isProtectedStoryCoords(story) {
+  if (!story) return false
+  if (story.coordinatesProtected || story.locationApproximate || story.archaeological) return true
+  if (story.era === "prehistoric") return true
+  if (Array.isArray(story.tags) && (story.tags.includes("archaeology") || story.tags.includes("prehistoric"))) return true
+  if (/\b15[a-z]{2}\d{1,4}\b/i.test(String(story.slug || ""))) return true
+  return false
+}
+
 function storyOrigin(story) {
-  const lat = finiteCoord(story?.lat)
-  const lon = finiteCoord(story?.lon)
-  if (lat == null || lon == null || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
-  if (lat === 0 && lon === 0) return null
+  const rawLat = finiteCoord(story?.lat)
+  const rawLon = finiteCoord(story?.lon)
+  if (rawLat == null || rawLon == null || Math.abs(rawLat) > 90 || Math.abs(rawLon) > 180) return null
+  if (rawLat === 0 && rawLon === 0) return null
+  const factor = isProtectedStoryCoords(story) ? 10 : 10000
+  const lat = Math.round(rawLat * factor) / factor
+  const lon = Math.round(rawLon * factor) / factor
   return { lat, lon }
 }
 
@@ -255,14 +267,13 @@ export function nearbyStories(story, all, { limit = 5, excludeSlugs = [] } = {})
   const skip = new Set(excludeSlugs || [])
   const rows = []
   for (const other of collapseSamePlace(story, all, skip)) {
-    const olat = finiteCoord(other.lat)
-    const olon = finiteCoord(other.lon)
-    if (!validPin(olat, olon)) continue
+    const otherOrigin = storyOrigin(other)
+    if (!otherOrigin) continue
     rows.push({
       kind: 'story',
       slug: other.slug,
       title: other.title,
-      miles: haversineMiles(origin.lat, origin.lon, olat, olon),
+      miles: haversineMiles(origin.lat, origin.lon, otherOrigin.lat, otherOrigin.lon),
     })
   }
   rows.sort((a, b) => a.miles - b.miles || a.title.localeCompare(b.title))
@@ -656,10 +667,9 @@ function sameCounty(story, other) {
 
 function relatedMiles(story, other) {
   const origin = storyOrigin(story)
-  const lat = finiteCoord(other?.lat)
-  const lon = finiteCoord(other?.lon)
-  if (!origin || !validPin(lat, lon)) return Number.POSITIVE_INFINITY
-  return haversineMiles(origin.lat, origin.lon, lat, lon)
+  const otherOrigin = storyOrigin(other)
+  if (!origin || !otherOrigin) return Number.POSITIVE_INFINITY
+  return haversineMiles(origin.lat, origin.lon, otherOrigin.lat, otherOrigin.lon)
 }
 
 /**
@@ -689,10 +699,10 @@ export function pickRelatedStories(story, all, excludeSlugs = []) {
 }
 
 /** Related stories first, then nearby places that are not already listed. */
-export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2, collapsible = false } = {}) {
+export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2, collapsible = false, heading = 'Related and nearby' } = {}) {
   const rows = [...(related || []), ...(nearby || [])]
   return relatedListHtml(rows, {
-    heading: 'Related and nearby',
+    heading,
     headingId: 'related-nearby-heading',
     headingLevel,
     navClass: 'static-related story-nearby',
@@ -705,7 +715,7 @@ export function relatedAndNearbyForStory(
   story,
   all,
   markers,
-  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', whyFor = null, collapsible = false } = {},
+  { headingLevel = 2, heading = 'Related stories', excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', whyFor = null, collapsible = false } = {},
 ) {
   const related = pickRelatedStories(story, all, excludeSlugs)
   const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
@@ -734,7 +744,7 @@ export function relatedAndNearbyForStory(
       thumb: other ? portraitFor(other.slug) || thumbFor(other) || '' : '',
     }
   })
-  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel, collapsible })
+  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel, collapsible, heading })
 }
 
 const SOURCE_BY_DOMAIN = [

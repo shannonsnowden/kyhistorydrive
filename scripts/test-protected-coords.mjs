@@ -60,6 +60,7 @@ const cases = [
   ["xml-leak-fails", { ...clean, "sitemap.xml": `<url><loc>https://kyhistorydrive.com/?lat=${a1}&amp;lon=${o1}</loc></url>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
   ["svg-leak-fails", { ...clean, "assets/map.svg": `<svg data-point="${b1},${o2}"></svg>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
   ["unknown-ext-fails-closed", { ...clean, "stories/fake-protected-site/story.docx": "unknown-format" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["zip-ext-fails-closed", { ...clean, "stories/fake-protected-site/archive.zip": "PK\u0003\u0004" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
   ["known-binary-ext-passes", { ...clean, "assets/photo.webp": "RIFF", "fonts/glyphs/0-255.pbf": "pbf" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
 ]
 let failed = 0

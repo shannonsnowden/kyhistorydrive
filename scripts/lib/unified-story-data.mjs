@@ -20,23 +20,6 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
-const SHORT_TITLE_OVERRIDES = {
-  'father-david-rice-and-kentuckys-first-presbyterian-churches': 'Father David Rice & KY’s First Churches',
-  'catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes':
-    'Catherine Spears Carpenter’s 1818 Mash Recipes',
-  'kentucky-association-1826-lexington-race-course': 'Kentucky Association & Lexington Race Course',
-  'wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid': 'Wea Towns at Ouiatenon & Scott’s 1791 Raid',
-  'little-turtle-and-hardins-defeat-1790': 'Little Turtle & Hardin’s 1790 Defeat',
-  'cane-ridge-meeting-house-and-the-1801-camp-meeting': 'Cane Ridge Meeting House & 1801 Revival',
-  'capt-william-hubbells-ohio-flatboat-stand-1791': 'Capt. William Hubbell’s 1791 Flatboat Stand',
-  'louisville-nashville-railroad-opens-the-interior': 'Louisville & Nashville Railroad in KY',
-  'e-h-taylor-jr-and-the-bottled-in-bond-act-1897': 'E.H. Taylor Jr. & the Bottled-in-Bond Act',
-  'potawatomi-fire-keepers-and-the-ohio-valley-wars': 'Potawatomi Fire-Keepers & Ohio Valley Wars',
-  'mary-draper-ingles-escapes-through-kentucky-1755': 'Mary Draper Ingles’s 1755 Escape in KY',
-  'wickliffe-mounds-mississippian-village-ballard-county': 'Wickliffe Mounds Mississippian Village',
-  'wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow': 'Wyandot Name: Kah-ten-tah-teh',
-}
-
 const ERA_LABELS = {
   prehistoric: 'Prehistoric',
   native: 'Native nations',
@@ -52,6 +35,7 @@ export function storyEraLabel(era) {
 }
 
 let cachedProtectedSlugs = null
+let cachedSkipProtectedSlugs = null
 function getProtectedSlugSet() {
   if (cachedProtectedSlugs) return cachedProtectedSlugs
   cachedProtectedSlugs = new Set()
@@ -60,23 +44,51 @@ function getProtectedSlugSet() {
     for (const s of raw.ids || raw.stories || []) cachedProtectedSlugs.add(String(s))
     for (const h of raw.historyIds || []) cachedProtectedSlugs.add(String(h))
   } catch (_) {}
+  try {
+    const rules = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts/pin-rounding.json"), "utf8"))
+    for (const s of rules.forceSlugs || []) cachedProtectedSlugs.add(String(s))
+  } catch (_) {}
+  try {
+    const ov = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts/story-overrides.json"), "utf8"))
+    for (const [slug, entry] of Object.entries(ov.overrides || {})) {
+      if (/looting-sensitive|coarsened to 0\.1|generalized to 0\.1/i.test(String(entry?.reason || ""))) {
+        cachedProtectedSlugs.add(String(slug))
+        if (entry?.historyId) cachedProtectedSlugs.add(String(entry.historyId))
+      }
+    }
+  } catch (_) {}
   return cachedProtectedSlugs
 }
 
+function getSkipProtectedSlugSet() {
+  if (cachedSkipProtectedSlugs) return cachedSkipProtectedSlugs
+  cachedSkipProtectedSlugs = new Set()
+  try {
+    const rules = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts/pin-rounding.json"), "utf8"))
+    for (const s of rules.skipSlugs || []) cachedSkipProtectedSlugs.add(String(s))
+    for (const h of rules.skipHistoryIds || []) cachedSkipProtectedSlugs.add(String(h))
+  } catch (_) {}
+  return cachedSkipProtectedSlugs
+}
+
 export function isProtectedStory(story) {
+  if (!story) return false
+  if (story.coordinatesProtected || story.locationApproximate) return true
+  const set = getProtectedSlugSet()
+  if (story.slug && set.has(String(story.slug))) return true
+  if (story.id && set.has(String(story.id))) return true
+  if (story.historyId && set.has(String(story.historyId))) return true
+  const skip = getSkipProtectedSlugSet()
+  if (story.slug && skip.has(String(story.slug))) return false
+  if (story.historyId && skip.has(String(story.historyId))) return false
   if (
-    story?.coordinatesProtected ||
-    story?.locationApproximate ||
-    story?.archaeological ||
-    story?.era === "prehistoric" ||
-    (Array.isArray(story?.tags) && story.tags.includes("archaeology"))
+    story.archaeological ||
+    story.era === "prehistoric" ||
+    (Array.isArray(story.tags) && (story.tags.includes("archaeology") || story.tags.includes("prehistoric"))) ||
+    /\b15[a-z]{2}\d{1,4}\b/i.test(String(story.slug || ""))
   ) {
     return true
   }
-  const set = getProtectedSlugSet()
-  if (story?.slug && set.has(String(story.slug))) return true
-  if (story?.id && set.has(String(story.id))) return true
-  if (story?.historyId && set.has(String(story.historyId))) return true
   return false
 }
 
@@ -114,15 +126,10 @@ export function formatCoordCardinal(lat, lon, decimals = 4) {
 }
 
 export function storyDocTitle(story) {
-  const base = String(story?.seoTitle || story?.title || '').trim()
-  if (!base) return 'Kentucky History Drive'
+  const base = String(story?.seoTitle || story?.title || "").trim()
+  if (!base) return "Kentucky History Drive"
   const suffixed = `${base} · Kentucky History Drive`
-  if (suffixed.length <= 60) return suffixed
-  if (base.length <= 60) return base
-  if (SHORT_TITLE_OVERRIDES[story?.slug]) {
-    return SHORT_TITLE_OVERRIDES[story.slug]
-  }
-  return base.slice(0, 60).trim()
+  return suffixed.length <= 60 ? suffixed : base
 }
 
 export function matchStoryMarkers(story, markers = [], notes = null, route = null) {
@@ -242,61 +249,147 @@ export function splitStoryMarkdown(bodyMarkdown, hasGlance = false) {
   }
 }
 
+let cachedFallbackPeople = null
+function getFallbackPeopleData() {
+  if (cachedFallbackPeople) return cachedFallbackPeople
+  const byId = new Map()
+  const sourceById = new Map()
+  const byStory = new Map()
+  let storySubjects = {}
+  let storyPeopleMap = {}
+  try {
+    const pub = JSON.parse(fs.readFileSync(path.join(ROOT, "public/data/people.json"), "utf8"))
+    storySubjects = pub.storySubjects || {}
+    for (const p of pub.people || []) {
+      if (!p?.id) continue
+      byId.set(p.id, p)
+      for (const s of p.stories || []) {
+        if (!byStory.has(s)) byStory.set(s, [])
+        byStory.get(s).push(p)
+      }
+    }
+  } catch (_) {}
+  try {
+    const src = JSON.parse(fs.readFileSync(path.join(ROOT, "data/people.json"), "utf8"))
+    for (const p of src.people || []) {
+      if (p?.id) sourceById.set(p.id, p)
+    }
+  } catch (_) {}
+  try {
+    const sp = JSON.parse(fs.readFileSync(path.join(ROOT, "public/data/web/story-people.json"), "utf8"))
+    storyPeopleMap = sp.stories || {}
+  } catch (_) {}
+  cachedFallbackPeople = { byId, sourceById, byStory, storySubjects, storyPeopleMap }
+  return cachedFallbackPeople
+}
+
 export function resolvePeopleInStory(story, peopleData, notes = null, subject = null) {
+  const fb = getFallbackPeopleData()
   const byId =
     peopleData?.byId instanceof Map
       ? peopleData.byId
       : peopleData?.peopleById instanceof Map
         ? peopleData.peopleById
-        : new Map()
-  const peopleArray = Array.isArray(peopleData?.people)
-    ? peopleData.people
-    : Array.isArray(peopleData?.people?.people)
-      ? peopleData.people.people
-      : []
+        : fb.byId
+  const peopleArray = Array.isArray(peopleData)
+    ? peopleData
+    : Array.isArray(peopleData?.people)
+      ? peopleData.people
+      : Array.isArray(peopleData?.people?.people)
+        ? peopleData.people.people
+        : [...fb.byId.values()]
+  const sourcePeopleArray = Array.isArray(peopleData?.sourcePeople?.people)
+    ? peopleData.sourcePeople.people
+    : []
+  const sourceById = new Map(fb.sourceById)
+  for (const sp of sourcePeopleArray) {
+    if (sp?.id) sourceById.set(sp.id, sp)
+  }
   const storySubjects =
-    peopleData?.storySubjects || peopleData?.people?.storySubjects || {}
+    peopleData?.storySubjects || peopleData?.people?.storySubjects || fb.storySubjects || {}
+  const storyPeopleMap =
+    peopleData?.storyPeople?.stories || fb.storyPeopleMap || {}
+  const subjId = subject?.id || storySubjects?.[story?.slug] || storyPeopleMap?.[story?.slug]?.portraits?.[0] || ""
   const seen = new Set()
   const list = []
 
-  const pushPerson = (p, roleOverride = '') => {
+  const pushPerson = (p, roleOverride = "") => {
     if (!p?.id || seen.has(p.id)) return
     seen.add(p.id)
+    const pubP = byId.get(p.id) || fb.byId.get(p.id) || {}
+    const srcP = sourceById.get(p.id) || {}
+    const datesVal = p.dates || p.years || pubP.dates || srcP.lifeDates || ""
+    const roleVal = roleOverride || p.role || srcP.role || p.title || p.shortBio || ""
+    const imageVal = p.image || pubP.image || srcP.image || null
+    const wikidata = p.wikidata || pubP.wikidata || srcP.wikidata || ""
+    const wikipedia = p.wikipedia || pubP.wikipedia || srcP.wikipedia || ""
+    const grokipedia = p.grokipedia || pubP.grokipedia || srcP.grokipedia || ""
+    const sameAs = Array.isArray(p.sameAs)
+      ? p.sameAs
+      : Array.isArray(pubP.sameAs)
+        ? pubP.sameAs
+        : Array.isArray(srcP.sameAs)
+          ? srcP.sameAs
+          : undefined
     list.push({
       id: p.id,
-      name: p.name,
-      dates: p.dates || '',
-      role: roleOverride || p.role || '',
-      image: p.image || null,
-      credit: p.credit || '',
-      ai: Boolean(p.ai),
+      name: p.name || pubP.name || srcP.name || p.id,
+      dates: datesVal,
+      years: datesVal,
+      role: roleVal,
+      image: imageVal,
+      thumb: imageVal ? `/content/portraits/thumbs/${p.id}.webp` : "",
+      credit: p.credit || pubP.credit || srcP.credit || "",
+      ai: Boolean(p.ai ?? pubP.ai ?? srcP.ai),
+      href: `/people/#${p.id}`,
+      isSubject: Boolean((subject && p.id === subject.id) || (subjId && p.id === subjId)),
+      ...(wikidata ? { wikidata } : {}),
+      ...(wikipedia ? { wikipedia } : {}),
+      ...(grokipedia ? { grokipedia } : {}),
+      ...(sameAs ? { sameAs } : {}),
     })
   }
 
   if (subject?.id) {
-    pushPerson(subject, story?.summary || '')
+    pushPerson(subject)
   }
-  const subjId = storySubjects?.[story?.slug]
-  if (subjId && byId.has(subjId)) {
-    pushPerson(byId.get(subjId), story?.summary || '')
+    if (subjId && (byId.has(subjId) || fb.byId.has(subjId))) {
+    pushPerson(byId.get(subjId) || fb.byId.get(subjId))
   }
   for (const p of peopleArray) {
     if (Array.isArray(p?.stories) && p.stories.includes(story?.slug)) {
-      pushPerson(p, story?.summary || '')
+      pushPerson(p)
+    }
+  }
+  for (const p of fb.byStory.get(story?.slug) || []) {
+    pushPerson(p)
+  }
+  const spEntry = storyPeopleMap?.[story?.slug]
+  if (spEntry) {
+    for (const pid of spEntry.portraits || []) {
+      const p = byId.get(pid) || fb.byId.get(pid)
+      if (p) pushPerson(p)
+    }
+    for (const lk of spEntry.links || []) {
+      const pid = lk?.id
+      const p = pid && (byId.get(pid) || fb.byId.get(pid))
+      if (p) pushPerson(p)
     }
   }
   if (Array.isArray(notes?.people)) {
     for (const np of notes.people) {
       const pid = np?.peopleId || np?.id
-      if (pid && byId.has(pid)) {
-        pushPerson(byId.get(pid), np.role || '')
+      const p = pid && (byId.get(pid) || fb.byId.get(pid))
+      if (p) {
+        pushPerson(p, np.role || "")
       }
     }
   }
-  const md = String(story?.bodyMarkdown || '')
+  const md = String(story?.bodyMarkdown || "")
   for (const match of md.matchAll(/\]\(\/people\/#([a-z0-9-]+)\)/g)) {
     const pid = match[1]
-    if (byId.has(pid)) pushPerson(byId.get(pid), '')
+    const p = byId.get(pid) || fb.byId.get(pid)
+    if (p) pushPerson(p)
   }
 
   return list
@@ -448,22 +541,101 @@ function getMapAssets() {
   return cachedMapAssets
 }
 
+function haversineMilesRounded(aGeo, bGeo) {
+  if (!aGeo || !bGeo) return Infinity
+  const toRad = (deg) => (deg * Math.PI) / 180
+  const R = 3958.7613
+  const dLat = toRad(bGeo.lat - aGeo.lat)
+  const dLon = toRad(bGeo.lon - aGeo.lon)
+  const lat1 = toRad(aGeo.lat)
+  const lat2 = toRad(bGeo.lat)
+  const sinDLat = Math.sin(dLat / 2)
+  const sinDLon = Math.sin(dLon / 2)
+  const h = sinDLat * sinDLat + Math.cos(lat1) * Math.cos(lat2) * sinDLon * sinDLon
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)))
+}
+
+export function nearbyStories(story, all = [], { limit = 5, excludeSlugs = [] } = {}) {
+  const origin = roundedStoryGeo(story)
+  if (!origin) return []
+  const excluded = new Set(excludeSlugs)
+  return (all || [])
+    .filter((other) => other && other.slug && other.slug !== story.slug && !excluded.has(other.slug))
+    .map((other) => {
+      const otherGeo = roundedStoryGeo(other)
+      return otherGeo ? { story: other, miles: haversineMilesRounded(origin, otherGeo) } : null
+    })
+    .filter((row) => row && Number.isFinite(row.miles))
+    .sort((a, b) => a.miles - b.miles || String(a.story.title || "").localeCompare(String(b.story.title || "")))
+    .slice(0, limit)
+    .map(({ story: item, miles }) => ({
+      kind: "story",
+      slug: item.slug,
+      title: item.title,
+      county: item.county || "",
+      miles,
+    }))
+}
+
+export function nearbyMarkers(story, markers = [], { limit = 5, excludeMarkerIds = [] } = {}) {
+  const origin = roundedStoryGeo(story)
+  if (!origin) return []
+  const excluded = new Set((excludeMarkerIds || []).map((id) => String(id)))
+  return (markers || [])
+    .filter((m) => m && m.id && !excluded.has(String(m.id)))
+    .map((m) => {
+      const lat = roundStoryCoord(m.lat, false)
+      const lon = roundStoryCoord(m.lon, false)
+      if (lat == null || lon == null) return null
+      return { marker: m, miles: haversineMilesRounded(origin, { lat, lon }) }
+    })
+    .filter((row) => row && Number.isFinite(row.miles))
+    .sort((a, b) => a.miles - b.miles || Number(a.marker.id) - Number(b.marker.id))
+    .slice(0, limit)
+    .map(({ marker, miles }) => ({
+      kind: "marker",
+      id: String(marker.id),
+      title: marker.title,
+      county: marker.county || "",
+      miles,
+    }))
+}
+
 export function computeRelatedNote(baseStory, candidate) {
-  const baseTags = new Set((baseStory?.tags || []).map((t) => String(t).toLowerCase()))
+  if (
+    baseStory?.matchedPlace &&
+    candidate?.matchedPlace &&
+    String(baseStory.matchedPlace).trim().toLowerCase() === String(candidate.matchedPlace).trim().toLowerCase()
+  ) {
+    return "Same place"
+  }
+  const ignored = new Set(["kentucky", "other"])
+  const baseTags = new Set(
+    (baseStory?.tags || [])
+      .map((t) => String(t).toLowerCase())
+      .filter((t) => !ignored.has(t)),
+  )
   const sharedTags = (candidate?.tags || []).filter((t) => baseTags.has(String(t).toLowerCase()))
-  const bits = []
   if (sharedTags.length) {
-    bits.push(`Shared: ${sharedTags.slice(0, 2).map((t) => String(t).replace(/-/g, ' ')).join(', ')}`)
+    return `Shared: ${sharedTags.slice(0, 2).map((t) => String(t).replace(/-/g, " ")).join(", ")}`
   }
-  if (candidate?.county && baseStory?.county && String(candidate.county).toLowerCase() === String(baseStory.county).toLowerCase()) {
-    bits.push(`Same county (${countyLong(candidate.county)})`)
-  } else if (candidate?.county) {
-    bits.push(countyLong(candidate.county))
+  if (
+    candidate?.county &&
+    baseStory?.county &&
+    String(candidate.county).toLowerCase() === String(baseStory.county).toLowerCase()
+  ) {
+    return `Same county (${countyLong(candidate.county)})`
   }
-  const yrs = compactYearRange(candidate?.yearStart, candidate?.yearEnd)
-  if (yrs) bits.push(yrs)
-  else if (candidate?.era) bits.push(storyEraLabel(candidate.era))
-  return bits.join(' · ') || 'Related Kentucky story'
+  const aGeo = roundedStoryGeo(baseStory)
+  const bGeo = roundedStoryGeo(candidate)
+  const miles = haversineMilesRounded(aGeo, bGeo)
+  if (Number.isFinite(miles) && miles < 50) {
+    return `Nearby: ${miles < 10 ? miles.toFixed(1).replace(/\.0$/, "") : Math.round(miles)} miles`
+  }
+  if (candidate?.era && baseStory?.era && candidate.era === baseStory.era) {
+    return `Same era: ${storyEraLabel(candidate.era)}`
+  }
+  return "Related Kentucky story"
 }
 
 export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 'rail') {

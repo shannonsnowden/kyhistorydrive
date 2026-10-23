@@ -30,7 +30,12 @@
     a.addEventListener("click", function (e) {
       try {
         var d = JSON.parse(sessionStorage.getItem("khd-story-return") || "null")
-        var sameOriginRef = document.referrer && document.referrer.indexOf(location.origin) === 0
+        var sameOriginRef = false
+        if (document.referrer) {
+          try {
+            sameOriginRef = new URL(document.referrer).origin === location.origin
+          } catch (_) {}
+        }
         var fromTimelineRef = sameOriginRef && /#timeline/.test(document.referrer)
         var fromSession = d && d.origin && /^#?timeline/.test(d.origin.hash || "") && sameOriginRef
         if ((fromTimelineRef || fromSession) && history.length > 1) {

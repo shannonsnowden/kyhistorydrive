@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { routeBySlug } from '../src/route-maps.js'
-const SITE_ORIGIN = 'https://www.kyhistorydrive.com'
+const SITE_ORIGIN = 'https://kyhistorydrive.com'
 import { PrerenderPages } from './prerender-pages.mjs'
 import { compactYearRange, countyLong, markerRecords } from '../src/story-tools.js'
 import {
@@ -31,9 +31,12 @@ function absolutizeLinks(md) {
 }
 
 export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = [], peopleInStory = [] }) {
+  if (!story?.slug || !/^[a-z0-9-]+$/.test(String(story.slug))) {
+    throw new Error(`Invalid story slug: ${story?.slug}`)
+  }
   const geo = roundedStoryGeo(story)
   const counties = storyCountiesList(story, matchedMarkers)
-  const years = compactYearRange(story.year, story.yearEnd)
+  const years = compactYearRange(story.year ?? story.yearStart, story.yearEnd)
   const canonicalUrl = `${SITE_ORIGIN}/stories/${encodeURIComponent(story.slug)}/`
   const coordStr = geo ? formatCoordCardinal(geo.lat, geo.lon, geo.decimals) : ''
   const protectedStory = isProtectedStory(story)
@@ -189,25 +192,84 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
 }
 
 export function buildAllStoryMarkdownFiles(root = ROOT) {
-  const distDir = path.join(root, 'dist')
-  const stories = JSON.parse(fs.readFileSync(path.join(root, 'public/content/stories.json'), 'utf8')).stories || []
-  const researchNotes = PrerenderPages.loadResearch(root)
-  const researchBySlug = new Map(researchNotes.map((n) => [n.storySlug, n]))
-  const peopleData = PrerenderPages.loadRelatedBundle(root)
-  const markers = PrerenderPages.loadHistoricalMarkers(root)
+  const storiesIndexFile = path.join(root, "public/content/stories.json")
+  const storiesDir = path.join(root, "public/content/stories")
+  const locationsFile = path.join(root, "public/content/stories-locations.json")
+  const markersFile = path.join(root, "public/data/web/historical-markers.geojson")
+  const notesDir = path.join(root, "data/research-notes")
+  if (!fs.existsSync(storiesIndexFile)) return 0
 
+  const indexData = JSON.parse(fs.readFileSync(storiesIndexFile, "utf8"))
+  const indexStories = Array.isArray(indexData.stories) ? indexData.stories : []
+  let locBySlug = new Map()
+  if (fs.existsSync(locationsFile)) {
+    try {
+      const locs = JSON.parse(fs.readFileSync(locationsFile, "utf8"))
+      for (const row of locs.stories || []) {
+        if (row?.slug) locBySlug.set(row.slug, row)
+      }
+    } catch (_) {}
+  }
+
+  let markers = []
+  if (fs.existsSync(markersFile)) {
+    try {
+      const geo = JSON.parse(fs.readFileSync(markersFile, "utf8"))
+      markers = (geo.features || []).map((f) => {
+        const props = f?.properties || {}
+        const coords = f?.geometry?.coordinates || []
+        return {
+          id: String(props.marker_number ?? props.id ?? ""),
+          title: String(props.title || props.name || ""),
+          county: String(props.county || ""),
+          location_text: String(props.location_text || ""),
+          inscription: String(props.inscription || ""),
+          source_url: String(props.source_url || ""),
+          lat: Array.isArray(coords) ? coords[1] : props.lat,
+          lon: Array.isArray(coords) ? coords[0] : props.lon,
+        }
+      }).filter((m) => m.id && m.title)
+    } catch (_) {}
+  }
+
+  const outDir = path.join(root, "dist")
   let count = 0
-  for (const story of stories) {
-    const notes = researchBySlug.get(story.slug) || null
-    const route = routeBySlug(story.slug) || null
-    const matchedMarkers = matchStoryMarkers(story, markers, notes, route)
-    const subject = PrerenderPages.storyPortrait(story, peopleData)?.person || null
-    const peopleInStory = resolvePeopleInStory(story, peopleData, notes, subject)
-    const md = renderStoryMarkdownFile({ story, notes, matchedMarkers, peopleInStory })
-    const outFile = path.join(distDir, 'stories', story.slug, 'story.md')
-    fs.mkdirSync(path.dirname(outFile), { recursive: true })
-    fs.writeFileSync(outFile, md, 'utf8')
-    count++
+  for (const stub of indexStories) {
+    if (!stub?.slug || stub.redirectTo || stub.mergedInto) continue
+    if (!/^[a-z0-9-]+$/.test(String(stub.slug))) {
+      throw new Error(`Invalid story slug: ${stub.slug}`)
+    }
+    let full = stub
+    const perStoryPath = path.join(storiesDir, `${stub.slug}.json`)
+    if (fs.existsSync(perStoryPath)) {
+      try {
+        full = { ...stub, ...JSON.parse(fs.readFileSync(perStoryPath, "utf8")) }
+      } catch (_) {}
+    }
+    const loc = locBySlug.get(stub.slug)
+    if (loc) {
+      if (full.lat == null && loc.lat != null) full.lat = loc.lat
+      if (full.lon == null && loc.lon != null) full.lon = loc.lon
+      if (loc.coordinatesProtected) full.coordinatesProtected = true
+    }
+    if (!String(full.bodyMarkdown || "").trim()) continue
+
+    let notes = null
+    const notePath = path.join(notesDir, `${stub.slug}.json`)
+    if (fs.existsSync(notePath)) {
+      try {
+        notes = JSON.parse(fs.readFileSync(notePath, "utf8"))
+      } catch (_) {}
+    }
+
+    const route = routeBySlug(full.slug)
+    const matchedMarkers = matchStoryMarkers(full, markers, notes, route)
+    const peopleInStory = resolvePeopleInStory(full, null, notes, null)
+    const md = renderStoryMarkdownFile({ story: full, notes, matchedMarkers, peopleInStory })
+    const storyDir = path.join(outDir, "stories", full.slug)
+    fs.mkdirSync(storyDir, { recursive: true })
+    fs.writeFileSync(path.join(storyDir, "story.md"), md)
+    count += 1
   }
   return count
 }

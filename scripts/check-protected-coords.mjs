@@ -135,7 +135,6 @@ const KNOWN_BINARY = new Set([
   '.png', '.jpg', '.jpeg', '.webp', '.avif', '.gif', '.ico',
   '.woff', '.woff2', '.ttf', '.otf', '.pbf',
   '.mp4', '.webm', '.mp3', '.wav', '.ogg', '.m4a',
-  '.zip',
 ])
 const fineNum = (s) => /\.\d{2,}/.test(s)
 let scanned = 0

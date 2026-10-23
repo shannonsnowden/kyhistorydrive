@@ -31,25 +31,40 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://kyhistorydrive.com/#organization",
-        "name": "Kentucky History Drive",
-        "url": "https://kyhistorydrive.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://kyhistorydrive.com/brand/khd-logo-512.png"
-        },
-        "description": "Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "url": "https://kyhistorydrive.com/about/"
-        },
-        "founder": {
-          "@type": "Person",
-          "name": "Shannon Snowden",
-          "url": "https://kyhistorydrive.com/about/"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://kyhistorydrive.com/#organization",
+            "name": "Kentucky History Drive",
+            "url": "https://kyhistorydrive.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://kyhistorydrive.com/brand/khd-logo-512.png"
+            },
+            "description": "Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://kyhistorydrive.com/about/"
+            },
+            "founder": {
+              "@type": "Person",
+              "@id": "https://kyhistorydrive.com/about/#shannon-snowden",
+              "name": "Shannon Snowden",
+              "url": "https://kyhistorydrive.com/about/"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kyhistorydrive.com/#website",
+            "name": "Kentucky History Drive",
+            "url": "https://kyhistorydrive.com/",
+            "publisher": {
+              "@id": "https://kyhistorydrive.com/#organization"
+            },
+            "inLanguage": "en-US"
+          }
+        ]
       }
     </script>
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -153,8 +168,8 @@
         </div>
         <a href="/" data-route="home">Home</a>
         <a href="/stories/" data-route="stories">Stories</a>
-        <a href="#timeline" data-route="timeline">Timeline</a>
-        <a href="#map" data-route="map">Map</a>
+        <a href="/#timeline" data-route="timeline">Timeline</a>
+        <a href="/#map" data-route="map">Map</a>
         <a href="/drives/" data-route="drives">Drives</a>
         <!-- khd-roads-rails:on -->
         <a href="/roads-and-rails/" data-route="roads">Roads &amp; Rails</a>

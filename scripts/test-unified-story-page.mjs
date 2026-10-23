@@ -50,6 +50,7 @@ const slugs = fs
 
 assert.ok(slugs.length >= 240, `Expected >= 240 built story directories, found ${slugs.length}`)
 
+let mentionsStoryCount = 0
 for (const slug of slugs) {
   const htmlPath = path.join(storiesDir, slug, 'index.html')
   const mdPath = path.join(storiesDir, slug, "story.md")
@@ -98,7 +99,57 @@ for (const slug of slugs) {
   )
   assert.ok(md.startsWith('---\n') && md.includes('\n# '), `${slug}.md: must have YAML frontmatter and H1`)
   assert.ok(!/-?\d{1,3}\.\d{5,}/.test(md), `${slug}.md: contains 5+ decimal coordinate`)
+  assert.ok(!md.includes('https://www.kyhistorydrive.com'), `${slug}.md: must not use www.kyhistorydrive.com`)
+  assert.ok(md.includes('https://kyhistorydrive.com/stories/'), `${slug}.md: must use https://kyhistorydrive.com`)
+  const storyBodyMatch = md.match(/## The story\n\n([\s\S]*?)(?=\n## |\n---)/)
+  assert.ok(
+    storyBodyMatch && storyBodyMatch[1].trim().length >= 100,
+    `${slug}.md: ## The story body must have >= 100 chars (got ${storyBodyMatch ? storyBodyMatch[1].trim().length : 0})`,
+  )
+
+  // D.1 & D.3 checks
+  const kickerMatch = html.match(/<p class="[^"]*static-kicker[^"]*">([^<]+)<\/p>/)
+  assert.ok(kickerMatch && !kickerMatch[1].includes('·'), `${slug}: .static-kicker should not repeat county/era`)
+  assert.ok(
+    html.includes('<h2 id="related-nearby-heading">Related stories</h2>'),
+    `${slug}: related section heading must be Related stories`,
+  )
+
+  // JSON-LD checks (A.2, A.3, B.6)
+  const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
+  assert.ok(ldMatch, `${slug}: missing JSON-LD script`)
+  const ld = JSON.parse(ldMatch[1])
+  const graph = Array.isArray(ld?.['@graph']) ? ld['@graph'] : Array.isArray(ld) ? ld : [ld]
+  const articleNode = graph.find((n) => n?.['@type'] === 'Article')
+  assert.ok(articleNode, `${slug}: missing Article JSON-LD node`)
+  assert.equal(
+    articleNode.author?.['@id'],
+    'https://kyhistorydrive.com/about/#shannon-snowden',
+    `${slug}: Article.author missing @id`,
+  )
+  if (Array.isArray(articleNode.mentions) && articleNode.mentions.length > 0) {
+    mentionsStoryCount += 1
+  }
+  const placeNode = articleNode.contentLocation || graph.find((n) => n?.['@type'] === 'Place')
+  const geoNode = placeNode?.geo
+  if (geoNode && geoNode['@type'] === 'GeoCoordinates') {
+    const isApprox = html.includes('data-approximate="true"')
+    const maxDec = isApprox ? 1 : 4
+    for (const field of ['latitude', 'longitude']) {
+      const valStr = String(geoNode[field] ?? '')
+      const decLen = valStr.includes('.') ? valStr.split('.')[1].length : 0
+      assert.ok(
+        decLen <= maxDec,
+        `${slug}: GeoCoordinates.${field}=${valStr} has ${decLen} decimals (> ${maxDec})`,
+      )
+    }
+  }
 }
+
+assert.ok(
+  mentionsStoryCount > 50,
+  `Expected > 50 stories with non-empty Article.mentions in JSON-LD, found ${mentionsStoryCount}`,
+)
 
 // 3. Multi-marker + fixed URL check on Father David Rice
 const riceSlug = 'father-david-rice-and-kentuckys-first-presbyterian-churches'
@@ -125,6 +176,40 @@ if (fs.existsSync(path.join(storiesDir, archSlug, 'index.html'))) {
     `${archSlug}: archaeological story JSON-LD GeoCoordinates must be rounded to <= 1 decimal`,
   )
 }
+
+// 4b. Protected newt-kash-hollow-15mf1 story.md check & layer / homepage / about JSON-LD checks
+const newtMd = fs.readFileSync(path.join(storiesDir, 'newt-kash-hollow-15mf1', 'story.md'), 'utf8')
+assert.ok(
+  newtMd.includes('37.9° N, 83.6° W') && newtMd.includes('approximate (rounded to 0.1 deg'),
+  'newt-kash-hollow-15mf1/story.md must use 0.1 deg approximate coordinates',
+)
+
+const historyLayerHtml = fs.readFileSync(path.join(dist, 'layers', 'history', 'index.html'), 'utf8')
+const historyStoryLinks = historyLayerHtml.match(/href="\/stories\/[a-z0-9-]+\/"/g) || []
+assert.ok(
+  historyStoryLinks.length >= 180,
+  `/layers/history/ should link all ~188 history stories, found ${historyStoryLinks.length}`,
+)
+assert.ok(
+  historyLayerHtml.includes('"url":"https://kyhistorydrive.com/stories/'),
+  '/layers/history/ ItemList JSON-LD must include linked story URLs',
+)
+
+const homeHtml = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
+assert.ok(
+  homeHtml.includes('"@type": "WebSite"') && homeHtml.includes('"@id": "https://kyhistorydrive.com/#website"'),
+  'dist/index.html JSON-LD must include #website WebSite node',
+)
+assert.ok(
+  homeHtml.includes('href="/#timeline"') && homeHtml.includes('href="/#map"'),
+  'dist/index.html header nav must use /#timeline and /#map',
+)
+
+const aboutHtml = fs.readFileSync(path.join(dist, 'about', 'index.html'), 'utf8')
+assert.ok(
+  aboutHtml.includes('"@id":"https://kyhistorydrive.com/about/#shannon-snowden"'),
+  'dist/about/index.html Person node must include @id #shannon-snowden',
+)
 
 // 5. Print CSS check in dist/assets
 const assetsDir = path.join(dist, 'assets')

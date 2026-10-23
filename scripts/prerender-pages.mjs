@@ -324,7 +324,7 @@ class PrerenderPages {
     }
     for (const layer of layers) {
       const urlPath = `/layers/${layer.id}/`
-      const html = PrerenderPages.layerPage(layer, cssHrefs, stories)
+      const html = PrerenderPages.layerPage(layer, cssHrefs, stories, layers)
       PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
       PrerenderPages.writePage(dist, urlPath, html)
       const layerFile = `public/${String(layer.geojson || '').replace(/^\//, '')}`
@@ -543,7 +543,7 @@ class PrerenderPages {
     const out = []
     let buf = ''
     const abbrev = (s) =>
-      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ste|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
         s.trimEnd(),
       ) ||
       /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
@@ -866,8 +866,9 @@ class PrerenderPages {
         const nextSent = sentences[usedCount] || sentences[1] || ''
         const room = max - acc.length - 1
         if (nextSent && room >= 30) {
-          const cut2 = PrerenderPages.clauseCut(nextSent, room, PrerenderPages.META_PUNCT_BOUNDARY, 25, false, true)
-          if (cut2 && acc.length + 1 + cut2.length >= 120 && acc.length + 1 + cut2.length <= max) {
+          const punct2 = /[,;]\s(?!\d)|(?<!\d)\s*—\s*|\s—\s|\s–\s|\s+-\s+|\s+(?=(?:while|when|where|which|who|whose|after|before|until|because)\s)/gu
+          const cut2 = PrerenderPages.clauseCut(nextSent, room, punct2, 25, true, false)
+          if (cut2 && acc.length + 1 + cut2.length >= 100 && acc.length + 1 + cut2.length <= max) {
             return `${acc} ${cut2}`
           }
         }
@@ -909,7 +910,7 @@ class PrerenderPages {
 
   /** A clause head reads as a clause: it has a verb, not just a place phrase. */
   static META_VERB =
-    /\b(?:is|was|are|were|has|had|have|became|becomes|sits|sat|stands|stood|lay|lies|runs|ran|led|left|built|took|held|made|came|went|rode|won|grew|began|fought|fell|gave|met|sold|bought|chose|drew|wrote|saw|kept|set|brought|knew|became|\p{L}{3,}ed)\b/iu
+    /\b(?:is|was|are|were|has|had|have|became|becomes|sits|sat|stands|stood|lay|lies|cuts|runs|ran|led|left|built|took|held|made|came|went|rode|won|grew|began|fought|fell|gave|met|sold|bought|chose|drew|wrote|saw|kept|set|brought|knew|became|\p{L}{3,}ed)\b/iu
 
   /**
    * End a long first sentence at a clean boundary at least 70 characters in: a comma or
@@ -989,6 +990,8 @@ class PrerenderPages {
       if (/\b(?:a|an|the)\s+\S+$/i.test(head) && /^\s*[,;]/.test(first.slice(m.index))) continue
       const lastSeg = head.split(/[,;]\s|\s*[—–]\s*/).pop()
       if (/^(?:while|when|where|after|before|although|though|because|if|as|since|until|whose|which|who)\b/i.test(lastSeg.trim())) continue
+      const subTail = lastSeg.trim().match(/\b(?:while|when|where|although|though|because|since|until|whose|which|who)\s+(.+)$/i)
+      if (!verbless && subTail && !PrerenderPages.META_VERB.test(subTail[1])) continue
       if (/[,;]\s/.test(head) && lastSeg.trim().split(/\s+/).length <= 2) continue
       best = `${head}.`
     }
@@ -1077,7 +1080,9 @@ class PrerenderPages {
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null
     if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
     if (lat === 0 && lon === 0) return null
-    return { lat, lon }
+    const g = roundedStoryGeo(story)
+    if (!g) return null
+    return { lat: g.lat, lon: g.lon }
   }
 
   static jsonLdScript(nodes) {
@@ -1732,6 +1737,14 @@ class PrerenderPages {
     if (person.wikipedia && /^https?:\/\//i.test(String(person.wikipedia))) {
       sameAs.push(String(person.wikipedia))
     }
+    if (person.grokipedia && /^https?:\/\//i.test(String(person.grokipedia))) {
+      sameAs.push(String(person.grokipedia))
+    }
+    if (Array.isArray(person.sameAs)) {
+      for (const u of person.sameAs) {
+        if (u && !sameAs.includes(u)) sameAs.push(String(u))
+      }
+    }
     if (sameAs.length) node.sameAs = sameAs
     return node
   }
@@ -1780,7 +1793,7 @@ class PrerenderPages {
       ...(imageField !== undefined ? { image: imageField } : {}),
       ...(dates.published ? { datePublished: dates.published } : {}),
       ...(dates.modified ? { dateModified: dates.modified } : {}),
-      author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+      author: { '@type': 'Person', '@id': `${PrerenderPages.SITE}/about/#shannon-snowden`, name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
       publisher: PrerenderPages.publisherNode(),
       contentLocation: { '@id': placeId },
       about: aboutList.length === 1 ? aboutList[0] : aboutList,
@@ -2124,7 +2137,7 @@ class PrerenderPages {
 
     const peopleInStory = resolvePeopleInStory(
       story,
-      relatedBundle?.data || null,
+      relatedBundle,
       notes,
       portraitPick.person || null,
     )
@@ -2339,7 +2352,7 @@ class PrerenderPages {
         <article class="usp-article usp-page static-story${film ? ' has-film' : ''}" aria-labelledby="usp-title">
           ${PrerenderPages.crumbHtml(story, layer)}
           <header class="usp-head story-head" id="top">
-            <p class="usp-kicker static-kicker">Kentucky History · ${esc(kickerPlace)} · ${esc(eraText)}</p>
+            <p class="usp-kicker static-kicker">${esc(layer ? layer.label : 'Kentucky History')}</p>
             <h1 id="usp-title">${esc(story.title)}</h1>
             ${tagsHtml}
             <p class="usp-when story-card-meta">${whenParts.join(' <span aria-hidden="true">·</span> ')}</p>
@@ -2775,7 +2788,72 @@ class PrerenderPages {
     })
   }
 
-  static layerPage(layer, cssHrefs, stories = []) {
+  static storyMatchesLayer(st, layer, layers = []) {
+    if (!st?.slug || !layer?.id) return false
+    const primary = PrerenderPages.storyLayer(st, layers)
+    if (primary?.id === layer.id) return true
+    if (layer.id === 'history') return false
+    const tags = new Set((st.tags || []).map((t) => String(t).toLowerCase()))
+    const hay = `${st.title || ''} ${st.matchedPlace || ''} ${st.summary || ''}`.toLowerCase()
+    switch (layer.id) {
+      case 'war':
+        return (
+          tags.has('civil-war') ||
+          tags.has('revolutionary-war') ||
+          tags.has('war-of-1812') ||
+          tags.has('frontier-war') ||
+          tags.has('frontier-defense') ||
+          tags.has('military') ||
+          tags.has('siege')
+        )
+      case 'distilleries':
+        return tags.has('bourbon') || tags.has('whiskey') || /\b(distiller|bourbon|whiskey)\b/.test(hay)
+      case 'caves':
+        return (
+          tags.has('caves') ||
+          tags.has('karst') ||
+          tags.has('rockhouses') ||
+          tags.has('saltpeter') ||
+          /\b(cave|cavern|rockhouse|rockshelter|sinkhole|grotto)\b/.test(hay)
+        )
+      case 'industry':
+        return (
+          tags.has('coal') ||
+          tags.has('iron') ||
+          tags.has('salt') ||
+          tags.has('timber') ||
+          tags.has('hemp') ||
+          tags.has('Print') ||
+          tags.has('print') ||
+          tags.has('commerce') ||
+          tags.has('steamboats') ||
+          tags.has('railroads')
+        )
+      case 'newspapers':
+        return tags.has('newspapers') || tags.has('print') || /\b(gazette|newspaper|press|printer|printing)\b/.test(hay)
+      case 'parks':
+        return tags.has('parks') || /\b(state park|state historic site|state resort park|breaks interstate|cumberland falls)\b/.test(hay)
+      case 'national':
+        return (
+          tags.has('national-parks') ||
+          /\b(mammoth cave|cumberland gap|camp nelson|abraham lincoln birthplace|big south fork|mill springs)\b/.test(hay)
+        )
+      case 'museums':
+        return tags.has('museums') || tags.has('education') || tags.has('architecture') || /\b(museum|shaker village|transylvania|histor(ic|ical) home|mansion)\b/.test(hay)
+      case 'cemeteries':
+        return tags.has('cemeteries') || tags.has('mounds') || /\b(cemeter|burial|grave|mound)\b/.test(hay)
+      case 'bridges':
+        return tags.has('bridges') || tags.has('river-crossings') || tags.has('roads') || /\b(bridge|ferry|ford|trace|turnpike|gap)\b/.test(hay)
+      case 'markers':
+        return Array.isArray(st.markerIds) && st.markerIds.length > 0
+      case 'locals':
+        return tags.has('folklore') || tags.has('foodways') || tags.has('music') || tags.has('culture') || /\b(tales|legend|tavern|inn|burgoo)\b/.test(hay)
+      default:
+        return false
+    }
+  }
+
+  static layerPage(layer, cssHrefs, stories = [], layers = [layer]) {
     const title = `${layer.label} · Kentucky History Drive`
     const highlight = layer.highlight
     const description = PrerenderPages.metaDescription(`${layer.intro} ${highlight.blurb || ''}`)
@@ -2795,14 +2873,12 @@ class PrerenderPages {
         return `<li>${PrerenderPages.escapeHtml(place.name)}${extra}</li>`
       })
       .join('')
-    const layerStories = (stories || []).filter((st) => {
-      if (layer.id === 'history') return true
-      const matchLayer = PrerenderPages.storyLayer(st, [layer])
-      return Boolean(matchLayer)
-    }).slice(0, 24)
+    const layerStories = PrerenderPages.liveStories(stories).filter((st) =>
+      PrerenderPages.storyMatchesLayer(st, layer, layers),
+    )
     const layerStoriesHtml = layerStories.length
       ? `<section aria-label="Stories on this layer">
-          <h2>Stories connected to ${PrerenderPages.escapeHtml(layer.label)}</h2>
+          <h2>Stories connected to ${PrerenderPages.escapeHtml(layer.label)} (${layerStories.length})</h2>
           <ul class="place-list">${layerStories.map((st) => `<li><a href="/stories/${PrerenderPages.escapeHtml(st.slug)}/">${PrerenderPages.escapeHtml(st.title)}</a></li>`).join('')}</ul>
         </section>`
       : ''
@@ -2851,13 +2927,24 @@ class PrerenderPages {
       {
         '@type': 'ItemList',
         '@id': `${canonical}#places`,
-        name: `${layer.label} places`,
-        numberOfItems: layer.places.length,
-        itemListElement: layer.places.slice(0, 50).map((place, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name: place.name,
-        })),
+        name: layerStories.length ? `${layer.label} stories` : `${layer.label} places`,
+        numberOfItems: layerStories.length ? layerStories.length : layer.places.length,
+        itemListElement: layerStories.length
+          ? layerStories.map((st, index) => {
+              const stUrl = `${PrerenderPages.SITE}/stories/${encodeURIComponent(st.slug)}/`
+              return {
+                '@type': 'ListItem',
+                position: index + 1,
+                name: st.title,
+                url: stUrl,
+                item: stUrl,
+              }
+            })
+          : layer.places.slice(0, 50).map((place, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: place.name,
+            })),
       },
       {
         '@type': 'BreadcrumbList',
@@ -3279,10 +3366,10 @@ class PrerenderPages {
     }
     const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
-    if (!related || !related[0].includes('Related and nearby') || relatedCount < 3 || relatedCount > 5) {
+    if (!related || !related[0].includes('Related stories') || relatedCount < 3 || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
     }
-    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related and nearby<\/h2>/.test(related[0])) {
+    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0])) {
       throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
     }
     const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
@@ -4417,7 +4504,7 @@ ${rows.join('\n')}
         isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
         about: { '@id': PrerenderPages.ORG_ID },
         publisher: PrerenderPages.publisherNode(),
-        author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+        author: { '@type': 'Person', '@id': `${PrerenderPages.SITE}/about/#shannon-snowden`, name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
       },
       {
         '@type': 'BreadcrumbList',
