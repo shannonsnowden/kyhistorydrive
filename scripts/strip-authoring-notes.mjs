@@ -52,7 +52,7 @@ export function isMarkdown(file) {
 }
 
 export function isPublishedStoryMarkdown(relPath) {
-  return /^stories\/([a-z0-9-]+)\/\1\.md$/.test(String(relPath || ''))
+  return /^stories\/([a-z0-9-]+)\/story\.md$/.test(String(relPath || ''))
 }
 
 /** "master" as its own word, so postmaster.png is not a master. */

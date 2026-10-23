@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T13:50:37.856Z",
+  "generatedAt": "2026-10-19T11:00:50.145Z",
   "count": 244,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -3983,7 +3983,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-23",
-      "county": "Woodford",
       "photo": {
         "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
         "title": "Jack Jouett House Historic Site",
@@ -3995,7 +3994,8 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
+      "county": "Woodford"
     },
     {
       "slug": "the-travelling-church-1781",
@@ -4190,7 +4190,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-26",
-      "county": "Clark",
       "photo": {
         "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
         "title": "Fort Boonesborough State Park",
@@ -4202,7 +4201,8 @@
       "lat": 37.918134,
       "lon": -84.272709,
       "mapConfidence": "override",
-      "matchedPlace": "Holder's Station / Lower Howard's Creek"
+      "matchedPlace": "Holder's Station / Lower Howard's Creek",
+      "county": "Clark"
     },
     {
       "slug": "hartford-fort-hartford-on-the-rough-river",
@@ -4302,7 +4302,7 @@
       "title": "Father David Rice and Kentucky’s first Presbyterian churches",
       "publishedDate": "2026-10-19",
       "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
-      "proseChars": 3649,
+      "proseChars": 3665,
       "yearStart": 1783,
       "yearEnd": 1816,
       "era": "frontier",

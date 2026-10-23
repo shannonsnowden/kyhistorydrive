@@ -4,7 +4,7 @@
  * The menu discloses Home, Map, Timeline, People, Drives, (Roads & Rails with KHD_ROADS_RAILS=1), About, App, Today's stories, and the theme toggle.
  */
 export class MobileNav {
-  static QUERY = '(max-width: 600px)'
+  static QUERY = '(max-width: 1099px)'
 
   static #header = null
   static #menuBtn = null

@@ -62,16 +62,6 @@ export function siteChromeScriptHtml() {
             if (open && searchInput) searchInput.focus()
           })
         }
-        function syncSearchSlot() {
-          if (!header || !searchBox || !mainNav) return
-          if (mq.matches) {
-            if (searchBox.parentElement !== header) header.appendChild(searchBox)
-          } else {
-            if (searchBox.parentElement !== mainNav) mainNav.insertBefore(searchBox, mainNav.firstChild)
-          }
-        }
-        syncSearchSlot()
-        mq.addEventListener('change', syncSearchSlot)
         function syncTheme(theme) {
           document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
             var light = theme === 'light'

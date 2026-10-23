@@ -204,7 +204,7 @@ export function buildAllStoryMarkdownFiles(root = ROOT) {
     const subject = PrerenderPages.storyPortrait(story, peopleData)?.person || null
     const peopleInStory = resolvePeopleInStory(story, peopleData, notes, subject)
     const md = renderStoryMarkdownFile({ story, notes, matchedMarkers, peopleInStory })
-    const outFile = path.join(distDir, 'stories', story.slug, `${story.slug}.md`)
+    const outFile = path.join(distDir, 'stories', story.slug, 'story.md')
     fs.mkdirSync(path.dirname(outFile), { recursive: true })
     fs.writeFileSync(outFile, md, 'utf8')
     count++
@@ -214,5 +214,5 @@ export function buildAllStoryMarkdownFiles(root = ROOT) {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const count = buildAllStoryMarkdownFiles(ROOT)
-  console.log(`Built ${count} story .md files in dist/stories/<slug>/<slug>.md.`)
+  console.log(`Built ${count} story .md files in dist/stories/<slug>/story.md.`)
 }
