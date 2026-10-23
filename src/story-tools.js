@@ -388,7 +388,10 @@ const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" widt
 function cardMediaHtml(row) {
   if (row.kind !== 'marker' && row.thumb) {
     const src = esc(row.thumb)
-    return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
+    const isPortrait = String(row.thumb).startsWith('/people/portraits/')
+    const defaultAlt = isPortrait ? `Portrait for ${row.title || 'story'}` : `Thumbnail for ${row.title || 'story'}`
+    const alt = esc(row.alt || defaultAlt)
+    return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="${alt}" width="56" height="56" loading="lazy" decoding="async"></span>`
   }
   return `<span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span>`
 }
@@ -406,12 +409,19 @@ function nearbyRowHtml(row) {
   const href = row.kind === 'marker' ? markerMapHref(row.id) : `/stories/${encodeURIComponent(row.slug)}/`
   const liClass = row.related ? 'related-story' : 'nearby-place'
   const mapAttr = row.kind === 'marker' ? ' data-story-map' : ''
-  return `<li class="${liClass}"><a class="related-card"${mapAttr} href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span></span>${CHEVRON_ICON}</a></li>`
+  const whyHtml = row.why ? `<span class="usp-rel-why">${esc(row.why)}</span>` : ''
+  return `<li class="${liClass}"><a class="related-card"${mapAttr} href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span>${whyHtml}</span>${CHEVRON_ICON}</a></li>`
 }
 
-function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby' } = {}) {
+function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby', collapsible = false } = {}) {
   if (!rows?.length) return ''
   const level = headingLevel === 3 ? 3 : 2
+  if (collapsible && rows.length > 3) {
+    const primary = rows.slice(0, 3).map((row) => nearbyRowHtml(row)).join('')
+    const extraRows = rows.slice(3)
+    const extra = extraRows.map((row) => nearbyRowHtml(row)).join('')
+    return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list usp-related-grid">${primary}</ul><button type="button" class="usp-more-btn" data-more-btn aria-expanded="false">More related stories (${extraRows.length})</button><ul class="related-list usp-related-grid usp-related-more" data-more-grid hidden>${extra}</ul></nav>`
+  }
   const items = rows.map((row) => nearbyRowHtml(row)).join('')
   return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list">${items}</ul></nav>`
 }
@@ -679,13 +689,14 @@ export function pickRelatedStories(story, all, excludeSlugs = []) {
 }
 
 /** Related stories first, then nearby places that are not already listed. */
-export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2 } = {}) {
+export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2, collapsible = false } = {}) {
   const rows = [...(related || []), ...(nearby || [])]
   return relatedListHtml(rows, {
     heading: 'Related and nearby',
     headingId: 'related-nearby-heading',
     headingLevel,
     navClass: 'static-related story-nearby',
+    collapsible,
   })
 }
 
@@ -694,7 +705,7 @@ export function relatedAndNearbyForStory(
   story,
   all,
   markers,
-  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '' } = {},
+  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', whyFor = null, collapsible = false } = {},
 ) {
   const related = pickRelatedStories(story, all, excludeSlugs)
   const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
@@ -704,6 +715,7 @@ export function relatedAndNearbyForStory(
     slug: other.slug,
     title: other.title,
     detail: storyDetail(other),
+    why: typeof whyFor === 'function' ? whyFor(story, other) : '',
     // Person cards always use the canonical portrait.
     thumb: portraitFor(other.slug) || thumbFor(other) || '',
   }))
@@ -718,10 +730,11 @@ export function relatedAndNearbyForStory(
       ...row,
       title: other?.title || row.title,
       detail: other ? storyDetail(other) : '',
+      why: other && typeof whyFor === 'function' ? whyFor(story, other) : '',
       thumb: other ? portraitFor(other.slug) || thumbFor(other) || '' : '',
     }
   })
-  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel })
+  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel, collapsible })
 }
 
 const SOURCE_BY_DOMAIN = [

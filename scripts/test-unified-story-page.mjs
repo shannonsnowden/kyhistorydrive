@@ -52,7 +52,7 @@ assert.ok(slugs.length >= 240, `Expected >= 240 built story directories, found $
 
 for (const slug of slugs) {
   const htmlPath = path.join(storiesDir, slug, 'index.html')
-  const mdPath = path.join(storiesDir, slug, `${slug}.md`)
+  const mdPath = path.join(storiesDir, slug, "story.md")
   assert.ok(fs.existsSync(htmlPath), `Missing ${htmlPath}`)
   assert.ok(fs.existsSync(mdPath), `Missing ${mdPath}`)
 
@@ -70,12 +70,30 @@ for (const slug of slugs) {
     `${slug}: <title> "${decodedTitle}" is ${decodedTitle.length} chars (> 60)`,
   )
 
-  assert.ok(html.includes('class="usp-page static-story'), `${slug}: missing .usp-page`)
-  assert.ok(html.includes('class="usp-map-card') || html.includes('class="usp-toc"'), `${slug}: missing map card or toc`)
+  assert.ok(html.includes('class="usp-wayfinder"'), `${slug}: missing .usp-wayfinder`)
+  assert.ok(html.includes('class="usp-grid"'), `${slug}: missing .usp-grid`)
+  assert.ok(html.includes('class="usp-article usp-page static-story'), `${slug}: missing .usp-article`)
+  assert.ok(html.includes(`<link rel="alternate" type="text/markdown" href="/stories/${slug}/story.md"`), `${slug}: missing alternate markdown link`)
+  const idxStory = html.indexOf('id="story"')
+  const idxToday = html.indexOf('id="today"')
+  const idxMarkers = html.indexOf('id="markers"')
+  const idxMapInline = html.indexOf('id="map-inline"')
+  const idxSources = html.indexOf('id="sources"')
+  const idxDrive = html.indexOf('id="drive"')
+  const idxCite = html.indexOf('id="cite"')
+  assert.ok(idxStory > 0 && idxSources > idxStory && idxDrive > idxSources && idxCite > idxDrive, `${slug}: sections out of v2 order`)
+  if (idxToday > 0) assert.ok(idxToday > idxStory && idxSources > idxToday, `${slug}: #today must sit after #story`)
+  if (idxMarkers > 0) {
+    assert.ok(idxMarkers > (idxToday > 0 ? idxToday : idxStory) && idxSources > idxMarkers, `${slug}: #markers out of order`)
+  }
+  if (idxMapInline > 0) {
+    assert.ok(idxMapInline > (idxMarkers > 0 ? idxMarkers : idxToday > 0 ? idxToday : idxStory) && idxSources > idxMapInline, `${slug}: #map-inline must sit after #markers/#today`)
+  }
+  assert.ok(html.includes('class="usp-railmap') || html.includes('class="usp-toc"'), `${slug}: missing .usp-railmap or .usp-toc`)
   assert.ok(html.includes('class="usp-toc"'), `${slug}: missing .usp-toc`)
   assert.ok(html.includes('id="sources"'), `${slug}: missing #sources section`)
   assert.ok(
-    html.includes(`href="/stories/${slug}/${slug}.md"`),
+    html.includes(`href="/stories/${slug}/story.md"`),
     `${slug}: missing Download .md link`,
   )
   assert.ok(md.startsWith('---\n') && md.includes('\n# '), `${slug}.md: must have YAML frontmatter and H1`)

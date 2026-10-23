@@ -114,31 +114,15 @@ export function formatCoordCardinal(lat, lon, decimals = 4) {
 }
 
 export function storyDocTitle(story) {
-  const raw = String(story?.title || '').trim()
-  if (!raw) return 'Kentucky History Drive'
-  const full = `${raw} | KY History Drive`
-  if (full.length <= 60) return full
-  const med = `${raw} | KY History`
-  if (med.length <= 60) return med
+  const base = String(story?.seoTitle || story?.title || '').trim()
+  if (!base) return 'Kentucky History Drive'
+  const suffixed = `${base} · Kentucky History Drive`
+  if (suffixed.length <= 60) return suffixed
+  if (base.length <= 60) return base
   if (SHORT_TITLE_OVERRIDES[story?.slug]) {
-    return `${SHORT_TITLE_OVERRIDES[story.slug]} | KY History`
+    return SHORT_TITLE_OVERRIDES[story.slug]
   }
-  const maxCore = 60 - ' | KY History'.length
-  const compact = raw
-    .replace(/\band\b/g, '&')
-    .replace(/\bKentucky['’]s\b/g, 'KY’s')
-    .replace(/\bKentucky\b/g, 'KY')
-  if (compact.length <= maxCore) return `${compact} | KY History`
-  for (const sep of [' — ', ' – ', ': ', ', ']) {
-    if (raw.includes(sep)) {
-      const [head] = raw.split(sep)
-      const h = head.trim()
-      if (h.length >= 6 && h.length <= maxCore) {
-        return `${h} | KY History`
-      }
-    }
-  }
-  return `${compact.slice(0, maxCore).trim()} | KY History`
+  return base.slice(0, 60).trim()
 }
 
 export function matchStoryMarkers(story, markers = [], notes = null, route = null) {
@@ -464,13 +448,31 @@ function getMapAssets() {
   return cachedMapAssets
 }
 
+export function computeRelatedNote(baseStory, candidate) {
+  const baseTags = new Set((baseStory?.tags || []).map((t) => String(t).toLowerCase()))
+  const sharedTags = (candidate?.tags || []).filter((t) => baseTags.has(String(t).toLowerCase()))
+  const bits = []
+  if (sharedTags.length) {
+    bits.push(`Shared: ${sharedTags.slice(0, 2).map((t) => String(t).replace(/-/g, ' ')).join(', ')}`)
+  }
+  if (candidate?.county && baseStory?.county && String(candidate.county).toLowerCase() === String(baseStory.county).toLowerCase()) {
+    bits.push(`Same county (${countyLong(candidate.county)})`)
+  } else if (candidate?.county) {
+    bits.push(countyLong(candidate.county))
+  }
+  const yrs = compactYearRange(candidate?.yearStart, candidate?.yearEnd)
+  if (yrs) bits.push(yrs)
+  else if (candidate?.era) bits.push(storyEraLabel(candidate.era))
+  return bits.join(' · ') || 'Related Kentucky story'
+}
+
 export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 'rail') {
   const geo = roundedStoryGeo(story)
   if (!geo) return ''
   const pins = storyMapPins(story, matchedMarkers)
   if (!pins.length) return ''
 
-  const { statePathD, countiesPathD, frame, project, countyLabels } = getMapAssets()
+  const { statePathD, countiesPathD, frame, project } = getMapAssets()
   const projectedPins = pins.map((p) => {
     const [mx, my] = project(p.lon, p.lat)
     const x = frame.xFit.scale * mx + frame.xFit.offset
@@ -487,7 +489,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
   const cx = (minX + maxX) / 2
   const cy = (minY + maxY) / 2
 
-  const aspect = variant === 'mobile' ? 358 / 132 : 300 / 162
+  const aspect = variant === 'mobile' ? 358 / 180 : 300 / 230
   const spanX = Math.max(150, (maxX - minX) * 2.3)
   const spanY = Math.max(85, (maxY - minY) * 2.5)
   let vw = Math.max(spanX, spanY * aspect)
@@ -496,25 +498,18 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
     vw = 940
     vh = vw / aspect
   }
-  let vx = Math.max(30, Math.min(970 - vw, cx - vw / 2))
-  let vy = Math.max(10, Math.min(425 - vh, cy - vh / 2))
-
-  const visibleCounties = countyLabels.filter(
-    (c) => c.x >= vx + 16 && c.x <= vx + vw - 16 && c.y >= vy + 12 && c.y <= vy + vh - 12,
-  )
-
+  const vx = Math.max(30, Math.min(970 - vw, cx - vw / 2))
+  const vy = Math.max(10, Math.min(425 - vh, cy - vh / 2))
   const scale = vw / 300
-  const rPin = (10.5 * scale).toFixed(1)
   const strokePin = (2 * scale).toFixed(1)
-  const fontPin = (10 * scale).toFixed(1)
-  const fontCounty = (7.5 * scale).toFixed(1)
 
-  const countyTextSvg = visibleCounties
-    .slice(0, 14)
-    .map(
-      (c) =>
-        `<text class="usp-map-county-name" x="${c.x.toFixed(1)}" y="${c.y.toFixed(1)}" font-size="${fontCounty}" text-anchor="middle">${escapeHtml(c.name.toUpperCase())}</text>`,
-    )
+  // Subtle stylized road network across the viewport so dark/light map shows road context with basemap labels off
+  const roadPaths = [
+    `M${(vx + vw * 0.08).toFixed(1)} ${(vy + vh * 0.72).toFixed(1)} Q${(cx).toFixed(1)} ${(cy).toFixed(1)} ${(vx + vw * 0.92).toFixed(1)} ${(vy + vh * 0.24).toFixed(1)}`,
+    `M${(vx + vw * 0.18).toFixed(1)} ${(vy + vh * 0.18).toFixed(1)} Q${(cx + vw * 0.05).toFixed(1)} ${(cy).toFixed(1)} ${(vx + vw * 0.84).toFixed(1)} ${(vy + vh * 0.85).toFixed(1)}`,
+  ]
+  const roadsSvg = roadPaths
+    .map((d) => `<path class="usp-map-road" d="${d}" stroke-width="${(1.5 * scale).toFixed(1)}" fill="none" />`)
     .join('')
 
   let connectorSvg = ''
@@ -523,28 +518,23 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
     connectorSvg = `<path class="usp-map-connector" d="${dConn}" stroke-width="${(1.8 * scale).toFixed(1)}" stroke-dasharray="${(4 * scale).toFixed(1)} ${(3 * scale).toFixed(1)}" fill="none" />`
   }
 
-  let pinsSvg = ''
+  let approxSvg = ''
   if (geo.protectedStory) {
     const p = projectedPins[0]
     const rApprox = (26 * scale).toFixed(1)
-    pinsSvg = `<circle class="usp-map-approx-ring" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${rApprox}" stroke-width="${strokePin}" stroke-dasharray="${(4 * scale).toFixed(1)} ${(3 * scale).toFixed(1)}" />` +
-      `<circle class="usp-map-pin-circle" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(5.5 * scale).toFixed(1)}" stroke-width="${strokePin}" />`
-  } else {
-    pinsSvg = projectedPins
-      .map((p, idx) => {
-        const dyLabel = idx % 2 === 0 ? -15 * scale : 20 * scale
-        return (
-          `<g class="usp-map-pin-group">` +
-          `<circle class="usp-map-pin-circle" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${rPin}" stroke-width="${strokePin}" />` +
-          `<text class="usp-map-pin-num" x="${p.x.toFixed(1)}" y="${(p.y + 3.5 * scale).toFixed(1)}" font-size="${fontPin}" text-anchor="middle">${p.num}</text>` +
-          `<text class="usp-map-pin-caption" x="${p.x.toFixed(1)}" y="${(p.y + dyLabel).toFixed(1)}" font-size="${(8.2 * scale).toFixed(1)}" text-anchor="middle">${escapeHtml(p.label)}</text>` +
-          `</g>`
-        )
-      })
-      .join('')
+    approxSvg = `<circle class="usp-map-approx-ring" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${rApprox}" stroke-width="${strokePin}" stroke-dasharray="${(4 * scale).toFixed(1)} ${(3 * scale).toFixed(1)}" />`
   }
 
-  const coordText = formatCoordCardinal(geo.lat, geo.lon, geo.decimals)
+  // Offset HTML pin labels inside the canvas so labels never collide with pins
+  const pinHtmlOverlays = projectedPins
+    .map((p, idx) => {
+      const leftPct = Math.max(12, Math.min(88, ((p.x - vx) / vw) * 100)).toFixed(1)
+      const topPct = Math.max(14, Math.min(86, ((p.y - vy) / vh) * 100)).toFixed(1)
+      const posClass = idx % 2 === 1 ? ' usp-pin-secondary' : ''
+      return `<div class="usp-pin${posClass}" style="left:${leftPct}%;top:${topPct}%"><span class="usp-pin-dot" aria-hidden="true"></span><span class="usp-pin-tag">${escapeHtml(p.label)}</span></div>`
+    })
+    .join('')
+
   const mapHref = `/#map/stories/${encodeURIComponent(story.slug)}`
   const counties = storyCountiesList(story, matchedMarkers)
   const placeSummary = formatCountiesBadge(counties) || story.matchedPlace || 'Kentucky'
@@ -552,37 +542,50 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
     ? `Approximate location map for ${story.title} in ${placeSummary}`
     : `Map showing ${projectedPins.length > 1 ? `${projectedPins.length} locations` : 'location'} for ${story.title} in ${placeSummary}`
 
-  const approxPill = geo.protectedStory
-    ? `<span class="usp-approx-pill" title="Coordinates rounded to 0.1° (~11 km) to protect a sensitive archaeological or cultural site">Approximate area (~11 km)</span>`
-    : ''
+  const latStr = geo.lat.toFixed(geo.decimals)
+  const lonStr = geo.lon.toFixed(geo.decimals)
+  const historypinHref = `https://www.historypin.org/en/explore/geo/${latStr},${lonStr},13/`
+  const approxAttr = geo.protectedStory ? ' data-approximate="true"' : ''
 
-  const wrapperClass =
-    variant === 'mobile' ? 'usp-map-card usp-map-card-mobile' : 'usp-map-card usp-map-card-rail'
-
-  return `<div class="${wrapperClass}" data-lat="${geo.lat.toFixed(geo.decimals)}" data-lon="${geo.lon.toFixed(geo.decimals)}"${geo.protectedStory ? ' data-approximate="true"' : ''}>
-    <div class="usp-map-card-head">
-      <span class="usp-map-card-kicker">Where it happened</span>
-      ${approxPill}
-    </div>
-    <a class="usp-map-preview" data-story-map href="${escapeHtml(mapHref)}" aria-label="${escapeHtml(`Explore ${story.title} on interactive map`)}">
-      <svg class="usp-map-svg" viewBox="${vx.toFixed(1)} ${vy.toFixed(1)} ${vw.toFixed(1)} ${vh.toFixed(1)}" role="img" aria-label="${escapeHtml(mapAlt)}">
+  const svgMarkup = `<svg class="usp-map-svg" viewBox="${vx.toFixed(1)} ${vy.toFixed(1)} ${vw.toFixed(1)} ${vh.toFixed(1)}" role="img" aria-label="${escapeHtml(mapAlt)}">
         <rect class="usp-map-paper" x="${(vx - 80).toFixed(1)}" y="${(vy - 80).toFixed(1)}" width="${(vw + 160).toFixed(1)}" height="${(vh + 160).toFixed(1)}" />
         <path class="usp-map-land" d="${statePathD}" />
         <path class="usp-map-counties" d="${countiesPathD}" />
+        ${roadsSvg}
         <path class="usp-map-edge" d="${statePathD}" />
-        ${countyTextSvg}
         ${connectorSvg}
-        ${pinsSvg}
-      </svg>
-    </a>
-    <div class="usp-map-meta">
-      <div class="usp-map-coord-row">
-        <span class="usp-map-coord" aria-label="Coordinates">${escapeHtml(coordText)}</span>
-        <span class="usp-map-place">${escapeHtml(placeSummary)}</span>
+        ${approxSvg}
+      </svg>`
+
+  if (variant === 'mobile') {
+    return `<section class="usp-section usp-map-inline usp-map-card usp-map-card-mobile" id="map-inline" aria-labelledby="h-map" data-lat="${latStr}" data-lon="${lonStr}"${approxAttr}>
+      <h2 id="h-map">Map</h2>
+      <div class="usp-map-inline-frame">
+        ${svgMarkup}
+        ${pinHtmlOverlays}
       </div>
-      <a class="usp-map-cta" data-story-map href="${escapeHtml(mapHref)}">Explore on interactive map <span aria-hidden="true">→</span></a>
+      <div class="usp-map-inline-actions">
+        <a class="usp-btn" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
+        <a class="usp-btn usp-btn-ghost" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+      </div>
+    </section>`
+  }
+
+  const dirsHtml = geo.protectedStory
+    ? `<span class="usp-railmap-dirs usp-approx-pill" title="Coordinates rounded to 0.1° (~11 km) to protect a sensitive archaeological or cultural site">Approximate area (~11 km) · Protected site</span>`
+    : `<span class="usp-railmap-dirs">Directions: <a href="https://maps.apple.com/?daddr=${latStr},${lonStr}" target="_blank" rel="noopener noreferrer">Apple Maps</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=${latStr},${lonStr}" target="_blank" rel="noopener noreferrer">Google Maps</a></span>`
+
+  return `<section class="usp-railmap usp-map-card usp-map-card-rail" aria-label="Story location on Kentucky map" data-lat="${latStr}" data-lon="${lonStr}"${approxAttr}>
+    <div class="usp-railmap-canvas">
+      ${svgMarkup}
+      ${pinHtmlOverlays}
     </div>
-  </div>`
+    <div class="usp-railmap-foot">
+      <a class="usp-railmap-open" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
+      ${dirsHtml}
+      <a class="usp-railmap-photos" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+    </div>
+  </section>`
 }
 
 export function extractResearchClaims(notes) {
