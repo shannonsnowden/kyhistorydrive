@@ -51,6 +51,10 @@ export function isMarkdown(file) {
   return path.basename(file).toLowerCase().endsWith('.md')
 }
 
+export function isPublishedStoryMarkdown(relPath) {
+  return /^stories\/([a-z0-9-]+)\/\1\.md$/.test(String(relPath || ''))
+}
+
 /** "master" as its own word, so postmaster.png is not a master. */
 export function isMasterPng(file) {
   const base = path.basename(file)
@@ -231,9 +235,11 @@ export function stripAuthoringFromDist(distDir, options = {}) {
   const published = publishedMasterNames(root, masterCandidates([publicDir, distDir], minBytes))
   const removed = []
   for (const file of walkFiles(distDir)) {
+    const rel = relPosix(distDir, file)
+    if (isPublishedStoryMarkdown(rel)) continue
     const drop = isMarkdown(file) || isSourceOnlyMaster(file, published, minBytes)
     if (!drop) continue
-    removed.push(relPosix(distDir, file))
+    removed.push(rel)
     removeDistFile(distDir, file)
   }
   assertSourcesIntact(publicDir, before)
@@ -253,8 +259,10 @@ export function authoringProblems(distDir, options = {}) {
   }
   const published = publishedMasterNames(root, masterCandidates([publicDir, distDir], minBytes))
   for (const file of walkFiles(distDir)) {
+    const rel = relPosix(distDir, file)
+    if (isPublishedStoryMarkdown(rel)) continue
     if (isMarkdown(file) || isSourceOnlyMaster(file, published, minBytes)) {
-      problems.push(relPosix(distDir, file))
+      problems.push(rel)
     }
   }
   if (publicDir && fs.existsSync(publicDir)) {

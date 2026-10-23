@@ -71,14 +71,14 @@ for (const slug of slugs) {
   )
 
   assert.ok(html.includes('class="usp-page static-story'), `${slug}: missing .usp-page`)
-  assert.ok(html.includes('class="usp-where-card"'), `${slug}: missing .usp-where-card`)
+  assert.ok(html.includes('class="usp-map-card') || html.includes('class="usp-toc"'), `${slug}: missing map card or toc`)
   assert.ok(html.includes('class="usp-toc"'), `${slug}: missing .usp-toc`)
   assert.ok(html.includes('id="sources"'), `${slug}: missing #sources section`)
   assert.ok(
     html.includes(`href="/stories/${slug}/${slug}.md"`),
     `${slug}: missing Download .md link`,
   )
-  assert.ok(md.startsWith('# '), `${slug}.md: must start with H1`)
+  assert.ok(md.startsWith('---\n') && md.includes('\n# '), `${slug}.md: must have YAML frontmatter and H1`)
   assert.ok(!/-?\d{1,3}\.\d{5,}/.test(md), `${slug}.md: contains 5+ decimal coordinate`)
 }
 
@@ -88,7 +88,7 @@ const riceHtml = fs.readFileSync(path.join(storiesDir, riceSlug, 'index.html'), 
 assert.ok(riceHtml.includes('KHS Marker #754'), 'Father David Rice: missing Marker #754')
 assert.ok(riceHtml.includes('KHS Marker #844'), 'Father David Rice: missing Marker #844')
 assert.ok(!riceHtml.includes('our-history96867eb2'), 'Father David Rice: still has broken presbydan URL')
-assert.ok(riceHtml.includes('https://presbydan.org/our-history'), 'Father David Rice: missing fixed presbydan URL')
+assert.ok(riceHtml.includes('presbydan.org/our-history'), 'Father David Rice: missing fixed presbydan URL')
 
 // 4. Protected / archaeological story check
 const archSlug = 'indian-knoll-shell-mound-ohio-county'

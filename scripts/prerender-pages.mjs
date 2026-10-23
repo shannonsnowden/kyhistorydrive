@@ -83,6 +83,7 @@ import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 import {
   buildUnifiedSources,
+  extractResearchClaims,
   formatCoordCardinal,
   formatCountiesBadge,
   isProtectedStory,
@@ -2030,7 +2031,7 @@ class PrerenderPages {
           </ol>`
       : ''
 
-    const claims = Array.isArray(notes?.claims) ? notes.claims.filter((c) => c && c.claim) : []
+    const claims = extractResearchClaims(notes)
     const claimsDetailsHtml = claims.length
       ? `<details class="usp-details">
             <summary>Key facts &amp; claims (${claims.length})</summary>
@@ -2050,14 +2051,14 @@ class PrerenderPages {
           </details>`
       : ''
 
-    const timelineItems = Array.isArray(notes?.timeline) ? notes.timeline.filter((t) => t && (t.date || t.event)) : []
+    const timelineItems = Array.isArray(notes?.timeline) ? notes.timeline.filter((t) => t && (t.date || t.year || t.event)) : []
     const timelineDetailsHtml = timelineItems.length
       ? `<details class="usp-details">
             <summary>Chronology (${timelineItems.length})</summary>
             <div class="usp-details-body">
               <ul class="usp-claims-list">
                 ${timelineItems
-                  .map((t) => `<li><strong>${esc(t.date || '')}</strong>${t.date && t.event ? ': ' : ''}${esc(t.event || '')}</li>`)
+                  .map((t) => { const td = t.date || t.year || ''; return `<li><strong>${esc(td)}</strong>${td && t.event ? ': ' : ''}${esc(t.event || '')}</li>`; })
                   .join('\n                ')}
               </ul>
             </div>

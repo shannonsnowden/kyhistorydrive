@@ -458,9 +458,13 @@ function storyRichness(story) {
   return proseLength(story) * 1000 + String(story?.summary || '').length
 }
 
+const _trinomialCache = new Map()
 function trinomialsOf(story) {
   const blob = [story?.slug, story?.title, story?.matchedPlace].filter(Boolean).join(' ')
-  return new Set(trinomialMatches(blob))
+  if (_trinomialCache.has(blob)) return _trinomialCache.get(blob)
+  const set = new Set(trinomialMatches(blob))
+  _trinomialCache.set(blob, set)
+  return set
 }
 
 function sharedTrinomial(a, b) {
@@ -470,13 +474,16 @@ function sharedTrinomial(a, b) {
   return false
 }
 
+const _titleLabelsCache = new Map()
 function titleLabels(title) {
-  let text = String(title || '')
+  const key = String(title || '')
+  if (_titleLabelsCache.has(key)) return _titleLabelsCache.get(key)
+  let text = key
     .toLowerCase()
     .replace(/[’']/g, '')
   text = text.replace(/\b15[a-z]{2}\d{1,4}\b/gi, ' ')
   text = text.replace(/\([^)]*\)/g, ' ')
-  return text
+  const out = text
     .split(/\s*(?::|\/|—|–)\s*/)
     .map((part) => {
       const words = part
@@ -489,9 +496,14 @@ function titleLabels(title) {
       return words.join(' ')
     })
     .filter(Boolean)
+  _titleLabelsCache.set(key, out)
+  return out
 }
 
+const _leadingStemsCache = new Map()
 function leadingStems(title) {
+  const key = String(title || '')
+  if (_leadingStemsCache.has(key)) return _leadingStemsCache.get(key)
   const stems = []
   for (const label of titleLabels(title)) {
     const words = label.split(' ').filter(Boolean)
@@ -499,6 +511,7 @@ function leadingStems(title) {
     stems.push(words[0])
     if (words.length >= 2) stems.push(`${words[0]} ${words[1]}`)
   }
+  _leadingStemsCache.set(key, stems)
   return stems
 }
 
@@ -542,22 +555,29 @@ function coordsClose(a, b) {
 function samePlace(a, b) {
   if (!a?.slug || !b?.slug || a.slug === b.slug) return false
   if (sharedTrinomial(a, b)) return true
-  if (!sharedTitleStem(a?.title, b?.title)) return false
-  return sameHistoryId(a, b) || coordsClose(a, b)
+  if (!sameHistoryId(a, b) && !coordsClose(a, b)) return false
+  return sharedTitleStem(a?.title, b?.title)
 }
 
 /**
  * Same person: both titles lead with the same personal name before a comma
  * ("Hugh McGary, the hothead major" / "Hugh McGary, the Blue Licks Hothead").
  */
+const _titlePersonCache = new Map()
 function titlePerson(title) {
-  const m = /^([^,:]+),\s/.exec(String(title || ''))
-  if (!m) return ''
+  const key = String(title || '')
+  if (_titlePersonCache.has(key)) return _titlePersonCache.get(key)
+  const m = /^([^,:]+),\s/.exec(key)
+  if (!m) { _titlePersonCache.set(key, ''); return '' }
   const name = m[1].trim()
   const words = name.split(/\s+/)
-  if (words.length < 2 || words.length > 4) return ''
-  if (!words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) return ''
-  return name.toLowerCase()
+  if (words.length < 2 || words.length > 4 || !words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) {
+    _titlePersonCache.set(key, '')
+    return ''
+  }
+  const out = name.toLowerCase()
+  _titlePersonCache.set(key, out)
+  return out
 }
 
 function samePerson(a, b) {

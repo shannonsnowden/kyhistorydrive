@@ -250,7 +250,19 @@ export function splitStoryMarkdown(bodyMarkdown, hasGlance = false) {
 }
 
 export function resolvePeopleInStory(story, peopleData, notes = null, subject = null) {
-  const byId = peopleData?.byId instanceof Map ? peopleData.byId : new Map()
+  const byId =
+    peopleData?.byId instanceof Map
+      ? peopleData.byId
+      : peopleData?.peopleById instanceof Map
+        ? peopleData.peopleById
+        : new Map()
+  const peopleArray = Array.isArray(peopleData?.people)
+    ? peopleData.people
+    : Array.isArray(peopleData?.people?.people)
+      ? peopleData.people.people
+      : []
+  const storySubjects =
+    peopleData?.storySubjects || peopleData?.people?.storySubjects || {}
   const seen = new Set()
   const list = []
 
@@ -271,11 +283,11 @@ export function resolvePeopleInStory(story, peopleData, notes = null, subject = 
   if (subject?.id) {
     pushPerson(subject, story?.summary || '')
   }
-  const subjId = peopleData?.storySubjects?.[story?.slug]
+  const subjId = storySubjects?.[story?.slug]
   if (subjId && byId.has(subjId)) {
     pushPerson(byId.get(subjId), story?.summary || '')
   }
-  for (const p of peopleData?.people || []) {
+  for (const p of peopleArray) {
     if (Array.isArray(p?.stories) && p.stories.includes(story?.slug)) {
       pushPerson(p, story?.summary || '')
     }
@@ -310,16 +322,21 @@ export function buildUnifiedSources(story, notes = null, matchedMarkers = []) {
       if (id && !byId.has(id)) byId.set(id, existing)
       if (label && (!existing.label || existing.label.length < label.length)) {
         existing.label = label
+        existing.title = label
       }
       return existing
     }
     const num = items.length + 1
+    const cleanLabel = String(label || '').trim() || safeUrl || `Source ${num}`
+    const cleanType = String(type || '').trim()
     const entry = {
       num,
       id: id || `src-${num}`,
-      label: String(label || '').trim(),
+      label: cleanLabel,
+      title: cleanLabel,
       url: safeUrl,
-      type: String(type || '').trim(),
+      type: cleanType,
+      typeLabel: cleanType,
       accessed: String(accessed || '').trim(),
     }
     items.push(entry)
@@ -557,4 +574,30 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
       <a class="usp-map-cta" data-story-map href="${escapeHtml(mapHref)}">Explore on interactive map <span aria-hidden="true">→</span></a>
     </div>
   </div>`
+}
+
+export function extractResearchClaims(notes) {
+  if (!notes) return []
+  const out = []
+  if (Array.isArray(notes.claims)) {
+    for (const c of notes.claims) {
+      if (c && c.claim) out.push(c)
+    }
+  }
+  if (Array.isArray(notes.sections)) {
+    for (const sec of notes.sections) {
+      const heading = String(sec?.heading || "").trim()
+      for (const item of sec?.items || []) {
+        const text = String(item?.text || item?.claim || "").trim()
+        if (!text) continue
+        out.push({
+          heading,
+          claim: heading ? `${heading}: ${text}` : text,
+          confidence: item?.confidence || "",
+          sources: Array.isArray(item?.sources) ? item.sources : [],
+        })
+      }
+    }
+  }
+  return out
 }

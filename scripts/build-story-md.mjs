@@ -2,11 +2,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { SITE_ORIGIN } from './site-chrome.mjs'
+import { routeBySlug } from '../src/route-maps.js'
+const SITE_ORIGIN = 'https://www.kyhistorydrive.com'
 import { PrerenderPages } from './prerender-pages.mjs'
 import { compactYearRange, countyLong, markerRecords } from '../src/story-tools.js'
 import {
   buildUnifiedSources,
+  extractResearchClaims,
   formatCoordCardinal,
   formatCountiesBadge,
   isProtectedStory,
@@ -140,10 +142,11 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
     lines.push('')
   }
 
-  if (Array.isArray(notes?.claims) && notes.claims.length) {
+  const claimsList = extractResearchClaims(notes)
+  if (claimsList.length) {
     lines.push('### Key facts & claims', '')
-    for (const c of notes.claims) {
-      const refs = (c.sourceIds || [])
+    for (const c of claimsList) {
+      const refs = (c.sourceIds || c.sources || [])
         .map((id) => sourcesById.get(id)?.num)
         .filter(Boolean)
         .map((n) => `[${n}]`)
@@ -156,12 +159,13 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
   if (Array.isArray(notes?.timeline) && notes.timeline.length) {
     lines.push('### Timeline', '')
     for (const t of notes.timeline) {
-      const refs = (t.sourceIds || [])
+      const td = t.date || t.year || ''
+      const refs = (t.sourceIds || t.sources || [])
         .map((id) => sourcesById.get(id)?.num)
         .filter(Boolean)
         .map((n) => `[${n}]`)
         .join('')
-      lines.push(`- **${t.date}** — ${t.event}${refs ? ` ${refs}` : ''}`)
+      lines.push(`- ${td ? `**${td}** — ` : ''}${t.event || ''}${refs ? ` ${refs}` : ''}`)
     }
     lines.push('')
   }
@@ -186,24 +190,18 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
 
 export function buildAllStoryMarkdownFiles(root = ROOT) {
   const distDir = path.join(root, 'dist')
-  const stories = PrerenderPages.loadStories(root)
-  const researchBySlug = PrerenderPages.loadResearch(root)
-  const peopleData = PrerenderPages.loadPeople(root)
-  const markersGeo = JSON.parse(
-    fs.readFileSync(path.join(root, 'public/data/layers/markers.geojson'), 'utf8'),
-  )
-  const markers = markerRecords(markersGeo.features || [])
-  const routesIndex = JSON.parse(
-    fs.readFileSync(path.join(root, 'public/data/routes-index.json'), 'utf8'),
-  )
-  const routeBySlug = new Map((routesIndex.routes || []).map((r) => [r.slug, r]))
+  const stories = JSON.parse(fs.readFileSync(path.join(root, 'public/content/stories.json'), 'utf8')).stories || []
+  const researchNotes = PrerenderPages.loadResearch(root)
+  const researchBySlug = new Map(researchNotes.map((n) => [n.storySlug, n]))
+  const peopleData = PrerenderPages.loadRelatedBundle(root)
+  const markers = PrerenderPages.loadHistoricalMarkers(root)
 
   let count = 0
   for (const story of stories) {
     const notes = researchBySlug.get(story.slug) || null
-    const route = routeBySlug.get(story.slug) || null
+    const route = routeBySlug(story.slug) || null
     const matchedMarkers = matchStoryMarkers(story, markers, notes, route)
-    const subject = PrerenderPages.storyPortrait(story, peopleData)
+    const subject = PrerenderPages.storyPortrait(story, peopleData)?.person || null
     const peopleInStory = resolvePeopleInStory(story, peopleData, notes, subject)
     const md = renderStoryMarkdownFile({ story, notes, matchedMarkers, peopleInStory })
     const outFile = path.join(distDir, 'stories', story.slug, `${story.slug}.md`)
