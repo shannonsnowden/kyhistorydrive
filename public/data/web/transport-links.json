@@ -1,4 +1,86 @@
 {
   "_note": "Built by scripts/build-transport-links.mjs from scripts/transport-links.json. Do not edit.",
-  "stories": {}
+  "stories": {
+    "athiamiowee-the-warriors-path-through-kentucky": {
+      "phrase": "Wilderness Road"
+    },
+    "bagdad-how-a-shelby-county-rail-stop-took-over-consolation": {
+      "phrase": "Louisville and Frankfort Railroad"
+    },
+    "bowling-green-takes-shape-on-the-barren-1798": {
+      "phrase": "Louisville & Nashville road"
+    },
+    "bullitts-lick-kentuckys-first-industry": {
+      "phrase": "flatboats"
+    },
+    "capt-william-hubbells-ohio-flatboat-stand-1791": {
+      "phrase": "flatboat"
+    },
+    "carlisle-kincarts-peach-orchard-county-seat": {
+      "phrase": "Lexington–Maysville road"
+    },
+    "chickamauga-cherokee": {
+      "phrase": "Wilderness Road"
+    },
+    "col-john-holder-at-lower-howards-creek": {
+      "phrase": "flatboat"
+    },
+    "col-richard-callaway-of-boonesborough": {
+      "phrase": "ferry boat"
+    },
+    "covington-at-the-point": {
+      "phrase": "Kennedy’s Ferry"
+    },
+    "esther-whitley-over-the-cumberlands-1775": {
+      "phrase": "Wilderness Road"
+    },
+    "evan-williams-on-the-louisville-wharf": {
+      "phrase": "flatboat"
+    },
+    "falls-of-the-ohio": {
+      "phrase": "flatboats"
+    },
+    "hartford-fort-hartford-on-the-rough-river": {
+      "phrase": "a ferry"
+    },
+    "henry-skaggs-green-river-long-hunter": {
+      "phrase": "Wilderness Road"
+    },
+    "john-finley-the-trader-who-put-kentucky-on-boones-map": {
+      "phrase": "Wilderness Road"
+    },
+    "lexington-ohio-railroad": {
+      "phrase": "first railroad"
+    },
+    "louisville-and-portland-canal": {
+      "phrase": "canal"
+    },
+    "louisville-nashville-railroad-opens-the-interior": {
+      "phrase": "Louisville & Nashville"
+    },
+    "manns-lick-louisvilles-salt-town": {
+      "phrase": "steamboats"
+    },
+    "mantle-rock-and-the-trail-of-tears": {
+      "phrase": "Berry’s Ferry"
+    },
+    "natural-bridge-sandstone-arch": {
+      "phrase": "railroad excursion stop"
+    },
+    "paducah-at-the-tennessee-mouth": {
+      "phrase": "steamboat traffic"
+    },
+    "shepherdsville-on-salt-river": {
+      "phrase": "Wilderness Road"
+    },
+    "taylorsville-on-brashears-creek": {
+      "phrase": "Steamboats"
+    },
+    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {
+      "phrase": "Warriors' Path"
+    },
+    "yellow-banks-becomes-owensboro": {
+      "phrase": "flatboat"
+    }
+  }
 }
