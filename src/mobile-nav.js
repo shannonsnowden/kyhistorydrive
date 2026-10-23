@@ -69,6 +69,7 @@ export class MobileNav {
     if (!this.#desktopOrder) this.#desktopOrder = [...nav.children]
     const narrow = [
       nav.querySelector('a[data-route="home"]'),
+        nav.querySelector('a[data-route="stories"]'),
       nav.querySelector('a[data-route="map"]'),
       nav.querySelector('a[data-route="timeline"]'),
       nav.querySelector('a[data-route="people"]'),

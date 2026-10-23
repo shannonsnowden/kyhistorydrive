@@ -52,6 +52,15 @@ const cases = [
   ['gpx-leak', { ...clean, 'maps/routes/t/t.gpx': `<gpx><wpt lat="${b1}" lon="${o2}"><name>x</name></wpt></gpx>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
   ['outside-200m-passes', { ...clean, 'drives/byod-stops.json': JSON.stringify({ stops: [{ id: 's9', lat: +(FAKE_B[0] + 0.004).toFixed(4), lon: FAKE_B[1] }] }) }, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
   ['rounded-0.1-near-site-passes', { ...clean, 'drives/byod-stops.json': JSON.stringify({ stops: [{ id: 's9', lat: 38.2, lon: -83.1 }] }) }, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
+  ["clean-md-and-print-css-passes", { ...clean, "stories/fake-protected-site/story.md": "# Fake Protected Site\n\nCoordinates: 37.4° N, 85.7° W (generalized).\n", "assets/story-print.css": "@media print { body { color: #000; } }" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
+  ["md-leak-fails", { ...clean, "stories/fake-protected-site/story.md": `# Fake Site\n\nCoordinates: ${a1}, ${o1}\n` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["md-cardinal-leak-fails", { ...clean, "stories/fake-protected-site/story.md": `# Fake Site\n\nCoordinates: ${a1}° N, ${Math.abs(o1)}° W\n` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["print-css-leak-fails", { ...clean, "assets/story-print.css": `@media print { .pin::after { content: "${b1}, ${o2}"; } }` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["print-html-leak-fails", { ...clean, "stories/fake-protected-site/index.html": `<!doctype html><div class="print-only" data-lat="${a1}" data-lon="${o1}"></div>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["xml-leak-fails", { ...clean, "sitemap.xml": `<url><loc>https://kyhistorydrive.com/?lat=${a1}&amp;lon=${o1}</loc></url>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["svg-leak-fails", { ...clean, "assets/map.svg": `<svg data-point="${b1},${o2}"></svg>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["unknown-ext-fails-closed", { ...clean, "stories/fake-protected-site/story.docx": "unknown-format" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  ["known-binary-ext-passes", { ...clean, "assets/photo.webp": "RIFF", "fonts/glyphs/0-255.pbf": "pbf" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
 ]
 let failed = 0
 for (const [name, files, env, want] of cases) {

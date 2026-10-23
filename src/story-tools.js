@@ -280,7 +280,16 @@ export function markerRecords(features) {
     const id = props.marker_number ?? props.id
     const title = props.title || props.name
     if (id == null || String(id).trim() === '' || !title) continue
-    rows.push({ id: String(id), title: String(title), lat, lon })
+    rows.push({
+      id: String(id),
+      title: String(title),
+      lat,
+      lon,
+      county: props.county ? String(props.county) : '',
+      location_text: props.location_text ? String(props.location_text) : '',
+      inscription: props.inscription ? String(props.inscription) : '',
+      source_url: props.source_url ? String(props.source_url) : '',
+    })
   }
   return rows
 }

@@ -16,7 +16,15 @@ const decimals = (s) => (String(Number(s)).split('.')[1] || '').length
 /** Normalized "lat,lon" for every Kentucky-range number pair (either order) with ≥2 decimals on at least one side. */
 export function extractPairs(text) {
   const nums = []
-  for (const m of text.matchAll(NUM)) nums.push({ s: m[0], v: Number(m[0]), i: m.index, end: m.index + m[0].length })
+  for (const m of text.matchAll(NUM)) {
+    let s = m[0], v = Number(s)
+    const end = m.index + s.length
+    if (v > 81.5 && v < 89.8 && /^\s*(?:°|&#176;|&deg;|deg(?:rees)?)?\s*[Ww]\b/.test(text.slice(end, end + 18))) {
+      s = "-" + s
+      v = -v
+    }
+    nums.push({ s, v, i: m.index, end })
+  }
   const out = new Set()
   for (let k = 0; k + 1 < nums.length; k++) {
     const a = nums[k], b = nums[k + 1]

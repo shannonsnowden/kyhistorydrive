@@ -132,7 +132,7 @@
       </div>
       <nav id="mainNav" aria-label="Primary">
         <div class="nav-search" id="navSearch">
-          <form id="siteSearchForm" role="search" action="#" autocomplete="off">
+          <form id="siteSearchForm" role="search" action="/stories/" method="get" autocomplete="off">
             <label class="visually-hidden" for="siteSearchInput">Search places and stories</label>
             <input
               type="search"
@@ -151,33 +151,15 @@
           </form>
           <div id="siteSearchResults" class="nav-search-results" role="listbox" hidden></div>
         </div>
-        <div class="nav-today is-reserved" id="navToday">
-          <button
-            type="button"
-            class="nav-today-btn"
-            id="navTodayBtn"
-            aria-expanded="false"
-            aria-controls="navTodayMenu"
-            aria-haspopup="true"
-            tabindex="-1"
-          >
-            Today’s stories
-            <span class="nav-today-caret" aria-hidden="true">▾</span>
-          </button>
-          <div id="navTodayMenu" class="nav-today-menu" hidden role="menu" aria-label="Today’s stories">
-            <p class="nav-today-heading">Jump to a story</p>
-            <ul class="nav-today-list" id="navTodayList"></ul>
-          </div>
-        </div>
         <a href="/" data-route="home">Home</a>
-        <a href="#map" data-route="map">Map</a>
+        <a href="/stories/" data-route="stories">Stories</a>
         <a href="#timeline" data-route="timeline">Timeline</a>
-        <a href="/people/" data-route="people">People</a>
+        <a href="#map" data-route="map">Map</a>
         <a href="/drives/" data-route="drives">Drives</a>
         <!-- khd-roads-rails:on -->
         <a href="/roads-and-rails/" data-route="roads">Roads &amp; Rails</a>
         <!-- /khd-roads-rails:on -->
-        <a href="#about" data-route="about">About</a>
+        <a href="/about/" data-route="about">About</a>
         <button
           type="button"
           id="hpThemeToggle"
@@ -342,7 +324,7 @@
     <section id="hero" class="hero" data-view="map" hidden>
       <p class="hero-welcome">
         Explore Kentucky’s historical markers on the map, then open <a href="#timeline" data-route="timeline" class="hero-inline-link">Timeline</a> for stories by era and year.
-        Tap a pin for details; use <button type="button" id="heroZoomFullState" class="hero-inline-action" title="Reset zoom to all of Kentucky" aria-label="Reset zoom to all of Kentucky">Full state</button> to zoom back out.
+        Tap a pin for details; use <button type="button" id="heroZoomFullState" class="hero-inline-action" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button> to zoom back out.
       </p>
     </section>
 
@@ -375,11 +357,11 @@
         </div>
         <p id="stats" class="stats"></p>
         <p class="muted map-click-hint">Tap a pin on the map for details.</p>
-        <button type="button" id="zoomFullState" class="btn ghost full-state-btn">Full state</button>
+        <button type="button" id="zoomFullState" class="btn ghost full-state-btn" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </aside>
       <div class="map-canvas-wrap">
         <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
-        <button type="button" id="zoomFullStateMap" class="full-state-fab" title="Reset zoom to all of Kentucky" aria-label="Reset zoom to all of Kentucky">Full state</button>
+        <button type="button" id="zoomFullStateMap" class="full-state-fab" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </div>
     </section>
 
@@ -505,14 +487,20 @@
     </main>
 
     <footer class="foot">
-      <span>kyhistorydrive.com</span>
-      <a href="/about/">About</a>
-      <a href="/people/">People</a>
-      <a href="/videos/">Videos</a>
-      <a href="/routes/">Kentucky history route maps</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
-      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+      <div class="foot-copy">kyhistorydrive.com · Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/stories/" data-route="stories">Stories</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#map" data-route="map">Map</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#timeline" data-route="timeline">Timeline</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/people/" data-route="people">People</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/drives/" data-route="drives">Drives</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/routes/">Kentucky history route maps</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/videos/" data-route="videos">Videos</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#resources" data-route="resources">Resources</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/about/" data-route="about">About</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/privacy/">Privacy</a>
+        <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
+      </nav>
     </footer>
 
     <script src="/route-map-lightbox.js" defer></script>

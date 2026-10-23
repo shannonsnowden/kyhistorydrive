@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Kentucky History Drive — Unified Story Page Print / Save-as-PDF Stylesheet
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.6in 0.65in;
+  }
+
+  html,
+  body,
+  .usp-page {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10.5pt;
+    line-height: 1.48;
+  }
+
+  /* Hide interactive chrome, wayfinder, tools, maps, right rail, related, drive CTA, prev/next, footer */
+  .site-chrome-header,
+  .site-header,
+  .usp-wayfinder,
+  .usp-crumbs,
+  .usp-tools,
+  .usp-rail,
+  .usp-inline-map,
+  .usp-related,
+  .usp-drive-section,
+  .usp-prevnext-section,
+  .site-footer,
+  .usp-more-btn,
+  .usp-marker-links,
+  .story-correction-link,
+  .story-correction,
+  button[data-cite-copy] {
+    display: none !important;
+  }
+
+  .usp-shell {
+    display: block !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .usp-title {
+    font-size: 20pt !important;
+    line-height: 1.15 !important;
+    margin-bottom: 6pt !important;
+    color: #000 !important;
+  }
+
+  .usp-kicker {
+    color: #000 !important;
+    font-size: 8.5pt !important;
+  }
+
+  .usp-tags {
+    margin-bottom: 6pt !important;
+  }
+
+  .usp-tag,
+  .usp-era-pill,
+  .usp-marker-num {
+    background: transparent !important;
+    color: #000 !important;
+    border: 1px solid #444 !important;
+    min-height: 0 !important;
+    padding: 1pt 6pt !important;
+    font-size: 8.5pt !important;
+  }
+
+  .usp-meta-row {
+    color: #222 !important;
+    font-size: 9.5pt !important;
+    margin-bottom: 8pt !important;
+  }
+
+  .usp-lead {
+    font-size: 11pt !important;
+    line-height: 1.45 !important;
+    color: #000 !important;
+    margin-bottom: 10pt !important;
+  }
+
+  .usp-story {
+    font-size: 10.5pt !important;
+    line-height: 1.52 !important;
+    color: #000 !important;
+  }
+
+  .usp-story .story-portrait {
+    float: right !important;
+    width: 1.9in !important;
+    margin: 2pt 0 10pt 14pt !important;
+    border: 1px solid #666 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .usp-story .story-portrait figcaption {
+    color: #222 !important;
+    font-size: 8pt !important;
+  }
+
+  .usp-section {
+    margin-top: 12pt !important;
+    padding-top: 8pt !important;
+    border-top: 1px solid #999 !important;
+  }
+
+  .usp-section h2 {
+    font-size: 12.5pt !important;
+    margin-bottom: 5pt !important;
+    color: #000 !important;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .usp-today,
+  .usp-marker-card,
+  .usp-person-card,
+  .usp-details,
+  .usp-cite-box {
+    background: #fff !important;
+    border: 1px solid #888 !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    padding: 7pt 9pt !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .usp-today .story-photo img {
+    max-height: 2.1in !important;
+    width: auto !important;
+  }
+
+  .usp-markers-grid,
+  .usp-people-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6pt !important;
+  }
+
+  /* Compact Glance & Sources spacing so print fits cleanly in ~3 pages without clipping Cite */
+  .usp-src-list {
+    font-size: 8.8pt !important;
+    line-height: 1.35 !important;
+    margin-bottom: 6pt !important;
+  }
+  .usp-src-list li {
+    margin-bottom: 2.5pt !important;
+  }
+  .usp-details {
+    margin-top: 6pt !important;
+    padding: 5pt 8pt !important;
+  }
+  .usp-details-body {
+    display: block !important;
+    padding-top: 4pt !important;
+    margin-top: 4pt !important;
+    font-size: 8.8pt !important;
+    line-height: 1.35 !important;
+    color: #000 !important;
+  }
+  .usp-glance-table th,
+  .usp-glance-table td,
+  .usp-details-body .story-glance th,
+  .usp-details-body .story-glance td {
+    padding: 2.5pt 5pt !important;
+    border-bottom: 1px solid #bbb !important;
+    color: #000 !important;
+  }
+
+  /* Links print in black and expand external / reference URLs in parentheses at 8.5pt */
+  a {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+
+  .usp-story a[href^="http"]::after,
+  .usp-story a[href^="/"]::after,
+  .usp-today a[href^="http"]::after,
+  .usp-src-list a[href^="http"]::after,
+  .usp-research-link[href^="/"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8.5pt;
+    font-weight: 400;
+    color: #222 !important;
+    word-break: break-all;
+  }
+}

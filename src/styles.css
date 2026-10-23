@@ -1,3 +1,5 @@
+@import "./story-page/unified-story.css";
+@import "./story-print.css";
 :root {
   /* Bluegrass green, thoroughbred leather, bourbon amber */
   --bg: #101812;
@@ -243,8 +245,9 @@ nav a:hover, nav a.active { color: var(--accent); }
 .nav-search form { margin: 0; }
 #siteSearchInput {
   width: 100%;
+  min-height: 44px;
   box-sizing: border-box;
-  padding: 0.4rem 0.65rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--surface);
@@ -502,14 +505,45 @@ a#siteSearchInput {
 .foot {
   display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.25rem; color: var(--muted); font-size: 0.75rem;
+  padding: 1rem 1.25rem; color: var(--muted); font-size: 0.875rem;
   border-top: 1px solid var(--line);
+}
+.foot-copy {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
 }
 .foot a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 0.35rem;
+  padding: 0 0.45rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.foot a:hover, .foot a:focus-visible {
+  color: var(--accent);
+}
+.foot-sep {
+  color: var(--muted);
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .foot-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.15rem 0.75rem;
+    width: 100%;
+  }
+  .foot-sep { display: none; }
+  .foot a { padding: 0; }
 }
 
 /* Layers panel */
@@ -2495,6 +2529,9 @@ html[data-hp-theme="light"] .about-seal {
 .hp-theme-toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
   gap: 0.4rem;
   margin: 0;
   padding: 0.32rem 0.75rem;
@@ -3612,7 +3649,16 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
 
 /* Laptop widths, including 1366 and 1280: keep the nav on one row.
    A wrapped header is about 193px and pushes "Read the story" below an 800px screen. */
-@media (max-width: 1400px) and (min-width: 701px) {
+@media (min-width: 1100px) {
+  .site-header {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .site-header nav#mainNav {
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width: 1400px) and (min-width: 1100px) {
   .site-header {
     flex-wrap: nowrap;
     align-items: center;
@@ -3654,21 +3700,24 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     font-size: 0.78rem;
   }
   .site-header .hp-theme-toggle {
+    min-height: 44px;
+    min-width: 44px;
     padding: 0.28rem 0.45rem;
     font-size: 0.76rem;
     white-space: nowrap;
     gap: 0.25rem;
   }
   .site-header #siteSearchInput {
+    min-height: 44px;
     padding: 0.28rem 0.5rem;
     font-size: 0.8rem;
   }
 }
 
 /* Homepage big seal: win over the compact laptop/phone header rules. */
-@media (max-width: 1400px) and (min-width: 701px) {
+@media (max-width: 1400px) and (min-width: 1100px) {
   body.hp-page .site-header {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     padding: 0.7rem clamp(1rem, 3vw, 2.5rem);
     gap: 0.75rem 1rem;
@@ -3718,8 +3767,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
 }
 
-/* Phone header: one 60px bar. Wider than 600px keeps the full nav row. */
-@media (max-width: 600px) {
+/* Header <1100px: collapses to 44px search and menu icon buttons. */
+@media (max-width: 1099px) {
   .site-header {
     flex-wrap: nowrap;
     align-items: center;
@@ -3782,14 +3831,12 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header.is-menu-open nav#mainNav { display: flex; }
   .site-header.is-menu-open .nav-search { display: none; }
   .site-header.is-menu-open nav a[data-route="home"] { order: 1; }
-  .site-header.is-menu-open nav a[data-route="map"] { order: 2; }
+  .site-header.is-menu-open nav a[data-route="stories"] { order: 2; }
   .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
-  .site-header.is-menu-open nav a[data-route="people"] { order: 4; }
+  .site-header.is-menu-open nav a[data-route="map"] { order: 4; }
   .site-header.is-menu-open nav a[data-route="drives"] { order: 5; }
   .site-header.is-menu-open nav a[data-route="roads"] { order: 6; }
   .site-header.is-menu-open nav a[data-route="about"] { order: 7; }
-  .site-header.is-menu-open nav a[data-route="app"] { order: 8; }
-  .site-header.is-menu-open .nav-today { order: 9; }
   .site-header.is-menu-open .hp-theme-toggle { order: 10; }
   .site-header.is-menu-open nav a,
   .site-header.is-menu-open .nav-today-btn,
@@ -3858,6 +3905,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     min-height: 44px;
     font-size: 1rem;
   }
+}
+@media (max-width: 600px) {
   /* The bar is 60px and the value line above the hero is up to three lines
      (~5.5rem). Size the hero to what is left of the first screen so the credit
      and the control row stay on screen. */
