@@ -114,7 +114,6 @@ html[data-theme="dark"] .usp-body {
   grid-template-columns: minmax(0, 46rem) 300px;
   gap: 3.25rem;
   justify-content: space-between;
-  align-items: start;
 }
 
 .usp-article.static-story .story-crumbs,
