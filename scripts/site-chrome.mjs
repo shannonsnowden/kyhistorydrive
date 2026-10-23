@@ -10,33 +10,57 @@ export function sealSrcScriptHtml() {
   return `<script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo,h=window.__khdLogoHi;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(h&&h.indexOf('/brand/')!==0)h='/brand/'+String(h).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s);if(h){im.setAttribute('srcset',s+' 176w, '+h+' 512w');im.setAttribute('sizes','(min-width: 701px) 132px, (min-width: 601px) 84px, 68px')}})()</script>`
 }
 
-/** Menu and theme toggle for the shared header on pages that are not the SPA. */
+/** Menu, search and theme toggle for the shared header on pages that are not the SPA. */
 export function siteChromeScriptHtml() {
   return `<script>
       (function () {
         var header = document.querySelector('header.site-header')
         var menuBtn = document.getElementById('navMenuToggle')
-        var mq = window.matchMedia('(max-width: 600px)')
+        var searchBtn = document.getElementById('navSearchToggle')
+        var searchBox = document.getElementById('navSearch')
+        var searchInput = document.getElementById('siteSearchInput')
+        var mainNav = document.getElementById('mainNav')
+        var mq = window.matchMedia('(max-width: 1099px)')
         function closeMenu() {
           if (!header || !menuBtn) return
           header.classList.remove('is-menu-open')
           menuBtn.setAttribute('aria-expanded', 'false')
           menuBtn.setAttribute('aria-label', 'Open menu')
         }
+        function closeSearch() {
+          if (!header || !searchBtn) return
+          header.classList.remove('is-search-open')
+          searchBtn.setAttribute('aria-expanded', 'false')
+          searchBtn.setAttribute('aria-label', 'Search places and stories')
+        }
         if (header && menuBtn) {
           menuBtn.addEventListener('click', function () {
             if (!mq.matches) return
             var open = header.classList.toggle('is-menu-open')
+            if (open) closeSearch()
             menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false')
             menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
           })
-          document.getElementById('mainNav').addEventListener('click', function (e) {
-            if (e.target.closest('a') && mq.matches) closeMenu()
-          })
+          if (mainNav) {
+            mainNav.addEventListener('click', function (e) {
+              if (e.target.closest('a') && mq.matches) closeMenu()
+            })
+          }
           document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeMenu()
+            if (e.key === 'Escape') { closeMenu(); closeSearch() }
           })
-          mq.addEventListener('change', function (e) { if (!e.matches) closeMenu() })
+          mq.addEventListener('change', function (e) {
+            if (!e.matches) { closeMenu(); closeSearch() }
+          })
+        }
+        if (header && searchBtn) {
+          searchBtn.addEventListener('click', function () {
+            var open = header.classList.toggle('is-search-open')
+            if (open) closeMenu()
+            searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false')
+            searchBtn.setAttribute('aria-label', open ? 'Close search' : 'Search places and stories')
+            if (open && searchInput) searchInput.focus()
+          })
         }
         function syncTheme(theme) {
           document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
@@ -63,16 +87,15 @@ export function siteChromeScriptHtml() {
         })
       })()
     </script>`
-  }
+}
 
-/** Same header as the homepage. Search and Today’s stories link back; the menu is a few lines of script. */
-/** opts.roadsRails: show the Roads & Rails nav item (default: the KHD_ROADS_RAILS build flag; off since Oct 19). */
+/** Same header as the homepage. Search submits to /stories/?q=; the menu is a few lines of script. */
 export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnabled() } = {}) {
   const item = (route, href, label) => {
-      const current = route === activeRoute ? ' class="active" aria-current="page"' : ''
-      return `<a href="${href}" data-route="${route}"${current}>${label}</a>`
-    }
-    return `<a class="skip-link" href="#content">Skip to content</a>
+    const current = route === activeRoute ? ' class="active" aria-current="page"' : ''
+    return `<a href="${href}" data-route="${route}"${current}>${label}</a>`
+  }
+  return `<a class="skip-link" href="#content">Skip to content</a>
     <header class="top site-header">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
@@ -86,12 +109,15 @@ export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnable
         </a>
       </div>
       <div class="nav-mobile-tools" id="navMobileTools">
-        <a class="nav-icon-btn" id="navSearchToggle" href="/" aria-label="Search places and stories">
+        <button type="button" class="nav-icon-btn" id="navSearchToggle" aria-expanded="false" aria-controls="navSearch" aria-label="Search places and stories">
           <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="2" />
             <path d="M16 16.5 20.5 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
-        </a>
+          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
         <button type="button" class="nav-icon-btn" id="navMenuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
           <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -103,15 +129,24 @@ export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnable
       </div>
       <nav id="mainNav" aria-label="Primary">
         <div class="nav-search" id="navSearch">
-          <a id="siteSearchInput" href="/">Search places &amp; stories…</a>
-        </div>
-        <div class="nav-today" id="navToday">
-          <a class="nav-today-btn" href="/#timeline">Today’s stories</a>
+          <form id="siteSearchForm" role="search" action="/stories/" method="get" autocomplete="off">
+            <label class="visually-hidden" for="siteSearchInput">Search places and stories</label>
+            <input
+              type="search"
+              id="siteSearchInput"
+              name="q"
+              placeholder="Search places &amp; stories…"
+              enterkeyhint="search"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+            />
+          </form>
         </div>
         ${item('home', '/', 'Home')}
-        ${item('map', '/#map', 'Map')}
+        ${item('stories', '/stories/', 'Stories')}
         ${item('timeline', '/#timeline', 'Timeline')}
-        ${item('people', '/people/', 'People')}
+        ${item('map', '/#map', 'Map')}
         ${item('drives', '/drives/', 'Drives')}
         ${roadsRails ? `${item('roads', '/roads-and-rails/', 'Roads &amp; Rails')}\n        ` : ''}${item('about', '/about/', 'About')}
         <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
@@ -120,7 +155,7 @@ export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnable
         </button>
       </nav>
     </header>`
-  }
+}
 
 /** Favicon + touch icon links shared by every built page head (prerendered pages, /drives/, /timeline/). */
 export function faviconLinksHtml(indent = '') {
@@ -140,12 +175,18 @@ export function faviconLinksHtml(indent = '') {
  */
 export function siteFooterHtml(extra = '') {
   return `<footer class="foot">
-      <span>kyhistorydrive.com</span>
-      <a href="/about/">About</a>
-      <a href="/people/">People</a>
-      <a href="/videos/">Videos</a>
-      <a href="/routes/">Kentucky history route maps</a>
-      <a href="/privacy/">Privacy</a>${extra ? `\n      ${extra}` : ''}
-      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+      <div class="foot-copy">kyhistorydrive.com · Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/stories/" data-route="stories">Stories</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#map" data-route="map">Map</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#timeline" data-route="timeline">Timeline</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/people/" data-route="people">People</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/drives/" data-route="drives">Drives</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/routes/">Kentucky history route maps</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/videos/" data-route="videos">Videos</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#resources" data-route="resources">Resources</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/about/" data-route="about">About</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/privacy/">Privacy</a>${extra ? `\n        ${extra}` : ''}
+      </nav>
     </footer>`
 }

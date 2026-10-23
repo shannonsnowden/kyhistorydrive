@@ -232,11 +232,23 @@ function finiteCoord(value) {
   return Number.isFinite(n) ? n : null
 }
 
+function isProtectedStoryCoords(story) {
+  if (!story) return false
+  if (story.coordinatesProtected || story.locationApproximate || story.archaeological) return true
+  if (story.era === "prehistoric") return true
+  if (Array.isArray(story.tags) && (story.tags.includes("archaeology") || story.tags.includes("prehistoric"))) return true
+  if (/\b15[a-z]{2}\d{1,4}\b/i.test(String(story.slug || ""))) return true
+  return false
+}
+
 function storyOrigin(story) {
-  const lat = finiteCoord(story?.lat)
-  const lon = finiteCoord(story?.lon)
-  if (lat == null || lon == null || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
-  if (lat === 0 && lon === 0) return null
+  const rawLat = finiteCoord(story?.lat)
+  const rawLon = finiteCoord(story?.lon)
+  if (rawLat == null || rawLon == null || Math.abs(rawLat) > 90 || Math.abs(rawLon) > 180) return null
+  if (rawLat === 0 && rawLon === 0) return null
+  const factor = isProtectedStoryCoords(story) ? 10 : 10000
+  const lat = Math.round(rawLat * factor) / factor
+  const lon = Math.round(rawLon * factor) / factor
   return { lat, lon }
 }
 
@@ -255,14 +267,13 @@ export function nearbyStories(story, all, { limit = 5, excludeSlugs = [] } = {})
   const skip = new Set(excludeSlugs || [])
   const rows = []
   for (const other of collapseSamePlace(story, all, skip)) {
-    const olat = finiteCoord(other.lat)
-    const olon = finiteCoord(other.lon)
-    if (!validPin(olat, olon)) continue
+    const otherOrigin = storyOrigin(other)
+    if (!otherOrigin) continue
     rows.push({
       kind: 'story',
       slug: other.slug,
       title: other.title,
-      miles: haversineMiles(origin.lat, origin.lon, olat, olon),
+      miles: haversineMiles(origin.lat, origin.lon, otherOrigin.lat, otherOrigin.lon),
     })
   }
   rows.sort((a, b) => a.miles - b.miles || a.title.localeCompare(b.title))
@@ -280,7 +291,16 @@ export function markerRecords(features) {
     const id = props.marker_number ?? props.id
     const title = props.title || props.name
     if (id == null || String(id).trim() === '' || !title) continue
-    rows.push({ id: String(id), title: String(title), lat, lon })
+    rows.push({
+      id: String(id),
+      title: String(title),
+      lat,
+      lon,
+      county: props.county ? String(props.county) : '',
+      location_text: props.location_text ? String(props.location_text) : '',
+      inscription: props.inscription ? String(props.inscription) : '',
+      source_url: props.source_url ? String(props.source_url) : '',
+    })
   }
   return rows
 }
@@ -379,7 +399,10 @@ const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" widt
 function cardMediaHtml(row) {
   if (row.kind !== 'marker' && row.thumb) {
     const src = esc(row.thumb)
-    return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="" width="56" height="56" loading="lazy" decoding="async"></span>`
+    const isPortrait = String(row.thumb).startsWith('/people/portraits/')
+    const defaultAlt = isPortrait ? `Portrait for ${row.title || 'story'}` : `Thumbnail for ${row.title || 'story'}`
+    const alt = esc(row.alt || defaultAlt)
+    return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="${alt}" width="56" height="56" loading="lazy" decoding="async"></span>`
   }
   return `<span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span>`
 }
@@ -397,12 +420,19 @@ function nearbyRowHtml(row) {
   const href = row.kind === 'marker' ? markerMapHref(row.id) : `/stories/${encodeURIComponent(row.slug)}/`
   const liClass = row.related ? 'related-story' : 'nearby-place'
   const mapAttr = row.kind === 'marker' ? ' data-story-map' : ''
-  return `<li class="${liClass}"><a class="related-card"${mapAttr} href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span></span>${CHEVRON_ICON}</a></li>`
+  const whyHtml = row.why ? `<span class="usp-rel-why">${esc(row.why)}</span>` : ''
+  return `<li class="${liClass}"><a class="related-card"${mapAttr} href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span>${whyHtml}</span>${CHEVRON_ICON}</a></li>`
 }
 
-function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby' } = {}) {
+function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby', collapsible = false } = {}) {
   if (!rows?.length) return ''
   const level = headingLevel === 3 ? 3 : 2
+  if (collapsible && rows.length > 3) {
+    const primary = rows.slice(0, 3).map((row) => nearbyRowHtml(row)).join('')
+    const extraRows = rows.slice(3)
+    const extra = extraRows.map((row) => nearbyRowHtml(row)).join('')
+    return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list usp-related-grid">${primary}</ul><button type="button" class="usp-more-btn" data-more-btn aria-expanded="false">More related stories (${extraRows.length})</button><ul class="related-list usp-related-grid usp-related-more" data-more-grid hidden>${extra}</ul></nav>`
+  }
   const items = rows.map((row) => nearbyRowHtml(row)).join('')
   return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list">${items}</ul></nav>`
 }
@@ -449,9 +479,13 @@ function storyRichness(story) {
   return proseLength(story) * 1000 + String(story?.summary || '').length
 }
 
+const _trinomialCache = new Map()
 function trinomialsOf(story) {
   const blob = [story?.slug, story?.title, story?.matchedPlace].filter(Boolean).join(' ')
-  return new Set(trinomialMatches(blob))
+  if (_trinomialCache.has(blob)) return _trinomialCache.get(blob)
+  const set = new Set(trinomialMatches(blob))
+  _trinomialCache.set(blob, set)
+  return set
 }
 
 function sharedTrinomial(a, b) {
@@ -461,13 +495,16 @@ function sharedTrinomial(a, b) {
   return false
 }
 
+const _titleLabelsCache = new Map()
 function titleLabels(title) {
-  let text = String(title || '')
+  const key = String(title || '')
+  if (_titleLabelsCache.has(key)) return _titleLabelsCache.get(key)
+  let text = key
     .toLowerCase()
     .replace(/[’']/g, '')
   text = text.replace(/\b15[a-z]{2}\d{1,4}\b/gi, ' ')
   text = text.replace(/\([^)]*\)/g, ' ')
-  return text
+  const out = text
     .split(/\s*(?::|\/|—|–)\s*/)
     .map((part) => {
       const words = part
@@ -480,9 +517,14 @@ function titleLabels(title) {
       return words.join(' ')
     })
     .filter(Boolean)
+  _titleLabelsCache.set(key, out)
+  return out
 }
 
+const _leadingStemsCache = new Map()
 function leadingStems(title) {
+  const key = String(title || '')
+  if (_leadingStemsCache.has(key)) return _leadingStemsCache.get(key)
   const stems = []
   for (const label of titleLabels(title)) {
     const words = label.split(' ').filter(Boolean)
@@ -490,6 +532,7 @@ function leadingStems(title) {
     stems.push(words[0])
     if (words.length >= 2) stems.push(`${words[0]} ${words[1]}`)
   }
+  _leadingStemsCache.set(key, stems)
   return stems
 }
 
@@ -533,22 +576,29 @@ function coordsClose(a, b) {
 function samePlace(a, b) {
   if (!a?.slug || !b?.slug || a.slug === b.slug) return false
   if (sharedTrinomial(a, b)) return true
-  if (!sharedTitleStem(a?.title, b?.title)) return false
-  return sameHistoryId(a, b) || coordsClose(a, b)
+  if (!sameHistoryId(a, b) && !coordsClose(a, b)) return false
+  return sharedTitleStem(a?.title, b?.title)
 }
 
 /**
  * Same person: both titles lead with the same personal name before a comma
  * ("Hugh McGary, the hothead major" / "Hugh McGary, the Blue Licks Hothead").
  */
+const _titlePersonCache = new Map()
 function titlePerson(title) {
-  const m = /^([^,:]+),\s/.exec(String(title || ''))
-  if (!m) return ''
+  const key = String(title || '')
+  if (_titlePersonCache.has(key)) return _titlePersonCache.get(key)
+  const m = /^([^,:]+),\s/.exec(key)
+  if (!m) { _titlePersonCache.set(key, ''); return '' }
   const name = m[1].trim()
   const words = name.split(/\s+/)
-  if (words.length < 2 || words.length > 4) return ''
-  if (!words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) return ''
-  return name.toLowerCase()
+  if (words.length < 2 || words.length > 4 || !words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) {
+    _titlePersonCache.set(key, '')
+    return ''
+  }
+  const out = name.toLowerCase()
+  _titlePersonCache.set(key, out)
+  return out
 }
 
 function samePerson(a, b) {
@@ -617,10 +667,9 @@ function sameCounty(story, other) {
 
 function relatedMiles(story, other) {
   const origin = storyOrigin(story)
-  const lat = finiteCoord(other?.lat)
-  const lon = finiteCoord(other?.lon)
-  if (!origin || !validPin(lat, lon)) return Number.POSITIVE_INFINITY
-  return haversineMiles(origin.lat, origin.lon, lat, lon)
+  const otherOrigin = storyOrigin(other)
+  if (!origin || !otherOrigin) return Number.POSITIVE_INFINITY
+  return haversineMiles(origin.lat, origin.lon, otherOrigin.lat, otherOrigin.lon)
 }
 
 /**
@@ -650,13 +699,14 @@ export function pickRelatedStories(story, all, excludeSlugs = []) {
 }
 
 /** Related stories first, then nearby places that are not already listed. */
-export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2 } = {}) {
+export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2, collapsible = false, heading = 'Related and nearby' } = {}) {
   const rows = [...(related || []), ...(nearby || [])]
   return relatedListHtml(rows, {
-    heading: 'Related and nearby',
+    heading,
     headingId: 'related-nearby-heading',
     headingLevel,
     navClass: 'static-related story-nearby',
+    collapsible,
   })
 }
 
@@ -665,7 +715,7 @@ export function relatedAndNearbyForStory(
   story,
   all,
   markers,
-  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '' } = {},
+  { headingLevel = 2, heading = 'Related stories', excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', whyFor = null, collapsible = false } = {},
 ) {
   const related = pickRelatedStories(story, all, excludeSlugs)
   const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
@@ -675,6 +725,7 @@ export function relatedAndNearbyForStory(
     slug: other.slug,
     title: other.title,
     detail: storyDetail(other),
+    why: typeof whyFor === 'function' ? whyFor(story, other) : '',
     // Person cards always use the canonical portrait.
     thumb: portraitFor(other.slug) || thumbFor(other) || '',
   }))
@@ -689,10 +740,11 @@ export function relatedAndNearbyForStory(
       ...row,
       title: other?.title || row.title,
       detail: other ? storyDetail(other) : '',
+      why: other && typeof whyFor === 'function' ? whyFor(story, other) : '',
       thumb: other ? portraitFor(other.slug) || thumbFor(other) || '' : '',
     }
   })
-  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel })
+  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel, collapsible, heading })
 }
 
 const SOURCE_BY_DOMAIN = [

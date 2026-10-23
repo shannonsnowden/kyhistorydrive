@@ -162,10 +162,10 @@ const KY_BOUNDS = [
 
 const ERAS = [
   { id: 'prehistoric', label: 'Prehistoric' },
-  { id: 'native', label: 'Native' },
+  { id: 'native', label: 'Native nations' },
   { id: 'frontier', label: 'Frontier' },
   { id: 'early-commonwealth', label: 'Early commonwealth' },
-  { id: 'other', label: 'Other' },
+  { id: 'other', label: 'More Kentucky history' },
 ]
 
 const YEAR_PRESETS = [
@@ -3660,8 +3660,14 @@ function setupTimelineFilters() {
   })
 }
 
+function normalizeTimelineEra(era) {
+  if (era === 'revolution') return 'frontier'
+  if (era === 'modern') return 'other'
+  return era || 'other'
+}
+
 function storyMatchesFilters(s) {
-  if (!timelineState.eras.has(s.era)) return false
+  if (!timelineState.eras.has(normalizeTimelineEra(s.era))) return false
   const { yearMin, yearMax } = timelineState
   if (yearMin != null || yearMax != null) {
     if (s.yearStart == null) return false
@@ -4729,6 +4735,10 @@ function restoreWindowScroll(y) {
 async function applyRoute() {
   const savedScroll = consumeScrollRestore()
   const { view, slug } = parseHash()
+  if (view === 'about' || view === 'app') {
+    location.replace('/about/')
+    return
+  }
   if (view === 'transport') {
     // Roads & Rails left the live site on Oct 19: old #transport links go to the map. With the
     // KHD_ROADS_RAILS=1 build flag they forward to /roads-and-rails/ again (item 70, client-side only).

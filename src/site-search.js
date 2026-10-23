@@ -265,4 +265,12 @@ export function initSiteSearch(options = {}) {
   document.addEventListener('click', (e) => {
     if (!wrap.contains(e.target)) closeSearchResults()
   })
+  try {
+    const qParam = new URLSearchParams(location.search).get('q')
+    if (qParam && qParam.trim().length >= SEARCH_MIN_CHARS) {
+      input.value = qParam.trim()
+      warmSearchIndex()
+      runSiteSearch(input.value)
+    }
+  } catch {}
 }

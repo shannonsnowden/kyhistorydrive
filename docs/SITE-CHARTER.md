@@ -45,7 +45,7 @@ Find Kentucky Historical Society markers on a free map and read a new Kentucky h
 - **County, tags and era**: set County explicitly, and set tags and era by hand.
 - **Cultures vs tribes**: archaeological cultures are not tribes. Theme-only topics get no pin.
 - **Homepage**: homepage copy stays evergreen.
-- **Pin coordinates**: prehistoric pins rounded to 2 decimals; restricted (confidential) sites generalized further to 0.1° in every output (data, JSON-LD, GPX/KML, waypoints).
+- **Pin coordinates**: prehistoric and restricted (confidential) pins rounded to 1 decimal place (0.1°, ~11 km) in every output (data, JSON-LD, GPX/KML, waypoints).
 
 ## Voice
 Plain and specific. Place first ("On the Green River's Big Bend in Butler County…"), dates and site numbers up front, short sentences. Call areas approximate when they are approximate. No hype.
@@ -129,7 +129,7 @@ Every check script in `npm run build` must pass:
 
 ## Ads, SEO and AI visibility
 - **Ads**: AdSense (`ads.txt`). Slots are reserved on home, explore and sidebar, and stay off unless `VITE_ADS_ENABLED` is set. They never block content or the map, and reserved slots must cause no layout shift. `VITE_ADS_ENABLED` stays unset until Google approves the site.
-- **SEO**: prerendered pages, canonical URLs, sitemaps (including image and video sitemaps, plus RSS), and JSON-LD (Organization, Article, Place, BreadcrumbList, ImageObject, ItemList/Place, VideoObject). Meta descriptions are whole sentences of 70–160 characters. Prehistoric pins rounded to 2 decimals; restricted (confidential) sites generalized further to 0.1° in every output (data, JSON-LD, GPX/KML, waypoints). Account pages are `noindex`.
+- **SEO**: prerendered pages, canonical URLs, sitemaps (including image and video sitemaps, plus RSS), and JSON-LD (Organization, Article, Place, BreadcrumbList, ImageObject, ItemList/Place, VideoObject). Meta descriptions are whole sentences of 70–160 characters. Prehistoric and restricted (confidential) pins rounded to 1 decimal place (0.1°, ~11 km) in every output (data, JSON-LD, GPX/KML, waypoints). Account pages are `noindex`.
 - **AI visibility**: `robots.txt` allows GPTBot, PerplexityBot, ClaudeBot and Google-Extended. Each story and route page opens with a 1–2 sentence plain answer in prerendered text. Route pages also list their stops in text (modern town and county), because assistants quote text and can't read map art. Titles and H1s match how people ask ("Warriors' Path in Kentucky: Route Map and Stops"). The homepage, the story archive, and a `/routes/` index link to every story and route page in crawlable HTML. The sitemap carries `lastmod`. About names the publisher (Kentucky History Drive / Shannon Snowden) to match the Organization JSON-LD, so answers stop calling the site "unverified." When sources disagree, the page states the range and which source says what (e.g., Mary Ingles: 500, 600, or 800 miles), because a sourced explanation of the dispute is what assistants cite. AI Search Visibility rechecks the buyer and route question set after major releases and reports to Chief of Staff.
 
 ## Review pipeline

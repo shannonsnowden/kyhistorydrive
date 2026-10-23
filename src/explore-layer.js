@@ -19,10 +19,10 @@ import { HomepageStructure } from './homepage-structure.js'
 
 const TABS_ERA = [
   { id: 'prehistoric', label: 'Prehistoric' },
-  { id: 'native', label: 'Native' },
+  { id: 'native', label: 'Native nations' },
   { id: 'frontier', label: 'Frontier' },
   { id: 'early-commonwealth', label: 'Early commonwealth' },
-  { id: 'other', label: 'Other' },
+  { id: 'other', label: 'More Kentucky history' },
 ]
 const MAP_TAB = { id: 'map', label: 'On the map' }
 // First daily pack published under the magazine homepage (#72 went live 2026-09-20 after that

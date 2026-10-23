@@ -32,6 +32,7 @@
         } catch (e) {}
       })()
     </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://kyhistorydrive.com/#organization","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},{"@type":"WebPage","@id":"https://kyhistorydrive.com/privacy/#webpage","url":"https://kyhistorydrive.com/privacy/","name":"Privacy — Kentucky History Drive","dateModified":"2026-10-12","inLanguage":"en-US","isPartOf":{"@type":"WebSite","@id":"https://kyhistorydrive.com/#website","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"publisher":{"@id":"https://kyhistorydrive.com/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kyhistorydrive.com/"},{"@type":"ListItem","position":2,"name":"Privacy","item":"https://kyhistorydrive.com/privacy/"}]}]}</script>
     <!-- khd-gtag -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>
   </head>
@@ -159,14 +160,20 @@
     </main>
 
     <footer class="foot">
-      <span>kyhistorydrive.com</span>
-      <a href="/about/">About</a>
-      <a href="/people/">People</a>
-      <a href="/videos/">Videos</a>
-      <a href="/routes/">Kentucky history route maps</a>
-      <a href="/privacy/" aria-current="page">Privacy</a>
-      <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
-      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+      <div class="foot-copy">kyhistorydrive.com · Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/stories/" data-route="stories">Stories</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#map" data-route="map">Map</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#timeline" data-route="timeline">Timeline</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/people/" data-route="people">People</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/drives/" data-route="drives">Drives</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/routes/">Kentucky history route maps</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/videos/" data-route="videos">Videos</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#resources" data-route="resources">Resources</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/about/" data-route="about">About</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/privacy/" aria-current="page">Privacy</a>
+        <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
+      </nav>
     </footer>
     <!-- khd-site-chrome -->
     <!-- khd-privacy-choices -->

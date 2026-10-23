@@ -1,0 +1,63 @@
+/* Print / Save as PDF: black on white, story + credits + markers + sources, URLs printed. */
+@page { size: Letter; margin: 16mm 16mm 18mm; }
+
+@media print {
+  * { color: #000 !important; background: #fff !important; box-shadow: none !important; text-shadow: none !important; }
+  html, html[data-hp-theme="dark"], html[data-theme="dark"] { color-scheme: light; }
+  body { font-size: 11pt; background: #fff !important; color: #000 !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+  .site-header, .usp-header, .usp-mobile-tools, .skip-link, .usp-wayfinder, .usp-rail, .usp-tools,
+  .usp-map-inline, .usp-map-card, .usp-drive, .usp-prevnext, .usp-endback, .usp-foot, .foot,
+  .story-crumbs, .usp-crumbs, .usp-related, .usp-more, .usp-more-btn, .usp-marker-dirs,
+  .usp-correction, .story-correction, .usp-mocknote, .usp-share-toast,
+  button[data-cite-copy], .cite-story-tabs, .visually-hidden, .sr-only { display: none !important; }
+  .print-only { display: block !important; }
+  main.static-read, .usp-main, .usp-grid, .usp-article, .usp-story, .usp-section {
+    display: block !important;
+    max-width: 100% !important;
+    width: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .print-masthead { margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 1px solid #000; font-size: 9pt; }
+  .static-kicker, .usp-kicker { margin-top: 0; }
+  .usp-head h1 { font-size: 22pt; }
+  .usp-tag, .usp-era, .usp-era-pill, .usp-pin-chip, .usp-pin-chip-2, .usp-pin-role {
+    border: 1px solid #000 !important;
+    background: #fff !important;
+  }
+  .usp-marker-badge { border: 1.5px solid #000 !important; box-shadow: none !important; }
+  .usp-story { font-size: 11pt; line-height: 1.5; }
+  .usp-story p, .story-body p { max-width: none !important; }
+  .usp-portrait, .story-portrait { float: right !important; width: 40mm !important; margin: 1mm 0 3mm 6mm !important; }
+  .usp-portrait img, .story-portrait img { border: 1px solid #000; }
+  .usp-today, .usp-marker, .usp-marker-card, .usp-person, .usp-person-card, .usp-details {
+    border: 1px solid #000 !important;
+    border-radius: 6px;
+    break-inside: avoid;
+    max-width: 100%;
+  }
+  details.usp-details { break-inside: auto !important; }
+  .usp-today { border-left-width: 1px !important; padding: 4mm; }
+  .usp-today-photo, .story-sidebar-photo { width: 55mm !important; }
+  .usp-marker-list { display: block !important; }
+  .usp-marker, .usp-marker-card { margin: 0 0 3mm !important; }
+  .usp-section h2 { break-after: avoid; font-size: 14pt; }
+  .usp-details > summary { list-style: none; padding: 2mm 4mm 0; }
+  .usp-details > summary::before, .usp-details > summary::after { content: none !important; }
+  .usp-details[open] > summary, .usp-details > summary { font-size: 12pt; }
+  .usp-glance, .usp-glance-grid { display: block !important; }
+  .usp-glance-table { margin-bottom: 3mm; }
+  .usp-glance-table td, .usp-glance-table th { border-bottom: 1px solid #999; padding: 1.5mm 2mm 1.5mm 0; }
+  .usp-src-list { font-size: 9.5pt; line-height: 1.38; }
+  .usp-src-list li { margin: 0 0 1.5mm; }
+  /* Print each link's URL after its text. */
+  a { text-decoration: underline; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; word-break: break-all; text-decoration: none; }
+  a[href^="/"]::after { content: " (https://kyhistorydrive.com" attr(href) ")"; font-size: 8.5pt; word-break: break-all; }
+  .usp-person-face::after, .usp-person-avatar-link::after, .usp-pn::after, .usp-pn-card::after,
+  .usp-tags a::after, .usp-tag::after, .story-sidebar-photo-frame::after { content: none !important; }
+  .print-endnote { margin-top: 8mm; padding-top: 2mm; border-top: 1px solid #000; font-size: 8.5pt; }
+}

@@ -4,7 +4,7 @@
  * The menu discloses Home, Map, Timeline, People, Drives, (Roads & Rails with KHD_ROADS_RAILS=1), About, App, Today's stories, and the theme toggle.
  */
 export class MobileNav {
-  static QUERY = '(max-width: 600px)'
+  static QUERY = '(max-width: 1099px)'
 
   static #header = null
   static #menuBtn = null
@@ -69,6 +69,7 @@ export class MobileNav {
     if (!this.#desktopOrder) this.#desktopOrder = [...nav.children]
     const narrow = [
       nav.querySelector('a[data-route="home"]'),
+        nav.querySelector('a[data-route="stories"]'),
       nav.querySelector('a[data-route="map"]'),
       nav.querySelector('a[data-route="timeline"]'),
       nav.querySelector('a[data-route="people"]'),

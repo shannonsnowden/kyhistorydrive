@@ -36,12 +36,14 @@ export function storyYearLabel(y) {
 export function eraLabel(era) {
   const map = {
     prehistoric: 'Prehistoric',
-    native: 'Native',
+    native: 'Native nations',
+    revolution: 'Frontier',
     frontier: 'Frontier',
     'early-commonwealth': 'Early commonwealth',
-    other: 'Kentucky',
+    other: 'More Kentucky history',
+    modern: 'More Kentucky history',
   }
-  return map[era] || 'Kentucky'
+  return map[era] || 'More Kentucky history'
 }
 
 export function firstSentence(text) {

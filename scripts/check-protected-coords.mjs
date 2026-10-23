@@ -19,6 +19,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { extractPairs, keyCheck, proximityMatcher, RADIUS_M } from './lib/coord-pairs.mjs'
 
@@ -83,7 +84,7 @@ function textScan(text, file) {
   }
 }
 
-const TEXT = new Set(['.js', '.gpx', '.kml', '.md', '.html', '.xml'])
+const TEXT = new Set(['.js', '.mjs', '.cjs', '.gpx', '.kml', '.md', '.txt', '.html', '.xml', '.rss', '.atom', '.svg', '.css', '.vtt'])
 function files(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? files(path.join(dir, e.name)) : [path.join(dir, e.name)]))
 }
@@ -121,13 +122,42 @@ if (list.schema !== 3 || list.keyCheck !== keyCheck(KEY)) {
   process.exit(1)
 }
 const near = proximityMatcher(list, KEY)
-const SCAN = new Set(['.json', '.geojson', '.html', '.js', '.gpx', '.kml'])
+const SCAN = new Set([
+  '.html', '.js', '.mjs', '.cjs',
+  '.json', '.geojson',
+  '.xml', '.rss', '.atom',
+  '.txt', '.md',
+  '.svg', '.css',
+  '.kml', '.gpx',
+  '.webmanifest', '.vtt', '.map',
+])
+const KNOWN_BINARY = new Set([
+  '.png', '.jpg', '.jpeg', '.webp', '.avif', '.gif', '.ico',
+  '.woff', '.woff2', '.ttf', '.otf', '.pbf',
+  '.mp4', '.webm', '.mp3', '.wav', '.ogg', '.m4a',
+])
 const fineNum = (s) => /\.\d{2,}/.test(s)
 let scanned = 0
 for (const f of files(dist)) {
-  if (!SCAN.has(path.extname(f))) continue
+  const ext = path.extname(f).toLowerCase()
   const rel = path.relative(dist, f)
-  const text = fs.readFileSync(f, 'utf8')
+  let text = null
+  if (SCAN.has(ext)) {
+    text = fs.readFileSync(f, 'utf8')
+  } else if (ext === '.pdf') {
+    try {
+      text = execFileSync('pdftotext', [f, '-'], { encoding: 'utf8' })
+      textScan(text, rel)
+    } catch (e) {
+      errors.push(`${rel}: pdftotext failed (${e.code || e.name})`)
+      continue
+    }
+  } else if (KNOWN_BINARY.has(ext)) {
+    continue
+  } else {
+    errors.push(`${rel}: unknown file extension ${ext || '(none)'} in dist (fail-closed)`)
+    continue
+  }
   scanned++
   const hits = new Map()
   for (const p of extractPairs(text)) {

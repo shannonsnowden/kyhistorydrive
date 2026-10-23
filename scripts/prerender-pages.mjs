@@ -81,6 +81,23 @@ import { storyFigureHtml } from '../src/story-figure.js'
 import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
+import {
+  buildUnifiedSources,
+  computeRelatedNote,
+  extractResearchClaims,
+  formatCoordCardinal,
+  formatCountiesBadge,
+  isProtectedStory,
+  matchStoryMarkers,
+  renderWhereItHappenedCard,
+  resolvePeopleInStory,
+  roundStoryCoord,
+  roundedStoryGeo,
+  splitStoryMarkdown,
+  storyCountiesList,
+  storyDocTitle,
+  storyEraLabel,
+} from './lib/unified-story-data.mjs'
 
 /** True when a preload link in `html` points at `poster`. The URL is matched as text, not as a regular expression. */
 export function preloadsPoster(html, poster) {
@@ -95,6 +112,16 @@ export function preloadsPoster(html, poster) {
 class PrerenderPages {
   static SITE = 'https://kyhistorydrive.com'
   static ORG_ID = 'https://kyhistorydrive.com/#organization'
+  static WEBSITE_ID = 'https://kyhistorydrive.com/#website'
+  static websiteNode() {
+    return {
+      '@type': 'WebSite',
+      '@id': PrerenderPages.WEBSITE_ID,
+      name: 'Kentucky History Drive',
+      url: `${PrerenderPages.SITE}/`,
+      publisher: PrerenderPages.publisherNode(),
+    }
+  }
   static LOGO = 'https://kyhistorydrive.com/brand/khd-logo-512.png'
   static ADSENSE =
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>'
@@ -102,10 +129,12 @@ class PrerenderPages {
   static COUNTY_DISPLAY = { Larue: 'LaRue' }
   static ERA_LABEL = {
     prehistoric: 'Prehistoric',
-    native: 'Native',
+    native: 'Native nations',
     frontier: 'Frontier',
+    revolution: 'Frontier',
     'early-commonwealth': 'Early commonwealth',
-    other: 'Kentucky',
+    other: 'More Kentucky history',
+    modern: 'More Kentucky history',
   }
   /** Product copy for each map layer. Featured-stop blurbs come from LAYER_HIGHLIGHTS. */
   static LAYER_INTRO = {
@@ -295,7 +324,7 @@ class PrerenderPages {
     }
     for (const layer of layers) {
       const urlPath = `/layers/${layer.id}/`
-      const html = PrerenderPages.layerPage(layer, cssHrefs)
+      const html = PrerenderPages.layerPage(layer, cssHrefs, stories, layers)
       PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
       PrerenderPages.writePage(dist, urlPath, html)
       const layerFile = `public/${String(layer.geojson || '').replace(/^\//, '')}`
@@ -514,7 +543,7 @@ class PrerenderPages {
     const out = []
     let buf = ''
     const abbrev = (s) =>
-      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
+      /\b(?:Jr|Sr|Dr|Capt|Col|Gen|Maj|Lt|Rev|Gov|Mr|Mrs|Ms|St|Ste|Ave|Mt|Ft|No|Co|Sts|Pres|Hon|vs|etc|c)\.$/.test(
         s.trimEnd(),
       ) ||
       /(?:^|[\s(])[A-Z]\.$/.test(s.trimEnd()) ||
@@ -831,7 +860,21 @@ class PrerenderPages {
       if (next.length > max) break
       acc = next
     }
-    if (acc) return acc
+    if (acc) {
+      if (acc.length < 120 && sentences.length > 1) {
+        const usedCount = sentences.filter((sent, idx) => idx === 0 || acc.includes(sent)).length
+        const nextSent = sentences[usedCount] || sentences[1] || ''
+        const room = max - acc.length - 1
+        if (nextSent && room >= 30) {
+          const punct2 = /[,;]\s(?!\d)|(?<!\d)\s*—\s*|\s—\s|\s–\s|\s+-\s+|\s+(?=(?:while|when|where|which|who|whose|after|before|until|because)\s)/gu
+          const cut2 = PrerenderPages.clauseCut(nextSent, room, punct2, 25, true, false)
+          if (cut2 && acc.length + 1 + cut2.length >= 100 && acc.length + 1 + cut2.length <= max) {
+            return `${acc} ${cut2}`
+          }
+        }
+      }
+      return acc
+    }
     if (!clause) return ''
     const cut = PrerenderPages.clauseMeta(sentences[0], max) || (verbless ? PrerenderPages.clauseCut(sentences[0], max, PrerenderPages.META_PUNCT_BOUNDARY, PrerenderPages.META_CLAUSE_MIN, false, true) : '')
     if (cut || !nextSentence) return cut
@@ -867,7 +910,7 @@ class PrerenderPages {
 
   /** A clause head reads as a clause: it has a verb, not just a place phrase. */
   static META_VERB =
-    /\b(?:is|was|are|were|has|had|have|became|becomes|sits|sat|stands|stood|lay|lies|runs|ran|led|left|built|took|held|made|came|went|rode|won|grew|began|fought|fell|gave|met|sold|bought|chose|drew|wrote|saw|kept|set|brought|knew|became|\p{L}{3,}ed)\b/iu
+    /\b(?:is|was|are|were|has|had|have|became|becomes|sits|sat|stands|stood|lay|lies|cuts|runs|ran|led|left|built|took|held|made|came|went|rode|won|grew|began|fought|fell|gave|met|sold|bought|chose|drew|wrote|saw|kept|set|brought|knew|became|\p{L}{3,}ed)\b/iu
 
   /**
    * End a long first sentence at a clean boundary at least 70 characters in: a comma or
@@ -947,6 +990,8 @@ class PrerenderPages {
       if (/\b(?:a|an|the)\s+\S+$/i.test(head) && /^\s*[,;]/.test(first.slice(m.index))) continue
       const lastSeg = head.split(/[,;]\s|\s*[—–]\s*/).pop()
       if (/^(?:while|when|where|after|before|although|though|because|if|as|since|until|whose|which|who)\b/i.test(lastSeg.trim())) continue
+      const subTail = lastSeg.trim().match(/\b(?:while|when|where|although|though|because|since|until|whose|which|who)\s+(.+)$/i)
+      if (!verbless && subTail && !PrerenderPages.META_VERB.test(subTail[1])) continue
       if (/[,;]\s/.test(head) && lastSeg.trim().split(/\s+/).length <= 2) continue
       best = `${head}.`
     }
@@ -1035,7 +1080,9 @@ class PrerenderPages {
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null
     if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
     if (lat === 0 && lon === 0) return null
-    return { lat, lon }
+    const g = roundedStoryGeo(story)
+    if (!g) return null
+    return { lat: g.lat, lon: g.lon }
   }
 
   static jsonLdScript(nodes) {
@@ -1082,7 +1129,7 @@ class PrerenderPages {
   }
 
   static storyLastmod(story, dates) {
-    const git = dates.get(`public/content/stories/${story.slug}.json`) || ''
+    const git = story.gitModified || dates.get(`public/content/stories/${story.slug}.json`) || ''
     const published = /^\d{4}-\d{2}-\d{2}$/.test(story.publishedDate || '') ? story.publishedDate : ''
     return PrerenderPages.laterDate(git, published)
   }
@@ -1121,6 +1168,7 @@ class PrerenderPages {
     return {
       slug,
       title: body.title || indexRow?.title || slug,
+      seoTitle: typeof body.seoTitle === 'string' ? body.seoTitle.trim() : '',
       summary: body.summary || '',
       bodyMarkdown: body.bodyMarkdown || '',
       era: body.era || indexRow?.era || '',
@@ -1142,7 +1190,15 @@ class PrerenderPages {
       lon: loc?.lon ?? indexRow?.lon ?? null,
       photo,
       figure: body.figure && typeof body.figure === 'object' ? body.figure : null,
+      year: body.yearStart ?? indexRow?.year ?? null,
+      place: body.place || indexRow?.matchedPlace || loc?.matchedPlace || '',
       archaeological: PrerenderPages.isArchaeological(body),
+      coordinatesProtected: Boolean(
+        body.coordinatesProtected || indexRow?.coordinatesProtected || loc?.coordinatesProtected,
+      ),
+      locationApproximate: Boolean(
+        body.locationApproximate || indexRow?.locationApproximate || loc?.locationApproximate,
+      ),
       glance: body.glance && typeof body.glance === 'object' ? body.glance : null,
       metaSource: body.metaSource === 'body' || body.metaSource === 'summary' ? body.metaSource : '',
     }
@@ -1404,14 +1460,15 @@ class PrerenderPages {
     const linkLabel = PrerenderPages.escapeHtml(
       `Open ${photo.source_label || photo.credit || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`,
     )
-    return `<aside class="story-sidebar-photo" aria-label="Story photo">
-      <p class="story-sidebar-photo-heading">Photos</p>
+    return `<figure class="usp-today-photo story-sidebar-photo">
       <a class="story-sidebar-photo-frame${photo.fit === 'contain' ? ' is-contain' : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${linkLabel}">
         ${img}
       </a>
-      <p class="story-sidebar-photo-cap">${caption}${year}</p>
-      ${photoCreditHtml(photo)}
-    </aside>`
+      <figcaption>
+        <p class="story-sidebar-photo-cap">${caption}${year}</p>
+        ${photoCreditHtml(photo)}
+      </figcaption>
+    </figure>`
   }
 
   static layerCreditHtml(photo) {
@@ -1476,10 +1533,20 @@ class PrerenderPages {
     return `<link rel="alternate" type="application/rss+xml" title="Kentucky History Drive stories" href="${PrerenderPages.SITE}/feed.xml" />`
   }
 
-  static shell({ title, description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', routeLightbox = false, rss = false, robots = '', ads = true }) {
+  static shell({ title, ogTitle = '', description, canonical, cssHrefs, image, imageAlt, imageWidth = 0, imageHeight = 0, main, jsonLd = '', ogType = 'article', activeRoute = '', routeLightbox = false, storyPageScript = false, rss = false, robots = '', ads = true, articleMeta = null, markdownHref = '', wayfinderHtml = '', bodyClass = '' }) {
     const t = PrerenderPages.escapeHtml(title)
+    const ogt = PrerenderPages.escapeHtml(ogTitle || title)
     const d = PrerenderPages.escapeHtml(description)
     const c = PrerenderPages.escapeHtml(canonical)
+    const mdLink = markdownHref ? `<link rel="alternate" type="text/markdown" href="${PrerenderPages.escapeHtml(markdownHref)}" />` : ''
+    const artTags = articleMeta
+      ? [
+          articleMeta.published ? `<meta property="article:published_time" content="${PrerenderPages.escapeHtml(articleMeta.published)}" />` : '',
+          articleMeta.modified ? `<meta property="article:modified_time" content="${PrerenderPages.escapeHtml(articleMeta.modified)}" />` : '',
+          articleMeta.author ? `<meta property="article:author" content="${PrerenderPages.escapeHtml(articleMeta.author)}" />` : '',
+          articleMeta.section ? `<meta property="article:section" content="${PrerenderPages.escapeHtml(articleMeta.section)}" />` : '',
+        ].filter(Boolean).join('\n    ')
+      : ''
     const imgUrl = image || PrerenderPages.LOGO
     const large = Boolean(image) && image !== PrerenderPages.LOGO
     const altText = imageAlt || 'Kentucky History Drive official seal'
@@ -1508,14 +1575,16 @@ class PrerenderPages {
     ${robots ? `<meta name="robots" content="${PrerenderPages.escapeHtml(robots)}" />` : ''}
     ${c ? `<link rel="canonical" href="${c}" />` : ''}
     ${rss ? PrerenderPages.rssAlternateLink() : ''}
+    ${mdLink}
     <meta property="og:type" content="${PrerenderPages.escapeHtml(ogType)}" />
     <meta property="og:site_name" content="Kentucky History Drive" />
     <meta property="og:locale" content="en_US" />
     ${c ? `<meta property="og:url" content="${c}" />` : ''}
-    <meta property="og:title" content="${t}" />
+    <meta property="og:title" content="${ogt}" />
     <meta property="og:description" content="${d}" />
+    ${artTags}
     ${img}
-    <meta name="twitter:title" content="${t}" />
+    <meta name="twitter:title" content="${ogt}" />
     <meta name="twitter:description" content="${d}" />
     ${faviconLinksHtml('    ')}
     ${gtagHeadHtml()}
@@ -1581,8 +1650,9 @@ class PrerenderPages {
       })()
     </script>
   </head>
-  <body>
+  <body${bodyClass ? ` class="${PrerenderPages.escapeHtml(bodyClass)}"` : ''}>
     ${PrerenderPages.siteHeader(activeRoute)}
+    ${wayfinderHtml}
     <main id="content" class="static-read" tabindex="-1">
       ${main}
     </main>
@@ -1593,6 +1663,7 @@ class PrerenderPages {
     ${PrerenderPages.siteChromeScript()}
     ${routeMapThemeScript()}
     ${routeLightbox ? '<script src="/route-map-lightbox.js" defer></script>' : ''}
+    ${storyPageScript ? '<script src="/story-page.js" defer></script>' : ''}
   </body>
 </html>
 `
@@ -1611,20 +1682,25 @@ class PrerenderPages {
     return bits.join(' · ')
   }
 
-  static relatedAndNearbySection(story, all, markers, relatedBundle = null) {
+  static relatedAndNearbySection(story, all, markers, relatedBundle = null, extraExcludeMarkerIds = []) {
     const route = routeBySlug(story.slug)
     // Never repeat a story already in the Related people & stories box.
     const peopleSlugs = relatedBundle
       ? relatedBlockSlugs(relatedBundle.data, story.slug, (slug) => all.find((item) => item.slug === slug)?.title || '', { personFor: relatedBundle.personFor })
       : []
     const routeSlugs = [...(route?.relatedStories || []), ...peopleSlugs]
-    const routeMarkerIds = (route?.markers || []).map((marker) => String(marker.number))
+    const routeMarkerIds = [
+      ...(route?.markers || []).map((marker) => String(marker.number)),
+      ...(extraExcludeMarkerIds || []).map(String),
+    ]
     return relatedAndNearbyForStory(story, all, markers, {
       excludeSlugs: routeSlugs,
-      excludeMarkerIds: routeMarkerIds,
+      excludeMarkerIds: [...new Set(routeMarkerIds)],
       limit: 3,
       thumbFor: (item) => PrerenderPages.existingThumb(item),
       portraitFor: (slug) => (relatedBundle ? portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug)) : ''),
+      whyFor: (s, other) => computeRelatedNote(s, other),
+      collapsible: true,
     })
   }
 
@@ -1642,10 +1718,38 @@ class PrerenderPages {
     if (photoNode && routeLd) return [photoNode, routeLd.contentUrl]
     if (photoNode) return photoNode
     if (routeLd) return [routeLd.contentUrl]
-    return [image || PrerenderPages.LOGO]
+    if (image && image !== PrerenderPages.LOGO) return [image]
+    return undefined
   }
 
-  static storyJsonLd(story, description, image, imageAlt, layer, imageWidth, imageHeight) {
+  static personEntityNode(person) {
+    if (!person?.name) return null
+    const id = person.id ? `${PrerenderPages.SITE}/people/#${encodeURIComponent(person.id)}` : undefined
+    const node = {
+      '@type': 'Person',
+      ...(id ? { '@id': id, url: id } : {}),
+      name: String(person.name),
+    }
+    const sameAs = []
+    if (person.wikidata && /^Q\d+$/.test(String(person.wikidata))) {
+      sameAs.push(`https://www.wikidata.org/wiki/${person.wikidata}`)
+    }
+    if (person.wikipedia && /^https?:\/\//i.test(String(person.wikipedia))) {
+      sameAs.push(String(person.wikipedia))
+    }
+    if (person.grokipedia && /^https?:\/\//i.test(String(person.grokipedia))) {
+      sameAs.push(String(person.grokipedia))
+    }
+    if (Array.isArray(person.sameAs)) {
+      for (const u of person.sameAs) {
+        if (u && !sameAs.includes(u)) sameAs.push(String(u))
+      }
+    }
+    if (sameAs.length) node.sameAs = sameAs
+    return node
+  }
+
+  static storyJsonLd(story, description, image, imageAlt, layer, imageWidth, imageHeight, counties = [], peopleInStory = [], subjectPerson = null) {
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const geo = PrerenderPages.publicGeo(story)
     const placeName = story.matchedPlace || story.title
@@ -1655,10 +1759,12 @@ class PrerenderPages {
       '@id': placeId,
       name: placeName,
     }
-    if (story.county) {
+    const primaryCounty = counties[0] || story.county || ''
+    const countyLocality = primaryCounty ? PrerenderPages.countyLabel(primaryCounty, true) : ''
+    if (countyLocality) {
       place.containedInPlace = {
         '@type': 'AdministrativeArea',
-        name: `${PrerenderPages.countyLabel(story.county, true)}, Kentucky`,
+        name: `${countyLocality}, Kentucky`,
       }
     }
     if (geo) {
@@ -1668,6 +1774,13 @@ class PrerenderPages {
     const routeLd = route ? routeMapJsonLd(route, { canonical, title: story.title }) : null
     if (routeLd) place.hasMap = { '@id': routeLd.imageObject['@id'] }
     const dates = PrerenderPages.articleDates(story)
+    const imageField = PrerenderPages.articleImageField(image, imageWidth, imageHeight, routeLd)
+    const subjectNode = subjectPerson ? PrerenderPages.personEntityNode(subjectPerson) : null
+    const aboutList = subjectNode ? [subjectNode, { '@id': placeId }] : [{ '@id': placeId }]
+    const mentionsList = (peopleInStory || [])
+      .filter((p) => p?.name && (!subjectPerson || p.id !== subjectPerson.id))
+      .map((p) => PrerenderPages.personEntityNode(p))
+      .filter(Boolean)
     const article = {
       '@type': 'Article',
       '@id': `${canonical}#article`,
@@ -1675,28 +1788,24 @@ class PrerenderPages {
       description,
       mainEntityOfPage: canonical,
       url: canonical,
-      image: PrerenderPages.articleImageField(image, imageWidth, imageHeight, routeLd),
+      isPartOf: { '@id': PrerenderPages.WEBSITE_ID },
+      inLanguage: 'en-US',
+      ...(imageField !== undefined ? { image: imageField } : {}),
       ...(dates.published ? { datePublished: dates.published } : {}),
       ...(dates.modified ? { dateModified: dates.modified } : {}),
-      author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+      author: { '@type': 'Person', '@id': `${PrerenderPages.SITE}/about/#shannon-snowden`, name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
       publisher: PrerenderPages.publisherNode(),
       contentLocation: { '@id': placeId },
+      about: aboutList.length === 1 ? aboutList[0] : aboutList,
+      ...(mentionsList.length ? { mentions: mentionsList } : {}),
     }
-    const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` }]
-    if (layer?.id && layer.label) {
-      crumbs.push({
-        '@type': 'ListItem',
-        position: 2,
-        name: layer.label,
-        item: `${PrerenderPages.SITE}/layers/${layer.id}/`,
-      })
-    }
-    crumbs.push({
-      '@type': 'ListItem',
-      position: crumbs.length + 1,
-      name: story.title,
-      item: canonical,
-    })
+    const level2Name = layer ? layer.label : 'Stories'
+    const level2Url = layer ? `${PrerenderPages.SITE}/layers/${layer.id}/` : `${PrerenderPages.SITE}/stories/`
+    const crumbs = [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+      { '@type': 'ListItem', position: 2, name: level2Name, item: level2Url },
+      { '@type': 'ListItem', position: 3, name: story.title, item: canonical },
+    ]
     const film = filmForStory(story.slug)
     const filmDescription = film ? filmDescriptionFromPlain(PrerenderPages.plainText(story.bodyMarkdown)) : ''
     const video = film
@@ -1709,6 +1818,7 @@ class PrerenderPages {
       : null
     return PrerenderPages.jsonLdScript([
       PrerenderPages.organizationNode(),
+      PrerenderPages.websiteNode(),
       article,
       place,
       { '@type': 'BreadcrumbList', itemListElement: crumbs },
@@ -1719,14 +1829,10 @@ class PrerenderPages {
   }
 
   static crumbHtml(story, layer) {
-    const bits = [`<a href="/">Home</a>`]
-    if (layer?.id && layer.label) {
-      bits.push(`<a href="/layers/${layer.id}/">${PrerenderPages.escapeHtml(layer.label)}</a>`)
-    }
-    bits.push(`<span aria-current="page">${PrerenderPages.escapeHtml(story.title)}</span>`)
-    return `<nav class="story-crumbs" aria-label="Breadcrumb">${bits
-      .map((bit, i) => (i === 0 ? bit : `<span aria-hidden="true">/</span>${bit}`))
-      .join('')}</nav>`
+    const esc = PrerenderPages.escapeHtml
+    const level2Href = layer ? `/layers/${esc(layer.id)}/` : '/stories/'
+    const level2Label = layer ? esc(layer.label) : 'Stories'
+    return `<nav class="story-crumbs usp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="story-crumbs-sep" aria-hidden="true">/</span><a href="${level2Href}">${level2Label}</a><span class="story-crumbs-sep" aria-hidden="true">/</span><span aria-current="page">${esc(story.title)}</span></nav>`
   }
 
   static loadHistoricalMarkers(root) {
@@ -1775,7 +1881,15 @@ class PrerenderPages {
     const metaOpts = { nextSentence: true, verbless: true }
     const description = PrerenderPages.storyMetaDescription(notes.summary, 155, metaOpts)
     PrerenderPages.assertStoryMeta(description, notes.summary, urlPath, 155, metaOpts)
-    const baseTitle = String(notes.seoTitle || notes.title).trim()
+    const rawTitle = String(notes.seoTitle || notes.title).trim()
+    const hasResearchWord = /research|notes|sources|evidence/i.test(rawTitle)
+    const baseTitle = hasResearchWord
+      ? rawTitle
+      : `${rawTitle} — Research notes`.length <= 60
+        ? `${rawTitle} — Research notes`
+        : `Research: ${rawTitle}`.length <= 60
+          ? `Research: ${rawTitle}`
+          : `${rawTitle.slice(0, 47).replace(/\s+\S*$/, '')} (Research)`
     const suffixed = `${baseTitle} · Kentucky History Drive`
     const title = suffixed.length <= 60 ? suffixed : baseTitle
     if (title.length > 60) throw new Error(`prerender: ${urlPath} title is ${title.length} characters`)
@@ -1822,47 +1936,42 @@ class PrerenderPages {
   }
 
   static storyPage(story, all, cssHrefs, layers, markers = [], relatedBundle = null, notes = null) {
-    const title = `${story.title} · Kentucky History Drive`
+    const esc = PrerenderPages.escapeHtml
+    const title = storyDocTitle(story)
     const bodyPlain = PrerenderPages.plainText(story.bodyMarkdown)
     const summary = PrerenderPages.finishedSummary(story.summary)
     const description = PrerenderPages.storyDescription(story)
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
     const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    const route = routeBySlug(story.slug)
+    const matchedMarkers = matchStoryMarkers(story, markers, notes, route)
+    const counties = storyCountiesList(story, matchedMarkers)
+    const countyBadge = formatCountiesBadge(counties)
+    const eraText = storyEraLabel(story.era)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
-    const metaBits = [county, PrerenderPages.eraLabel(story.era), years].filter(Boolean)
     const layer = PrerenderPages.storyLayer(story, layers)
     const lead =
       PrerenderPages.firstSentence(story.bodyMarkdown) ||
       PrerenderPages.firstSentence(summary) ||
       story.title
-    const bodyMarkdown = markdownWithoutGlanceSection(
-      PrerenderPages.bodyWithoutLead(
-        PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
-        lead,
-      ),
+    const strippedBody = PrerenderPages.bodyWithoutLead(
+      PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
+      lead,
+    )
+    const split = splitStoryMarkdown(
+      markdownWithoutGlanceSection(strippedBody, Boolean(story.glance)),
       Boolean(story.glance),
     )
-    const bodyHtml = renderStoryHtml(bodyMarkdown)
+    const bodyHtml = renderStoryHtml(split.mainMarkdown)
     const glanceHtml = glanceTableHtml(story.glance, notes)
     const researchHref = notes ? researchPageHref(notes.slug) : ''
     const researchLink = researchHref
-      ? `<p class="story-research-link"><a href="${PrerenderPages.escapeHtml(researchHref)}">Research notes and sources for the ${PrerenderPages.escapeHtml(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
+      ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
-    const mapHref = PrerenderPages.storyMapHref(story)
-    const pinHtml =
-      mapHref && PrerenderPages.publicGeo(story)
-        ? storyPinLinkHtml({ href: mapHref, title: story.title, slug: story.slug })
-        : ''
-    const mapControl = pinHtml
-      ? pinHtml
-      : mapHref
-        ? `<a class="btn ghost" data-story-map href="${PrerenderPages.escapeHtml(mapHref)}">Open on the map</a>`
-        : ''
     const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
-    const route = routeBySlug(story.slug)
     const describeStory = (slug) => {
       const item = all.find((entry) => entry.slug === slug)
       if (!item) return null
@@ -1880,52 +1989,409 @@ class PrerenderPages {
           transcript: PrerenderPages.transcriptForFilm(film),
         })
       : ''
+    const portraitPick = PrerenderPages.storyPortrait(story, relatedBundle)
     const peopleParts = PrerenderPages.storyPeopleParts(story, lead, bodyHtml, relatedBundle)
-    const main = `<article class="story-reader-layout static-story${film ? ' has-film' : ''}">
-        <div class="story-intro">
-          ${PrerenderPages.crumbHtml(story, layer)}
-          <header class="story-head">
-            <p class="static-kicker">Timeline story</p>
-            <p class="story-card-meta">${metaBits.map((bit) => `<span>${PrerenderPages.escapeHtml(bit)}</span>`).join(' · ')}</p>
-            <h1>${PrerenderPages.escapeHtml(story.title)}</h1>
-            ${peopleParts.lead}
-            ${glanceHtml}
+
+    const yr = (v) => (Number.isFinite(Number(v)) ? Number(v) : 9999)
+    const timelineOrdered = [...all].sort(
+      (a, b) =>
+        yr(a.yearStart) - yr(b.yearStart) ||
+        yr(a.yearEnd) - yr(b.yearEnd) ||
+        String(a.title).localeCompare(String(b.title)) ||
+        String(a.slug).localeCompare(String(b.slug)),
+    )
+    const timelineIdx = Math.max(0, timelineOrdered.findIndex((s) => s.slug === story.slug))
+    const timelinePos = timelineIdx + 1
+    const timelineTotal = timelineOrdered.length
+    const prevStory = timelineIdx > 0 ? timelineOrdered[timelineIdx - 1] : null
+    const nextStory = timelineIdx < timelineTotal - 1 ? timelineOrdered[timelineIdx + 1] : null
+
+    const wfYear = story.yearStart != null ? ` · ${story.yearStart < 0 ? `${Math.abs(story.yearStart)} BCE` : story.yearStart}` : (years ? ` · ${years}` : '')
+    const prevBtn = prevStory
+      ? `<a class="usp-wf-btn" href="/stories/${esc(prevStory.slug)}/" rel="prev" title="Previous in timeline: ${esc(prevStory.title)} (${esc(PrerenderPages.formatYearRange(prevStory.yearStart, prevStory.yearEnd))})"><span aria-hidden="true">←</span> <span class="usp-wf-btn-label">Prev</span></a>`
+      : `<span class="usp-wf-btn is-disabled" aria-disabled="true"><span aria-hidden="true">←</span> <span class="usp-wf-btn-label">Prev</span></span>`
+    const nextBtn = nextStory
+      ? `<a class="usp-wf-btn" href="/stories/${esc(nextStory.slug)}/" rel="next" title="Next in timeline: ${esc(nextStory.title)} (${esc(PrerenderPages.formatYearRange(nextStory.yearStart, nextStory.yearEnd))})"><span class="usp-wf-btn-label">Next</span> <span aria-hidden="true">→</span></a>`
+      : `<span class="usp-wf-btn is-disabled" aria-disabled="true"><span class="usp-wf-btn-label">Next</span> <span aria-hidden="true">→</span></span>`
+
+    const wayfinderHtml = `<nav class="usp-wayfinder" aria-label="Story navigation">
+      <div class="usp-wayfinder-inner">
+        <a class="usp-wf-back" href="${esc(appHref)}" data-back-to-timeline>
+          <span aria-hidden="true">←</span>
+          <span class="usp-wf-back-full">Back to Timeline${esc(wfYear)}</span>
+          <span class="usp-wf-back-short">Timeline</span>
+        </a>
+        <span class="usp-wf-pos" aria-label="Story ${timelinePos} of ${timelineTotal} in timeline order">
+          <span class="usp-wf-pos-full">Story <strong>${timelinePos}</strong> of ${timelineTotal} in timeline order</span>
+          <span class="usp-wf-pos-short"><strong>${timelinePos}</strong>/${timelineTotal}</span>
+        </span>
+        <div class="usp-wf-adj">
+          ${prevBtn}
+          ${nextBtn}
+        </div>
+      </div>
+    </nav>`
+
+    const tagsList = (story.tags || []).filter((t) => t && t !== 'kentucky' && t !== story.era)
+    const tagsHtml = tagsList.length
+      ? `<ul class="usp-tags" aria-label="Story topics">
+          ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(String(t).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()))}</a></li>`).join('')}
+        </ul>`
+      : ''
+
+    const kickerPlace = countyBadge || county || 'Kentucky'
+    const whenParts = []
+    if (years) whenParts.push(`<time datetime="${esc(String(story.yearStart ?? ''))}">${esc(years)}</time>`)
+    if (eraText) whenParts.push(`<span class="usp-era-pill">${esc(eraText)}</span>`)
+    if (countyBadge || county) whenParts.push(`<span>${esc(countyBadge || county)}</span>`)
+
+    const dates = PrerenderPages.articleDates(story)
+    const wordCount = bodyPlain.split(/\s+/).filter(Boolean).length
+    const pubDateLabel = dates.published || story.publishedDate || ''
+
+    const toolsRowHtml = `<div class="usp-tools" role="toolbar" aria-label="Save and share">
+      <button type="button" class="usp-tool" data-print data-story-print>
+        <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M5 3h10v4H5V3Zm-1 5h12a2 2 0 0 1 2 2v4h-3v3H5v-3H2v-4a2 2 0 0 1 2-2Zm3 8h6v-4H7v4Z" fill="currentColor"/></svg>
+        Save as PDF
+      </button>
+      <a class="usp-tool" href="/stories/${esc(story.slug)}/story.md" download="${esc(story.slug)}.md">
+        <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3 1.4 1.42-4.7 4.7-4.7-4.7 1.4-1.42 2.3 2.3V3a1 1 0 0 1 1-1ZM4 16h12v2H4v-2Z" fill="currentColor"/></svg>
+        Download .md
+      </a>
+      <button type="button" class="usp-tool" data-share data-share-story data-story-title="${esc(story.title)}" data-story-url="${esc(canonical)}">
+        <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M13 3l5 5-5 5V9.5C8 9.5 5 11 3 15c1-5 4-8 10-8.5V3Z" fill="currentColor"/></svg>
+        Share
+      </button>
+      <span class="usp-share-toast" data-share-feedback role="status" aria-live="polite" hidden></span>
+      <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}</span>
+    </div>`
+
+    const glanceDetailsHtml = glanceHtml
+      ? `<details class="usp-details" data-glance-details>
+            <summary>At a glance and where sources differ</summary>
+            <div class="usp-details-body">
+              ${glanceHtml}
+            </div>
+          </details>`
+      : ''
+
+    const todayPhotoHtml = PrerenderPages.storyCreditHtml(photo, story.title, { priority: true })
+    const kentuckyTodayHtml =
+      split.kentuckyTodayMarkdown || todayPhotoHtml
+        ? `<section class="usp-section usp-today" id="today" data-story-section aria-labelledby="h-today">
+            <h2 id="h-today">Kentucky today</h2>
+            ${split.kentuckyTodayMarkdown ? `<div class="usp-prose">${renderStoryHtml(split.kentuckyTodayMarkdown)}</div>` : ''}
+            ${todayPhotoHtml}
+          </section>`
+        : ''
+
+    const protectedPin = isProtectedStory(story)
+    const routeMarkerIdSet = new Set((route?.markers || []).map((m) => String(m.number ?? m.id ?? '')).filter(Boolean))
+    const markersSectionHtml = matchedMarkers.length
+      ? `<section class="usp-section usp-markers" id="markers" data-story-section aria-labelledby="h-markers">
+            <h2 id="h-markers">Historical markers (${matchedMarkers.length})</h2>
+            <ul class="usp-marker-list usp-markers-grid">
+              ${matchedMarkers
+                .map((m, idx) => {
+                  const mid = String(m.id || '')
+                  const mTitle = String(m.title || `Marker #${mid}`)
+                  const mCounty = m.county ? PrerenderPages.countyLabel(m.county, true) : ''
+                  const mLoc = String(m.location_text || '').trim()
+                  const mInsc = String(m.inscription || '').trim()
+                  const mSource = /^https?:\/\//i.test(String(m.source_url || '')) ? String(m.source_url) : ''
+                  const mapLinkHref = routeMarkerIdSet.has(mid)
+                    ? '#route-map'
+                    : `/#map/markers/${encodeURIComponent(mid)}`
+                  const mapLinkAttr = routeMarkerIdSet.has(mid) ? '' : ' data-story-map'
+                  const pinRole = idx === 0 ? 'Story pin' : 'Second pin'
+                  const mLat = Number(m.lat)
+                  const mLon = Number(m.lon)
+                  const hasMGeo = !protectedPin && Number.isFinite(mLat) && Number.isFinite(mLon)
+                  const rLat = hasMGeo ? mLat.toFixed(4) : ''
+                  const rLon = hasMGeo ? mLon.toFixed(4) : ''
+                  const dirLinks = hasMGeo
+                    ? `<span class="usp-marker-dirs">Directions: <a href="https://maps.apple.com/?daddr=${rLat},${rLon}" target="_blank" rel="noopener noreferrer">Apple Maps ↗</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=${rLat},${rLon}" target="_blank" rel="noopener noreferrer">Google Maps ↗</a></span>`
+                    : ''
+                  return `<li class="usp-marker-card" id="marker-${esc(mid)}">
+                    <span class="usp-marker-num" aria-label="KHS Marker #${esc(mid)}"><span class="sr-only">KHS Marker </span>#${esc(mid)}</span>
+                    <div class="usp-marker-body">
+                      <div class="usp-marker-title-row">
+                        ${mSource ? `<a class="usp-marker-title" href="${esc(mSource)}" target="_blank" rel="noopener noreferrer">${esc(mTitle)} <span class="usp-ext" aria-hidden="true">↗</span></a>` : `<span class="usp-marker-title">${esc(mTitle)}</span>`}
+                        <span class="usp-marker-role">${esc(pinRole)}</span>
+                      </div>
+                      ${mCounty || mLoc ? `<p class="usp-marker-loc">${esc([mLoc, mCounty].filter(Boolean).join(' · '))}</p>` : ''}
+                      ${mInsc ? `<blockquote class="usp-marker-inscription">${esc(mInsc)}</blockquote>` : ''}
+                      <p class="usp-marker-links">
+                        <a href="${esc(mapLinkHref)}"${mapLinkAttr}>Show on map →</a>
+                        ${dirLinks}
+                      </p>
+                    </div>
+                  </li>`
+                })
+                .join('\n              ')}
+            </ul>
+          </section>`
+      : ''
+
+    const inlineMapMobileHtml = renderWhereItHappenedCard(story, matchedMarkers, 'mobile')
+
+    const peopleInStory = resolvePeopleInStory(
+      story,
+      relatedBundle,
+      notes,
+      portraitPick.person || null,
+    )
+    const relatedPeopleHtml = PrerenderPages.relatedPeopleSection(story, all, relatedBundle)
+    const peopleCardsHtml = peopleInStory.length
+      ? `<ul class="usp-people-grid">
+            ${peopleInStory
+              .map((p) => {
+                const imgJpg = p.image?.jpg ? String(p.image.jpg).replace(/-512\.jpg$/, '-96.jpg') : ''
+                const imgWebp = p.image?.webp ? String(p.image.webp).replace(/-512\.webp$/, '-96.webp') : ''
+                const avatar =
+                  imgJpg && imgWebp
+                    ? `<picture><source srcset="${esc(imgWebp)}" type="image/webp"><img class="usp-person-img" src="${esc(imgJpg)}" alt="" width="48" height="48" loading="lazy" decoding="async"></picture>`
+                    : `<span class="usp-person-avatar" aria-hidden="true">${esc(initials(p.name || ''))}</span>`
+                const href = p.id ? `/people/#${encodeURIComponent(p.id)}` : `/people/?q=${encodeURIComponent(p.name || '')}`
+                return `<li>
+                  <a class="usp-person-card" href="${esc(href)}">
+                    ${avatar}
+                    <span class="usp-person-body">
+                      <span class="usp-person-name">${esc(p.name)}</span>
+                      ${p.years ? `<span class="usp-person-years">${esc(p.years)}</span>` : ''}
+                      ${p.role ? `<span class="usp-person-role">${esc(p.role)}</span>` : ''}
+                    </span>
+                  </a>
+                </li>`
+              })
+              .join('\n            ')}
+          </ul>`
+      : ''
+    const peopleSectionHtml =
+      peopleCardsHtml || relatedPeopleHtml
+        ? `<section class="usp-section usp-people" id="people" data-story-section aria-labelledby="h-people">
+              <h2 id="h-people">People in this story</h2>
+              ${peopleCardsHtml}
+              ${relatedPeopleHtml}
+            </section>`
+        : ''
+
+    const relatedHtml = PrerenderPages.relatedAndNearbySection(
+      story,
+      all,
+      markers,
+      relatedBundle,
+      matchedMarkers.map((m) => String(m.id)),
+    )
+    const relatedSectionHtml = relatedHtml
+      ? `<section class="usp-section usp-related" id="related" data-story-section aria-labelledby="related-nearby-heading">${relatedHtml}</section>`
+      : ''
+
+    const unifiedSources = buildUnifiedSources(story, notes, matchedMarkers)
+    const sourcesListHtml = unifiedSources.items.length
+      ? `<ol class="usp-src-list">
+            ${unifiedSources.items
+              .map((src) => {
+                const link = src.url
+                  ? `<a class="usp-src-title" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.title)} <span class="usp-ext" aria-hidden="true">↗</span></a>`
+                  : `<span class="usp-src-title">${esc(src.title)}</span>`
+                const metaParts = [src.typeLabel, src.publisher].filter(Boolean)
+                const meta = metaParts.length ? `<span class="usp-src-meta"> — ${esc(metaParts.join(' · '))}</span>` : ''
+                const note = src.note ? `<span class="usp-src-note"> — ${esc(src.note)}</span>` : ''
+                return `<li id="${esc(src.id)}">${link}${meta}${note}</li>`
+              })
+              .join('\n            ')}
+          </ol>`
+      : ''
+
+    const claims = extractResearchClaims(notes)
+    const claimsDetailsHtml = claims.length
+      ? `<details class="usp-details">
+            <summary>Key facts &amp; claims (${claims.length})</summary>
+            <div class="usp-details-body">
+              <ul class="usp-claims-list">
+                ${claims
+                  .map((c) => {
+                    const conf = String(c.confidence || '').trim()
+                    const pill = conf
+                      ? `<span class="usp-claim-pill" data-confidence="${esc(conf.toLowerCase())}">${esc(conf)}</span> `
+                      : ''
+                    return `<li>${pill}${esc(c.claim)}</li>`
+                  })
+                  .join('\n                ')}
+              </ul>
+            </div>
+          </details>`
+      : ''
+
+    const timelineItems = Array.isArray(notes?.timeline) ? notes.timeline.filter((t) => t && (t.date || t.year || t.event)) : []
+    const timelineDetailsHtml = timelineItems.length
+      ? `<details class="usp-details">
+            <summary>Chronology (${timelineItems.length})</summary>
+            <div class="usp-details-body">
+              <ul class="usp-claims-list">
+                ${timelineItems
+                  .map((t) => { const td = t.date || t.year || ''; return `<li><strong>${esc(td)}</strong>${td && t.event ? ': ' : ''}${esc(t.event || '')}</li>`; })
+                  .join('\n                ')}
+              </ul>
+            </div>
+          </details>`
+      : ''
+
+    const openQuestions = Array.isArray(notes?.openQuestions) ? notes.openQuestions.filter(Boolean) : []
+    const openQuestionsHtml = openQuestions.length
+      ? `<details class="usp-details">
+            <summary>Open questions (${openQuestions.length})</summary>
+            <div class="usp-details-body">
+              <ul class="usp-claims-list">
+                ${openQuestions.map((q) => `<li>${esc(String(q))}</li>`).join('\n                ')}
+              </ul>
+            </div>
+          </details>`
+      : ''
+
+    const inlineSourcesHtml = split.inlineSourcesMarkdown
+      ? `<div class="usp-prose">${renderStoryHtml(split.inlineSourcesMarkdown)}</div>`
+      : ''
+
+    const learnMoreBlock = PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)
+    const sourcesSectionHtml = `<section class="usp-section usp-sources" id="sources" data-story-section aria-labelledby="h-sources">
+          <div class="usp-sources-head">
+            <h2 id="h-sources">Sources and research${unifiedSources.items.length ? ` (${unifiedSources.items.length})` : ''}</h2>
             ${researchLink}
-          </header>
-          ${takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)}
-        </div>
-        ${PrerenderPages.storyCreditHtml(photo, story.title, { priority: true })}
-        <div class="story-reader-main">
-          <div class="story-body">${PrerenderPages.storyPortraitHtml(PrerenderPages.storyPortrait(story, relatedBundle).person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>
-          ${routeMapSectionHtml(story.slug, {
-            headingLevel: 2,
-            linkMode: 'story',
-            titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
-            describe: describeStory,
-          })}
-          ${PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)}
-          ${PrerenderPages.relatedPeopleSection(story, all, relatedBundle)}
-          ${PrerenderPages.relatedAndNearbySection(story, all, markers, relatedBundle)}
-          ${citeBoxHtml({
-            title: story.title,
-            url: storyCanonicalUrl(story.slug),
-            published: PrerenderPages.articleDates(story).published,
-            modified: PrerenderPages.articleDates(story).modified,
-          })}
-          ${correctionHtml({ title: story.title, url: storyCanonicalUrl(story.slug) })}
-          ${citeBootScript()}
-          <div class="static-cta">
-            <a class="btn" href="${PrerenderPages.escapeHtml(appHref)}">Open this story on the timeline</a>
-            ${mapControl}
           </div>
-        </div>
-        ${filmHtml}
-      </article>`
+          ${sourcesListHtml}
+          ${inlineSourcesHtml}
+          ${glanceDetailsHtml}
+          ${claimsDetailsHtml}
+          ${timelineDetailsHtml}
+          ${openQuestionsHtml}
+          ${learnMoreBlock}
+        </section>`
+
+    const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)
+    const startTown = String(story.matchedPlace || (counties[0] ? `${counties[0]} County` : 'Danville')).split(',')[0].trim() || 'Danville'
+    const driveSectionHtml = matchedDriveHtml
+      ? `<aside class="usp-section usp-drive" id="drive" aria-label="Plan a drive">${matchedDriveHtml}</aside>`
+      : `<aside class="usp-section usp-drive" id="drive" aria-labelledby="h-drive">
+          <div class="usp-drive-copy">
+            <p class="usp-drive-kicker">Plan a drive</p>
+            <h2 id="h-drive">Build a route from ${esc(startTown)}</h2>
+            <p>Combine this stop with nearby historical markers and stories in the route builder.</p>
+          </div>
+          <a class="usp-btn" href="/drives/build/#start=${encodeURIComponent(startTown)}">Open route builder →</a>
+        </aside>`
+
+    const citeSectionHtml = `<details class="usp-section usp-details usp-cite" id="cite" data-cite-details>
+          <summary>Cite this story</summary>
+          <div class="usp-cite-body">
+            ${citeBoxHtml({
+              title: story.title,
+              url: storyCanonicalUrl(story.slug),
+              published: dates.published,
+              modified: dates.modified,
+            })}
+          </div>
+        </details>
+        <p class="usp-report">${correctionHtml({ title: story.title, url: storyCanonicalUrl(story.slug) })}</p>
+        ${citeBootScript()}`
+
+    const prevCardHtml = prevStory
+      ? `<a class="usp-pn-card" href="/stories/${esc(prevStory.slug)}/" rel="prev">
+          <span class="usp-pn-dir">← Previous in timeline · ${esc(PrerenderPages.formatYearRange(prevStory.yearStart, prevStory.yearEnd))}</span>
+          <span class="usp-pn-title">${esc(prevStory.title)}</span>
+        </a>`
+      : `<span class="usp-pn-card is-disabled" aria-disabled="true">
+          <span class="usp-pn-dir">← Start of timeline</span>
+          <span class="usp-pn-title">Oldest story in timeline</span>
+        </span>`
+    const nextCardHtml = nextStory
+      ? `<a class="usp-pn-card usp-pn-next" href="/stories/${esc(nextStory.slug)}/" rel="next">
+          <span class="usp-pn-dir">Next in timeline · ${esc(PrerenderPages.formatYearRange(nextStory.yearStart, nextStory.yearEnd))} →</span>
+          <span class="usp-pn-title">${esc(nextStory.title)}</span>
+        </a>`
+      : `<span class="usp-pn-card usp-pn-next is-disabled" aria-disabled="true">
+          <span class="usp-pn-dir">End of timeline →</span>
+          <span class="usp-pn-title">Most recent story in timeline</span>
+        </span>`
+
+    const prevNextSectionHtml = `<nav class="usp-prevnext" aria-label="Adjacent stories in timeline">
+          ${prevCardHtml}
+          ${nextCardHtml}
+        </nav>
+        <p class="usp-endback">
+          <a href="${esc(appHref)}" data-back-to-timeline>← Back to this spot on the Timeline</a>
+        </p>`
+
+    const tocEntries = [
+      { id: 'story', label: 'Story' },
+      ...(kentuckyTodayHtml ? [{ id: 'today', label: 'Kentucky today' }] : []),
+      ...(route ? [{ id: 'route-map', label: 'Route map' }] : []),
+      ...(matchedMarkers.length ? [{ id: 'markers', label: `Historical markers (${matchedMarkers.length})` }] : []),
+      ...(peopleSectionHtml ? [{ id: 'people', label: 'People in this story' }] : []),
+      ...(relatedSectionHtml ? [{ id: 'related', label: 'Related stories' }] : []),
+      { id: 'sources', label: `Sources and research${unifiedSources.items.length ? ` (${unifiedSources.items.length})` : ''}` },
+    ]
+    const tocListHtml = `<ol class="usp-toc-list">
+      ${tocEntries
+        .map(
+          (item, idx) =>
+            `<li><a href="#${esc(item.id)}" data-toc="${esc(item.id)}" data-toc-link="${esc(item.id)}"${idx === 0 ? ' aria-current="true"' : ''}>${esc(item.label)}</a></li>`,
+        )
+        .join('\n      ')}
+    </ol>`
+
+    const desktopTocHtml = `<nav class="usp-toc" aria-label="On this page">
+      <p class="usp-rail-head">On this page</p>
+      ${tocListHtml}
+    </nav>`
+
+    const whereCardRailHtml = renderWhereItHappenedCard(story, matchedMarkers, 'rail')
+
+    const main = `<div class="usp-grid">
+        <article class="usp-article usp-page static-story${film ? ' has-film' : ''}" aria-labelledby="usp-title">
+          ${PrerenderPages.crumbHtml(story, layer)}
+          <header class="usp-head story-head" id="top">
+            <p class="usp-kicker static-kicker">${esc(layer ? layer.label : 'Kentucky History')}</p>
+            <h1 id="usp-title">${esc(story.title)}</h1>
+            ${tagsHtml}
+            <p class="usp-when story-card-meta">${whenParts.join(' <span aria-hidden="true">·</span> ')}</p>
+            ${peopleParts.lead}
+          </header>
+          ${toolsRowHtml}
+          <section class="usp-story" id="story" data-story-section aria-label="Story">
+            <div class="story-body">${PrerenderPages.storyPortraitHtml(portraitPick.person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>
+            ${routeMapSectionHtml(story.slug, {
+              headingLevel: 2,
+              linkMode: 'story',
+              titleFor: (slug) => all.find((item) => item.slug === slug)?.title || '',
+              describe: describeStory,
+            })}
+            ${filmHtml}
+          </section>
+          ${kentuckyTodayHtml}
+          ${markersSectionHtml}
+          ${inlineMapMobileHtml}
+          ${peopleSectionHtml}
+          ${relatedSectionHtml}
+          ${sourcesSectionHtml}
+          ${driveSectionHtml}
+          ${citeSectionHtml}
+          ${prevNextSectionHtml}
+        </article>
+        <aside class="usp-rail" aria-label="Map and contents">
+          <div class="usp-rail-sticky">
+            ${whereCardRailHtml}
+            ${desktopTocHtml}
+          </div>
+        </aside>
+      </div>`
     const imageSize = photo ? PrerenderPages.photoSizes?.[photo.image_url] : null
     const imageWidth = imageSize?.width || (!photo && route ? 1600 : 0)
     const imageHeight = imageSize?.height || (!photo && route ? 900 : 0)
     return PrerenderPages.shell({
       title,
+      ogTitle: story.title,
       description,
       canonical,
       cssHrefs,
@@ -1941,13 +2407,26 @@ class PrerenderPages {
         layer,
         imageWidth,
         imageHeight,
+        counties,
+        peopleInStory,
+        portraitPick.person || null,
       ),
+      articleMeta: {
+        published: dates.published,
+        modified: dates.modified,
+        author: `${PrerenderPages.SITE}/about/`,
+        section: eraText,
+      },
+      markdownHref: `/stories/${story.slug}/story.md`,
+      wayfinderHtml,
+      bodyClass: 'usp-body',
       routeLightbox: Boolean(route),
+      storyPageScript: true,
       main,
       rss: true,
+      activeRoute: 'stories',
     })
   }
-
   static STORIES_ERA_ORDER = ['prehistoric', 'native', 'frontier', 'early-commonwealth', 'other']
   /** One-story eras fold into a neighbour so no chip holds a single story. */
   static STORIES_ERA_FOLD = { revolution: 'frontier', modern: 'other' }
@@ -2284,6 +2763,14 @@ class PrerenderPages {
         mainEntity: { '@id': `${canonical}#routes` },
       },
       list,
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonical}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Route maps', item: canonical },
+        ],
+      },
     ])
     return PrerenderPages.shell({
       title: 'Route maps · Kentucky History Drive',
@@ -2301,7 +2788,72 @@ class PrerenderPages {
     })
   }
 
-  static layerPage(layer, cssHrefs) {
+  static storyMatchesLayer(st, layer, layers = []) {
+    if (!st?.slug || !layer?.id) return false
+    const primary = PrerenderPages.storyLayer(st, layers)
+    if (primary?.id === layer.id) return true
+    if (layer.id === 'history') return false
+    const tags = new Set((st.tags || []).map((t) => String(t).toLowerCase()))
+    const hay = `${st.title || ''} ${st.matchedPlace || ''} ${st.summary || ''}`.toLowerCase()
+    switch (layer.id) {
+      case 'war':
+        return (
+          tags.has('civil-war') ||
+          tags.has('revolutionary-war') ||
+          tags.has('war-of-1812') ||
+          tags.has('frontier-war') ||
+          tags.has('frontier-defense') ||
+          tags.has('military') ||
+          tags.has('siege')
+        )
+      case 'distilleries':
+        return tags.has('bourbon') || tags.has('whiskey') || /\b(distiller|bourbon|whiskey)\b/.test(hay)
+      case 'caves':
+        return (
+          tags.has('caves') ||
+          tags.has('karst') ||
+          tags.has('rockhouses') ||
+          tags.has('saltpeter') ||
+          /\b(cave|cavern|rockhouse|rockshelter|sinkhole|grotto)\b/.test(hay)
+        )
+      case 'industry':
+        return (
+          tags.has('coal') ||
+          tags.has('iron') ||
+          tags.has('salt') ||
+          tags.has('timber') ||
+          tags.has('hemp') ||
+          tags.has('Print') ||
+          tags.has('print') ||
+          tags.has('commerce') ||
+          tags.has('steamboats') ||
+          tags.has('railroads')
+        )
+      case 'newspapers':
+        return tags.has('newspapers') || tags.has('print') || /\b(gazette|newspaper|press|printer|printing)\b/.test(hay)
+      case 'parks':
+        return tags.has('parks') || /\b(state park|state historic site|state resort park|breaks interstate|cumberland falls)\b/.test(hay)
+      case 'national':
+        return (
+          tags.has('national-parks') ||
+          /\b(mammoth cave|cumberland gap|camp nelson|abraham lincoln birthplace|big south fork|mill springs)\b/.test(hay)
+        )
+      case 'museums':
+        return tags.has('museums') || tags.has('education') || tags.has('architecture') || /\b(museum|shaker village|transylvania|histor(ic|ical) home|mansion)\b/.test(hay)
+      case 'cemeteries':
+        return tags.has('cemeteries') || tags.has('mounds') || /\b(cemeter|burial|grave|mound)\b/.test(hay)
+      case 'bridges':
+        return tags.has('bridges') || tags.has('river-crossings') || tags.has('roads') || /\b(bridge|ferry|ford|trace|turnpike|gap)\b/.test(hay)
+      case 'markers':
+        return Array.isArray(st.markerIds) && st.markerIds.length > 0
+      case 'locals':
+        return tags.has('folklore') || tags.has('foodways') || tags.has('music') || tags.has('culture') || /\b(tales|legend|tavern|inn|burgoo)\b/.test(hay)
+      default:
+        return false
+    }
+  }
+
+  static layerPage(layer, cssHrefs, stories = [], layers = [layer]) {
     const title = `${layer.label} · Kentucky History Drive`
     const highlight = layer.highlight
     const description = PrerenderPages.metaDescription(`${layer.intro} ${highlight.blurb || ''}`)
@@ -2321,7 +2873,21 @@ class PrerenderPages {
         return `<li>${PrerenderPages.escapeHtml(place.name)}${extra}</li>`
       })
       .join('')
+    const layerStories = PrerenderPages.liveStories(stories).filter((st) =>
+      PrerenderPages.storyMatchesLayer(st, layer, layers),
+    )
+    const layerStoriesHtml = layerStories.length
+      ? `<section aria-label="Stories on this layer">
+          <h2>Stories connected to ${PrerenderPages.escapeHtml(layer.label)} (${layerStories.length})</h2>
+          <ul class="place-list">${layerStories.map((st) => `<li><a href="/stories/${PrerenderPages.escapeHtml(st.slug)}/">${PrerenderPages.escapeHtml(st.title)}</a></li>`).join('')}</ul>
+        </section>`
+      : ''
     const main = `<article>
+        <nav class="story-crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">${PrerenderPages.escapeHtml(layer.label)}</span>
+        </nav>
         <header class="story-head">
           <p class="static-kicker">Map layer</p>
           <h1>${PrerenderPages.escapeHtml(layer.label)}</h1>
@@ -2340,11 +2906,55 @@ class PrerenderPages {
           </div>
           ${PrerenderPages.layerCreditHtml(highlight.photo)}
         </section>
+        ${layerStoriesHtml}
         <section aria-label="Places on this layer">
           <h2>${layer.places.length.toLocaleString('en-US')} places</h2>
           <ul class="place-list">${places}</ul>
         </section>
       </article>`
+    const jsonLd = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'CollectionPage',
+        '@id': `${canonical}#webpage`,
+        url: canonical,
+        name: layer.label,
+        description,
+        isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
+        publisher: PrerenderPages.publisherNode(),
+        mainEntity: { '@id': `${canonical}#places` },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${canonical}#places`,
+        name: layerStories.length ? `${layer.label} stories` : `${layer.label} places`,
+        numberOfItems: layerStories.length ? layerStories.length : layer.places.length,
+        itemListElement: layerStories.length
+          ? layerStories.map((st, index) => {
+              const stUrl = `${PrerenderPages.SITE}/stories/${encodeURIComponent(st.slug)}/`
+              return {
+                '@type': 'ListItem',
+                position: index + 1,
+                name: st.title,
+                url: stUrl,
+                item: stUrl,
+              }
+            })
+          : layer.places.slice(0, 50).map((place, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: place.name,
+            })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonical}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: layer.label, item: canonical },
+        ],
+      },
+    ])
     return PrerenderPages.shell({
       title,
       description,
@@ -2352,6 +2962,7 @@ class PrerenderPages {
       cssHrefs,
       image: PrerenderPages.photoAbsolute(highlight.photo?.image_url) || `${PrerenderPages.SITE}/brand/khd-logo-512.png`,
       imageAlt: highlight.photo?.title || featuredName,
+      jsonLd,
       main,
     })
   }
@@ -2755,10 +3366,10 @@ class PrerenderPages {
     }
     const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
-    if (!related || !related[0].includes('Related and nearby') || relatedCount < 3 || relatedCount > 5) {
+    if (!related || !related[0].includes('Related stories') || relatedCount < 3 || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
     }
-    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related and nearby<\/h2>/.test(related[0])) {
+    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0])) {
       throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
     }
     const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
@@ -2857,10 +3468,16 @@ class PrerenderPages {
     if (relatedSlugs.join('|') !== expectedRelated.join('|')) {
       throw new Error(`prerender: ${urlPath} related stories are not ranked by two or more subject tags, then county, then distance`)
     }
+    const matchedMarkersForStory = matchStoryMarkers(story, markers, notes, routeForNearby)
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
       excludeSlugs: [...(routeForNearby?.relatedStories || []), ...peopleBoxSlugs, ...relatedSlugs],
-      excludeMarkerIds: (routeForNearby?.markers || []).map((marker) => String(marker.number)),
+      excludeMarkerIds: [
+        ...new Set([
+          ...(routeForNearby?.markers || []).map((marker) => String(marker.number)),
+          ...matchedMarkersForStory.map((m) => String(m.id)),
+        ]),
+      ],
     })
     const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
     if (!PrerenderPages.publicGeo(story) && nearbyItems.length) {
@@ -2910,11 +3527,11 @@ class PrerenderPages {
     if (items.some((item) => String(item.item || '').includes('/#timeline'))) {
       throw new Error(`prerender: ${urlPath} breadcrumb points at the homepage hash`)
     }
-    if (items.length < 2 || items.length > 3 || items[0]?.item !== `${PrerenderPages.SITE}/`) {
-      throw new Error(`prerender: ${urlPath} breadcrumb has ${items.length} levels`)
+    if (items.length !== 3 || items[0]?.item !== `${PrerenderPages.SITE}/`) {
+      throw new Error(`prerender: ${urlPath} breadcrumb must have 3 levels, found ${items.length}`)
     }
-    if (items.length === 3 && !String(items[1]?.item || '').includes('/layers/')) {
-      throw new Error(`prerender: ${urlPath} breadcrumb level 2 is not a layer page`)
+    if (items.length >= 3 && !String(items[1]?.item || '').includes('/stories/') && !String(items[1]?.item || '').includes('/layers/')) {
+      throw new Error(`prerender: ${urlPath} breadcrumb level 2 is not /stories/ or a layer page`)
     }
     if (items.at(-1)?.item !== `${PrerenderPages.SITE}${urlPath}`) {
       throw new Error(`prerender: ${urlPath} breadcrumb does not end on the story`)
@@ -2945,7 +3562,11 @@ class PrerenderPages {
       typeof articleImage === 'string'
         ? articleImage
         : articleImage?.url || (Array.isArray(articleImage) ? articleImage[0]?.url || articleImage[0] : '')
-    if (articleImageUrl !== expectedImage) {
+    if (expectedImage === PrerenderPages.LOGO) {
+      if (articleImage !== undefined) {
+        throw new Error(`prerender: ${urlPath} Article image must be omitted when using logo fallback`)
+      }
+    } else if (articleImageUrl !== expectedImage) {
       throw new Error(`prerender: ${urlPath} Article image is not the og:image`)
     }
     if (!html.includes(`name="twitter:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
@@ -3883,7 +4504,15 @@ ${rows.join('\n')}
         isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
         about: { '@id': PrerenderPages.ORG_ID },
         publisher: PrerenderPages.publisherNode(),
-        author: { '@type': 'Person', name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+        author: { '@type': 'Person', '@id': `${PrerenderPages.SITE}/about/#shannon-snowden`, name: 'Shannon Snowden', url: `${PrerenderPages.SITE}/about/` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${PrerenderPages.SITE}/about/#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'About', item: `${PrerenderPages.SITE}/about/` },
+        ],
       },
     ])
     return PrerenderPages.shell({
