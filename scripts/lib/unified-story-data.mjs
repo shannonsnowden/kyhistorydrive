@@ -57,17 +57,26 @@ function getProtectedSlugSet() {
   cachedProtectedSlugs = new Set()
   try {
     const raw = JSON.parse(fs.readFileSync(path.join(ROOT, "public/data/web/protected-pins.json"), "utf8"))
-    for (const s of raw.stories || []) cachedProtectedSlugs.add(String(s))
+    for (const s of raw.ids || raw.stories || []) cachedProtectedSlugs.add(String(s))
     for (const h of raw.historyIds || []) cachedProtectedSlugs.add(String(h))
   } catch (_) {}
   return cachedProtectedSlugs
 }
 
 export function isProtectedStory(story) {
-  if (story?.coordinatesProtected || story?.locationApproximate) return true
+  if (
+    story?.coordinatesProtected ||
+    story?.locationApproximate ||
+    story?.archaeological ||
+    story?.era === "prehistoric" ||
+    (Array.isArray(story?.tags) && story.tags.includes("archaeology"))
+  ) {
+    return true
+  }
   const set = getProtectedSlugSet()
   if (story?.slug && set.has(String(story.slug))) return true
   if (story?.id && set.has(String(story.id))) return true
+  if (story?.historyId && set.has(String(story.historyId))) return true
   return false
 }
 

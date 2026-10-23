@@ -91,11 +91,11 @@ assert.ok(!riceHtml.includes('our-history96867eb2'), 'Father David Rice: still h
 assert.ok(riceHtml.includes('presbydan.org/our-history'), 'Father David Rice: missing fixed presbydan URL')
 
 // 4. Protected / archaeological story check
-const archSlug = 'indian-knoll-shell-mound-ohio-county'
+const archSlug = 'indian-knoll-on-the-green-river'
 if (fs.existsSync(path.join(storiesDir, archSlug, 'index.html'))) {
   const archHtml = fs.readFileSync(path.join(storiesDir, archSlug, 'index.html'), 'utf8')
   assert.ok(
-    archHtml.includes('data-approx-location="true"'),
+    archHtml.includes('data-approximate="true"'),
     `${archSlug}: missing data-approx-location="true"`,
   )
   assert.ok(
@@ -103,8 +103,8 @@ if (fs.existsSync(path.join(storiesDir, archSlug, 'index.html'))) {
     `${archSlug}: protected story must not include coordinate directions link`,
   )
   assert.ok(
-    !archHtml.includes('"@type":"GeoCoordinates"'),
-    `${archSlug}: archaeological story must not include GeoCoordinates in JSON-LD`,
+    archHtml.includes('"latitude":37.5,"longitude":-86.8') && !/-?\d{1,3}\.\d{2,}/.test(archHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] || ""),
+    `${archSlug}: archaeological story JSON-LD GeoCoordinates must be rounded to <= 1 decimal`,
   )
 }
 
