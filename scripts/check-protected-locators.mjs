@@ -243,8 +243,6 @@ export const ITEMS = [
     slugs: ['old-fort-earthworks-15gp1-greenup-county'],
     ids: ['old-fort-earthworks-15gp1-greenup'],
     terms: ['Portsmouth'],
-    // Folded research notes keep the official National Register title. Story prose does not.
-    researchKeep: ['Portsmouth Earthworks, Group A'],
     ownOnly: true,
   },
 ]
@@ -257,7 +255,7 @@ export function termRegex(term) {
   return new RegExp(`(?<![A-Za-z])${src}(?![A-Za-z])`, 'i')
 }
 
-function scrub(text, item, opts) {
+function scrub(text, item) {
   let s = String(text)
   // Credit links and shared figure files are not the story's prose. A commons filename or a
   // culture-figure id can carry a river name that the caption no longer uses.
@@ -267,8 +265,6 @@ function scrub(text, item, opts) {
   for (const u of ALLOW_URLS) s = s.split(u).join(' ')
   // Own slugs and history ids are permanent identifiers, not public locator copy.
   for (const id of [...item.slugs, ...(item.ids || [])]) s = s.split(id).join(' ')
-  // Exact phrases kept in folded research notes. They still fail in story prose.
-  if (opts && opts.research) for (const phrase of item.researchKeep || []) s = s.split(phrase).join(' ')
   return s
 }
 
@@ -277,8 +273,8 @@ export function crossPageItems(items) {
   return items.filter((item) => !item.ownOnly)
 }
 
-export function hitsIn(text, item, opts) {
-  const s = scrub(text, item, opts)
+export function hitsIn(text, item) {
+  const s = scrub(text, item)
   return item.terms.filter((t) => termRegex(t).test(s))
 }
 
@@ -612,8 +608,8 @@ function selfTest() {
   assert(hitsIn('A square earthwork in Greenup County. Portsmouth.', oldFort).includes('Portsmouth'), 'planted bare Portsmouth fails the Old Fort term')
   assert(hitsIn('A square earthwork in Greenup County.', oldFort).length === 0, 'county-only Old Fort prose passes')
   const official = 'The full official National Register title is Portsmouth Earthworks, Group A.'
-  assert(hitsIn(official, oldFort).includes('Portsmouth'), 'official title still fails in story prose')
-  assert(hitsIn(official, oldFort, { research: true }).length === 0, 'official title is kept only in research notes')
+  assert(hitsIn(official, oldFort).includes('Portsmouth'), 'official title fails in story prose')
+  assert(hitsIn(official, oldFort, { research: true }).includes('Portsmouth'), 'official title fails in folded research notes')
   assert(hitsIn('Research note. Portsmouth.', oldFort, { research: true }).includes('Portsmouth'), 'a planted Portsmouth in research still fails')
   assert(hitsIn('Portsmouth Earthworks in the research file.', oldFort, { research: true }).includes('Portsmouth'), 'a shortened official title in research still fails')
   assert(findLocators('A square earthwork in Greenup County. Portsmouth.').length === 0, 'bare Portsmouth is not a generic pattern')

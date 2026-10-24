@@ -202,7 +202,7 @@ for (const [site, ref] of [
   const figure = `<article><img src="/figures/culture-green-river-archaic.jpg" srcset="/figures/culture-green-river-archaic.webp" alt="Ohio County"></article>`
   assert.ok(!pageHits(figure, 'indian-knoll-ohio-county').length, 'a figure path is not prose')
   const folded = `<article><p>In Greenup County.</p><details id="research-notes"><p>Portsmouth Earthworks, Group A.</p><details><p>nested</p></details></details><p>still public</p></article>`
-  assert.ok(!pageHits(folded, 'old-fort-earthworks-15gp1-greenup-county').some((h) => /Portsmouth/.test(h.match)), 'research notes are not story prose')
+  assert.ok(pageHits(folded, 'old-fort-earthworks-15gp1-greenup-county').some((h) => /Portsmouth/.test(h.match)), 'folded research notes are public prose')
 }
 
 // ---------- nearby cards and Kentucky today on protected pages (fictional fixtures only) ----------

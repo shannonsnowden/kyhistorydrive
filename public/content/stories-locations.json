@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T23:09:48.210Z",
+  "generatedAt": "2026-10-24T23:44:05.104Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -108,8 +108,8 @@
       "slug": "mount-horeb-earthworks",
       "lat": 38.1588727,
       "lon": -84.4652044,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Horeb Adena / Adena Park",
+      "mapConfidence": "exact",
+      "matchedPlace": "Mount Horeb Earthworks",
       "historyId": "mount-horeb-adena-park"
     },
     "peter-village-enclosure-15fa166": {

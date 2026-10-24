@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T23:09:48.155Z",
+  "generatedAt": "2026-10-24T23:44:05.046Z",
   "count": 237,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -374,8 +374,8 @@
       },
       "lat": 38.1588727,
       "lon": -84.4652044,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Horeb Adena / Adena Park"
+      "mapConfidence": "exact",
+      "matchedPlace": "Mount Horeb Earthworks"
     },
     {
       "slug": "peter-village-enclosure-15fa166",
@@ -473,7 +473,7 @@
       "title": "Indian Fort Mountain",
       "publishedDate": "2026-09-01",
       "summary": "In Madison County, Indian Fort Mountain is a Woodland hilltop enclosure ringed by low walls of stone and earth that once led people to imagine a fort.",
-      "proseChars": 3400,
+      "proseChars": 2764,
       "yearStart": -39,
       "yearEnd": 236,
       "era": "prehistoric",
@@ -679,14 +679,11 @@
       "county": "McCracken",
       "photo": {
         "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3.jpg",
-        "title": "The Rowlandton platform mound, McCracken County, with a pit dug by archaeologists",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+        "title": "A Mississippian owl-head bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the McCracken County site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2003,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null
       },
       "lat": 37,
       "lon": -88.6,
@@ -779,14 +776,12 @@
       "county": "Hopkins",
       "photo": {
         "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
-        "title": "Mississippian pottery; a regional stand-in, not from the Andalex site in Hopkins County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+        "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Hopkins County site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "fit": "contain"
       },
       "lat": 37.3,
       "lon": -87.5,
@@ -3907,7 +3902,7 @@
       "title": "Walker Daniel, Danville’s namesake",
       "publishedDate": "2026-10-18",
       "summary": "Virginia lawyer Walker Daniel laid out the town at Crow’s Station in 1783, served as the District of Kentucky’s first attorney general, and was killed in 1784; the town was named Danville for him in 1787.",
-      "proseChars": 3179,
+      "proseChars": 3148,
       "yearStart": 1781,
       "yearEnd": 1787,
       "era": "frontier",

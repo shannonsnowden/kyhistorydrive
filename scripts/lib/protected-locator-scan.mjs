@@ -90,22 +90,6 @@ const JSON_FILES = [
   'data/web/related-people.json',
 ]
 
-/** Drop one details block, including nested details, so research notes are not story prose. */
-function stripDetailsById(html, id) {
-  const start = html.search(new RegExp(`<details\\b[^>]*\\bid="${id}"[^>]*>`, 'i'))
-  if (start < 0) return html
-  const re = /<details\b|<\/details>/gi
-  re.lastIndex = start
-  let depth = 0
-  let m
-  while ((m = re.exec(html))) {
-    if (m[0].toLowerCase().startsWith('<details')) depth += 1
-    else depth -= 1
-    if (depth === 0) return html.slice(0, start) + html.slice(re.lastIndex)
-  }
-  return html
-}
-
 function pageParts(html) {
   const parts = []
   for (const m of html.matchAll(/<span class="(?:usp-rel-why|related-note)">[\s\S]*?<\/span>/gi)) parts.push(['note', m[0]])
@@ -116,7 +100,6 @@ function pageParts(html) {
   html = html.replace(/<li class="(?:related-story|nearby-place|related-person|related-row)[^"]*">[\s\S]*?<\/li>/gi, ' ')
   html = html.replace(/\shref="[^"]*"/gi, ' ')
   html = html.replace(/\s(?:src|srcset)="[^"]*"/gi, ' ')
-  html = stripDetailsById(html, 'research-notes')
   html = html.replace(/<a class="(?:usp-wf-btn|usp-pn-card)[^"]*"[\s\S]*?<\/a>/gi, ' ')
   for (const m of html.matchAll(/<section\b[^>]*\bid="today"[\s\S]*?<\/section>/gi)) parts.push(['today', m[0]])
   const labelled = [['title', /<title>[\s\S]*?<\/title>/gi], ['meta', /<meta\b[^>]*>/gi], ['ld', /<script type="application\/ld\+json">[\s\S]*?<\/script>/gi], ['h1', /<h1\b[\s\S]*?<\/h1>/gi], ['figcaption', /<figcaption\b[\s\S]*?<\/figcaption>/gi], ['article', /<article\b[\s\S]*?<\/article>/gi]]

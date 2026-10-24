@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T23:09:53.220Z",
+  "generatedAt": "2026-10-24T23:44:10.211Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -20,14 +20,12 @@
       "historyId": "andalex-village-15hk22-hopkins-county",
       "photo": {
         "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
-        "title": "Mississippian pottery; a regional stand-in, not from the Andalex site in Hopkins County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+        "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Hopkins County site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "fit": "contain"
       }
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
@@ -1713,14 +1711,11 @@
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
       "photo": {
         "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3.jpg",
-        "title": "The Rowlandton platform mound, McCracken County, with a pit dug by archaeologists",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+        "title": "A Mississippian owl-head bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the McCracken County site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2003,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null
       }
     },
     "russellville-from-big-boiling-spring-to-county-seat": {
@@ -2262,14 +2257,12 @@
       "historyId": "andalex-village-15hk22-hopkins-county",
       "photo": {
         "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
-        "title": "Mississippian pottery; a regional stand-in, not from the Andalex site in Hopkins County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+        "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Hopkins County site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "fit": "contain"
       }
     },
     "ann-mcginty-first-spinning-wheel-harrodstown": {
@@ -3725,14 +3718,11 @@
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
       "photo": {
         "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3.jpg",
-        "title": "The Rowlandton platform mound, McCracken County, with a pit dug by archaeologists",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+        "title": "A Mississippian owl-head bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the McCracken County site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2003,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null
       }
     },
     "russellville-logan-court-house-logan-1790-1810": {
