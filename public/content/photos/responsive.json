@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T11:01:02.102Z",
+  "generatedAt": "2026-10-24T13:17:21.244Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg": {
@@ -127,27 +127,27 @@
         }
       ]
     },
-    "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg": {
-      "sha256": "3537f8f3db9fcb280e26325f28b84a98925207b57871cb5e355ae673a57c19f6",
-      "width": 1280,
-      "height": 853,
+    "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
+      "sha256": "2fd6d3e09c2e902e8a01f0d77deb1bf921db9e0e00bd3d7913c5568ffd0ef6a5",
+      "width": 800,
+      "height": 600,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.avif",
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-480.avif",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.avif",
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-720.avif",
           "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.webp",
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-480.webp",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.webp",
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-720.webp",
           "w": 720
         }
       ]
@@ -274,31 +274,6 @@
         {
           "src": "/content/photos/opt/stories/yahoo-falls-big-south-fork-925.webp",
           "w": 925
-        }
-      ]
-    },
-    "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
-      "sha256": "2fd6d3e09c2e902e8a01f0d77deb1bf921db9e0e00bd3d7913c5568ffd0ef6a5",
-      "width": 800,
-      "height": 600,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-720.webp",
-          "w": 720
         }
       ]
     },

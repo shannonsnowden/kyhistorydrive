@@ -11,6 +11,7 @@
  *   - public/data/search-index.json, public/data/app/search-index.json
  *     (search-term keys that point at the story count too),
  *   - public/data/layers/stories.geojson and history.geojson,
+ *   - public/content/research/<slug>.json (research notes),
  *   - and, when dist/ exists, the same JSON under dist/ plus each story page's
  *     <title>, meta tags, JSON-LD, h1, summary, body and figure captions.
  * Spaces in a term match any run of whitespace, "_" or "-" (Clarks_River).
@@ -49,13 +50,13 @@ export const ITEMS = [
     name: 'Turk',
     slugs: ['turk-site-carlisle-county'],
     ids: ['turk-site-15ce6-carlisle-county'],
-    terms: ['Bardwell', 'bluff', 'bluffs', 'spur', 'Mississippi(?!an)', 'floodplain', 'Marshall Site', '15Ce27', 'Wickliffe', 'mouth of the Ohio', 'west of', 'downriver'],
+    terms: ['Bardwell', 'bluff', 'bluffs', 'spur', 'Mississippi(?!an)', 'floodplain', 'Wickliffe', 'mouth of the Ohio', 'west of', 'downriver'],
   },
   {
     name: 'Chambers',
     slugs: ['chambers-site-15ml109-marshall-county'],
     ids: ['chambers-site-15ml109-marshall-1250-1350'],
-    terms: ['Clarks River', 'Middle Fork', 'ridgetop', 'Wildlife Refuge', 'borrow pit', 'bridge replacement', 'minor tributary'],
+    terms: ['Clarks River', 'Middle Fork', 'southwest', 'southwestern', 'ridgetop', 'Wildlife Refuge', 'borrow pit', 'bridge replacement', 'minor tributary'],
   },
 ]
 
@@ -168,6 +169,8 @@ export function runAll() {
         const f = path.join(base, 'content/stories', `${slug}.json`)
         if (!fs.existsSync(f)) continue
         scanJson(JSON.parse(fs.readFileSync(f, 'utf8')), `${tag}/content/stories/${slug}.json`, problems)
+        const rf = path.join(base, 'content/research', `${slug}.json`)
+        if (fs.existsSync(rf)) scanJson(JSON.parse(fs.readFileSync(rf, 'utf8')), `${tag}/content/research/${slug}.json`, problems)
         const page = path.join(base, 'stories', slug, 'index.html')
         if (tag === 'dist' && fs.existsSync(page)) {
           const h = hitsIn(pageParts(fs.readFileSync(page, 'utf8')), it)
