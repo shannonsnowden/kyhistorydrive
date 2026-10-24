@@ -70,7 +70,7 @@ import {
   textureCss,
   CULTURE_EDGE,
 } from './territory.js'
-import { storyUrl, timelineForwardUrl } from './story-url.js'
+import { storyUrl, timelineForwardUrl, liveStorySlugs } from './story-url.js'
 
 /**
  * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
@@ -524,9 +524,14 @@ function clearAliasHash() {
 
 function ensureHomeHash() {
   // #337: an old /#timeline/<slug> (or #stories/#story alias) link opens the static story page.
-  const forward = timelineForwardUrl(location.hash, location.pathname)
-  if (forward) {
-    location.replace(forward)
+  if (timelineForwardUrl(location.hash, location.pathname)) {
+    // SEO #347: unknown/research-only slugs land on /stories/, not a 404.
+    const hash = location.hash
+    fetch('/content/stories.json')
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((d) => liveStorySlugs(d.stories, new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })))
+      .catch(() => null)
+      .then((known) => location.replace(timelineForwardUrl(hash, location.pathname, known) || '/stories/'))
     return
   }
   // Empty hash → magazine homepage; #home is an alias. Legacy #stories → #timeline.

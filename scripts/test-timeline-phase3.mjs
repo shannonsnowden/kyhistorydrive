@@ -26,6 +26,23 @@ assert.match(main, /view === 'about' \|\| view === 'app'\) \{\s*location\.replac
 const fwd = timelineForwardUrl('#timeline/battle-of-blue-licks', '/')
 assert.equal(new URL(fwd, 'https://kyhistorydrive.com').pathname, '/stories/battle-of-blue-licks/')
 assert.equal(timelineForwardUrl('#timeline', '/'), null)
+// SEO #347: unknown or research-only slugs fall back to the stories index, not a 404.
+{
+  const known = new Set(['battle-of-blue-licks'])
+  assert.equal(timelineForwardUrl('#timeline/battle-of-blue-licks', '/', known), '/stories/battle-of-blue-licks/')
+  assert.equal(timelineForwardUrl('#timeline/no-such-story', '/', known), '/stories/')
+  assert.equal(timelineForwardUrl('#timeline/bad%2F..', '/', known), '/stories/')
+  const { liveStorySlugs } = await import('../src/story-url.js')
+  const live = liveStorySlugs([
+    { slug: 'a', publishedDate: '2026-10-01' },
+    { slug: 'future', publishedDate: '2099-01-01' },
+    { slug: 'd', publishedDate: '2026-10-01', draft: true },
+    { slug: 'r', publishedDate: '2026-10-01', status: 'research' },
+  ], '2026-10-24')
+  assert.deepEqual([...live], ['a'], 'only live published stories have pages')
+  const mainSrc = (await import('node:fs')).readFileSync(new URL('../src/main.js', import.meta.url), 'utf8')
+  assert.match(mainSrc, /timelineForwardUrl\(hash, location\.pathname, known\)/, 'main.js checks the slug against known stories')
+}
 console.log('test-timeline-phase3: OK')
 
 // Critiquito #347 follow-ups: one count line, labeled jump buttons, Era/Years labels.
