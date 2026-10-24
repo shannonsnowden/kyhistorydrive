@@ -5,6 +5,7 @@
   "content/stories.json|old-fort-earthworks-15gp1-greenup-county|matchedPlace|Old Fort Earthworks",
   "content/stories.json|old-fort-earthworks-15gp1-greenup-county|photo.source_url|Portsmouth_Earthworks",
   "content/stories.json|old-fort-earthworks-15gp1-greenup-county|photo.title|Old Fort Earthworks",
+  "content/stories.json|old-fort-earthworks-15gp1-greenup-county|seoTitle|Old Fort Earthworks",
   "content/stories.json|old-fort-earthworks-15gp1-greenup-county|summary|Old Fort Earthworks",
   "content/stories.json|old-fort-earthworks-15gp1-greenup-county|title|Old Fort Earthworks",
   "content/stories/chambers-site-15ml109-marshall-county.json|chambers-site-15ml109-marshall-county|bodyMarkdown|Jonathan Creek",
@@ -17,6 +18,7 @@
   "content/stories/old-fort-earthworks-15gp1-greenup-county.json|old-fort-earthworks-15gp1-greenup-county|bodyMarkdown|Old-Fort-Earthworks",
   "content/stories/old-fort-earthworks-15gp1-greenup-county.json|old-fort-earthworks-15gp1-greenup-county|photo.source_url|Portsmouth_Earthworks",
   "content/stories/old-fort-earthworks-15gp1-greenup-county.json|old-fort-earthworks-15gp1-greenup-county|photo.title|Old Fort Earthworks",
+  "content/stories/old-fort-earthworks-15gp1-greenup-county.json|old-fort-earthworks-15gp1-greenup-county|seoTitle|Old Fort Earthworks",
   "content/stories/old-fort-earthworks-15gp1-greenup-county.json|old-fort-earthworks-15gp1-greenup-county|summary|Old Fort Earthworks",
   "content/stories/old-fort-earthworks-15gp1-greenup-county.json|old-fort-earthworks-15gp1-greenup-county|title|Old Fort Earthworks",
   "content/story-photos.json|old-fort-earthworks-15gp1-greenup-county|photo.source_url|Portsmouth_Earthworks",
@@ -48,5 +50,16 @@
   "data/search-index.json|old-fort-earthworks-15gp1-greenup-county|text|Old Fort Earthworks",
   "data/search-index.json|old-fort-earthworks-15gp1-greenup-county|title|Old Fort Earthworks",
   "data/web/related-people.json|cloudsplitter-rockshelter-menifee-county|[].slug|red-river"
+ ],
+ "page": [
+  "stories/chambers-site-15ml109-marshall-county/index.html|chambers-site-15ml109-marshall-county|page:article|Jonathan Creek",
+  "stories/chambers-site-15ml109-marshall-county/index.html|chambers-site-15ml109-marshall-county|page:article|Mill Creek",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:article|Old Fort Earthworks",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:figcaption|Old Fort Earthworks",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:h1|Old Fort Earthworks",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:ld|Old Fort Earthworks",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:meta|Old Fort Earthworks",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:title|Old Fort Earthworks",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:today|Old Fort Earthworks"
  ]
 }

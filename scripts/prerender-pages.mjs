@@ -101,6 +101,7 @@ import {
   splitStoryMarkdown,
   storyCountiesList,
   storyDocTitle,
+  timelineNeighbor,
   storyEraLabel,
 } from './lib/unified-story-data.mjs'
 
@@ -2056,8 +2057,8 @@ class PrerenderPages {
     const timelineIdx = Math.max(0, timelineOrdered.findIndex((s) => s.slug === story.slug))
     const timelinePos = timelineIdx + 1
     const timelineTotal = timelineOrdered.length
-    const prevStory = timelineIdx > 0 ? timelineOrdered[timelineIdx - 1] : null
-    const nextStory = timelineIdx < timelineTotal - 1 ? timelineOrdered[timelineIdx + 1] : null
+    const prevStory = timelineNeighbor(timelineOrdered, timelineIdx, -1, story.slug)
+    const nextStory = timelineNeighbor(timelineOrdered, timelineIdx, 1, story.slug)
 
     const wfYear = story.yearStart != null ? ` · ${story.approxStart && story.yearStart >= 0 ? 'c. ' : ''}${story.yearStart < 0 ? `${Math.abs(story.yearStart)} BCE` : story.yearStart}` : (years ? ` · ${years}` : '')
     const prevBtn = prevStory
@@ -2250,7 +2251,8 @@ class PrerenderPages {
       ? `<section class="usp-section usp-related" id="related" data-story-section aria-labelledby="related-nearby-heading">${relatedHtml}</section>`
       : ''
 
-    const unifiedSources = buildUnifiedSources(story, notes, matchedMarkers)
+    // Culture image-evidence worksheets stay on /research/. A protected story page does not repeat them.
+    const unifiedSources = buildUnifiedSources(story, prot && !isFolded ? null : notes, matchedMarkers)
     const sourcesListHtml = unifiedSources.items.length
       ? `<ol class="usp-src-list">
             ${unifiedSources.items
@@ -2267,7 +2269,7 @@ class PrerenderPages {
           </ol>`
       : ''
 
-    const claims = extractResearchClaims(notes)
+    const claims = extractResearchClaims(prot ? null : notes)
     const claimsDetailsHtml = claims.length
       ? `<details class="usp-details">
             <summary>Key facts &amp; claims (${claims.length})</summary>
@@ -2287,7 +2289,7 @@ class PrerenderPages {
           </details>`
       : ''
 
-    const timelineItems = Array.isArray(notes?.timeline) ? notes.timeline.filter((t) => t && (t.date || t.year || t.event)) : []
+    const timelineItems = prot ? [] : (Array.isArray(notes?.timeline) ? notes.timeline.filter((t) => t && (t.date || t.year || t.event)) : [])
     const timelineDetailsHtml = timelineItems.length
       ? `<details class="usp-details">
             <summary>Chronology (${timelineItems.length})</summary>
@@ -2301,7 +2303,7 @@ class PrerenderPages {
           </details>`
       : ''
 
-    const openQuestions = Array.isArray(notes?.openQuestions) ? notes.openQuestions.filter(Boolean) : []
+    const openQuestions = prot ? [] : (Array.isArray(notes?.openQuestions) ? notes.openQuestions.filter(Boolean) : [])
     const openQuestionsHtml = openQuestions.length
       ? `<details class="usp-details">
             <summary>Open questions (${openQuestions.length})</summary>

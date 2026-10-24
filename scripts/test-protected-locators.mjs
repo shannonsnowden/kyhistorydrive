@@ -23,7 +23,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { findLocators, STORY_TERMS } from './lib/protected-locators.mjs'
-import { isProtectedStory } from './lib/unified-story-data.mjs'
+import { isProtectedStory, timelineNeighbor } from './lib/unified-story-data.mjs'
 import { loadMerges } from './lib/story-merges.mjs'
 import { STORY_MERGES } from '../src/story-url.js'
 import { pickRelatedStories, nearbyPlaces, relatedAndNearbyForStory } from '../src/story-tools.js'
@@ -110,6 +110,22 @@ const JSON_FILES = [
   'data/web/related-people.json',
 ]
 
+/** Drop one details block, including nested details, so research notes are not story prose. */
+function stripDetailsById(html, id) {
+  const start = html.search(new RegExp(`<details\\b[^>]*\\bid="${id}"[^>]*>`, 'i'))
+  if (start < 0) return html
+  const re = /<details\b|<\/details>/gi
+  re.lastIndex = start
+  let depth = 0
+  let m
+  while ((m = re.exec(html))) {
+    if (m[0].toLowerCase().startsWith('<details')) depth += 1
+    else depth -= 1
+    if (depth === 0) return html.slice(0, start) + html.slice(re.lastIndex)
+  }
+  return html
+}
+
 function pageParts(html) {
   const parts = []
   // Related-card notes are scanned; the other stories' own titles and links in those cards are not.
@@ -122,6 +138,8 @@ function pageParts(html) {
   }
   html = html.replace(/<li class="(?:related-story|nearby-place|related-person|related-row)[^"]*">[\s\S]*?<\/li>/gi, ' ')
   html = html.replace(/\shref="[^"]*"/gi, ' ') // link targets (source PDFs, other stories) are not prose
+  html = html.replace(/\s(?:src|srcset)="[^"]*"/gi, ' ') // figure filenames are not prose
+  html = stripDetailsById(html, 'research-notes') // official titles stay in the folded notes
   // Timeline prev/next buttons carry the neighbouring stories' titles, not this site's location.
   html = html.replace(/<a class="(?:usp-wf-btn|usp-pn-card)[^"]*"[\s\S]*?<\/a>/gi, ' ')
   // Kentucky today box (protected pages named nearby towns and earthworks there; Editor 10/24).
@@ -250,6 +268,20 @@ for (const entry of ALLOW) {
   assert.ok(fx.length >= 1 && fx.every((h) => !ALLOW.has(key(h))), 'Peter Village fixture hit is reported and never allowed')
 }
 
+// Timeline prev/next must skip the same reference sites. A chronological neighbor is still a public link.
+{
+  const ordered = [
+    { slug: 'older-story' },
+    { slug: 'mount-horeb-earthworks' },
+    { slug: 'peter-village-enclosure-15fa166' },
+    { slug: 'later-story' },
+  ]
+  assert.equal(timelineNeighbor(ordered, 2, -1, 'peter-village-enclosure-15fa166').slug, 'older-story')
+  assert.equal(timelineNeighbor(ordered, 2, 1, 'peter-village-enclosure-15fa166').slug, 'later-story')
+  assert.equal(timelineNeighbor(ordered, 1, 1, 'mount-horeb-earthworks').slug, 'peter-village-enclosure-15fa166')
+  assert.equal(timelineNeighbor(ordered, 0, -1, 'older-story'), null)
+}
+
 // ---------- related cards: Peter Village never points at the neighbouring Mount Horeb site ----------
 const related = pickRelatedStories(allStories.find((s) => s.slug === PETER), allStories).map((s) => s.slug)
 assert.ok(!related.includes('mount-horeb-earthworks'), `Peter Village related cards include mount-horeb-earthworks: ${related.join(', ')}`)
@@ -296,6 +328,10 @@ function pageHits(html, owner) {
     const bad = pageHits(html, owner).filter((h) => !ALLOW.has(key(h)))
     assert.ok(bad.length >= 1, `planted allowlisted body text must fail on the page: ${html}`)
   }
+  const figure = `<article><img src="/figures/culture-green-river-archaic.jpg" srcset="/figures/culture-green-river-archaic.webp" alt="Ohio County"></article>`
+  assert.ok(!pageHits(figure, 'indian-knoll-on-the-green-river').length, 'a figure path is not prose')
+  const folded = `<article><p>In Greenup County.</p><details id="research-notes"><p>Portsmouth Earthworks, Group A.</p><details><p>nested</p></details></details><p>still public</p></article>`
+  assert.ok(!pageHits(folded, 'old-fort-earthworks-15gp1-greenup-county').some((h) => /Portsmouth/.test(h.match)), 'research notes are not story prose')
 }
 
 // ---------- nearby cards and Kentucky today on protected pages (fictional fixtures only) ----------
