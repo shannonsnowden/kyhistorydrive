@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+/** Item 91: /about/ carries the approved copy, and every footer links to /about/. */
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { PrerenderPages } from './prerender-pages.mjs'
+import { siteFooterHtml } from './site-chrome.mjs'
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const fails = []
+const ok = (cond, msg) => { if (!cond) fails.push(msg) }
+
+const html = PrerenderPages.aboutPage(['/assets/x.css'])
+for (const h of ["What you'll find here", 'What we’re building', 'Sources and accuracy', 'About our images', 'Protecting archaeological sites']) {
+  ok(html.includes(`>${h.replace("'", '’')}</h2>`), `/about/: missing section "${h}"`)
+}
+ok(html.includes('History is all around us.'), '/about/: missing tagline')
+ok(html.includes('AI illustration · Kentucky History Drive'), '/about/: missing AI label text')
+ok(!/Coming in the next version/i.test(html), '/about/: shipped features still listed as coming')
+for (const f of ['Drive plans.', 'Research outlines.', 'Printable, PDF and Markdown copies']) ok(html.includes(f), `/about/: main list missing "${f}"`)
+ok(!/Terms/i.test(html) && !/Reviewer note/i.test(html), '/about/: reviewer note or Terms recommendation left in')
+ok(html.includes('<link rel="canonical" href="https://kyhistorydrive.com/about/"'), '/about/: canonical')
+const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || ''
+ok(desc && desc.length <= 155, `/about/: meta description ${desc.length} chars`)
+ok(html.includes('"@type":"AboutPage"'), '/about/: AboutPage JSON-LD')
+ok(/<a [^>]*href="\/"[^>]*>Home<\/a>/.test(html), '/about/: no way back home')
+ok(html.includes('class="foot"') && html.includes('href="/about/"'), '/about/: footer')
+
+const about = /<a href="\/about\/"[^>]*>About<\/a>/
+ok(about.test(siteFooterHtml()), 'shared footer has no About link')
+for (const f of ['index.html', 'privacy/index.html']) {
+  const foot = (fs.readFileSync(path.join(root, f), 'utf8').match(/<footer class="foot">[\s\S]*?<\/footer>/) || [''])[0]
+  ok(about.test(foot), `${f}: footer has no About link`)
+}
+const dist = path.join(root, 'dist/about/index.html')
+if (fs.existsSync(dist)) ok(fs.readFileSync(dist, 'utf8').includes('Protecting archaeological sites'), 'dist/about/ is stale')
+
+if (fails.length) { console.error(fails.map((f) => `test-about-page: ${f}`).join('\n')); process.exit(1) }
+console.log('test-about-page: /about/ copy, meta, JSON-LD, way back and footer links ok')
