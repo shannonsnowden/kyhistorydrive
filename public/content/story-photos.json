@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T11:01:00.022Z",
+  "generatedAt": "2026-10-24T13:42:40.218Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -424,7 +424,7 @@
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "photo": {
         "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
-        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "title": "Sandstone outcrop in eastern Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
@@ -515,7 +515,7 @@
     },
     "covington-at-the-point": {
       "slug": "covington-at-the-point",
-      "historyId": null,
+      "historyId": "newport-founding-hubbard-and-james-taylor",
       "photo": {
         "image_url": "/content/photos/stories/covington-at-the-point.jpg",
         "title": "Covington, looking upstream from the Roebling Suspension Bridge",
@@ -684,7 +684,7 @@
     },
     "erie-the-cat-nation": {
       "slug": "erie-the-cat-nation",
-      "historyId": null,
+      "historyId": "lower-shawneetown",
       "photo": {
         "image_url": "/content/photos/stories/erie-the-cat-nation-cleared-from-the-lake-shore.jpg",
         "title": "Erie / Cat Nation territory (historical map)",
@@ -1735,7 +1735,7 @@
       "historyId": "red-bird-river-petroglyphs-eriline-clay",
       "photo": {
         "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
-        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "title": "The Red Bird inscription in place in Clay County, about 1988, before it fell",
         "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
@@ -1846,7 +1846,7 @@
     },
     "shawnee-chillicothe-divisions": {
       "slug": "shawnee-chillicothe-divisions",
-      "historyId": null,
+      "historyId": "lower-shawneetown",
       "photo": {
         "image_url": "/content/photos/stories/shawnee-chillicothe-divisions.jpg",
         "title": "Fields at Oldtown near Xenia, Greene County, Ohio, site of Old Chillicothe",
@@ -2184,7 +2184,7 @@
       "historyId": "turk-site-15ce6-carlisle-county",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "title": "A view in Carlisle County, home of the Turk Site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -2216,7 +2216,7 @@
       "historyId": "twin-mounds-site-15ba2-ballard-county",
       "photo": {
         "image_url": "/content/photos/stories/twin-mounds-site.jpg",
-        "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
+        "title": "Wickliffe Mound A — contemporary Mississippian neighbor of Twin Mounds (15Ba2) in Ballard County; not the Twin Mounds earthworks themselves",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
@@ -2740,7 +2740,7 @@
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "photo": {
         "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
-        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "title": "Sandstone outcrop in eastern Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
@@ -2783,6 +2783,21 @@
         "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2008,
         "license": "CC BY-SA 4.0"
+      }
+    },
+    "newport-founding-hubbard-and-james-taylor": {
+      "slug": "covington-at-the-point",
+      "historyId": "newport-founding-hubbard-and-james-taylor",
+      "photo": {
+        "image_url": "/content/photos/stories/covington-at-the-point.jpg",
+        "title": "Covington, looking upstream from the Roebling Suspension Bridge",
+        "source_url": "https://commons.wikimedia.org/wiki/File:87k048_Mike_Fink_restaurant_and_Shirley_B_on_Ohio_River_at_Covington,_Kentucky_(8489653650).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "William Alden from Louisville, Kentucky, USA · Wikimedia Commons · CC BY-SA 2.0",
+        "year": 1987,
+        "credit": "William Alden from Louisville, Kentucky, USA",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
     "cumberland-falls": {
@@ -2907,6 +2922,21 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2020
+      }
+    },
+    "lower-shawneetown": {
+      "slug": "shawnee-chillicothe-divisions",
+      "historyId": "lower-shawneetown",
+      "photo": {
+        "image_url": "/content/photos/stories/shawnee-chillicothe-divisions.jpg",
+        "title": "Fields at Oldtown near Xenia, Greene County, Ohio, site of Old Chillicothe",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Chillicothe_Site.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": 2010,
+        "credit": "Nyttend",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
     "william-whitley-sportsmans-hill": {
@@ -3770,7 +3800,7 @@
       "historyId": "red-bird-river-petroglyphs-eriline-clay",
       "photo": {
         "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
-        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "title": "The Red Bird inscription in place in Clay County, about 1988, before it fell",
         "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
@@ -4080,7 +4110,7 @@
       "historyId": "turk-site-15ce6-carlisle-county",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "title": "A view in Carlisle County, home of the Turk Site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -4095,7 +4125,7 @@
       "historyId": "twin-mounds-site-15ba2-ballard-county",
       "photo": {
         "image_url": "/content/photos/stories/twin-mounds-site.jpg",
-        "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
+        "title": "Wickliffe Mound A — contemporary Mississippian neighbor of Twin Mounds (15Ba2) in Ballard County; not the Twin Mounds earthworks themselves",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
