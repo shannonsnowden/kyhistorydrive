@@ -1,6 +1,7 @@
 /**
  * Pin teaser cards (#339, v2 Phase 4). A pin tied to a story shows its name, an optional
  * KY History teaser (35 words max), and "Read the story" — the story page holds the text.
+ * protectedNote is trusted HTML from protectedPinNoteHtml (protected sites keep the approximate-location note).
  */
 import { storyUrl, canonicalStorySlug } from './story-url.js'
 
@@ -11,13 +12,13 @@ export function teaserWordCount(text) {
   return String(text || '').trim().split(/\s+/).filter(Boolean).length
 }
 
-export function pinCardHtml({ name, layerLabel = '', meta = '', slug, teaser = '', escapeHtml }) {
+export function pinCardHtml({ name, layerLabel = '', meta = '', slug, teaser = '', protectedNote = '', escapeHtml }) {
   const s = canonicalStorySlug(slug)
   if (!SLUG.test(s)) throw new Error(`pinCardHtml: bad story slug ${JSON.stringify(slug)}`)
   const head = layerLabel ? `<div class="layer-label">${escapeHtml(layerLabel)}</div>` : ''
   const sub = meta ? `<p class="meta">${escapeHtml(meta)}</p>` : ''
   const body = teaser ? `<p class="pin-card-teaser">${escapeHtml(teaser)}</p>` : ''
-  return `<div class="pin-card">${head}<h3>${escapeHtml(name)}</h3>${sub}${body}` +
+  return `<div class="pin-card">${head}<h3>${escapeHtml(name)}</h3>${sub}${body}${protectedNote}` +
     `<p class="pin-card-actions"><a class="btn pin-card-read" href="${escapeHtml(storyUrl(s))}">Read the story</a></p></div>`
 }
 
@@ -29,4 +30,14 @@ export function usePhoneSheet(viewportWidth) {
 /** Where to park the pin on a phone so it stays visible above the sheet. */
 export function phoneSheetPinY(mapHeight) {
   return Math.round(Math.max(56, mapHeight * 0.3))
+}
+
+/** True only when href resolves to the same origin as base AND a /stories/ path (#350 security). */
+export function isSameOriginStoryHref(href, base) {
+  try {
+    const u = new URL(href, base)
+    return u.origin === new URL(base).origin && u.pathname.startsWith('/stories/')
+  } catch {
+    return false
+  }
 }

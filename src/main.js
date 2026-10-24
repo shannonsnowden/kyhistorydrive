@@ -1710,7 +1710,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   }
   if (p.county) metaBits.push(countyLabel(p.county, true))
   if (p.city) metaBits.push(p.city)
-  if (p.era) metaBits.push(p.era)
+  if (p.era) metaBits.push(pinEraLabel(p.era) || p.era)
   if (p.yearStart != null || p.yearEnd != null) {
     metaBits.push(formatYearRange(p.yearStart, p.yearEnd))
   }
@@ -2076,6 +2076,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
         meta: [props.county ? countyLabel(props.county, true) : '', pinEraLabel(props.era)].filter(Boolean).join(' · '),
         slug: storySlug,
         teaser: PIN_TEASERS[canonicalStorySlug(storySlug)] || '',
+        protectedNote: protectedPinNoteHtml(props.historyId || props.id || storySlug),
         escapeHtml,
       })}</div>`
     : detailHtmlFromProps(props, layerId, coords, relatedHtml)
@@ -2427,6 +2428,19 @@ function startHighlightPulse(targetMap) {
   requestAnimationFrame(tick)
 }
 
+/** Selected pin takes its layer's swatch color (History green); stories keep site amber (#339). */
+function highlightColor(focus) {
+  return (focus?.layerId && DATA_LAYERS.find((l) => l.id === focus.layerId)?.color) || '#c9893a'
+}
+
+function paintHighlight(targetMap, focus) {
+  if (!focus) return
+  const color = highlightColor(focus)
+  for (const id of ['highlight-glow', 'highlight-core']) {
+    if (targetMap.getLayer(id)) targetMap.setPaintProperty(id, 'circle-color', color)
+  }
+}
+
 function ensureHighlightSource(targetMap, focus) {
   const data = {
     type: 'FeatureCollection',
@@ -2444,6 +2458,7 @@ function ensureHighlightSource(targetMap, focus) {
   targetMap.__khdHighlightOn = data.features.length > 0
   if (targetMap.getSource('highlight')) {
     targetMap.getSource('highlight').setData(data)
+    paintHighlight(targetMap, focus)
     raiseHighlightLayers(targetMap)
   } else {
     targetMap.addSource('highlight', { type: 'geojson', data })
@@ -2477,6 +2492,7 @@ function ensureHighlightSource(targetMap, focus) {
       source: 'highlight',
       paint: { 'circle-radius': 22, 'circle-opacity': 0 },
     })
+    paintHighlight(targetMap, focus)
     raiseHighlightLayers(targetMap)
     startHighlightPulse(targetMap)
     targetMap.on('mouseenter', 'highlight-hit', () => {
@@ -4047,6 +4063,7 @@ async function openStoryHighlightOnHomeMap(place) {
     title: place.title || place.matchedPlace || place.slug,
     slug: place.slug,
     historyId: place.historyId || null,
+    layerId: place.historyId ? 'history' : null,
   }
   pendingFocus = focus
   highlightDetailProps = {

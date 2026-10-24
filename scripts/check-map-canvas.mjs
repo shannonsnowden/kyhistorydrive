@@ -14,6 +14,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright-core'
 import { preview } from 'vite'
+import { isSameOriginStoryHref } from '../src/pin-card.js'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const failures = []
@@ -199,8 +200,8 @@ async function checkViewport(page, base, viewport, hash, { popup }) {
     if (!/Whitley/i.test(info.title)) fail(`${label}: pin popup did not show William Whitley`)
     if (!info.readHref) {
       fail(`${label}: story pin card has no Read the story link`)
-    } else if (!new URL(info.readHref, base).pathname.startsWith('/stories/')) {
-      fail(`${label}: Read the story link ${info.readHref} is not a /stories/ page`)
+    } else if (!isSameOriginStoryHref(info.readHref, base)) {
+      fail(`${label}: Read the story link ${info.readHref} is not a same-origin /stories/ page`)
     }
     if (viewport.width <= 600 && !info.sheet) fail(`${label}: phone pin card is not a bottom sheet`)
     if (viewport.width > 600 && info.sheet) fail(`${label}: desktop pin card opened as a bottom sheet`)
