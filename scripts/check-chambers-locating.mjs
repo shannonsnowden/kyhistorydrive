@@ -3,7 +3,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-export const LOCATING_TERMS = [/clarks[\s_-]+river/i, /middle fork/i, /ridge ?top/i, /refuge/i, /borrow pit/i, /south-?west(ern)? part/i, /\bsouthwest/i, /bridge[\s_-]+replacement/i]
+// Linear patterns; every multi-word term allows space, underscore or hyphen separators.
+export const LOCATING_TERMS = [/clarks[\s_-]+river/i, /middle[\s_-]+fork/i, /ridge[\s_-]?top/i, /refuge/i, /borrow[\s_-]+pit/i, /south[\s_-]?west(ern)?[\s_-]+part/i, /\bsouth[\s_-]?west/i, /bridge[\s_-]+replacement/i]
 
 // Source JSON (scanned too, so the outputs regenerate clean). Every dist **/*.json and **/*.geojson is globbed.
 export const SOURCE_JSON = ['public/data/layers/history.geojson', 'public/data/app/ky-history.json', 'scripts/story-overrides.json', 'scripts/story-photo-curated.json']
@@ -49,6 +50,49 @@ export function chambersRecords(data) {
   return out
 }
 
+const MENTION = /15ml109|chambers[\s_-]site/gi
+const OPEN = ['<li', '<article', '<item', '<entry', '<tr', '<url>', '\n\n']
+const CLOSE = ['</li>', '</article>', '</item>', '</entry>', '</tr>', '</url>', '\n\n']
+
+/** The card/record around each Chambers mention in an HTML, MD or XML text (whole text for a Chambers story file). */
+export function chambersSnippets(text, rel = '') {
+  if (/chambers-site-15ml109/i.test(rel)) return [text]
+  const out = []
+  for (const m of text.matchAll(MENTION)) {
+    const i = m.index
+    let start = Math.max(0, i - 2000)
+    for (const o of OPEN) { const j = text.lastIndexOf(o, i); if (j >= start) start = j }
+    let end = Math.min(text.length, i + 2000)
+    for (const c of CLOSE) { const j = text.indexOf(c, i); if (j !== -1 && j < end) end = j }
+    out.push(text.slice(start, end))
+  }
+  return out
+}
+
+function walkText(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name)
+    if (e.isDirectory()) walkText(p, out)
+    else if (/\.(html|md|xml)$/i.test(e.name)) out.push(p)
+  }
+  return out
+}
+
+/** Scan every .html/.md/.xml under root that mentions Chambers; returns "relpath: term" problems. */
+export function scanTextOutputs(root) {
+  const problems = []
+  for (const f of walkText(root)) {
+    const rel = path.relative(root, f)
+    const text = fs.readFileSync(f, 'utf8')
+    MENTION.lastIndex = 0
+    if (!/15ml109|chambers[\s_-]site/i.test(text) && !/chambers-site-15ml109/i.test(rel)) continue
+    const found = new Set()
+    for (const s of chambersSnippets(text, rel)) for (const p of locatingProblems(s)) found.add(p)
+    for (const p of found) problems.push(`${rel}: ${p}`)
+  }
+  return problems
+}
+
 export function locatingProblems(html) {
   return LOCATING_TERMS.filter((re) => re.test(html)).map((re) => re.source)
 }
@@ -64,12 +108,9 @@ if (isMain) {
     if (locatingProblems('<p>in Marshall County</p>').length) throw new Error('check-chambers-locating self-test: false positive')
     console.log('check-chambers-locating: self-test ok')
   } else {
-    const files = ['dist/stories/chambers-site-15ml109-marshall-county/index.html', 'dist/stories/chambers-site-15ml109-marshall-county/story.md']
     const problems = []
-    for (const f of files) {
-      if (!fs.existsSync(f)) { problems.push(`${f} missing`); continue }
-      for (const p of locatingProblems(fs.readFileSync(f, 'utf8'))) problems.push(`${f}: ${p}`)
-    }
+    for (const f of ['dist/stories/chambers-site-15ml109-marshall-county/index.html', 'dist/stories/chambers-site-15ml109-marshall-county/story.md']) if (!fs.existsSync(f)) problems.push(`${f} missing`)
+    problems.push(...scanTextOutputs('dist').map((p) => `dist/${p}`))
     problems.push(...scanJsonOutputs('dist').map((p) => `dist/${p}`), ...scanFiles(SOURCE_JSON.filter((f) => fs.existsSync(f)).map((f) => [f, f])))
     if (problems.length) {
       console.error(`check-chambers-locating: Chambers must stay county level:\n  ${problems.join('\n  ')}`)

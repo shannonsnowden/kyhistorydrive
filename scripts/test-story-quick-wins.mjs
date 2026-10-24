@@ -10,7 +10,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseRouteNotes, parseSingleCoordinate } from './route-notes.mjs'
 import { isProtectedWaypoint, roundProtectedWaypoint } from './protected-waypoints.mjs'
-import { modifiedFromProseHistory, storyProse, textRevisionForFile } from './story-dates.mjs'
+import { isShallowRepo, modifiedFromProseHistory, storyProse, textRevisionForFile } from './story-dates.mjs'
 import {
   CITE_AUTHOR_FALLBACK,
   SITE_NAME,
@@ -189,12 +189,17 @@ assert.equal(
   '2026-10-11',
 )
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const camp = textRevisionForFile(root, 'public/content/stories/camp-nelson-jessamine-county.json')
-assert.equal(camp.published, '2026-10-04')
-assert.equal(camp.modified, '2026-10-04')
-const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
-assert.equal(mantle.published, '2026-10-09')
-assert.equal(mantle.modified, '2026-10-09')
+// Git-history checks need full history; a --depth 1 clone has none (SEO #344).
+if (isShallowRepo(root)) {
+  console.warn('test-story-quick-wins: shallow clone, skipping git-history date checks')
+} else {
+  const camp = textRevisionForFile(root, 'public/content/stories/camp-nelson-jessamine-county.json')
+  assert.equal(camp.published, '2026-10-04')
+  assert.equal(camp.modified, '2026-10-04')
+  const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
+  assert.equal(mantle.published, '2026-10-09')
+  assert.equal(mantle.modified, '2026-10-09')
+}
 
 // Summary-only edits are meta/card copy, not a revision (Editor ruling, #319).
 {
