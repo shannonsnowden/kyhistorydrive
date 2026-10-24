@@ -75,6 +75,7 @@ import {
   renderStoryHtml,
   researchPageHref,
   isFoldedResearch,
+  indexResearchByStory,
 } from '../src/story-markdown.js'
 import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink } from '../src/transport-links.js'
@@ -187,13 +188,7 @@ class PrerenderPages {
     const cssHrefs = PrerenderPages.stylesheetHrefs(dist, fs.readFileSync(path.join(dist, 'index.html'), 'utf8'))
     const stories = PrerenderPages.liveStories(PrerenderPages.loadStories(root))
     const researchNotes = PrerenderPages.loadResearch(root)
-    const researchByStory = new Map()
-    for (const notes of researchNotes) {
-      if (researchByStory.has(notes.storySlug)) {
-        throw new Error(`prerender: duplicate research notes for ${notes.storySlug}`)
-      }
-      researchByStory.set(notes.storySlug, notes)
-    }
+    const researchByStory = indexResearchByStory(researchNotes)
     const markers = PrerenderPages.loadHistoricalMarkers(root)
     await PrerenderPages.collectPhotoSizes(root, stories)
     PrerenderPages.assertOverridesApplied(root, stories)

@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { foldedResearchHtml, foldedResearchJumpHtml } from '../src/research-notes.js'
-import { isFoldedResearch, glanceTableHtml } from '../src/story-markdown.js'
+import { isFoldedResearch, indexResearchByStory, glanceTableHtml } from '../src/story-markdown.js'
 import { uniqueTitleProblems } from './check-unique-titles.mjs'
 
 const dir = 'public/content/research'
@@ -12,6 +12,14 @@ const folded = all.filter(isFoldedResearch)
 const culture = all.filter((n) => !isFoldedResearch(n))
 assert.equal(folded.length, 17, '17 research outlines fold')
 assert.equal(culture.length, 7, '7 culture evidence pages stay')
+const hopewell = culture.find((n) => n.slug === 'culture-hopewell-image-evidence')
+const oldFort = folded.find((n) => n.slug === 'old-fort-earthworks-15gp1-greenup-county')
+assert.equal(hopewell.storySlug, oldFort.storySlug)
+for (const pair of [[hopewell, oldFort], [oldFort, hopewell]]) {
+  assert.equal(indexResearchByStory(pair).get(oldFort.storySlug).slug, oldFort.slug, 'folded outline owns the story page')
+}
+assert.throws(() => indexResearchByStory([oldFort, { ...oldFort, slug: 'second-outline' }]), /duplicate research notes/)
+assert.throws(() => indexResearchByStory([hopewell, { ...hopewell, slug: 'culture-other-image-evidence' }]), /duplicate research notes/)
 assert.ok(culture.every((n) => /^culture-[a-z0-9-]+-image-evidence$/.test(n.slug)))
 assert.equal(isFoldedResearch(null), false)
 
