@@ -13,7 +13,40 @@ import { resolveArticleDates } from '../src/story-tools.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
+/**
+ * Item 88 / SEO: a shallow clone (Amplify's default) gives every file the head commit's date, which
+ * would stamp every story's lastmod with the deploy day. Detect it so callers fall back to the
+ * story JSON's stored date instead (never today).
+ */
+export function isShallowRepo(cwd = root) {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd, encoding: 'utf8' }).trim() === 'true'
+  } catch {
+    return false
+  }
+}
+
+const warned = new Set()
+function warnShallow(cwd) {
+  if (warned.has(cwd)) return
+  warned.add(cwd)
+  console.warn('story-dates: WARNING shallow git clone; git dates ignored, using story JSON dates (run `git fetch --unshallow`)')
+}
+
+/** The story's own stored date (publishedDate, else briefDate), YYYY-MM-DD or ''. Never today. */
+export function storyStoredDate(story) {
+  for (const v of [story?.publishedDate, story?.briefDate]) {
+    const d = String(v || '').slice(0, 10)
+    if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return d
+  }
+  return ''
+}
+
 export function gitFileDates(cwd = root) {
+  if (isShallowRepo(cwd)) {
+    warnShallow(cwd)
+    return { lastmod: new Map(), created: new Map(), shallow: true }
+  }
   const lastmod = new Map()
   const created = new Map()
   const out = execFileSync('git', ['log', '--name-only', '--pretty=format:%cs'], {
@@ -117,6 +150,10 @@ export function textRevisionForFile(cwd, file) {
 export function gitStoryTextDates(cwd = root) {
   const modified = new Map()
   const created = new Map()
+  if (isShallowRepo(cwd)) {
+    warnShallow(cwd)
+    return { created, modified, shallow: true }
+  }
   const dir = path.join(cwd, 'public/content/stories')
   for (const name of fs.readdirSync(dir).filter((file) => file.endsWith('.json'))) {
     const file = `public/content/stories/${name}`
@@ -129,8 +166,8 @@ export function gitStoryTextDates(cwd = root) {
 
 export function datesForStory(story, git, file) {
   return resolveArticleDates(story, {
-    published: git.created.get(file) || '',
-    modified: (git.textModified && git.textModified.get(file)) || git.created.get(file) || '',
+    published: git.created.get(file) || storyStoredDate(story),
+    modified: (git.textModified && git.textModified.get(file)) || git.created.get(file) || storyStoredDate(story),
   })
 }
 

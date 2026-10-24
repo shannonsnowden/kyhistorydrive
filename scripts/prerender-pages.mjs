@@ -34,7 +34,7 @@ import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteFoo
 import { contactLineHtml } from './contact-reveal.mjs'
 import { storyDrives } from './story-drives-lib.mjs'
 import { takeADriveHtml } from '../src/take-a-drive.js'
-import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
+import { gitFileDates, gitStoryTextDates, storyStoredDate } from './story-dates.mjs'
 import {
   citeBootScript,
   citeBoxHtml,
@@ -80,6 +80,7 @@ import { ROADS_RAILS_STUB_DIRS, roadsRailsEnabled, roadsRailsRedirectHtml } from
 import { storyFigureHtml } from '../src/story-figure.js'
 import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
+import { isThinStory } from './lib/thin-stories.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 import {
   buildUnifiedSources,
@@ -287,6 +288,7 @@ class PrerenderPages {
     })
     relatedBundle.sourcePeople = sourcePeople
     const portraitLog = { shown: [], skipped: [] }
+    let thinRouteImages = 0
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.storyDescription(story)
@@ -294,6 +296,11 @@ class PrerenderPages {
       const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers, relatedBundle, notes)
       PrerenderPages.assertPage(html, story, urlPath)
       PrerenderPages.assertStory(html, story, description, stories, markers, notes)
+      // Item 88: thin stories (< THIN_STORY_MIN_WORDS narrative words) carry noindex, follow and stay out of the sitemap.
+      const thin = isThinStory(story)
+      if (thin !== html.includes(`<meta name="robots" content="${PrerenderPages.THIN_ROBOTS}" />`)) {
+        throw new Error(`prerender: ${urlPath} thin-story robots meta mismatch (thin=${thin})`)
+      }
       PrerenderPages.writePage(dist, urlPath, html)
       const pick = PrerenderPages.storyPortrait(story, relatedBundle)
       if (pick.person) portraitLog.shown.push(story.slug)
@@ -320,7 +327,8 @@ class PrerenderPages {
             },
           ]
         : []
-      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: story.lastmod, images })
+      if (thin) thinRouteImages += images.length
+      else entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: story.lastmod, images })
     }
     for (const layer of layers) {
       const urlPath = `/layers/${layer.id}/`
@@ -343,12 +351,15 @@ class PrerenderPages {
     }
     // /videos/ is noindex for now (Shannon item 93), so it stays out of the sitemap; its lastmod is still checked.
     const videoSitemap = path.join(dist, 'sitemap-videos.xml')
-    PrerenderPages.writeVideoSitemap(videoSitemap, FILMS, stories)
+    // Item 88: films whose story page is thin (noindex) stay out of the video sitemap.
+    const indexedFilms = FILMS.filter((film) => !isThinStory(stories.find((item) => item.slug === film.storySlug)))
+    PrerenderPages.writeVideoSitemap(videoSitemap, indexedFilms, stories)
     const videoXml = fs.readFileSync(videoSitemap, 'utf8')
-    if (videoXml.includes('/videos/</loc>') || !videoXml.includes('/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>')) {
+    const maryIndexed = indexedFilms.some((film) => film.storySlug === 'mary-draper-ingles-escapes-through-kentucky-1755')
+    if (videoXml.includes('/videos/</loc>') || maryIndexed !== videoXml.includes('/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>')) {
       throw new Error('prerender: video sitemap must point at the story page')
     }
-    if (!videoXml.includes('2026-10-10T09:00:00-04:00')) {
+    if (maryIndexed && !videoXml.includes('2026-10-10T09:00:00-04:00')) {
       throw new Error('prerender: video sitemap publication date is not the upload time')
     }
     const routesHtml = PrerenderPages.routesPage(stories, cssHrefs)
@@ -360,7 +371,8 @@ class PrerenderPages {
         PrerenderPages.laterDate(max, dates.lastmod.get(`public/maps/routes/${route.slug}/NOTES.md`) || ''),
       dates.lastmod.get('src/route-maps.js') || '',
     )
-    if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
+    // Shallow clone has no git dates; /routes/ is noindex and out of the sitemap, so only check on full history.
+    if (!dates.shallow && !PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
     // /routes/ is noindex for now (Shannon item 93), so it stays out of the sitemap.
     for (const notes of researchNotes) {
       const story = stories.find((item) => item.slug === notes.storySlug)
@@ -378,7 +390,7 @@ class PrerenderPages {
     // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
     for (const loc of PrerenderPages.drivePaths(root)) {
       const src = `public${loc}index.html`
-      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
+      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || homeLast })
     }
     // Roads & Rails left the live site on Oct 19: unless KHD_ROADS_RAILS=1, it is not built, not in the
     // sitemap, and /roads-and-rails/ and /roads-rails/ get noindex stubs that forward to the map
@@ -427,7 +439,7 @@ class PrerenderPages {
     fs.mkdirSync(path.join(dist, '404'), { recursive: true })
     fs.writeFileSync(path.join(dist, '404', 'index.html'), notFoundHtml)
     console.log(`prerender: inline portraits on ${portraitLog.shown.length} stories; skipped ${portraitLog.skipped.length}: ${portraitLog.skipped.join(', ')}`)
-    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
+    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries, ROUTE_MAPS.length - thinRouteImages, { allowMissingLastmod: dates.shallow })
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
       `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers, ${researchNotes.length} research) plus home, about, people, stories index, videos, privacy; sitemap ${sitemapCount} urls`,
@@ -625,7 +637,7 @@ class PrerenderPages {
   /**
    * Published is the story file's first git commit.
    * Last revised is the last commit that changed that story's text.
-   * A missing git date stays empty. Never today, and never a story brief date.
+   * No git date (shallow clone): publishedDate, then briefDate. Never today.
    */
   static articleDates(story) {
     const dates = resolveArticleDates(story, { published: story.created, modified: story.gitModified })
@@ -636,6 +648,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${story.slug} revised date is not the last story-text commit`)
     }
     if (!dates.published && !dates.modified) {
+      // Shallow clone (no git history): the story's stored date, never today.
+      const stored = storyStoredDate(story)
+      if (stored) return { ...dates, published: stored, modified: stored }
       throw new Error(`prerender: ${story.slug} has no git date`)
     }
     return dates
@@ -1135,8 +1150,8 @@ class PrerenderPages {
 
   static storyLastmod(story, dates) {
     const git = story.gitModified || dates.get(`public/content/stories/${story.slug}.json`) || ''
-    const published = /^\d{4}-\d{2}-\d{2}$/.test(story.publishedDate || '') ? story.publishedDate : ''
-    return PrerenderPages.laterDate(git, published)
+    // Shallow clone or no git date: the story JSON's stored date, never today.
+    return PrerenderPages.laterDate(git, storyStoredDate(story))
   }
 
   /** Site CSS only. Skip the MapLibre bundle Vite emits next to the app script. */
@@ -2429,6 +2444,7 @@ class PrerenderPages {
       ogTitle: story.title,
       description,
       canonical,
+      robots: isThinStory(story) ? PrerenderPages.THIN_ROBOTS : '',
       cssHrefs,
       image: ogImage,
       imageAlt: ogAlt,
@@ -3453,7 +3469,7 @@ class PrerenderPages {
     if ((article?.datePublished || '') !== expectedDates.published || (article?.dateModified || '') !== expectedDates.modified) {
       throw new Error(`prerender: ${urlPath} Article dates are not the git first commit and last story-text commit`)
     }
-    if (story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
+    if (story.created && story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
       throw new Error(`prerender: ${urlPath} published date is a story field, not the git first commit`)
     }
     const cite = html.match(/<section class="cite-story"[\s\S]*?<\/section>/)
@@ -4660,7 +4676,7 @@ ${rows.join('\n')}
   }
 
   /** Home, about, stories, layers, then /privacy/ last. Each URL gets its own lastmod. */
-  static updateSitemap(file, entries) {
+  static updateSitemap(file, entries, expectedImages = ROUTE_MAPS.length, { allowMissingLastmod = false } = {}) {
     if (!entries.length || !String(entries[entries.length - 1].loc).endsWith('/privacy/')) {
       throw new Error('prerender: sitemap must end with /privacy/')
     }
@@ -4673,7 +4689,8 @@ ${rows.join('\n')}
       const lastmod = /^\d{4}-\d{2}-\d{2}$/.test(entry.lastmod || '')
         ? `\n    <lastmod>${PrerenderPages.escapeXml(entry.lastmod)}</lastmod>`
         : ''
-      if (!lastmod) throw new Error(`prerender: ${entry.loc} is missing lastmod`)
+      // Shallow clone: no git date → omit <lastmod> (never today). Full history must date every URL.
+      if (!lastmod && !allowMissingLastmod) throw new Error(`prerender: ${entry.loc} is missing lastmod`)
       const images = (entry.images || [])
         .map((img) => {
           imageCount += 1
@@ -4699,8 +4716,8 @@ ${rows.join('\n')}
       }
       if (PrerenderPages.NOINDEX_PATHS.includes(pathname)) throw new Error(`prerender: sitemap lists noindex page ${pathname}`)
     }
-    if (imageCount !== ROUTE_MAPS.length) {
-      throw new Error(`prerender: sitemap has ${imageCount} route map images, expected ${ROUTE_MAPS.length}`)
+    if (imageCount !== expectedImages) {
+      throw new Error(`prerender: sitemap has ${imageCount} route map images, expected ${expectedImages}`)
     }
     const xmlns = imageCount
       ? 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'
