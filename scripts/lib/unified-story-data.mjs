@@ -715,6 +715,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
 
   const latStr = geo.lat.toFixed(geo.decimals)
   const lonStr = geo.lon.toFixed(geo.decimals)
+  // Editor 10/24 (#345): no Find photos ↗ (Historypin) link for protected sites.
   const historypinHref = `https://www.historypin.org/en/explore/geo/${latStr},${lonStr},13/`
   const approxAttr = geo.protectedStory ? ' data-approximate="true"' : ''
 
@@ -737,7 +738,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
       </div>
       <div class="usp-map-inline-actions">
         <a class="usp-btn" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
-        <a class="usp-btn usp-btn-ghost" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+        ${geo.protectedStory ? '' : `<a class="usp-btn usp-btn-ghost" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>`}
       </div>
     </section>`
   }
@@ -754,7 +755,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
     <div class="usp-railmap-foot">
       <a class="usp-railmap-open" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
       ${dirsHtml}
-      <a class="usp-railmap-photos" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+      ${geo.protectedStory ? '' : `<a class="usp-railmap-photos" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>`}
     </div>
   </section>`
 }

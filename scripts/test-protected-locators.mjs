@@ -22,7 +22,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { findLocators } from './lib/protected-locators.mjs'
+import { findLocators, STORY_TERMS } from './lib/protected-locators.mjs'
 import { isProtectedStory } from './lib/unified-story-data.mjs'
 import { loadMerges } from './lib/story-merges.mjs'
 import { STORY_MERGES } from '../src/story-url.js'
@@ -124,6 +124,8 @@ function pageParts(html) {
   html = html.replace(/\shref="[^"]*"/gi, ' ') // link targets (source PDFs, other stories) are not prose
   // Timeline prev/next buttons carry the neighbouring stories' titles, not this site's location.
   html = html.replace(/<a class="(?:usp-wf-btn|usp-pn-card)[^"]*"[\s\S]*?<\/a>/gi, ' ')
+  // Kentucky today box (protected pages named nearby towns and earthworks there; Editor 10/24).
+  for (const m of html.matchAll(/<section\b[^>]*\bid="today"[\s\S]*?<\/section>/gi)) parts.push(['today', m[0]])
   const labelled = [['title', /<title>[\s\S]*?<\/title>/gi], ['meta', /<meta\b[^>]*>/gi], ['ld', /<script type="application\/ld\+json">[\s\S]*?<\/script>/gi], ['h1', /<h1\b[\s\S]*?<\/h1>/gi], ['figcaption', /<figcaption\b[\s\S]*?<\/figcaption>/gi], ['article', /<article\b[\s\S]*?<\/article>/gi]]
   for (const [label, re] of labelled) for (const m of html.matchAll(re)) parts.push([label, m[0]])
   // Image alt text anywhere on the page (outside <article> too).
@@ -173,7 +175,7 @@ for (const bad of [
   'in the Elkhorn Creek country',
   'File:Clarks_River_in_the_fall.jpg',
   'Clarks-River',
-  '/photos/peter-village-near-lexington.jpg',
+  '/photos/example-site-near-sampletown.jpg',
   'part of the Mount Horeb Earthworks Complex',
   'https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex',
 ]) assert.ok(findLocators(bad).length, `should flag: ${bad}`)
@@ -183,7 +185,8 @@ for (const ok of [
   'a lead ore found in the region',
   'Adena is an archaeologists’ name for a shared way of life',
 ]) assert.deepEqual(findLocators(ok), [], `should pass: ${ok}`)
-assert.ok(findLocators('the Lexington plan', PETER).length, 'Peter Village terms apply to Peter Village')
+// Fixtures never pair a real protected site with a real town; the term comes from the pattern list.
+assert.ok(findLocators(`the ${STORY_TERMS[PETER][0]} plan`, PETER).length, 'Peter Village terms apply to Peter Village')
 
 // ---------- detector stays linear: 40k capitalised words in well under a second ----------
 {
@@ -205,7 +208,7 @@ assert.ok(![...ALLOW].some((e) => e.split('|')[1] === PETER || e.includes('peter
     assert.ok(!ALLOW.has(key(fake)), 'a new term in an allowlisted story/field must not be allowed')
   }
   const fx = []
-  scanJson({ bySlug: { [PETER]: { photo: { title: 'Earthwork north of Lexington' } } } }, 'fixture', fx)
+  scanJson({ bySlug: { [PETER]: { photo: { title: 'Earthwork north of Sampletown' } } } }, 'fixture', fx)
   assert.ok(fx.length >= 1 && fx.every((h) => !ALLOW.has(key(h))), 'Peter Village fixture hit is reported and never allowed')
 }
 
@@ -245,29 +248,36 @@ function pageHits(html, owner) {
   }
 }
 
-// ---------- nearby cards: protected pages show none (plant must fail; builder must omit them) ----------
+// ---------- nearby cards and Kentucky today on protected pages (fictional fixtures only) ----------
+// Security 10/24: plants never pair a real protected site with a real town or river.
 {
-  const CO = 'the-c-and-o-mounds-at-paintsville'
-  const plant = `<section><ul><li class="nearby-place"><a href="/stories/prestonsburg-first-seat/">Prestonsburg: first seat on the Big Sandy</a><span class="nearby-miles">4 mi</span></li></ul></section>`
-  const bad = pageHits(plant, CO).filter((h) => !ALLOW.has(key(h)))
-  assert.ok(bad.some((h) => h.field === 'page:nearby-card'), 'planted nearby card on a protected page must fail')
-  const found = allStories.find((s) => s.slug === CO)
-  assert.ok(found && isProtectedStory(found), 'C&O fixture must be a protected story')
-  // Story JSON carries no pin; use a public 0.1° county-level point for the fixture.
-  const co = { ...found, lat: 37.8, lon: -82.8 }
-  const markers = [0, 1, 2, 3].map((i) => ({ id: `m${i}`, title: `Paintsville marker ${i}`, lat: 37.8 + 0.01 * i, lon: -82.8 }))
-  const control = relatedAndNearbyForStory({ ...co, slug: 'unprotected-fixture', tags: [], era: 'modern' }, allStories, markers, { limit: 3, isProtected: () => false })
-  assert.ok(/class="nearby-place/.test(control), 'control: an unprotected story with markers shows nearby cards')
-  const plant2 = `<ul><li class="related-story"><a class="related-card" href="/stories/prestonsburg-first-seat-on-the-big-sandy/">Prestonsburg: first seat on the Big Sandy<span class="related-note">Nearby: 8.4 miles</span></a></li></ul>`
-  assert.ok(pageHits(plant2, CO).some((h) => h.field === 'page:nearby-card'), 'planted distance-picked related card on a protected page must fail')
-  const okCard = `<ul><li class="related-story"><a class="related-card" href="/stories/x/">A Johnson County story<span class="related-note">Same county (Johnson County)</span></a></li></ul>`
-  assert.ok(!pageHits(okCard, CO).length, 'a same-county related card with no distance passes')
-  const rel = pickRelatedStories(co, allStories, [], { isProtected: isProtectedStory })
-  assert.ok(rel.every((s) => s.county === co.county), `protected related cards must be same-county: ${rel.map((s) => s.slug).join(', ')}`)
-  assert.ok(!rel.some((s) => s.slug === 'prestonsburg-first-seat-on-the-big-sandy'), 'C&O related cards include Prestonsburg')
-  const html = relatedAndNearbyForStory(co, allStories, markers, { limit: 3, isProtected: isProtectedStory })
+  const FAKE = 'example-site-15xx999'
+  const plant = `<section><ul><li class="nearby-place"><a href="/stories/sampletown-first-seat/">Sampletown: first seat on the Sample River</a><span class="nearby-miles">4 mi</span></li></ul></section>`
+  assert.ok(pageHits(plant, FAKE).some((h) => h.field === 'page:nearby-card'), 'planted nearby card on a protected page must fail')
+  const plant2 = `<ul><li class="related-story"><a class="related-card" href="/stories/sampletown/">Sampletown: first seat on the Sample River<span class="related-note">Nearby: 8.4 miles</span></a></li></ul>`
+  assert.ok(pageHits(plant2, FAKE).some((h) => h.field === 'page:nearby-card'), 'planted distance-picked related card on a protected page must fail')
+  const okCard = `<ul><li class="related-story"><a class="related-card" href="/stories/x/">A Sample County story<span class="related-note">Same county (Sample County)</span></a></li></ul>`
+  assert.ok(!pageHits(okCard, FAKE).length, 'a same-county related card with no distance passes')
+  const today = `<section class="usp-section usp-today" id="today"><h2 id="h-today">Kentucky today</h2><div class="usp-prose"><p>Visitors can see earthworks at <a href="/stories/x/">Sampleville</a> and the Example Earthworks near Sampletown.</p></div></section>`
+  assert.ok(pageHits(today, FAKE).some((h) => h.field === 'page:today'), 'planted "near Sampletown" in a protected Kentucky today box must fail')
+
+  // Builder: a fictional protected story at a fictional point shows no nearby cards and only same-county related cards.
+  const site = { slug: FAKE, title: 'Example Site 15XX999', county: 'Sample', era: 'prehistoric', tags: ['archaeology'], coordinatesProtected: true, lat: 37.5, lon: -85.5 }
+  const pool = [
+    { slug: 'sample-county-story', title: 'A Sample County story', county: 'Sample', tags: ['archaeology'], lat: 37.51, lon: -85.5 },
+    { slug: 'sampletown-story', title: 'Sampletown on the Sample River', county: 'Other', tags: ['archaeology'], lat: 37.52, lon: -85.5 },
+    { slug: 'sampleville-story', title: 'Sampleville', county: 'Other', tags: [], lat: 37.53, lon: -85.5 },
+    { slug: 'samplefield-story', title: 'Samplefield', county: 'Other', tags: [], lat: 37.54, lon: -85.5 },
+  ]
+  const markers = [0, 1, 2, 3].map((i) => ({ id: `m${i}`, title: `Sample marker ${i}`, lat: 37.5 + 0.01 * i, lon: -85.5 }))
+  const prot = (s) => s.slug === FAKE
+  const rel = pickRelatedStories(site, [site, ...pool], [], { isProtected: prot })
+  assert.deepEqual(rel.map((s) => s.slug), ['sample-county-story'], `protected related cards must be same-county only: ${rel.map((s) => s.slug).join(', ')}`)
+  const html = relatedAndNearbyForStory(site, [site, ...pool], markers, { limit: 3, isProtected: prot })
   assert.ok(!/class="nearby-place/.test(html), 'relatedAndNearbyForStory must omit nearby cards for a protected story')
-  assert.ok(!/nearby-miles/.test(html), 'protected story shows no nearby distances')
+  assert.ok(!/nearby-miles|Sampletown/.test(html), 'protected story shows no nearby distances or other-county towns')
+  const control = relatedAndNearbyForStory({ ...site, slug: 'unprotected-fixture', coordinatesProtected: false }, [site, ...pool], markers, { limit: 3, isProtected: () => false })
+  assert.ok(/class="nearby-place/.test(control), 'control: an unprotected story with markers shows nearby cards')
 }
 
 // ---------- scan ----------

@@ -24,7 +24,8 @@ assert.ok(calls.length >= 2, 'expected popup and story callers')
 for (const c of calls) assert.match(c, /protectedIds:/, 'every placeDetailExtrasHtml caller must pass protectedIds')
 
 // --- 2) built output ---
-const BAD = [/maps\.apple\.com/i, /google\.com\/maps/i, /Photos on Google/i]
+// Editor 10/24: no 'Find photos ↗' (Historypin at the rounded point) on protected pages either.
+const BAD = [/maps\.apple\.com/i, /google\.com\/maps/i, /Photos on Google/i, /Find photos/i, /historypin\.org/i]
 const pins = JSON.parse(fs.readFileSync(path.join(root, 'public/data/web/protected-pins.json'), 'utf8'))
 const ids = new Set(pins.ids || [])
 const dist = path.join(root, 'dist')

@@ -766,6 +766,18 @@
   "stories/twin-mounds-site/index.html|twin-mounds-site|page:figcaption|southeast of Twin",
   "stories/twin-mounds-site/index.html|twin-mounds-site|page:ld|Near Barlow",
   "stories/twin-mounds-site/index.html|twin-mounds-site|page:meta|Near Barlow",
-  "stories/twin-mounds-site/index.html|twin-mounds-site|page:meta|southeast of Twin"
- ]
+  "stories/twin-mounds-site/index.html|twin-mounds-site|page:meta|southeast of Twin",
+  "stories/adams-site-15fu4/index.html|adams-site-15fu4|page:today|nearby Hickman",
+  "stories/chambers-site-15ml109-marshall-county/index.html|chambers-site-15ml109-marshall-county|page:today|Clarks River",
+  "stories/cloudsplitter-rockshelter-menifee-county/index.html|cloudsplitter-rockshelter-menifee-county|page:today|Red River",
+  "stories/muir-site-early-fort-ancient-on-a-jessamine-ridge/index.html|muir-site-early-fort-ancient-on-a-jessamine-ridge|page:today|near Nicholasville",
+  "stories/muir-site-early-fort-ancient-on-a-jessamine-ridge/index.html|muir-site-early-fort-ancient-on-a-jessamine-ridge|page:today|nearby Nicholasville",
+  "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:today|Portsmouth Earthworks",
+  "stories/red-bird-river-petroglyphs-clay-county/index.html|red-bird-river-petroglyphs-clay-county|page:today|Red Bird River",
+  "stories/slack-farm-15un28-union-county/index.html|slack-farm-15un28-union-county|page:today|Ohio River",
+  "stories/tinsley-hill-15ly18-lyon-county/index.html|tinsley-hill-15ly18-lyon-county|page:today|Kentucky Lake",
+  "stories/turk-site-carlisle-county/index.html|turk-site-carlisle-county|page:today|west of Bardwell",
+  "stories/twin-mounds-site/index.html|twin-mounds-site|page:today|southeast of Twin"
+ ],
+ "_todo_today": "TODO(Editor): 11 page:today entries are pre-existing v2 Kentucky-today text on other protected stories, allowlisted exactly so the new today scan can land; rewrite each at county level and remove its entry."
 }
