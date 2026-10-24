@@ -1,0 +1,15 @@
+{
+  "_about": "Full-name matches that are a different person or only a source title (scripts/fix-people-mentions.mjs, #337). Key: person id; value: story slug -> reason.",
+  "exceptions": {
+    "benjamin-harrison-col": {
+      "battle-of-blue-licks": "Gov. Benjamin Harrison V (Virginia), not Col. Benjamin Harrison",
+      "walker-daniel-danvilles-namesake": "Gov. Benjamin Harrison V (Virginia), not Col. Benjamin Harrison"
+    },
+    "william-russell-iii": {
+      "michael-stoner-german-long-hunter": "Capt. William Russell of 1774 is the elder Russell (1735-1793), not Gen. William Russell"
+    },
+    "mary-todd-lincoln": {
+      "battle-of-blue-licks": "named only in a source title (John Todd, great-uncle of Mary Todd Lincoln)"
+    }
+  }
+}

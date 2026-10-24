@@ -185,13 +185,6 @@
       "lat": 38,
       "lon": -84.5
     },
-    "peter-village-early-woodland-enclosure-near-lexington": {
-      "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
-      "date": "2026-10-02",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "lat": 38,
-      "lon": -84.5
-    },
     "adams-site-15fu4": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
@@ -348,7 +341,7 @@
       "county": "Mercer"
     },
     "camp-nelson-jessamine-county": {
-      "reason": "Replacement for repeat Tutelo (tutelo-the-totteroy, 2026-09-17). Pin Camp Nelson National Monument.",
+      "reason": "Replacement for repeat Tutelo (tutelo-the-totteroy, 2026-09-17). Pin Camp Nelson National Monument. | #337: story merged into camp-nelson-kentucky-us-colored-troops; entry kept only to pin its History feature.",
       "date": "2026-10-04",
       "historyId": "camp-nelson-jessamine-1863-1865",
       "lat": 37.78778,
@@ -764,14 +757,17 @@
       "county": "Boone"
     },
     "camp-nelson-kentucky-us-colored-troops": {
-      "reason": "Distinct USCT-focused companion to camp-nelson-jessamine-county (2026-10-04). Pin NPS Camp Nelson visitor center (37.797005, -84.600577). Years 1863–1866. County Jessamine.",
+      "reason": "Distinct USCT-focused companion to camp-nelson-jessamine-county (2026-10-04). Pin NPS Camp Nelson visitor center (37.797005, -84.600577). Years 1863–1866. County Jessamine. | #337: camp-nelson-jessamine-county merged here; also owns its History pin.",
       "date": "2026-10-12",
       "historyId": "camp-nelson-usct-jessamine-1863-1866",
       "lat": 37.797005,
       "lon": -84.600577,
       "yearStart": 1863,
       "yearEnd": 1866,
-      "county": "Jessamine"
+      "county": "Jessamine",
+      "alsoHistoryIds": [
+        "camp-nelson-jessamine-1863-1865"
+      ]
     },
     "col-thomas-marshall-at-buck-pond": {
       "reason": "NRHP list coordinate for Buck Pond, Paynes Mill Rd., Versailles (38.066667, -84.686944). Private farm; view from the road. Years 1783–1802 (farm founded to Marshall’s death). County Woodford.",
@@ -874,14 +870,17 @@
       "county": "Boyle"
     },
     "father-david-rice-and-kentuckys-first-presbyterian-churches": {
-      "reason": "KHS marker #844, Home of Early Minister, adjacent to 119 N. Main St., Greensburg. Story years 1783 (arrival in Kentucky) to 1816 (death); the Greensburg History pin keeps 1798–1816 (yearsStoryOnly). County Green.",
+      "reason": "KHS marker #844, Home of Early Minister, adjacent to 119 N. Main St., Greensburg. Story years 1783 (arrival in Kentucky) to 1816 (death); the Greensburg History pin keeps 1798–1816 (yearsStoryOnly). County Green. | #337: also owns the Concord Church (Danville) History pin.",
       "date": "2026-10-19",
       "historyId": "david-rice-home-greensburg-green-1798-1816",
       "lat": 37.262,
       "lon": -85.5013,
       "county": "Green",
       "yearStart": 1783,
-      "yearsStoryOnly": true
+      "yearsStoryOnly": true,
+      "alsoHistoryIds": [
+        "concord-church-danville-boyle-1784-1789"
+      ]
     },
     "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
       "reason": "KHS marker #1251, Oldham County, 1824, courthouse lawn, KY 53/146, La Grange; Main Street tracks one block away. Years 1827 (town laid out) to 1840 (incorporated). County Oldham.",
@@ -941,6 +940,34 @@
       "date": "2026-10-19",
       "historyId": "holders-station-lower-howards-creek",
       "county": "Clark"
+    },
+    "newport-at-the-licking-mouth": {
+      "reason": "#337: link-only; tie the Newport History pin to its story.",
+      "date": "2026-10-24",
+      "historyId": "newport-founding-hubbard-and-james-taylor"
+    },
+    "ann-mcginty-and-kentuckys-first-spinning-wheel": {
+      "reason": "#337: link-only; tie the McGinty History pin (Harrodstown) to its story.",
+      "date": "2026-10-24",
+      "historyId": "ann-mcginty-first-spinning-wheel-harrodstown"
+    },
+    "henry-mckennas-fairfield-sour-mash": {
+      "reason": "#337: link-only; tie the McKenna History pin (Fairfield) to its story.",
+      "date": "2026-10-24",
+      "historyId": "henry-mckenna-fairfield-old-line"
+    },
+    "carter-caves-cascade-falls": {
+      "reason": "#337: link-only; was fuzzy-linked to Saltpeter Cave; tie the Cascade Cave pin to its story.",
+      "date": "2026-10-24",
+      "historyId": "carter-caves-cascade-cave-and-falls"
+    },
+    "michael-stoner-german-long-hunter": {
+      "reason": "#337: Stoner History pin moved from Nelson County to Fort Boonesborough (story pin, 37.8909,-84.2666), Madison County, and linked to the story.",
+      "date": "2026-10-24",
+      "historyId": "michael-stoner-holsteiner",
+      "lat": 37.8909,
+      "lon": -84.2666,
+      "county": "Madison"
     }
   }
 }

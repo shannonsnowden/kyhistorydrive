@@ -1968,7 +1968,8 @@ class PrerenderPages {
     const researchLink = researchHref
       ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
-    const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
+    // #337: /#timeline/<slug> now forwards to this page, so Back goes to the Timeline list.
+    const appHref = '/#timeline'
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
@@ -2320,7 +2321,7 @@ class PrerenderPages {
           ${nextCardHtml}
         </nav>
         <p class="usp-endback">
-          <a href="${esc(appHref)}" data-back-to-timeline>← Back to this spot on the Timeline</a>
+          <a href="${esc(appHref)}" data-back-to-timeline>← Back to the Timeline</a>
         </p>`
 
     const tocEntries = [

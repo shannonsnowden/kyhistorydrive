@@ -71,6 +71,7 @@ import {
   textureCss,
   CULTURE_EDGE,
 } from './territory.js'
+import { storyUrl, timelineForwardUrl } from './story-url.js'
 
 /**
  * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
@@ -387,7 +388,7 @@ function placeShareHash(layerId, props) {
 
 function storyShareHash(slug) {
   if (!slug) return '#timeline'
-  return `#timeline/${encodeURIComponent(slug)}`
+  return storyUrl(slug)
 }
 
 const STORY_MAP_LAYERS = new Set(['stories', 'story', 'timeline'])
@@ -523,6 +524,12 @@ function clearAliasHash() {
 }
 
 function ensureHomeHash() {
+  // #337: an old /#timeline/<slug> (or #stories/#story alias) link opens the static story page.
+  const forward = timelineForwardUrl(location.hash, location.pathname)
+  if (forward) {
+    location.replace(forward)
+    return
+  }
   // Empty hash → magazine homepage; #home is an alias. Legacy #stories → #timeline.
   // #content is only the skip-link target. Clearing it has to wait until after the
   // browser applies the fragment, or the hash is put back.
@@ -541,7 +548,7 @@ function ensureHomeHash() {
   }
   if (raw.startsWith('stories/') || raw.startsWith('story/')) {
     const slug = raw.split('/').slice(1).join('/')
-    history.replaceState(null, '', `${location.pathname}#timeline/${slug}`)
+    history.replaceState(null, '', `${location.pathname}#timeline/` + encodeURIComponent(slug))
   }
 }
 
@@ -1977,6 +1984,12 @@ async function slugForPlaceProps(props) {
     for (const row of Object.values(locations || {})) {
       if (row?.historyId && row.slug && !historyIdToSlugCache[row.historyId]) {
         historyIdToSlugCache[row.historyId] = row.slug
+      }
+    }
+    // #337: a story can own extra History pins (story-overrides alsoHistoryIds); primary links win.
+    for (const row of Object.values(locations || {})) {
+      for (const extra of Array.isArray(row?.alsoHistoryIds) ? row.alsoHistoryIds : []) {
+        if (extra && row.slug && !historyIdToSlugCache[extra]) historyIdToSlugCache[extra] = row.slug
       }
     }
   }
@@ -3455,7 +3468,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             </div>
             ${titleHtml}
             ${tags ? `<div class="tags">${tags}</div>` : ''}
-            ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
+            ${shareControlHtml(new URL(storyShareHash(meta.slug), location.origin).href, s.title)}
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
                 ? ''

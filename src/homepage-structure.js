@@ -1,3 +1,4 @@
+import { storyUrl } from './story-url.js'
 /**
  * Homepage structure that the daily pack does not decide.
  *
@@ -54,7 +55,7 @@ export class HomepageStructure {
         yearStart: row.yearStart ?? null,
         publishedDate: row.publishedDate || row.briefDate || '',
         briefDate: row.briefDate || '',
-        href: `/#timeline/${encodeURIComponent(row.slug)}`,
+        href: storyUrl(row.slug),
         photo,
         lat: row.lat ?? loc.lat ?? null,
         lon: row.lon ?? loc.lon ?? null,
@@ -204,12 +205,12 @@ export class HomepageStructure {
   }
 
   /**
-   * Slug from a pack quote href (`/#timeline/<slug>`).
+   * Slug from a pack quote href (`/stories/<slug>/`, or an old `/#timeline/<slug>`).
    * Empty when the href does not point at a story.
    */
   static slugFromHref(href) {
     const raw = String(href || '')
-    const m = raw.match(/#timeline\/([^/?#]+)/) || raw.match(/\/timeline\/([^/?#]+)/)
+    const m = raw.match(/#timeline\/([^/?#]+)/) || raw.match(/\/timeline\/([^/?#]+)/) || raw.match(/^\/stories\/([^/?#]+)\/?$/)
     if (!m) return ''
     try {
       return decodeURIComponent(m[1])

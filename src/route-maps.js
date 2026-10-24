@@ -5,6 +5,7 @@
  */
 import { routeMapOverlayHtml } from './route-map-geo.js'
 import { ROUTE_TRACKS } from './route-track-meta.js'
+import { storyUrl } from './story-url.js'
 export const SITE = 'https://kyhistorydrive.com'
 export const ORG_ID = `${SITE}/#organization`
 
@@ -361,9 +362,9 @@ export function routeMapZoomHtml(route, { thumb = false } = {}) {
     </div>`
 }
 
-function storyHref(slug, linkMode) {
-  if (linkMode === 'hash') return `#timeline/${encodeURIComponent(slug)}`
-  return `/stories/${encodeURIComponent(slug)}/`
+function storyHref(slug) {
+  // #337: every mode links the static story page (hash mode used to open the Timeline reader).
+  return storyUrl(slug)
 }
 
 const PIN_ICON = `<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 5.7 10.9 6.4 11.55a.5.5 0 0 0 .7 0c.7-.65 6.4-6.49 6.4-11.55A6.75 6.75 0 0 0 12 2.25zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`
