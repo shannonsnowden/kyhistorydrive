@@ -187,6 +187,17 @@ for (const ok of [
 ]) assert.deepEqual(findLocators(ok), [], `should pass: ${ok}`)
 // Fixtures never pair a real protected site with a real town; the term comes from the pattern list.
 assert.ok(findLocators(`the ${STORY_TERMS[PETER][0]} plan`, PETER).length, 'Peter Village terms apply to Peter Village')
+// #348: a full stop ends a name. Fictional plant: two adjacent sentences give two separate matches (each
+// exact-allowlistable), never one joined match; abbreviations (St.) and initials (J.R.) still join a name.
+{
+  const plant = 'builders raised part of the Sampleton Earthworks. Demo Fort Earthworks (site 15Xx1) is square.'
+  const got = findLocators(plant).map((h) => h.match)
+  assert.ok(!got.includes('Sampleton Earthworks. Demo Fort Earthworks'), 'joined concat must not match as one name')
+  assert.deepEqual(got, ['Sampleton Earthworks', 'Demo Fort Earthworks'], 'sentence break splits earthworks names')
+  assert.deepEqual(findLocators('the Sample Creek. Demo River camp').map((h) => h.match), ['Sample Creek', 'Demo River'])
+  assert.ok(findLocators('the St. Sample River camp').some((h) => h.match === 'St. Sample River'), 'St. still joins a name')
+  assert.ok(findLocators('the J.R. Demo Earthworks').some((h) => h.match === 'J.R. Demo Earthworks'), 'initials still join a name')
+}
 
 // ---------- detector stays linear: 40k capitalised words in well under a second ----------
 {

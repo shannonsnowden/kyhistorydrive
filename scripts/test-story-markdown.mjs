@@ -41,7 +41,7 @@ const notes = JSON.parse(fs.readFileSync('public/content/research/battle-of-blue
 const body = renderStoryHtml(markdownWithoutGlanceSection(story.bodyMarkdown, true))
 assert.equal(body.includes('<h2>At a glance</h2>'), false)
 assert.match(body, /<a href="\/people\/#daniel-boone">Daniel Boone<\/a>/)
-assert.match(body, /<a href="\/research\/battle-of-blue-licks\/">Research notes and sources for the Battle of Blue Licks<\/a>/)
+assert.equal(body.includes('/research/'), false) // v2 Phase 5 (#340): notes fold into the page
 assert.match(body, /href="https:\/\/www\.battlefields\.org\/learn\/revolutionary-war\/battles\/blue-licks" target="_blank" rel="noopener noreferrer"/)
 assert.equal(body.includes('javascript:'), false)
 assert.equal(body.includes('<img'), false)
@@ -52,7 +52,7 @@ assert.match(glance, /<table class="story-glance"><caption>At a glance<\/caption
 assert.match(glance, /<th scope="row">Date<\/th><td>August 19, 1782 \(Caldwell's report: August 18\)<\/td>/)
 assert.match(glance, /<th scope="row">War<\/th>/)
 assert.equal(glance.includes('<th scope="row">Sources</th>'), false)
-assert.match(glance, /<\/table><p class="story-glance-sources"><a href="\/research\/battle-of-blue-licks\/#sources">/)
+assert.match(glance, /<\/table><p class="story-glance-sources"><a href="\/stories\/battle-of-blue-licks\/#research-notes">/)
 assert.equal(glance.includes('target='), false)
 assert.equal(glance.includes('<script'), false)
 
