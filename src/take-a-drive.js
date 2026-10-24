@@ -25,7 +25,9 @@ const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 export const takeADriveHref = (id, slug) => `/drives/${encodeURIComponent(id)}/#stop-${encodeURIComponent(slug)}`
 
 /** A button for the story's first drive plus an 'Also on:' row for the rest; '' when it is on none. data: story-drives.json. */
-export function takeADriveHtml(data, slug) {
+export function takeADriveHtml(data, slug, { isProtected = false } = {}) {
+  // Protected sites never get a drive link (Security #345, 10/24).
+  if (isProtected) return ''
   if (!ID_RE.test(String(slug || ''))) return ''
   const ids = (data?.stories?.[slug] || []).filter((id) => ID_RE.test(id) && data.drives?.[id])
   if (!ids.length) return ''

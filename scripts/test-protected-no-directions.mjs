@@ -9,6 +9,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { takeADriveHtml } from '../src/take-a-drive.js'
+import { isProtectedStory } from './lib/unified-story-data.mjs'
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const main = fs.readFileSync(path.join(root, 'src/main.js'), 'utf8')
@@ -93,4 +95,26 @@ for (const rel of ['public/content/photos/stories/peter-village-enclosure-15fa16
   assert.ok(!fs.existsSync(path.join(root, rel)), `${rel} must not exist (protected site plan)`)
 }
 
-console.log(`test-protected-no-directions: OK (code guard; ${checked} protected pages clean; ${dataChecked} story-photos files clean)`)
+// --- 4) Take a Drive: the reader path and story-drives.json never offer a drive for a protected story ---
+{
+  const data = { drives: { 'sample-trail': { name: 'Sample Trail' } }, stories: { 'example-site-15xx999': ['sample-trail'], 'sampletown-story': ['sample-trail'] } }
+  assert.equal(takeADriveHtml(data, 'example-site-15xx999', { isProtected: true }), '', 'takeADriveHtml must return no drive markup for a protected story (Example Site 15XX999)')
+  assert.match(takeADriveHtml(data, 'sampletown-story', { isProtected: false }), /take-a-drive-btn/, 'control: an unprotected story still gets its Take a Drive button')
+  // the in-app reader (src/main.js) passes the protected check
+  const callers = [...main.matchAll(/takeADriveHtml\(([^\n]*)\)/g)].map((m) => m[1])
+  assert.ok(callers.length >= 1 && callers.every((c) => /isProtected:/.test(c)), `every takeADriveHtml call in src/main.js must pass isProtected: ${callers.join(' | ')}`)
+}
+let drivesChecked = 0
+for (const rel of ['public/data/web/story-drives.json', 'dist/data/web/story-drives.json']) {
+  const f = path.join(root, rel)
+  if (!fs.existsSync(f)) continue
+  const sd = JSON.parse(fs.readFileSync(f, 'utf8'))
+  const bad = Object.keys(sd.stories || {}).filter((slug) => {
+    const sf = path.join(root, 'public/content/stories', `${slug}.json`)
+    return ids.has(slug) || isProtectedStory(fs.existsSync(sf) ? JSON.parse(fs.readFileSync(sf, 'utf8')) : { slug })
+  })
+  assert.ok(!bad.length, `${rel} maps protected stories to drives: ${bad.join(', ')}`)
+  drivesChecked++
+}
+
+console.log(`test-protected-no-directions: OK (code guard; ${checked} protected pages clean; ${dataChecked} story-photos files clean; ${drivesChecked} story-drives files clean)`)

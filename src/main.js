@@ -29,6 +29,7 @@ import {
   markerRecords,
   photoCreditHtml,
   photoCaptionYear,
+  isProtectedStoryCoords,
   relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -3479,7 +3480,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 ? ''
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
-            ${takeADriveHtml(await loadStoryDrives(), meta.slug)}
+            ${takeADriveHtml(await loadStoryDrives(), meta.slug, { isProtected: (await loadProtectedPins(), isProtectedStoryCoords({ ...meta, ...s })) })}
           </header>
           <div class="story-glance-mount"></div>
           <div class="story-body"></div>
