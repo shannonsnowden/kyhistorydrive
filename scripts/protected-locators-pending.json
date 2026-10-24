@@ -1739,30 +1739,6 @@
     },
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "body",
-      "kind": "landform",
-      "match": "Creek",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century [Fort Ancient] village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "body",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century [Fort Ancient] village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "body",
-      "kind": "near <Town>",
-      "match": "near Walton",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century [Fort Ancient] village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "field": "content/stories.json:.stories[].summary",
       "kind": "near <Town>",
       "match": "Near Walton",
@@ -1796,33 +1772,9 @@
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "field": "data/search-index.json:.documents[].text",
-      "kind": "landform",
-      "match": "Creek",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "data/search-index.json:.documents[].text",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "data/search-index.json:.documents[].text",
       "kind": "near <Town>",
       "match": "Near Walton",
       "context": "Cleek-McCabe: A Circular Fort Ancient Village in Boone County Near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village, a ring of midden around a plaza with low burial mounds.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "data/search-index.json:.documents[].text",
-      "kind": "near <Town>",
-      "match": "near Walton",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
       "count": 1
     },
     {
@@ -1844,33 +1796,9 @@
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "field": "story.md",
-      "kind": "landform",
-      "match": "Creek",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century [Fort Ancient] village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "story.md",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century [Fort Ancient] village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "story.md",
       "kind": "near <Town>",
       "match": "Near Walton",
       "context": "> Near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village, a ring of midden around a plaza with low burial mounds.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
-      "field": "story.md",
-      "kind": "near <Town>",
-      "match": "near Walton",
-      "context": "On the Mud Lick Creek floodplain near Walton in Boone County, Cleek-McCabe is a thirteenth-century [Fort Ancient] village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
       "count": 1
     },
     {
@@ -1879,78 +1807,6 @@
       "kind": "near <Town>",
       "match": "Near Walton",
       "context": "Near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village, a ring of midden around a plaza with low burial mounds.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/app/ky-history.json:[].history",
-      "kind": "landform",
-      "match": "Creek",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/app/ky-history.json:[].history",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/app/ky-history.json:[].history",
-      "kind": "near <Town>",
-      "match": "near Walton",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/layers/history.geojson:.features[].properties.description",
-      "kind": "landform",
-      "match": "Creek",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/layers/history.geojson:.features[].properties.description",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/layers/history.geojson:.features[].properties.description",
-      "kind": "near <Town>",
-      "match": "near Walton",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/layers/history.geojson:.features[].properties.history",
-      "kind": "landform",
-      "match": "Creek",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/layers/history.geojson:.features[].properties.history",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
-      "count": 1
-    },
-    {
-      "slug": "cleek-mccabe-fort-ancient-village-boone-county",
-      "field": "data/layers/history.geojson:.features[].properties.history",
-      "kind": "near <Town>",
-      "match": "near Walton",
-      "context": "On the Mud Lick Creek floodplain near Walton, Cleek-McCabe is a thirteenth-century Fort Ancient village: a midden ring about 100 feet wide around a plaza about 200 feet across, with low burial mounds east and west.",
       "count": 1
     },
     {
