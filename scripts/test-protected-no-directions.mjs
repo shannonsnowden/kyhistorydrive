@@ -22,7 +22,8 @@ const fnBody = main.slice(fnStart, main.indexOf('\n}\n', fnStart))
 assert.match(fnBody, /protectedIds/, 'placeDetailExtrasHtml must take protectedIds')
 assert.match(fnBody, /isProtectedPin\(/, 'placeDetailExtrasHtml must check isProtectedPin before mapsLinksHtml')
 const calls = [...main.matchAll(/(?<!function )placeDetailExtrasHtml\(\{([\s\S]*?)\}\)/g)].map((m) => m[1])
-assert.ok(calls.length >= 2, 'expected popup and story callers')
+// #347 (Phase 3) retired the Timeline story reader, so the map popup is the only in-app caller now.
+assert.ok(calls.length >= 1, 'expected the popup caller')
 for (const c of calls) assert.match(c, /protectedIds:/, 'every placeDetailExtrasHtml caller must pass protectedIds')
 
 // --- 2) built output ---
@@ -104,11 +105,13 @@ for (const rel of ['public/content/photos/stories/peter-village-enclosure-15fa16
   assert.equal(takeADriveHtml(data, 'sampletown-story'), '', 'takeADriveHtml with no isProtected must fail closed (no drive markup)')
   assert.equal(takeADriveHtml(data, 'sampletown-story', {}), '', 'takeADriveHtml with isProtected undefined must fail closed')
   assert.equal(takeADriveHtml(data, 'sampletown-story', { isProtected: undefined }), '', 'takeADriveHtml with isProtected undefined must fail closed')
-  // the reader only says "not protected" once the protected list actually loaded
-  assert.match(main, /protectedPinsLoaded\(\)/, 'src/main.js must check protectedPinsLoaded() before offering Take a Drive')
-  // the in-app reader (src/main.js) passes the protected check
-  const callers = [...main.matchAll(/takeADriveHtml\(([^\n]*)\)/g)].map((m) => m[1])
-  assert.ok(callers.length >= 1 && callers.every((c) => /isProtected:/.test(c)), `every takeADriveHtml call in src/main.js must pass isProtected: ${callers.join(' | ')}`)
+  // the in-app reader (src/main.js) passes the protected check. #347 (Phase 3) retired the Timeline
+  // reader, which was the only in-app Take a Drive caller; any caller that comes back must be guarded.
+  const callers = [...main.matchAll(/(?<!function )takeADriveHtml\(([^\n]*)\)/g)].map((m) => m[1])
+  if (callers.length) {
+    assert.match(main, /protectedPinsLoaded\(\)/, 'src/main.js must check protectedPinsLoaded() before offering Take a Drive')
+    assert.ok(callers.every((c) => /isProtected:/.test(c)), `every takeADriveHtml call in src/main.js must pass isProtected: ${callers.join(' | ')}`)
+  }
 }
 let drivesChecked = 0
 for (const rel of ['public/data/web/story-drives.json', 'dist/data/web/story-drives.json']) {
