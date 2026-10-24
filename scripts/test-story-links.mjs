@@ -14,7 +14,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const pathOf = (u) => new URL(u, 'https://kyhistorydrive.com/')
 
 // Browser copy of the merge map matches data/story-merges.json.
-assert.deepEqual(STORY_MERGES, Object.fromEntries(loadMerges().map((m) => [m.retired, m.kept])))
+// Protected retired slugs with a locator stay out of the bundle (Amplify 301 only).
+const BUNDLE_EXCLUDED = new Set(['peter-village-early-woodland-enclosure-near-lexington'])
+assert.deepEqual(STORY_MERGES, Object.fromEntries(loadMerges().filter((m) => !BUNDLE_EXCLUDED.has(m.retired)).map((m) => [m.retired, m.kept])))
 assert.equal(canonicalStorySlug('capt-jack-jouett'), 'jack-jouett-kentuckys-midnight-rider')
 assert.equal(canonicalStorySlug('battle-of-blue-licks'), 'battle-of-blue-licks')
 

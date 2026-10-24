@@ -132,6 +132,7 @@ function setVal(t, obj, key, val, mode) {
   t.file.dirty = true
   return 1
 }
+const AUTO_GEOCODERS = new Set(['photon', 'nominatim'])
 function applyPin(ts, lat, lon) {
   let n = 0
   for (const t of ts) {
@@ -139,6 +140,9 @@ function applyPin(ts, lat, lon) {
       const c = t.obj.geometry?.coordinates
       if (Array.isArray(c) && (c[0] !== lon || c[1] !== lat)) { t.obj.geometry.coordinates = [lon, lat]; t.file.dirty = true; n++ }
     } else if (t.lat) n += setVal(t, t.obj, t.lat, lat, 'exists') + setVal(t, t.obj, t.lon, lon, 'exists')
+    // A manual pin replaces an automatic geocoder hit (photon/nominatim); say so in the data.
+    const rec = t.geo ? t.obj.properties : t.obj
+    if (rec && AUTO_GEOCODERS.has(rec.geocode_source)) n += setVal(t, rec, 'geocode_source', 'override', 'exists')
   }
   return n
 }
@@ -271,9 +275,11 @@ if (fs.existsSync(RULES)) {
 // (story slugs and History ids). Not part of the app/OTA data.
 const PROTECTED_OUT = path.resolve('public/data/web/protected-pins.json')
 const protectedSet = new Set(rounding.protectedIds)
-// #337: a merged story keeps its twin's protection, so old links and the kept slug both stay rounded.
+// #337: a merged story keeps its twin's protection. The retired slug only redirects now, so it is
+// dropped from the public list (SEO: no retired slugs in shipped data) and the kept slug stays rounded.
 for (const { retired, kept } of loadMerges()) {
-  if (protectedSet.has(retired) || protectedSet.has(kept)) { protectedSet.add(retired); protectedSet.add(kept) }
+  if (protectedSet.has(retired) || protectedSet.has(kept)) protectedSet.add(kept)
+  protectedSet.delete(retired)
 }
 const protectedIds = [...protectedSet].sort()
 if (fs.existsSync(RULES)) {

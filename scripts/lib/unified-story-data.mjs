@@ -73,6 +73,13 @@ function getSkipProtectedSlugSet() {
   return cachedSkipProtectedSlugs
 }
 
+/** #348 SEO: place locators that must not appear in a protected story's standfirst (county names are fine). */
+export const STANDFIRST_LOCATOR = /\b(near|beside|above|below|along|upstream|downstream|overlooking)\b|\b(on|at|by)\s+(the\s+)?[A-Z][a-z]+|\b(river|fork|creek|branch|bluff|ridge|refuge|borrow pit|valley|bottoms?)\b|\b\d+(\.\d+)?\s*(mi|miles?|km)\b|\b(north|south|east|west)(east|west)?(ern)?\s+of\b/i
+
+export function standfirstHasLocator(text) {
+  return STANDFIRST_LOCATOR.test(String(text || ''))
+}
+
 /** Protected and skip id sets for the shared rule; a merge carries protection across both slugs. */
 export function protectedIdSets() {
   const protectedIds = new Set(getProtectedSlugSet())
@@ -625,9 +632,11 @@ export function computeRelatedNote(baseStory, candidate) {
   ) {
     return `Same county (${countyLong(candidate.county)})`
   }
+  // #346 (Critiquito): no distance on any card involving a protected site.
+  const protectedPair = isProtectedStory(baseStory) || isProtectedStory(candidate)
   const aGeo = roundedStoryGeo(baseStory)
   const bGeo = roundedStoryGeo(candidate)
-  const miles = haversineMilesRounded(aGeo, bGeo)
+  const miles = protectedPair ? NaN : haversineMilesRounded(aGeo, bGeo)
   if (Number.isFinite(miles) && miles < 50) {
     return `Nearby: ${miles < 10 ? miles.toFixed(1).replace(/\.0$/, "") : Math.round(miles)} miles`
   }
@@ -715,6 +724,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
 
   const latStr = geo.lat.toFixed(geo.decimals)
   const lonStr = geo.lon.toFixed(geo.decimals)
+  // Editor 10/24 (#345): no Find photos ↗ (Historypin) link for protected sites.
   const historypinHref = `https://www.historypin.org/en/explore/geo/${latStr},${lonStr},13/`
   const approxAttr = geo.protectedStory ? ' data-approximate="true"' : ''
 
@@ -737,7 +747,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
       </div>
       <div class="usp-map-inline-actions">
         <a class="usp-btn" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
-        <a class="usp-btn usp-btn-ghost" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+        ${geo.protectedStory ? '' : `<a class="usp-btn usp-btn-ghost" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>`}
       </div>
     </section>`
   }
@@ -754,7 +764,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
     <div class="usp-railmap-foot">
       <a class="usp-railmap-open" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
       ${dirsHtml}
-      <a class="usp-railmap-photos" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+      ${geo.protectedStory ? '' : `<a class="usp-railmap-photos" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>`}
     </div>
   </section>`
 }

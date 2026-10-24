@@ -16,6 +16,7 @@
  * pins are never printed. MapLibre is not included.
  */
 import fs from 'node:fs'
+import { tagLabel } from './lib/tag-label.mjs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import sharp from 'sharp'
@@ -34,7 +35,7 @@ import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteFoo
 import { contactLineHtml } from './contact-reveal.mjs'
 import { storyDrives } from './story-drives-lib.mjs'
 import { takeADriveHtml } from '../src/take-a-drive.js'
-import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
+import { gitFileDates, gitStoryTextDates, storyStoredDate } from './story-dates.mjs'
 import {
   citeBootScript,
   citeBoxHtml,
@@ -67,19 +68,21 @@ import {
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { staticPageBootHtml } from '../src/story-return.js'
-import { researchNotesHtml } from '../src/research-notes.js'
+import { foldedResearchHtml, foldedResearchJumpHtml, researchNotesHtml } from '../src/research-notes.js'
 import {
   glanceTableHtml,
   markdownWithoutGlanceSection,
   renderStoryHtml,
   researchPageHref,
+  isFoldedResearch,
 } from '../src/story-markdown.js'
 import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink } from '../src/transport-links.js'
-import { ROADS_RAILS_STUB_DIRS, roadsRailsEnabled, roadsRailsRedirectHtml } from './roads-rails-flag.mjs'
+import { roadsRailsEnabled } from './roads-rails-flag.mjs'
 import { storyFigureHtml } from '../src/story-figure.js'
 import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
+import { isThinStory } from './lib/thin-stories.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
 import {
   buildUnifiedSources,
@@ -88,6 +91,7 @@ import {
   formatCoordCardinal,
   formatCountiesBadge,
   isProtectedStory,
+  standfirstHasLocator,
   matchStoryMarkers,
   renderWhereItHappenedCard,
   resolvePeopleInStory,
@@ -193,7 +197,7 @@ class PrerenderPages {
     const markers = PrerenderPages.loadHistoricalMarkers(root)
     await PrerenderPages.collectPhotoSizes(root, stories)
     PrerenderPages.assertOverridesApplied(root, stories)
-    const layers = await PrerenderPages.loadLayers(root)
+    const layers = await PrerenderPages.loadLayers(root, stories)
     const dates = PrerenderPages.gitFileDates(root)
     const textDates = gitStoryTextDates(root)
     for (const story of stories) {
@@ -232,10 +236,10 @@ class PrerenderPages {
       } while (text !== previous)
       return text.replace(/\s+/g, ' ').trim()
     })
-    if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
+    if (aboutH1.length !== 1 || aboutH1[0] !== 'About Kentucky History Drive') {
       throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
     }
-    if (!aboutHtml.includes('<h1 class="about-page-title">Kentucky History Drive</h1>')) {
+    if (!aboutHtml.includes('<h1 class="about-page-title">About Kentucky History Drive</h1>')) {
       throw new Error('prerender: /about/ page title should be the h1 (the header title is a <p>)')
     }
     if (!aboutHtml.includes('src="/route-map-lightbox.js"')) {
@@ -287,6 +291,7 @@ class PrerenderPages {
     })
     relatedBundle.sourcePeople = sourcePeople
     const portraitLog = { shown: [], skipped: [] }
+    let thinRouteImages = 0
     for (const story of stories) {
       const urlPath = `/stories/${story.slug}/`
       const description = PrerenderPages.storyDescription(story)
@@ -294,6 +299,11 @@ class PrerenderPages {
       const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers, relatedBundle, notes)
       PrerenderPages.assertPage(html, story, urlPath)
       PrerenderPages.assertStory(html, story, description, stories, markers, notes)
+      // Item 88: thin stories (< THIN_STORY_MIN_WORDS narrative words) carry noindex, follow and stay out of the sitemap.
+      const thin = isThinStory(story)
+      if (thin !== html.includes(`<meta name="robots" content="${PrerenderPages.THIN_ROBOTS}" />`)) {
+        throw new Error(`prerender: ${urlPath} thin-story robots meta mismatch (thin=${thin})`)
+      }
       PrerenderPages.writePage(dist, urlPath, html)
       const pick = PrerenderPages.storyPortrait(story, relatedBundle)
       if (pick.person) portraitLog.shown.push(story.slug)
@@ -320,7 +330,8 @@ class PrerenderPages {
             },
           ]
         : []
-      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: story.lastmod, images })
+      if (thin) thinRouteImages += images.length
+      else entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod: story.lastmod, images })
     }
     for (const layer of layers) {
       const urlPath = `/layers/${layer.id}/`
@@ -343,12 +354,15 @@ class PrerenderPages {
     }
     // /videos/ is noindex for now (Shannon item 93), so it stays out of the sitemap; its lastmod is still checked.
     const videoSitemap = path.join(dist, 'sitemap-videos.xml')
-    PrerenderPages.writeVideoSitemap(videoSitemap, FILMS, stories)
+    // Item 88: films whose story page is thin (noindex) stay out of the video sitemap.
+    const indexedFilms = FILMS.filter((film) => !isThinStory(stories.find((item) => item.slug === film.storySlug)))
+    PrerenderPages.writeVideoSitemap(videoSitemap, indexedFilms, stories)
     const videoXml = fs.readFileSync(videoSitemap, 'utf8')
-    if (videoXml.includes('/videos/</loc>') || !videoXml.includes('/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>')) {
+    const maryIndexed = indexedFilms.some((film) => film.storySlug === 'mary-draper-ingles-escapes-through-kentucky-1755')
+    if (videoXml.includes('/videos/</loc>') || maryIndexed !== videoXml.includes('/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>')) {
       throw new Error('prerender: video sitemap must point at the story page')
     }
-    if (!videoXml.includes('2026-10-10T09:00:00-04:00')) {
+    if (maryIndexed && !videoXml.includes('2026-10-10T09:00:00-04:00')) {
       throw new Error('prerender: video sitemap publication date is not the upload time')
     }
     const routesHtml = PrerenderPages.routesPage(stories, cssHrefs)
@@ -360,29 +374,31 @@ class PrerenderPages {
         PrerenderPages.laterDate(max, dates.lastmod.get(`public/maps/routes/${route.slug}/NOTES.md`) || ''),
       dates.lastmod.get('src/route-maps.js') || '',
     )
-    if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
+    // Shallow clone has no git dates; /routes/ is noindex and out of the sitemap, so only check on full history.
+    if (!dates.shallow && !PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
     // /routes/ is noindex for now (Shannon item 93), so it stays out of the sitemap.
+    // v2 Phase 5 (#340): the research outlines fold into their story pages (amplify.yml 301s each old
+    // URL). Only the 7 culture image-evidence pages are still built, noindex,follow and out of the sitemap.
     for (const notes of researchNotes) {
       const story = stories.find((item) => item.slug === notes.storySlug)
       if (!story) throw new Error(`prerender: research ${notes.slug} is not tied to a live story`)
+      if (isFoldedResearch(notes)) continue
       const urlPath = `/research/${notes.slug}/`
       const html = PrerenderPages.researchPage(notes, cssHrefs, story)
       PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
       PrerenderPages.assertResearch(html, notes)
+      if (!html.includes(`<meta name="robots" content="${PrerenderPages.THIN_ROBOTS}" />`)) {
+        throw new Error(`prerender: ${urlPath} culture evidence page must be noindex`)
+      }
       PrerenderPages.writePage(dist, urlPath, html)
-      const fileKey = `public/content/research/${notes.slug}.json`
-      const lastmod = dates.lastmod.get(fileKey) || PrerenderPages.isoDate(notes.updated)
-      if (!PrerenderPages.isoDate(lastmod)) throw new Error(`prerender: ${urlPath} is missing lastmod`)
-      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod })
     }
     // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
     for (const loc of PrerenderPages.drivePaths(root)) {
       const src = `public${loc}index.html`
-      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
+      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || homeLast })
     }
     // Roads & Rails left the live site on Oct 19: unless KHD_ROADS_RAILS=1, it is not built, not in the
-    // sitemap, and /roads-and-rails/ and /roads-rails/ get noindex stubs that forward to the map
-    // (amplify.yml 301s them to / too; those rules have been ignored live before).
+    // sitemap; the Amplify console 301s /roads-and-rails/ and /roads-rails/ to / (item 90).
     if (roadsRailsEnabled()) {
       // Item 70: /roads-and-rails/ is a vite page (roads-and-rails/index.html); list it with a self-canonical.
       const rrFile = path.join(dist, 'roads-and-rails', 'index.html')
@@ -405,10 +421,6 @@ class PrerenderPages {
           'public/maps/transport/sections.geojson',
         ].reduce((max, f) => PrerenderPages.laterDate(max, dates.lastmod.get(f) || ''), '') || new Date().toISOString().slice(0, 10),
       })
-    } else {
-      for (const dir of ROADS_RAILS_STUB_DIRS) {
-        PrerenderPages.writePage(dist, dir, roadsRailsRedirectHtml(`${gtagHeadHtml()}\n${faviconLinksHtml()}`))
-      }
     }
     entries.push({
       loc: `${PrerenderPages.SITE}/privacy/`,
@@ -419,15 +431,15 @@ class PrerenderPages {
     PrerenderPages.writePage(dist, '/timeline/', PrerenderPages.timelineRedirectHtml())
     // Phase 0: a real "not found" page, written twice with the same root-absolute markup.
     // Amplify 301s /x.html to /x/ even when the file exists, so /404/ (dist/404/index.html) is the
-    // address that actually serves; /404.html stays for hosts that read it. Until the console rule
-    // /<*> -> /404/index.html (404) is set, index.html sends unknown paths to /404/ (khd-404-guard).
+    // address that actually serves; /404.html stays for hosts that read it. The Amplify console
+    // rule /<*> -> /404/index.html (404) serves it for unknown paths (item 90).
     const notFoundHtml = PrerenderPages.notFoundPage(cssHrefs)
     PrerenderPages.assertNotFound(notFoundHtml)
     fs.writeFileSync(path.join(dist, '404.html'), notFoundHtml)
     fs.mkdirSync(path.join(dist, '404'), { recursive: true })
     fs.writeFileSync(path.join(dist, '404', 'index.html'), notFoundHtml)
     console.log(`prerender: inline portraits on ${portraitLog.shown.length} stories; skipped ${portraitLog.skipped.length}: ${portraitLog.skipped.join(', ')}`)
-    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries)
+    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries, ROUTE_MAPS.length - thinRouteImages, { allowMissingLastmod: dates.shallow })
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
       `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers, ${researchNotes.length} research) plus home, about, people, stories index, videos, privacy; sitemap ${sitemapCount} urls`,
@@ -625,7 +637,7 @@ class PrerenderPages {
   /**
    * Published is the story file's first git commit.
    * Last revised is the last commit that changed that story's text.
-   * A missing git date stays empty. Never today, and never a story brief date.
+   * No git date (shallow clone): publishedDate, then briefDate. Never today.
    */
   static articleDates(story) {
     const dates = resolveArticleDates(story, { published: story.created, modified: story.gitModified })
@@ -636,6 +648,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${story.slug} revised date is not the last story-text commit`)
     }
     if (!dates.published && !dates.modified) {
+      // Shallow clone (no git history): the story's stored date, never today.
+      const stored = storyStoredDate(story)
+      if (stored) return { ...dates, published: stored, modified: stored }
       throw new Error(`prerender: ${story.slug} has no git date`)
     }
     return dates
@@ -1135,8 +1150,8 @@ class PrerenderPages {
 
   static storyLastmod(story, dates) {
     const git = story.gitModified || dates.get(`public/content/stories/${story.slug}.json`) || ''
-    const published = /^\d{4}-\d{2}-\d{2}$/.test(story.publishedDate || '') ? story.publishedDate : ''
-    return PrerenderPages.laterDate(git, published)
+    // Shallow clone or no git date: the story JSON's stored date, never today.
+    return PrerenderPages.laterDate(git, storyStoredDate(story))
   }
 
   /** Site CSS only. Skip the MapLibre bundle Vite emits next to the app script. */
@@ -1370,7 +1385,33 @@ class PrerenderPages {
     }
   }
 
-  static async loadLayers(root) {
+  /** Pin -> story slug, mirroring slugForPlaceProps in src/main.js (#339). */
+  static pinStorySlugs(root, stories) {
+    const known = new Set(stories.map((st) => st.slug))
+    const file = path.join(root, 'public/content/stories-locations.json')
+    const locations = fs.existsSync(file) ? PrerenderPages.readJson(file) : {}
+    const byHistoryId = new Map()
+    for (const row of Object.values(locations || {})) {
+      if (row?.historyId && row.slug && !byHistoryId.has(row.historyId)) byHistoryId.set(row.historyId, row.slug)
+    }
+    for (const row of Object.values(locations || {})) {
+      for (const extra of Array.isArray(row?.alsoHistoryIds) ? row.alsoHistoryIds : []) {
+        if (extra && row.slug && !byHistoryId.has(extra)) byHistoryId.set(extra, row.slug)
+      }
+    }
+    return (p) => {
+      const direct = p?.slug != null ? String(p.slug) : ''
+      if (direct && known.has(direct)) return direct
+      const id = p?.id != null ? String(p.id) : ''
+      if (id && known.has(id)) return id
+      const hid = p?.historyId != null ? String(p.historyId) : id
+      const slug = hid ? byHistoryId.get(hid) : null
+      return slug && known.has(slug) ? slug : null
+    }
+  }
+
+  static async loadLayers(root, stories = []) {
+    const slugFor = PrerenderPages.pinStorySlugs(root, stories)
     const { LAYER_HIGHLIGHTS } = await import(pathToFileURL(path.join(root, 'src/home-preview-data.js')).href)
     const defs = PrerenderPages.layerDefs(fs.readFileSync(path.join(root, 'src/main.js'), 'utf8'))
     const byId = new Map(LAYER_HIGHLIGHTS.map((item) => [item.layerId, item]))
@@ -1394,11 +1435,13 @@ class PrerenderPages {
             name: PrerenderPages.placeName(p),
             county: p.county ? PrerenderPages.countyLabel(p.county, true) : '',
             years,
+            storySlug: slugFor(p),
           }
         })
         .filter((p) => p.name)
         .sort((a, b) => a.name.localeCompare(b.name) || a.county.localeCompare(b.county))
-      return { ...def, intro, highlight, featured, places }
+      const featuredStorySlug = featured ? slugFor(featured) : null
+      return { ...def, intro, highlight, featured, featuredStorySlug, places }
     })
   }
 
@@ -1677,7 +1720,7 @@ class PrerenderPages {
 
   /** Two or more specific tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
-    return pickRelatedStories(story, all, excludeSlugs)
+    return pickRelatedStories(story, all, excludeSlugs, { isProtected: (s) => isProtectedStory(s) })
   }
 
   static relatedCardMeta(story) {
@@ -1707,6 +1750,7 @@ class PrerenderPages {
       portraitFor: (slug) => (relatedBundle ? portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug)) : ''),
       whyFor: (s, other) => computeRelatedNote(s, other),
       collapsible: true,
+      isProtected: (s) => isProtectedStory(s),
     })
   }
 
@@ -1908,6 +1952,8 @@ class PrerenderPages {
       imageAlt: 'Kentucky History Drive official seal',
       ogType: 'article',
       main: article,
+      // v2 Phase 5 (#340): culture image-evidence pages are noindex until they move to /editorial/.
+      robots: PrerenderPages.THIN_ROBOTS,
       jsonLd: PrerenderPages.researchJsonLd(notes, pageUrl, description, story),
     })
   }
@@ -1956,21 +2002,26 @@ class PrerenderPages {
     const eraText = storyEraLabel(story.era)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
     const layer = PrerenderPages.storyLayer(story, layers)
-    const lead =
+    let lead =
       PrerenderPages.firstSentence(story.bodyMarkdown) ||
       PrerenderPages.firstSentence(summary) ||
       story.title
-    const strippedBody = PrerenderPages.bodyWithoutLead(
-      PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
-      lead,
-    )
+    const sourceBody = PrerenderPages.stripSourceAttribution(story.bodyMarkdown || '')
+    let strippedBody = PrerenderPages.bodyWithoutLead(sourceBody, lead)
+    // When the body's opening can't be lifted out (e.g. it holds a link), the standfirst would repeat it;
+    // show the KY History summary instead (Critiquito #348).
+    // Protected stories (SEO #348): never fall back to the summary or title when it carries a locator; show no standfirst instead.
+    const prot = isProtectedStory(story)
+    if (summary && strippedBody === sourceBody.trim() && !(prot && standfirstHasLocator(summary))) lead = summary
+    if (prot && standfirstHasLocator(lead)) { lead = ''; strippedBody = sourceBody.trim() }
     const split = splitStoryMarkdown(
       markdownWithoutGlanceSection(strippedBody, Boolean(story.glance)),
       Boolean(story.glance),
     )
     const bodyHtml = renderStoryHtml(split.mainMarkdown)
     const glanceHtml = glanceTableHtml(story.glance, notes)
-    const researchHref = notes ? researchPageHref(notes.slug) : ''
+    const isFolded = Boolean(notes && isFoldedResearch(notes))
+    const researchHref = notes && !isFoldedResearch(notes) ? researchPageHref(notes.slug) : ''
     const researchLink = researchHref
       ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
@@ -2050,7 +2101,7 @@ class PrerenderPages {
     )
     const tagsHtml = tagsList.length
       ? `<ul class="usp-tags" aria-label="Story topics">
-          ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(String(t).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()))}</a></li>`).join('')}
+          ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(tagLabel(t))}</a></li>`).join('')}
         </ul>`
       : ''
 
@@ -2064,6 +2115,8 @@ class PrerenderPages {
     const wordCount = bodyPlain.split(/\s+/).filter(Boolean).length
     const pubDateLabel = dates.published || story.publishedDate || ''
 
+    // #348: a 'Research notes' jump in the top sources/tools line on every folded story.
+    const researchJumpHtml = foldedResearchJumpHtml(notes)
     const toolsRowHtml = `<div class="usp-tools" role="toolbar" aria-label="Save and share">
       <button type="button" class="usp-tool" data-print data-story-print aria-label="Save as PDF">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M5 3h10v4H5V3Zm-1 5h12a2 2 0 0 1 2 2v4h-3v3H5v-3H2v-4a2 2 0 0 1 2-2Zm3 8h6v-4H7v4Z" fill="currentColor"/></svg>
@@ -2078,7 +2131,7 @@ class PrerenderPages {
         <span class="usp-tool-label">Share</span>
       </button>
       <span class="usp-share-toast" data-share-feedback role="status" aria-live="polite" hidden></span>
-      <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}</span>
+      <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}${researchJumpHtml ? ` · ${researchJumpHtml}` : ''}</span>
     </div>`
 
     const glanceDetailsHtml = glanceHtml
@@ -2269,6 +2322,11 @@ class PrerenderPages {
       ? `<div class="usp-prose">${renderStoryHtml(split.inlineSourcesMarkdown)}</div>`
       : ''
 
+    // #348 Critiquito: on folded stories the story's own Sources/Notes list moves inside the collapsed
+    // Research notes block, and the separate Chronology / Open questions boxes (duplicates of the fold) go.
+    const researchFold = isFolded
+      ? foldedResearchHtml(notes, { extraSubs: inlineSourcesHtml ? [{ heading: 'Story sources and notes', html: inlineSourcesHtml }] : [] })
+      : ''
     const learnMoreBlock = PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)
     const sourcesSectionHtml = `<section class="usp-section usp-sources" id="sources" data-story-section aria-labelledby="h-sources">
           <div class="usp-sources-head">
@@ -2276,17 +2334,19 @@ class PrerenderPages {
             ${researchLink}
           </div>
           ${sourcesListHtml}
-          ${inlineSourcesHtml}
           ${glanceDetailsHtml}
           ${claimsDetailsHtml}
-          ${timelineDetailsHtml}
-          ${openQuestionsHtml}
+          ${isFolded ? '' : inlineSourcesHtml}
+          ${isFolded ? '' : timelineDetailsHtml}
+          ${isFolded ? '' : openQuestionsHtml}
           ${learnMoreBlock}
+          ${researchFold}
         </section>`
 
-    const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)
+    const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug, { isProtected: isProtectedStory(story) })
     const startTown = String(story.matchedPlace || (counties[0] ? `${counties[0]} County` : 'Danville')).split(',')[0].trim() || 'Danville'
-    const driveSectionHtml = matchedDriveHtml
+    // Protected sites never get a route-builder entry (Critiquito #345, 10/24).
+    const driveSectionHtml = isProtectedStory(story) ? '' : matchedDriveHtml
       ? `<aside class="usp-section usp-drive" id="drive" aria-label="Plan a drive">${matchedDriveHtml}</aside>`
       : `<aside class="usp-section usp-drive" id="drive" aria-labelledby="h-drive">
           <div class="usp-drive-copy">
@@ -2346,6 +2406,7 @@ class PrerenderPages {
       ...(peopleSectionHtml ? [{ id: 'people', label: 'People in this story' }] : []),
       ...(relatedSectionHtml ? [{ id: 'related', label: 'Related stories' }] : []),
       { id: 'sources', label: `Sources and research${unifiedSources.items.length ? ` (${unifiedSources.items.length})` : ''}` },
+      ...(researchJumpHtml ? [{ id: 'research-notes', label: 'Research notes' }] : []),
     ]
     const tocListHtml = `<ol class="usp-toc-list">
       ${tocEntries
@@ -2409,6 +2470,7 @@ class PrerenderPages {
       ogTitle: story.title,
       description,
       canonical,
+      robots: isThinStory(story) ? PrerenderPages.THIN_ROBOTS : '',
       cssHrefs,
       image: ogImage,
       imageAlt: ogAlt,
@@ -2885,7 +2947,10 @@ class PrerenderPages {
       .map((place) => {
         const bits = [place.county, place.years].filter(Boolean)
         const extra = bits.length ? ` <span class="muted">${PrerenderPages.escapeHtml(bits.join(' · '))}</span>` : ''
-        return `<li>${PrerenderPages.escapeHtml(place.name)}${extra}</li>`
+        const name = place.storySlug
+          ? `<a href="/stories/${PrerenderPages.escapeHtml(place.storySlug)}/">${PrerenderPages.escapeHtml(place.name)}</a>`
+          : PrerenderPages.escapeHtml(place.name)
+        return `<li>${name}${extra}</li>`
       })
       .join('')
     const layerStories = PrerenderPages.liveStories(stories).filter((st) =>
@@ -2915,7 +2980,8 @@ class PrerenderPages {
             <p>${PrerenderPages.escapeHtml(highlight.blurb || '')}</p>
             <div class="story-body">${PrerenderPages.plainParagraphs(PrerenderPages.featureText(featured))}</div>
             <div class="static-cta">
-              <a class="btn" href="${PrerenderPages.escapeHtml(pinHref)}">Open this layer on the map</a>
+              ${layer.featuredStorySlug ? `<a class="btn" href="/stories/${PrerenderPages.escapeHtml(layer.featuredStorySlug)}/">Read the story</a>` : ''}
+              <a class="btn${layer.featuredStorySlug ? ' ghost' : ''}" href="${PrerenderPages.escapeHtml(pinHref)}">Open this layer on the map</a>
               <a class="btn ghost" href="/#map">Full map</a>
             </div>
           </div>
@@ -3014,9 +3080,30 @@ class PrerenderPages {
       if (typeof value !== 'number' || !Number.isFinite(value)) continue
       scrubbed = scrubbed.split(String(value)).join('').split(JSON.stringify(value)).join('')
     }
-    if (/-?\d{1,3}\.\d{5,}/.test(scrubbed)) {
+    if (PrerenderPages.hasPreciseCoordinate(scrubbed)) {
       throw new Error(`prerender: ${urlPath} includes a precise coordinate`)
     }
+  }
+
+  /**
+   * Security Watch (#346), narrow: a precise-coordinate-shaped match is exempt ONLY inside the path of an
+   * href that parses to host archive.org / www.archive.org with pathname /details/<id> and no query,
+   * fragment or userinfo (e.g. /details/in.ernet.dli.2015.58770). Page text, other attributes, query
+   * strings and other hosts still fail. check-protected-coords has no archive.org exemption.
+   */
+  static isArchiveDetailsHref(raw) {
+    let u
+    try { u = new URL(String(raw).replace(/&amp;/g, '&')) } catch { return false }
+    if (u.protocol !== 'https:' && u.protocol !== 'http:') return false
+    if (u.hostname !== 'archive.org' && u.hostname !== 'www.archive.org') return false
+    if (u.username || u.password || u.port || u.search || u.hash || /[?#]/.test(raw)) return false
+    return /^\/details\/[A-Za-z0-9._-]+\/?$/.test(u.pathname)
+  }
+
+  static hasPreciseCoordinate(html) {
+    const scrubbed = String(html).replace(/(\shref=)(["'])([^"']*)\2/g, (m, pre, q, url) =>
+      PrerenderPages.isArchiveDetailsHref(url) ? `${pre}${q}${q}` : m)
+    return /-?\d{1,3}\.\d{5,}/.test(scrubbed)
   }
 
   static assertRouteMap(html, story, route, data) {
@@ -3330,7 +3417,15 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} glance table link is not site-relative`)
       }
     }
-    if (notes) {
+    if (notes && isFoldedResearch(notes)) {
+      const sourcesTail = html.slice(html.indexOf('id="h-sources"'), html.indexOf('</section>', html.indexOf('id="h-sources"')))
+      if (/<summary>Chronology \(|<summary>Open questions \(/.test(sourcesTail) || !/<\/details>\s*$/.test(sourcesTail)) {
+        throw new Error(`prerender: ${urlPath} research notes must be the last block of Sources and research, with no duplicate Chronology/Open questions`)
+      }
+      if (!html.includes('<details class="usp-details research-fold" id="research-notes" data-research-notes>') || !html.includes('<a class="research-jump" href="#research-notes">Research notes</a>') || html.includes(`href="/research/${notes.slug}/`)) {
+        throw new Error(`prerender: ${urlPath} must fold its research notes in, not link /research/${notes.slug}/`)
+      }
+    } else if (notes) {
       const href = researchPageHref(notes.slug)
       if (!href || !html.includes(`href="${href}"`) || !html.includes('>Research notes and sources for the ')) {
         throw new Error(`prerender: ${urlPath} does not link to its research notes`)
@@ -3354,7 +3449,7 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} artwork credit must start '${lead}<artist>' and never say Photo: or AI illustration`)
       }
     }
-    if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
+    if (!html.includes('class="story-lead"') && !isProtectedStory(story)) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
     if (!html.includes(PrerenderPages.rssAlternateLink())) {
       throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
     }
@@ -3379,12 +3474,14 @@ class PrerenderPages {
     if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
       throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
     }
-    const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
+    // #345: protected sites list same-county stories only, so they may have fewer than 3 (or none).
+    const protectedRelated = isProtectedStory(story)
+    const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/) || (protectedRelated ? [''] : null)
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
-    if (!related || !related[0].includes('Related stories') || relatedCount < 3 || relatedCount > 5) {
+    if (!related || (!protectedRelated && (!related[0].includes('Related stories') || relatedCount < 3)) || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
     }
-    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0])) {
+    if (related[0] && (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0]))) {
       throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
     }
     const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
@@ -3429,7 +3526,7 @@ class PrerenderPages {
     if ((article?.datePublished || '') !== expectedDates.published || (article?.dateModified || '') !== expectedDates.modified) {
       throw new Error(`prerender: ${urlPath} Article dates are not the git first commit and last story-text commit`)
     }
-    if (story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
+    if (story.created && story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
       throw new Error(`prerender: ${urlPath} published date is a story field, not the git first commit`)
     }
     const cite = html.match(/<section class="cite-story"[\s\S]*?<\/section>/)
@@ -3486,6 +3583,7 @@ class PrerenderPages {
     const matchedMarkersForStory = matchStoryMarkers(story, markers, notes, routeForNearby)
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
+      isProtected: (s) => isProtectedStory(s),
       excludeSlugs: [...(routeForNearby?.relatedStories || []), ...peopleBoxSlugs, ...relatedSlugs],
       excludeMarkerIds: [
         ...new Set([
@@ -3495,10 +3593,17 @@ class PrerenderPages {
       ],
     })
     const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
+    // #346 (Critiquito): no card naming a protected site carries a distance.
+    for (const card of related[0].match(/<li class="(?:related-story|nearby-place)">[\s\S]*?<\/li>/g) || []) {
+      const slug = (card.match(/href="\/stories\/([^"/]+)\//) || [])[1]
+      const target = slug && all.find((s) => s.slug === slug)
+      if (target && isProtectedStory(target) && /nearby-miles|\bmiles?\b/.test(card)) throw new Error(`prerender: ${urlPath} shows a distance on protected site card ${slug}: ${card.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 400)}`)
+    }
+    if (isProtectedStory(story) && nearbyItems.length) throw new Error(`prerender: ${urlPath} protected story shows nearby cards`)
     if (!PrerenderPages.publicGeo(story) && nearbyItems.length) {
       throw new Error(`prerender: ${urlPath} shows nearby places without a public pin`)
     }
-    if (PrerenderPages.publicGeo(story)) {
+    if (PrerenderPages.publicGeo(story) && !isProtectedStory(story)) {
       const nearbyStoriesHtml = nearbyItems.filter((item) => item.includes('href="/stories/'))
       const nearbyMarkersHtml = nearbyItems.filter((item) => item.includes('href="/#map/markers/'))
       if (nearbyExpected.filter((row) => row.kind === 'story').length >= 3 && (nearbyStoriesHtml.length < 3 || nearbyStoriesHtml.length > 5)) {
@@ -4338,33 +4443,6 @@ ${rows}
           <input id="notFoundQuery" name="q" type="search" maxlength="100" placeholder="A person, place, county or topic" autocomplete="off" required />
           <button type="submit">Search</button>
         </form>
-        <script>/* khd-404-from */(function(){
-          // /404/?from=<path>. The search box gets the last segment, dashes as spaces.
-          // Value only: no HTML, and no regular expression built from the parameter.
-          var input = document.getElementById('notFoundQuery')
-          if (!input) return
-          var raw = ''
-          try { raw = new URLSearchParams(location.search).get('from') } catch (e) { return }
-          if (raw == null) return
-          var from = String(raw)
-          if (from.length > 100) from = from.slice(0, 100)
-          var parts = from.split('/')
-          var last = ''
-          for (var i = 0; i < parts.length; i++) if (parts[i]) last = parts[i]
-          var lower = last.toLowerCase()
-          if (lower.slice(-5) === '.html') last = last.slice(0, -5)
-          else if (lower.slice(-4) === '.htm') last = last.slice(0, -4)
-          var out = ''
-          var pendingSpace = false
-          for (var j = 0; j < last.length && out.length < 100; j++) {
-            var c = last.charAt(j)
-            var gap = c === '-' || c === '_' || c === ' ' || c === '\t'
-            if (gap) { if (out) pendingSpace = true; continue }
-            if (pendingSpace) { if (out.length >= 99) break; out += ' '; pendingSpace = false }
-            out += c
-          }
-          if (out) input.value = out
-        })()</script>
         <ul class="not-found-links">
           <li><a href="/stories/">Browse all stories</a></li>
           <li><a href="/">Home</a></li>
@@ -4464,7 +4542,7 @@ ${rows.join('\n')}
 
   static aboutPage(cssHrefs) {
     const description =
-      'Kentucky History Drive is published by Shannon Snowden. It maps Kentucky Historical Society markers and publishes a timeline of Kentucky history stories.'
+      'Kentucky History Drive: sourced Kentucky history stories, a marker map, a timeline and drive plans, with care for protected archaeological sites.'
     const main = `<article>
         <nav class="story-crumbs" aria-label="Breadcrumb">
           <a href="/">Home</a>
@@ -4473,7 +4551,7 @@ ${rows.join('\n')}
         </nav>
         <header class="story-head">
           <p class="static-kicker">About</p>
-          <h1 class="about-page-title">Kentucky History Drive</h1>
+          <h1 class="about-page-title">About Kentucky History Drive</h1>
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
         <figure class="about-seals" aria-labelledby="aboutSealsTitle">
@@ -4485,11 +4563,30 @@ ${rows.join('\n')}
           </ul>
           <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit. Tap a seal to enlarge it.</figcaption>
         </figure>
+        <p class="story-lead"><strong>History is all around us.</strong></p>
+        <p>Kentucky History Drive helps you find the history around you, see where it happened, and go see it for yourself. Every part of the site serves one path: from a story, to a place on the map, to a drive you can take.</p>
+        <h2>What you’ll find here</h2>
+        <ul>
+          <li><strong>Stories.</strong> Short, sourced narratives about Kentucky’s people, places and events, with new stories added regularly. Each one links to its spot on the map, its place on the Timeline, and a nearby drive.</li>
+          <li><strong>An interactive map.</strong> Kentucky Historical Society markers, history pins, museums, war sites, covered bridges, mills, distilleries, parks, cemeteries and more, plus the approximate areas of Native nations and archaeological cultures.</li>
+          <li><strong>A Timeline.</strong> Browse Kentucky history by era and year range.</li>
+          <li><strong>Faces to names.</strong> Each person in our stories is meant to get a portrait: a real photograph when one exists, or a labeled AI illustration when it doesn’t.</li>
+          <li><strong>Drive plans.</strong> <a href="/drives/">Ready-made drives</a>, including loops that start at a distillery, plus a planner for trips from 1 hour to a full day. Each opens in Google Maps or Apple Maps.</li>
+          <li><strong>Research outlines.</strong> Research notes and sources that go with stories.</li>
+          <li><strong>Take stories on the road.</strong> Printable, PDF and Markdown copies of stories.</li>
+        </ul>
+        <h2>What we’re building</h2>
+        <p>A free, phone-friendly companion for Kentuckians, road-trippers and history readers. Read a story at a marker, see what else happened nearby, and turn an afternoon into a trip. Our goal is history that’s accurate, fair to every people it covers, and easy to visit.</p>
+        <h2>Sources and accuracy</h2>
+        <p>Every claim a reader might question, such as a date, name, number or quote, links to a source, with primary and official sources first. When sources disagree, we say so, and family tradition and oral history are labeled as such. If you spot an error, please tell us. Corrections are welcome and we fix them promptly.</p>
+        <h2>About our images</h2>
+        <p>We use real archival photos whenever they exist. Where none do, we use AI illustrations, and every one is visibly labeled “AI illustration · Kentucky History Drive.” We never present an AI image as a real photograph.</p>
+        <h2>Protecting archaeological sites</h2>
+        <p>Kentucky’s archaeological sites are fragile and protected by law. For sites that aren’t open to the public, we show location only at the county level and never give directions. Please visit only sites that are open to the public, and leave everything where you find it.</p>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
         <h2>Author</h2>
         <p>Shannon Snowden is the author of the Kentucky history stories on this site. Each story is written for Kentucky History Drive and tied to a place, a year, or a map layer when the sources support it.</p>
-        <p>Kentucky History Drive helps you explore Kentucky’s historical highway markers on a map, and browse Kentucky history stories on a timeline by era and year.</p>
         <h2 id="license">Credits</h2>
         <ul class="about-credits">
           <li>Marker text and locations: Kentucky Historical Society / <a href="https://history.ky.gov/markers" target="_blank" rel="noopener">history.ky.gov</a></li>
@@ -4631,7 +4728,7 @@ ${rows.join('\n')}
   }
 
   /** Home, about, stories, layers, then /privacy/ last. Each URL gets its own lastmod. */
-  static updateSitemap(file, entries) {
+  static updateSitemap(file, entries, expectedImages = ROUTE_MAPS.length, { allowMissingLastmod = false } = {}) {
     if (!entries.length || !String(entries[entries.length - 1].loc).endsWith('/privacy/')) {
       throw new Error('prerender: sitemap must end with /privacy/')
     }
@@ -4644,7 +4741,8 @@ ${rows.join('\n')}
       const lastmod = /^\d{4}-\d{2}-\d{2}$/.test(entry.lastmod || '')
         ? `\n    <lastmod>${PrerenderPages.escapeXml(entry.lastmod)}</lastmod>`
         : ''
-      if (!lastmod) throw new Error(`prerender: ${entry.loc} is missing lastmod`)
+      // Shallow clone: no git date → omit <lastmod> (never today). Full history must date every URL.
+      if (!lastmod && !allowMissingLastmod) throw new Error(`prerender: ${entry.loc} is missing lastmod`)
       const images = (entry.images || [])
         .map((img) => {
           imageCount += 1
@@ -4670,8 +4768,8 @@ ${rows.join('\n')}
       }
       if (PrerenderPages.NOINDEX_PATHS.includes(pathname)) throw new Error(`prerender: sitemap lists noindex page ${pathname}`)
     }
-    if (imageCount !== ROUTE_MAPS.length) {
-      throw new Error(`prerender: sitemap has ${imageCount} route map images, expected ${ROUTE_MAPS.length}`)
+    if (imageCount !== expectedImages) {
+      throw new Error(`prerender: sitemap has ${imageCount} route map images, expected ${expectedImages}`)
     }
     const xmlns = imageCount
       ? 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'

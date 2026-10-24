@@ -14,8 +14,8 @@
     <desc>Coshocton. Coshocton Co., OH. Approximate.</desc>
   </wpt>
   <wpt lat="38.7" lon="-83.0">
-    <name>Lower Shawneetown (&quot;Shannoah Town&quot;), mouth of the Scioto</name>
-    <desc>Portsmouth OH / South Portsmouth KY. Scioto Co., OH / Greenup Co., KY. Approximate.</desc>
+    <name>Lower Shawneetown (&quot;Shannoah Town&quot;), Greenup County</name>
+    <desc>Greenup Co., KY. Scioto Co., OH / Greenup Co., KY. Approximate.</desc>
   </wpt>
   <wpt lat="40.18" lon="-84.24">
     <name>Pickawillany (Twightwee town), Great Miami</name>
@@ -23,7 +23,7 @@
   </wpt>
   <wpt lat="38.7" lon="-83.0">
     <name>ferried over the Ohio into Kentucky</name>
-    <desc>South Portsmouth. Greenup Co., KY. Approximate.</desc>
+    <desc>Greenup Co., KY. Greenup Co., KY. Approximate.</desc>
   </wpt>
   <wpt lat="38.55" lon="-84.70">
     <name>lower Salt Lick Creek, &quot;about 15 miles above the Falls&quot;</name>
@@ -65,8 +65,8 @@
       <desc>Coshocton. Coshocton Co., OH. Approximate.</desc>
     </rtept>
     <rtept lat="38.7" lon="-83.0">
-      <name>Lower Shawneetown (&quot;Shannoah Town&quot;), mouth of the Scioto</name>
-      <desc>Portsmouth OH / South Portsmouth KY. Scioto Co., OH / Greenup Co., KY. Approximate.</desc>
+      <name>Lower Shawneetown (&quot;Shannoah Town&quot;), Greenup County</name>
+      <desc>Greenup Co., KY. Scioto Co., OH / Greenup Co., KY. Approximate.</desc>
     </rtept>
     <rtept lat="40.18" lon="-84.24">
       <name>Pickawillany (Twightwee town), Great Miami</name>
@@ -74,7 +74,7 @@
     </rtept>
     <rtept lat="38.7" lon="-83.0">
       <name>ferried over the Ohio into Kentucky</name>
-      <desc>South Portsmouth. Greenup Co., KY. Approximate.</desc>
+      <desc>Greenup Co., KY. Greenup Co., KY. Approximate.</desc>
     </rtept>
     <rtept lat="38.55" lon="-84.70">
       <name>lower Salt Lick Creek, &quot;about 15 miles above the Falls&quot;</name>

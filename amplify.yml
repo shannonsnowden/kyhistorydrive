@@ -3,6 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
+        # Full history so sitemap lastmod uses real git dates (shallow clones fall back to story JSON dates).
+        - git fetch --unshallow || true
         - npm ci
         # Validate and publish committed public/data/app/ (OTA source of truth).
         # Does not pull ky-markers-drive unless SYNC_FROM_MARKERS=1.
@@ -24,26 +26,14 @@ frontend:
 # /privacy (no file extension) and /sitemap.xml (.xml is outside Amplify's
 # usual static-extension exclusion list). /robots.txt is a real file.
 # /stories/<slug>/, /layers/<id>/, and /videos/ are prerendered index.html
-# files from scripts/prerender-pages.mjs. The rules below do not match
-# /stories/ or /layers/. /videos follows the /about slash rules.
-# Old /home-preview links redirect to the live home.
+# files from scripts/prerender-pages.mjs.
+# Item 90: the 301s (old slugs, /home-preview, /drive-preview, Roads & Rails) and the
+# unknown-path 404 now live in the Amplify console rewrites and redirects. The four
+# slashless 301s below (/about, /videos, /timeline, /drives) are not in the console,
+# so they stay here; the rest of this list is the 200 rewrites.
 customRules:
-  - source: '/home-preview'
-    target: '/'
-    status: '301'
-  - source: '/home-preview/'
-    target: '/'
-    status: '301'
-  - source: '/home-preview/<*>'
-    target: '/'
-    status: '301'
-  # Merged Erie stories (tribe cleanup #256): old slug 301s to the kept story.
-  - source: '/stories/erie-the-cat-nation-cleared-from-the-lake-shore'
-    target: '/stories/erie-the-cat-nation/'
-    status: '301'
-  - source: '/stories/erie-the-cat-nation-cleared-from-the-lake-shore/'
-    target: '/stories/erie-the-cat-nation/'
-    status: '301'
+  # Editor ruling (#345): the 16 old-slug 301s below stay here (8 slugs x slash/no slash); all other
+  # old-slug 301s live in the Amplify console. check-security-headers.mjs allowlists exactly these + the 4 slashless rules.
   # Merged duplicate stories (block f, #337): generated from docs/redirects/block-f-merges.json; keep in sync (build-merge-redirects checks).
   - source: '/stories/capt-jack-jouett'
     target: '/stories/jack-jouett-kentuckys-midnight-rider/'
@@ -87,42 +77,12 @@ customRules:
   - source: '/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid/'
     target: '/stories/wea-waayaahtanwa-on-the-wabash/'
     status: '301'
-  # Merged duplicate stories (item 60): each retired slug 301s to the kept story.
-  - source: '/stories/cleek-mccabe-fort-ancient-village'
-    target: '/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/'
+  # Editor ruling (#346): Red Bird petroglyphs moved to a county-level slug.
+  - source: '/stories/red-bird-river-petroglyphs-clay-county'
+    target: '/stories/red-bird-petroglyphs-clay-county/'
     status: '301'
-  - source: '/stories/cleek-mccabe-fort-ancient-village/'
-    target: '/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/'
-    status: '301'
-  - source: '/stories/muir-site-15js86'
-    target: '/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge/'
-    status: '301'
-  - source: '/stories/muir-site-15js86/'
-    target: '/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge/'
-    status: '301'
-  - source: '/stories/adams-site-mississippian-town-near-hickman'
-    target: '/stories/adams-site-15fu4/'
-    status: '301'
-  - source: '/stories/adams-site-mississippian-town-near-hickman/'
-    target: '/stories/adams-site-15fu4/'
-    status: '301'
-  - source: '/stories/lawrenceburg-from-kaufmans-station'
-    target: '/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat/'
-    status: '301'
-  - source: '/stories/lawrenceburg-from-kaufmans-station/'
-    target: '/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat/'
-    status: '301'
-  - source: '/stories/springfield-first-county-seat-after-statehood'
-    target: '/stories/springfield-founding-and-washington-county-seat/'
-    status: '301'
-  - source: '/stories/springfield-first-county-seat-after-statehood/'
-    target: '/stories/springfield-founding-and-washington-county-seat/'
-    status: '301'
-  - source: '/stories/hugh-mcgary-the-hothead-major'
-    target: '/stories/hugh-mcgary-the-blue-licks-hothead/'
-    status: '301'
-  - source: '/stories/hugh-mcgary-the-hothead-major/'
-    target: '/stories/hugh-mcgary-the-blue-licks-hothead/'
+  - source: '/stories/red-bird-river-petroglyphs-clay-county/'
+    target: '/stories/red-bird-petroglyphs-clay-county/'
     status: '301'
   - source: '/privacy'
     target: '/privacy/index.html'
@@ -130,9 +90,6 @@ customRules:
   - source: '/privacy/'
     target: '/privacy/index.html'
     status: '200'
-  # Slashless /about matches the live /privacy behavior: 301 to the
-  # trailing-slash URL. /privacy's 301 is S3's directory redirect, not a
-  # 301 rule in this file (the /privacy rule below is still a 200 rewrite).
   - source: '/about'
     target: '/about/'
     status: '301'
@@ -145,50 +102,12 @@ customRules:
   - source: '/videos/'
     target: '/videos/index.html'
     status: '200'
-  # /timeline is a hash route (/#timeline). Amplify rules cannot target a #fragment, so
-  # /timeline/ serves a tiny static stub (public/timeline/index.html) that forwards with
-  # location.replace + meta refresh. Slashless /timeline follows the /about slash rules.
   - source: '/timeline'
     target: '/timeline/'
     status: '301'
   - source: '/timeline/'
     target: '/timeline/index.html'
     status: '200'
-  # Drives live at /drives/ (index, /drives/<slug>/ pages, /drives/build/ planner), served as
-  # static index.html files. Slashless /drives follows the /about slash rules. The old
-  # /drive-preview/ paths from the preview build redirect permanently to the same page under /drives/.
   - source: '/drives'
     target: '/drives/'
-    status: '301'
-  - source: '/drive-preview'
-    target: '/drives/'
-    status: '301'
-  - source: '/drive-preview/'
-    target: '/drives/'
-    status: '301'
-  - source: '/drive-preview/<*>'
-    target: '/drives/<*>'
-    status: '301'
-  # Roads & Rails was taken off the live site by Shannon on Oct 19, 2026. Every old URL 301s to the
-  # map (/). Rules cannot target #map, so scripts/prerender-pages.mjs also writes noindex stubs at
-  # /roads-and-rails/ and /roads-rails/ that forward to /#map (these rules have been ignored live before).
-  # The code is kept: KHD_ROADS_RAILS=1 rebuilds the page (scripts/roads-rails-flag.mjs). Remove this
-  # block to relaunch.
-  - source: '/roads-and-rails'
-    target: '/'
-    status: '301'
-  - source: '/roads-and-rails/'
-    target: '/'
-    status: '301'
-  - source: '/roads-and-rails/index.html'
-    target: '/'
-    status: '301'
-  - source: '/roads-rails'
-    target: '/'
-    status: '301'
-  - source: '/roads-rails/'
-    target: '/'
-    status: '301'
-  - source: '/roads-rails/index.html'
-    target: '/'
     status: '301'

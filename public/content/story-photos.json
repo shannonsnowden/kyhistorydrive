@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T11:01:00.022Z",
+  "generatedAt": "2026-10-24T19:12:43.382Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -30,7 +30,7 @@
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
       "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
-      "historyId": null,
+      "historyId": "ann-mcginty-first-spinning-wheel-harrodstown",
       "photo": {
         "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
         "title": "Old Fort Harrod reconstruction, Harrodsburg",
@@ -223,18 +223,6 @@
         "fit": "contain"
       }
     },
-    "buckner-site-fort-ancient-villages-on-strodes-creek": {
-      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
-      "historyId": "buckner-site-15bb12-bourbon-county",
-      "photo": {
-        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
-        "title": "Paris, Bourbon County (nearest city to Buckner Site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
-      }
-    },
     "burlington-boone-county-seat": {
       "slug": "burlington-boone-county-seat",
       "historyId": "burlington-boone-1799-1816",
@@ -245,18 +233,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
         "year": 2020
-      }
-    },
-    "camp-nelson-jessamine-county": {
-      "slug": "camp-nelson-jessamine-county",
-      "historyId": "camp-nelson-jessamine-1863-1865",
-      "photo": {
-        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
-        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
-        "year": 2022
       }
     },
     "camp-nelson-kentucky-us-colored-troops": {
@@ -364,34 +340,6 @@
         "year": 2013
       }
     },
-    "chambers-site-15ml109-marshall-county": {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "historyId": "chambers-site-15ml109-marshall-1250-1350",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
-      }
-    },
-    "chickamauga-cherokee-hold-the-southern-flank": {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later; CC BY-SA 4.0",
-        "year": 2010,
-        "credit": "Chuck Hamilton",
-        "license": "GFDL 1.2 or later; CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-        "artwork": "map"
-      }
-    },
     "chickamauga-cherokee": {
       "slug": "chickamauga-cherokee",
       "historyId": null,
@@ -424,7 +372,7 @@
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "photo": {
         "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
-        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "title": "Sandstone outcrop in eastern Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
@@ -901,7 +849,7 @@
     },
     "henry-mckennas-fairfield-sour-mash": {
       "slug": "henry-mckennas-fairfield-sour-mash",
-      "historyId": null,
+      "historyId": "henry-mckenna-fairfield-old-line",
       "photo": {
         "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
         "title": "Main Street (KY 48), Fairfield, Nelson County",
@@ -1005,19 +953,6 @@
       "historyId": "jacob-beam-hardins-creek-washington-county",
       "photo": {
         "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
-        "title": "Jim Beam White Label",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null,
-        "fit": "contain"
-      }
-    },
-    "jacob-beam-sells-old-jakes-first-barrel": {
-      "slug": "jacob-beam-sells-old-jakes-first-barrel",
-      "historyId": "jacob-beam-hardins-creek-washington-county",
-      "photo": {
-        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
         "title": "Jim Beam White Label",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
@@ -1202,7 +1137,7 @@
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
-      "historyId": null,
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
       "photo": {
         "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
         "title": "Anderson County Courthouse, Lawrenceburg",
@@ -1484,18 +1419,6 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "historyId": "muir-site-15js86-jessamine-county",
-      "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      }
-    },
     "natural-bridge-sandstone-arch": {
       "slug": "natural-bridge-sandstone-arch",
       "historyId": "natural-bridge-corbin-sandstone",
@@ -1527,7 +1450,7 @@
     },
     "newport-at-the-licking-mouth": {
       "slug": "newport-at-the-licking-mouth",
-      "historyId": null,
+      "historyId": "newport-founding-hubbard-and-james-taylor",
       "photo": {
         "image_url": "/content/photos/stories/newport-at-the-licking-mouth.jpg",
         "title": "Mouth of the Licking River between Covington and Newport, 2004",
@@ -1555,24 +1478,12 @@
         "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
-    "nonhelema": {
-      "slug": "nonhelema",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/nonhelema.jpg",
-        "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
-        "year": 2019
-      }
-    },
     "old-fort-earthworks-15gp1-greenup-county": {
       "slug": "old-fort-earthworks-15gp1-greenup-county",
       "historyId": "old-fort-earthworks-15gp1-greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -1639,21 +1550,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2018
-      }
-    },
-    "peter-village-early-woodland-enclosure-near-lexington": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848,
-        "artwork": "engraving",
-        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-        "license": "Public domain"
       }
     },
     "phosphatic-limestone-and-horse-country": {
@@ -1730,12 +1626,12 @@
         "year": null
       }
     },
-    "red-bird-river-petroglyphs-clay-county": {
-      "slug": "red-bird-river-petroglyphs-clay-county",
-      "historyId": "red-bird-river-petroglyphs-eriline-clay",
+    "red-bird-petroglyphs-clay-county": {
+      "slug": "red-bird-petroglyphs-clay-county",
+      "historyId": "red-bird-petroglyphs-clay",
       "photo": {
-        "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
-        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "image_url": "/content/photos/stories/red-bird-petroglyphs-clay-county.jpg",
+        "title": "The Red Bird inscription in place in Clay County, about 1988, before it fell",
         "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
@@ -1891,7 +1787,7 @@
     },
     "simon-girty-interpreter-at-bryan-station-1782": {
       "slug": "simon-girty-interpreter-at-bryan-station-1782",
-      "historyId": null,
+      "historyId": "bryans-station-siege-1782",
       "photo": {
         "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
         "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
@@ -2049,18 +1945,6 @@
         "year": null
       }
     },
-    "the-c-and-o-mounds-at-paintsville": {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
-      }
-    },
     "the-maysville-road-and-jacksons-veto-1830": {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
       "historyId": "maysville-lexington-turnpike-mason-1829-1835",
@@ -2094,18 +1978,6 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
-        "year": null
-      }
-    },
-    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
       }
     },
@@ -2184,7 +2056,7 @@
       "historyId": "turk-site-15ce6-carlisle-county",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "title": "Looking toward the Turk Site, Carlisle County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -2211,21 +2083,6 @@
         "artwork": "print"
       }
     },
-    "twin-mounds-site": {
-      "slug": "twin-mounds-site",
-      "historyId": "twin-mounds-site-15ba2-ballard-county",
-      "photo": {
-        "image_url": "/content/photos/stories/twin-mounds-site.jpg",
-        "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-      }
-    },
     "walker-daniel-danvilles-namesake": {
       "slug": "walker-daniel-danvilles-namesake",
       "historyId": "walker-daniel-danville-boyle-1781-1787",
@@ -2248,18 +2105,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
         "year": 2011
-      }
-    },
-    "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
-      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "historyId": "wea-waayaahtanwa-ouiatenon",
-      "photo": {
-        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
-        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
-        "year": 2008
       }
     },
     "wea-waayaahtanwa-on-the-wabash": {
@@ -2345,18 +2190,6 @@
         "year": 2008,
         "fit": "contain"
       }
-    },
-    "yellow-banks-becomes-owensboro": {
-      "slug": "yellow-banks-becomes-owensboro",
-      "historyId": "owensboro-founding-yellow-banks",
-      "photo": {
-        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
-        "title": "Second Street, Owensboro",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Smallbones · Wikimedia Commons · Public domain",
-        "year": null
-      }
     }
   },
   "byHistoryId": {
@@ -2385,6 +2218,18 @@
         "credit": "Herb Roe",
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "ann-mcginty-first-spinning-wheel-harrodstown": {
+      "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
+      "historyId": "ann-mcginty-first-spinning-wheel-harrodstown",
+      "photo": {
+        "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
+        "title": "Old Fort Harrod reconstruction, Harrodsburg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "annis-mound-village-15bt2-butler-county": {
@@ -2558,28 +2403,17 @@
       }
     },
     "bryans-station-siege-1782": {
-      "slug": "bryan-station-siege-august-1782",
+      "slug": "simon-girty-interpreter-at-bryan-station-1782",
       "historyId": "bryans-station-siege-1782",
       "photo": {
-        "image_url": "/content/photos/stories/bryan-station-siege-august-1782.jpg",
-        "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
+        "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2019,
+        "license": "CC BY-SA 4.0",
         "fit": "contain"
-      }
-    },
-    "buckner-site-15bb12-bourbon-county": {
-      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
-      "historyId": "buckner-site-15bb12-bourbon-county",
-      "photo": {
-        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
-        "title": "Paris, Bourbon County (nearest city to Buckner Site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
       }
     },
     "burlington-boone-1799-1816": {
@@ -2592,18 +2426,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
         "year": 2020
-      }
-    },
-    "camp-nelson-jessamine-1863-1865": {
-      "slug": "camp-nelson-jessamine-county",
-      "historyId": "camp-nelson-jessamine-1863-1865",
-      "photo": {
-        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
-        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
-        "year": 2022
       }
     },
     "camp-nelson-usct-jessamine-1863-1866": {
@@ -2711,18 +2533,6 @@
         "year": 2013
       }
     },
-    "chambers-site-15ml109-marshall-1250-1350": {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "historyId": "chambers-site-15ml109-marshall-1250-1350",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
-      }
-    },
     "cleek-mccabe-fort-ancient-village-boone-county": {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "historyId": "cleek-mccabe-fort-ancient-village-boone-county",
@@ -2740,7 +2550,7 @@
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "photo": {
         "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
-        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "title": "Sandstone outcrop in eastern Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
@@ -3113,6 +2923,18 @@
         "year": 2013
       }
     },
+    "henry-mckenna-fairfield-old-line": {
+      "slug": "henry-mckennas-fairfield-sour-mash",
+      "historyId": "henry-mckenna-fairfield-old-line",
+      "photo": {
+        "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
+        "title": "Main Street (KY 48), Fairfield, Nelson County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2017
+      }
+    },
     "hidden-river-cave-horse-cave-1890-1943": {
       "slug": "hidden-river-cave-under-horse-cave",
       "historyId": "hidden-river-cave-horse-cave-1890-1943",
@@ -3187,10 +3009,10 @@
       }
     },
     "jacob-beam-hardins-creek-washington-county": {
-      "slug": "jacob-beam-sells-old-jakes-first-barrel",
+      "slug": "jacob-beam-on-hardin-creek",
       "historyId": "jacob-beam-hardins-creek-washington-county",
       "photo": {
-        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
+        "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
         "title": "Jim Beam White Label",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
@@ -3370,6 +3192,19 @@
         "credit": "W.marsh",
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "fit": "contain"
+      }
+    },
+    "lawrenceburg-founding-kaufman-s-coffman-s-station": {
+      "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
+      "photo": {
+        "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
+        "title": "Anderson County Courthouse, Lawrenceburg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
+        "year": 2007,
         "fit": "contain"
       }
     },
@@ -3586,18 +3421,6 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
-    "muir-site-15js86-jessamine-county": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "historyId": "muir-site-15js86-jessamine-county",
-      "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      }
-    },
     "natural-bridge-corbin-sandstone": {
       "slug": "natural-bridge-sandstone-arch",
       "historyId": "natural-bridge-corbin-sandstone",
@@ -3627,6 +3450,21 @@
         "fit": "contain"
       }
     },
+    "newport-founding-hubbard-and-james-taylor": {
+      "slug": "newport-at-the-licking-mouth",
+      "historyId": "newport-founding-hubbard-and-james-taylor",
+      "photo": {
+        "image_url": "/content/photos/stories/newport-at-the-licking-mouth.jpg",
+        "title": "Mouth of the Licking River between Covington and Newport, 2004",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Licking_river.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Rdikeman at English Wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2004,
+        "credit": "Rdikeman at English Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    },
     "nicholasville-founding-rev-john-metcalf-1798": {
       "slug": "nicholasville-takes-shape",
       "historyId": "nicholasville-founding-rev-john-metcalf-1798",
@@ -3647,7 +3485,7 @@
       "historyId": "old-fort-earthworks-15gp1-greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -3667,10 +3505,10 @@
       }
     },
     "owensboro-founding-yellow-banks": {
-      "slug": "yellow-banks-becomes-owensboro",
+      "slug": "owensboro-yellow-banks",
       "historyId": "owensboro-founding-yellow-banks",
       "photo": {
-        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
+        "image_url": "/content/photos/stories/owensboro-yellow-banks.jpg",
         "title": "Second Street, Owensboro",
         "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
         "source_label": "Wikimedia Commons",
@@ -3700,21 +3538,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2018
-      }
-    },
-    "peter-village-enclosure-15fa166-fayette-county": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848,
-        "artwork": "engraving",
-        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-        "license": "Public domain"
       }
     },
     "inner-bluegrass-phosphatic-limestone-horse-country": {
@@ -3765,12 +3588,12 @@
         "year": 2014
       }
     },
-    "red-bird-river-petroglyphs-eriline-clay": {
-      "slug": "red-bird-river-petroglyphs-clay-county",
-      "historyId": "red-bird-river-petroglyphs-eriline-clay",
+    "red-bird-petroglyphs-clay": {
+      "slug": "red-bird-petroglyphs-clay-county",
+      "historyId": "red-bird-petroglyphs-clay",
       "photo": {
-        "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
-        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "image_url": "/content/photos/stories/red-bird-petroglyphs-clay-county.jpg",
+        "title": "The Red Bird inscription in place in Clay County, about 1988, before it fell",
         "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
@@ -4015,18 +3838,6 @@
         "year": null
       }
     },
-    "c-and-o-mounds-paintsville-johnson-adena": {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
-      }
-    },
     "maysville-lexington-turnpike-mason-1829-1835": {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
       "historyId": "maysville-lexington-turnpike-mason-1829-1835",
@@ -4063,24 +3874,12 @@
         "year": null
       }
     },
-    "tolu-site-15cn1-crittenden-county": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-        "year": null
-      }
-    },
     "turk-site-15ce6-carlisle-county": {
       "slug": "turk-site-carlisle-county",
       "historyId": "turk-site-15ce6-carlisle-county",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "title": "Looking toward the Turk Site, Carlisle County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -4088,21 +3887,6 @@
         "credit": "Nyttend",
         "license": "Public domain",
         "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
-      }
-    },
-    "twin-mounds-site-15ba2-ballard-county": {
-      "slug": "twin-mounds-site",
-      "historyId": "twin-mounds-site-15ba2-ballard-county",
-      "photo": {
-        "image_url": "/content/photos/stories/twin-mounds-site.jpg",
-        "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "walker-daniel-danville-boyle-1781-1787": {

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-19T11:00:50.265Z",
+  "generatedAt": "2026-10-24T19:12:36.275Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
     "county": 4,
-    "override": 146,
-    "none": 38
+    "override": 140,
+    "none": 37
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -109,7 +109,7 @@
       "lat": 37.8,
       "lon": -82.8,
       "mapConfidence": "override",
-      "matchedPlace": "C. and O. Mounds, Paintsville (approximate)",
+      "matchedPlace": "C. and O. Mounds, Johnson County (approximate)",
       "historyId": "c-and-o-mounds-paintsville-johnson-adena"
     },
     "peter-village-enclosure-15fa166": {
@@ -117,14 +117,6 @@
       "lat": 38,
       "lon": -84.5,
       "mapConfidence": "exact",
-      "matchedPlace": "Peter Village enclosure (15Fa166)",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county"
-    },
-    "peter-village-early-woodland-enclosure-near-lexington": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "lat": 38,
-      "lon": -84.5,
-      "mapConfidence": "override",
       "matchedPlace": "Peter Village enclosure (15Fa166)",
       "historyId": "peter-village-enclosure-15fa166-fayette-county"
     },
@@ -446,7 +438,7 @@
       "lon": -84.2666,
       "mapConfidence": "override",
       "matchedPlace": "Boonesborough",
-      "historyId": null
+      "historyId": "michael-stoner-holsteiner"
     },
     "christopher-gist-1750-51": {
       "slug": "christopher-gist-1750-51",
@@ -726,7 +718,7 @@
       "lon": -84.8485383,
       "mapConfidence": "override",
       "matchedPlace": "Ann McGinty / Fort Harrod",
-      "historyId": null
+      "historyId": "ann-mcginty-first-spinning-wheel-harrodstown"
     },
     "benjamin-logan": {
       "slug": "benjamin-logan",
@@ -808,14 +800,6 @@
       "matchedPlace": null,
       "historyId": null
     },
-    "chickamauga-cherokee-hold-the-southern-flank": {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
     "paris-from-hopewell": {
       "slug": "paris-from-hopewell",
       "lat": 38.21273333333333,
@@ -886,7 +870,7 @@
       "lon": -84.41529167,
       "mapConfidence": "override",
       "matchedPlace": "Bryan Station siege site",
-      "historyId": null
+      "historyId": "bryans-station-siege-1782"
     },
     "col-john-bowman-at-old-chillicothe": {
       "slug": "col-john-bowman-at-old-chillicothe",
@@ -990,7 +974,7 @@
       "lon": -84.903056,
       "mapConfidence": "override",
       "matchedPlace": "Lawrenceburg / Kaufman's Station",
-      "historyId": null
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station"
     },
     "ojibwe-on-birds-war-road": {
       "slug": "ojibwe-on-birds-war-road",
@@ -1023,14 +1007,6 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Squire Boone / Painted Stone / Long Run",
       "historyId": "squire-boone-painted-stone"
-    },
-    "capt-jack-jouett": {
-      "slug": "capt-jack-jouett",
-      "lat": 37.9827487,
-      "lon": -84.7708839,
-      "mapConfidence": "override",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
-      "historyId": "capt-jack-jouett-midnight-ride-1781"
     },
     "jack-jouett-kentuckys-midnight-rider": {
       "slug": "jack-jouett-kentuckys-midnight-rider",
@@ -1126,7 +1102,10 @@
       "lon": -85.5013,
       "mapConfidence": "override",
       "matchedPlace": "Father David Rice home marker, Greensburg (KHS #844)",
-      "historyId": "david-rice-home-greensburg-green-1798-1816"
+      "historyId": "david-rice-home-greensburg-green-1798-1816",
+      "alsoHistoryIds": [
+        "concord-church-danville-boyle-1784-1789"
+      ]
     },
     "harry-innes": {
       "slug": "harry-innes",
@@ -1328,14 +1307,6 @@
       "matchedPlace": null,
       "historyId": null
     },
-    "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
-      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "lat": 40.40083,
-      "lon": -86.96,
-      "mapConfidence": "override",
-      "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon",
-      "historyId": "wea-waayaahtanwa-ouiatenon"
-    },
     "carrollton-from-port-william": {
       "slug": "carrollton-from-port-william",
       "lat": 38.68195,
@@ -1398,7 +1369,7 @@
       "lon": -84.50191666666667,
       "mapConfidence": "override",
       "matchedPlace": "Newport Barracks",
-      "historyId": null
+      "historyId": "newport-founding-hubbard-and-james-taylor"
     },
     "simpsonville-takes-shape-on-the-louisville-road": {
       "slug": "simpsonville-takes-shape-on-the-louisville-road",
@@ -1413,14 +1384,6 @@
       "lat": 37.76176666666667,
       "lon": -85.3364,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Jacob Beam / Hardin's Creek",
-      "historyId": "jacob-beam-hardins-creek-washington-county"
-    },
-    "jacob-beam-sells-old-jakes-first-barrel": {
-      "slug": "jacob-beam-sells-old-jakes-first-barrel",
-      "lat": 37.76176666666667,
-      "lon": -85.3364,
-      "mapConfidence": "override",
       "matchedPlace": "Jacob Beam / Hardin's Creek",
       "historyId": "jacob-beam-hardins-creek-washington-county"
     },
@@ -1487,14 +1450,6 @@
       "mapConfidence": "override",
       "matchedPlace": "Prestonsburg founding / Preston’s Station",
       "historyId": "prestonsburg-founding-floyd-1797-1818"
-    },
-    "yellow-banks-becomes-owensboro": {
-      "slug": "yellow-banks-becomes-owensboro",
-      "lat": 37.7759614,
-      "lon": -87.1152649,
-      "mapConfidence": "override",
-      "matchedPlace": "Owensboro / Yellow Banks",
-      "historyId": "owensboro-founding-yellow-banks"
     },
     "bowling-green-takes-shape-on-the-barren-1798": {
       "slug": "bowling-green-takes-shape-on-the-barren-1798",
@@ -1750,7 +1705,7 @@
       "lon": -85.3838837,
       "mapConfidence": "override",
       "matchedPlace": "Henry McKenna / Fairfield",
-      "historyId": null
+      "historyId": "henry-mckenna-fairfield-old-line"
     },
     "diamond-caverns-decorated-limestone": {
       "slug": "diamond-caverns-decorated-limestone",
@@ -1766,15 +1721,10 @@
       "lon": -84.600577,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson USCT recruiting and training center",
-      "historyId": "camp-nelson-usct-jessamine-1863-1866"
-    },
-    "camp-nelson-jessamine-county": {
-      "slug": "camp-nelson-jessamine-county",
-      "lat": 37.78778,
-      "lon": -84.59806,
-      "mapConfidence": "override",
-      "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)",
-      "historyId": "camp-nelson-jessamine-1863-1865"
+      "historyId": "camp-nelson-usct-jessamine-1863-1866",
+      "alsoHistoryIds": [
+        "camp-nelson-jessamine-1863-1865"
+      ]
     },
     "george-garvin-brown-and-old-forester": {
       "slug": "george-garvin-brown-and-old-forester",
@@ -1846,7 +1796,7 @@
       "lon": -83.1233,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Saltpeter Cave (Carter Caves)",
-      "historyId": "saltpeter-cave-carter-caves-15cr99"
+      "historyId": "carter-caves-cascade-cave-and-falls"
     },
     "red-river-gorge-arches-and-the-dam-fight": {
       "slug": "red-river-gorge-arches-and-the-dam-fight",
@@ -1920,13 +1870,13 @@
       "matchedPlace": null,
       "historyId": null
     },
-    "red-bird-river-petroglyphs-clay-county": {
-      "slug": "red-bird-river-petroglyphs-clay-county",
+    "red-bird-petroglyphs-clay-county": {
+      "slug": "red-bird-petroglyphs-clay-county",
       "lat": 37.2,
       "lon": -83.8,
       "mapConfidence": "override",
-      "matchedPlace": "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
-      "historyId": "red-bird-river-petroglyphs-eriline-clay"
+      "matchedPlace": "Red Bird Petroglyphs (15CY51)",
+      "historyId": "red-bird-petroglyphs-clay"
     },
     "susquehannock-and-the-ohio-valley-door": {
       "slug": "susquehannock-and-the-ohio-valley-door",
