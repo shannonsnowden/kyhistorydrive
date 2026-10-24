@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T11:01:00.022Z",
+  "generatedAt": "2026-10-24T13:37:51.258Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -362,18 +362,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2013
-      }
-    },
-    "chambers-site-15ml109-marshall-county": {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "historyId": "chambers-site-15ml109-marshall-1250-1350",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
       }
     },
     "chickamauga-cherokee-hold-the-southern-flank": {
@@ -2709,18 +2697,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2013
-      }
-    },
-    "chambers-site-15ml109-marshall-1250-1350": {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "historyId": "chambers-site-15ml109-marshall-1250-1350",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
       }
     },
     "cleek-mccabe-fort-ancient-village-boone-county": {
