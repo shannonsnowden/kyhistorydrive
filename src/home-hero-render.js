@@ -145,10 +145,9 @@ export function storyPageHref(story) {
   return safeLocalUrl(story?.href) || '/#timeline'
 }
 
-/** In-app reader (Timeline view) target for homepage story cards: /#timeline/<slug>. Cards keep href=storyPageHref (crawlable); a plain left click is sent here by home-preview.js. */
+/** #337: homepage cards open the static story page (storyPageHref); kept for callers. */
 export function storyReaderHref(story) {
-  if (story?.slug) return `/#timeline/${encodeURIComponent(story.slug)}`
-  return '/#timeline'
+  return storyPageHref(story)
 }
 
 export function placeCaption(story) {
@@ -187,7 +186,6 @@ export function cardAlt(story) {
 
 export function renderLeadStory(story) {
   const href = storyPageHref(story)
-  const tl = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -201,7 +199,7 @@ export function renderLeadStory(story) {
     : ''
   const credit = photoCredit(story.photo)
   return `<article class="hp-lead-story">
-      <a class="hp-lead-media-link" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">
+      <a class="hp-lead-media-link" href="${escapeHtml(href)}">
         <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade" aria-hidden="true"></div></div>
         <h2 id="hp-hero-title" class="hp-lead-title">${escapeHtml(story.title)}</h2>
       </a>
@@ -209,7 +207,7 @@ export function renderLeadStory(story) {
         <p class="hp-hero-eyebrow">${escapeHtml(placeCaption(story))}</p>
         <p class="hp-hero-deck">${escapeHtml(heroDeckText(story))}</p>
         <div class="hp-cta-row">
-          <a class="btn hp-cta" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">Read the story</a>
+          <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
           ${
             storyMapHref(story)
               ? `<a class="btn hp-cta" data-story-map href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
@@ -223,7 +221,6 @@ export function renderLeadStory(story) {
 
 export function renderRailCard(story) {
   const href = storyPageHref(story)
-  const tl = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -236,7 +233,7 @@ export function renderRailCard(story) {
         height: 96,
       })
     : `<span class="hp-rail-card-ph" aria-hidden="true"></span>`
-  return `<a class="hp-rail-card" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">
+  return `<a class="hp-rail-card" href="${escapeHtml(href)}">
       ${img}
       <span class="hp-rail-card-copy">
         <h3 class="hp-rail-card-title">${escapeHtml(story.title)}</h3>
@@ -247,7 +244,6 @@ export function renderRailCard(story) {
 
 export function renderSwipeCard(story) {
   const href = storyPageHref(story)
-  const tl = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -261,7 +257,7 @@ export function renderSwipeCard(story) {
       })
     : `<span class="hp-swipe-card-ph" aria-hidden="true"></span>`
   return `<li class="hp-swipe-card">
-      <a class="hp-swipe-card-link" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">
+      <a class="hp-swipe-card-link" href="${escapeHtml(href)}">
         ${img}
         <h3 class="hp-swipe-card-title">${escapeHtml(story.title)}</h3>
         <small class="hp-swipe-card-meta">${escapeHtml(placeCaption(story))}</small>

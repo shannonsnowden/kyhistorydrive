@@ -10,16 +10,7 @@
 const STORAGE_KEY = 'khd-timeline-reading'
 const PHONE_QUERY = '(max-width: 900px)'
 const MOTION_MS = 340
-const ANCHOR_SELECTOR = [
-  '.timeline-item',
-  '#timelineStoryReader .story-body p',
-  '#timelineStoryReader .story-body li',
-  '#timelineStoryReader .story-body h2',
-  '#timelineStoryReader .story-body h3',
-  '#timelineStoryReader .story-body h4',
-  '#timelineStoryReader .story-summary',
-  '#timelineStoryReader .story-head h2',
-].join(', ')
+const ANCHOR_SELECTOR = '.timeline-item'
 
 function readWide() {
   try {

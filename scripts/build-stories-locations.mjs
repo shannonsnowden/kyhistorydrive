@@ -6,6 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { applyPinLinks } from './lib/story-pin-links.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -1088,6 +1089,8 @@ function countyFallback(text) {
   return { lon: c[0], lat: c[1], county, confidence: 'county' }
 }
 
+const STORY_PIN_OVERRIDES = JSON.parse(fs.readFileSync(path.join(__dirname, 'story-overrides.json'), 'utf8')).overrides || {}
+const HISTORY_IDS = new Set(history.map((f) => f.properties?.id).filter(Boolean))
 const locations = {}
 const stats = { exact: 0, fuzzy: 0, county: 0, override: 0, none: 0 }
 
@@ -1178,6 +1181,7 @@ for (const story of idx.stories) {
       stats.none++
     }
   }
+  applyPinLinks(loc, STORY_PIN_OVERRIDES[story.slug], HISTORY_IDS)
   locations[story.slug] = loc
   // merge onto index entry
   story.lat = loc.lat

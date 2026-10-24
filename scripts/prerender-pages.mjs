@@ -1968,7 +1968,8 @@ class PrerenderPages {
     const researchLink = researchHref
       ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
-    const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
+    // #337: /#timeline/<slug> now forwards to this page, so Back goes to the Timeline list.
+    const appHref = '/#timeline'
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
@@ -2320,7 +2321,7 @@ class PrerenderPages {
           ${nextCardHtml}
         </nav>
         <p class="usp-endback">
-          <a href="${esc(appHref)}" data-back-to-timeline>← Back to this spot on the Timeline</a>
+          <a href="${esc(appHref)}" data-back-to-timeline>← Back to the Timeline</a>
         </p>`
 
     const tocEntries = [
@@ -4576,14 +4577,9 @@ ${rows.join('\n')}
     if (!html.includes('src="/route-map-lightbox.js"')) {
       throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
     }
-    for (const label of [
-      'Enlarge original black edition seal',
-      'Enlarge navy edition seal',
-      'Enlarge gold-rim edition seal',
-    ]) {
-      if (!html.includes(`aria-label="${label}"`)) {
-        throw new Error(`prerender: homepage #about is missing the ${label} button`)
-      }
+    // #338: the #about / #app hash views are gone; About lives at /about/ only.
+    if (/<section id="(?:about|app)"/.test(html)) {
+      throw new Error('prerender: homepage still carries the retired #about / #app views')
     }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')

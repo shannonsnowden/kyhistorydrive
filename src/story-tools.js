@@ -3,6 +3,7 @@
  * Dates passed in here are already resolved. This module never invents one.
  */
 import { ccByLicense, artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS } from './photo-credit.js'
+import { isProtectedStoryRule } from './protected-story-rule.js'
 export { artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS }
 
 export const SITE_NAME = 'Kentucky History Drive'
@@ -232,13 +233,15 @@ function finiteCoord(value) {
   return Number.isFinite(n) ? n : null
 }
 
-function isProtectedStoryCoords(story) {
-  if (!story) return false
-  if (story.coordinatesProtected || story.locationApproximate || story.archaeological) return true
-  if (story.era === "prehistoric") return true
-  if (Array.isArray(story.tags) && (story.tags.includes("archaeology") || story.tags.includes("prehistoric"))) return true
-  if (/\b15[a-z]{2}\d{1,4}\b/i.test(String(story.slug || ""))) return true
-  return false
+// Same rule as the build (scripts/lib/unified-story-data.mjs). protected-pins.js feeds the id lists
+// from public/data/web/protected-pins.json; until then only the flags and heuristics apply.
+let protectedStoryIds = { protectedIds: new Set(), skipIds: new Set() }
+export function setProtectedStoryIds(ids, skipIds) {
+  protectedStoryIds = { protectedIds: new Set(ids || []), skipIds: new Set(skipIds || []) }
+}
+
+export function isProtectedStoryCoords(story) {
+  return isProtectedStoryRule(story, protectedStoryIds)
 }
 
 function storyOrigin(story) {
