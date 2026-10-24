@@ -2999,9 +2999,30 @@ class PrerenderPages {
       if (typeof value !== 'number' || !Number.isFinite(value)) continue
       scrubbed = scrubbed.split(String(value)).join('').split(JSON.stringify(value)).join('')
     }
-    if (/-?\d{1,3}\.\d{5,}/.test(scrubbed)) {
+    if (PrerenderPages.hasPreciseCoordinate(scrubbed)) {
       throw new Error(`prerender: ${urlPath} includes a precise coordinate`)
     }
+  }
+
+  /**
+   * Security Watch (#346), narrow: a precise-coordinate-shaped match is exempt ONLY inside the path of an
+   * href that parses to host archive.org / www.archive.org with pathname /details/<id> and no query,
+   * fragment or userinfo (e.g. /details/in.ernet.dli.2015.58770). Page text, other attributes, query
+   * strings and other hosts still fail. check-protected-coords has no archive.org exemption.
+   */
+  static isArchiveDetailsHref(raw) {
+    let u
+    try { u = new URL(String(raw).replace(/&amp;/g, '&')) } catch { return false }
+    if (u.protocol !== 'https:' && u.protocol !== 'http:') return false
+    if (u.hostname !== 'archive.org' && u.hostname !== 'www.archive.org') return false
+    if (u.username || u.password || u.port || u.search || u.hash || /[?#]/.test(raw)) return false
+    return /^\/details\/[A-Za-z0-9._-]+\/?$/.test(u.pathname)
+  }
+
+  static hasPreciseCoordinate(html) {
+    const scrubbed = String(html).replace(/(\shref=)(["'])([^"']*)\2/g, (m, pre, q, url) =>
+      PrerenderPages.isArchiveDetailsHref(url) ? `${pre}${q}${q}` : m)
+    return /-?\d{1,3}\.\d{5,}/.test(scrubbed)
   }
 
   static assertRouteMap(html, story, route, data) {

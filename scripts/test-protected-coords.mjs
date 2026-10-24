@@ -61,6 +61,9 @@ const cases = [
   ["svg-leak-fails", { ...clean, "assets/map.svg": `<svg data-point="${b1},${o2}"></svg>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
   ["unknown-ext-fails-closed", { ...clean, "stories/fake-protected-site/story.docx": "unknown-format" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
   ["zip-ext-fails-closed", { ...clean, "stories/fake-protected-site/archive.zip": "PK\u0003\u0004" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
+  // Security Watch (#346): the prerender archive.org /details/ exemption does NOT apply here.
+  ["archive-id-link-passes", { ...clean, "stories/public-town/index.html": '<a href="https://archive.org/details/in.ernet.dli.2015.58770">book</a>' }, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
+  ["archive-link-near-keyed-point-fails", { ...clean, "stories/public-town/index.html": `<a href="https://archive.org/details/${a1},${o1}">x</a>` }, { PROTECTED_COORDS_KEY: TEST_KEY }, 1],
   ["known-binary-ext-passes", { ...clean, "assets/photo.webp": "RIFF", "fonts/glyphs/0-255.pbf": "pbf" }, { PROTECTED_COORDS_KEY: TEST_KEY }, 0],
 ]
 let failed = 0
