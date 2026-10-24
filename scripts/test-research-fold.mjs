@@ -10,7 +10,7 @@ const dir = 'public/content/research'
 const all = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => JSON.parse(fs.readFileSync(`${dir}/${f}`, 'utf8')))
 const folded = all.filter(isFoldedResearch)
 const culture = all.filter((n) => !isFoldedResearch(n))
-assert.equal(folded.length, 16, '16 research outlines fold')
+assert.equal(folded.length, 17, '17 research outlines fold')
 assert.equal(culture.length, 7, '7 culture evidence pages stay')
 assert.ok(culture.every((n) => /^culture-[a-z0-9-]+-image-evidence$/.test(n.slug)))
 assert.equal(isFoldedResearch(null), false)
@@ -67,8 +67,8 @@ assert.match(glance, /<a href="\/stories\/battle-of-blue-licks\/#research-notes"
 assert.equal(glance.includes('/research/'), false)
 assert.equal(story.bodyMarkdown.includes('/research/'), false, 'Blue Licks body no longer links its research page')
 
-// Redirects (Editor ruling #345): amplify.yml keeps only its 18 allowlisted 301s, so the research
-// 301s live in the console paste list docs/redirects/research-fold-340.json, two per folded note.
+// Redirects (Editor ruling #345): research 301s stay out of amplify.yml and live in the console
+// paste list docs/redirects/research-fold-340.json, two per folded note (17 notes, including Old Fort).
 const amp = fs.readFileSync('amplify.yml', 'utf8')
 assert.equal(amp.includes("'/research/"), false, 'amplify.yml carries no /research/ rules')
 const paste = JSON.parse(fs.readFileSync('docs/redirects/research-fold-340.json', 'utf8')).rules

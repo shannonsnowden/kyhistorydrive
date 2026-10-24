@@ -160,6 +160,16 @@
       "source": "/research/yahoo-falls-big-south-fork/",
       "target": "/stories/yahoo-falls-big-south-fork/",
       "status": "301"
+    },
+    {
+      "source": "/research/old-fort-earthworks-15gp1-greenup-county",
+      "target": "/stories/old-fort-earthworks-15gp1-greenup-county/",
+      "status": "301"
+    },
+    {
+      "source": "/research/old-fort-earthworks-15gp1-greenup-county/",
+      "target": "/stories/old-fort-earthworks-15gp1-greenup-county/",
+      "status": "301"
     }
   ]
 }
