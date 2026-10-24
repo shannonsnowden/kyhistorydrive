@@ -2,7 +2,7 @@
 /**
  * Roads & Rails removal (Shannon, Oct 19): source-level checks for the KHD_ROADS_RAILS flag.
  * Off (default): no Roads & Rails nav item in the shared header or index.html, #transport forwards to
- * the map, the vite page input is gone, and amplify.yml 301s every old URL to the map (/). On: the page,
+ * the map, the vite page input is gone, and amplify.yml has no rule for the old URLs (the Amplify console 301s them, item 90). On: the page,
  * nav item and #transport forward come back. URLs are parsed, never matched as substrings.
  */
 import assert from 'node:assert/strict'
@@ -15,12 +15,12 @@ import {
   ROADS_RAILS_OLD_PATHS,
   ROADS_RAILS_REDIRECT_TARGET,
   roadsRailsEnabled,
-  roadsRailsRedirectHtml,
   applyRoadsRailsBlocks,
   isRoadsRailsPath,
   ROADS_RAILS_ASSETS,
 } from './roads-rails-flag.mjs'
 import { siteHeaderHtml } from './site-chrome.mjs'
+import * as flagMod from './roads-rails-flag.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://kyhistorydrive.com'
@@ -86,28 +86,18 @@ const inputs = (on) => {
 assert.ok(!inputs(false).includes('roadsAndRails'), 'vite (off) does not build roads-and-rails/index.html')
 assert.ok(inputs(true).includes('roadsAndRails'), 'vite (on) builds roads-and-rails/index.html')
 
-// amplify.yml: a 301 to the map (/) for every old URL variant.
+// Item 90: the Amplify console now 301s every old URL, so amplify.yml has no rule for them and no stub is built.
 const amplify = fs.readFileSync(path.join(root, 'amplify.yml'), 'utf8')
 const rules = [...amplify.matchAll(/-\s*source:\s*'([^']*)'\s*\n\s*target:\s*'([^']*)'\s*\n\s*status:\s*'(\d+)'/g)].map((m) => ({ source: m[1], target: m[2], status: m[3] }))
 assert.equal(ROADS_RAILS_REDIRECT_TARGET, '/')
 for (const p of ROADS_RAILS_OLD_PATHS) {
-  const hit = rules.filter((r) => r.source === p)
-  assert.equal(hit.length, 1, `amplify.yml has exactly one rule for ${p}`)
-  assert.equal(hit[0].status, '301', `${p} is a 301`)
-  assert.equal(hit[0].target, ROADS_RAILS_REDIRECT_TARGET, `${p} redirects to the map (/)`)
+  assert.equal(rules.filter((r) => r.source === p).length, 0, `amplify.yml has no rule for ${p} (console 301s it)`)
 }
 for (const want of ['/roads-and-rails', '/roads-and-rails/', '/roads-and-rails/index.html', '/roads-rails', '/roads-rails/', '/roads-rails/index.html']) {
   assert.ok(ROADS_RAILS_OLD_PATHS.includes(want), `redirect list covers ${want}`)
 }
-
-// Static fallback stub (amplify.yml rules have been ignored live before).
-const stub = roadsRailsRedirectHtml()
-assert.ok(/<meta name="robots" content="noindex, follow">/.test(stub), 'stub is noindex')
-const canon = /<link rel="canonical" href="([^"]+)">/.exec(stub)
-assert.ok(canon && new URL(canon[1]).href === `${SITE}/`, 'stub canonical is the homepage')
-const refresh = /<meta http-equiv="refresh" content="0; url=([^"]+)">/.exec(stub)
-assert.ok(refresh && new URL(refresh[1], `${SITE}/roads-and-rails/`).href === `${SITE}/#map`, 'stub meta refresh goes to the map')
-assert.equal(roadsLinks(stub).length, 0, 'stub links nowhere under /roads-and-rails')
+assert.equal(flagMod.roadsRailsRedirectHtml, undefined, 'no static redirect stub helper')
+assert.equal(flagMod.ROADS_RAILS_STUB_DIRS, undefined, 'no stub directories')
 
 // Page-only assets (Security, #330): pruned right after vite build, and the reader skips the links file.
 for (const want of ['maps/transport/', 'brand/og-roads-and-rails.png', 'data/web/transport-links.json']) {

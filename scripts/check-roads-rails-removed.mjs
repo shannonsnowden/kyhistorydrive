@@ -98,15 +98,9 @@ if (!on) {
   for (const rel of ROADS_RAILS_ASSETS) {
     if (fs.existsSync(path.join(dist, rel))) errors.push(`dist/${rel} ships with the flag off`)
   }
+  // Item 90: the Amplify console 301s the old URLs, so no stub page is built under either path.
   for (const p of ['roads-and-rails', 'roads-rails']) {
-    const f = path.join(dist, p, 'index.html')
-    const html = fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : ''
-    const refresh = /<meta http-equiv="refresh" content="0; url=([^"]+)">/.exec(html)
-    const canon = /<link rel="canonical" href="([^"]+)">/.exec(html)
-    if (!refresh || new URL(refresh[1], `${SITE}/${p}/`).href !== `${SITE}/#map`) errors.push(`/${p}/ is not a redirect stub to the map`)
-    if (!canon || new URL(canon[1]).href !== `${SITE}/`) errors.push(`/${p}/ stub canonical is not the homepage`)
-    if (!/<meta name="robots" content="noindex, follow">/.test(html)) errors.push(`/${p}/ stub is not noindex`)
-    if (/id="transportMap"/.test(html)) errors.push(`/${p}/ still serves the map page`)
+    if (fs.existsSync(path.join(dist, p))) errors.push(`dist/${p}/ is built; the console 301 replaces the stub`)
   }
 } else {
   if (!/id="transportMap"/.test(rrHtml)) errors.push('flag on: /roads-and-rails/ is not the map page')
@@ -125,4 +119,4 @@ if (errors.length) {
 }
 console.log(on
   ? `check-roads-rails-removed: ${ROADS_RAILS_FLAG}=1, /roads-and-rails/ is built, in the nav and in sitemap.xml`
-  : `check-roads-rails-removed: ${pages} built pages and ${locs.length} sitemap URLs have no Roads & Rails link (${dataFiles} data files scanned for hardcoded links); /roads-and-rails/ and /roads-rails/ are stubs to the map`)
+  : `check-roads-rails-removed: ${pages} built pages and ${locs.length} sitemap URLs have no Roads & Rails link (${dataFiles} data files scanned for hardcoded links); /roads-and-rails/ and /roads-rails/ are not built`)

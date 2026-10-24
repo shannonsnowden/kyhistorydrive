@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T15:01:24.397Z",
+  "generatedAt": "2026-10-24T17:16:18.157Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -362,18 +362,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2013
-      }
-    },
-    "chambers-site-15ml109-marshall-county": {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "historyId": "chambers-site-15ml109-marshall-1250-1350",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
       }
     },
     "chickamauga-cherokee-hold-the-southern-flank": {
@@ -1484,18 +1472,6 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "historyId": "muir-site-15js86-jessamine-county",
-      "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      }
-    },
     "natural-bridge-sandstone-arch": {
       "slug": "natural-bridge-sandstone-arch",
       "historyId": "natural-bridge-corbin-sandstone",
@@ -2184,7 +2160,7 @@
       "historyId": "turk-site-15ce6-carlisle-county",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "A view in Carlisle County, home of the Turk Site",
+        "title": "Looking toward the Turk Site, Carlisle County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -2709,18 +2685,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
         "year": 2013
-      }
-    },
-    "chambers-site-15ml109-marshall-1250-1350": {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "historyId": "chambers-site-15ml109-marshall-1250-1350",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
       }
     },
     "cleek-mccabe-fort-ancient-village-boone-county": {
@@ -3586,18 +3550,6 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
       }
     },
-    "muir-site-15js86-jessamine-county": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "historyId": "muir-site-15js86-jessamine-county",
-      "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      }
-    },
     "natural-bridge-corbin-sandstone": {
       "slug": "natural-bridge-sandstone-arch",
       "historyId": "natural-bridge-corbin-sandstone",
@@ -4080,7 +4032,7 @@
       "historyId": "turk-site-15ce6-carlisle-county",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "A view in Carlisle County, home of the Turk Site",
+        "title": "Looking toward the Turk Site, Carlisle County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
