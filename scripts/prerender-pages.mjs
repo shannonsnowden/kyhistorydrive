@@ -2041,7 +2041,12 @@ class PrerenderPages {
 
     const tagsList = (story.tags || []).filter(
       // The era pill already names the era; drop tags that repeat it (e.g. frontier-war under Frontier).
-      (t) => t && t !== 'kentucky' && t !== story.era && !(story.era && String(t).startsWith(`${story.era}-`)),
+      (t) =>
+        t &&
+        t !== 'kentucky' &&
+        t !== story.era &&
+        !(story.era && String(t).startsWith(`${story.era}-`)) &&
+        !(eraText && String(t).toLowerCase().split('-')[0] === String(eraText).toLowerCase().split(/\s+/)[0]),
     )
     const tagsHtml = tagsList.length
       ? `<ul class="usp-tags" aria-label="Story topics">
