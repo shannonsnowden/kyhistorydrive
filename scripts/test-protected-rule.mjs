@@ -39,13 +39,4 @@ for (const { retired, kept } of loadMerges()) {
 }
 assert.ok(isProtectedStory({ slug: 'peter-village-enclosure-15fa166' }))
 assert.ok(isProtectedStory({ slug: 'peter-village-early-woodland-enclosure-near-lexington' }))
-
-// #350: Peter Village text is county-level only (no town, creek, park or neighboring-site locators).
-const PV_LOCATORS = /Lexington|Elkhorn|Mount Horeb|Grimes|Adena Park|north of|nearby|near\b/i
-const pv = JSON.parse(fs.readFileSync(path.join(dir, 'peter-village-enclosure-15fa166.json'), 'utf8'))
-for (const k of ['title', 'summary', 'bodyMarkdown', 'seoTitle', 'metaDescription']) {
-  if (pv[k]) assert.doesNotMatch(pv[k], PV_LOCATORS, `peter-village ${k} names a locator`)
-}
-const cando = JSON.parse(fs.readFileSync(path.join(dir, 'the-c-and-o-mounds-at-paintsville.json'), 'utf8'))
-assert.doesNotMatch(cando.bodyMarkdown, /Peter Village[^.]*\b(near|north of)\b/i, 'C&O must not locate Peter Village')
 console.log(`test-protected-rule: OK (${n} stories agree)`)

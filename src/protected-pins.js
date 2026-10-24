@@ -15,19 +15,34 @@ export const PROTECTED_PIN_NOTE_ENABLED = true
 
 let ids = new Set()
 let loading = null
+// Fail closed: true only after protected-pins.json loaded and parsed.
+let loaded = false
+
+export function protectedPinsLoaded() {
+  return loaded
+}
 
 export function loadProtectedPins() {
   if (!PROTECTED_PIN_NOTE_ENABLED) return Promise.resolve(ids)
   if (!loading) {
     loading = fetch('/data/web/protected-pins.json')
-      .then((r) => (r.ok ? r.json() : { ids: [] }))
+      .then((r) => {
+        if (!r.ok) throw new Error(`protected-pins.json ${r.status}`)
+        return r.json()
+      })
       .then((d) => {
+        if (!d || !Array.isArray(d.ids)) throw new Error('protected-pins.json has no ids')
         ids = new Set(Array.isArray(d?.ids) ? d.ids : [])
         // #337: storyOrigin (nearby-story distances) uses the same rule and lists as the build.
         setProtectedStoryIds(ids, Array.isArray(d?.skipIds) ? d.skipIds : [])
+        loaded = true
         return ids
       })
-      .catch(() => ids)
+      .catch(() => {
+        loaded = false
+        loading = null // allow a retry later; callers fail closed meanwhile
+        return ids
+      })
   }
   return loading
 }

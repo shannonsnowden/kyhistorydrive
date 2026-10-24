@@ -24,6 +24,14 @@ assert.equal(isSameOriginStoryHref('//evil.com/stories/x/', base), false, 'proto
 assert.equal(isSameOriginStoryHref('https://kyhistorydrive.com.evil.com/stories/x/', base), false, 'look-alike host rejected')
 assert.equal(isSameOriginStoryHref('/about/', base), false)
 assert.equal(isSameOriginStoryHref('http://[bad', base), false)
+assert.equal(isSameOriginStoryHref('javascript:alert(1)//stories/x/', base), false, 'javascript: rejected')
+assert.equal(isSameOriginStoryHref('data:text/html,<a href=/stories/x/>', base), false, 'data: rejected')
+assert.equal(isSameOriginStoryHref('https://kyhistorydrive.com@evil.com/stories/x/', base), false, 'userinfo host trick rejected')
+assert.equal(isSameOriginStoryHref('https://user:pw@kyhistorydrive.com/stories/x/', base), false, 'userinfo on our host rejected')
+assert.equal(isSameOriginStoryHref('//evil.com/stories/x/', base), false, '//evil rejected')
+assert.equal(isSameOriginStoryHref('http://kyhistorydrive.com/stories/x/', base), false, 'http downgrade rejected')
+assert.equal(isSameOriginStoryHref('/\\evil.com/stories/x/', base), false, 'backslash trick rejected')
+assert.equal(isSameOriginStoryHref('\\\\evil.com/stories/x/', base), false, 'double backslash rejected')
 const cmc = fs.readFileSync(new URL('./check-map-canvas.mjs', import.meta.url), 'utf8')
 assert.match(cmc, /isSameOriginStoryHref\(info\.readHref, base\)/, 'check-map-canvas uses the origin+path check')
 
@@ -58,7 +66,7 @@ assert.match(main, /ky-sheet/, 'main.js opens the phone bottom sheet')
 assert.match(main, /ensureHighlightSource\(map, \{ lon, lat, title: [^}]*layerId: placeLayer \}\)\s*\n\s*await showDetailPopup\(feature, placeLayer/, 'map deep links mark the selected pin in its layer color')
 assert.match(main, /protectedNote:\s*protectedPinNoteHtml\(/, 'main.js passes protectedPinNoteHtml into pinCardHtml')
 const manifest = JSON.parse(fs.readFileSync(new URL('../public/data/app/ky-history-manifest.json', import.meta.url)))
-assert.equal(manifest.data_version, 93, `data_version ${manifest.data_version} must be 93 (merge order #345=91, #346=92, #350=93)`)
+assert.equal(manifest.data_version, 100, `data_version ${manifest.data_version} must be 100 (merge order after v2 96: #346=97, #347=98, #348=99, #350=100)`)
 
 // Critiquito fixes on #350.
 const css = fs.readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')

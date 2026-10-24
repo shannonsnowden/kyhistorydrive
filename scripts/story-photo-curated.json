@@ -64,19 +64,6 @@
     "license": "Public domain",
     "artwork": "painting"
   },
-  "peter-village-early-woodland-enclosure-near-lexington": {
-    "ext": "jpg",
-    "commonsFile": "Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "title": "Peter Village enclosure (Squier & Davis 1848)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-    "year": 1848,
-    "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-    "license": "Public domain",
-    "artwork": "engraving"
-  },
   "isaac-ruddell-and-the-guns-at-ruddells-station": {
     "ext": "jpg",
     "commonsFile": "Downtown_Cynthiana_on_Main_Street.jpg",
@@ -242,16 +229,6 @@
     "source_url": "https://commons.wikimedia.org/wiki/File:Wilderness_Road_in_Richmond_-_October_2023_-_Sarah_Stierch.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Missvain · Wikimedia Commons · CC BY 4.0",
-    "year": null
-  },
-  "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-    "ext": "jpg",
-    "commonsFile": "Main_Street_in_Nicholasville.jpg",
-    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Main_Street_in_Nicholasville.jpg/1280px-Main_Street_in_Nicholasville.jpg",
-    "title": "Main Street, Nicholasville",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · Public domain",
     "year": null
   },
   "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
@@ -1231,16 +1208,6 @@
     "attribution": "Nyttend · Wikimedia Commons · public domain",
     "year": 2009
   },
-  "chambers-site-15ml109-marshall-county": {
-    "ext": "jpg",
-    "commonsFile": "Clarks_River_in_the_fall_(6887005449).jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Clarks_River_in_the_fall_%286887005449%29.jpg?width=1280",
-    "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-    "year": 2012
-  },
   "yahoo-falls-big-south-fork": {
     "ext": "jpg",
     "commonsFile": "Yahoo_Falls.JPG",
@@ -1290,16 +1257,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Notorious4life · Wikimedia Commons · public domain",
     "year": 2010
-  },
-  "the-c-and-o-mounds-at-paintsville": {
-    "ext": "jpg",
-    "commonsFile": "Levisa Fork in Paintsville.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Levisa_Fork_in_Paintsville.jpg?width=1280",
-    "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009
   },
   "the-maysville-road-and-jacksons-veto-1830": {
     "ext": "jpg",

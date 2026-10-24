@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-19T11:00:50.145Z",
-  "count": 244,
+  "generatedAt": "2026-10-24T17:02:25.409Z",
+  "count": 237,
   "briefDateRange": {
     "start": "2026-08-27",
     "end": "2026-10-19"
@@ -114,8 +114,8 @@
       "slug": "read-shell-midden-15bt10-butler-county",
       "title": "Read Shell Midden (15Bt10), Butler County",
       "publishedDate": "2026-09-14",
-      "summary": "West of Morgantown on the Green River, the Read Shell Midden is a Late Archaic camp and cemetery dug by WPA crews from 1937 to 1939, with over 240 burials.",
-      "proseChars": 771,
+      "summary": "In Butler County, the Read Shell Midden is a Late Archaic camp and cemetery dug by WPA crews from 1937 to 1939, with more than 240 burials found.",
+      "proseChars": 707,
       "yearStart": -3000,
       "yearEnd": -1000,
       "era": "prehistoric",
@@ -347,10 +347,10 @@
     },
     {
       "slug": "the-c-and-o-mounds-at-paintsville",
-      "title": "The C. and O. Mounds at Paintsville",
+      "title": "The C. and O. Mounds",
       "publishedDate": "2026-10-19",
-      "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "proseChars": 3171,
+      "summary": "In Johnson County, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
+      "proseChars": 2826,
       "yearStart": -500,
       "yearEnd": 250,
       "era": "prehistoric",
@@ -362,27 +362,19 @@
       "source": "ky-history",
       "briefDate": "2026-10-19",
       "county": "Johnson",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
-      },
       "lat": 37.8,
       "lon": -82.8,
       "mapConfidence": "override",
-      "matchedPlace": "C. and O. Mounds, Paintsville (approximate)"
+      "matchedPlace": "C. and O. Mounds, Johnson County (approximate)"
     },
     {
       "slug": "peter-village-enclosure-15fa166",
       "title": "Peter Village enclosure (15Fa166)",
       "publishedDate": "2026-09-11",
-      "summary": "Just north of Lexington, Peter Village is a large ditch-and-embankment earthwork first used around 300–200 BCE, tied to working local galena and barite.",
-      "proseChars": 752,
-      "yearStart": -300,
-      "yearEnd": -200,
+      "summary": "Peter Village (15Fa166), an Early Woodland earthwork in Fayette County, has pottery dated to about 409–68 BCE and is a protected site.",
+      "proseChars": 961,
+      "yearStart": -409,
+      "yearEnd": -68,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -394,53 +386,13 @@
       "territory": {
         "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
-        "yearStart": -300,
-        "yearEnd": -200,
+        "yearStart": -409,
+        "yearEnd": -68,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
       "lat": 38,
       "lon": -84.5,
       "mapConfidence": "exact",
-      "matchedPlace": "Peter Village enclosure (15Fa166)"
-    },
-    {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "title": "Peter Village: Early Woodland Enclosure Near Lexington",
-      "publishedDate": "2026-09-22",
-      "summary": "North of Lexington in Fayette County, Peter Village is a large Early Woodland ditch-and-embankment enclosure, likely a gathering and craft place.",
-      "proseChars": 789,
-      "yearStart": -300,
-      "yearEnd": -200,
-      "era": "prehistoric",
-      "tags": [
-        "prehistoric",
-        "kentucky",
-        "archaeology",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-22",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848,
-        "artwork": "engraving",
-        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-        "license": "Public domain"
-      },
-      "territory": {
-        "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
-        "nation": "Adena (archaeological culture)",
-        "yearStart": -300,
-        "yearEnd": -200,
-        "presenceLabel": "Adena area (archaeological culture, not a tribe)"
-      },
-      "lat": 38,
-      "lon": -84.5,
-      "mapConfidence": "override",
       "matchedPlace": "Peter Village enclosure (15Fa166)"
     },
     {
@@ -557,10 +509,10 @@
     },
     {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "title": "Muir Site: Early Fort Ancient on a Jessamine Ridge",
+      "title": "Muir Site: Early Fort Ancient in Jessamine County",
       "publishedDate": "2026-09-25",
-      "summary": "In 1985, before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site on a broad upland ridge west of Nicholasville. The Kentucky…",
-      "proseChars": 1435,
+      "summary": "In 1985, University of Kentucky archaeologists dug the Muir site in Jessamine County, a small early Fort Ancient settlement of about A.D. 1000 to 1200.",
+      "proseChars": 1362,
       "yearStart": 1000,
       "yearEnd": 1200,
       "era": "prehistoric",
@@ -572,14 +524,6 @@
       "source": "ky-history",
       "briefDate": "2026-09-25",
       "county": "Jessamine",
-      "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -623,6 +567,7 @@
     {
       "slug": "sassafras-ridge-15fu3-fulton-county",
       "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
+      "seoTitle": "Sassafras Ridge (15Fu3): Mississippian Town in Fulton County",
       "publishedDate": "2026-10-13",
       "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
       "proseChars": 2649,
@@ -725,8 +670,8 @@
       "slug": "turk-site-carlisle-county",
       "title": "Turk Site, Carlisle County",
       "publishedDate": "2026-09-19",
-      "summary": "On a bluff spur near Bardwell overlooking the Mississippi floodplain, the Turk Site (15Ce6) was a small Mississippian regional center of about 2.5 hectares. Occupied mainly in…",
-      "proseChars": 544,
+      "summary": "In Carlisle County, the Turk Site was a small but planned Mississippian town with mounds around a plaza, occupied mainly from about AD 1100 to 1300.",
+      "proseChars": 480,
       "yearStart": 1100,
       "yearEnd": 1300,
       "era": "prehistoric",
@@ -739,7 +684,7 @@
       "briefDate": "2026-09-19",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "title": "Looking toward the Turk Site, Carlisle County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -863,6 +808,7 @@
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "title": "Cleek-McCabe: A Circular Fort Ancient Village in Boone County",
+      "seoTitle": "Cleek-McCabe: Fort Ancient Village in Boone County",
       "publishedDate": "2026-09-25",
       "summary": "Near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village, a ring of midden around a plaza with low burial mounds.",
       "proseChars": 1433,
@@ -1083,10 +1029,10 @@
     },
     {
       "slug": "chambers-site-15ml109-marshall-county",
-      "title": "Chambers Site (15Ml109): an upland Mississippian village",
+      "title": "Chambers Site: Mississippian Village in Marshall County",
       "publishedDate": "2026-10-14",
-      "summary": "On a Marshall County ridgetop above the Middle Fork of Clarks River, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
-      "proseChars": 3122,
+      "summary": "In Marshall County, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
+      "proseChars": 2777,
       "yearStart": 1250,
       "yearEnd": 1350,
       "era": "prehistoric",
@@ -1099,14 +1045,6 @@
       "source": "ky-history",
       "briefDate": "2026-10-14",
       "county": "Marshall",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
-      },
       "lat": 36.9,
       "lon": -88.3,
       "mapConfidence": "override",
@@ -1584,7 +1522,7 @@
       "title": "Wea (Waayaahtanwa) on the Wabash",
       "publishedDate": "2026-09-13",
       "summary": "The Wea, “people of the whirlpool,” were a Miami–Illinois-speaking people of the middle Wabash who generally sided with the British in the Revolution.",
-      "proseChars": 832,
+      "proseChars": 1367,
       "yearStart": 1717,
       "yearEnd": 1818,
       "era": "native",
@@ -1720,19 +1658,19 @@
       "slug": "michael-stoner-german-long-hunter",
       "title": "Michael Stoner, German long hunter",
       "publishedDate": "2026-09-10",
-      "summary": "Born Michael Holsteiner near Philadelphia in 1748, Stoner grew up speaking German and drifted to Virginia’s New River frontier as a teen. In June 1774, Capt. William Russell…",
+      "summary": "Born Michael Holsteiner near Philadelphia in 1748, Stoner rode with Daniel Boone in 1774 to warn surveyors across Kentucky ahead of Dunmore’s War.",
       "proseChars": 814,
       "yearStart": 1748,
       "yearEnd": 1814,
-      "era": "native",
+      "era": "frontier",
       "tags": [
-        "native",
         "kentucky",
-        "native-history"
+        "frontier",
+        "frontier-war"
       ],
       "source": "ky-history",
       "briefDate": "2026-09-10",
-      "county": "",
+      "county": "Madison",
       "lat": 37.8909,
       "lon": -84.2666,
       "mapConfidence": "override",
@@ -3074,8 +3012,8 @@
       "slug": "chickamauga-cherokee",
       "title": "Chickamauga Cherokee",
       "publishedDate": "2026-09-18",
-      "summary": "After the 1775 Treaty of Sycamore Shoals, Dragging Canoe led Cherokee followers to new towns on Chickamauga Creek and kept up resistance to settlers.",
-      "proseChars": 902,
+      "summary": "After the 1775 Sycamore Shoals sale, Dragging Canoe led Cherokee who rejected it to Chickamauga Creek, resisting settler expansion until 1794.",
+      "proseChars": 3585,
       "yearStart": 1776,
       "yearEnd": 1794,
       "era": "native",
@@ -3084,8 +3022,6 @@
         "kentucky",
         "native-history",
         "cherokee",
-        "trail-of-tears",
-        "removal",
         "treaty",
         "frontier-war"
       ],
@@ -3101,51 +3037,6 @@
         "credit": "Tennessee Valley Authority",
         "license": "Public domain",
         "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
-      },
-      "territory": {
-        "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
-        "nation": "Cherokee",
-        "yearStart": 1777,
-        "yearEnd": 1794,
-        "presenceLabel": "Chickamauga Cherokee towns in this area"
-      },
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null
-    },
-    {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "title": "Chickamauga Cherokee hold the southern flank",
-      "publishedDate": "2026-09-23",
-      "summary": "Dragging Canoe’s Chickamauga Cherokee and their allies raided Cumberland and Kentucky settlements from the Revolution into the 1790s.",
-      "proseChars": 776,
-      "yearStart": 1776,
-      "yearEnd": 1794,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "cherokee",
-        "trail-of-tears",
-        "removal",
-        "treaty",
-        "frontier-war"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-23",
-      "photo": {
-        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later; CC BY-SA 4.0",
-        "year": 2010,
-        "credit": "Chuck Hamilton",
-        "license": "GFDL 1.2 or later; CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-        "artwork": "map"
       },
       "territory": {
         "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
@@ -3946,11 +3837,11 @@
       "matchedPlace": "Squire Boone / Painted Stone / Long Run"
     },
     {
-      "slug": "capt-jack-jouett",
-      "title": "Capt. Jack Jouett",
-      "publishedDate": "2026-09-20",
-      "summary": "In 1781 Jack Jouett rode about forty miles to warn Thomas Jefferson of British cavalry, then moved west to Kentucky and served in the Kentucky House.",
-      "proseChars": 727,
+      "slug": "jack-jouett-kentuckys-midnight-rider",
+      "title": "Jack Jouett, Kentucky’s midnight rider",
+      "publishedDate": "2026-09-23",
+      "summary": "In June 1781 Jack Jouett rode about forty miles to warn Jefferson of British cavalry, then moved to Kentucky to farm and serve as a legislator.",
+      "proseChars": 2604,
       "yearStart": 1781,
       "yearEnd": 1822,
       "era": "frontier",
@@ -3962,27 +3853,8 @@
         "transport"
       ],
       "source": "ky-history",
-      "briefDate": "2026-09-20",
-      "lat": 37.9827487,
-      "lon": -84.7708839,
-      "mapConfidence": "override",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
-    },
-    {
-      "slug": "jack-jouett-kentuckys-midnight-rider",
-      "title": "Jack Jouett, Kentucky’s midnight rider",
-      "publishedDate": "2026-09-23",
-      "summary": "In June 1781 Jack Jouett rode about forty miles to warn Jefferson of British cavalry, and by 1782 he had moved west to what became Kentucky.",
-      "proseChars": 712,
-      "yearStart": 1781,
-      "yearEnd": 1822,
-      "era": "frontier",
-      "tags": [
-        "frontier",
-        "kentucky"
-      ],
-      "source": "ky-history",
       "briefDate": "2026-09-23",
+      "county": "Woodford",
       "photo": {
         "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
         "title": "Jack Jouett House Historic Site",
@@ -3994,8 +3866,7 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
-      "county": "Woodford"
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
     },
     {
       "slug": "the-travelling-church-1781",
@@ -4190,6 +4061,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-26",
+      "county": "Clark",
       "photo": {
         "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
         "title": "Fort Boonesborough State Park",
@@ -4201,8 +4073,7 @@
       "lat": 37.918134,
       "lon": -84.272709,
       "mapConfidence": "override",
-      "matchedPlace": "Holder's Station / Lower Howard's Creek",
-      "county": "Clark"
+      "matchedPlace": "Holder's Station / Lower Howard's Creek"
     },
     {
       "slug": "hartford-fort-hartford-on-the-rough-river",
@@ -4302,7 +4173,7 @@
       "title": "Father David Rice and Kentucky’s first Presbyterian churches",
       "publishedDate": "2026-10-19",
       "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
-      "proseChars": 3665,
+      "proseChars": 3649,
       "yearStart": 1783,
       "yearEnd": 1816,
       "era": "frontier",
@@ -5099,38 +4970,6 @@
       "matchedPlace": null
     },
     {
-      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "title": "Wea towns at Ouiatenon and Scott's 1791 Kentucky raid",
-      "publishedDate": "2026-09-21",
-      "summary": "The Wea (Waayaahtanwa), Miami–Illinois speakers, made Ouiatenon on the Wabash their principal town and a French fur-trade hub after Beaver Wars displacements. In June 1791,…",
-      "proseChars": 520,
-      "yearStart": 1791,
-      "yearEnd": 1791,
-      "era": "native",
-      "tags": [
-        "native",
-        "kentucky",
-        "native-history",
-        "frontier-war",
-        "geology"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-21",
-      "county": "",
-      "photo": {
-        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
-        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
-        "year": 2008
-      },
-      "lat": 40.40083,
-      "lon": -86.96,
-      "mapConfidence": "override",
-      "matchedPlace": "Wea (Waayaahtanwa) / Ouiatenon"
-    },
-    {
       "slug": "carrollton-from-port-william",
       "title": "Carrollton from Port William",
       "publishedDate": "2026-10-05",
@@ -5399,10 +5238,10 @@
       "slug": "jacob-beam-on-hardin-creek",
       "title": "Jacob Beam on Hardin Creek",
       "publishedDate": "2026-09-10",
-      "summary": "After 1790, Johannes Jacob Beam (Boehm) settled a farm and grist mill on Hardins Creek in Washington County (Outer Bluegrass / Knobs, feeding the Rolling Fork). Around 1795 he…",
-      "proseChars": 582,
+      "summary": "Jacob Beam, a farmer and miller of German descent, settled on Hardin's Creek in Washington County, Kentucky, where the Beam whiskey line began.",
+      "proseChars": 4656,
       "yearStart": 1795,
-      "yearEnd": 1795,
+      "yearEnd": 1933,
       "era": "frontier",
       "tags": [
         "frontier",
@@ -5424,37 +5263,6 @@
       "lat": 37.76176666666667,
       "lon": -85.3364,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Jacob Beam / Hardin's Creek"
-    },
-    {
-      "slug": "jacob-beam-sells-old-jakes-first-barrel",
-      "title": "Jacob Beam sells Old Jake’s first barrel",
-      "publishedDate": "2026-09-24",
-      "summary": "In 1795 Jacob Beam sold his first barrel of “Old Jake Beam” sour-mash whiskey from his farm and mill on Hardin’s Creek in what was then Washington County.",
-      "proseChars": 542,
-      "yearStart": 1795,
-      "yearEnd": 1795,
-      "era": "early-commonwealth",
-      "tags": [
-        "early-commonwealth",
-        "kentucky",
-        "bourbon"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-24",
-      "county": "Washington",
-      "photo": {
-        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
-        "title": "Jim Beam White Label",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null,
-        "fit": "contain"
-      },
-      "lat": 37.76176666666667,
-      "lon": -85.3364,
-      "mapConfidence": "override",
       "matchedPlace": "Jacob Beam / Hardin's Creek"
     },
     {
@@ -5649,8 +5457,8 @@
       "slug": "owensboro-yellow-banks",
       "title": "Owensboro / Yellow Banks",
       "publishedDate": "2026-09-17",
-      "summary": "Owensboro began at Yellow Banks on the Ohio River, where Bill Smothers built a cabin about 1797, and was chartered as Owensborough in 1817.",
-      "proseChars": 623,
+      "summary": "Owensboro grew from Yellow Banks, an Ohio River landing where Bill Smothers built a cabin about 1797, and was incorporated as Owensborough in 1817.",
+      "proseChars": 2942,
       "yearStart": 1797,
       "yearEnd": 1817,
       "era": "early-commonwealth",
@@ -5704,35 +5512,6 @@
       "lon": -82.766944,
       "mapConfidence": "override",
       "matchedPlace": "Prestonsburg founding / Preston’s Station"
-    },
-    {
-      "slug": "yellow-banks-becomes-owensboro",
-      "title": "Yellow Banks becomes Owensboro",
-      "publishedDate": "2026-09-24",
-      "summary": "Bill Smothers built a cabin at the Ohio River landing called Yellow Banks in 1797, and the town was incorporated in 1817 as Owensborough, later Owensboro.",
-      "proseChars": 661,
-      "yearStart": 1797,
-      "yearEnd": 1817,
-      "era": "early-commonwealth",
-      "tags": [
-        "early-commonwealth",
-        "kentucky"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-09-24",
-      "county": "Daviess",
-      "photo": {
-        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
-        "title": "Second Street, Owensboro",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Smallbones · Wikimedia Commons · Public domain",
-        "year": null
-      },
-      "lat": 37.7759614,
-      "lon": -87.1152649,
-      "mapConfidence": "override",
-      "matchedPlace": "Owensboro / Yellow Banks"
     },
     {
       "slug": "bowling-green-takes-shape-on-the-barren-1798",
@@ -6261,6 +6040,7 @@
     {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
+      "seoTitle": "Catherine Spears Carpenter: 1818 Casey County Mash Recipes",
       "publishedDate": "2026-08-27",
       "summary": "An 1818 sheet in Casey County's Carpenter Family Papers holds two handwritten whiskey recipes, one sweet mash and one sour mash, among Kentucky's earliest.",
       "proseChars": 1638,
@@ -6312,6 +6092,7 @@
     {
       "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
       "title": "McLean Drift Bank: Kentucky’s first commercial coal mine (1820)",
+      "seoTitle": "McLean Drift Bank: Kentucky’s First Commercial Coal Mine",
       "publishedDate": "2026-10-07",
       "summary": "Explorer Thomas Walker found coal in what would become Kentucky in 1750 and burned it in his campfire, but nobody mined it for sale for another seventy years. In 1820…",
       "proseChars": 1355,
@@ -6343,6 +6124,7 @@
     {
       "slug": "kentucky-association-1826-lexington-race-course",
       "title": "Horse series: the Kentucky Association and Lexington’s race course",
+      "seoTitle": "Kentucky Association & Lexington’s 1826 Race Course",
       "publishedDate": "2026-10-09",
       "summary": "On July 23, 1826, Bluegrass horsemen formed the Kentucky Association to promote the breeding and racing of Thoroughbreds. Its founders included Henry Clay, Jesse…",
       "proseChars": 1690,
@@ -6707,7 +6489,7 @@
       "title": "Camp Nelson and Kentucky’s U.S. Colored Troops",
       "publishedDate": "2026-10-12",
       "summary": "The Emancipation Proclamation did not apply in Union-loyal Kentucky, so enslaved men gained freedom by enlisting as U.S. Colored Troops at Camp Nelson.",
-      "proseChars": 5694,
+      "proseChars": 6889,
       "yearStart": 1863,
       "yearEnd": 1866,
       "era": "other",
@@ -6737,39 +6519,6 @@
       "lon": -84.600577,
       "mapConfidence": "override",
       "matchedPlace": "Camp Nelson USCT recruiting and training center"
-    },
-    {
-      "slug": "camp-nelson-jessamine-county",
-      "title": "Camp Nelson, Jessamine County",
-      "publishedDate": "2026-10-04",
-      "summary": "The U.S. Army founded Camp Nelson in Jessamine County in 1863 as a supply depot, and thousands of Black families sought freedom there from 1864.",
-      "proseChars": 1322,
-      "yearStart": 1863,
-      "yearEnd": 1865,
-      "era": "other",
-      "tags": [
-        "other",
-        "kentucky",
-        "civil-war",
-        "usct",
-        "african-american",
-        "emancipation"
-      ],
-      "source": "ky-history",
-      "briefDate": "2026-10-04",
-      "county": "Jessamine",
-      "photo": {
-        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
-        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
-        "year": 2022
-      },
-      "lat": 37.78778,
-      "lon": -84.59806,
-      "mapConfidence": "override",
-      "matchedPlace": "Camp Nelson (Civil War depot and USCT recruiting center)"
     },
     {
       "slug": "george-garvin-brown-and-old-forester",
@@ -7337,6 +7086,7 @@
     {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "title": "Red Bird River Petroglyphs: the carved rock that fell onto KY 66",
+      "seoTitle": "Red Bird River Petroglyphs: Native Rock Art in Clay County",
       "publishedDate": "2026-10-07",
       "summary": "A 50-ton sandstone block cut with petroglyphs sat in a cliff above the Red Bird River near Eriline in Clay County. The inscribed face was about 5½ feet high and 20 feet…",
       "proseChars": 1291,

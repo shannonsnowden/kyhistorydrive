@@ -948,7 +948,11 @@ html[data-theme="dark"] .usp-map-edge {
   padding: 0.1rem 0.42rem;
   font-size: 0.72rem;
   font-weight: 700;
-  white-space: nowrap;
+  /* Long place names wrap to two lines instead of running off the mini-map. */
+  white-space: normal;
+  width: max-content;
+  max-width: 9.5rem;
+  line-height: 1.2;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 

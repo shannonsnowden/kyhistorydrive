@@ -1,11 +1,11 @@
 {
   "slug": "peter-village-early-woodland-enclosure-near-lexington",
-  "title": "Peter Village: Early Woodland Enclosure Near Lexington",
+  "title": "Peter Village: Early Woodland Enclosure in Fayette County",
   "publishedDate": "2026-09-22",
-  "summary": "North of Lexington in Fayette County, Peter Village is a large Early Woodland ditch-and-embankment enclosure, likely a gathering and craft place.",
-  "bodyMarkdown": "North of Lexington in Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric circle. Long mislabeled an Adena “village,” it is better read as a specialized gathering and craft place; archaeologist Berle Clay tied it to barite and galena working, and newer geoarchaeology (Henry and others) points to dual embankments and construction as early as the 5th century BCE—among the earliest monumental enclosures in the Middle Ohio Valley. It sits near the better-known Mount Horeb circle, marking Bluegrass ritual landscapes centuries before forts and stations.\nSource: [https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex](https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex)",
-  "yearStart": -300,
-  "yearEnd": -200,
+  "summary": "In Fayette County, Peter Village is a large Early Woodland ditch-and-embankment enclosure, with pottery there dated to about 409–68 BCE.",
+  "bodyMarkdown": "In Fayette County lies a large Early Woodland ditch-and-embankment enclosure. Peter Village (site 15Fa166) is one of the enclosures and mounds built by the region's early Woodland peoples. Its builders left no written name for the place.\n\nPottery from Peter Village, dated to about 409–68 BCE, shows thick Adena wares giving way to thinner Hopewell-style types.\n\nEphraim Squier and Edwin Davis published a plan of Peter Village in their 1848 survey, *Ancient Monuments of the Mississippi Valley*.\n\nPeter Village and other Bluegrass earthworks show that people of the [Adena culture](https://grokipedia.com/page/Adena_culture) and their predecessors shaped the Bluegrass into a landscape of gathering places many centuries before Kentucky's forts and stations. Adena is an archaeologists' name for a shared way of life, not the name of a single tribe.\nSource: [Adena culture (Grokipedia)](https://grokipedia.com/page/Adena_culture)\nSource: [Peter Village enclosure, Squier and Davis 1848, Plate XIV](https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg)",
+  "yearStart": -409,
+  "yearEnd": -68,
   "era": "prehistoric",
   "tags": [
     "prehistoric",
@@ -29,8 +29,8 @@
   "territory": {
     "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
     "nation": "Adena (archaeological culture)",
-    "yearStart": -300,
-    "yearEnd": -200,
+    "yearStart": -409,
+    "yearEnd": -68,
     "presenceLabel": "Adena area (archaeological culture, not a tribe)"
   }
 }

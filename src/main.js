@@ -14,7 +14,7 @@ import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
-import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
+import { loadProtectedPins, protectedPinsLoaded, isProtectedPin, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
@@ -29,6 +29,7 @@ import {
   markerRecords,
   photoCreditHtml,
   photoCaptionYear,
+  isProtectedStoryCoords,
   relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -1682,6 +1683,7 @@ function placeDetailExtrasHtml({
   source_url,
   website,
   storyPhoto,
+  protectedIds = [],
 }) {
   const displayMarkdown = stripSourceAttribution(bodyMarkdown)
   const links = extractResearchLinks(bodyMarkdown)
@@ -1689,7 +1691,9 @@ function placeDetailExtrasHtml({
   if (storyPhoto?.image_url && !photos.some((p) => p.image_url === storyPhoto.image_url)) {
     photos.unshift(storyPhoto)
   }
-  const mapsHtml = lat == null || lon == null ? '' : mapsLinksHtml(lat, lon, name, placeHint)
+  // Protected sites never get directions, map links or a photo search (the /about/ promise).
+  const isProtected = protectedIds.some((id) => isProtectedPin(id))
+  const mapsHtml = isProtected || lat == null || lon == null ? '' : mapsLinksHtml(lat, lon, name, placeHint)
   return `${mapsHtml}${photosHtml(photos)}${researchLinksHtml(links, name, {
     placeHint,
     source_url,
@@ -1756,6 +1760,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     source_url: p.source_url || null,
     website: p.website || null,
     storyPhoto: p.photo || p.storyPhoto || null,
+    protectedIds: [p.historyId, p.id, p.slug],
   })
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
   const shareUrl = absoluteShareUrl(placeShareHash(layerId, p))
@@ -3485,6 +3490,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       historyId,
       layer: 'history',
       storyPhoto: s.photo || null,
+      protectedIds: [historyId, meta.slug, s.slug],
     })
     const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
     const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
@@ -3542,7 +3548,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 ? ''
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
-            ${takeADriveHtml(await loadStoryDrives(), meta.slug)}
+            ${takeADriveHtml(await loadStoryDrives(), meta.slug, { isProtected: (await loadProtectedPins(), protectedPinsLoaded() ? isProtectedStoryCoords({ ...meta, ...s }) : undefined) })}
           </header>
           <div class="story-glance-mount"></div>
           <div class="story-body"></div>

@@ -36,6 +36,7 @@ export function phoneSheetPinY(mapHeight) {
 export function isSameOriginStoryHref(href, base) {
   try {
     const u = new URL(href, base)
+    if (u.username || u.password) return false
     return u.origin === new URL(base).origin && u.pathname.startsWith('/stories/')
   } catch {
     return false

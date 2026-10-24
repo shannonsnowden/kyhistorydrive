@@ -9,6 +9,7 @@
  *  - Protected/archaeological stories omit GeoCoordinates in JSON-LD, omit coordinate Directions links, and mark approximate location
  *  - Built CSS bundle includes @media print rules
  */
+import { isProtectedStory } from './lib/unified-story-data.mjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -83,7 +84,10 @@ for (const slug of slugs) {
   const idxSources = html.indexOf('id="sources"')
   const idxDrive = html.indexOf('id="drive"')
   const idxCite = html.indexOf('id="cite"')
-  assert.ok(idxStory > 0 && idxSources > idxStory && idxDrive > idxSources && idxCite > idxDrive, `${slug}: sections out of v2 order`)
+  // Protected stories have no #drive section (no route builder; Critiquito #345).
+  const prot = isProtectedStory({ slug })
+  if (prot) assert.ok(idxDrive < 0, `${slug}: protected story shows a #drive section`)
+  assert.ok(idxStory > 0 && idxSources > idxStory && (prot ? idxCite > idxSources : idxDrive > idxSources && idxCite > idxDrive), `${slug}: sections out of v2 order`)
   if (idxToday > 0) assert.ok(idxToday > idxStory && idxSources > idxToday, `${slug}: #today must sit after #story`)
   if (idxMarkers > 0) {
     assert.ok(idxMarkers > (idxToday > 0 ? idxToday : idxStory) && idxSources > idxMarkers, `${slug}: #markers out of order`)
@@ -111,8 +115,10 @@ for (const slug of slugs) {
   // D.1 & D.3 checks
   const kickerMatch = html.match(/<p class="[^"]*static-kicker[^"]*">([^<]+)<\/p>/)
   assert.ok(kickerMatch && !kickerMatch[1].includes('·'), `${slug}: .static-kicker should not repeat county/era`)
+  // #345: a protected site lists same-county stories only; with none, the section is omitted.
   assert.ok(
-    html.includes('<h2 id="related-nearby-heading">Related stories</h2>'),
+    html.includes('<h2 id="related-nearby-heading">Related stories</h2>') ||
+      (isProtectedStory({ slug }) && !html.includes('related-nearby-heading')),
     `${slug}: related section heading must be Related stories`,
   )
 
