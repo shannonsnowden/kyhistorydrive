@@ -21,5 +21,6 @@ assert.equal(story.era, 'frontier')
 const pin = rj('public/data/app/ky-history.json').find((p) => p.id === 'michael-stoner-holsteiner')
 if (pin) {
   assert.ok(Math.abs(pin.latitude - o.lat) < 1e-6 && Math.abs(pin.longitude - o.lon) < 1e-6, `ky-history.json pin ${pin.latitude},${pin.longitude} must match override`)
+  assert.equal(pin.geocode_source, 'override', 'an overridden pin must not still claim its old geocoder (photon)')
 }
 console.log('test-stoner-pin: OK (Fort Boonesborough, Madison County)')

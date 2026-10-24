@@ -494,7 +494,7 @@
     "history": "Long before stations dotted the Bluegrass, a major Shawnee town straddled the Ohio at the Scioto’s mouth near today’s South Portsmouth. English maps called it Lower Shawneetown; by 1751 eyewitnesses put the population around 1,200. It was a diplomatic hub and western end of Pennsylvania’s southern deerskin trade until 1758, when the Shawnee moved north. Kentucky archaeology still holds Fort Ancient pottery mixed with mid-1700s trade goods from the Bentley and related sites on the Kentucky bank.",
     "source_date": "2026-08-29",
     "marker_title": null,
-    "geocode_source": "nominatim",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": 1600,
     "year_end": 1750
@@ -508,7 +508,7 @@
     "history": "Five thousand years before the first stations, Late Archaic hunter-gatherers kept returning to a shell midden on the Green River in Ohio County. Indian Knoll (15OH2) yielded over a thousand burials, twenty-three dog burials, and more than 50,000 artifacts when University of Kentucky crews dug it in the late 1930s WPA years. In the early 1990s it and nineteen other Green River shell middens became National Historic Landmarks.",
     "source_date": "2026-08-29",
     "marker_title": null,
-    "geocode_source": "nominatim",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": -3000,
     "year_end": -1000
@@ -550,7 +550,7 @@
     "history": "On a broad ridgetop near Mays Lick, Fort Ancient farmers lived at Fox Farm (15Ms1) from about 1300 into the mid-1600s—one of the longest-lived villages of its kind in the Ohio Valley. Houses first ringed a plaza, then clustered around a large public building as population grew. Residents planted corn, beans, and squash, managed turkey harvests, and once curated eleven deer jaws as a ritual offering inside a house wall.",
     "source_date": "2026-08-31",
     "marker_title": null,
-    "geocode_source": "nominatim",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": 1200,
     "year_end": 1700
@@ -606,7 +606,7 @@
     "history": "On the Green River floodplain in Butler County, Carlston Annis (15Bt5) is a Late Archaic shell midden about 300 by 350 feet and more than six feet thick, piled up beside a mussel shoal between roughly 3000 and 1000 BC. WPA crews under William S. Webb dug nearly half an acre in 1940–41; later work by the Shell Mound Archaeological Project refined the picture of repeated seasonal camps with burials, dog burials, hearths, and pestle caches.",
     "source_date": "2026-09-03",
     "marker_title": null,
-    "geocode_source": "nominatim",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": -3000,
     "year_end": -1000
@@ -634,7 +634,7 @@
     "history": "On the Ohio floodplain in Greenup County near South Shore, Hardin Village was a late Fort Ancient town occupied from the late 1500s to the mid-1600s and covering more than ten acres. University of Kentucky digs in 1939 and again in the 2010s mapped large bark-walled houses, storage pits, and family cemeteries. Triangular endscrapers point to intensive hide work for long-distance exchange—marine shell and brass among the imports—just as the protohistoric Ohio Valley was tipping toward abandonment.",
     "source_date": "2026-09-04",
     "marker_title": null,
-    "geocode_source": "nominatim",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": 1550,
     "year_end": 1650
@@ -691,7 +691,7 @@
     "history": "Robbins Mounds (15Be3) is an Adena burial complex in Boone County excavated by WPA–UK crews in 1939, revealing circular screens and log tombs typical of Middle Woodland Adena ceremonial architecture along the Ohio.",
     "source_date": "2026-09-06",
     "marker_title": null,
-    "geocode_source": "photon",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": -150,
     "year_end": 1
@@ -749,7 +749,7 @@
     "history": "Three conical Adena mounds (15Mm6–8) once crowned a Bluegrass ridgetop in Montgomery County. University of Kentucky crews excavated two in 1937 and found paired-post screens and log tombs typical of Adena mortuary practice. The mounds date to the Late Adena period (roughly A.D. 1–250), not the excavation year.",
     "source_date": "2026-09-07",
     "marker_title": null,
-    "geocode_source": "nominatim",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": 1,
     "year_end": 250
@@ -806,7 +806,7 @@
     "history": "Howard Site (15Ma427) Late Fort Ancient Madison County / Harts Fork / mica & European beads.",
     "source_date": "2026-09-09",
     "marker_title": null,
-    "geocode_source": "photon",
+    "geocode_source": "override",
     "category": "archaeology",
     "year_start": 1400,
     "year_end": 1750
@@ -835,7 +835,7 @@
     "history": "Michael Stoner / Holsteiner / Dunmore’s War surveyor warning ride 1774 / Clark & Wayne Counties.",
     "source_date": "2026-09-10",
     "marker_title": null,
-    "geocode_source": "photon",
+    "geocode_source": "override",
     "category": "person",
     "year_start": 1774,
     "year_end": 1774
