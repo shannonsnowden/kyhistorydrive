@@ -34,7 +34,7 @@ import { faviconLinksHtml, sealRotationScriptHtml, siteChromeScriptHtml, siteFoo
 import { contactLineHtml } from './contact-reveal.mjs'
 import { storyDrives } from './story-drives-lib.mjs'
 import { takeADriveHtml } from '../src/take-a-drive.js'
-import { gitFileDates, gitStoryTextDates } from './story-dates.mjs'
+import { gitFileDates, gitStoryTextDates, storyStoredDate } from './story-dates.mjs'
 import {
   citeBootScript,
   citeBoxHtml,
@@ -389,7 +389,7 @@ class PrerenderPages {
     // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
     for (const loc of PrerenderPages.drivePaths(root)) {
       const src = `public${loc}index.html`
-      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || new Date().toISOString().slice(0, 10) })
+      entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || homeLast })
     }
     // Roads & Rails left the live site on Oct 19: unless KHD_ROADS_RAILS=1, it is not built, not in the
     // sitemap, and /roads-and-rails/ and /roads-rails/ get noindex stubs that forward to the map
@@ -1141,8 +1141,8 @@ class PrerenderPages {
 
   static storyLastmod(story, dates) {
     const git = story.gitModified || dates.get(`public/content/stories/${story.slug}.json`) || ''
-    const published = /^\d{4}-\d{2}-\d{2}$/.test(story.publishedDate || '') ? story.publishedDate : ''
-    return PrerenderPages.laterDate(git, published)
+    // Shallow clone or no git date: the story JSON's stored date, never today.
+    return PrerenderPages.laterDate(git, storyStoredDate(story))
   }
 
   /** Site CSS only. Skip the MapLibre bundle Vite emits next to the app script. */
