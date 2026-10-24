@@ -67,12 +67,13 @@ import {
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { staticPageBootHtml } from '../src/story-return.js'
-import { researchNotesHtml } from '../src/research-notes.js'
+import { foldedResearchHtml, researchNotesHtml } from '../src/research-notes.js'
 import {
   glanceTableHtml,
   markdownWithoutGlanceSection,
   renderStoryHtml,
   researchPageHref,
+  isFoldedResearch,
 } from '../src/story-markdown.js'
 import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink } from '../src/transport-links.js'
@@ -232,10 +233,10 @@ class PrerenderPages {
       } while (text !== previous)
       return text.replace(/\s+/g, ' ').trim()
     })
-    if (aboutH1.length !== 1 || aboutH1[0] !== 'Kentucky History Drive') {
+    if (aboutH1.length !== 1 || aboutH1[0] !== 'About Kentucky History Drive') {
       throw new Error(`prerender: /about/ should have one h1, the page title; found ${aboutH1.join(' | ') || 'none'}`)
     }
-    if (!aboutHtml.includes('<h1 class="about-page-title">Kentucky History Drive</h1>')) {
+    if (!aboutHtml.includes('<h1 class="about-page-title">About Kentucky History Drive</h1>')) {
       throw new Error('prerender: /about/ page title should be the h1 (the header title is a <p>)')
     }
     if (!aboutHtml.includes('src="/route-map-lightbox.js"')) {
@@ -362,18 +363,20 @@ class PrerenderPages {
     )
     if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
     // /routes/ is noindex for now (Shannon item 93), so it stays out of the sitemap.
+    // v2 Phase 5 (#340): the research outlines fold into their story pages (amplify.yml 301s each old
+    // URL). Only the 7 culture image-evidence pages are still built, noindex,follow and out of the sitemap.
     for (const notes of researchNotes) {
       const story = stories.find((item) => item.slug === notes.storySlug)
       if (!story) throw new Error(`prerender: research ${notes.slug} is not tied to a live story`)
+      if (isFoldedResearch(notes)) continue
       const urlPath = `/research/${notes.slug}/`
       const html = PrerenderPages.researchPage(notes, cssHrefs, story)
       PrerenderPages.assertPage(html, { archaeological: false, lat: null, lon: null }, urlPath)
       PrerenderPages.assertResearch(html, notes)
+      if (!html.includes(`<meta name="robots" content="${PrerenderPages.THIN_ROBOTS}" />`)) {
+        throw new Error(`prerender: ${urlPath} culture evidence page must be noindex`)
+      }
       PrerenderPages.writePage(dist, urlPath, html)
-      const fileKey = `public/content/research/${notes.slug}.json`
-      const lastmod = dates.lastmod.get(fileKey) || PrerenderPages.isoDate(notes.updated)
-      if (!PrerenderPages.isoDate(lastmod)) throw new Error(`prerender: ${urlPath} is missing lastmod`)
-      entries.push({ loc: `${PrerenderPages.SITE}${urlPath}`, lastmod })
     }
     // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
     for (const loc of PrerenderPages.drivePaths(root)) {
@@ -1902,6 +1905,8 @@ class PrerenderPages {
       imageAlt: 'Kentucky History Drive official seal',
       ogType: 'article',
       main: article,
+      // v2 Phase 5 (#340): culture image-evidence pages are noindex until they move to /editorial/.
+      robots: PrerenderPages.THIN_ROBOTS,
       jsonLd: PrerenderPages.researchJsonLd(notes, pageUrl, description, story),
     })
   }
@@ -1964,7 +1969,8 @@ class PrerenderPages {
     )
     const bodyHtml = renderStoryHtml(split.mainMarkdown)
     const glanceHtml = glanceTableHtml(story.glance, notes)
-    const researchHref = notes ? researchPageHref(notes.slug) : ''
+    const researchFold = notes && isFoldedResearch(notes) ? foldedResearchHtml(notes) : ''
+    const researchHref = notes && !isFoldedResearch(notes) ? researchPageHref(notes.slug) : ''
     const researchLink = researchHref
       ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
@@ -2261,6 +2267,7 @@ class PrerenderPages {
             ${researchLink}
           </div>
           ${sourcesListHtml}
+          ${researchFold}
           ${inlineSourcesHtml}
           ${glanceDetailsHtml}
           ${claimsDetailsHtml}
@@ -3315,7 +3322,11 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} glance table link is not site-relative`)
       }
     }
-    if (notes) {
+    if (notes && isFoldedResearch(notes)) {
+      if (!html.includes('<div class="research-fold" id="research-notes">') || html.includes(`href="/research/${notes.slug}/`)) {
+        throw new Error(`prerender: ${urlPath} must fold its research notes in, not link /research/${notes.slug}/`)
+      }
+    } else if (notes) {
       const href = researchPageHref(notes.slug)
       if (!href || !html.includes(`href="${href}"`) || !html.includes('>Research notes and sources for the ')) {
         throw new Error(`prerender: ${urlPath} does not link to its research notes`)
@@ -4458,7 +4469,7 @@ ${rows.join('\n')}
         </nav>
         <header class="story-head">
           <p class="static-kicker">About</p>
-          <h1 class="about-page-title">Kentucky History Drive</h1>
+          <h1 class="about-page-title">About Kentucky History Drive</h1>
           <p class="story-lead">Shannon Snowden writes the stories, and Kentucky History Drive publishes them with a map of Kentucky Historical Society markers.</p>
         </header>
         <figure class="about-seals" aria-labelledby="aboutSealsTitle">

@@ -63,6 +63,22 @@ export function researchPageHref(slug) {
   return `/research/${id}/`
 }
 
+/**
+ * v2 Phase 5 (#340): research outlines fold into their story page (#research-notes). The 7 culture
+ * image-evidence pages are the only ones still built at /research/<slug>/ (noindex for now).
+ */
+export function isFoldedResearch(notes) {
+  const slug = String(notes?.slug || '')
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return false
+  return !/^culture-[a-z0-9-]+-image-evidence$/.test(slug)
+}
+
+/** Story-page href for a folded-notes anchor. Root-absolute so it also works inside the /#timeline reader. */
+export function foldedNotesHref(notes, anchor) {
+  const page = storyPageHref(notes?.storySlug)
+  return page && isFoldedResearch(notes) ? `${page}#${anchor}` : ''
+}
+
 export function storyPageHref(slug) {
   const id = String(slug || '')
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) return ''
@@ -356,6 +372,7 @@ function sourceAnchor(notes, id) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(sourceId)) return ''
   const known = (notes.sources || []).some((source) => source?.id === sourceId)
   if (!known) return ''
+  if (isFoldedResearch(notes)) return foldedNotesHref(notes, `rn-source-${sourceId}`)
   return `/research/${slug}/#source-${sourceId}`
 }
 
@@ -409,8 +426,9 @@ function renderGlance(glance, notes, out) {
     // Sources sit under the table (not in it) so the glance stays short on phones.
     const slug = String(notes?.slug || '')
     out.open('p', { class: 'story-glance-sources' })
-    out.open('a', { href: `/research/${slug}/#sources` })
-    out.text(`Sources for this table (${sourceRows.length}) on the research page →`)
+    const fold = isFoldedResearch(notes)
+    out.open('a', { href: fold ? foldedNotesHref(notes, 'research-notes') : `/research/${slug}/#sources` })
+    out.text(`Sources for this table (${sourceRows.length}) ${fold ? 'in the research notes' : 'on the research page'} →`)
     out.close('a')
     out.close('p')
   }

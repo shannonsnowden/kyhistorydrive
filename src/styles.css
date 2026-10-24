@@ -1075,6 +1075,13 @@ html[data-hp-theme="light"] .story-glance td {
 .research-section ul,
 .research-section ol { margin: 0; padding-left: 1.25rem; }
 .research-section li { margin: 0.4rem 0; overflow-wrap: anywhere; }
+/* v2 Phase 5 (#340): research notes folded into the story's Sources and research section. */
+.research-fold { margin: 1.5rem 0 0; padding-top: 1rem; border-top: 1px solid var(--line); }
+.research-fold a { color: var(--accent); }
+.research-fold > h3 { color: var(--heading); font-size: 1.2rem; margin: 0 0 0.4rem; scroll-margin-top: 5rem; }
+.research-fold .research-section { margin: 1rem 0; }
+.research-fold .research-section h4 { color: var(--heading); font-size: 1rem; line-height: 1.3; margin: 0 0 0.4rem; }
+.research-fold [id^="rn-source-"] { scroll-margin-top: 5rem; }
 .research-cites { color: var(--muted); font-size: 0.88em; }
 .research-cites a { color: var(--accent); }
 .research-year { font-weight: 700; color: var(--heading); }

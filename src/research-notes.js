@@ -2,7 +2,7 @@
  * Research notes pages. Every string from the JSON is escaped.
  * There is no raw HTML in this content.
  */
-import { escapeHtml, isExternalStoryUrl, safeStoryUrl, storyPageHref } from './story-markdown.js'
+import { escapeHtml, isExternalStoryUrl, isFoldedResearch, safeStoryUrl, storyPageHref } from './story-markdown.js'
 
 const MONTHS = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -187,4 +187,65 @@ export function researchNotesHtml(notes) {
       ${questionsHtml(notes)}
       ${sourcesHtml(notes)}
     </article>`
+}
+
+/**
+ * v2 Phase 5 (#340): the same outline folded into its story page, under "Sources and research".
+ * h3/h4 only (the page keeps one h1), ids prefixed rn- so nothing clashes with the story's #sources.
+ * Culture image-evidence notes never fold (they keep their own noindex page).
+ */
+export function foldedResearchHtml(notes) {
+  if (!isFoldedResearch(notes) || !storyPageHref(notes?.storySlug)) return ''
+  const known = knownSourceIds(notes)
+  const cite = (ids) => citeHtml(ids, known).replace(/href="#source-/g, 'href="#rn-source-')
+  const block = (heading, inner, tag = 'ul', cls = '') =>
+    inner.length ? `<section class="research-section"><h4>${escapeHtml(heading)}</h4><${tag}${cls ? ` class="${cls}"` : ''}>${inner.join('')}</${tag}></section>` : ''
+  const parts = []
+  for (const section of notes.sections || []) {
+    const heading = String(section?.heading || '').trim()
+    const items = (section?.items || [])
+      .map((item) => {
+        const text = String(item?.text || '').trim()
+        return text ? `<li>${escapeHtml(text)}${cite(item.sources)}</li>` : ''
+      })
+      .filter(Boolean)
+    if (heading) parts.push(block(heading, items))
+  }
+  const timeline = (notes.timeline || [])
+    .map((row) => {
+      const event = String(row?.event || '').trim()
+      if (!event) return ''
+      const year = row?.year == null ? '' : String(row.year)
+      return `<li>${year ? `<span class="research-year">${escapeHtml(year)}</span> ` : ''}${escapeHtml(event)}${cite(row.sources)}</li>`
+    })
+    .filter(Boolean)
+  parts.push(block('Timeline', timeline, 'ol', 'research-timeline'))
+  const people = (notes.people || [])
+    .map((person) => {
+      const name = String(person?.name || '').trim()
+      if (!name) return ''
+      const id = safeId(person.peopleId)
+      const role = String(person?.role || '').trim()
+      return `<li>${id ? `<a href="/people/#${id}">${escapeHtml(name)}</a>` : escapeHtml(name)}${role ? ` <span class="research-role">${escapeHtml(role)}</span>` : ''}</li>`
+    })
+    .filter(Boolean)
+  parts.push(block('People', people, 'ul', 'research-people'))
+  const questions = (notes.openQuestions || []).map((q) => String(q || '').trim()).filter(Boolean).map((q) => `<li>${escapeHtml(q)}</li>`)
+  parts.push(block('Open questions', questions))
+  const groups = new Map()
+  for (const source of notes.sources || []) {
+    const type = String(source?.type || '').trim().toLowerCase() || 'other'
+    const item = sourceItemHtml(source).replace(/^<li id="source-/, '<li id="rn-source-')
+    if (!item) continue
+    if (!groups.has(type)) groups.set(type, [])
+    groups.get(type).push(item)
+  }
+  for (const [type, items] of groups) parts.push(block(`${SOURCE_HEADINGS[type] || type} (research notes)`, items))
+  const body = parts.filter(Boolean).join('')
+  if (!body) return ''
+  const updated = formatUpdated(notes.updated)
+  const iso = /^\d{4}-\d{2}-\d{2}$/.test(String(notes.updated || '')) ? String(notes.updated) : ''
+  return `<div class="research-fold" id="research-notes"><h3 id="research-notes-heading">Research notes</h3>${
+    updated ? `<p class="research-updated">Updated <time datetime="${escapeHtml(iso)}">${escapeHtml(updated)}</time></p>` : ''
+  }${body}</div>`
 }
