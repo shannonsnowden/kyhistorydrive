@@ -910,7 +910,7 @@
     "subtitle": "Fayette County · Adena-era earthwork · ~409–68 BCE",
     "latitude": 38,
     "longitude": -84.5,
-    "history": "In Fayette County, Peter Village (15Fa166) is an Adena-era earthwork whose pottery, dated to about 409–68 BCE, shows thick Adena wares giving way to thinner Hopewell-style types. Ephraim Squier and Edwin Davis published a plan of it in 1848.",
+    "history": "In Fayette County, Peter Village (15Fa166) is a large Early Woodland earthen enclosure. Pottery from the site is dated to about 409–68 BCE. It is a protected archaeological site, so it is named at the county level and is not mapped.",
     "source_date": "2026-09-11",
     "marker_number": 1440,
     "marker_title": "Fayette County",
@@ -3711,26 +3711,18 @@
   },
   {
     "id": "c-and-o-mounds-paintsville-johnson-adena",
-    "name": "C. and O. Mounds, Paintsville (approximate)",
-    "subtitle": "Johnson County · Adena burial mounds on the Levisa Fork · Early Woodland · location generalized",
+    "name": "C. and O. Mounds, Johnson County (approximate)",
+    "subtitle": "Johnson County · Adena burial mounds · Early Woodland · location generalized",
     "latitude": 37.8,
     "longitude": -82.8,
-    "history": "On the Levisa Fork floodplain at Paintsville, Adena people raised two burial mounds about 1,600 feet apart, each over circular rings of paired posts. William S. Webb's University of Kentucky crews excavated them with Works Progress Administration support and published them in 1942.\n\nWebb read each mound as the grave of an important person over a house, with small hamlets along the river. Later work has not found those villages, and many archaeologists now see the post circles as ceremonial structures. The sites are not public; this pin is generalized to about 10 km.",
+    "history": "In Johnson County, Adena people raised two burial mounds about 1,600 feet apart, each over circular rings of paired posts. William S. Webb's University of Kentucky crews excavated them with Works Progress Administration support and published them in 1942.\n\nWebb read each mound as the grave of an important person over a house, with small hamlets nearby. Later work has not found those villages, and many archaeologists now see the post circles as ceremonial structures. The sites are not public; this pin is generalized to about 10 km.",
     "source_date": "2026-10-19",
-    "geocode_source": "generalized-paintsville",
-    "geocode_note": "Generalized to 0.1° near Paintsville; the exact mound sites are not published here. Years: general Adena range (c. 500 BC–AD 250), not excavation dates.",
+    "geocode_source": "generalized-johnson-county",
+    "geocode_note": "Generalized to 0.1° within Johnson County; the exact mound sites are not published here. Years: general Adena range (c. 500 BC–AD 250), not excavation dates.",
     "category": "archaeology",
     "website": "https://core.tdar.org/document/176231/the-c-and-o-mounds-at-paintsville-sites-jo-2-and-jo-9-johnson-county-kentucky",
     "year_start": -500,
-    "year_end": 250,
-    "photo": {
-      "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-      "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-      "source_label": "Wikimedia Commons",
-      "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-      "year": 2009
-    }
+    "year_end": 250
   },
   {
     "id": "maysville-lexington-turnpike-mason-1829-1835",

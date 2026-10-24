@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T13:08:19.281Z",
+  "generatedAt": "2026-10-24T15:37:42.423Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -2008,18 +2008,6 @@
         "year": null
       }
     },
-    "the-c-and-o-mounds-at-paintsville": {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
-      }
-    },
     "the-maysville-road-and-jacksons-veto-1830": {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
       "historyId": "maysville-lexington-turnpike-mason-1829-1835",
@@ -3989,18 +3977,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons · Public domain",
         "year": null
-      }
-    },
-    "c-and-o-mounds-paintsville-johnson-adena": {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
       }
     },
     "maysville-lexington-turnpike-mason-1829-1835": {

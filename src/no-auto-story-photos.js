@@ -21,6 +21,8 @@ export const NO_AUTO_STORY_PHOTOS = [
   'col-john-todd-of-lexington',
   // Commons 'Fox Farm Site' is the Smyth County, Virginia site, not Mason County (Editor 10/18).
   'fox-farm-mason-county',
+  // Protected site: no stand-in landscape photo that could name a place (SEO #345).
+  'the-c-and-o-mounds-at-paintsville',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

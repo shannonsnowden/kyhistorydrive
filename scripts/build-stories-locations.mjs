@@ -1002,7 +1002,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'the-c-and-o-mounds-at-paintsville': {
-    matchName: "C. and O. Mounds, Paintsville (approximate)",
+    matchName: "C. and O. Mounds, Johnson County (approximate)",
     lat: 37.8,
     lon: -82.8,
     confidence: 'override',

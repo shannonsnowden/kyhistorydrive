@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T13:08:21.287Z",
+  "generatedAt": "2026-10-24T15:37:44.462Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg": {
@@ -73,31 +73,6 @@
         },
         {
           "src": "/content/photos/opt/stories/river-raisin-1813-kentuckys-winter-defeat-in-michigan-1280.webp",
-          "w": 1280
-        }
-      ]
-    },
-    "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg": {
-      "sha256": "4c6a1edc72a27ea284c28eb1e637da7e83f0959772332cdf04330124ad4b6dcc",
-      "width": 1280,
-      "height": 960,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.avif",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.avif",
-          "w": 1280
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-800.webp",
-          "w": 800
-        },
-        {
-          "src": "/content/photos/opt/stories/the-c-and-o-mounds-at-paintsville-1280.webp",
           "w": 1280
         }
       ]

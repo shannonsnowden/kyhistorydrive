@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T14:35:17.373Z",
+  "generatedAt": "2026-10-24T15:37:35.015Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -109,7 +109,7 @@
       "lat": 37.8,
       "lon": -82.8,
       "mapConfidence": "override",
-      "matchedPlace": "C. and O. Mounds, Paintsville (approximate)",
+      "matchedPlace": "C. and O. Mounds, Johnson County (approximate)",
       "historyId": "c-and-o-mounds-paintsville-johnson-adena"
     },
     "peter-village-enclosure-15fa166": {

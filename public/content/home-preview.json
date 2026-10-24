@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T13:08:19.292Z",
+  "generatedAt": "2026-10-24T15:33:10.919Z",
   "briefDate": "2026-10-19",
   "displayDate": "Monday, October 19, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -78,31 +78,6 @@
         "year": 2010
       },
       "heroDeck": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit."
-    },
-    {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "title": "The C. and O. Mounds at Paintsville",
-      "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "era": "prehistoric",
-      "yearStart": -500,
-      "county": "Johnson",
-      "briefDate": "2026-10-19",
-      "href": "/stories/the-c-and-o-mounds-at-paintsville/",
-      "place": "C. and O. Mounds, Paintsville (approximate)",
-      "lat": 37.8,
-      "lon": -82.8,
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
-      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
-      },
-      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     },
     {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
@@ -205,31 +180,6 @@
         "year": 2010
       },
       "heroDeck": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit."
-    },
-    {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "title": "The C. and O. Mounds at Paintsville",
-      "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "era": "prehistoric",
-      "yearStart": -500,
-      "county": "Johnson",
-      "briefDate": "2026-10-19",
-      "href": "/stories/the-c-and-o-mounds-at-paintsville/",
-      "place": "C. and O. Mounds, Paintsville (approximate)",
-      "lat": 37.8,
-      "lon": -82.8,
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
-      "quote": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009
-      },
-      "heroDeck": "On the floodplain of the Levisa Fork of the Big Sandy River at Paintsville, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     },
     {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
