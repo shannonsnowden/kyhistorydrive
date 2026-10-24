@@ -100,6 +100,12 @@ for (const rel of ['public/content/photos/stories/peter-village-enclosure-15fa16
   const data = { drives: { 'sample-trail': { name: 'Sample Trail' } }, stories: { 'example-site-15xx999': ['sample-trail'], 'sampletown-story': ['sample-trail'] } }
   assert.equal(takeADriveHtml(data, 'example-site-15xx999', { isProtected: true }), '', 'takeADriveHtml must return no drive markup for a protected story (Example Site 15XX999)')
   assert.match(takeADriveHtml(data, 'sampletown-story', { isProtected: false }), /take-a-drive-btn/, 'control: an unprotected story still gets its Take a Drive button')
+  // fail closed: no isProtected (or an unknown value) means no drive markup
+  assert.equal(takeADriveHtml(data, 'sampletown-story'), '', 'takeADriveHtml with no isProtected must fail closed (no drive markup)')
+  assert.equal(takeADriveHtml(data, 'sampletown-story', {}), '', 'takeADriveHtml with isProtected undefined must fail closed')
+  assert.equal(takeADriveHtml(data, 'sampletown-story', { isProtected: undefined }), '', 'takeADriveHtml with isProtected undefined must fail closed')
+  // the reader only says "not protected" once the protected list actually loaded
+  assert.match(main, /protectedPinsLoaded\(\)/, 'src/main.js must check protectedPinsLoaded() before offering Take a Drive')
   // the in-app reader (src/main.js) passes the protected check
   const callers = [...main.matchAll(/takeADriveHtml\(([^\n]*)\)/g)].map((m) => m[1])
   assert.ok(callers.length >= 1 && callers.every((c) => /isProtected:/.test(c)), `every takeADriveHtml call in src/main.js must pass isProtected: ${callers.join(' | ')}`)

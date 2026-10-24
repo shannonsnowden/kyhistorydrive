@@ -14,7 +14,7 @@ import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
-import { loadProtectedPins, isProtectedPin, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
+import { loadProtectedPins, protectedPinsLoaded, isProtectedPin, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
@@ -3480,7 +3480,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
                 ? ''
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
-            ${takeADriveHtml(await loadStoryDrives(), meta.slug, { isProtected: (await loadProtectedPins(), isProtectedStoryCoords({ ...meta, ...s })) })}
+            ${takeADriveHtml(await loadStoryDrives(), meta.slug, { isProtected: (await loadProtectedPins(), protectedPinsLoaded() ? isProtectedStoryCoords({ ...meta, ...s }) : undefined) })}
           </header>
           <div class="story-glance-mount"></div>
           <div class="story-body"></div>

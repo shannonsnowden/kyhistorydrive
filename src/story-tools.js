@@ -402,9 +402,9 @@ const CHEVRON_ICON = `<svg class="related-card-chevron" viewBox="0 0 16 16" widt
 function cardMediaHtml(row) {
   if (row.kind !== 'marker' && row.thumb) {
     const src = esc(row.thumb)
-    const isPortrait = String(row.thumb).startsWith('/people/portraits/')
-    const defaultAlt = isPortrait ? `Portrait for ${row.title || 'story'}` : `Thumbnail for ${row.title || 'story'}`
-    const alt = esc(row.alt || defaultAlt)
+    // Decorative: the card title sits in the same link, so a title-based alt only repeats it
+    // (and on protected pages it repeated nearby place names). An explicit row.alt still wins.
+    const alt = esc(row.alt || '')
     return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="${alt}" width="56" height="56" loading="lazy" decoding="async"></span>`
   }
   return `<span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span>`
