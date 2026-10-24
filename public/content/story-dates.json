@@ -41,7 +41,7 @@
   },
   "battle-of-blue-licks": {
     "published": "2026-09-12",
-    "modified": "2026-10-18"
+    "modified": "2026-10-24"
   },
   "benjamin-logan": {
     "published": "2026-09-12",
@@ -70,6 +70,10 @@
   "bryan-station-siege-august-1782": {
     "published": "2026-09-30",
     "modified": "2026-09-30"
+  },
+  "buckner-site-fort-ancient-villages": {
+    "published": "2026-10-24",
+    "modified": "2026-10-24"
   },
   "bullitts-lick-kentuckys-first-industry": {
     "published": "2026-09-12",
@@ -531,6 +535,10 @@
     "published": "2026-10-03",
     "modified": "2026-10-24"
   },
+  "lower-shawneetown-greenup-county": {
+    "published": "2026-10-24",
+    "modified": "2026-10-24"
+  },
   "maj-joseph-bowman": {
     "published": "2026-09-16",
     "modified": "2026-10-24"
@@ -597,6 +605,10 @@
   },
   "mount-sterling-little-mountain-town": {
     "published": "2026-09-12",
+    "modified": "2026-10-24"
+  },
+  "muir-site-early-fort-ancient": {
+    "published": "2026-10-24",
     "modified": "2026-10-24"
   },
   "natural-bridge-sandstone-arch": {
@@ -934,17 +946,5 @@
   "yuchi-on-the-green-river-maps": {
     "published": "2026-09-12",
     "modified": "2026-10-12"
-  },
-  "buckner-site-fort-ancient-villages": {
-    "published": "2026-10-24",
-    "modified": "2026-10-24"
-  },
-  "lower-shawneetown-greenup-county": {
-    "published": "2026-10-24",
-    "modified": "2026-10-24"
-  },
-  "muir-site-early-fort-ancient": {
-    "published": "2026-10-24",
-    "modified": "2026-10-24"
   }
 }
