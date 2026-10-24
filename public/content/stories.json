@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T18:20:14.330Z",
+  "generatedAt": "2026-10-24T18:59:11.473Z",
   "count": 237,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -399,8 +399,8 @@
       "slug": "old-fort-earthworks-15gp1-greenup-county",
       "title": "Old Fort Earthworks: Hopewell’s square on the Ohio",
       "publishedDate": "2026-10-08",
-      "summary": "Near South Portsmouth in Greenup County, Old Fort Earthworks is a square Middle Woodland enclosure of 13.5 acres, part of the Portsmouth Earthworks.",
-      "proseChars": 1849,
+      "summary": "In Greenup County, Old Fort Earthworks is a square Middle Woodland enclosure of 13.5 acres, the westernmost part of a larger Hopewell complex.",
+      "proseChars": 1831,
       "yearStart": -200,
       "yearEnd": 500,
       "era": "prehistoric",
@@ -416,7 +416,7 @@
       "county": "Greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -959,14 +959,6 @@
       "source": "ky-history",
       "briefDate": "2026-09-23",
       "county": "Crittenden",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-        "year": null
-      },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",

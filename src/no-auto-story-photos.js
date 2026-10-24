@@ -35,6 +35,8 @@ export const NO_AUTO_STORY_PHOTOS = [
   // No Scioto-confluence stand-in photo that could place Lower Shawneetown (SEO 10/24).
   'nonhelema',
   'chambers-site-15ml109-marshall-county',
+  // Tolu: Wickliffe stand-in photo removed; a reference site (KY History 10/24).
+  'tolu-site-mississippian-mounds-on-the-lower-ohio',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

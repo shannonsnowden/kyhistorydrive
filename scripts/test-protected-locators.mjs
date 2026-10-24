@@ -221,6 +221,18 @@ const peterPage = path.join(ROOT, 'dist/stories', PETER, 'index.html')
 if (fs.existsSync(peterPage)) {
   assert.ok(!fs.readFileSync(peterPage, 'utf8').includes('/stories/mount-horeb-earthworks/'), 'Peter Village page links Mount Horeb')
 }
+// #346 (KY History/SEO): protected sites never point at a well-known reference site that places them.
+for (const [site, ref] of [
+  ['twin-mounds-site', 'wickliffe-mounds-mississippian-village-ballard-county'],
+  ['dover-mound-mason-county', 'mount-horeb-earthworks'],
+]) {
+  const s = allStories.find((x) => x.slug === site)
+  if (!s) continue
+  const rel = pickRelatedStories(s, allStories).map((x) => x.slug)
+  assert.ok(!rel.includes(ref), `${site} related cards include reference site ${ref}`)
+  const page = path.join(ROOT, 'dist/stories', site, 'index.html')
+  if (fs.existsSync(page)) assert.ok(!fs.readFileSync(page, 'utf8').includes(`/stories/${ref}/`), `${site} page links ${ref}`)
+}
 
 // ---------- built pages: a hit passes only on an exact file|owner|page:<label>|match entry ----------
 function pageHits(html, owner) {
@@ -264,7 +276,9 @@ function pageHits(html, owner) {
   // Builder: a fictional protected story at a fictional point shows no nearby cards and only same-county related cards.
   const site = { slug: FAKE, title: 'Example Site 15XX999', county: 'Sample', era: 'prehistoric', tags: ['archaeology'], coordinatesProtected: true, lat: 37.5, lon: -85.5 }
   const pool = [
-    { slug: 'sample-county-story', title: 'A Sample County story', county: 'Sample', tags: ['archaeology'], lat: 37.51, lon: -85.5 },
+    { slug: 'sample-county-story', title: 'A Sample County story', county: 'Sample', tags: ['frontier'], lat: 37.51, lon: -85.5 },
+    // #346: a public archaeological site in the same county is a reference site; it must not be carded.
+    { slug: 'sample-reference-mounds', title: 'Sample Reference Mounds', county: 'Sample', tags: ['archaeology'], lat: 37.505, lon: -85.5 },
     { slug: 'sampletown-story', title: 'Sampletown on the Sample River', county: 'Other', tags: ['archaeology'], lat: 37.52, lon: -85.5 },
     { slug: 'sampleville-story', title: 'Sampleville', county: 'Other', tags: [], lat: 37.53, lon: -85.5 },
     { slug: 'samplefield-story', title: 'Samplefield', county: 'Other', tags: [], lat: 37.54, lon: -85.5 },

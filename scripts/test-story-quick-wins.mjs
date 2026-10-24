@@ -65,7 +65,7 @@ coord('', null)
 
 const protectedNames = ['Lower Shawneetown', 'Eskippakithiki', 'Indian Old Fields']
 const shawnee = roundProtectedWaypoint(
-  { name: 'Lower Shawneetown (Ohio crossing)', place: 'South Portsmouth', lat: 38.7, lon: -83.1, latText: '38.7', lonText: '-83.1' },
+  { name: 'Lower Shawneetown (Ohio crossing)', place: 'Greenup County', lat: 38.7, lon: -83.1, latText: '38.7', lonText: '-83.1' },
   protectedNames,
 )
 assert.equal(shawnee.latText, '38.7')

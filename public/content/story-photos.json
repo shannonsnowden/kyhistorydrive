@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T18:20:21.315Z",
+  "generatedAt": "2026-10-24T18:59:18.629Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -1483,7 +1483,7 @@
       "historyId": "old-fort-earthworks-15gp1-greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -1978,18 +1978,6 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
-        "year": null
-      }
-    },
-    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
       }
     },
@@ -3497,7 +3485,7 @@
       "historyId": "old-fort-earthworks-15gp1-greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -3883,18 +3871,6 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
-        "year": null
-      }
-    },
-    "tolu-site-15cn1-crittenden-county": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
         "year": null
       }
     },

@@ -47,7 +47,7 @@ export const ROUTE_MAPS = [
     zoomStem: 'warriors-path',
     phoneCrop: true,
     era: 'before 1674 to the 1770s',
-    alt: "Map of the Warriors' Path from the Ohio River at the Scioto south past Eskippakithiki to Cumberland Gap and Cherokee towns.",
+    alt: "Map of the Warriors' Path from the Ohio in Greenup County south past Eskippakithiki to Cumberland Gap and Cherokee towns.",
     caption:
       "Solid: Warriors' Path (approximate) · Dotted: conjectural segment · Light dashes: branch prongs to the Ohio. Map: Kentucky History Drive.",
     phoneCaption: "Solid: Warriors' Path (approximate). Map: Kentucky History Drive.",

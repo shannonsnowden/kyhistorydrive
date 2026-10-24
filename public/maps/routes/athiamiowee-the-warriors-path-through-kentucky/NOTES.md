@@ -53,7 +53,7 @@ Branch (KHS/story text): from Eskippakithiki NE across the Licking near Upper Bl
 - State lines are modern (Natural Earth admin-1); in 1750s–70s this was Virginia's claimed Kentucky country.
 
 ## Suggested alt text (≤125 chars)
-Map of the Warriors' Path from the Ohio River at the Scioto south past Eskippakithiki to Cumberland Gap and Cherokee towns.
+Map of the Warriors' Path from the Ohio in Greenup County south past Eskippakithiki to Cumberland Gap and Cherokee towns.
 
 Suggested caption: "Route of the Warriors' Path (Athiamiowee), before 1674 to the 1770s. Approximate path, house map by Kentucky History Drive." Sources: Filson 1784; KHS marker #697; KYGeoNet Ky Frontier Trails; NPS.
 
