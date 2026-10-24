@@ -38,6 +38,36 @@ export function patternBlocks(text) {
   })
 }
 
+// Editor ruling (#345): amplify.yml keeps only these 301s. The four slashless rules the console lacks,
+// plus 7 retired block-f slugs x slash/no slash. Every other 301 lives in the Amplify console.
+const SLASHLESS_KEPT = ['/about', '/videos', '/timeline', '/drives']
+const OLD_SLUG_301S = [
+  ['capt-jack-jouett', 'jack-jouett-kentuckys-midnight-rider'],
+  ['yellow-banks-becomes-owensboro', 'owensboro-yellow-banks'],
+  ['camp-nelson-jessamine-county', 'camp-nelson-kentucky-us-colored-troops'],
+  ['peter-village-early-woodland-enclosure-near-lexington', 'peter-village-enclosure-15fa166'],
+  ['chickamauga-cherokee-hold-the-southern-flank', 'chickamauga-cherokee'],
+  ['jacob-beam-sells-old-jakes-first-barrel', 'jacob-beam-on-hardin-creek'],
+  ['wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid', 'wea-waayaahtanwa-on-the-wabash'],
+]
+export const REDIRECT_ALLOWLIST = [
+  ...SLASHLESS_KEPT.map((p) => `${p}->${p}/:301`),
+  ...OLD_SLUG_301S.flatMap(([from, to]) => [`/stories/${from}->/stories/${to}/:301`, `/stories/${from}/->/stories/${to}/:301`]),
+].sort()
+
+export function redirectProblems(amplify) {
+  const problems = []
+  const got = [...amplify.matchAll(/-\s*source:\s*'([^']*)'\s*\n\s*target:\s*'([^']*)'\s*\n\s*status:\s*'(30[1278])'/g)]
+    .map((m) => `${m[1]}->${m[2]}:${m[3]}`)
+  const allowed = new Set(REDIRECT_ALLOWLIST)
+  for (const r of got) if (!allowed.has(r)) problems.push(`amplify.yml redirect ${r} is not in the allowlist (move it to the Amplify console)`)
+  for (const r of REDIRECT_ALLOWLIST) if (!got.includes(r)) problems.push(`amplify.yml is missing required redirect ${r}`)
+  if (new Set(got).size !== got.length) problems.push('amplify.yml has duplicate redirect rules')
+  const statusCount = (amplify.match(/status:\s*'30[1278]'/g) || []).length
+  if (statusCount !== REDIRECT_ALLOWLIST.length) problems.push(`amplify.yml has ${statusCount} redirect statuses; expected ${REDIRECT_ALLOWLIST.length}`)
+  return problems
+}
+
 function headerValues(block, key) {
   const re = new RegExp(`- key: '${key}'\\n\\s*value: (?:'([^']*)'|"([^"]*)")`, 'g')
   const values = []
@@ -120,18 +150,8 @@ function main() {
     fail('missing value: \'public, max-age=0, s-maxage=60, must-revalidate\'')
   }
 
-  // Item 90: the 301s live in the Amplify console; amplify.yml keeps the 200 rewrites plus exactly
-  // four slashless 301s the console does not have (/about, /videos, /timeline, /drives).
-  {
-    const kept = ['/about', '/videos', '/timeline', '/drives']
-    const redirects = [...amplify.matchAll(/-\s*source:\s*'([^']*)'\s*\n\s*target:\s*'([^']*)'\s*\n\s*status:\s*'(30[1278])'/g)]
-      .map((m) => ({ source: m[1], target: m[2], status: m[3] }))
-    const got = redirects.map((r) => `${r.source}->${r.target}:${r.status}`).sort()
-    const want = kept.map((p) => `${p}->${p}/:301`).sort()
-    if (JSON.stringify(got) !== JSON.stringify(want)) fail(`amplify.yml redirect rules must be exactly ${want.join(', ')}; found ${got.join(', ') || 'none'} (item 90)`)
-    const statusCount = (amplify.match(/status:\s*'30[1278]'/g) || []).length
-    if (statusCount !== kept.length) fail(`amplify.yml has ${statusCount} redirect statuses; expected ${kept.length} (item 90)`)
-  }
+  // Item 90 + Editor ruling #345: amplify.yml 301s are an explicit allowlist; anything else fails.
+  for (const p of redirectProblems(amplify)) fail(p)
 
   const blocks = patternBlocks(customHttp)
   const feed = blocks.find((block) => block.pattern === "'/feed.xml'")
