@@ -93,9 +93,11 @@ function strings(o, out = []) {
 }
 
 const KEYS = new Set([...ITEMS.flatMap((i) => [...i.slugs, ...i.ids])])
+// The self-test swaps in fictional fixture items so plants never pair a real site with a real locator.
+let ACTIVE = ITEMS
 function itemFor(value) {
   const v = String(value || '').replace(/^(place|story|history):/, '')
-  return ITEMS.find((i) => i.slugs.includes(v) || i.ids.includes(v))
+  return ACTIVE.find((i) => i.slugs.includes(v) || i.ids.includes(v))
 }
 
 /** Find objects that belong to a protected story and report locating terms. */
@@ -181,13 +183,14 @@ function pageParts(html) {
   return parts.join('\n')
 }
 
-const MENTIONS = ITEMS.map((it) => ({
+const mentionsFor = (items) => items.map((it) => ({
   it,
   re: new RegExp(
     [...it.slugs.map((x) => `/stories/${x}/`), ...it.names].map((x) => x.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&').replace(/ /g, '[\\s_-]+')).join('|'),
     'i',
   ),
 }))
+let MENTIONS = mentionsFor(ITEMS)
 
 /** Prose of a non-protected story page: body, "Kentucky today", related why-lines. */
 function prose(html) {
@@ -302,62 +305,84 @@ export function runAll() {
   return problems
 }
 
+/** Fictional sites and places for the self-test only. Real terms live only in ITEMS above. */
+const FIXTURES = [
+  {
+    name: 'Example Site',
+    names: ['Example Site', '15XX999'],
+    slugs: ['example-site-15xx999-sample-county', 'example-site-near-sampletown'],
+    ids: ['example-site-15xx999-0001'],
+    terms: ['Sampletown', 'Sample River', 'Samplemound', 'Sampleriver(?!an)', 'bluff', 'west of', 'near the'],
+  },
+  {
+    name: 'Demo Enclosure',
+    names: ['Demo Enclosure'],
+    slugs: ['demo-enclosure-15yy000'],
+    ids: ['demo-enclosure-15yy000-0001'],
+    terms: ['Demoville', 'Demo Creek'],
+  },
+]
+
 function selfTest() {
   const assert = (c, m) => {
     if (!c) throw new Error(`self-test: ${m}`)
   }
-  const ch = ITEMS.find((i) => i.name === 'Chambers')
-  assert(hitsIn('File:Clarks_River_in_the_fall.jpg', ch).length, 'Clarks_River underscore')
-  assert(hitsIn('Clarks-River', ch).length, 'Clarks-River hyphen')
-  const turk = ITEMS.find((i) => i.name === 'Turk')
-  assert(!hitsIn('a small Mississippian town', turk).length, 'Mississippian is not a locator')
-  assert(hitsIn('the Mississippi floodplain', turk).length, 'Mississippi river')
-  const pv = ITEMS.find((i) => i.name === 'Peter Village')
-  assert(!hitsIn('/stories/peter-village-early-woodland-enclosure-near-lexington/', pv).length, 'own slug exempt')
-  const p = []
-  scanJson({ terms: { morgantown: { hits: ['place:read-shell-midden-15bt10'] } } }, 'fixture', p)
-  assert(p.length === 1, 'search term key pointing at a protected id')
-  const q = []
-  scanJson([{ slug: 'turk-site-carlisle-county', photo: { title: 'west of Bardwell' } }], 'fixture', q)
-  assert(q.length === 1, 'photo caption')
-  const r = []
-  scanJson({ related: { 'peter-village-enclosure-15fa166': [{ slug: 'x', label: 'Same place: part of the Mount Horeb earthwork complex' }] } }, 'fixture', r)
-  assert(r.length === 1, 'related-card note keyed by protected slug')
-  const r2 = []
-  scanJson({ related: { other: [{ slug: 'read-shell-midden-15bt10-butler-county', label: 'Same place: the same Green River mussel-shoal shell middens' }] } }, 'fixture', r2)
-  assert(r2.length === 1, 'related-card note pointing at a protected story')
-  assert(hitsIn(pageParts('<span class="related-note">— Same place: sits near the Mount Horeb circle</span>'), pv).length, 'built related-card note')
-  // v2 related cards on protected pages (#354 Security): why-line, meta with nested spans, thumbnail alt.
-  assert(hitsIn(pageParts('<li class="related-story"><a class="related-card"><span class="related-card-copy"><span class="related-card-title">X</span><span class="related-card-meta">x</span><span class="usp-rel-why">Same place: beside the Mount Horeb circle</span></span></a></li>'), pv).length, 'v2 usp-rel-why')
-  assert(hitsIn(pageParts('<span class="related-card-meta"><span class="nearby-kind">Story</span> · on Elkhorn Creek</span>'), pv).length, 'v2 related-card-meta with nested span')
-  assert(hitsIn(pageParts('<span class="related-card-media"><img class="related-card-img" src="/a.webp" alt="Thumbnail for Lexington named" width="56"></span>'), pv).length, 'v2 related thumbnail alt')
-  assert(!hitsIn(pageParts('<span class="related-card-meta"><span class="nearby-kind">Story</span> · <span class="nearby-miles">Nearby: 4 miles</span></span>'), pv).length, 'distance text out of scope')
-  // Other stories' text near a protected-site mention.
-  const near = otherPageHits('<div class="story-body"><p>Webb cited enclosures like <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> near Lexington. Later work moved on.</p></div>')
-  assert(near.length === 1 && near[0].item === 'Peter Village', 'other story naming a protected site with a locator in the same sentence')
-  // #354 Security: abbreviations must not end a sentence; a locator one sentence away (within ~15 words) still counts.
-  const turkAbbr = otherPageHits('<div class="story-body"><p>Mississippian towns dotted the region; the Turk site is 5 mi. west of Bardwell on the old road.</p></div>')
-  assert(turkAbbr.length === 1 && turkAbbr[0].item === 'Turk', 'plant: "Turk site is 5 mi. west of Bardwell" (abbreviation mi.)')
-  const pvAbbr = otherPageHits('<div class="story-body"><p>Webb mapped <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> (Fayette Co.) beside Mount Horeb.</p></div>')
-  assert(pvAbbr.length === 1 && pvAbbr[0].item === 'Peter Village', 'plant: "Peter Village (Fayette Co.) <landmark>" (abbreviation Co.)')
-  for (const ab of ['St.', 'Mt.', 'ft.', 'ca.', 'e.g.', 'i.e.', 'etc.', 'No.', 'Ft.', 'Rd.', 'Twp.']) {
-    assert(otherPageHits(`<div class="story-body"><p>The Turk site sat by ${ab} Bardwell once.</p></div>`).length === 1, `plant: abbreviation ${ab}`)
+  ACTIVE = FIXTURES
+  MENTIONS = mentionsFor(FIXTURES)
+  try {
+    const ex = FIXTURES[0]
+    const page = (t) => `<div class="story-body"><p>${t}</p></div>`
+    const exLink = '<a href="/stories/example-site-15xx999-sample-county/">Example Site</a>'
+    assert(hitsIn('File:Sample_River_in_the_fall.jpg', ex).length, 'underscore form')
+    assert(hitsIn('Sample-River', ex).length, 'hyphen form')
+    assert(!hitsIn('a small Sampleriveran town', ex).length, 'negative lookahead term')
+    assert(hitsIn('the Sampleriver floodplain', ex).length, 'lookahead term base')
+    assert(!hitsIn('/stories/example-site-near-sampletown/', ex).length, 'own slug exempt')
+    const p = []
+    scanJson({ terms: { sampletown: { hits: ['place:example-site-15xx999-0001'] } } }, 'fixture', p)
+    assert(p.length === 1, 'search term key pointing at a protected id')
+    const q = []
+    scanJson([{ slug: 'example-site-15xx999-sample-county', photo: { title: 'west of Sampletown' } }], 'fixture', q)
+    assert(q.length === 1, 'photo caption')
+    const r = []
+    scanJson({ related: { 'example-site-15xx999-sample-county': [{ slug: 'x', label: 'Same place: part of the Samplemound complex' }] } }, 'fixture', r)
+    assert(r.length === 1, 'related-card note keyed by protected slug')
+    const r2 = []
+    scanJson({ related: { other: [{ slug: 'example-site-15xx999-sample-county', label: 'Same place: the same Sample River shoals' }] } }, 'fixture', r2)
+    assert(r2.length === 1, 'related-card note pointing at a protected story')
+    assert(hitsIn(pageParts('<span class="related-note">— Same place: sits near Samplemound</span>'), ex).length, 'built related-card note')
+    // v2 related cards on protected pages (#354 Security): why-line, meta with nested spans, thumbnail alt.
+    assert(hitsIn(pageParts('<li class="related-story"><a class="related-card"><span class="related-card-copy"><span class="related-card-title">X</span><span class="related-card-meta">x</span><span class="usp-rel-why">Same place: beside Samplemound</span></span></a></li>'), ex).length, 'v2 usp-rel-why')
+    assert(hitsIn(pageParts('<span class="related-card-meta"><span class="nearby-kind">Story</span> · on the Sample River</span>'), ex).length, 'v2 related-card-meta with nested span')
+    assert(hitsIn(pageParts('<span class="related-card-media"><img class="related-card-img" src="/a.webp" alt="Thumbnail for Sampletown named" width="56"></span>'), ex).length, 'v2 related thumbnail alt')
+    assert(!hitsIn(pageParts('<span class="related-card-meta"><span class="nearby-kind">Story</span> · <span class="nearby-miles">Nearby: 4 miles</span></span>'), ex).length, 'distance text out of scope')
+    // Other stories' text near a protected-site mention.
+    const near = otherPageHits(page(`Webb cited enclosures like ${exLink} near Sampletown. Later work moved on.`))
+    assert(near.length === 1 && near[0].item === 'Example Site', 'locator in the same sentence')
+    const abbr1 = otherPageHits(page('Old towns dotted the region; the Example Site is 5 mi. west of Sampletown on the old road.'))
+    assert(abbr1.length === 1 && abbr1[0].item === 'Example Site', 'plant: "site is 5 mi. west of <town>" (abbreviation mi.)')
+    const abbr2 = otherPageHits(page(`Webb mapped ${exLink} (Sample Co.) beside Samplemound.`))
+    assert(abbr2.length === 1 && abbr2[0].item === 'Example Site', 'plant: "<site> (Sample Co.) <landmark>" (abbreviation Co.)')
+    for (const ab of ['St.', 'Mt.', 'ft.', 'ca.', 'e.g.', 'i.e.', 'etc.', 'No.', 'Ft.', 'Rd.', 'Twp.']) {
+      assert(otherPageHits(page(`The Example Site sat by ${ab} Sampletown once.`)).length === 1, `plant: abbreviation ${ab}`)
+    }
+    const across = otherPageHits(page(`Webb cited ${exLink} in Sample County. Sampletown grew later.`))
+    assert(across.length === 1 && across[0].item === 'Example Site', 'plant: locator across one sentence boundary')
+    const twoAway = otherPageHits(page('Webb dug the Example Site in 1930. The mounds were small. They stand on a bluff near Sampletown.'))
+    assert(twoAway.length === 1 && twoAway[0].hits.includes('Sampletown'), 'plant: locator two sentences after the mention, within 15 words')
+    const riv = otherPageHits(page('The Example Site sat on the Sample Riv. west of Sampletown.'))
+    assert(riv.length === 1 && riv[0].item === 'Example Site', 'plant: "on the Sample Riv. west of <town>"')
+    assert(splitSentences('on the Sample Riv. near Miss. Sample, 3 km. from the Cr. mouth.').length === 1, 'riv, miss, cr, km are abbreviations')
+    assert(otherPageHits(page('Sampletown grew fast. The Demo Enclosure is in Sample County.')).length === 0, 'locator of a different site is fine')
+    const filler = 'Archaeologists in that era surveyed many earthworks across the state with simple tools and notebooks. '.repeat(2)
+    assert(!otherPageHits(page(`Webb cited ${exLink} in Sample County. ${filler}Sampletown grew later.`)).length, 'locator beyond ~15 words is fine')
+    const t0 = Date.now()
+    otherPageHits(page('Example Site Co. mi. St. '.repeat(20000)))
+    assert(Date.now() - t0 < 2000, 'linear on large input')
+  } finally {
+    ACTIVE = ITEMS
+    MENTIONS = mentionsFor(ITEMS)
   }
-  const across = otherPageHits('<div class="story-body"><p>Webb cited <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> in Fayette County. Lexington grew later.</p></div>')
-  assert(across.length === 1 && across[0].item === 'Peter Village', 'plant: locator within ~15 words across one sentence boundary')
-  assert(otherPageHits('<div class="story-body"><p>Lexington grew fast. The Turk site is in Carlisle County.</p></div>').length === 0, 'non-matching locator for a different site is fine')
-  const far = 'Lexington grew later. ' + 'Many other towns rose and fell over the following century as roads and rails reached new places. '.repeat(2)
-  assert(!otherPageHits(`<div class="story-body"><p>Webb cited <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> in Fayette County. ${'Archaeologists in that era surveyed many earthworks across the state with simple tools and notebooks. '.repeat(2)}${far}</p></div>`).length, 'locator far away (beyond ~15 words / one boundary) is fine')
-  // #354 Security recheck: a true ±15-word window around the mention, ignoring sentence breaks.
-  const twoAway = otherPageHits('<div class="story-body"><p>Webb dug the Turk site in 1930. The mounds were small. They stand on a bluff near Bardwell.</p></div>')
-  assert(twoAway.length === 1 && twoAway[0].item === 'Turk' && twoAway[0].hits.includes('Bardwell'), 'plant: locator two sentences after the mention, within 15 words')
-  const missRiv = otherPageHits('<div class="story-body"><p>The Turk site sat on the Miss. Riv. west of Bardwell.</p></div>')
-  assert(missRiv.length === 1 && missRiv[0].item === 'Turk', 'plant: "on the Miss. Riv. west of <town>"')
-  assert(splitSentences('on the Miss. Riv. west of town, 3 km. from the Cr. mouth.').length === 1, 'riv, miss, cr, km are abbreviations')
-  // Linear: a long run of abbreviations and mentions finishes fast.
-  const t0 = Date.now()
-  otherPageHits('<div class="story-body"><p>' + 'Peter Village Co. mi. St. '.repeat(20000) + '</p></div>')
-  assert(Date.now() - t0 < 2000, 'linear on large input')
   console.log('check-protected-locators self-test: OK')
 }
 
