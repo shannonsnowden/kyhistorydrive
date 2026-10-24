@@ -9,7 +9,7 @@ import { redirectProblems, REDIRECT_ALLOWLIST } from './check-security-headers.m
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const amplify = fs.readFileSync(path.join(root, 'amplify.yml'), 'utf8')
-assert.equal(REDIRECT_ALLOWLIST.length, 26, 'allowlist is 4 slashless + 22 old-slug rules (11 slugs x slash/no slash)')
+assert.equal(REDIRECT_ALLOWLIST.length, 40, 'allowlist is 4 slashless + 36 old-slug rules (18 slugs x slash/no slash)')
 // Editor ruling (#346): the Red Bird petroglyphs story moved to a county-level slug; the old slug 301s here.
 for (const from of ['/stories/red-bird-river-petroglyphs-clay-county', '/stories/red-bird-river-petroglyphs-clay-county/']) {
   assert.ok(REDIRECT_ALLOWLIST.includes(`${from}->/stories/red-bird-petroglyphs-clay-county/:301`), `allowlist has ${from}`)
@@ -17,8 +17,15 @@ for (const from of ['/stories/red-bird-river-petroglyphs-clay-county', '/stories
 // County sweep: locator slugs 301 to the county-level slug (slash and slashless).
 for (const [from, to] of [
   ['muir-site-early-fort-ancient-on-a-jessamine-ridge', 'muir-site-early-fort-ancient'],
+  ['muir-site-15js86', 'muir-site-early-fort-ancient'],
   ['buckner-site-fort-ancient-villages-on-strodes-creek', 'buckner-site-fort-ancient-villages'],
   ['lower-shawneetown-at-the-scioto-mouth', 'lower-shawneetown-greenup-county'],
+  ['the-c-and-o-mounds-at-paintsville', 'the-c-and-o-mounds-johnson-county'],
+  ['indian-knoll-on-the-green-river', 'indian-knoll-ohio-county'],
+  ['singer-hieronymus-fort-ancient-villages-on-north-elkhorn', 'singer-hieronymus-fort-ancient-villages'],
+  ['rowlandton-mound-site-15mcn3-paducah', 'rowlandton-mound-site-15mcn3'],
+  ['howard-site-late-fort-ancient-above-harts-fork', 'howard-site-late-fort-ancient'],
+  ['tolu-site-mississippian-mounds-on-the-lower-ohio', 'tolu-site-mississippian-mounds'],
 ]) {
   for (const suffix of ['', '/']) {
     assert.ok(

@@ -381,7 +381,7 @@
     "label": "Same person: Gen. Charles Scott, who built the 1789 blockhouse, has his own story"
    }
   ],
-  "rowlandton-mound-site-15mcn3-paducah": [
+  "rowlandton-mound-site-15mcn3": [
    {
     "slug": "twin-mounds-site",
     "label": "Same argument: Twin Mounds was also once called a Kincaid outpost"
@@ -391,7 +391,7 @@
     "label": "Same era: another Mississippian mound town in the western counties"
    },
    {
-    "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
+    "slug": "tolu-site-mississippian-mounds",
     "label": "Same argument: grouped with Tolu as a supposed Kincaid outpost"
    }
   ],
@@ -725,7 +725,7 @@
     "label": "Same person: John Floyd’s survey party camped here with Logan"
    }
   ],
-  "tolu-site-mississippian-mounds-on-the-lower-ohio": [
+  "tolu-site-mississippian-mounds": [
    {
     "slug": "wickliffe-mounds-mississippian-village-ballard-county",
     "label": "Same era: another town in the Angel-phase Kincaid set"
@@ -749,7 +749,7 @@
   ],
   "ward-site-15mcl11-mclean-county": [
    {
-    "slug": "indian-knoll-on-the-green-river",
+    "slug": "indian-knoll-ohio-county",
     "label": "Same era: another Late Archaic shell midden"
    },
    {

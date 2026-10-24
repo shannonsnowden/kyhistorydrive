@@ -567,7 +567,7 @@ const MANUAL_OVERRIDES = {
     lon: -84.832567,
     confidence: 'override',
   },
-  'singer-hieronymus-fort-ancient-villages-on-north-elkhorn': {
+  'singer-hieronymus-fort-ancient-villages': {
     matchName: 'Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)',
     lat: 38.3,
     lon: -84.6,
@@ -721,7 +721,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'tellico-cession-1805-south-of-the-cumberland': {},
-  'rowlandton-mound-site-15mcn3-paducah': {
+  'rowlandton-mound-site-15mcn3': {
     matchName: "Rowlandton Mound Site (15McN3), McCracken County",
     lat: 37.1,
     lon: -88.6,
@@ -1009,7 +1009,7 @@ const MANUAL_OVERRIDES = {
     lon: -84.5593,
     confidence: 'override',
   },
-  'the-c-and-o-mounds-at-paintsville': {
+  'the-c-and-o-mounds-johnson-county': {
     matchName: "C. and O. Mounds, Johnson County (approximate)",
     lat: 37.8,
     lon: -82.8,

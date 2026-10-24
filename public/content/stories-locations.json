@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T22:13:08.705Z",
+  "generatedAt": "2026-10-24T23:09:48.210Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -32,8 +32,8 @@
       "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)",
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county"
     },
-    "indian-knoll-on-the-green-river": {
-      "slug": "indian-knoll-on-the-green-river",
+    "indian-knoll-ohio-county": {
+      "slug": "indian-knoll-ohio-county",
       "lat": 37.5,
       "lon": -86.8,
       "mapConfidence": "fuzzy",
@@ -96,13 +96,13 @@
       "matchedPlace": "Ashland Central Park Adena Mounds",
       "historyId": "ashland-adena-mounds"
     },
-    "the-c-and-o-mounds-at-paintsville": {
-      "slug": "the-c-and-o-mounds-at-paintsville",
+    "the-c-and-o-mounds-johnson-county": {
+      "slug": "the-c-and-o-mounds-johnson-county",
       "lat": 37.8,
       "lon": -82.8,
       "mapConfidence": "override",
       "matchedPlace": "C. and O. Mounds, Johnson County (approximate)",
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena"
+      "historyId": "c-and-o-mounds-johnson-county-adena"
     },
     "mount-horeb-earthworks": {
       "slug": "mount-horeb-earthworks",
@@ -184,8 +184,8 @@
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
     },
-    "rowlandton-mound-site-15mcn3-paducah": {
-      "slug": "rowlandton-mound-site-15mcn3-paducah",
+    "rowlandton-mound-site-15mcn3": {
+      "slug": "rowlandton-mound-site-15mcn3",
       "lat": 37,
       "lon": -88.6,
       "mapConfidence": "override",
@@ -248,16 +248,16 @@
       "matchedPlace": "Marshall County (centroid)",
       "historyId": null
     },
-    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
-      "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+    "singer-hieronymus-fort-ancient-villages": {
+      "slug": "singer-hieronymus-fort-ancient-villages",
       "lat": 38.3,
       "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)",
       "historyId": "singer-hieronymus-fort-ancient-scott-county"
     },
-    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
+    "tolu-site-mississippian-mounds": {
+      "slug": "tolu-site-mississippian-mounds",
       "lat": 37.4,
       "lon": -88.2,
       "mapConfidence": "fuzzy",
@@ -304,8 +304,8 @@
       "matchedPlace": "Slone Site (15Pi11), Pike County",
       "historyId": "slone-site-15pi11-pike-county"
     },
-    "howard-site-late-fort-ancient-above-harts-fork": {
-      "slug": "howard-site-late-fort-ancient-above-harts-fork",
+    "howard-site-late-fort-ancient": {
+      "slug": "howard-site-late-fort-ancient",
       "lat": 37.7,
       "lon": -84.3,
       "mapConfidence": "fuzzy",

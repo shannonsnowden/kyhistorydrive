@@ -167,7 +167,7 @@ assert.ok(!riceHtml.includes('our-history96867eb2'), 'Father David Rice: still h
 assert.ok(riceHtml.includes('presbydan.org/our-history'), 'Father David Rice: missing fixed presbydan URL')
 
 // 4. Protected / archaeological story check
-const archSlug = 'indian-knoll-on-the-green-river'
+const archSlug = 'indian-knoll-ohio-county'
 if (fs.existsSync(path.join(storiesDir, archSlug, 'index.html'))) {
   const archHtml = fs.readFileSync(path.join(storiesDir, archSlug, 'index.html'), 'utf8')
   assert.ok(

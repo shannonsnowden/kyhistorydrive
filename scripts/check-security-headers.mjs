@@ -51,8 +51,16 @@ const OLD_SLUG_301S = [
   ['wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid', 'wea-waayaahtanwa-on-the-wabash'],
   ['red-bird-river-petroglyphs-clay-county', 'red-bird-petroglyphs-clay-county'], // Editor ruling #346: county-level slug
   ['muir-site-early-fort-ancient-on-a-jessamine-ridge', 'muir-site-early-fort-ancient'],
+  // Console rule used to land on the ridge slug (a second hop). One hop to the county slug.
+  ['muir-site-15js86', 'muir-site-early-fort-ancient'],
   ['buckner-site-fort-ancient-villages-on-strodes-creek', 'buckner-site-fort-ancient-villages'],
   ['lower-shawneetown-at-the-scioto-mouth', 'lower-shawneetown-greenup-county'],
+  ['the-c-and-o-mounds-at-paintsville', 'the-c-and-o-mounds-johnson-county'],
+  ['indian-knoll-on-the-green-river', 'indian-knoll-ohio-county'],
+  ['singer-hieronymus-fort-ancient-villages-on-north-elkhorn', 'singer-hieronymus-fort-ancient-villages'],
+  ['rowlandton-mound-site-15mcn3-paducah', 'rowlandton-mound-site-15mcn3'],
+  ['howard-site-late-fort-ancient-above-harts-fork', 'howard-site-late-fort-ancient'],
+  ['tolu-site-mississippian-mounds-on-the-lower-ohio', 'tolu-site-mississippian-mounds'],
 ]
 export const REDIRECT_ALLOWLIST = [
   ...SLASHLESS_KEPT.map((p) => `${p}->${p}/:301`),

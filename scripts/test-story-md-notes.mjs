@@ -27,7 +27,7 @@ assert.ok(firstTimeline, 'fixture has a timeline')
 assert.match(blue, /### Timeline/, 'research timeline rendered')
 
 // Protected story with no coordinates in its own JSON: gets them from locations, rounded to 0.1°.
-const mounds = read('the-c-and-o-mounds-at-paintsville')
+const mounds = read('the-c-and-o-mounds-johnson-county')
 const coords = mounds.match(/\d+\.\d+°\s*[NS]/g) || []
 assert.ok(coords.length, 'protected story still shows a (rounded) coordinate')
 for (const c of coords) assert.match(c, /^\d+\.\d°/, `protected coordinate not rounded: ${c}`)

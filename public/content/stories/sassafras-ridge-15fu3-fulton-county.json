@@ -17,11 +17,12 @@
   "briefDate": "2026-10-13",
   "photo": {
     "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
-    "title": "A Mississippian mound in Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+    "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2008
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+    "year": null,
+    "fit": "contain"
   },
   "county": "Fulton",
   "seoTitle": "Sassafras Ridge (15Fu3): Mississippian Town in Fulton County"

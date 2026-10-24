@@ -37,7 +37,7 @@
     "title": "A Mississippian shell gorget, The Metropolitan Museum of Art; a generic artifact, not from the Adams Site in Fulton County",
     "source_url": "https://commons.wikimedia.org/wiki/File:Gorget_MET_DT258619.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
     "year": null,
     "credit": "The Metropolitan Museum of Art",
     "license": "CC0"
@@ -312,7 +312,7 @@
     "commonsFile": "Union_County_Courthouse_in_Morganfield,_western_side_and_front.jpg",
     "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Union_County_Courthouse_in_Morganfield%2C_western_side_and_front.jpg",
     "title": "The Union County Courthouse at the county seat; not the Slack Farm site",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Union_County_Courthouse_in_Morganfield,_western_side_and_front.jpg",
+    "source_url": "https://commons.wikimedia.org/w/index.php?curid=25734111",
     "source_label": "Wikimedia Commons",
     "attribution": "Nyttend · Wikimedia Commons · Public domain",
     "year": null,
@@ -412,7 +412,7 @@
     "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
     "year": 2016
   },
-  "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
+  "singer-hieronymus-fort-ancient-villages": {
     "ext": "jpg",
     "commonsFile": "Fort Ancient Tools and other artifacts HRoe 2011.jpg",
     "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg?width=1000",
@@ -713,7 +713,7 @@
     "attribution": "J. E. Daniel & G. D. Rawlings / Kentucky Transportation Cabinet (HAER) · Wikimedia Commons · public domain",
     "year": null
   },
-  "rowlandton-mound-site-15mcn3-paducah": {
+  "rowlandton-mound-site-15mcn3": {
     "ext": "jpg",
     "commonsFile": "Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
     "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg?width=1280",
@@ -873,12 +873,12 @@
   },
   "old-fort-earthworks-15gp1-greenup-county": {
     "ext": "jpg",
-    "commonsFile": "Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg?width=1280",
-    "title": "A surviving wall of the Old Fort Earthworks in Greenup County (photographed 2012)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+    "commonsFile": "Pipe_MET_DT262939.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pipe_MET_DT262939.jpg?width=1280",
+    "title": "A Hopewell platform pipe (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Greenup County enclosure",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pipe_MET_DT262939.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
     "year": 2012
   },
   "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
@@ -1144,12 +1144,12 @@
   },
   "sassafras-ridge-15fu3-fulton-county": {
     "ext": "jpg",
-    "commonsFile": "Wickliffe_Mounds_Mound_A.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Mounds_Mound_A.jpg?width=1280",
-    "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
+    "commonsFile": "Bottle_MET_79.8.20.jpeg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bottle_MET_79.8.20.jpeg?width=1280",
+    "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
     "year": 2008
   },
   "hartford-fort-hartford-on-the-rough-river": {
@@ -1244,7 +1244,7 @@
     "credit": "Wmpearl",
     "license": "CC0"
   },
-  "the-c-and-o-mounds-at-paintsville": {
+  "the-c-and-o-mounds-johnson-county": {
     "ext": "jpg",
     "commonsFile": "Clevelandart_1963.272.jpg",
     "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Clevelandart_1963.272.jpg",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T22:13:13.747Z",
+  "generatedAt": "2026-10-24T23:09:53.228Z",
   "briefDate": "2026-10-19",
   "displayDate": "Monday, October 19, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -80,33 +80,6 @@
       "heroDeck": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit."
     },
     {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "title": "C. and O. Mounds: Adena Burial Mounds in Johnson County",
-      "summary": "In Johnson County, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "era": "prehistoric",
-      "yearStart": -500,
-      "county": "Johnson",
-      "briefDate": "2026-10-19",
-      "href": "/stories/the-c-and-o-mounds-at-paintsville/",
-      "place": "C. and O. Mounds, Johnson County (approximate)",
-      "lat": 37.8,
-      "lon": -82.8,
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
-      "quote": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "Cleveland Museum of Art",
-        "license": "CC0"
-      },
-      "heroDeck": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart."
-    },
-    {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
       "title": "The Maysville Road and Jackson’s veto, 1830",
       "summary": "The Maysville Road from the Ohio to Lexington drew Andrew Jackson’s 1830 veto of federal aid, yet Kentucky finished the turnpike in 1835 on today’s US 68.",
@@ -130,6 +103,33 @@
         "year": 1976
       },
       "heroDeck": "Long before it was a road, the way from the Ohio River at Limestone, now Maysville, to the Bluegrass was a buffalo trace that Native hunters used between the salt licks."
+    },
+    {
+      "slug": "the-c-and-o-mounds-johnson-county",
+      "title": "C. and O. Mounds: Adena Burial Mounds in Johnson County",
+      "summary": "In Johnson County, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
+      "era": "prehistoric",
+      "yearStart": -500,
+      "county": "Johnson",
+      "briefDate": "2026-10-19",
+      "href": "/stories/the-c-and-o-mounds-johnson-county/",
+      "place": "C. and O. Mounds, Johnson County (approximate)",
+      "lat": 37.8,
+      "lon": -82.8,
+      "historyId": "c-and-o-mounds-johnson-county-adena",
+      "mapHref": "/#map/history/c-and-o-mounds-johnson-county-adena",
+      "quote": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
+      "photo": {
+        "image_url": "/content/photos/stories/the-c-and-o-mounds-johnson-county.jpg",
+        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "credit": "Cleveland Museum of Art",
+        "license": "CC0"
+      },
+      "heroDeck": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     }
   ],
   "hero": {
@@ -209,33 +209,6 @@
       "heroDeck": "On August 15, 1812, Kentucky volunteers gathered on the courthouse square at Georgetown, ordered north to relieve Gen. William Hull at Detroit."
     },
     {
-      "slug": "the-c-and-o-mounds-at-paintsville",
-      "title": "C. and O. Mounds: Adena Burial Mounds in Johnson County",
-      "summary": "In Johnson County, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "era": "prehistoric",
-      "yearStart": -500,
-      "county": "Johnson",
-      "briefDate": "2026-10-19",
-      "href": "/stories/the-c-and-o-mounds-at-paintsville/",
-      "place": "C. and O. Mounds, Johnson County (approximate)",
-      "lat": 37.8,
-      "lon": -82.8,
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
-      "mapHref": "/#map/history/c-and-o-mounds-paintsville-johnson-adena",
-      "quote": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
-      "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
-        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "Cleveland Museum of Art",
-        "license": "CC0"
-      },
-      "heroDeck": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart."
-    },
-    {
       "slug": "the-maysville-road-and-jacksons-veto-1830",
       "title": "The Maysville Road and Jackson’s veto, 1830",
       "summary": "The Maysville Road from the Ohio to Lexington drew Andrew Jackson’s 1830 veto of federal aid, yet Kentucky finished the turnpike in 1835 on today’s US 68.",
@@ -259,6 +232,33 @@
         "year": 1976
       },
       "heroDeck": "Long before it was a road, the way from the Ohio River at Limestone, now Maysville, to the Bluegrass was a buffalo trace that Native hunters used between the salt licks."
+    },
+    {
+      "slug": "the-c-and-o-mounds-johnson-county",
+      "title": "C. and O. Mounds: Adena Burial Mounds in Johnson County",
+      "summary": "In Johnson County, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
+      "era": "prehistoric",
+      "yearStart": -500,
+      "county": "Johnson",
+      "briefDate": "2026-10-19",
+      "href": "/stories/the-c-and-o-mounds-johnson-county/",
+      "place": "C. and O. Mounds, Johnson County (approximate)",
+      "lat": 37.8,
+      "lon": -82.8,
+      "historyId": "c-and-o-mounds-johnson-county-adena",
+      "mapHref": "/#map/history/c-and-o-mounds-johnson-county-adena",
+      "quote": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart.",
+      "photo": {
+        "image_url": "/content/photos/stories/the-c-and-o-mounds-johnson-county.jpg",
+        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "credit": "Cleveland Museum of Art",
+        "license": "CC0"
+      },
+      "heroDeck": "In Johnson County, people of the Adena culture raised two burial mounds about 1,600 feet apart."
     }
   ],
   "layers": [
