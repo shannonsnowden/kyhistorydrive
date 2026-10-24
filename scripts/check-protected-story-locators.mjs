@@ -53,7 +53,11 @@ export const linkText = (s) => s.replace(/\]\([^)\s]*(?:\([^)\s]*\)[^)\s]*)*\)/g
 /** Every hit in a text, each with its kind, match and enclosing sentence. */
 // Official site names that contain a landform word, approved verbatim by KY History (not a locator
 // by themselves). Matches inside these names are skipped; everything else in the field still counts.
-export const APPROVED_NAMES = [new RegExp(String.raw`Red${SEP}Bird${SEP}River${SEP}Petroglyphs`, 'gi')]
+export const APPROVED_NAMES = [
+  new RegExp(String.raw`Red${SEP}Bird${SEP}River${SEP}Petroglyphs`, 'gi'),
+  // KY History verbatim (2026-10-24): names the separate site without locating it; exact phrase only
+  /Red Bird River Shelter \(15CY52\)/g,
+]
 export function findLocators(text) {
   const s = String(text || '')
   const out = []
@@ -62,6 +66,20 @@ export function findLocators(text) {
     for (const m of s.matchAll(re)) if (!skip.some(([a, b]) => m.index >= a && m.index < b)) out.push({ kind, match: m[0], context: linkText(contextOf(s, m.index, m.index + m[0].length)) })
   }
   return out
+}
+/** JSON-LD as one line per text value, with volatile fields (dateModified, datePublished, other
+ * dates, version) dropped, so pending entries are keyed on the text itself, not on build metadata. */
+export const VOLATILE_KEY = /^(?:date[A-Z]\w*|\w*Date|version|sdDatePublished)$/
+export function jsonldText(src) {
+  const out = []
+  const walk = (v, k) => {
+    if (k && VOLATILE_KEY.test(k)) return
+    if (typeof v === 'string') out.push(v.replace(/\s*\n\s*/g, ' '))
+    else if (Array.isArray(v)) v.forEach((x) => walk(x, null))
+    else if (v && typeof v === 'object') for (const [kk, x] of Object.entries(v)) walk(x, kk)
+  }
+  walk(JSON.parse(src), null)
+  return out.join('\n')
 }
 export const keyOf = (e) => JSON.stringify([e.slug, e.field, e.match, e.context])
 /** Hits per key vs allowed counts; returns { fresh, stale }. */
@@ -77,6 +95,11 @@ export function compare(hits, entries) {
 const hitsFor = (slug, field, text) => findLocators(text).map((h) => ({ slug, field, ...h }))
 
 // self-test
+{ // JSON-LD keys must not depend on volatile fields
+  const a = jsonldText('{"@graph":[{"description":"Near Walton in Boone County.","dateModified":"2026-10-19"}]}')
+  const b = jsonldText('{"@graph":[{"description":"Near Walton in Boone County.","dateModified":"2026-10-24","datePublished":"2026-10-01"}]}')
+  if (a !== b || keyOf(hitsFor('x', 'jsonld', a)[0]) !== keyOf(hitsFor('x', 'jsonld', b)[0])) throw new Error('self-test: JSON-LD key changed with dateModified')
+}
 const bad = ['several miles to the southeast', 'a few hundred meters south', 'on a ridge near Dover', 'on Strodes Creek', 'above Harts Fork', 'beside the Green River', 'ahead of Kentucky Lake', '12 miles northwest', 'https://x.org/wiki/Red_River', '/stories/jonathan-creek-center/', '3_miles-north', 'on a high bluff', 'in a hollow', 'at Big Bone Lick', 'Mill Run', 'KY 66', 'ky-66', 'US 60', 'I-64', 'Route 8', 'Highway 1247', 'the Red Bird River Petroglyphs above the Red Bird River']
 const good = ['in Ballard County', 'the Jonathan site', 'in western Kentucky', 'the Ohio Valley', 'Mississippian culture', 'about 2 miles of track. In June', 'Riverside', 'in the spring of 1780', 'the water runs out', 'in 1966', 'Kentucky 1994', 'The Red Bird River Petroglyphs in Clay County', 'red_bird_river_petroglyphs']
 for (const s of bad) if (!findLocators(s).length) throw new Error(`self-test: should flag "${s}"`)
@@ -112,14 +135,14 @@ for (const f of fs.readdirSync(dir).sort()) {
     const h = fs.readFileSync(page, 'utf8')
     fields.meta = [...h.matchAll(/<meta[^>]+content="([^"]*)"[^>]*>/g)].map((m) => html(m[1])).join('\n')
     fields['html-title'] = [...h.matchAll(/<title>([\s\S]*?)<\/title>/g)].map((m) => html(m[1])).join('\n')
-    fields.jsonld = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join('\n')
+    fields.jsonld = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => jsonldText(m[1])).join('\n')
     fields.alt = [...h.matchAll(/\balt="([^"]*)"/g)].map((m) => html(m[1])).join('\n')
     fields.caption = [...h.matchAll(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/g)].map((m) => html(m[1].replace(/<[^>]+>/g, ''))).join('\n')
   }
   for (const [k, v] of Object.entries(fields)) hits.push(...hitsFor(slug, k, v))
 }
 // public JSON: every string under an object whose slug/id is protected, or under a protected key
-const PUBLIC_JSON = ['content/stories.json', 'data/app/ky-history.json', 'content/story-photos.json', 'data/search-index.json']
+const PUBLIC_JSON = ['content/stories.json', 'data/app/ky-history.json', 'content/story-photos.json', 'data/search-index.json', 'data/layers/history.geojson', 'data/layers/stories.geojson']
 for (const rel of PUBLIC_JSON) {
   const p = path.join(dist, rel)
   if (!fs.existsSync(p)) throw new Error(`check-protected-story-locators: missing dist/${rel}`)
