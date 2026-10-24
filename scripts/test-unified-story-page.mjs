@@ -84,7 +84,10 @@ for (const slug of slugs) {
   const idxSources = html.indexOf('id="sources"')
   const idxDrive = html.indexOf('id="drive"')
   const idxCite = html.indexOf('id="cite"')
-  assert.ok(idxStory > 0 && idxSources > idxStory && idxDrive > idxSources && idxCite > idxDrive, `${slug}: sections out of v2 order`)
+  // Protected stories have no #drive section (no route builder; Critiquito #345).
+  const prot = isProtectedStory({ slug })
+  if (prot) assert.ok(idxDrive < 0, `${slug}: protected story shows a #drive section`)
+  assert.ok(idxStory > 0 && idxSources > idxStory && (prot ? idxCite > idxSources : idxDrive > idxSources && idxCite > idxDrive), `${slug}: sections out of v2 order`)
   if (idxToday > 0) assert.ok(idxToday > idxStory && idxSources > idxToday, `${slug}: #today must sit after #story`)
   if (idxMarkers > 0) {
     assert.ok(idxMarkers > (idxToday > 0 ? idxToday : idxStory) && idxSources > idxMarkers, `${slug}: #markers out of order`)

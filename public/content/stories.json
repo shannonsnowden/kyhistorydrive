@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T16:15:14.727Z",
+  "generatedAt": "2026-10-24T16:35:43.517Z",
   "count": 237,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -372,7 +372,7 @@
       "title": "Peter Village enclosure (15Fa166)",
       "publishedDate": "2026-09-11",
       "summary": "Peter Village (15Fa166), an Early Woodland earthwork in Fayette County, has pottery dated to about 409–68 BCE and is a protected site.",
-      "proseChars": 1199,
+      "proseChars": 961,
       "yearStart": -409,
       "yearEnd": -68,
       "era": "prehistoric",
@@ -383,17 +383,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-11",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-enclosure-15fa166.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848,
-        "artwork": "engraving",
-        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-        "license": "Public domain"
-      },
       "territory": {
         "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",

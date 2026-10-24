@@ -2295,7 +2295,8 @@ class PrerenderPages {
 
     const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)
     const startTown = String(story.matchedPlace || (counties[0] ? `${counties[0]} County` : 'Danville')).split(',')[0].trim() || 'Danville'
-    const driveSectionHtml = matchedDriveHtml
+    // Protected sites never get a route-builder entry (Critiquito #345, 10/24).
+    const driveSectionHtml = isProtectedStory(story) ? '' : matchedDriveHtml
       ? `<aside class="usp-section usp-drive" id="drive" aria-label="Plan a drive">${matchedDriveHtml}</aside>`
       : `<aside class="usp-section usp-drive" id="drive" aria-labelledby="h-drive">
           <div class="usp-drive-copy">

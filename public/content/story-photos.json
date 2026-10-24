@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T15:37:42.423Z",
+  "generatedAt": "2026-10-24T16:35:51.682Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -1598,21 +1598,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2018
-      }
-    },
-    "peter-village-enclosure-15fa166": {
-      "slug": "peter-village-enclosure-15fa166",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-enclosure-15fa166.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848,
-        "artwork": "engraving",
-        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-        "license": "Public domain"
       }
     },
     "phosphatic-limestone-and-horse-country": {
@@ -3664,21 +3649,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Farragutful · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2018
-      }
-    },
-    "peter-village-enclosure-15fa166-fayette-county": {
-      "slug": "peter-village-enclosure-15fa166",
-      "historyId": "peter-village-enclosure-15fa166-fayette-county",
-      "photo": {
-        "image_url": "/content/photos/stories/peter-village-enclosure-15fa166.jpg",
-        "title": "Peter Village enclosure (Squier & Davis 1848)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-        "year": 1848,
-        "artwork": "engraving",
-        "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-        "license": "Public domain"
       }
     },
     "inner-bluegrass-phosphatic-limestone-horse-country": {

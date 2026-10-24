@@ -23,6 +23,8 @@ export const NO_AUTO_STORY_PHOTOS = [
   'fox-farm-mason-county',
   // Protected site: no stand-in landscape photo that could name a place (SEO #345).
   'the-c-and-o-mounds-at-paintsville',
+  // Protected site: the 1848 plan shows a river label, distance, arrow and scale (Security #345, 10/24).
+  'peter-village-enclosure-15fa166',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)
