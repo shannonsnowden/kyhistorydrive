@@ -296,7 +296,7 @@ class PrerenderPages {
       const html = PrerenderPages.storyPage(story, stories, cssHrefs, layers, markers, relatedBundle, notes)
       PrerenderPages.assertPage(html, story, urlPath)
       PrerenderPages.assertStory(html, story, description, stories, markers, notes)
-      // Item 88: thin stories (<150 narrative words) carry noindex, follow and stay out of the sitemap.
+      // Item 88: thin stories (< THIN_STORY_MIN_WORDS narrative words) carry noindex, follow and stay out of the sitemap.
       const thin = isThinStory(story)
       if (thin !== html.includes(`<meta name="robots" content="${PrerenderPages.THIN_ROBOTS}" />`)) {
         throw new Error(`prerender: ${urlPath} thin-story robots meta mismatch (thin=${thin})`)
@@ -351,12 +351,15 @@ class PrerenderPages {
     }
     // /videos/ is noindex for now (Shannon item 93), so it stays out of the sitemap; its lastmod is still checked.
     const videoSitemap = path.join(dist, 'sitemap-videos.xml')
-    PrerenderPages.writeVideoSitemap(videoSitemap, FILMS, stories)
+    // Item 88: films whose story page is thin (noindex) stay out of the video sitemap.
+    const indexedFilms = FILMS.filter((film) => !isThinStory(stories.find((item) => item.slug === film.storySlug)))
+    PrerenderPages.writeVideoSitemap(videoSitemap, indexedFilms, stories)
     const videoXml = fs.readFileSync(videoSitemap, 'utf8')
-    if (videoXml.includes('/videos/</loc>') || !videoXml.includes('/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>')) {
+    const maryIndexed = indexedFilms.some((film) => film.storySlug === 'mary-draper-ingles-escapes-through-kentucky-1755')
+    if (videoXml.includes('/videos/</loc>') || maryIndexed !== videoXml.includes('/stories/mary-draper-ingles-escapes-through-kentucky-1755/</loc>')) {
       throw new Error('prerender: video sitemap must point at the story page')
     }
-    if (!videoXml.includes('2026-10-10T09:00:00-04:00')) {
+    if (maryIndexed && !videoXml.includes('2026-10-10T09:00:00-04:00')) {
       throw new Error('prerender: video sitemap publication date is not the upload time')
     }
     const routesHtml = PrerenderPages.routesPage(stories, cssHrefs)
