@@ -631,10 +631,12 @@
  "derived": [
   "content/stories.json|red-bird-river-petroglyphs-clay-county|seoTitle|Red Bird River"
  ],
- "_page_note": "Rendered from content/research/culture-fort-ancient-image-evidence.json (shared Fort Ancient culture claims, byte-identical on origin/v2), not from this site record. TODO: cleanup PR.",
+ "_page_note": "Exact page entries (file|owner|page:<part>|match). Cleek-McCabe page:article text comes from content/research/culture-fort-ancient-image-evidence.json; Hansen and Lower Shawneetown page:note text comes from data/web/related-people.json. All byte-identical on origin/v2. TODO: cleanup PR.",
  "page": [
-  "stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/index.html|cleek-mccabe-a-circular-fort-ancient-village-in-boone-county|page|nearby Florence",
-  "stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/index.html|cleek-mccabe-a-circular-fort-ancient-village-in-boone-county|page|near Dayton",
-  "stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/index.html|cleek-mccabe-a-circular-fort-ancient-village-in-boone-county|page|Ohio River"
+  "stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/index.html|cleek-mccabe-a-circular-fort-ancient-village-in-boone-county|page:article|nearby Florence",
+  "stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/index.html|cleek-mccabe-a-circular-fort-ancient-village-in-boone-county|page:article|near Dayton",
+  "stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county/index.html|cleek-mccabe-a-circular-fort-ancient-village-in-boone-county|page:article|Ohio River",
+  "stories/hansen-site-15gp14/index.html|hansen-site-15gp14|page:note|Hopewell Old Fort Earthworks",
+  "stories/lower-shawneetown-at-the-scioto-mouth/index.html|lower-shawneetown-at-the-scioto-mouth|page:note|Hopewell Old Fort Earthworks"
  ]
 }

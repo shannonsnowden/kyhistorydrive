@@ -5,7 +5,7 @@
  * lake or fork, or a named earthworks complex. Word gaps match whitespace, "_" or "-" (Clarks_River,
  * near-lexington), so file names and URLs are caught too.
  */
-const G = '[\\s_-]+'
+const G = '[\\s_-]{1,8}'
 const L = '(?<![A-Za-z0-9])'
 const R = '(?![A-Za-z0-9])'
 const DIR = '(?:[Nn]orth|[Ss]outh|[Ee]ast|[Ww]est)(?:east|west)?(?:ern)?'
@@ -17,9 +17,9 @@ export const LOCATOR_PATTERNS = [
   { id: 'distance', re: rx(`${L}\\d+(?:\\.\\d+)?[\\s_-]*(?:miles?|mi\\.?|km|kilomet(?:er|re)s?)${G}(?:${DIR}${G})?(?:of|from)${R}`, 'gi') },
   { id: 'near-town', re: rx(`${L}[Nn]ear(?:by)?${G}(?:the${G}(?:better-known${G})?|town${G}of${G}|city${G}of${G})?${NAME}`) },
   { id: 'near-town', re: rx(`${L}near[_-][a-z]{3,}`) },
-  { id: 'named-water', re: rx(`${L}${NAME}(?:${G}${NAME})*${G}(?:Creek|River|Lake|Fork|Branch|Run)${R}`) },
+  { id: 'named-water', re: rx(`${L}${NAME}(?:${G}${NAME}){0,5}${G}(?:Creek|River|Lake|Fork|Branch|Run)${R}`) },
   { id: 'named-water', re: rx(`${L}[a-z]+[_-](?:creek|river|lake|fork)${R}`) },
-  { id: 'named-earthworks', re: rx(`${L}(?:${NAME}${G})+Earthworks(?:${G}Complex)?${R}|${L}Earthworks${G}Complex${R}`) },
+  { id: 'named-earthworks', re: rx(`${L}(?:${NAME}${G}){1,6}Earthworks(?:${G}Complex)?${R}|${L}Earthworks${G}Complex${R}`) },
   { id: 'named-earthworks', re: rx(`${L}[a-z]+[_-]earthworks[_-]complex${R}`) },
 ]
 

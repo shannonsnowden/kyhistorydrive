@@ -25,6 +25,7 @@ import { fileURLToPath } from 'node:url'
 import { findLocators } from './lib/protected-locators.mjs'
 import { isProtectedStory } from './lib/unified-story-data.mjs'
 import { loadMerges } from './lib/story-merges.mjs'
+import { STORY_MERGES } from '../src/story-url.js'
 import { pickRelatedStories } from '../src/story-tools.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -112,15 +113,17 @@ const JSON_FILES = [
 function pageParts(html) {
   const parts = []
   // Related-card notes are scanned; the other stories' own titles and links in those cards are not.
-  for (const m of html.matchAll(/<span class="(?:usp-rel-why|related-note)">[\s\S]*?<\/span>/gi)) parts.push(m[0])
+  for (const m of html.matchAll(/<span class="(?:usp-rel-why|related-note)">[\s\S]*?<\/span>/gi)) parts.push(['note', m[0]])
   html = html.replace(/<li class="(?:related-story|nearby-place|related-person|related-row)[^"]*">[\s\S]*?<\/li>/gi, ' ')
-  // Timeline prev/next buttons carry the neighbouring stories' titles, not this site's location.
   html = html.replace(/\shref="[^"]*"/gi, ' ') // link targets (source PDFs, other stories) are not prose
+  // Timeline prev/next buttons carry the neighbouring stories' titles, not this site's location.
   html = html.replace(/<a class="(?:usp-wf-btn|usp-pn-card)[^"]*"[\s\S]*?<\/a>/gi, ' ')
-  for (const re of [/<title>[\s\S]*?<\/title>/gi, /<meta\b[^>]*>/gi, /<script type="application\/ld\+json">[\s\S]*?<\/script>/gi, /<h1\b[\s\S]*?<\/h1>/gi, /<figcaption\b[\s\S]*?<\/figcaption>/gi, /<article\b[\s\S]*?<\/article>/gi]) {
-    for (const m of html.matchAll(re)) parts.push(m[0])
-  }
-  return parts.join('\n')
+  const labelled = [['title', /<title>[\s\S]*?<\/title>/gi], ['meta', /<meta\b[^>]*>/gi], ['ld', /<script type="application\/ld\+json">[\s\S]*?<\/script>/gi], ['h1', /<h1\b[\s\S]*?<\/h1>/gi], ['figcaption', /<figcaption\b[\s\S]*?<\/figcaption>/gi], ['article', /<article\b[\s\S]*?<\/article>/gi]]
+  for (const [label, re] of labelled) for (const m of html.matchAll(re)) parts.push([label, m[0]])
+  // Image alt text anywhere on the page (outside <article> too).
+  const outside = html.replace(/<article\b[\s\S]*?<\/article>/gi, ' ')
+  for (const m of outside.matchAll(/\salt="([^"]*)"/gi)) parts.push(['img-alt', m[1]])
+  return parts
 }
 
 function scanTree(base) {
@@ -176,6 +179,14 @@ for (const ok of [
 ]) assert.deepEqual(findLocators(ok), [], `should pass: ${ok}`)
 assert.ok(findLocators('the Lexington plan', PETER).length, 'Peter Village terms apply to Peter Village')
 
+// ---------- detector stays linear: 40k capitalised words in well under a second ----------
+{
+  const long = Array.from({ length: 40000 }, (_, i) => (i % 2 ? 'Big' : 'Old_Hill')).join(' ')
+  const t0 = performance.now(); findLocators(long); findLocators(long.replace(/ /g, '_'))
+  const ms = performance.now() - t0
+  assert.ok(ms < 1000, `findLocators took ${ms.toFixed(0)} ms on 40k words`)
+}
+
 // ---------- allowlist is exact: a new term in an allowlisted story still fails ----------
 const allowFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/protected-locators-allowlist.json'), 'utf8'))
 const ALLOW = new Set([...(allowFile.entries || []), ...(allowFile.derived || []), ...(allowFile.page || [])])
@@ -207,14 +218,35 @@ const hits = scanTree(path.join(ROOT, 'public'))
 if (fs.existsSync(path.join(ROOT, 'dist/content'))) {
   for (const h of scanTree(path.join(ROOT, 'dist'))) hits.push(h) // same keys as public: built copies must match
   // Page text is built from the source records, so a page hit passes only if that exact owner+match is already allowlisted from origin/v2 data.
-  const storyMatches = new Set([...ALLOW].map((e) => e.split('|')).map(([, o, , m]) => `${o}|${m}`))
   for (const owner of aliasesOf.keys()) {
     const page = path.join(ROOT, 'dist/stories', owner, 'index.html')
     if (!fs.existsSync(page)) continue
-    for (const h of findLocators(scrub(pageParts(fs.readFileSync(page, 'utf8')), owner), owner)) {
-      if (!storyMatches.has(`${owner}|${h.match}`)) hits.push({ file: `stories/${owner}/index.html`, owner, field: 'page', match: h.match, id: h.id })
+    // A page hit passes only via an exact page entry, or when the same owner+match is allowlisted in
+    // that owner's own story JSON (origin/v2 text that the page renders).
+    const own = new Set([...ALLOW].map((e) => e.split('|')).filter(([f, o]) => f === `content/stories/${owner}.json` && o === owner).map(([, , , m]) => m))
+    for (const [label, text] of pageParts(fs.readFileSync(page, 'utf8'))) {
+      for (const h of findLocators(scrub(text, owner), owner)) {
+        const hit = { file: `stories/${owner}/index.html`, owner, field: `page:${label}`, match: h.match, id: h.id }
+        if (!own.has(h.match)) hits.push(hit)
+      }
     }
   }
+}
+// ---------- shipped JS bundles: no protected-site alias slug that itself carries a locator ----------
+const RETIRED = new Set(loadMerges().map((m) => m.retired))
+function scanAssetText(text, file) {
+  const out = []
+  for (const [owner, slugs] of aliasesOf) for (const slug of slugs) {
+    // Retired (merged) slugs only: live canonical slugs are the public URLs themselves.
+    if (RETIRED.has(slug) && findLocators(slug, owner).length && text.includes(slug)) out.push({ file, owner, field: 'bundle', match: slug, id: 'alias-slug' })
+  }
+  return out
+}
+assert.ok(scanAssetText('const m={"peter-village-early-woodland-enclosure-near-lexington":"x"}', 'planted.js').length, 'planted old slug in a bundle must fail')
+assert.ok(!Object.keys(STORY_MERGES).some((s) => [...aliasesOf.values()].some((a) => a.includes(s) && findLocators(s).length)), 'src/story-url.js ships a protected locator slug')
+const assetsDir = path.join(ROOT, 'dist/assets')
+if (fs.existsSync(assetsDir)) {
+  for (const f of fs.readdirSync(assetsDir).filter((n) => n.endsWith('.js'))) hits.push(...scanAssetText(fs.readFileSync(path.join(assetsDir, f), 'utf8'), `assets/${f}`))
 }
 const problems = [...new Set(hits.filter((h) => !ALLOW.has(key(h))).map((h) => `${h.file} [${h.owner}] ${h.field}: ${h.id} "${h.match}"`))]
 if (problems.length) {

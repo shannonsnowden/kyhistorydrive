@@ -907,18 +907,18 @@
   {
     "id": "peter-village-enclosure-15fa166-fayette-county",
     "name": "Peter Village enclosure (15Fa166)",
-    "subtitle": "Fayette County · Early Woodland ditch-and-embankment · ~5th c. BCE",
+    "subtitle": "Fayette County · Adena-era earthwork · ~409–68 BCE",
     "latitude": 38,
     "longitude": -84.5,
-    "history": "In Fayette County, Peter Village (15Fa166) is a huge Early Woodland ditch-and-embankment enclosure—about 9.2 hectares, irregular rather than a neat geometric circle. Long mislabeled an Adena “village,” it is better read as a specialized gathering and craft place; archaeologist Berle Clay tied it to barite and galena working, and newer geoarchaeology (Henry and others) points to dual embankments and construction as early as the 5th century BCE—among the earliest monumental enclosures in the Middle Ohio Valley. It is one of the Bluegrass ritual landscapes built centuries before forts and stations.",
+    "history": "In Fayette County, Peter Village (15Fa166) is an Adena-era earthwork whose pottery, dated to about 409–68 BCE, shows thick Adena wares giving way to thinner Hopewell-style types. Ephraim Squier and Edwin Davis published a plan of it in 1848.",
     "source_date": "2026-09-11",
     "marker_number": 1440,
     "marker_title": "Fayette County",
     "geocode_source": "phase1",
     "category": "archaeology",
     "website": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "year_start": -500,
-    "year_end": 0
+    "year_start": -409,
+    "year_end": -68
   },
   {
     "id": "wea-waayaahtanwa-ouiatenon",

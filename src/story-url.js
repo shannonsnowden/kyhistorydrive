@@ -1,13 +1,13 @@
 /**
  * Story URLs (#337). Every story link is the static page /stories/<slug>/; a merged (retired) slug
  * points at the story it was folded into. STORY_MERGES mirrors data/story-merges.json
- * (scripts/test-story-links.mjs fails if they drift).
+ * (scripts/test-story-links.mjs fails if they drift). Retired slugs of protected sites that carry a
+ * locator (Peter Village's old slug) are left out of the browser bundle; the Amplify 301 handles them.
  */
 export const STORY_MERGES = {
   'capt-jack-jouett': 'jack-jouett-kentuckys-midnight-rider',
   'yellow-banks-becomes-owensboro': 'owensboro-yellow-banks',
   'camp-nelson-jessamine-county': 'camp-nelson-kentucky-us-colored-troops',
-  'peter-village-early-woodland-enclosure-near-lexington': 'peter-village-enclosure-15fa166',
   'chickamauga-cherokee-hold-the-southern-flank': 'chickamauga-cherokee',
   'jacob-beam-sells-old-jakes-first-barrel': 'jacob-beam-on-hardin-creek',
   'wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid': 'wea-waayaahtanwa-on-the-wabash',
