@@ -204,13 +204,44 @@ export function otherPageHits(html) {
   const out = []
   // Keep hrefs as text so slug mentions count, then drop the remaining markup.
   const text = prose(html).replace(/<a\b[^>]*href="([^"]*)"[^>]*>/gi, ' $1 ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&')
-  for (const sentence of text.split(/(?<=[.!?])\s+|\n+/)) {
+  const sentences = splitSentences(text)
+  for (let i = 0; i < sentences.length; i++) {
+    const sentence = sentences[i]
     for (const { it, re } of MENTIONS) {
       if (!re.test(sentence)) continue
-      const h = hitsIn(sentence, it)
+      // The mention's sentence plus up to NEAR_WORDS words across one boundary on each side.
+      const prev = i > 0 ? sentences[i - 1].split(/\s+/).filter(Boolean).slice(-NEAR_WORDS).join(' ') : ''
+      const next = i + 1 < sentences.length ? sentences[i + 1].split(/\s+/).filter(Boolean).slice(0, NEAR_WORDS).join(' ') : ''
+      const h = hitsIn(`${prev}\n${sentence}\n${next}`, it)
       if (h.length) out.push({ item: it.name, hits: h, sentence: sentence.replace(/\s+/g, ' ').trim().slice(0, 160) })
     }
   }
+  return out
+}
+
+/** Words that end in a period but don't end a sentence (lower-cased, without the final dot). */
+export const ABBREVIATIONS = new Set(['mi', 'co', 'st', 'mt', 'ft', 'ca', 'e.g', 'i.e', 'etc', 'no', 'rd', 'twp', 'cf', 'vs', 'approx', 'ave', 'blvd', 'hwy', 'jr', 'sr', 'dr', 'mr', 'mrs', 'ms', 'gen', 'col', 'capt', 'lt', 'rev', 'ky', 'n', 's', 'e', 'w', 'km', 'yd', 'yds', 'in', 'c', 'cir', 'pt'])
+export const NEAR_WORDS = 15
+
+/** Linear sentence splitter: breaks after . ! ? + whitespace, or at newlines, but not after abbreviations or initials. */
+export function splitSentences(text) {
+  const out = []
+  let cur = ''
+  for (const tok of String(text).split(/(\s+)/)) {
+    cur += tok
+    if (/\n/.test(tok)) {
+      if (cur.trim()) out.push(cur.trim())
+      cur = ''
+      continue
+    }
+    if (/^\s+$/.test(tok) || !/[.!?]["'\u201d\u2019)\]]*$/.test(tok)) continue
+    if (/[!?]["'\u201d\u2019)\]]*$/.test(tok)) { out.push(cur.trim()); cur = ''; continue }
+    const word = tok.replace(/^[("'\u201c\u2018[]+/, '').replace(/["'\u201d\u2019)\]]*$/, '').replace(/\.$/, '').toLowerCase()
+    if (ABBREVIATIONS.has(word) || /^[a-z]$/.test(word)) continue
+    out.push(cur.trim())
+    cur = ''
+  }
+  if (cur.trim()) out.push(cur.trim())
   return out
 }
 
@@ -286,7 +317,23 @@ function selfTest() {
   // Other stories' text near a protected-site mention.
   const near = otherPageHits('<div class="story-body"><p>Webb cited enclosures like <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> near Lexington. Later work moved on.</p></div>')
   assert(near.length === 1 && near[0].item === 'Peter Village', 'other story naming a protected site with a locator in the same sentence')
-  assert(!otherPageHits('<div class="story-body"><p>Webb cited <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> in Fayette County. Lexington grew later.</p></div>').length, 'locator in a different sentence is fine')
+  // #354 Security: abbreviations must not end a sentence; a locator one sentence away (within ~15 words) still counts.
+  const turkAbbr = otherPageHits('<div class="story-body"><p>Mississippian towns dotted the region; the Turk site is 5 mi. west of Bardwell on the old road.</p></div>')
+  assert(turkAbbr.length === 1 && turkAbbr[0].item === 'Turk', 'plant: "Turk site is 5 mi. west of Bardwell" (abbreviation mi.)')
+  const pvAbbr = otherPageHits('<div class="story-body"><p>Webb mapped <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> (Fayette Co.) beside Mount Horeb.</p></div>')
+  assert(pvAbbr.length === 1 && pvAbbr[0].item === 'Peter Village', 'plant: "Peter Village (Fayette Co.) <landmark>" (abbreviation Co.)')
+  for (const ab of ['St.', 'Mt.', 'ft.', 'ca.', 'e.g.', 'i.e.', 'etc.', 'No.', 'Ft.', 'Rd.', 'Twp.']) {
+    assert(otherPageHits(`<div class="story-body"><p>The Turk site sat by ${ab} Bardwell once.</p></div>`).length === 1, `plant: abbreviation ${ab}`)
+  }
+  const across = otherPageHits('<div class="story-body"><p>Webb cited <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> in Fayette County. Lexington grew later.</p></div>')
+  assert(across.length === 1 && across[0].item === 'Peter Village', 'plant: locator within ~15 words across one sentence boundary')
+  assert(otherPageHits('<div class="story-body"><p>Lexington grew fast. The Turk site is in Carlisle County.</p></div>').length === 0, 'non-matching locator for a different site is fine')
+  const far = 'Lexington grew later. ' + 'Many other towns rose and fell over the following century as roads and rails reached new places. '.repeat(2)
+  assert(!otherPageHits(`<div class="story-body"><p>Webb cited <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> in Fayette County. ${'Archaeologists in that era surveyed many earthworks across the state with simple tools and notebooks. '.repeat(2)}${far}</p></div>`).length, 'locator far away (beyond ~15 words / one boundary) is fine')
+  // Linear: a long run of abbreviations and mentions finishes fast.
+  const t0 = Date.now()
+  otherPageHits('<div class="story-body"><p>' + 'Peter Village Co. mi. St. '.repeat(20000) + '</p></div>')
+  assert(Date.now() - t0 < 2000, 'linear on large input')
   console.log('check-protected-locators self-test: OK')
 }
 
