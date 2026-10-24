@@ -1970,14 +1970,15 @@ class PrerenderPages {
     const eraText = storyEraLabel(story.era)
     const county = story.county ? PrerenderPages.countyLabel(story.county, true) : ''
     const layer = PrerenderPages.storyLayer(story, layers)
-    const lead =
+    let lead =
       PrerenderPages.firstSentence(story.bodyMarkdown) ||
       PrerenderPages.firstSentence(summary) ||
       story.title
-    const strippedBody = PrerenderPages.bodyWithoutLead(
-      PrerenderPages.stripSourceAttribution(story.bodyMarkdown || ''),
-      lead,
-    )
+    const sourceBody = PrerenderPages.stripSourceAttribution(story.bodyMarkdown || '')
+    const strippedBody = PrerenderPages.bodyWithoutLead(sourceBody, lead)
+    // When the body's opening can't be lifted out (e.g. it holds a link), the standfirst would repeat it;
+    // show the KY History summary instead (Critiquito #348).
+    if (summary && strippedBody === sourceBody.trim()) lead = summary
     const split = splitStoryMarkdown(
       markdownWithoutGlanceSection(strippedBody, Boolean(story.glance)),
       Boolean(story.glance),
@@ -2073,17 +2074,17 @@ class PrerenderPages {
     // #348: a 'Research notes' jump in the top sources/tools line on every folded story.
     const researchJumpHtml = foldedResearchJumpHtml(notes)
     const toolsRowHtml = `<div class="usp-tools" role="toolbar" aria-label="Save and share">
-      <button type="button" class="usp-tool" data-print data-story-print>
+      <button type="button" class="usp-tool" data-print data-story-print aria-label="Save as PDF">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M5 3h10v4H5V3Zm-1 5h12a2 2 0 0 1 2 2v4h-3v3H5v-3H2v-4a2 2 0 0 1 2-2Zm3 8h6v-4H7v4Z" fill="currentColor"/></svg>
-        Save as PDF
+        <span class="usp-tool-label">Save as PDF</span>
       </button>
-      <a class="usp-tool" href="/stories/${esc(story.slug)}/story.md" download="${esc(story.slug)}.md">
+      <a class="usp-tool" href="/stories/${esc(story.slug)}/story.md" download="${esc(story.slug)}.md" aria-label="Download .md">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3 1.4 1.42-4.7 4.7-4.7-4.7 1.4-1.42 2.3 2.3V3a1 1 0 0 1 1-1ZM4 16h12v2H4v-2Z" fill="currentColor"/></svg>
-        Download .md
+        <span class="usp-tool-label">Download .md</span>
       </a>
-      <button type="button" class="usp-tool" data-share data-share-story data-story-title="${esc(story.title)}" data-story-url="${esc(canonical)}">
+      <button type="button" class="usp-tool" aria-label="Share" data-share data-share-story data-story-title="${esc(story.title)}" data-story-url="${esc(canonical)}">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M13 3l5 5-5 5V9.5C8 9.5 5 11 3 15c1-5 4-8 10-8.5V3Z" fill="currentColor"/></svg>
-        Share
+        <span class="usp-tool-label">Share</span>
       </button>
       <span class="usp-share-toast" data-share-feedback role="status" aria-live="polite" hidden></span>
       <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}${researchJumpHtml ? ` · ${researchJumpHtml}` : ''}</span>

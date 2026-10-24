@@ -48,3 +48,20 @@ if (tp.some((p) => p.startsWith('layers/markers'))) { console.error(`false posit
 fs.rmSync(root, { recursive: true, force: true })
 if (fail) process.exit(1)
 console.log(`test-chambers-locating: ok (${Object.keys(planted).length} planted underscore variants caught)`)
+
+// Security (#348): the context window search is bounded at ±2000 chars, so many mentions in a huge text stay fast.
+{
+  const { chambersSnippets: snip, locatingProblems: lp } = await import('./check-chambers-locating.mjs')
+  const filler = 'x'.repeat(3000)
+  const card = (bad) => `<li>15Ml109 ${bad ? 'near the Clarks River' : 'in Marshall County'}</li>`
+  const big = Array.from({ length: 4000 }, (_, k) => card(k === 1234) + filler).join('') + '<li>' + 'y'.repeat(2_000_000)
+  const t0 = Date.now()
+  const parts = snip(big, 'dist/x.html')
+  const ms = Date.now() - t0
+  if (parts.length !== 4000) throw new Error(`bounded window: expected 4000 snippets, got ${parts.length}`)
+  if (parts.filter((p) => lp(p).length).length !== 1) throw new Error('bounded window: detection changed')
+  if (ms > 1500) throw new Error(`bounded window: took ${ms}ms`)
+  const near = snip(`<li>15Ml109 ${'z'.repeat(2500)} Clarks River</li>`, 'dist/y.html')
+  if (near[0].length > 2001 + 4) throw new Error('bounded window: snippet exceeds the 2000-char window')
+  console.log(`test-chambers-locating: bounded window ok (${ms}ms)`)
+}

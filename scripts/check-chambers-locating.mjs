@@ -60,10 +60,15 @@ export function chambersSnippets(text, rel = '') {
   const out = []
   for (const m of text.matchAll(MENTION)) {
     const i = m.index
-    let start = Math.max(0, i - 2000)
-    for (const o of OPEN) { const j = text.lastIndexOf(o, i); if (j >= start) start = j }
-    let end = Math.min(text.length, i + 2000)
-    for (const c of CLOSE) { const j = text.indexOf(c, i); if (j !== -1 && j < end) end = j }
+    // Search only inside the ±2000-char window (never to either end of a large file).
+    const lo = Math.max(0, i - 2000)
+    const hi = Math.min(text.length, i + 2000)
+    const before = text.slice(lo, i)
+    const after = text.slice(i, hi)
+    let start = lo
+    for (const o of OPEN) { const j = before.lastIndexOf(o); if (j !== -1 && lo + j > start) start = lo + j }
+    let end = hi
+    for (const c of CLOSE) { const j = after.indexOf(c); if (j !== -1 && i + j < end) end = i + j }
     out.push(text.slice(start, end))
   }
   return out
