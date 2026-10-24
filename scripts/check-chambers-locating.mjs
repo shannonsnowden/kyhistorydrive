@@ -1,26 +1,36 @@
 #!/usr/bin/env node
 /** #348 Editor ruling: the built Chambers Site page stays county level (no river, ridge, refuge or pit terms). */
 import fs from 'node:fs'
+import path from 'node:path'
 
-export const LOCATING_TERMS = [/clarks[\s_-]+river/i, /middle fork/i, /ridge ?top/i, /refuge/i, /borrow pit/i, /south-?west(ern)? part/i, /\bsouthwest/i, /bridge[\s-]+replacement/i]
+export const LOCATING_TERMS = [/clarks[\s_-]+river/i, /middle fork/i, /ridge ?top/i, /refuge/i, /borrow pit/i, /south-?west(ern)? part/i, /\bsouthwest/i, /bridge[\s_-]+replacement/i]
 
-// Files that may legitimately have no Chambers record (the story has no photo for now).
-export const MAY_LACK_RECORD = new Set(['dist/content/story-photos.json', 'scripts/story-photo-curated.json'])
+// Source JSON (scanned too, so the outputs regenerate clean). Every dist **/*.json and **/*.geojson is globbed.
+export const SOURCE_JSON = ['public/data/layers/history.geojson', 'public/data/app/ky-history.json', 'scripts/story-overrides.json', 'scripts/story-photo-curated.json']
 
-// Public JSON outputs that carry the Chambers record (scan only the Chambers objects inside them).
-export const JSON_OUTPUTS = [
-  'dist/content/stories.json',
-  'dist/content/stories/chambers-site-15ml109-marshall-county.json',
-  'dist/content/research/chambers-site-15ml109-marshall-county.json',
-  'dist/content/story-photos.json',
-  'dist/data/app/ky-history.json',
-  'dist/data/search-index.json',
-  'dist/data/layers/history.geojson',
-  'public/data/layers/history.geojson',
-  'scripts/story-overrides.json',
-  'scripts/story-photo-curated.json',
-  'public/data/app/ky-history.json',
-]
+function walkFiles(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name)
+    if (e.isDirectory()) walkFiles(p, out)
+    else if (/\.(geo)?json$/i.test(e.name)) out.push(p)
+  }
+  return out
+}
+
+/** Scan the Chambers records in every .json/.geojson under root; returns "relpath: term" problems. */
+export function scanJsonOutputs(root) {
+  return scanFiles(walkFiles(root).map((f) => [path.relative(root, f), f]))
+}
+
+export function scanFiles(files) {
+  const problems = []
+  for (const [rel, f] of files) {
+    let data
+    try { data = JSON.parse(fs.readFileSync(f, 'utf8')) } catch { continue }
+    for (const r of chambersRecords(data)) for (const p of locatingProblems(r)) problems.push(`${rel}: ${p}`)
+  }
+  return problems
+}
 
 /** Every JSON object (at any depth) that names the Chambers site, serialized for scanning. */
 export function chambersRecords(data) {
@@ -29,7 +39,7 @@ export function chambersRecords(data) {
     if (Array.isArray(node)) return node.forEach(walk)
     if (!node || typeof node !== 'object') return
     const own = Object.entries(node).filter(([, v]) => typeof v === 'string')
-    if (own.some(([k, v]) => /chambers-site|15ml109/i.test(v) || /chambers-site|15ml109/i.test(k))) out.push(JSON.stringify(node))
+    if (own.some(([k, v]) => /chambers-site|chambers site|15ml109/i.test(v) || /chambers-site|15ml109/i.test(k))) out.push(JSON.stringify(node))
     for (const [k, v] of Object.entries(node)) {
       if (/chambers-site|15ml109/i.test(k) && v && typeof v === 'object') out.push(JSON.stringify(v))
       walk(v)
@@ -60,12 +70,7 @@ if (isMain) {
       if (!fs.existsSync(f)) { problems.push(`${f} missing`); continue }
       for (const p of locatingProblems(fs.readFileSync(f, 'utf8'))) problems.push(`${f}: ${p}`)
     }
-    for (const f of JSON_OUTPUTS) {
-      if (!fs.existsSync(f)) { problems.push(`${f} missing`); continue }
-      const recs = chambersRecords(JSON.parse(fs.readFileSync(f, 'utf8')))
-      if (!recs.length && !MAY_LACK_RECORD.has(f)) problems.push(`${f}: no Chambers record found (check the scan)`)
-      for (const r of recs) for (const p of locatingProblems(r)) problems.push(`${f}: ${p}`)
-    }
+    problems.push(...scanJsonOutputs('dist').map((p) => `dist/${p}`), ...scanFiles(SOURCE_JSON.filter((f) => fs.existsSync(f)).map((f) => [f, f])))
     if (problems.length) {
       console.error(`check-chambers-locating: Chambers must stay county level:\n  ${problems.join('\n  ')}`)
       process.exit(1)
