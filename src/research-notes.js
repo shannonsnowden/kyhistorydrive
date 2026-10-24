@@ -199,7 +199,9 @@ export function foldedResearchHtml(notes) {
   const known = knownSourceIds(notes)
   const cite = (ids) => citeHtml(ids, known).replace(/href="#source-/g, 'href="#rn-source-')
   const block = (heading, inner, tag = 'ul', cls = '') =>
-    inner.length ? `<section class="research-section"><h4>${escapeHtml(heading)}</h4><${tag}${cls ? ` class="${cls}"` : ''}>${inner.join('')}</${tag}></section>` : ''
+    inner.length
+      ? `<details class="research-sub"><summary><h3>${escapeHtml(heading)}</h3></summary><div class="research-sub-body"><${tag}${cls ? ` class="${cls}"` : ''}>${inner.join('')}</${tag}></div></details>`
+      : ''
   const parts = []
   for (const section of notes.sections || []) {
     const heading = String(section?.heading || '').trim()
@@ -240,12 +242,18 @@ export function foldedResearchHtml(notes) {
     if (!groups.has(type)) groups.set(type, [])
     groups.get(type).push(item)
   }
-  for (const [type, items] of groups) parts.push(block(`${SOURCE_HEADINGS[type] || type} (research notes)`, items))
+  for (const [type, items] of groups) parts.push(block(SOURCE_HEADINGS[type] || type, items))
   const body = parts.filter(Boolean).join('')
   if (!body) return ''
   const updated = formatUpdated(notes.updated)
   const iso = /^\d{4}-\d{2}-\d{2}$/.test(String(notes.updated || '')) ? String(notes.updated) : ''
-  return `<div class="research-fold" id="research-notes"><h3 id="research-notes-heading">Research notes</h3>${
+  // Collapsed by default (Critiquito #348); public/story-page.js opens it for #research-notes, #rn-source-* and print.
+  return `<details class="usp-details research-fold" id="research-notes" data-research-notes><summary class="research-fold-summary"><span>Research notes (sources, timeline, open questions)</span></summary><div class="usp-details-body">${
     updated ? `<p class="research-updated">Updated <time datetime="${escapeHtml(iso)}">${escapeHtml(updated)}</time></p>` : ''
-  }${body}</div>`
+  }${body}</div></details>`
+}
+
+/** Top-of-page jump link to the folded research notes; empty for culture evidence pages. */
+export function foldedResearchJumpHtml(notes) {
+  return isFoldedResearch(notes) && storyPageHref(notes?.storySlug) ? '<a class="research-jump" href="#research-notes">Research notes</a>' : ''
 }

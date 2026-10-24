@@ -2,7 +2,7 @@
 /** v2 Phase 5 (#340): research notes fold into story pages; culture evidence pages stay, noindexed. */
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import { foldedResearchHtml } from '../src/research-notes.js'
+import { foldedResearchHtml, foldedResearchJumpHtml } from '../src/research-notes.js'
 import { isFoldedResearch, glanceTableHtml } from '../src/story-markdown.js'
 import { uniqueTitleProblems } from './check-unique-titles.mjs'
 
@@ -17,13 +17,30 @@ assert.equal(isFoldedResearch(null), false)
 
 const blue = all.find((n) => n.slug === 'battle-of-blue-licks')
 const html = foldedResearchHtml(blue)
-assert.match(html, /^<div class="research-fold" id="research-notes">/)
-assert.match(html, /<h3 id="research-notes-heading">Research notes<\/h3>/)
-assert.equal(/<h1|<h2/.test(html), false, 'fold uses h3/h4 only')
+// Critiquito blocker: collapsed native <details>, each subsection its own nested <details> with an h3 summary.
+assert.match(html, /^<details class="usp-details research-fold" id="research-notes" data-research-notes>/)
+assert.match(html, /^<details[^>]*>\s*<summary class="research-fold-summary"><span>Research notes \(sources, timeline, open questions\)<\/span><\/summary>/)
+assert.equal(/<details[^>]*\bopen\b/.test(html), false, 'collapsed by default')
+assert.equal(/<h1|<h2/.test(html), false, 'fold uses h3 only')
+const subs = [...html.matchAll(/<details class="research-sub"><summary><h3>([^<]+)<\/h3><\/summary>/g)].map((m) => m[1])
+for (const h of ['Timeline', 'Primary sources', 'Secondary sources']) assert.ok(subs.includes(h), `sub ${h}`)
+assert.ok(subs.length >= 5, 'each subsection collapses')
+assert.ok(html.trim().endsWith('</details>'))
+assert.equal((html.match(/<details/g) || []).length, (html.match(/<\/details>/g) || []).length)
+// story-page.js opens the block on #research-notes / #rn-source-* and for print; CSS gives a 44px summary with a chevron.
+const js = fs.readFileSync('public/story-page.js', 'utf8')
+assert.match(js, /beforeprint/)
+assert.match(js, /research-notes/)
+assert.match(js, /hashchange/)
+const css = fs.readFileSync('src/styles.css', 'utf8')
+assert.match(css, /\.research-fold-summary[^{]*\{[^}]*min-height: 44px/)
+assert.match(css, /@media print[^{]*\{[^]*?\.research-fold/)
 assert.equal(html.includes('id="sources"'), false, 'no clash with the story #sources section')
 assert.match(html, /id="rn-source-caldwell-1782"/)
 assert.match(html, /href="#rn-source-caldwell-1782"/)
 assert.equal(html.includes('/research/'), false, 'never links a research page')
+assert.equal(foldedResearchJumpHtml(blue), '<a class="research-jump" href="#research-notes">Research notes</a>')
+assert.equal(foldedResearchJumpHtml(culture[0]), '')
 assert.ok([...html.matchAll(/<a\b[^>]*href="https?:[^"]*"[^>]*>/g)].every((a) => a[0].includes('rel="noopener noreferrer"') && a[0].includes('target="_blank"')))
 assert.equal(foldedResearchHtml(culture[0]), '', 'culture pages never fold')
 

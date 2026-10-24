@@ -67,7 +67,7 @@ import {
 } from '../src/route-maps.js'
 import { storyPinLinkHtml } from '../src/story-pin.js'
 import { staticPageBootHtml } from '../src/story-return.js'
-import { foldedResearchHtml, researchNotesHtml } from '../src/research-notes.js'
+import { foldedResearchHtml, foldedResearchJumpHtml, researchNotesHtml } from '../src/research-notes.js'
 import {
   glanceTableHtml,
   markdownWithoutGlanceSection,
@@ -2055,6 +2055,8 @@ class PrerenderPages {
     const wordCount = bodyPlain.split(/\s+/).filter(Boolean).length
     const pubDateLabel = dates.published || story.publishedDate || ''
 
+    // #348: a 'Research notes' jump in the top sources/tools line on every folded story.
+    const researchJumpHtml = foldedResearchJumpHtml(notes)
     const toolsRowHtml = `<div class="usp-tools" role="toolbar" aria-label="Save and share">
       <button type="button" class="usp-tool" data-print data-story-print>
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M5 3h10v4H5V3Zm-1 5h12a2 2 0 0 1 2 2v4h-3v3H5v-3H2v-4a2 2 0 0 1 2-2Zm3 8h6v-4H7v4Z" fill="currentColor"/></svg>
@@ -2069,7 +2071,7 @@ class PrerenderPages {
         Share
       </button>
       <span class="usp-share-toast" data-share-feedback role="status" aria-live="polite" hidden></span>
-      <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}</span>
+      <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}${researchJumpHtml ? ` · ${researchJumpHtml}` : ''}</span>
     </div>`
 
     const glanceDetailsHtml = glanceHtml
@@ -2338,6 +2340,7 @@ class PrerenderPages {
       ...(peopleSectionHtml ? [{ id: 'people', label: 'People in this story' }] : []),
       ...(relatedSectionHtml ? [{ id: 'related', label: 'Related stories' }] : []),
       { id: 'sources', label: `Sources and research${unifiedSources.items.length ? ` (${unifiedSources.items.length})` : ''}` },
+      ...(researchJumpHtml ? [{ id: 'research-notes', label: 'Research notes' }] : []),
     ]
     const tocListHtml = `<ol class="usp-toc-list">
       ${tocEntries
@@ -3323,7 +3326,7 @@ class PrerenderPages {
       }
     }
     if (notes && isFoldedResearch(notes)) {
-      if (!html.includes('<div class="research-fold" id="research-notes">') || html.includes(`href="/research/${notes.slug}/`)) {
+      if (!html.includes('<details class="usp-details research-fold" id="research-notes" data-research-notes>') || !html.includes('<a class="research-jump" href="#research-notes">Research notes</a>') || html.includes(`href="/research/${notes.slug}/`)) {
         throw new Error(`prerender: ${urlPath} must fold its research notes in, not link /research/${notes.slug}/`)
       }
     } else if (notes) {
