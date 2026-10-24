@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-19T11:00:50.265Z",
+  "generatedAt": "2026-10-24T15:01:15.814Z",
   "stats": {
     "exact": 11,
-    "fuzzy": 45,
-    "county": 4,
+    "fuzzy": 49,
+    "county": 1,
     "override": 146,
-    "none": 38
+    "none": 37
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -170,11 +170,11 @@
     },
     "page-site-lost-city-15lo1": {
       "slug": "page-site-lost-city-15lo1",
-      "lat": 36.82461,
-      "lon": -86.84895,
-      "mapConfidence": "county",
-      "matchedPlace": "Logan County (centroid)",
-      "historyId": null
+      "lat": 36.9712176,
+      "lon": -89.0917492,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wickliffe Mounds",
+      "historyId": "wickliffe-mounds"
     },
     "sassafras-ridge-15fu3-fulton-county": {
       "slug": "sassafras-ridge-15fu3-fulton-county",
@@ -250,11 +250,11 @@
     },
     "jonathan-creek-mississippian-center": {
       "slug": "jonathan-creek-mississippian-center",
-      "lat": 36.86767,
-      "lon": -88.32188,
-      "mapConfidence": "county",
-      "matchedPlace": "Marshall County (centroid)",
-      "historyId": null
+      "lat": 36.9712176,
+      "lon": -89.0917492,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Wickliffe Mounds",
+      "historyId": "wickliffe-mounds"
     },
     "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
       "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
@@ -434,11 +434,11 @@
     },
     "col-stephen-trigg-of-viney-grove": {
       "slug": "col-stephen-trigg-of-viney-grove",
-      "lat": 37.52019,
-      "lon": -84.67985,
-      "mapConfidence": "county",
-      "matchedPlace": "Lincoln County (centroid)",
-      "historyId": null
+      "lat": 38.0406,
+      "lon": -84.5037,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Col. John Todd of Lexington",
+      "historyId": "col-john-todd-lexington-blue-licks"
     },
     "michael-stoner-german-long-hunter": {
       "slug": "michael-stoner-german-long-hunter",
@@ -994,11 +994,11 @@
     },
     "ojibwe-on-birds-war-road": {
       "slug": "ojibwe-on-birds-war-road",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
+      "lat": 38.2753405,
+      "lon": -85.7628814,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Falls of the Ohio",
+      "historyId": "falls-of-the-ohio"
     },
     "phosphatic-limestone-and-horse-country": {
       "slug": "phosphatic-limestone-and-horse-country",
