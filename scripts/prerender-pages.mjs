@@ -90,6 +90,7 @@ import {
   formatCoordCardinal,
   formatCountiesBadge,
   isProtectedStory,
+  standfirstHasLocator,
   matchStoryMarkers,
   renderWhereItHappenedCard,
   resolvePeopleInStory,
@@ -1975,10 +1976,13 @@ class PrerenderPages {
       PrerenderPages.firstSentence(summary) ||
       story.title
     const sourceBody = PrerenderPages.stripSourceAttribution(story.bodyMarkdown || '')
-    const strippedBody = PrerenderPages.bodyWithoutLead(sourceBody, lead)
+    let strippedBody = PrerenderPages.bodyWithoutLead(sourceBody, lead)
     // When the body's opening can't be lifted out (e.g. it holds a link), the standfirst would repeat it;
     // show the KY History summary instead (Critiquito #348).
-    if (summary && strippedBody === sourceBody.trim()) lead = summary
+    // Protected stories (SEO #348): never fall back to the summary or title when it carries a locator; show no standfirst instead.
+    const prot = isProtectedStory(story)
+    if (summary && strippedBody === sourceBody.trim() && !(prot && standfirstHasLocator(summary))) lead = summary
+    if (prot && standfirstHasLocator(lead)) { lead = ''; strippedBody = sourceBody.trim() }
     const split = splitStoryMarkdown(
       markdownWithoutGlanceSection(strippedBody, Boolean(story.glance)),
       Boolean(story.glance),
@@ -3379,7 +3383,7 @@ class PrerenderPages {
         throw new Error(`prerender: ${urlPath} artwork credit must start '${lead}<artist>' and never say Photo: or AI illustration`)
       }
     }
-    if (!html.includes('class="story-lead"')) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
+    if (!html.includes('class="story-lead"') && !isProtectedStory(story)) throw new Error(`prerender: ${urlPath} is missing a lead sentence`)
     if (!html.includes(PrerenderPages.rssAlternateLink())) {
       throw new Error(`prerender: ${urlPath} is missing the RSS alternate link`)
     }

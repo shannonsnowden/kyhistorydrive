@@ -7,6 +7,15 @@ import path from 'node:path'
 export const LOCATING_TERMS = [/clarks[\s_-]+river/i, /middle[\s_-]+fork/i, /ridge[\s_-]?top/i, /refuge/i, /borrow[\s_-]+pit/i, /south[\s_-]?west(ern)?[\s_-]+part/i, /\bsouth[\s_-]?west/i, /bridge[\s_-]+replacement/i]
 
 // Source JSON (scanned too, so the outputs regenerate clean). Every dist **/*.json and **/*.geojson is globbed.
+// Site identity. Tests pass a synthetic config instead, so no fixture pairs the real site with a real place.
+export const SITE = {
+  terms: LOCATING_TERMS,
+  value: /chambers-site|chambers site|15ml109/i,
+  key: /chambers-site|15ml109/i,
+  mention: /15ml109|chambers[\s_-]site/gi,
+  storySlug: /chambers-site-15ml109/i,
+}
+
 export const SOURCE_JSON = ['public/data/layers/history.geojson', 'public/data/app/ky-history.json', 'scripts/story-overrides.json', 'scripts/story-photo-curated.json']
 
 function walkFiles(dir, out = []) {
@@ -19,30 +28,30 @@ function walkFiles(dir, out = []) {
 }
 
 /** Scan the Chambers records in every .json/.geojson under root; returns "relpath: term" problems. */
-export function scanJsonOutputs(root) {
-  return scanFiles(walkFiles(root).map((f) => [path.relative(root, f), f]))
+export function scanJsonOutputs(root, site = SITE) {
+  return scanFiles(walkFiles(root).map((f) => [path.relative(root, f), f]), site)
 }
 
-export function scanFiles(files) {
+export function scanFiles(files, site = SITE) {
   const problems = []
   for (const [rel, f] of files) {
     let data
     try { data = JSON.parse(fs.readFileSync(f, 'utf8')) } catch { continue }
-    for (const r of chambersRecords(data)) for (const p of locatingProblems(r)) problems.push(`${rel}: ${p}`)
+    for (const r of chambersRecords(data, site)) for (const p of locatingProblems(r, site)) problems.push(`${rel}: ${p}`)
   }
   return problems
 }
 
 /** Every JSON object (at any depth) that names the Chambers site, serialized for scanning. */
-export function chambersRecords(data) {
+export function chambersRecords(data, site = SITE) {
   const out = []
   const walk = (node) => {
     if (Array.isArray(node)) return node.forEach(walk)
     if (!node || typeof node !== 'object') return
     const own = Object.entries(node).filter(([, v]) => typeof v === 'string')
-    if (own.some(([k, v]) => /chambers-site|chambers site|15ml109/i.test(v) || /chambers-site|15ml109/i.test(k))) out.push(JSON.stringify(node))
+    if (own.some(([k, v]) => site.value.test(v) || site.key.test(k))) out.push(JSON.stringify(node))
     for (const [k, v] of Object.entries(node)) {
-      if (/chambers-site|15ml109/i.test(k) && v && typeof v === 'object') out.push(JSON.stringify(v))
+      if (site.key.test(k) && v && typeof v === 'object') out.push(JSON.stringify(v))
       walk(v)
     }
   }
@@ -50,13 +59,13 @@ export function chambersRecords(data) {
   return out
 }
 
-const MENTION = /15ml109|chambers[\s_-]site/gi
 const OPEN = ['<li', '<article', '<item', '<entry', '<tr', '<url>', '\n\n']
 const CLOSE = ['</li>', '</article>', '</item>', '</entry>', '</tr>', '</url>', '\n\n']
 
 /** The card/record around each Chambers mention in an HTML, MD or XML text (whole text for a Chambers story file). */
-export function chambersSnippets(text, rel = '') {
-  if (/chambers-site-15ml109/i.test(rel)) return [text]
+export function chambersSnippets(text, rel = '', site = SITE) {
+  if (site.storySlug.test(rel)) return [text]
+  const MENTION = new RegExp(site.mention.source, 'gi')
   const out = []
   for (const m of text.matchAll(MENTION)) {
     const i = m.index
@@ -84,33 +93,46 @@ function walkText(dir, out = []) {
 }
 
 /** Scan every .html/.md/.xml under root that mentions Chambers; returns "relpath: term" problems. */
-export function scanTextOutputs(root) {
+export function scanTextOutputs(root, site = SITE) {
   const problems = []
   for (const f of walkText(root)) {
     const rel = path.relative(root, f)
     const text = fs.readFileSync(f, 'utf8')
-    MENTION.lastIndex = 0
-    if (!/15ml109|chambers[\s_-]site/i.test(text) && !/chambers-site-15ml109/i.test(rel)) continue
+    if (!new RegExp(site.mention.source, 'i').test(text) && !site.storySlug.test(rel)) continue
     const found = new Set()
-    for (const s of chambersSnippets(text, rel)) for (const p of locatingProblems(s)) found.add(p)
+    for (const s of chambersSnippets(text, rel, site)) for (const p of locatingProblems(s, site)) found.add(p)
     for (const p of found) problems.push(`${rel}: ${p}`)
   }
   return problems
 }
 
-export function locatingProblems(html) {
-  return LOCATING_TERMS.filter((re) => re.test(html)).map((re) => re.source)
+export function locatingProblems(html, site = SITE) {
+  return site.terms.filter((re) => re.test(html)).map((re) => re.source)
+}
+
+/** Made-up site and places for tests: same pattern shapes as SITE, with synthetic names in place of the real ones. */
+export function syntheticSite() {
+  return {
+    terms: [/sample[\s_-]+river/i, /upper[\s_-]+fork/i, ...LOCATING_TERMS.slice(2)],
+    value: /example-site|example site|15xx999/i,
+    key: /example-site|15xx999/i,
+    mention: /15xx999|example[\s_-]site/gi,
+    storySlug: /example-site-15xx999/i,
+  }
 }
 
 const isMain = process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href
 if (isMain) {
   if (process.argv.includes('--self-test')) {
-    const bad = locatingProblems('<meta content="on a ridgetop above the Middle Fork of Clarks River"><img alt="Clarks River National Wildlife Refuge"> a borrow pit for a bridge replacement, cemetery in its southwestern part')
-    const recs = chambersRecords({ a: [{ slug: 'other', t: 'Clarks River' }, { slug: 'chambers-site-15ml109-marshall-county', photo: { source_url: 'File:Clarks_River_x.jpg' } }], 'chambers-site-15ml109-marshall-county': { n: 'Middle Fork' } })
-    if (recs.flatMap(locatingProblems).length < 2 || recs.some((r) => r.includes('"other"'))) throw new Error('check-chambers-locating self-test: JSON record scan')
-    if (!locatingProblems('<a href="https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall.jpg">').length) throw new Error('check-chambers-locating self-test: credit link filename not caught')
+    // Synthetic fixtures only: a made-up site and made-up places, never the real site with a real place.
+    const X = syntheticSite()
+    const bad = locatingProblems('<meta content="on a ridgetop above the Upper Fork of Sample River"><img alt="Sample River Test Refuge"> a borrow pit for a bridge replacement, cemetery in its southwestern part', X)
+    const recs = chambersRecords({ a: [{ slug: 'other', t: 'Sample River' }, { slug: 'example-site-15xx999-sample-county', photo: { source_url: 'File:Sample_River_x.jpg' } }], 'example-site-15xx999-sample-county': { n: 'Upper Fork' } }, X)
+    if (recs.flatMap((r) => locatingProblems(r, X)).length < 2 || recs.some((r) => r.includes('"other"'))) throw new Error('check-chambers-locating self-test: JSON record scan')
+    if (!locatingProblems('<a href="https://commons.wikimedia.org/wiki/File:Sample_River_in_the_fall.jpg">', X).length) throw new Error('check-chambers-locating self-test: credit link filename not caught')
     if (bad.length !== 8) throw new Error(`check-chambers-locating self-test: expected 8, got ${bad.length}`)
-    if (locatingProblems('<p>in Marshall County</p>').length) throw new Error('check-chambers-locating self-test: false positive')
+    if (locatingProblems('<p>in Sample County</p>', X).length) throw new Error('check-chambers-locating self-test: false positive')
+    if (LOCATING_TERMS.length !== 8 || SITE.terms !== LOCATING_TERMS) throw new Error('check-chambers-locating self-test: real pattern list changed')
     console.log('check-chambers-locating: self-test ok')
   } else {
     const problems = []

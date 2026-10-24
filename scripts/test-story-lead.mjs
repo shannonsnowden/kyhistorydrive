@@ -2,6 +2,7 @@
 /** Critiquito #348: a story page's standfirst must not repeat the opening of the body's first paragraph. */
 import fs from 'node:fs'
 import path from 'node:path'
+import { isProtectedStory, standfirstHasLocator } from './lib/unified-story-data.mjs'
 
 const text = (h) => h.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, "'").replace(/\s+/g, ' ').trim()
 const dir = 'dist/stories'
@@ -29,5 +30,23 @@ for (const name of ['Save as PDF', 'Download .md', 'Share']) {
 }
 const css = fs.readFileSync('src/story-page/unified-story.css', 'utf8')
 if (!/@media \(max-width: 480px\)[\s\S]*\.usp-tool-label/.test(css)) bad.push('css: no phone rule hiding .usp-tool-label')
+// SEO #348: no protected story page's standfirst may carry a place locator (synthetic plants must fail, control must pass).
+for (const t of ['Near Sampletown in Sample County, a test site.', 'On the Sample Fork at Sampletown, two mounds.', 'A village on the Sample River.', 'Just north of Sampletown, an earthwork.', 'On a bluff above the floodplain.', '5 mi. from the county seat.']) {
+  if (!standfirstHasLocator(t)) bad.push(`locator plant not caught: ${t}`)
+}
+if (standfirstHasLocator('In Sample County, the Example Site (15XX999) preserves a village where farmers lived.')) bad.push('locator control flagged')
+{
+  const all = JSON.parse(fs.readFileSync('public/content/stories.json', 'utf8'))
+  let p = 0
+  for (const st of (Array.isArray(all) ? all : all.stories)) {
+    if (!isProtectedStory(st)) continue
+    const f = path.join(dir, st.slug, 'index.html')
+    if (!fs.existsSync(f)) continue
+    p++
+    const m = fs.readFileSync(f, 'utf8').match(/<p class="story-lead">([\s\S]*?)<\/p>/)
+    if (m && standfirstHasLocator(text(m[1]))) bad.push(`protected standfirst has a locator: ${st.slug}`)
+  }
+  if (!p) bad.push('no protected story pages checked')
+}
 if (bad.length) { console.error(`test-story-lead: standfirst repeats the body in:\n  ${bad.join('\n  ')}`); process.exit(1) }
 console.log(`test-story-lead: ok (${n} story pages, no standfirst repeats the body)`)
