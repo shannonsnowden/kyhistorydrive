@@ -194,10 +194,19 @@ export function researchNotesHtml(notes) {
  * h3/h4 only (the page keeps one h1), ids prefixed rn- so nothing clashes with the story's #sources.
  * Culture image-evidence notes never fold (they keep their own noindex page).
  */
-export function foldedResearchHtml(notes) {
+export function foldedResearchHtml(notes, { extraSubs = [] } = {}) {
   if (!isFoldedResearch(notes) || !storyPageHref(notes?.storySlug)) return ''
   const known = knownSourceIds(notes)
-  const cite = (ids) => citeHtml(ids, known).replace(/href="#source-/g, 'href="#rn-source-')
+  // Inline text links joined by ' · ' (Critiquito #348: pills stacked one per line at 390).
+  const cite = (ids) => {
+    const bits = []
+    for (const id of ids || []) {
+      const sourceId = safeId(id)
+      if (sourceId && known.has(sourceId)) bits.push(`<a class="rn-cite" href="#rn-source-${sourceId}">${escapeHtml(sourceLabel(sourceId, known.get(sourceId)))}</a>`)
+      else if (id) bits.push(`<span class="rn-cite is-plain">${escapeHtml(sourceLabel(id))}</span>`)
+    }
+    return bits.length ? ` <span class="research-cites rn-cites"><span class="visually-hidden">Sources: </span>${bits.join('<span class="rn-sep" aria-hidden="true"> · </span>')}</span>` : ''
+  }
   const block = (heading, inner, tag = 'ul', cls = '') =>
     inner.length
       ? `<details class="research-sub"><summary><h3>${escapeHtml(heading)}</h3></summary><div class="research-sub-body"><${tag}${cls ? ` class="${cls}"` : ''}>${inner.join('')}</${tag}></div></details>`
@@ -243,6 +252,11 @@ export function foldedResearchHtml(notes) {
     groups.get(type).push(item)
   }
   for (const [type, items] of groups) parts.push(block(SOURCE_HEADINGS[type] || type, items))
+  for (const sub of extraSubs || []) {
+    const heading = String(sub?.heading || '').trim()
+    // sub.html is trusted, already-rendered site HTML (the story's own Sources/Notes markdown).
+    if (heading && sub?.html) parts.push(`<details class="research-sub"><summary><h3>${escapeHtml(heading)}</h3></summary><div class="research-sub-body">${sub.html}</div></details>`)
+  }
   const body = parts.filter(Boolean).join('')
   if (!body) return ''
   const updated = formatUpdated(notes.updated)

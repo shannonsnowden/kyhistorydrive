@@ -1969,7 +1969,7 @@ class PrerenderPages {
     )
     const bodyHtml = renderStoryHtml(split.mainMarkdown)
     const glanceHtml = glanceTableHtml(story.glance, notes)
-    const researchFold = notes && isFoldedResearch(notes) ? foldedResearchHtml(notes) : ''
+    const isFolded = Boolean(notes && isFoldedResearch(notes))
     const researchHref = notes && !isFoldedResearch(notes) ? researchPageHref(notes.slug) : ''
     const researchLink = researchHref
       ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
@@ -2262,6 +2262,11 @@ class PrerenderPages {
       ? `<div class="usp-prose">${renderStoryHtml(split.inlineSourcesMarkdown)}</div>`
       : ''
 
+    // #348 Critiquito: on folded stories the story's own Sources/Notes list moves inside the collapsed
+    // Research notes block, and the separate Chronology / Open questions boxes (duplicates of the fold) go.
+    const researchFold = isFolded
+      ? foldedResearchHtml(notes, { extraSubs: inlineSourcesHtml ? [{ heading: 'Story sources and notes', html: inlineSourcesHtml }] : [] })
+      : ''
     const learnMoreBlock = PrerenderPages.learnMoreHtml(story.bodyMarkdown, story.title)
     const sourcesSectionHtml = `<section class="usp-section usp-sources" id="sources" data-story-section aria-labelledby="h-sources">
           <div class="usp-sources-head">
@@ -2269,13 +2274,13 @@ class PrerenderPages {
             ${researchLink}
           </div>
           ${sourcesListHtml}
-          ${researchFold}
-          ${inlineSourcesHtml}
           ${glanceDetailsHtml}
           ${claimsDetailsHtml}
-          ${timelineDetailsHtml}
-          ${openQuestionsHtml}
+          ${isFolded ? '' : inlineSourcesHtml}
+          ${isFolded ? '' : timelineDetailsHtml}
+          ${isFolded ? '' : openQuestionsHtml}
           ${learnMoreBlock}
+          ${researchFold}
         </section>`
 
     const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)
@@ -3326,6 +3331,10 @@ class PrerenderPages {
       }
     }
     if (notes && isFoldedResearch(notes)) {
+      const sourcesTail = html.slice(html.indexOf('id="h-sources"'), html.indexOf('</section>', html.indexOf('id="h-sources"')))
+      if (/<summary>Chronology \(|<summary>Open questions \(/.test(sourcesTail) || !/<\/details>\s*$/.test(sourcesTail)) {
+        throw new Error(`prerender: ${urlPath} research notes must be the last block of Sources and research, with no duplicate Chronology/Open questions`)
+      }
       if (!html.includes('<details class="usp-details research-fold" id="research-notes" data-research-notes>') || !html.includes('<a class="research-jump" href="#research-notes">Research notes</a>') || html.includes(`href="/research/${notes.slug}/`)) {
         throw new Error(`prerender: ${urlPath} must fold its research notes in, not link /research/${notes.slug}/`)
       }
