@@ -340,8 +340,10 @@ export function nearbyMarkers(story, markers, { limit = 5, excludeMarkerIds = []
  * Up to five nearest stories and up to five nearest historical markers,
  * one list, nearest first. Stories stay on /stories/<slug>/.
  */
-export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = [], excludeMarkerIds = [] } = {}) {
-  const storiesNear = nearbyStories(story, all, { limit, excludeSlugs })
+export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = [], excludeMarkerIds = [], isProtected = isProtectedStoryCoords } = {}) {
+  // #346 (Critiquito): a protected site is never a nearby card; "3.2 miles" from a public story places it.
+  const pool = (all || []).filter((other) => other === story || !(other?.coordinatesProtected || (typeof isProtected === 'function' && isProtected(other))))
+  const storiesNear = nearbyStories(story, pool, { limit, excludeSlugs })
   const markersNear = nearbyMarkers(story, markers, { limit, excludeMarkerIds })
   const rows = [
     ...(storiesNear.length >= 3 ? storiesNear : []),
@@ -746,6 +748,7 @@ export function relatedAndNearbyForStory(
     limit,
     excludeSlugs: [...excludeSlugs, ...related.map((item) => item.slug)],
     excludeMarkerIds,
+    isProtected,
   })).map((row) => {
     if (row.kind !== 'story') return { ...row, thumb: '' }
     const other = bySlug.get(row.slug)

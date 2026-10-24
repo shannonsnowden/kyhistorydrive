@@ -26,7 +26,7 @@ import { findLocators, STORY_TERMS } from './lib/protected-locators.mjs'
 import { isProtectedStory } from './lib/unified-story-data.mjs'
 import { loadMerges } from './lib/story-merges.mjs'
 import { STORY_MERGES } from '../src/story-url.js'
-import { pickRelatedStories, relatedAndNearbyForStory } from '../src/story-tools.js'
+import { pickRelatedStories, nearbyPlaces, relatedAndNearbyForStory } from '../src/story-tools.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DATA_ROOT = process.env.KH_LOCATOR_ROOT || ROOT
@@ -290,6 +290,12 @@ function pageHits(html, owner) {
   const html = relatedAndNearbyForStory(site, [site, ...pool], markers, { limit: 3, isProtected: prot })
   assert.ok(!/class="nearby-place/.test(html), 'relatedAndNearbyForStory must omit nearby cards for a protected story')
   assert.ok(!/nearby-miles|Sampletown/.test(html), 'protected story shows no nearby distances or other-county towns')
+  // #346 (Critiquito): a public story never cards a protected site with a distance.
+  const pub = { slug: 'sample-public-story', title: 'Sample Public Story', county: 'Other', tags: [], lat: 37.5, lon: -85.51 }
+  const near = nearbyPlaces(pub, [pub, site, ...pool], markers, { limit: 3, isProtected: prot })
+  assert.ok(!near.some((r) => r.slug === FAKE), 'nearbyPlaces must never return a protected site')
+  const pubHtml = relatedAndNearbyForStory(pub, [pub, site, ...pool], markers, { limit: 3, isProtected: prot })
+  assert.ok(!pubHtml.includes(`/stories/${FAKE}/`), 'a public story page never cards a protected site in Related and nearby')
   const control = relatedAndNearbyForStory({ ...site, slug: 'unprotected-fixture', coordinatesProtected: false }, [site, ...pool], markers, { limit: 3, isProtected: () => false })
   assert.ok(/class="nearby-place/.test(control), 'control: an unprotected story with markers shows nearby cards')
 }

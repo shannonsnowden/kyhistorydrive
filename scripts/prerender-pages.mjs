@@ -3515,6 +3515,7 @@ class PrerenderPages {
     const matchedMarkersForStory = matchStoryMarkers(story, markers, notes, routeForNearby)
     const nearbyExpected = nearbyPlaces(story, all, markers, {
       limit: 3,
+      isProtected: (s) => isProtectedStory(s),
       excludeSlugs: [...(routeForNearby?.relatedStories || []), ...peopleBoxSlugs, ...relatedSlugs],
       excludeMarkerIds: [
         ...new Set([
@@ -3524,6 +3525,12 @@ class PrerenderPages {
       ],
     })
     const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
+    // #346 (Critiquito): no card naming a protected site carries a distance.
+    for (const card of related[0].match(/<li class="(?:related-story|nearby-place)">[\s\S]*?<\/li>/g) || []) {
+      const slug = (card.match(/href="\/stories\/([^"/]+)\//) || [])[1]
+      const target = slug && all.find((s) => s.slug === slug)
+      if (target && isProtectedStory(target) && /nearby-miles|\bmiles?\b/.test(card)) throw new Error(`prerender: ${urlPath} shows a distance on protected site card ${slug}: ${card.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 400)}`)
+    }
     if (isProtectedStory(story) && nearbyItems.length) throw new Error(`prerender: ${urlPath} protected story shows nearby cards`)
     if (!PrerenderPages.publicGeo(story) && nearbyItems.length) {
       throw new Error(`prerender: ${urlPath} shows nearby places without a public pin`)
