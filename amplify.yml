@@ -25,9 +25,10 @@ frontend:
 # usual static-extension exclusion list). /robots.txt is a real file.
 # /stories/<slug>/, /layers/<id>/, and /videos/ are prerendered index.html
 # files from scripts/prerender-pages.mjs.
-# Item 90: every 301 (old slugs, /home-preview, /drive-preview, /drives, /about, /videos,
-# /timeline, Roads & Rails) and the unknown-path 404 now live in the Amplify console
-# rewrites and redirects. Only the 200 rewrites stay here.
+# Item 90: the 301s (old slugs, /home-preview, /drive-preview, Roads & Rails) and the
+# unknown-path 404 now live in the Amplify console rewrites and redirects. The four
+# slashless 301s below (/about, /videos, /timeline, /drives) are not in the console,
+# so they stay here; the rest of this list is the 200 rewrites.
 customRules:
   - source: '/privacy'
     target: '/privacy/index.html'
@@ -35,12 +36,24 @@ customRules:
   - source: '/privacy/'
     target: '/privacy/index.html'
     status: '200'
+  - source: '/about'
+    target: '/about/'
+    status: '301'
   - source: '/about/'
     target: '/about/index.html'
     status: '200'
+  - source: '/videos'
+    target: '/videos/'
+    status: '301'
   - source: '/videos/'
     target: '/videos/index.html'
     status: '200'
+  - source: '/timeline'
+    target: '/timeline/'
+    status: '301'
   - source: '/timeline/'
     target: '/timeline/index.html'
     status: '200'
+  - source: '/drives'
+    target: '/drives/'
+    status: '301'
