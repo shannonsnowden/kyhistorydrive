@@ -3,8 +3,8 @@
  * check-site-hygiene: Phase 0 site fixes (Shannon items 87/93), checked on the built dist/.
  *  - /404.html and /404/index.html (the same page; Amplify 301s /404.html to /404/): "We couldn't find
  *    that page", a story search form, Browse all stories (/stories/), Home; noindex; root-absolute URLs.
- *  - index.html sends a visitor on an unknown path (Amplify serves index.html there) to /404/?from=<path>;
- *    the guard's skip logic is run against sample paths, and so is the 404 page's ?from= pre-fill.
+ *  - Item 90: the Amplify console serves /404/ for unknown paths, so index.html has no khd-404-guard
+ *    script and the 404 page has no ?from= pre-fill.
  *  - Every /drives/ page has the shared site footer with a Privacy link.
  *  - No same-site link on a /drives/ page points at a file that is not built (the Loop 1 bug).
  *  - /home-preview/ and /drive-preview/ are not built (their redirects can fire).
@@ -16,7 +16,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import vm from 'node:vm'
 
 const argv = process.argv.slice(2)
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -107,67 +106,14 @@ for (const [rel, nf] of nfPages) {
 }
 if (nfPages[0][1] && nfPages[1][1] && nfPages[0][1] !== nfPages[1][1]) fail('404.html and 404/index.html must be the same page')
 
-// ?from= pre-fill on the 404 page: value only, last segment, dashes to spaces, capped at 100.
-const fromJs = inlineScript(nfPages[1][1] || '', 'khd-404-from')
-if (!fromJs) fail('404/index.html: missing the ?from= pre-fill script')
-else {
-  if (/innerHTML|outerHTML|insertAdjacentHTML|document\.write/.test(fromJs)) fail('404 ?from= pre-fill must set the input value only')
-  for (const banned of ['RegExp', '.replace(/', '.match(', '.test(', '.search(', 'eval(', 'Function(']) {
-    if (fromJs.includes(banned)) fail(`404 ?from= pre-fill must not use ${banned} (Security: no pattern built from or run on input)`)
-  }
-  const prefill = (search) => {
-    const input = { value: '' }
-    vm.runInNewContext(fromJs, { URLSearchParams, String, location: { search }, document: { getElementById: (id) => (id === 'notFoundQuery' ? input : null) } })
-    return input.value
-  }
-  const q = (from) => `?${new URLSearchParams({ from })}`
-  const cases = [
-    ['', ''],
-    [q('/people/walker-daniel/'), 'walker daniel'],
-    [q('/stories/battle-of-blue-licks'), 'battle of blue licks'],
-    [q('/old-page.html'), 'old page'],
-    [q('/<img src=x onerror=alert(1)>/'), '<img src=x onerror=alert(1)>'],
-  ]
-  for (const [search, want] of cases) {
-    const got = prefill(search)
-    if (got !== want) fail(`404 ?from= pre-fill: ${JSON.stringify(search)} gave ${JSON.stringify(got)}, want ${JSON.stringify(want)}`)
-  }
-  if (prefill(q(`/${'a'.repeat(300)}`)).length > 100) fail('404 ?from= pre-fill must cap at 100 characters')
-}
+// Item 90: the Amplify console serves /404/ for unknown paths, so the ?from= pre-fill is gone.
+if (/khd-404-from|[?&]from=/.test(nfPages[1][1] || '')) fail('404/index.html: the ?from= pre-fill must be removed (item 90)')
 const stories = read('stories/index.html') || ''
 if (!/URLSearchParams\(location\.search\)\.get\('q'\)/.test(stories)) fail('/stories/: filter must read ?q= from the 404 search form')
 
-// Unknown-path guard on the homepage document, run against sample paths.
+// Item 90: the client-side unknown-path guard is replaced by the Amplify console 404 rule.
 const home = read('index.html') || ''
-const guardJs = inlineScript(home, 'khd-404-guard')
-if (!guardJs) fail('index.html: missing the khd-404-guard script')
-else {
-  if (home.indexOf('khd-404-guard') > home.indexOf('<script', home.indexOf('khd-404-guard') + 1) && home.indexOf('<script type="module"') > -1 && home.indexOf('<script type="module"') < home.indexOf('khd-404-guard')) {
-    fail('index.html: khd-404-guard must run before the app module')
-  }
-  const guard = (pathname, search = '', hash = '') => {
-    let target = null
-    vm.runInNewContext(guardJs, { encodeURIComponent, location: { pathname, search, hash, replace: (u) => { target = u } } })
-    return target
-  }
-  const stay = [['/'], ['/index.html'], ['/404/'], ['/404.html'], ['/404/index.html'], ['/', '?utm=x'], ['/', '?utm_source=news&d=map', '#map'], ['/', '', '#timeline/battle-of-blue-licks']]
-  for (const [p, s = '', h = ''] of stay) {
-    const got = guard(p, s, h)
-    if (got !== null) fail(`khd-404-guard: ${p}${s}${h} must stay put, but goes to ${got}`)
-  }
-  for (const p of ['/people/walker-daniel/', '/no/such/page.html', '/stories/missing-story/']) {
-    const got = guard(p, '?x=1')
-    let u = null
-    try {
-      u = got == null ? null : new URL(got, SITE)
-    } catch {
-      u = null
-    }
-    if (!u || u.origin !== SITE || u.pathname !== '/404/' || u.searchParams.get('from') !== p) {
-      fail(`khd-404-guard: ${p} must go to /404/?from=${encodeURIComponent(p)}, got ${got}`)
-    } else if (!built(u.pathname)) fail('khd-404-guard target /404/ is not built')
-  }
-}
+if (/khd-404-guard|\/404\/\?from=/.test(home)) fail('index.html: the khd-404-guard script must be removed (item 90)')
 
 // Drive pages
 const driveDir = path.join(dist, 'drives')
@@ -230,4 +176,4 @@ if (problems.length) {
   console.error(`check-site-hygiene: ${problems.length} problem(s):\n  ${problems.join('\n  ')}`)
   process.exit(1)
 }
-console.log(`check-site-hygiene: 404 page at /404.html and /404/ (guard + ?from= cases), ${drivePages.length} drive footers and links, no preview stubs, privacy h1 + date, ${locs.length} sitemap URLs with /videos/ and /routes/ noindexed and out`)
+console.log(`check-site-hygiene: 404 page at /404.html and /404/ (no client guard or ?from= pre-fill), ${drivePages.length} drive footers and links, no preview stubs, privacy h1 + date, ${locs.length} sitemap URLs with /videos/ and /routes/ noindexed and out`)
