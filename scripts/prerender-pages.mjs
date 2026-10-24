@@ -4490,10 +4490,10 @@ ${rows.join('\n')}
         <p>Kentucky History Drive helps you find the history around you, see where it happened, and go see it for yourself. Every part of the site serves one path: from a story, to a place on the map, to a drive you can take.</p>
         <h2>What you’ll find here</h2>
         <ul>
-          <li><strong>Stories.</strong> Short, sourced narratives about Kentucky’s people, places and events, with a new story every day. Each one links to its spot on the map, its place on the Timeline, and a nearby drive.</li>
+          <li><strong>Stories.</strong> Short, sourced narratives about Kentucky’s people, places and events, with new stories added regularly. Each one links to its spot on the map, its place on the Timeline, and a nearby drive.</li>
           <li><strong>An interactive map.</strong> Kentucky Historical Society markers, history pins, museums, war sites, covered bridges, mills, distilleries, parks, cemeteries and more, plus the approximate areas of Native nations and archaeological cultures.</li>
           <li><strong>A Timeline.</strong> Browse Kentucky history by era and year range.</li>
-          <li><strong>Faces to names.</strong> Each person in our stories gets a portrait: a real photograph when one exists, or a labeled AI illustration when it doesn’t.</li>
+          <li><strong>Faces to names.</strong> Each person in our stories is meant to get a portrait: a real photograph when one exists, or a labeled AI illustration when it doesn’t.</li>
           <li><strong>Drive plans.</strong> <a href="/drives/">Ready-made drives</a>, including loops that start at a distillery, plus a planner for trips from 1 hour to a full day. Each opens in Google Maps or Apple Maps.</li>
           <li><strong>Research outlines.</strong> Research notes and sources that go with stories.</li>
           <li><strong>Take stories on the road.</strong> Printable, PDF and Markdown copies of stories.</li>
@@ -4510,7 +4510,6 @@ ${rows.join('\n')}
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
         <h2>Author</h2>
         <p>Shannon Snowden is the author of the Kentucky history stories on this site. Each story is written for Kentucky History Drive and tied to a place, a year, or a map layer when the sources support it.</p>
-        <p>Kentucky History Drive helps you explore Kentucky’s historical highway markers on a map, and browse Kentucky history stories on a timeline by era and year.</p>
         <h2 id="license">Credits</h2>
         <ul class="about-credits">
           <li>Marker text and locations: Kentucky Historical Society / <a href="https://history.ky.gov/markers" target="_blank" rel="noopener">history.ky.gov</a></li>

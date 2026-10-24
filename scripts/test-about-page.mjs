@@ -16,6 +16,12 @@ for (const h of ["What you'll find here", 'What we’re building', 'Sources and 
 }
 ok(html.includes('History is all around us.'), '/about/: missing tagline')
 ok(html.includes('AI illustration · Kentucky History Drive'), '/about/: missing AI label text')
+ok(html.includes('with new stories added regularly') && !/new story every day/.test(html), '/about/: story cadence wording (KY History fact pass)')
+ok(html.includes('Each person in our stories is meant to get a portrait') && !html.includes('stories gets a portrait'), '/about/: portrait wording (KY History fact pass)')
+ok(!html.includes('helps you explore Kentucky’s historical highway markers'), '/about/: Author section repeats the intro')
+const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8')
+ok(/\.contact-reveal \.btn \{[^}]*min-height: 44px/.test(css), 'Show email address button needs a 44px touch target')
+ok(/@media \(max-width: 479px\) \{\s*\/\*[^*]*\*\/\s*\.about-seals-list \{ flex-wrap: nowrap/.test(css), 'seals should be one row of three at 390px')
 ok(!/Coming in the next version/i.test(html), '/about/: shipped features still listed as coming')
 for (const f of ['Drive plans.', 'Research outlines.', 'Printable, PDF and Markdown copies']) ok(html.includes(f), `/about/: main list missing "${f}"`)
 ok(!/Terms/i.test(html) && !/Reviewer note/i.test(html), '/about/: reviewer note or Terms recommendation left in')
