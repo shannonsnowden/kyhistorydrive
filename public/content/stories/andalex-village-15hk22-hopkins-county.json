@@ -16,14 +16,12 @@
   "briefDate": "2026-10-04",
   "photo": {
     "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
-    "title": "Mississippian pottery; a regional stand-in, not from the Andalex site in Hopkins County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
+    "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Hopkins County site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+    "year": null,
+    "fit": "contain"
   },
   "county": "Hopkins"
 }

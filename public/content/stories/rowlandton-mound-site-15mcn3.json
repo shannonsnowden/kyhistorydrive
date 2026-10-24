@@ -17,14 +17,12 @@
   "briefDate": "2026-10-05",
   "photo": {
     "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3.jpg",
-    "title": "The Rowlandton platform mound, McCracken County, with a pit dug by archaeologists",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
+    "title": "A Mississippian owl-head bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the McCracken County site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2003,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+    "year": null,
+    "fit": "contain"
   },
   "county": "McCracken"
 }
