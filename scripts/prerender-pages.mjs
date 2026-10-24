@@ -194,7 +194,7 @@ class PrerenderPages {
     const markers = PrerenderPages.loadHistoricalMarkers(root)
     await PrerenderPages.collectPhotoSizes(root, stories)
     PrerenderPages.assertOverridesApplied(root, stories)
-    const layers = await PrerenderPages.loadLayers(root)
+    const layers = await PrerenderPages.loadLayers(root, stories)
     const dates = PrerenderPages.gitFileDates(root)
     const textDates = gitStoryTextDates(root)
     for (const story of stories) {
@@ -504,8 +504,13 @@ class PrerenderPages {
     return String(n)
   }
 
-  static formatYearRange(start, end) {
+  static formatYearRange(start, end, approx = false) {
     if (start == null && end == null) return ''
+    // approxStart (shared with timeline nodes) marks a traditional or estimated start year: "c. 1795".
+    if (approx && start != null && start >= 0) {
+      const rest = PrerenderPages.formatYearRange(start, end)
+      return `c. ${rest}`
+    }
     if (start != null && end != null && start !== end) {
       return `${PrerenderPages.formatYear(start)} – ${PrerenderPages.formatYear(end)}${start < 0 && end > 0 ? ' CE' : ''}`
     }
@@ -1190,6 +1195,7 @@ class PrerenderPages {
       tags: body.tags || indexRow?.tags || [],
       yearStart: body.yearStart ?? null,
       yearEnd: body.yearEnd ?? null,
+      approxStart: body.approxStart === true,
       publishedDate: body.publishedDate || body.briefDate || indexRow?.publishedDate || '',
       draft: body.draft === true || indexRow?.draft === true,
       hidden: body.hidden === true || indexRow?.hidden === true,
@@ -1379,7 +1385,33 @@ class PrerenderPages {
     }
   }
 
-  static async loadLayers(root) {
+  /** Pin -> story slug, mirroring slugForPlaceProps in src/main.js (#339). */
+  static pinStorySlugs(root, stories) {
+    const known = new Set(stories.map((st) => st.slug))
+    const file = path.join(root, 'public/content/stories-locations.json')
+    const locations = fs.existsSync(file) ? PrerenderPages.readJson(file) : {}
+    const byHistoryId = new Map()
+    for (const row of Object.values(locations || {})) {
+      if (row?.historyId && row.slug && !byHistoryId.has(row.historyId)) byHistoryId.set(row.historyId, row.slug)
+    }
+    for (const row of Object.values(locations || {})) {
+      for (const extra of Array.isArray(row?.alsoHistoryIds) ? row.alsoHistoryIds : []) {
+        if (extra && row.slug && !byHistoryId.has(extra)) byHistoryId.set(extra, row.slug)
+      }
+    }
+    return (p) => {
+      const direct = p?.slug != null ? String(p.slug) : ''
+      if (direct && known.has(direct)) return direct
+      const id = p?.id != null ? String(p.id) : ''
+      if (id && known.has(id)) return id
+      const hid = p?.historyId != null ? String(p.historyId) : id
+      const slug = hid ? byHistoryId.get(hid) : null
+      return slug && known.has(slug) ? slug : null
+    }
+  }
+
+  static async loadLayers(root, stories = []) {
+    const slugFor = PrerenderPages.pinStorySlugs(root, stories)
     const { LAYER_HIGHLIGHTS } = await import(pathToFileURL(path.join(root, 'src/home-preview-data.js')).href)
     const defs = PrerenderPages.layerDefs(fs.readFileSync(path.join(root, 'src/main.js'), 'utf8'))
     const byId = new Map(LAYER_HIGHLIGHTS.map((item) => [item.layerId, item]))
@@ -1403,11 +1435,13 @@ class PrerenderPages {
             name: PrerenderPages.placeName(p),
             county: p.county ? PrerenderPages.countyLabel(p.county, true) : '',
             years,
+            storySlug: slugFor(p),
           }
         })
         .filter((p) => p.name)
         .sort((a, b) => a.name.localeCompare(b.name) || a.county.localeCompare(b.county))
-      return { ...def, intro, highlight, featured, places }
+      const featuredStorySlug = featured ? slugFor(featured) : null
+      return { ...def, intro, highlight, featured, featuredStorySlug, places }
     })
   }
 
@@ -1692,7 +1726,7 @@ class PrerenderPages {
   static relatedCardMeta(story) {
     const bits = ['Story']
     if (story.county) bits.push(PrerenderPages.countyLabel(story.county, true))
-    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd, story.approxStart)
     if (years) bits.push(years)
     return bits.join(' · ')
   }
@@ -1957,7 +1991,7 @@ class PrerenderPages {
     const summary = PrerenderPages.finishedSummary(story.summary)
     const description = PrerenderPages.storyDescription(story)
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
-    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd, story.approxStart)
     const route = routeBySlug(story.slug)
     const matchedMarkers = matchStoryMarkers(story, markers, notes, route)
     const counties = storyCountiesList(story, matchedMarkers)
@@ -1983,7 +2017,8 @@ class PrerenderPages {
     const researchLink = researchHref
       ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
-    const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
+    // #337: /#timeline/<slug> now forwards to this page, so Back goes to the Timeline list.
+    const appHref = '/#timeline'
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
@@ -2021,7 +2056,7 @@ class PrerenderPages {
     const prevStory = timelineIdx > 0 ? timelineOrdered[timelineIdx - 1] : null
     const nextStory = timelineIdx < timelineTotal - 1 ? timelineOrdered[timelineIdx + 1] : null
 
-    const wfYear = story.yearStart != null ? ` · ${story.yearStart < 0 ? `${Math.abs(story.yearStart)} BCE` : story.yearStart}` : (years ? ` · ${years}` : '')
+    const wfYear = story.yearStart != null ? ` · ${story.approxStart && story.yearStart >= 0 ? 'c. ' : ''}${story.yearStart < 0 ? `${Math.abs(story.yearStart)} BCE` : story.yearStart}` : (years ? ` · ${years}` : '')
     const prevBtn = prevStory
       ? `<a class="usp-wf-btn" href="/stories/${esc(prevStory.slug)}/" rel="prev" title="Previous in timeline: ${esc(prevStory.title)} (${esc(PrerenderPages.formatYearRange(prevStory.yearStart, prevStory.yearEnd))})"><span aria-hidden="true">←</span> <span class="usp-wf-btn-label">Prev</span></a>`
       : `<span class="usp-wf-btn is-disabled" aria-disabled="true"><span aria-hidden="true">←</span> <span class="usp-wf-btn-label">Prev</span></span>`
@@ -2065,17 +2100,17 @@ class PrerenderPages {
     const pubDateLabel = dates.published || story.publishedDate || ''
 
     const toolsRowHtml = `<div class="usp-tools" role="toolbar" aria-label="Save and share">
-      <button type="button" class="usp-tool" data-print data-story-print>
+      <button type="button" class="usp-tool" data-print data-story-print aria-label="Save as PDF">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M5 3h10v4H5V3Zm-1 5h12a2 2 0 0 1 2 2v4h-3v3H5v-3H2v-4a2 2 0 0 1 2-2Zm3 8h6v-4H7v4Z" fill="currentColor"/></svg>
-        Save as PDF
+        <span class="usp-tool-label">Save as PDF</span>
       </button>
-      <a class="usp-tool" href="/stories/${esc(story.slug)}/story.md" download="${esc(story.slug)}.md">
+      <a class="usp-tool" href="/stories/${esc(story.slug)}/story.md" download="${esc(story.slug)}.md" aria-label="Download .md">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3 1.4 1.42-4.7 4.7-4.7-4.7 1.4-1.42 2.3 2.3V3a1 1 0 0 1 1-1ZM4 16h12v2H4v-2Z" fill="currentColor"/></svg>
-        Download .md
+        <span class="usp-tool-label">Download .md</span>
       </a>
-      <button type="button" class="usp-tool" data-share data-share-story data-story-title="${esc(story.title)}" data-story-url="${esc(canonical)}">
+      <button type="button" class="usp-tool" aria-label="Share" data-share data-share-story data-story-title="${esc(story.title)}" data-story-url="${esc(canonical)}">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M13 3l5 5-5 5V9.5C8 9.5 5 11 3 15c1-5 4-8 10-8.5V3Z" fill="currentColor"/></svg>
-        Share
+        <span class="usp-tool-label">Share</span>
       </button>
       <span class="usp-share-toast" data-share-feedback role="status" aria-live="polite" hidden></span>
       <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}</span>
@@ -2335,7 +2370,7 @@ class PrerenderPages {
           ${nextCardHtml}
         </nav>
         <p class="usp-endback">
-          <a href="${esc(appHref)}" data-back-to-timeline>← Back to this spot on the Timeline</a>
+          <a href="${esc(appHref)}" data-back-to-timeline>← Back to the Timeline</a>
         </p>`
 
     const tocEntries = [
@@ -2507,7 +2542,7 @@ class PrerenderPages {
       const meta = []
       const county = PrerenderPages.storiesListCounty(story)
       if (county) meta.push(county)
-      const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+      const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd, story.approxStart)
       if (years) meta.push(years)
       const thumb = PrerenderPages.existingThumb(story)
       const media = thumb
@@ -2886,7 +2921,10 @@ class PrerenderPages {
       .map((place) => {
         const bits = [place.county, place.years].filter(Boolean)
         const extra = bits.length ? ` <span class="muted">${PrerenderPages.escapeHtml(bits.join(' · '))}</span>` : ''
-        return `<li>${PrerenderPages.escapeHtml(place.name)}${extra}</li>`
+        const name = place.storySlug
+          ? `<a href="/stories/${PrerenderPages.escapeHtml(place.storySlug)}/">${PrerenderPages.escapeHtml(place.name)}</a>`
+          : PrerenderPages.escapeHtml(place.name)
+        return `<li>${name}${extra}</li>`
       })
       .join('')
     const layerStories = PrerenderPages.liveStories(stories).filter((st) =>
@@ -2916,7 +2954,8 @@ class PrerenderPages {
             <p>${PrerenderPages.escapeHtml(highlight.blurb || '')}</p>
             <div class="story-body">${PrerenderPages.plainParagraphs(PrerenderPages.featureText(featured))}</div>
             <div class="static-cta">
-              <a class="btn" href="${PrerenderPages.escapeHtml(pinHref)}">Open this layer on the map</a>
+              ${layer.featuredStorySlug ? `<a class="btn" href="/stories/${PrerenderPages.escapeHtml(layer.featuredStorySlug)}/">Read the story</a>` : ''}
+              <a class="btn${layer.featuredStorySlug ? ' ghost' : ''}" href="${PrerenderPages.escapeHtml(pinHref)}">Open this layer on the map</a>
               <a class="btn ghost" href="/#map">Full map</a>
             </div>
           </div>

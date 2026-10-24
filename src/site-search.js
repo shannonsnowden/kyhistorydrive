@@ -3,10 +3,11 @@
  * Indexes places + stories via /data/search-index.json (MiniSearch).
  */
 import MiniSearch from 'minisearch'
+import { storyUrl } from './story-url.js'
 
 const SEARCH_LIMIT = 12
 const SEARCH_MIN_CHARS = 2
-const SEARCH_PLACEHOLDER_FULL = 'Search places & stories…'
+const SEARCH_PLACEHOLDER_FULL = 'Search stories'
 const SEARCH_PLACEHOLDER_NARROW = 'Search stories'
 const SEARCH_NARROW_QUERY = '(max-width: 1400px)'
 
@@ -17,7 +18,9 @@ let searchActiveIndex = -1
 let navigateHash = defaultNavigateHash
 
 function defaultNavigateHash(hash) {
-  location.hash = hash
+  // Story hits are static pages (/stories/<slug>/, #337); places stay in-app hashes.
+  if (String(hash).startsWith('/')) location.assign(hash)
+  else location.hash = hash
 }
 
 function escapeHtml(s) {
@@ -43,7 +46,7 @@ function placeShareHash(layerId, shareId) {
 
 function storyShareHash(slug) {
   if (!slug) return '#timeline'
-  return `#timeline/${encodeURIComponent(slug)}`
+  return storyUrl(slug)
 }
 
 export function searchHitHash(doc) {
@@ -197,8 +200,8 @@ function setSearchActive(delta) {
 /**
  * Wire the header search control.
  * @param {{ navigate?: (hash: string) => void }} [options]
- *   `navigate` receives a hash like `#timeline/slug` or `#map/layer/id`.
- *   Default sets `location.hash` on the same document (`#map`, `#timeline/<slug>`).
+ *   `navigate` receives a story path like `/stories/<slug>/` or a hash like `#map/layer/id`.
+ *   Default opens story paths with location.assign and sets `location.hash` for hashes.
  */
 export function initSiteSearch(options = {}) {
   const form = document.getElementById('siteSearchForm')

@@ -9,6 +9,8 @@ import {
   renderStoryHtml,
   safeStoryUrl,
 } from '../../src/story-markdown.js'
+import { isProtectedStoryRule } from '../../src/protected-story-rule.js'
+import { loadMerges } from './story-merges.mjs'
 import {
   compactYearRange,
   countyLong,
@@ -71,25 +73,22 @@ function getSkipProtectedSlugSet() {
   return cachedSkipProtectedSlugs
 }
 
-export function isProtectedStory(story) {
-  if (!story) return false
-  if (story.coordinatesProtected || story.locationApproximate) return true
-  const set = getProtectedSlugSet()
-  if (story.slug && set.has(String(story.slug))) return true
-  if (story.id && set.has(String(story.id))) return true
-  if (story.historyId && set.has(String(story.historyId))) return true
-  const skip = getSkipProtectedSlugSet()
-  if (story.slug && skip.has(String(story.slug))) return false
-  if (story.historyId && skip.has(String(story.historyId))) return false
-  if (
-    story.archaeological ||
-    story.era === "prehistoric" ||
-    (Array.isArray(story.tags) && (story.tags.includes("archaeology") || story.tags.includes("prehistoric"))) ||
-    /\b15[a-z]{2}\d{1,4}\b/i.test(String(story.slug || ""))
-  ) {
-    return true
+/** Protected and skip id sets for the shared rule; a merge carries protection across both slugs. */
+export function protectedIdSets() {
+  const protectedIds = new Set(getProtectedSlugSet())
+  for (const { retired, kept } of loadMerges(ROOT)) {
+    if (protectedIds.has(retired) || protectedIds.has(kept)) {
+      protectedIds.add(retired)
+      protectedIds.add(kept)
+    }
   }
-  return false
+  return { protectedIds, skipIds: getSkipProtectedSlugSet() }
+}
+
+let cachedIdSets = null
+export function isProtectedStory(story) {
+  cachedIdSets ||= protectedIdSets()
+  return isProtectedStoryRule(story, cachedIdSets)
 }
 
 export function roundStoryCoord(value, protectedStory = false) {

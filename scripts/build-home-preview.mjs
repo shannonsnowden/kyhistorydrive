@@ -474,7 +474,7 @@ function editorPackQuote(doc, hero) {
     return {
       slug: pin.slug,
       pinned: pin.allowsHero,
-      href: `/#timeline/${encodeURIComponent(pin.slug)}`,
+      href: `/stories/${encodeURIComponent(pin.slug)}/`,
     }
   }
   return hero?.quote ? { text: hero.quote, source: hero.title, href: hero.href } : null
@@ -563,7 +563,7 @@ async function main() {
       yearStart: full.yearStart ?? meta.yearStart ?? null,
       county: full.county || meta.county || null,
       briefDate: full.briefDate || meta.briefDate || briefDate,
-      href: `/#timeline/${encodeURIComponent(slug)}`,
+      href: `/stories/${encodeURIComponent(slug)}/`,
       place: loc.matchedPlace || null,
       lat,
       lon,

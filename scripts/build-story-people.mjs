@@ -105,7 +105,7 @@ for (const slug of slugsInScope) {
   hits.sort((a, b) => a.at - b.at)
   const links = hits.map(({ p }) => {
     const own = ownStory(p, slug)
-    return { id: p.id, name: matchName.get(p.id) || p.name, href: own ? `#timeline/${encodeURIComponent(own)}` : `/people/#${p.id}` }
+    return { id: p.id, name: matchName.get(p.id) || p.name, href: own ? `/stories/${encodeURIComponent(own)}/` : `/people/#${p.id}` }
   })
   const sidebar = story.photo?.source_url ? commonsName(story.photo.source_url) : ''
   const portraits = []

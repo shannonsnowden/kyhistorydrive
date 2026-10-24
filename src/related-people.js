@@ -1,5 +1,6 @@
 import { portraitAlt, creditWithCaption, aiCreditText, creditHtml } from './portrait-captions.js'
 import { MAX_LINKS_PER_BLOCK } from './story-people.js'
+import { storyUrl } from './story-url.js'
 
 export { portraitAlt }
 
@@ -177,7 +178,7 @@ export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelated
   if (!items.length) return ''
   const hid = String(headingId || 'storyRelatedH').replace(/[^\w-]/g, '') || 'storyRelatedH'
   const portraits = options.portraits instanceof Map ? options.portraits : new Map()
-  const linkFor = options.linkFor || ((s) => `#timeline/${encodeURIComponent(s)}`)
+  const linkFor = options.linkFor || ((s) => storyUrl(s))
   const lis = items
     .map((x) => {
       const href = esc(linkFor(x.slug))
@@ -198,9 +199,11 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
   const people = Object.entries(data?.people || {}).sort((a, b) => b[0].length - a[0].length)
   if (!root || !people.length) return
   const done = new Set() // target slugs already linked in this story
-  for (const a of root.querySelectorAll('a.person-link[href^="#timeline/"]')) {
+  for (const a of root.querySelectorAll('a.person-link[href^="/stories/"], a.person-link[href^="#timeline/"]')) {
     try {
-      done.add(decodeURIComponent(a.getAttribute('href').slice(10))) // build-time links (story-people.json)
+      const h = a.getAttribute('href') || ''
+      const m = h.match(/^\/stories\/([^/?#]+)\/?$/) || h.match(/^#timeline\/([^/?#]+)$/)
+      if (m) done.add(decodeURIComponent(m[1])) // build-time links (story-people.json)
     } catch {
       /* ignore */
     }
@@ -224,7 +227,7 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
       if (!m) continue
       const start = m.index + m[1].length
       const a = document.createElement('a')
-      a.href = `#timeline/${encodeURIComponent(target)}`
+      a.href = storyUrl(target)
       a.className = 'person-link'
       a.textContent = name
       a.title = `Read the story: ${titleFor(target)}`
