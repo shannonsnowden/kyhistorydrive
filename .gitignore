@@ -11,3 +11,4 @@ _ingest/
 .env
 .env.*
 !.env.example
+/reports/
