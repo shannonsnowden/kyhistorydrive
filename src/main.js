@@ -73,7 +73,9 @@ import {
   textureCss,
   CULTURE_EDGE,
 } from './territory.js'
-import { storyUrl, timelineForwardUrl } from './story-url.js'
+import { storyUrl, timelineForwardUrl, canonicalStorySlug } from './story-url.js'
+import { pinCardHtml, usePhoneSheet, phoneSheetPinY, phoneSheetLayout } from './pin-card.js'
+import { PIN_TEASERS } from './pin-teasers.js'
 
 /**
  * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
@@ -170,6 +172,12 @@ const ERAS = [
   { id: 'early-commonwealth', label: 'Early commonwealth' },
   { id: 'other', label: 'More Kentucky history' },
 ]
+
+/** Era id -> label for pin cards; revolution folds into Frontier like the story pages. */
+function pinEraLabel(era) {
+  const id = era === 'revolution' ? 'frontier' : era === 'modern' ? 'other' : era
+  return ERAS.find((e) => e.id === id)?.label || ''
+}
 
 const YEAR_PRESETS = [
   { id: 'before-1000', label: 'Before 1000', min: null, max: 999 },
@@ -1707,7 +1715,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
   }
   if (p.county) metaBits.push(countyLabel(p.county, true))
   if (p.city) metaBits.push(p.city)
-  if (p.era) metaBits.push(p.era)
+  if (p.era) metaBits.push(pinEraLabel(p.era) || p.era)
   if (p.yearStart != null || p.yearEnd != null) {
     metaBits.push(formatYearRange(p.yearStart, p.yearEnd))
   }
@@ -1822,7 +1830,7 @@ function waitForCamera(targetMap, timeout = 4000) {
  * the card opens above with room to scroll, and slide sideways so a centered
  * card does not run off the left or right edge.
  */
-async function nudgeCameraForPopup(targetMap, lngLat) {
+async function nudgeCameraForPopup(targetMap, lngLat, { sheet = false } = {}) {
   if (!targetMap?.project || !targetMap.getContainer?.() || !lngLat) return
   // A deep-link easeTo may still be queued; wait until the camera is quiet.
   await waitForCamera(targetMap)
@@ -1833,10 +1841,27 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
   const w = el.clientWidth
   const h = el.clientHeight
   if (!w || !h) return
+  let sheetPinY = null
+  if (sheet) {
+    // Phone sheet (#350): bring the map on screen and park the pin between the header and the sheet.
+    const r = el.getBoundingClientRect()
+    let headerBottom = 0
+    for (const hd of document.querySelectorAll('header, .site-header, .topbar')) {
+      const pos = getComputedStyle(hd).position
+      if (pos === 'fixed' || pos === 'sticky') headerBottom = Math.max(headerBottom, hd.getBoundingClientRect().bottom)
+    }
+    const lay = phoneSheetLayout({ mapTop: r.top, mapBottom: r.bottom, viewportHeight: window.innerHeight, headerBottom })
+    if (lay.scrollBy) window.scrollBy({ top: lay.scrollBy, behavior: 'instant' })
+    sheetPinY = lay.pinY
+  }
   const pt = targetMap.project(lngLatPair(lngLat))
   let dx = 0
   let dy = 0
-  if (w >= 700 && h >= 420) {
+  if (sheet) {
+    // Phone bottom sheet (#339): keep the pin in the upper map, above the sheet.
+    const targetY = sheetPinY ?? phoneSheetPinY(h)
+    if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
+  } else if (w >= 700 && h >= 420) {
     const targetY = Math.round(Math.min(112, Math.max(72, h * 0.16)))
     if (pt.y > targetY + 28) dy = pt.y - targetY
   } else if (w < 700) {
@@ -2014,6 +2039,11 @@ async function popupRelatedHtml(props) {
   return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits, personFor })
 }
 
+// Rotating a phone or resizing the window flips the open pin card between sheet and card (#339).
+window.addEventListener('resize', () => {
+  activePopup?.getElement?.()?.classList.toggle('ky-sheet', usePhoneSheet(window.innerWidth))
+})
+
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (!targetMap || !feature) return
   if (activePopup) {
@@ -2030,7 +2060,8 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   const props = enrichFeatureProps(layerId, feature.properties || {})
   const storyPhoto = await storyPhotoForProps(props)
   if (storyPhoto) props.photo = storyPhoto
-  const relatedHtml = await popupRelatedHtml(props)
+  const storySlug = await slugForPlaceProps(props).catch(() => null)
+  const relatedHtml = storySlug ? '' : await popupRelatedHtml(props)
   // A pin tied to a story shows the story's own era, so popup and story/hero labels agree.
   // Display only: the pin's computed era still drives Timeline era filtering.
   try {
@@ -2047,20 +2078,42 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (targetMap === map && shareHash.startsWith('#map/')) {
     history.replaceState(historyStateWithReturn(), '', shareHash)
   }
-  await nudgeCameraForPopup(targetMap, coords)
+  const sheet = usePhoneSheet(window.innerWidth)
+  await nudgeCameraForPopup(targetMap, coords, { sheet })
   const place = popupPlacement(targetMap, coords)
+  if (sheet) {
+    place.anchor = 'top'
+    place.offset = 0
+    place.maxWidth = 'none'
+    place.maxHeightPx = Math.round(window.innerHeight * 0.45)
+  }
+  // Story pins open a teaser card (#339); the story page carries the full text.
+  const popupHtml = storySlug
+    ? `<div class="map-popup">${pinCardHtml({
+        name: props.name || props.title || 'Untitled',
+        layerLabel: DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId,
+        meta: [props.county ? countyLabel(props.county, true) : '', pinEraLabel(props.era)].filter(Boolean).join(' · '),
+        slug: storySlug,
+        teaser: PIN_TEASERS[canonicalStorySlug(storySlug)] || '',
+        protectedNote: protectedPinNoteHtml(props.historyId || props.id || storySlug),
+        escapeHtml,
+      })}</div>`
+    : detailHtmlFromProps(props, layerId, coords, relatedHtml)
   activePopup = new maplibregl.Popup({
     closeButton: true,
     closeOnClick: true,
     maxWidth: place.maxWidth,
     offset: place.offset ?? 14,
     anchor: place.anchor,
-    className: 'ky-popup',
+    // Story cards take focus on the card itself, not "Read the story" (no ring on open; #350).
+    focusAfterOpen: !storySlug,
+    className: sheet ? 'ky-popup ky-sheet' : 'ky-popup',
   })
     .setLngLat(coords)
-    .setHTML(detailHtmlFromProps(props, layerId, coords, relatedHtml))
+    .setHTML(popupHtml)
     .addTo(targetMap)
   const popupEl = activePopup.getElement()
+  if (storySlug) popupEl?.querySelector('.pin-card')?.focus({ preventScroll: true })
   try {
     const slug = await slugForPlaceProps(props)
     const textRoot = popupEl?.querySelector('.popup-full-text')
@@ -2397,6 +2450,19 @@ function startHighlightPulse(targetMap) {
   requestAnimationFrame(tick)
 }
 
+/** Selected pin takes its layer's swatch color (History green); stories keep site amber (#339). */
+function highlightColor(focus) {
+  return (focus?.layerId && DATA_LAYERS.find((l) => l.id === focus.layerId)?.color) || '#c9893a'
+}
+
+function paintHighlight(targetMap, focus) {
+  if (!focus) return
+  const color = highlightColor(focus)
+  for (const id of ['highlight-glow', 'highlight-core']) {
+    if (targetMap.getLayer(id)) targetMap.setPaintProperty(id, 'circle-color', color)
+  }
+}
+
 function ensureHighlightSource(targetMap, focus) {
   const data = {
     type: 'FeatureCollection',
@@ -2414,6 +2480,7 @@ function ensureHighlightSource(targetMap, focus) {
   targetMap.__khdHighlightOn = data.features.length > 0
   if (targetMap.getSource('highlight')) {
     targetMap.getSource('highlight').setData(data)
+    paintHighlight(targetMap, focus)
     raiseHighlightLayers(targetMap)
   } else {
     targetMap.addSource('highlight', { type: 'geojson', data })
@@ -2447,6 +2514,7 @@ function ensureHighlightSource(targetMap, focus) {
       source: 'highlight',
       paint: { 'circle-radius': 22, 'circle-opacity': 0 },
     })
+    paintHighlight(targetMap, focus)
     raiseHighlightLayers(targetMap)
     startHighlightPulse(targetMap)
     targetMap.on('mouseenter', 'highlight-hit', () => {
@@ -4021,6 +4089,7 @@ async function openStoryHighlightOnHomeMap(place) {
     title: place.title || place.matchedPlace || place.slug,
     slug: place.slug,
     historyId: place.historyId || null,
+    layerId: place.historyId ? 'history' : null,
   }
   pendingFocus = focus
   highlightDetailProps = {
@@ -4115,6 +4184,7 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
   if (map.isMoving?.()) await waitForCamera(map, 900)
   else await new Promise((r) => setTimeout(r, 50))
   if (map.isMoving?.()) await waitForCamera(map, 900)
+  ensureHighlightSource(map, { lon, lat, title: fp.name || fp.title || '', layerId: placeLayer })
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
   return true
 }
