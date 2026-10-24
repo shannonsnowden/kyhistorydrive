@@ -2033,7 +2033,10 @@ class PrerenderPages {
       </div>
     </nav>`
 
-    const tagsList = (story.tags || []).filter((t) => t && t !== 'kentucky' && t !== story.era)
+    const tagsList = (story.tags || []).filter(
+      // The era pill already names the era; drop tags that repeat it (e.g. frontier-war under Frontier).
+      (t) => t && t !== 'kentucky' && t !== story.era && !(story.era && String(t).startsWith(`${story.era}-`)),
+    )
     const tagsHtml = tagsList.length
       ? `<ul class="usp-tags" aria-label="Story topics">
           ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(String(t).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()))}</a></li>`).join('')}

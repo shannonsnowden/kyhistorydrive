@@ -27,3 +27,16 @@ const fwd = timelineForwardUrl('#timeline/battle-of-blue-licks', '/')
 assert.equal(new URL(fwd, 'https://kyhistorydrive.com').pathname, '/stories/battle-of-blue-licks/')
 assert.equal(timelineForwardUrl('#timeline', '/'), null)
 console.log('test-timeline-phase3: OK')
+
+// Critiquito #347 follow-ups: one count line, labeled jump buttons, Era/Years labels.
+{
+  const fs2 = await import('node:fs')
+  const html = fs2.readFileSync(new URL('../index.html', import.meta.url), 'utf8')
+  const js = fs2.readFileSync(new URL('../src/main.js', import.meta.url), 'utf8')
+  if (!/nav-jump-label">Back to filters</.test(html)) throw new Error('jump button must read "Back to filters"')
+  if (!/nav-jump-label">Jump to stories</.test(html)) throw new Error('jump button must read "Jump to stories"')
+  if (!/filter-label[^>]*>Era</.test(html) || !/filter-label[^>]*>Years</.test(html)) throw new Error('Era / Years labels missing')
+  if (/in this filter · \$\{withCounty\}/.test(js)) throw new Error('duplicate count line still rendered')
+  if (!/stories · \$\{withCounty\} with county`/.test(js)) throw new Error('merged count line missing')
+  console.log('test-timeline-phase3: Critiquito follow-ups OK')
+}

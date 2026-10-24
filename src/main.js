@@ -3374,10 +3374,12 @@ async function renderTimelineList(preferredSlug) {
   const allBySlug = Object.fromEntries(idx.stories.map((s) => [s.slug, s]))
   storiesBySlug = allBySlug
 
-  stats.textContent = `Showing ${filtered.length} of ${idx.stories.length} stories`
+  // One count line (Critiquito #347): total shown plus how many carry a county.
+  const withCounty = filtered.filter((s) => s.county).length
+  stats.textContent = `Showing ${filtered.length} of ${idx.stories.length} stories · ${withCounty} with county`
   if (sortMeta) {
-    const withCounty = filtered.filter((s) => s.county).length
-    sortMeta.textContent = `${filtered.length} in this filter · ${withCounty} with county`
+    sortMeta.textContent = ''
+    sortMeta.hidden = true
   }
   list.innerHTML =
     filtered
