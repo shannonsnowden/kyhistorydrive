@@ -699,6 +699,8 @@ export function pickRelatedStories(story, all, excludeSlugs = [], { isProtected 
     const shared = sharedCount(originTags.specific, relatedTagSets(other).specific)
     return shared >= 2 ? shared : 0
   }
+  // #346: a public story cards a protected site only by county or strong shared tags, never because it is close by.
+  if (typeof isProtected === 'function' && !isProtected(story)) pool = pool.filter((other) => !isProtected(other) || sameCounty(story, other) || strongCount(other) > 0)
   pool.sort((a, b) => {
     const specificDelta = strongCount(b) - strongCount(a)
     if (specificDelta) return specificDelta
