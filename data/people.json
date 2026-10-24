@@ -276,7 +276,8 @@
       "stories": [
         "henderson-at-red-banks",
         "richard-henderson",
-        "treaty-of-camp-charlotte-1774"
+        "treaty-of-camp-charlotte-1774",
+        "chickamauga-cherokee"
       ],
       "role": "Transylvania Company founder",
       "native": false,
@@ -2852,7 +2853,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "jacob-spears-early-bourbon-whiskey"
+        "jacob-spears-early-bourbon-whiskey",
+        "jacob-beam-on-hardin-creek"
       ],
       "role": "Early bourbon distiller",
       "native": false,
@@ -2896,7 +2898,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "basil-haydens-high-rye-trail"
+        "basil-haydens-high-rye-trail",
+        "jacob-beam-on-hardin-creek"
       ],
       "role": "Catholic settler leader, distiller",
       "native": false,
@@ -4866,27 +4869,6 @@
         "owensboro-yellow-banks"
       ],
       "role": "Colonel killed at Tippecanoe, Owensboro namesake",
-      "native": false,
-      "likeness": "none-known",
-      "timing": null,
-      "image": null,
-      "sourcePage": null,
-      "license": null,
-      "licenseUrl": null,
-      "credit": null,
-      "freeToUse": false,
-      "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
-    },
-    {
-      "id": "victor-collot",
-      "name": "Victor Collot",
-      "aliases": [],
-      "lifeDates": null,
-      "stories": [
-        "owensboro-yellow-banks"
-      ],
-      "role": "French spy, observer",
       "native": false,
       "likeness": "none-known",
       "timing": null,

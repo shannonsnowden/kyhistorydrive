@@ -7,7 +7,7 @@ import { storyUrl } from './story-url.js'
 
 const SEARCH_LIMIT = 12
 const SEARCH_MIN_CHARS = 2
-const SEARCH_PLACEHOLDER_FULL = 'Search places & stories…'
+const SEARCH_PLACEHOLDER_FULL = 'Search stories'
 const SEARCH_PLACEHOLDER_NARROW = 'Search stories'
 const SEARCH_NARROW_QUERY = '(max-width: 1400px)'
 
