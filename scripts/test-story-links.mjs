@@ -48,10 +48,8 @@ assert.equal(searchHitHash({ type: 'story', slug: 'battle-of-blue-licks' }), '/s
 assert.equal(HomepageStructure.slugFromHref('/stories/battle-of-blue-licks/'), 'battle-of-blue-licks')
 assert.equal(HomepageStructure.slugFromHref('/#timeline/battle-of-blue-licks'), 'battle-of-blue-licks')
 
-// No source file still builds a /#timeline/<slug> link (the Timeline reader's own replaceState is Phase 3).
-const allow = new Map([
-  ['src/main.js', /replaceState\(null, '', `#timeline\/\$\{encodeURIComponent\(s\.slug\)\}`\)/],
-])
+// No source file still builds a /#timeline/<slug> link (#338 retired the Timeline reader's own one).
+const allow = new Map()
 const offenders = []
 for (const dir of ['src', 'scripts']) {
   for (const f of fs.readdirSync(path.join(ROOT, dir))) {

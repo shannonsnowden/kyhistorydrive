@@ -4577,14 +4577,9 @@ ${rows.join('\n')}
     if (!html.includes('src="/route-map-lightbox.js"')) {
       throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
     }
-    for (const label of [
-      'Enlarge original black edition seal',
-      'Enlarge navy edition seal',
-      'Enlarge gold-rim edition seal',
-    ]) {
-      if (!html.includes(`aria-label="${label}"`)) {
-        throw new Error(`prerender: homepage #about is missing the ${label} button`)
-      }
+    // #338: the #about / #app hash views are gone; About lives at /about/ only.
+    if (/<section id="(?:about|app)"/.test(html)) {
+      throw new Error('prerender: homepage still carries the retired #about / #app views')
     }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')
