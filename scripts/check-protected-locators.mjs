@@ -140,6 +140,8 @@ const JSON_FILES = [
   'data/app/search-index.json',
   'data/layers/stories.geojson',
   'data/layers/history.geojson',
+  // Related-card notes ("Same place: ...") keyed by story slug, plus cards pointing at a protected slug.
+  'data/web/related-people.json',
 ]
 
 function pageParts(html) {
@@ -151,6 +153,9 @@ function pageParts(html) {
   grab(/<meta\b[^>]*>/gi)
   grab(/<script type="application\/ld\+json">[\s\S]*?<\/script>/gi)
   grab(/<h1\b[\s\S]*?<\/h1>/gi)
+  // Related-card notes on the built page.
+  grab(/<span class="related-note">[^<]*<\/span>/gi)
+  grab(/<span class="related-card-meta">[^<]*<\/span>/gi)
   grab(/<figcaption\b[\s\S]*?<\/figcaption>/gi)
   grab(/<p class="story-summary">[\s\S]*?<\/p>/gi)
   const body = html.match(/<div class="story-body">([\s\S]*?)<\/div>\s*(?:<section|<nav|<aside|<footer|<div class="story-)/i)
@@ -205,6 +210,13 @@ function selfTest() {
   const q = []
   scanJson([{ slug: 'turk-site-carlisle-county', photo: { title: 'west of Bardwell' } }], 'fixture', q)
   assert(q.length === 1, 'photo caption')
+  const r = []
+  scanJson({ related: { 'peter-village-enclosure-15fa166': [{ slug: 'x', label: 'Same place: part of the Mount Horeb earthwork complex' }] } }, 'fixture', r)
+  assert(r.length === 1, 'related-card note keyed by protected slug')
+  const r2 = []
+  scanJson({ related: { other: [{ slug: 'read-shell-midden-15bt10-butler-county', label: 'Same place: the same Green River mussel-shoal shell middens' }] } }, 'fixture', r2)
+  assert(r2.length === 1, 'related-card note pointing at a protected story')
+  assert(hitsIn(pageParts('<span class="related-note">— Same place: sits near the Mount Horeb circle</span>'), pv).length, 'built related-card note')
   console.log('check-protected-locators self-test: OK')
 }
 
