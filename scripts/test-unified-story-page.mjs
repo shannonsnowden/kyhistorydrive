@@ -9,6 +9,7 @@
  *  - Protected/archaeological stories omit GeoCoordinates in JSON-LD, omit coordinate Directions links, and mark approximate location
  *  - Built CSS bundle includes @media print rules
  */
+import { isProtectedStory } from './lib/unified-story-data.mjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -48,7 +49,8 @@ const slugs = fs
   .filter((d) => d.isDirectory())
   .map((d) => d.name)
 
-assert.ok(slugs.length >= 240, `Expected >= 240 built story directories, found ${slugs.length}`)
+// #337 retired 7 merged stories (data/story-merges.json), so the floor is 237.
+assert.ok(slugs.length >= 237, `Expected >= 240 built story directories, found ${slugs.length}`)
 
 let mentionsStoryCount = 0
 for (const slug of slugs) {
@@ -110,8 +112,10 @@ for (const slug of slugs) {
   // D.1 & D.3 checks
   const kickerMatch = html.match(/<p class="[^"]*static-kicker[^"]*">([^<]+)<\/p>/)
   assert.ok(kickerMatch && !kickerMatch[1].includes('·'), `${slug}: .static-kicker should not repeat county/era`)
+  // #345: a protected site lists same-county stories only; with none, the section is omitted.
   assert.ok(
-    html.includes('<h2 id="related-nearby-heading">Related stories</h2>'),
+    html.includes('<h2 id="related-nearby-heading">Related stories</h2>') ||
+      (isProtectedStory({ slug }) && !html.includes('related-nearby-heading')),
     `${slug}: related section heading must be Related stories`,
   )
 

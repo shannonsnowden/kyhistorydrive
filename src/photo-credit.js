@@ -147,7 +147,7 @@ export const REVIEWED_ARTWORK_SLUGS = new Set([
   'little-turtle-and-hardins-defeat-1790',
   'moluntha-and-logans-raid-1786',
   'mount-horeb-earthworks',
-  'peter-village-early-woodland-enclosure-near-lexington',
+  'peter-village-enclosure-15fa166',
   'richard-henderson',
   'squire-boones-painted-stone',
   'treaty-of-fort-stanwix-1768',

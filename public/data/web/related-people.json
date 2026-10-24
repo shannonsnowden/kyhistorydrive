@@ -232,18 +232,7 @@
     "label": "Same person: Simon Girty, who came with the attackers, has his own story"
    }
   ],
-  "jack-jouett-kentuckys-midnight-rider": [
-   {
-    "slug": "capt-jack-jouett",
-    "label": "Another story about Jack Jouett"
-   }
-  ],
-  "capt-jack-jouett": [
-   {
-    "slug": "jack-jouett-kentuckys-midnight-rider",
-    "label": "Another story about Jack Jouett"
-   }
-  ],
+  "jack-jouett-kentuckys-midnight-rider": [],
   "squire-boones-painted-stone": [
    {
     "slug": "shelbyville",
@@ -364,10 +353,6 @@
     "label": "Same event: led militia against a Kickapoo village on Scott’s 1791 Wabash raid"
    },
    {
-    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-    "label": "Same event: Gen. Charles Scott’s 1791 Wabash campaign"
-   },
-   {
     "slug": "gen-james-wilkinson-kentuckys-agent-13",
     "label": "Same person: Gen. James Wilkinson, who sent Hardin on his last errand, has his own story"
    },
@@ -384,10 +369,6 @@
    {
     "slug": "kickapoo-on-the-kentucky-frontier",
     "label": "Same event: Scott’s 1791 report names a Kickapoo town on the Wabash"
-   },
-   {
-    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-    "label": "Same event: Gen. Charles Scott’s June 1791 Wabash raid"
    }
   ],
   "carrollton-from-port-william": [
@@ -479,20 +460,6 @@
    }
   ],
   "chickamauga-cherokee": [
-   {
-    "slug": "chickamauga-cherokee-hold-the-southern-flank",
-    "label": "Another story about the Chickamauga Cherokee"
-   },
-   {
-    "slug": "richard-henderson",
-    "label": "Same event: the 1775 Treaty of Sycamore Shoals"
-   }
-  ],
-  "chickamauga-cherokee-hold-the-southern-flank": [
-   {
-    "slug": "chickamauga-cherokee",
-    "label": "Another story about the Chickamauga Cherokee"
-   },
    {
     "slug": "richard-henderson",
     "label": "Same event: the 1775 Treaty of Sycamore Shoals"
@@ -651,18 +618,7 @@
     "label": "Same event: Capt. Henry Bird’s 1780 invasion forced the station’s surrender"
    }
   ],
-  "jacob-beam-on-hardin-creek": [
-   {
-    "slug": "jacob-beam-sells-old-jakes-first-barrel",
-    "label": "Another story about Jacob Beam"
-   }
-  ],
-  "jacob-beam-sells-old-jakes-first-barrel": [
-   {
-    "slug": "jacob-beam-on-hardin-creek",
-    "label": "Another story about Jacob Beam"
-   }
-  ],
+  "jacob-beam-on-hardin-creek": [],
   "john-floyd": [
    {
     "slug": "bullitts-lick-kentuckys-first-industry",
@@ -673,10 +629,6 @@
    {
     "slug": "mascouten-fire-nation-on-the-wabash",
     "label": "Same people: Kickapoo and Mascouten moved into west-central Indiana together"
-   },
-   {
-    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-    "label": "Same event: Brig. Gen. Charles Scott’s June 1791 Wabash raid"
    }
   ],
   "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": [],
@@ -715,44 +667,14 @@
    }
   ],
   "muir-site-early-fort-ancient-on-a-jessamine-ridge": [],
-  "owensboro-yellow-banks": [
-   {
-    "slug": "yellow-banks-becomes-owensboro",
-    "label": "Another story about Yellow Banks / Owensboro"
-   }
-  ],
-  "yellow-banks-becomes-owensboro": [
-   {
-    "slug": "owensboro-yellow-banks",
-    "label": "Another story about Yellow Banks / Owensboro"
-   }
-  ],
+  "owensboro-yellow-banks": [],
   "paducah-at-the-tennessee-mouth": [
    {
     "slug": "chickasaw-hunting-grounds",
     "label": "Same event: the 1818 Jackson Purchase opened this Chickasaw land"
    }
   ],
-  "peter-village-enclosure-15fa166": [
-   {
-    "slug": "peter-village-early-woodland-enclosure-near-lexington",
-    "label": "Another story about Peter Village"
-   },
-   {
-    "slug": "mount-horeb-earthworks",
-    "label": "Same place: part of the Mount Horeb earthwork complex"
-   }
-  ],
-  "peter-village-early-woodland-enclosure-near-lexington": [
-   {
-    "slug": "peter-village-enclosure-15fa166",
-    "label": "Another story about Peter Village"
-   },
-   {
-    "slug": "mount-horeb-earthworks",
-    "label": "Same place: sits near the Mount Horeb circle"
-   }
-  ],
+  "peter-village-enclosure-15fa166": [],
   "piankashaw-claims-on-the-ohio-wabash": [
    {
     "slug": "falls-of-the-ohio",
@@ -760,10 +682,6 @@
    }
   ],
   "potawatomi-fire-keepers-and-the-ohio-valley-wars": [
-   {
-    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-    "label": "Same event: Scott and Wilkinson struck Ouiatenon in June 1791"
-   },
    {
     "slug": "kickapoo-on-the-kentucky-frontier",
     "label": "Same event: the June 1791 columns struck Kickapoo villages"
@@ -864,26 +782,7 @@
     "label": "Same place: the same Green River shell-midden series"
    }
   ],
-  "wea-waayaahtanwa-on-the-wabash": [
-   {
-    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-    "label": "Same place: Wea towns at Ouiatenon"
-   }
-  ],
-  "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": [
-   {
-    "slug": "wea-waayaahtanwa-on-the-wabash",
-    "label": "Another story about the Wea"
-   },
-   {
-    "slug": "kickapoo-on-the-kentucky-frontier",
-    "label": "Same event: Scott’s June 1791 raid burned Kickapoo towns"
-   },
-   {
-    "slug": "gen-charles-scott-and-petersburg",
-    "label": "Same person: Gen. Charles Scott, who led the raid, has his own story"
-   }
-  ],
+  "wea-waayaahtanwa-on-the-wabash": [],
   "william-calks-1775-journal": [
    {
     "slug": "richard-henderson",
@@ -922,10 +821,6 @@
    {
     "slug": "frankfort-franks-ford-becomes-the-capital",
     "label": "Same event: Frankfort beat Scott’s Petersburg for the 1792 state capital"
-   },
-   {
-    "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-    "label": "Same event: Scott led the 1791 mounted raid on the Wea towns"
    }
   ],
   "flemingsburg-stocktons-town": [
@@ -1208,18 +1103,7 @@
     "label": "Same person: Robert Johnson gave the land for Wilmington"
    }
   ],
-  "camp-nelson-kentucky-us-colored-troops": [
-   {
-    "slug": "camp-nelson-jessamine-county",
-    "label": "Same place: the Camp Nelson depot, its forts and the 2018 monument have their own story"
-   }
-  ],
-  "camp-nelson-jessamine-county": [
-   {
-    "slug": "camp-nelson-kentucky-us-colored-troops",
-    "label": "Same place: the USCT regiments raised at Camp Nelson and the 1865 emancipation laws"
-   }
-  ],
+  "camp-nelson-kentucky-us-colored-troops": [],
   "walker-daniel-danvilles-namesake": [
    {
     "slug": "danville-and-constitution-square",

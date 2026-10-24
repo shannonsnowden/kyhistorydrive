@@ -9,6 +9,8 @@
  * KILL SWITCH: set PROTECTED_PIN_NOTE_ENABLED to false to hide the popup note (the rounding itself
  * lives in the data; to undo it, revert the PR and rebuild).
  */
+import { setProtectedStoryIds } from './story-tools.js'
+
 export const PROTECTED_PIN_NOTE_ENABLED = true
 
 let ids = new Set()
@@ -21,6 +23,8 @@ export function loadProtectedPins() {
       .then((r) => (r.ok ? r.json() : { ids: [] }))
       .then((d) => {
         ids = new Set(Array.isArray(d?.ids) ? d.ids : [])
+        // #337: storyOrigin (nearby-story distances) uses the same rule and lists as the build.
+        setProtectedStoryIds(ids, Array.isArray(d?.skipIds) ? d.skipIds : [])
         return ids
       })
       .catch(() => ids)

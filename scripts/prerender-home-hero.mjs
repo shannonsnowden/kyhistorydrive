@@ -56,8 +56,9 @@ if ((out.match(/class="hp-rail-card" href="/g) || []).length !== more.length) pr
 if ((out.match(/class="hp-swipe-card-link" href="/g) || []).length !== more.length) problems.push('swipe cards')
 if (tag && !/<head>[\s\S]*id="hpLeadPreload"[\s\S]*<\/head>/.test(out)) problems.push('head preload')
 if (/<section id="hpHero"[\s\S]*?<\/ul>/.exec(out)?.[0].includes('href="/#timeline/')) problems.push('hash #timeline story links')
-// Plain left clicks on these cards open the Timeline reader via data-timeline (src/home-preview.js).
-if (!out.includes(`data-timeline="/#timeline/${encodeURIComponent(lead.slug)}"`)) problems.push('lead data-timeline')
+// #337: cards open the static story page; the old Timeline-reader click hook is gone.
+if (out.includes('data-timeline="')) problems.push('stale data-timeline attribute')
+if (!out.includes(`href="/stories/${encodeURIComponent(lead.slug)}/"`)) problems.push('lead story href')
 for (const s of [lead, ...more]) if (!fs.existsSync(path.join(dist, 'stories', s.slug, 'index.html'))) problems.push(`no /stories/${s.slug}/ page`)
 if (problems.length) throw new Error(`prerender-home-hero: missing ${problems.join(', ')}`)
 console.log(`prerender-home-hero: lead "${lead.title}" + ${more.length} cards in dist/index.html${tag ? ', preload in <head>' : ''}`)

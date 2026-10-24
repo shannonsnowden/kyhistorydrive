@@ -9,6 +9,8 @@ import {
   renderStoryHtml,
   safeStoryUrl,
 } from '../../src/story-markdown.js'
+import { isProtectedStoryRule } from '../../src/protected-story-rule.js'
+import { loadMerges } from './story-merges.mjs'
 import {
   compactYearRange,
   countyLong,
@@ -71,25 +73,22 @@ function getSkipProtectedSlugSet() {
   return cachedSkipProtectedSlugs
 }
 
-export function isProtectedStory(story) {
-  if (!story) return false
-  if (story.coordinatesProtected || story.locationApproximate) return true
-  const set = getProtectedSlugSet()
-  if (story.slug && set.has(String(story.slug))) return true
-  if (story.id && set.has(String(story.id))) return true
-  if (story.historyId && set.has(String(story.historyId))) return true
-  const skip = getSkipProtectedSlugSet()
-  if (story.slug && skip.has(String(story.slug))) return false
-  if (story.historyId && skip.has(String(story.historyId))) return false
-  if (
-    story.archaeological ||
-    story.era === "prehistoric" ||
-    (Array.isArray(story.tags) && (story.tags.includes("archaeology") || story.tags.includes("prehistoric"))) ||
-    /\b15[a-z]{2}\d{1,4}\b/i.test(String(story.slug || ""))
-  ) {
-    return true
+/** Protected and skip id sets for the shared rule; a merge carries protection across both slugs. */
+export function protectedIdSets() {
+  const protectedIds = new Set(getProtectedSlugSet())
+  for (const { retired, kept } of loadMerges(ROOT)) {
+    if (protectedIds.has(retired) || protectedIds.has(kept)) {
+      protectedIds.add(retired)
+      protectedIds.add(kept)
+    }
   }
-  return false
+  return { protectedIds, skipIds: getSkipProtectedSlugSet() }
+}
+
+let cachedIdSets = null
+export function isProtectedStory(story) {
+  cachedIdSets ||= protectedIdSets()
+  return isProtectedStoryRule(story, cachedIdSets)
 }
 
 export function roundStoryCoord(value, protectedStory = false) {
@@ -716,6 +715,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
 
   const latStr = geo.lat.toFixed(geo.decimals)
   const lonStr = geo.lon.toFixed(geo.decimals)
+  // Editor 10/24 (#345): no Find photos ↗ (Historypin) link for protected sites.
   const historypinHref = `https://www.historypin.org/en/explore/geo/${latStr},${lonStr},13/`
   const approxAttr = geo.protectedStory ? ' data-approximate="true"' : ''
 
@@ -738,7 +738,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
       </div>
       <div class="usp-map-inline-actions">
         <a class="usp-btn" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
-        <a class="usp-btn usp-btn-ghost" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+        ${geo.protectedStory ? '' : `<a class="usp-btn usp-btn-ghost" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>`}
       </div>
     </section>`
   }
@@ -755,7 +755,7 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
     <div class="usp-railmap-foot">
       <a class="usp-railmap-open" data-story-map href="${escapeHtml(mapHref)}">Open on map →</a>
       ${dirsHtml}
-      <a class="usp-railmap-photos" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>
+      ${geo.protectedStory ? '' : `<a class="usp-railmap-photos" href="${escapeHtml(historypinHref)}" target="_blank" rel="noopener noreferrer">Find photos ↗</a>`}
     </div>
   </section>`
 }

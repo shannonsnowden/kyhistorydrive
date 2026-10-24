@@ -64,7 +64,7 @@
     "license": "Public domain",
     "artwork": "painting"
   },
-  "peter-village-early-woodland-enclosure-near-lexington": {
+  "peter-village-enclosure-15fa166": {
     "ext": "jpg",
     "commonsFile": "Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
     "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
@@ -1290,16 +1290,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Notorious4life · Wikimedia Commons · public domain",
     "year": 2010
-  },
-  "the-c-and-o-mounds-at-paintsville": {
-    "ext": "jpg",
-    "commonsFile": "Levisa Fork in Paintsville.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Levisa_Fork_in_Paintsville.jpg?width=1280",
-    "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009
   },
   "the-maysville-road-and-jacksons-veto-1830": {
     "ext": "jpg",
