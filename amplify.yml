@@ -3,6 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
+        # Full history so sitemap lastmod uses real git dates (shallow clones fall back to story JSON dates).
+        - git fetch --unshallow || true
         - npm ci
         # Validate and publish committed public/data/app/ (OTA source of truth).
         # Does not pull ky-markers-drive unless SYNC_FROM_MARKERS=1.
