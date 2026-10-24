@@ -50,6 +50,7 @@ import {
   mountGlanceTable,
   renderStoryHtml,
   researchPageHref,
+  isFoldedResearch,
   storyPlainText,
 } from './story-markdown.js'
 import './territory.css'
@@ -3551,7 +3552,10 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       withPeople,
       transportLinks.stories?.[meta.slug],
     )}`
-    const notesHref = researchPageHref(researchNotes?.slug)
+    // v2 Phase 5 (#340): folded notes live on the story page; only culture evidence keeps /research/.
+    const notesHref = isFoldedResearch(researchNotes)
+      ? `/stories/${encodeURIComponent(meta.slug)}/#research-notes`
+      : researchPageHref(researchNotes?.slug)
     if (notesHref && glanceMount) {
       const notesLink = document.createElement('p')
       notesLink.className = 'story-research-link'

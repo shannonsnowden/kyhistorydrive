@@ -180,4 +180,34 @@
     window.addEventListener("scroll", spy, { passive: true })
     spy()
   }
+
+  // v2 Phase 5 (#348): research notes are collapsed <details>; open them for #research-notes,
+  // #rn-source-* links, and printing (restored after print).
+  function openResearchFor(hash) {
+    if (!hash || hash.length < 2) return
+    var target = null
+    try { target = document.getElementById(decodeURIComponent(hash.slice(1))) } catch (_) { return }
+    if (!target || !target.closest("[data-research-notes]")) return
+    for (var el = target; el; el = el.parentElement) {
+      if (el.tagName === "DETAILS") el.open = true
+    }
+    target.scrollIntoView()
+  }
+  openResearchFor(location.hash)
+  window.addEventListener("hashchange", function () { openResearchFor(location.hash) })
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]')
+    if (a && a.getAttribute("href") === location.hash) openResearchFor(location.hash)
+  })
+  var researchClosed = []
+  window.addEventListener("beforeprint", function () {
+    researchClosed = []
+    document.querySelectorAll("[data-research-notes], [data-research-notes] details").forEach(function (d) {
+      if (!d.open) { researchClosed.push(d); d.open = true }
+    })
+  })
+  window.addEventListener("afterprint", function () {
+    researchClosed.forEach(function (d) { d.open = false })
+    researchClosed = []
+  })
 })()
