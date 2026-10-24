@@ -371,7 +371,8 @@ class PrerenderPages {
         PrerenderPages.laterDate(max, dates.lastmod.get(`public/maps/routes/${route.slug}/NOTES.md`) || ''),
       dates.lastmod.get('src/route-maps.js') || '',
     )
-    if (!PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
+    // Shallow clone has no git dates; /routes/ is noindex and out of the sitemap, so only check on full history.
+    if (!dates.shallow && !PrerenderPages.isoDate(routesLast)) throw new Error('prerender: /routes/ is missing lastmod')
     // /routes/ is noindex for now (Shannon item 93), so it stays out of the sitemap.
     for (const notes of researchNotes) {
       const story = stories.find((item) => item.slug === notes.storySlug)
@@ -438,7 +439,7 @@ class PrerenderPages {
     fs.mkdirSync(path.join(dist, '404'), { recursive: true })
     fs.writeFileSync(path.join(dist, '404', 'index.html'), notFoundHtml)
     console.log(`prerender: inline portraits on ${portraitLog.shown.length} stories; skipped ${portraitLog.skipped.length}: ${portraitLog.skipped.join(', ')}`)
-    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries, ROUTE_MAPS.length - thinRouteImages)
+    const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries, ROUTE_MAPS.length - thinRouteImages, { allowMissingLastmod: dates.shallow })
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
       `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers, ${researchNotes.length} research) plus home, about, people, stories index, videos, privacy; sitemap ${sitemapCount} urls`,
@@ -631,7 +632,7 @@ class PrerenderPages {
   /**
    * Published is the story file's first git commit.
    * Last revised is the last commit that changed that story's text.
-   * A missing git date stays empty. Never today, and never a story brief date.
+   * No git date (shallow clone): publishedDate, then briefDate. Never today.
    */
   static articleDates(story) {
     const dates = resolveArticleDates(story, { published: story.created, modified: story.gitModified })
@@ -642,6 +643,9 @@ class PrerenderPages {
       throw new Error(`prerender: ${story.slug} revised date is not the last story-text commit`)
     }
     if (!dates.published && !dates.modified) {
+      // Shallow clone (no git history): the story's stored date, never today.
+      const stored = storyStoredDate(story)
+      if (stored) return { ...dates, published: stored, modified: stored }
       throw new Error(`prerender: ${story.slug} has no git date`)
     }
     return dates
@@ -3426,7 +3430,7 @@ class PrerenderPages {
     if ((article?.datePublished || '') !== expectedDates.published || (article?.dateModified || '') !== expectedDates.modified) {
       throw new Error(`prerender: ${urlPath} Article dates are not the git first commit and last story-text commit`)
     }
-    if (story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
+    if (story.created && story.publishedDate && story.publishedDate !== story.created && article?.datePublished === story.publishedDate) {
       throw new Error(`prerender: ${urlPath} published date is a story field, not the git first commit`)
     }
     const cite = html.match(/<section class="cite-story"[\s\S]*?<\/section>/)
@@ -4633,7 +4637,7 @@ ${rows.join('\n')}
   }
 
   /** Home, about, stories, layers, then /privacy/ last. Each URL gets its own lastmod. */
-  static updateSitemap(file, entries, expectedImages = ROUTE_MAPS.length) {
+  static updateSitemap(file, entries, expectedImages = ROUTE_MAPS.length, { allowMissingLastmod = false } = {}) {
     if (!entries.length || !String(entries[entries.length - 1].loc).endsWith('/privacy/')) {
       throw new Error('prerender: sitemap must end with /privacy/')
     }
@@ -4646,7 +4650,8 @@ ${rows.join('\n')}
       const lastmod = /^\d{4}-\d{2}-\d{2}$/.test(entry.lastmod || '')
         ? `\n    <lastmod>${PrerenderPages.escapeXml(entry.lastmod)}</lastmod>`
         : ''
-      if (!lastmod) throw new Error(`prerender: ${entry.loc} is missing lastmod`)
+      // Shallow clone: no git date → omit <lastmod> (never today). Full history must date every URL.
+      if (!lastmod && !allowMissingLastmod) throw new Error(`prerender: ${entry.loc} is missing lastmod`)
       const images = (entry.images || [])
         .map((img) => {
           imageCount += 1

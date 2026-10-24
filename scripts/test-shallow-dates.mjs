@@ -43,7 +43,16 @@ try {
   // No git date and no publishedDate: briefDate; nothing at all → '' (never today).
   assert.equal(storyStoredDate({ briefDate: '2026-08-30' }), '2026-08-30')
   assert.equal(PrerenderPages.storyLastmod({ slug: 'y' }, new Map()), '')
-  console.log('test-shallow-dates: 10/10 pass (full clone uses git, shallow clone falls back to story JSON dates)')
+  // SEO #344: prerender articleDates must fall back to stored dates on a shallow clone, never today.
+  assert.deepEqual(PrerenderPages.articleDates({ slug: 'z', publishedDate: '2026-09-01', created: '', gitModified: '' }), { published: '2026-09-01', modified: '2026-09-01' })
+  assert.throws(() => PrerenderPages.articleDates({ slug: 'z', created: '', gitModified: '' }), /no git date/)
+  // Shallow sitemap: undated URL drops <lastmod>; full history still requires it.
+  const sm = path.join(tmp, 'sitemap.xml')
+  fs.writeFileSync(sm, '<urlset></urlset>')
+  const ents = [{ loc: 'https://kyhistorydrive.com/privacy/', lastmod: '' }]
+  assert.throws(() => PrerenderPages.updateSitemap(sm, ents, 0), /missing lastmod/)
+  try { PrerenderPages.updateSitemap(sm, ents, 0, { allowMissingLastmod: true }) } catch (e) { assert.doesNotMatch(String(e), /missing lastmod/) }
+  console.log('test-shallow-dates: 14/14 pass (full clone uses git, shallow clone falls back to story JSON dates)')
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true })
 }
