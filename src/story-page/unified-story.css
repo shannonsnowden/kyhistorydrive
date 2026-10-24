@@ -1097,3 +1097,18 @@ html[data-theme="dark"] .usp-map-edge {
     width: 100%;
   }
 }
+
+/* Story header search: ~200px so "Search stories" is never clipped. */
+@media (min-width: 761px) {
+  .usp-body .nav-search { min-width: 200px; }
+}
+
+/* Phones: Save, Download and Share go icon-only (aria-labels carry the names) so all three stay on one row. */
+@media (max-width: 480px) {
+  .usp-tools { gap: 0.4rem; }
+  .usp-tool { padding: 0; width: 44px; justify-content: center; }
+  .usp-tool-label {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+}

@@ -67,3 +67,32 @@ export function protectedAfterMerge(slug, merges, isProtectedSlug) {
   if (isProtectedSlug(slug)) return true
   return (merges || []).some((m) => m.kept === slug && isProtectedSlug(m.retired))
 }
+
+/**
+ * Compare amplify.yml customRules with the block (f) rules. Returns a list of problems:
+ * a block rule missing from amplify.yml, a wrong target/status, or a rule placed below a /<*> catch-all.
+ */
+export function diffAmplifyBlock(amplifyText, block) {
+  const rules = []
+  const re = /-\s*source:\s*'([^']*)'\s*\n\s*target:\s*'([^']*)'\s*\n\s*status:\s*'([^']*)'/g
+  let m
+  while ((m = re.exec(amplifyText))) rules.push({ source: m[1], target: m[2], status: m[3] })
+  const errs = []
+  const firstCatchAll = rules.findIndex((r) => r.source === '/<*>')
+  for (const b of block) {
+    const i = rules.findIndex((r) => r.source === b.source)
+    if (i < 0) { errs.push(`amplify.yml is missing ${b.source} -> ${b.target}`); continue }
+    const r = rules[i]
+    if (r.target !== b.target || String(r.status) !== String(b.status)) {
+      errs.push(`amplify.yml ${b.source} -> ${r.target} (${r.status}) but block f says ${b.target} (${b.status})`)
+    }
+    if (firstCatchAll >= 0 && i > firstCatchAll) errs.push(`amplify.yml ${b.source} sits below the /<*> catch-all`)
+  }
+  const blockSources = new Set(block.map((b) => b.source))
+  for (const r of rules) {
+    if (/^\/stories\//.test(r.source) && !blockSources.has(r.source) && blockSources.has(r.source.replace(/\/?$/, '/'))) {
+      errs.push(`amplify.yml has ${r.source}, which block f does not list`)
+    }
+  }
+  return errs
+}

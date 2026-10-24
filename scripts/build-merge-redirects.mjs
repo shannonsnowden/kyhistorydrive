@@ -7,7 +7,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { loadMerges, validateMerges, buildRedirectBlock } from './lib/story-merges.mjs'
+import { loadMerges, validateMerges, buildRedirectBlock, diffAmplifyBlock } from './lib/story-merges.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const OUT = path.join(ROOT, 'docs/redirects/block-f-merges.json')
@@ -28,5 +28,11 @@ if (process.argv.includes('--write')) {
     console.error('build-merge-redirects: docs/redirects/block-f-merges.json is stale; run node scripts/build-merge-redirects.mjs --write')
     process.exit(1)
   }
+  const amp = diffAmplifyBlock(fs.readFileSync(path.join(ROOT, 'amplify.yml'), 'utf8'), JSON.parse(text))
+  if (amp.length) {
+    console.error(`build-merge-redirects: amplify.yml and block-f-merges.json disagree\n  ${amp.join('\n  ')}`)
+    process.exit(1)
+  }
+  console.log(`build-merge-redirects: OK (amplify.yml in sync)`)
   console.log(`build-merge-redirects: OK (${merges.length} merges, ${merges.length * 2} rules, no chains/loops/dead targets)`)
 }
