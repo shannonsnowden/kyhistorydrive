@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T13:08:11.886Z",
+  "generatedAt": "2026-10-24T13:43:48.374Z",
   "count": 237,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -379,10 +379,10 @@
       "slug": "peter-village-enclosure-15fa166",
       "title": "Peter Village enclosure (15Fa166)",
       "publishedDate": "2026-09-11",
-      "summary": "Peter Village, an early earthwork in Fayette County, was first used around 300–200 BCE, likely as a place where people gathered to work local galena.",
-      "proseChars": 2170,
-      "yearStart": -300,
-      "yearEnd": -200,
+      "summary": "Peter Village, an Adena-era earthwork in Fayette County, has yielded pottery dated to about 409–68 BCE, from the shift between Adena and Hopewell styles.",
+      "proseChars": 1567,
+      "yearStart": -409,
+      "yearEnd": -68,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -405,8 +405,8 @@
       "territory": {
         "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
-        "yearStart": -300,
-        "yearEnd": -200,
+        "yearStart": -409,
+        "yearEnd": -68,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
       "lat": 38,
@@ -1557,7 +1557,7 @@
       "title": "Wea (Waayaahtanwa) on the Wabash",
       "publishedDate": "2026-09-13",
       "summary": "The Wea, “people of the whirlpool,” were a Miami–Illinois-speaking people of the middle Wabash who generally sided with the British in the Revolution.",
-      "proseChars": 1404,
+      "proseChars": 1367,
       "yearStart": 1717,
       "yearEnd": 1818,
       "era": "native",
@@ -7121,7 +7121,7 @@
     {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "title": "Red Bird River Petroglyphs: the carved rock that fell onto KY 66",
-      "seoTitle": "Red Bird River Petroglyphs in Clay County (KY 66)",
+      "seoTitle": "Red Bird River Petroglyphs in Clay County",
       "publishedDate": "2026-10-07",
       "summary": "A 50-ton sandstone block cut with petroglyphs sat in a cliff above the Red Bird River near Eriline in Clay County. The inscribed face was about 5½ feet high and 20 feet…",
       "proseChars": 1291,
