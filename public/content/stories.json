@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T11:00:50.145Z",
+  "generatedAt": "2026-10-24T15:40:15.134Z",
   "count": 244,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -114,8 +114,8 @@
       "slug": "read-shell-midden-15bt10-butler-county",
       "title": "Read Shell Midden (15Bt10), Butler County",
       "publishedDate": "2026-09-14",
-      "summary": "West of Morgantown on the Green River, the Read Shell Midden is a Late Archaic camp and cemetery dug by WPA crews from 1937 to 1939, with over 240 burials.",
-      "proseChars": 771,
+      "summary": "In Butler County, the Read Shell Midden is a Late Archaic camp and cemetery dug by WPA crews from 1937 to 1939, with more than 240 burials found.",
+      "proseChars": 707,
       "yearStart": -3000,
       "yearEnd": -1000,
       "era": "prehistoric",
@@ -350,7 +350,7 @@
       "title": "The C. and O. Mounds at Paintsville",
       "publishedDate": "2026-10-19",
       "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
-      "proseChars": 3171,
+      "proseChars": 3152,
       "yearStart": -500,
       "yearEnd": 250,
       "era": "prehistoric",
@@ -377,12 +377,13 @@
     },
     {
       "slug": "peter-village-enclosure-15fa166",
-      "title": "Peter Village enclosure (15Fa166)",
+      "title": "Peter Village Enclosure (15Fa166), Fayette County",
+      "seoTitle": "Peter Village Enclosure (15Fa166), Fayette County",
       "publishedDate": "2026-09-11",
-      "summary": "Just north of Lexington, Peter Village is a large ditch-and-embankment earthwork first used around 300–200 BCE, tied to working local galena and barite.",
-      "proseChars": 752,
-      "yearStart": -300,
-      "yearEnd": -200,
+      "summary": "In Fayette County, Peter Village is a large Early Woodland ditch-and-embankment enclosure, with pottery there dated to about 409–68 BCE.",
+      "proseChars": 1103,
+      "yearStart": -409,
+      "yearEnd": -68,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -394,8 +395,8 @@
       "territory": {
         "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
-        "yearStart": -300,
-        "yearEnd": -200,
+        "yearStart": -409,
+        "yearEnd": -68,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
       "lat": 38,
@@ -405,12 +406,12 @@
     },
     {
       "slug": "peter-village-early-woodland-enclosure-near-lexington",
-      "title": "Peter Village: Early Woodland Enclosure Near Lexington",
+      "title": "Peter Village: Early Woodland Enclosure in Fayette County",
       "publishedDate": "2026-09-22",
-      "summary": "North of Lexington in Fayette County, Peter Village is a large Early Woodland ditch-and-embankment enclosure, likely a gathering and craft place.",
-      "proseChars": 789,
-      "yearStart": -300,
-      "yearEnd": -200,
+      "summary": "In Fayette County, Peter Village is a large Early Woodland ditch-and-embankment enclosure, with pottery there dated to about 409–68 BCE.",
+      "proseChars": 1103,
+      "yearStart": -409,
+      "yearEnd": -68,
       "era": "prehistoric",
       "tags": [
         "prehistoric",
@@ -434,8 +435,8 @@
       "territory": {
         "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
         "nation": "Adena (archaeological culture)",
-        "yearStart": -300,
-        "yearEnd": -200,
+        "yearStart": -409,
+        "yearEnd": -68,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
       "lat": 38,
@@ -557,10 +558,10 @@
     },
     {
       "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "title": "Muir Site: Early Fort Ancient on a Jessamine Ridge",
+      "title": "Muir Site: Early Fort Ancient in Jessamine County",
       "publishedDate": "2026-09-25",
-      "summary": "In 1985, before the Nicholasville Bypass went in, University of Kentucky archaeologists dug the Muir site on a broad upland ridge west of Nicholasville. The Kentucky…",
-      "proseChars": 1435,
+      "summary": "In 1985, University of Kentucky archaeologists dug the Muir site in Jessamine County, a small early Fort Ancient settlement of about A.D. 1000 to 1200.",
+      "proseChars": 1362,
       "yearStart": 1000,
       "yearEnd": 1200,
       "era": "prehistoric",
@@ -572,14 +573,6 @@
       "source": "ky-history",
       "briefDate": "2026-09-25",
       "county": "Jessamine",
-      "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge.jpg",
-        "title": "Stand-in photo: Main Street in nearby Nicholasville, the town east of the site (no public photo of the site itself)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Main_Street_in_Nicholasville.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null
-      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -623,6 +616,7 @@
     {
       "slug": "sassafras-ridge-15fu3-fulton-county",
       "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
+      "seoTitle": "Sassafras Ridge (15Fu3): Mississippian Town in Fulton County",
       "publishedDate": "2026-10-13",
       "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
       "proseChars": 2649,
@@ -725,8 +719,8 @@
       "slug": "turk-site-carlisle-county",
       "title": "Turk Site, Carlisle County",
       "publishedDate": "2026-09-19",
-      "summary": "On a bluff spur near Bardwell overlooking the Mississippi floodplain, the Turk Site (15Ce6) was a small Mississippian regional center of about 2.5 hectares. Occupied mainly in…",
-      "proseChars": 544,
+      "summary": "In Carlisle County, the Turk Site was a small but planned Mississippian town with mounds around a plaza, occupied mainly from about AD 1100 to 1300.",
+      "proseChars": 480,
       "yearStart": 1100,
       "yearEnd": 1300,
       "era": "prehistoric",
@@ -739,7 +733,7 @@
       "briefDate": "2026-09-19",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "Looking toward the Turk Site west of Bardwell, Carlisle County",
+        "title": "Looking toward the Turk Site, Carlisle County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
@@ -863,6 +857,7 @@
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "title": "Cleek-McCabe: A Circular Fort Ancient Village in Boone County",
+      "seoTitle": "Cleek-McCabe: Fort Ancient Village in Boone County",
       "publishedDate": "2026-09-25",
       "summary": "Near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village, a ring of midden around a plaza with low burial mounds.",
       "proseChars": 1433,
@@ -1083,10 +1078,10 @@
     },
     {
       "slug": "chambers-site-15ml109-marshall-county",
-      "title": "Chambers Site (15Ml109): an upland Mississippian village",
+      "title": "Chambers Site: Mississippian Village in Marshall County",
       "publishedDate": "2026-10-14",
-      "summary": "On a Marshall County ridgetop above the Middle Fork of Clarks River, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
-      "proseChars": 3122,
+      "summary": "In Marshall County, the Chambers site was a Mississippian farming village of about six hectares, lived in about AD 1250–1350.",
+      "proseChars": 2777,
       "yearStart": 1250,
       "yearEnd": 1350,
       "era": "prehistoric",
@@ -1099,14 +1094,6 @@
       "source": "ky-history",
       "briefDate": "2026-10-14",
       "county": "Marshall",
-      "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clarks_River_in_the_fall_%286887005449%29.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
-        "year": 2012
-      },
       "lat": 36.9,
       "lon": -88.3,
       "mapConfidence": "override",
@@ -3983,6 +3970,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-23",
+      "county": "Woodford",
       "photo": {
         "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
         "title": "Jack Jouett House Historic Site",
@@ -3994,8 +3982,7 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
-      "county": "Woodford"
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
     },
     {
       "slug": "the-travelling-church-1781",
@@ -4190,6 +4177,7 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-26",
+      "county": "Clark",
       "photo": {
         "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
         "title": "Fort Boonesborough State Park",
@@ -4201,8 +4189,7 @@
       "lat": 37.918134,
       "lon": -84.272709,
       "mapConfidence": "override",
-      "matchedPlace": "Holder's Station / Lower Howard's Creek",
-      "county": "Clark"
+      "matchedPlace": "Holder's Station / Lower Howard's Creek"
     },
     {
       "slug": "hartford-fort-hartford-on-the-rough-river",
@@ -4302,7 +4289,7 @@
       "title": "Father David Rice and Kentucky’s first Presbyterian churches",
       "publishedDate": "2026-10-19",
       "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
-      "proseChars": 3665,
+      "proseChars": 3649,
       "yearStart": 1783,
       "yearEnd": 1816,
       "era": "frontier",
@@ -6261,6 +6248,7 @@
     {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
+      "seoTitle": "Catherine Spears Carpenter: 1818 Casey County Mash Recipes",
       "publishedDate": "2026-08-27",
       "summary": "An 1818 sheet in Casey County's Carpenter Family Papers holds two handwritten whiskey recipes, one sweet mash and one sour mash, among Kentucky's earliest.",
       "proseChars": 1638,
@@ -6312,6 +6300,7 @@
     {
       "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
       "title": "McLean Drift Bank: Kentucky’s first commercial coal mine (1820)",
+      "seoTitle": "McLean Drift Bank: Kentucky’s First Commercial Coal Mine",
       "publishedDate": "2026-10-07",
       "summary": "Explorer Thomas Walker found coal in what would become Kentucky in 1750 and burned it in his campfire, but nobody mined it for sale for another seventy years. In 1820…",
       "proseChars": 1355,
@@ -6343,6 +6332,7 @@
     {
       "slug": "kentucky-association-1826-lexington-race-course",
       "title": "Horse series: the Kentucky Association and Lexington’s race course",
+      "seoTitle": "Kentucky Association & Lexington’s 1826 Race Course",
       "publishedDate": "2026-10-09",
       "summary": "On July 23, 1826, Bluegrass horsemen formed the Kentucky Association to promote the breeding and racing of Thoroughbreds. Its founders included Henry Clay, Jesse…",
       "proseChars": 1690,
@@ -7337,6 +7327,7 @@
     {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "title": "Red Bird River Petroglyphs: the carved rock that fell onto KY 66",
+      "seoTitle": "Red Bird River Petroglyphs in Clay County (KY 66)",
       "publishedDate": "2026-10-07",
       "summary": "A 50-ton sandstone block cut with petroglyphs sat in a cliff above the Red Bird River near Eriline in Clay County. The inscribed face was about 5½ feet high and 20 feet…",
       "proseChars": 1291,

@@ -120,8 +120,18 @@ function main() {
     fail('missing value: \'public, max-age=0, s-maxage=60, must-revalidate\'')
   }
 
-  const about = /source:\s*'\/about'\s*\n\s*target:\s*'\/about\/'\s*\n\s*status:\s*'301'/
-  if (!about.test(amplify)) fail('amplify.yml is missing the /about 301')
+  // Item 90: the 301s live in the Amplify console; amplify.yml keeps the 200 rewrites plus exactly
+  // four slashless 301s the console does not have (/about, /videos, /timeline, /drives).
+  {
+    const kept = ['/about', '/videos', '/timeline', '/drives']
+    const redirects = [...amplify.matchAll(/-\s*source:\s*'([^']*)'\s*\n\s*target:\s*'([^']*)'\s*\n\s*status:\s*'(30[1278])'/g)]
+      .map((m) => ({ source: m[1], target: m[2], status: m[3] }))
+    const got = redirects.map((r) => `${r.source}->${r.target}:${r.status}`).sort()
+    const want = kept.map((p) => `${p}->${p}/:301`).sort()
+    if (JSON.stringify(got) !== JSON.stringify(want)) fail(`amplify.yml redirect rules must be exactly ${want.join(', ')}; found ${got.join(', ') || 'none'} (item 90)`)
+    const statusCount = (amplify.match(/status:\s*'30[1278]'/g) || []).length
+    if (statusCount !== kept.length) fail(`amplify.yml has ${statusCount} redirect statuses; expected ${kept.length} (item 90)`)
+  }
 
   const blocks = patternBlocks(customHttp)
   const feed = blocks.find((block) => block.pattern === "'/feed.xml'")
