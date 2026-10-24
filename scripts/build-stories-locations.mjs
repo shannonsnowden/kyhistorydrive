@@ -4,6 +4,7 @@
  * Writes public/content/stories-locations.json and merges lat/lon/mapConfidence into stories.json.
  */
 import fs from 'node:fs'
+import { bodyMatchFitsStoryCounty, stripLinkTargets } from './lib/story-location-match.mjs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -198,6 +199,8 @@ const MANUAL_OVERRIDES = {
   // Tutelo: the body names Lower Shawneetown only as a mixed town where Henderson (1992) lists
   // Tutelo among residents; a Tutelo pin there would imply a Tutelo village in Kentucky. Unpinned.
   'tutelo-the-totteroy': {},
+  // #346: expanded text mentions the Falls of the Ohio in passing (a link); keep this nation story unpinned as on v2.
+  'ojibwe-on-birds-war-road': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
@@ -1071,14 +1074,16 @@ function findHistory(story, bodyText) {
   }
 
   // search body/summary for history place names
-  const blob = norm([story.title, story.summary, bodyText].filter(Boolean).join(' '))
+  const blob = norm([story.title, story.summary, stripLinkTargets(bodyText)].filter(Boolean).join(' '))
   let best = null
   for (const [n, f] of byName) {
     if (n.length >= 8 && blob.includes(n)) {
       if (!best || n.length > best.n.length) best = { n, f }
     }
   }
-  if (best) return { feature: best.f, confidence: 'fuzzy', match: best.f.properties.name }
+  if (best && bodyMatchFitsStoryCounty(best.f, story, countyNames, centroids)) {
+    return { feature: best.f, confidence: 'fuzzy', match: best.f.properties.name }
+  }
 
   return null
 }

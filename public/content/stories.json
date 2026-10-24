@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T15:01:15.475Z",
+  "generatedAt": "2026-10-24T16:49:36.586Z",
   "count": 244,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -597,7 +597,7 @@
       "title": "Page Site / “Lost City” (15LO1)",
       "publishedDate": "2026-09-12",
       "summary": "In Logan County, the Page Site is a Mississippian complex of at least 67 mounds, called by far the most extensive mound complex in Kentucky.",
-      "proseChars": 3405,
+      "proseChars": 3424,
       "yearStart": 1000,
       "yearEnd": null,
       "era": "prehistoric",
@@ -615,10 +615,10 @@
         "yearEnd": 1100,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.9712176,
-      "lon": -89.0917492,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Wickliffe Mounds"
+      "lat": 36.82461,
+      "lon": -86.84895,
+      "mapConfidence": "county",
+      "matchedPlace": "Logan County (centroid)"
     },
     {
       "slug": "sassafras-ridge-15fu3-fulton-county",
@@ -962,10 +962,10 @@
         "yearEnd": 1300,
         "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
       },
-      "lat": 36.9712176,
-      "lon": -89.0917492,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Wickliffe Mounds"
+      "lat": 36.86767,
+      "lon": -88.32188,
+      "mapConfidence": "county",
+      "matchedPlace": "Marshall County (centroid)"
     },
     {
       "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
@@ -1713,10 +1713,10 @@
       "source": "ky-history",
       "briefDate": "2026-09-13",
       "county": "Mercer",
-      "lat": 38.0406,
-      "lon": -84.5037,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Col. John Todd of Lexington"
+      "lat": 37.52019,
+      "lon": -84.67985,
+      "mapConfidence": "county",
+      "matchedPlace": "Lincoln County (centroid)"
     },
     {
       "slug": "michael-stoner-german-long-hunter",
@@ -1745,7 +1745,7 @@
       "title": "Christopher Gist, 1750–51",
       "publishedDate": "2026-09-02",
       "summary": "In 1750 the Ohio Company of Virginia sent surveyor Christopher Gist west on a journey that produced one of the earliest English accounts of Kentucky.",
-      "proseChars": 3543,
+      "proseChars": 3575,
       "yearStart": 1750,
       "yearEnd": 1750,
       "era": "native",
@@ -2298,7 +2298,7 @@
       "title": "Capt. Will & the hunting ground",
       "publishedDate": "2026-09-02",
       "summary": "Kentucky's hunting grounds were not empty, and Shawnee and Cherokee hunters saw Virginia long hunters like Daniel Boone as poachers of their game.",
-      "proseChars": 3260,
+      "proseChars": 3267,
       "yearStart": 1769,
       "yearEnd": 1769,
       "era": "native",
@@ -3056,7 +3056,7 @@
       "title": "Capt. John Strode of Strode's Station",
       "publishedDate": "2026-09-07",
       "summary": "Virginia veteran John Strode raised Strode’s Station on Strode’s Creek by 1779, the largest fortified settlement in what became Clark County.",
-      "proseChars": 3281,
+      "proseChars": 3286,
       "yearStart": 1776,
       "yearEnd": 1805,
       "era": "frontier",
@@ -3166,7 +3166,7 @@
       "title": "Paris from Hopewell",
       "publishedDate": "2026-09-02",
       "summary": "Joseph Houston’s 1776 station near Doyle Spring grew into Hopewell, chartered in 1789 as Bourbon County’s seat, and the town was renamed Paris in 1790.",
-      "proseChars": 2969,
+      "proseChars": 2976,
       "yearStart": 1776,
       "yearEnd": 1790,
       "era": "prehistoric",
@@ -3844,10 +3844,10 @@
         "yearEnd": 1780,
         "presenceLabel": "Ojibwe and Odawa war road"
       },
-      "lat": 38.2753405,
-      "lon": -85.7628814,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Falls of the Ohio"
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "phosphatic-limestone-and-horse-country",
@@ -6112,7 +6112,7 @@
       "title": "Ephraim McDowell & Jane Todd Crawford (1809)",
       "publishedDate": "2026-09-28",
       "summary": "On Christmas Day 1809 in Danville, Dr. Ephraim McDowell removed a 22.5-pound ovarian tumor from Jane Todd Crawford without anesthesia or antisepsis.",
-      "proseChars": 3159,
+      "proseChars": 3290,
       "yearStart": 1809,
       "yearEnd": 1809,
       "era": "early-commonwealth",

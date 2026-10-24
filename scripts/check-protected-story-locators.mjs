@@ -39,12 +39,17 @@ export const LOCATOR_RES = [
 ]
 
 /** Sentence (or line) enclosing [i, j) in s. */
+export const CONTEXT_CAP = 400
 export function contextOf(s, i, j) {
+  // Capped window (#346 Security): never walk further than CONTEXT_CAP chars each way, so many
+  // hits in one long unpunctuated string stay linear instead of quadratic.
+  const lo = Math.max(0, i - CONTEXT_CAP)
+  const hi = Math.min(s.length, j + CONTEXT_CAP)
   let a = i
-  while (a > 0 && s[a - 1] !== '\n' && !(/[.!?]/.test(s[a - 2] || '') && /\s/.test(s[a - 1]))) a--
+  while (a > lo && s[a - 1] !== '\n' && !(/[.!?]/.test(s[a - 2] || '') && /\s/.test(s[a - 1]))) a--
   let b = j
-  while (b < s.length && s[b] !== '\n' && !(/[.!?]/.test(s[b]) && (b + 1 >= s.length || /\s/.test(s[b + 1])))) b++
-  if (b < s.length && s[b] !== '\n') b++
+  while (b < hi && s[b] !== '\n' && !(/[.!?]/.test(s[b]) && (b + 1 >= s.length || /\s/.test(s[b + 1])))) b++
+  if (b < hi && s[b] !== '\n') b++
   return s.slice(a, b).trim()
 }
 /** Context key with markdown link targets dropped, so an approved link swap (e.g. Wikipedia to
@@ -157,6 +162,149 @@ for (const rel of PUBLIC_JSON) {
   walk(JSON.parse(fs.readFileSync(p, 'utf8')), null, '')
 }
 
+// ---- Wide scan (#346 Security, same reach as #348's check-chambers-locating) ----
+// Every dist .json/.geojson/.html/.md/.xml: (a) visible text of a protected story's own outputs and
+// every string in a record owned by a protected id; (b) in any other output, the sentence around each
+// protected-site mention (slug, title or site number). Wide hits pass only when the same
+// [slug, match, context] is already pending (inherited text); nothing new is allowlisted.
+export function visibleText(h) {
+  const attrs = [...h.matchAll(/\b(?:alt|title|aria-label|content)="([^"]*)"/g)].map((m) => m[1])
+  const body = h.replace(/<script\b[\s\S]*?<\/script>/gi, ' ').replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<\/(?:p|li|h\d|div|figcaption|td|tr|item|title|description|summary|article|section)>|<br\s*\/?>/gi, '\n')
+    .replace(/<!\[CDATA\[|\]\]>/g, ' ').replace(/<[^>]+>/g, ' ')
+  return html([body, ...attrs].join('\n')).replace(/[ \t]+/g, ' ')
+}
+const mentionTerms = []
+for (const id of ids) {
+  mentionTerms.push(id)
+  const fp = path.join(root, 'public/content/stories', id + '.json')
+  if (!fs.existsSync(fp)) continue
+  const t = String(JSON.parse(fs.readFileSync(fp, 'utf8')).title || '')
+  const site = t.match(/\b15[A-Za-z]{1,2}\d+\b/)
+  if (site) mentionTerms.push(site[0])
+  const core = t.split(/\s*(?:[:(]|\s\/\s)\s*/)[0].replace(/[“”"]/g, '').trim()
+  if (core.length >= 8) mentionTerms.push(core)
+}
+const termOwner = new Map()
+for (const id of ids) {
+  termOwner.set(id.toLowerCase(), id)
+  const fp = path.join(root, 'public/content/stories', id + '.json')
+  if (!fs.existsSync(fp)) continue
+  const t = String(JSON.parse(fs.readFileSync(fp, 'utf8')).title || '')
+  const site = t.match(/\b15[A-Za-z]{1,2}\d+\b/)
+  if (site) termOwner.set(site[0].toLowerCase(), id)
+  const core = t.split(/\s*(?:[:(]|\s\/\s)\s*/)[0].replace(/[“”"]/g, '').trim()
+  if (core.length >= 8) termOwner.set(core.toLowerCase(), id)
+}
+const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const MENTION_RE = termOwner.size ? new RegExp(`(?<![A-Za-z0-9])(?:${[...termOwner.keys()].sort((a, b) => b.length - a.length).map(esc).join('|')})(?![A-Za-z0-9])`, 'gi') : null
+/** Locator hits in the sentence around each protected mention in text from an unprotected output. */
+export function mentionHits(text, field) {
+  const out = []
+  if (!MENTION_RE) return out
+  const s = String(text)
+  for (const m of s.matchAll(MENTION_RE)) {
+    const owner = termOwner.get(m[0].toLowerCase())
+    const sent = contextOf(s, m.index, m.index + m[0].length)
+    // blank every protected-site name/number in the sentence: a site's own name is not a locator
+    for (const h of findLocators(sent.replace(MENTION_RE, (x) => ' '.repeat(x.length)))) out.push({ slug: owner, field, wide: true, ...h, context: linkText(sent) })
+  }
+  return out
+}
+const wideHits = []
+const walkDist = (dir, out = []) => { for (const e of fs.readdirSync(dir, { withFileTypes: true })) { const p = path.join(dir, e.name); if (e.isDirectory()) walkDist(p, out); else if (/\.(?:geo)?json$|\.html?$|\.md$|\.xml$/i.test(e.name)) out.push(p) } return out }
+for (const f of walkDist(dist)) {
+  const rel = path.relative(dist, f).split(path.sep).join('/')
+  const ownFile = [...ids].find((id) => rel.startsWith(`stories/${id}/`) || rel === `content/stories/${id}.json`)
+  const raw = fs.readFileSync(f, 'utf8')
+  if (/\.(?:geo)?json$/i.test(f)) {
+    let data
+    try { data = JSON.parse(raw) } catch { continue }
+    const walk = (v, owner) => {
+      if (typeof v === 'string') {
+        v = v.replace(/\]\([^)\s]*\)/g, ']') // markdown link targets are not visible text
+        if (owner) wideHits.push(...findLocators(v).map((h) => ({ slug: owner, field: `wide:${rel}`, wide: true, ...h })))
+        else wideHits.push(...mentionHits(v, `wide:${rel}`))
+        return
+      }
+      if (!v || typeof v !== 'object') return
+      let o = owner
+      if (!o && !Array.isArray(v)) {
+        for (const k of ['slug', 'id', 'storySlug', 'storyId', 'historyId']) if (typeof v[k] === 'string' && ids.has(v[k])) o = v[k]
+        // a record whose name/title is a protected site's name or number is owned by that site
+        if (!o) for (const k of ['name', 'title']) if (typeof v[k] === 'string') { MENTION_RE && (MENTION_RE.lastIndex = 0); const m = MENTION_RE && v[k].match(MENTION_RE); if (m) o = termOwner.get(m[0].toLowerCase()) }
+      }
+      if (Array.isArray(v)) v.forEach((x) => walk(x, o))
+      else for (const [k, x] of Object.entries(v)) walk(x, o || (ids.has(k) ? k : null))
+    }
+    walk(data, ownFile || null)
+  } else {
+    const text = /\.html?$|\.xml$/i.test(f) ? visibleText(raw) : raw.replace(/\]\([^)\s]*\)/g, ']') // md link targets are not visible text
+    if (ownFile) wideHits.push(...findLocators(text).map((h) => ({ slug: ownFile, field: `wide:${rel}`, wide: true, ...h })))
+    else {
+      // records (li/item/article) whose own text names a protected site are owned by it
+      wideHits.push(...mentionHits(text, `wide:${rel}`))
+    }
+  }
+}
+
+// A protected story's own title quoted whole elsewhere (related cards, thumbnails' alt text, nearby
+// lists) is a name, not a locator; title locators are still caught in the story's own title field.
+const protectedTitles = []
+for (const id of ids) {
+  const p = path.join(root, 'public/content/stories', `${id}.json`)
+  try { const t = JSON.parse(fs.readFileSync(p, 'utf8')).title; if (t) protectedTitles.push([id, t.toLowerCase()]) } catch {}
+}
+// only ANOTHER protected story's title (cards, thumbnails, nearby lists): its own title stays tracked
+// through its own title/meta/html-title entries until the protected-titles cleanup
+const inQuotedTitle = (h) => (h.wide || h.field === 'alt') && protectedTitles.some(([id, t]) => id !== h.slug && t.includes(String(h.match).toLowerCase()) && String(h.context).toLowerCase().includes(t))
+for (const arr of [hits, wideHits]) { const keep = arr.filter((h) => !inQuotedTitle(h)); arr.length = 0; arr.push(...keep) }
+if (process.argv.some((a) => a.startsWith('--emit-wide-keys='))) {
+  // run with cwd = a built origin/v2 checkout to list the wide hits v2 already ships
+  const out = process.argv.find((a) => a.startsWith('--emit-wide-keys=')).slice(17)
+  fs.writeFileSync(out, JSON.stringify([...new Set(wideHits.map((h) => JSON.stringify([h.slug, h.field.replace(/^wide:/, ''), h.match, h.context])))]))
+  console.log(`check-protected-story-locators: wrote ${wideHits.length} wide hits to ${out}`)
+  process.exit(0)
+}
+const wideBaselineFile = path.join(root, 'scripts/protected-locators-wide-baseline.json')
+const wideKey = (h) => JSON.stringify([h.slug, h.field.replace(/^wide:/, ''), h.match, h.context])
+if (process.argv.includes('--write-wide-baseline')) {
+  // Baseline = wide hits whose text already exists on origin/v2 (inherited, awaiting the protected
+  // cleanup PR). Pass --v2-tree=<dir> holding `git archive origin/v2`. Hits not found there are new
+  // and are NOT written: they must be fixed.
+  const tree = (process.argv.find((a) => a.startsWith('--v2-tree=')) || '').slice(10)
+  if (!tree) throw new Error('--write-wide-baseline needs --v2-tree=<dir>')
+  const parts = []
+  const walkAll = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walkAll(p); else if (/\.(?:geo)?json$|\.html?$|\.md$|\.xml$|\.mjs$/i.test(e.name)) { const raw = fs.readFileSync(p, 'utf8'); if (/\.(?:geo)?json$/i.test(e.name)) { try { const w = (v) => { if (typeof v === 'string') parts.push(v); else if (v && typeof v === 'object') Object.values(v).forEach(w) }; w(JSON.parse(raw)) } catch { parts.push(raw) } } else parts.push(/\.html?$|\.xml$/i.test(e.name) ? visibleText(raw) : raw) } } }
+  walkAll(tree)
+  const norm = (x) => linkText(String(x)).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  const corpus = norm(parts.join('\n'))
+  // titles and slugs of stories already on v2: generated wrappers (front matter, cite lines, card
+  // titles, URLs) that repeat an inherited title or slug are inherited too
+  const v2Names = []
+  const v2Stories = path.join(tree, 'public/content/stories')
+  if (fs.existsSync(v2Stories)) for (const f of fs.readdirSync(v2Stories)) if (f.endsWith('.json')) { v2Names.push(f.slice(0, -5)); try { const t = JSON.parse(fs.readFileSync(path.join(v2Stories, f), 'utf8')).title; if (t && t.length >= 8) v2Names.push(t) } catch {} }
+  const pendingPath = path.join(root, 'scripts/protected-locators-pending.json')
+  const pendingMC = new Set((fs.existsSync(pendingPath) ? JSON.parse(fs.readFileSync(pendingPath, 'utf8')).entries || [] : []).map((e) => JSON.stringify([e.match, e.context])))
+  const v2KeysArg = process.argv.find((a) => a.startsWith('--v2-keys='))
+  const v2Keys = new Set(v2KeysArg ? JSON.parse(fs.readFileSync(v2KeysArg.slice(10), 'utf8')) : [])
+  const keep = new Map()
+  const fresh = []
+  for (const h of wideHits) {
+    // probe: the hit plus up to 25 chars each side, clipped at card separators, so composite card
+    // text ("Title Story · County · …") is checked piece by piece against v2's source strings
+    const c = norm(h.context).replace(/…$/, '').replace(/^>\s*/, '')
+    const i = c.indexOf(h.match)
+    let probe = i < 0 ? c.slice(0, 160) : c.slice(Math.max(0, i - 25), i + h.match.length + 25)
+    if (i >= 0) { const pre = c.slice(Math.max(0, i - 25), i); const post = c.slice(i, i + h.match.length + 25); probe = pre.split(' · ').pop().split('Thumbnail for ').pop() + post.split(' · ')[0] }
+    const inName = v2Names.some((n) => n.toLowerCase().includes(h.match.toLowerCase()) && c.toLowerCase().includes(n.toLowerCase()))
+    if (v2Keys.has(wideKey(h)) || pendingMC.has(JSON.stringify([h.match, h.context])) || inName || corpus.includes(probe.trim())) keep.set(wideKey(h), { slug: h.slug, field: h.field.replace(/^wide:/, ''), kind: h.kind, match: h.match, context: h.context })
+    else fresh.push(wideKey(h))
+  }
+  fs.writeFileSync(wideBaselineFile, JSON.stringify({ note: 'Wide-scan locator text inherited byte-identical from origin/v2 (protected-titles/locators cleanup PR, TODO). Generated with --write-wide-baseline; nothing new may be added by hand.', entries: [...keep.values()].sort((x, y) => wideKey(x).localeCompare(wideKey(y))) }, null, 2) + '\n')
+  console.log(`check-protected-story-locators: wide baseline ${keep.size} inherited entries; ${new Set(fresh).size} not on origin/v2 (fix these):\n` + [...new Set(fresh)].join('\n'))
+  process.exit(0)
+}
 const pendingFile = path.join(root, 'scripts/protected-locators-pending.json')
 if (process.argv.includes('--write-pending')) {
   const m = new Map()
@@ -168,6 +316,15 @@ if (process.argv.includes('--write-pending')) {
 }
 const entries = fs.existsSync(pendingFile) ? JSON.parse(fs.readFileSync(pendingFile, 'utf8')).entries || [] : []
 const { fresh, stale } = compare(hits, entries)
+// wide hits: pass only if the same [slug, match, context] is already pending (inherited text)
+const inherited = new Set(entries.map((e) => JSON.stringify([e.slug, e.match, e.context])))
+const wideBaseline = new Set((fs.existsSync(wideBaselineFile) ? JSON.parse(fs.readFileSync(wideBaselineFile, 'utf8')).entries || [] : []).map(wideKey))
+const wideFresh = new Map()
+for (const h of wideHits) {
+  const k = JSON.stringify([h.slug, h.match, h.context])
+  if (!inherited.has(k) && !wideBaseline.has(wideKey(h))) wideFresh.set(JSON.stringify([h.slug, h.field, h.match, h.context]), h)
+}
+for (const k of wideFresh.keys()) fresh.push({ k, extra: 1 })
 if (stale.length) console.log(`check-protected-story-locators: ${stale.length} pending entr${stale.length === 1 ? 'y' : 'ies'} no longer occur (remove from pending):\n` + stale.join('\n'))
 if (fresh.length) {
   console.error(`check-protected-story-locators: ${fresh.length} new locator(s) in protected stories\n` + fresh.map((f) => `${f.k}${f.extra > 1 ? ` x${f.extra}` : ''}`).join('\n'))

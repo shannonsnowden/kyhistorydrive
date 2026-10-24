@@ -51,14 +51,6 @@
     },
     {
       "slug": "adams-site-15fu4",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Ridge",
-      "context": "Thumbnail for Sassafras Ridge (15Fu3): Mississippian town on the western border",
-      "count": 1
-    },
-    {
-      "slug": "adams-site-15fu4",
       "field": "body",
       "kind": "landform",
       "match": "creek",
@@ -207,22 +199,6 @@
       "kind": "near <Town>",
       "match": "Near Hickman",
       "context": "Near Hickman in Fulton County, the Adams Site (15Fu4) is a Mississippian town of platform mounds and plazas lived in from about 1100 to 1500 CE.",
-      "count": 1
-    },
-    {
-      "slug": "andalex-village-15hk22-hopkins-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Hill",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
-      "slug": "andalex-village-15hk22-hopkins-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lake",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
       "count": 1
     },
     {
@@ -1261,30 +1237,6 @@
       "slug": "chambers-site-15ml109-marshall-county",
       "field": "alt",
       "kind": "landform",
-      "match": "Hill",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lake",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Ridge",
-      "context": "Thumbnail for Sassafras Ridge (15Fu3): Mississippian town on the western border",
-      "count": 1
-    },
-    {
-      "slug": "chambers-site-15ml109-marshall-county",
-      "field": "alt",
-      "kind": "landform",
       "match": "River",
       "context": "Clarks River at Clarks River National Wildlife Refuge (photographed 2012); stand-in, since the Chambers site is not public and no photo of it is used",
       "count": 2
@@ -2291,14 +2243,6 @@
     },
     {
       "slug": "howard-site-late-fort-ancient-above-harts-fork",
-      "field": "alt",
-      "kind": "near <Town>",
-      "match": "Near Lexington",
-      "context": "Thumbnail for Peter Village: Early Woodland Enclosure Near Lexington",
-      "count": 1
-    },
-    {
-      "slug": "howard-site-late-fort-ancient-above-harts-fork",
       "field": "content/stories.json:.stories[].slug",
       "kind": "landform",
       "match": "fork",
@@ -2391,14 +2335,6 @@
       "kind": "landform",
       "match": "fork",
       "context": "url: \"https://kyhistorydrive.com/stories/howard-site-late-fort-ancient-above-harts-fork/\"",
-      "count": 1
-    },
-    {
-      "slug": "indian-knoll-on-the-green-river",
-      "field": "alt",
-      "kind": "near <Town>",
-      "match": "Near Lexington",
-      "context": "Thumbnail for Peter Village: Early Woodland Enclosure Near Lexington",
       "count": 1
     },
     {
@@ -2810,30 +2746,6 @@
       "count": 1
     },
     {
-      "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Knob",
-      "context": "Thumbnail for Sweet Lick Knob: Fort Ancient Gathering Place",
-      "count": 1
-    },
-    {
-      "slug": "john-finley-the-trader-who-put-kentucky-on-boones-map",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "Thumbnail for Sweet Lick Knob: Fort Ancient Gathering Place",
-      "count": 1
-    },
-    {
-      "slug": "lower-shawneetown-at-the-scioto-mouth",
-      "field": "alt",
-      "kind": "near <Town>",
-      "match": "Near Lexington",
-      "context": "Thumbnail for Peter Village: Early Woodland Enclosure Near Lexington",
-      "count": 1
-    },
-    {
       "slug": "lower-shawneetown-at-the-scioto-mouth",
       "field": "body",
       "kind": "landform",
@@ -2927,14 +2839,6 @@
       "kind": "landform",
       "match": "Hill",
       "context": "Thumbnail for Shaker Village of Pleasant Hill",
-      "count": 1
-    },
-    {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
-      "field": "alt",
-      "kind": "near <Town>",
-      "match": "Near Lexington",
-      "context": "Thumbnail for Peter Village: Early Woodland Enclosure Near Lexington",
       "count": 1
     },
     {
@@ -3303,22 +3207,6 @@
       "kind": "landform",
       "match": "Knob",
       "context": "Thumbnail for Pilot Knob, Boone’s overlook",
-      "count": 1
-    },
-    {
-      "slug": "odawa-raid-at-eskippakithiki-1753",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Knob",
-      "context": "Thumbnail for Sweet Lick Knob: Fort Ancient Gathering Place",
-      "count": 1
-    },
-    {
-      "slug": "odawa-raid-at-eskippakithiki-1753",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "Thumbnail for Sweet Lick Knob: Fort Ancient Gathering Place",
       "count": 1
     },
     {
@@ -3899,22 +3787,6 @@
     },
     {
       "slug": "red-bird-river-petroglyphs-clay-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Knob",
-      "context": "Thumbnail for Sweet Lick Knob: Fort Ancient Gathering Place",
-      "count": 1
-    },
-    {
-      "slug": "red-bird-river-petroglyphs-clay-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lick",
-      "context": "Thumbnail for Sweet Lick Knob: Fort Ancient Gathering Place",
-      "count": 1
-    },
-    {
-      "slug": "red-bird-river-petroglyphs-clay-county",
       "field": "content/stories.json:.stories[].matchedPlace",
       "kind": "near <Town>",
       "match": "near Eriline",
@@ -4223,22 +4095,6 @@
       "kind": "landform",
       "match": "lake",
       "context": "McCracken County · Paducah, oxbow lake edge south of the Ohio · Mississippian platform mound and village · occupation ~1100–1350 CE · pin rounded to 0.1° (about 10 km)",
-      "count": 1
-    },
-    {
-      "slug": "rowlandton-mound-site-15mcn3-paducah",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Hill",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
-      "slug": "rowlandton-mound-site-15mcn3-paducah",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lake",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
       "count": 1
     },
     {
@@ -4639,22 +4495,6 @@
       "kind": "landform",
       "match": "Ridge",
       "context": "Sassafras Ridge (15Fu3), Fulton County (approximate)",
-      "count": 1
-    },
-    {
-      "slug": "sassafras-ridge-15fu3-fulton-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Hill",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
-      "slug": "sassafras-ridge-15fu3-fulton-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lake",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
       "count": 1
     },
     {
@@ -5495,22 +5335,6 @@
       "kind": "landform",
       "match": "ridge",
       "context": "On a ridge above North Elkhorn Creek in Scott County, Fort Ancient farmers built a chain of circular villages between about A.D.",
-      "count": 1
-    },
-    {
-      "slug": "slack-farm-15un28-union-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Hill",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
-      "slug": "slack-farm-15un28-union-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lake",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
       "count": 1
     },
     {
@@ -7619,14 +7443,6 @@
     },
     {
       "slug": "tinsley-hill-15ly18-lyon-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Ridge",
-      "context": "Thumbnail for Sassafras Ridge (15Fu3): Mississippian town on the western border",
-      "count": 1
-    },
-    {
-      "slug": "tinsley-hill-15ly18-lyon-county",
       "field": "body",
       "kind": "landform",
       "match": "Hill",
@@ -8138,22 +7954,6 @@
       "count": 1
     },
     {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Hill",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Lake",
-      "context": "Thumbnail for Tinsley Hill: Mississippian town under Lake Barkley",
-      "count": 1
-    },
-    {
       "slug": "turk-site-15ce6-carlisle-county",
       "field": "data/app/ky-history.json:[].history",
       "kind": "landform",
@@ -8199,14 +7999,6 @@
       "kind": "near <Town>",
       "match": "near Bardwell",
       "context": "On a bluff spur near Bardwell overlooking the Mississippi floodplain, the Turk Site (15Ce6) was a small Mississippian regional center of about 2.5 hectares.",
-      "count": 1
-    },
-    {
-      "slug": "turk-site-carlisle-county",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Ridge",
-      "context": "Thumbnail for Sassafras Ridge (15Fu3): Mississippian town on the western border",
       "count": 1
     },
     {
@@ -8287,14 +8079,6 @@
       "kind": "near <Town>",
       "match": "near Barlow",
       "context": "Ballard County · near Barlow · Mississippian platform mounds & plaza · Dorena–Medley phases ~1200–1450",
-      "count": 1
-    },
-    {
-      "slug": "twin-mounds-site",
-      "field": "alt",
-      "kind": "landform",
-      "match": "Ridge",
-      "context": "Thumbnail for Sassafras Ridge (15Fu3): Mississippian town on the western border",
       "count": 1
     },
     {
