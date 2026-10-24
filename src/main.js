@@ -71,7 +71,9 @@ import {
   textureCss,
   CULTURE_EDGE,
 } from './territory.js'
-import { storyUrl, timelineForwardUrl } from './story-url.js'
+import { storyUrl, timelineForwardUrl, canonicalStorySlug } from './story-url.js'
+import { pinCardHtml, usePhoneSheet, phoneSheetPinY } from './pin-card.js'
+import { PIN_TEASERS } from './pin-teasers.js'
 
 /**
  * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
@@ -168,6 +170,12 @@ const ERAS = [
   { id: 'early-commonwealth', label: 'Early commonwealth' },
   { id: 'other', label: 'More Kentucky history' },
 ]
+
+/** Era id -> label for pin cards; revolution folds into Frontier like the story pages. */
+function pinEraLabel(era) {
+  const id = era === 'revolution' ? 'frontier' : era === 'modern' ? 'other' : era
+  return ERAS.find((e) => e.id === id)?.label || ''
+}
 
 const YEAR_PRESETS = [
   { id: 'before-1000', label: 'Before 1000', min: null, max: 999 },
@@ -1816,7 +1824,7 @@ function waitForCamera(targetMap, timeout = 4000) {
  * the card opens above with room to scroll, and slide sideways so a centered
  * card does not run off the left or right edge.
  */
-async function nudgeCameraForPopup(targetMap, lngLat) {
+async function nudgeCameraForPopup(targetMap, lngLat, { sheet = false } = {}) {
   if (!targetMap?.project || !targetMap.getContainer?.() || !lngLat) return
   // A deep-link easeTo may still be queued; wait until the camera is quiet.
   await waitForCamera(targetMap)
@@ -1830,7 +1838,11 @@ async function nudgeCameraForPopup(targetMap, lngLat) {
   const pt = targetMap.project(lngLatPair(lngLat))
   let dx = 0
   let dy = 0
-  if (w >= 700 && h >= 420) {
+  if (sheet) {
+    // Phone bottom sheet (#339): keep the pin in the upper map, above the sheet.
+    const targetY = phoneSheetPinY(h)
+    if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
+  } else if (w >= 700 && h >= 420) {
     const targetY = Math.round(Math.min(112, Math.max(72, h * 0.16)))
     if (pt.y > targetY + 28) dy = pt.y - targetY
   } else if (w < 700) {
@@ -2008,6 +2020,11 @@ async function popupRelatedHtml(props) {
   return relatedBlockHtml(relatedData, slug, (sl) => relTitles[sl], 'popupRelatedH', { portraits, personFor })
 }
 
+// Rotating a phone or resizing the window flips the open pin card between sheet and card (#339).
+window.addEventListener('resize', () => {
+  activePopup?.getElement?.()?.classList.toggle('ky-sheet', usePhoneSheet(window.innerWidth))
+})
+
 async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (!targetMap || !feature) return
   if (activePopup) {
@@ -2024,7 +2041,8 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   const props = enrichFeatureProps(layerId, feature.properties || {})
   const storyPhoto = await storyPhotoForProps(props)
   if (storyPhoto) props.photo = storyPhoto
-  const relatedHtml = await popupRelatedHtml(props)
+  const storySlug = await slugForPlaceProps(props).catch(() => null)
+  const relatedHtml = storySlug ? '' : await popupRelatedHtml(props)
   // A pin tied to a story shows the story's own era, so popup and story/hero labels agree.
   // Display only: the pin's computed era still drives Timeline era filtering.
   try {
@@ -2041,18 +2059,36 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   if (targetMap === map && shareHash.startsWith('#map/')) {
     history.replaceState(historyStateWithReturn(), '', shareHash)
   }
-  await nudgeCameraForPopup(targetMap, coords)
+  const sheet = usePhoneSheet(window.innerWidth)
+  await nudgeCameraForPopup(targetMap, coords, { sheet })
   const place = popupPlacement(targetMap, coords)
+  if (sheet) {
+    place.anchor = 'top'
+    place.offset = 0
+    place.maxWidth = 'none'
+    place.maxHeightPx = Math.round(window.innerHeight * 0.45)
+  }
+  // Story pins open a teaser card (#339); the story page carries the full text.
+  const popupHtml = storySlug
+    ? `<div class="map-popup">${pinCardHtml({
+        name: props.name || props.title || 'Untitled',
+        layerLabel: DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId,
+        meta: [props.county ? countyLabel(props.county, true) : '', pinEraLabel(props.era)].filter(Boolean).join(' · '),
+        slug: storySlug,
+        teaser: PIN_TEASERS[canonicalStorySlug(storySlug)] || '',
+        escapeHtml,
+      })}</div>`
+    : detailHtmlFromProps(props, layerId, coords, relatedHtml)
   activePopup = new maplibregl.Popup({
     closeButton: true,
     closeOnClick: true,
     maxWidth: place.maxWidth,
     offset: place.offset ?? 14,
     anchor: place.anchor,
-    className: 'ky-popup',
+    className: sheet ? 'ky-popup ky-sheet' : 'ky-popup',
   })
     .setLngLat(coords)
-    .setHTML(detailHtmlFromProps(props, layerId, coords, relatedHtml))
+    .setHTML(popupHtml)
     .addTo(targetMap)
   const popupEl = activePopup.getElement()
   try {

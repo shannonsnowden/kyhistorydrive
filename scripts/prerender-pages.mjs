@@ -193,7 +193,7 @@ class PrerenderPages {
     const markers = PrerenderPages.loadHistoricalMarkers(root)
     await PrerenderPages.collectPhotoSizes(root, stories)
     PrerenderPages.assertOverridesApplied(root, stories)
-    const layers = await PrerenderPages.loadLayers(root)
+    const layers = await PrerenderPages.loadLayers(root, stories)
     const dates = PrerenderPages.gitFileDates(root)
     const textDates = gitStoryTextDates(root)
     for (const story of stories) {
@@ -1370,7 +1370,33 @@ class PrerenderPages {
     }
   }
 
-  static async loadLayers(root) {
+  /** Pin -> story slug, mirroring slugForPlaceProps in src/main.js (#339). */
+  static pinStorySlugs(root, stories) {
+    const known = new Set(stories.map((st) => st.slug))
+    const file = path.join(root, 'public/content/stories-locations.json')
+    const locations = fs.existsSync(file) ? PrerenderPages.readJson(file) : {}
+    const byHistoryId = new Map()
+    for (const row of Object.values(locations || {})) {
+      if (row?.historyId && row.slug && !byHistoryId.has(row.historyId)) byHistoryId.set(row.historyId, row.slug)
+    }
+    for (const row of Object.values(locations || {})) {
+      for (const extra of Array.isArray(row?.alsoHistoryIds) ? row.alsoHistoryIds : []) {
+        if (extra && row.slug && !byHistoryId.has(extra)) byHistoryId.set(extra, row.slug)
+      }
+    }
+    return (p) => {
+      const direct = p?.slug != null ? String(p.slug) : ''
+      if (direct && known.has(direct)) return direct
+      const id = p?.id != null ? String(p.id) : ''
+      if (id && known.has(id)) return id
+      const hid = p?.historyId != null ? String(p.historyId) : id
+      const slug = hid ? byHistoryId.get(hid) : null
+      return slug && known.has(slug) ? slug : null
+    }
+  }
+
+  static async loadLayers(root, stories = []) {
+    const slugFor = PrerenderPages.pinStorySlugs(root, stories)
     const { LAYER_HIGHLIGHTS } = await import(pathToFileURL(path.join(root, 'src/home-preview-data.js')).href)
     const defs = PrerenderPages.layerDefs(fs.readFileSync(path.join(root, 'src/main.js'), 'utf8'))
     const byId = new Map(LAYER_HIGHLIGHTS.map((item) => [item.layerId, item]))
@@ -1394,11 +1420,13 @@ class PrerenderPages {
             name: PrerenderPages.placeName(p),
             county: p.county ? PrerenderPages.countyLabel(p.county, true) : '',
             years,
+            storySlug: slugFor(p),
           }
         })
         .filter((p) => p.name)
         .sort((a, b) => a.name.localeCompare(b.name) || a.county.localeCompare(b.county))
-      return { ...def, intro, highlight, featured, places }
+      const featuredStorySlug = featured ? slugFor(featured) : null
+      return { ...def, intro, highlight, featured, featuredStorySlug, places }
     })
   }
 
@@ -2877,7 +2905,10 @@ class PrerenderPages {
       .map((place) => {
         const bits = [place.county, place.years].filter(Boolean)
         const extra = bits.length ? ` <span class="muted">${PrerenderPages.escapeHtml(bits.join(' · '))}</span>` : ''
-        return `<li>${PrerenderPages.escapeHtml(place.name)}${extra}</li>`
+        const name = place.storySlug
+          ? `<a href="/stories/${PrerenderPages.escapeHtml(place.storySlug)}/">${PrerenderPages.escapeHtml(place.name)}</a>`
+          : PrerenderPages.escapeHtml(place.name)
+        return `<li>${name}${extra}</li>`
       })
       .join('')
     const layerStories = PrerenderPages.liveStories(stories).filter((st) =>
@@ -2907,7 +2938,8 @@ class PrerenderPages {
             <p>${PrerenderPages.escapeHtml(highlight.blurb || '')}</p>
             <div class="story-body">${PrerenderPages.plainParagraphs(PrerenderPages.featureText(featured))}</div>
             <div class="static-cta">
-              <a class="btn" href="${PrerenderPages.escapeHtml(pinHref)}">Open this layer on the map</a>
+              ${layer.featuredStorySlug ? `<a class="btn" href="/stories/${PrerenderPages.escapeHtml(layer.featuredStorySlug)}/">Read the story</a>` : ''}
+              <a class="btn${layer.featuredStorySlug ? ' ghost' : ''}" href="${PrerenderPages.escapeHtml(pinHref)}">Open this layer on the map</a>
               <a class="btn ghost" href="/#map">Full map</a>
             </div>
           </div>
