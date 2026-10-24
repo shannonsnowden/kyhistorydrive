@@ -178,12 +178,18 @@ for (const bad of [
   '/photos/example-site-near-sampletown.jpg',
   'part of the Mount Horeb Earthworks Complex',
   'https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex',
+  // Landforms that place a protected site below county (#351 county sweep).
+  'on a broad ridgetop in Sample County',
+  'the village sat on a bluff',
+  'houses along the bluffs',
 ]) assert.ok(findLocators(bad).length, `should flag: ${bad}`)
 for (const ok of [
   'an early earthwork in Fayette County',
   'Peter Village (site 15Fa166)',
   'a lead ore found in the region',
   'Adena is an archaeologists’ name for a shared way of life',
+  // A bare "ridge" is not a landform term: it is the site's own name (Sassafras Ridge).
+  'Sassafras Ridge (15Fu3) is in Fulton County',
 ]) assert.deepEqual(findLocators(ok), [], `should pass: ${ok}`)
 // Fixtures never pair a real protected site with a real town; the term comes from the pattern list.
 assert.ok(findLocators(`the ${STORY_TERMS[PETER][0]} plan`, PETER).length, 'Peter Village terms apply to Peter Village')
@@ -211,6 +217,27 @@ assert.ok(findLocators(`the ${STORY_TERMS[PETER][0]} plan`, PETER).length, 'Pete
 const allowFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/protected-locators-allowlist.json'), 'utf8'))
 const ALLOW = new Set([...(allowFile.entries || []), ...(allowFile.derived || []), ...(allowFile.page || [])])
 assert.ok(![...ALLOW].some((e) => e.split('|')[1] === PETER || e.includes('peter-village')), 'Peter Village may not be allowlisted')
+// SEO (Oct 24): these locator phrases are emptied from the allowlist. A hit must fail the build.
+const FORBIDDEN_ALLOW = [
+  'west of Bardwell',
+  'west of Nicholasville',
+  'nearby Nicholasville',
+  'near Nicholasville',
+  'north of Lexington',
+  'near Eriline',
+  'Levisa Fork',
+  'at Paintsville',
+  'Jessamine Creek',
+  'Strodes Creek',
+  'Near Paris',
+  'southeast of Twin',
+]
+for (const entry of ALLOW) {
+  const match = entry.split('|').slice(3).join('|')
+  for (const phrase of FORBIDDEN_ALLOW) {
+    assert.ok(!match.includes(phrase), `allowlist must not keep ${JSON.stringify(phrase)} (${entry})`)
+  }
+}
 {
   const sample = [...ALLOW][0]
   if (sample) {
@@ -261,12 +288,12 @@ function pageHits(html, owner) {
 {
   // An allowlisted body string (Adams Site bodyMarkdown, origin/v2) planted in <title> or in alt text
   // outside <article> is a new page hit and must fail.
-  const ADAMS = 'adams-site-15fu4'
-  const body = [...ALLOW].map((e) => e.split('|')).find(([f, o, fld]) => f === `content/stories/${ADAMS}.json` && o === ADAMS && fld === 'bodyMarkdown')
-  assert.ok(body, 'fixture needs an allowlisted adams-site-15fu4 bodyMarkdown entry')
-  const term = body[3]
-  for (const html of [`<title>Adams Site by ${term}</title>`, `<header><img src="x.webp" alt="View by ${term}"></header><article><p>ok</p></article>`]) {
-    const bad = pageHits(html, ADAMS).filter((h) => !ALLOW.has(key(h)))
+  const body = [...ALLOW].map((e) => e.split('|')).find((parts) => parts[2] === 'bodyMarkdown')
+  assert.ok(body, 'fixture needs an allowlisted bodyMarkdown entry')
+  const owner = body[1]
+  const term = body.slice(3).join('|')
+  for (const html of [`<title>Planted by ${term}</title>`, `<header><img src="x.webp" alt="View by ${term}"></header><article><p>ok</p></article>`]) {
+    const bad = pageHits(html, owner).filter((h) => !ALLOW.has(key(h)))
     assert.ok(bad.length >= 1, `planted allowlisted body text must fail on the page: ${html}`)
   }
 }

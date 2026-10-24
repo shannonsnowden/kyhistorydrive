@@ -1,5 +1,5 @@
 {
-  "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+  "slug": "muir-site-early-fort-ancient",
   "title": "Muir Site: Early Fort Ancient in Jessamine County",
   "publishedDate": "2026-09-25",
   "summary": "In 1985, University of Kentucky archaeologists dug the Muir site in Jessamine County, a small early Fort Ancient settlement of about A.D. 1000 to 1200.",
@@ -21,5 +21,16 @@
     "yearEnd": 1200,
     "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
   },
-  "county": "Jessamine"
+  "county": "Jessamine",
+  "photo": {
+    "image_url": "/content/photos/stories/muir-site-early-fort-ancient.jpg",
+    "title": "A Fort Ancient ceramic storage jar from an Ohio site, Cincinnati Museum of Natural History; a generic artifact, not from the Muir site in Jessamine County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Storage_jar_HRoe_2011.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+    "year": 2011,
+    "credit": "Herb Roe",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+  }
 }

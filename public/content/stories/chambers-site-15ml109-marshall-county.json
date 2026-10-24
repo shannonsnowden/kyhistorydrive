@@ -15,5 +15,15 @@
   ],
   "source": "ky-history",
   "briefDate": "2026-10-14",
-  "county": "Marshall"
+  "county": "Marshall",
+  "photo": {
+    "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+    "title": "A Mississippian owl effigy bowl, c. 1000–1500 CE, Dayton Art Institute; a generic artifact, not from the Chambers site in Marshall County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Owl_effigy_bowl,_Mississippian_people,_c._1000-1500_CE,_Dayton_Art_Institute.JPG",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Wmpearl · Wikimedia Commons · CC0",
+    "year": null,
+    "credit": "Wmpearl",
+    "license": "CC0"
+  }
 }

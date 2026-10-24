@@ -1,9 +1,9 @@
 {
   "slug": "tinsley-hill-15ly18-lyon-county",
-  "title": "Tinsley Hill: Mississippian town under Lake Barkley",
+  "title": "Tinsley Hill (15Ly18): Mississippian Town in Lyon County",
   "publishedDate": "2026-10-12",
-  "summary": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village on the Cumberland.",
-  "bodyMarkdown": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village on the Cumberland. Douglas W. Schwartz’s University of Kentucky report treats the cemetery. R. Berle Clay’s village excavation is a project of the Inter-Agency Archaeological Salvage Program, the federal work in river valleys before reservoirs. On the Cumberland in Lyon County, that reservoir is Lake Barkley.\n\nThe two tDAR records are citations rather than the reports themselves, and they locate the work in the county rather than at a dig-site coordinate. They do not state a mound count, a burial count, or a phase date, so those figures are left out. The map pin is a Lyon County point rounded to about ten kilometers. Precise site coordinates are not published.\nSource: [https://core.tdar.org/document/176640/tinsley-hill-site-a-late-prehistoric-stone-grave-cemetery-in-lyon-county-kentucky](https://core.tdar.org/document/176640/tinsley-hill-site-a-late-prehistoric-stone-grave-cemetery-in-lyon-county-kentucky)\nSource: [https://core.tdar.org/document/176642/tinsley-hill-village-1962-a-project-of-the-inter-agency-archaeological-and-paleontological-salvage-program](https://core.tdar.org/document/176642/tinsley-hill-village-1962-a-project-of-the-inter-agency-archaeological-and-paleontological-salvage-program)",
+  "summary": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village studied in a federal salvage archaeology program.",
+  "bodyMarkdown": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village. Douglas W. Schwartz’s University of Kentucky report treats the cemetery. R. Berle Clay’s village excavation is a project of the Inter-Agency Archaeological Salvage Program, the federal work done before reservoirs were built.\n\nThe two tDAR records are citations rather than the reports themselves, and they locate the work in the county rather than at a dig-site coordinate. They do not state a mound count, a burial count, or a phase date, so those figures are left out. The map pin is a Lyon County point rounded to about ten kilometers. Precise site coordinates are not published.\nSource: [https://core.tdar.org/document/176640/tinsley-hill-site-a-late-prehistoric-stone-grave-cemetery-in-lyon-county-kentucky](https://core.tdar.org/document/176640/tinsley-hill-site-a-late-prehistoric-stone-grave-cemetery-in-lyon-county-kentucky)\nSource: [https://core.tdar.org/document/176642/tinsley-hill-village-1962-a-project-of-the-inter-agency-archaeological-and-paleontological-salvage-program](https://core.tdar.org/document/176642/tinsley-hill-village-1962-a-project-of-the-inter-agency-archaeological-and-paleontological-salvage-program)",
   "yearStart": null,
   "yearEnd": null,
   "era": "prehistoric",
@@ -17,11 +17,13 @@
   "briefDate": "2026-10-12",
   "photo": {
     "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
-    "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+    "title": "A Mississippian bird effigy bowl, c. 1350–1550, University of Arkansas Museum; a generic artifact, not from Tinsley Hill in Lyon County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bird_effigy_bowl,_Mississippian,_University_of_Arkansas_Museum.JPG",
     "source_label": "Wikimedia Commons",
-    "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
-    "year": null
+    "attribution": "Wmpearl · Wikimedia Commons · CC0",
+    "year": null,
+    "credit": "Wmpearl",
+    "license": "CC0"
   },
   "county": "Lyon"
 }

@@ -25,6 +25,8 @@ export const LOCATOR_PATTERNS = [
   { id: 'named-water', re: rx(`${L}[a-z]+[_-](?:creek|river|lake|fork)${R}`) },
   { id: 'named-earthworks', re: rx(`${L}(?:${NAME_IN}${G}){1,6}Earthworks(?:${G}Complex)?${R}|${L}Earthworks${G}Complex${R}`) },
   { id: 'named-earthworks', re: rx(`${L}[a-z]+[_-]earthworks[_-]complex${R}`) },
+  // Landforms that place a site below county. Bare "ridge" is omitted: it is the name Sassafras Ridge.
+  { id: 'landform', re: rx(`${L}(?:ridge[- ]?tops?|bluffs?)${R}`, 'gi') },
 ]
 
 /** Extra terms for one story (from #351 Item 105), matched case-insensitively with the same word gaps. */

@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /**
  * #345: the homepage hero set (home-preview.json stories/hero/features) holds only stories with a
- * photo, so a no-photo protected story (C&O Mounds) is never re-added. Runs build-home-preview twice
- * in a row and requires the same hero set both times, with no hand restore in between.
+ * photo. Runs build-home-preview twice in a row and requires the same hero set both times.
  *   node scripts/test-home-preview-photos.mjs
  */
 import assert from 'node:assert/strict'
@@ -18,7 +17,6 @@ function heroSet() {
   const d = JSON.parse(fs.readFileSync(FILE, 'utf8'))
   const cards = [...(d.stories || []), d.hero, ...(d.features || [])].filter(Boolean)
   for (const c of cards) assert.ok(c.photo?.image_url, `home-preview: ${c.slug} has no photo`)
-  assert.ok(!cards.some((c) => c.slug === 'the-c-and-o-mounds-at-paintsville'), 'home-preview re-added C&O Mounds')
   return JSON.stringify({ stories: d.stories.map((c) => c.slug), hero: d.hero?.slug, features: (d.features || []).map((c) => c.slug) })
 }
 

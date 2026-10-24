@@ -89,10 +89,10 @@
     },
     {
       "slug": "indian-knoll-on-the-green-river",
-      "title": "Indian Knoll on the Green River",
+      "title": "Indian Knoll: Late Archaic Shell Midden in Ohio County",
       "publishedDate": "2026-08-29",
-      "summary": "Five thousand years before the first stations, Late Archaic hunter-gatherers kept returning to a shell midden on the Green River in Ohio County. Indian Knoll (15OH2) yielded…",
-      "proseChars": 796,
+      "summary": "In Ohio County, Late Archaic hunter-gatherers returned for millennia to the Indian Knoll shell midden, which yielded over a thousand burials.",
+      "proseChars": 768,
       "yearStart": -3000,
       "yearEnd": -1000,
       "era": "prehistoric",
@@ -233,7 +233,7 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.7,
+      "lat": 38.8,
       "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)"
@@ -347,7 +347,7 @@
     },
     {
       "slug": "the-c-and-o-mounds-at-paintsville",
-      "title": "The C. and O. Mounds",
+      "title": "C. and O. Mounds: Adena Burial Mounds in Johnson County",
       "publishedDate": "2026-10-19",
       "summary": "In Johnson County, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
       "proseChars": 2826,
@@ -362,6 +362,16 @@
       "source": "ky-history",
       "briefDate": "2026-10-19",
       "county": "Johnson",
+      "photo": {
+        "image_url": "/content/photos/stories/the-c-and-o-mounds-at-paintsville.jpg",
+        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "credit": "Cleveland Museum of Art",
+        "license": "CC0"
+      },
       "lat": 37.8,
       "lon": -82.8,
       "mapConfidence": "override",
@@ -369,7 +379,7 @@
     },
     {
       "slug": "peter-village-enclosure-15fa166",
-      "title": "Peter Village enclosure (15Fa166)",
+      "title": "Peter Village Enclosure (15Fa166): Early Woodland in Fayette County",
       "publishedDate": "2026-09-11",
       "summary": "Peter Village (15Fa166), an Early Woodland earthwork in Fayette County, has pottery dated to about 409–68 BCE and is a protected site.",
       "proseChars": 961,
@@ -397,10 +407,10 @@
     },
     {
       "slug": "old-fort-earthworks-15gp1-greenup-county",
-      "title": "Old Fort Earthworks: Hopewell’s square on the Ohio",
+      "title": "Old Fort Earthworks: Hopewell Square Enclosure in Greenup County",
       "publishedDate": "2026-10-08",
       "summary": "In Greenup County, Old Fort Earthworks is a square Middle Woodland enclosure of 13.5 acres, the westernmost part of a larger Hopewell complex.",
-      "proseChars": 1831,
+      "proseChars": 1606,
       "yearStart": -200,
       "yearEnd": 500,
       "era": "prehistoric",
@@ -416,7 +426,7 @@
       "county": "Greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
+        "title": "A surviving wall of the Old Fort Earthworks in Greenup County (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -425,7 +435,7 @@
       "lat": 38.7,
       "lon": -83,
       "mapConfidence": "override",
-      "matchedPlace": "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)"
+      "matchedPlace": "Old Fort Earthworks (15Gp1), Greenup County (generalized)"
     },
     {
       "slug": "robbins-mounds-boone-county",
@@ -508,7 +518,7 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)"
     },
     {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+      "slug": "muir-site-early-fort-ancient",
       "title": "Muir Site: Early Fort Ancient in Jessamine County",
       "publishedDate": "2026-09-25",
       "summary": "In 1985, University of Kentucky archaeologists dug the Muir site in Jessamine County, a small early Fort Ancient settlement of about A.D. 1000 to 1200.",
@@ -524,6 +534,17 @@
       "source": "ky-history",
       "briefDate": "2026-09-25",
       "county": "Jessamine",
+      "photo": {
+        "image_url": "/content/photos/stories/muir-site-early-fort-ancient.jpg",
+        "title": "A Fort Ancient ceramic storage jar from an Ohio site, Cincinnati Museum of Natural History; a generic artifact, not from the Muir site in Jessamine County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Storage_jar_HRoe_2011.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2011,
+        "credit": "Herb Roe",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -566,11 +587,11 @@
     },
     {
       "slug": "sassafras-ridge-15fu3-fulton-county",
-      "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
+      "title": "Sassafras Ridge (15Fu3): Mississippian Town in Fulton County",
       "seoTitle": "Sassafras Ridge (15Fu3): Mississippian Town in Fulton County",
       "publishedDate": "2026-10-13",
       "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
-      "proseChars": 2618,
+      "proseChars": 2425,
       "yearStart": 1000,
       "yearEnd": 1500,
       "era": "prehistoric",
@@ -585,7 +606,7 @@
       "county": "Fulton",
       "photo": {
         "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
-        "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
+        "title": "A Mississippian mound in Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
@@ -600,8 +621,8 @@
       "slug": "adams-site-15fu4",
       "title": "Adams Site (15Fu4)",
       "publishedDate": "2026-09-16",
-      "summary": "Near Hickman in Fulton County, the Adams Site (15Fu4) is a Mississippian town of platform mounds and plazas lived in from about 1100 to 1500 CE.",
-      "proseChars": 1042,
+      "summary": "In Fulton County, the Adams Site (15Fu4) is a Mississippian town of platform mounds and plazas, lived in from about 1100 to 1500 CE.",
+      "proseChars": 879,
       "yearStart": 1100,
       "yearEnd": 1500,
       "era": "prehistoric",
@@ -615,11 +636,13 @@
       "county": "Fulton",
       "photo": {
         "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
-        "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+        "title": "A Mississippian shell gorget, The Metropolitan Museum of Art; a generic artifact, not from the Adams Site in Fulton County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Gorget_MET_DT258619.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": 2013
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "credit": "The Metropolitan Museum of Art",
+        "license": "CC0"
       },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
@@ -635,10 +658,10 @@
     },
     {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
-      "title": "Rowlandton Mound Site (15McN3), Paducah",
+      "title": "Rowlandton Mound Site (15McN3): Mississippian Town in McCracken County",
       "publishedDate": "2026-10-05",
-      "summary": "The Rowlandton Mound Site (15MCN3) is a Mississippian town site inside present-day Paducah, on the edge of an old oxbow lake a little south of the Ohio River. People…",
-      "proseChars": 980,
+      "summary": "In McCracken County, the Rowlandton Mound Site (15MCN3) was a Mississippian town with a large platform mound, lived in from about 1100 to 1350 CE.",
+      "proseChars": 821,
       "yearStart": 1100,
       "yearEnd": 1350,
       "era": "prehistoric",
@@ -652,7 +675,7 @@
       "county": "McCracken",
       "photo": {
         "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3-paducah.jpg",
-        "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
+        "title": "The Rowlandton platform mound, McCracken County, with a pit dug by archaeologists",
         "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
@@ -661,10 +684,10 @@
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       },
-      "lat": 37,
+      "lat": 37.1,
       "lon": -88.6,
       "mapConfidence": "override",
-      "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah"
+      "matchedPlace": "Rowlandton Mound Site (15McN3), McCracken County"
     },
     {
       "slug": "turk-site-carlisle-county",
@@ -737,8 +760,8 @@
       "slug": "andalex-village-15hk22-hopkins-county",
       "title": "Andalex Village (15Hk22), Hopkins County",
       "publishedDate": "2026-10-04",
-      "summary": "The Andalex site sits on a bluff overlooking the Pond River in Hopkins County, where Mississippian farmers occupied a mound center from AD 1175 to 1275. Cultural Resource…",
-      "proseChars": 988,
+      "summary": "In Hopkins County, the Andalex site was a Mississippian mound center with a platform mound, a plaza and a palisade, occupied from AD 1175 to 1275.",
+      "proseChars": 943,
       "yearStart": 1175,
       "yearEnd": 1275,
       "era": "prehistoric",
@@ -752,7 +775,7 @@
       "county": "Hopkins",
       "photo": {
         "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
-        "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
+        "title": "Mississippian pottery; a regional stand-in, not from the Andalex site in Hopkins County",
         "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
@@ -767,7 +790,7 @@
       "matchedPlace": "Andalex Village (15Hk22), Hopkins County"
     },
     {
-      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
+      "slug": "buckner-site-fort-ancient-villages",
       "title": "Buckner Site: Fort Ancient Villages in Bourbon County",
       "publishedDate": "2026-09-24",
       "summary": "In Bourbon County, the Buckner Site holds two circular Fort Ancient villages around plazas, occupied mainly from about A.D. 1200 to 1400.",
@@ -817,7 +840,7 @@
       "county": "Boone",
       "photo": {
         "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-        "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
+        "title": "Stand-in photo: the Boone County Courthouse (no public photo of the site itself)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -905,10 +928,10 @@
     },
     {
       "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
-      "title": "Singer-Hieronymus: Fort Ancient villages on North Elkhorn",
+      "title": "Singer-Hieronymus: Fort Ancient Villages in Scott County",
       "publishedDate": "2026-09-29",
-      "summary": "On a ridge above North Elkhorn Creek in Scott County, Fort Ancient farmers built a chain of circular villages between about A.D. 1200 and 1550.",
-      "proseChars": 839,
+      "summary": "In Scott County, Fort Ancient farmers built a chain of circular villages at the Singer-Hieronymus site between about A.D. 1200 and 1550.",
+      "proseChars": 744,
       "yearStart": 1200,
       "yearEnd": 1550,
       "era": "prehistoric",
@@ -921,7 +944,7 @@
       "briefDate": "2026-09-29",
       "photo": {
         "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages-on-north-elkhorn.jpg",
-        "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
+        "title": "Fort Ancient bone tools, beads, pipes, and chunkey stones; not from the Scott County villages",
         "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
@@ -1018,6 +1041,16 @@
       "source": "ky-history",
       "briefDate": "2026-10-14",
       "county": "Marshall",
+      "photo": {
+        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
+        "title": "A Mississippian owl effigy bowl, c. 1000–1500 CE, Dayton Art Institute; a generic artifact, not from the Chambers site in Marshall County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Owl_effigy_bowl,_Mississippian_people,_c._1000-1500_CE,_Dayton_Art_Institute.JPG",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wmpearl · Wikimedia Commons · CC0",
+        "year": null,
+        "credit": "Wmpearl",
+        "license": "CC0"
+      },
       "lat": 36.9,
       "lon": -88.3,
       "mapConfidence": "override",
@@ -1069,7 +1102,7 @@
       "title": "Fox Farm (Mason County)",
       "publishedDate": "2026-08-31",
       "summary": "In Mason County, Fort Ancient farmers lived at Fox Farm from about 1300 into the mid-1600s, one of the longest-lived villages of its kind.",
-      "proseChars": 2885,
+      "proseChars": 2880,
       "yearStart": 1300,
       "yearEnd": 1300,
       "era": "prehistoric",
@@ -1098,8 +1131,8 @@
       "slug": "slone-site-15pi11-pike-county",
       "title": "Slone Site (15Pi11), Pike County",
       "publishedDate": "2026-10-03",
-      "summary": "On the Levisa Fork in Pike County, the Slone Site was a Fort Ancient circular village of about 1350–1400 CE, excavated before Fishtrap Reservoir rose.",
-      "proseChars": 789,
+      "summary": "In Pike County, the Slone Site was a Fort Ancient circular village of about 1350–1400 CE, excavated by University of Kentucky crews in 1963–64.",
+      "proseChars": 748,
       "yearStart": 1350,
       "yearEnd": 1400,
       "era": "prehistoric",
@@ -1162,8 +1195,8 @@
       "slug": "slack-farm-15un28-union-county",
       "title": "Slack Farm (15Un28), Union County",
       "publishedDate": "2026-09-27",
-      "summary": "On the Ohio River floodplain in Union County, Slack Farm was a large Caborn-Welborn Mississippian village occupied about 1400–1700 CE. Across roughly 75 acres, residents built…",
-      "proseChars": 863,
+      "summary": "In Union County, Slack Farm was a large Caborn-Welborn Mississippian village of about 75 acres, occupied from about 1400 to 1700 CE.",
+      "proseChars": 834,
       "yearStart": 1400,
       "yearEnd": 1700,
       "era": "prehistoric",
@@ -1176,11 +1209,13 @@
       "briefDate": "2026-09-27",
       "photo": {
         "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
-        "title": "Ohio River at Uniontown, Union County — the floodplain setting of Slack Farm",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Uniontown-Ohio-River-ky.jpg",
+        "title": "The Union County Courthouse at the county seat; not the Slack Farm site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Union_County_Courthouse_in_Morganfield,_western_side_and_front.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
-        "year": 2020
+        "attribution": "Nyttend · Wikimedia Commons · Public domain",
+        "year": null,
+        "credit": "Nyttend",
+        "license": "Public domain"
       },
       "lat": 37.7,
       "lon": -88,
@@ -1191,8 +1226,8 @@
       "slug": "sweet-lick-knob-fort-ancient-gathering-place",
       "title": "Sweet Lick Knob: Fort Ancient Gathering Place",
       "publishedDate": "2026-09-26",
-      "summary": "Near Irvine in Estill County, Fort Ancient people used a large public building below Sweet Lick Knob from about 1400 to 1450 CE, likely for meetings.",
-      "proseChars": 846,
+      "summary": "In Estill County, Fort Ancient people used a large public building at the Sweet Lick Knob site from about 1400 to 1450 CE, likely for meetings.",
+      "proseChars": 718,
       "yearStart": 1400,
       "yearEnd": 1450,
       "era": "prehistoric",
@@ -1205,7 +1240,7 @@
       "briefDate": "2026-09-26",
       "photo": {
         "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
-        "title": "Estill County Courthouse, Irvine",
+        "title": "Estill County Courthouse; not the Sweet Lick Knob site",
         "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Wikimedia Commons · Public domain",
@@ -1296,7 +1331,7 @@
       "title": "Erie, the Cat Nation",
       "publishedDate": "2026-09-11",
       "summary": "The Erie were an Iroquoian people whose homeland lay south of Lake Erie until the Haudenosaunee dispersed them around 1654–57.",
-      "proseChars": 3265,
+      "proseChars": 3260,
       "yearStart": 1654,
       "yearEnd": 1657,
       "era": "native",
@@ -1654,7 +1689,7 @@
       "title": "Christopher Gist, 1750–51",
       "publishedDate": "2026-09-02",
       "summary": "In 1750 the Ohio Company of Virginia sent surveyor Christopher Gist west on a journey that produced one of the earliest English accounts of Kentucky.",
-      "proseChars": 3550,
+      "proseChars": 3545,
       "yearStart": 1750,
       "yearEnd": 1750,
       "era": "native",
@@ -1846,11 +1881,11 @@
       "matchedPlace": "Cumberland Gap / Thomas Walker"
     },
     {
-      "slug": "lower-shawneetown-at-the-scioto-mouth",
+      "slug": "lower-shawneetown-greenup-county",
       "title": "Lower Shawneetown: A Shawnee Town in Greenup County",
       "publishedDate": "2026-08-29",
       "summary": "In Greenup County, Lower Shawneetown was a major Shawnee town of the mid-1700s in the Ohio Valley, shown as Lower Shawneetown on English maps.",
-      "proseChars": 807,
+      "proseChars": 878,
       "yearStart": 1751,
       "yearEnd": 1758,
       "era": "native",
@@ -2595,7 +2630,7 @@
       "title": "Shawnee Chillicothe divisions",
       "publishedDate": "2026-09-20",
       "summary": "Chillicothe was the Shawnee division that supplied political leadership; its main town moved often in Ohio, so several “Chillicothes” appear in the record.",
-      "proseChars": 3203,
+      "proseChars": 3198,
       "yearStart": 1774,
       "yearEnd": 1780,
       "era": "native",
@@ -7054,7 +7089,7 @@
       "seoTitle": "Red Bird Petroglyphs in Clay County",
       "publishedDate": "2026-10-07",
       "summary": "A 50-ton sandstone block cut with petroglyphs, its carved face about 5½ feet high, stood for centuries in Clay County until it fell in 1994.",
-      "proseChars": 1294,
+      "proseChars": 1295,
       "yearStart": null,
       "yearEnd": null,
       "era": "prehistoric",
@@ -7112,10 +7147,10 @@
     },
     {
       "slug": "tinsley-hill-15ly18-lyon-county",
-      "title": "Tinsley Hill: Mississippian town under Lake Barkley",
+      "title": "Tinsley Hill (15Ly18): Mississippian Town in Lyon County",
       "publishedDate": "2026-10-12",
-      "summary": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village on the Cumberland.",
-      "proseChars": 1314,
+      "summary": "Tinsley Hill (15Ly18), in Lyon County, is a late prehistoric stone-grave cemetery and village studied in a federal salvage archaeology program.",
+      "proseChars": 1229,
       "yearStart": null,
       "yearEnd": null,
       "era": "prehistoric",
@@ -7130,16 +7165,18 @@
       "county": "Lyon",
       "photo": {
         "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
-        "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
+        "title": "A Mississippian bird effigy bowl, c. 1350–1550, University of Arkansas Museum; a generic artifact, not from Tinsley Hill in Lyon County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bird_effigy_bowl,_Mississippian,_University_of_Arkansas_Museum.JPG",
         "source_label": "Wikimedia Commons",
-        "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain",
-        "year": null
+        "attribution": "Wmpearl · Wikimedia Commons · CC0",
+        "year": null,
+        "credit": "Wmpearl",
+        "license": "CC0"
       },
       "lat": 37,
       "lon": -88,
       "mapConfidence": "override",
-      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)"
+      "matchedPlace": "Tinsley Hill (15Ly18), Lyon County (approximate)"
     },
     {
       "slug": "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",

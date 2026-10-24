@@ -16,7 +16,7 @@
   "briefDate": "2026-09-25",
   "photo": {
     "image_url": "/content/photos/stories/cleek-mccabe-a-circular-fort-ancient-village-in-boone-county.jpg",
-    "title": "Stand-in photo: Boone County Courthouse in Burlington, the county seat (no public photo of the site itself)",
+    "title": "Stand-in photo: the Boone County Courthouse (no public photo of the site itself)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Boone_County_Courthouse%2C_Burlington%2C_KY.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "w_lemay · Wikimedia Commons · CC0",
@@ -33,7 +33,7 @@
   "figure": {
     "webp": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.webp",
     "jpg": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
-    "alt": "AI illustration: a Fort Ancient village of rectangular bark-covered houses in a ring around an open plaza, with low burial mounds to the east and west, beside a creek.",
+    "alt": "AI illustration: a Fort Ancient village in Boone County, rectangular bark-covered houses in a ring around an open plaza, with low burial mounds",
     "credit": "AI illustration · Kentucky History Drive",
     "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Fort Ancient period in Kentucky; details without direct evidence are informed guesses.",
     "evidence": "culture-fort-ancient-image-evidence"

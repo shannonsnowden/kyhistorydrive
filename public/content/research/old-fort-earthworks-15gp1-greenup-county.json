@@ -1,0 +1,42 @@
+{
+  "slug": "old-fort-earthworks-15gp1-greenup-county",
+  "storySlug": "old-fort-earthworks-15gp1-greenup-county",
+  "title": "Research notes: Old Fort Earthworks (15Gp1)",
+  "updated": "2026-10-24",
+  "summary": "Sources for the Middle Woodland square enclosure in Greenup County. The public story stays at county level. The map pin is generalized.",
+  "sections": [
+    {
+      "heading": "National Register",
+      "items": [
+        {
+          "text": "Listed December 4, 1980. The full official National Register title is Portsmouth Earthworks, Group A. That title is kept here and is not used in the public story.",
+          "sources": [
+            "nris"
+          ]
+        },
+        {
+          "text": "Address-restricted archaeological site. The public map pin is generalized to Greenup County.",
+          "sources": [
+            "kas"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "nris",
+      "citation": "National Register of Historic Places, listed December 4, 1980. Official title: Portsmouth Earthworks, Group A.",
+      "url": "https://npgallery.nps.gov/NRHP",
+      "type": "primary",
+      "accessed": "2026-10-24"
+    },
+    {
+      "id": "kas",
+      "citation": "Kentucky Archaeological Survey, Old Fort Earthworks site page.",
+      "url": "https://archaeology.ky.gov/Find-a-Site/Pages/Old-Fort-Earthworks.aspx",
+      "type": "secondary",
+      "accessed": "2026-10-24"
+    }
+  ]
+}

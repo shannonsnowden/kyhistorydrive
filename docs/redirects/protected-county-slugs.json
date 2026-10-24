@@ -1,0 +1,32 @@
+[
+  {
+    "source": "/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge",
+    "target": "/stories/muir-site-early-fort-ancient/",
+    "status": "301"
+  },
+  {
+    "source": "/stories/muir-site-early-fort-ancient-on-a-jessamine-ridge/",
+    "target": "/stories/muir-site-early-fort-ancient/",
+    "status": "301"
+  },
+  {
+    "source": "/stories/buckner-site-fort-ancient-villages-on-strodes-creek",
+    "target": "/stories/buckner-site-fort-ancient-villages/",
+    "status": "301"
+  },
+  {
+    "source": "/stories/buckner-site-fort-ancient-villages-on-strodes-creek/",
+    "target": "/stories/buckner-site-fort-ancient-villages/",
+    "status": "301"
+  },
+  {
+    "source": "/stories/lower-shawneetown-at-the-scioto-mouth",
+    "target": "/stories/lower-shawneetown-greenup-county/",
+    "status": "301"
+  },
+  {
+    "source": "/stories/lower-shawneetown-at-the-scioto-mouth/",
+    "target": "/stories/lower-shawneetown-greenup-county/",
+    "status": "301"
+  }
+]

@@ -50,6 +50,9 @@ const OLD_SLUG_301S = [
   ['jacob-beam-sells-old-jakes-first-barrel', 'jacob-beam-on-hardin-creek'],
   ['wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid', 'wea-waayaahtanwa-on-the-wabash'],
   ['red-bird-river-petroglyphs-clay-county', 'red-bird-petroglyphs-clay-county'], // Editor ruling #346: county-level slug
+  ['muir-site-early-fort-ancient-on-a-jessamine-ridge', 'muir-site-early-fort-ancient'],
+  ['buckner-site-fort-ancient-villages-on-strodes-creek', 'buckner-site-fort-ancient-villages'],
+  ['lower-shawneetown-at-the-scioto-mouth', 'lower-shawneetown-greenup-county'],
 ]
 export const REDIRECT_ALLOWLIST = [
   ...SLASHLESS_KEPT.map((p) => `${p}->${p}/:301`),
