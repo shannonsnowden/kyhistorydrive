@@ -4,11 +4,12 @@
  * records allowlisted for this PR (scripts/generated-diff-allowlist.json). Rebuild noise
  * (seoTitles, key order, proseChars, bumped dates in other stories) fails.
  * Checks the committed HEAD by default; --worktree checks the working tree; --fix rewrites
- * the working tree to base + allowlisted records. Skips when origin/v2 is unavailable.
+ * the working tree to base + allowlisted records. When origin/v2 (or GENERATED_DIFF_BASE) is missing it
+ * skips on a local box but fails closed in CI (see missingBaseAction).
  */
 import fs from 'node:fs'
 import { execFileSync } from 'node:child_process'
-import { diffJson, mergeAllowed, formatLike, makeAllow } from './lib/generated-diff.mjs'
+import { diffJson, mergeAllowed, formatLike, makeAllow, missingBaseAction } from './lib/generated-diff.mjs'
 
 export const GENERATED = [
   'public/content/stories.json', 'public/content/story-dates.json', 'public/content/story-photos.json',
@@ -27,7 +28,11 @@ const fix = args.includes('--fix')
 
 const base = tryGit('merge-base', BASE_REF, 'HEAD')?.trim()
 if (!base) {
-  console.log(`check-generated-diff: skipped (${BASE_REF} not available in this clone)`)
+  if (missingBaseAction(process.env, BASE_REF) === 'fail') {
+    console.error(`check-generated-diff: FAIL — ${BASE_REF} is not available in this CI clone; fetch it or set GENERATED_DIFF_BASE (fails closed in CI)`)
+    process.exit(1)
+  }
+  console.log(`check-generated-diff: skipped (${BASE_REF} not available in this clone; local run)`)
   process.exit(0)
 }
 const { patterns, storyFiles = [] } = JSON.parse(fs.readFileSync(new URL('./generated-diff-allowlist.json', import.meta.url), 'utf8'))

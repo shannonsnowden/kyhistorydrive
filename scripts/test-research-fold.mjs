@@ -67,16 +67,19 @@ assert.match(glance, /<a href="\/stories\/battle-of-blue-licks\/#research-notes"
 assert.equal(glance.includes('/research/'), false)
 assert.equal(story.bodyMarkdown.includes('/research/'), false, 'Blue Licks body no longer links its research page')
 
-// amplify.yml: two explicit 301s per folded note, no wildcard.
+// Redirects (Editor ruling #345): amplify.yml keeps only its 18 allowlisted 301s, so the research
+// 301s live in the console paste list docs/redirects/research-fold-340.json, two per folded note.
 const amp = fs.readFileSync('amplify.yml', 'utf8')
-assert.equal(/source: '\/research\/<\*>'/.test(amp) || /source: '\/research\/?'/.test(amp), false, 'no /research wildcard')
+assert.equal(amp.includes("'/research/"), false, 'amplify.yml carries no /research/ rules')
+const paste = JSON.parse(fs.readFileSync('docs/redirects/research-fold-340.json', 'utf8')).rules
+assert.equal(paste.some((r) => /<\*>|^\/research\/?$/.test(r.source)), false, 'no /research wildcard')
+assert.equal(paste.length, folded.length * 2, 'two 301s per folded note')
 for (const n of folded) {
   for (const src of [`/research/${n.slug}`, `/research/${n.slug}/`]) {
-    const re = new RegExp(`- source: '${src.replace(/[/.-]/g, '\\$&')}'\\n\\s+target: '/stories/${n.storySlug}/'\\n\\s+status: '301'`)
-    assert.match(amp, re, `301 for ${src}`)
+    assert.ok(paste.some((r) => r.source === src && r.target === `/stories/${n.storySlug}/` && r.status === '301'), `301 for ${src}`)
   }
 }
-for (const n of culture) assert.equal(amp.includes(`'/research/${n.slug}`), false, `culture ${n.slug} is not redirected`)
+for (const n of culture) assert.equal(paste.some((r) => r.source.startsWith(`/research/${n.slug}`)), false, `culture ${n.slug} is not redirected`)
 
 // unique titles / h1 helper
 const pages = [

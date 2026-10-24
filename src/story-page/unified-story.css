@@ -1102,7 +1102,12 @@ html[data-theme="dark"] .usp-map-edge {
   }
 }
 
-/* Phones: Save, Download and Share go icon-only (aria-labels carry the names) so all three stay on one row (#345). */
+/* Story header search: ~200px so "Search stories" is never clipped. */
+@media (min-width: 761px) {
+  .usp-body .nav-search { min-width: 200px; }
+}
+
+/* Phones: Save, Download and Share go icon-only (aria-labels carry the names) so all three stay on one row. */
 @media (max-width: 480px) {
   .usp-tools { gap: 0.4rem; }
   .usp-tool { padding: 0; width: 44px; justify-content: center; }

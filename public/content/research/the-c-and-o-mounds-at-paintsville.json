@@ -1,15 +1,15 @@
 {
   "slug": "the-c-and-o-mounds-at-paintsville",
   "storySlug": "the-c-and-o-mounds-at-paintsville",
-  "title": "The C. and O. Mounds at Paintsville",
+  "title": "The C. and O. Mounds",
   "updated": "2026-10-19",
-  "summary": "On the Levisa Fork at Paintsville, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
+  "summary": "In Johnson County, the C. and O. Mounds are two Adena burial mounds that William S. Webb dug and used to explain how Adena people lived.",
   "sections": [
     {
       "heading": "Site",
       "items": [
         {
-          "text": "Two mounds 1,600 ft apart on Levisa Fork floodplain, sites Jo 2 and Jo 9; excavated with WPA sponsorship, published by Webb 1942.",
+          "text": "Two mounds 1,600 ft apart in Johnson County, sites Jo 2 and Jo 9; excavated with WPA sponsorship, published by Webb 1942.",
           "sources": [
             "tdar",
             "clay"
@@ -66,7 +66,7 @@
   "sources": [
     {
       "id": "tdar",
-      "citation": "tDAR: Webb 1942, The C. and O. Mounds at Paintsville",
+      "citation": "tDAR: Webb 1942, sites Jo 2 and Jo 9, Johnson County",
       "url": "https://core.tdar.org/document/176231/the-c-and-o-mounds-at-paintsville-sites-jo-2-and-jo-9-johnson-county-kentucky",
       "type": "web",
       "accessed": "2026-10-19"

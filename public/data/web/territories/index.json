@@ -23,8 +23,7 @@
    "color": "#0072B2",
    "slugs": [
     "treaties-of-hard-labour-and-lochaber",
-    "chickamauga-cherokee",
-    "chickamauga-cherokee-hold-the-southern-flank"
+    "chickamauga-cherokee"
    ],
    "ref": "/data/web/territories/cherokee-treaty-lines-and-chickamauga.json",
    "extentFeature": "extent",
@@ -312,7 +311,6 @@
     "dover-mound-mason-county",
     "gaitskill-mounds-engraved-tablets",
     "peter-village-enclosure-15fa166",
-    "peter-village-early-woodland-enclosure-near-lexington",
     "mount-horeb-earthworks",
     "robbins-mounds-boone-county",
     "wright-mounds-montgomery-county",

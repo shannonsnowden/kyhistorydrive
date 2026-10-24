@@ -92,3 +92,18 @@ export function formatLike(baseText, data) {
   const indent = /^[[{]\r?\n/.test(baseText) ? 2 : 0
   return JSON.stringify(data, null, indent) + (baseText.endsWith('\n') ? '\n' : '')
 }
+
+/**
+ * What to do when the merge base ref (origin/v2 or GENERATED_DIFF_BASE) is missing: 'skip' on a local
+ * box, 'fail' in CI (fail closed). An Amplify build of the base branch itself or of main has nothing to
+ * diff against (HEAD is the base), so it skips.
+ */
+export function missingBaseAction(env = {}, baseRef = 'origin/v2') {
+  const truthy = (v) => v != null && v !== '' && !/^(0|false|no)$/i.test(String(v))
+  const amplify = truthy(env.AWS_APP_ID) || truthy(env.AWS_BRANCH)
+  const ci = truthy(env.CI) || truthy(env.GITHUB_ACTIONS) || truthy(env.CODEBUILD_BUILD_ID) || amplify
+  if (!ci) return 'skip'
+  const baseBranch = String(baseRef).replace(/^origin\//, '')
+  if (amplify && (env.AWS_BRANCH === baseBranch || env.AWS_BRANCH === 'main')) return 'skip'
+  return 'fail'
+}

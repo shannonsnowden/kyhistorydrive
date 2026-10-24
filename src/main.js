@@ -14,7 +14,7 @@ import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
 import { initTimelineReading } from './timeline-reading.js'
-import { loadProtectedPins, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
+import { loadProtectedPins, protectedPinsLoaded, isProtectedPin, protectedPinNoteHtml, addProtectedPinLayers, capProtectedZoom } from './protected-pins.js'
 import { MobileNav } from './mobile-nav.js'
 import { HomepageStructure } from './homepage-structure.js'
 import { loadPhotoVariants, responsivePicture } from './responsive-img.js'
@@ -29,6 +29,7 @@ import {
   markerRecords,
   photoCreditHtml,
   photoCaptionYear,
+  isProtectedStoryCoords,
   relatedAndNearbyForStory,
   resolveArticleDates,
   storyCanonicalUrl,
@@ -72,6 +73,7 @@ import {
   textureCss,
   CULTURE_EDGE,
 } from './territory.js'
+import { storyUrl, timelineForwardUrl } from './story-url.js'
 
 /**
  * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
@@ -388,7 +390,7 @@ function placeShareHash(layerId, props) {
 
 function storyShareHash(slug) {
   if (!slug) return '#timeline'
-  return `#timeline/${encodeURIComponent(slug)}`
+  return storyUrl(slug)
 }
 
 const STORY_MAP_LAYERS = new Set(['stories', 'story', 'timeline'])
@@ -524,6 +526,12 @@ function clearAliasHash() {
 }
 
 function ensureHomeHash() {
+  // #337: an old /#timeline/<slug> (or #stories/#story alias) link opens the static story page.
+  const forward = timelineForwardUrl(location.hash, location.pathname)
+  if (forward) {
+    location.replace(forward)
+    return
+  }
   // Empty hash → magazine homepage; #home is an alias. Legacy #stories → #timeline.
   // #content is only the skip-link target. Clearing it has to wait until after the
   // browser applies the fragment, or the hash is put back.
@@ -542,7 +550,7 @@ function ensureHomeHash() {
   }
   if (raw.startsWith('stories/') || raw.startsWith('story/')) {
     const slug = raw.split('/').slice(1).join('/')
-    history.replaceState(null, '', `${location.pathname}#timeline/${slug}`)
+    history.replaceState(null, '', `${location.pathname}#timeline/` + encodeURIComponent(slug))
   }
 }
 
@@ -1668,6 +1676,7 @@ function placeDetailExtrasHtml({
   source_url,
   website,
   storyPhoto,
+  protectedIds = [],
 }) {
   const displayMarkdown = stripSourceAttribution(bodyMarkdown)
   const links = extractResearchLinks(bodyMarkdown)
@@ -1675,7 +1684,9 @@ function placeDetailExtrasHtml({
   if (storyPhoto?.image_url && !photos.some((p) => p.image_url === storyPhoto.image_url)) {
     photos.unshift(storyPhoto)
   }
-  const mapsHtml = lat == null || lon == null ? '' : mapsLinksHtml(lat, lon, name, placeHint)
+  // Protected sites never get directions, map links or a photo search (the /about/ promise).
+  const isProtected = protectedIds.some((id) => isProtectedPin(id))
+  const mapsHtml = isProtected || lat == null || lon == null ? '' : mapsLinksHtml(lat, lon, name, placeHint)
   return `${mapsHtml}${photosHtml(photos)}${researchLinksHtml(links, name, {
     placeHint,
     source_url,
@@ -1742,6 +1753,7 @@ function detailHtmlFromProps(p, layerId, coords, relatedHtml = '') {
     source_url: p.source_url || null,
     website: p.website || null,
     storyPhoto: p.photo || p.storyPhoto || null,
+    protectedIds: [p.historyId, p.id, p.slug],
   })
   const layerLabel = DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId
   const shareUrl = absoluteShareUrl(placeShareHash(layerId, p))
@@ -1978,6 +1990,12 @@ async function slugForPlaceProps(props) {
     for (const row of Object.values(locations || {})) {
       if (row?.historyId && row.slug && !historyIdToSlugCache[row.historyId]) {
         historyIdToSlugCache[row.historyId] = row.slug
+      }
+    }
+    // #337: a story can own extra History pins (story-overrides alsoHistoryIds); primary links win.
+    for (const row of Object.values(locations || {})) {
+      for (const extra of Array.isArray(row?.alsoHistoryIds) ? row.alsoHistoryIds : []) {
+        if (extra && row.slug && !historyIdToSlugCache[extra]) historyIdToSlugCache[extra] = row.slug
       }
     }
   }
@@ -3405,6 +3423,7 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
       historyId,
       layer: 'history',
       storyPhoto: s.photo || null,
+      protectedIds: [historyId, meta.slug, s.slug],
     })
     const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
     const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
@@ -3456,13 +3475,13 @@ async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
             </div>
             ${titleHtml}
             ${tags ? `<div class="tags">${tags}</div>` : ''}
-            ${shareControlHtml(absoluteShareUrl(storyShareHash(meta.slug)), s.title)}
+            ${shareControlHtml(new URL(storyShareHash(meta.slug), location.origin).href, s.title)}
             ${
               summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
                 ? ''
                 : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
             }
-            ${takeADriveHtml(await loadStoryDrives(), meta.slug)}
+            ${takeADriveHtml(await loadStoryDrives(), meta.slug, { isProtected: (await loadProtectedPins(), protectedPinsLoaded() ? isProtectedStoryCoords({ ...meta, ...s }) : undefined) })}
           </header>
           <div class="story-glance-mount"></div>
           <div class="story-body"></div>
