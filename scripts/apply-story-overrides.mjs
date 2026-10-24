@@ -271,9 +271,11 @@ if (fs.existsSync(RULES)) {
 // (story slugs and History ids). Not part of the app/OTA data.
 const PROTECTED_OUT = path.resolve('public/data/web/protected-pins.json')
 const protectedSet = new Set(rounding.protectedIds)
-// #337: a merged story keeps its twin's protection, so old links and the kept slug both stay rounded.
+// #337: a merged story keeps its twin's protection. The retired slug only redirects now, so it is
+// dropped from the public list (SEO: no retired slugs in shipped data) and the kept slug stays rounded.
 for (const { retired, kept } of loadMerges()) {
-  if (protectedSet.has(retired) || protectedSet.has(kept)) { protectedSet.add(retired); protectedSet.add(kept) }
+  if (protectedSet.has(retired) || protectedSet.has(kept)) protectedSet.add(kept)
+  protectedSet.delete(retired)
 }
 const protectedIds = [...protectedSet].sort()
 if (fs.existsSync(RULES)) {

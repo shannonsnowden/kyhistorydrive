@@ -16,6 +16,7 @@
  * pins are never printed. MapLibre is not included.
  */
 import fs from 'node:fs'
+import { tagLabel } from './lib/tag-label.mjs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import sharp from 'sharp'
@@ -2042,7 +2043,7 @@ class PrerenderPages {
     const tagsList = (story.tags || []).filter((t) => t && t !== 'kentucky' && t !== story.era)
     const tagsHtml = tagsList.length
       ? `<ul class="usp-tags" aria-label="Story topics">
-          ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(String(t).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()))}</a></li>`).join('')}
+          ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(tagLabel(t))}</a></li>`).join('')}
         </ul>`
       : ''
 

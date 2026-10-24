@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T11:01:00.022Z",
+  "generatedAt": "2026-10-24T12:16:50.673Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -30,7 +30,7 @@
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
       "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
-      "historyId": null,
+      "historyId": "ann-mcginty-first-spinning-wheel-harrodstown",
       "photo": {
         "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
         "title": "Old Fort Harrod reconstruction, Harrodsburg",
@@ -247,18 +247,6 @@
         "year": 2020
       }
     },
-    "camp-nelson-jessamine-county": {
-      "slug": "camp-nelson-jessamine-county",
-      "historyId": "camp-nelson-jessamine-1863-1865",
-      "photo": {
-        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
-        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
-        "year": 2022
-      }
-    },
     "camp-nelson-kentucky-us-colored-troops": {
       "slug": "camp-nelson-kentucky-us-colored-troops",
       "historyId": "camp-nelson-usct-jessamine-1863-1866",
@@ -374,22 +362,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "Andy Eller, U.S. Fish and Wildlife Service · Wikimedia Commons · public domain",
         "year": 2012
-      }
-    },
-    "chickamauga-cherokee-hold-the-southern-flank": {
-      "slug": "chickamauga-cherokee-hold-the-southern-flank",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/chickamauga-cherokee-hold-the-southern-flank.jpg",
-        "title": "Towns in the Chickamauga, Hiwassee and Tellico areas (map)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Chickamauga_Towns.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chuck Hamilton · Wikimedia Commons · GFDL 1.2 or later; CC BY-SA 4.0",
-        "year": 2010,
-        "credit": "Chuck Hamilton",
-        "license": "GFDL 1.2 or later; CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-        "artwork": "map"
       }
     },
     "chickamauga-cherokee": {
@@ -901,7 +873,7 @@
     },
     "henry-mckennas-fairfield-sour-mash": {
       "slug": "henry-mckennas-fairfield-sour-mash",
-      "historyId": null,
+      "historyId": "henry-mckenna-fairfield-old-line",
       "photo": {
         "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
         "title": "Main Street (KY 48), Fairfield, Nelson County",
@@ -1005,19 +977,6 @@
       "historyId": "jacob-beam-hardins-creek-washington-county",
       "photo": {
         "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
-        "title": "Jim Beam White Label",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null,
-        "fit": "contain"
-      }
-    },
-    "jacob-beam-sells-old-jakes-first-barrel": {
-      "slug": "jacob-beam-sells-old-jakes-first-barrel",
-      "historyId": "jacob-beam-hardins-creek-washington-county",
-      "photo": {
-        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
         "title": "Jim Beam White Label",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
@@ -1202,7 +1161,7 @@
     },
     "lawrenceburg-from-kaufmans-station-to-anderson-county-seat": {
       "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
-      "historyId": null,
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
       "photo": {
         "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
         "title": "Anderson County Courthouse, Lawrenceburg",
@@ -1527,7 +1486,7 @@
     },
     "newport-at-the-licking-mouth": {
       "slug": "newport-at-the-licking-mouth",
-      "historyId": null,
+      "historyId": "newport-founding-hubbard-and-james-taylor",
       "photo": {
         "image_url": "/content/photos/stories/newport-at-the-licking-mouth.jpg",
         "title": "Mouth of the Licking River between Covington and Newport, 2004",
@@ -1641,8 +1600,8 @@
         "year": 2018
       }
     },
-    "peter-village-early-woodland-enclosure-near-lexington": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+    "peter-village-enclosure-15fa166": {
+      "slug": "peter-village-enclosure-15fa166",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
       "photo": {
         "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
@@ -1891,7 +1850,7 @@
     },
     "simon-girty-interpreter-at-bryan-station-1782": {
       "slug": "simon-girty-interpreter-at-bryan-station-1782",
-      "historyId": null,
+      "historyId": "bryans-station-siege-1782",
       "photo": {
         "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
         "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
@@ -2250,18 +2209,6 @@
         "year": 2011
       }
     },
-    "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid": {
-      "slug": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
-      "historyId": "wea-waayaahtanwa-ouiatenon",
-      "photo": {
-        "image_url": "/content/photos/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid.jpg",
-        "title": "Fort Ouiatenon blockhouse, Tippecanoe County, Indiana",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ouiatenon_blockhouse_front.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
-        "year": 2008
-      }
-    },
     "wea-waayaahtanwa-on-the-wabash": {
       "slug": "wea-waayaahtanwa-on-the-wabash",
       "historyId": "wea-waayaahtanwa-ouiatenon",
@@ -2345,18 +2292,6 @@
         "year": 2008,
         "fit": "contain"
       }
-    },
-    "yellow-banks-becomes-owensboro": {
-      "slug": "yellow-banks-becomes-owensboro",
-      "historyId": "owensboro-founding-yellow-banks",
-      "photo": {
-        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
-        "title": "Second Street, Owensboro",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Smallbones · Wikimedia Commons · Public domain",
-        "year": null
-      }
     }
   },
   "byHistoryId": {
@@ -2385,6 +2320,18 @@
         "credit": "Herb Roe",
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "ann-mcginty-first-spinning-wheel-harrodstown": {
+      "slug": "ann-mcginty-and-kentuckys-first-spinning-wheel",
+      "historyId": "ann-mcginty-first-spinning-wheel-harrodstown",
+      "photo": {
+        "image_url": "/content/photos/stories/ann-mcginty-and-kentuckys-first-spinning-wheel.jpg",
+        "title": "Old Fort Harrod reconstruction, Harrodsburg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Harrod_State_Park.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "FloNight (Sydney Poore) and Russell Poore · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007
       }
     },
     "annis-mound-village-15bt2-butler-county": {
@@ -2558,15 +2505,16 @@
       }
     },
     "bryans-station-siege-1782": {
-      "slug": "bryan-station-siege-august-1782",
+      "slug": "simon-girty-interpreter-at-bryan-station-1782",
       "historyId": "bryans-station-siege-1782",
       "photo": {
-        "image_url": "/content/photos/stories/bryan-station-siege-august-1782.jpg",
-        "title": "Kentucky Historical Marker 21, Bryan's Station (Fayette County)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan%27s_Station.jpg",
+        "image_url": "/content/photos/stories/simon-girty-interpreter-at-bryan-station-1782--topic.jpg",
+        "title": "Historical marker for Bryan's Station, the fortified settlement besieged in August 1782 (photographed 2019)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bryan's_Station.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
         "year": 2019,
+        "license": "CC BY-SA 4.0",
         "fit": "contain"
       }
     },
@@ -2592,18 +2540,6 @@
         "source_label": "Wikimedia Commons",
         "attribution": "w_lemay · Wikimedia Commons · CC0",
         "year": 2020
-      }
-    },
-    "camp-nelson-jessamine-1863-1865": {
-      "slug": "camp-nelson-jessamine-county",
-      "historyId": "camp-nelson-jessamine-1863-1865",
-      "photo": {
-        "image_url": "/content/photos/stories/camp-nelson-jessamine-county.jpg",
-        "title": "Museum exhibit of Civil War soldier camps at Camp Nelson National Monument (2022 photo)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Camp_Nelson_National_Monument_(765657f2-7f6c-4360-94d3-411e194f4a93).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
-        "year": 2022
       }
     },
     "camp-nelson-usct-jessamine-1863-1866": {
@@ -3113,6 +3049,18 @@
         "year": 2013
       }
     },
+    "henry-mckenna-fairfield-old-line": {
+      "slug": "henry-mckennas-fairfield-sour-mash",
+      "historyId": "henry-mckenna-fairfield-old-line",
+      "photo": {
+        "image_url": "/content/photos/stories/henry-mckennas-fairfield-sour-mash.jpg",
+        "title": "Main Street (KY 48), Fairfield, Nelson County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield-KY48-ky.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
+        "year": 2017
+      }
+    },
     "hidden-river-cave-horse-cave-1890-1943": {
       "slug": "hidden-river-cave-under-horse-cave",
       "historyId": "hidden-river-cave-horse-cave-1890-1943",
@@ -3187,10 +3135,10 @@
       }
     },
     "jacob-beam-hardins-creek-washington-county": {
-      "slug": "jacob-beam-sells-old-jakes-first-barrel",
+      "slug": "jacob-beam-on-hardin-creek",
       "historyId": "jacob-beam-hardins-creek-washington-county",
       "photo": {
-        "image_url": "/content/photos/stories/jacob-beam-sells-old-jakes-first-barrel.jpg",
+        "image_url": "/content/photos/stories/jacob-beam-on-hardin-creek.jpg",
         "title": "Jim Beam White Label",
         "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Beam_White_Label.jpg",
         "source_label": "Wikimedia Commons",
@@ -3370,6 +3318,19 @@
         "credit": "W.marsh",
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "fit": "contain"
+      }
+    },
+    "lawrenceburg-founding-kaufman-s-coffman-s-station": {
+      "slug": "lawrenceburg-from-kaufmans-station-to-anderson-county-seat",
+      "historyId": "lawrenceburg-founding-kaufman-s-coffman-s-station",
+      "photo": {
+        "image_url": "/content/photos/stories/lawrenceburg-from-kaufmans-station-to-anderson-county-seat.jpg",
+        "title": "Anderson County Courthouse, Lawrenceburg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Anderson_County_courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Michael Howard · Wikimedia Commons · Free Art License",
+        "year": 2007,
         "fit": "contain"
       }
     },
@@ -3627,6 +3588,21 @@
         "fit": "contain"
       }
     },
+    "newport-founding-hubbard-and-james-taylor": {
+      "slug": "newport-at-the-licking-mouth",
+      "historyId": "newport-founding-hubbard-and-james-taylor",
+      "photo": {
+        "image_url": "/content/photos/stories/newport-at-the-licking-mouth.jpg",
+        "title": "Mouth of the Licking River between Covington and Newport, 2004",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Licking_river.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Rdikeman at English Wikipedia · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2004,
+        "credit": "Rdikeman at English Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    },
     "nicholasville-founding-rev-john-metcalf-1798": {
       "slug": "nicholasville-takes-shape",
       "historyId": "nicholasville-founding-rev-john-metcalf-1798",
@@ -3667,10 +3643,10 @@
       }
     },
     "owensboro-founding-yellow-banks": {
-      "slug": "yellow-banks-becomes-owensboro",
+      "slug": "owensboro-yellow-banks",
       "historyId": "owensboro-founding-yellow-banks",
       "photo": {
-        "image_url": "/content/photos/stories/yellow-banks-becomes-owensboro.jpg",
+        "image_url": "/content/photos/stories/owensboro-yellow-banks.jpg",
         "title": "Second Street, Owensboro",
         "source_url": "https://commons.wikimedia.org/wiki/File:Owensboro2ndStAnn.JPG",
         "source_label": "Wikimedia Commons",
@@ -3703,7 +3679,7 @@
       }
     },
     "peter-village-enclosure-15fa166-fayette-county": {
-      "slug": "peter-village-early-woodland-enclosure-near-lexington",
+      "slug": "peter-village-enclosure-15fa166",
       "historyId": "peter-village-enclosure-15fa166-fayette-county",
       "photo": {
         "image_url": "/content/photos/stories/peter-village-early-woodland-enclosure-near-lexington.jpg",
