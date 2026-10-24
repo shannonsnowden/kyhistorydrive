@@ -213,23 +213,34 @@ if (fs.existsSync(peterPage)) {
   assert.ok(!fs.readFileSync(peterPage, 'utf8').includes('/stories/mount-horeb-earthworks/'), 'Peter Village page links Mount Horeb')
 }
 
+// ---------- built pages: a hit passes only on an exact file|owner|page:<label>|match entry ----------
+function pageHits(html, owner) {
+  const out = []
+  for (const [label, text] of pageParts(html)) {
+    for (const h of findLocators(scrub(text, owner), owner)) out.push({ file: `stories/${owner}/index.html`, owner, field: `page:${label}`, match: h.match, id: h.id })
+  }
+  return out
+}
+{
+  // An allowlisted body string (Adams Site bodyMarkdown, origin/v2) planted in <title> or in alt text
+  // outside <article> is a new page hit and must fail.
+  const ADAMS = 'adams-site-15fu4'
+  const body = [...ALLOW].map((e) => e.split('|')).find(([f, o, fld]) => f === `content/stories/${ADAMS}.json` && o === ADAMS && fld === 'bodyMarkdown')
+  assert.ok(body, 'fixture needs an allowlisted adams-site-15fu4 bodyMarkdown entry')
+  const term = body[3]
+  for (const html of [`<title>Adams Site by ${term}</title>`, `<header><img src="x.webp" alt="View by ${term}"></header><article><p>ok</p></article>`]) {
+    const bad = pageHits(html, ADAMS).filter((h) => !ALLOW.has(key(h)))
+    assert.ok(bad.length >= 1, `planted allowlisted body text must fail on the page: ${html}`)
+  }
+}
+
 // ---------- scan ----------
 const hits = scanTree(path.join(ROOT, 'public'))
 if (fs.existsSync(path.join(ROOT, 'dist/content'))) {
   for (const h of scanTree(path.join(ROOT, 'dist'))) hits.push(h) // same keys as public: built copies must match
-  // Page text is built from the source records, so a page hit passes only if that exact owner+match is already allowlisted from origin/v2 data.
   for (const owner of aliasesOf.keys()) {
     const page = path.join(ROOT, 'dist/stories', owner, 'index.html')
-    if (!fs.existsSync(page)) continue
-    // A page hit passes only via an exact page entry, or when the same owner+match is allowlisted in
-    // that owner's own story JSON (origin/v2 text that the page renders).
-    const own = new Set([...ALLOW].map((e) => e.split('|')).filter(([f, o]) => f === `content/stories/${owner}.json` && o === owner).map(([, , , m]) => m))
-    for (const [label, text] of pageParts(fs.readFileSync(page, 'utf8'))) {
-      for (const h of findLocators(scrub(text, owner), owner)) {
-        const hit = { file: `stories/${owner}/index.html`, owner, field: `page:${label}`, match: h.match, id: h.id }
-        if (!own.has(h.match)) hits.push(hit)
-      }
-    }
+    if (fs.existsSync(page)) hits.push(...pageHits(fs.readFileSync(page, 'utf8'), owner))
   }
 }
 // ---------- shipped JS bundles: no protected-site alias slug that itself carries a locator ----------
@@ -247,6 +258,11 @@ assert.ok(!Object.keys(STORY_MERGES).some((s) => [...aliasesOf.values()].some((a
 const assetsDir = path.join(ROOT, 'dist/assets')
 if (fs.existsSync(assetsDir)) {
   for (const f of fs.readdirSync(assetsDir).filter((n) => n.endsWith('.js'))) hits.push(...scanAssetText(fs.readFileSync(path.join(assetsDir, f), 'utf8'), `assets/${f}`))
+}
+if (process.argv.includes('--emit-page-hits')) {
+  // Prints current page hits; scripts/emit-page-allowlist keeps only text byte-identical on origin/v2.
+  console.log(JSON.stringify(hits.filter((h) => h.field.startsWith('page:')).map(key)))
+  process.exit(0)
 }
 const problems = [...new Set(hits.filter((h) => !ALLOW.has(key(h))).map((h) => `${h.file} [${h.owner}] ${h.field}: ${h.id} "${h.match}"`))]
 if (problems.length) {
