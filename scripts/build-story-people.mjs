@@ -8,7 +8,7 @@
  * Conservative matching:
  *  - candidates are only people whose people.json `stories` list includes this story;
  *  - only the full public name, exact case, whole words (no surnames, no aliases);
- *  - a name followed by a place word (Red Bird River, Boone County) does not count;
+ *  - a name followed by a place word (Sample River, Boone County) does not count;
  *  - a name contained in another candidate's name that also matches there is skipped;
  *  - one-word names are skipped unless they are the story's title subject;
  *  - exception: a per-story alias in scripts/portrait-sweep.json (`aliases: { id: 'Surname' }`)
@@ -105,7 +105,7 @@ for (const slug of slugsInScope) {
   hits.sort((a, b) => a.at - b.at)
   const links = hits.map(({ p }) => {
     const own = ownStory(p, slug)
-    return { id: p.id, name: matchName.get(p.id) || p.name, href: own ? `#timeline/${encodeURIComponent(own)}` : `/people/#${p.id}` }
+    return { id: p.id, name: matchName.get(p.id) || p.name, href: own ? `/stories/${encodeURIComponent(own)}/` : `/people/#${p.id}` }
   })
   const sidebar = story.photo?.source_url ? commonsName(story.photo.source_url) : ''
   const portraits = []

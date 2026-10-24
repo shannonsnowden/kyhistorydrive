@@ -948,7 +948,11 @@ html[data-theme="dark"] .usp-map-edge {
   padding: 0.1rem 0.42rem;
   font-size: 0.72rem;
   font-weight: 700;
-  white-space: nowrap;
+  /* Long place names wrap to two lines instead of running off the mini-map. */
+  white-space: normal;
+  width: max-content;
+  max-width: 9.5rem;
+  line-height: 1.2;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -1095,5 +1099,20 @@ html[data-theme="dark"] .usp-map-edge {
   .usp-drive .usp-btn,
   .usp-drive-cta {
     width: 100%;
+  }
+}
+
+/* Story header search: ~200px so "Search stories" is never clipped. */
+@media (min-width: 761px) {
+  .usp-body .nav-search { min-width: 200px; }
+}
+
+/* Phones: Save, Download and Share go icon-only (aria-labels carry the names) so all three stay on one row. */
+@media (max-width: 480px) {
+  .usp-tools { gap: 0.4rem; }
+  .usp-tool { padding: 0; width: 44px; justify-content: center; }
+  .usp-tool-label {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
   }
 }

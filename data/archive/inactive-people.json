@@ -1,0 +1,28 @@
+{
+  "note": "People archived because no published story mentions them any more. Not shipped or rendered: this folder is outside public/. Each entry keeps its former data/people.json record.",
+  "archivedDate": "2026-10-24",
+  "people": [
+    {
+      "id": "victor-collot",
+      "name": "Victor Collot",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "owensboro-yellow-banks"
+      ],
+      "role": "French spy, observer",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No image on Wikipedia/Commons for the matching article.",
+      "archivedReason": "Only story mention (Victor Collot's 1796 count) was dropped as unsourced in the Owensboro merge (#337)."
+    }
+  ]
+}

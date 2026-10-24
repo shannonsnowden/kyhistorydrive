@@ -1,5 +1,6 @@
 import { portraitAlt, creditWithCaption, aiCreditText, creditHtml } from './portrait-captions.js'
 import { MAX_LINKS_PER_BLOCK } from './story-people.js'
+import { storyUrl } from './story-url.js'
 
 export { portraitAlt }
 
@@ -177,7 +178,7 @@ export function relatedBlockHtml(data, slug, titleFor, headingId = 'storyRelated
   if (!items.length) return ''
   const hid = String(headingId || 'storyRelatedH').replace(/[^\w-]/g, '') || 'storyRelatedH'
   const portraits = options.portraits instanceof Map ? options.portraits : new Map()
-  const linkFor = options.linkFor || ((s) => `#timeline/${encodeURIComponent(s)}`)
+  const linkFor = options.linkFor || ((s) => storyUrl(s))
   const lis = items
     .map((x) => {
       const href = esc(linkFor(x.slug))
@@ -198,9 +199,11 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
   const people = Object.entries(data?.people || {}).sort((a, b) => b[0].length - a[0].length)
   if (!root || !people.length) return
   const done = new Set() // target slugs already linked in this story
-  for (const a of root.querySelectorAll('a.person-link[href^="#timeline/"]')) {
+  for (const a of root.querySelectorAll('a.person-link[href^="/stories/"], a.person-link[href^="#timeline/"]')) {
     try {
-      done.add(decodeURIComponent(a.getAttribute('href').slice(10))) // build-time links (story-people.json)
+      const h = a.getAttribute('href') || ''
+      const m = h.match(/^\/stories\/([^/?#]+)\/?$/) || h.match(/^#timeline\/([^/?#]+)$/)
+      if (m) done.add(decodeURIComponent(m[1])) // build-time links (story-people.json)
     } catch {
       /* ignore */
     }
@@ -224,7 +227,7 @@ export function linkPeopleInBody(root, data, slug, titleFor) {
       if (!m) continue
       const start = m.index + m[1].length
       const a = document.createElement('a')
-      a.href = `#timeline/${encodeURIComponent(target)}`
+      a.href = storyUrl(target)
       a.className = 'person-link'
       a.textContent = name
       a.title = `Read the story: ${titleFor(target)}`
@@ -257,17 +260,17 @@ export function hasSafePortrait(person) {
  * Returns { person, reason }.
  */
 /**
- * Slug-prefix matches that are not the story's subject. The Red Bird River petroglyphs story is
+ * Slug-prefix matches that are not the story's subject. The Red Bird petroglyphs story is
  * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
  */
-const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
+const NOT_SUBJECT = { 'red-bird-petroglyphs-clay-county': ['red-bird'] }
 export const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
 const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /**
  * Build time only (scripts/build-people.mjs): people named in a story title by full name or
  * alias. Multi-word names match case-insensitively; one-word names (Blackfish, Hokoleskwa) only
- * with exact case. A name followed by a place word (Red Bird River, Boone County) does not count.
+ * with exact case. A name followed by a place word (Sample River, Boone County) does not count.
  */
 export function titlePeople(people, title, slug = '') {
   const t = String(title || '')

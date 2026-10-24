@@ -25,7 +25,30 @@
         "old-mulkey-meetinghouse-1804",
         "pilot-knob-boones-overlook-1769",
         "pine-mountain-and-pound-gap",
-        "red-river-gorge-arches-and-the-dam-fight"
+        "red-river-gorge-arches-and-the-dam-fight",
+        "battle-of-blue-licks",
+        "hugh-mcgary-the-blue-licks-hothead",
+        "james-knox",
+        "yahoo-falls-big-south-fork",
+        "benjamin-logan",
+        "capt-will-the-hunting-ground",
+        "col-john-todd-of-lexington",
+        "col-richard-callaway-of-boonesborough",
+        "col-robert-patterson-builds-lexington",
+        "col-stephen-trigg-of-viney-grove",
+        "col-william-russell-iii",
+        "great-saltpetre-cave",
+        "john-filson-kentucke-1784",
+        "odawa-raid-at-eskippakithiki-1753",
+        "richard-henderson",
+        "richmond-from-millers-barn",
+        "shawnee-chillicothe-divisions",
+        "shelbyville",
+        "squire-boones-painted-stone",
+        "stanford-from-st-asaph",
+        "thomas-walker-and-cumberland-gap",
+        "washington-mason-county",
+        "william-calks-1775-journal"
       ],
       "role": "Long hunter, explorer, Boonesborough founder",
       "native": false,
@@ -73,7 +96,8 @@
       "lifeDates": null,
       "stories": [
         "col-john-holder-at-lower-howards-creek",
-        "col-richard-callaway-of-boonesborough"
+        "col-richard-callaway-of-boonesborough",
+        "john-floyd"
       ],
       "role": "Daniel Boone's daughter, captured 1776",
       "native": false,
@@ -95,7 +119,8 @@
       "lifeDates": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
-        "wyandot-on-kentuckys-northern-frontier"
+        "wyandot-on-kentuckys-northern-frontier",
+        "battle-of-blue-licks"
       ],
       "role": "Daniel Boone's son, killed at Blue Licks",
       "native": false,
@@ -187,7 +212,11 @@
         "col-john-hardin-of-pleasant-run",
         "nonhelema",
         "stanford-from-st-asaph",
-        "moluntha-and-logans-raid-1786"
+        "moluntha-and-logans-raid-1786",
+        "battle-of-blue-licks",
+        "hugh-mcgary-the-blue-licks-hothead",
+        "capt-james-estill-estills-defeat",
+        "col-richard-callaway-of-boonesborough"
       ],
       "role": "Militia general, Logan's Station founder",
       "native": false,
@@ -243,7 +272,19 @@
         "maj-joseph-bowman",
         "maj-silas-harlan",
         "winchester-clark-county-seat",
-        "treaty-of-fort-mcintosh-1785"
+        "treaty-of-fort-mcintosh-1785",
+        "battle-of-blue-licks",
+        "moluntha-and-logans-raid-1786",
+        "walker-daniel-danvilles-namesake",
+        "col-john-bowman-at-old-chillicothe",
+        "col-richard-callaway-of-boonesborough",
+        "col-robert-patterson-builds-lexington",
+        "john-floyd",
+        "mcafee-station-on-the-salt-river",
+        "ojibwe-on-birds-war-road",
+        "shawnee-chillicothe-divisions",
+        "william-christian-of-beargrass",
+        "william-whitley-sportsmans-hill"
       ],
       "role": "Revolutionary general, Illinois campaign",
       "native": false,
@@ -266,7 +307,14 @@
       "stories": [
         "henderson-at-red-banks",
         "richard-henderson",
-        "treaty-of-camp-charlotte-1774"
+        "treaty-of-camp-charlotte-1774",
+        "chickamauga-cherokee",
+        "benjamin-logan",
+        "capt-nathaniel-hart",
+        "maj-silas-harlan",
+        "richmond-from-millers-barn",
+        "stanford-from-st-asaph",
+        "william-calks-1775-journal"
       ],
       "role": "Transylvania Company founder",
       "native": false,
@@ -293,7 +341,9 @@
         "chickasaw-hunting-grounds",
         "col-john-holder-at-lower-howards-creek",
         "isaac-shelby-old-kings-mountain",
-        "shelbyville"
+        "shelbyville",
+        "ephraim-mcdowell-jane-todd-crawford-1809",
+        "winchester-clark-county-seat"
       ],
       "role": "First and fifth governor of Kentucky",
       "native": false,
@@ -338,7 +388,10 @@
       "lifeDates": "1756–1807",
       "stories": [
         "col-john-bowman-at-old-chillicothe",
-        "levi-todd-lexington-co-founder"
+        "levi-todd-lexington-co-founder",
+        "battle-of-blue-licks",
+        "col-john-todd-of-lexington",
+        "col-robert-patterson-builds-lexington"
       ],
       "role": "Lexington co-founder, militia officer",
       "native": false,
@@ -365,7 +418,10 @@
         "levi-todd-lexington-co-founder",
         "manns-lick-louisvilles-salt-town",
         "simon-girty-interpreter-at-bryan-station-1782",
-        "wyandot-on-kentuckys-northern-frontier"
+        "wyandot-on-kentuckys-northern-frontier",
+        "battle-of-blue-licks",
+        "col-richard-callaway-of-boonesborough",
+        "col-stephen-trigg-of-viney-grove"
       ],
       "role": "Colonel, Kentucky County lieutenant, killed at Blue Licks",
       "native": false,
@@ -434,7 +490,9 @@
       "stories": [
         "john-floyd",
         "stanford-from-st-asaph",
-        "prestonsburg-first-seat-on-the-big-sandy"
+        "prestonsburg-first-seat-on-the-big-sandy",
+        "benjamin-logan",
+        "squire-boones-painted-stone"
       ],
       "role": "Surveyor, Fincastle party leader",
       "native": false,
@@ -460,7 +518,8 @@
         "athiamiowee-the-warriors-path-through-kentucky",
         "john-finley-the-trader-who-put-kentucky-on-boones-map",
         "odawa-raid-at-eskippakithiki-1753",
-        "pilot-knob-boones-overlook-1769"
+        "pilot-knob-boones-overlook-1769",
+        "capt-will-the-hunting-ground"
       ],
       "role": "Trader who guided Boone to Kentucky",
       "native": false,
@@ -551,7 +610,8 @@
       "stories": [
         "col-john-hardin-of-pleasant-run",
         "little-turtle-and-hardins-defeat-1790",
-        "mascouten-fire-nation-on-the-wabash"
+        "mascouten-fire-nation-on-the-wabash",
+        "elizabethtown-from-severns-valley"
       ],
       "role": "Militia colonel, Hardin's Defeat",
       "native": false,
@@ -637,7 +697,8 @@
       "lifeDates": "c. 1744–1782",
       "stories": [
         "col-stephen-trigg-of-viney-grove",
-        "wyandot-on-kentuckys-northern-frontier"
+        "wyandot-on-kentuckys-northern-frontier",
+        "battle-of-blue-licks"
       ],
       "role": "Colonel, killed at Blue Licks",
       "native": false,
@@ -662,7 +723,9 @@
         "athiamiowee-the-warriors-path-through-kentucky",
         "col-robert-patterson-builds-lexington",
         "john-filson-kentucke-1784",
-        "pilot-knob-boones-overlook-1769"
+        "pilot-knob-boones-overlook-1769",
+        "battle-of-blue-licks",
+        "capt-will-the-hunting-ground"
       ],
       "role": "Author of Kentucke (1784), mapmaker",
       "native": false,
@@ -684,7 +747,8 @@
       "lifeDates": null,
       "stories": [
         "bullitts-lick-kentuckys-first-industry",
-        "william-christian-of-beargrass"
+        "william-christian-of-beargrass",
+        "john-floyd"
       ],
       "role": "Virginia militia colonel, Beargrass settler",
       "native": false,
@@ -733,7 +797,8 @@
       "lifeDates": null,
       "stories": [
         "jacob-beam-on-hardin-creek",
-        "jacob-beam-sells-old-jakes-first-barrel"
+        "basil-haydens-high-rye-trail",
+        "henry-mckennas-fairfield-sour-mash"
       ],
       "role": "Distiller, Beam family founder",
       "native": false,
@@ -778,7 +843,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "georgetown-and-royal-spring"
+        "georgetown-and-royal-spring",
+        "the-travelling-church-1781"
       ],
       "role": "Baptist preacher, distiller, Georgetown founder",
       "native": false,
@@ -822,7 +888,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "burlington-boone-county-seat"
+        "burlington-boone-county-seat",
+        "capt-robert-johnson-and-big-crossing-station"
       ],
       "role": "Burlington-area settler",
       "native": false,
@@ -844,7 +911,8 @@
       "lifeDates": null,
       "stories": [
         "capt-john-strode-of-strodes-station",
-        "winchester-clark-county-seat"
+        "winchester-clark-county-seat",
+        "buckner-site-fort-ancient-villages-on-strodes-creek"
       ],
       "role": "Strode's Station founder",
       "native": false,
@@ -896,8 +964,9 @@
       "lifeDates": null,
       "stories": [
         "chickamauga-cherokee",
-        "chickamauga-cherokee-hold-the-southern-flank",
-        "richard-henderson"
+        "richard-henderson",
+        "capt-nathaniel-hart",
+        "william-christian-of-beargrass"
       ],
       "role": "Chickamauga Cherokee war leader",
       "native": true,
@@ -926,7 +995,7 @@
         "little-turtle-and-hardins-defeat-1790",
         "mascouten-fire-nation-on-the-wabash",
         "potawatomi-fire-keepers-and-the-ohio-valley-wars",
-        "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid"
+        "wea-waayaahtanwa-on-the-wabash"
       ],
       "role": "Revolutionary general, fourth governor",
       "native": false,
@@ -974,7 +1043,8 @@
         "gen-james-wilkinson-kentuckys-agent-13",
         "liberty-hall-john-browns-frankfort-house",
         "mascouten-fire-nation-on-the-wabash",
-        "potawatomi-fire-keepers-and-the-ohio-valley-wars"
+        "potawatomi-fire-keepers-and-the-ohio-valley-wars",
+        "kickapoo-on-the-kentucky-frontier"
       ],
       "role": "General, Spanish agent (\"Agent 13\"), Frankfort founder",
       "native": false,
@@ -1111,7 +1181,8 @@
       ],
       "lifeDates": "1755–1833",
       "stories": [
-        "esther-whitley-over-the-cumberlands-1775"
+        "esther-whitley-over-the-cumberlands-1775",
+        "william-whitley-sportsmans-hill"
       ],
       "role": "Pioneer, Sportsman's Hill",
       "native": false,
@@ -1134,7 +1205,8 @@
       "lifeDates": "1787–1794",
       "stories": [
         "esther-whitley-over-the-cumberlands-1775",
-        "william-whitley-sportsmans-hill"
+        "william-whitley-sportsmans-hill",
+        "stanford-from-st-asaph"
       ],
       "role": "Pioneer, Sportsman's Hill builder",
       "native": false,
@@ -1178,7 +1250,9 @@
       "lifeDates": null,
       "stories": [
         "bryan-station-siege-august-1782",
-        "simon-girty-interpreter-at-bryan-station-1782"
+        "simon-girty-interpreter-at-bryan-station-1782",
+        "battle-of-blue-licks",
+        "ojibwe-on-birds-war-road"
       ],
       "role": "Loyalist interpreter",
       "native": false,
@@ -1204,7 +1278,9 @@
         "blue-jacket-weyapiersenwah",
         "col-john-hardin-of-pleasant-run",
         "little-turtle-and-hardins-defeat-1790",
-        "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
+        "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+        "elizabethtown-from-severns-valley",
+        "miami-hunters-return-north-of-the-ohio"
       ],
       "role": "Miami war leader",
       "native": true,
@@ -1257,7 +1333,9 @@
       "stories": [
         "blue-jacket-weyapiersenwah",
         "simon-girty-interpreter-at-bryan-station-1782",
-        "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
+        "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+        "danville-and-constitution-square",
+        "ojibwe-on-birds-war-road"
       ],
       "role": "Shawnee war chief",
       "native": true,
@@ -1322,7 +1400,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "capt-robert-johnson-and-big-crossing-station"
+        "capt-robert-johnson-and-big-crossing-station",
+        "william-whitley-sportsmans-hill"
       ],
       "role": "Senator, U.S. vice president",
       "native": false,
@@ -1365,7 +1444,10 @@
       "lifeDates": "1717–1780",
       "stories": [
         "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
-        "col-richard-callaway-of-boonesborough"
+        "col-richard-callaway-of-boonesborough",
+        "capt-nathaniel-hart",
+        "richard-henderson",
+        "richmond-from-millers-barn"
       ],
       "role": "Colonel, Boonesborough defender",
       "native": false,
@@ -1430,7 +1512,11 @@
       "lifeDates": null,
       "stories": [
         "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
-        "col-john-bowman-at-old-chillicothe"
+        "col-john-bowman-at-old-chillicothe",
+        "benjamin-logan",
+        "maj-joseph-bowman",
+        "maj-silas-harlan",
+        "shawnee-chillicothe-divisions"
       ],
       "role": "Colonel, 1779 Chillicothe raid",
       "native": false,
@@ -1452,7 +1538,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "maj-joseph-bowman"
+        "maj-joseph-bowman",
+        "col-john-bowman-at-old-chillicothe"
       ],
       "role": "Major, Illinois campaign",
       "native": false,
@@ -1475,7 +1562,9 @@
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "nonhelema",
-        "moluntha-and-logans-raid-1786"
+        "moluntha-and-logans-raid-1786",
+        "battle-of-blue-licks",
+        "benjamin-logan"
       ],
       "role": "Militia major, Blue Licks",
       "native": false,
@@ -1543,7 +1632,10 @@
       "stories": [
         "athiamiowee-the-warriors-path-through-kentucky",
         "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
-        "thomas-walker-and-cumberland-gap"
+        "thomas-walker-and-cumberland-gap",
+        "christopher-gist-1750-51",
+        "croley-evans-site",
+        "john-finley-the-trader-who-put-kentucky-on-boones-map"
       ],
       "role": "Explorer, named Cumberland Gap",
       "native": false,
@@ -1762,7 +1854,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "ann-mcginty-and-kentuckys-first-spinning-wheel"
+        "ann-mcginty-and-kentuckys-first-spinning-wheel",
+        "mcafee-station-on-the-salt-river"
       ],
       "role": "Pioneer weaver, first spinning wheel",
       "native": false,
@@ -1910,7 +2003,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "capt-william-hubbells-ohio-flatboat-stand-1791"
+        "capt-william-hubbells-ohio-flatboat-stand-1791",
+        "treaty-of-fort-mcintosh-1785"
       ],
       "role": "Flatboat captain 1791",
       "native": false,
@@ -2018,7 +2112,10 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "col-robert-patterson-builds-lexington"
+        "col-robert-patterson-builds-lexington",
+        "battle-of-blue-licks",
+        "lexington-named",
+        "john-filson-kentucke-1784"
       ],
       "role": "Lexington founder",
       "native": false,
@@ -2041,7 +2138,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "col-william-russell-iii"
+        "col-william-russell-iii",
+        "russellville-from-big-boiling-spring-to-county-seat"
       ],
       "role": "Colonel, legislator",
       "native": false,
@@ -2108,7 +2206,6 @@
       ],
       "lifeDates": null,
       "stories": [
-        "capt-jack-jouett",
         "jack-jouett-kentuckys-midnight-rider"
       ],
       "role": "Revolutionary rider, Kentucky legislator",
@@ -2132,7 +2229,6 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "capt-jack-jouett",
         "jack-jouett-kentuckys-midnight-rider"
       ],
       "role": "British cavalry commander",
@@ -2154,8 +2250,9 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "capt-jack-jouett",
-        "jack-jouett-kentuckys-midnight-rider"
+        "jack-jouett-kentuckys-midnight-rider",
+        "big-bone-lick-older-cycle",
+        "thomas-walker-and-cumberland-gap"
       ],
       "role": "Governor of Virginia, U.S. president",
       "native": false,
@@ -2176,7 +2273,7 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "capt-jack-jouett"
+        "jack-jouett-kentuckys-midnight-rider"
       ],
       "role": "Wife of Jack Jouett",
       "native": false,
@@ -2197,7 +2294,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "isaac-ruddell-and-the-guns-at-ruddells-station"
+        "isaac-ruddell-and-the-guns-at-ruddells-station",
+        "capt-john-strode-of-strodes-station"
       ],
       "role": "Ruddell's Station founder",
       "native": false,
@@ -2240,7 +2338,8 @@
       "aliases": [],
       "lifeDates": "c. 1752–1782",
       "stories": [
-        "maj-silas-harlan"
+        "maj-silas-harlan",
+        "battle-of-blue-licks"
       ],
       "role": "Major, killed at Blue Licks",
       "native": false,
@@ -2287,7 +2386,8 @@
       "aliases": [],
       "lifeDates": "1724–1810",
       "stories": [
-        "henry-skaggs-green-river-long-hunter"
+        "henry-skaggs-green-river-long-hunter",
+        "glasgow-the-barrens"
       ],
       "role": "Green River long hunter",
       "native": false,
@@ -2462,7 +2562,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "capt-will-the-hunting-ground"
+        "capt-will-the-hunting-ground",
+        "john-finley-the-trader-who-put-kentucky-on-boones-map"
       ],
       "role": "Boone's hunting companion 1769",
       "native": false,
@@ -2483,7 +2584,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "william-calks-1775-journal"
+        "william-calks-1775-journal",
+        "mount-sterling-little-mountain-town"
       ],
       "role": "Diarist of 1775 journey",
       "native": false,
@@ -2570,7 +2672,10 @@
       "stories": [
         "harry-innes",
         "springfield-founding-and-washington-county-seat",
-        "washington-mason-county"
+        "washington-mason-county",
+        "col-thomas-marshall-at-buck-pond",
+        "mingo-camps-south-of-the-ohio",
+        "hopkinsville"
       ],
       "role": "President (mention)",
       "native": false,
@@ -2591,7 +2696,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "liberty-hall-john-browns-frankfort-house"
+        "liberty-hall-john-browns-frankfort-house",
+        "frankfort-franks-ford-becomes-the-capital"
       ],
       "role": "Senator, Liberty Hall builder",
       "native": false,
@@ -2676,7 +2782,9 @@
       "aliases": [],
       "lifeDates": "1755–1810",
       "stories": [
-        "evan-williams-on-the-louisville-wharf"
+        "evan-williams-on-the-louisville-wharf",
+        "george-garvin-brown-and-old-forester",
+        "henry-mckennas-fairfield-sour-mash"
       ],
       "role": "Welsh distiller, Louisville",
       "native": false,
@@ -2702,7 +2810,9 @@
       "lifeDates": "1830–1923",
       "stories": [
         "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
-        "frederick-stitzels-barrel-racks-1879"
+        "frederick-stitzels-barrel-racks-1879",
+        "james-crow-on-glenns-creek",
+        "leestown"
       ],
       "role": "Distiller, Bottled-in-Bond advocate",
       "native": false,
@@ -2744,7 +2854,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "frederick-stitzels-barrel-racks-1879"
+        "frederick-stitzels-barrel-racks-1879",
+        "george-garvin-brown-and-old-forester"
       ],
       "role": "Inventor of barrel racks",
       "native": false,
@@ -2809,7 +2920,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "james-crow-on-glenns-creek"
+        "james-crow-on-glenns-creek",
+        "versailles-takes-shape"
       ],
       "role": "Distillery owner",
       "native": false,
@@ -2830,7 +2942,9 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "jacob-spears-early-bourbon-whiskey"
+        "jacob-spears-early-bourbon-whiskey",
+        "jacob-beam-on-hardin-creek",
+        "evan-williams-on-the-louisville-wharf"
       ],
       "role": "Early bourbon distiller",
       "native": false,
@@ -2874,7 +2988,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "basil-haydens-high-rye-trail"
+        "basil-haydens-high-rye-trail",
+        "jacob-beam-on-hardin-creek"
       ],
       "role": "Catholic settler leader, distiller",
       "native": false,
@@ -3382,7 +3497,8 @@
       "lifeDates": null,
       "stories": [
         "carlisle-kincarts-peach-orchard-county-seat",
-        "nicholasville-takes-shape"
+        "nicholasville-takes-shape",
+        "danville-and-constitution-square"
       ],
       "role": "Lawyer, Nicholas County namesake",
       "native": false,
@@ -3529,7 +3645,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "springfield-founding-and-washington-county-seat"
+        "springfield-founding-and-washington-county-seat",
+        "elizabethtown-from-severns-valley"
       ],
       "role": "Father of President Lincoln",
       "native": false,
@@ -4103,7 +4220,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "newport-at-the-licking-mouth"
+        "newport-at-the-licking-mouth",
+        "winchester-clark-county-seat"
       ],
       "role": "Newport platter",
       "native": false,
@@ -4145,7 +4263,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "mount-sterling-little-mountain-town"
+        "mount-sterling-little-mountain-town",
+        "gaitskill-mounds-engraved-tablets"
       ],
       "role": "Mount Sterling founder",
       "native": false,
@@ -4166,7 +4285,9 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "mount-sterling-little-mountain-town"
+        "mount-sterling-little-mountain-town",
+        "william-calks-1775-journal",
+        "winchester-clark-county-seat"
       ],
       "role": "Mount Sterling landowner",
       "native": false,
@@ -4544,7 +4665,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "winchester-clark-county-seat"
+        "winchester-clark-county-seat",
+        "capt-john-strode-of-strodes-station"
       ],
       "role": "Winchester land donor",
       "native": false,
@@ -4820,7 +4942,6 @@
       "lifeDates": null,
       "stories": [
         "owensboro-yellow-banks",
-        "yellow-banks-becomes-owensboro",
         "hartford-fort-hartford-on-the-rough-river"
       ],
       "role": "Owensboro frontiersman",
@@ -4842,31 +4963,9 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "owensboro-yellow-banks",
-        "yellow-banks-becomes-owensboro"
-      ],
-      "role": "Colonel killed at Tippecanoe, Owensboro namesake",
-      "native": false,
-      "likeness": "none-known",
-      "timing": null,
-      "image": null,
-      "sourcePage": null,
-      "license": null,
-      "licenseUrl": null,
-      "credit": null,
-      "freeToUse": false,
-      "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
-    },
-    {
-      "id": "victor-collot",
-      "name": "Victor Collot",
-      "aliases": [],
-      "lifeDates": null,
-      "stories": [
         "owensboro-yellow-banks"
       ],
-      "role": "French spy, observer",
+      "role": "Colonel killed at Tippecanoe, Owensboro namesake",
       "native": false,
       "likeness": "none-known",
       "timing": null,
@@ -4928,7 +5027,9 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "paducah-at-the-tennessee-mouth"
+        "paducah-at-the-tennessee-mouth",
+        "big-bone-lick-older-cycle",
+        "falls-of-the-ohio"
       ],
       "role": "Explorer, platted Paducah",
       "native": false,
@@ -5034,7 +5135,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "benjamin-logan"
+        "benjamin-logan",
+        "stanford-from-st-asaph"
       ],
       "role": "Settler wounded at Logan's Fort",
       "native": false,
@@ -5350,7 +5452,9 @@
       "lifeDates": null,
       "stories": [
         "bullitts-lick-kentuckys-first-industry",
-        "manns-lick-louisvilles-salt-town"
+        "manns-lick-louisvilles-salt-town",
+        "mcafee-station-on-the-salt-river",
+        "shepherdsville-on-salt-river"
       ],
       "role": "Surveyor, Bullitt's Lick",
       "native": false,
@@ -5455,7 +5559,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "hancock-taylor-fincastle-surveyor"
+        "hancock-taylor-fincastle-surveyor",
+        "john-floyd"
       ],
       "role": "Colonel, county surveyor",
       "native": false,
@@ -5480,7 +5585,9 @@
         "maj-joseph-bowman",
         "new-castle-henry-county-seat",
         "old-fort-earthworks-15gp1-greenup-county",
-        "william-christian-of-beargrass"
+        "william-christian-of-beargrass",
+        "col-john-todd-of-lexington",
+        "george-rogers-clark"
       ],
       "role": "Virginia governor",
       "native": false,
@@ -5868,7 +5975,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "treaties-of-hard-labour-and-lochaber"
+        "treaties-of-hard-labour-and-lochaber",
+        "richard-henderson"
       ],
       "role": "Surveyor",
       "native": false,
@@ -5933,7 +6041,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "treaty-of-logstown-1752"
+        "treaty-of-logstown-1752",
+        "thomas-walker-and-cumberland-gap"
       ],
       "role": "Virginia commissioner",
       "native": false,
@@ -6082,7 +6191,10 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "simon-girty-interpreter-at-bryan-station-1782"
+        "simon-girty-interpreter-at-bryan-station-1782",
+        "battle-of-blue-licks",
+        "ojibwe-on-birds-war-road",
+        "squire-boones-painted-stone"
       ],
       "role": "British Indian agent",
       "native": false,
@@ -6125,7 +6237,9 @@
       "lifeDates": null,
       "stories": [
         "illinois-confederation-at-cahokia",
-        "simon-girty-interpreter-at-bryan-station-1782"
+        "simon-girty-interpreter-at-bryan-station-1782",
+        "george-rogers-clark",
+        "maj-joseph-bowman"
       ],
       "role": "British lieutenant governor at Detroit",
       "native": false,
@@ -6191,7 +6305,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph"
+        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+        "col-john-todd-of-lexington"
       ],
       "role": "Colonel at Point Pleasant",
       "native": false,
@@ -6235,7 +6350,8 @@
       "stories": [
         "daniel-trabue-of-columbia",
         "gen-charles-scott-and-petersburg",
-        "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
+        "treaty-of-greenville-1795-the-line-to-the-kentucky-river",
+        "simpsonville-takes-shape-on-the-louisville-road"
       ],
       "role": "General, Fallen Timbers",
       "native": false,
@@ -6279,7 +6395,11 @@
       ],
       "lifeDates": null,
       "stories": [
-        "little-turtle-and-hardins-defeat-1790"
+        "little-turtle-and-hardins-defeat-1790",
+        "blue-jacket-weyapiersenwah",
+        "egushawa-and-the-odawa-in-kentuckys-war-years",
+        "la-grange-the-oldham-county-seat-with-trains-on-main-street",
+        "john-filson-kentucke-1784"
       ],
       "role": "General, 1791 defeat",
       "native": false,
@@ -6342,7 +6462,7 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "red-bird-river-petroglyphs-clay-county"
+        "red-bird-petroglyphs-clay-county"
       ],
       "role": "Legendary Cherokee chief (marker)",
       "native": true,
@@ -6474,7 +6594,9 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "falls-of-the-ohio",
+        "versailles-takes-shape"
       ],
       "role": "French king, Louisville namesake",
       "native": false,
@@ -6624,7 +6746,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "the-travelling-church-1781"
+        "the-travelling-church-1781",
+        "richmond-from-millers-barn"
       ],
       "role": "President (mention)",
       "native": false,
@@ -6687,7 +6810,7 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "yellow-banks-becomes-owensboro"
+        "owensboro-yellow-banks"
       ],
       "role": "Texas empresario (mention)",
       "native": false,
@@ -6835,7 +6958,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "walker-daniel-danvilles-namesake"
+        "walker-daniel-danvilles-namesake",
+        "danville-and-constitution-square"
       ],
       "role": "Virginia lawyer, founder of Danville, first attorney general of the District of Kentucky",
       "native": false,
@@ -6875,6 +6999,109 @@
       "verified": false,
       "notes": "No known likeness (no public-domain portrait or engraving found, Commons search Oct 19, 2026). Canonical face: AI illustration (Oct 2026).",
       "ai": true
+    },
+    {
+      "id": "lord-dunmore",
+      "name": "Lord Dunmore",
+      "aliases": [
+        "John Murray, 4th Earl of Dunmore",
+        "Earl of Dunmore"
+      ],
+      "lifeDates": "1730–1809",
+      "stories": [
+        "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
+        "blue-jacket-weyapiersenwah",
+        "col-john-hardin-of-pleasant-run",
+        "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
+        "edward-worthington-at-worthingtons-fort",
+        "hancock-taylor-fincastle-surveyor",
+        "isaac-shelby-old-kings-mountain",
+        "michael-stoner-german-long-hunter",
+        "treaty-of-camp-charlotte-1774",
+        "treaty-of-fort-stanwix-1768",
+        "john-floyd",
+        "maj-joseph-bowman"
+      ],
+      "role": "Royal governor of Virginia; led Dunmore’s War (1774)",
+      "native": false,
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "likeness": "portrait",
+      "notes": "Several stories name him only through Dunmore’s War. Reynolds 1765 portrait saved as a likeness source in the portrait sweep. Portrait freeze (#331/#334): no image added in #337."
+    },
+    {
+      "id": "barton-stone",
+      "name": "Barton W. Stone",
+      "aliases": [
+        "Barton Warren Stone",
+        "Barton Stone"
+      ],
+      "lifeDates": "1772–1844",
+      "stories": [
+        "cane-ridge-meeting-house-and-the-1801-camp-meeting"
+      ],
+      "role": "Presbyterian minister at Cane Ridge; host of the 1801 camp meeting",
+      "native": false,
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "likeness": "portrait",
+      "notes": "Engraved portrait saved as a likeness source in the portrait sweep. Portrait freeze (#331/#334): no image added in #337."
+    },
+    {
+      "id": "thomas-kennedy",
+      "name": "Thomas Kennedy",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "covington-at-the-point",
+        "frankfort-franks-ford-becomes-the-capital",
+        "newport-at-the-licking-mouth"
+      ],
+      "role": "Farm, stone tavern and ferry owner at the Point (Covington), from about 1790",
+      "native": false,
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "likeness": "none-known",
+      "notes": "No known likeness. Portrait freeze (#331/#334): no image added in #337."
+    },
+    {
+      "id": "elizabeth-patton-preston",
+      "name": "Elizabeth Patton Preston",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "prestonsburg-first-seat-on-the-big-sandy"
+      ],
+      "role": "Grantee of the 100,000-acre Big Sandy colonial grant (Prestonsburg)",
+      "native": false,
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "likeness": "none-known",
+      "notes": "No known likeness. Portrait freeze (#331/#334): no image added in #337."
     }
   ]
 }

@@ -1,0 +1,86 @@
+[
+ {
+  "source": "/stories/capt-jack-jouett",
+  "target": "/stories/jack-jouett-kentuckys-midnight-rider/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/capt-jack-jouett/",
+  "target": "/stories/jack-jouett-kentuckys-midnight-rider/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/yellow-banks-becomes-owensboro",
+  "target": "/stories/owensboro-yellow-banks/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/yellow-banks-becomes-owensboro/",
+  "target": "/stories/owensboro-yellow-banks/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/camp-nelson-jessamine-county",
+  "target": "/stories/camp-nelson-kentucky-us-colored-troops/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/camp-nelson-jessamine-county/",
+  "target": "/stories/camp-nelson-kentucky-us-colored-troops/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/peter-village-early-woodland-enclosure-near-lexington",
+  "target": "/stories/peter-village-enclosure-15fa166/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/peter-village-early-woodland-enclosure-near-lexington/",
+  "target": "/stories/peter-village-enclosure-15fa166/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/chickamauga-cherokee-hold-the-southern-flank",
+  "target": "/stories/chickamauga-cherokee/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/chickamauga-cherokee-hold-the-southern-flank/",
+  "target": "/stories/chickamauga-cherokee/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/jacob-beam-sells-old-jakes-first-barrel",
+  "target": "/stories/jacob-beam-on-hardin-creek/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/jacob-beam-sells-old-jakes-first-barrel/",
+  "target": "/stories/jacob-beam-on-hardin-creek/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid",
+  "target": "/stories/wea-waayaahtanwa-on-the-wabash/",
+  "status": "301",
+  "condition": null
+ },
+ {
+  "source": "/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid/",
+  "target": "/stories/wea-waayaahtanwa-on-the-wabash/",
+  "status": "301",
+  "condition": null
+ }
+]

@@ -21,10 +21,19 @@ export const NO_AUTO_STORY_PHOTOS = [
   'col-john-todd-of-lexington',
   // Commons 'Fox Farm Site' is the Smyth County, Virginia site, not Mason County (Editor 10/18).
   'fox-farm-mason-county',
-  // Item 105: protected sites. No stand-in photo, and no automatic photo that could place them.
-  'muir-site-early-fort-ancient-on-a-jessamine-ridge',
+  // Protected site: no stand-in landscape photo that could name a place (SEO #345).
+  'the-c-and-o-mounds-at-paintsville',
+  // Protected site: the 1848 plan shows a river label, distance, arrow and scale (Security #345, 10/24).
   'peter-village-enclosure-15fa166',
+  // Item 105 (v2): protected sites. No stand-in photo, and no automatic photo that could place them.
+  'muir-site-early-fort-ancient-on-a-jessamine-ridge',
   'read-shell-midden-15bt10-butler-county',
+  // Twin Mounds: Wickliffe stand-in photo removed (KY History 10/24).
+  'twin-mounds-site',
+  // Protected site: no nearest-town stand-in photo (SEO 10/24).
+  'buckner-site-fort-ancient-villages-on-strodes-creek',
+  // No Scioto-confluence stand-in photo that could place Lower Shawneetown (SEO 10/24).
+  'nonhelema',
   'chambers-site-15ml109-marshall-county',
 ]
 

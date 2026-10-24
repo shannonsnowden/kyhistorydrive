@@ -5,6 +5,7 @@
  */
 import { routeMapOverlayHtml } from './route-map-geo.js'
 import { ROUTE_TRACKS } from './route-track-meta.js'
+import { storyUrl } from './story-url.js'
 export const SITE = 'https://kyhistorydrive.com'
 export const ORG_ID = `${SITE}/#organization`
 
@@ -51,14 +52,14 @@ export const ROUTE_MAPS = [
       "Solid: Warriors' Path (approximate) · Dotted: conjectural segment · Light dashes: branch prongs to the Ohio. Map: Kentucky History Drive.",
     phoneCaption: "Solid: Warriors' Path (approximate). Map: Kentucky History Drive.",
     sentence:
-      "The Warriors' Path ran from the Ohio River opposite the mouth of the Scioto (Lower Shawneetown, near present South Portsmouth) south past Eskippakithiki in Clark County, across the Red and Kentucky rivers near Irvine, along War Fork and Goose Creek to Flat Lick, over the Cumberland River at Pineville, and through Cumberland Gap toward the Cherokee Overhill towns on the Little Tennessee River.",
+      "The Warriors' Path ran from Lower Shawneetown in Greenup County south past Eskippakithiki in Clark County, across the Red and Kentucky rivers near Irvine, along War Fork and Goose Creek to Flat Lick, over the Cumberland River at Pineville, and through Cumberland Gap toward the Cherokee Overhill towns on the Little Tennessee River.",
     distance:
       'About 220 miles from the Ohio to Cumberland Gap, plus roughly 80–90 more (conjectural) to the Overhill towns, measured on the map line.',
     stopsLabel: 'Approximate stops, north to south',
     note: 'A dashed branch runs from Eskippakithiki northeast across the Licking near Upper Blue Licks (Fleming and Nicholas counties) to the Ohio at Cabin Creek (Mason and Lewis counties), with a Maysville prong.',
     sources: 'Sources: Filson 1784; KHS marker #697; KYGeoNet Ky Frontier Trails; NPS.',
     stops: [
-      wp('South Portsmouth / Fullerton, Greenup County, Kentucky, and Scioto County, Ohio', 'Lower Shawneetown', [38.7, -83.1]),
+      wp('Greenup County, Kentucky', 'Lower Shawneetown', [38.7, -83.1]),
       wp('near Olive Hill and the Mount Sterling area, Carter, Bath, and Montgomery counties, Kentucky', 'Scioto prong', [38.137, -83.566], true),
       wp('Indian Fields, Clark County, Kentucky', 'Eskippakithiki', [37.9, -84]),
       wp('near Clay City, Clark, Powell, and Estill counties, Kentucky', 'Red River crossing', [37.84, -84.02]),
@@ -134,7 +135,7 @@ export const ROUTE_MAPS = [
     phoneCaption:
       'Dotted: Kentucky and return (conjectural); the return is not shown in this crop. Map: Kentucky History Drive.',
     sentence:
-      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown at the mouth of the Scioto, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Red River, which he called the little Cuttaway, and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
+      "Christopher Gist set out from Cresap's Old Town on the Potomac on October 31, 1750, went by Shannopin's Town and Logstown to the Wyandot town on the Muskingum, and on to Lower Shawneetown in Greenup County, with a side trip to Pickawillany on the Great Miami. On March 12, 1751 he crossed into Kentucky and went down the south side of the Ohio to a salt lick said to be 15 miles above the Falls, then turned south across the Red River, which he called the little Cuttaway, and struggled east through the mountains to the Bluestone and the New River, reaching his home on the Yadkin on May 18.",
     distance:
       'About 350 miles from Old Town to Lower Shawneetown, 250 for the Pickawillany round trip, and about 480 from Lower Shawneetown through Kentucky to the Yadkin, measured on the map line.',
     stopsLabel: 'Approximate stops, in order of travel',
@@ -145,9 +146,9 @@ export const ROUTE_MAPS = [
       wp('Pittsburgh and Ambridge/Baden, Allegheny and Beaver counties, Pennsylvania', "Shannopin's Town and Logstown"),
       wp('Coshocton, Coshocton County, Ohio', 'Wyandot town on the Muskingum', [40.27, -81.86]),
       wp('Lancaster and the Circleville area, Fairfield and Pickaway counties, Ohio', 'Hockhocking and Maguck'),
-      wp('Portsmouth, Ohio / South Portsmouth, Kentucky, Scioto County, Ohio, and Greenup County, Kentucky', 'Lower Shawneetown', [38.7, -83.0]),
+      wp('Greenup County, Kentucky', 'Lower Shawneetown', [38.7, -83.0]),
       wp('Piqua, Miami County, Ohio', 'Pickawillany', [40.18, -84.24]),
-      wp('South Portsmouth, Greenup County, Kentucky', 'ferried over the Ohio', [38.7, -83]),
+      wp('Greenup County, Kentucky', 'ferried over the Ohio', [38.7, -83]),
       wp('Lewis, Mason, and Bracken counties, Kentucky', 'down the southeast side of the Ohio', null, true),
       wp('near Grant and Owen counties, Kentucky', 'lower Salt Lick Creek, disputed', [38.55, -84.7], true),
       wp('Red River near Clay City, Clark, Powell, and Estill counties, Kentucky', 'little Cuttaway (Red River)', [37.84, -84.02], true),
@@ -361,9 +362,9 @@ export function routeMapZoomHtml(route, { thumb = false } = {}) {
     </div>`
 }
 
-function storyHref(slug, linkMode) {
-  if (linkMode === 'hash') return `#timeline/${encodeURIComponent(slug)}`
-  return `/stories/${encodeURIComponent(slug)}/`
+function storyHref(slug) {
+  // #337: every mode links the static story page (hash mode used to open the Timeline reader).
+  return storyUrl(slug)
 }
 
 const PIN_ICON = `<svg class="related-card-pin-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 5.7 10.9 6.4 11.55a.5.5 0 0 0 .7 0c.7-.65 6.4-6.49 6.4-11.55A6.75 6.75 0 0 0 12 2.25zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`

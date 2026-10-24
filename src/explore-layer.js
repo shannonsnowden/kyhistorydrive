@@ -16,6 +16,7 @@
 import { AdSlot } from './ad-slot.js'
 import { responsivePicture } from './responsive-img.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { storyUrl } from './story-url.js'
 
 const TABS_ERA = [
   { id: 'prehistoric', label: 'Prehistoric' },
@@ -136,7 +137,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
       kicker: `${eraLabel(era)}${year ? ` · ${year}` : ''}`,
       title: s.title,
       deck: HomepageStructure.finishedSummary(s.summary || ''),
-      href: `/#timeline/${encodeURIComponent(s.slug)}`,
+      href: storyUrl(s.slug),
       cta: 'Read the story',
       mapHref,
       photo,

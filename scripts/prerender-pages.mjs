@@ -16,6 +16,7 @@
  * pins are never printed. MapLibre is not included.
  */
 import fs from 'node:fs'
+import { tagLabel } from './lib/tag-label.mjs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import sharp from 'sharp'
@@ -499,8 +500,13 @@ class PrerenderPages {
     return String(n)
   }
 
-  static formatYearRange(start, end) {
+  static formatYearRange(start, end, approx = false) {
     if (start == null && end == null) return ''
+    // approxStart (shared with timeline nodes) marks a traditional or estimated start year: "c. 1795".
+    if (approx && start != null && start >= 0) {
+      const rest = PrerenderPages.formatYearRange(start, end)
+      return `c. ${rest}`
+    }
     if (start != null && end != null && start !== end) {
       return `${PrerenderPages.formatYear(start)} – ${PrerenderPages.formatYear(end)}${start < 0 && end > 0 ? ' CE' : ''}`
     }
@@ -1185,6 +1191,7 @@ class PrerenderPages {
       tags: body.tags || indexRow?.tags || [],
       yearStart: body.yearStart ?? null,
       yearEnd: body.yearEnd ?? null,
+      approxStart: body.approxStart === true,
       publishedDate: body.publishedDate || body.briefDate || indexRow?.publishedDate || '',
       draft: body.draft === true || indexRow?.draft === true,
       hidden: body.hidden === true || indexRow?.hidden === true,
@@ -1681,13 +1688,13 @@ class PrerenderPages {
 
   /** Two or more specific tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
-    return pickRelatedStories(story, all, excludeSlugs)
+    return pickRelatedStories(story, all, excludeSlugs, { isProtected: (s) => isProtectedStory(s) })
   }
 
   static relatedCardMeta(story) {
     const bits = ['Story']
     if (story.county) bits.push(PrerenderPages.countyLabel(story.county, true))
-    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd, story.approxStart)
     if (years) bits.push(years)
     return bits.join(' · ')
   }
@@ -1711,6 +1718,7 @@ class PrerenderPages {
       portraitFor: (slug) => (relatedBundle ? portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug)) : ''),
       whyFor: (s, other) => computeRelatedNote(s, other),
       collapsible: true,
+      isProtected: (s) => isProtectedStory(s),
     })
   }
 
@@ -1952,7 +1960,7 @@ class PrerenderPages {
     const summary = PrerenderPages.finishedSummary(story.summary)
     const description = PrerenderPages.storyDescription(story)
     const canonical = `${PrerenderPages.SITE}/stories/${story.slug}/`
-    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+    const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd, story.approxStart)
     const route = routeBySlug(story.slug)
     const matchedMarkers = matchStoryMarkers(story, markers, notes, route)
     const counties = storyCountiesList(story, matchedMarkers)
@@ -1978,7 +1986,8 @@ class PrerenderPages {
     const researchLink = researchHref
       ? `<p class="story-research-link"><a href="${esc(researchHref)}">Research notes and sources for the ${esc(PrerenderPages.researchLinkTopic(story.title))}</a></p>`
       : ''
-    const appHref = `/#timeline/${encodeURIComponent(story.slug)}`
+    // #337: /#timeline/<slug> now forwards to this page, so Back goes to the Timeline list.
+    const appHref = '/#timeline'
     const photo = story.photo?.image_url ? story.photo : null
     const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
     const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
@@ -2016,7 +2025,7 @@ class PrerenderPages {
     const prevStory = timelineIdx > 0 ? timelineOrdered[timelineIdx - 1] : null
     const nextStory = timelineIdx < timelineTotal - 1 ? timelineOrdered[timelineIdx + 1] : null
 
-    const wfYear = story.yearStart != null ? ` · ${story.yearStart < 0 ? `${Math.abs(story.yearStart)} BCE` : story.yearStart}` : (years ? ` · ${years}` : '')
+    const wfYear = story.yearStart != null ? ` · ${story.approxStart && story.yearStart >= 0 ? 'c. ' : ''}${story.yearStart < 0 ? `${Math.abs(story.yearStart)} BCE` : story.yearStart}` : (years ? ` · ${years}` : '')
     const prevBtn = prevStory
       ? `<a class="usp-wf-btn" href="/stories/${esc(prevStory.slug)}/" rel="prev" title="Previous in timeline: ${esc(prevStory.title)} (${esc(PrerenderPages.formatYearRange(prevStory.yearStart, prevStory.yearEnd))})"><span aria-hidden="true">←</span> <span class="usp-wf-btn-label">Prev</span></a>`
       : `<span class="usp-wf-btn is-disabled" aria-disabled="true"><span aria-hidden="true">←</span> <span class="usp-wf-btn-label">Prev</span></span>`
@@ -2045,7 +2054,7 @@ class PrerenderPages {
     const tagsList = (story.tags || []).filter((t) => t && t !== 'kentucky' && t !== story.era)
     const tagsHtml = tagsList.length
       ? `<ul class="usp-tags" aria-label="Story topics">
-          ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(String(t).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()))}</a></li>`).join('')}
+          ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(tagLabel(t))}</a></li>`).join('')}
         </ul>`
       : ''
 
@@ -2060,17 +2069,17 @@ class PrerenderPages {
     const pubDateLabel = dates.published || story.publishedDate || ''
 
     const toolsRowHtml = `<div class="usp-tools" role="toolbar" aria-label="Save and share">
-      <button type="button" class="usp-tool" data-print data-story-print>
+      <button type="button" class="usp-tool" data-print data-story-print aria-label="Save as PDF">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M5 3h10v4H5V3Zm-1 5h12a2 2 0 0 1 2 2v4h-3v3H5v-3H2v-4a2 2 0 0 1 2-2Zm3 8h6v-4H7v4Z" fill="currentColor"/></svg>
-        Save as PDF
+        <span class="usp-tool-label">Save as PDF</span>
       </button>
-      <a class="usp-tool" href="/stories/${esc(story.slug)}/story.md" download="${esc(story.slug)}.md">
+      <a class="usp-tool" href="/stories/${esc(story.slug)}/story.md" download="${esc(story.slug)}.md" aria-label="Download .md">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3 1.4 1.42-4.7 4.7-4.7-4.7 1.4-1.42 2.3 2.3V3a1 1 0 0 1 1-1ZM4 16h12v2H4v-2Z" fill="currentColor"/></svg>
-        Download .md
+        <span class="usp-tool-label">Download .md</span>
       </a>
-      <button type="button" class="usp-tool" data-share data-share-story data-story-title="${esc(story.title)}" data-story-url="${esc(canonical)}">
+      <button type="button" class="usp-tool" aria-label="Share" data-share data-share-story data-story-title="${esc(story.title)}" data-story-url="${esc(canonical)}">
         <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M13 3l5 5-5 5V9.5C8 9.5 5 11 3 15c1-5 4-8 10-8.5V3Z" fill="currentColor"/></svg>
-        Share
+        <span class="usp-tool-label">Share</span>
       </button>
       <span class="usp-share-toast" data-share-feedback role="status" aria-live="polite" hidden></span>
       <span class="usp-tools-meta">${wordCount.toLocaleString('en-US')} words${pubDateLabel ? ` · Published <time datetime="${esc(pubDateLabel)}">${esc(pubDateLabel)}</time>` : ''}</span>
@@ -2279,9 +2288,10 @@ class PrerenderPages {
           ${learnMoreBlock}
         </section>`
 
-    const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug)
+    const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug, { isProtected: isProtectedStory(story) })
     const startTown = String(story.matchedPlace || (counties[0] ? `${counties[0]} County` : 'Danville')).split(',')[0].trim() || 'Danville'
-    const driveSectionHtml = matchedDriveHtml
+    // Protected sites never get a route-builder entry (Critiquito #345, 10/24).
+    const driveSectionHtml = isProtectedStory(story) ? '' : matchedDriveHtml
       ? `<aside class="usp-section usp-drive" id="drive" aria-label="Plan a drive">${matchedDriveHtml}</aside>`
       : `<aside class="usp-section usp-drive" id="drive" aria-labelledby="h-drive">
           <div class="usp-drive-copy">
@@ -2330,7 +2340,7 @@ class PrerenderPages {
           ${nextCardHtml}
         </nav>
         <p class="usp-endback">
-          <a href="${esc(appHref)}" data-back-to-timeline>← Back to this spot on the Timeline</a>
+          <a href="${esc(appHref)}" data-back-to-timeline>← Back to the Timeline</a>
         </p>`
 
     const tocEntries = [
@@ -2502,7 +2512,7 @@ class PrerenderPages {
       const meta = []
       const county = PrerenderPages.storiesListCounty(story)
       if (county) meta.push(county)
-      const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd)
+      const years = PrerenderPages.formatYearRange(story.yearStart, story.yearEnd, story.approxStart)
       if (years) meta.push(years)
       const thumb = PrerenderPages.existingThumb(story)
       const media = thumb
@@ -3396,12 +3406,14 @@ class PrerenderPages {
     if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
       throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
     }
-    const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
+    // #345: protected sites list same-county stories only, so they may have fewer than 3 (or none).
+    const protectedRelated = isProtectedStory(story)
+    const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/) || (protectedRelated ? [''] : null)
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
-    if (!related || !related[0].includes('Related stories') || relatedCount < 3 || relatedCount > 5) {
+    if (!related || (!protectedRelated && (!related[0].includes('Related stories') || relatedCount < 3)) || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
     }
-    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0])) {
+    if (related[0] && (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0]))) {
       throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
     }
     const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
@@ -3512,10 +3524,11 @@ class PrerenderPages {
       ],
     })
     const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
+    if (isProtectedStory(story) && nearbyItems.length) throw new Error(`prerender: ${urlPath} protected story shows nearby cards`)
     if (!PrerenderPages.publicGeo(story) && nearbyItems.length) {
       throw new Error(`prerender: ${urlPath} shows nearby places without a public pin`)
     }
-    if (PrerenderPages.publicGeo(story)) {
+    if (PrerenderPages.publicGeo(story) && !isProtectedStory(story)) {
       const nearbyStoriesHtml = nearbyItems.filter((item) => item.includes('href="/stories/'))
       const nearbyMarkersHtml = nearbyItems.filter((item) => item.includes('href="/#map/markers/'))
       if (nearbyExpected.filter((row) => row.kind === 'story').length >= 3 && (nearbyStoriesHtml.length < 3 || nearbyStoriesHtml.length > 5)) {

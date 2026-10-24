@@ -135,7 +135,7 @@ export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnable
               type="search"
               id="siteSearchInput"
               name="q"
-              placeholder="Search places &amp; stories…"
+              placeholder="Search stories"
               enterkeyhint="search"
               autocomplete="off"
               autocorrect="off"

@@ -97,12 +97,12 @@
         {
           "id": "richard-callaway",
           "name": "Richard Callaway",
-          "href": "#timeline/col-richard-callaway-of-boonesborough"
+          "href": "/stories/col-richard-callaway-of-boonesborough/"
         },
         {
           "id": "john-bowman",
           "name": "John Bowman",
-          "href": "#timeline/col-john-bowman-at-old-chillicothe"
+          "href": "/stories/col-john-bowman-at-old-chillicothe/"
         }
       ],
       "portraits": [
@@ -121,17 +121,17 @@
         {
           "id": "thomas-walker",
           "name": "Thomas Walker",
-          "href": "#timeline/thomas-walker-and-cumberland-gap"
+          "href": "/stories/thomas-walker-and-cumberland-gap/"
         },
         {
           "id": "christopher-gist",
           "name": "Christopher Gist",
-          "href": "#timeline/christopher-gist-1750-51"
+          "href": "/stories/christopher-gist-1750-51/"
         },
         {
           "id": "john-finley",
           "name": "John Finley",
-          "href": "#timeline/john-finley-the-trader-who-put-kentucky-on-boones-map"
+          "href": "/stories/john-finley-the-trader-who-put-kentucky-on-boones-map/"
         },
         {
           "id": "daniel-boone",
@@ -141,7 +141,7 @@
         {
           "id": "john-filson",
           "name": "John Filson",
-          "href": "#timeline/john-filson-kentucke-1784"
+          "href": "/stories/john-filson-kentucke-1784/"
         }
       ],
       "portraits": [
@@ -269,9 +269,16 @@
           "id": "will-emery",
           "name": "Captain Will Emery",
           "href": "/people/#will-emery"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "daniel-boone"
+      ]
     },
     "hancock-taylor-fincastle-surveyor": {
       "links": [
@@ -334,7 +341,7 @@
         {
           "id": "benjamin-logan",
           "name": "Benjamin Logan",
-          "href": "#timeline/benjamin-logan"
+          "href": "/stories/benjamin-logan/"
         }
       ],
       "portraits": [
@@ -376,7 +383,7 @@
         {
           "id": "george-rogers-clark",
           "name": "Clark",
-          "href": "#timeline/george-rogers-clark"
+          "href": "/stories/george-rogers-clark/"
         }
       ],
       "portraits": [
@@ -588,7 +595,13 @@
       "portraits": []
     },
     "covington-at-the-point": {
-      "links": [],
+      "links": [
+        {
+          "id": "thomas-kennedy",
+          "name": "Thomas Kennedy",
+          "href": "/people/#thomas-kennedy"
+        }
+      ],
       "portraits": []
     },
     "jacob-spears-early-bourbon-whiskey": {
@@ -612,7 +625,13 @@
       "portraits": []
     },
     "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
-      "links": [],
+      "links": [
+        {
+          "id": "barton-stone",
+          "name": "Barton W. Stone",
+          "href": "/people/#barton-stone"
+        }
+      ],
       "portraits": []
     },
     "capt-william-hubbells-ohio-flatboat-stand-1791": {
@@ -684,7 +703,7 @@
         {
           "id": "jacob-beam",
           "name": "Jacob Beam",
-          "href": "#timeline/jacob-beam-sells-old-jakes-first-barrel"
+          "href": "/people/#jacob-beam"
         }
       ],
       "portraits": []
@@ -709,7 +728,7 @@
         {
           "id": "blue-jacket",
           "name": "Blue Jacket",
-          "href": "#timeline/blue-jacket-weyapiersenwah"
+          "href": "/stories/blue-jacket-weyapiersenwah/"
         }
       ],
       "portraits": []
@@ -764,18 +783,14 @@
       ],
       "portraits": []
     },
-    "yellow-banks-becomes-owensboro": {
+    "prestonsburg-first-seat-on-the-big-sandy": {
       "links": [
         {
-          "id": "william-smeathers",
-          "name": "William Smeathers",
-          "href": "/people/#william-smeathers"
+          "id": "elizabeth-patton-preston",
+          "name": "Elizabeth Patton Preston",
+          "href": "/people/#elizabeth-patton-preston"
         }
       ],
-      "portraits": []
-    },
-    "prestonsburg-first-seat-on-the-big-sandy": {
-      "links": [],
       "portraits": []
     },
     "bowling-green-takes-shape-on-the-barren-1798": {

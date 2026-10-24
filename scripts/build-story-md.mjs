@@ -191,12 +191,15 @@ export function renderStoryMarkdownFile({ story, notes = null, matchedMarkers = 
   return lines.join('\n')
 }
 
+/** Per-story research notes (<slug>.json). culture-*-image-evidence files are image briefs, not story notes. */
+export const RESEARCH_NOTES_DIR = 'public/content/research'
+
 export function buildAllStoryMarkdownFiles(root = ROOT) {
   const storiesIndexFile = path.join(root, "public/content/stories.json")
   const storiesDir = path.join(root, "public/content/stories")
   const locationsFile = path.join(root, "public/content/stories-locations.json")
   const markersFile = path.join(root, "public/data/web/historical-markers.geojson")
-  const notesDir = path.join(root, "data/research-notes")
+  const notesDir = path.join(root, RESEARCH_NOTES_DIR)
   if (!fs.existsSync(storiesIndexFile)) return 0
 
   const indexData = JSON.parse(fs.readFileSync(storiesIndexFile, "utf8"))
@@ -205,8 +208,9 @@ export function buildAllStoryMarkdownFiles(root = ROOT) {
   if (fs.existsSync(locationsFile)) {
     try {
       const locs = JSON.parse(fs.readFileSync(locationsFile, "utf8"))
-      for (const row of locs.stories || []) {
-        if (row?.slug) locBySlug.set(row.slug, row)
+      // stories-locations.json: { locations: { <slug>: { slug, lat, lon, ... } } }
+      for (const [slug, row] of Object.entries(locs.locations || {})) {
+        if (row) locBySlug.set(row.slug || slug, row)
       }
     } catch (_) {}
   }

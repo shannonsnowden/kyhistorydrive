@@ -64,19 +64,6 @@
     "license": "Public domain",
     "artwork": "painting"
   },
-  "peter-village-early-woodland-enclosure-near-lexington": {
-    "ext": "jpg",
-    "commonsFile": "Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "title": "Peter Village enclosure (Squier & Davis 1848)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-    "year": 1848,
-    "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-    "license": "Public domain",
-    "artwork": "engraving"
-  },
   "isaac-ruddell-and-the-guns-at-ruddells-station": {
     "ext": "jpg",
     "commonsFile": "Downtown_Cynthiana_on_Main_Street.jpg",
@@ -191,16 +178,6 @@
     "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Cat-Nation.png",
     "title": "Erie / Cat Nation territory (historical map)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons",
-    "year": null
-  },
-  "buckner-site-fort-ancient-villages-on-strodes-creek": {
-    "ext": "jpg",
-    "commonsFile": "Paris_Kentucky.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Paris_Kentucky.jpg",
-    "title": "Paris, Bourbon County (nearest city to Buckner Site)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Wikimedia Commons",
     "year": null
@@ -603,29 +580,6 @@
     "attribution": "Preston County · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2019
   },
-  "twin-mounds-site": {
-    "ext": "jpg",
-    "commonsFile": "Wickliffe_Mound_A_HRoe.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Mound_A_HRoe.jpg?width=1280",
-    "title": "Wickliffe Mound A — contemporary Mississippian neighbor of Twin Mounds (15Ba2) in Ballard County; not the Twin Mounds earthworks themselves",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-  },
-  "nonhelema": {
-    "ext": "jpg",
-    "commonsFile": "Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg?width=1280",
-    "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
-    "year": 2019
-  },
   "mcafee-station-on-the-salt-river": {
     "ext": "jpg",
     "commonsFile": "New_Providence_Presbyterian_Church.JPG",
@@ -874,7 +828,7 @@
     "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2008
   },
-  "red-bird-river-petroglyphs-clay-county": {
+  "red-bird-petroglyphs-clay-county": {
     "ext": "jpg",
     "commonsFile": "RedBirdMcC5.jpg",
     "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/RedBirdMcC5.jpg?width=1280",
@@ -1270,16 +1224,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Notorious4life · Wikimedia Commons · public domain",
     "year": 2010
-  },
-  "the-c-and-o-mounds-at-paintsville": {
-    "ext": "jpg",
-    "commonsFile": "Levisa Fork in Paintsville.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Levisa_Fork_in_Paintsville.jpg?width=1280",
-    "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009
   },
   "the-maysville-road-and-jacksons-veto-1830": {
     "ext": "jpg",

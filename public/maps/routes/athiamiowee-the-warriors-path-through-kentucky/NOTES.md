@@ -24,14 +24,14 @@ Used by Native nations long before Europeans arrived (an old game trail); first 
 Partly. The route is shown on John Filson's 1784 map of Kentucke, but Filson (and Pownall 1776) draw it as a near-straight schematic line well off its real corridor, so the line here is NOT traced from Filson. It follows the modern GIS reconstruction in KYGeoNet "Ky Frontier Trails" (University of Kentucky / KY Division of Geographic Information), which plots it from confirmed landmarks (gaps, fords, licks, place names like War Fork, Station Camp Creek) and terrain, checked against the KHS marker text, Kincaid and the USFS/NPS histories. Filson 1784 is cited as the period map that records the path.
 
 ## One-sentence route (plain text)
-The Warriors' Path ran from the Ohio River opposite the mouth of the Scioto (Lower Shawneetown, near present South Portsmouth) south past Eskippakithiki in Clark County, across the Red and Kentucky rivers near Irvine, along War Fork and Goose Creek to Flat Lick, over the Cumberland River at Pineville, and through Cumberland Gap toward the Cherokee Overhill towns on the Little Tennessee River.
+The Warriors' Path ran from Lower Shawneetown in Greenup County south past Eskippakithiki in Clark County, across the Red and Kentucky rivers near Irvine, along War Fork and Goose Creek to Flat Lick, over the Cumberland River at Pineville, and through Cumberland Gap toward the Cherokee Overhill towns on the Little Tennessee River.
 
 Distance (measured on the map line): about 220 miles from the Ohio to Cumberland Gap, plus roughly 80–90 more (conjectural) to the Overhill towns.
 
 ## Waypoints (north to south) – coordinates WGS84, all approximate
 | # | stop | modern town / area | county, state | lat, lon | confidence |
 |---|---|---|---|---|---|
-| 1 | Lower Shawneetown (Ohio crossing, mouth of the Scioto) | South Portsmouth / Fullerton (opposite Portsmouth OH) | Greenup Co., KY (& Scioto Co., OH) | 38.7, -83.1 (rounded to 0.1°, protected site) | high (town site), KYGeoNet point |
+| 1 | Lower Shawneetown (Greenup County) | Greenup Co., KY | Greenup Co., KY (& Scioto Co., OH) | 38.7, -83.1 (rounded to 0.1°, protected site) | high (town site), KYGeoNet point |
 | 2 | Scioto prong via Slate Creek country | near Olive Hill / Mount Sterling area | Carter–Bath–Montgomery cos., KY | 38.137, -83.566 (bend) | low / conjectural |
 | 3 | Eskippakithiki (Indian Old Fields) | Indian Fields, ~10 mi E of Winchester | Clark Co., KY | 37.9, -84.0 (rounded to 0.1°, protected site) | high |
 | 4 | Red River crossing (near Kentucky River junction) | near Clay City / Lulbegrud Creek | Clark–Powell–Estill cos., KY | ~37.84, -84.02 | medium |
@@ -46,7 +46,7 @@ Branch (KHS/story text): from Eskippakithiki NE across the Licking near Upper Bl
 
 ## Uncertainty notes
 - Labelled "approximate route" throughout; no trail survives as a continuous mapped line. KYGeoNet rates Cumberland Gap–Eskippakithiki mostly "High/Probable" (one Irvine–Red River link "Low/Conjectural"); all northern prongs are "Low/Conjectural".
-- Two northern termini are documented: the Scioto mouth (USFS history, Kincaid, KYGeoNet, Myer) and Cabin Creek via Blue Licks (KHS marker #697 text / ExploreKYHistory, used in our story text). The map shows the Scioto prong as the main line and Blue Licks/Cabin Creek as a dashed branch, so it agrees with the story.
+- Two northern termini are documented: Lower Shawneetown (USFS history, Kincaid, KYGeoNet, Myer) and Cabin Creek via Blue Licks (KHS marker #697 text / ExploreKYHistory, used in our story text). The map shows the Scioto prong as the main line and Blue Licks/Cabin Creek as a dashed branch, so it agrees with the story.
 - South of Cumberland Gap the line is hand-placed (Powell Valley, Holston crossing near Knoxville, Little Tennessee) and dashed; Myer 1928 shows several alternative Cherokee connections.
 - The Eskippakithiki waypoint is the KYGeoNet "Indian Fields" point, rounded to 0.1° because the town site is protected. It matches Beckner's location of the town at Indian Old Fields.
 - Red River and Little Tennessee are not in Natural Earth 10 m; hand-traced schematically.
