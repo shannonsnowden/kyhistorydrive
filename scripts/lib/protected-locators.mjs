@@ -9,7 +9,11 @@ const G = '[\\s_-]{1,8}'
 const L = '(?<![A-Za-z0-9])'
 const R = '(?![A-Za-z0-9])'
 const DIR = '(?:[Nn]orth|[Ss]outh|[Ee]ast|[Ww]est)(?:east|west)?(?:ern)?'
+// A full stop ends a name (#348): a name token may hold inner periods (J.R.) or be a short abbreviation
+// (St., Mt.), but "Portsmouth Earthworks. Old Fort Earthworks" is two names. NAME_IN is used for tokens
+// that must be followed by more of the name; a final NAME keeps a trailing period.
 const NAME = "[A-Z][A-Za-z’'.]*"
+const NAME_IN = "(?:[A-Z](?:\\.?[A-Za-z’']){0,2}\\.|[A-Z](?:[A-Za-z’']|\\.(?=[A-Za-z]))*)"
 const rx = (src, flags = 'g') => new RegExp(src, flags)
 export const LOCATOR_PATTERNS = [
   { id: 'direction-of-place', re: rx(`${L}${DIR}${G}of${G}(?:the${G})?${NAME}`) },
@@ -17,9 +21,9 @@ export const LOCATOR_PATTERNS = [
   { id: 'distance', re: rx(`${L}\\d+(?:\\.\\d+)?[\\s_-]*(?:miles?|mi\\.?|km|kilomet(?:er|re)s?)${G}(?:${DIR}${G})?(?:of|from)${R}`, 'gi') },
   { id: 'near-town', re: rx(`${L}[Nn]ear(?:by)?${G}(?:the${G}(?:better-known${G})?|town${G}of${G}|city${G}of${G})?${NAME}`) },
   { id: 'near-town', re: rx(`${L}near[_-][a-z]{3,}`) },
-  { id: 'named-water', re: rx(`${L}${NAME}(?:${G}${NAME}){0,5}${G}(?:Creek|River|Lake|Fork|Branch|Run)${R}`) },
+  { id: 'named-water', re: rx(`${L}${NAME_IN}(?:${G}${NAME_IN}){0,5}${G}(?:Creek|River|Lake|Fork|Branch|Run)${R}`) },
   { id: 'named-water', re: rx(`${L}[a-z]+[_-](?:creek|river|lake|fork)${R}`) },
-  { id: 'named-earthworks', re: rx(`${L}(?:${NAME}${G}){1,6}Earthworks(?:${G}Complex)?${R}|${L}Earthworks${G}Complex${R}`) },
+  { id: 'named-earthworks', re: rx(`${L}(?:${NAME_IN}${G}){1,6}Earthworks(?:${G}Complex)?${R}|${L}Earthworks${G}Complex${R}`) },
   { id: 'named-earthworks', re: rx(`${L}[a-z]+[_-]earthworks[_-]complex${R}`) },
 ]
 
