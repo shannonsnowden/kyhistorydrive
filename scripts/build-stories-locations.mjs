@@ -198,6 +198,11 @@ const MANUAL_OVERRIDES = {
   // Tutelo: the body names Lower Shawneetown only as a mixed town where Henderson (1992) lists
   // Tutelo among residents; a Tutelo pin there would imply a Tutelo village in Kentucky. Unpinned.
   'tutelo-the-totteroy': {},
+  // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
+  // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
+  'covington-at-the-point': {},
+  'erie-the-cat-nation': {},
+  'shawnee-chillicothe-divisions': {},
   // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
   'col-john-todd-of-lexington': {
     matchName: 'Col. John Todd of Lexington',
