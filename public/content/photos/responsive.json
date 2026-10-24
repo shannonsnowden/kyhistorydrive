@@ -127,31 +127,6 @@
         }
       ]
     },
-    "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg": {
-      "sha256": "3537f8f3db9fcb280e26325f28b84a98925207b57871cb5e355ae673a57c19f6",
-      "width": 1280,
-      "height": 853,
-      "avif": [
-        {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.avif",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.avif",
-          "w": 720
-        }
-      ],
-      "webp": [
-        {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.webp",
-          "w": 480
-        },
-        {
-          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.webp",
-          "w": 720
-        }
-      ]
-    },
     "/content/photos/stories/treaty-of-fort-mcintosh-1785.jpg": {
       "sha256": "fa7388de87d17e53bd0576bed01a9f2275396f5c42ba4e2e1449dc2dc0a90321",
       "width": 1280,

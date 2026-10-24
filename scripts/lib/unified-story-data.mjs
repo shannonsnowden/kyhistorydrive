@@ -71,6 +71,13 @@ function getSkipProtectedSlugSet() {
   return cachedSkipProtectedSlugs
 }
 
+/** #348 SEO: place locators that must not appear in a protected story's standfirst (county names are fine). */
+export const STANDFIRST_LOCATOR = /\b(near|beside|above|below|along|upstream|downstream|overlooking)\b|\b(on|at|by)\s+(the\s+)?[A-Z][a-z]+|\b(river|fork|creek|branch|bluff|ridge|refuge|borrow pit|valley|bottoms?)\b|\b\d+(\.\d+)?\s*(mi|miles?|km)\b|\b(north|south|east|west)(east|west)?(ern)?\s+of\b/i
+
+export function standfirstHasLocator(text) {
+  return STANDFIRST_LOCATOR.test(String(text || ''))
+}
+
 export function isProtectedStory(story) {
   if (!story) return false
   if (story.coordinatesProtected || story.locationApproximate) return true
