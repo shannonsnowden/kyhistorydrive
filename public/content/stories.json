@@ -233,7 +233,7 @@
         "yearEnd": 250,
         "presenceLabel": "Adena area (archaeological culture, not a tribe)"
       },
-      "lat": 38.8,
+      "lat": 38.7,
       "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)"
@@ -380,6 +380,7 @@
     {
       "slug": "peter-village-enclosure-15fa166",
       "title": "Peter Village Enclosure (15Fa166): Early Woodland in Fayette County",
+      "seoTitle": "Peter Village (15Fa166) in Fayette County",
       "publishedDate": "2026-09-11",
       "summary": "Peter Village (15Fa166), an Early Woodland earthwork in Fayette County, has pottery dated to about 409–68 BCE and is a protected site.",
       "proseChars": 961,
@@ -408,6 +409,7 @@
     {
       "slug": "old-fort-earthworks-15gp1-greenup-county",
       "title": "Old Fort Earthworks: Hopewell Square Enclosure in Greenup County",
+      "seoTitle": "Old Fort Earthworks in Greenup County",
       "publishedDate": "2026-10-08",
       "summary": "In Greenup County, Old Fort Earthworks is a square Middle Woodland enclosure of 13.5 acres, the westernmost part of a larger Hopewell complex.",
       "proseChars": 1606,
@@ -659,6 +661,7 @@
     {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
       "title": "Rowlandton Mound Site (15McN3): Mississippian Town in McCracken County",
+      "seoTitle": "Rowlandton Mound (15McN3) in McCracken County",
       "publishedDate": "2026-10-05",
       "summary": "In McCracken County, the Rowlandton Mound Site (15MCN3) was a Mississippian town with a large platform mound, lived in from about 1100 to 1350 CE.",
       "proseChars": 821,
@@ -684,7 +687,7 @@
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       },
-      "lat": 37.1,
+      "lat": 37,
       "lon": -88.6,
       "mapConfidence": "override",
       "matchedPlace": "Rowlandton Mound Site (15McN3), McCracken County"

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T21:35:59.654Z",
+  "generatedAt": "2026-10-24T21:59:20.732Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -74,7 +74,7 @@
     },
     "dover-mound-mason-county": {
       "slug": "dover-mound-mason-county",
-      "lat": 38.8,
+      "lat": 38.7,
       "lon": -83.9,
       "mapConfidence": "override",
       "matchedPlace": "Dover Mound (Adena burial mound, Mason County)",
@@ -96,14 +96,6 @@
       "matchedPlace": "Ashland Central Park Adena Mounds",
       "historyId": "ashland-adena-mounds"
     },
-    "mount-horeb-earthworks": {
-      "slug": "mount-horeb-earthworks",
-      "lat": 38.1588727,
-      "lon": -84.4652044,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Horeb Adena / Adena Park",
-      "historyId": "mount-horeb-adena-park"
-    },
     "the-c-and-o-mounds-at-paintsville": {
       "slug": "the-c-and-o-mounds-at-paintsville",
       "lat": 37.8,
@@ -111,6 +103,14 @@
       "mapConfidence": "override",
       "matchedPlace": "C. and O. Mounds, Johnson County (approximate)",
       "historyId": "c-and-o-mounds-paintsville-johnson-adena"
+    },
+    "mount-horeb-earthworks": {
+      "slug": "mount-horeb-earthworks",
+      "lat": 38.1588727,
+      "lon": -84.4652044,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Mount Horeb Adena / Adena Park",
+      "historyId": "mount-horeb-adena-park"
     },
     "peter-village-enclosure-15fa166": {
       "slug": "peter-village-enclosure-15fa166",
@@ -186,7 +186,7 @@
     },
     "rowlandton-mound-site-15mcn3-paducah": {
       "slug": "rowlandton-mound-site-15mcn3-paducah",
-      "lat": 37.1,
+      "lat": 37,
       "lon": -88.6,
       "mapConfidence": "override",
       "matchedPlace": "Rowlandton Mound Site (15McN3), McCracken County",
