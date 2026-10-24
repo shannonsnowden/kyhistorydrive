@@ -120,8 +120,8 @@ function main() {
     fail('missing value: \'public, max-age=0, s-maxage=60, must-revalidate\'')
   }
 
-  const about = /source:\s*'\/about'\s*\n\s*target:\s*'\/about\/'\s*\n\s*status:\s*'301'/
-  if (!about.test(amplify)) fail('amplify.yml is missing the /about 301')
+  // Item 90: every 301 lives in the Amplify console; amplify.yml keeps only 200 rewrites.
+  if (/status:\s*'30[1278]'/.test(amplify)) fail('amplify.yml must not contain redirect rules; they live in the Amplify console (item 90)')
 
   const blocks = patternBlocks(customHttp)
   const feed = blocks.find((block) => block.pattern === "'/feed.xml'")
