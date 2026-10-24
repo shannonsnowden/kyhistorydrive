@@ -26,7 +26,7 @@ import { findLocators } from './lib/protected-locators.mjs'
 import { isProtectedStory } from './lib/unified-story-data.mjs'
 import { loadMerges } from './lib/story-merges.mjs'
 import { STORY_MERGES } from '../src/story-url.js'
-import { pickRelatedStories } from '../src/story-tools.js'
+import { pickRelatedStories, relatedAndNearbyForStory } from '../src/story-tools.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DATA_ROOT = process.env.KH_LOCATOR_ROOT || ROOT
@@ -114,6 +114,12 @@ function pageParts(html) {
   const parts = []
   // Related-card notes are scanned; the other stories' own titles and links in those cards are not.
   for (const m of html.matchAll(/<span class="(?:usp-rel-why|related-note)">[\s\S]*?<\/span>/gi)) parts.push(['note', m[0]])
+  // #345: a protected page shows no nearby cards at all; their titles name nearby towns and rivers.
+  for (const m of html.matchAll(/<li class="nearby-place[^"]*">[\s\S]*?<\/li>/gi)) parts.push(['nearby-card', m[0]])
+  // Related-story cards on a protected page: same county only, never a distance ("Nearby: 8.4 miles").
+  for (const m of html.matchAll(/<li class="related-story[^"]*">[\s\S]*?<\/li>/gi)) {
+    if (/\bmiles?\b|\bNearby:/i.test(m[0].replace(/<[^>]+>/g, ' '))) parts.push(['nearby-card', m[0]])
+  }
   html = html.replace(/<li class="(?:related-story|nearby-place|related-person|related-row)[^"]*">[\s\S]*?<\/li>/gi, ' ')
   html = html.replace(/\shref="[^"]*"/gi, ' ') // link targets (source PDFs, other stories) are not prose
   // Timeline prev/next buttons carry the neighbouring stories' titles, not this site's location.
@@ -217,6 +223,11 @@ if (fs.existsSync(peterPage)) {
 function pageHits(html, owner) {
   const out = []
   for (const [label, text] of pageParts(html)) {
+    if (label === 'nearby-card') {
+      const title = (text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() || 'nearby card').slice(0, 80)
+      out.push({ file: `stories/${owner}/index.html`, owner, field: 'page:nearby-card', match: title, id: 'nearby-card' })
+      continue
+    }
     for (const h of findLocators(scrub(text, owner), owner)) out.push({ file: `stories/${owner}/index.html`, owner, field: `page:${label}`, match: h.match, id: h.id })
   }
   return out
@@ -232,6 +243,31 @@ function pageHits(html, owner) {
     const bad = pageHits(html, ADAMS).filter((h) => !ALLOW.has(key(h)))
     assert.ok(bad.length >= 1, `planted allowlisted body text must fail on the page: ${html}`)
   }
+}
+
+// ---------- nearby cards: protected pages show none (plant must fail; builder must omit them) ----------
+{
+  const CO = 'the-c-and-o-mounds-at-paintsville'
+  const plant = `<section><ul><li class="nearby-place"><a href="/stories/prestonsburg-first-seat/">Prestonsburg: first seat on the Big Sandy</a><span class="nearby-miles">4 mi</span></li></ul></section>`
+  const bad = pageHits(plant, CO).filter((h) => !ALLOW.has(key(h)))
+  assert.ok(bad.some((h) => h.field === 'page:nearby-card'), 'planted nearby card on a protected page must fail')
+  const found = allStories.find((s) => s.slug === CO)
+  assert.ok(found && isProtectedStory(found), 'C&O fixture must be a protected story')
+  // Story JSON carries no pin; use a public 0.1° county-level point for the fixture.
+  const co = { ...found, lat: 37.8, lon: -82.8 }
+  const markers = [0, 1, 2, 3].map((i) => ({ id: `m${i}`, title: `Paintsville marker ${i}`, lat: 37.8 + 0.01 * i, lon: -82.8 }))
+  const control = relatedAndNearbyForStory({ ...co, slug: 'unprotected-fixture', tags: [], era: 'modern' }, allStories, markers, { limit: 3, isProtected: () => false })
+  assert.ok(/class="nearby-place/.test(control), 'control: an unprotected story with markers shows nearby cards')
+  const plant2 = `<ul><li class="related-story"><a class="related-card" href="/stories/prestonsburg-first-seat-on-the-big-sandy/">Prestonsburg: first seat on the Big Sandy<span class="related-note">Nearby: 8.4 miles</span></a></li></ul>`
+  assert.ok(pageHits(plant2, CO).some((h) => h.field === 'page:nearby-card'), 'planted distance-picked related card on a protected page must fail')
+  const okCard = `<ul><li class="related-story"><a class="related-card" href="/stories/x/">A Johnson County story<span class="related-note">Same county (Johnson County)</span></a></li></ul>`
+  assert.ok(!pageHits(okCard, CO).length, 'a same-county related card with no distance passes')
+  const rel = pickRelatedStories(co, allStories, [], { isProtected: isProtectedStory })
+  assert.ok(rel.every((s) => s.county === co.county), `protected related cards must be same-county: ${rel.map((s) => s.slug).join(', ')}`)
+  assert.ok(!rel.some((s) => s.slug === 'prestonsburg-first-seat-on-the-big-sandy'), 'C&O related cards include Prestonsburg')
+  const html = relatedAndNearbyForStory(co, allStories, markers, { limit: 3, isProtected: isProtectedStory })
+  assert.ok(!/class="nearby-place/.test(html), 'relatedAndNearbyForStory must omit nearby cards for a protected story')
+  assert.ok(!/nearby-miles/.test(html), 'protected story shows no nearby distances')
 }
 
 // ---------- scan ----------

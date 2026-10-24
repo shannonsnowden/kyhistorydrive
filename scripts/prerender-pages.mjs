@@ -1693,7 +1693,7 @@ class PrerenderPages {
 
   /** Two or more specific tags, then county, then distance. Title is only a tiebreak. */
   static relatedStories(story, all, excludeSlugs = []) {
-    return pickRelatedStories(story, all, excludeSlugs)
+    return pickRelatedStories(story, all, excludeSlugs, { isProtected: (s) => isProtectedStory(s) })
   }
 
   static relatedCardMeta(story) {
@@ -1723,6 +1723,7 @@ class PrerenderPages {
       portraitFor: (slug) => (relatedBundle ? portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug)) : ''),
       whyFor: (s, other) => computeRelatedNote(s, other),
       collapsible: true,
+      isProtected: (s) => isProtectedStory(s),
     })
   }
 
@@ -3388,12 +3389,14 @@ class PrerenderPages {
     if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
       throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
     }
-    const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
+    // #345: protected sites list same-county stories only, so they may have fewer than 3 (or none).
+    const protectedRelated = isProtectedStory(story)
+    const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/) || (protectedRelated ? [''] : null)
     const relatedCount = related ? (related[0].match(/<li class="related-story">/g) || []).length : 0
-    if (!related || !related[0].includes('Related stories') || relatedCount < 3 || relatedCount > 5) {
+    if (!related || (!protectedRelated && (!related[0].includes('Related stories') || relatedCount < 3)) || relatedCount > 5) {
       throw new Error(`prerender: ${urlPath} has ${relatedCount} related story links`)
     }
-    if (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0])) {
+    if (related[0] && (!related[0].includes('class="related-card"') || !/<h2[^>]*>Related stories<\/h2>/.test(related[0]))) {
       throw new Error(`prerender: ${urlPath} related list is not a card list under an h2`)
     }
     const learnMore = html.match(/<div class="popup-research learn-more">[\s\S]*?<\/ul>/)
@@ -3504,10 +3507,11 @@ class PrerenderPages {
       ],
     })
     const nearbyItems = related[0].match(/<li class="nearby-place">[\s\S]*?<\/li>/g) || []
+    if (isProtectedStory(story) && nearbyItems.length) throw new Error(`prerender: ${urlPath} protected story shows nearby cards`)
     if (!PrerenderPages.publicGeo(story) && nearbyItems.length) {
       throw new Error(`prerender: ${urlPath} shows nearby places without a public pin`)
     }
-    if (PrerenderPages.publicGeo(story)) {
+    if (PrerenderPages.publicGeo(story) && !isProtectedStory(story)) {
       const nearbyStoriesHtml = nearbyItems.filter((item) => item.includes('href="/stories/'))
       const nearbyMarkersHtml = nearbyItems.filter((item) => item.includes('href="/#map/markers/'))
       if (nearbyExpected.filter((row) => row.kind === 'story').length >= 3 && (nearbyStoriesHtml.length < 3 || nearbyStoriesHtml.length > 5)) {

@@ -591,9 +591,13 @@ async function main() {
     }
   }
 
+  // #345: the homepage shows only stories with a photo. A no-photo story (e.g. a protected site such as
+  // C&O Mounds) is skipped, so each build yields the same hero set without a hand restore.
   const withPhotos = cards.filter((c) => c.photo?.image_url)
-  const hero = withPhotos[0] || cards[0] || null
-  const features = cards.filter((c) => c !== hero)
+  const skipped = cards.filter((c) => !c.photo?.image_url).map((c) => c.slug)
+  if (skipped.length) console.log(`home-preview: skipped ${skipped.length} story(ies) with no photo: ${skipped.join(', ')}`)
+  const hero = withPhotos[0] || null
+  const features = withPhotos.filter((c) => c !== hero)
 
   let persisted = 0
   for (const card of cards) {
@@ -648,7 +652,7 @@ async function main() {
     displayDate: formatDisplayDate(briefDate),
     howToRefresh:
       'Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.',
-    stories: cards,
+    stories: withPhotos,
     hero,
     features,
     layers,
@@ -662,7 +666,7 @@ async function main() {
   fs.writeFileSync(out, `${JSON.stringify(pack, null, 2)}\n`)
   const photoCount = [hero, ...features, ...layers].filter((x) => x?.photo?.image_url).length
   console.log(
-    `Wrote ${out} (${briefDate}, ${cards.length} stories, ${photoCount} photos; persisted ${persisted} story photos, index ${photoIndex?.slugCount || 0}, stories.json +${indexPatched})`,
+    `Wrote ${out} (${briefDate}, ${withPhotos.length} stories, ${photoCount} photos; persisted ${persisted} story photos, index ${photoIndex?.slugCount || 0}, stories.json +${indexPatched})`,
   )
 }
 

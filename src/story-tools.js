@@ -681,10 +681,12 @@ function relatedMiles(story, other) {
  * One specific tag does not outrank the same county or a nearer story.
  * Then the same county, then nearer, then title.
  */
-export function pickRelatedStories(story, all, excludeSlugs = []) {
+export function pickRelatedStories(story, all, excludeSlugs = [], { isProtected = isProtectedStoryCoords } = {}) {
   const skip = new Set(excludeSlugs || [])
   const originTags = relatedTagSets(story)
-  const pool = collapseSamePlace(story, all, skip)
+  let pool = collapseSamePlace(story, all, skip)
+  // #345: a protected site's related cards are same-county only; distance picks name nearby towns and rivers.
+  if (typeof isProtected === 'function' && isProtected(story)) pool = pool.filter((other) => sameCounty(story, other))
   const strongCount = (other) => {
     const shared = sharedCount(originTags.specific, relatedTagSets(other).specific)
     return shared >= 2 ? shared : 0
@@ -718,9 +720,11 @@ export function relatedAndNearbyForStory(
   story,
   all,
   markers,
-  { headingLevel = 2, heading = 'Related stories', excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', whyFor = null, collapsible = false } = {},
+  { headingLevel = 2, heading = 'Related stories', excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', whyFor = null, collapsible = false, isProtected = isProtectedStoryCoords } = {},
 ) {
-  const related = pickRelatedStories(story, all, excludeSlugs)
+  const related = pickRelatedStories(story, all, excludeSlugs, { isProtected })
+  // #345: protected sites show no nearby cards. Their titles and distances name nearby towns and rivers.
+  const protectedSite = typeof isProtected === 'function' && isProtected(story)
   const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
   const relatedRows = related.map((other) => ({
     kind: 'story',
@@ -732,11 +736,11 @@ export function relatedAndNearbyForStory(
     // Person cards always use the canonical portrait.
     thumb: portraitFor(other.slug) || thumbFor(other) || '',
   }))
-  const nearby = nearbyPlaces(story, all, markers, {
+  const nearby = (protectedSite ? [] : nearbyPlaces(story, all, markers, {
     limit,
     excludeSlugs: [...excludeSlugs, ...related.map((item) => item.slug)],
     excludeMarkerIds,
-  }).map((row) => {
+  })).map((row) => {
     if (row.kind !== 'story') return { ...row, thumb: '' }
     const other = bySlug.get(row.slug)
     return {
