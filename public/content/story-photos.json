@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T17:02:33.570Z",
+  "generatedAt": "2026-10-24T19:12:43.382Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -223,18 +223,6 @@
         "fit": "contain"
       }
     },
-    "buckner-site-fort-ancient-villages-on-strodes-creek": {
-      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
-      "historyId": "buckner-site-15bb12-bourbon-county",
-      "photo": {
-        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
-        "title": "Paris, Bourbon County (nearest city to Buckner Site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
-      }
-    },
     "burlington-boone-county-seat": {
       "slug": "burlington-boone-county-seat",
       "historyId": "burlington-boone-1799-1816",
@@ -384,7 +372,7 @@
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "photo": {
         "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
-        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "title": "Sandstone outcrop in eastern Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
@@ -1490,24 +1478,12 @@
         "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
       }
     },
-    "nonhelema": {
-      "slug": "nonhelema",
-      "historyId": null,
-      "photo": {
-        "image_url": "/content/photos/stories/nonhelema.jpg",
-        "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
-        "year": 2019
-      }
-    },
     "old-fort-earthworks-15gp1-greenup-county": {
       "slug": "old-fort-earthworks-15gp1-greenup-county",
       "historyId": "old-fort-earthworks-15gp1-greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -1650,12 +1626,12 @@
         "year": null
       }
     },
-    "red-bird-river-petroglyphs-clay-county": {
-      "slug": "red-bird-river-petroglyphs-clay-county",
-      "historyId": "red-bird-river-petroglyphs-eriline-clay",
+    "red-bird-petroglyphs-clay-county": {
+      "slug": "red-bird-petroglyphs-clay-county",
+      "historyId": "red-bird-petroglyphs-clay",
       "photo": {
-        "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
-        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "image_url": "/content/photos/stories/red-bird-petroglyphs-clay-county.jpg",
+        "title": "The Red Bird inscription in place in Clay County, about 1988, before it fell",
         "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
@@ -2005,18 +1981,6 @@
         "year": null
       }
     },
-    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-        "year": null
-      }
-    },
     "treaty-of-camp-charlotte-1774": {
       "slug": "treaty-of-camp-charlotte-1774",
       "historyId": null,
@@ -2117,21 +2081,6 @@
         "license_url": "https://commons.wikimedia.org/wiki/Template:pd",
         "fit": "contain",
         "artwork": "print"
-      }
-    },
-    "twin-mounds-site": {
-      "slug": "twin-mounds-site",
-      "historyId": "twin-mounds-site-15ba2-ballard-county",
-      "photo": {
-        "image_url": "/content/photos/stories/twin-mounds-site.jpg",
-        "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "walker-daniel-danvilles-namesake": {
@@ -2467,18 +2416,6 @@
         "fit": "contain"
       }
     },
-    "buckner-site-15bb12-bourbon-county": {
-      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
-      "historyId": "buckner-site-15bb12-bourbon-county",
-      "photo": {
-        "image_url": "/content/photos/stories/buckner-site-fort-ancient-villages-on-strodes-creek.jpg",
-        "title": "Paris, Bourbon County (nearest city to Buckner Site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons",
-        "year": null
-      }
-    },
     "burlington-boone-1799-1816": {
       "slug": "burlington-boone-county-seat",
       "historyId": "burlington-boone-1799-1816",
@@ -2613,7 +2550,7 @@
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county",
       "photo": {
         "image_url": "/content/photos/stories/cloudsplitter-rockshelter-menifee-county.jpg",
-        "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+        "title": "Sandstone outcrop in eastern Kentucky",
         "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
@@ -3548,7 +3485,7 @@
       "historyId": "old-fort-earthworks-15gp1-greenup",
       "photo": {
         "image_url": "/content/photos/stories/old-fort-earthworks-15gp1-greenup-county.jpg",
-        "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
+        "title": "A surviving wall of Portsmouth Earthworks Group A (photographed 2012)",
         "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "Nyttend · Wikimedia Commons · public domain",
@@ -3651,12 +3588,12 @@
         "year": 2014
       }
     },
-    "red-bird-river-petroglyphs-eriline-clay": {
-      "slug": "red-bird-river-petroglyphs-clay-county",
-      "historyId": "red-bird-river-petroglyphs-eriline-clay",
+    "red-bird-petroglyphs-clay": {
+      "slug": "red-bird-petroglyphs-clay-county",
+      "historyId": "red-bird-petroglyphs-clay",
       "photo": {
-        "image_url": "/content/photos/stories/red-bird-river-petroglyphs-clay-county.jpg",
-        "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+        "image_url": "/content/photos/stories/red-bird-petroglyphs-clay-county.jpg",
+        "title": "The Red Bird inscription in place in Clay County, about 1988, before it fell",
         "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
         "source_label": "Wikimedia Commons",
         "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
@@ -3937,18 +3874,6 @@
         "year": null
       }
     },
-    "tolu-site-15cn1-crittenden-county": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
-      "historyId": "tolu-site-15cn1-crittenden-county",
-      "photo": {
-        "image_url": "/content/photos/stories/tolu-site-mississippian-mounds-on-the-lower-ohio.jpg",
-        "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-        "year": null
-      }
-    },
     "turk-site-15ce6-carlisle-county": {
       "slug": "turk-site-carlisle-county",
       "historyId": "turk-site-15ce6-carlisle-county",
@@ -3962,21 +3887,6 @@
         "credit": "Nyttend",
         "license": "Public domain",
         "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
-      }
-    },
-    "twin-mounds-site-15ba2-ballard-county": {
-      "slug": "twin-mounds-site",
-      "historyId": "twin-mounds-site-15ba2-ballard-county",
-      "photo": {
-        "image_url": "/content/photos/stories/twin-mounds-site.jpg",
-        "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
       }
     },
     "walker-daniel-danville-boyle-1781-1787": {

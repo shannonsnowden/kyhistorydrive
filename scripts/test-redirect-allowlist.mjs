@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// amplify.yml 301s are an explicit allowlist (Editor ruling #345): the 4 slashless rules + the 14 old-slug rules.
+// amplify.yml 301s are an explicit allowlist (Editor ruling #345): the 4 slashless rules + the 16 old-slug rules.
 // Fixtures are fictional (Sampletown). A planted extra 301 must fail; dropping a required one must fail.
 import fs from 'node:fs'
 import path from 'node:path'
@@ -9,7 +9,11 @@ import { redirectProblems, REDIRECT_ALLOWLIST } from './check-security-headers.m
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const amplify = fs.readFileSync(path.join(root, 'amplify.yml'), 'utf8')
-assert.equal(REDIRECT_ALLOWLIST.length, 18, 'allowlist is 4 slashless + 14 old-slug rules')
+assert.equal(REDIRECT_ALLOWLIST.length, 20, 'allowlist is 4 slashless + 16 old-slug rules (8 slugs x slash/no slash)')
+// Editor ruling (#346): the Red Bird petroglyphs story moved to a county-level slug; the old slug 301s here.
+for (const from of ['/stories/red-bird-river-petroglyphs-clay-county', '/stories/red-bird-river-petroglyphs-clay-county/']) {
+  assert.ok(REDIRECT_ALLOWLIST.includes(`${from}->/stories/red-bird-petroglyphs-clay-county/:301`), `allowlist has ${from}`)
+}
 assert.deepEqual(redirectProblems(amplify), [], `real amplify.yml: ${redirectProblems(amplify).join('; ')}`)
 
 const extra = amplify.replace('customRules:\n', "customRules:\n  - source: '/stories/sampletown-old/'\n    target: '/stories/sampletown/'\n    status: '301'\n")

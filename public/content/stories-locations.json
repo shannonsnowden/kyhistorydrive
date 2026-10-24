@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T17:02:25.570Z",
+  "generatedAt": "2026-10-24T19:12:36.275Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -1870,13 +1870,13 @@
       "matchedPlace": null,
       "historyId": null
     },
-    "red-bird-river-petroglyphs-clay-county": {
-      "slug": "red-bird-river-petroglyphs-clay-county",
+    "red-bird-petroglyphs-clay-county": {
+      "slug": "red-bird-petroglyphs-clay-county",
       "lat": 37.2,
       "lon": -83.8,
       "mapConfidence": "override",
-      "matchedPlace": "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
-      "historyId": "red-bird-river-petroglyphs-eriline-clay"
+      "matchedPlace": "Red Bird Petroglyphs (15CY51)",
+      "historyId": "red-bird-petroglyphs-clay"
     },
     "susquehannock-and-the-ohio-valley-door": {
       "slug": "susquehannock-and-the-ohio-valley-door",

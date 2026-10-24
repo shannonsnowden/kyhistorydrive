@@ -632,9 +632,11 @@ export function computeRelatedNote(baseStory, candidate) {
   ) {
     return `Same county (${countyLong(candidate.county)})`
   }
+  // #346 (Critiquito): no distance on any card involving a protected site.
+  const protectedPair = isProtectedStory(baseStory) || isProtectedStory(candidate)
   const aGeo = roundedStoryGeo(baseStory)
   const bGeo = roundedStoryGeo(candidate)
-  const miles = haversineMilesRounded(aGeo, bGeo)
+  const miles = protectedPair ? NaN : haversineMilesRounded(aGeo, bGeo)
   if (Number.isFinite(miles) && miles < 50) {
     return `Nearby: ${miles < 10 ? miles.toFixed(1).replace(/\.0$/, "") : Math.round(miles)} miles`
   }

@@ -486,10 +486,10 @@
       "yearEnd": 1769,
       "county": "Powell"
     },
-    "red-bird-river-petroglyphs-clay-county": {
-      "reason": "Pin original site near Eriline, rounded to 2 decimals (archaeology). County Clay. No years: no source dates the carvings; 1994 fall/move to Manchester is text only. | 2026-10-11: coarsened to 0.1° (rock-shelter site).",
+    "red-bird-petroglyphs-clay-county": {
+      "reason": "Pin original site, generalized to Clay County, rounded to 2 decimals (archaeology). County Clay. No years: no source dates the carvings; 1994 fall/move to Manchester is text only. | 2026-10-11: coarsened to 0.1° (rock-shelter site).",
       "date": "2026-10-07",
-      "historyId": "red-bird-river-petroglyphs-eriline-clay",
+      "historyId": "red-bird-petroglyphs-clay",
       "lat": 37.2,
       "lon": -83.8,
       "county": "Clay"

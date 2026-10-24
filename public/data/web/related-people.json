@@ -546,12 +546,6 @@
     "label": "Same place: the same karst country as Mammoth Cave"
    }
   ],
-  "dover-mound-mason-county": [
-   {
-    "slug": "mount-horeb-earthworks",
-    "label": "Same place: the same Adena world as Mount Horeb"
-   }
-  ],
   "drennon-springs-salt-works": [
    {
     "slug": "george-rogers-clark",
@@ -599,7 +593,7 @@
   "hansen-site-15gp14": [
    {
     "slug": "lower-shawneetown-at-the-scioto-mouth",
-    "label": "Same place: on the terrace just upstream from Lower Shawneetown"
+    "label": "Same place: Lower Shawneetown, also in Greenup County"
    },
    {
     "slug": "old-fort-earthworks-15gp1-greenup-county",
@@ -753,12 +747,6 @@
     "label": "Same event: the Shawnee contested the cession until Camp Charlotte in 1774"
    }
   ],
-  "twin-mounds-site": [
-   {
-    "slug": "wickliffe-mounds-mississippian-village-ballard-county",
-    "label": "Same place: contemporary with Wickliffe Mounds"
-   }
-  ],
   "ward-site-15mcl11-mclean-county": [
    {
     "slug": "indian-knoll-on-the-green-river",
@@ -897,7 +885,7 @@
    },
    {
     "slug": "hansen-site-15gp14",
-    "label": "Same place: another site in the Lower Shawneetown district near South Portsmouth"
+    "label": "Same place: another site in the Lower Shawneetown district in Greenup County"
    }
   ],
   "lower-shawneetown-at-the-scioto-mouth": [

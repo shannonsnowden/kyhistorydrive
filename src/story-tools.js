@@ -340,8 +340,10 @@ export function nearbyMarkers(story, markers, { limit = 5, excludeMarkerIds = []
  * Up to five nearest stories and up to five nearest historical markers,
  * one list, nearest first. Stories stay on /stories/<slug>/.
  */
-export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = [], excludeMarkerIds = [] } = {}) {
-  const storiesNear = nearbyStories(story, all, { limit, excludeSlugs })
+export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = [], excludeMarkerIds = [], isProtected = isProtectedStoryCoords } = {}) {
+  // #346 (Critiquito): a protected site is never a nearby card; "3.2 miles" from a public story places it.
+  const pool = (all || []).filter((other) => other === story || !(other?.coordinatesProtected || (typeof isProtected === 'function' && isProtected(other))))
+  const storiesNear = nearbyStories(story, pool, { limit, excludeSlugs })
   const markersNear = nearbyMarkers(story, markers, { limit, excludeMarkerIds })
   const rows = [
     ...(storiesNear.length >= 3 ? storiesNear : []),
@@ -681,16 +683,24 @@ function relatedMiles(story, other) {
  * One specific tag does not outrank the same county or a nearer story.
  * Then the same county, then nearer, then title.
  */
+// #346: a public archaeological site in the same county is a reference site for a protected one; never card it.
+function isPublicArchaeologySite(other, isProtected) {
+  if (isProtected(other)) return false
+  return (other?.tags || []).map((t) => String(t).toLowerCase()).includes('archaeology')
+}
+
 export function pickRelatedStories(story, all, excludeSlugs = [], { isProtected = isProtectedStoryCoords } = {}) {
   const skip = new Set(excludeSlugs || [])
   const originTags = relatedTagSets(story)
   let pool = collapseSamePlace(story, all, skip)
   // #345: a protected site's related cards are same-county only; distance picks name nearby towns and rivers.
-  if (typeof isProtected === 'function' && isProtected(story)) pool = pool.filter((other) => sameCounty(story, other))
+  if (typeof isProtected === 'function' && isProtected(story)) pool = pool.filter((other) => sameCounty(story, other) && !isPublicArchaeologySite(other, isProtected))
   const strongCount = (other) => {
     const shared = sharedCount(originTags.specific, relatedTagSets(other).specific)
     return shared >= 2 ? shared : 0
   }
+  // #346: a public story cards a protected site only by county or strong shared tags, never because it is close by.
+  if (typeof isProtected === 'function' && !isProtected(story)) pool = pool.filter((other) => !isProtected(other) || sameCounty(story, other) || strongCount(other) > 0)
   pool.sort((a, b) => {
     const specificDelta = strongCount(b) - strongCount(a)
     if (specificDelta) return specificDelta
@@ -740,6 +750,7 @@ export function relatedAndNearbyForStory(
     limit,
     excludeSlugs: [...excludeSlugs, ...related.map((item) => item.slug)],
     excludeMarkerIds,
+    isProtected,
   })).map((row) => {
     if (row.kind !== 'story') return { ...row, thumb: '' }
     const other = bySlug.get(row.slug)

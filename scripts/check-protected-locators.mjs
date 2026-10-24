@@ -63,6 +63,27 @@ export const ITEMS = [
     ids: ['chambers-site-15ml109-marshall-1250-1350'],
     terms: ['Clarks River', 'Middle Fork', 'southwest', 'southwestern', 'ridgetop', 'Wildlife Refuge', 'borrow pit', 'bridge replacement', 'minor tributary'],
   },
+  {
+    name: 'Buckner Site',
+    names: ['Buckner Site', 'Buckner site', '15Bb12'],
+    slugs: ['buckner-site-fort-ancient-villages-on-strodes-creek'],
+    ids: ['buckner-site-15bb12'],
+    terms: ['Paris', "Strode['’]?s Creek"],
+  },
+  {
+    name: 'Lower Shawneetown',
+    names: ['Lower Shawneetown'],
+    slugs: ['lower-shawneetown-at-the-scioto-mouth'],
+    ids: ['lower-shawneetown'],
+    terms: ['Scioto', 'South Portsmouth'],
+  },
+  {
+    name: 'Cleek-McCabe',
+    names: ['Cleek-McCabe'],
+    slugs: ['cleek-mccabe-a-circular-fort-ancient-village-in-boone-county'],
+    ids: ['cleek-mccabe-fort-ancient-village-boone-county'],
+    terms: ['Mud Lick', 'Walton'],
+  },
 ]
 
 /** Required credit URLs that may keep a term. Keep this list specific. */
@@ -319,7 +340,7 @@ const FIXTURES = [
     names: ['Demo Enclosure'],
     slugs: ['demo-enclosure-15yy000'],
     ids: ['demo-enclosure-15yy000-0001'],
-    terms: ['Demoville', 'Demo Creek'],
+    terms: ['Demoville', 'Demo Creek', "Sampler['’]?s Creek", 'Demoburg'],
   },
 ]
 
@@ -338,6 +359,9 @@ function selfTest() {
     assert(!hitsIn('a small Sampleriveran town', ex).length, 'negative lookahead term')
     assert(hitsIn('the Sampleriver floodplain', ex).length, 'lookahead term base')
     assert(!hitsIn('/stories/example-site-near-sampletown/', ex).length, 'own slug exempt')
+    const demo = FIXTURES[1]
+    for (const t of ['Sampler’s Creek', "Sampler's Creek", 'Samplers Creek', 'Samplers_Creek']) assert(hitsIn(`villages on ${t}`, demo).length, `plant: possessive creek term ${t}`)
+    for (const t of ['Demoburg', 'Upper Demoburg']) assert(hitsIn(`the village near ${t}`, demo).length, `plant: nearest-town term ${t}`)
     const p = []
     scanJson({ terms: { sampletown: { hits: ['place:example-site-15xx999-0001'] } } }, 'fixture', p)
     assert(p.length === 1, 'search term key pointing at a protected id')
@@ -395,6 +419,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       for (const p of problems.slice(0, 200)) console.error(`  ${p}`)
       process.exit(1)
     }
-    console.log('check-protected-locators: OK (Muir, Peter Village x2, Read Shell Midden, Turk, Chambers; public JSON and story pages)')
+    console.log('check-protected-locators: OK (Muir, Peter Village x2, Read Shell Midden, Turk, Chambers, Buckner, Lower Shawneetown, Cleek-McCabe; public JSON and story pages)')
   }
 }

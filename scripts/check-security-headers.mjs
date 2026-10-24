@@ -49,6 +49,7 @@ const OLD_SLUG_301S = [
   ['chickamauga-cherokee-hold-the-southern-flank', 'chickamauga-cherokee'],
   ['jacob-beam-sells-old-jakes-first-barrel', 'jacob-beam-on-hardin-creek'],
   ['wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid', 'wea-waayaahtanwa-on-the-wabash'],
+  ['red-bird-river-petroglyphs-clay-county', 'red-bird-petroglyphs-clay-county'], // Editor ruling #346: county-level slug
 ]
 export const REDIRECT_ALLOWLIST = [
   ...SLASHLESS_KEPT.map((p) => `${p}->${p}/:301`),

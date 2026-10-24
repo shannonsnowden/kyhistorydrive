@@ -8,7 +8,7 @@
  * Conservative matching:
  *  - candidates are only people whose people.json `stories` list includes this story;
  *  - only the full public name, exact case, whole words (no surnames, no aliases);
- *  - a name followed by a place word (Red Bird River, Boone County) does not count;
+ *  - a name followed by a place word (Sample River, Boone County) does not count;
  *  - a name contained in another candidate's name that also matches there is skipped;
  *  - one-word names are skipped unless they are the story's title subject;
  *  - exception: a per-story alias in scripts/portrait-sweep.json (`aliases: { id: 'Surname' }`)

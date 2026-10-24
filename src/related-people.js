@@ -260,17 +260,17 @@ export function hasSafePortrait(person) {
  * Returns { person, reason }.
  */
 /**
- * Slug-prefix matches that are not the story's subject. The Red Bird River petroglyphs story is
+ * Slug-prefix matches that are not the story's subject. The Red Bird petroglyphs story is
  * about a carved rock; the "legendary Cherokee chief Red Bird" is only the marker's attribution.
  */
-const NOT_SUBJECT = { 'red-bird-river-petroglyphs-clay-county': ['red-bird'] }
+const NOT_SUBJECT = { 'red-bird-petroglyphs-clay-county': ['red-bird'] }
 export const PLACE_WORD = /^\s*(?:'s\s+|’s\s+)?(?:river|creek|county|forest|national|state|park|lake|road|trace|trail|bridge|school|college|university|hall|church|springs?|fork|branch|bend|mountain|gap|ferry|street|avenue|memorial|monument|dam|cave|island|mill|house|home|farm|estate|station)\b/i
 const escRe = (v) => String(v).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /**
  * Build time only (scripts/build-people.mjs): people named in a story title by full name or
  * alias. Multi-word names match case-insensitively; one-word names (Blackfish, Hokoleskwa) only
- * with exact case. A name followed by a place word (Red Bird River, Boone County) does not count.
+ * with exact case. A name followed by a place word (Sample River, Boone County) does not count.
  */
 export function titlePeople(people, title, slug = '') {
   const t = String(title || '')

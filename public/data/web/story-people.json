@@ -245,13 +245,7 @@
       "portraits": []
     },
     "col-william-russell-iii": {
-      "links": [
-        {
-          "id": "william-russell-iii",
-          "name": "William Russell III",
-          "href": "/people/#william-russell-iii"
-        }
-      ],
+      "links": [],
       "portraits": []
     },
     "treaties-of-hard-labour-and-lochaber": {
@@ -275,9 +269,16 @@
           "id": "will-emery",
           "name": "Captain Will Emery",
           "href": "/people/#will-emery"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "daniel-boone"
+      ]
     },
     "hancock-taylor-fincastle-surveyor": {
       "links": [
@@ -312,7 +313,13 @@
       "portraits": []
     },
     "leestown": {
-      "links": [],
+      "links": [
+        {
+          "id": "hancock-lee",
+          "name": "Hancock Lee",
+          "href": "/people/#hancock-lee"
+        }
+      ],
       "portraits": []
     },
     "mcafee-station-on-the-salt-river": {
@@ -320,7 +327,13 @@
       "portraits": []
     },
     "ann-mcginty-and-kentuckys-first-spinning-wheel": {
-      "links": [],
+      "links": [
+        {
+          "id": "ann-mcginty",
+          "name": "Ann McGinty",
+          "href": "/people/#ann-mcginty"
+        }
+      ],
       "portraits": []
     },
     "stanford-from-st-asaph": {
@@ -398,7 +411,13 @@
       "portraits": []
     },
     "william-christian-of-beargrass": {
-      "links": [],
+      "links": [
+        {
+          "id": "william-christian",
+          "name": "William Christian",
+          "href": "/people/#william-christian"
+        }
+      ],
       "portraits": []
     },
     "bardstown": {
@@ -666,13 +685,7 @@
       "portraits": []
     },
     "newport-at-the-licking-mouth": {
-      "links": [
-        {
-          "id": "james-taylor-jr",
-          "name": "James Taylor Jr.",
-          "href": "/people/#james-taylor-jr"
-        }
-      ],
+      "links": [],
       "portraits": []
     },
     "simpsonville-takes-shape-on-the-louisville-road": {

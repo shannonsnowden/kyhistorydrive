@@ -32,7 +32,7 @@ frontend:
 # slashless 301s below (/about, /videos, /timeline, /drives) are not in the console,
 # so they stay here; the rest of this list is the 200 rewrites.
 customRules:
-  # Editor ruling (#345): the 14 old-slug 301s below stay here (7 slugs x slash/no slash); all other
+  # Editor ruling (#345): the 16 old-slug 301s below stay here (8 slugs x slash/no slash); all other
   # old-slug 301s live in the Amplify console. check-security-headers.mjs allowlists exactly these + the 4 slashless rules.
   # Merged duplicate stories (block f, #337): generated from docs/redirects/block-f-merges.json; keep in sync (build-merge-redirects checks).
   - source: '/stories/capt-jack-jouett'
@@ -76,6 +76,13 @@ customRules:
     status: '301'
   - source: '/stories/wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid/'
     target: '/stories/wea-waayaahtanwa-on-the-wabash/'
+    status: '301'
+  # Editor ruling (#346): Red Bird petroglyphs moved to a county-level slug.
+  - source: '/stories/red-bird-river-petroglyphs-clay-county'
+    target: '/stories/red-bird-petroglyphs-clay-county/'
+    status: '301'
+  - source: '/stories/red-bird-river-petroglyphs-clay-county/'
+    target: '/stories/red-bird-petroglyphs-clay-county/'
     status: '301'
   - source: '/privacy'
     target: '/privacy/index.html'

@@ -4,6 +4,7 @@
  * Writes public/content/stories-locations.json and merges lat/lon/mapConfidence into stories.json.
  */
 import fs from 'node:fs'
+import { bodyMatchFitsStoryCounty, stripLinkTargets } from './lib/story-location-match.mjs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { applyPinLinks } from './lib/story-pin-links.mjs'
@@ -199,6 +200,13 @@ const MANUAL_OVERRIDES = {
   // Tutelo: the body names Lower Shawneetown only as a mixed town where Henderson (1992) lists
   // Tutelo among residents; a Tutelo pin there would imply a Tutelo village in Kentucky. Unpinned.
   'tutelo-the-totteroy': {},
+  // #346: expanded text mentions the Falls of the Ohio in passing (a link); keep this nation story unpinned as on v2.
+  'ojibwe-on-birds-war-road': {},
+  // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
+  // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
+  'covington-at-the-point': {},
+  'erie-the-cat-nation': {},
+  'shawnee-chillicothe-divisions': {},
   // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
   'col-john-todd-of-lexington': {
     matchName: 'Col. John Todd of Lexington',
@@ -770,8 +778,8 @@ const MANUAL_OVERRIDES = {
     lon: -83.936,
     confidence: 'override',
   },
-  'red-bird-river-petroglyphs-clay-county': {
-    matchName: "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
+  'red-bird-petroglyphs-clay-county': {
+    matchName: "Red Bird Petroglyphs (15CY51)",
     lat: 37.2,
     lon: -83.8,
     confidence: 'override',
@@ -1067,14 +1075,16 @@ function findHistory(story, bodyText) {
   }
 
   // search body/summary for history place names
-  const blob = norm([story.title, story.summary, bodyText].filter(Boolean).join(' '))
+  const blob = norm([story.title, story.summary, stripLinkTargets(bodyText)].filter(Boolean).join(' '))
   let best = null
   for (const [n, f] of byName) {
     if (n.length >= 8 && blob.includes(n)) {
       if (!best || n.length > best.n.length) best = { n, f }
     }
   }
-  if (best) return { feature: best.f, confidence: 'fuzzy', match: best.f.properties.name }
+  if (best && bodyMatchFitsStoryCounty(best.f, story, countyNames, centroids)) {
+    return { feature: best.f, confidence: 'fuzzy', match: best.f.properties.name }
+  }
 
   return null
 }
