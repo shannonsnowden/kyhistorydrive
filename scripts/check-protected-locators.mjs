@@ -204,23 +204,41 @@ export function otherPageHits(html) {
   const out = []
   // Keep hrefs as text so slug mentions count, then drop the remaining markup.
   const text = prose(html).replace(/<a\b[^>]*href="([^"]*)"[^>]*>/gi, ' $1 ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&')
-  const sentences = splitSentences(text)
-  for (let i = 0; i < sentences.length; i++) {
-    const sentence = sentences[i]
-    for (const { it, re } of MENTIONS) {
-      if (!re.test(sentence)) continue
-      // The mention's sentence plus up to NEAR_WORDS words across one boundary on each side.
-      const prev = i > 0 ? sentences[i - 1].split(/\s+/).filter(Boolean).slice(-NEAR_WORDS).join(' ') : ''
-      const next = i + 1 < sentences.length ? sentences[i + 1].split(/\s+/).filter(Boolean).slice(0, NEAR_WORDS).join(' ') : ''
-      const h = hitsIn(`${prev}\n${sentence}\n${next}`, it)
-      if (h.length) out.push({ item: it.name, hits: h, sentence: sentence.replace(/\s+/g, ' ').trim().slice(0, 160) })
+  // True ±NEAR_WORDS window around each mention, ignoring sentence breaks. Linear: one pass to index
+  // word starts, one regex scan per protected site, and a fixed-size window per mention.
+  const starts = []
+  for (const m of text.matchAll(/\S+/g)) starts.push(m.index)
+  const wordAt = (pos) => {
+    let lo = 0, hi = starts.length - 1, ans = 0
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1
+      if (starts[mid] <= pos) { ans = mid; lo = mid + 1 } else hi = mid - 1
+    }
+    return ans
+  }
+  const words = text.match(/\S+/g) || []
+  for (const { it, re } of MENTIONS) {
+    const g = new RegExp(re.source, 'gi')
+    // Merge mentions that sit within NEAR_WORDS of each other (e.g. link href + its text) into one span.
+    const spans = []
+    for (const m of text.matchAll(g)) {
+      const a = wordAt(m.index)
+      const b = wordAt(m.index + Math.max(m[0].length - 1, 0))
+      const last = spans[spans.length - 1]
+      if (last && a <= last[1] + NEAR_WORDS) last[1] = Math.max(last[1], b)
+      else spans.push([a, b])
+    }
+    for (const [a, b] of spans) {
+      const win = words.slice(Math.max(0, a - NEAR_WORDS), b + NEAR_WORDS + 1).join(' ')
+      const h = hitsIn(win, it)
+      if (h.length) out.push({ item: it.name, hits: h, sentence: win.slice(0, 160) })
     }
   }
   return out
 }
 
 /** Words that end in a period but don't end a sentence (lower-cased, without the final dot). */
-export const ABBREVIATIONS = new Set(['mi', 'co', 'st', 'mt', 'ft', 'ca', 'e.g', 'i.e', 'etc', 'no', 'rd', 'twp', 'cf', 'vs', 'approx', 'ave', 'blvd', 'hwy', 'jr', 'sr', 'dr', 'mr', 'mrs', 'ms', 'gen', 'col', 'capt', 'lt', 'rev', 'ky', 'n', 's', 'e', 'w', 'km', 'yd', 'yds', 'in', 'c', 'cir', 'pt'])
+export const ABBREVIATIONS = new Set(['mi', 'co', 'st', 'mt', 'ft', 'ca', 'e.g', 'i.e', 'etc', 'no', 'rd', 'twp', 'cf', 'vs', 'approx', 'ave', 'blvd', 'hwy', 'jr', 'sr', 'dr', 'mr', 'mrs', 'ms', 'gen', 'col', 'capt', 'lt', 'rev', 'ky', 'n', 's', 'e', 'w', 'km', 'yd', 'yds', 'in', 'c', 'cir', 'pt', 'riv', 'miss', 'cr'])
 export const NEAR_WORDS = 15
 
 /** Linear sentence splitter: breaks after . ! ? + whitespace, or at newlines, but not after abbreviations or initials. */
@@ -330,6 +348,12 @@ function selfTest() {
   assert(otherPageHits('<div class="story-body"><p>Lexington grew fast. The Turk site is in Carlisle County.</p></div>').length === 0, 'non-matching locator for a different site is fine')
   const far = 'Lexington grew later. ' + 'Many other towns rose and fell over the following century as roads and rails reached new places. '.repeat(2)
   assert(!otherPageHits(`<div class="story-body"><p>Webb cited <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> in Fayette County. ${'Archaeologists in that era surveyed many earthworks across the state with simple tools and notebooks. '.repeat(2)}${far}</p></div>`).length, 'locator far away (beyond ~15 words / one boundary) is fine')
+  // #354 Security recheck: a true ±15-word window around the mention, ignoring sentence breaks.
+  const twoAway = otherPageHits('<div class="story-body"><p>Webb dug the Turk site in 1930. The mounds were small. They stand on a bluff near Bardwell.</p></div>')
+  assert(twoAway.length === 1 && twoAway[0].item === 'Turk' && twoAway[0].hits.includes('Bardwell'), 'plant: locator two sentences after the mention, within 15 words')
+  const missRiv = otherPageHits('<div class="story-body"><p>The Turk site sat on the Miss. Riv. west of Bardwell.</p></div>')
+  assert(missRiv.length === 1 && missRiv[0].item === 'Turk', 'plant: "on the Miss. Riv. west of <town>"')
+  assert(splitSentences('on the Miss. Riv. west of town, 3 km. from the Cr. mouth.').length === 1, 'riv, miss, cr, km are abbreviations')
   // Linear: a long run of abbreviations and mentions finishes fast.
   const t0 = Date.now()
   otherPageHits('<div class="story-body"><p>' + 'Peter Village Co. mi. St. '.repeat(20000) + '</p></div>')
