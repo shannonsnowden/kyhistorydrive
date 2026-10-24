@@ -30,30 +30,35 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 export const ITEMS = [
   {
     name: 'Muir',
+    names: ['Muir site', 'Muir Site'],
     slugs: ['muir-site-early-fort-ancient-on-a-jessamine-ridge'],
     ids: ['muir-site-15js86-jessamine-county'],
     terms: ['Nicholasville', 'Bypass', 'ridge', 'upland', 'Jessamine Creek', 'Lexington', 'Main Street', 'west of', 'east of'],
   },
   {
     name: 'Peter Village',
+    names: ['Peter Village'],
     slugs: ['peter-village-early-woodland-enclosure-near-lexington', 'peter-village-enclosure-15fa166'],
     ids: ['peter-village-enclosure-15fa166-fayette-county'],
     terms: ['Lexington', 'Mount Horeb', 'Horeb', 'Earthworks Complex', 'Adena Park', 'Elkhorn', 'creek', 'north of', 'near the'],
   },
   {
     name: 'Read Shell Midden',
+    names: ['Read Shell Midden', 'Read site'],
     slugs: ['read-shell-midden-15bt10-butler-county'],
     ids: ['read-shell-midden-15bt10'],
     terms: ['Morgantown', 'Green River', 'Big Bend', 'river', 'shoal', 'Indian Knoll', 'Carlston Annis', 'Ward', 'west of'],
   },
   {
     name: 'Turk',
+    names: ['Turk site', 'Turk Site'],
     slugs: ['turk-site-carlisle-county'],
     ids: ['turk-site-15ce6-carlisle-county'],
     terms: ['Bardwell', 'bluff', 'bluffs', 'spur', 'Mississippi(?!an)', 'floodplain', 'Wickliffe', 'mouth of the Ohio', 'west of', 'downriver'],
   },
   {
     name: 'Chambers',
+    names: ['Chambers site', 'Chambers Site', '15Ml109'],
     slugs: ['chambers-site-15ml109-marshall-county'],
     ids: ['chambers-site-15ml109-marshall-1250-1350'],
     terms: ['Clarks River', 'Middle Fork', 'southwest', 'southwestern', 'ridgetop', 'Wildlife Refuge', 'borrow pit', 'bridge replacement', 'minor tributary'],
@@ -155,7 +160,16 @@ function pageParts(html) {
   grab(/<h1\b[\s\S]*?<\/h1>/gi)
   // Related-card notes on the built page.
   grab(/<span class="related-note">[^<]*<\/span>/gi)
-  grab(/<span class="related-card-meta">[^<]*<\/span>/gi)
+  // v2 related cards: why-line, meta (nested nearby-kind span; "Nearby: N miles" distance text is
+  // out of scope here), and thumbnail alt text.
+  grab(/<span class="usp-rel-why">[^<]*<\/span>/gi)
+  for (const m of html.matchAll(/<span class="related-card-meta">((?:[^<]|<span\b[^>]*>[^<]*<\/span>)*)<\/span>/gi)) {
+    parts.push(m[1].replace(/<span class="nearby-miles">[^<]*<\/span>/gi, ' ').replace(/<[^>]+>/g, ' '))
+  }
+  for (const m of html.matchAll(/<img\b[^>]*class="related-card-img"[^>]*>/gi)) {
+    const alt = m[0].match(/\balt="([^"]*)"/i)
+    if (alt) parts.push(alt[1])
+  }
   grab(/<figcaption\b[\s\S]*?<\/figcaption>/gi)
   grab(/<p class="story-summary">[\s\S]*?<\/p>/gi)
   // v2 unified page: the "Kentucky today" section is story prose too.
@@ -165,6 +179,39 @@ function pageParts(html) {
   // usp-related; stop at the first one so related-card titles (same as main's page) aren't read as body text.
   if (body) parts.push(body[1].split(/<section\b/i)[0])
   return parts.join('\n')
+}
+
+const MENTIONS = ITEMS.map((it) => ({
+  it,
+  re: new RegExp(
+    [...it.slugs.map((x) => `/stories/${x}/`), ...it.names].map((x) => x.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&').replace(/ /g, '[\\s_-]+')).join('|'),
+    'i',
+  ),
+}))
+
+/** Prose of a non-protected story page: body, "Kentucky today", related why-lines. */
+function prose(html) {
+  const parts = []
+  const body = html.match(/<div class="story-body">([\s\S]*?)<\/div>\s*(?:<section|<nav|<aside|<footer|<div class="story-|$)/i)
+  if (body) parts.push(body[1].split(/<section\b/i)[0])
+  for (const m of html.matchAll(/<section class="usp-section usp-today"[\s\S]*?<\/section>/gi)) parts.push(m[0])
+  for (const m of html.matchAll(/<span class="usp-rel-why">[^<]*<\/span>/gi)) parts.push(m[0])
+  return parts.join('\n')
+}
+
+/** Sentences on another story's page that mention a protected site and also carry one of its locating terms. */
+export function otherPageHits(html) {
+  const out = []
+  // Keep hrefs as text so slug mentions count, then drop the remaining markup.
+  const text = prose(html).replace(/<a\b[^>]*href="([^"]*)"[^>]*>/gi, ' $1 ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&')
+  for (const sentence of text.split(/(?<=[.!?])\s+|\n+/)) {
+    for (const { it, re } of MENTIONS) {
+      if (!re.test(sentence)) continue
+      const h = hitsIn(sentence, it)
+      if (h.length) out.push({ item: it.name, hits: h, sentence: sentence.replace(/\s+/g, ' ').trim().slice(0, 160) })
+    }
+  }
+  return out
 }
 
 export function runAll() {
@@ -184,6 +231,16 @@ export function runAll() {
         if (tag === 'dist' && fs.existsSync(page)) {
           const h = hitsIn(pageParts(fs.readFileSync(page, 'utf8')), it)
           if (h.length) problems.push(`dist/stories/${slug}/index.html (${it.name}): ${h.join(', ')}`)
+        }
+      }
+    }
+    if (tag === 'dist' && fs.existsSync(path.join(base, 'stories'))) {
+      const own = new Set(ITEMS.flatMap((i) => i.slugs))
+      for (const slug of fs.readdirSync(path.join(base, 'stories'))) {
+        const page = path.join(base, 'stories', slug, 'index.html')
+        if (own.has(slug) || !fs.existsSync(page)) continue
+        for (const h of otherPageHits(fs.readFileSync(page, 'utf8'))) {
+          problems.push(`dist/stories/${slug}/index.html mentions ${h.item} with ${h.hits.join(', ')}: "${h.sentence}"`)
         }
       }
     }
@@ -221,6 +278,15 @@ function selfTest() {
   scanJson({ related: { other: [{ slug: 'read-shell-midden-15bt10-butler-county', label: 'Same place: the same Green River mussel-shoal shell middens' }] } }, 'fixture', r2)
   assert(r2.length === 1, 'related-card note pointing at a protected story')
   assert(hitsIn(pageParts('<span class="related-note">— Same place: sits near the Mount Horeb circle</span>'), pv).length, 'built related-card note')
+  // v2 related cards on protected pages (#354 Security): why-line, meta with nested spans, thumbnail alt.
+  assert(hitsIn(pageParts('<li class="related-story"><a class="related-card"><span class="related-card-copy"><span class="related-card-title">X</span><span class="related-card-meta">x</span><span class="usp-rel-why">Same place: beside the Mount Horeb circle</span></span></a></li>'), pv).length, 'v2 usp-rel-why')
+  assert(hitsIn(pageParts('<span class="related-card-meta"><span class="nearby-kind">Story</span> · on Elkhorn Creek</span>'), pv).length, 'v2 related-card-meta with nested span')
+  assert(hitsIn(pageParts('<span class="related-card-media"><img class="related-card-img" src="/a.webp" alt="Thumbnail for Lexington named" width="56"></span>'), pv).length, 'v2 related thumbnail alt')
+  assert(!hitsIn(pageParts('<span class="related-card-meta"><span class="nearby-kind">Story</span> · <span class="nearby-miles">Nearby: 4 miles</span></span>'), pv).length, 'distance text out of scope')
+  // Other stories' text near a protected-site mention.
+  const near = otherPageHits('<div class="story-body"><p>Webb cited enclosures like <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> near Lexington. Later work moved on.</p></div>')
+  assert(near.length === 1 && near[0].item === 'Peter Village', 'other story naming a protected site with a locator in the same sentence')
+  assert(!otherPageHits('<div class="story-body"><p>Webb cited <a href="/stories/peter-village-enclosure-15fa166/">Peter Village</a> in Fayette County. Lexington grew later.</p></div>').length, 'locator in a different sentence is fine')
   console.log('check-protected-locators self-test: OK')
 }
 
