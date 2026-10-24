@@ -4158,6 +4158,7 @@ async function openPlaceFromHash({ placeLayer, placeId }) {
   if (map.isMoving?.()) await waitForCamera(map, 900)
   else await new Promise((r) => setTimeout(r, 50))
   if (map.isMoving?.()) await waitForCamera(map, 900)
+  ensureHighlightSource(map, { lon, lat, title: fp.name || fp.title || '', layerId: placeLayer })
   await showDetailPopup(feature, placeLayer, [lon, lat], map)
   return true
 }

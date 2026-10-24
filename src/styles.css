@@ -6380,7 +6380,7 @@ html[data-hp-theme='dark'] .rr-sym-town { background: #100e0c; border-color: #f6
 .pin-card-read { display: inline-block; box-shadow: none; outline: none; }
 /* One clean focus ring on "Read the story" (no doubled/offset outline) */
 .ky-popup a.pin-card-read:focus { outline: none; box-shadow: none; }
-.ky-popup a.pin-card-read:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; box-shadow: none; border-radius: 6px; }
+.ky-popup a.pin-card-read:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 0; box-shadow: none; border-radius: 6px; }
 
 /* Phones: map-first bottom sheet instead of a floating card (#339). */
 @media (max-width: 600px) {
