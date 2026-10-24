@@ -399,10 +399,12 @@
             </button>
           </div>
           <div class="panel-head">
-            <p class="muted">Filter by era or timeframe, then open a story to read it. The map highlights the story’s location when it has one.</p>
+            <p class="muted">Filter by era or timeframe, then open a story to read it on its own page. The map shows each story’s place when it has one.</p>
           </div>
           <div id="timelineFilters" class="filters">
+            <p class="filter-label muted">Era</p>
             <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
+            <p class="filter-label muted">Years</p>
             <div class="filter-row year-presets" id="yearPresets" aria-label="Year range presets"></div>
             <div class="filter-row year-clear-row">
               <button type="button" id="yearClear" class="btn ghost">Clear filters</button>
@@ -424,21 +426,13 @@
               </label>
               <p id="timelineStoriesSortMeta" class="muted stories-sort-meta"></p>
               <div class="stories-scroll-controls timeline-jump-controls" aria-label="Jump on Timeline">
-                <button type="button" id="timelineJumpFilters" class="scroll-fab nav-jump" title="Jump to filters"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Filters</span></button>
-                <button type="button" id="timelineJumpStories" class="scroll-fab nav-jump" title="Jump to story list"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Stories</span></button>
+                <button type="button" id="timelineJumpFilters" class="scroll-fab nav-jump" title="Back to filters"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Back to filters</span></button>
+                <button type="button" id="timelineJumpStories" class="scroll-fab nav-jump" title="Jump to stories"><span class="nav-jump-ico" aria-hidden="true">↓</span><span class="nav-jump-label">Jump to stories</span></button>
                 <button type="button" id="timelineJumpReset" class="scroll-fab nav-jump" title="Reset filters and show all stories"><span class="nav-jump-ico" aria-hidden="true">↺</span><span class="nav-jump-label">Reset</span></button>
               </div>
             </div>
           </div>
           <ol id="timelineList" class="timeline-list"></ol>
-          <article id="timelineStoryReader" class="story-reader is-empty" aria-live="polite"></article>
-          <div class="timeline-reader-jump" id="timelineReaderJump" hidden>
-            <button type="button" id="timelineJumpHome" class="scroll-fab nav-jump" title="Back to the home page"><span class="nav-jump-ico" aria-hidden="true">⌂</span><span class="nav-jump-label">Home</span></button>
-            <button type="button" id="timelineJumpFiltersBottom" class="scroll-fab nav-jump" title="Jump to filters"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Filters</span></button>
-            <button type="button" id="timelineJumpStoriesBottom" class="scroll-fab nav-jump" title="Jump to story list"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Stories</span></button>
-            <button type="button" id="timelineJumpTop" class="scroll-fab nav-jump" title="Back to top"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Top</span></button>
-            <button type="button" id="timelineJumpResetBottom" class="scroll-fab nav-jump" title="Reset filters and show all stories"><span class="nav-jump-ico" aria-hidden="true">↺</span><span class="nav-jump-label">Reset</span></button>
-          </div>
         </div>
         <aside class="timeline-map-pane" id="timelineMapPane" aria-label="Timeline places map">
           <div class="timeline-map-head">
@@ -451,44 +445,6 @@
       </div>
     </section>
 
-
-    <section id="about" class="view panel" data-view="about" hidden>
-      <h2>About</h2>
-      <figure class="about-seals" aria-labelledby="aboutSealsTitle">
-        <h3 class="about-seals-title" id="aboutSealsTitle">Our seals</h3>
-        <ul class="about-seals-list">
-          <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge original black edition seal" data-full-src="/brand/khd-logo-512.webp"><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" data-src="/brand/khd-logo-512.png" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></button></li>
-          <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge navy edition seal" data-full-src="/brand/khd-logo-c-512.webp"><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" data-src="/brand/khd-logo-c-512.png" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></button></li>
-          <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge gold-rim edition seal" data-full-src="/brand/khd-logo-c2-512.webp"><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" data-src="/brand/khd-logo-c2-512.png" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></button></li>
-        </ul>
-        <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit. Tap a seal to enlarge it.</figcaption>
-      </figure>
-      <p>
-        Kentucky History Drive helps you explore Kentucky’s historical highway markers on a map,
-        and browse Kentucky history stories on a timeline by era and year. An iPhone app is coming soon.
-      </p>
-      <h3 class="about-credits-heading">Credits</h3>
-      <ul class="about-credits">
-        <li>Marker text and locations: Kentucky Historical Society / <a href="https://history.ky.gov/markers" target="_blank" rel="noopener">history.ky.gov</a></li>
-        <li>Map rendering: <a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre GL JS</a></li>
-        <li>Basemap tiles: <a href="https://carto.com/basemaps/" target="_blank" rel="noopener">CARTO</a> Voyager (OpenStreetMap data)</li>
-        <li>Map data: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</li>
-        <li>State outline: Natural Earth</li>
-        <li>Stories: Kentucky history for the KY History Drive project</li>
-        <li>Layer places (history, museums, parks, and more): Kentucky History Drive project data</li>
-      </ul>
-      <p class="muted about-app-data">
-        iOS app data:
-        <a href="/data/app/ky-history-manifest.json">/data/app/</a>
-      </p>
-    </section>
-
-    <section id="app" class="view panel" data-view="app" hidden>
-      <h2>iPhone app</h2>
-      <p>
-        Our iPhone app is coming soon. We’ll link it here when it’s live.
-      </p>
-    </section>
 
     <section id="resources" class="view panel hp-resources" data-view="resources" hidden>
       <h2>Kentucky history resources</h2>

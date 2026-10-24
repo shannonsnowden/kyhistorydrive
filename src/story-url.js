@@ -29,7 +29,7 @@ export function storyUrl(slug) {
  * Old in-app links (/#timeline/<slug>, /#stories/<slug>) on the homepage document: the static
  * story page to forward to on first load, or null to leave the hash alone.
  */
-export function timelineForwardUrl(hash, pathname) {
+export function timelineForwardUrl(hash, pathname, knownSlugs = null) {
   if (pathname !== '/' && pathname !== '/index.html') return null
   const m = /^#(?:timeline|stories|story)\/([^/?#]+)\/?$/.exec(String(hash || ''))
   if (!m) return null
@@ -37,8 +37,24 @@ export function timelineForwardUrl(hash, pathname) {
   try {
     slug = decodeURIComponent(m[1])
   } catch {
-    return null
+    return knownSlugs ? '/stories/' : null
   }
   slug = canonicalStorySlug(slug)
+  if (knownSlugs) return SLUG.test(slug) && knownSlugs.has(slug) ? `/stories/${slug}/` : '/stories/'
   return SLUG.test(slug) ? `/stories/${slug}/` : null
+}
+
+const HIDDEN_STATUS = new Set(['draft', 'hidden', 'unpublished', 'private', 'scheduled', 'research'])
+
+/** Slugs that have a static /stories/<slug>/ page (mirrors prerender isLiveStory). */
+export function liveStorySlugs(stories, today) {
+  const out = new Set()
+  for (const st of stories || []) {
+    if (!st || typeof st.slug !== 'string' || !st.slug || st.draft === true || st.hidden === true) continue
+    if (HIDDEN_STATUS.has(String(st.status || st.visibility || '').trim().toLowerCase())) continue
+    const pub = String(st.publishedDate || '').slice(0, 10)
+    if (!pub || pub > today) continue
+    out.add(st.slug)
+  }
+  return out
 }

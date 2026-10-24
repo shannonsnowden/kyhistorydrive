@@ -9,7 +9,6 @@ import { initHomePage } from './home-preview.js'
 import { AdSlot } from './ad-slot.js'
 import { initSiteSearch } from './site-search.js'
 import { loadStoryPeople, applyStoryPeople } from './story-people.js'
-import { loadTransportLinks, applyTransportLink } from './transport-links.js'
 import { loadStoryDrives, takeADriveHtml } from './take-a-drive.js'
 import { loadPublicPeople, loadRelatedPeople, portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, linkPeopleInBody, storySubject, storyPortraitHtml } from './related-people.js'
 import { initThemeToggle } from './theme.js'
@@ -73,7 +72,7 @@ import {
   textureCss,
   CULTURE_EDGE,
 } from './territory.js'
-import { storyUrl, timelineForwardUrl, canonicalStorySlug } from './story-url.js'
+import { storyUrl, timelineForwardUrl, liveStorySlugs, canonicalStorySlug } from './story-url.js'
 import { pinCardHtml, usePhoneSheet, phoneSheetPinY, phoneSheetLayout } from './pin-card.js'
 import { PIN_TEASERS } from './pin-teasers.js'
 
@@ -535,9 +534,14 @@ function clearAliasHash() {
 
 function ensureHomeHash() {
   // #337: an old /#timeline/<slug> (or #stories/#story alias) link opens the static story page.
-  const forward = timelineForwardUrl(location.hash, location.pathname)
-  if (forward) {
-    location.replace(forward)
+  if (timelineForwardUrl(location.hash, location.pathname)) {
+    // SEO #347: unknown/research-only slugs land on /stories/, not a 404.
+    const hash = location.hash
+    fetch('/content/stories.json')
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((d) => liveStorySlugs(d.stories, new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })))
+      .catch(() => null)
+      .then((known) => location.replace(timelineForwardUrl(hash, location.pathname, known) || '/stories/'))
     return
   }
   // Empty hash → magazine homepage; #home is an alias. Legacy #stories → #timeline.
@@ -3296,8 +3300,6 @@ function summaryDuplicatesBody(summary, bodyMarkdown) {
 
 /* -------------------- Timeline: story opens IN PLACE (under its list row) -------------------- */
 /** Scroll anchor captured when a story opens: the row's viewport top, used to restore on close. */
-let timelineReaderRestore = null
-let timelinePendingRestore = null
 
 function timelineHeaderOffset() {
   const header = document.querySelector('header.top')
@@ -3317,385 +3319,6 @@ function timelineItemFor(slug) {
   return document.querySelector(`#timelineList .timeline-item[data-slug="${esc}"]`)
 }
 
-/** Put the reader back at its home spot (after the list) and drop the in-list slot. */
-function parkTimelineReader() {
-  const reader = document.getElementById('timelineStoryReader')
-  const list = document.getElementById('timelineList')
-  if (reader && list && reader.parentElement !== list.parentElement) {
-    list.insertAdjacentElement('afterend', reader)
-  }
-  document.getElementById('timelineReaderSlot')?.remove()
-}
-
-/** Move the reader to sit directly under `item`, keeping that row fixed on screen. */
-function placeTimelineReaderAfter(item) {
-  const reader = document.getElementById('timelineStoryReader')
-  if (!reader || !item) return
-  const top0 = item.getBoundingClientRect().top
-  let slot = document.getElementById('timelineReaderSlot')
-  if (!slot) {
-    slot = document.createElement('li')
-    slot.id = 'timelineReaderSlot'
-    slot.className = 'timeline-reader-slot'
-  }
-  if (slot.previousElementSibling !== item) item.insertAdjacentElement('afterend', slot)
-  if (reader.parentElement !== slot) slot.appendChild(reader)
-  const dy = item.getBoundingClientRect().top - top0
-  if (Math.abs(dy) > 1) window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
-}
-
-/** After the story's first paint, make sure the start of it is on screen (small nudge only). */
-function nudgeTimelineReaderIntoView(item) {
-  const slot = document.getElementById('timelineReaderSlot')
-  if (!slot || !item) return
-  const vh = window.innerHeight
-  const slotTop = slot.getBoundingClientRect().top
-  if (slotTop < vh * 0.62) return
-  const delta = item.getBoundingClientRect().top - timelineHeaderOffset()
-  if (delta > 0) window.scrollBy({ top: delta, left: 0, behavior: 'instant' })
-}
-
-function closeTimelineReader({ focusItem = true } = {}) {
-  const reader = document.getElementById('timelineStoryReader')
-  if (!reader || reader.classList.contains('is-empty')) return
-  const slug = selectedStorySlug
-  const restore = timelineReaderRestore
-  parkTimelineReader()
-  reader.classList.add('is-empty')
-  reader.innerHTML = ''
-  const jumpBar = document.getElementById('timelineReaderJump')
-  if (jumpBar) jumpBar.hidden = true
-  selectedStorySlug = null
-  history.replaceState(null, '', '#timeline')
-  document.querySelectorAll('#timelineList .timeline-item.selected').forEach((el) => el.classList.remove('selected'))
-  if (timelineMapReady) ensureHighlightSource(timelineMap, null)
-  const item = timelineItemFor(slug)
-  if (item) {
-    // Put the row back where it was on screen when the story was opened (exact scroll restore).
-    // No restore point (deep link): just keep the row just under the sticky header.
-    const want = restore && restore.slug === slug ? restore.top : timelineHeaderOffset()
-    const dy = item.getBoundingClientRect().top - want
-    if (Math.abs(dy) > 0.5) window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
-    if (focusItem) item.focus({ preventScroll: true })
-  }
-  timelineReaderRestore = null
-}
-
-function openNextTimelineStory() {
-  const slug = selectedStorySlug
-  const cur = timelineItemFor(slug)
-  let next = cur ? cur.nextElementSibling : null
-  while (next && !next.classList.contains('timeline-item')) next = next.nextElementSibling
-  if (!next) return false
-  parkTimelineReader() // collapse current story; next row slides up under it
-  const dy = next.getBoundingClientRect().top - timelineHeaderOffset()
-  window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
-  timelinePendingRestore = { slug: next.dataset.slug, top: next.getBoundingClientRect().top }
-  next.click()
-  return true
-}
-
-function timelineReaderBarHtml(pos) {
-  return `<div class="story-reader-bar story-reader-bar-${pos}" role="toolbar" aria-label="Story controls">
-    <button type="button" class="btn ghost small" data-reader-close>✕ Close story</button>
-    <button type="button" class="btn ghost small" data-reader-next>Next story ↓</button>
-  </div>`
-}
-
-async function showStoryInReader(meta, { scroll = true, focus = false } = {}) {
-  const reader = document.getElementById('timelineStoryReader')
-  if (!reader || !meta) return
-  const rowItem = timelineItemFor(meta.slug)
-  if (rowItem) {
-    // Re-anchor restore info (set by the click handler, or captured now for deep links)
-    const pending = timelinePendingRestore && timelinePendingRestore.slug === meta.slug ? timelinePendingRestore : null
-    timelinePendingRestore = null
-    // Deep links / programmatic opens have no restore point (Close then keeps the row in view instead)
-    if (pending) timelineReaderRestore = pending
-    else if (!timelineReaderRestore || timelineReaderRestore.slug !== meta.slug) timelineReaderRestore = null
-    placeTimelineReaderAfter(rowItem)
-  }
-  reader.classList.remove('is-empty', 'has-film')
-  reader.innerHTML = '<p class="muted">Loading…</p>'
-  const jumpBar = document.getElementById('timelineReaderJump')
-  if (jumpBar) jumpBar.hidden = false
-  setupTimelineJumpControls()
-  focusStoryOnMaps(meta)
-  document.querySelectorAll('#timelineList .timeline-item').forEach((el) => {
-    el.classList.toggle('selected', el.dataset.slug === meta.slug)
-  })
-  try {
-    const markerFeaturesPromise = loadLayerFeatures('markers')
-    await loadHistoricPhotoData()
-    await loadPhotoVariants()
-    const s = await loadStoryBody(meta.slug)
-    let researchNotes = null
-    try {
-      const researchRes = await fetch(`/content/research/${encodeURIComponent(meta.slug)}.json`)
-      if (researchRes.ok) {
-        const data = await researchRes.json()
-        if (data && (data.storySlug === meta.slug || data.slug === meta.slug)) researchNotes = data
-      }
-    } catch {
-      researchNotes = null
-    }
-    let historyId = meta.historyId || null
-    try {
-      const locations = await loadStoriesLocations()
-      const loc = locationForSlug(locations, meta.slug)
-      if (loc?.historyId) historyId = loc.historyId
-      if (meta.lat == null && loc?.lat != null) {
-        meta.lat = loc.lat
-        meta.lon = loc.lon
-        meta.mapConfidence = loc.mapConfidence
-        meta.matchedPlace = loc.matchedPlace
-      }
-      if (!historyId && loc?.historyId) historyId = loc.historyId
-    } catch {
-      /* ignore */
-    }
-    // Enrich highlight popup with full story text for map pin clicks
-    if (meta.lat != null && meta.lon != null) {
-      highlightDetailProps = {
-        layerId: 'history',
-        id: historyId || meta.slug,
-        historyId,
-        name: s.title,
-        title: s.title,
-        history: stripSourceAttribution(s.bodyMarkdown) || s.summary || '',
-        description: HomepageStructure.finishedSummary(s.summary || ''),
-        bodyMarkdown: s.bodyMarkdown || '',
-        county: meta.county || s.county,
-        era: s.era,
-        yearStart: s.yearStart,
-        yearEnd: s.yearEnd,
-        matchedPlace: meta.matchedPlace,
-        lat: meta.lat,
-        lon: meta.lon,
-        photo: s.photo || null,
-        slug: meta.slug,
-      }
-      focusStoryOnMaps({ ...meta, ...highlightDetailProps, slug: meta.slug, title: s.title })
-    }
-    const tags = (s.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join(' ')
-    const countyLine = meta.county
-      ? `<span class="story-county">${escapeHtml(countyLabel(meta.county, true))}</span>`
-      : ''
-    // No 'Open on the map' here: the Timeline map beside the story already shows the pin.
-    const extras = placeDetailExtrasHtml({
-      lat: meta.lat ?? s.lat,
-      lon: meta.lon ?? s.lon,
-      name: s.title,
-      placeHint: meta.matchedPlace || meta.county,
-      bodyMarkdown: s.bodyMarkdown || '',
-      historyId,
-      layer: 'history',
-      storyPhoto: s.photo || null,
-      protectedIds: [historyId, meta.slug, s.slug],
-    })
-    const [relatedData, publicPeople] = await Promise.all([loadRelatedPeople(), loadPublicPeople()])
-    const portraits = portraitsByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
-    const personFor = personByStorySlug(relatedData, publicPeople.people, publicPeople.storySubjects)
-    const storyIndex = await loadStories()
-    const markerFeatures = await markerFeaturesPromise
-    const relTitles = Object.fromEntries((storyIndex.stories || []).map((x) => [x.slug, x.title]))
-    const dateFile = (await loadStoryDates())[meta.slug] || {}
-    const articleDates = resolveArticleDates(s, dateFile)
-    const canonical = storyCanonicalUrl(meta.slug)
-    const relTitleFor = (sl) => relTitles[sl]
-    const sidebarPhoto = await resolveStorySidebarPhoto({
-      slug: meta.slug,
-      title: s.title,
-      lat: meta.lat ?? s.lat,
-      lon: meta.lon ?? s.lon,
-      placeHint: meta.matchedPlace || meta.county,
-      historyId,
-      bodyMarkdown: s.bodyMarkdown || '',
-      existingPhoto: s.photo || null,
-    })
-    const film = filmForStory(meta.slug)
-    const filmHtml = film
-      ? filmPlayerHtml(film, {
-          summary: filmDescriptionFromPlain(stripSourceAttribution(s.bodyMarkdown || '')),
-          headingLevel: 3,
-          moreHtml: '<a href="/videos/">All videos</a>',
-        })
-      : ''
-    if (film) reader.classList.add('has-film')
-    // Main subject: same rule as the static /stories/ pages (skip when ambiguous; no inline copy
-    // when the Photos sidebar already shows the same file, but the title headshot stays).
-    const storyPeople = await loadStoryPeople()
-    // Roads & Rails is off unless KHD_ROADS_RAILS=1; the links file isn't shipped then (#330).
-    const transportLinks = import.meta.env.KHD_ROADS_RAILS === '1' ? await loadTransportLinks() : { stories: {} }
-    const subject = storySubject(relatedData, publicPeople.people, { slug: meta.slug, photo: sidebarPhoto || s.photo || null }, publicPeople.storySubjects)
-    const titleHtml = `<h2>${escapeHtml(s.title)}</h2>`
-    reader.innerHTML = `
-      ${timelineReaderBarHtml('top')}
-      <div class="story-reader-layout">
-        <div class="story-reader-main">
-          <header class="story-head">
-            <p class="story-kicker"><span>Story</span> · on the Timeline</p>
-            <div class="story-card-meta">
-              <span class="story-card-icon inline" aria-hidden="true">📖</span>
-              ${countyLine}
-              <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
-              <span>${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</span>
-            </div>
-            ${titleHtml}
-            ${tags ? `<div class="tags">${tags}</div>` : ''}
-            ${shareControlHtml(new URL(storyShareHash(meta.slug), location.origin).href, s.title)}
-            ${
-              summaryDuplicatesBody(s.summary || meta.summary, s.bodyMarkdown)
-                ? ''
-                : `<p class="story-summary">${escapeHtml(HomepageStructure.finishedSummary(s.summary || meta.summary || ''))}</p>`
-            }
-            ${takeADriveHtml(await loadStoryDrives(), meta.slug, { isProtected: (await loadProtectedPins(), protectedPinsLoaded() ? isProtectedStoryCoords({ ...meta, ...s }) : undefined) })}
-          </header>
-          <div class="story-glance-mount"></div>
-          <div class="story-body"></div>
-          ${routeMapSectionHtml(meta.slug, { headingLevel: 3, linkMode: 'hash', titleFor: relTitleFor })}
-          ${relatedBlockHtml(relatedData, meta.slug, relTitleFor, 'storyRelatedH', { portraits, personFor })}
-          ${extras}
-          ${relatedAndNearbyForStory(
-            {
-              slug: meta.slug,
-              title: s.title,
-              era: s.era || meta.era,
-              tags: s.tags || meta.tags,
-              county: meta.county || s.county,
-              territoryNation: s.territoryNation || meta.territoryNation,
-              yearStart: s.yearStart ?? meta.yearStart,
-              yearEnd: s.yearEnd ?? meta.yearEnd,
-              lat: meta.lat ?? s.lat,
-              lon: meta.lon ?? s.lon,
-              historyId,
-              matchedPlace: meta.matchedPlace || '',
-              bodyMarkdown: s.bodyMarkdown || '',
-              proseChars: meta.proseChars,
-            },
-            storyIndex.stories,
-            markerRecords(markerFeatures),
-            {
-              headingLevel: 2,
-              excludeSlugs: [
-                ...(routeBySlug(meta.slug)?.relatedStories || []),
-                ...relatedBlockSlugs(relatedData, meta.slug, relTitleFor, { personFor }),
-              ],
-              excludeMarkerIds: (routeBySlug(meta.slug)?.markers || []).map((marker) => String(marker.number)),
-              limit: 3,
-              portraitFor: (slug) => portraitThumbSrc(portraits.get(slug) || personFor.get(slug)),
-            },
-          )}
-          ${citeBoxHtml({
-            title: s.title,
-            url: canonical,
-            published: articleDates.published,
-            modified: articleDates.modified,
-            headingLevel: 3,
-          })}
-          ${correctionHtml({ title: s.title, url: canonical })}
-          ${storyHasTerritory(meta) ? '<div class="terr-mount" data-territory-mount></div>' : ''}
-          <p class="story-source muted">Kentucky History Drive</p>
-        </div>
-        ${storySidebarPhotoHtml(sidebarPhoto, s.title, { priority: true })}
-        ${filmHtml}
-      </div>
-      ${timelineReaderBarHtml('bottom')}
-    `
-    wireFilmCaptions(reader)
-    const glanceMount = reader.querySelector('.story-glance-mount')
-    mountGlanceTable(glanceMount, s.glance, researchNotes)
-    const bodyEl = reader.querySelector('.story-body')
-    const safeHtml = renderStoryHtml(
-      markdownWithoutGlanceSection(stripSourceAttribution(s.bodyMarkdown || ''), Boolean(s.glance)),
-    )
-    const withPeople = applyStoryPeople(
-      safeHtml,
-      storyPeople.stories?.[meta.slug],
-      new Map((publicPeople.people || []).map((p) => [p.id, p])),
-      (h) => h,
-      { minPara: subject.person ? 1 : 0, startLeft: Boolean(subject.person) },
-    )
-    bodyEl.innerHTML = `${storyPortraitHtml(subject.person)}${storyFigureHtml(s.figure)}${applyTransportLink(
-      withPeople,
-      transportLinks.stories?.[meta.slug],
-    )}`
-    // v2 Phase 5 (#340): folded notes live on the story page; only culture evidence keeps /research/.
-    const notesHref = isFoldedResearch(researchNotes)
-      ? `/stories/${encodeURIComponent(meta.slug)}/#research-notes`
-      : researchPageHref(researchNotes?.slug)
-    if (notesHref && glanceMount) {
-      const notesLink = document.createElement('p')
-      notesLink.className = 'story-research-link'
-      const notesAnchor = document.createElement('a')
-      notesAnchor.href = notesHref
-      notesAnchor.textContent = `Research notes and sources for the ${String(s.title || '').replace(/^the\s+/i, '').replace(/\s*\(.*\)\s*$/, '')}`
-      notesLink.appendChild(notesAnchor)
-      glanceMount.insertAdjacentElement('afterend', notesLink)
-    }
-    const sidebar = reader.querySelector('.story-sidebar-photo')
-    if (sidebar) AdSlot.mount(sidebar, 'sidebar')
-    linkPeopleInBody(bodyEl, relatedData, meta.slug, relTitleFor)
-    const summaryEl = reader.querySelector('.story-summary')
-    if (summaryEl) linkPeopleInBody(summaryEl, relatedData, meta.slug, relTitleFor)
-    wireShareButtons(reader)
-    wireCiteBoxes(reader)
-    applyRouteMapTheme(document.documentElement.getAttribute('data-hp-theme') || 'dark')
-    mountStoryTerritory(reader, meta)
-    if (rowItem) {
-      // In place: never jump to the bottom of the list. Only nudge if the story start is off-screen.
-      if (scroll || focus) nudgeTimelineReaderIntoView(rowItem)
-      if (focus) {
-        reader.setAttribute('tabindex', '-1')
-        reader.focus({ preventScroll: true })
-      }
-    } else if (scroll) {
-      reader.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
-    }
-  } catch {
-    reader.innerHTML = `<p class="muted">Could not load this story.</p>`
-  }
-}
-
-async function renderStoriesPage(preferredSlug) {
-  const idx = await loadStories()
-  const list = document.getElementById('storiesList')
-  const reader = document.getElementById('storyReader')
-  setupStoriesSortControl()
-  setupStoriesScrollControls()
-  const sortEl = document.getElementById('storiesSort')
-  if (sortEl) sortEl.value = storiesSortMode
-
-  const sorted = sortStoriesList(idx.stories, storiesSortMode)
-  paintStoriesList(sorted)
-
-  list.onclick = (e) => {
-    const card = e.target.closest('.story-card')
-    if (!card) return
-    const s = storiesBySlug[card.dataset.slug]
-    if (!s) return
-    selectedStorySlug = s.slug
-    history.replaceState(null, '', `#stories/${encodeURIComponent(s.slug)}`)
-    showStoryInReader(s)
-  }
-
-  initStoriesMap()
-
-  const pick =
-    (preferredSlug && storiesBySlug[preferredSlug]) ||
-    (selectedStorySlug && storiesBySlug[selectedStorySlug]) ||
-    sorted.find((s) => s.lat != null) ||
-    sorted[0]
-
-  if (pick) {
-    await showStoryInReader(pick)
-  } else if (reader) {
-    reader.classList.add('is-empty')
-    reader.innerHTML = ''
-  }
-
-  requestAnimationFrame(() => storiesMap?.resize())
-}
 
 function setupTimelineFilters() {
   const eraBox = document.getElementById('eraChips')
@@ -3771,44 +3394,7 @@ function storyMatchesFilters(s) {
   return true
 }
 
-function syncTimelineJumpPad() {
-  const bar = document.getElementById('timelineReaderJump')
-  const shown = bar && !bar.hidden
-  const h = shown ? Math.ceil(bar.getBoundingClientRect().height) : 0
-  // The bar is sticky with bottom: 0.85rem, so it covers its height plus that offset.
-  const gap = shown ? Math.ceil(parseFloat(getComputedStyle(bar).bottom) || 0) + 8 : 0
-  document.documentElement.style.setProperty('--timeline-jump-h', `${h}px`)
-  document.documentElement.style.setProperty('--timeline-jump-gap', `${gap}px`)
-}
-
-function watchTimelineJumpPad() {
-  const bar = document.getElementById('timelineReaderJump')
-  if (!bar || bar.dataset.padWatch) return
-  bar.dataset.padWatch = '1'
-  const sync = () => syncTimelineJumpPad()
-  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(sync).observe(bar)
-  new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
-  window.addEventListener('resize', sync)
-  sync()
-  // Critique #275: with a story open the floating bar covered the reader's title (390)
-  // and body text (1280). Tuck it away while reading down; bring it back on any upward
-  // scroll, near the end of the page, or when keyboard focus moves into it.
-  let lastY = window.scrollY
-  const tuck = (on) => bar.classList.toggle('is-tucked', Boolean(on) && !bar.contains(document.activeElement))
-  new MutationObserver(() => { if (!bar.hidden) tuck(true) }).observe(bar, { attributes: true, attributeFilter: ['hidden'] })
-  if (!bar.hidden) tuck(true)
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY
-    const nearEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 120
-    if (nearEnd || y < lastY - 8) tuck(false)
-    else if (y > lastY + 8) tuck(true)
-    if (Math.abs(y - lastY) > 8) lastY = y
-  }, { passive: true })
-  bar.addEventListener('focusin', () => bar.classList.remove('is-tucked'))
-}
-
 function setupTimelineJumpControls() {
-  watchTimelineJumpPad()
   const wire = (id, target) => {
     const btn = document.getElementById(id)
     if (!btn || btn.dataset.ready) return
@@ -3826,31 +3412,6 @@ function setupTimelineJumpControls() {
   }
   wire('timelineJumpFilters', 'filters')
   wire('timelineJumpStories', 'stories')
-  wire('timelineJumpFiltersBottom', 'filters')
-  wire('timelineJumpStoriesBottom', 'stories')
-  wire('timelineJumpTop', 'top')
-  const home = document.getElementById('timelineJumpHome')
-  if (home && !home.dataset.ready) {
-    home.dataset.ready = '1'
-    home.addEventListener('click', () => goHome())
-  }
-  const readerEl = document.getElementById('timelineStoryReader')
-  if (readerEl && !readerEl.dataset.barsReady) {
-    readerEl.dataset.barsReady = '1'
-    readerEl.addEventListener('click', (e) => {
-      if (e.target.closest('[data-reader-close]')) closeTimelineReader()
-      else if (e.target.closest('[data-reader-next]')) {
-        if (!openNextTimelineStory()) closeTimelineReader()
-      }
-    })
-    document.addEventListener('keydown', (e) => {
-      if (e.key !== 'Escape' || e.defaultPrevented) return
-      if (parseHash().view !== 'timeline') return
-      if (e.target.closest?.('input,select,textarea')) return
-      if (!document.getElementById('timelineReaderSlot')) return
-      closeTimelineReader()
-    })
-  }
 
   const wireReset = (id) => {
     const btn = document.getElementById(id)
@@ -3859,7 +3420,6 @@ function setupTimelineJumpControls() {
     btn.addEventListener('click', () => resetTimelineShowAllStories())
   }
   wireReset('timelineJumpReset')
-  wireReset('timelineJumpResetBottom')
 }
 
 function setupTimelineStoriesSort() {
@@ -3882,7 +3442,6 @@ async function renderTimelineList(preferredSlug) {
   const stats = document.getElementById('timelineStats')
   const sortMeta = document.getElementById('timelineStoriesSortMeta')
   const sortEl = document.getElementById('timelineStoriesSort')
-  const reader = document.getElementById('timelineStoryReader')
   if (sortEl) sortEl.value = timelineStoriesSortMode
 
   const filtered = sortStoriesList(
@@ -3894,12 +3453,13 @@ async function renderTimelineList(preferredSlug) {
   const allBySlug = Object.fromEntries(idx.stories.map((s) => [s.slug, s]))
   storiesBySlug = allBySlug
 
-  stats.textContent = `Showing ${filtered.length} of ${idx.stories.length} stories`
+  // One count line (Critiquito #347): total shown plus how many carry a county.
+  const withCounty = filtered.filter((s) => s.county).length
+  stats.textContent = `Showing ${filtered.length} of ${idx.stories.length} stories · ${withCounty} with county`
   if (sortMeta) {
-    const withCounty = filtered.filter((s) => s.county).length
-    sortMeta.textContent = `${filtered.length} in this filter · ${withCounty} with county`
+    sortMeta.textContent = ''
+    sortMeta.hidden = true
   }
-  parkTimelineReader() // keep the reader element out of the list while it is rebuilt
   list.innerHTML =
     filtered
       .map((s) => {
@@ -3913,7 +3473,7 @@ async function renderTimelineList(preferredSlug) {
       <li class="timeline-item${selected}" data-slug="${escapeHtml(s.slug)}" tabindex="0" aria-label="${escapeHtml(s.title)}, ${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}">
         <div class="timeline-year">${escapeHtml(formatYearRange(s.yearStart, s.yearEnd))}</div>
         <div class="timeline-body">
-          <strong>${escapeHtml(s.title)}</strong>
+          <strong><a class="timeline-link" href="${escapeHtml(storyUrl(s.slug))}">${escapeHtml(s.title)}</a></strong>
           <div class="story-card-meta">
             ${county}
             <span class="era-pill era-${escapeHtml(s.era)}">${escapeHtml(s.era)}</span>
@@ -3926,69 +3486,27 @@ async function renderTimelineList(preferredSlug) {
       })
       .join('') || '<li class="muted">No stories match these filters.</li>'
 
-  const openStory = (slug) => {
-    const s = allBySlug[slug]
-    if (!s) return
-    selectedStorySlug = s.slug
-    const row = timelineItemFor(s.slug)
-    if (row && document.getElementById('timelineReaderSlot')) {
-      // Another story is open: collapse it first, keeping the clicked row still on screen
-      const t0 = row.getBoundingClientRect().top
-      parkTimelineReader()
-      const dy = row.getBoundingClientRect().top - t0
-      if (Math.abs(dy) > 0.5) window.scrollBy({ top: dy, left: 0, behavior: 'instant' })
-      timelinePendingRestore = null
-    }
-    // Remember where this row sits so Close can put the page back exactly
-    if (!timelinePendingRestore && row) {
-      timelinePendingRestore = { slug: s.slug, top: row.getBoundingClientRect().top }
-    }
-    history.replaceState(null, '', `#timeline/${encodeURIComponent(s.slug)}`)
-    showStoryInReader(s, { scroll: true, focus: true })
-  }
-
+  // #338: a row opens the story page. The title is a real link; the rest of the row follows it.
   list.onclick = (e) => {
+    if (e.target.closest('a[href]')) return
     const item = e.target.closest('.timeline-item[data-slug]')
     if (!item) return
-    if (item.dataset.slug === selectedStorySlug && document.getElementById('timelineReaderSlot')) {
-      // Clicking the open row again collapses it
-      closeTimelineReader()
-      return
-    }
-    openStory(item.dataset.slug)
+    location.assign(storyUrl(item.dataset.slug))
   }
   list.onkeydown = (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return
+    if (e.target.closest('a[href]')) return
     const item = e.target.closest('.timeline-item[data-slug]')
     if (!item) return
     e.preventDefault()
-    openStory(item.dataset.slug)
+    location.assign(storyUrl(item.dataset.slug))
   }
 
-  const pick =
-    (preferredSlug && allBySlug[preferredSlug]) ||
-    (selectedStorySlug && (bySlug[selectedStorySlug] || allBySlug[selectedStorySlug])) ||
-    null
-
+  // Mark (and scroll to) the row for the story the reader came back from.
+  const pick = (preferredSlug && bySlug[preferredSlug]) || (selectedStorySlug && bySlug[selectedStorySlug]) || null
   if (pick) {
-    // Filter/sort re-renders must not re-open the same story (re-fly + map.resize races on iPad Safari)
-    const alreadyShowing =
-      !preferredSlug &&
-      selectedStorySlug === pick.slug &&
-      reader &&
-      !reader.classList.contains('is-empty')
-    if (!alreadyShowing) {
-      await showStoryInReader(pick, { scroll: false })
-    } else {
-      // List was rebuilt (filter/sort): slot the open story back under its row if it is still listed
-      const row = timelineItemFor(pick.slug)
-      if (row) placeTimelineReaderAfter(row)
-    }
-  } else if (reader && !selectedStorySlug) {
-    reader.classList.add('is-empty')
-    reader.innerHTML = ''
-    const jumpBar = document.getElementById('timelineReaderJump')
-    if (jumpBar) jumpBar.hidden = true
+    const row = timelineItemFor(pick.slug)
+    if (row) row.classList.add('selected')
   }
 }
 
@@ -4024,13 +3542,6 @@ function resetTimelineShowAllStories() {
   resetTimelineFiltersOff()
   selectedStorySlug = null
   history.replaceState(null, '', '#timeline')
-  const reader = document.getElementById('timelineStoryReader')
-  if (reader) {
-    reader.classList.add('is-empty')
-    reader.innerHTML = ''
-  }
-  const jumpBar = document.getElementById('timelineReaderJump')
-  if (jumpBar) jumpBar.hidden = true
   if (timelineMapReady) ensureHighlightSource(timelineMap, null)
   renderTimelineList(null).catch(console.error)
   scrollTimelineToFilters()
@@ -4927,9 +4438,9 @@ async function applyRoute() {
     await renderTimelineList(slug)
     applyPendingStoryFocus()
     const scrollToStoryDetail = () => {
-      const reader = document.getElementById('timelineStoryReader')
-      if (!reader || reader.classList.contains('is-empty')) return false
-      reader.scrollIntoView({ block: 'start', behavior: 'auto' })
+      const row = timelineItemFor(slug)
+      if (!row) return false
+      row.scrollIntoView({ block: 'start', behavior: 'auto' })
       const offset = timelineHeaderOffset()
       if (offset) {
         const y = window.scrollY - offset
@@ -4951,13 +4462,12 @@ async function applyRoute() {
         scrollTimelineToFilters()
       })
     }
-  } else if (savedScroll != null && (view === 'home' || view === 'about' || view === 'app' || view === 'resources')) {
+  } else if (savedScroll != null && (view === 'home' || view === 'resources')) {
     restoreWindowScroll(savedScroll)
   } else if (view === 'home' && parseHash().explore) {
     // #explore/...: explore-layer.js scrolls to the section; do not pin to the top
-  } else if (view === 'home' || view === 'about' || view === 'app' || view === 'resources') {
-    if (view === 'about') revealAboutSeal()
-    // Hash #about can land mid-page after Timeline; force true top so logo shows
+  } else if (view === 'home' || view === 'resources') {
+    // Force true top so the logo shows
     // (native hash scrolling races us — retry a couple frames + short timeout)
     const pinTop = () => scrollPageToTop()
     requestAnimationFrame(() => {
@@ -4987,24 +4497,7 @@ document.querySelector('#mainNav a[data-route="timeline"]')?.addEventListener('c
 })
 
 
-document.querySelector('#mainNav a[data-route="about"]')?.addEventListener('click', () => {
-  requestAnimationFrame(() => {
-    if (parseHash().view !== 'about') return
-    scrollPageToTop()
-  })
-})
-
-
-
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
-
-/** About seals carry a real src with loading="lazy", so the hidden About section never fetches them (and no img has an empty src). Kept as a fallback for browsers without lazy loading. */
-function revealAboutSeal() {
-  document.querySelectorAll('#about img.about-seal[data-src]').forEach((img) => {
-    if (img.getAttribute('src')) return
-    img.src = img.dataset.src
-  })
-}
 
 document.querySelector('a.skip-link')?.addEventListener('click', (e) => {
   const main = document.getElementById('content')

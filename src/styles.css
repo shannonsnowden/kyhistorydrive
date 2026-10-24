@@ -6409,6 +6409,14 @@ html[data-hp-theme='dark'] .rr-sym-town { background: #100e0c; border-color: #f6
   .roads-rails-page .transport-section .maplibregl-ctrl-bottom-left { bottom: 44px; }
 }
 
+/* #338: Timeline rows open the story page; the title is the real link. */
+.timeline-item .timeline-link { color: inherit; text-decoration: none; }
+.timeline-item .timeline-link:hover, .timeline-item .timeline-link:focus-visible { text-decoration: underline; }
+.timeline-item { cursor: pointer; }
+
+/* Pill-row labels (Critiquito #347) */
+.filter-label { margin: 0.4rem 0 0.15rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
 /* Pin teaser cards (#339) */
 .pin-card:focus { outline: none; }
 .pin-card h3 { margin: 0.15rem 0 0.25rem; }

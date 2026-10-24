@@ -2090,7 +2090,15 @@ class PrerenderPages {
       </div>
     </nav>`
 
-    const tagsList = (story.tags || []).filter((t) => t && t !== 'kentucky' && t !== story.era)
+    const tagsList = (story.tags || []).filter(
+      // The era pill already names the era; drop tags that repeat it (e.g. frontier-war under Frontier).
+      (t) =>
+        t &&
+        t !== 'kentucky' &&
+        t !== story.era &&
+        !(story.era && String(t).startsWith(`${story.era}-`)) &&
+        !(eraText && String(t).toLowerCase().split('-')[0] === String(eraText).toLowerCase().split(/\s+/)[0]),
+    )
     const tagsHtml = tagsList.length
       ? `<ul class="usp-tags" aria-label="Story topics">
           ${tagsList.map((t) => `<li><a class="usp-tag" href="/stories/?tag=${encodeURIComponent(t)}">${esc(tagLabel(t))}</a></li>`).join('')}
@@ -4680,14 +4688,9 @@ ${rows.join('\n')}
     if (!html.includes('src="/route-map-lightbox.js"')) {
       throw new Error('prerender: homepage is missing the route map lightbox for the hash reader')
     }
-    for (const label of [
-      'Enlarge original black edition seal',
-      'Enlarge navy edition seal',
-      'Enlarge gold-rim edition seal',
-    ]) {
-      if (!html.includes(`aria-label="${label}"`)) {
-        throw new Error(`prerender: homepage #about is missing the ${label} button`)
-      }
+    // #338: the #about / #app hash views are gone; About lives at /about/ only.
+    if (/<section id="(?:about|app)"/.test(html)) {
+      throw new Error('prerender: homepage still carries the retired #about / #app views')
     }
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')
