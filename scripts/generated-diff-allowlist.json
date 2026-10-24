@@ -1,0 +1,11 @@
+{
+  "note": "#348: generated data files may differ from the origin/v2 merge base only inside records whose key matches one of these patterns. Edit per PR.",
+  "patterns": [
+    "chambers-site-15ml109",
+    "15ml109"
+  ],
+  "storyFiles": [
+    "battle-of-blue-licks.json"
+  ],
+  "storyFilesNote": "#340 research fold: the inline 'Research notes and sources' link is removed from the Blue Licks body (test-story-markdown requires it). Only this per-story source file is exempt; its derived stories.json/story-dates.json fields stay at base."
+}

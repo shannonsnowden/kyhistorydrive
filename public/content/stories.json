@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T16:19:04.088Z",
+  "generatedAt": "2026-10-19T11:00:50.145Z",
   "count": 244,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -623,7 +623,6 @@
     {
       "slug": "sassafras-ridge-15fu3-fulton-county",
       "title": "Sassafras Ridge (15Fu3): Mississippian town on the western border",
-      "seoTitle": "Sassafras Ridge (15Fu3): Mississippian Town in Fulton County",
       "publishedDate": "2026-10-13",
       "summary": "Sassafras Ridge (15Fu3) in Fulton County was one of the Mississippian mound towns of far western Kentucky, occupied in roughly AD 1000–1500.",
       "proseChars": 2649,
@@ -864,7 +863,6 @@
     {
       "slug": "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county",
       "title": "Cleek-McCabe: A Circular Fort Ancient Village in Boone County",
-      "seoTitle": "Cleek-McCabe: Fort Ancient Village in Boone County",
       "publishedDate": "2026-09-25",
       "summary": "Near Walton in Boone County, Cleek-McCabe is a thirteenth-century Fort Ancient village, a ring of midden around a plaza with low burial mounds.",
       "proseChars": 1433,
@@ -3977,7 +3975,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-23",
-      "county": "Woodford",
       "photo": {
         "image_url": "/content/photos/stories/jack-jouett-kentuckys-midnight-rider.jpg",
         "title": "Jack Jouett House Historic Site",
@@ -3989,7 +3986,8 @@
       "lat": 37.9827487,
       "lon": -84.7708839,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek"
+      "matchedPlace": "Capt. Jack Jouett / Craig’s Creek",
+      "county": "Woodford"
     },
     {
       "slug": "the-travelling-church-1781",
@@ -4087,7 +4085,7 @@
       "title": "Battle of Blue Licks",
       "publishedDate": "2026-08-30",
       "summary": "In August 1782 Kentucky militia chasing Caldwell's rangers and their mainly Wyandot and Great Lakes allies were ambushed at Blue Licks; 60 to 77 died.",
-      "proseChars": 17787,
+      "proseChars": 17879,
       "yearStart": 1782,
       "yearEnd": 1782,
       "era": "revolution",
@@ -4184,7 +4182,6 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-26",
-      "county": "Clark",
       "photo": {
         "image_url": "/content/photos/stories/col-john-holder-at-lower-howards-creek.jpg",
         "title": "Fort Boonesborough State Park",
@@ -4196,7 +4193,8 @@
       "lat": 37.918134,
       "lon": -84.272709,
       "mapConfidence": "override",
-      "matchedPlace": "Holder's Station / Lower Howard's Creek"
+      "matchedPlace": "Holder's Station / Lower Howard's Creek",
+      "county": "Clark"
     },
     {
       "slug": "hartford-fort-hartford-on-the-rough-river",
@@ -4296,7 +4294,7 @@
       "title": "Father David Rice and Kentucky’s first Presbyterian churches",
       "publishedDate": "2026-10-19",
       "summary": "Father David Rice organized Concord Church at Danville in 1784, argued for gradual emancipation in 1792, and later preached from his home near Greensburg.",
-      "proseChars": 3649,
+      "proseChars": 3665,
       "yearStart": 1783,
       "yearEnd": 1816,
       "era": "frontier",
@@ -6255,7 +6253,6 @@
     {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
-      "seoTitle": "Catherine Spears Carpenter: 1818 Casey County Mash Recipes",
       "publishedDate": "2026-08-27",
       "summary": "An 1818 sheet in Casey County's Carpenter Family Papers holds two handwritten whiskey recipes, one sweet mash and one sour mash, among Kentucky's earliest.",
       "proseChars": 1638,
@@ -6307,7 +6304,6 @@
     {
       "slug": "mclean-drift-bank-kentuckys-first-commercial-coal-mine",
       "title": "McLean Drift Bank: Kentucky’s first commercial coal mine (1820)",
-      "seoTitle": "McLean Drift Bank: Kentucky’s First Commercial Coal Mine",
       "publishedDate": "2026-10-07",
       "summary": "Explorer Thomas Walker found coal in what would become Kentucky in 1750 and burned it in his campfire, but nobody mined it for sale for another seventy years. In 1820…",
       "proseChars": 1355,
@@ -6339,7 +6335,6 @@
     {
       "slug": "kentucky-association-1826-lexington-race-course",
       "title": "Horse series: the Kentucky Association and Lexington’s race course",
-      "seoTitle": "Kentucky Association & Lexington’s 1826 Race Course",
       "publishedDate": "2026-10-09",
       "summary": "On July 23, 1826, Bluegrass horsemen formed the Kentucky Association to promote the breeding and racing of Thoroughbreds. Its founders included Henry Clay, Jesse…",
       "proseChars": 1690,
@@ -7334,7 +7329,6 @@
     {
       "slug": "red-bird-river-petroglyphs-clay-county",
       "title": "Red Bird River Petroglyphs: the carved rock that fell onto KY 66",
-      "seoTitle": "Red Bird River Petroglyphs in Clay County (KY 66)",
       "publishedDate": "2026-10-07",
       "summary": "A 50-ton sandstone block cut with petroglyphs sat in a cliff above the Red Bird River near Eriline in Clay County. The inscribed face was about 5½ feet high and 20 feet…",
       "proseChars": 1291,

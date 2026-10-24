@@ -4,17 +4,17 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 // Linear patterns; every multi-word term allows space, underscore or hyphen separators.
-export const LOCATING_TERMS = [/clarks[\s_-]+river/i, /middle[\s_-]+fork/i, /ridge[\s_-]?top/i, /refuge/i, /borrow[\s_-]+pit/i, /south[\s_-]?west(ern)?[\s_-]+part/i, /\bsouth[\s_-]?west/i, /bridge[\s_-]+replacement/i]
+export const LOCATING_TERMS = Object.freeze([/clarks[\s_-]+river/i, /middle[\s_-]+fork/i, /ridge[\s_-]?top/i, /refuge/i, /borrow[\s_-]+pit/i, /south[\s_-]?west(ern)?[\s_-]+part/i, /\bsouth[\s_-]?west/i, /bridge[\s_-]+replacement/i])
 
 // Source JSON (scanned too, so the outputs regenerate clean). Every dist **/*.json and **/*.geojson is globbed.
 // Site identity. Tests pass a synthetic config instead, so no fixture pairs the real site with a real place.
-export const SITE = {
+export const SITE = Object.freeze({
   terms: LOCATING_TERMS,
   value: /chambers-site|chambers site|15ml109/i,
   key: /chambers-site|15ml109/i,
   mention: /15ml109|chambers[\s_-]site/gi,
   storySlug: /chambers-site-15ml109/i,
-}
+})
 
 export const SOURCE_JSON = ['public/data/layers/history.geojson', 'public/data/app/ky-history.json', 'scripts/story-overrides.json', 'scripts/story-photo-curated.json']
 
@@ -132,7 +132,7 @@ if (isMain) {
     if (!locatingProblems('<a href="https://commons.wikimedia.org/wiki/File:Sample_River_in_the_fall.jpg">', X).length) throw new Error('check-chambers-locating self-test: credit link filename not caught')
     if (bad.length !== 8) throw new Error(`check-chambers-locating self-test: expected 8, got ${bad.length}`)
     if (locatingProblems('<p>in Sample County</p>', X).length) throw new Error('check-chambers-locating self-test: false positive')
-    if (LOCATING_TERMS.length !== 8 || SITE.terms !== LOCATING_TERMS) throw new Error('check-chambers-locating self-test: real pattern list changed')
+    if (LOCATING_TERMS.length !== 8 || SITE.terms !== LOCATING_TERMS || !Object.isFrozen(LOCATING_TERMS) || !Object.isFrozen(SITE)) throw new Error('check-chambers-locating self-test: real pattern list changed')
     console.log('check-chambers-locating: self-test ok')
   } else {
     const problems = []
