@@ -18,7 +18,7 @@ export function pinCardHtml({ name, layerLabel = '', meta = '', slug, teaser = '
   const head = layerLabel ? `<div class="layer-label">${escapeHtml(layerLabel)}</div>` : ''
   const sub = meta ? `<p class="meta">${escapeHtml(meta)}</p>` : ''
   const body = teaser ? `<p class="pin-card-teaser">${escapeHtml(teaser)}</p>` : ''
-  return `<div class="pin-card">${head}<h3>${escapeHtml(name)}</h3>${sub}${body}${protectedNote}` +
+  return `<div class="pin-card" tabindex="-1">${head}<h3>${escapeHtml(name)}</h3>${sub}${body}${protectedNote}` +
     `<p class="pin-card-actions"><a class="btn pin-card-read" href="${escapeHtml(storyUrl(s))}">Read the story</a></p></div>`
 }
 
@@ -40,4 +40,19 @@ export function isSameOriginStoryHref(href, base) {
   } catch {
     return false
   }
+}
+
+/**
+ * Phone sheet layout (#350): the sheet is fixed to the viewport bottom, so make sure the map is on
+ * screen and the pin sits in the band between the sticky header and the sheet's top.
+ * All values are viewport px; returns how far to scroll the page and the pin's y inside the map.
+ */
+export function phoneSheetLayout({ mapTop, mapBottom, viewportHeight, headerBottom = 0, sheetFraction = 0.45 }) {
+  const sheetTop = viewportHeight * (1 - sheetFraction)
+  const band = (top) => Math.min(top + (mapBottom - mapTop), sheetTop) - Math.max(top, headerBottom)
+  const scrollBy = band(mapTop) >= 160 ? 0 : Math.round(mapTop - headerBottom)
+  const top = mapTop - scrollBy
+  const lo = Math.max(top, headerBottom)
+  const hi = Math.max(lo + 1, Math.min(top + (mapBottom - mapTop), sheetTop))
+  return { scrollBy, pinY: Math.round((lo + hi) / 2 - top) }
 }

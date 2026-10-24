@@ -6374,6 +6374,7 @@ html[data-hp-theme='dark'] .rr-sym-town { background: #100e0c; border-color: #f6
 }
 
 /* Pin teaser cards (#339) */
+.pin-card:focus { outline: none; }
 .pin-card h3 { margin: 0.15rem 0 0.25rem; }
 .pin-card-teaser { margin: 0.4rem 0 0.6rem; line-height: 1.45; }
 .pin-card-actions { margin: 0.5rem 0 0; }

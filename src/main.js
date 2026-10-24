@@ -72,7 +72,7 @@ import {
   CULTURE_EDGE,
 } from './territory.js'
 import { storyUrl, timelineForwardUrl, canonicalStorySlug } from './story-url.js'
-import { pinCardHtml, usePhoneSheet, phoneSheetPinY } from './pin-card.js'
+import { pinCardHtml, usePhoneSheet, phoneSheetPinY, phoneSheetLayout } from './pin-card.js'
 import { PIN_TEASERS } from './pin-teasers.js'
 
 /**
@@ -1835,12 +1835,25 @@ async function nudgeCameraForPopup(targetMap, lngLat, { sheet = false } = {}) {
   const w = el.clientWidth
   const h = el.clientHeight
   if (!w || !h) return
+  let sheetPinY = null
+  if (sheet) {
+    // Phone sheet (#350): bring the map on screen and park the pin between the header and the sheet.
+    const r = el.getBoundingClientRect()
+    let headerBottom = 0
+    for (const hd of document.querySelectorAll('header, .site-header, .topbar')) {
+      const pos = getComputedStyle(hd).position
+      if (pos === 'fixed' || pos === 'sticky') headerBottom = Math.max(headerBottom, hd.getBoundingClientRect().bottom)
+    }
+    const lay = phoneSheetLayout({ mapTop: r.top, mapBottom: r.bottom, viewportHeight: window.innerHeight, headerBottom })
+    if (lay.scrollBy) window.scrollBy({ top: lay.scrollBy, behavior: 'instant' })
+    sheetPinY = lay.pinY
+  }
   const pt = targetMap.project(lngLatPair(lngLat))
   let dx = 0
   let dy = 0
   if (sheet) {
     // Phone bottom sheet (#339): keep the pin in the upper map, above the sheet.
-    const targetY = phoneSheetPinY(h)
+    const targetY = sheetPinY ?? phoneSheetPinY(h)
     if (Math.abs(pt.y - targetY) > 24) dy = pt.y - targetY
   } else if (w >= 700 && h >= 420) {
     const targetY = Math.round(Math.min(112, Math.max(72, h * 0.16)))
@@ -2086,12 +2099,15 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
     maxWidth: place.maxWidth,
     offset: place.offset ?? 14,
     anchor: place.anchor,
+    // Story cards take focus on the card itself, not "Read the story" (no ring on open; #350).
+    focusAfterOpen: !storySlug,
     className: sheet ? 'ky-popup ky-sheet' : 'ky-popup',
   })
     .setLngLat(coords)
     .setHTML(popupHtml)
     .addTo(targetMap)
   const popupEl = activePopup.getElement()
+  if (storySlug) popupEl?.querySelector('.pin-card')?.focus({ preventScroll: true })
   try {
     const slug = await slugForPlaceProps(props)
     const textRoot = popupEl?.querySelector('.popup-full-text')

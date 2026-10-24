@@ -3,7 +3,7 @@
 // teaser from KY History, "Read the story"); phones get a map-first bottom sheet.
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import { pinCardHtml, teaserWordCount, PIN_TEASER_MAX_WORDS, usePhoneSheet, phoneSheetPinY, isSameOriginStoryHref } from '../src/pin-card.js'
+import { pinCardHtml, teaserWordCount, PIN_TEASER_MAX_WORDS, usePhoneSheet, phoneSheetPinY, phoneSheetLayout, isSameOriginStoryHref } from '../src/pin-card.js'
 import { PIN_TEASERS } from '../src/pin-teasers.js'
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -69,4 +69,21 @@ assert.match(css, /a\.pin-card-read:focus-visible\s*\{[^}]*outline:\s*3px solid[
 assert.match(main, /metaBits\.push\(pinEraLabel\(p\.era\)/, 'detail meta uses the capitalized era label (Frontier)')
 assert.doesNotMatch(main, /metaBits\.push\(p\.era\)/, 'no raw lowercase era in pin meta')
 assert.match(main, /function highlightColor\(focus\)[\s\S]*?DATA_LAYERS\.find/, 'selected pin color follows its layer swatch')
+
+// Critiquito recheck 2 (#350 @9294cec9): on phones the sheet must not hide the map or the pin.
+{
+  // Deep link: map far below the fold (top 2051px), 506px tall, 844px viewport, 64px sticky header.
+  const L = phoneSheetLayout({ mapTop: 2051, mapBottom: 2557, viewportHeight: 844, headerBottom: 64 })
+  const top = 2051 - L.scrollBy
+  assert.equal(top, 64, 'page scrolls so the map sits just under the header')
+  const pinViewportY = top + L.pinY
+  assert.ok(pinViewportY > 64 && pinViewportY < 844 * 0.55, `pin (${pinViewportY}) is above the sheet`)
+  // Map already in view with room above the sheet: no page jump.
+  const K = phoneSheetLayout({ mapTop: 70, mapBottom: 576, viewportHeight: 844, headerBottom: 64 })
+  assert.equal(K.scrollBy, 0)
+  assert.ok(70 + K.pinY > 64 && 70 + K.pinY < 844 * 0.55)
+}
+assert.match(main, /phoneSheetLayout\(/, 'main.js lays out the phone sheet with phoneSheetLayout')
+assert.match(main, /focusAfterOpen:\s*!storySlug/, 'pin card does not auto-focus Read the story (no dark focus edge on open)')
+assert.match(css, /\.pin-card:focus\s*\{[^}]*outline:\s*none/, 'card container takes focus without a ring')
 console.log(`test-pin-cards: OK (${entries.length} teasers)`)
