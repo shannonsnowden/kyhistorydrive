@@ -1,15 +1,9 @@
 {
-  "note": "Edit per PR. Item 88 (Turk Site + Read Shell Midden): records this PR rewrites (story expansion, Turk Met dog-bottle photo, history cards, search text). The six extra slugs are story-dates only: the keyed build restamped published and modified to 2026-10-24 because git log does not follow the protected-slug rename.",
+  "note": "Edit per PR. Item 88 (Turk Site + Read Shell Midden): records this PR rewrites (story expansion, Turk Met dog-bottle photo, history cards, search text).",
   "patterns": [
     "turk-site-carlisle-county",
     "turk-site-15ce6-carlisle-county",
-    "read-shell-midden-15bt10",
-    "howard-site-late-fort-ancient",
-    "indian-knoll-ohio-county",
-    "rowlandton-mound-site-15mcn3",
-    "singer-hieronymus-fort-ancient-villages",
-    "the-c-and-o-mounds-johnson-county",
-    "tolu-site-mississippian-mounds"
+    "read-shell-midden-15bt10"
   ],
   "storyFiles": [
     "turk-site-carlisle-county.json",

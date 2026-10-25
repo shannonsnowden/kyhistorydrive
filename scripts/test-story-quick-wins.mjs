@@ -10,7 +10,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseRouteNotes, parseSingleCoordinate } from './route-notes.mjs'
 import { isProtectedWaypoint, roundProtectedWaypoint } from './protected-waypoints.mjs'
-import { isShallowRepo, modifiedFromProseHistory, storyProse, textRevisionForFile } from './story-dates.mjs'
+import { STORY_DATE_PINS, gitFileDates, isShallowRepo, modifiedFromProseHistory, storyProse, textRevisionForFile } from './story-dates.mjs'
 import {
   CITE_AUTHOR_FALLBACK,
   SITE_NAME,
@@ -199,6 +199,15 @@ if (isShallowRepo(root)) {
   const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
   assert.equal(mantle.published, '2026-10-09')
   assert.equal(mantle.modified, '2026-10-09')
+  // #355 renames stay on the origin/v2 publication day. Git would say 2026-10-24.
+  const pinnedJson = JSON.parse(fs.readFileSync(path.join(root, 'public/content/story-dates.json'), 'utf8'))
+  const gitDates = gitFileDates(root)
+  for (const [file, pin] of Object.entries(STORY_DATE_PINS)) {
+    const slug = path.basename(file, '.json')
+    assert.deepEqual(pinnedJson[slug], pin, `${slug} story-dates must match the v2 pin`)
+    assert.equal(gitDates.created.get(file), pin.published, `${slug} datePublished pin`)
+    assert.equal(gitDates.lastmod.get(file), pin.modified, `${slug} lastmod pin`)
+  }
 }
 
 // Summary-only edits are meta/card copy, not a revision (Editor ruling, #319).
