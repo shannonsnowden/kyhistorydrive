@@ -32,8 +32,9 @@ export const LOCATOR_PATTERNS = [
 /** Extra terms for one story (from #351 Item 105), matched case-insensitively with the same word gaps. */
 export const STORY_TERMS = {
   'peter-village-enclosure-15fa166': ['Lexington', 'Mount Horeb', 'Horeb', 'Earthworks Complex', 'Adena Park', 'Elkhorn', 'Grimes Village', 'creek', 'north of', 'near the'],
-  // Bare town name. Generic patterns catch "near Portsmouth" and "Portsmouth Earthworks", not the word alone.
-  'old-fort-earthworks-15gp1-greenup-county': ['Portsmouth'],
+  // Bare town name and the earthworks-group name. Generic patterns catch "near Portsmouth" and
+  // "Portsmouth Earthworks", not the word alone. Spaces also match "_" and "-" (Portsmouth_Group).
+  'old-fort-earthworks-15gp1-greenup-county': ['Portsmouth', 'Portsmouth Group'],
 }
 
 export function termRegex(term) {

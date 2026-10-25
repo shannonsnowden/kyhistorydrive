@@ -12,6 +12,7 @@
  *     (search-term keys that point at the story count too),
  *   - public/data/layers/stories.geojson and history.geojson,
  *   - public/content/research/<slug>.json (research notes),
+ *   - culture evidence JSON tied to a protected story by storySlug (story terms; no locating exemption),
  *   - and, when dist/ exists, the same JSON under dist/ plus each story page's
  *     <title>, meta tags, JSON-LD, h1, summary, body and figure captions.
  * Spaces in a term match any run of whitespace, "_" or "-" (Clarks_River).
@@ -242,7 +243,7 @@ export const ITEMS = [
     names: ['Old Fort Earthworks', 'Old Fort'],
     slugs: ['old-fort-earthworks-15gp1-greenup-county'],
     ids: ['old-fort-earthworks-15gp1-greenup'],
-    terms: ['Portsmouth'],
+    terms: ['Portsmouth', 'Portsmouth Group'],
     ownOnly: true,
   },
 ]
@@ -604,8 +605,11 @@ function selfTest() {
     MENTIONS = mentionsFor(ITEMS)
   }
   const oldFort = ITEMS.find((i) => i.slugs.includes('old-fort-earthworks-15gp1-greenup-county'))
-  assert(oldFort && oldFort.terms.includes('Portsmouth') && oldFort.ownOnly, 'Old Fort lists bare Portsmouth on its own output')
+  assert(oldFort && oldFort.terms.includes('Portsmouth') && oldFort.terms.includes('Portsmouth Group') && oldFort.ownOnly, 'Old Fort lists bare Portsmouth and Portsmouth Group on its own output')
   assert(hitsIn('A square earthwork in Greenup County. Portsmouth.', oldFort).includes('Portsmouth'), 'planted bare Portsmouth fails the Old Fort term')
+  for (const phrase of ['Portsmouth Group', 'Portsmouth_Group', 'Portsmouth-Group']) {
+    assert(hitsIn(`part of the ${phrase}`, oldFort).includes('Portsmouth Group'), `planted ${phrase} fails the Old Fort term`)
+  }
   assert(hitsIn('A square earthwork in Greenup County.', oldFort).length === 0, 'county-only Old Fort prose passes')
   const official = 'The full official National Register title is Portsmouth Earthworks, Group A.'
   assert(hitsIn(official, oldFort).includes('Portsmouth'), 'official title fails in story prose')

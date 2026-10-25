@@ -400,7 +400,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   // One dated phase only (nothing for a slider to change): fixed view, dates kept in the heading.
   const controls = tagOnly || eras.length < 2 ? `<div hidden style="display:none">${controlsHtml}</div>` : controlsHtml
   const eraBox = `<div class="terr-era" aria-live="polite"><h4></h4><p></p></div><div class="terr-tags"></div>
-<p class="terr-note"><b>Territories overlapped and shifted.</b> ${esc(T.overlapNote)}</p>
+<p class="terr-note"><b>Territories overlapped and shifted.</b> ${linkPlain(T.overlapNote)}</p>
 <p class="terr-span">${linkPlain(T.stories?.[slug]?.presenceNote || T.presenceNote)}</p>
 <p class="terr-src"><b>Source:</b> <span class="terr-srclist"></span></p>`
   const openLink = mode === 'card'

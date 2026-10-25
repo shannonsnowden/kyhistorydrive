@@ -10,7 +10,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { findLocators } from './protected-locators.mjs'
+import { findLocators, STORY_TERMS, termRegex } from './protected-locators.mjs'
 import { isProtectedStory } from './unified-story-data.mjs'
 import { loadMerges } from './story-merges.mjs'
 
@@ -109,6 +109,27 @@ function pageParts(html) {
   return parts
 }
 
+/**
+ * Story-term hits in one research note. Culture evidence pages keep their own filename;
+ * `storySlug` is what ties them to a protected story. Generic landform patterns are not
+ * applied here. Folded notes and these pages are public: a locating term is not exempt.
+ */
+export function researchTermHits(data, file) {
+  const hits = []
+  const owner = ownerOf(data?.storySlug) || ownerOf(data?.slug)
+  const terms = STORY_TERMS[owner] || []
+  if (!owner || !terms.length) return hits
+  const walk = (o, field) => {
+    if (typeof o === 'string') {
+      const s = scrub(o, owner)
+      for (const t of terms) for (const m of s.matchAll(termRegex(t))) hits.push({ file, owner, field, match: m[0], id: `term:${t}` })
+    } else if (Array.isArray(o)) o.forEach((v, i) => walk(v, `${field}[${i}]`))
+    else if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) walk(v, field ? `${field}.${k}` : k)
+  }
+  walk(data, '')
+  return hits
+}
+
 export function scanTree(base) {
   const hits = []
   const owners = [...aliasesOf.keys()]
@@ -121,6 +142,14 @@ export function scanTree(base) {
   for (const rel of JSON_FILES) {
     const f = path.join(base, rel)
     if (fs.existsSync(f)) scanJson(JSON.parse(fs.readFileSync(f, 'utf8')), rel, hits)
+  }
+  const researchDir = path.join(base, 'content/research')
+  if (fs.existsSync(researchDir)) {
+    for (const name of fs.readdirSync(researchDir)) {
+      if (!name.endsWith('.json')) continue
+      const file = `content/research/${name}`
+      hits.push(...researchTermHits(JSON.parse(fs.readFileSync(path.join(researchDir, name), 'utf8')), file))
+    }
   }
   return hits
 }

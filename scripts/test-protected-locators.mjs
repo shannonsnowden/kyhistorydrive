@@ -35,6 +35,7 @@ import {
   pageHits,
   rejectUnallowlisted,
   scanAssetText,
+  researchTermHits,
   scanJson,
   scanTree,
 } from './lib/protected-locator-scan.mjs'
@@ -89,6 +90,16 @@ assert.ok(findLocators(`the ${STORY_TERMS[PETER][0]} plan`, PETER).length, 'Pete
 const OLD_FORT = 'old-fort-earthworks-15gp1-greenup-county'
 assert.deepEqual(findLocators('A square earthwork in Greenup County. Portsmouth.'), [], 'bare Portsmouth is not a generic pattern')
 assert.ok(findLocators('A square earthwork in Greenup County. Portsmouth.', OLD_FORT).some((h) => h.match === 'Portsmouth'), 'bare Portsmouth is an Old Fort term')
+for (const phrase of ['Portsmouth Group', 'Portsmouth_Group', 'Portsmouth-Group']) {
+  const hits = findLocators(`part of the ${phrase}.`, OLD_FORT)
+  assert.ok(hits.some((h) => h.id === 'term:Portsmouth Group'), `${phrase} is an Old Fort term`)
+  const planted = []
+  scanJson({ slug: 'culture-hopewell-image-evidence', storySlug: OLD_FORT, summary: `part of the ${phrase}` }, 'content/research/culture-hopewell-image-evidence.json', planted)
+  assert.equal(planted.length, 0, 'a culture-page slug alone is not the protected story')
+  const tied = researchTermHits({ slug: 'culture-hopewell-image-evidence', storySlug: OLD_FORT, summary: `part of the ${phrase}` }, 'content/research/culture-hopewell-image-evidence.json')
+  assert.ok(tied.some((h) => h.id === 'term:Portsmouth Group'), `${phrase} on a culture page tied by storySlug fails`)
+  assert.ok(tied.every((h) => !ALLOW.has(key(h))), `${phrase} on a culture page is not allowlisted`)
+}
 {
   const planted = []
   scanJson({ slug: OLD_FORT, summary: 'A square earthwork in Greenup County. Portsmouth.' }, `content/stories/${OLD_FORT}.json`, planted)
