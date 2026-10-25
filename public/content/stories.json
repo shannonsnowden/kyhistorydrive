@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T11:33:07.644Z",
+  "generatedAt": "2026-10-25T12:54:44.767Z",
   "count": 237,
   "briefDateRange": {
     "start": "2026-08-27",
@@ -115,7 +115,7 @@
       "title": "Read Shell Midden (15Bt10), Butler County",
       "publishedDate": "2026-09-14",
       "summary": "In Butler County, the Read Shell Midden is a Late Archaic camp and cemetery dug by WPA crews from 1937 to 1939, with more than 240 burials found.",
-      "proseChars": 707,
+      "proseChars": 2056,
       "yearStart": -3000,
       "yearEnd": -1000,
       "era": "prehistoric",
@@ -694,8 +694,8 @@
       "slug": "turk-site-carlisle-county",
       "title": "Turk Site, Carlisle County",
       "publishedDate": "2026-09-19",
-      "summary": "In Carlisle County, the Turk Site was a small but planned Mississippian town with mounds around a plaza, occupied mainly from about AD 1100 to 1300.",
-      "proseChars": 480,
+      "summary": "Mississippian townspeople in Carlisle County built platform mounds around a plaza, and lived there mainly from about AD 1100 to 1300.",
+      "proseChars": 2092,
       "yearStart": 1100,
       "yearEnd": 1300,
       "era": "prehistoric",
@@ -708,14 +708,16 @@
       "briefDate": "2026-09-19",
       "photo": {
         "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "title": "Looking toward the Turk Site, Carlisle County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
+        "alt": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
+        "title": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dog_Bottle_MET_DP101939.jpg",
         "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": 2013,
-        "credit": "Nyttend",
-        "license": "Public domain",
-        "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+        "year": null,
+        "credit": "The Metropolitan Museum of Art",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "fit": "contain"
       },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
