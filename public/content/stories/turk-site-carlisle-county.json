@@ -2,8 +2,8 @@
   "slug": "turk-site-carlisle-county",
   "title": "Turk Site, Carlisle County",
   "publishedDate": "2026-09-19",
-  "summary": "In Carlisle County, the Turk Site was a small but planned Mississippian town with mounds around a plaza, occupied mainly from about AD 1100 to 1300.",
-  "bodyMarkdown": "In Carlisle County, the Turk Site (15Ce6) was a small Mississippian regional center of about 2.5 hectares. Occupied mainly in the Dorena phase (about 1100–1300 CE) and into the Medley phase, it arranged platform mounds around a plaza and may have drawn people from the older Marshall Site (15Ce27), also in Carlisle County. Richard Edging's 1980s work remains the key modern investigation.\nSource: [https://en.wikipedia.org/wiki/Turk_Site](https://en.wikipedia.org/wiki/Turk_Site)",
+  "summary": "Mississippian townspeople in Carlisle County built platform mounds around a plaza, and lived there mainly from about AD 1100 to 1300.",
+  "bodyMarkdown": "Between about 1100 and 1300 CE, a small community in Carlisle County built a planned town. It covered only about two and a half hectares, but its layout followed the pattern used across the [Mississippian world](https://grokipedia.com/page/Mississippian_culture): earthen [platform mounds](https://grokipedia.com/page/Platform_mound) arranged around an open plaza. Mounds like these held up important buildings, such as the houses of leaders or community structures. The plaza was where people gathered for ceremonies, games and public life.\n\nArchaeologists place most of the town's history in what they call the Dorena phase (about 1100–1300 CE), and some people stayed on into the later Medley phase. That was a time of big changes in the Ohio Valley. Farming communities that grew corn were organizing into chiefdoms. Many were small towns tied to larger centers through trade, marriage and shared religious ideas. Building mounds took organized labor over many seasons, so a planned town this size suggests leaders who could call on their neighbors to help. It also suggests a community that wanted its place in that wider world to be visible on the land.\n\nPeople may also have moved here from an older settlement elsewhere in the county. That kind of move was common in the Mississippian period, when towns were founded, enlarged and abandoned as politics, farmland and alliances shifted. By the 1400s, many Mississippian towns in the region had been left behind.\n\nThe site first appeared in print in the 1880s. The most thorough modern investigation was Richard Edging's work, published in 1985, which is still the main reference for its chronology and layout.\n\n## Kentucky today\n\nThe site is protected, and its exact location is kept out of public view to guard against looting. Like other Mississippian places in Carlisle County, it shows that western Kentucky was home to organized farming towns centuries before Europeans arrived. The best way to honor it is from a distance: learn about it, and support the archaeologists and descendant communities who look after places like it.\n",
   "yearStart": 1100,
   "yearEnd": 1300,
   "era": "prehistoric",
@@ -23,13 +23,15 @@
   },
   "photo": {
     "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-    "title": "Looking toward the Turk Site, Carlisle County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Looking_toward_the_Turk_Site.jpg",
+    "alt": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
+    "title": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dog_Bottle_MET_DP101939.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · Public domain",
-    "year": 2013,
-    "credit": "Nyttend",
-    "license": "Public domain",
-    "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+    "year": null,
+    "credit": "The Metropolitan Museum of Art",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "fit": "contain"
   }
 }

@@ -720,6 +720,19 @@
     "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
     "year": null
   },
+  "turk-site-carlisle-county": {
+    "ext": "jpg",
+    "commonsFile": "Dog_Bottle_MET_DP101939.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dog_Bottle_MET_DP101939.jpg?width=1280",
+    "title": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dog_Bottle_MET_DP101939.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+    "year": null,
+    "credit": "The Metropolitan Museum of Art",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
   "hidden-river-cave-under-horse-cave": {
     "ext": "jpg",
     "commonsFile": "Hidden_River_Cave_sinkhole_(Horse_Cave,_Kentucky,_USA).jpg",
