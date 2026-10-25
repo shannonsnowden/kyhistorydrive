@@ -1,7 +1,7 @@
 {
   "version": 1,
   "decimals": 1,
-  "comment": "Prehistoric/archaeological story pins (era \"prehistoric\" or tag \"archaeology\") with more than 1 decimal (0.1\u00b0, about 10 km; was 2 until 2026-10-11) are rounded by apply-story-overrides.mjs. Slugs/History ids below are exempt (tier C public sites, or already county-level).",
+  "comment": "Prehistoric/archaeological story pins (era \"prehistoric\" or tag \"archaeology\") with more than 1 decimal (0.1\u00b0, about 10 km; was 2 until 2026-10-11) are rounded by apply-story-overrides.mjs. Slugs/History ids below are exempt (tier C public sites, or already county-level). Editor ruling 2026-10-24: diamond-caverns, natural-bridge-sandstone-arch, and lost-river-cave are public attractions. They stay in skipSlugs/skipHistoryIds, keep their place names, and are not on the protected county-only list.",
   "skipSlugs": [
     "ashlands-adena-mounds",
     "carter-caves-cascade-falls",

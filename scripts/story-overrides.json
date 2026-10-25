@@ -80,7 +80,7 @@
       "lat": 37.2,
       "lon": -86.7
     },
-    "indian-knoll-on-the-green-river": {
+    "indian-knoll-ohio-county": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "indian-knoll",
@@ -101,14 +101,14 @@
       "lat": 37.3,
       "lon": -85.9
     },
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
+    "muir-site-early-fort-ancient": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "muir-site-15js86-jessamine-county",
       "lat": 37.9,
       "lon": -84.6
     },
-    "buckner-site-fort-ancient-villages-on-strodes-creek": {
+    "buckner-site-fort-ancient-villages": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "buckner-site-15bb12-bourbon-county",
@@ -122,7 +122,7 @@
       "lat": 39,
       "lon": -84.7
     },
-    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
+    "singer-hieronymus-fort-ancient-villages": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "singer-hieronymus-fort-ancient-scott-county",
@@ -136,7 +136,7 @@
       "lat": 38.6,
       "lon": -83.8
     },
-    "howard-site-late-fort-ancient-above-harts-fork": {
+    "howard-site-late-fort-ancient": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "howard-site-15ma427-late-fort-ancient-madison-county",
@@ -199,7 +199,7 @@
       "lat": 36.9,
       "lon": -89.1
     },
-    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
+    "tolu-site-mississippian-mounds": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "tolu-site-15cn1-crittenden-county",
@@ -227,7 +227,7 @@
       "lat": 39.1,
       "lon": -84.7
     },
-    "lower-shawneetown-at-the-scioto-mouth": {
+    "lower-shawneetown-greenup-county": {
       "reason": "Looting-sensitive site, public coordinate generalized (#141) | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET.",
       "date": "2026-10-02",
       "historyId": "lower-shawneetown",
@@ -390,7 +390,7 @@
       "yearEnd": 1838,
       "county": "Carroll"
     },
-    "rowlandton-mound-site-15mcn3-paducah": {
+    "rowlandton-mound-site-15mcn3": {
       "reason": "Archaeological site: Wikipedia public coords rounded to 2 decimals (#141 tier B). Occupation ~1100–1350 CE, not the 2006 excavation. | 2026-10-11: coarsened to 0.1° (~10 km), Shannon OK via CoS 1:10 PM ET. (nearest 0.1° point inside Kentucky)",
       "date": "2026-10-05",
       "historyId": "rowlandton-mound-site-15mcn3-mccracken",
@@ -902,10 +902,10 @@
       "yearEnd": 1813,
       "county": "Scott"
     },
-    "the-c-and-o-mounds-at-paintsville": {
+    "the-c-and-o-mounds-johnson-county": {
       "reason": "Generalized to 0.1° within Johnson County; the exact mound sites are not published here. Years: general Adena range (c. 500 BC–AD 250), not excavation dates. County Johnson.",
       "date": "2026-10-19",
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena",
+      "historyId": "c-and-o-mounds-johnson-county-adena",
       "lat": 37.8,
       "lon": -82.8,
       "yearStart": -500,

@@ -12,11 +12,18 @@
  *     (search-term keys that point at the story count too),
  *   - public/data/layers/stories.geojson and history.geojson,
  *   - public/content/research/<slug>.json (research notes),
+ *   - culture evidence JSON tied to a protected story by storySlug (story terms; no locating exemption),
  *   - and, when dist/ exists, the same JSON under dist/ plus each story page's
  *     <title>, meta tags, JSON-LD, h1, summary, body and figure captions.
  * Spaces in a term match any run of whitespace, "_" or "-" (Clarks_River).
  * The story's own slug and its photo file path are removed before matching,
  * because slugs are permanent URLs. Only the URLs in ALLOW_URLS are exempt.
+ *
+ * The same run also applies the generic locator patterns (direction, distance, near-town,
+ * named water, named earthworks, landform, plus per-story terms such as bare Portsmouth
+ * on Old Fort) to every protected story. That pass shares scripts/lib/protected-locator-scan.mjs
+ * with test-protected-locators, so an allowlisted hit is an exact file|owner|field|match key.
+ * A new match fails even when the story or field already has an allowlist entry.
  *
  *   node scripts/check-protected-locators.mjs             # sources + dist if built
  *   node scripts/check-protected-locators.mjs --self-test # detector self-test
@@ -24,6 +31,16 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { findLocators } from './lib/protected-locators.mjs'
+import { isProtectedStory } from './lib/unified-story-data.mjs'
+import {
+  ALLOW as LOCATOR_ALLOW,
+  collectLocatorHits,
+  key as locatorKey,
+  protectedStoryCount,
+  rejectUnallowlisted,
+  scanJson as scanGeneric,
+} from './lib/protected-locator-scan.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -31,7 +48,7 @@ export const ITEMS = [
   {
     name: 'Muir',
     names: ['Muir site', 'Muir Site'],
-    slugs: ['muir-site-early-fort-ancient-on-a-jessamine-ridge'],
+    slugs: ['muir-site-early-fort-ancient-on-a-jessamine-ridge', 'muir-site-early-fort-ancient'],
     ids: ['muir-site-15js86-jessamine-county'],
     terms: ['Nicholasville', 'Bypass', 'ridge', 'upland', 'Jessamine Creek', 'Lexington', 'Main Street', 'west of', 'east of'],
   },
@@ -66,14 +83,14 @@ export const ITEMS = [
   {
     name: 'Buckner Site',
     names: ['Buckner Site', 'Buckner site', '15Bb12'],
-    slugs: ['buckner-site-fort-ancient-villages-on-strodes-creek'],
+    slugs: ['buckner-site-fort-ancient-villages-on-strodes-creek', 'buckner-site-fort-ancient-villages'],
     ids: ['buckner-site-15bb12'],
     terms: ['Paris', "Strode['’]?s Creek"],
   },
   {
     name: 'Lower Shawneetown',
     names: ['Lower Shawneetown'],
-    slugs: ['lower-shawneetown-at-the-scioto-mouth'],
+    slugs: ['lower-shawneetown-at-the-scioto-mouth', 'lower-shawneetown-greenup-county'],
     ids: ['lower-shawneetown'],
     terms: ['Scioto', 'South Portsmouth'],
   },
@@ -82,7 +99,152 @@ export const ITEMS = [
     names: ['Cleek-McCabe'],
     slugs: ['cleek-mccabe-a-circular-fort-ancient-village-in-boone-county'],
     ids: ['cleek-mccabe-fort-ancient-village-boone-county'],
-    terms: ['Mud Lick', 'Walton'],
+    terms: ['Mud Lick', 'Walton', 'Burlington'],
+  },
+  // County sweep: own public output only. The wide scan of other pages is a separate pass.
+  {
+    name: 'Adams',
+    names: ['Adams Site'],
+    slugs: ['adams-site-15fu4'],
+    ids: ['adams-site-15fu4-mississippian-fulton-county'],
+    terms: ['Hickman', 'Bayou', 'Wickliffe'],
+    ownOnly: true,
+  },
+  {
+    name: 'Andalex',
+    names: ['Andalex'],
+    slugs: ['andalex-village-15hk22-hopkins-county'],
+    ids: ['andalex-village-15hk22-hopkins-county'],
+    terms: ['Pond River', 'bluff', 'Wickliffe'],
+    ownOnly: true,
+  },
+  {
+    name: 'Indian Knoll',
+    names: ['Indian Knoll'],
+    slugs: ['indian-knoll-on-the-green-river', 'indian-knoll-ohio-county'],
+    ids: ['indian-knoll'],
+    terms: ['Green River'],
+    ownOnly: true,
+  },
+  {
+    name: 'Rowlandton',
+    names: ['Rowlandton'],
+    slugs: ['rowlandton-mound-site-15mcn3-paducah', 'rowlandton-mound-site-15mcn3'],
+    ids: ['rowlandton-mound-site-15mcn3-mccracken'],
+    terms: ['Paducah', 'Ohio River', 'oxbow', '1 km'],
+    ownOnly: true,
+  },
+  {
+    name: 'Howard',
+    names: ['Howard Site', 'Howard site'],
+    slugs: ['howard-site-late-fort-ancient-above-harts-fork', 'howard-site-late-fort-ancient'],
+    ids: ['howard-site-15ma427-late-fort-ancient-madison-county'],
+    terms: ['Harts Fork', 'Harts-Fork'],
+    ownOnly: true,
+  },
+  {
+    name: 'Singer-Hieronymus',
+    names: ['Singer-Hieronymus', 'Singer Village'],
+    slugs: ['singer-hieronymus-fort-ancient-villages-on-north-elkhorn', 'singer-hieronymus-fort-ancient-villages'],
+    ids: ['singer-hieronymus-fort-ancient-scott-county'],
+    terms: ['North Elkhorn', 'Elkhorn Creek', 'Lexington', 'north of', 'Maysville'],
+    ownOnly: true,
+  },
+  {
+    name: 'Slack Farm',
+    names: ['Slack Farm'],
+    slugs: ['slack-farm-15un28-union-county'],
+    ids: ['slack-farm-15un28-union-county'],
+    terms: ['Ohio River', 'Uniontown'],
+    ownOnly: true,
+  },
+  {
+    name: 'Slone',
+    names: ['Slone Site', 'Slone'],
+    slugs: ['slone-site-15pi11-pike-county'],
+    ids: ['slone-site-15pi11-pike-county'],
+    terms: ['Levisa', 'Fishtrap', 'Big Sandy'],
+    ownOnly: true,
+  },
+  {
+    name: 'Sweet Lick Knob',
+    names: ['Sweet Lick Knob'],
+    slugs: ['sweet-lick-knob-fort-ancient-gathering-place'],
+    ids: ['sweet-lick-knob-fort-ancient-estill'],
+    terms: ['Irvine', 'Kentucky River'],
+    ownOnly: true,
+  },
+  {
+    name: 'C and O Mounds',
+    names: ['C. and O. Mounds', 'C. and O. mounds'],
+    slugs: ['the-c-and-o-mounds-at-paintsville', 'the-c-and-o-mounds-johnson-county'],
+    ids: ['c-and-o-mounds-paintsville-johnson-adena', 'c-and-o-mounds-johnson-county-adena'],
+    terms: ['Paintsville', 'Levisa', 'Big Sandy'],
+    ownOnly: true,
+  },
+  {
+    name: 'Tinsley Hill',
+    names: ['Tinsley Hill'],
+    slugs: ['tinsley-hill-15ly18-lyon-county'],
+    ids: ['tinsley-hill-15ly18-lyon-1300-1450'],
+    terms: ['Lake Barkley', 'Cumberland', 'Kentucky Lake', 'Tinsley Hollow'],
+    ownOnly: true,
+  },
+  {
+    name: 'Wright Mounds',
+    names: ['Wright Mounds'],
+    slugs: ['wright-mounds-montgomery-county'],
+    ids: ['wright-mounds-15mm6-8-montgomery-county-adena'],
+    terms: ['ridgetop', 'bluff'],
+    ownOnly: true,
+  },
+  {
+    name: 'Fox Farm',
+    names: ['Fox Farm'],
+    slugs: ['fox-farm-mason-county'],
+    ids: ['fox-farm-fort-ancient'],
+    terms: ['ridgetop', 'Mays Lick', 'near Mays'],
+    ownOnly: true,
+  },
+  {
+    name: 'Red Bird',
+    names: ['Red Bird'],
+    slugs: ['red-bird-petroglyphs-clay-county', 'red-bird-river-petroglyphs-clay-county'],
+    ids: ['red-bird-petroglyphs-clay'],
+    terms: ['Eriline', 'KY 66', 'Red Bird River', 'Manchester'],
+    ownOnly: true,
+  },
+  {
+    name: 'Sassafras Ridge',
+    names: ['Sassafras Ridge'],
+    slugs: ['sassafras-ridge-15fu3-fulton-county'],
+    ids: ['sassafras-ridge-15fu3-fulton-1000-1500'],
+    terms: ['Mississippi River', 'near the Mississippi', 'near Hickman', 'western border'],
+    ownOnly: true,
+  },
+  {
+    name: 'Twin Mounds',
+    names: ['Twin Mounds'],
+    slugs: ['twin-mounds-site'],
+    ids: ['twin-mounds-site-15ba2-ballard-county'],
+    terms: ['Barlow', 'southeast of'],
+    ownOnly: true,
+  },
+  {
+    name: 'Dover Mound',
+    names: ['Dover Mound'],
+    slugs: ['dover-mound-mason-county'],
+    ids: ['dover-mound-adena-mason-county'],
+    terms: ['near Dover', 'Ohio River', 'Mount Horeb'],
+    ownOnly: true,
+  },
+  {
+    name: 'Old Fort',
+    names: ['Old Fort Earthworks', 'Old Fort'],
+    slugs: ['old-fort-earthworks-15gp1-greenup-county'],
+    ids: ['old-fort-earthworks-15gp1-greenup'],
+    terms: ['Portsmouth', 'Portsmouth Group'],
+    ownOnly: true,
   },
 ]
 
@@ -96,9 +258,20 @@ export function termRegex(term) {
 
 function scrub(text, item) {
   let s = String(text)
+  // Credit links and shared figure files are not the story's prose. A commons filename or a
+  // culture-figure id can carry a river name that the caption no longer uses.
+  s = s.replace(/https?:\/\/\S+/gi, ' ')
+  s = s.replace(/\/content\/photos\/\S+/gi, ' ')
+  s = s.replace(/\bculture-[a-z0-9-]+-image-evidence\b/gi, ' ')
   for (const u of ALLOW_URLS) s = s.split(u).join(' ')
-  for (const slug of item.slugs) s = s.split(slug).join(' ')
+  // Own slugs and history ids are permanent identifiers, not public locator copy.
+  for (const id of [...item.slugs, ...(item.ids || [])]) s = s.split(id).join(' ')
   return s
+}
+
+/** Stories added in the county sweep scan their own public output only (not every other page). */
+export function crossPageItems(items) {
+  return items.filter((item) => !item.ownOnly)
 }
 
 export function hitsIn(text, item) {
@@ -106,10 +279,16 @@ export function hitsIn(text, item) {
   return item.terms.filter((t) => termRegex(t).test(s))
 }
 
-function strings(o, out = []) {
+function strings(o, out = [], skip = null) {
   if (typeof o === 'string') out.push(o)
-  else if (Array.isArray(o)) for (const v of o) strings(v, out)
-  else if (o && typeof o === 'object') for (const v of Object.values(o)) strings(v, out)
+  else if (Array.isArray(o)) for (const v of o) strings(v, out, skip)
+  else if (o && typeof o === 'object') {
+    for (const [k, v] of Object.entries(o)) {
+      // Another story's slug is an identifier, not this story's prose.
+      if (skip && skip.has(k)) continue
+      strings(v, out, skip)
+    }
+  }
   return out
 }
 
@@ -122,15 +301,15 @@ function itemFor(value) {
 }
 
 /** Find objects that belong to a protected story and report locating terms. */
-export function scanJson(data, file, problems) {
+export function scanJson(data, file, problems, opts) {
   const walk = (o, where) => {
     if (Array.isArray(o)) return o.forEach((v, i) => walk(v, `${where}[${i}]`))
     if (!o || typeof o !== 'object') return
     let owner = null
     for (const f of ['slug', 'id', 'historyId', 'shareId']) if (typeof o[f] === 'string' && itemFor(o[f])) owner = itemFor(o[f])
     if (owner) {
-      for (const s of strings(o)) {
-        const h = hitsIn(s, owner)
+      for (const s of strings(o, [], new Set(['slug']))) {
+        const h = hitsIn(s, owner, opts)
         if (h.length) problems.push(`${file} ${where} (${owner.name}): ${h.join(', ')} in "${s.slice(0, 120)}"`)
       }
       return
@@ -138,8 +317,8 @@ export function scanJson(data, file, problems) {
     for (const [k, v] of Object.entries(o)) {
       const keyed = itemFor(k)
       if (keyed) {
-        for (const s of strings(v)) {
-          const h = hitsIn(s, keyed)
+        for (const s of strings(v, [], new Set(['slug']))) {
+          const h = hitsIn(s, keyed, opts)
           if (h.length) problems.push(`${file} ${where}.${k} (${keyed.name}): ${h.join(', ')} in "${s.slice(0, 120)}"`)
         }
         continue
@@ -149,7 +328,7 @@ export function scanJson(data, file, problems) {
       if (ids.length && typeof v === 'object' && !(v && (v.slug || v.id))) {
         for (const id of ids) {
           const it = itemFor(id)
-          const h = hitsIn(k, it)
+          const h = hitsIn(k, it, opts)
           if (h.length) problems.push(`${file} ${where} term key "${k}" points at ${id}: ${h.join(', ')}`)
         }
       }
@@ -299,7 +478,7 @@ export function runAll() {
         if (!fs.existsSync(f)) continue
         scanJson(JSON.parse(fs.readFileSync(f, 'utf8')), `${tag}/content/stories/${slug}.json`, problems)
         const rf = path.join(base, 'content/research', `${slug}.json`)
-        if (fs.existsSync(rf)) scanJson(JSON.parse(fs.readFileSync(rf, 'utf8')), `${tag}/content/research/${slug}.json`, problems)
+        if (fs.existsSync(rf)) scanJson(JSON.parse(fs.readFileSync(rf, 'utf8')), `${tag}/content/research/${slug}.json`, problems, { research: true })
         const page = path.join(base, 'stories', slug, 'index.html')
         if (tag === 'dist' && fs.existsSync(page)) {
           const h = hitsIn(pageParts(fs.readFileSync(page, 'utf8')), it)
@@ -308,7 +487,10 @@ export function runAll() {
       }
     }
     if (tag === 'dist' && fs.existsSync(path.join(base, 'stories'))) {
-      const own = new Set(ITEMS.flatMap((i) => i.slugs))
+      const cross = crossPageItems(ITEMS)
+      const own = new Set(cross.flatMap((i) => i.slugs))
+      const saved = MENTIONS
+      MENTIONS = mentionsFor(cross)
       for (const slug of fs.readdirSync(path.join(base, 'stories'))) {
         const page = path.join(base, 'stories', slug, 'index.html')
         if (own.has(slug) || !fs.existsSync(page)) continue
@@ -316,12 +498,18 @@ export function runAll() {
           problems.push(`dist/stories/${slug}/index.html mentions ${h.item} with ${h.hits.join(', ')}: "${h.sentence}"`)
         }
       }
+      MENTIONS = saved
     }
     for (const rel of JSON_FILES) {
       const f = path.join(base, rel)
       if (!fs.existsSync(f)) continue
       scanJson(JSON.parse(fs.readFileSync(f, 'utf8')), `${tag}/${rel}`, problems)
     }
+  }
+  // Generic patterns on every protected story. Same keys as test-protected-locators.
+  // An exact allowlist entry still passes; any new match fails.
+  for (const h of rejectUnallowlisted(collectLocatorHits(ROOT))) {
+    problems.push(`generic ${h.file} [${h.owner}] ${h.field}: ${h.id} "${h.match}"`)
   }
   return problems
 }
@@ -355,10 +543,18 @@ function selfTest() {
     const page = (t) => `<div class="story-body"><p>${t}</p></div>`
     const exLink = '<a href="/stories/example-site-15xx999-sample-county/">Example Site</a>'
     assert(hitsIn('File:Sample_River_in_the_fall.jpg', ex).length, 'underscore form')
+    assert(!hitsIn('https://commons.wikimedia.org/wiki/File:Sampletown_view.jpg', ex).length, 'credit URL is not prose')
+    assert(hitsIn('Stand-in photo near Sampletown', ex).length, 'prose caption still hits')
     assert(hitsIn('Sample-River', ex).length, 'hyphen form')
     assert(!hitsIn('a small Sampleriveran town', ex).length, 'negative lookahead term')
     assert(hitsIn('the Sampleriver floodplain', ex).length, 'lookahead term base')
     assert(!hitsIn('/stories/example-site-near-sampletown/', ex).length, 'own slug exempt')
+    const withTownId = { ...ex, ids: ['sampletown-record-0001'] }
+    assert(!hitsIn('sampletown-record-0001', withTownId).length, 'own history id exempt')
+    assert(hitsIn('the dig was near Sampletown', withTownId).length, 'prose town still hits when the id is exempt')
+    const foreign = []
+    scanJson({ related: { 'example-site-15xx999-sample-county': [{ slug: 'sampletown-public-story', label: 'Same era: another town' }] } }, 'fixture', foreign)
+    assert(foreign.length === 0, 'another story slug is not prose')
     const demo = FIXTURES[1]
     for (const t of ['Sampler’s Creek', "Sampler's Creek", 'Samplers Creek', 'Samplers_Creek']) assert(hitsIn(`villages on ${t}`, demo).length, `plant: possessive creek term ${t}`)
     for (const t of ['Demoburg', 'Upper Demoburg']) assert(hitsIn(`the village near ${t}`, demo).length, `plant: nearest-town term ${t}`)
@@ -400,6 +596,7 @@ function selfTest() {
     assert(otherPageHits(page('Sampletown grew fast. The Demo Enclosure is in Sample County.')).length === 0, 'locator of a different site is fine')
     const filler = 'Archaeologists in that era surveyed many earthworks across the state with simple tools and notebooks. '.repeat(2)
     assert(!otherPageHits(page(`Webb cited ${exLink} in Sample County. ${filler}Sampletown grew later.`)).length, 'locator beyond ~15 words is fine')
+    assert(crossPageItems([{ ownOnly: true, slugs: ['a'] }, { slugs: ['b'] }]).length === 1, 'ownOnly stories stay off the other-page scan')
     const t0 = Date.now()
     otherPageHits(page('Example Site Co. mi. St. '.repeat(20000)))
     assert(Date.now() - t0 < 2000, 'linear on large input')
@@ -407,6 +604,41 @@ function selfTest() {
     ACTIVE = ITEMS
     MENTIONS = mentionsFor(ITEMS)
   }
+  const oldFort = ITEMS.find((i) => i.slugs.includes('old-fort-earthworks-15gp1-greenup-county'))
+  assert(oldFort && oldFort.terms.includes('Portsmouth') && oldFort.terms.includes('Portsmouth Group') && oldFort.ownOnly, 'Old Fort lists bare Portsmouth and Portsmouth Group on its own output')
+  assert(hitsIn('A square earthwork in Greenup County. Portsmouth.', oldFort).includes('Portsmouth'), 'planted bare Portsmouth fails the Old Fort term')
+  for (const phrase of ['Portsmouth Group', 'Portsmouth_Group', 'Portsmouth-Group']) {
+    assert(hitsIn(`part of the ${phrase}`, oldFort).includes('Portsmouth Group'), `planted ${phrase} fails the Old Fort term`)
+  }
+  assert(hitsIn('A square earthwork in Greenup County.', oldFort).length === 0, 'county-only Old Fort prose passes')
+  const official = 'The full official National Register title is Portsmouth Earthworks, Group A.'
+  assert(hitsIn(official, oldFort).includes('Portsmouth'), 'official title fails in story prose')
+  assert(hitsIn(official, oldFort, { research: true }).includes('Portsmouth'), 'official title fails in folded research notes')
+  assert(hitsIn('Research note. Portsmouth.', oldFort, { research: true }).includes('Portsmouth'), 'a planted Portsmouth in research still fails')
+  assert(hitsIn('Portsmouth Earthworks in the research file.', oldFort, { research: true }).includes('Portsmouth'), 'a shortened official title in research still fails')
+  assert(findLocators('A square earthwork in Greenup County. Portsmouth.').length === 0, 'bare Portsmouth is not a generic pattern')
+  assert(findLocators('A square earthwork in Greenup County. Portsmouth.', oldFort.slugs[0]).some((h) => h.match === 'Portsmouth'), 'Old Fort term catches bare Portsmouth')
+  assert(protectedStoryCount() === 38, `generic pass covers all 38 protected stories (got ${protectedStoryCount()})`)
+  const storyFiles = fs.readdirSync(path.join(ROOT, 'public/content/stories')).filter((f) => f.endsWith('.json'))
+  const protFiles = storyFiles.filter((f) => isProtectedStory(JSON.parse(fs.readFileSync(path.join(ROOT, 'public/content/stories', f), 'utf8'))))
+  assert(protFiles.length === 38, `protected story files: ${protFiles.length}`)
+  const planted = []
+  scanGeneric({ slug: oldFort.slugs[0], summary: 'A square earthwork in Greenup County. Portsmouth.' }, `content/stories/${oldFort.slugs[0]}.json`, planted)
+  const bare = planted.filter((h) => h.match === 'Portsmouth')
+  assert(bare.length === 1 && !LOCATOR_ALLOW.has(locatorKey(bare[0])), 'planted bare Portsmouth is not allowlisted')
+  const named = []
+  scanGeneric({ slug: oldFort.slugs[0], title: 'Old Fort Earthworks' }, `content/stories/${oldFort.slugs[0]}.json`, named)
+  assert(named.some((h) => h.match === 'Old Fort Earthworks' && LOCATOR_ALLOW.has(locatorKey(h))), 'exact site-name allowlist entry still passes')
+  const widened = []
+  scanGeneric({ slug: oldFort.slugs[0], title: 'Old Fort Earthworks near Portsmouth' }, `content/stories/${oldFort.slugs[0]}.json`, widened)
+  assert(rejectUnallowlisted(widened).some((h) => /Portsmouth/.test(h.match)), 'a new Portsmouth hit beside an allowlisted name still fails')
+  const tolu = 'tolu-site-mississippian-mounds'
+  const water = []
+  scanGeneric({ slug: tolu, summary: 'The town sat on a bluff above the Ohio River.' }, `content/stories/${tolu}.json`, water)
+  assert(rejectUnallowlisted(water).length > 0, 'generic patterns cover a protected story with no ITEMS term list')
+  const countyOnly = []
+  scanGeneric({ slug: tolu, summary: 'A Mississippian town in Crittenden County.' }, `content/stories/${tolu}.json`, countyOnly)
+  assert(countyOnly.length === 0, 'county-only prose has no generic locator')
   console.log('check-protected-locators self-test: OK')
 }
 
@@ -419,6 +651,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       for (const p of problems.slice(0, 200)) console.error(`  ${p}`)
       process.exit(1)
     }
-    console.log('check-protected-locators: OK (Muir, Peter Village x2, Read Shell Midden, Turk, Chambers, Buckner, Lower Shawneetown, Cleek-McCabe; public JSON and story pages)')
+    console.log(`check-protected-locators: OK (${ITEMS.length} named items; generic patterns on ${protectedStoryCount()} protected stories)`)
   }
 }

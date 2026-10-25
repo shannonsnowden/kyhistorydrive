@@ -249,18 +249,23 @@ function curatedFileBase(id, row) {
   return base || id
 }
 
-function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
+export function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
   const ext = row.ext || 'jpg'
   const base = curatedFileBase(id, row)
-  return {
+  const photo = {
     image_url: `${publicDir}/${base}.${ext}`,
     title: row.title,
     source_url: row.source_url,
     source_label: row.source_label || 'Wikimedia Commons',
     attribution: row.attribution,
     year: row.year || null,
-    ...(row.cardThumb === false ? { cardThumb: false } : {}),
   }
+  // CC BY-SA credits must survive the build (Muir storage jar, Herb Roe).
+  for (const k of ['credit', 'license', 'license_url', 'artwork']) {
+    if (row[k]) photo[k] = row[k]
+  }
+  if (row.cardThumb === false) photo.cardThumb = false
+  return photo
 }
 
 function vendorCandidateUrls(row) {
@@ -670,7 +675,10 @@ async function main() {
   )
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+const isDirect = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
+if (isDirect) {
+  main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+}

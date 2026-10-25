@@ -112,13 +112,13 @@
       "status": "301"
     },
     {
-      "source": "/research/the-c-and-o-mounds-at-paintsville",
-      "target": "/stories/the-c-and-o-mounds-at-paintsville/",
+      "source": "/research/the-c-and-o-mounds-johnson-county",
+      "target": "/stories/the-c-and-o-mounds-johnson-county/",
       "status": "301"
     },
     {
-      "source": "/research/the-c-and-o-mounds-at-paintsville/",
-      "target": "/stories/the-c-and-o-mounds-at-paintsville/",
+      "source": "/research/the-c-and-o-mounds-johnson-county/",
+      "target": "/stories/the-c-and-o-mounds-johnson-county/",
       "status": "301"
     },
     {
@@ -159,6 +159,16 @@
     {
       "source": "/research/yahoo-falls-big-south-fork/",
       "target": "/stories/yahoo-falls-big-south-fork/",
+      "status": "301"
+    },
+    {
+      "source": "/research/old-fort-earthworks-15gp1-greenup-county",
+      "target": "/stories/old-fort-earthworks-15gp1-greenup-county/",
+      "status": "301"
+    },
+    {
+      "source": "/research/old-fort-earthworks-15gp1-greenup-county/",
+      "target": "/stories/old-fort-earthworks-15gp1-greenup-county/",
       "status": "301"
     }
   ]

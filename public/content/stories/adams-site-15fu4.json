@@ -2,8 +2,8 @@
   "slug": "adams-site-15fu4",
   "title": "Adams Site (15Fu4)",
   "publishedDate": "2026-09-16",
-  "summary": "Near Hickman in Fulton County, the Adams Site (15Fu4) is a Mississippian town of platform mounds and plazas lived in from about 1100 to 1500 CE.",
-  "bodyMarkdown": "Near Hickman in Fulton County, on Bayou de Chien, a creek that drains into the nearby Mississippi, the Adams Site (15Fu4) is a [Mississippian](https://en.wikipedia.org/wiki/Mississippian_culture) town of about 7.25 hectares built over an earlier Late Woodland village. Platform mounds stand around a central plaza, with a smaller plaza southwest of the largest mound.\n\nPeople lived here from about 1100 to 1500 CE, through the Medley (1100–1300) and Jackson (1300–1500) phases of the local chronology. Village middens around the mounds run 1 to 1.5 meters deep, a sign of long habitation. Other Mississippian towns in far western Kentucky include [Wickliffe](/stories/wickliffe-mounds-mississippian-village-ballard-county/) and [Sassafras Ridge](/stories/sassafras-ridge-15fu3-fulton-county/).\n\n## Kentucky today\n\nThe Adams Site was listed on the National Register of Historic Places in 1984. It is not a public visitor site, so its map pin is rounded to about 10 km.\nSource: [Adams site (Wikipedia)](https://en.wikipedia.org/wiki/Adams_site)",
+  "summary": "In Fulton County, the Adams Site (15Fu4) is a Mississippian town of platform mounds and plazas, lived in from about 1100 to 1500 CE.",
+  "bodyMarkdown": "In Fulton County, the Adams Site (15Fu4) is a [Mississippian](https://en.wikipedia.org/wiki/Mississippian_culture) town of about 7.25 hectares built over an earlier Late Woodland village. Platform mounds stand around a central plaza, with a smaller plaza southwest of the largest mound.\n\nPeople lived here from about 1100 to 1500 CE, through the Medley (1100–1300) and Jackson (1300–1500) phases of the local chronology. Village middens around the mounds run 1 to 1.5 meters deep, a sign of long habitation. Other Mississippian towns include [Sassafras Ridge](/stories/sassafras-ridge-15fu3-fulton-county/), also in Fulton County.\n\n## Kentucky today\n\nThe Adams Site was listed on the National Register of Historic Places in 1984. It is not a public visitor site, so its map pin is rounded to about 10 km.\nSource: [Adams site (Wikipedia)](https://en.wikipedia.org/wiki/Adams_site)",
   "yearStart": 1100,
   "yearEnd": 1500,
   "era": "prehistoric",
@@ -24,10 +24,12 @@
   },
   "photo": {
     "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
-    "title": "Stand-in photo: Hickman Carnegie Library in nearby Hickman, Fulton County (no public photo of the site itself)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
+    "title": "A Mississippian shell gorget, The Metropolitan Museum of Art; a generic artifact, not from the Adams Site in Fulton County",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gorget_MET_DT258619.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · Public domain",
-    "year": 2013
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
+    "year": null,
+    "credit": "The Metropolitan Museum of Art",
+    "license": "CC0"
   }
 }

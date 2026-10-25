@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T19:12:36.275Z",
+  "generatedAt": "2026-10-25T11:33:07.772Z",
   "stats": {
     "exact": 11,
     "fuzzy": 45,
@@ -32,8 +32,8 @@
       "matchedPlace": "Cloudsplitter Rockshelter (15Mf36)",
       "historyId": "cloudsplitter-rockshelter-15mf36-menifee-county"
     },
-    "indian-knoll-on-the-green-river": {
-      "slug": "indian-knoll-on-the-green-river",
+    "indian-knoll-ohio-county": {
+      "slug": "indian-knoll-ohio-county",
       "lat": 37.5,
       "lon": -86.8,
       "mapConfidence": "fuzzy",
@@ -96,21 +96,21 @@
       "matchedPlace": "Ashland Central Park Adena Mounds",
       "historyId": "ashland-adena-mounds"
     },
-    "mount-horeb-earthworks": {
-      "slug": "mount-horeb-earthworks",
-      "lat": 38.1588727,
-      "lon": -84.4652044,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Horeb Adena / Adena Park",
-      "historyId": "mount-horeb-adena-park"
-    },
-    "the-c-and-o-mounds-at-paintsville": {
-      "slug": "the-c-and-o-mounds-at-paintsville",
+    "the-c-and-o-mounds-johnson-county": {
+      "slug": "the-c-and-o-mounds-johnson-county",
       "lat": 37.8,
       "lon": -82.8,
       "mapConfidence": "override",
       "matchedPlace": "C. and O. Mounds, Johnson County (approximate)",
-      "historyId": "c-and-o-mounds-paintsville-johnson-adena"
+      "historyId": "c-and-o-mounds-johnson-county-adena"
+    },
+    "mount-horeb-earthworks": {
+      "slug": "mount-horeb-earthworks",
+      "lat": 38.1588727,
+      "lon": -84.4652044,
+      "mapConfidence": "exact",
+      "matchedPlace": "Mount Horeb Earthworks",
+      "historyId": "mount-horeb-adena-park"
     },
     "peter-village-enclosure-15fa166": {
       "slug": "peter-village-enclosure-15fa166",
@@ -125,7 +125,7 @@
       "lat": 38.7,
       "lon": -83,
       "mapConfidence": "override",
-      "matchedPlace": "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)",
+      "matchedPlace": "Old Fort Earthworks (15Gp1), Greenup County (generalized)",
       "historyId": "old-fort-earthworks-15gp1-greenup"
     },
     "robbins-mounds-boone-county": {
@@ -152,8 +152,8 @@
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
     },
-    "muir-site-early-fort-ancient-on-a-jessamine-ridge": {
-      "slug": "muir-site-early-fort-ancient-on-a-jessamine-ridge",
+    "muir-site-early-fort-ancient": {
+      "slug": "muir-site-early-fort-ancient",
       "lat": 37.9,
       "lon": -84.6,
       "mapConfidence": "override",
@@ -184,12 +184,12 @@
       "matchedPlace": "Adams Site (15Fu4)",
       "historyId": "adams-site-15fu4-mississippian-fulton-county"
     },
-    "rowlandton-mound-site-15mcn3-paducah": {
-      "slug": "rowlandton-mound-site-15mcn3-paducah",
+    "rowlandton-mound-site-15mcn3": {
+      "slug": "rowlandton-mound-site-15mcn3",
       "lat": 37,
       "lon": -88.6,
       "mapConfidence": "override",
-      "matchedPlace": "Rowlandton Mound Site (15McN3), Paducah",
+      "matchedPlace": "Rowlandton Mound Site (15McN3), McCracken County",
       "historyId": "rowlandton-mound-site-15mcn3-mccracken"
     },
     "turk-site-carlisle-county": {
@@ -216,8 +216,8 @@
       "matchedPlace": "Andalex Village (15Hk22), Hopkins County",
       "historyId": "andalex-village-15hk22-hopkins-county"
     },
-    "buckner-site-fort-ancient-villages-on-strodes-creek": {
-      "slug": "buckner-site-fort-ancient-villages-on-strodes-creek",
+    "buckner-site-fort-ancient-villages": {
+      "slug": "buckner-site-fort-ancient-villages",
       "lat": 38.2,
       "lon": -84.2,
       "mapConfidence": "override",
@@ -248,16 +248,16 @@
       "matchedPlace": "Marshall County (centroid)",
       "historyId": null
     },
-    "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
-      "slug": "singer-hieronymus-fort-ancient-villages-on-north-elkhorn",
+    "singer-hieronymus-fort-ancient-villages": {
+      "slug": "singer-hieronymus-fort-ancient-villages",
       "lat": 38.3,
       "lon": -84.6,
       "mapConfidence": "override",
       "matchedPlace": "Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)",
       "historyId": "singer-hieronymus-fort-ancient-scott-county"
     },
-    "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-      "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
+    "tolu-site-mississippian-mounds": {
+      "slug": "tolu-site-mississippian-mounds",
       "lat": 37.4,
       "lon": -88.2,
       "mapConfidence": "fuzzy",
@@ -304,8 +304,8 @@
       "matchedPlace": "Slone Site (15Pi11), Pike County",
       "historyId": "slone-site-15pi11-pike-county"
     },
-    "howard-site-late-fort-ancient-above-harts-fork": {
-      "slug": "howard-site-late-fort-ancient-above-harts-fork",
+    "howard-site-late-fort-ancient": {
+      "slug": "howard-site-late-fort-ancient",
       "lat": 37.7,
       "lon": -84.3,
       "mapConfidence": "fuzzy",
@@ -496,8 +496,8 @@
       "matchedPlace": "Cumberland Gap / Thomas Walker",
       "historyId": "cumberland-gap-thomas-walker"
     },
-    "lower-shawneetown-at-the-scioto-mouth": {
-      "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "lower-shawneetown-greenup-county": {
+      "slug": "lower-shawneetown-greenup-county",
       "lat": 38.7,
       "lon": -83,
       "mapConfidence": "fuzzy",
@@ -1891,7 +1891,7 @@
       "lat": 37,
       "lon": -88,
       "mapConfidence": "override",
-      "matchedPlace": "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
+      "matchedPlace": "Tinsley Hill (15Ly18), Lyon County (approximate)",
       "historyId": "tinsley-hill-15ly18-lyon-1300-1450"
     },
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {

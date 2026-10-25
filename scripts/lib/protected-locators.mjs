@@ -25,11 +25,16 @@ export const LOCATOR_PATTERNS = [
   { id: 'named-water', re: rx(`${L}[a-z]+[_-](?:creek|river|lake|fork)${R}`) },
   { id: 'named-earthworks', re: rx(`${L}(?:${NAME_IN}${G}){1,6}Earthworks(?:${G}Complex)?${R}|${L}Earthworks${G}Complex${R}`) },
   { id: 'named-earthworks', re: rx(`${L}[a-z]+[_-]earthworks[_-]complex${R}`) },
+  // Landforms that place a site below county. Bare "ridge" is omitted: it is the name Sassafras Ridge.
+  { id: 'landform', re: rx(`${L}(?:ridge[- ]?tops?|bluffs?)${R}`, 'gi') },
 ]
 
 /** Extra terms for one story (from #351 Item 105), matched case-insensitively with the same word gaps. */
 export const STORY_TERMS = {
   'peter-village-enclosure-15fa166': ['Lexington', 'Mount Horeb', 'Horeb', 'Earthworks Complex', 'Adena Park', 'Elkhorn', 'Grimes Village', 'creek', 'north of', 'near the'],
+  // Bare town name and the earthworks-group name. Generic patterns catch "near Portsmouth" and
+  // "Portsmouth Earthworks", not the word alone. Spaces also match "_" and "-" (Portsmouth_Group).
+  'old-fort-earthworks-15gp1-greenup-county': ['Portsmouth', 'Portsmouth Group'],
 }
 
 export function termRegex(term) {

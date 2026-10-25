@@ -427,7 +427,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   // Erie / Cat Nation — theme-only, no KY place pin
-  'buckner-site-fort-ancient-villages-on-strodes-creek': {
+  'buckner-site-fort-ancient-villages': {
     matchName: 'Buckner Site (15Bb12)',
     lat: 38.2,
     lon: -84.2,
@@ -452,7 +452,7 @@ const MANUAL_OVERRIDES = {
     lon: -85.0577313,
     confidence: 'override',
   },
-  'muir-site-early-fort-ancient-on-a-jessamine-ridge': {
+  'muir-site-early-fort-ancient': {
     matchName: 'Muir Site (15Js86)',
     lat: 37.9,
     lon: -84.6,
@@ -567,7 +567,7 @@ const MANUAL_OVERRIDES = {
     lon: -84.832567,
     confidence: 'override',
   },
-  'singer-hieronymus-fort-ancient-villages-on-north-elkhorn': {
+  'singer-hieronymus-fort-ancient-villages': {
     matchName: 'Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)',
     lat: 38.3,
     lon: -84.6,
@@ -721,8 +721,8 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'tellico-cession-1805-south-of-the-cumberland': {},
-  'rowlandton-mound-site-15mcn3-paducah': {
-    matchName: "Rowlandton Mound Site (15McN3), Paducah",
+  'rowlandton-mound-site-15mcn3': {
+    matchName: "Rowlandton Mound Site (15McN3), McCracken County",
     lat: 37.1,
     lon: -88.6,
     confidence: 'override',
@@ -810,7 +810,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'old-fort-earthworks-15gp1-greenup-county': {
-    matchName: "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)",
+    matchName: "Old Fort Earthworks (15Gp1), Greenup County (generalized)",
     lat: 38.7,
     lon: -83.0,
     confidence: 'override',
@@ -919,7 +919,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'tinsley-hill-15ly18-lyon-county': {
-    matchName: "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
+    matchName: "Tinsley Hill (15Ly18), Lyon County (approximate)",
     lat: 37.0,
     lon: -88.0,
     confidence: 'override',
@@ -1009,7 +1009,7 @@ const MANUAL_OVERRIDES = {
     lon: -84.5593,
     confidence: 'override',
   },
-  'the-c-and-o-mounds-at-paintsville': {
+  'the-c-and-o-mounds-johnson-county': {
     matchName: "C. and O. Mounds, Johnson County (approximate)",
     lat: 37.8,
     lon: -82.8,

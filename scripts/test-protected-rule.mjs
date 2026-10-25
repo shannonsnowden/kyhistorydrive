@@ -39,4 +39,9 @@ for (const { retired, kept } of loadMerges()) {
 }
 assert.ok(isProtectedStory({ slug: 'peter-village-enclosure-15fa166' }))
 assert.ok(isProtectedStory({ slug: 'peter-village-early-woodland-enclosure-near-lexington' }))
+// Editor ruling 2026-10-24: public attractions stay off the protected county-only rule.
+for (const slug of ['diamond-caverns-decorated-limestone', 'natural-bridge-sandstone-arch', 'lost-river-cave']) {
+  const s = JSON.parse(fs.readFileSync(path.join(dir, `${slug}.json`), 'utf8'))
+  assert.equal(isProtectedStory(s), false, `${slug} is a public attraction and stays exempt`)
+}
 console.log(`test-protected-rule: OK (${n} stories agree)`)

@@ -66,7 +66,7 @@
     "label": "Same event: Logan’s 1786 militia raid struck her Ohio village"
    },
    {
-    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "slug": "lower-shawneetown-greenup-county",
     "label": "Same place: she held influence at Lower Shawneetown"
    },
    {
@@ -381,24 +381,24 @@
     "label": "Same person: Gen. Charles Scott, who built the 1789 blockhouse, has his own story"
    }
   ],
-  "rowlandton-mound-site-15mcn3-paducah": [
+  "rowlandton-mound-site-15mcn3": [
    {
     "slug": "twin-mounds-site",
     "label": "Same argument: Twin Mounds was also once called a Kincaid outpost"
    },
    {
     "slug": "wickliffe-mounds-mississippian-village-ballard-county",
-    "label": "Compared: Rowlandton is roughly the size of Wickliffe Mounds"
+    "label": "Same era: another Mississippian mound town in the western counties"
    },
    {
-    "slug": "tolu-site-mississippian-mounds-on-the-lower-ohio",
+    "slug": "tolu-site-mississippian-mounds",
     "label": "Same argument: grouped with Tolu as a supposed Kincaid outpost"
    }
   ],
   "adams-site-15fu4": [
    {
     "slug": "wickliffe-mounds-mississippian-village-ballard-county",
-    "label": "Same place: a sister Mississippian border town"
+    "label": "Same era: another Mississippian town in the western counties"
    }
   ],
   "bland-w-ballard-of-tick-creek": [
@@ -473,7 +473,7 @@
   ],
   "christopher-gist-1750-51": [
    {
-    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "slug": "lower-shawneetown-greenup-county",
     "label": "Same place: Shawnee at Lower Shawneetown warned him off the Falls"
    },
    {
@@ -493,11 +493,11 @@
   "cloudsplitter-rockshelter-menifee-county": [
    {
     "slug": "newt-kash-hollow-15mf1",
-    "label": "Same place: neighboring Red River Gorge shelter"
+    "label": "Same county: another rockshelter in Menifee County"
    },
    {
     "slug": "red-river-gorge-arches-and-the-dam-fight",
-    "label": "Same place: the Red River Gorge and its dam fight"
+    "label": "Same county: the gorge and its dam fight, in Menifee County"
    }
   ],
   "col-john-bowman-at-old-chillicothe": [
@@ -592,12 +592,12 @@
   ],
   "hansen-site-15gp14": [
    {
-    "slug": "lower-shawneetown-at-the-scioto-mouth",
+    "slug": "lower-shawneetown-greenup-county",
     "label": "Same place: Lower Shawneetown, also in Greenup County"
    },
    {
     "slug": "old-fort-earthworks-15gp1-greenup-county",
-    "label": "Same place: the Hopewell Old Fort Earthworks stand nearby"
+    "label": "Same county: another archaeological site in Greenup County"
    }
   ],
   "henry-skaggs-green-river-long-hunter": [
@@ -660,7 +660,7 @@
     "label": "Same event: the 1768 Fort Stanwix deed left hunting rights south of the Ohio"
    }
   ],
-  "muir-site-early-fort-ancient-on-a-jessamine-ridge": [],
+  "muir-site-early-fort-ancient": [],
   "owensboro-yellow-banks": [],
   "paducah-at-the-tennessee-mouth": [
    {
@@ -725,10 +725,10 @@
     "label": "Same person: John Floyd’s survey party camped here with Logan"
    }
   ],
-  "tolu-site-mississippian-mounds-on-the-lower-ohio": [
+  "tolu-site-mississippian-mounds": [
    {
     "slug": "wickliffe-mounds-mississippian-village-ballard-county",
-    "label": "Same place: the Angel-phase Kincaid set, with Wickliffe"
+    "label": "Same era: another town in the Angel-phase Kincaid set"
    }
   ],
   "treaties-of-hard-labour-and-lochaber": [
@@ -749,12 +749,12 @@
   ],
   "ward-site-15mcl11-mclean-county": [
    {
-    "slug": "indian-knoll-on-the-green-river",
-    "label": "Same place: the same Green River shell-midden series"
+    "slug": "indian-knoll-ohio-county",
+    "label": "Same era: another Late Archaic shell midden"
    },
    {
     "slug": "carlston-annis-shell-mound",
-    "label": "Same place: the same Green River shell-midden series"
+    "label": "Same era: another Late Archaic shell midden"
    }
   ],
   "wea-waayaahtanwa-on-the-wabash": [],
@@ -880,18 +880,18 @@
   ],
   "old-fort-earthworks-15gp1-greenup-county": [
    {
-    "slug": "lower-shawneetown-at-the-scioto-mouth",
-    "label": "Same place: Lower Shawneetown later stood within the same archaeological district"
+    "slug": "lower-shawneetown-greenup-county",
+    "label": "Same county: Lower Shawneetown, also in Greenup County"
    },
    {
     "slug": "hansen-site-15gp14",
-    "label": "Same place: another site in the Lower Shawneetown district in Greenup County"
+    "label": "Same county: another archaeological site in Greenup County"
    }
   ],
-  "lower-shawneetown-at-the-scioto-mouth": [
+  "lower-shawneetown-greenup-county": [
    {
     "slug": "old-fort-earthworks-15gp1-greenup-county",
-    "label": "Same place: the Hopewell Old Fort Earthworks stand nearby"
+    "label": "Same county: another archaeological site in Greenup County"
    }
   ],
   "cane-ridge-meeting-house-and-the-1801-camp-meeting": [
@@ -1031,7 +1031,7 @@
   "natural-bridge-sandstone-arch": [
    {
     "slug": "red-river-gorge-arches-and-the-dam-fight",
-    "label": "Same place: the Red River Gorge and its dam fight"
+    "label": "Same county: the gorge and its dam fight, in Menifee County"
    }
   ],
   "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": [

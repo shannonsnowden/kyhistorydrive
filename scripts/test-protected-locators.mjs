@@ -23,134 +23,27 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { findLocators, STORY_TERMS } from './lib/protected-locators.mjs'
-import { isProtectedStory } from './lib/unified-story-data.mjs'
-import { loadMerges } from './lib/story-merges.mjs'
+import { timelineNeighbor } from './lib/unified-story-data.mjs'
 import { STORY_MERGES } from '../src/story-url.js'
 import { pickRelatedStories, nearbyPlaces, relatedAndNearbyForStory } from '../src/story-tools.js'
+import {
+  ALLOW,
+  aliasesOf,
+  allStories,
+  collectLocatorHits,
+  key,
+  pageHits,
+  rejectUnallowlisted,
+  scanAssetText,
+  researchTermHits,
+  scanJson,
+  scanTree,
+} from './lib/protected-locator-scan.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DATA_ROOT = process.env.KH_LOCATOR_ROOT || ROOT
 const PETER = 'peter-village-enclosure-15fa166'
 const EMIT = process.argv.includes('--emit-allowlist')
-
-// ---------- owners: every protected story, with its slug, historyId and retired merged slugs ----------
-const storyDir = path.join(ROOT, 'public/content/stories')
-const alias = new Map() // any id -> owner slug
-const aliasesOf = new Map() // owner -> [ids]
-const add = (owner, id) => {
-  if (!id) return
-  alias.set(String(id), owner)
-  aliasesOf.set(owner, [...new Set([...(aliasesOf.get(owner) || []), String(id)])])
-}
-const allStories = []
-for (const f of fs.readdirSync(storyDir).filter((x) => x.endsWith('.json'))) {
-  const s = JSON.parse(fs.readFileSync(path.join(storyDir, f), 'utf8'))
-  allStories.push(s)
-  if (!isProtectedStory(s)) continue
-  add(s.slug, s.slug)
-  add(s.slug, s.historyId)
-  add(s.slug, s.id)
-}
-for (const { retired, kept } of loadMerges(ROOT)) if (alias.has(kept)) add(alias.get(kept), retired)
-// Map place records: historyIds live in story-overrides.json and stories-locations.json.
-const overrides = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/story-overrides.json'), 'utf8'))
-const locs = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/content/stories-locations.json'), 'utf8'))
-const walkIds = (o) => {
-  if (!o || typeof o !== 'object') return
-  for (const [k, v] of Object.entries(o)) {
-    if (v && typeof v === 'object' && !Array.isArray(v) && alias.has(k) && v.historyId) add(alias.get(k), v.historyId)
-    else walkIds(v)
-  }
-}
-walkIds(overrides)
-walkIds(locs)
-const ownerOf = (v) => alias.get(String(v || '').replace(/^(place|story|history|marker):/, ''))
-
-function scrub(text, owner) {
-  let s = String(text)
-  for (const id of [...(aliasesOf.get(owner) || [])].sort((a, b) => b.length - a.length)) s = s.split(id).join(' ')
-  return s
-}
-
-// ---------- scanning ----------
-/** hits: { file, owner, field, match, id } */
-export function scanJson(data, file, hits) {
-  const report = (owner, field, text) => {
-    for (const h of findLocators(scrub(text, owner), owner)) hits.push({ file, owner, field, match: h.match, id: h.id })
-  }
-  const strings = (o, field, owner) => {
-    if (typeof o === 'string') return report(owner, field, o)
-    if (Array.isArray(o)) return o.forEach((v) => strings(v, `${field}[]`, owner))
-    if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) strings(v, field ? `${field}.${k}` : k, owner)
-  }
-  const walk = (o) => {
-    if (Array.isArray(o)) return o.forEach(walk)
-    if (!o || typeof o !== 'object') return
-    let owner = null
-    for (const f of ['slug', 'id', 'historyId', 'shareId']) if (typeof o[f] === 'string' && ownerOf(o[f])) owner = ownerOf(o[f])
-    if (!owner && o.properties && typeof o.properties.id === 'string' && ownerOf(o.properties.id)) owner = ownerOf(o.properties.id)
-    if (owner) return strings(o, '', owner)
-    for (const [k, v] of Object.entries(o)) {
-      const keyed = ownerOf(k)
-      if (keyed) strings(v, '', keyed)
-      else walk(v)
-    }
-  }
-  walk(data)
-}
-
-const JSON_FILES = [
-  'content/stories.json',
-  'content/story-photos.json',
-  'content/stories-locations.json',
-  'data/app/ky-history.json',
-  'data/search-index.json',
-  'data/layers/history.geojson',
-  'data/layers/stories.geojson',
-  'data/web/related-people.json',
-]
-
-function pageParts(html) {
-  const parts = []
-  // Related-card notes are scanned; the other stories' own titles and links in those cards are not.
-  for (const m of html.matchAll(/<span class="(?:usp-rel-why|related-note)">[\s\S]*?<\/span>/gi)) parts.push(['note', m[0]])
-  // #345: a protected page shows no nearby cards at all; their titles name nearby towns and rivers.
-  for (const m of html.matchAll(/<li class="nearby-place[^"]*">[\s\S]*?<\/li>/gi)) parts.push(['nearby-card', m[0]])
-  // Related-story cards on a protected page: same county only, never a distance ("Nearby: 8.4 miles").
-  for (const m of html.matchAll(/<li class="related-story[^"]*">[\s\S]*?<\/li>/gi)) {
-    if (/\bmiles?\b|\bNearby:/i.test(m[0].replace(/<[^>]+>/g, ' '))) parts.push(['nearby-card', m[0]])
-  }
-  html = html.replace(/<li class="(?:related-story|nearby-place|related-person|related-row)[^"]*">[\s\S]*?<\/li>/gi, ' ')
-  html = html.replace(/\shref="[^"]*"/gi, ' ') // link targets (source PDFs, other stories) are not prose
-  // Timeline prev/next buttons carry the neighbouring stories' titles, not this site's location.
-  html = html.replace(/<a class="(?:usp-wf-btn|usp-pn-card)[^"]*"[\s\S]*?<\/a>/gi, ' ')
-  // Kentucky today box (protected pages named nearby towns and earthworks there; Editor 10/24).
-  for (const m of html.matchAll(/<section\b[^>]*\bid="today"[\s\S]*?<\/section>/gi)) parts.push(['today', m[0]])
-  const labelled = [['title', /<title>[\s\S]*?<\/title>/gi], ['meta', /<meta\b[^>]*>/gi], ['ld', /<script type="application\/ld\+json">[\s\S]*?<\/script>/gi], ['h1', /<h1\b[\s\S]*?<\/h1>/gi], ['figcaption', /<figcaption\b[\s\S]*?<\/figcaption>/gi], ['article', /<article\b[\s\S]*?<\/article>/gi]]
-  for (const [label, re] of labelled) for (const m of html.matchAll(re)) parts.push([label, m[0]])
-  // Image alt text anywhere on the page (outside <article> too).
-  const outside = html.replace(/<article\b[\s\S]*?<\/article>/gi, ' ')
-  for (const m of outside.matchAll(/\salt="([^"]*)"/gi)) parts.push(['img-alt', m[1]])
-  return parts
-}
-
-function scanTree(base) {
-  const hits = []
-  const owners = [...aliasesOf.keys()]
-  for (const owner of owners) {
-    for (const slug of aliasesOf.get(owner)) {
-      const f = path.join(base, 'content/stories', `${slug}.json`)
-      if (fs.existsSync(f)) scanJson(JSON.parse(fs.readFileSync(f, 'utf8')), `content/stories/${slug}.json`, hits)
-    }
-  }
-  for (const rel of JSON_FILES) {
-    const f = path.join(base, rel)
-    if (fs.existsSync(f)) scanJson(JSON.parse(fs.readFileSync(f, 'utf8')), rel, hits)
-  }
-  return hits
-}
-
-const key = (h) => `${h.file}|${h.owner}|${h.field}|${h.match}`
 
 if (EMIT) {
   const hits = scanTree(path.join(DATA_ROOT, 'public')).filter((h) => h.owner !== PETER)
@@ -178,15 +71,42 @@ for (const bad of [
   '/photos/example-site-near-sampletown.jpg',
   'part of the Mount Horeb Earthworks Complex',
   'https://en.wikipedia.org/wiki/Mount_Horeb_Earthworks_Complex',
+  // Landforms that place a protected site below county (#351 county sweep).
+  'on a broad ridgetop in Sample County',
+  'the village sat on a bluff',
+  'houses along the bluffs',
 ]) assert.ok(findLocators(bad).length, `should flag: ${bad}`)
 for (const ok of [
   'an early earthwork in Fayette County',
   'Peter Village (site 15Fa166)',
   'a lead ore found in the region',
   'Adena is an archaeologists’ name for a shared way of life',
+  // A bare "ridge" is not a landform term: it is the site's own name (Sassafras Ridge).
+  'Sassafras Ridge (15Fu3) is in Fulton County',
 ]) assert.deepEqual(findLocators(ok), [], `should pass: ${ok}`)
 // Fixtures never pair a real protected site with a real town; the term comes from the pattern list.
 assert.ok(findLocators(`the ${STORY_TERMS[PETER][0]} plan`, PETER).length, 'Peter Village terms apply to Peter Village')
+// Bare "Portsmouth" is not a generic pattern. It fails only as an Old Fort term, and that hit is not allowlisted.
+const OLD_FORT = 'old-fort-earthworks-15gp1-greenup-county'
+assert.deepEqual(findLocators('A square earthwork in Greenup County. Portsmouth.'), [], 'bare Portsmouth is not a generic pattern')
+assert.ok(findLocators('A square earthwork in Greenup County. Portsmouth.', OLD_FORT).some((h) => h.match === 'Portsmouth'), 'bare Portsmouth is an Old Fort term')
+for (const phrase of ['Portsmouth Group', 'Portsmouth_Group', 'Portsmouth-Group']) {
+  const hits = findLocators(`part of the ${phrase}.`, OLD_FORT)
+  assert.ok(hits.some((h) => h.id === 'term:Portsmouth Group'), `${phrase} is an Old Fort term`)
+  const planted = []
+  scanJson({ slug: 'culture-hopewell-image-evidence', storySlug: OLD_FORT, summary: `part of the ${phrase}` }, 'content/research/culture-hopewell-image-evidence.json', planted)
+  assert.equal(planted.length, 0, 'a culture-page slug alone is not the protected story')
+  const tied = researchTermHits({ slug: 'culture-hopewell-image-evidence', storySlug: OLD_FORT, summary: `part of the ${phrase}` }, 'content/research/culture-hopewell-image-evidence.json')
+  assert.ok(tied.some((h) => h.id === 'term:Portsmouth Group'), `${phrase} on a culture page tied by storySlug fails`)
+  assert.ok(tied.every((h) => !ALLOW.has(key(h))), `${phrase} on a culture page is not allowlisted`)
+}
+{
+  const planted = []
+  scanJson({ slug: OLD_FORT, summary: 'A square earthwork in Greenup County. Portsmouth.' }, `content/stories/${OLD_FORT}.json`, planted)
+  const bare = planted.filter((h) => h.match === 'Portsmouth')
+  assert.equal(bare.length, 1)
+  assert.ok(!ALLOW.has(key(bare[0])), 'planted bare Portsmouth is not allowlisted')
+}
 // #348: a full stop ends a name. Fictional plant: two adjacent sentences give two separate matches (each
 // exact-allowlistable), never one joined match; abbreviations (St.) and initials (J.R.) still join a name.
 {
@@ -208,9 +128,28 @@ assert.ok(findLocators(`the ${STORY_TERMS[PETER][0]} plan`, PETER).length, 'Pete
 }
 
 // ---------- allowlist is exact: a new term in an allowlisted story still fails ----------
-const allowFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/protected-locators-allowlist.json'), 'utf8'))
-const ALLOW = new Set([...(allowFile.entries || []), ...(allowFile.derived || []), ...(allowFile.page || [])])
 assert.ok(![...ALLOW].some((e) => e.split('|')[1] === PETER || e.includes('peter-village')), 'Peter Village may not be allowlisted')
+// SEO (Oct 24): these locator phrases are emptied from the allowlist. A hit must fail the build.
+const FORBIDDEN_ALLOW = [
+  'west of Bardwell',
+  'west of Nicholasville',
+  'nearby Nicholasville',
+  'near Nicholasville',
+  'north of Lexington',
+  'near Eriline',
+  'Levisa Fork',
+  'at Paintsville',
+  'Jessamine Creek',
+  'Strodes Creek',
+  'Near Paris',
+  'southeast of Twin',
+]
+for (const entry of ALLOW) {
+  const match = entry.split('|').slice(3).join('|')
+  for (const phrase of FORBIDDEN_ALLOW) {
+    assert.ok(!match.includes(phrase), `allowlist must not keep ${JSON.stringify(phrase)} (${entry})`)
+  }
+}
 {
   const sample = [...ALLOW][0]
   if (sample) {
@@ -221,6 +160,20 @@ assert.ok(![...ALLOW].some((e) => e.split('|')[1] === PETER || e.includes('peter
   const fx = []
   scanJson({ bySlug: { [PETER]: { photo: { title: 'Earthwork north of Sampletown' } } } }, 'fixture', fx)
   assert.ok(fx.length >= 1 && fx.every((h) => !ALLOW.has(key(h))), 'Peter Village fixture hit is reported and never allowed')
+}
+
+// Timeline prev/next must skip the same reference sites. A chronological neighbor is still a public link.
+{
+  const ordered = [
+    { slug: 'older-story' },
+    { slug: 'mount-horeb-earthworks' },
+    { slug: 'peter-village-enclosure-15fa166' },
+    { slug: 'later-story' },
+  ]
+  assert.equal(timelineNeighbor(ordered, 2, -1, 'peter-village-enclosure-15fa166').slug, 'older-story')
+  assert.equal(timelineNeighbor(ordered, 2, 1, 'peter-village-enclosure-15fa166').slug, 'later-story')
+  assert.equal(timelineNeighbor(ordered, 1, 1, 'mount-horeb-earthworks').slug, 'peter-village-enclosure-15fa166')
+  assert.equal(timelineNeighbor(ordered, 0, -1, 'older-story'), null)
 }
 
 // ---------- related cards: Peter Village never points at the neighbouring Mount Horeb site ----------
@@ -246,29 +199,21 @@ for (const [site, ref] of [
 }
 
 // ---------- built pages: a hit passes only on an exact file|owner|page:<label>|match entry ----------
-function pageHits(html, owner) {
-  const out = []
-  for (const [label, text] of pageParts(html)) {
-    if (label === 'nearby-card') {
-      const title = (text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() || 'nearby card').slice(0, 80)
-      out.push({ file: `stories/${owner}/index.html`, owner, field: 'page:nearby-card', match: title, id: 'nearby-card' })
-      continue
-    }
-    for (const h of findLocators(scrub(text, owner), owner)) out.push({ file: `stories/${owner}/index.html`, owner, field: `page:${label}`, match: h.match, id: h.id })
-  }
-  return out
-}
 {
   // An allowlisted body string (Adams Site bodyMarkdown, origin/v2) planted in <title> or in alt text
   // outside <article> is a new page hit and must fail.
-  const ADAMS = 'adams-site-15fu4'
-  const body = [...ALLOW].map((e) => e.split('|')).find(([f, o, fld]) => f === `content/stories/${ADAMS}.json` && o === ADAMS && fld === 'bodyMarkdown')
-  assert.ok(body, 'fixture needs an allowlisted adams-site-15fu4 bodyMarkdown entry')
-  const term = body[3]
-  for (const html of [`<title>Adams Site by ${term}</title>`, `<header><img src="x.webp" alt="View by ${term}"></header><article><p>ok</p></article>`]) {
-    const bad = pageHits(html, ADAMS).filter((h) => !ALLOW.has(key(h)))
+  const body = [...ALLOW].map((e) => e.split('|')).find((parts) => parts[2] === 'bodyMarkdown')
+  assert.ok(body, 'fixture needs an allowlisted bodyMarkdown entry')
+  const owner = body[1]
+  const term = body.slice(3).join('|')
+  for (const html of [`<title>Planted by ${term}</title>`, `<header><img src="x.webp" alt="View by ${term}"></header><article><p>ok</p></article>`]) {
+    const bad = pageHits(html, owner).filter((h) => !ALLOW.has(key(h)))
     assert.ok(bad.length >= 1, `planted allowlisted body text must fail on the page: ${html}`)
   }
+  const figure = `<article><img src="/figures/culture-green-river-archaic.jpg" srcset="/figures/culture-green-river-archaic.webp" alt="Ohio County"></article>`
+  assert.ok(!pageHits(figure, 'indian-knoll-ohio-county').length, 'a figure path is not prose')
+  const folded = `<article><p>In Greenup County.</p><details id="research-notes"><p>Portsmouth Earthworks, Group A.</p><details><p>nested</p></details></details><p>still public</p></article>`
+  assert.ok(pageHits(folded, 'old-fort-earthworks-15gp1-greenup-county').some((h) => /Portsmouth/.test(h.match)), 'folded research notes are public prose')
 }
 
 // ---------- nearby cards and Kentucky today on protected pages (fictional fixtures only) ----------
@@ -311,37 +256,16 @@ function pageHits(html, owner) {
   assert.ok(/class="nearby-place/.test(control), 'control: an unprotected story with markers shows nearby cards')
 }
 
-// ---------- scan ----------
-const hits = scanTree(path.join(ROOT, 'public'))
-if (fs.existsSync(path.join(ROOT, 'dist/content'))) {
-  for (const h of scanTree(path.join(ROOT, 'dist'))) hits.push(h) // same keys as public: built copies must match
-  for (const owner of aliasesOf.keys()) {
-    const page = path.join(ROOT, 'dist/stories', owner, 'index.html')
-    if (fs.existsSync(page)) hits.push(...pageHits(fs.readFileSync(page, 'utf8'), owner))
-  }
-}
 // ---------- shipped JS bundles: no protected-site alias slug that itself carries a locator ----------
-const RETIRED = new Set(loadMerges().map((m) => m.retired))
-function scanAssetText(text, file) {
-  const out = []
-  for (const [owner, slugs] of aliasesOf) for (const slug of slugs) {
-    // Retired (merged) slugs only: live canonical slugs are the public URLs themselves.
-    if (RETIRED.has(slug) && findLocators(slug, owner).length && text.includes(slug)) out.push({ file, owner, field: 'bundle', match: slug, id: 'alias-slug' })
-  }
-  return out
-}
 assert.ok(scanAssetText('const m={"peter-village-early-woodland-enclosure-near-lexington":"x"}', 'planted.js').length, 'planted old slug in a bundle must fail')
 assert.ok(!Object.keys(STORY_MERGES).some((s) => [...aliasesOf.values()].some((a) => a.includes(s) && findLocators(s).length)), 'src/story-url.js ships a protected locator slug')
-const assetsDir = path.join(ROOT, 'dist/assets')
-if (fs.existsSync(assetsDir)) {
-  for (const f of fs.readdirSync(assetsDir).filter((n) => n.endsWith('.js'))) hits.push(...scanAssetText(fs.readFileSync(path.join(assetsDir, f), 'utf8'), `assets/${f}`))
-}
 if (process.argv.includes('--emit-page-hits')) {
   // Prints current page hits; scripts/emit-page-allowlist keeps only text byte-identical on origin/v2.
+  const hits = collectLocatorHits()
   console.log(JSON.stringify(hits.filter((h) => h.field.startsWith('page:')).map(key)))
   process.exit(0)
 }
-const problems = [...new Set(hits.filter((h) => !ALLOW.has(key(h))).map((h) => `${h.file} [${h.owner}] ${h.field}: ${h.id} "${h.match}"`))]
+const problems = [...new Set(rejectUnallowlisted(collectLocatorHits()).map((h) => `${h.file} [${h.owner}] ${h.field}: ${h.id} "${h.match}"`))]
 if (problems.length) {
   console.error(`test-protected-locators: ${problems.length} locator hit(s) in protected stories:\n  ${problems.join('\n  ')}`)
   process.exit(1)

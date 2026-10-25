@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T19:12:45.402Z",
+  "generatedAt": "2026-10-25T11:33:17.188Z",
   "maxBytes": 204800,
   "images": {
     "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg": {
@@ -102,27 +102,52 @@
         }
       ]
     },
-    "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
-      "sha256": "2fd6d3e09c2e902e8a01f0d77deb1bf921db9e0e00bd3d7913c5568ffd0ef6a5",
-      "width": 800,
-      "height": 600,
+    "/content/photos/stories/the-c-and-o-mounds-johnson-county.jpg": {
+      "sha256": "794dbd5f29249e6d89a97d602d9044b1346231847e280c09ea86a9e41660a929",
+      "width": 2802,
+      "height": 3400,
       "avif": [
         {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-480.avif",
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-johnson-county-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-johnson-county-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-johnson-county-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/the-c-and-o-mounds-johnson-county-1600.webp",
+          "w": 1600
+        }
+      ]
+    },
+    "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg": {
+      "sha256": "1e89b3ac92f9861f8afa185482a12a8b614422c11af1498eb5b4bd88879191b4",
+      "width": 3021,
+      "height": 2016,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.avif",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-720.avif",
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.avif",
           "w": 720
         }
       ],
       "webp": [
         {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-480.webp",
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-480.webp",
           "w": 480
         },
         {
-          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-720.webp",
+          "src": "/content/photos/opt/stories/chambers-site-15ml109-marshall-county-720.webp",
           "w": 720
         }
       ]
@@ -199,6 +224,31 @@
         {
           "src": "/content/photos/opt/stories/prestonsburg-first-seat-on-the-big-sandy-720.webp",
           "w": 720
+        }
+      ]
+    },
+    "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg": {
+      "sha256": "0215f027a2a9dca892648f8269b8955698238577413a47204c5762dddb426a36",
+      "width": 1920,
+      "height": 2880,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-1600.avif",
+          "w": 1600
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/sassafras-ridge-15fu3-fulton-county-1600.webp",
+          "w": 1600
         }
       ]
     },

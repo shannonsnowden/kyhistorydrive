@@ -72,7 +72,7 @@ export const ROUTE_MAPS = [
       wp('near Vonore, Monroe County, Tennessee', 'Overhill Cherokee towns (Chota)', [35.53, -84.13], true),
     ],
     relatedStories: [
-      'lower-shawneetown-at-the-scioto-mouth',
+      'lower-shawneetown-greenup-county',
       'odawa-raid-at-eskippakithiki-1753',
       'john-finley-the-trader-who-put-kentucky-on-boones-map',
       'christopher-gist-1750-51',
@@ -160,7 +160,7 @@ export const ROUTE_MAPS = [
       wp('upper Yadkin, Surry, Yadkin, and Davie counties, North Carolina', 'home on the Yadkin', [36.12, -80.55], true),
     ],
     relatedStories: [
-      'lower-shawneetown-at-the-scioto-mouth',
+      'lower-shawneetown-greenup-county',
       'athiamiowee-the-warriors-path-through-kentucky',
     ],
     markers: [{ number: '697', title: "Warrior's Path" }],

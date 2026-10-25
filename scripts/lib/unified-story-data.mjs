@@ -131,6 +131,22 @@ export function formatCoordCardinal(lat, lon, decimals = 4) {
   return `${Math.abs(la).toFixed(decimals)}° ${ns}, ${Math.abs(lo).toFixed(decimals)}° ${ew}`
 }
 
+/** Protected pages must not link the reference site that places them (SEO #346). */
+export const PROTECTED_REFERENCE_SITES = {
+  'peter-village-enclosure-15fa166': ['mount-horeb-earthworks'],
+  'twin-mounds-site': ['wickliffe-mounds-mississippian-village-ballard-county'],
+  'dover-mound-mason-county': ['mount-horeb-earthworks'],
+}
+
+/** Previous or next timeline story, skipping a reference site this page must not link. */
+export function timelineNeighbor(ordered, index, step, slug) {
+  const banned = new Set(PROTECTED_REFERENCE_SITES[slug] || [])
+  for (let i = index + step; i >= 0 && i < ordered.length; i += step) {
+    if (!banned.has(ordered[i].slug)) return ordered[i]
+  }
+  return null
+}
+
 export function storyDocTitle(story) {
   const base = String(story?.seoTitle || story?.title || "").trim()
   if (!base) return "Kentucky History Drive"

@@ -12,7 +12,7 @@ export const NO_AUTO_STORY_PHOTOS = [
   'versailles-takes-shape',
   'henderson-at-red-banks',
   'kickapoo-on-the-kentucky-frontier',
-  'indian-knoll-on-the-green-river',
+  'indian-knoll-ohio-county',
   'glasgow-the-barrens',
   'evan-williams-on-the-louisville-wharf',
   'leestown',
@@ -22,21 +22,21 @@ export const NO_AUTO_STORY_PHOTOS = [
   // Commons 'Fox Farm Site' is the Smyth County, Virginia site, not Mason County (Editor 10/18).
   'fox-farm-mason-county',
   // Protected site: no stand-in landscape photo that could name a place (SEO #345).
-  'the-c-and-o-mounds-at-paintsville',
+  'the-c-and-o-mounds-johnson-county',
   // Protected site: the 1848 plan shows a river label, distance, arrow and scale (Security #345, 10/24).
   'peter-village-enclosure-15fa166',
   // Item 105 (v2): protected sites. No stand-in photo, and no automatic photo that could place them.
-  'muir-site-early-fort-ancient-on-a-jessamine-ridge',
+  'muir-site-early-fort-ancient',
   'read-shell-midden-15bt10-butler-county',
   // Twin Mounds: Wickliffe stand-in photo removed (KY History 10/24).
   'twin-mounds-site',
   // Protected site: no nearest-town stand-in photo (SEO 10/24).
-  'buckner-site-fort-ancient-villages-on-strodes-creek',
+  'buckner-site-fort-ancient-villages',
   // No Scioto-confluence stand-in photo that could place Lower Shawneetown (SEO 10/24).
   'nonhelema',
   'chambers-site-15ml109-marshall-county',
   // Tolu: Wickliffe stand-in photo removed; a reference site (KY History 10/24).
-  'tolu-site-mississippian-mounds-on-the-lower-ohio',
+  'tolu-site-mississippian-mounds',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)

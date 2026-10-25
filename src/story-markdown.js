@@ -73,6 +73,26 @@ export function isFoldedResearch(notes) {
   return !/^culture-[a-z0-9-]+-image-evidence$/.test(slug)
 }
 
+/**
+ * One research note owns each story page. A folded outline wins over a culture image-evidence
+ * page that shares the story (Old Fort). Two outlines, or two culture pages, for one story fail.
+ */
+export function indexResearchByStory(notes) {
+  const byStory = new Map()
+  for (const note of notes) {
+    const prev = byStory.get(note.storySlug)
+    if (!prev) {
+      byStory.set(note.storySlug, note)
+      continue
+    }
+    if (isFoldedResearch(prev) === isFoldedResearch(note)) {
+      throw new Error(`prerender: duplicate research notes for ${note.storySlug}`)
+    }
+    if (isFoldedResearch(note)) byStory.set(note.storySlug, note)
+  }
+  return byStory
+}
+
 /** Story-page href for a folded-notes anchor. Root-absolute so it also works inside the /#timeline reader. */
 export function foldedNotesHref(notes, anchor) {
   const page = storyPageHref(notes?.storySlug)
