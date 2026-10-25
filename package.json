@@ -35,7 +35,7 @@
     "build:roads-rails": "KHD_ROADS_RAILS=1 npm run build"
   },
   "dependencies": {
-    "maplibre-gl": "^6.13.0",
+    "maplibre-gl": "^6.15.0",
     "marked": "^15.0.12",
     "minisearch": "^7.2.0"
   },
