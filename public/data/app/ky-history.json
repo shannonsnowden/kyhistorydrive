@@ -1156,7 +1156,7 @@
     "marker_title": null,
     "geocode_source": "nominatim-smothers-park-owensboro",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Owensboro,_Kentucky",
+    "website": "https://grokipedia.com/page/Owensboro,_Kentucky",
     "year_start": 1797,
     "year_end": 1817,
     "photo": {
@@ -1281,7 +1281,7 @@
     "marker_title": "Capt. Jack Jouett House",
     "geocode_source": "khs-marker",
     "category": "person",
-    "website": "https://en.wikipedia.org/wiki/Jack_Jouett",
+    "website": "https://grokipedia.com/page/Jack_Jouett",
     "year_start": 1781,
     "year_end": 1822,
     "photo": {
@@ -1366,7 +1366,7 @@
     "marker_title": null,
     "geocode_source": "manual-wikipedia-lost-river-cave",
     "category": "archaeology",
-    "website": "https://en.wikipedia.org/wiki/Lost_River_Cave",
+    "website": "https://grokipedia.com/page/Lost_River_Cave",
     "year_start": 1790,
     "year_end": 1800
   },
@@ -1396,7 +1396,7 @@
     "marker_title": null,
     "geocode_source": "manual-wikipedia-natural-bridge",
     "category": "archaeology",
-    "website": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park"
+    "website": "https://grokipedia.com/page/Natural_Bridge_State_Resort_Park"
   },
   {
     "id": "david-snowden-jr-homestead-st-helens",
@@ -2295,7 +2295,7 @@
     "geocode_source": "nps-npgallery-historic-entrance",
     "geocode_note": "Mammoth Cave Historic Entrance (OSM/Nominatim). Distinct from Salts Cave (15Ht4) Early Woodland sulfate mining, Great Saltpetre Cave (Rockcastle), and Saltpeter Cave at Carter Caves. Years are War of 1812 industrial production (1812–1815), not park establishment.",
     "category": "industry",
-    "website": "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park",
+    "website": "https://grokipedia.com/page/Mammoth_Cave_National_Park",
     "year_start": 1812,
     "year_end": 1815,
     "photo": {
@@ -2343,7 +2343,7 @@
     "geocode_source": "wikipedia-hopkinsville-ky",
     "geocode_note": "Hopkinsville city center / courthouse district (Wikipedia coordinates). Event years 1797 (county seat donation) – 1804 (Assembly names Hopkinsville).",
     "category": "settlement",
-    "website": "https://en.wikipedia.org/wiki/Hopkinsville,_Kentucky",
+    "website": "https://grokipedia.com/page/Hopkinsville,_Kentucky",
     "year_start": 1797,
     "year_end": 1804,
     "photo": {
@@ -2869,7 +2869,7 @@
     "geocode_source": "wikipedia-russellville-kentucky",
     "geocode_note": "Wikipedia city coordinate for Russellville (36.84250, -86.89278), downtown at the Logan County courthouse square. Cook’s Station (about 1 mi east) is not separately mapped. Years 1790 Cook’s Cabin–1810 legislative establishment.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Russellville,_Kentucky",
+    "website": "https://grokipedia.com/page/Russellville,_Kentucky",
     "year_start": 1790,
     "year_end": 1810,
     "photo": {
