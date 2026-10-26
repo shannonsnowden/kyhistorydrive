@@ -15,7 +15,11 @@ for (const h of ["What you'll find here", 'What we’re building', 'Sources and 
   ok(html.includes(`>${h.replace("'", '’')}</h2>`), `/about/: missing section "${h}"`)
 }
 ok(html.includes('History is all around us.'), '/about/: missing tagline')
-ok(html.includes('AI illustration · Kentucky History Drive'), '/about/: missing AI label text')
+ok(!html.includes('AI illustration · Kentucky History Drive'), '/about/: full AI credit moved to /editorial/')
+ok(html.includes('labeled AI illustrations'), '/about/: shortened images section')
+ok(html.includes('href="/editorial/"'), '/about/: link to editorial standards')
+ok(html.includes('href="/contact/"') && !html.includes('data-contact-reveal') && !html.includes('>Show email address<'), '/about/: contact reveal moved to /contact/')
+ok(html.includes('AUTHOR_BIO_PLACEHOLDER'), '/about/: interim author placeholder')
 ok(html.includes('with new stories added regularly') && !/new story every day/.test(html), '/about/: story cadence wording (KY History fact pass)')
 ok(html.includes('Each person in our stories is meant to get a portrait') && !html.includes('stories gets a portrait'), '/about/: portrait wording (KY History fact pass)')
 ok(!html.includes('helps you explore Kentucky’s historical highway markers'), '/about/: Author section repeats the intro')
