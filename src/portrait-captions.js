@@ -90,6 +90,22 @@ export const PORTRAIT_ALTS = {
   // Cleared follow-up (not Item 92), Oct 2026. Will Emery is v2.
   'nonhelema': "AI illustration of Nonhelema, Shawnee Chalakatha chief and diplomat, about 1786",
   'will-emery': "AI illustration of Captain Will Emery, Shawnee-aligned leader who met Daniel Boone in 1769",
+  // Likeness batch 2, waves 1–3 (Oct 2026). All v1, none-known.
+  'abraham-owen': "AI illustration of Abraham Owen, Kentucky militia colonel, about 1811",
+  'andrew-lewis': "AI illustration of Andrew Lewis, Virginia colonel at Point Pleasant, about 1774",
+  'james-estill': "AI illustration of Capt. James Estill, Kentucky militia, about 1782",
+  'joseph-bowman': "AI illustration of Maj. Joseph Bowman, Illinois campaign, about 1778",
+  'john-stuart': "AI illustration of John Stuart, British southern Indian superintendent, about 1768",
+  'george-nicholas': "AI illustration of George Nicholas, Kentucky constitution framer, about 1792",
+  'jemima-suggett-johnson': "AI illustration of Jemima Suggett Johnson of Bryan's Station, about 1782",
+  'jones-hoy': "AI illustration of Jones Hoy as a boy at Hoy's Station, about 1782",
+  'matthew-arbuckle': "AI illustration of Matthew Arbuckle Sr., Fort Randolph commander, about 1777",
+  'matthew-walton': "AI illustration of Matthew Walton, Kentucky congressman, about 1803",
+  'nathaniel-gist': "AI illustration of Nathaniel Gist, Revolutionary colonel at Canewood, about 1793",
+  'peter-hildebrand': "AI illustration of Peter Hildebrand, Cherokee removal detachment conductor, about 1838",
+  'william-campbell': "AI illustration of William Campbell, Kings Mountain commander, about 1780",
+  'william-fleming': "AI illustration of Col. William Fleming, physician-soldier, about 1780",
+  'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772",
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
 }
 

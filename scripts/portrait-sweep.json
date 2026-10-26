@@ -83,7 +83,9 @@
         "john-stuart",
         "john-donelson"
       ],
-      "portraits": []
+      "portraits": [
+        "john-stuart"
+      ]
     },
     "capt-will-the-hunting-ground": {
       "links": [
@@ -168,7 +170,9 @@
       "links": [
         "matthew-walton"
       ],
-      "portraits": []
+      "portraits": [
+        "matthew-walton"
+      ]
     },
     "illinois-confederation-at-cahokia": {
       "links": [

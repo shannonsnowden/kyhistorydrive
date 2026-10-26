@@ -96,6 +96,23 @@ export const AI_IDS = [
   'the-glass',
   // Cleared follow-up (not Item 92): Captain Will Emery v2, Oct 2026. v1 was rejected.
   'will-emery',
+  // Likeness batch 2, waves 1–3: cleared v1 faces (Oct 2026). All none-known.
+  // Nathaniel Gist clearance was called v1b; on-disk files stay v1.
+  'abraham-owen',
+  'andrew-lewis',
+  'james-estill',
+  'joseph-bowman',
+  'john-stuart',
+  'george-nicholas',
+  'jemima-suggett-johnson',
+  'jones-hoy',
+  'matthew-arbuckle',
+  'matthew-walton',
+  'nathaniel-gist',
+  'peter-hildebrand',
+  'william-campbell',
+  'william-fleming',
+  'william-preston',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
