@@ -25,8 +25,8 @@ frontend:
 # on the same document. Do not add a catch-all SPA rewrite — it would swallow
 # /privacy (no file extension) and /sitemap.xml (.xml is outside Amplify's
 # usual static-extension exclusion list). /robots.txt is a real file.
-# /stories/<slug>/, /layers/<id>/, and /videos/ are prerendered index.html
-# files from scripts/prerender-pages.mjs.
+# /stories/<slug>/, /layers/<id>/, /videos/, /editorial/, and /contact/ are
+# prerendered index.html files from scripts/prerender-pages.mjs.
 # Item 90: the 301s (old slugs, /home-preview, /drive-preview, Roads & Rails) and the
 # unknown-path 404 now live in the Amplify console rewrites and redirects. The four
 # slashless 301s below (/about, /videos, /timeline, /drives) are not in the console,
@@ -164,6 +164,18 @@ customRules:
     status: '301'
   - source: '/videos/'
     target: '/videos/index.html'
+    status: '200'
+  - source: '/editorial'
+    target: '/editorial/index.html'
+    status: '200'
+  - source: '/editorial/'
+    target: '/editorial/index.html'
+    status: '200'
+  - source: '/contact'
+    target: '/contact/index.html'
+    status: '200'
+  - source: '/contact/'
+    target: '/contact/index.html'
     status: '200'
   - source: '/timeline'
     target: '/timeline/'

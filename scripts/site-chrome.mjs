@@ -186,6 +186,8 @@ export function siteFooterHtml(extra = '') {
         <a href="/videos/" data-route="videos">Videos</a><span class="foot-sep" aria-hidden="true">·</span>
         <a href="/#resources" data-route="resources">Resources</a><span class="foot-sep" aria-hidden="true">·</span>
         <a href="/about/" data-route="about">About</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/editorial/" data-route="editorial">Editorial</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/contact/" data-route="contact">Contact</a><span class="foot-sep" aria-hidden="true">·</span>
         <a href="/privacy/">Privacy</a>${extra ? `\n        ${extra}` : ''}
       </nav>
     </footer>`

@@ -494,7 +494,7 @@ export function routesIndexArticleHtml(titleFor, mapHrefFor = null) {
       <header class="story-head">
         <p class="static-kicker">Route maps</p>
         <h1>Route maps</h1>
-        <p class="story-lead">Six approximate routes, each drawn for its story. Mantle Rock follows the National Park Service name Northern Route.</p>
+        <p class="story-lead">Approximate route maps for Kentucky history stories — paths drawn from the narrative and the sources behind it, not turn-by-turn GPS. Open a card for the map art, era, and link to the full story; use Open on the map for the live pin. Mantle Rock follows the National Park Service name Northern Route. Stops are listed in text on each story’s route section so the path is readable without the artwork.</p>
       </header>
       <ul class="route-index-list">${cards}</ul>
     </article>`

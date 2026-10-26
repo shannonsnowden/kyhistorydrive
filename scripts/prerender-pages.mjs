@@ -156,7 +156,8 @@ class PrerenderPages {
       'Battlefields and other war sites in Kentucky, from the Revolutionary War through later conflicts.',
     locals:
       'Good Eats: long-running taverns, inns, and local restaurants on the map.',
-    bridges: 'Covered bridges still standing in Kentucky.',
+    bridges:
+      'Kentucky’s remaining covered bridges — timber spans that still stand on public roads or park approaches, mapped so you can find them on a drive. Pins use the bridge name, county, and a short note on the truss or rebuilding history when sources support it. Featured stops highlight a well-documented survivor; the place list below covers the layer. These are historic structures still in the landscape, not vanished crossings.',
     industry: 'Furnaces, mills, and other industrial sites in Kentucky.',
     newspapers: 'Historic Kentucky newspapers, including the Kentucke Gazette.',
     parks: 'Kentucky state parks and resort parks.',
@@ -212,8 +213,11 @@ class PrerenderPages {
     if (!aboutHtml.includes('Shannon Snowden') || !aboutHtml.includes('"@type":"Organization"')) {
       throw new Error('prerender: about page is missing the publisher, author, or Organization JSON-LD')
     }
-    if (!aboutHtml.includes('>Show email address<') || !aboutHtml.includes('contact [at] kyhistorydrive [dot] com')) {
-      throw new Error('prerender: about page is missing the contact reveal')
+    if (aboutHtml.includes('data-contact-reveal') || aboutHtml.includes('>Show email address<') || aboutHtml.includes('contact [at] kyhistorydrive [dot] com')) {
+      throw new Error('prerender: about page must link to /contact/ and must not include the contact reveal')
+    }
+    if (!aboutHtml.includes('href="/contact/"') || !aboutHtml.includes('href="/editorial/"')) {
+      throw new Error('prerender: about page must link to /contact/ and /editorial/')
     }
     const contactPoint = `"contactPoint":{"@type":"ContactPoint","contactType":"customer support","url":"${PrerenderPages.SITE}/about/"}`
     if (!aboutHtml.includes(contactPoint)) {
@@ -254,13 +258,34 @@ class PrerenderPages {
       throw new Error('prerender: /about/ should have three seal buttons')
     }
     PrerenderPages.writePage(dist, '/about/', aboutHtml)
-    entries.push({
-      loc: `${PrerenderPages.SITE}/about/`,
-      lastmod: PrerenderPages.laterDate(
-        dates.lastmod.get('scripts/prerender-pages.mjs') || '',
-        dates.lastmod.get('index.html') || '',
-      ),
-    })
+    const trustLastmod = PrerenderPages.laterDate(
+      dates.lastmod.get('scripts/prerender-pages.mjs') || '',
+      dates.lastmod.get('index.html') || '',
+    )
+    entries.push({ loc: `${PrerenderPages.SITE}/about/`, lastmod: trustLastmod })
+    const editorialHtml = PrerenderPages.editorialPage(cssHrefs)
+    PrerenderPages.assertPage(editorialHtml, { archaeological: false, lat: null, lon: null }, '/editorial/')
+    if (!editorialHtml.includes('<h1>Editorial standards</h1>') || !editorialHtml.includes('AI illustration · Kentucky History Drive')) {
+      throw new Error('prerender: /editorial/ is missing its heading or the AI credit')
+    }
+    if (/<meta name="robots" content="[^"]*noindex/i.test(editorialHtml)) {
+      throw new Error('prerender: /editorial/ must be indexable')
+    }
+    PrerenderPages.writePage(dist, '/editorial/', editorialHtml)
+    entries.push({ loc: `${PrerenderPages.SITE}/editorial/`, lastmod: trustLastmod })
+    const contactHtml = PrerenderPages.contactPage(cssHrefs)
+    PrerenderPages.assertPage(contactHtml, { archaeological: false, lat: null, lon: null }, '/contact/')
+    if (!contactHtml.includes('<h1>Contact</h1>') || !contactHtml.includes('>Show email address<') || !contactHtml.includes('contact [at] kyhistorydrive [dot] com') || !contactHtml.includes('data-contact-reveal')) {
+      throw new Error('prerender: /contact/ is missing the heading or the contact reveal')
+    }
+    if (contactHtml.includes('contact@kyhistorydrive.com') || /contact(?:&#0*64;|&#[xX]0*40;|&commat;|%40)kyhistorydrive\.com/i.test(contactHtml)) {
+      throw new Error('prerender: /contact/ includes the plain contact address')
+    }
+    if (/<meta name="robots" content="[^"]*noindex/i.test(contactHtml)) {
+      throw new Error('prerender: /contact/ must be indexable')
+    }
+    PrerenderPages.writePage(dist, '/contact/', contactHtml)
+    entries.push({ loc: `${PrerenderPages.SITE}/contact/`, lastmod: trustLastmod })
     const relatedBundle = PrerenderPages.loadRelatedBundle(root)
     PrerenderPages.portraitForSlug = (slug) => portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug))
     const sourcePeople = PrerenderPages.readJson(path.join(root, 'data/people.json')).people || []
@@ -438,7 +463,7 @@ class PrerenderPages {
     const sitemapCount = PrerenderPages.updateSitemap(path.join(dist, 'sitemap.xml'), entries, ROUTE_MAPS.length - thinRouteImages, { allowMissingLastmod: dates.shallow })
     PrerenderPages.injectHome(path.join(dist, 'index.html'), stories, layers)
     console.log(
-      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers, ${researchNotes.length} research) plus home, about, people, stories index, videos, privacy; sitemap ${sitemapCount} urls`,
+      `prerender: ${stories.length + layers.length} story/layer pages (${stories.length} stories, ${layers.length} layers, ${researchNotes.length} research) plus home, about, editorial, contact, people, stories index, videos, privacy; sitemap ${sitemapCount} urls`,
     )
     return {
       pages: stories.length + layers.length + 1,
@@ -4180,7 +4205,7 @@ class PrerenderPages {
         }),
       )
     }
-    const lead = 'Films published by Kentucky History Drive.'
+    const lead = 'Short films from Kentucky History Drive stories — people, places, and routes you can open on the map. Each film sits on its story page with sources and a path to related stops. This index lists every published film; more are in production. Prefer the story page if you want the full narrative and research notes.'
     const description = films.length
       ? PrerenderPages.videosMetaDescription(PrerenderPages.filmPlain(stories.find((item) => item.slug === films[0].storySlug))) || lead
       : lead
@@ -4537,6 +4562,132 @@ ${rows.join('\n')}
     PrerenderPages.photoSizes = sizes
   }
 
+  static editorialPage(cssHrefs) {
+    const pageUrl = `${PrerenderPages.SITE}/editorial/`
+    const description = 'How Kentucky History Drive researches stories, labels AI illustrations, protects archaeological sites, and handles corrections.'
+    const main = `<article>
+        <nav class="story-crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Editorial standards</span>
+        </nav>
+        <header class="story-head">
+          <p class="static-kicker">Editorial</p>
+          <h1>Editorial standards</h1>
+          <p class="story-lead">How we research, credit images, protect fragile sites, and fix mistakes.</p>
+        </header>
+        <h2>How we research</h2>
+        <p>Every claim a reader might question — a date, name, number, or quote — links to a source. We prefer primary documents and official records, then peer-reviewed or institutional work, then encyclopedias. When sources disagree, the story says so and names the range. Family tradition and oral history are labeled as such. Each story keeps a Research notes page with the outline behind it.</p>
+        <h2>AI illustrations</h2>
+        <p>We use real archival photographs whenever they exist. Where none do, or where an illustration serves the story better, we use AI images. Every AI image is visibly labeled <strong>AI illustration · Kentucky History Drive</strong> and is never presented as a photograph. AI portraits of historical people follow the same credit; when no known likeness exists, the credit adds that note. Reference art for the site always carries the Kentucky History Drive credit — never a separate studio name.</p>
+        <h2>Protected archaeological sites</h2>
+        <p>Kentucky’s archaeological sites are fragile and protected by law. For sites that are not open to the public, we show location only at the county level and never give directions or coordinates. Please visit only sites that are open to the public, and leave everything where you find it.</p>
+        <h2>Corrections</h2>
+        <p>If you spot an error, a missing credit, or a fairer reading of a source, tell us on the <a href="/contact/">Contact</a> page. We welcome corrections and fix them promptly. Substantive changes are noted in the story when the record warrants it.</p>
+        <h2>Culture images and evidence pages</h2>
+        <p>Some culture and territory pages stay limited or noindex until their image evidence and copy meet this standard. That gate is intentional: thin or contested material does not get a permanent public URL ahead of the research.</p>
+        <div class="static-cta">
+          <a class="btn" href="/contact/">Contact us</a>
+          <a class="btn ghost" href="/about/">About</a>
+          <a class="btn ghost" href="/">Home</a>
+        </div>
+      </article>`
+    const jsonLd = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: 'Editorial standards',
+        description,
+        isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
+        publisher: PrerenderPages.publisherNode(),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Editorial standards', item: pageUrl },
+        ],
+      },
+    ])
+    return PrerenderPages.shell({
+      title: 'Editorial · Kentucky History Drive',
+      description,
+      canonical: pageUrl,
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'website',
+      jsonLd,
+      main,
+    })
+  }
+
+  static contactPage(cssHrefs) {
+    const pageUrl = `${PrerenderPages.SITE}/contact/`
+    const description = 'Reach Kentucky History Drive for corrections, photo suggestions, and questions about the marker map and stories.'
+    const main = `<article>
+        <nav class="story-crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Contact</span>
+        </nav>
+        <header class="story-head">
+          <p class="static-kicker">Contact</p>
+          <h1>Contact</h1>
+          <p class="story-lead">Questions, corrections, photo suggestions, and partnership notes.</p>
+        </header>
+        <h2>Write to us</h2>
+        <p>Use the reveal below for the site email. Tell us the story or page URL when you can — it speeds up a fix.</p>
+        ${contactLineHtml('Email:')}
+        <h2>What to send</h2>
+        <ul>
+          <li><strong>Corrections</strong> — what the page says, what the source says, and a link if you have one.</li>
+          <li><strong>Photos</strong> — rights-cleared archival suggestions for a story or layer pin.</li>
+          <li><strong>General questions</strong> — the map, drives, videos, or the iPhone app waitlist.</li>
+        </ul>
+        <p>For how we research and credit images, see <a href="/editorial/">Editorial standards</a>. For who publishes the site, see <a href="/about/">About</a>.</p>
+        <div class="static-cta">
+          <a class="btn" href="/editorial/">Editorial standards</a>
+          <a class="btn ghost" href="/about/">About</a>
+          <a class="btn ghost" href="/">Home</a>
+        </div>
+      </article>`
+    const jsonLd = PrerenderPages.jsonLdScript([
+      PrerenderPages.organizationNode(),
+      {
+        '@type': 'ContactPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: 'Contact',
+        description,
+        isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${PrerenderPages.SITE}/` },
+        publisher: PrerenderPages.publisherNode(),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${PrerenderPages.SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Contact', item: pageUrl },
+        ],
+      },
+    ])
+    return PrerenderPages.shell({
+      title: 'Contact · Kentucky History Drive',
+      description,
+      canonical: pageUrl,
+      cssHrefs,
+      image: PrerenderPages.LOGO,
+      imageAlt: 'Kentucky History Drive official seal',
+      ogType: 'website',
+      jsonLd,
+      main,
+    })
+  }
+
   static aboutPage(cssHrefs) {
     const description =
       'Kentucky History Drive: sourced Kentucky history stories, a marker map, a timeline and drive plans, with care for protected archaeological sites.'
@@ -4575,15 +4726,13 @@ ${rows.join('\n')}
         <h2>What we’re building</h2>
         <p>A free, phone-friendly companion for Kentuckians, road-trippers and history readers. Read a story at a marker, see what else happened nearby, and turn an afternoon into a trip. Our goal is history that’s accurate, fair to every people it covers, and easy to visit.</p>
         <h2>Sources and accuracy</h2>
-        <p>Every claim a reader might question, such as a date, name, number or quote, links to a source, with primary and official sources first. When sources disagree, we say so, and family tradition and oral history are labeled as such. If you spot an error, please tell us. Corrections are welcome and we fix them promptly.</p>
+        <p>We link claims readers might question to sources, prefer primary and official records, and say when sources disagree. Full research and correction practice is on <a href="/editorial/">Editorial standards</a>.</p>
         <h2>About our images</h2>
-        <p>We use real archival photos whenever they exist. Where none do, we use AI illustrations, and every one is visibly labeled “AI illustration · Kentucky History Drive.” We never present an AI image as a real photograph.</p>
+        <p>Archival photos when they exist; labeled AI illustrations when they don’t. Details and credit wording are on <a href="/editorial/">Editorial standards</a>.</p>
         <h2>Protecting archaeological sites</h2>
-        <p>Kentucky’s archaeological sites are fragile and protected by law. For sites that aren’t open to the public, we show location only at the county level and never give directions. Please visit only sites that are open to the public, and leave everything where you find it.</p>
+        <p>County-level only for sites that are not public; no directions. See <a href="/editorial/">Editorial standards</a>.</p>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
-        <h2>Author</h2>
-        <p>Shannon Snowden is the author of the Kentucky history stories on this site. Each story is written for Kentucky History Drive and tied to a place, a year, or a map layer when the sources support it.</p>
         <h2 id="license">Credits</h2>
         <ul class="about-credits">
           <li>Marker text and locations: Kentucky Historical Society / <a href="https://history.ky.gov/markers" target="_blank" rel="noopener">history.ky.gov</a></li>
@@ -4595,7 +4744,7 @@ ${rows.join('\n')}
           <li>Layer places (history, museums, parks, and more): Kentucky History Drive project data</li>
         </ul>
         <h2>Contact</h2>
-        ${contactLineHtml('Questions, corrections or photo suggestions:')}
+        <p>Questions, corrections, or photo suggestions: see the <a href="/contact/">Contact</a> page. Research methods and image policy: <a href="/editorial/">Editorial standards</a>.</p>
         <div class="static-cta">
           <a class="btn" href="/">Home</a>
           <a class="btn ghost" href="/#map">Open the map</a>
@@ -4660,7 +4809,7 @@ ${rows.join('\n')}
               <h2>Map layers</h2>
               <ul class="crawl-list">${layerLinks}</ul>
             </section>
-            <p><a href="/routes/">Kentucky history route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a></p>
+            <p><a href="/routes/">Kentucky history route maps</a> · <a href="/videos/">Videos</a> · <a href="/about/">About Kentucky History Drive</a> · <a href="/editorial/">Editorial standards</a> · <a href="/contact/">Contact</a></p>
           </div>
         </details>
       </nav>`

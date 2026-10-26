@@ -57,6 +57,20 @@ function privacyPath() {
       return
     }
     if (path === '/videos/') req.url = `/videos/index.html${search}`
+    if (path === '/editorial') {
+      res.statusCode = 301
+      res.setHeader('Location', `/editorial/${search}`)
+      res.end()
+      return
+    }
+    if (path === '/editorial/') req.url = `/editorial/index.html${search}`
+    if (path === '/contact') {
+      res.statusCode = 301
+      res.setHeader('Location', `/contact/${search}`)
+      res.end()
+      return
+    }
+    if (path === '/contact/') req.url = `/contact/index.html${search}`
     // Same 301 as amplify.yml while Roads & Rails is off, so dev and preview match the live redirect.
     if (!roadsRails && isRoadsRailsPath(path)) {
       res.statusCode = 301
