@@ -87,6 +87,9 @@ export const PORTRAIT_ALTS = {
   'scarouady': "AI illustration of Scarouady, Oneida leader at Logstown, about 1752",
   'tanacharison': "AI illustration of Tanacharison, the Half King, Seneca leader at Logstown, about 1752",
   'the-glass': "AI illustration of The Glass, Cherokee chief, about 1805",
+  // Cleared follow-up (not Item 92), Oct 2026. Will Emery is v2.
+  'nonhelema': "AI illustration of Nonhelema, Shawnee Chalakatha chief and diplomat, about 1786",
+  'will-emery': "AI illustration of Captain Will Emery, Shawnee-aligned leader who met Daniel Boone in 1769",
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
 }
 

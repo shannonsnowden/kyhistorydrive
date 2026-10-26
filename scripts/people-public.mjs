@@ -94,6 +94,8 @@ export const AI_IDS = [
   'scarouady',
   'tanacharison',
   'the-glass',
+  // Cleared follow-up (not Item 92): Captain Will Emery v2, Oct 2026. v1 was rejected.
+  'will-emery',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
