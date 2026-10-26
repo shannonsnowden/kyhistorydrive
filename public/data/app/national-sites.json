@@ -67,7 +67,7 @@
     "geocode_source": "manual",
     "overlap": "museums",
     "sources": [
-      "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park"
+      "https://grokipedia.com/page/Big_Bone_Lick_State_Park"
     ]
   },
   {
@@ -529,7 +529,7 @@
     "overlap": "ky-history",
     "sources": [
       "https://www.nps.gov/cuga/",
-      "https://en.wikipedia.org/wiki/Cumberland_Gap_National_Historical_Park"
+      "https://grokipedia.com/page/Cumberland_Gap_National_Historical_Park"
     ]
   },
   {

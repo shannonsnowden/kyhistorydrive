@@ -363,11 +363,11 @@
     "longitude": -85.6681401,
     "founded_year": 1816,
     "history": "Federal-style plantation home of the Speed family, with Jeffersonian architectural ties and a documented visit by Abraham Lincoln in 1841. Tours address enslavement, hemp farming, and antebellum Louisville. Major house museum on Bardstown Road.",
-    "website": "https://farmingtonhistoricplantation.org/",
+    "website": "https://visitfarmington.org/",
     "museum_type": "house",
     "geocode_source": "photon",
     "sources": [
-      "https://farmingtonhistoricplantation.org/"
+      "https://visitfarmington.org/"
     ]
   },
   {
@@ -1315,11 +1315,10 @@
     "longitude": -84.8368434,
     "founded_year": null,
     "history": "County historical society museum interpreting Owen County settlement and rural life north of Frankfort along the Kentucky River hills.",
-    "website": "https://owencohistory.com/",
     "museum_type": "history",
     "geocode_source": "photon",
     "sources": [
-      "https://owencohistory.com/"
+      "https://www.kentuckytourism.com/explore/owen-county-historical-society-museum-3661"
     ]
   },
   {
@@ -1468,11 +1467,10 @@
     "longitude": -82.8555,
     "founded_year": 1995,
     "history": "Living-history farm and Museum of Appalachian History interpreting mid-19th-century eastern Kentucky mountain life near Paintsville Lake.",
-    "website": "https://www.mountainhomeplace.com/",
     "museum_type": "heritage",
     "geocode_source": "manual",
     "sources": [
-      "https://www.mountainhomeplace.com/"
+      "https://en.wikipedia.org/wiki/Mountain_Homeplace"
     ]
   },
   {
