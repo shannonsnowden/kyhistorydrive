@@ -4733,10 +4733,6 @@ ${rows.join('\n')}
         <p>County-level only for sites that are not public; no directions. See <a href="/editorial/">Editorial standards</a>.</p>
         <h2>Publisher</h2>
         <p>Kentucky History Drive (kyhistorydrive.com) is the publisher of this site: the marker map, the timeline, and the story pages. An iPhone app is coming soon.</p>
-        <h2>Author</h2>
-        <!-- AUTHOR_BIO_PLACEHOLDER — replace with CoS/Shannon-cleared paragraph exactly -->
-        <p>Shannon Snowden is the author of the Kentucky history stories on this site. Each story is written for Kentucky History Drive and tied to a place, a year, or a map layer when the sources support it.</p>
-        <!-- /AUTHOR_BIO_PLACEHOLDER -->
         <h2 id="license">Credits</h2>
         <ul class="about-credits">
           <li>Marker text and locations: Kentucky Historical Society / <a href="https://history.ky.gov/markers" target="_blank" rel="noopener">history.ky.gov</a></li>
