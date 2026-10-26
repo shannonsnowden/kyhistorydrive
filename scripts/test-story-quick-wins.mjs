@@ -199,7 +199,8 @@ if (isShallowRepo(root)) {
   const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
   assert.equal(mantle.published, '2026-10-09')
   assert.equal(mantle.modified, '2026-10-09')
-  // #355 renames stay on the origin/v2 publication day. Git would say 2026-10-24.
+  // #355 renames keep the publication-day pin. Git would say 2026-10-24.
+  // A later prose revision updates that pin's modified date (Item 88 next-7).
   const pinnedJson = JSON.parse(fs.readFileSync(path.join(root, 'public/content/story-dates.json'), 'utf8'))
   const gitDates = gitFileDates(root)
   for (const [file, pin] of Object.entries(STORY_DATE_PINS)) {

@@ -1,12 +1,22 @@
 {
-  "note": "Edit per PR. Item 88 (Turk Site + Read Shell Midden): records this PR rewrites (story expansion, Turk Met dog-bottle photo, history cards, search text).",
+  "note": "Edit per PR. Item 88 next-7 expansions: story bodies, Indian Knoll summary, history cards, and search text. Separate from #341.",
   "patterns": [
-    "turk-site-carlisle-county",
-    "turk-site-15ce6-carlisle-county",
-    "read-shell-midden-15bt10"
+    "sweet-lick-knob-fort-ancient-gathering-place",
+    "sweet-lick-knob-fort-ancient-estill",
+    "singer-hieronymus",
+    "slone-site-15pi11-pike-county",
+    "indian-knoll",
+    "nonhelema",
+    "rowlandton-mound-site-15mcn3",
+    "slack-farm-15un28-union-county"
   ],
   "storyFiles": [
-    "turk-site-carlisle-county.json",
-    "read-shell-midden-15bt10-butler-county.json"
+    "sweet-lick-knob-fort-ancient-gathering-place.json",
+    "singer-hieronymus-fort-ancient-villages.json",
+    "slone-site-15pi11-pike-county.json",
+    "indian-knoll-ohio-county.json",
+    "nonhelema.json",
+    "rowlandton-mound-site-15mcn3.json",
+    "slack-farm-15un28-union-county.json"
   ]
 }
