@@ -476,7 +476,7 @@
     "website": "https://www.battlefields.org/visit/battlefields/middle-creek",
     "geocode_source": "photon",
     "sources": [
-      "https://en.wikipedia.org/wiki/Battle_of_Middle_Creek"
+      "https://grokipedia.com/page/Battle_of_Middle_Creek"
     ]
   },
   {
@@ -577,10 +577,10 @@
     "war": "civil",
     "site_type": "museum",
     "history": "Speed family plantation where Lincoln visited in 1841; interprets slavery and wartime friendships (James Speed as Attorney General). Already in museums.json\u2014link from the war layer.",
-    "website": "https://farmingtonhistorichome.org/",
+    "website": "https://visitfarmington.org/",
     "geocode_source": "photon",
     "sources": [
-      "https://farmingtonhistorichome.org/"
+      "https://visitfarmington.org/"
     ]
   },
   {

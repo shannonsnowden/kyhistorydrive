@@ -549,12 +549,12 @@
     "longitude": -84.8273892,
     "founded_year": 2012,
     "history": "Danville distillery founded by Dr. Pat Heist and Shane Baker; known for sweet-mash fermentation science on the trail.",
-    "website": "https://www.wildernesstrailbourbon.com",
+    "website": "https://www.wildernesstraildistillery.com/",
     "trail_status": "kbt",
     "geocode_source": "photon",
     "sources": [
       "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
-      "https://www.wildernesstrailbourbon.com"
+      "https://www.wildernesstraildistillery.com/"
     ]
   },
   {
@@ -675,12 +675,12 @@
     "longitude": -84.0075416,
     "founded_year": 2019,
     "history": "River-town Bracken County craft stop on the Ohio River.",
-    "website": "https://www.augustadistillery.com",
+    "website": "https://augustakydistillery.com/",
     "trail_status": "kbt",
     "geocode_source": "photon",
     "sources": [
       "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
-      "https://www.augustadistillery.com"
+      "https://augustakydistillery.com/"
     ]
   },
   {
@@ -801,12 +801,12 @@
     "longitude": -87.3916269,
     "founded_year": 2009,
     "history": "Early Western Kentucky craft distillery in Christian County using local grains.",
-    "website": "https://mbrdistillery.com",
+    "website": "https://mbroland.com/",
     "trail_status": "kbt",
     "geocode_source": "photon",
     "sources": [
       "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
-      "https://mbrdistillery.com"
+      "https://mbroland.com/"
     ]
   },
   {
