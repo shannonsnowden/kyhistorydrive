@@ -1096,6 +1096,24 @@
       "portraits": [
         "pluggy"
       ]
+    },
+    "the-maysville-road-and-jacksons-veto-1830": {
+      "links": [
+        {
+          "id": "henry-clay",
+          "name": "Henry Clay",
+          "href": "/people/#henry-clay"
+        },
+        {
+          "id": "andrew-jackson",
+          "name": "Andrew Jackson",
+          "href": "/people/#andrew-jackson"
+        }
+      ],
+      "portraits": [
+        "henry-clay",
+        "andrew-jackson"
+      ]
     }
   }
 }
