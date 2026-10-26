@@ -16,15 +16,17 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 /**
  * #355 renamed these six slugs. `git log` without --follow treats the rename commit
  * (2026-10-24) as the first publish, so a full-clone rebuild restamps both fields.
- * Following the old path still finds same-day prose edits, and origin/v2 pins both
- * fields to the publication day below. SEO rejected 2026-10-24 as false freshness.
- * Keyed rebuilds must keep these pins. Dates checked against origin/v2 story-dates.json.
+ * Following the old path still finds same-day prose edits, and origin/v2 pins published
+ * (and, until a real prose revision, modified) to the publication day below.
+ * SEO rejected 2026-10-24 as false freshness. Keyed rebuilds must keep these pins.
+ * Item 88 next-7 revised Indian Knoll, Rowlandton, and Singer-Hieronymus, so those
+ * modified dates are 2026-10-26. Dates are checked against this pin table.
  */
 export const STORY_DATE_PINS = {
   'public/content/stories/howard-site-late-fort-ancient.json': { published: '2026-09-09', modified: '2026-09-09' },
-  'public/content/stories/indian-knoll-ohio-county.json': { published: '2026-08-29', modified: '2026-08-29' },
-  'public/content/stories/rowlandton-mound-site-15mcn3.json': { published: '2026-10-05', modified: '2026-10-05' },
-  'public/content/stories/singer-hieronymus-fort-ancient-villages.json': { published: '2026-09-29', modified: '2026-09-29' },
+  'public/content/stories/indian-knoll-ohio-county.json': { published: '2026-08-29', modified: '2026-10-26' },
+  'public/content/stories/rowlandton-mound-site-15mcn3.json': { published: '2026-10-05', modified: '2026-10-26' },
+  'public/content/stories/singer-hieronymus-fort-ancient-villages.json': { published: '2026-09-29', modified: '2026-10-26' },
   'public/content/stories/the-c-and-o-mounds-johnson-county.json': { published: '2026-10-19', modified: '2026-10-19' },
   'public/content/stories/tolu-site-mississippian-mounds.json': { published: '2026-09-23', modified: '2026-09-23' },
 }
