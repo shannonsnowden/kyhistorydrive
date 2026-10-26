@@ -642,6 +642,16 @@
       "aliases": {
         "pluggy": "Pluggy"
       }
+    },
+    "the-maysville-road-and-jacksons-veto-1830": {
+      "links": [
+        "henry-clay",
+        "andrew-jackson"
+      ],
+      "portraits": [
+        "henry-clay",
+        "andrew-jackson"
+      ]
     }
   }
 }
