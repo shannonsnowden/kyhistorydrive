@@ -2746,7 +2746,7 @@ class PrerenderPages {
         }
       }
     }
-    if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
+    if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema, Shawnee Chalakatha chief and diplomat, about 1786"')) {
       throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
     }
     const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/)
