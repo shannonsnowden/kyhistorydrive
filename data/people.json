@@ -6908,6 +6908,27 @@
       "verified": false,
       "notes": "No known likeness (no public-domain portrait or engraving found, Commons search Oct 19, 2026). Canonical face: AI illustration (Oct 2026).",
       "ai": true
+    },
+    {
+      "id": "james-winchester",
+      "name": "James Winchester",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
+      ],
+      "role": "General at the River Raisin",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No-portrait stub so the River Raisin story can link /people/#james-winchester. No AI illustration until a likeness is supplied."
     }
   ]
 }
