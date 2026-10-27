@@ -4834,6 +4834,19 @@
         "father-david-rice-and-kentuckys-first-presbyterian-churches"
       ],
       "sourceFile": null
+    },
+    {
+      "id": "james-winchester",
+      "name": "James Winchester",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
+      ]
     }
   ],
   "storySubjects": {
