@@ -297,14 +297,18 @@
       "id": "susannah-shelby",
       "name": "Susannah Hart Shelby",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/susannah-shelby__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/susannah-shelby__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-nathaniel-hart"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "levi-todd",

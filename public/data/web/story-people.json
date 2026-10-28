@@ -184,9 +184,16 @@
           "id": "nathaniel-hart",
           "name": "Nathaniel Hart",
           "href": "/people/#nathaniel-hart"
+        },
+        {
+          "id": "susannah-shelby",
+          "name": "Susannah",
+          "href": "/people/#susannah-shelby"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "susannah-shelby"
+      ]
     },
     "capt-abraham-lincoln-on-long-run": {
       "links": [

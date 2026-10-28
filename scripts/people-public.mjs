@@ -115,6 +115,8 @@ export const AI_IDS = [
   'william-preston',
   // River Raisin: James Winchester v1 (Oct 2026), modeled on the Ralph E.W. Earl oil, c. 1817.
   'james-winchester',
+  // Susannah Hart Shelby v1 (Oct 2026). None-known; not the Frazer portrait or Isaac Shelby.
+  'susannah-shelby',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [

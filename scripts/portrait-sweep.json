@@ -18,9 +18,15 @@
     },
     "capt-nathaniel-hart": {
       "links": [
-        "nathaniel-hart"
+        "nathaniel-hart",
+        "susannah-shelby"
       ],
-      "portraits": []
+      "portraits": [
+        "susannah-shelby"
+      ],
+      "aliases": {
+        "susannah-shelby": "Susannah"
+      }
     },
     "capt-abraham-lincoln-on-long-run": {
       "links": [
