@@ -4984,14 +4984,18 @@
       "id": "james-winchester",
       "name": "James Winchester",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/james-winchester__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/james-winchester__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "lord-dunmore",

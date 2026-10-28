@@ -106,6 +106,8 @@ export const PORTRAIT_ALTS = {
   'william-campbell': "AI illustration of William Campbell, Kings Mountain commander, about 1780",
   'william-fleming': "AI illustration of Col. William Fleming, physician-soldier, about 1780",
   'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772",
+  // River Raisin: modeled on the Earl oil, c. 1817. A real likeness exists.
+  'james-winchester': 'AI illustration of Brig. Gen. James Winchester, about age 60 at River Raisin, 1813, modeled on the Ralph E.W. Earl portrait',
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
 }
 

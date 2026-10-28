@@ -113,6 +113,8 @@ export const AI_IDS = [
   'william-campbell',
   'william-fleming',
   'william-preston',
+  // River Raisin: James Winchester v1 (Oct 2026), modeled on the Ralph E.W. Earl oil, c. 1817.
+  'james-winchester',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
