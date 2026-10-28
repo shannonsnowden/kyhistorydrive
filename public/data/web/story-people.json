@@ -241,8 +241,22 @@
       "portraits": []
     },
     "treaty-of-logstown-1752": {
-      "links": [],
-      "portraits": []
+      "links": [
+        {
+          "id": "tanacharison",
+          "name": "Tanacharison",
+          "href": "/people/#tanacharison"
+        },
+        {
+          "id": "scarouady",
+          "name": "Scarouady",
+          "href": "/people/#scarouady"
+        }
+      ],
+      "portraits": [
+        "tanacharison",
+        "scarouady"
+      ]
     },
     "col-william-russell-iii": {
       "links": [],
@@ -261,7 +275,9 @@
           "href": "/people/#john-donelson"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "john-stuart"
+      ]
     },
     "capt-will-the-hunting-ground": {
       "links": [
@@ -277,6 +293,7 @@
         }
       ],
       "portraits": [
+        "will-emery",
         "daniel-boone"
       ]
     },
@@ -376,7 +393,9 @@
           "href": "/people/#matthew-walton"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "matthew-walton"
+      ]
     },
     "illinois-confederation-at-cahokia": {
       "links": [
@@ -384,10 +403,16 @@
           "id": "george-rogers-clark",
           "name": "Clark",
           "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "jean-baptiste-ducoigne",
+          "name": "Jean-Baptiste Ducoigne",
+          "href": "/people/#jean-baptiste-ducoigne"
         }
       ],
       "portraits": [
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "jean-baptiste-ducoigne"
       ]
     },
     "col-john-bowman-at-old-chillicothe": {
@@ -486,9 +511,16 @@
           "id": "william-hoy",
           "name": "William Hoy",
           "href": "/people/#william-hoy"
+        },
+        {
+          "id": "george-boone",
+          "name": "George Boone",
+          "href": "/people/#george-boone"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "george-boone"
+      ]
     },
     "battle-of-blue-licks": {
       "links": [
@@ -526,9 +558,22 @@
           "id": "john-holder",
           "name": "John Holder",
           "href": "/people/#john-holder"
+        },
+        {
+          "id": "fanny-callaway",
+          "name": "Fanny Callaway",
+          "href": "/people/#fanny-callaway"
+        },
+        {
+          "id": "jemima-boone",
+          "name": "Jemima Boone",
+          "href": "/people/#jemima-boone"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "fanny-callaway",
+        "jemima-boone"
+      ]
     },
     "basil-haydens-high-rye-trail": {
       "links": [
@@ -917,6 +962,178 @@
           "id": "george-a-thomas",
           "name": "George A. Thomas",
           "href": "/people/#george-a-thomas"
+        }
+      ],
+      "portraits": []
+    },
+    "hugh-mcgary-the-blue-licks-hothead": {
+      "links": [
+        {
+          "id": "israel-boone",
+          "name": "Israel Boone",
+          "href": "/people/#israel-boone"
+        }
+      ],
+      "portraits": [
+        "israel-boone"
+      ]
+    },
+    "wyandot-on-kentuckys-northern-frontier": {
+      "links": [
+        {
+          "id": "israel-boone",
+          "name": "Israel Boone",
+          "href": "/people/#israel-boone"
+        }
+      ],
+      "portraits": [
+        "israel-boone"
+      ]
+    },
+    "col-richard-callaway-of-boonesborough": {
+      "links": [
+        {
+          "id": "jemima-boone",
+          "name": "Jemima Boone",
+          "href": "/people/#jemima-boone"
+        }
+      ],
+      "portraits": [
+        "jemima-boone"
+      ]
+    },
+    "col-john-hardin-of-pleasant-run": {
+      "links": [
+        {
+          "id": "ann-logan",
+          "name": "Ann Logan",
+          "href": "/people/#ann-logan"
+        }
+      ],
+      "portraits": [
+        "ann-logan"
+      ]
+    },
+    "benjamin-logan": {
+      "links": [
+        {
+          "id": "burr-harrison",
+          "name": "Burr Harrison",
+          "href": "/people/#burr-harrison"
+        }
+      ],
+      "portraits": [
+        "burr-harrison"
+      ]
+    },
+    "james-knox": {
+      "links": [
+        {
+          "id": "captain-dick",
+          "name": "Captain Dick",
+          "href": "/people/#captain-dick"
+        }
+      ],
+      "portraits": [
+        "captain-dick"
+      ]
+    },
+    "tellico-cession-1805-south-of-the-cumberland": {
+      "links": [
+        {
+          "id": "path-killer",
+          "name": "Path Killer",
+          "href": "/people/#path-killer"
+        },
+        {
+          "id": "doublehead",
+          "name": "Doublehead",
+          "href": "/people/#doublehead"
+        },
+        {
+          "id": "the-glass",
+          "name": "Glass",
+          "href": "/people/#the-glass"
+        }
+      ],
+      "portraits": [
+        "path-killer",
+        "doublehead",
+        "the-glass"
+      ]
+    },
+    "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph": {
+      "links": [
+        {
+          "id": "elinipsico",
+          "name": "Elinipsico",
+          "href": "/people/#elinipsico"
+        }
+      ],
+      "portraits": [
+        "elinipsico"
+      ]
+    },
+    "old-mulkey-meetinghouse-1804": {
+      "links": [
+        {
+          "id": "hannah-boone",
+          "name": "Hannah Boone Stewart Pennington",
+          "href": "/people/#hannah-boone"
+        }
+      ],
+      "portraits": [
+        "hannah-boone"
+      ]
+    },
+    "richard-henderson": {
+      "links": [
+        {
+          "id": "oconostota",
+          "name": "Oconostota",
+          "href": "/people/#oconostota"
+        }
+      ],
+      "portraits": [
+        "oconostota"
+      ]
+    },
+    "edward-worthington-at-worthingtons-fort": {
+      "links": [
+        {
+          "id": "pluggy",
+          "name": "Pluggy",
+          "href": "/people/#pluggy"
+        }
+      ],
+      "portraits": [
+        "pluggy"
+      ]
+    },
+    "the-maysville-road-and-jacksons-veto-1830": {
+      "links": [
+        {
+          "id": "henry-clay",
+          "name": "Henry Clay",
+          "href": "/people/#henry-clay"
+        },
+        {
+          "id": "andrew-jackson",
+          "name": "Andrew Jackson",
+          "href": "/people/#andrew-jackson"
+        }
+      ],
+      "portraits": [
+        "henry-clay",
+        "andrew-jackson"
+      ]
+    },
+    "river-raisin-1813-kentuckys-winter-defeat-in-michigan": {
+      "links": [
+        {
+          "id": "james-winchester",
+          "name": "James Winchester",
+          "href": "/people/#james-winchester"
         }
       ],
       "portraits": []

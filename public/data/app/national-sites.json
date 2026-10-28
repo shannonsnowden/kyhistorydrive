@@ -67,7 +67,7 @@
     "geocode_source": "manual",
     "overlap": "museums",
     "sources": [
-      "https://en.wikipedia.org/wiki/Big_Bone_Lick_State_Park"
+      "https://grokipedia.com/page/Big_Bone_Lick_State_Park"
     ]
   },
   {
@@ -211,7 +211,7 @@
     "overlap": "distilleries",
     "sources": [
       "https://www.buffalotracedistillery.com/",
-      "https://en.wikipedia.org/wiki/Buffalo_Trace_Distillery"
+      "https://grokipedia.com/page/Buffalo_Trace_Distillery"
     ]
   },
   {
@@ -229,7 +229,7 @@
     "overlap": "distilleries",
     "sources": [
       "https://www.woodfordreserve.com/",
-      "https://en.wikipedia.org/wiki/Woodford_Reserve"
+      "https://grokipedia.com/page/Woodford_Reserve"
     ]
   },
   {
@@ -247,7 +247,7 @@
     "overlap": "distilleries",
     "sources": [
       "https://www.makersmark.com/",
-      "https://en.wikipedia.org/wiki/Maker%27s_Mark"
+      "https://grokipedia.com/page/Maker%27s_Mark"
     ]
   },
   {
@@ -264,7 +264,7 @@
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park"
+      "https://grokipedia.com/page/Fort_Boonesborough_State_Park"
     ]
   },
   {
@@ -299,7 +299,7 @@
     "geocode_source": "photon",
     "overlap": null,
     "sources": [
-      "https://en.wikipedia.org/wiki/John_A._Roebling_Suspension_Bridge",
+      "https://grokipedia.com/page/John_A._Roebling_Suspension_Bridge",
       "https://www.roeblingbridge.org/"
     ]
   },
@@ -493,7 +493,7 @@
     "overlap": null,
     "sources": [
       "https://www.nps.gov/maca/",
-      "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park"
+      "https://grokipedia.com/page/Mammoth_Cave_National_Park"
     ]
   },
   {
@@ -529,7 +529,7 @@
     "overlap": "ky-history",
     "sources": [
       "https://www.nps.gov/cuga/",
-      "https://en.wikipedia.org/wiki/Cumberland_Gap_National_Historical_Park"
+      "https://grokipedia.com/page/Cumberland_Gap_National_Historical_Park"
     ]
   },
   {

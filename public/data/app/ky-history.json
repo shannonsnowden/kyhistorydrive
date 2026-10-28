@@ -1176,7 +1176,7 @@
     "marker_title": null,
     "geocode_source": "nominatim-smothers-park-owensboro",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Owensboro,_Kentucky",
+    "website": "https://grokipedia.com/page/Owensboro,_Kentucky",
     "year_start": 1797,
     "year_end": 1817,
     "photo": {
@@ -1301,7 +1301,7 @@
     "marker_title": "Capt. Jack Jouett House",
     "geocode_source": "khs-marker",
     "category": "person",
-    "website": "https://en.wikipedia.org/wiki/Jack_Jouett",
+    "website": "https://grokipedia.com/page/Jack_Jouett",
     "year_start": 1781,
     "year_end": 1822,
     "photo": {
@@ -1325,7 +1325,7 @@
     "marker_title": "Adam Shepherd",
     "geocode_source": "khs-marker",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Shepherdsville,_Kentucky",
+    "website": "https://grokipedia.com/page/Shepherdsville,_Kentucky",
     "year_start": 1793,
     "year_end": 1797
   },
@@ -1386,7 +1386,7 @@
     "marker_title": null,
     "geocode_source": "manual-wikipedia-lost-river-cave",
     "category": "archaeology",
-    "website": "https://en.wikipedia.org/wiki/Lost_River_Cave",
+    "website": "https://grokipedia.com/page/Lost_River_Cave",
     "year_start": 1790,
     "year_end": 1800
   },
@@ -1416,7 +1416,7 @@
     "marker_title": null,
     "geocode_source": "manual-wikipedia-natural-bridge",
     "category": "archaeology",
-    "website": "https://en.wikipedia.org/wiki/Natural_Bridge_State_Resort_Park"
+    "website": "https://grokipedia.com/page/Natural_Bridge_State_Resort_Park"
   },
   {
     "id": "david-snowden-jr-homestead-st-helens",
@@ -1424,7 +1424,7 @@
     "subtitle": "Lee County · St. Helens · Middle Fork Kentucky River",
     "latitude": 37.5829,
     "longitude": -83.6471,
-    "history": "Historic Snowden homeplace near St. Helens (Lee County), on a knob by the Middle Fork Kentucky River (KY 52 east of Beattyville). David Snowden Sr. (1759 near Perth Amboy, N.J. – 1839 Estill Co.) served as a Revolutionary War frontier “Indian spy” and guard from Washington Co., Pa. (federal pension W9308), and also on Gen. Lachlan McIntosh’s 1778 Ohio campaign and Col. William Crawford’s 1782 Sandusky expedition; he married Nancy Hazelrigg in 1782. His son David Snowden Jr. (1786–1852) built a log cabin, kitchen, and quarters here about 1825; a later two-story clapboard house on sandstone had a wing that served as the St. Helens post office.\n\nThe family also appears in Owsley County around 1850 before Lee County split. The abandoned house was photographed extensively and was reportedly demolished after a fire. Photos: https://abandonedonline.net/location/david-snowden-house/ and https://abandonedonline.net/david-snowden-jrs-house/ . Pension abstract: https://kygenweb.net/estill/military/revwar/snowden01.htm.",
+    "history": "Historic Snowden homeplace near St. Helens (Lee County), on a knob by the Middle Fork Kentucky River (KY 52 east of Beattyville). David Snowden Sr. (1759 near Perth Amboy, N.J. – 1839 Estill Co.) served as a Revolutionary War frontier “Indian spy” and guard from Washington Co., Pa. (federal pension W9308), and also on Gen. Lachlan McIntosh’s 1778 Ohio campaign and Col. William Crawford’s 1782 Sandusky expedition; he married Nancy Hazelrigg in 1782. His son David Snowden Jr. (1786–1852) built a log cabin, kitchen, and quarters here about 1825; a later two-story clapboard house on sandstone had a wing that served as the St. Helens post office.\n\nThe family also appears in Owsley County around 1850 before Lee County split. The abandoned house was photographed extensively and was reportedly demolished after a fire. Photos: https://abandonedonline.net/location/david-snowden-house/ and https://abandonedonline.net/david-snowden-jrs-house/ . Pension abstract: https://kygenweb.net/estill/site/records/military/revwar/snowden01.htm.",
     "source_date": "2026-09-20",
     "marker_title": null,
     "geocode_source": "manual-st-helens-gnis",
@@ -1869,7 +1869,7 @@
     "geocode_source": "khs-marker-1111",
     "geocode_note": "KHS marker 1111 (Paducah's Indian Name) in the original 1827 plat near the riverfront. Marker text repeats the Chief Paduke legend that the brief corrects. Distinct from jackson-purchase pin.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Paducah,_Kentucky",
+    "website": "https://grokipedia.com/page/Paducah,_Kentucky",
     "year_start": 1827,
     "year_end": 1832,
     "photo": {
@@ -2041,7 +2041,7 @@
     "geocode_source": "nominatim-mcdowell-house-apothecary-danville",
     "geocode_note": "McDowell House & Apothecary Shop Museum, 125 S. Second St., facing Constitution Square.",
     "category": "person",
-    "website": "https://en.wikipedia.org/wiki/Ephraim_McDowell",
+    "website": "https://grokipedia.com/page/Ephraim_McDowell",
     "year_start": 1809,
     "year_end": 1809,
     "photo": {
@@ -2090,7 +2090,7 @@
     "geocode_source": "nominatim-fountain-square-park-bowling-green",
     "geocode_note": "Fountain Square Park, the Moore brothers' courthouse-square donation and center of the 1798 town plat.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Bowling_Green,_Kentucky",
+    "website": "https://grokipedia.com/page/Bowling_Green,_Kentucky",
     "year_start": 1798,
     "year_end": 1798,
     "photo": {
@@ -2187,7 +2187,7 @@
     "geocode_source": "wikipedia-coordinates-new-castle",
     "geocode_note": "Town center / courthouse square, New Castle (Wikipedia coordinates 38.4333, -85.1689; KHS 'County Named, 1798' marker stands on the courthouse lawn). Year is the 1798 county and county-seat creation, not the 1875 courthouse or 1863 Caplinger House. Caplinger House status per Henry County History site (history.henrycountyky.com/caplinger.html): sold in 2017, now a private residence.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Henry_County,_Kentucky",
+    "website": "https://grokipedia.com/page/Henry_County,_Kentucky",
     "year_start": 1798,
     "year_end": 1798,
     "photo": {
@@ -2285,7 +2285,7 @@
     "geocode_source": "khs-marker-1607-town-spring",
     "geocode_note": "Town center, Somerset (Wikipedia 37.0844, -84.6081). Year is the 1801 court layout / county seat, not the 1799 county creation. KHS Marker 1607 (Old Town Spring) is in the markers layer.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Somerset,_Kentucky",
+    "website": "https://grokipedia.com/page/Somerset,_Kentucky",
     "year_start": 1801,
     "year_end": 1801,
     "photo": {
@@ -2309,7 +2309,7 @@
     "geocode_source": "nps-npgallery-historic-entrance",
     "geocode_note": "Mammoth Cave Historic Entrance (OSM/Nominatim). Distinct from Salts Cave (15Ht4) Early Woodland sulfate mining, Great Saltpetre Cave (Rockcastle), and Saltpeter Cave at Carter Caves. Years are War of 1812 industrial production (1812–1815), not park establishment.",
     "category": "industry",
-    "website": "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park",
+    "website": "https://grokipedia.com/page/Mammoth_Cave_National_Park",
     "year_start": 1812,
     "year_end": 1815,
     "photo": {
@@ -2357,7 +2357,7 @@
     "geocode_source": "wikipedia-hopkinsville-ky",
     "geocode_note": "Hopkinsville city center / courthouse district (Wikipedia coordinates). Event years 1797 (county seat donation) – 1804 (Assembly names Hopkinsville).",
     "category": "settlement",
-    "website": "https://en.wikipedia.org/wiki/Hopkinsville,_Kentucky",
+    "website": "https://grokipedia.com/page/Hopkinsville,_Kentucky",
     "year_start": 1797,
     "year_end": 1804,
     "photo": {
@@ -2469,7 +2469,7 @@
     "geocode_source": "hmdb-limestone-landing-maysville",
     "geocode_note": "Limestone Landing / Maysville riverfront (HMDB ~38.64867, -83.76211) for the 1787 negotiation with Kentuckians. Pin years 1787–1788 (Limestone + KY raids)—not full lifespan.",
     "category": "native-history",
-    "website": "https://en.wikipedia.org/wiki/Blue_Jacket",
+    "website": "https://grokipedia.com/page/Blue_Jacket",
     "year_start": 1787,
     "year_end": 1788,
     "photo": {
@@ -2877,7 +2877,7 @@
     "geocode_source": "wikipedia-russellville-kentucky",
     "geocode_note": "Wikipedia city coordinate for Russellville (36.84250, -86.89278), downtown at the Logan County courthouse square. Cook’s Station (about 1 mi east) is not separately mapped. Years 1790 Cook’s Cabin–1810 legislative establishment.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Russellville,_Kentucky",
+    "website": "https://grokipedia.com/page/Russellville,_Kentucky",
     "year_start": 1790,
     "year_end": 1810,
     "photo": {
@@ -2943,7 +2943,7 @@
     "geocode_source": "generalized-paradise-kentucky",
     "geocode_note": "Generalized from the Wikipedia coordinate for Paradise, Kentucky (37.26806, -86.98361), rounded to 2 decimals; the drift bank’s exact location is not published. Years 1820 mine opening–1967 TVA buyout of Paradise (mine closure date not found in sources).",
     "category": "industry",
-    "website": "https://en.wikipedia.org/wiki/Muhlenberg_County,_Kentucky",
+    "website": "https://grokipedia.com/page/Muhlenberg_County,_Kentucky",
     "year_start": 1820,
     "year_end": 1967,
     "photo": {
@@ -2965,7 +2965,7 @@
     "geocode_source": "khs-marker-1182-site-of-love-house",
     "geocode_note": "KHS marker #1182 “Site of Love House” at Wapping & Wilkinson Sts., Frankfort (KHS API point 38.1986833, -84.8816833). Marker: built about 1786 by Gen. James Wilkinson. Years 1784 (Wilkinson moves to Kentucky)–1792 (sells his Frankfort land to Andrew Holmes).",
     "category": "person",
-    "website": "https://en.wikipedia.org/wiki/James_Wilkinson",
+    "website": "https://grokipedia.com/page/James_Wilkinson",
     "year_start": 1784,
     "year_end": 1792,
     "photo": {
@@ -3286,7 +3286,7 @@
     "geocode_source": "wikipedia-red-river-gorge",
     "geocode_note": "Wikipedia coordinate for Red River Gorge (37.83388889, -83.60777778), reverse-geocodes to Menifee County; the geological area also spans Powell and Wolfe. Years 1962 (Clay City flood prompts the dam plan)–1993 (Wild and Scenic designation ends it).",
     "category": "landmark",
-    "website": "https://en.wikipedia.org/wiki/Red_River_Gorge",
+    "website": "https://grokipedia.com/page/Red_River_Gorge",
     "year_start": 1962,
     "year_end": 1993,
     "photo": {
@@ -3332,7 +3332,7 @@
     "geocode_source": "wikipedia-campbellsville",
     "geocode_note": "Wikipedia coordinate for Campbellsville (37.34583333, -85.34555556). Years 1800–1848.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Campbellsville,_Kentucky",
+    "website": "https://grokipedia.com/page/Campbellsville,_Kentucky",
     "year_start": 1800,
     "year_end": 1848,
     "photo": {
@@ -3355,7 +3355,7 @@
     "geocode_source": "wikipedia-siege-of-boonesborough",
     "geocode_note": "Wikipedia coordinate for the Siege of Boonesborough (37.89977778, -84.26566667). Years 1778–1779.",
     "category": "battle",
-    "website": "https://en.wikipedia.org/wiki/Siege_of_Boonesborough",
+    "website": "https://grokipedia.com/page/Siege_of_Boonesborough",
     "year_start": 1778,
     "year_end": 1779,
     "photo": {
@@ -3469,7 +3469,7 @@
     "geocode_source": "wikipedia-prestonsburg",
     "geocode_note": "Wikipedia coordinate for Prestonsburg, Kentucky (37.681667, -82.766944). Years 1797–1818.",
     "category": "town",
-    "website": "https://en.wikipedia.org/wiki/Prestonsburg,_Kentucky",
+    "website": "https://grokipedia.com/page/Prestonsburg,_Kentucky",
     "year_start": 1797,
     "year_end": 1818,
     "photo": {

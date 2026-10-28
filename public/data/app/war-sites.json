@@ -30,7 +30,7 @@
     "website": "https://parks.ky.gov/explore/fort-boonesborough-state-park-7811",
     "geocode_source": "photon",
     "sources": [
-      "https://en.wikipedia.org/wiki/Fort_Boonesborough_State_Park"
+      "https://grokipedia.com/page/Fort_Boonesborough_State_Park"
     ]
   },
   {
@@ -476,7 +476,7 @@
     "website": "https://www.battlefields.org/visit/battlefields/middle-creek",
     "geocode_source": "photon",
     "sources": [
-      "https://en.wikipedia.org/wiki/Battle_of_Middle_Creek"
+      "https://grokipedia.com/page/Battle_of_Middle_Creek"
     ]
   },
   {
@@ -560,10 +560,10 @@
     "war": "civil",
     "site_type": "cemetery",
     "history": "Hilltop cemetery with Confederate monument traditions and graves of political and military figures. Overlooks the capital once defended from Fort Hill earthworks.",
-    "website": "https://en.wikipedia.org/wiki/Frankfort_Cemetery",
+    "website": "https://grokipedia.com/page/Frankfort_Cemetery",
     "geocode_source": "nominatim",
     "sources": [
-      "https://en.wikipedia.org/wiki/Frankfort_Cemetery"
+      "https://grokipedia.com/page/Frankfort_Cemetery"
     ]
   },
   {
@@ -577,10 +577,10 @@
     "war": "civil",
     "site_type": "museum",
     "history": "Speed family plantation where Lincoln visited in 1841; interprets slavery and wartime friendships (James Speed as Attorney General). Already in museums.json\u2014link from the war layer.",
-    "website": "https://farmingtonhistorichome.org/",
+    "website": "https://visitfarmington.org/",
     "geocode_source": "photon",
     "sources": [
-      "https://farmingtonhistorichome.org/"
+      "https://visitfarmington.org/"
     ]
   },
   {

@@ -37,7 +37,9 @@ export function inlinePortraitHtml(person, side) {
 /**
  * Apply one story's entry to the body HTML (marked output). Wraps the first text occurrence of
  * each linked name (outside existing links) in <a class="person-link">, and puts each portrait
- * just before its paragraph. hrefFor maps a link target to the right URL for the page type.
+ * just before its paragraph. An existing anchor whose href is already that person's link and
+ * whose text is exactly the name still counts, so the portrait sits on that paragraph without
+ * a nested link. hrefFor maps a link target to the right URL for the page type.
  */
 export const MAX_INLINE = 3
 /** Critique #280: at most this many person links in one paragraph (or list item). A name over the
@@ -59,8 +61,24 @@ export function applyStoryPeople(html, entry, peopleById, hrefFor = (h) => h, op
     const t = parts[i]
     if (!t) continue
     if (t[0] === '<') {
-      if (/^<a[\s>]/i.test(t)) inA += 1
-      else if (/^<\/a>/i.test(t)) inA = Math.max(0, inA - 1)
+      if (/^<a[\s>]/i.test(t)) {
+        inA += 1
+        // Markdown already links this mention to the person's card. Keep that link and
+        // still place the inline portrait on this paragraph.
+        if (!inHeading && para >= 0 && pending.size) {
+          const href = /\bhref="([^"]*)"/i.exec(t)?.[1]
+          const next = parts[i + 1] || ''
+          if (href && next && next[0] !== '<') {
+            const visible = next.trim()
+            for (const l of pending.values()) {
+              if (hrefFor(l.href) !== href || visible !== l.name) continue
+              linkedPara.set(l.id, para)
+              pending.delete(l.id)
+              break
+            }
+          }
+        }
+      } else if (/^<\/a>/i.test(t)) inA = Math.max(0, inA - 1)
       else if (/^<h[1-6][\s>]/i.test(t)) inHeading += 1
       else if (/^<\/h[1-6]>/i.test(t)) inHeading = Math.max(0, inHeading - 1)
       if (/^<p[\s>]/i.test(t)) paraStart[++para] = i
