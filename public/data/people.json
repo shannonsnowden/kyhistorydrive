@@ -74,70 +74,90 @@
       "id": "jemima-boone",
       "name": "Jemima Boone",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jemima-boone__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jemima-boone__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-john-holder-at-lower-howards-creek",
         "col-richard-callaway-of-boonesborough",
         "john-floyd"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "israel-boone",
       "name": "Israel Boone",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/israel-boone__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/israel-boone__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "hugh-mcgary-the-blue-licks-hothead",
         "wyandot-on-kentuckys-northern-frontier",
         "battle-of-blue-licks"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "james-boone",
       "name": "James Boone",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/james-boone__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/james-boone__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-william-russell-iii"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "george-boone",
       "name": "George Boone",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/george-boone__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/george-boone__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "william-hoy-and-hoys-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "hannah-boone",
       "name": "Hannah Boone Stewart Pennington",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/hannah-boone__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/hannah-boone__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "old-mulkey-meetinghouse-1804"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "benjamin-logan",
@@ -170,14 +190,18 @@
       "id": "ann-logan",
       "name": "Ann Logan Hardin",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/ann-logan__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/ann-logan__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-john-hardin-of-pleasant-run"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "george-rogers-clark",
@@ -847,14 +871,18 @@
       "id": "elinipsico",
       "name": "Elinipsico",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/elinipsico__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/elinipsico__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "nonhelema",
@@ -1028,14 +1056,18 @@
       "id": "jemima-suggett-johnson",
       "name": "Jemima Suggett Johnson",
       "dates": "1753–1814",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jemima-suggett-johnson__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jemima-suggett-johnson__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-robert-johnson-and-big-crossing-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "richard-m-johnson",
@@ -1097,14 +1129,18 @@
       "id": "fanny-callaway",
       "name": "Fanny Callaway",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/fanny-callaway__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/fanny-callaway__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-john-holder-at-lower-howards-creek"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jack-calloway",
@@ -1145,15 +1181,19 @@
       "id": "joseph-bowman",
       "name": "Joseph Bowman",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/joseph-bowman__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/joseph-bowman__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "maj-joseph-bowman",
         "col-john-bowman-at-old-chillicothe"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "hugh-mcgary",
@@ -1254,14 +1294,18 @@
       "id": "nathaniel-gist",
       "name": "Nathaniel Gist",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/nathaniel-gist__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/nathaniel-gist__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "gen-charles-scott-and-petersburg"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "gabriel-arthur",
@@ -1403,27 +1447,35 @@
       "id": "jones-hoy",
       "name": "Jones Hoy",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jones-hoy__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jones-hoy__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "william-hoy-and-hoys-station"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "james-estill",
       "name": "James Estill",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/james-estill__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/james-estill__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-james-estill-estills-defeat"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "william-miller",
@@ -1573,14 +1625,18 @@
       "id": "william-campbell",
       "name": "William Campbell",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-campbell__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-campbell__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "col-william-russell-iii"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jack-jouett",
@@ -1803,27 +1859,35 @@
       "id": "captain-dick",
       "name": "Captain Dick",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/captain-dick__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/captain-dick__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "james-knox"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "will-emery",
       "name": "Captain Will Emery",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/will-emery__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/will-emery__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-will-the-hunting-ground"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-stewart",
@@ -2387,14 +2451,18 @@
       "id": "matthew-walton",
       "name": "Matthew Walton",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/matthew-walton__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/matthew-walton__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "springfield-founding-and-washington-county-seat"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "david-caldwell",
@@ -2478,16 +2546,20 @@
       "id": "george-nicholas",
       "name": "George Nicholas",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/george-nicholas__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/george-nicholas__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "carlisle-kincarts-peach-orchard-county-seat",
         "nicholasville-takes-shape",
         "danville-and-constitution-square"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "thomas-helm",
@@ -3413,6 +3485,23 @@
       "id": "abraham-owen",
       "name": "Abraham Owen",
       "dates": null,
+      "image": {
+        "webp": "/people/portraits/abraham-owen__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/abraham-owen__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "owensboro-yellow-banks"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "victor-collot",
+      "name": "Victor Collot",
+      "dates": null,
       "image": null,
       "credit": null,
       "ai": false,
@@ -3533,15 +3622,19 @@
       "id": "burr-harrison",
       "name": "Burr Harrison",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/burr-harrison__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/burr-harrison__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "benjamin-logan",
         "stanford-from-st-asaph"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "leonard-covington",
@@ -3749,14 +3842,18 @@
       "id": "william-fleming",
       "name": "William Fleming",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-fleming__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-fleming__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "bullitts-lick-kentuckys-first-industry"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-mann",
@@ -3801,15 +3898,19 @@
       "id": "william-preston",
       "name": "William Preston",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-preston__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-preston__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "hancock-taylor-fincastle-surveyor",
         "john-floyd"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "patrick-henry",
@@ -3963,14 +4064,18 @@
       "id": "peter-hildebrand",
       "name": "Peter Hildebrand",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/peter-hildebrand__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/peter-hildebrand__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "mantle-rock-and-the-trail-of-tears"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "attakullakulla",
@@ -3994,53 +4099,69 @@
       "id": "oconostota",
       "name": "Oconostota",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/oconostota__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/oconostota__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "richard-henderson"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "path-killer",
       "name": "Path Killer",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/path-killer__ai-portrait-v2-512.webp",
+        "jpg": "/people/portraits/path-killer__ai-portrait-v2-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "tellico-cession-1805-south-of-the-cumberland"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "doublehead",
       "name": "Doublehead",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/doublehead__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/doublehead__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "tellico-cession-1805-south-of-the-cumberland"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "the-glass",
       "name": "The Glass",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/the-glass__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/the-glass__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "tellico-cession-1805-south-of-the-cumberland"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-jolly",
@@ -4107,14 +4228,18 @@
       "id": "john-stuart",
       "name": "John Stuart",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-stuart__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-stuart__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "treaties-of-hard-labour-and-lochaber"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "william-johnson",
@@ -4203,27 +4328,35 @@
       "id": "tanacharison",
       "name": "Tanacharison",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/tanacharison__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/tanacharison__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "treaty-of-logstown-1752"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "scarouady",
       "name": "Scarouady",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/scarouady__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/scarouady__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "treaty-of-logstown-1752"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "alexander-mckee",
@@ -4302,28 +4435,36 @@
       "id": "matthew-arbuckle",
       "name": "Matthew Arbuckle",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/matthew-arbuckle__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/matthew-arbuckle__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "andrew-lewis",
       "name": "Andrew Lewis",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/andrew-lewis__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/andrew-lewis__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "cornstalk-hokoleskwa-point-pleasant-to-fort-randolph",
         "col-john-todd-of-lexington"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "angus-mcdonald",
@@ -4400,27 +4541,35 @@
       "id": "jean-baptiste-ducoigne",
       "name": "Jean-Baptiste Ducoigne",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jean-baptiste-ducoigne__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jean-baptiste-ducoigne__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "illinois-confederation-at-cahokia"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "pluggy",
       "name": "Pluggy",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/pluggy__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/pluggy__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "edward-worthington-at-worthingtons-fort"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "red-bird",
@@ -4830,6 +4979,19 @@
         "father-david-rice-and-kentuckys-first-presbyterian-churches"
       ],
       "sourceFile": null
+    },
+    {
+      "id": "james-winchester",
+      "name": "James Winchester",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
+      ]
     },
     {
       "id": "lord-dunmore",

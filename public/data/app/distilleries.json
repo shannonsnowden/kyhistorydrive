@@ -544,17 +544,17 @@
     "name": "Wilderness Trail Distillery",
     "city": "Danville",
     "county": "Boyle",
-    "address": "4095 West Main Cross St, Danville, KY",
+    "address": "4095 Lebanon Rd, Danville, KY 40422",
     "latitude": 37.621527,
     "longitude": -84.8273892,
     "founded_year": 2012,
     "history": "Danville distillery founded by Dr. Pat Heist and Shane Baker; known for sweet-mash fermentation science on the trail.",
-    "website": "https://www.wildernesstrailbourbon.com",
+    "website": "https://www.wildernesstraildistillery.com/",
     "trail_status": "kbt",
     "geocode_source": "photon",
     "sources": [
       "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
-      "https://www.wildernesstrailbourbon.com"
+      "https://www.wildernesstraildistillery.com/"
     ]
   },
   {
@@ -670,17 +670,17 @@
     "name": "Augusta Distillery",
     "city": "Augusta",
     "county": "Bracken",
-    "address": "107 W Riverside Dr, Augusta, KY",
+    "address": "207 Seminary Ave, Augusta, KY 41002",
     "latitude": 38.7737422,
     "longitude": -84.0075416,
     "founded_year": 2019,
     "history": "River-town Bracken County craft stop on the Ohio River.",
-    "website": "https://www.augustadistillery.com",
+    "website": "https://augustakydistillery.com/",
     "trail_status": "kbt",
     "geocode_source": "photon",
     "sources": [
       "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
-      "https://www.augustadistillery.com"
+      "https://augustakydistillery.com/"
     ]
   },
   {
@@ -796,17 +796,17 @@
     "name": "MB Roland Distillery",
     "city": "Pembroke",
     "county": "Christian",
-    "address": "3300 Ashberry Rd, Pembroke, KY",
+    "address": "6534 Pembroke Oak Grove Rd, Pembroke, KY 42266",
     "latitude": 36.698254,
     "longitude": -87.3916269,
     "founded_year": 2009,
     "history": "Early Western Kentucky craft distillery in Christian County using local grains.",
-    "website": "https://mbrdistillery.com",
+    "website": "https://mbroland.com/",
     "trail_status": "kbt",
     "geocode_source": "photon",
     "sources": [
       "https://en.wikipedia.org/wiki/Kentucky_Bourbon_Trail",
-      "https://mbrdistillery.com"
+      "https://mbroland.com/"
     ]
   },
   {
@@ -945,7 +945,7 @@
     "geocode_source": "photon",
     "sources": [
       "https://glennscreekdistillery.com/",
-      "https://en.wikipedia.org/wiki/Old_Crow"
+      "https://grokipedia.com/page/Old_Crow"
     ]
   },
   {
@@ -980,7 +980,7 @@
     "geocode_source": "manual",
     "sources": [
       "https://heavenhilldistillery.com/",
-      "https://en.wikipedia.org/wiki/Heaven_Hill"
+      "https://grokipedia.com/page/Heaven_Hill"
     ]
   }
 ]

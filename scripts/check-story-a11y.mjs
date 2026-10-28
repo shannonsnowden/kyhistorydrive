@@ -6,7 +6,7 @@
  * A page must report 0 violations.
  */
 import { execFileSync } from 'node:child_process'
-import { readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import AxeBuilder from '@axe-core/playwright'
@@ -51,6 +51,29 @@ function assertSource() {
   }
 }
 
+/** Built pages: a related-card portrait (/people/portraits/) never renders with alt="" (SEO finding on #331). */
+function assertBuiltRelatedCardAlts() {
+  const dist = resolve(root, 'dist')
+  if (!existsSync(dist)) return
+  let n = 0
+  const walk = (dir) => {
+    for (const ent of readdirSync(dir, { withFileTypes: true })) {
+      const p = resolve(dir, ent.name)
+      if (ent.isDirectory()) walk(p)
+      else if (ent.name.endsWith('.html')) {
+        const html = readFileSync(p, 'utf8')
+        for (const m of html.matchAll(/<img class="related-card-img" src="(\/people\/portraits\/[^"]+)"[^>]*>/g)) {
+          n += 1
+          const alt = /\salt="([^"]*)"/.exec(m[0])
+          if (!alt || !alt[1].trim()) fail(`${p.slice(dist.length)}: related-card portrait ${m[1]} has an empty alt`)
+        }
+      }
+    }
+  }
+  walk(dist)
+  if (!failures.length) console.log(`check-story-a11y: ${n} related-card portraits, each with alt text`)
+}
+
 function hasChrome() {
   try {
     execFileSync('google-chrome', ['--version'], { stdio: 'ignore' })
@@ -93,6 +116,7 @@ async function visual(base) {
 }
 
 assertSource()
+assertBuiltRelatedCardAlts()
 if (failures.length) process.exit(1)
 
 if (!hasChrome()) {

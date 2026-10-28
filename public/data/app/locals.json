@@ -392,9 +392,9 @@
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table at Hermitage Farm",
     "history": "Seasonal restaurant inside a restored barn at Hermitage Farm in Oldham County. Pasture views and Kentucky farm ingredients\u2014destination dining unique to this Highway 42 farm site.",
-    "website": "https://www.barn8restaurant.com/",
+    "website": "https://www.barn8.com/",
     "sources": [
-      "https://www.barn8restaurant.com/",
+      "https://www.barn8.com/",
       "https://www.yelp.com/biz/barn8-on-hermitage-farm-goshen",
       "https://menuweb.menu/restaurants/goshen/barn8"
     ],
@@ -616,10 +616,7 @@
     "category": "restaurant",
     "cuisine_or_type": "American fine casual",
     "history": "Longtime independent Bowling Green restaurant in a historic mansion setting\u2014local fine-casual landmark, not a regional chain.",
-    "website": "https://www.mariahs.com/",
-    "sources": [
-      "https://www.mariahs.com/"
-    ],
+    "sources": [],
     "yelp_rating": 4.0,
     "google_rating": 4.4,
     "combined_rating": 4.2,
@@ -1396,9 +1393,9 @@
     "category": "restaurant",
     "cuisine_or_type": "New Southern beside the trains",
     "history": "Historic-district La Grange restaurant where CSX freights roll past picture windows dozens of times a day. American and New-Southern plates including a Kentucky 'Haute' Brown\u2014unique Oldham County spot.",
-    "website": "https://onenineteenwestmain.com/",
+    "website": "https://119westmain.com/",
     "sources": [
-      "https://onenineteenwestmain.com/"
+      "https://119westmain.com/"
     ],
     "yelp_rating": null,
     "google_rating": null,
@@ -2708,10 +2705,7 @@
     "category": "restaurant",
     "cuisine_or_type": "American rooftop",
     "history": "Mainstrasse independent with rooftop dining\u2014Covington local classic.",
-    "website": "https://www.cheznora.com/",
-    "sources": [
-      "https://www.cheznora.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": 4.4,
     "combined_rating": 4.4,
@@ -2730,9 +2724,9 @@
     "category": "restaurant",
     "cuisine_or_type": "Italian river dining",
     "history": "Historic Maysville Italian riverfront independent\u2014Mason County Ohio River classic.",
-    "website": "https://www.capronis.com/",
+    "website": "https://www.capronisontheriver.com/",
     "sources": [
-      "https://www.capronis.com/"
+      "https://www.capronisontheriver.com/"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -2840,10 +2834,7 @@
     "category": "restaurant",
     "cuisine_or_type": "farm-to-table",
     "history": "NuLu farm-to-table independent emphasizing Kentucky producers\u2014Jefferson County icon.",
-    "website": "https://www.harvestlouisville.com/",
-    "sources": [
-      "https://www.harvestlouisville.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -2906,10 +2897,7 @@
     "category": "restaurant",
     "cuisine_or_type": "Southern & whiskey",
     "history": "Clifton Southern/whiskey bar independent\u2014Louisville cult favorite.",
-    "website": "https://www.whiskeybythedrink.com/",
-    "sources": [
-      "https://www.whiskeybythedrink.com/"
-    ],
+    "sources": [],
     "yelp_rating": null,
     "google_rating": 4.5,
     "combined_rating": 4.5,
@@ -2994,9 +2982,9 @@
     "category": "restaurant",
     "cuisine_or_type": "Belgian gastropub",
     "history": "Highlands Belgian beer and gastropub in a former church\u2014Louisville unique independent.",
-    "website": "https://www.holygralelouisville.com/",
+    "website": "https://www.thegrales.com/holygrale",
     "sources": [
-      "https://www.holygralelouisville.com/"
+      "https://www.thegrales.com/holygrale"
     ],
     "yelp_rating": null,
     "google_rating": 4.5,
@@ -3126,9 +3114,9 @@
     "category": "restaurant",
     "cuisine_or_type": "Mediterranean",
     "history": "Highlands Mediterranean independent\u2014Louisville neighborhood gem.",
-    "website": "https://www.thefatlamb.com/",
+    "website": "https://fatlamblouisville.com/",
     "sources": [
-      "https://www.thefatlamb.com/"
+      "https://fatlamblouisville.com/"
     ],
     "yelp_rating": null,
     "google_rating": 4.6,
@@ -3366,9 +3354,9 @@
     "category": "specialty",
     "cuisine_or_type": "bourbon candy",
     "history": "Historic bourbon-ball candy kitchen\u2014Frankfort specialty unique to Kentucky's capital.",
-    "website": "https://www.rebeccaruth.com/",
+    "website": "https://rebeccaruthonline.com/",
     "sources": [
-      "https://www.rebeccaruth.com/"
+      "https://rebeccaruthonline.com/"
     ],
     "yelp_rating": null,
     "google_rating": 4.7,

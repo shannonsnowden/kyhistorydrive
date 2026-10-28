@@ -1769,6 +1769,7 @@ class PrerenderPages {
       limit: 3,
       thumbFor: (item) => PrerenderPages.existingThumb(item),
       portraitFor: (slug) => (relatedBundle ? portraitThumbSrc(relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug)) : ''),
+      personFor: (slug) => (relatedBundle ? relatedBundle.portraits.get(slug) || relatedBundle.personFor.get(slug) || null : null),
       whyFor: (s, other) => computeRelatedNote(s, other),
       collapsible: true,
       isProtected: (s) => isProtectedStory(s),
@@ -3493,7 +3494,7 @@ class PrerenderPages {
         }
       }
     }
-    if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema"')) {
+    if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema, Shawnee Chalakatha chief and diplomat, about 1786"')) {
       throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
     }
     // #345: protected sites list same-county stories only, so they may have fewer than 3 (or none).
