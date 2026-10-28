@@ -3884,9 +3884,14 @@ class PrerenderPages {
       const [l, ...b] = applyTransportLink(`${leadHtml}${split}${bodyHtml}`, transport).split(split)
       return { lead: l, body: b.join(split) }
     }
-    const subject = Boolean(PrerenderPages.storyPortrait(story, bundle).person)
+    const subjectPerson = PrerenderPages.storyPortrait(story, bundle).person
+    const subject = Boolean(subjectPerson)
     const bodyStart = lead ? 1 : 0
-    const done = applyStoryPeople(`${leadHtml}${split}${bodyHtml}`, entry, bundle.peopleById, (h) => (h.startsWith('#timeline/') ? `/stories/${h.slice(10)}/` : h), {
+    // story-people may list the title subject. That face is already the subject portrait.
+    const pageEntry = subjectPerson
+      ? { ...entry, portraits: (entry.portraits || []).filter((id) => id !== subjectPerson.id) }
+      : entry
+    const done = applyStoryPeople(`${leadHtml}${split}${bodyHtml}`, pageEntry, bundle.peopleById, (h) => (h.startsWith('#timeline/') ? `/stories/${h.slice(10)}/` : h), {
       minPara: bodyStart + (subject ? 1 : 0),
       startLeft: subject,
     })

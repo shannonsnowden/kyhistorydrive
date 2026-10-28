@@ -16,7 +16,8 @@
  *    Cahokia). Never a global surname match. A sample story keeps those aliases when the
  *    same slug is also in the sweep (one-word names and "Ann Logan").
  * Portraits: real or AI (AI credit "AI illustration · Kentucky History Drive"); never the story's
- * title-subject portrait (already shown) and never the Photos sidebar image.
+ * title-subject portrait (already shown) unless this sweep lists that id, and never the Photos
+ * sidebar image. The page subject portrait stays the one face; prerender does not repeat it.
  * Scope: scripts/story-people-samples.json slugs until site-wide OK.
  */
 import fs from 'node:fs'
@@ -122,7 +123,10 @@ for (const slug of slugsInScope) {
     if (sw && !(sw.portraits || []).includes(p.id)) continue
     if (keepCurated && !curatedPortraits.includes(p.id)) continue
     if (!hasSafePortrait(p)) continue
-    if (subject && p.id === subject.id) continue
+    // An explicit sweep portrait is recorded even when this person is the title subject.
+    // prerender omits that second figure; the subject portrait is already the face.
+    const explicitPortrait = (sweep[slug]?.portraits || []).includes(p.id)
+    if (subject && p.id === subject.id && !explicitPortrait) continue
     if (sidebar && p.sourceFile && p.sourceFile.replace(/_/g, ' ').toLowerCase() === sidebar) { skipped.push(`${p.name} portrait (same as Photos sidebar)`); continue }
     if (story.photo?.image_url && [p.image.jpg, p.image.webp].includes(story.photo.image_url)) continue
     portraits.push(p.id)
