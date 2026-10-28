@@ -1444,6 +1444,1620 @@
       "portraits": [
         "squire-boone"
       ]
+    },
+    "adams-site-15fu4": {
+      "links": [],
+      "portraits": []
+    },
+    "andalex-village-15hk22-hopkins-county": {
+      "links": [],
+      "portraits": []
+    },
+    "annis-mound-village": {
+      "links": [],
+      "portraits": []
+    },
+    "ashlands-adena-mounds": {
+      "links": [],
+      "portraits": []
+    },
+    "bagdad-how-a-shelby-county-rail-stop-took-over-consolation": {
+      "links": [
+        {
+          "id": "richard-radford",
+          "name": "Richard Radford",
+          "href": "/people/#richard-radford"
+        }
+      ],
+      "portraits": []
+    },
+    "big-bone-lick-older-cycle": {
+      "links": [
+        {
+          "id": "thomas-jefferson",
+          "name": "Thomas Jefferson",
+          "href": "/people/#thomas-jefferson"
+        },
+        {
+          "id": "william-clark",
+          "name": "William Clark",
+          "href": "/people/#william-clark"
+        }
+      ],
+      "portraits": [
+        "thomas-jefferson",
+        "william-clark"
+      ]
+    },
+    "bland-w-ballard-of-tick-creek": {
+      "links": [
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "robert-tyler",
+          "name": "Robert Tyler",
+          "href": "/people/#robert-tyler"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark"
+      ]
+    },
+    "blue-jacket-weyapiersenwah": {
+      "links": [
+        {
+          "id": "blue-jacket",
+          "name": "Blue Jacket",
+          "href": "/people/#blue-jacket"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
+        },
+        {
+          "id": "benjamin-logan",
+          "name": "Benjamin Logan",
+          "href": "/stories/benjamin-logan/"
+        },
+        {
+          "id": "little-turtle",
+          "name": "Little Turtle",
+          "href": "/stories/little-turtle-and-hardins-defeat-1790/"
+        }
+      ],
+      "portraits": [
+        "benjamin-logan",
+        "little-turtle"
+      ]
+    },
+    "buckner-site-fort-ancient-villages": {
+      "links": [],
+      "portraits": []
+    },
+    "camp-nelson-kentucky-us-colored-troops": {
+      "links": [],
+      "portraits": []
+    },
+    "capt-robert-johnson-and-big-crossing-station": {
+      "links": [
+        {
+          "id": "robert-johnson",
+          "name": "Robert Johnson",
+          "href": "/people/#robert-johnson"
+        },
+        {
+          "id": "jemima-suggett-johnson",
+          "name": "Jemima Suggett Johnson",
+          "href": "/people/#jemima-suggett-johnson"
+        },
+        {
+          "id": "john-t-johnson",
+          "name": "John T. Johnson",
+          "href": "/people/#john-t-johnson"
+        },
+        {
+          "id": "richard-m-johnson",
+          "name": "Richard M. Johnson",
+          "href": "/people/#richard-m-johnson"
+        }
+      ],
+      "portraits": [
+        "jemima-suggett-johnson",
+        "john-t-johnson",
+        "richard-m-johnson"
+      ]
+    },
+    "carlston-annis-shell-mound": {
+      "links": [],
+      "portraits": []
+    },
+    "carter-caves-cascade-falls": {
+      "links": [],
+      "portraits": []
+    },
+    "chambers-site-15ml109-marshall-county": {
+      "links": [],
+      "portraits": []
+    },
+    "chickamauga-cherokee": {
+      "links": [
+        {
+          "id": "richard-henderson",
+          "name": "Richard Henderson",
+          "href": "/stories/richard-henderson/"
+        },
+        {
+          "id": "dragging-canoe",
+          "name": "Dragging Canoe",
+          "href": "/people/#dragging-canoe"
+        }
+      ],
+      "portraits": [
+        "richard-henderson"
+      ]
+    },
+    "chiggerville-15oh1": {
+      "links": [],
+      "portraits": []
+    },
+    "christopher-gist-1750-51": {
+      "links": [
+        {
+          "id": "christopher-gist",
+          "name": "Christopher Gist",
+          "href": "/people/#christopher-gist"
+        },
+        {
+          "id": "thomas-walker",
+          "name": "Thomas Walker",
+          "href": "/stories/thomas-walker-and-cumberland-gap/"
+        }
+      ],
+      "portraits": []
+    },
+    "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
+      "links": [],
+      "portraits": []
+    },
+    "cloudsplitter-rockshelter-menifee-county": {
+      "links": [],
+      "portraits": []
+    },
+    "col-robert-patterson-builds-lexington": {
+      "links": [
+        {
+          "id": "robert-patterson",
+          "name": "Robert Patterson",
+          "href": "/people/#robert-patterson"
+        },
+        {
+          "id": "levi-todd",
+          "name": "Levi Todd",
+          "href": "/stories/levi-todd-lexington-co-founder/"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        }
+      ],
+      "portraits": [
+        "levi-todd",
+        "george-rogers-clark",
+        "daniel-boone"
+      ]
+    },
+    "col-thomas-marshall-at-buck-pond": {
+      "links": [
+        {
+          "id": "george-washington",
+          "name": "George Washington",
+          "href": "/people/#george-washington"
+        }
+      ],
+      "portraits": [
+        "george-washington"
+      ]
+    },
+    "croley-evans-site": {
+      "links": [
+        {
+          "id": "thomas-walker",
+          "name": "Thomas Walker",
+          "href": "/stories/thomas-walker-and-cumberland-gap/"
+        }
+      ],
+      "portraits": []
+    },
+    "cumberland-falls": {
+      "links": [
+        {
+          "id": "t-coleman-du-pont",
+          "name": "T. Coleman du Pont",
+          "href": "/people/#t-coleman-du-pont"
+        }
+      ],
+      "portraits": [
+        "t-coleman-du-pont"
+      ]
+    },
+    "daniel-trabue-of-columbia": {
+      "links": [
+        {
+          "id": "daniel-trabue",
+          "name": "Daniel Trabue",
+          "href": "/people/#daniel-trabue"
+        },
+        {
+          "id": "anthony-wayne",
+          "name": "Anthony Wayne",
+          "href": "/people/#anthony-wayne"
+        }
+      ],
+      "portraits": [
+        "anthony-wayne"
+      ]
+    },
+    "danville-and-constitution-square": {
+      "links": [
+        {
+          "id": "walker-daniel",
+          "name": "Walker Daniel",
+          "href": "/stories/walker-daniel-danvilles-namesake/"
+        },
+        {
+          "id": "blue-jacket",
+          "name": "Blue Jacket",
+          "href": "/stories/blue-jacket-weyapiersenwah/"
+        },
+        {
+          "id": "george-nicholas",
+          "name": "George Nicholas",
+          "href": "/people/#george-nicholas"
+        }
+      ],
+      "portraits": [
+        "walker-daniel",
+        "blue-jacket",
+        "george-nicholas"
+      ]
+    },
+    "delaware-lenape-in-the-1780-kentucky-raids": {
+      "links": [
+        {
+          "id": "henry-bird",
+          "name": "Henry Bird",
+          "href": "/stories/ojibwe-on-birds-war-road/"
+        }
+      ],
+      "portraits": []
+    },
+    "delaware-winter-camps-on-kentucky-ground": {
+      "links": [],
+      "portraits": []
+    },
+    "diamond-caverns-decorated-limestone": {
+      "links": [],
+      "portraits": []
+    },
+    "dover-mound-mason-county": {
+      "links": [],
+      "portraits": []
+    },
+    "drennon-springs-salt-works": {
+      "links": [
+        {
+          "id": "jacob-drennon",
+          "name": "Jacob Drennon",
+          "href": "/people/#jacob-drennon"
+        },
+        {
+          "id": "matthew-bracken",
+          "name": "Matthew Bracken",
+          "href": "/people/#matthew-bracken"
+        },
+        {
+          "id": "nicholas-cresswell",
+          "name": "Nicholas Cresswell",
+          "href": "/people/#nicholas-cresswell"
+        },
+        {
+          "id": "patrick-henry",
+          "name": "Patrick Henry",
+          "href": "/people/#patrick-henry"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        }
+      ],
+      "portraits": [
+        "patrick-henry",
+        "george-rogers-clark"
+      ]
+    },
+    "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
+      "links": [
+        {
+          "id": "john-g-carlisle",
+          "name": "John G. Carlisle",
+          "href": "/people/#john-g-carlisle"
+        }
+      ],
+      "portraits": [
+        "john-g-carlisle"
+      ]
+    },
+    "egushawa-and-the-odawa-in-kentuckys-war-years": {
+      "links": [
+        {
+          "id": "egushawa",
+          "name": "Egushawa",
+          "href": "/people/#egushawa"
+        },
+        {
+          "id": "henry-bird",
+          "name": "Henry Bird",
+          "href": "/stories/ojibwe-on-birds-war-road/"
+        }
+      ],
+      "portraits": []
+    },
+    "erie-the-cat-nation": {
+      "links": [],
+      "portraits": []
+    },
+    "esther-whitley-over-the-cumberlands-1775": {
+      "links": [
+        {
+          "id": "william-whitley",
+          "name": "William Whitley",
+          "href": "/stories/william-whitley-sportsmans-hill/"
+        },
+        {
+          "id": "ann-harper",
+          "name": "Ann Harper",
+          "href": "/people/#ann-harper"
+        }
+      ],
+      "portraits": [
+        "william-whitley"
+      ]
+    },
+    "evan-williams-on-the-louisville-wharf": {
+      "links": [
+        {
+          "id": "evan-williams",
+          "name": "Evan Williams",
+          "href": "/people/#evan-williams"
+        },
+        {
+          "id": "jacob-spears",
+          "name": "Jacob Spears",
+          "href": "/stories/jacob-spears-early-bourbon-whiskey/"
+        }
+      ],
+      "portraits": []
+    },
+    "falls-of-the-ohio": {
+      "links": [
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "louis-xvi",
+          "name": "Louis XVI",
+          "href": "/people/#louis-xvi"
+        },
+        {
+          "id": "william-clark",
+          "name": "William Clark",
+          "href": "/people/#william-clark"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark",
+        "louis-xvi",
+        "william-clark"
+      ]
+    },
+    "falmouth-at-the-licking-forks": {
+      "links": [
+        {
+          "id": "edmund-pendleton",
+          "name": "Edmund Pendleton",
+          "href": "/people/#edmund-pendleton"
+        },
+        {
+          "id": "henry-bird",
+          "name": "Henry Bird",
+          "href": "/stories/ojibwe-on-birds-war-road/"
+        }
+      ],
+      "portraits": [
+        "edmund-pendleton"
+      ]
+    },
+    "father-david-rice-and-kentuckys-first-presbyterian-churches": {
+      "links": [
+        {
+          "id": "david-rice",
+          "name": "David Rice",
+          "href": "/people/#david-rice"
+        }
+      ],
+      "portraits": []
+    },
+    "fox-farm-mason-county": {
+      "links": [],
+      "portraits": []
+    },
+    "frederick-stitzels-barrel-racks-1879": {
+      "links": [
+        {
+          "id": "frederick-stitzel",
+          "name": "Frederick Stitzel",
+          "href": "/people/#frederick-stitzel"
+        },
+        {
+          "id": "e-h-taylor-jr",
+          "name": "E. H. Taylor Jr.",
+          "href": "/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897/"
+        }
+      ],
+      "portraits": [
+        "e-h-taylor-jr"
+      ]
+    },
+    "gaitskill-mounds-engraved-tablets": {
+      "links": [
+        {
+          "id": "hugh-forbes",
+          "name": "Hugh Forbes",
+          "href": "/people/#hugh-forbes"
+        }
+      ],
+      "portraits": [
+        "hugh-forbes"
+      ]
+    },
+    "gen-charles-scott-and-petersburg": {
+      "links": [
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/people/#charles-scott"
+        },
+        {
+          "id": "anthony-wayne",
+          "name": "Anthony Wayne",
+          "href": "/people/#anthony-wayne"
+        },
+        {
+          "id": "nathaniel-gist",
+          "name": "Nathaniel Gist",
+          "href": "/people/#nathaniel-gist"
+        }
+      ],
+      "portraits": [
+        "anthony-wayne",
+        "nathaniel-gist"
+      ]
+    },
+    "gen-james-wilkinson-kentuckys-agent-13": {
+      "links": [
+        {
+          "id": "james-wilkinson",
+          "name": "James Wilkinson",
+          "href": "/people/#james-wilkinson"
+        },
+        {
+          "id": "humphrey-marshall",
+          "name": "Humphrey Marshall",
+          "href": "/people/#humphrey-marshall"
+        },
+        {
+          "id": "esteban-miro",
+          "name": "Esteban Miró",
+          "href": "/people/#esteban-miro"
+        },
+        {
+          "id": "andrew-holmes",
+          "name": "Andrew Holmes",
+          "href": "/people/#andrew-holmes"
+        },
+        {
+          "id": "theodore-roosevelt",
+          "name": "Theodore Roosevelt",
+          "href": "/people/#theodore-roosevelt"
+        }
+      ],
+      "portraits": [
+        "esteban-miro",
+        "theodore-roosevelt"
+      ]
+    },
+    "george-garvin-brown-and-old-forester": {
+      "links": [
+        {
+          "id": "george-garvin-brown",
+          "name": "George Garvin Brown",
+          "href": "/people/#george-garvin-brown"
+        },
+        {
+          "id": "evan-williams",
+          "name": "Evan Williams",
+          "href": "/stories/evan-williams-on-the-louisville-wharf/"
+        },
+        {
+          "id": "frederick-stitzel",
+          "name": "Frederick Stitzel",
+          "href": "/people/#frederick-stitzel"
+        }
+      ],
+      "portraits": [
+        "evan-williams"
+      ]
+    },
+    "george-rogers-clark": {
+      "links": [
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/people/#george-rogers-clark"
+        },
+        {
+          "id": "patrick-henry",
+          "name": "Patrick Henry",
+          "href": "/people/#patrick-henry"
+        },
+        {
+          "id": "henry-hamilton",
+          "name": "Henry Hamilton",
+          "href": "/people/#henry-hamilton"
+        },
+        {
+          "id": "louis-xvi",
+          "name": "Louis XVI",
+          "href": "/people/#louis-xvi"
+        }
+      ],
+      "portraits": [
+        "patrick-henry",
+        "henry-hamilton",
+        "louis-xvi"
+      ]
+    },
+    "great-saltpetre-cave": {
+      "links": [
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        }
+      ],
+      "portraits": [
+        "daniel-boone"
+      ]
+    },
+    "hansen-site-15gp14": {
+      "links": [],
+      "portraits": []
+    },
+    "hardin-village-15gp22": {
+      "links": [],
+      "portraits": []
+    },
+    "harry-innes": {
+      "links": [
+        {
+          "id": "harry-innes",
+          "name": "Harry Innes",
+          "href": "/people/#harry-innes"
+        },
+        {
+          "id": "george-washington",
+          "name": "George Washington",
+          "href": "/people/#george-washington"
+        },
+        {
+          "id": "aaron-burr",
+          "name": "Aaron Burr",
+          "href": "/people/#aaron-burr"
+        },
+        {
+          "id": "humphrey-marshall",
+          "name": "Humphrey Marshall",
+          "href": "/people/#humphrey-marshall"
+        }
+      ],
+      "portraits": [
+        "george-washington",
+        "aaron-burr"
+      ]
+    },
+    "hartford-fort-hartford-on-the-rough-river": {
+      "links": [
+        {
+          "id": "gabriel-madison",
+          "name": "Gabriel Madison",
+          "href": "/people/#gabriel-madison"
+        },
+        {
+          "id": "william-smeathers",
+          "name": "William Smeathers",
+          "href": "/people/#william-smeathers"
+        }
+      ],
+      "portraits": []
+    },
+    "howard-site-late-fort-ancient": {
+      "links": [],
+      "portraits": []
+    },
+    "indian-fort-mountain": {
+      "links": [],
+      "portraits": []
+    },
+    "indian-knoll-ohio-county": {
+      "links": [],
+      "portraits": []
+    },
+    "iroquois-beaver-wars": {
+      "links": [],
+      "portraits": []
+    },
+    "isaac-shelby-old-kings-mountain": {
+      "links": [
+        {
+          "id": "isaac-shelby",
+          "name": "Isaac Shelby",
+          "href": "/people/#isaac-shelby"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
+        }
+      ],
+      "portraits": []
+    },
+    "jack-jouett-kentuckys-midnight-rider": {
+      "links": [
+        {
+          "id": "banastre-tarleton",
+          "name": "Banastre Tarleton",
+          "href": "/people/#banastre-tarleton"
+        },
+        {
+          "id": "thomas-jefferson",
+          "name": "Thomas Jefferson",
+          "href": "/people/#thomas-jefferson"
+        }
+      ],
+      "portraits": [
+        "banastre-tarleton",
+        "thomas-jefferson"
+      ]
+    },
+    "james-crow-on-glenns-creek": {
+      "links": [
+        {
+          "id": "james-c-crow",
+          "name": "James C. Crow",
+          "href": "/people/#james-c-crow"
+        },
+        {
+          "id": "oscar-pepper",
+          "name": "Oscar Pepper",
+          "href": "/people/#oscar-pepper"
+        },
+        {
+          "id": "e-h-taylor-jr",
+          "name": "E. H. Taylor Jr.",
+          "href": "/stories/e-h-taylor-jr-and-the-bottled-in-bond-act-1897/"
+        }
+      ],
+      "portraits": [
+        "e-h-taylor-jr"
+      ]
+    },
+    "jeptha-knob-shelby-countys-buried-crater": {
+      "links": [],
+      "portraits": []
+    },
+    "john-bradford-and-the-kentucke-gazette": {
+      "links": [
+        {
+          "id": "john-bradford",
+          "name": "John Bradford",
+          "href": "/people/#john-bradford"
+        },
+        {
+          "id": "fielding-bradford",
+          "name": "Fielding Bradford",
+          "href": "/people/#fielding-bradford"
+        }
+      ],
+      "portraits": []
+    },
+    "john-filson-kentucke-1784": {
+      "links": [
+        {
+          "id": "john-filson",
+          "name": "John Filson",
+          "href": "/people/#john-filson"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        },
+        {
+          "id": "robert-patterson",
+          "name": "Robert Patterson",
+          "href": "/people/#robert-patterson"
+        },
+        {
+          "id": "arthur-st-clair",
+          "name": "Arthur St. Clair",
+          "href": "/people/#arthur-st-clair"
+        }
+      ],
+      "portraits": [
+        "daniel-boone",
+        "robert-patterson",
+        "arthur-st-clair"
+      ]
+    },
+    "john-floyd": {
+      "links": [
+        {
+          "id": "john-floyd",
+          "name": "John Floyd",
+          "href": "/people/#john-floyd"
+        },
+        {
+          "id": "william-preston",
+          "name": "William Preston",
+          "href": "/people/#william-preston"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
+        },
+        {
+          "id": "jemima-boone",
+          "name": "Jemima Boone",
+          "href": "/people/#jemima-boone"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "william-christian",
+          "name": "William Christian",
+          "href": "/stories/william-christian-of-beargrass/"
+        }
+      ],
+      "portraits": [
+        "william-preston",
+        "jemima-boone",
+        "george-rogers-clark",
+        "william-christian"
+      ]
+    },
+    "jonathan-creek-mississippian-center": {
+      "links": [],
+      "portraits": []
+    },
+    "kentucky-river-palisades": {
+      "links": [],
+      "portraits": []
+    },
+    "kickapoo-on-the-kentucky-frontier": {
+      "links": [
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/stories/gen-charles-scott-and-petersburg/"
+        },
+        {
+          "id": "james-wilkinson",
+          "name": "James Wilkinson",
+          "href": "/stories/gen-james-wilkinson-kentuckys-agent-13/"
+        }
+      ],
+      "portraits": [
+        "charles-scott",
+        "james-wilkinson"
+      ]
+    },
+    "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
+      "links": [
+        {
+          "id": "arthur-st-clair",
+          "name": "Arthur St. Clair",
+          "href": "/people/#arthur-st-clair"
+        },
+        {
+          "id": "lafayette",
+          "name": "Marquis de Lafayette",
+          "href": "/people/#lafayette"
+        }
+      ],
+      "portraits": [
+        "arthur-st-clair",
+        "lafayette"
+      ]
+    },
+    "lebanon-cedars-meeting-house-county-seat": {
+      "links": [
+        {
+          "id": "francis-marion",
+          "name": "Francis Marion",
+          "href": "/people/#francis-marion"
+        }
+      ],
+      "portraits": [
+        "francis-marion"
+      ]
+    },
+    "lexington-named": {
+      "links": [
+        {
+          "id": "robert-patterson",
+          "name": "Robert Patterson",
+          "href": "/people/#robert-patterson"
+        }
+      ],
+      "portraits": [
+        "robert-patterson"
+      ]
+    },
+    "lexington-ohio-railroad": {
+      "links": [
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        }
+      ],
+      "portraits": [
+        "daniel-boone"
+      ]
+    },
+    "little-turtle-and-hardins-defeat-1790": {
+      "links": [
+        {
+          "id": "little-turtle",
+          "name": "Little Turtle",
+          "href": "/people/#little-turtle"
+        },
+        {
+          "id": "josiah-harmar",
+          "name": "Josiah Harmar",
+          "href": "/people/#josiah-harmar"
+        },
+        {
+          "id": "john-hardin",
+          "name": "John Hardin",
+          "href": "/stories/col-john-hardin-of-pleasant-run/"
+        },
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/stories/gen-charles-scott-and-petersburg/"
+        },
+        {
+          "id": "arthur-st-clair",
+          "name": "Arthur St. Clair",
+          "href": "/people/#arthur-st-clair"
+        }
+      ],
+      "portraits": [
+        "josiah-harmar",
+        "john-hardin",
+        "charles-scott",
+        "arthur-st-clair"
+      ]
+    },
+    "lost-river-cave": {
+      "links": [],
+      "portraits": []
+    },
+    "louisville-and-portland-canal": {
+      "links": [],
+      "portraits": []
+    },
+    "louisville-nashville-railroad-opens-the-interior": {
+      "links": [],
+      "portraits": []
+    },
+    "lower-shawneetown-greenup-county": {
+      "links": [],
+      "portraits": []
+    },
+    "maj-joseph-bowman": {
+      "links": [
+        {
+          "id": "joseph-bowman",
+          "name": "Joseph Bowman",
+          "href": "/people/#joseph-bowman"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
+        },
+        {
+          "id": "john-bowman",
+          "name": "John Bowman",
+          "href": "/stories/col-john-bowman-at-old-chillicothe/"
+        },
+        {
+          "id": "henry-hamilton",
+          "name": "Henry Hamilton",
+          "href": "/people/#henry-hamilton"
+        },
+        {
+          "id": "patrick-henry",
+          "name": "Patrick Henry",
+          "href": "/people/#patrick-henry"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark",
+        "john-bowman",
+        "henry-hamilton",
+        "patrick-henry"
+      ]
+    },
+    "maj-silas-harlan": {
+      "links": [
+        {
+          "id": "silas-harlan",
+          "name": "Silas Harlan",
+          "href": "/people/#silas-harlan"
+        },
+        {
+          "id": "richard-henderson",
+          "name": "Richard Henderson",
+          "href": "/stories/richard-henderson/"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "john-bowman",
+          "name": "John Bowman",
+          "href": "/stories/col-john-bowman-at-old-chillicothe/"
+        }
+      ],
+      "portraits": [
+        "richard-henderson",
+        "george-rogers-clark",
+        "john-bowman"
+      ]
+    },
+    "mammoth-cave-saltpeter": {
+      "links": [],
+      "portraits": []
+    },
+    "manns-lick-louisvilles-salt-town": {
+      "links": [
+        {
+          "id": "john-mann",
+          "name": "John Mann",
+          "href": "/people/#john-mann"
+        },
+        {
+          "id": "thomas-bullitt",
+          "name": "Thomas Bullitt",
+          "href": "/people/#thomas-bullitt"
+        },
+        {
+          "id": "john-todd",
+          "name": "John Todd",
+          "href": "/stories/col-john-todd-of-lexington/"
+        },
+        {
+          "id": "joseph-brooks",
+          "name": "Joseph Brooks",
+          "href": "/people/#joseph-brooks"
+        },
+        {
+          "id": "james-f-moore",
+          "name": "James F. Moore",
+          "href": "/people/#james-f-moore"
+        }
+      ],
+      "portraits": [
+        "john-todd"
+      ]
+    },
+    "mantle-rock-and-the-trail-of-tears": {
+      "links": [
+        {
+          "id": "peter-hildebrand",
+          "name": "Peter Hildebrand",
+          "href": "/people/#peter-hildebrand"
+        }
+      ],
+      "portraits": [
+        "peter-hildebrand"
+      ]
+    },
+    "mary-draper-ingles-escapes-through-kentucky-1755": {
+      "links": [
+        {
+          "id": "mary-draper-ingles",
+          "name": "Mary Draper Ingles",
+          "href": "/people/#mary-draper-ingles"
+        }
+      ],
+      "portraits": []
+    },
+    "mascouten-fire-nation-on-the-wabash": {
+      "links": [
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/stories/gen-charles-scott-and-petersburg/"
+        },
+        {
+          "id": "john-hardin",
+          "name": "John Hardin",
+          "href": "/stories/col-john-hardin-of-pleasant-run/"
+        },
+        {
+          "id": "james-wilkinson",
+          "name": "James Wilkinson",
+          "href": "/stories/gen-james-wilkinson-kentuckys-agent-13/"
+        }
+      ],
+      "portraits": [
+        "charles-scott",
+        "john-hardin",
+        "james-wilkinson"
+      ]
+    },
+    "mclean-drift-bank-kentuckys-first-commercial-coal-mine": {
+      "links": [
+        {
+          "id": "thomas-walker",
+          "name": "Thomas Walker",
+          "href": "/stories/thomas-walker-and-cumberland-gap/"
+        },
+        {
+          "id": "leonard-stom",
+          "name": "Leonard Stom",
+          "href": "/people/#leonard-stom"
+        }
+      ],
+      "portraits": []
+    },
+    "miami-hunters-return-north-of-the-ohio": {
+      "links": [
+        {
+          "id": "little-turtle",
+          "name": "Little Turtle",
+          "href": "/stories/little-turtle-and-hardins-defeat-1790/"
+        }
+      ],
+      "portraits": [
+        "little-turtle"
+      ]
+    },
+    "mingo-camps-south-of-the-ohio": {
+      "links": [],
+      "portraits": []
+    },
+    "moluntha-and-logans-raid-1786": {
+      "links": [
+        {
+          "id": "moluntha",
+          "name": "Moluntha",
+          "href": "/people/#moluntha"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "benjamin-logan",
+          "name": "Benjamin Logan",
+          "href": "/stories/benjamin-logan/"
+        },
+        {
+          "id": "hugh-mcgary",
+          "name": "Hugh McGary",
+          "href": "/stories/hugh-mcgary-the-blue-licks-hothead/"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark",
+        "benjamin-logan",
+        "hugh-mcgary"
+      ]
+    },
+    "mosopelea-ofo-the-ohio-valley": {
+      "links": [
+        {
+          "id": "jean-baptiste-franquelin",
+          "name": "Jean-Baptiste-Louis Franquelin",
+          "href": "/people/#jean-baptiste-franquelin"
+        }
+      ],
+      "portraits": []
+    },
+    "mount-horeb-earthworks": {
+      "links": [],
+      "portraits": []
+    },
+    "muir-site-early-fort-ancient": {
+      "links": [],
+      "portraits": []
+    },
+    "natural-bridge-sandstone-arch": {
+      "links": [],
+      "portraits": []
+    },
+    "new-castle-henry-county-seat": {
+      "links": [
+        {
+          "id": "patrick-henry",
+          "name": "Patrick Henry",
+          "href": "/people/#patrick-henry"
+        }
+      ],
+      "portraits": [
+        "patrick-henry"
+      ]
+    },
+    "newt-kash-hollow-15mf1": {
+      "links": [],
+      "portraits": []
+    },
+    "nonhelema": {
+      "links": [
+        {
+          "id": "nonhelema",
+          "name": "Nonhelema",
+          "href": "/people/#nonhelema"
+        },
+        {
+          "id": "benjamin-logan",
+          "name": "Benjamin Logan",
+          "href": "/stories/benjamin-logan/"
+        }
+      ],
+      "portraits": [
+        "benjamin-logan"
+      ]
+    },
+    "odawa-raid-at-eskippakithiki-1753": {
+      "links": [
+        {
+          "id": "john-finley",
+          "name": "John Finley",
+          "href": "/stories/john-finley-the-trader-who-put-kentucky-on-boones-map/"
+        },
+        {
+          "id": "john-faulkner",
+          "name": "John Faulkner",
+          "href": "/people/#john-faulkner"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        }
+      ],
+      "portraits": [
+        "john-finley",
+        "daniel-boone"
+      ]
+    },
+    "ojibwe-on-birds-war-road": {
+      "links": [
+        {
+          "id": "henry-bird",
+          "name": "Henry Bird",
+          "href": "/people/#henry-bird"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "alexander-mckee",
+          "name": "Alexander McKee",
+          "href": "/people/#alexander-mckee"
+        },
+        {
+          "id": "blue-jacket",
+          "name": "Blue Jacket",
+          "href": "/stories/blue-jacket-weyapiersenwah/"
+        },
+        {
+          "id": "simon-girty",
+          "name": "Simon Girty",
+          "href": "/stories/simon-girty-interpreter-at-bryan-station-1782/"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark",
+        "alexander-mckee",
+        "blue-jacket",
+        "simon-girty"
+      ]
+    },
+    "old-fort-earthworks-15gp1-greenup-county": {
+      "links": [
+        {
+          "id": "patrick-henry",
+          "name": "Patrick Henry",
+          "href": "/people/#patrick-henry"
+        }
+      ],
+      "portraits": [
+        "patrick-henry"
+      ]
+    },
+    "osage-memory-of-the-ohio-valley": {
+      "links": [],
+      "portraits": []
+    },
+    "page-site-lost-city-15lo1": {
+      "links": [],
+      "portraits": []
+    },
+    "peter-village-enclosure-15fa166": {
+      "links": [],
+      "portraits": []
+    },
+    "phosphatic-limestone-and-horse-country": {
+      "links": [],
+      "portraits": []
+    },
+    "piankashaw-claims-on-the-ohio-wabash": {
+      "links": [],
+      "portraits": []
+    },
+    "pine-mountain-and-pound-gap": {
+      "links": [
+        {
+          "id": "christopher-gist",
+          "name": "Christopher Gist",
+          "href": "/stories/christopher-gist-1750-51/"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        },
+        {
+          "id": "michael-stoner",
+          "name": "Michael Stoner",
+          "href": "/stories/michael-stoner-german-long-hunter/"
+        },
+        {
+          "id": "james-a-garfield",
+          "name": "James A. Garfield",
+          "href": "/people/#james-a-garfield"
+        }
+      ],
+      "portraits": [
+        "christopher-gist",
+        "daniel-boone",
+        "michael-stoner",
+        "james-a-garfield"
+      ]
+    },
+    "potawatomi-fire-keepers-and-the-ohio-valley-wars": {
+      "links": [
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/stories/gen-charles-scott-and-petersburg/"
+        }
+      ],
+      "portraits": [
+        "charles-scott"
+      ]
+    },
+    "quapaw-the-downstream-people-of-the-ohio-valley": {
+      "links": [],
+      "portraits": []
+    },
+    "read-shell-midden-15bt10-butler-county": {
+      "links": [],
+      "portraits": []
+    },
+    "red-bird-petroglyphs-clay-county": {
+      "links": [
+        {
+          "id": "red-bird",
+          "name": "Red Bird",
+          "href": "/people/#red-bird"
+        }
+      ],
+      "portraits": []
+    },
+    "red-river-gorge-arches-and-the-dam-fight": {
+      "links": [
+        {
+          "id": "bill-clinton",
+          "name": "Bill Clinton",
+          "href": "/people/#bill-clinton"
+        }
+      ],
+      "portraits": [
+        "bill-clinton"
+      ]
+    },
+    "robbins-mounds-boone-county": {
+      "links": [],
+      "portraits": []
+    },
+    "rowlandton-mound-site-15mcn3": {
+      "links": [],
+      "portraits": []
+    },
+    "saltpeter-cave-at-carter-caves": {
+      "links": [],
+      "portraits": []
+    },
+    "salts-cave-15ht4": {
+      "links": [],
+      "portraits": []
+    },
+    "sassafras-ridge-15fu3-fulton-county": {
+      "links": [],
+      "portraits": []
+    },
+    "shawnee-chillicothe-divisions": {
+      "links": [
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        },
+        {
+          "id": "john-bowman",
+          "name": "John Bowman",
+          "href": "/stories/col-john-bowman-at-old-chillicothe/"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        }
+      ],
+      "portraits": [
+        "daniel-boone",
+        "john-bowman",
+        "george-rogers-clark"
+      ]
+    },
+    "shepherdsville-on-salt-river": {
+      "links": [
+        {
+          "id": "thomas-bullitt",
+          "name": "Thomas Bullitt",
+          "href": "/people/#thomas-bullitt"
+        },
+        {
+          "id": "adam-shepherd",
+          "name": "Adam Shepherd",
+          "href": "/people/#adam-shepherd"
+        }
+      ],
+      "portraits": []
+    },
+    "singer-hieronymus-fort-ancient-villages": {
+      "links": [],
+      "portraits": []
+    },
+    "slack-farm-15un28-union-county": {
+      "links": [],
+      "portraits": []
+    },
+    "slone-site-15pi11-pike-county": {
+      "links": [],
+      "portraits": []
+    },
+    "susquehannock-and-the-ohio-valley-door": {
+      "links": [],
+      "portraits": []
+    },
+    "sweet-lick-knob-fort-ancient-gathering-place": {
+      "links": [],
+      "portraits": []
+    },
+    "the-c-and-o-mounds-johnson-county": {
+      "links": [],
+      "portraits": []
+    },
+    "the-travelling-church-1781": {
+      "links": [
+        {
+          "id": "lewis-craig",
+          "name": "Lewis Craig",
+          "href": "/people/#lewis-craig"
+        },
+        {
+          "id": "william-ellis",
+          "name": "William Ellis",
+          "href": "/people/#william-ellis"
+        },
+        {
+          "id": "elijah-craig",
+          "name": "Elijah Craig",
+          "href": "/people/#elijah-craig"
+        },
+        {
+          "id": "james-madison",
+          "name": "James Madison",
+          "href": "/people/#james-madison"
+        }
+      ],
+      "portraits": [
+        "elijah-craig",
+        "james-madison"
+      ]
+    },
+    "tinsley-hill-15ly18-lyon-county": {
+      "links": [],
+      "portraits": []
+    },
+    "tolu-site-mississippian-mounds": {
+      "links": [],
+      "portraits": []
+    },
+    "treaty-of-camp-charlotte-1774": {
+      "links": [
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
+        },
+        {
+          "id": "richard-henderson",
+          "name": "Richard Henderson",
+          "href": "/stories/richard-henderson/"
+        }
+      ],
+      "portraits": [
+        "richard-henderson"
+      ]
+    },
+    "treaty-of-fort-mcintosh-1785": {
+      "links": [
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
+          "id": "william-hubbell",
+          "name": "William Hubbell",
+          "href": "/people/#william-hubbell"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark"
+      ]
+    },
+    "treaty-of-fort-stanwix-1768": {
+      "links": [
+        {
+          "id": "william-johnson",
+          "name": "Sir William Johnson",
+          "href": "/people/#william-johnson"
+        }
+      ],
+      "portraits": [
+        "william-johnson"
+      ]
+    },
+    "turk-site-carlisle-county": {
+      "links": [],
+      "portraits": []
+    },
+    "tutelo-the-totteroy": {
+      "links": [
+        {
+          "id": "john-lawson",
+          "name": "John Lawson",
+          "href": "/people/#john-lawson"
+        }
+      ],
+      "portraits": [
+        "john-lawson"
+      ]
+    },
+    "twin-mounds-site": {
+      "links": [],
+      "portraits": []
+    },
+    "walker-daniel-danvilles-namesake": {
+      "links": [
+        {
+          "id": "walker-daniel",
+          "name": "Walker Daniel",
+          "href": "/people/#walker-daniel"
+        },
+        {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        }
+      ],
+      "portraits": [
+        "george-rogers-clark"
+      ]
+    },
+    "ward-site-15mcl11-mclean-county": {
+      "links": [],
+      "portraits": []
+    },
+    "wea-waayaahtanwa-on-the-wabash": {
+      "links": [
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/stories/gen-charles-scott-and-petersburg/"
+        }
+      ],
+      "portraits": [
+        "charles-scott"
+      ]
+    },
+    "wickliffe-mounds-mississippian-village-ballard-county": {
+      "links": [],
+      "portraits": []
+    },
+    "wright-mounds-montgomery-county": {
+      "links": [],
+      "portraits": []
+    },
+    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow": {
+      "links": [],
+      "portraits": []
+    },
+    "yahoo-falls-big-south-fork": {
+      "links": [],
+      "portraits": []
+    },
+    "yuchi-on-the-green-river-maps": {
+      "links": [],
+      "portraits": []
     }
   }
 }
