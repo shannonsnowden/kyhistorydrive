@@ -108,6 +108,8 @@ export const PORTRAIT_ALTS = {
   'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772",
   // River Raisin: modeled on the Earl oil, c. 1817. A real likeness exists.
   'james-winchester': 'AI illustration of Brig. Gen. James Winchester, about age 60 at River Raisin, 1813, modeled on the Ralph E.W. Earl portrait',
+  // Susannah Hart Shelby v1 (Oct 2026). None-known.
+  'susannah-shelby': 'AI illustration of Susannah Hart Shelby, Kentucky first First Lady, about 1792–95',
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
 }
 
