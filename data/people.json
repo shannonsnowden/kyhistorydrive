@@ -7065,16 +7065,17 @@
       ],
       "role": "General at the River Raisin",
       "native": false,
-      "likeness": "none-known",
+      "likeness": "portrait",
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
-      "notes": "No-portrait stub so the River Raisin story can link /people/#james-winchester. No AI illustration until a likeness is supplied."
+      "notes": "Canonical face: cleared AI illustration (v1, Oct 2026), modeled on the Ralph E.W. Earl oil portrait of Brig. Gen. James Winchester, c. 1817 (Tennessee Portrait Project / Cragfont; public domain), https://commons.wikimedia.org/wiki/File:James-winchester-by-earl.jpg.",
+      "ai": true
     },
     {
       "id": "lord-dunmore",
