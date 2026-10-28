@@ -251,6 +251,36 @@
           "id": "scarouady",
           "name": "Scarouady",
           "href": "/people/#scarouady"
+        },
+        {
+          "id": "joshua-fry",
+          "name": "Joshua Fry",
+          "href": "/people/#joshua-fry"
+        },
+        {
+          "id": "james-patton",
+          "name": "James Patton",
+          "href": "/people/#james-patton"
+        },
+        {
+          "id": "lunsford-lomax",
+          "name": "Lunsford Lomax",
+          "href": "/people/#lunsford-lomax"
+        },
+        {
+          "id": "christopher-gist",
+          "name": "Christopher Gist",
+          "href": "/stories/christopher-gist-1750-51/"
+        },
+        {
+          "id": "william-trent",
+          "name": "William Trent",
+          "href": "/people/#william-trent"
+        },
+        {
+          "id": "william-beverley",
+          "name": "William Beverley",
+          "href": "/people/#william-beverley"
         }
       ],
       "portraits": [
@@ -516,6 +546,21 @@
           "id": "george-boone",
           "name": "George Boone",
           "href": "/people/#george-boone"
+        },
+        {
+          "id": "jones-hoy",
+          "name": "Jones Hoy",
+          "href": "/people/#jones-hoy"
+        },
+        {
+          "id": "jack-calloway",
+          "name": "Jack Calloway",
+          "href": "/people/#jack-calloway"
+        },
+        {
+          "id": "john-holder",
+          "name": "John Holder",
+          "href": "/stories/col-john-holder-at-lower-howards-creek/"
         }
       ],
       "portraits": [
@@ -560,6 +605,11 @@
           "href": "/people/#john-holder"
         },
         {
+          "id": "george-rogers-clark",
+          "name": "George Rogers Clark",
+          "href": "/stories/george-rogers-clark/"
+        },
+        {
           "id": "fanny-callaway",
           "name": "Fanny Callaway",
           "href": "/people/#fanny-callaway"
@@ -568,6 +618,11 @@
           "id": "jemima-boone",
           "name": "Jemima Boone",
           "href": "/people/#jemima-boone"
+        },
+        {
+          "id": "isaac-shelby",
+          "name": "Isaac Shelby",
+          "href": "/stories/isaac-shelby-old-kings-mountain/"
         }
       ],
       "portraits": [
@@ -1005,9 +1060,59 @@
     "col-john-hardin-of-pleasant-run": {
       "links": [
         {
+          "id": "john-hardin",
+          "name": "John Hardin",
+          "href": "/people/#john-hardin"
+        },
+        {
+          "id": "lord-dunmore",
+          "name": "Lord Dunmore",
+          "href": "/people/#lord-dunmore"
+        },
+        {
+          "id": "angus-mcdonald",
+          "name": "Angus McDonald",
+          "href": "/people/#angus-mcdonald"
+        },
+        {
+          "id": "daniel-morgan",
+          "name": "Daniel Morgan",
+          "href": "/people/#daniel-morgan"
+        },
+        {
+          "id": "little-turtle",
+          "name": "Little Turtle",
+          "href": "/stories/little-turtle-and-hardins-defeat-1790/"
+        },
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/stories/gen-charles-scott-and-petersburg/"
+        },
+        {
+          "id": "james-wilkinson",
+          "name": "James Wilkinson",
+          "href": "/stories/gen-james-wilkinson-kentuckys-agent-13/"
+        },
+        {
+          "id": "martin-d-hardin",
+          "name": "Martin D. Hardin",
+          "href": "/people/#martin-d-hardin"
+        },
+        {
           "id": "ann-logan",
           "name": "Ann Logan",
           "href": "/people/#ann-logan"
+        },
+        {
+          "id": "benjamin-logan",
+          "name": "Benjamin Logan",
+          "href": "/stories/benjamin-logan/"
+        },
+        {
+          "id": "mark-hardin",
+          "name": "Mark Hardin",
+          "href": "/people/#mark-hardin"
         }
       ],
       "portraits": [
@@ -1134,6 +1239,156 @@
           "id": "james-winchester",
           "name": "James Winchester",
           "href": "/people/#james-winchester"
+        }
+      ],
+      "portraits": []
+    },
+    "henry-skaggs-green-river-long-hunter": {
+      "links": [
+        {
+          "id": "henry-skaggs",
+          "name": "Henry Skaggs",
+          "href": "/people/#henry-skaggs"
+        },
+        {
+          "id": "elisha-walden",
+          "name": "Elisha Walden",
+          "href": "/people/#elisha-walden"
+        },
+        {
+          "id": "kasper-mansker",
+          "name": "Kasper Mansker",
+          "href": "/people/#kasper-mansker"
+        },
+        {
+          "id": "joseph-drake",
+          "name": "Joseph Drake",
+          "href": "/people/#joseph-drake"
+        },
+        {
+          "id": "james-knox",
+          "name": "James Knox",
+          "href": "/stories/james-knox/"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        },
+        {
+          "id": "valentine-harman",
+          "name": "Valentine Harman",
+          "href": "/people/#valentine-harman"
+        },
+        {
+          "id": "thomas-slaughter",
+          "name": "Thomas Slaughter",
+          "href": "/people/#thomas-slaughter"
+        }
+      ],
+      "portraits": []
+    },
+    "simon-girty-interpreter-at-bryan-station-1782": {
+      "links": [
+        {
+          "id": "simon-girty",
+          "name": "Simon Girty",
+          "href": "/people/#simon-girty"
+        },
+        {
+          "id": "alexander-mckee",
+          "name": "Alexander McKee",
+          "href": "/people/#alexander-mckee"
+        },
+        {
+          "id": "henry-hamilton",
+          "name": "Henry Hamilton",
+          "href": "/people/#henry-hamilton"
+        },
+        {
+          "id": "matthew-elliott",
+          "name": "Matthew Elliott",
+          "href": "/people/#matthew-elliott"
+        },
+        {
+          "id": "william-caldwell",
+          "name": "William Caldwell",
+          "href": "/people/#william-caldwell"
+        },
+        {
+          "id": "blue-jacket",
+          "name": "Blue Jacket",
+          "href": "/stories/blue-jacket-weyapiersenwah/"
+        },
+        {
+          "id": "john-todd",
+          "name": "John Todd",
+          "href": "/stories/col-john-todd-of-lexington/"
+        }
+      ],
+      "portraits": []
+    },
+    "carlisle-kincarts-peach-orchard-county-seat": {
+      "links": [
+        {
+          "id": "george-nicholas",
+          "name": "George Nicholas",
+          "href": "/people/#george-nicholas"
+        },
+        {
+          "id": "martin-baker-jr",
+          "name": "Martin Baker Jr.",
+          "href": "/people/#martin-baker-jr"
+        },
+        {
+          "id": "john-kincart",
+          "name": "John Kincart",
+          "href": "/people/#john-kincart"
+        },
+        {
+          "id": "samuel-kincart",
+          "name": "Samuel Kincart",
+          "href": "/people/#samuel-kincart"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        }
+      ],
+      "portraits": []
+    },
+    "carrollton-from-port-william": {
+      "links": [
+        {
+          "id": "charles-scott",
+          "name": "Charles Scott",
+          "href": "/stories/gen-charles-scott-and-petersburg/"
+        },
+        {
+          "id": "benjamin-craig",
+          "name": "Benjamin Craig",
+          "href": "/people/#benjamin-craig"
+        },
+        {
+          "id": "lewis-craig",
+          "name": "Lewis Craig",
+          "href": "/stories/the-travelling-church-1781/"
+        },
+        {
+          "id": "james-hawkins",
+          "name": "James Hawkins",
+          "href": "/people/#james-hawkins"
+        },
+        {
+          "id": "sarah-masterson",
+          "name": "Sarah Masterson",
+          "href": "/people/#sarah-masterson"
+        },
+        {
+          "id": "charles-carroll",
+          "name": "Charles Carroll of Carrollton",
+          "href": "/people/#charles-carroll"
         }
       ],
       "portraits": []

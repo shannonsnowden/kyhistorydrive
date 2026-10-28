@@ -1,10 +1,25 @@
 {
-  "_note": "PR B samples only. build-story-people.mjs links people and adds inline portraits for these slugs until Shannon OKs site-wide. Sample 4 (Blackfish) has an AI portrait (Richard Callaway); sample 5 (Warriors' Path) has portraits beside the route map.",
+  "_note": "PR B samples only. build-story-people.mjs links people and adds inline portraits for these slugs until Shannon OKs site-wide. Sample 4 (Blackfish) has an AI portrait (Richard Callaway); sample 5 (Warriors' Path) has portraits beside the route map. Wave 1 slugs in linksOnly are links only (no new inline portraits). Site-wide linking stays off.",
   "slugs": [
     "georgetown-and-royal-spring",
     "paris-from-hopewell",
     "kentucky-association-1826-lexington-race-course",
     "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
-    "athiamiowee-the-warriors-path-through-kentucky"
+    "athiamiowee-the-warriors-path-through-kentucky",
+    "col-john-hardin-of-pleasant-run",
+    "henry-skaggs-green-river-long-hunter",
+    "treaty-of-logstown-1752",
+    "simon-girty-interpreter-at-bryan-station-1782",
+    "carlisle-kincarts-peach-orchard-county-seat",
+    "carrollton-from-port-william",
+    "taylorsville-on-brashears-creek",
+    "col-john-holder-at-lower-howards-creek",
+    "william-hoy-and-hoys-station"
+  ],
+  "linksOnly": [
+    "henry-skaggs-green-river-long-hunter",
+    "simon-girty-interpreter-at-bryan-station-1782",
+    "carlisle-kincarts-peach-orchard-county-seat",
+    "carrollton-from-port-william"
   ]
 }

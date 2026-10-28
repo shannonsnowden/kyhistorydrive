@@ -13,7 +13,8 @@
  *  - one-word names are skipped unless they are the story's title subject;
  *  - exception: a per-story alias in scripts/portrait-sweep.json (`aliases: { id: 'Surname' }`)
  *    matches that exact text for that one story only (e.g. 'Clark' → george-rogers-clark at
- *    Cahokia). Never a global surname match.
+ *    Cahokia). Never a global surname match. A sample story keeps those aliases when the
+ *    same slug is also in the sweep (one-word names and "Ann Logan").
  * Portraits: real or AI (AI credit "AI illustration · Kentucky History Drive"); never the story's
  * title-subject portrait (already shown) and never the Photos sidebar image.
  * Scope: scripts/story-people-samples.json slugs until site-wide OK.
@@ -31,6 +32,8 @@ const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
 const people = read('public/data/people.json')
 const related = read('public/data/web/related-people.json')
 const scope = read('scripts/story-people-samples.json')
+// Wave 1: link these samples, but do not add inline portraits (no portrait wiring).
+const linksOnly = new Set(scope.linksOnly || [])
 // Portrait sweep (batches): only the listed ids are linked/portrayed in these stories.
 const sweep = read('scripts/portrait-sweep.json').stories || {}
 const slugsInScope = [...new Set([...scope.slugs, ...Object.keys(sweep)])]
@@ -86,7 +89,8 @@ for (const slug of slugsInScope) {
   const cands = people.people.filter((p) => (p.stories || []).includes(slug) && (!swIds || swIds.has(p.id)))
   const skipped = []
   const hits = []
-  const aliases = (sw && sw.aliases) || {}
+  // Samples drop the sweep id filter (sw is null) but still need its aliases.
+  const aliases = (sw && sw.aliases) || sweep[slug]?.aliases || {}
   const matchName = new Map()
   for (const p of cands) {
     const alias = typeof aliases[p.id] === 'string' ? aliases[p.id].trim() : ''
@@ -109,8 +113,14 @@ for (const slug of slugsInScope) {
   })
   const sidebar = story.photo?.source_url ? commonsName(story.photo.source_url) : ''
   const portraits = []
+  // Promoting a sweep story into samples widens links only. A non-empty sweep
+  // portrait list stays as curated (no new faces on that story).
+  const curatedPortraits = sweep[slug]?.portraits
+  const keepCurated = Array.isArray(curatedPortraits) && curatedPortraits.length > 0
   for (const { p } of hits) {
+    if (linksOnly.has(slug)) continue
     if (sw && !(sw.portraits || []).includes(p.id)) continue
+    if (keepCurated && !curatedPortraits.includes(p.id)) continue
     if (!hasSafePortrait(p)) continue
     if (subject && p.id === subject.id) continue
     if (sidebar && p.sourceFile && p.sourceFile.replace(/_/g, ' ').toLowerCase() === sidebar) { skipped.push(`${p.name} portrait (same as Photos sidebar)`); continue }
@@ -136,5 +146,23 @@ for (const slug of slugsInScope) {
   }
   report.push(`  ${slug}: links ${links.map((l) => `${l.name}→${l.href}`).join(', ') || 'none'}; portraits ${figs.join(', ') || 'none'}${skipped.length ? `; skipped ${skipped.join(', ')}` : ''}`)
 }
-fs.writeFileSync(path.join(root, 'public/data/web/story-people.json'), `${JSON.stringify(out, null, 2)}\n`)
+// Keep existing key order when a sweep story is promoted into samples, and
+// append stories that are new to this file.
+const spPath = path.join(root, 'public/data/web/story-people.json')
+try {
+  const prevOrder = Object.keys(JSON.parse(fs.readFileSync(spPath, 'utf8')).stories || {})
+  if (prevOrder.length) {
+    const rank = new Map(prevOrder.map((s, i) => [s, i]))
+    const end = prevOrder.length
+    const ordered = {}
+    for (const slug of Object.keys(out.stories).sort((a, b) => {
+      const ra = rank.has(a) ? rank.get(a) : end
+      const rb = rank.has(b) ? rank.get(b) : end
+      if (ra !== rb) return ra - rb
+      return slugsInScope.indexOf(a) - slugsInScope.indexOf(b)
+    })) ordered[slug] = out.stories[slug]
+    out.stories = ordered
+  }
+} catch { /* first build: slugsInScope order */ }
+fs.writeFileSync(spPath, `${JSON.stringify(out, null, 2)}\n`)
 console.log(`build-story-people: ${slugsInScope.length} stories (${scope.slugs.length} samples + portrait sweep)\n${report.join('\n')}`)
