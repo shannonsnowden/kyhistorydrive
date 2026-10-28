@@ -41,7 +41,9 @@
       "links": [
         "john-todd"
       ],
-      "portraits": []
+      "portraits": [
+        "john-todd"
+      ]
     },
     "thomas-walker-and-cumberland-gap": {
       "links": [
@@ -53,7 +55,9 @@
       "links": [
         "john-finley"
       ],
-      "portraits": []
+      "portraits": [
+        "john-finley"
+      ]
     },
     "treaty-of-logstown-1752": {
       "links": [
@@ -203,7 +207,9 @@
       "links": [
         "william-christian"
       ],
-      "portraits": []
+      "portraits": [
+        "william-christian"
+      ]
     },
     "bardstown": {
       "links": [
@@ -564,7 +570,8 @@
         "ann-logan"
       ],
       "portraits": [
-        "ann-logan"
+        "ann-logan",
+        "john-hardin"
       ],
       "aliases": {
         "ann-logan": "Ann Logan"
@@ -659,6 +666,30 @@
       ],
       "portraits": [
         "james-winchester"
+      ]
+    },
+    "col-stephen-trigg-of-viney-grove": {
+      "links": [
+        "stephen-trigg"
+      ],
+      "portraits": [
+        "stephen-trigg"
+      ]
+    },
+    "levi-todd-lexington-co-founder": {
+      "links": [
+        "levi-todd"
+      ],
+      "portraits": [
+        "levi-todd"
+      ]
+    },
+    "squire-boones-painted-stone": {
+      "links": [
+        "squire-boone"
+      ],
+      "portraits": [
+        "squire-boone"
       ]
     }
   }
