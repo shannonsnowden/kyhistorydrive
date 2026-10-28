@@ -18,7 +18,10 @@
  * Portraits: real or AI (AI credit "AI illustration · Kentucky History Drive"); never the story's
  * title-subject portrait (already shown) unless this sweep lists that id, and never the Photos
  * sidebar image. The page subject portrait stays the one face; prerender does not repeat it.
- * Scope: scripts/story-people-samples.json slugs until site-wide OK.
+ * Scope: every story JSON under public/content/stories/ (Shannon site-wide OK, Oct 28, 2026).
+ * Portrait-sweep stories still link only the listed ids, except original PR B sample slugs in
+ * scripts/story-people-samples.json, which widen links when the same slug is also in the sweep.
+ * Wave-1 linksOnly slugs in that file stay links-only (no inline portraits).
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -32,14 +35,21 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
 const people = read('public/data/people.json')
 const related = read('public/data/web/related-people.json')
-const scope = read('scripts/story-people-samples.json')
-// Wave 1: link these samples, but do not add inline portraits (no portrait wiring).
-const linksOnly = new Set(scope.linksOnly || [])
-// Portrait sweep (batches): only the listed ids are linked/portrayed in these stories.
+const samples = read('scripts/story-people-samples.json')
+// Wave 1: link these slugs, but do not add inline portraits (no portrait wiring).
+const linksOnly = new Set(samples.linksOnly || [])
+// Original PR B samples. A sample that is also in the portrait sweep widens links past
+// the sweep id list. Curated portraits still apply below.
+const widenLinks = new Set(samples.slugs || [])
+// Portrait sweep (batches): only the listed ids are linked/portrayed in these stories,
+// unless the slug is a PR B sample (widenLinks).
 const sweep = read('scripts/portrait-sweep.json').stories || {}
-const slugsInScope = [...new Set([...scope.slugs, ...Object.keys(sweep)])]
 const dir = path.join(root, 'public/content/stories')
-const stories = new Set(fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'index.json').map((f) => f.slice(0, -5)))
+const slugsInScope = fs.readdirSync(dir)
+  .filter((f) => f.endsWith('.json') && f !== 'index.json')
+  .map((f) => f.slice(0, -5))
+  .sort()
+const stories = new Set(slugsInScope)
 const byId = new Map(people.people.map((p) => [p.id, p]))
 const strip = (md) => String(md || '').replace(/^[ \t]*source:[ \t]*.+$/gim, '').replace(/\n{3,}/g, '\n\n').trim()
 
@@ -82,7 +92,7 @@ const out = { _note: 'Built by scripts/build-story-people.mjs. Do not edit.', st
 const report = []
 for (const slug of slugsInScope) {
   if (!stories.has(slug)) throw new Error(`build-story-people: story ${slug} missing`)
-  const sw = scope.slugs.includes(slug) ? null : sweep[slug]
+  const sw = widenLinks.has(slug) ? null : sweep[slug]
   const swIds = sw ? new Set([...(sw.links || []), ...(sw.portraits || [])]) : null
   const story = JSON.parse(fs.readFileSync(path.join(dir, `${slug}.json`), 'utf8'))
   const body = strip(story.bodyMarkdown)
@@ -150,8 +160,8 @@ for (const slug of slugsInScope) {
   }
   report.push(`  ${slug}: links ${links.map((l) => `${l.name}→${l.href}`).join(', ') || 'none'}; portraits ${figs.join(', ') || 'none'}${skipped.length ? `; skipped ${skipped.join(', ')}` : ''}`)
 }
-// Keep existing key order when a sweep story is promoted into samples, and
-// append stories that are new to this file.
+// Keep existing key order, and append stories that are new to this file
+// (alphabetical, via slugsInScope).
 const spPath = path.join(root, 'public/data/web/story-people.json')
 try {
   const prevOrder = Object.keys(JSON.parse(fs.readFileSync(spPath, 'utf8')).stories || {})
@@ -169,4 +179,4 @@ try {
   }
 } catch { /* first build: slugsInScope order */ }
 fs.writeFileSync(spPath, `${JSON.stringify(out, null, 2)}\n`)
-console.log(`build-story-people: ${slugsInScope.length} stories (${scope.slugs.length} samples + portrait sweep)\n${report.join('\n')}`)
+console.log(`build-story-people: ${slugsInScope.length} stories (site-wide; ${widenLinks.size} sample-widen, ${linksOnly.size} links-only, ${Object.keys(sweep).length} portrait-sweep)\n${report.join('\n')}`)

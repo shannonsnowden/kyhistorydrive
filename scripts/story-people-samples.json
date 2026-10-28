@@ -1,5 +1,5 @@
 {
-  "_note": "PR B samples only. build-story-people.mjs links people and adds inline portraits for these slugs until Shannon OKs site-wide. Sample 4 (Blackfish) has an AI portrait (Richard Callaway); sample 5 (Warriors' Path) has portraits beside the route map. Wave 1 slugs in linksOnly are links only (no new inline portraits). Site-wide linking stays off.",
+  "_note": "Site-wide story-to-people linking is on (Shannon, Oct 28, 2026). build-story-people.mjs processes every story under public/content/stories/. slugs are the original PR B samples: when one of these is also in scripts/portrait-sweep.json, links widen past that sweep's id list, while a non-empty curated portrait list stays curated. Sample 4 (Blackfish) has an AI portrait (Richard Callaway); sample 5 (Warriors' Path) has portraits beside the route map. Wave 1 slugs in linksOnly stay links only (no inline portraits).",
   "slugs": [
     "georgetown-and-royal-spring",
     "paris-from-hopewell",
