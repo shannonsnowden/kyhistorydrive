@@ -3870,9 +3870,10 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header.is-menu-open nav a[data-route="stories"] { order: 2; }
   .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
   .site-header.is-menu-open nav a[data-route="map"] { order: 4; }
-  .site-header.is-menu-open nav a[data-route="drives"] { order: 5; }
-  .site-header.is-menu-open nav a[data-route="roads"] { order: 6; }
-  .site-header.is-menu-open nav a[data-route="about"] { order: 7; }
+  .site-header.is-menu-open nav a[data-route="people"] { order: 5; }
+  .site-header.is-menu-open nav a[data-route="drives"] { order: 6; }
+  .site-header.is-menu-open nav a[data-route="roads"] { order: 7; }
+  .site-header.is-menu-open nav a[data-route="about"] { order: 8; }
   .site-header.is-menu-open .hp-theme-toggle { order: 10; }
   .site-header.is-menu-open nav a,
   .site-header.is-menu-open .nav-today-btn,

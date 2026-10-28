@@ -147,6 +147,7 @@ export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnable
         ${item('stories', '/stories/', 'Stories')}
         ${item('timeline', '/#timeline', 'Timeline')}
         ${item('map', '/#map', 'Map')}
+        ${item('people', '/people/', 'People')}
         ${item('drives', '/drives/', 'Drives')}
         ${roadsRails ? `${item('roads', '/roads-and-rails/', 'Roads &amp; Rails')}\n        ` : ''}${item('about', '/about/', 'About')}
         <button type="button" id="hpThemeToggle" class="hp-theme-toggle" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
