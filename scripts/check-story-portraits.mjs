@@ -20,7 +20,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { storySubject } from '../src/related-people.js'
+import { storySubject, heroPhotoIsPortrait } from '../src/related-people.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
@@ -62,7 +62,9 @@ for (const story of index.stories) {
   const shipped = storySubject(related, people.people, story, people.storySubjects).person
   let problem = ''
   if (!shipped) problem = `${subject.id} has no shipped portrait`
-  else {
+  else if (heroPhotoIsPortrait(story.photo, shipped)) {
+    // The Kentucky-today hero is this portrait, so the lead figure is omitted (face once).
+  } else {
     const file = path.join(root, 'dist/stories', story.slug, 'index.html')
     if (!fs.existsSync(file)) problem = `missing ${path.relative(root, file)}`
     else if (!firstChildIsPortrait(fs.readFileSync(file, 'utf8'))) problem = 'built page has no figure.story-portrait as the first child of .story-body'

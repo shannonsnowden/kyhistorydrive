@@ -322,6 +322,13 @@ export function storySubject(relatedData, people, story, storySubjects = null) {
   return { person, reason: '' }
 }
 
+/** True when the story hero photo is this person's shipped portrait (jpg or webp). */
+export function heroPhotoIsPortrait(photo, person) {
+  const url = String(photo?.image_url || '')
+  if (!url || !person?.image) return false
+  return url === person.image.jpg || url === person.image.webp
+}
+
 /** Newspaper-style portrait floated right of the first paragraph; name-first caption with credit. */
 export function storyPortraitHtml(person) {
   if (!person || !hasSafePortrait(person)) return ''
