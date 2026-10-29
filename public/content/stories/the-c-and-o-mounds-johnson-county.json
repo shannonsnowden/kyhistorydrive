@@ -16,13 +16,9 @@
   "briefDate": "2026-10-19",
   "county": "Johnson",
   "photo": {
-    "image_url": "/content/photos/stories/the-c-and-o-mounds-johnson-county.jpg",
-    "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
-    "year": null,
-    "credit": "Cleveland Museum of Art",
-    "license": "CC0"
+    "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+    "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   }
 }
