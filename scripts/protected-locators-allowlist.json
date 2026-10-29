@@ -10,6 +10,10 @@
   "content/stories/chambers-site-15ml109-marshall-county.json|chambers-site-15ml109-marshall-county|bodyMarkdown|Jonathan Creek",
   "content/stories/chambers-site-15ml109-marshall-county.json|chambers-site-15ml109-marshall-county|bodyMarkdown|Mill Creek",
   "content/stories/chambers-site-15ml109-marshall-county.json|chambers-site-15ml109-marshall-county|bodyMarkdown|jonathan-creek",
+  "content/stories/tinsley-hill-15ly18-lyon-county.json|tinsley-hill-15ly18-lyon-county|bodyMarkdown|Jonathan Creek",
+  "content/stories/tinsley-hill-15ly18-lyon-county.json|tinsley-hill-15ly18-lyon-county|bodyMarkdown|jonathan-creek",
+  "data/search-index.json|tinsley-hill-15ly18-lyon-county|text|Jonathan Creek",
+  "data/search-index.json|tinsley-hill-15ly18-lyon-county|text|jonathan-creek",
   "content/stories/indian-knoll-ohio-county.json|indian-knoll-ohio-county|figure.evidence|green-river",
   "content/stories/indian-knoll-ohio-county.json|indian-knoll-ohio-county|figure.jpg|green-river",
   "content/stories/indian-knoll-ohio-county.json|indian-knoll-ohio-county|figure.webp|green-river",
@@ -48,6 +52,7 @@
  ],
  "page": [
   "stories/chambers-site-15ml109-marshall-county/index.html|chambers-site-15ml109-marshall-county|page:article|Jonathan Creek",
+  "stories/tinsley-hill-15ly18-lyon-county/index.html|tinsley-hill-15ly18-lyon-county|page:article|Jonathan Creek",
   "stories/chambers-site-15ml109-marshall-county/index.html|chambers-site-15ml109-marshall-county|page:article|Mill Creek",
   "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:article|Old Fort Earthworks",
   "stories/old-fort-earthworks-15gp1-greenup-county/index.html|old-fort-earthworks-15gp1-greenup-county|page:figcaption|Old Fort Earthworks",

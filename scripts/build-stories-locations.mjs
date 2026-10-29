@@ -205,6 +205,9 @@ const MANUAL_OVERRIDES = {
   // Approvals 111 Wave 3: the expanded Wyandot body names Blue Licks and Bryan Station.
   // v2 left this nation story unpinned (county ""); keep that. Blue Licks has its own story pin.
   'wyandot-on-kentuckys-northern-frontier': {},
+  // Approvals 111 Wave 4: the expanded body names John Filson. v2 left this story unpinned.
+  // Filson has his own pin. Keep the winter-camps story unpinned.
+  'delaware-winter-camps-on-kentucky-ground': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
