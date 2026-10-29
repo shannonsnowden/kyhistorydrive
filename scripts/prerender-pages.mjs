@@ -1491,6 +1491,12 @@ class PrerenderPages {
     return `${PrerenderPages.SITE}${url.startsWith('/') ? url : `/${url}`}`
   }
 
+  /** AI face and culture-figure art stays on the story page. It is not an og, twitter, or schema image. */
+  static isAiArtUrl(url) {
+    const v = String(url || '')
+    return v.includes('/figures/') || v.includes('__ai')
+  }
+
   /** "Photo: Name / Wikimedia Commons, " (license follows), or "Illustration: Kentucky History Drive, " for AI art. */
   static peopleCreditName(person) {
     const raw = String(person.credit || '')
@@ -2050,15 +2056,17 @@ class PrerenderPages {
     // #337: /#timeline/<slug> now forwards to this page, so Back goes to the Timeline list.
     const appHref = '/#timeline'
     const photo = story.photo?.image_url ? story.photo : null
-    const image = photo ? PrerenderPages.photoAbsolute(photo.image_url) : PrerenderPages.LOGO
-    const imageAlt = photo ? PrerenderPages.photoAlt(photo, story.title) : 'Kentucky History Drive official seal'
+    // Visible hero can be AI art. Social and schema images cannot.
+    const socialPhoto = photo && !PrerenderPages.isAiArtUrl(photo.image_url) ? photo : null
+    const image = socialPhoto ? PrerenderPages.photoAbsolute(socialPhoto.image_url) : PrerenderPages.LOGO
+    const imageAlt = socialPhoto ? PrerenderPages.photoAlt(socialPhoto, story.title) : 'Kentucky History Drive official seal'
     const describeStory = (slug) => {
       const item = all.find((entry) => entry.slug === slug)
       if (!item) return null
       return { title: item.title, meta: PrerenderPages.relatedCardMeta(item) }
     }
-    const ogImage = photo ? image : route ? absoluteUrl(route.files.fullPng) : image
-    const ogAlt = photo ? imageAlt : route ? route.alt : imageAlt
+    const ogImage = socialPhoto ? image : route ? absoluteUrl(route.files.fullPng) : image
+    const ogAlt = socialPhoto ? imageAlt : route ? route.alt : imageAlt
     const film = filmForStory(story.slug)
     const filmDescription = film ? filmDescriptionFromPlain(bodyPlain) : ''
     const filmHtml = film
@@ -2485,9 +2493,9 @@ class PrerenderPages {
           </div>
         </aside>
       </div>`
-    const imageSize = photo ? PrerenderPages.photoSizes?.[photo.image_url] : null
-    const imageWidth = imageSize?.width || (!photo && route ? 1600 : 0)
-    const imageHeight = imageSize?.height || (!photo && route ? 900 : 0)
+    const imageSize = socialPhoto ? PrerenderPages.photoSizes?.[socialPhoto.image_url] : null
+    const imageWidth = imageSize?.width || (!socialPhoto && route ? 1600 : 0)
+    const imageHeight = imageSize?.height || (!socialPhoto && route ? 900 : 0)
     return PrerenderPages.shell({
       title,
       ogTitle: story.title,
@@ -3693,10 +3701,12 @@ class PrerenderPages {
     } else if (place?.geo) {
       throw new Error(`prerender: ${urlPath} has geo without a public pin`)
     }
-    const photo = story.photo?.image_url ? PrerenderPages.photoAbsolute(story.photo.image_url) : ''
+    const rawUrl = story.photo?.image_url || ''
+    const photo = rawUrl ? PrerenderPages.photoAbsolute(rawUrl) : ''
+    const socialPhoto = photo && !PrerenderPages.isAiArtUrl(rawUrl) ? photo : ''
     const route = routeBySlug(story.slug)
-    const expectedImage = photo || (route ? absoluteUrl(route.files.fullPng) : PrerenderPages.LOGO)
-    const expectedKind = photo ? 'story photo' : route ? '1600 route map' : 'story photo or logo fallback'
+    const expectedImage = socialPhoto || (route ? absoluteUrl(route.files.fullPng) : PrerenderPages.LOGO)
+    const expectedKind = socialPhoto ? 'story photo' : route ? '1600 route map' : 'story photo or logo fallback'
     if (!html.includes(`property="og:image" content="${PrerenderPages.escapeHtml(expectedImage)}"`)) {
       throw new Error(`prerender: ${urlPath} og:image is not the ${expectedKind}`)
     }
@@ -3724,24 +3734,26 @@ class PrerenderPages {
       if (!html.includes(`alt="${PrerenderPages.escapeHtml(alt)}"`)) {
         throw new Error(`prerender: ${urlPath} in-page photo alt does not match`)
       }
-      if (html.includes('property="og:image" content="' + PrerenderPages.LOGO + '"')) {
-        throw new Error(`prerender: ${urlPath} used the logo instead of the story photo`)
-      }
       const size = PrerenderPages.photoSizes?.[story.photo.image_url]
       if (!size?.width || !size?.height) {
         throw new Error(`prerender: ${urlPath} story photo is missing width and height`)
       }
-      if (!html.includes(`property="og:image:width" content="${size.width}"`)) {
-        throw new Error(`prerender: ${urlPath} og:image:width is missing`)
-      }
-      if (!html.includes(`property="og:image:height" content="${size.height}"`)) {
-        throw new Error(`prerender: ${urlPath} og:image:height is missing`)
-      }
-      const imageNode = Array.isArray(article?.image)
-        ? article.image.find((item) => item && typeof item === 'object' && item.url === photo)
-        : article?.image
-      if (imageNode?.width !== size.width || imageNode?.height !== size.height) {
-        throw new Error(`prerender: ${urlPath} Article image size does not match og:image`)
+      if (socialPhoto) {
+        if (html.includes('property="og:image" content="' + PrerenderPages.LOGO + '"')) {
+          throw new Error(`prerender: ${urlPath} used the logo instead of the story photo`)
+        }
+        if (!html.includes(`property="og:image:width" content="${size.width}"`)) {
+          throw new Error(`prerender: ${urlPath} og:image:width is missing`)
+        }
+        if (!html.includes(`property="og:image:height" content="${size.height}"`)) {
+          throw new Error(`prerender: ${urlPath} og:image:height is missing`)
+        }
+        const imageNode = Array.isArray(article?.image)
+          ? article.image.find((item) => item && typeof item === 'object' && item.url === photo)
+          : article?.image
+        if (imageNode?.width !== size.width || imageNode?.height !== size.height) {
+          throw new Error(`prerender: ${urlPath} Article image size does not match og:image`)
+        }
       }
       if (!html.includes(`width="${size.width}"`) || !html.includes(`height="${size.height}"`)) {
         throw new Error(`prerender: ${urlPath} in-page photo is missing width and height`)
