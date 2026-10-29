@@ -7,11 +7,18 @@
   "yearStart": -3000,
   "yearEnd": -1000,
   "era": "prehistoric",
+  "county": "Butler",
   "tags": [
     "prehistoric",
     "kentucky",
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-03"
+  "briefDate": "2026-09-03",
+  "photo": {
+    "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+    "title": "Green River Archaic people (reconstruction)",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
+  }
 }

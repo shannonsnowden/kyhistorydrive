@@ -258,6 +258,8 @@ export function termRegex(term) {
 
 function scrub(text, item) {
   let s = String(text)
+  // The culture name is not a river locator. "on the Green River" and a bare "river" still match.
+  s = s.replace(/\bGreen River Archaic\b/gi, ' ')
   // Credit links and shared figure files are not the story's prose. A commons filename or a
   // culture-figure id can carry a river name that the caption no longer uses.
   s = s.replace(/https?:\/\/\S+/gi, ' ')
@@ -611,6 +613,20 @@ function selfTest() {
     assert(hitsIn(`part of the ${phrase}`, oldFort).includes('Portsmouth Group'), `planted ${phrase} fails the Old Fort term`)
   }
   assert(hitsIn('A square earthwork in Greenup County.', oldFort).length === 0, 'county-only Old Fort prose passes')
+  const knoll = ITEMS.find((i) => i.slugs.includes('indian-knoll-ohio-county'))
+  const readMidden = ITEMS.find((i) => i.slugs.includes('read-shell-midden-15bt10-butler-county'))
+  const cultureCaption = 'Green River Archaic people (reconstruction)'
+  assert(hitsIn(cultureCaption, knoll).length === 0, 'culture caption is not a Green River locator on Indian Knoll')
+  assert(hitsIn(cultureCaption, readMidden).length === 0, 'culture caption is not a river locator on Read')
+  assert(hitsIn('Families camped on the Green River.', knoll).includes('Green River'), 'locating Green River still fails on Indian Knoll')
+  assert(hitsIn('a camp by the river', readMidden).includes('river'), 'bare river still fails on Read')
+  const cultureHits = []
+  scanGeneric({
+    slug: 'indian-knoll-ohio-county',
+    photo: { title: cultureCaption, image_url: '/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg' },
+  }, 'content/stories/indian-knoll-ohio-county.json', cultureHits)
+  assert(!cultureHits.some((h) => h.field === 'photo.title'), 'culture caption is not a named-water hit')
+  assert(cultureHits.some((h) => h.field === 'photo.image_url' && h.match === 'green-river' && LOCATOR_ALLOW.has(locatorKey(h))), 'shared culture-figure path stays allowlisted')
   const official = 'The full official National Register title is Portsmouth Earthworks, Group A.'
   assert(hitsIn(official, oldFort).includes('Portsmouth'), 'official title fails in story prose')
   assert(hitsIn(official, oldFort, { research: true }).includes('Portsmouth'), 'official title fails in folded research notes')

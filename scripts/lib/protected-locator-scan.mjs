@@ -49,6 +49,9 @@ const ownerOf = (v) => alias.get(String(v || '').replace(/^(place|story|history|
 
 function scrub(text, owner) {
   let s = String(text)
+  // The culture name is not a river locator. "on the Green River" still matches. The hyphenated
+  // culture-figure filename is a separate path hit and stays on the allowlist.
+  s = s.replace(/\bGreen River Archaic\b/gi, ' ')
   for (const id of [...(aliasesOf.get(owner) || [])].sort((a, b) => b.length - a.length)) s = s.split(id).join(' ')
   return s
 }
