@@ -14,5 +14,14 @@
     "native-history"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-02"
+  "briefDate": "2026-09-02",
+  "photo": {
+    "image_url": "/people/portraits/will-emery__ai-portrait-v2-512.jpg",
+    "webp": "/people/portraits/will-emery__ai-portrait-v2-512.webp",
+    "title": "AI illustration of Captain Will Emery, Shawnee-aligned leader who met Daniel Boone in 1769",
+    "alt": "AI illustration of Captain Will Emery, Shawnee-aligned leader who met Daniel Boone in 1769",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration",
+    "fit": "contain"
+  }
 }

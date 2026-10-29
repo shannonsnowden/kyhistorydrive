@@ -274,6 +274,16 @@ assert.doesNotMatch(creditHtml, /<\/a>\s*\./, 'no stray period after a link in t
 assert.match(creditHtml, /<\/span> <span class="seg photo-license">License:/)
 assert.doesNotMatch(creditHtml, / · /, 'separators are drawn by CSS (.seg + .seg::before), not in the markup')
 
+const aiHero = photoCreditHtml({
+  image_url: '/people/portraits/blackfish__ai-portrait-v1-512.jpg',
+  title: 'AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778',
+  credit: 'AI illustration · Kentucky History Drive; no known likeness exists',
+  license: 'Original AI illustration',
+})
+assert.match(aiHero, /AI illustration · Kentucky History Drive; no known likeness exists/)
+assert.match(aiHero, /License: Original AI illustration/)
+assert.doesNotMatch(aiHero, /Photo: /)
+
 const sourceOnly = photoCreditModel({
   image_url: '/photo.jpg',
   source_url: 'https://commons.wikimedia.org/wiki/File:X.jpg',

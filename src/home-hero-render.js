@@ -135,9 +135,12 @@ export function usablePhoto(photo) {
 }
 export function photoCredit(photo) {
   if (!photo) return ''
-  const label = photo.attribution || photo.source_label || ''
-  const year = photo.year ? ` · ${photo.year}` : ''
-  return label ? `${label}${year}` : ''
+  const label = String(photo.attribution || photo.source_label || '').trim()
+  if (label) {
+    const year = photo.year ? ` · ${photo.year}` : ''
+    return `${label}${year}`
+  }
+  return String(photo.credit || '').trim()
 }
 /** Crawlable story page (/stories/<slug>/), never the #timeline hash route. */
 export function storyPageHref(story) {
@@ -214,7 +217,7 @@ export function renderLeadStory(story) {
               : ''
           }
         </div>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
+        ${credit ? `<p class="hp-photo-credit">${/^AI illustration\b/i.test(credit) ? '' : 'Photo: '}${escapeHtml(credit)}</p>` : ''}
       </div>
     </article>`
 }

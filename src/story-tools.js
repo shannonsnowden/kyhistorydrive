@@ -1005,8 +1005,10 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
   const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
   // Human-made art (e.g. Herb Roe's paintings) leads with its own label, never 'Photo:' or 'AI illustration'.
+  // A Kentucky History Drive AI portrait is not a photograph: keep its credit as written.
   const artwork = artworkLead(photo)
-  const lead = artwork ? esc(artwork) : 'Photo: '
+  const aiCredit = !artwork && /^AI illustration\b/i.test(String(photo?.credit || '').trim())
+  const lead = artwork ? esc(artwork) : aiCredit ? '' : 'Photo: '
   const first = artwork && model.photographer && photo?.artwork !== 'reconstruction' && photo?.year ? `${chunks[0]}, ${esc(String(photo.year))}` : chunks[0]
   if (segs.length) segs[0] = `<span class="seg">${lead}${first}</span>`
   // A rights statement that is not a license (e.g. LoC 'No known restrictions') shows as written.

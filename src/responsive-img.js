@@ -61,7 +61,13 @@ export function responsivePicture(opts) {
     .filter(Boolean)
     .join(' ')
   const img = `<img ${attrs} />`
-  if (!meta?.avif?.length && !meta?.webp?.length) return img
+  if (!meta?.avif?.length && !meta?.webp?.length) {
+    const webp = String(opts.webp || '')
+    if (webp && webp !== src && webp.startsWith('/people/portraits/') && webp.endsWith('.webp')) {
+      return `<picture><source type="image/webp" srcset="${esc(webp)}" />${img}</picture>`
+    }
+    return img
+  }
   return `<picture>${sourceTag('image/avif', meta.avif, sizes)}${sourceTag('image/webp', meta.webp, sizes)}${img}</picture>`
 }
 

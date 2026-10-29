@@ -276,7 +276,16 @@
     "geocode_source": "khs-marker",
     "category": "frontier",
     "year_start": 1769,
-    "year_end": 1769
+    "year_end": 1769,
+    "photo": {
+      "image_url": "/people/portraits/will-emery__ai-portrait-v2-512.jpg",
+      "webp": "/people/portraits/will-emery__ai-portrait-v2-512.webp",
+      "title": "AI illustration of Captain Will Emery, Shawnee-aligned leader who met Daniel Boone in 1769",
+      "alt": "AI illustration of Captain Will Emery, Shawnee-aligned leader who met Daniel Boone in 1769",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration",
+      "fit": "contain"
+    }
   },
   {
     "id": "christopher-gist-ohio-company",
@@ -1997,12 +2006,13 @@
     "year_start": 1780,
     "year_end": 1795,
     "photo": {
-      "image_url": "/content/photos/stories/egushawa-and-the-odawa-in-kentuckys-war-years.jpg",
-      "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
-      "source_label": "Wikimedia Commons",
-      "attribution": "Oneida County Historical Society / Wikimedia Commons · Public domain",
-      "year": 1795
+      "image_url": "/people/portraits/egushawa__ai-portrait-v1-512.jpg",
+      "webp": "/people/portraits/egushawa__ai-portrait-v1-512.webp",
+      "title": "AI illustration of Egushawa, Odawa war leader, about 1780",
+      "alt": "AI illustration of Egushawa, Odawa war leader, about 1780",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration",
+      "fit": "contain"
     }
   },
   {
@@ -2473,12 +2483,13 @@
     "year_start": 1787,
     "year_end": 1788,
     "photo": {
-      "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
-      "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
-      "source_label": "Wikimedia Commons",
-      "attribution": "Artist unknown (c. 1795) · Wikimedia Commons · public domain",
-      "year": 1795
+      "image_url": "/people/portraits/blue-jacket__ai-portrait-v1-512.jpg",
+      "webp": "/people/portraits/blue-jacket__ai-portrait-v1-512.webp",
+      "title": "AI illustration of Blue Jacket (Weyapiersenwah), Shawnee war chief, about 1787",
+      "alt": "AI illustration of Blue Jacket (Weyapiersenwah), Shawnee war chief, about 1787",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration",
+      "fit": "contain"
     }
   },
   {
@@ -3359,12 +3370,13 @@
     "year_start": 1778,
     "year_end": 1779,
     "photo": {
-      "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
-      "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
-      "source_label": "Wikimedia Commons",
-      "attribution": "Howard Pyle · Harper’s Weekly 1887 · Wikimedia Commons · public domain",
-      "year": 1887
+      "image_url": "/people/portraits/blackfish__ai-portrait-v1-512.jpg",
+      "webp": "/people/portraits/blackfish__ai-portrait-v1-512.webp",
+      "title": "AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778",
+      "alt": "AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration",
+      "fit": "contain"
     }
   },
   {
