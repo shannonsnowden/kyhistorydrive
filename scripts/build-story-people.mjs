@@ -17,7 +17,9 @@
  *    same slug is also in the sweep (one-word names and "Ann Logan").
  * Portraits: real or AI (AI credit "AI illustration · Kentucky History Drive"); never the story's
  * title-subject portrait (already shown) unless this sweep lists that id, and never the Photos
- * sidebar image. The page subject portrait stays the one face; prerender does not repeat it.
+ * sidebar image. When that sidebar image is this person's portrait, they are the story hero and
+ * are dropped from the portraits strip (same rule as Will Emery). Prerender then omits the lead
+ * portrait too, so the hero is the one large face.
  * Scope: every story JSON under public/content/stories/ (Shannon site-wide OK, Oct 28, 2026).
  * Portrait-sweep stories still link only the listed ids, except original PR B sample slugs in
  * scripts/story-people-samples.json, which widen links when the same slug is also in the sweep.
@@ -27,7 +29,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
-import { storySubject, hasSafePortrait, PLACE_WORD } from '../src/related-people.js'
+import { storySubject, hasSafePortrait, heroPhotoIsPortrait, PLACE_WORD } from '../src/related-people.js'
 import { applyStoryPeople, nameRegex, MAX_INLINE } from '../src/story-people.js'
 import { commonsName } from './dedupe-portrait-photos-lib.mjs'
 
@@ -133,12 +135,13 @@ for (const slug of slugsInScope) {
     if (sw && !(sw.portraits || []).includes(p.id)) continue
     if (keepCurated && !curatedPortraits.includes(p.id)) continue
     if (!hasSafePortrait(p)) continue
+    // Story hero photo is this face: drop them from the portraits strip (Will Emery; N1 leaders).
+    if (heroPhotoIsPortrait(story.photo, p)) { skipped.push(`${p.name} portrait (story hero)`); continue }
     // An explicit sweep portrait is recorded even when this person is the title subject.
     // prerender omits that second figure; the subject portrait is already the face.
     const explicitPortrait = (sweep[slug]?.portraits || []).includes(p.id)
     if (subject && p.id === subject.id && !explicitPortrait) continue
     if (sidebar && p.sourceFile && p.sourceFile.replace(/_/g, ' ').toLowerCase() === sidebar) { skipped.push(`${p.name} portrait (same as Photos sidebar)`); continue }
-    if (story.photo?.image_url && [p.image.jpg, p.image.webp].includes(story.photo.image_url)) continue
     portraits.push(p.id)
   }
   out.stories[slug] = { links, portraits }

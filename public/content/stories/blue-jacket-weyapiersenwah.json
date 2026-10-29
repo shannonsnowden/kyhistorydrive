@@ -18,15 +18,13 @@
   "source": "ky-history",
   "briefDate": "2026-10-03",
   "photo": {
-    "image_url": "/content/photos/stories/blue-jacket-weyapiersenwah.jpg",
-    "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
-    "year": "about 1795",
-    "artwork": "painting",
-    "credit": "Unidentified painter",
-    "license": "Public domain"
+    "image_url": "/people/portraits/blue-jacket__ai-portrait-v1-512.jpg",
+    "webp": "/people/portraits/blue-jacket__ai-portrait-v1-512.webp",
+    "title": "AI illustration of Blue Jacket (Weyapiersenwah), Shawnee war chief, about 1787",
+    "alt": "AI illustration of Blue Jacket (Weyapiersenwah), Shawnee war chief, about 1787",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration",
+    "fit": "contain"
   },
   "county": "Mason"
 }

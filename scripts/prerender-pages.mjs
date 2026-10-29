@@ -81,7 +81,7 @@ import { applyStoryPeople } from '../src/story-people.js'
 import { applyTransportLink } from '../src/transport-links.js'
 import { roadsRailsEnabled } from './roads-rails-flag.mjs'
 import { storyFigureHtml } from '../src/story-figure.js'
-import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml } from '../src/related-people.js'
+import { portraitsByStorySlug, personByStorySlug, relatedBlockHtml, relatedBlockSlugs, portraitThumbSrc, portraitAlt, storySubject, storyPortraitHtml, heroPhotoIsPortrait } from '../src/related-people.js'
 import { initials } from './people-public.mjs'
 import { isThinStory } from './lib/thin-stories.mjs'
 import { knownLifeSpan, personIdentifier, personPlace } from './people-line.mjs'
@@ -1466,7 +1466,7 @@ class PrerenderPages {
     })
   }
 
-  static storyPictureHtml(src, alt, { priority = false } = {}) {
+  static storyPictureHtml(src, alt, { priority = false, webp = '' } = {}) {
     const size = PrerenderPages.photoSizes?.[src]
     const dim =
       size?.width && size?.height ? ` width="${Number(size.width)}" height="${Number(size.height)}"` : ''
@@ -1475,7 +1475,13 @@ class PrerenderPages {
       : ' loading="lazy"'
     const img = `<img src="${PrerenderPages.escapeHtml(src)}" alt="${alt}"${dim}${loading} decoding="async" />`
     const meta = PrerenderPages.photoVariants?.[src]
-    if (!meta?.avif?.length && !meta?.webp?.length) return img
+    if (!meta?.avif?.length && !meta?.webp?.length) {
+      const sibling = String(webp || '').trim()
+      if (sibling && sibling !== src && sibling.startsWith('/people/portraits/') && sibling.endsWith('.webp')) {
+        return `<picture><source srcset="${PrerenderPages.escapeHtml(sibling)}" type="image/webp" />${img}</picture>`
+      }
+      return img
+    }
     const sizes = '(max-width: 600px) 100vw, 220px'
     const source = (type, list) => {
       if (!list?.length) return ''
@@ -1532,7 +1538,7 @@ class PrerenderPages {
     const capYear = photoCaptionYear(photo)
     const year = capYear ? ` <span class="muted">(${PrerenderPages.escapeHtml(capYear)})</span>` : ''
     const href = PrerenderPages.escapeHtml(photo.source_url || photo.image_url)
-    const img = PrerenderPages.storyPictureHtml(photo.image_url, caption, { priority })
+    const img = PrerenderPages.storyPictureHtml(photo.image_url, caption, { priority, webp: photo.webp })
     const linkLabel = PrerenderPages.escapeHtml(
       `Open ${photo.source_label || photo.credit || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`,
     )
@@ -2078,7 +2084,9 @@ class PrerenderPages {
         })
       : ''
     const portraitPick = PrerenderPages.storyPortrait(story, relatedBundle)
-    const peopleParts = PrerenderPages.storyPeopleParts(story, lead, bodyHtml, relatedBundle)
+    // Hero photo is already this face (portraits-strip drop). Do not also float the lead portrait.
+    const heroIsFace = heroPhotoIsPortrait(photo, portraitPick.person)
+    const peopleParts = PrerenderPages.storyPeopleParts(story, lead, bodyHtml, relatedBundle, { showLeadPortrait: !heroIsFace })
 
     const yr = (v) => (Number.isFinite(Number(v)) ? Number(v) : 9999)
     const timelineOrdered = [...all].sort(
@@ -2467,7 +2475,7 @@ class PrerenderPages {
           </header>
           ${toolsRowHtml}
           <section class="usp-story" id="story" data-story-section aria-label="Story">
-            <div class="story-body">${PrerenderPages.storyPortraitHtml(portraitPick.person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>
+            <div class="story-body">${heroIsFace ? '' : PrerenderPages.storyPortraitHtml(portraitPick.person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>
             ${routeMapSectionHtml(story.slug, {
               headingLevel: 2,
               linkMode: 'story',
@@ -3886,7 +3894,7 @@ class PrerenderPages {
   }
 
   /** PR B: people links (lead + body) and inline portraits (body only), from story-people.json. */
-  static storyPeopleParts(story, lead, bodyHtml, bundle) {
+  static storyPeopleParts(story, lead, bodyHtml, bundle, { showLeadPortrait = true } = {}) {
     const leadHtml = lead ? `<p class="story-lead">${PrerenderPages.escapeHtml(lead)}</p>` : ''
     const entry = bundle?.storyPeople?.stories?.[story.slug]
     // Item 70: one /roads-and-rails/ link on the first mention in the lead or body, after the people links.
@@ -3897,9 +3905,10 @@ class PrerenderPages {
       return { lead: l, body: b.join(split) }
     }
     const subjectPerson = PrerenderPages.storyPortrait(story, bundle).person
-    const subject = Boolean(subjectPerson)
+    // Lead portrait only when it is not already the Kentucky-today hero. Either way, drop that
+    // person from the portraits strip so the face is not shown twice large.
+    const subject = Boolean(subjectPerson) && showLeadPortrait
     const bodyStart = lead ? 1 : 0
-    // story-people may list the title subject. That face is already the subject portrait.
     const pageEntry = subjectPerson
       ? { ...entry, portraits: (entry.portraits || []).filter((id) => id !== subjectPerson.id) }
       : entry
@@ -4571,7 +4580,8 @@ ${rows.join('\n')}
     }
     for (const story of stories) {
       const url = story.photo?.image_url
-      if (!url || sizes[url] || !String(url).startsWith('/content/photos/')) continue
+      if (!url || sizes[url]) continue
+      if (!String(url).startsWith('/content/photos/') && !String(url).startsWith('/people/portraits/')) continue
       const abs = path.join(root, 'public', url.replace(/^\//, ''))
       if (!fs.existsSync(abs)) continue
       const meta = await sharp(abs).metadata()

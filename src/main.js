@@ -1654,6 +1654,7 @@ function storySidebarPhotoHtml(photo, title, { priority = false } = {}) {
     const linkLabel = escapeHtml(`Open ${photo.source_label || photo.credit || linkHost || 'photo source'}: ${photo.title || title || 'story photo'} (opens in a new tab)`)
     const img = responsivePicture({
       src: photo.image_url,
+      webp: photo.webp,
       alt: photo.title || title || 'Related photo',
       loading: priority ? 'eager' : 'lazy',
       fetchPriority: priority ? 'high' : '',

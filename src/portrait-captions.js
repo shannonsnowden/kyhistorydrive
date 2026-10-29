@@ -45,6 +45,9 @@ export const PORTRAIT_ALTS = {
   'george-rogers-clark': 'AI illustration of George Rogers Clark, after his c. 1810 portrait by C. D. Cook',
   'john-bradford': 'AI illustration of John Bradford, printer of the Kentucke Gazette',
   moluntha: 'AI illustration of Moluntha, elderly Mekoche Shawnee civil chief, about 1786',
+  blackfish: 'AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778',
+  'blue-jacket': 'AI illustration of Blue Jacket (Weyapiersenwah), Shawnee war chief, about 1787',
+  egushawa: 'AI illustration of Egushawa, Odawa war leader, about 1780',
   'robert-johnson': "AI illustration of Robert Johnson, founder of Johnson's Station, about 1783",
   // Item 69: related-box people and Jack Jouett.
   'john-todd': "AI illustration of John Todd, Kentucky militia colonel, about 1782",

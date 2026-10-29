@@ -16,16 +16,13 @@
   "source": "ky-history",
   "briefDate": "2026-10-12",
   "photo": {
-    "image_url": "/content/photos/stories/blackfish-cot-ta-wa-ma-go-chillicothe-war-chief.jpg",
-    "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Howard Pyle, Harper's Weekly · Wikimedia Commons · Public domain",
-    "year": 1887,
-    "fit": "contain",
-    "artwork": "print",
-    "credit": "Howard Pyle, Harper's Weekly",
-    "license": "Public domain"
+    "image_url": "/people/portraits/blackfish__ai-portrait-v1-512.jpg",
+    "webp": "/people/portraits/blackfish__ai-portrait-v1-512.webp",
+    "title": "AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778",
+    "alt": "AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration",
+    "fit": "contain"
   },
   "county": "Madison"
 }

@@ -16,15 +16,13 @@
   "source": "ky-history",
   "briefDate": "2026-10-13",
   "photo": {
-    "image_url": "/content/photos/stories/moluntha-and-logans-raid-1786.jpg",
-    "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2021,
-    "artwork": "map",
-    "credit": "Kevin1776",
-    "license": "CC BY-SA 4.0"
+    "image_url": "/people/portraits/moluntha__ai-portrait-v1-512.jpg",
+    "webp": "/people/portraits/moluntha__ai-portrait-v1-512.webp",
+    "title": "AI illustration of Moluntha, elderly Mekoche Shawnee civil chief, about 1786",
+    "alt": "AI illustration of Moluntha, elderly Mekoche Shawnee civil chief, about 1786",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration",
+    "fit": "contain"
   },
   "county": ""
 }
