@@ -202,6 +202,9 @@ const MANUAL_OVERRIDES = {
   'tutelo-the-totteroy': {},
   // #346: expanded text mentions the Falls of the Ohio in passing (a link); keep this nation story unpinned as on v2.
   'ojibwe-on-birds-war-road': {},
+  // Approvals 111 Wave 3: the expanded Wyandot body names Blue Licks and Bryan Station.
+  // v2 left this nation story unpinned (county ""); keep that. Blue Licks has its own story pin.
+  'wyandot-on-kentuckys-northern-frontier': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},

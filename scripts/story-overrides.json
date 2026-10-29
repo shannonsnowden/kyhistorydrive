@@ -695,16 +695,16 @@
       "county": "Menifee"
     },
     "cumberland-falls": {
-      "reason": "Issue #145: park year 1931 confirmed (Kentucky State Parks archived history page: dedicated Aug 21, 1931; Wikipedia's 1933 is the lead's donation date, contradicted in its own body). Purchase wording tightened: du Pont died before buying; his widow bought it on March 10, 1930.",
+      "reason": "Issue #145: park year 1931 confirmed (Kentucky State Parks archived history page: dedicated Aug 21, 1931; Wikipedia's 1933 is the lead's donation date, contradicted in its own body). Purchase wording tightened: du Pont died before buying; his widow bought it on March 10, 1930. Approvals 111 Wave 3 body already states that correction; new text matches the cleared body so the override stays applied.",
       "date": "2026-10-11",
       "replace": [
         {
           "old": "T. Coleman du Pont bought the falls and surrounding land, his family donated it to Kentucky after his death, and the state park opened in 1931.",
-          "new": "T. Coleman du Pont offered to buy the falls and surrounding land for a state park but died first; his widow completed the purchase in 1930, the family gave it to Kentucky, and the park was dedicated on August 21, 1931."
+          "new": "offered to buy the falls and the land around them for a state park. He died in 1930 before the deal was done. His widow finished the purchase, and the family gave the land to Kentucky. The park was dedicated on August 21, 1931."
         },
         {
           "old": "August 21, 1931.\nSource: [Cumberland Falls (Wikipedia)](https://en.wikipedia.org/wiki/Cumberland_Falls)",
-          "new": "August 21, 1931.\nSource: [Cumberland Falls State Resort Park history (Kentucky State Parks, archived)](https://web.archive.org/web/20150604135131/http://parks.ky.gov/parks/resortparks/cumberland-falls/history.aspx)\nSource: [Cumberland Falls (Wikipedia)](https://en.wikipedia.org/wiki/Cumberland_Falls)"
+          "new": "Source: [Cumberland Falls State Resort Park history (Kentucky State Parks, archived)](https://web.archive.org/web/20150604135131/http://parks.ky.gov/parks/resortparks/cumberland-falls/history.aspx)"
         }
       ]
     },

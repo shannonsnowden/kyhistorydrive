@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
+  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -101,7 +101,11 @@
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
     "georgetown-and-royal-spring",
     "henry-skaggs-green-river-long-hunter",
-    "quapaw-the-downstream-people-of-the-ohio-valley"
+    "quapaw-the-downstream-people-of-the-ohio-valley",
+    "susquehannock-and-the-ohio-valley-door",
+    "wyandot-on-kentuckys-northern-frontier",
+    "bullitts-lick-kentuckys-first-industry",
+    "cumberland-falls"
   ],
   "storyFiles": [
     "sweet-lick-knob-fort-ancient-gathering-place.json",
@@ -153,6 +157,13 @@
     "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow.json",
     "georgetown-and-royal-spring.json",
     "henry-skaggs-green-river-long-hunter.json",
-    "quapaw-the-downstream-people-of-the-ohio-valley.json"
+    "quapaw-the-downstream-people-of-the-ohio-valley.json",
+    "susquehannock-and-the-ohio-valley-door.json",
+    "isaac-shelby-old-kings-mountain.json",
+    "wyandot-on-kentuckys-northern-frontier.json",
+    "blue-jacket-weyapiersenwah.json",
+    "bullitts-lick-kentuckys-first-industry.json",
+    "cumberland-falls.json",
+    "bowling-green-takes-shape-on-the-barren-1798.json"
   ]
 }
