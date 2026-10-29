@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
+  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Rice Wave 7 adds the last two body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -129,7 +129,9 @@
     "peter-village-enclosure-15fa166",
     "esther-whitley-over-the-cumberlands-1775",
     "william-hoy-and-hoys-station",
-    "mary-draper-ingles-escapes-through-kentucky-1755"
+    "mary-draper-ingles-escapes-through-kentucky-1755",
+    "iroquois-beaver-wars",
+    "shaker-village-of-pleasant-hill"
   ],
   "storyFiles": [
     "sweet-lick-knob-fort-ancient-gathering-place.json",
@@ -212,6 +214,8 @@
     "esther-whitley-over-the-cumberlands-1775.json",
     "william-hoy-and-hoys-station.json",
     "mary-draper-ingles-escapes-through-kentucky-1755.json",
-    "campbellsville-from-buckhorn-creek-to-county-seat.json"
+    "campbellsville-from-buckhorn-creek-to-county-seat.json",
+    "iroquois-beaver-wars.json",
+    "shaker-village-of-pleasant-hill.json"
   ]
 }
