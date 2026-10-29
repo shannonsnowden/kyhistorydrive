@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and Mississippian + Fort Ancient culture-hero patterns. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 and 4 body slugs stay so rebuilt prose counts and search text stay in sync. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
+  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -116,7 +116,14 @@
     "carlston-annis-shell-mound",
     "chiggerville-15oh1",
     "read-shell-midden-15bt10",
-    "ward-site-15mcl11"
+    "ward-site-15mcl11",
+    "bagdad-how-a-shelby-county-rail-stop-took-over-consolation",
+    "jenny-wileys-captivity-and-escape",
+    "owingsville-a-town-named-on-a-wager",
+    "louisville-and-portland-canal",
+    "col-john-holder-at-lower-howards-creek",
+    "treaty-of-camp-charlotte-1774",
+    "capt-william-hubbells-ohio-flatboat-stand-1791"
   ],
   "storyFiles": [
     "sweet-lick-knob-fort-ancient-gathering-place.json",
@@ -186,6 +193,13 @@
     "carlston-annis-shell-mound.json",
     "chiggerville-15oh1.json",
     "read-shell-midden-15bt10-butler-county.json",
-    "ward-site-15mcl11-mclean-county.json"
+    "ward-site-15mcl11-mclean-county.json",
+    "bagdad-how-a-shelby-county-rail-stop-took-over-consolation.json",
+    "jenny-wileys-captivity-and-escape.json",
+    "owingsville-a-town-named-on-a-wager.json",
+    "louisville-and-portland-canal.json",
+    "col-john-holder-at-lower-howards-creek.json",
+    "treaty-of-camp-charlotte-1774.json",
+    "capt-william-hubbells-ohio-flatboat-stand-1791.json"
   ]
 }

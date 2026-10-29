@@ -107,7 +107,9 @@ export const ITEMS = [
     names: ['Adams Site'],
     slugs: ['adams-site-15fu4'],
     ids: ['adams-site-15fu4-mississippian-fulton-county'],
-    terms: ['Hickman', 'Bayou', 'Wickliffe'],
+    // Approvals 111 Wave 5: "Wickliffe Mounds" names the public visitor site in Ballard County.
+    // Bare Wickliffe still locates this story.
+    terms: ['Hickman', 'Bayou', 'Wickliffe(?![\\s_-]+[Mm]ounds)'],
     ownOnly: true,
   },
   {
@@ -627,6 +629,9 @@ function selfTest() {
   }, 'content/stories/indian-knoll-ohio-county.json', cultureHits)
   assert(!cultureHits.some((h) => h.field === 'photo.title'), 'culture caption is not a named-water hit')
   assert(cultureHits.some((h) => h.field === 'photo.image_url' && h.match === 'green-river' && LOCATOR_ALLOW.has(locatorKey(h))), 'shared culture-figure path stays allowlisted')
+  const adams = ITEMS.find((i) => i.slugs.includes('adams-site-15fu4'))
+  assert(adams && hitsIn('sister border towns like Wickliffe and Sassafras Ridge', adams).some((t) => t.startsWith('Wickliffe')), 'bare Wickliffe still locates Adams')
+  assert(adams && !hitsIn('visit Wickliffe Mounds State Historic Site (/stories/wickliffe-mounds-mississippian-village-ballard-county/)', adams).some((t) => t.startsWith('Wickliffe')), 'Wickliffe Mounds visitor redirect is not an Adams locator')
   const official = 'The full official National Register title is Portsmouth Earthworks, Group A.'
   assert(hitsIn(official, oldFort).includes('Portsmouth'), 'official title fails in story prose')
   assert(hitsIn(official, oldFort, { research: true }).includes('Portsmouth'), 'official title fails in folded research notes')
