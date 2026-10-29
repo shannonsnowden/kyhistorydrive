@@ -20,5 +20,11 @@
     "yearStart": 1000,
     "yearEnd": 1300,
     "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+    "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   }
 }

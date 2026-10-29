@@ -23,13 +23,9 @@
     "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
   },
   "photo": {
-    "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
-    "title": "A Mississippian shell gorget, The Metropolitan Museum of Art; a generic artifact, not from the Adams Site in Fulton County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Gorget_MET_DT258619.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-    "year": null,
-    "credit": "The Metropolitan Museum of Art",
-    "license": "CC0"
+    "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+    "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   }
 }

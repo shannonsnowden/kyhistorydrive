@@ -536,15 +536,10 @@
       "briefDate": "2026-09-25",
       "county": "Jessamine",
       "photo": {
-        "image_url": "/content/photos/stories/muir-site-early-fort-ancient.jpg",
-        "title": "A Fort Ancient ceramic storage jar from an Ohio site, Cincinnati Museum of Natural History; a generic artifact, not from the Muir site in Jessamine County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Storage_jar_HRoe_2011.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2011,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
@@ -574,6 +569,12 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-12",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
@@ -606,13 +607,10 @@
       "briefDate": "2026-10-13",
       "county": "Fulton",
       "photo": {
-        "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
-        "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "fit": "contain"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 36.6,
       "lon": -89.2,
@@ -637,14 +635,10 @@
       "briefDate": "2026-09-16",
       "county": "Fulton",
       "photo": {
-        "image_url": "/content/photos/stories/adams-site-15fu4.jpg",
-        "title": "A Mississippian shell gorget, The Metropolitan Museum of Art; a generic artifact, not from the Adams Site in Fulton County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Gorget_MET_DT258619.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "The Metropolitan Museum of Art",
-        "license": "CC0"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
@@ -677,12 +671,10 @@
       "briefDate": "2026-10-05",
       "county": "McCracken",
       "photo": {
-        "image_url": "/content/photos/stories/rowlandton-mound-site-15mcn3.jpg",
-        "title": "A Mississippian owl-head bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the McCracken County site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-        "year": null
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 37,
       "lon": -88.6,
@@ -706,17 +698,10 @@
       "source": "ky-history",
       "briefDate": "2026-09-19",
       "photo": {
-        "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-        "alt": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
-        "title": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Dog_Bottle_MET_DP101939.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "The Metropolitan Museum of Art",
-        "license": "CC0",
-        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "fit": "contain"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
@@ -776,13 +761,10 @@
       "briefDate": "2026-10-04",
       "county": "Hopkins",
       "photo": {
-        "image_url": "/content/photos/stories/andalex-village-15hk22-hopkins-county.jpg",
-        "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Hopkins County site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "fit": "contain"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 37.3,
       "lon": -87.5,
@@ -808,6 +790,12 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-24",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -876,15 +864,10 @@
       "briefDate": "2026-10-01",
       "county": "Knox",
       "photo": {
-        "image_url": "/content/photos/stories/croley-evans-site.jpg",
-        "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
@@ -914,6 +897,12 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-08",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
@@ -943,15 +932,10 @@
       "source": "ky-history",
       "briefDate": "2026-09-29",
       "photo": {
-        "image_url": "/content/photos/stories/singer-hieronymus-fort-ancient-villages.jpg",
-        "title": "Fort Ancient bone tools, beads, pipes, and chunkey stones; not from the Scott County villages",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2011,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
@@ -982,6 +966,12 @@
       "source": "ky-history",
       "briefDate": "2026-09-23",
       "county": "Crittenden",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
@@ -1011,6 +1001,12 @@
       "source": "ky-history",
       "briefDate": "2026-10-02",
       "county": "Ballard",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
         "nation": "Mississippian, western Kentucky (archaeological culture)",
@@ -1042,14 +1038,10 @@
       "briefDate": "2026-10-14",
       "county": "Marshall",
       "photo": {
-        "image_url": "/content/photos/stories/chambers-site-15ml109-marshall-county.jpg",
-        "title": "A Mississippian owl effigy bowl, c. 1000–1500 CE, Dayton Art Institute; a generic artifact, not from the Chambers site in Marshall County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Owl_effigy_bowl,_Mississippian_people,_c._1000-1500_CE,_Dayton_Art_Institute.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wmpearl · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "Wmpearl",
-        "license": "CC0"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 36.9,
       "lon": -88.3,
@@ -1074,16 +1066,10 @@
       "briefDate": "2026-09-17",
       "county": "Butler",
       "photo": {
-        "image_url": "/content/photos/stories/annis-mound-village.jpg",
-        "title": "Annis Mound and Village, about 1250–1300 CE",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Annis_Mound_%26_Village_illustration_HRoe_2019_350px.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
-        "year": 2019,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 4.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-        "artwork": "reconstruction"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/mississippian-western-kentucky-towns.json",
@@ -1115,6 +1101,12 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-08-31",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -1145,15 +1137,10 @@
       "briefDate": "2026-10-03",
       "county": "Pike",
       "photo": {
-        "image_url": "/content/photos/stories/slone-site-15pi11-pike-county.jpg",
-        "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2010,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 37.4,
       "lon": -82.3,
@@ -1178,6 +1165,12 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-09",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -1207,14 +1200,10 @@
       "source": "ky-history",
       "briefDate": "2026-09-27",
       "photo": {
-        "image_url": "/content/photos/stories/slack-farm-15un28-union-county.jpg",
-        "title": "The Union County Courthouse at the county seat; not the Slack Farm site",
-        "source_url": "https://commons.wikimedia.org/w/index.php?curid=25734111",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Nyttend · Wikimedia Commons · Public domain",
-        "year": null,
-        "credit": "Nyttend",
-        "license": "Public domain"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: A late Mississippian (Caborn-Welborn) farming village; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 37.7,
       "lon": -88,
@@ -1238,12 +1227,10 @@
       "source": "ky-history",
       "briefDate": "2026-09-26",
       "photo": {
-        "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
-        "title": "Estill County Courthouse; not the Sweet Lick Knob site",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons · Public domain",
-        "year": null
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
@@ -1274,6 +1261,12 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-04",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "territory": {
         "ref": "/data/web/territories/fort-ancient-farming-villages.json",
         "nation": "Fort Ancient (archaeological culture)",
@@ -7163,14 +7156,10 @@
       "briefDate": "2026-10-12",
       "county": "Lyon",
       "photo": {
-        "image_url": "/content/photos/stories/tinsley-hill-15ly18-lyon-county.jpg",
-        "title": "A Mississippian bird effigy bowl, c. 1350–1550, University of Arkansas Museum; a generic artifact, not from Tinsley Hill in Lyon County",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Bird_effigy_bowl,_Mississippian,_University_of_Arkansas_Museum.JPG",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Wmpearl · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "Wmpearl",
-        "license": "CC0"
+        "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+        "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 37,
       "lon": -88,

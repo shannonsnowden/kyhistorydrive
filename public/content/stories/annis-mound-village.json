@@ -23,15 +23,9 @@
     "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
   },
   "photo": {
-    "image_url": "/content/photos/stories/annis-mound-village.jpg",
-    "title": "Annis Mound and Village, about 1250–1300 CE",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Annis_Mound_%26_Village_illustration_HRoe_2019_350px.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2019,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "artwork": "reconstruction"
+    "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+    "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   }
 }

@@ -125,7 +125,6 @@ export function looksLikeUnlabeledArtwork(photo) {
 
 /** Reviewed non-photographs (Editor 10/18, #199): each must keep a photo.artwork medium. */
 export const REVIEWED_ARTWORK_SLUGS = new Set([
-  'annis-mound-village',
   'benjamin-logan',
   'bland-w-ballard-of-tick-creek',
   'capt-abraham-lincoln-on-long-run',
