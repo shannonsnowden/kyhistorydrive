@@ -40,7 +40,7 @@
     "minisearch": "^7.2.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.13.0",
+    "@axe-core/playwright": "^4.14.0",
     "playwright-core": "^1.55.0",
     "sharp": "^0.35.5",
     "vite": "^5.4.11"
