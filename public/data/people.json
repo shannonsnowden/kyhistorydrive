@@ -724,10 +724,13 @@
       "id": "henry-bird",
       "name": "Henry Bird",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/henry-bird__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/henry-bird__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "delaware-lenape-in-the-1780-kentucky-raids",
@@ -735,7 +738,8 @@
         "falmouth-at-the-licking-forks",
         "isaac-ruddell-and-the-guns-at-ruddells-station",
         "ojibwe-on-birds-war-road"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "dragging-canoe",
@@ -1565,14 +1569,18 @@
       "id": "robert-tyler",
       "name": "Robert Tyler",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/robert-tyler__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/robert-tyler__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "bland-w-ballard-of-tick-creek"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "robert-patterson",
@@ -1731,14 +1739,18 @@
       "id": "edward-worthington",
       "name": "Edward Worthington",
       "dates": "c. 1754–1804",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/edward-worthington__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/edward-worthington__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "edward-worthington-at-worthingtons-fort"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "silas-harlan",
@@ -2634,14 +2646,18 @@
       "id": "abraham-lincoln-capt",
       "name": "Capt. Abraham Lincoln",
       "dates": "1744–1786",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/abraham-lincoln-capt__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/abraham-lincoln-capt__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-abraham-lincoln-on-long-run"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "thomas-lincoln",
@@ -4423,17 +4439,21 @@
       "id": "william-caldwell",
       "name": "William Caldwell",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-caldwell__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-caldwell__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "battle-of-blue-licks",
         "bryan-station-siege-august-1782",
         "simon-girty-interpreter-at-bryan-station-1782",
         "wyandot-on-kentuckys-northern-frontier"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "matthew-arbuckle",

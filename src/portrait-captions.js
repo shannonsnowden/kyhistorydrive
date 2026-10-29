@@ -111,6 +111,12 @@ export const PORTRAIT_ALTS = {
   // Susannah Hart Shelby v1 (Oct 2026). None-known.
   'susannah-shelby': 'AI illustration of Susannah Hart Shelby, Kentucky first First Lady, about 1792–95',
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
+  // Approvals 111: Rice Wave 1 (Oct 2026). All v1, none-known.
+  'abraham-lincoln-capt': "AI illustration of Capt. Abraham Lincoln, the president's grandfather, about 1784",
+  'henry-bird': 'AI illustration of Henry Bird, British officer on the 1780 Kentucky expedition',
+  'robert-tyler': 'AI illustration of Robert Tyler, co-founder of Tyler Station, about 1781',
+  'william-caldwell': "AI illustration of Capt. William Caldwell of Butler's Rangers, about 1782",
+  'edward-worthington': "AI illustration of Edward Worthington, founder of Worthington's Fort, about 1780",
 }
 
 export function portraitAlt(person) {

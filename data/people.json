@@ -955,12 +955,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "Spelling is Bird (also written Byrd). Rank is disputed between captain and colonel, so this record says officer. No Wikipedia article or Commons likeness found."
+      "notes": "Spelling is Bird (also written Byrd). Rank is disputed between captain and colonel, so this record says officer. No Wikipedia article or Commons likeness found. Canonical face: AI illustration (Oct 2026); no known likeness.",
+      "ai": true
     },
     {
       "id": "dragging-canoe",
@@ -2113,12 +2114,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Canonical face: AI illustration (Oct 2026); no known likeness.",
+      "ai": true
     },
     {
       "id": "robert-patterson",
@@ -2340,12 +2342,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Canonical face: AI illustration (Oct 2026); no known likeness.",
+      "ai": true
     },
     {
       "id": "silas-harlan",
@@ -3651,12 +3654,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "Only his signature survives on Commons."
+      "notes": "Only his signature survives on Commons. Canonical face: AI illustration (Oct 2026); no known likeness.",
+      "ai": true
     },
     {
       "id": "thomas-lincoln",
@@ -6323,12 +6327,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article. Canonical face: AI illustration (Oct 2026); no known likeness.",
+      "ai": true
     },
     {
       "id": "matthew-arbuckle",

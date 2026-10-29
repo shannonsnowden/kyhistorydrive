@@ -1503,7 +1503,8 @@
         }
       ],
       "portraits": [
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "robert-tyler"
       ]
     },
     "blue-jacket-weyapiersenwah": {
@@ -1739,7 +1740,9 @@
           "href": "/stories/ojibwe-on-birds-war-road/"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "henry-bird"
+      ]
     },
     "delaware-winter-camps-on-kentucky-ground": {
       "links": [],
@@ -1811,7 +1814,9 @@
           "href": "/stories/ojibwe-on-birds-war-road/"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "henry-bird"
+      ]
     },
     "erie-the-cat-nation": {
       "links": [],
@@ -1887,7 +1892,8 @@
         }
       ],
       "portraits": [
-        "edmund-pendleton"
+        "edmund-pendleton",
+        "henry-bird"
       ]
     },
     "father-david-rice-and-kentuckys-first-presbyterian-churches": {

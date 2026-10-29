@@ -117,6 +117,12 @@ export const AI_IDS = [
   'james-winchester',
   // Susannah Hart Shelby v1 (Oct 2026). None-known; not the Frazer portrait or Isaac Shelby.
   'susannah-shelby',
+  // Approvals 111: Rice Wave 1 (Oct 2026). All v1, none-known.
+  'abraham-lincoln-capt',
+  'henry-bird',
+  'robert-tyler',
+  'william-caldwell',
+  'edward-worthington',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
