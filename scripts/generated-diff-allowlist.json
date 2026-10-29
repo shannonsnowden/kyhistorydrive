@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
+  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -123,7 +123,13 @@
     "louisville-and-portland-canal",
     "col-john-holder-at-lower-howards-creek",
     "treaty-of-camp-charlotte-1774",
-    "capt-william-hubbells-ohio-flatboat-stand-1791"
+    "capt-william-hubbells-ohio-flatboat-stand-1791",
+    "springfield-founding-and-washington-county-seat",
+    "harry-innes",
+    "peter-village-enclosure-15fa166",
+    "esther-whitley-over-the-cumberlands-1775",
+    "william-hoy-and-hoys-station",
+    "mary-draper-ingles-escapes-through-kentucky-1755"
   ],
   "storyFiles": [
     "sweet-lick-knob-fort-ancient-gathering-place.json",
@@ -200,6 +206,12 @@
     "louisville-and-portland-canal.json",
     "col-john-holder-at-lower-howards-creek.json",
     "treaty-of-camp-charlotte-1774.json",
-    "capt-william-hubbells-ohio-flatboat-stand-1791.json"
+    "capt-william-hubbells-ohio-flatboat-stand-1791.json",
+    "springfield-founding-and-washington-county-seat.json",
+    "harry-innes.json",
+    "esther-whitley-over-the-cumberlands-1775.json",
+    "william-hoy-and-hoys-station.json",
+    "mary-draper-ingles-escapes-through-kentucky-1755.json",
+    "campbellsville-from-buckhorn-creek-to-county-seat.json"
   ]
 }
