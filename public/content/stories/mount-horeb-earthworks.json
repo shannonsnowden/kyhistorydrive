@@ -32,5 +32,13 @@
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "artwork": "reconstruction"
+  },
+  "figure": {
+    "webp": "/content/photos/stories/figures/culture-adena__ai-v1-1280.webp",
+    "jpg": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+    "alt": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Adena period in Kentucky; details without direct evidence are informed guesses.",
+    "evidence": "culture-adena-image-evidence"
   }
 }

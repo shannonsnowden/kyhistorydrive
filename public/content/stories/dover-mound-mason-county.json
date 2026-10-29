@@ -15,15 +15,10 @@
   "source": "ky-history",
   "briefDate": "2026-09-30",
   "photo": {
-    "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
-    "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+    "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+    "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   },
   "territory": {
     "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
