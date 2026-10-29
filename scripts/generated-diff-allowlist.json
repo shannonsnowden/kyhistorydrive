@@ -94,7 +94,14 @@
     "howard-site-15ma427-late-fort-ancient-madison-county",
     "tolu-site-15cn1-crittenden-county",
     "twin-mounds-site-15ba2-ballard-county",
-    "annis-mound-village-15bt2-butler-county"
+    "annis-mound-village-15bt2-butler-county",
+    "james-knox",
+    "michael-stoner-german-long-hunter",
+    "lower-shawneetown-greenup-county",
+    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
+    "georgetown-and-royal-spring",
+    "henry-skaggs-green-river-long-hunter",
+    "quapaw-the-downstream-people-of-the-ohio-valley"
   ],
   "storyFiles": [
     "sweet-lick-knob-fort-ancient-gathering-place.json",
@@ -138,6 +145,14 @@
     "fox-farm-mason-county.json",
     "hardin-village-15gp22.json",
     "howard-site-late-fort-ancient.json",
-    "muir-site-early-fort-ancient.json"
+    "muir-site-early-fort-ancient.json",
+    "james-knox.json",
+    "new-castle-henry-county-seat.json",
+    "michael-stoner-german-long-hunter.json",
+    "lower-shawneetown-greenup-county.json",
+    "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow.json",
+    "georgetown-and-royal-spring.json",
+    "henry-skaggs-green-river-long-hunter.json",
+    "quapaw-the-downstream-people-of-the-ohio-valley.json"
   ]
 }

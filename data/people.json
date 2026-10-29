@@ -50,7 +50,8 @@
         "washington-mason-county",
         "william-calks-1775-journal",
         "bland-w-ballard-of-tick-creek",
-        "bryan-station-siege-august-1782"
+        "bryan-station-siege-august-1782",
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
       ],
       "role": "Long hunter, explorer, Boonesborough founder",
       "native": false,
@@ -223,7 +224,8 @@
         "battle-of-blue-licks",
         "hugh-mcgary-the-blue-licks-hothead",
         "capt-james-estill-estills-defeat",
-        "col-richard-callaway-of-boonesborough"
+        "col-richard-callaway-of-boonesborough",
+        "james-knox"
       ],
       "role": "Militia general, Logan's Station founder",
       "native": false,
@@ -323,7 +325,9 @@
         "maj-silas-harlan",
         "richmond-from-millers-barn",
         "stanford-from-st-asaph",
-        "william-calks-1775-journal"
+        "william-calks-1775-journal",
+        "henry-skaggs-green-river-long-hunter",
+        "michael-stoner-german-long-hunter"
       ],
       "role": "Transylvania Company founder",
       "native": false,
@@ -503,7 +507,8 @@
         "stanford-from-st-asaph",
         "prestonsburg-first-seat-on-the-big-sandy",
         "benjamin-logan",
-        "squire-boones-painted-stone"
+        "squire-boones-painted-stone",
+        "georgetown-and-royal-spring"
       ],
       "role": "Surveyor, Fincastle party leader",
       "native": false,
@@ -736,7 +741,8 @@
         "john-filson-kentucke-1784",
         "pilot-knob-boones-overlook-1769",
         "battle-of-blue-licks",
-        "capt-will-the-hunting-ground"
+        "capt-will-the-hunting-ground",
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
       ],
       "role": "Author of Kentucke (1784), mapmaker",
       "native": false,
@@ -978,7 +984,8 @@
         "chickamauga-cherokee",
         "richard-henderson",
         "capt-nathaniel-hart",
-        "william-christian-of-beargrass"
+        "william-christian-of-beargrass",
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
       ],
       "role": "Chickamauga Cherokee war leader",
       "native": true,
@@ -1028,7 +1035,8 @@
       "aliases": [],
       "lifeDates": "1760–1840",
       "stories": [
-        "daniel-trabue-of-columbia"
+        "daniel-trabue-of-columbia",
+        "henry-skaggs-green-river-long-hunter"
       ],
       "role": "Pioneer memoirist",
       "native": false,
@@ -1265,7 +1273,8 @@
         "bryan-station-siege-august-1782",
         "simon-girty-interpreter-at-bryan-station-1782",
         "battle-of-blue-licks",
-        "ojibwe-on-birds-war-road"
+        "ojibwe-on-birds-war-road",
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
       ],
       "role": "Loyalist interpreter",
       "native": false,
@@ -1676,7 +1685,8 @@
         "athiamiowee-the-warriors-path-through-kentucky",
         "christopher-gist-1750-51",
         "pine-mountain-and-pound-gap",
-        "treaty-of-logstown-1752"
+        "treaty-of-logstown-1752",
+        "lower-shawneetown-greenup-county"
       ],
       "role": "Ohio Company explorer",
       "native": false,
@@ -1783,7 +1793,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "mary-draper-ingles-escapes-through-kentucky-1755"
+        "mary-draper-ingles-escapes-through-kentucky-1755",
+        "lower-shawneetown-greenup-county"
       ],
       "role": "Captive who escaped through Kentucky 1755",
       "native": false,
@@ -2136,7 +2147,8 @@
         "col-robert-patterson-builds-lexington",
         "battle-of-blue-licks",
         "lexington-named",
-        "john-filson-kentucke-1784"
+        "john-filson-kentucke-1784",
+        "georgetown-and-royal-spring"
       ],
       "role": "Lexington founder",
       "native": false,
@@ -2339,7 +2351,8 @@
       "aliases": [],
       "lifeDates": "c. 1754–1804",
       "stories": [
-        "edward-worthington-at-worthingtons-fort"
+        "edward-worthington-at-worthingtons-fort",
+        "georgetown-and-royal-spring"
       ],
       "role": "Worthington's Fort founder",
       "native": false,
@@ -2410,7 +2423,8 @@
       "lifeDates": "1724–1810",
       "stories": [
         "henry-skaggs-green-river-long-hunter",
-        "glasgow-the-barrens"
+        "glasgow-the-barrens",
+        "james-knox"
       ],
       "role": "Green River long hunter",
       "native": false,
@@ -2476,7 +2490,8 @@
       ],
       "lifeDates": null,
       "stories": [
-        "henry-skaggs-green-river-long-hunter"
+        "henry-skaggs-green-river-long-hunter",
+        "james-knox"
       ],
       "role": "Long hunter",
       "native": false,
@@ -2497,7 +2512,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "henry-skaggs-green-river-long-hunter"
+        "henry-skaggs-green-river-long-hunter",
+        "james-knox"
       ],
       "role": "Long hunter",
       "native": false,
@@ -2700,7 +2716,8 @@
         "washington-mason-county",
         "col-thomas-marshall-at-buck-pond",
         "mingo-camps-south-of-the-ohio",
-        "hopkinsville"
+        "hopkinsville",
+        "georgetown-and-royal-spring"
       ],
       "role": "President (mention)",
       "native": false,
@@ -5439,7 +5456,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "drennon-springs-salt-works"
+        "drennon-springs-salt-works",
+        "new-castle-henry-county-seat"
       ],
       "role": "Drennon Springs claimant",
       "native": false,
@@ -5460,7 +5478,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "drennon-springs-salt-works"
+        "drennon-springs-salt-works",
+        "new-castle-henry-county-seat"
       ],
       "role": "Drennon Springs claimant",
       "native": false,
@@ -6164,7 +6183,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "treaty-of-logstown-1752"
+        "treaty-of-logstown-1752",
+        "lower-shawneetown-greenup-county"
       ],
       "role": "Ohio Company trader",
       "native": false,
