@@ -208,6 +208,9 @@ const MANUAL_OVERRIDES = {
   // Approvals 111 Wave 4: the expanded body names John Filson. v2 left this story unpinned.
   // Filson has his own pin. Keep the winter-camps story unpinned.
   'delaware-winter-camps-on-kentucky-ground': {},
+  // Approvals 111 Wave 7: the expanded body names Lower Shawneetown only as a Shawnee town
+  // on the Ohio (a protected site with its own story). v2 left this nation story unpinned.
+  'iroquois-beaver-wars': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
