@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
+  "note": "Approvals 111. Keeps Adena P2 story files from #379 and Mississippian + Fort Ancient culture-hero patterns. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 and 4 body slugs stay so rebuilt prose counts and search text stay in sync. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged.",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -112,7 +112,11 @@
     "osage-memory-of-the-ohio-valley",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897",
     "delaware-winter-camps-on-kentucky-ground",
-    "levi-todd-lexington-co-founder"
+    "levi-todd-lexington-co-founder",
+    "carlston-annis-shell-mound",
+    "chiggerville-15oh1",
+    "read-shell-midden-15bt10",
+    "ward-site-15mcl11"
   ],
   "storyFiles": [
     "sweet-lick-knob-fort-ancient-gathering-place.json",
@@ -178,6 +182,10 @@
     "osage-memory-of-the-ohio-valley.json",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897.json",
     "delaware-winter-camps-on-kentucky-ground.json",
-    "levi-todd-lexington-co-founder.json"
+    "levi-todd-lexington-co-founder.json",
+    "carlston-annis-shell-mound.json",
+    "chiggerville-15oh1.json",
+    "read-shell-midden-15bt10-butler-county.json",
+    "ward-site-15mcl11-mclean-county.json"
   ]
 }

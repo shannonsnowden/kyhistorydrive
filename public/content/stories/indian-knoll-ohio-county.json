@@ -15,11 +15,17 @@
   ],
   "source": "ky-history",
   "briefDate": "2026-08-29",
+  "photo": {
+    "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+    "title": "Green River Archaic people (reconstruction)",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
+  },
   "figure": {
     "webp": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.webp",
     "jpg": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
-    "alt": "AI illustration: An Archaic elder in Ohio County, in sewn deerskin, shaping a bannerstone at a mussel-shell camp, with a dog and atlatl darts nearby",
-    "credit": "AI illustration · Kentucky History Drive",
+    "alt": "Green River Archaic people (reconstruction)",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
     "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Late Archaic period in Kentucky; details without direct evidence are informed guesses.",
     "evidence": "culture-green-river-archaic-image-evidence"
   }

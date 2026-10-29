@@ -333,6 +333,16 @@
         "fit": "contain"
       }
     },
+    "carlston-annis-shell-mound": {
+      "slug": "carlston-annis-shell-mound",
+      "historyId": "carlston-annis-shell-mound",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
     "carrollton-from-port-william": {
       "slug": "carrollton-from-port-william",
       "historyId": "carrollton-port-william-carroll-1792-1838",
@@ -368,6 +378,16 @@
         "credit": "Tennessee Valley Authority",
         "license": "Public domain",
         "license_url": "https://commons.wikimedia.org/wiki/Template:pd"
+      }
+    },
+    "chiggerville-15oh1": {
+      "slug": "chiggerville-15oh1",
+      "historyId": "chiggerville-15oh1-ohio-county",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
@@ -944,6 +964,16 @@
         "attribution": "Nyttend · Wikimedia Commons · Public domain",
         "year": null,
         "fit": "contain"
+      }
+    },
+    "indian-knoll-ohio-county": {
+      "slug": "indian-knoll-ohio-county",
+      "historyId": "indian-knoll",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     },
     "iroquois-beaver-wars": {
@@ -1692,6 +1722,16 @@
         "year": null
       }
     },
+    "read-shell-midden-15bt10-butler-county": {
+      "slug": "read-shell-midden-15bt10-butler-county",
+      "historyId": "read-shell-midden-15bt10",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
     "red-bird-petroglyphs-clay-county": {
       "slug": "red-bird-petroglyphs-clay-county",
       "historyId": "red-bird-petroglyphs-clay",
@@ -2167,6 +2207,16 @@
         "year": 2024
       }
     },
+    "ward-site-15mcl11-mclean-county": {
+      "slug": "ward-site-15mcl11-mclean-county",
+      "historyId": "ward-site-15mcl11-mclean-county-late-archaic",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
     "washington-mason-county": {
       "slug": "washington-mason-county",
       "historyId": "washington-mason-county-founding-1785-1786",
@@ -2320,6 +2370,56 @@
         "credit": "JERRYE & ROY KLOTZ MD",
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
+    },
+    "carlston-annis-shell-mound": {
+      "slug": "carlston-annis-shell-mound",
+      "historyId": "carlston-annis-shell-mound",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "chiggerville-15oh1-ohio-county": {
+      "slug": "chiggerville-15oh1",
+      "historyId": "chiggerville-15oh1-ohio-county",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "indian-knoll": {
+      "slug": "indian-knoll-ohio-county",
+      "historyId": "indian-knoll",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "read-shell-midden-15bt10": {
+      "slug": "read-shell-midden-15bt10-butler-county",
+      "historyId": "read-shell-midden-15bt10",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
+    },
+    "ward-site-15mcl11-mclean-county-late-archaic": {
+      "slug": "ward-site-15mcl11-mclean-county",
+      "historyId": "ward-site-15mcl11-mclean-county-late-archaic",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     },
     "warriors-path-athiamiowee-gray-hawk-jackson-1674-1769": {

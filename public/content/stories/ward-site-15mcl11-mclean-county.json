@@ -7,11 +7,18 @@
   "yearStart": -3000,
   "yearEnd": -1000,
   "era": "native",
+  "county": "McLean",
   "tags": [
     "native",
     "kentucky",
     "archaeology"
   ],
   "source": "ky-history",
-  "briefDate": "2026-09-13"
+  "briefDate": "2026-09-13",
+  "photo": {
+    "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+    "title": "Green River Archaic people (reconstruction)",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
+  }
 }

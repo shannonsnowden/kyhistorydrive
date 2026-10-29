@@ -31,6 +31,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-03",
+      "county": "Butler",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "lat": 37.2,
       "lon": -86.7,
       "mapConfidence": "exact",
@@ -53,6 +60,12 @@
       "source": "ky-history",
       "briefDate": "2026-09-18",
       "county": "Ohio",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "lat": 37.5,
       "lon": -86.8,
       "mapConfidence": "override",
@@ -104,6 +117,12 @@
       "source": "ky-history",
       "briefDate": "2026-08-29",
       "county": "Ohio",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "lat": 37.5,
       "lon": -86.8,
       "mapConfidence": "fuzzy",
@@ -125,6 +144,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-14",
+      "county": "Butler",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "lat": 37.2,
       "lon": -86.7,
       "mapConfidence": "fuzzy",
@@ -146,6 +172,13 @@
       ],
       "source": "ky-history",
       "briefDate": "2026-09-13",
+      "county": "McLean",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-green-river-archaic__ai-v2.2-1280.jpg",
+        "title": "Green River Archaic people (reconstruction)",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
       "lat": 37.53,
       "lon": -87.27,
       "mapConfidence": "fuzzy",
