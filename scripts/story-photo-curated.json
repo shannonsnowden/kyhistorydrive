@@ -30,18 +30,6 @@
     "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
     "year": 2008
   },
-  "adams-site-15fu4": {
-    "ext": "jpg",
-    "commonsFile": "Gorget_MET_DT258619.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Gorget_MET_DT258619.jpg",
-    "title": "A Mississippian shell gorget, The Metropolitan Museum of Art; a generic artifact, not from the Adams Site in Fulton County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Gorget_MET_DT258619.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · public domain",
-    "year": null,
-    "credit": "The Metropolitan Museum of Art",
-    "license": "CC0"
-  },
   "henry-mckennas-fairfield-sour-mash": {
     "ext": "jpg",
     "commonsFile": "Fairfield-KY48-ky.jpg",
@@ -255,16 +243,6 @@
     "credit": "Unknown photographer",
     "license": "Public domain"
   },
-  "sweet-lick-knob-fort-ancient-gathering-place": {
-    "ext": "jpg",
-    "commonsFile": "Estill_County,_Kentucky_courthouse.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Estill_County%2C_Kentucky_courthouse.jpg/1280px-Estill_County%2C_Kentucky_courthouse.jpg",
-    "title": "Estill County Courthouse, Irvine",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons · Public domain",
-    "year": null
-  },
   "falmouth-at-the-licking-forks": {
     "ext": "jpg",
     "commonsFile": "Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
@@ -305,18 +283,6 @@
     "attribution": "Unknown photographer · Wikimedia Commons · Public domain",
     "year": null,
     "credit": "Unknown photographer",
-    "license": "Public domain"
-  },
-  "slack-farm-15un28-union-county": {
-    "ext": "jpg",
-    "commonsFile": "Union_County_Courthouse_in_Morganfield,_western_side_and_front.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Union_County_Courthouse_in_Morganfield%2C_western_side_and_front.jpg",
-    "title": "The Union County Courthouse at the county seat; not the Slack Farm site",
-    "source_url": "https://commons.wikimedia.org/w/index.php?curid=25734111",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · Public domain",
-    "year": null,
-    "credit": "Nyttend",
     "license": "Public domain"
   },
   "the-travelling-church-1781": {
@@ -398,19 +364,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
     "year": 2016
-  },
-  "singer-hieronymus-fort-ancient-villages": {
-    "ext": "jpg",
-    "commonsFile": "Fort Ancient Tools and other artifacts HRoe 2011.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg?width=1000",
-    "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2011,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "quapaw-the-downstream-people-of-the-ohio-valley": {
     "ext": "jpg",
@@ -495,19 +448,6 @@
     "attribution": "Acroterion · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2016
   },
-  "croley-evans-site": {
-    "ext": "jpg",
-    "commonsFile": "Wickliffe Pottery artifacts HRoe 02.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Pottery_artifacts_HRoe_02.jpg?width=1280",
-    "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-  },
   "mammoth-cave-saltpeter": {
     "ext": "jpg",
     "commonsFile": "Mammoth Cave Saltpeter Mine.jpg",
@@ -568,19 +508,6 @@
     "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2011
   },
-  "slone-site-15pi11-pike-county": {
-    "ext": "jpg",
-    "commonsFile": "Stone_discoidals_SOMACC_HRoe_2010.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Stone_discoidals_SOMACC_HRoe_2010.jpg?width=1280",
-    "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-  },
   "louisville-nashville-railroad-opens-the-interior": {
     "ext": "jpg",
     "commonsFile": "UnionStationLouisville.jpg",
@@ -621,16 +548,6 @@
     "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
     "year": 2022
   },
-  "andalex-village-15hk22-hopkins-county": {
-    "ext": "jpg",
-    "commonsFile": "Bottle_MET_79.8.20.jpeg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bottle_MET_79.8.20.jpeg?width=1280",
-    "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Hopkins County site",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-    "year": null
-  },
   "louisville-and-portland-canal": {
     "ext": "jpg",
     "commonsFile": "Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
@@ -670,29 +587,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "J. E. Daniel & G. D. Rawlings / Kentucky Transportation Cabinet (HAER) · Wikimedia Commons · public domain",
     "year": null
-  },
-  "rowlandton-mound-site-15mcn3": {
-    "ext": "jpg",
-    "commonsFile": "Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg?width=1280",
-    "title": "A Mississippian owl-head bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the McCracken County site",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle,_Owl_Head_on_Neck_MET_DP101938.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-    "year": null
-  },
-  "turk-site-carlisle-county": {
-    "ext": "jpg",
-    "commonsFile": "Dog_Bottle_MET_DP101939.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dog_Bottle_MET_DP101939.jpg?width=1280",
-    "title": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Dog_Bottle_MET_DP101939.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-    "year": null,
-    "credit": "The Metropolitan Museum of Art",
-    "license": "CC0",
-    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
   },
   "hidden-river-cave-under-horse-cave": {
     "ext": "jpg",
@@ -1031,18 +925,6 @@
     "attribution": "Nyttend · Wikimedia Commons · public domain",
     "year": 2017
   },
-  "tinsley-hill-15ly18-lyon-county": {
-    "ext": "jpg",
-    "commonsFile": "Bird_effigy_bowl,_Mississippian,_University_of_Arkansas_Museum.JPG",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Bird_effigy_bowl%2C_Mississippian%2C_University_of_Arkansas_Museum.JPG",
-    "title": "A Mississippian bird effigy bowl, c. 1350–1550, University of Arkansas Museum; a generic artifact, not from Tinsley Hill in Lyon County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Bird_effigy_bowl,_Mississippian,_University_of_Arkansas_Museum.JPG",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wmpearl · Wikimedia Commons · CC0",
-    "year": null,
-    "credit": "Wmpearl",
-    "license": "CC0"
-  },
   "burlington-boone-county-seat": {
     "ext": "jpg",
     "commonsFile": "Boone_County_Courthouse,_Burlington,_KY.jpg",
@@ -1083,16 +965,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Nyttend · Wikimedia Commons · public domain",
     "year": 2012
-  },
-  "sassafras-ridge-15fu3-fulton-county": {
-    "ext": "jpg",
-    "commonsFile": "Bottle_MET_79.8.20.jpeg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bottle_MET_79.8.20.jpeg?width=1280",
-    "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-    "year": 2008
   },
   "hartford-fort-hartford-on-the-rough-river": {
     "ext": "jpg",
@@ -1173,30 +1045,5 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Federal Highway Administration · Wikimedia Commons · public domain",
     "year": 1976
-  },
-  "chambers-site-15ml109-marshall-county": {
-    "ext": "jpg",
-    "commonsFile": "Owl_effigy_bowl,_Mississippian_people,_c._1000-1500_CE,_Dayton_Art_Institute.JPG",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Owl_effigy_bowl%2C_Mississippian_people%2C_c._1000-1500_CE%2C_Dayton_Art_Institute.JPG",
-    "title": "A Mississippian owl effigy bowl, c. 1000–1500 CE, Dayton Art Institute; a generic artifact, not from the Chambers site in Marshall County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Owl_effigy_bowl,_Mississippian_people,_c._1000-1500_CE,_Dayton_Art_Institute.JPG",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wmpearl · Wikimedia Commons · CC0",
-    "year": null,
-    "credit": "Wmpearl",
-    "license": "CC0"
-  },
-  "muir-site-early-fort-ancient": {
-    "ext": "jpg",
-    "commonsFile": "Fort_Ancient_Storage_jar_HRoe_2011.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Fort_Ancient_Storage_jar_HRoe_2011.jpg",
-    "title": "A Fort Ancient ceramic storage jar from an Ohio site, Cincinnati Museum of Natural History; a generic artifact, not from the Muir site in Jessamine County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Storage_jar_HRoe_2011.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2011,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
   }
 }

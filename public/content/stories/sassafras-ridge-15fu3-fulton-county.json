@@ -16,13 +16,10 @@
   "source": "ky-history",
   "briefDate": "2026-10-13",
   "photo": {
-    "image_url": "/content/photos/stories/sassafras-ridge-15fu3-fulton-county.jpg",
-    "title": "A Mississippian ceramic bottle (Metropolitan Museum of Art, CC0); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Bottle_MET_79.8.20.jpeg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-    "year": null,
-    "fit": "contain"
+    "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+    "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   },
   "county": "Fulton",
   "seoTitle": "Sassafras Ridge (15Fu3): Mississippian Town in Fulton County"

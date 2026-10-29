@@ -22,5 +22,11 @@
     "yearStart": 1400,
     "yearEnd": 1750,
     "presenceLabel": "Fort Ancient area (archaeological culture, not a tribe)"
+  },
+  "photo": {
+    "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+    "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   }
 }

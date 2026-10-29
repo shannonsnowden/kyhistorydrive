@@ -15,12 +15,10 @@
   "source": "ky-history",
   "briefDate": "2026-09-26",
   "photo": {
-    "image_url": "/content/photos/stories/sweet-lick-knob-fort-ancient-gathering-place.jpg",
-    "title": "Estill County Courthouse; not the Sweet Lick Knob site",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons · Public domain",
-    "year": null
+    "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+    "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   },
   "territory": {
     "ref": "/data/web/territories/fort-ancient-farming-villages.json",

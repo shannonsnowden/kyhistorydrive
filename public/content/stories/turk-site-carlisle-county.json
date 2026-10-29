@@ -22,16 +22,9 @@
     "presenceLabel": "Mississippian area (archaeological culture, not a tribe)"
   },
   "photo": {
-    "image_url": "/content/photos/stories/turk-site-carlisle-county.jpg",
-    "alt": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
-    "title": "A Mississippian dog effigy bottle (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Carlisle County site",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Dog_Bottle_MET_DP101939.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
-    "year": null,
-    "credit": "The Metropolitan Museum of Art",
-    "license": "CC0",
-    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "fit": "contain"
+    "image_url": "/content/photos/stories/figures/culture-mississippian__ai-v1-1280.jpg",
+    "title": "AI illustration: Mississippian people in a farming village with a platform mound and plaza; reconstructed from archaeological evidence",
+    "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+    "license": "Original AI illustration"
   }
 }
