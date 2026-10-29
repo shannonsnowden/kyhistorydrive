@@ -117,7 +117,9 @@ export const ITEMS = [
     names: ['Andalex'],
     slugs: ['andalex-village-15hk22-hopkins-county'],
     ids: ['andalex-village-15hk22-hopkins-county'],
-    terms: ['Pond River', 'bluff', 'Wickliffe'],
+    // Approvals 111 Wave 6: "Wickliffe Mounds" names the public visitor site in Ballard County.
+    // Bare Wickliffe still locates this story.
+    terms: ['Pond River', 'bluff', 'Wickliffe(?![\\s_-]+[Mm]ounds)'],
     ownOnly: true,
   },
   {
@@ -632,6 +634,9 @@ function selfTest() {
   const adams = ITEMS.find((i) => i.slugs.includes('adams-site-15fu4'))
   assert(adams && hitsIn('sister border towns like Wickliffe and Sassafras Ridge', adams).some((t) => t.startsWith('Wickliffe')), 'bare Wickliffe still locates Adams')
   assert(adams && !hitsIn('visit Wickliffe Mounds State Historic Site (/stories/wickliffe-mounds-mississippian-village-ballard-county/)', adams).some((t) => t.startsWith('Wickliffe')), 'Wickliffe Mounds visitor redirect is not an Adams locator')
+  const andalex = ITEMS.find((i) => i.slugs.includes('andalex-village-15hk22-hopkins-county'))
+  assert(andalex && hitsIn('the village stood near Wickliffe', andalex).some((t) => t.startsWith('Wickliffe')), 'bare Wickliffe still locates Andalex')
+  assert(andalex && !hitsIn('visit [Wickliffe Mounds](/stories/wickliffe-mounds-mississippian-village-ballard-county/) in Ballard County', andalex).some((t) => t.startsWith('Wickliffe')), 'Wickliffe Mounds visitor redirect is not an Andalex locator')
   const official = 'The full official National Register title is Portsmouth Earthworks, Group A.'
   assert(hitsIn(official, oldFort).includes('Portsmouth'), 'official title fails in story prose')
   assert(hitsIn(official, oldFort, { research: true }).includes('Portsmouth'), 'official title fails in folded research notes')
