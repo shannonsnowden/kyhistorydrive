@@ -354,6 +354,17 @@
 
     <section id="map" class="map-section view" data-view="map" hidden>
       <aside class="controls">
+        <div id="startHereChip" class="start-here-chip">
+          <span>Start here</span>
+          <button type="button" id="startHereChipDismiss" aria-label="Dismiss Start here">✕</button>
+        </div>
+        <script>
+          try {
+            if (localStorage.getItem('khd-start-here-dismissed') === '1') {
+              document.getElementById('startHereChip').hidden = true
+            }
+          } catch (e) {}
+        </script>
         <div class="layers-panel">
           <h2 class="layers-heading">Layers</h2>
           <details class="map-help">
@@ -394,17 +405,6 @@
         <button type="button" id="zoomFullState" class="btn ghost full-state-btn" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </aside>
       <div class="map-canvas-wrap">
-        <div id="startHereChip" class="start-here-chip">
-          <span>Start here</span>
-          <button type="button" id="startHereChipDismiss" aria-label="Dismiss Start here">✕</button>
-        </div>
-        <script>
-          try {
-            if (localStorage.getItem('khd-start-here-dismissed') === '1') {
-              document.getElementById('startHereChip').hidden = true
-            }
-          } catch (e) {}
-        </script>
         <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
         <button type="button" id="zoomFullStateMap" class="full-state-fab" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </div>
