@@ -1,0 +1,4 @@
+{
+  "_note": "Approvals 112 A1. Slugs here are known hard-gap exceptions. The build check is soft by default (exit 0) and still prints every gap. Set RICE_BAR=strict or pass --strict to fail when a story is under 150 words, missing ## Kentucky today, or missing named sources, unless its slug is listed here. Informational gaps (the 350-450 word band, people links, related story links, place photo) never fail. Remove a slug after that story clears the hard bar. Do not list father-david-rice-and-kentuckys-first-presbyterian-churches; the template is the bar and is never exempt.",
+  "slugs": []
+}
