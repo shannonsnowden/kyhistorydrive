@@ -72,7 +72,7 @@ assert.match(stripLight, /fill: #2f5a3a; fill-opacity: 0\.06/)
 const thumb = fs.readFileSync(path.join(root, 'public/brand/ky-county-thumb.svg'), 'utf8')
 assert.match(thumb, /stroke="#9a7b3c" stroke-width="1\.5"/)
 assert.ok(fs.existsSync(path.join(root, 'public/brand/khd-logo-512.png')))
-assert.ok(fs.existsSync(path.join(root, 'public/brand/_backup-b3/ky-map-strip-counties.svg')))
+assert.equal(fs.existsSync(path.join(root, 'public/brand/_backup-b3')), false)
 
 // index.html (homepage header, mobile menu, footer, CTAs) after the vite transform.
 const indexSrc = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
