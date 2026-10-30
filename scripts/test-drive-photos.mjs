@@ -1,7 +1,7 @@
 /**
  * Drive card photos (image / credit / alt) and the homepage lead.
  * A daily pack stays in brief order. Big Bone Lick is only the empty-pack fallback.
- * Empty image keeps the theme icon. Filled image renders on the card and the drive page.
+ * Empty image renders the green panel and the drive name in cream. Filled image renders on the card and the drive page.
  */
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
@@ -48,14 +48,24 @@ const bare = `<!doctype html><html><head></head><body>
 <h3>Licking Valley</h3><p class="muted">Intro.</p>
 <p class="facts"><span><b>7</b> stops</span></p></a></li></ul>
 </body></html>`
-assert.equal(applyDriveIndexPhotos(bare, cleared), bare)
+const emptyPanel = applyDriveIndexPhotos(bare, cleared)
+assert.match(emptyPanel, /drive-card-fallback\.svg/)
+assert.match(emptyPanel, /drive-card-fallback-640x360\.png 640w, \/brand\/drive-card-fallback-1280x720\.png 1280w/)
+assert.match(emptyPanel, /dcard-fallback-name">Licking Valley</)
+assert.match(emptyPanel, /#1a241c/)
+assert.match(emptyPanel, /#fffdf6/)
+assert.match(emptyPanel, /AI illustration · Kentucky History Drive/)
+assert.doesNotMatch(emptyPanel, /Story Studio/)
+assert.equal(applyDriveIndexPhotos(emptyPanel, cleared), emptyPanel)
 const one = new Map([['licking-valley', photos.get('licking-valley')]])
 const filled = applyDriveIndexPhotos(bare, one)
 assert.equal(applyDriveIndexPhotos(filled, one), filled)
 assert.match(filled, /class="dcard-photo"/)
 assert.match(filled, /Greg Hume/)
 assert.match(filled, /Jerrye &amp; Roy|Greg Hume/)
-assert.doesNotMatch(applyDriveIndexPhotos(filled, cleared), /dcard-photo/)
+const clearedFilled = applyDriveIndexPhotos(filled, cleared)
+assert.match(clearedFilled, /dcard-fallback/)
+assert.doesNotMatch(clearedFilled, /drive-licking-valley\.jpg/)
 
 const pageBare = `<!doctype html><html><head></head><body><main>
   <h1>Licking Valley</h1>

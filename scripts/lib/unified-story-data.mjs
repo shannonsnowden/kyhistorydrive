@@ -812,78 +812,11 @@ export function extractResearchClaims(notes) {
   return out
 }
 
-function pointInPoly(pts, x, y) {
-  let inside = false
-  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
-    const [xi, yi] = pts[i]
-    const [xj, yj] = pts[j]
-    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside
-  }
-  return inside
-}
-
-let cachedCountyShapes = null
-function countyShapes() {
-  if (cachedCountyShapes) return cachedCountyShapes
-  const { countiesPathD, countyLabels } = getMapAssets()
-  const shapes = String(countiesPathD || '')
-    .split(/[Zz]/)
-    .map((part) => part.trim())
-    .filter(Boolean)
-    .map((part) => {
-      const nums = part.match(/-?\d+(?:\.\d+)?/g)?.map(Number) || []
-      const pts = []
-      for (let i = 0; i + 1 < nums.length; i += 2) pts.push([nums[i], nums[i + 1]])
-      let minX = Infinity
-      let minY = Infinity
-      let maxX = -Infinity
-      let maxY = -Infinity
-      for (const [x, y] of pts) {
-        if (x < minX) minX = x
-        if (y < minY) minY = y
-        if (x > maxX) maxX = x
-        if (y > maxY) maxY = y
-      }
-      return { d: `${part}Z`, pts, minX, minY, maxX, maxY }
-    })
-    .filter((shape) => shape.pts.length >= 3)
-  cachedCountyShapes = { shapes, countyLabels }
-  return cachedCountyShapes
-}
-
-/** County outline only. No pin, so a centroid is not drawn as a destination. */
+/** Whole-state Kentucky outline for a county-only Visit it row. A single-county polygon is later. */
 export function countyOutlineThumbHtml(county) {
-  const key = String(county || '').replace(/\s+County$/i, '').trim().toLowerCase()
+  const key = String(county || '').replace(/\s+County$/i, '').trim()
   if (!key) return ''
-  const { shapes, countyLabels } = countyShapes()
-  const label = (countyLabels || []).find((item) => String(item.name || '').toLowerCase() === key)
-  if (!label) return ''
-  let shape = shapes.find((item) => pointInPoly(item.pts, label.x, label.y))
-  if (!shape) {
-    let best = Infinity
-    for (const item of shapes) {
-      const cx = (item.minX + item.maxX) / 2
-      const cy = (item.minY + item.maxY) / 2
-      const dist = (cx - label.x) ** 2 + (cy - label.y) ** 2
-      if (dist < best) {
-        best = dist
-        shape = item
-      }
-    }
-  }
-  if (!shape) return ''
-  const padX = Math.max(4, (shape.maxX - shape.minX) * 0.12)
-  const padY = Math.max(4, (shape.maxY - shape.minY) * 0.12)
-  const vx = shape.minX - padX
-  const vy = shape.minY - padY
-  const vw = shape.maxX - shape.minX + padX * 2
-  const vh = shape.maxY - shape.minY + padY * 2
-  const name = countyLong(key.charAt(0).toUpperCase() + key.slice(1))
-  return `<svg class="usp-visit-county-svg" viewBox="${vx.toFixed(1)} ${vy.toFixed(1)} ${vw.toFixed(1)} ${vh.toFixed(1)}" role="img" aria-label="${escapeHtml(name)} outline">
-    <rect class="usp-map-paper" x="${(vx - 4).toFixed(1)}" y="${(vy - 4).toFixed(1)}" width="${(vw + 8).toFixed(1)}" height="${(vh + 8).toFixed(1)}" />
-    <path class="usp-visit-county-fill" d="${shape.d}" />
-    <path class="usp-visit-county-line" d="${shape.d}" />
-  </svg>`
+  return `<span class="usp-visit-county-thumb-wrap"><picture><source type="image/svg+xml" srcset="/brand/ky-county-thumb.svg" /><img class="usp-visit-county-thumb" src="/brand/ky-county-thumb.png" srcset="/brand/ky-county-thumb.png 1x, /brand/ky-county-thumb-128.png 2x" width="48" height="48" alt="Kentucky outline" decoding="async" /></picture><span class="visually-hidden">AI illustration · Kentucky History Drive</span></span>`
 }
 
 function storyMapHref(story) {

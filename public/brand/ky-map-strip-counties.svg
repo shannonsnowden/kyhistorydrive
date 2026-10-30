@@ -3,9 +3,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 431.7" width="1000" height="431.7" role="img" aria-labelledby="kyMapCountyTitle kyMapCountyDesc" fill-rule="evenodd">
   <style>
     .hp-ky-paper { fill: #1a241c; }
-    .hp-ky-fill { fill: #5a3d22; stroke: none; }
-    .hp-ky-edge { fill: none; stroke: #e8d5a8; stroke-width: 1.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-    .hp-ky-counties { fill: none; stroke: #e8d5a8; stroke-width: 1px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 0.5; }
+    .hp-ky-fill { fill: #2f5a3a; fill-opacity: 0.06; stroke: #b9a985; stroke-width: 1px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+    .hp-ky-edge { fill: none; stroke: #b9a985; stroke-width: 1.75px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .hp-ky-counties { fill: none; stroke: #b9a985; stroke-width: 1px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 0.5; }
     .hp-ky-markers { fill: #E8D5A8; stroke: none; opacity: .6; }
   </style>
   <title id="kyMapCountyTitle">Kentucky counties</title>

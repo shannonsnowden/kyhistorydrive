@@ -115,6 +115,11 @@ html[data-hp-theme="light"] body.hp-page header.top {
   cursor: pointer;
   min-width: 0;
 }
+.brand-home > picture {
+  display: flex;
+  flex: 0 0 auto;
+  line-height: 0;
+}
 .brand-logo {
   width: 88px;
   height: 88px;
@@ -198,6 +203,12 @@ nav a {
   padding: 0 0.35rem;
 }
 nav a:hover, nav a.active { color: var(--accent); }
+nav a.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.28em;
+  text-decoration-color: var(--chip-active);
+}
 .nav-mobile-tools { display: none; }
 .nav-icon-btn {
   appearance: none;
@@ -3787,7 +3798,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
   .site-header nav a {
     padding: 0 0.12rem;
-    font-size: 0.84rem;
+    font-size: 15px;
     white-space: nowrap;
   }
   .site-header .nav-today-btn {
@@ -3844,8 +3855,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     gap: 0.5rem;
   }
   body.hp-page .site-header .brand-logo {
-    width: var(--hp-logo, 84px);
-    height: var(--hp-logo, 84px);
+    width: var(--hp-logo, 48px);
+    height: var(--hp-logo, 48px);
   }
   body.hp-page .site-header .brand :is(h1, .brand-title) {
     font-size: 1.15rem;
@@ -3885,8 +3896,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     gap: 0.45rem;
   }
   .site-header .brand-logo {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
   }
   .site-header .brand :is(h1, .brand-title) {
     font-size: 0.95rem;
@@ -5525,19 +5536,19 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 }
 .about-seals-hint { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
 
-/* Homepage phone header (#261): one compact row, ~100px tall.
-   Seal 68px left, name + tagline beside it, search + menu top-right.
-   The third line (subhead) is desktop-only. Reserved height: 68px seal + 2×16px pad = 100px. */
+/* Homepage phone header (#261, Approvals 112 B3): one compact row.
+   The ≤48px mark sits left, name + tagline beside it, search + menu top-right.
+   The third line (subhead) is desktop-only. Reserved height: 48px mark + 2×16px pad = 80px. */
 @media (max-width: 600px) {
   body.hp-page {
-    --hp-logo: 68px;
+    --hp-logo: 48px;
   }
   body.hp-page .site-header {
     flex-wrap: nowrap;
     align-items: flex-start;
     gap: 0.35rem;
     height: auto;
-    min-height: 100px;
+    min-height: 80px;
     max-height: none;
     padding: 16px 0.35rem 16px 0.75rem;
   }
@@ -5555,9 +5566,9 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     gap: 0.65rem;
   }
   body.hp-page .site-header .brand-logo {
-    width: 68px;
-    height: 68px;
-    flex: 0 0 68px;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
   }
   body.hp-page .site-header .brand-lockup {
     align-items: flex-start;
@@ -6246,6 +6257,22 @@ html[data-hp-theme="dark"] #transportMap .maplibregl-ctrl-attrib-button { filter
 html:not([data-hp-theme="light"]) .brand-logo,
 html:not([data-hp-theme="light"]) .hp-page .brand-logo {
   box-shadow: 0 0 0 2px #f6edd8, 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+/* The small mark already draws its own 2px ring. The header's extra border, padding and
+   cream halo would double that ring and clip the KY outline at ≤48px. */
+@media (max-width: 1099px) {
+  .brand-logo,
+  .hp-page .brand-logo,
+  html[data-hp-theme="light"] .brand-logo,
+  html[data-hp-theme="light"] .hp-page .brand-logo,
+  html:not([data-hp-theme="light"]) .brand-logo,
+  html:not([data-hp-theme="light"]) .hp-page .brand-logo,
+  body.hp-page .site-header .brand-logo {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
 }
 
 /* Roads & Rails opening ticks (#291 follow-up; Critiquito #326): one tick per opening year, each with a
