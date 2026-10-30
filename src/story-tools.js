@@ -10,7 +10,6 @@ export const SITE_NAME = 'Kentucky History Drive'
 export const SITE_AUTHOR = 'Shannon Snowden'
 export const CITE_AUTHOR_FALLBACK = 'KY History Drive'
 export const SITE_ORIGIN = 'https://kyhistorydrive.com'
-export const CORRECTION_REPO = 'shannonsnowden/kyhistorydrive'
 
 const CHICAGO_MONTHS = [
   'January',
@@ -195,18 +194,51 @@ export function citeBoxHtml({ title, url, published = '', modified = '', heading
     </section>`
 }
 
-export function correctionUrl({ title, url }) {
-  const params = new URLSearchParams({
-    labels: 'correction',
-    title: `Correction: ${title || 'Story'}`,
-    body: `Story: ${title || ''}\nURL: ${url || ''}\n\nWhat should be corrected?\n\n`,
-  })
-  return `https://github.com/${CORRECTION_REPO}/issues/new?${params.toString()}`
+/** Subject and body for a correction email. No address and no mailto scheme. */
+export function correctionMessage({ title, url } = {}) {
+  const storyTitle = title || ''
+  const storyUrl = url || ''
+  return {
+    subject: `Correction: ${storyTitle || 'Story'}`,
+    body: `Story: ${storyTitle}\nURL: ${storyUrl}\n\nWhat should be corrected?\n\n`,
+  }
 }
 
-export function correctionHtml({ title, url }) {
-  const href = correctionUrl({ title, url })
-  return `<p class="story-correction"><a class="story-correction-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer nofollow">Report a correction<span class="visually-hidden"> for ${esc(title || 'this story')} (opens in a new tab)</span></a></p>`
+/**
+ * First click is the human gesture. The address is assembled here from split
+ * parts, the same way Contact reveals it, then the mail client opens.
+ * The link's href stays /contact/ for no-JS and is never a mailto URL.
+ */
+export function wireCorrectionLinks(root) {
+  const scope = root && typeof root.querySelectorAll === 'function' ? root : document
+  scope.querySelectorAll('[data-correction-mail]').forEach((link) => {
+    if (link.getAttribute('data-bound')) return
+    link.setAttribute('data-bound', '1')
+    link.addEventListener('click', (event) => {
+      if (event.defaultPrevented) return
+      if (event.button && event.button !== 0) return
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      event.preventDefault()
+      const storyTitle = link.getAttribute('data-title') || ''
+      const storyUrl = link.getAttribute('data-url') || ''
+      const message = correctionMessage({ title: storyTitle, url: storyUrl })
+      const local = ['cont', 'act'].join('')
+      const domain = ['kyhistory', 'drive'].join('') + '.' + 'com'
+      const addr = local + String.fromCharCode(64) + domain
+      const scheme = 'mail' + 'to:'
+      globalThis.window.location.href = `${scheme}${addr}?subject=${encodeURIComponent(message.subject)}&body=${encodeURIComponent(message.body)}`
+    })
+  })
+}
+
+export function correctionBindScript() {
+  return `<script>${correctionMessage}\n(${wireCorrectionLinks})(document);</script>`
+}
+
+export function correctionHtml({ title, url } = {}) {
+  const storyTitle = title || ''
+  const storyUrl = url || ''
+  return `<p class="story-correction"><a class="story-correction-link" href="/contact/" data-correction-mail data-title="${esc(storyTitle)}" data-url="${esc(storyUrl)}">Report a correction<span class="visually-hidden"> for ${esc(storyTitle || 'this story')}</span></a></p>${correctionBindScript()}`
 }
 
 const EARTH_MILES = 3958.7613

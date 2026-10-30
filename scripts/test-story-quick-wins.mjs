@@ -18,7 +18,8 @@ import {
   buildCitation,
   citeBoxHtml,
   correctionHtml,
-  correctionUrl,
+  correctionMessage,
+  wireCorrectionLinks,
   formatMiles,
   haversineMiles,
   markerMapHref,
@@ -164,17 +165,91 @@ assert.deepEqual(fromGit, { published: '2026-08-01', modified: '2026-08-02' })
 const revisedGitOnly = resolveArticleDates({ publishedDate: '2026-08-30' }, { modified: '2026-10-05' })
 assert.deepEqual(revisedGitOnly, { published: '', modified: '2026-10-05' })
 
-const href = correctionUrl({ title: 'Battle of Blue Licks', url: fields.url })
-const issue = new URL(href)
-assert.equal(issue.origin + issue.pathname, 'https://github.com/shannonsnowden/kyhistorydrive/issues/new')
-assert.equal(issue.searchParams.get('labels'), 'correction')
-assert.match(issue.searchParams.get('title'), /Battle of Blue Licks/)
-assert.match(issue.searchParams.get('body'), /https:\/\/kyhistorydrive\.com\/stories\/battle-of-blue-licks\//)
-assert.doesNotMatch(href, /contact@|mailto:/i)
+const message = correctionMessage({ title: 'Battle of Blue Licks', url: fields.url })
+assert.equal(message.subject, 'Correction: Battle of Blue Licks')
+assert.equal(
+  message.body,
+  `Story: Battle of Blue Licks\nURL: ${fields.url}\n\nWhat should be corrected?\n\n`,
+)
 const correction = correctionHtml({ title: 'Battle of Blue Licks', url: fields.url })
-assert.match(correction, /rel="noopener noreferrer nofollow"/)
-assert.match(correction, /target="_blank"/)
+assert.match(correction, /Report a correction/)
+assert.match(correction, /href="\/contact\/"/)
+assert.match(correction, /data-correction-mail/)
+assert.match(correction, /data-title="Battle of Blue Licks"/)
+assert.match(correction, new RegExp(`data-url="${fields.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`))
+assert.match(correction, /fromCharCode\(64\)/)
+assert.match(correction, /\['cont', 'act'\]/)
 assert.doesNotMatch(correction, /mailto:|contact@/i)
+assert.doesNotMatch(correction, /github\.com|issues\/new|target="_blank"|noopener/)
+const quoted = correctionHtml({ title: 'Blue & Licks "1778"', url: fields.url })
+assert.match(quoted, /data-title="Blue &amp; Licks &quot;1778&quot;"/)
+assert.doesNotMatch(quoted, /mailto:|contact@/i)
+
+{
+  const clicks = []
+  const link = {
+    attrs: { 'data-title': 'Battle of Blue Licks', 'data-url': fields.url, href: '/contact/' },
+    getAttribute(name) {
+      return Object.prototype.hasOwnProperty.call(this.attrs, name) ? this.attrs[name] : null
+    },
+    setAttribute(name, value) {
+      this.attrs[name] = String(value)
+    },
+    addEventListener(type, fn) {
+      assert.equal(type, 'click')
+      this.onclick = fn
+    },
+  }
+  const root = { querySelectorAll: () => [link] }
+  const previousWindow = globalThis.window
+  globalThis.window = {
+    location: {
+      set href(value) {
+        clicks.push(value)
+      },
+    },
+  }
+  try {
+    wireCorrectionLinks(root)
+    assert.equal(link.attrs['data-bound'], '1')
+    assert.equal(link.attrs.href, '/contact/')
+    link.onclick({
+      defaultPrevented: false,
+      button: 0,
+      metaKey: false,
+      ctrlKey: true,
+      shiftKey: false,
+      altKey: false,
+      preventDefault() {
+        throw new Error('modified click should keep the /contact/ fallback')
+      },
+    })
+    assert.equal(clicks.length, 0)
+    let prevented = false
+    link.onclick({
+      defaultPrevented: false,
+      button: 0,
+      metaKey: false,
+      ctrlKey: false,
+      shiftKey: false,
+      altKey: false,
+      preventDefault() {
+        prevented = true
+      },
+    })
+    assert.equal(prevented, true)
+    assert.equal(clicks.length, 1)
+    const opened = new URL(clicks[0])
+    assert.equal(opened.protocol, 'mailto:')
+    assert.equal(opened.pathname, 'contact@kyhistorydrive.com')
+    assert.equal(opened.searchParams.get('subject'), message.subject)
+    assert.equal(opened.searchParams.get('body'), message.body)
+    assert.equal(link.attrs.href, '/contact/')
+  } finally {
+    if (previousWindow === undefined) delete globalThis.window
+    else globalThis.window = previousWindow
+  }
+}
 
 assert.equal(
   modifiedFromProseHistory([
