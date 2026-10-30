@@ -722,7 +722,8 @@ html[data-theme="dark"] .usp-body {
   color: #f3c478 !important;
 }
 
-.usp-drive h2 {
+.usp-drive h2,
+.usp-drive h3 {
   color: #f6edd8 !important;
   margin: 0 0 0.22rem !important;
   font-size: 1.2rem !important;
@@ -741,7 +742,7 @@ html[data-theme="dark"] .usp-body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
+  min-height: 44px;
   padding: 0.45rem 1rem;
   border-radius: 999px;
   background-color: #e3a650;
@@ -1005,6 +1006,148 @@ html[data-theme="dark"] .usp-map-edge {
   font-weight: 600;
   font-size: 0.88rem;
   text-decoration: none;
+}
+
+/* Visit it: compact strip under the dek. The full map card stays in the rail. */
+.usp-visit {
+  margin: 0.85rem 0 1.15rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.usp-visit > h2 {
+  margin: 0 0 0.45rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.usp-visit-row,
+.usp-visit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.usp-visit-place,
+.usp-visit-note,
+.usp-visit-interpretive {
+  margin: 0;
+}
+
+.usp-visit-place {
+  flex: 1 1 8rem;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1.3;
+}
+
+.usp-visit-note,
+.usp-visit-interpretive {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.usp-visit-go {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #e3a650;
+  background: #e3a650;
+  color: #1a140c !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.usp-visit-maplink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text) !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.usp-visit-apps {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.usp-visit-app {
+  min-height: 44px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.usp-visit-app[aria-pressed="true"] {
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.usp-visit-go-full,
+.usp-visit-map-full {
+  display: none;
+}
+
+.usp-visit-county-svg {
+  width: 72px;
+  height: 48px;
+  flex: none;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #e7decb;
+}
+
+.usp-visit-county-fill {
+  fill: #f5efe2;
+}
+
+.usp-visit-county-line {
+  fill: none;
+  stroke: #1f3d2a;
+  stroke-width: 1.5;
+}
+
+.usp-visit a:focus-visible,
+.usp-visit button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.usp-approx-pill {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 1000px) {
+  .usp-visit-go-short,
+  .usp-visit-map-short { display: none; }
+  .usp-visit-go-full,
+  .usp-visit-map-full { display: inline; }
 }
 
 /* ==========================================================================

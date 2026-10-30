@@ -768,9 +768,10 @@ export function renderWhereItHappenedCard(story, matchedMarkers = [], variant = 
     </section>`
   }
 
+  // Directions live on the Visit it strip (one primary). This card keeps Open on map.
   const dirsHtml = geo.protectedStory
     ? `<span class="usp-railmap-dirs usp-approx-pill" title="Coordinates rounded to 0.1° (~11 km) to protect a sensitive archaeological or cultural site">Approximate area (~11 km) · Protected site</span>`
-    : `<span class="usp-railmap-dirs">Directions: <a href="https://maps.apple.com/?daddr=${latStr},${lonStr}" target="_blank" rel="noopener noreferrer">Apple Maps</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=${latStr},${lonStr}" target="_blank" rel="noopener noreferrer">Google Maps</a></span>`
+    : ''
 
   return `<section class="usp-railmap usp-map-card usp-map-card-rail" aria-label="Story location on Kentucky map" data-lat="${latStr}" data-lon="${lonStr}"${approxAttr}>
     <div class="usp-railmap-canvas">
@@ -809,4 +810,157 @@ export function extractResearchClaims(notes) {
     }
   }
   return out
+}
+
+function pointInPoly(pts, x, y) {
+  let inside = false
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+    const [xi, yi] = pts[i]
+    const [xj, yj] = pts[j]
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside
+  }
+  return inside
+}
+
+let cachedCountyShapes = null
+function countyShapes() {
+  if (cachedCountyShapes) return cachedCountyShapes
+  const { countiesPathD, countyLabels } = getMapAssets()
+  const shapes = String(countiesPathD || '')
+    .split(/[Zz]/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      const nums = part.match(/-?\d+(?:\.\d+)?/g)?.map(Number) || []
+      const pts = []
+      for (let i = 0; i + 1 < nums.length; i += 2) pts.push([nums[i], nums[i + 1]])
+      let minX = Infinity
+      let minY = Infinity
+      let maxX = -Infinity
+      let maxY = -Infinity
+      for (const [x, y] of pts) {
+        if (x < minX) minX = x
+        if (y < minY) minY = y
+        if (x > maxX) maxX = x
+        if (y > maxY) maxY = y
+      }
+      return { d: `${part}Z`, pts, minX, minY, maxX, maxY }
+    })
+    .filter((shape) => shape.pts.length >= 3)
+  cachedCountyShapes = { shapes, countyLabels }
+  return cachedCountyShapes
+}
+
+/** County outline only. No pin, so a centroid is not drawn as a destination. */
+export function countyOutlineThumbHtml(county) {
+  const key = String(county || '').replace(/\s+County$/i, '').trim().toLowerCase()
+  if (!key) return ''
+  const { shapes, countyLabels } = countyShapes()
+  const label = (countyLabels || []).find((item) => String(item.name || '').toLowerCase() === key)
+  if (!label) return ''
+  let shape = shapes.find((item) => pointInPoly(item.pts, label.x, label.y))
+  if (!shape) {
+    let best = Infinity
+    for (const item of shapes) {
+      const cx = (item.minX + item.maxX) / 2
+      const cy = (item.minY + item.maxY) / 2
+      const dist = (cx - label.x) ** 2 + (cy - label.y) ** 2
+      if (dist < best) {
+        best = dist
+        shape = item
+      }
+    }
+  }
+  if (!shape) return ''
+  const padX = Math.max(4, (shape.maxX - shape.minX) * 0.12)
+  const padY = Math.max(4, (shape.maxY - shape.minY) * 0.12)
+  const vx = shape.minX - padX
+  const vy = shape.minY - padY
+  const vw = shape.maxX - shape.minX + padX * 2
+  const vh = shape.maxY - shape.minY + padY * 2
+  const name = countyLong(key.charAt(0).toUpperCase() + key.slice(1))
+  return `<svg class="usp-visit-county-svg" viewBox="${vx.toFixed(1)} ${vy.toFixed(1)} ${vw.toFixed(1)} ${vh.toFixed(1)}" role="img" aria-label="${escapeHtml(name)} outline">
+    <rect class="usp-map-paper" x="${(vx - 4).toFixed(1)}" y="${(vy - 4).toFixed(1)}" width="${(vw + 8).toFixed(1)}" height="${(vh + 8).toFixed(1)}" />
+    <path class="usp-visit-county-fill" d="${shape.d}" />
+    <path class="usp-visit-county-line" d="${shape.d}" />
+  </svg>`
+}
+
+function storyMapHref(story) {
+  const slug = String(story?.slug || '')
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return '/#map'
+  return `/#map/stories/${encodeURIComponent(slug)}`
+}
+
+function interpretiveLinkHtml(story, interpretive) {
+  const href = String(interpretive?.href || '')
+  const title = String(interpretive?.title || '').trim()
+  const slug = String(interpretive?.slug || '')
+  if (!title || !/^\/stories\/[a-z0-9-]+\/$/.test(href)) return ''
+  const banned = new Set(PROTECTED_REFERENCE_SITES[story?.slug] || [])
+  if (banned.has(slug) || banned.has(href.split('/')[2])) return ''
+  return `<p class="usp-visit-interpretive"><a href="${escapeHtml(href)}">${escapeHtml(title)}</a></p>`
+}
+
+/**
+ * Compact Visit it strip. The full map card stays in the rail and the mobile slot.
+ * No coordinates: nothing. County centroid: outline thumb, no directions.
+ * Protected: county copy only, no dot and no directions (#345 / #346).
+ * The timeline hash reader was retired (#347); prerender is the story renderer.
+ */
+export function visitItHtml({ story, interpretive = null } = {}) {
+  if (!story) return ''
+  const prot = isProtectedStory(story)
+  const county = story.county ? countyLong(story.county) : ''
+  const geo = roundedStoryGeo(story)
+  const countyOnly = String(story.mapConfidence || '') === 'county'
+  if (prot) {
+    if (!county && !geo) return ''
+    const link = interpretiveLinkHtml(story, interpretive)
+    return `<section class="usp-visit usp-visit-withheld" id="visit" aria-labelledby="h-visit">
+    <h2 id="h-visit">Visit it</h2>
+    <p class="usp-visit-place">${county ? escapeHtml(county) : 'Kentucky'}</p>
+    <p class="usp-visit-note">The exact place is withheld to protect the site.</p>
+    ${link}
+  </section>`
+  }
+  if (countyOnly) {
+    if (!county) return ''
+    const thumb = countyOutlineThumbHtml(county)
+    return `<section class="usp-visit usp-visit-county" id="visit" aria-labelledby="h-visit">
+    <h2 id="h-visit">Visit it</h2>
+    <div class="usp-visit-row">
+      ${thumb}
+      <p class="usp-visit-place">${escapeHtml(county)}</p>
+      <a class="usp-visit-maplink" data-story-map href="${escapeHtml(storyMapHref(story))}">See county on map</a>
+    </div>
+  </section>`
+  }
+  if (!geo) return ''
+  const place = String(story.matchedPlace || '').trim()
+  const placeName = place && !/\(centroid\)/i.test(place) ? place : county || 'Kentucky'
+  const latStr = geo.lat.toFixed(geo.decimals)
+  const lonStr = geo.lon.toFixed(geo.decimals)
+  const google = `https://www.google.com/maps/dir/?api=1&destination=${latStr},${lonStr}`
+  const apple = `https://maps.apple.com/?daddr=${latStr},${lonStr}`
+  return `<section class="usp-visit" id="visit" aria-labelledby="h-visit">
+    <h2 id="h-visit">Visit it</h2>
+    <div class="usp-visit-row">
+      <p class="usp-visit-place">${escapeHtml(placeName)}</p>
+      <div class="usp-visit-actions" data-visit-dirs>
+        <a class="usp-visit-go" data-visit-go href="${escapeHtml(google)}" data-google="${escapeHtml(google)}" data-apple="${escapeHtml(apple)}" aria-label="Get directions">
+          <span class="usp-visit-go-short">Directions</span>
+          <span class="usp-visit-go-full">Get directions</span>
+        </a>
+        <span class="usp-visit-apps" role="group" aria-label="Maps app">
+          <button type="button" class="usp-visit-app" data-visit-app="google" aria-pressed="true">Google</button>
+          <button type="button" class="usp-visit-app" data-visit-app="apple" aria-pressed="false">Apple</button>
+        </span>
+        <a class="usp-visit-maplink" data-story-map href="${escapeHtml(storyMapHref(story))}" aria-label="See on the history map">
+          <span class="usp-visit-map-short">See on map</span>
+          <span class="usp-visit-map-full">See on the history map</span>
+        </a>
+      </div>
+    </div>
+  </section>`
 }

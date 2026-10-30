@@ -120,6 +120,7 @@ for (const slug of slugs) {
   assert.ok(html.includes('class="usp-grid"'), `${slug}: missing .usp-grid`)
   assert.ok(html.includes('class="usp-article usp-page static-story'), `${slug}: missing .usp-article`)
   assert.ok(html.includes(`<link rel="alternate" type="text/markdown" href="/stories/${slug}/story.md"`), `${slug}: missing alternate markdown link`)
+  const idxVisit = html.indexOf('id="visit"')
   const idxStory = html.indexOf('id="story"')
   const idxToday = html.indexOf('id="today"')
   const idxMarkers = html.indexOf('id="markers"')
@@ -129,6 +130,7 @@ for (const slug of slugs) {
   const idxCite = html.indexOf('id="cite"')
   // Protected stories have no #drive section (no route builder; Critiquito #345).
   const prot = isProtectedStory({ slug })
+  if (idxVisit > 0) assert.ok(idxVisit < idxStory, `${slug}: Visit it must sit above the story`)
   if (prot) assert.ok(idxDrive < 0, `${slug}: protected story shows a #drive section`)
   assert.ok(idxStory > 0 && idxSources > idxStory && (prot ? idxCite > idxSources : idxDrive > idxSources && idxCite > idxDrive), `${slug}: sections out of v2 order`)
   if (idxToday > 0) assert.ok(idxToday > idxStory && idxSources > idxToday, `${slug}: #today must sit after #story`)

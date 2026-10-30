@@ -210,4 +210,26 @@
     researchClosed.forEach(function (d) { d.open = false })
     researchClosed = []
   })
+
+  // Visit it: one directions button. Google unless the visitor is on iOS, or they pick Apple.
+  document.querySelectorAll("[data-visit-dirs]").forEach(function (box) {
+    var go = box.querySelector("[data-visit-go]")
+    if (!go) return
+    var google = go.getAttribute("data-google")
+    var apple = go.getAttribute("data-apple")
+    var buttons = box.querySelectorAll("[data-visit-app]")
+    function setApp(app) {
+      var useApple = app === "apple"
+      if (useApple && apple) go.setAttribute("href", apple)
+      else if (google) go.setAttribute("href", google)
+      buttons.forEach(function (b) {
+        b.setAttribute("aria-pressed", b.getAttribute("data-visit-app") === (useApple ? "apple" : "google") ? "true" : "false")
+      })
+    }
+    var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+    setApp(ios ? "apple" : "google")
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () { setApp(b.getAttribute("data-visit-app")) })
+    })
+  })
 })()

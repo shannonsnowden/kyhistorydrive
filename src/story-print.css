@@ -21,6 +21,7 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+  .usp-visit { display: none !important; }
   .print-masthead { margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 1px solid #000; font-size: 9pt; }
   .static-kicker, .usp-kicker { margin-top: 0; }
   .usp-head h1 { font-size: 22pt; }
