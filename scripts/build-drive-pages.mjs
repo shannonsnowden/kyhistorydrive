@@ -20,7 +20,7 @@ import path from 'node:path'
 
 const SITE = 'https://kyhistorydrive.com'
 import { parseJsLiteral } from './js-literal.mjs'
-import { applyDriveIndexPhotos, applyDrivePagePhoto, loadDrivePhotos, touristTripImage } from './drive-photos.mjs'
+import { applyDriveIndexPhotos, applyDrivePagePhoto, applyDrivesIndexOg, loadDrivePhotos, touristTripImage } from './drive-photos.mjs'
 import { renderDriveGpx } from './drive-gpx.mjs'
 const DP = 'public/drives'
 const SUFFIX = ' · Kentucky History Drive'
@@ -96,7 +96,14 @@ function setHead(html, title, desc) {
 }
 function setLd(html, blocks) {
   html = html.replace(/<!-- khd-drive-jsonld -->[\s\S]*?<!-- \/khd-drive-jsonld -->\n?/, '')
-  return html.replace('</head>', `<!-- khd-drive-jsonld -->\n${blocks.map(ld).join('\n')}\n<!-- /khd-drive-jsonld -->\n</head>`)
+  const block = `<!-- khd-drive-jsonld -->\n${blocks.map(ld).join('\n')}\n<!-- /khd-drive-jsonld -->\n`
+  // Keep JSON-LD before the drive photo <style>. Anchoring at </head> drops it after that
+  // style; the next applyDriveIndexPhotos pass then swaps them, so a second build drifts.
+  const photo = '<!-- khd-drive-photo-style -->'
+  const headEnd = html.indexOf('</head>')
+  const photoAt = html.indexOf(photo)
+  if (photoAt !== -1 && (headEnd === -1 || photoAt < headEnd)) return html.replace(photo, block + photo)
+  return html.replace('</head>', `${block}</head>`)
 }
 const crumbs = (items) => ({
   '@context': 'https://schema.org',
@@ -237,5 +244,6 @@ for (const c of cards) {
     : `${a}${esc(c.intro)}${b}${c.stops}${d}${Math.round(c.miles)}${e}${fmtMin(c.minutes)}${f}`)
 }
 idx = applyDriveIndexPhotos(idx, drivePhotos)
+idx = applyDrivesIndexOg(idx)
 if (idx !== before) { fs.writeFileSync(idxFile, idx); changed++ }
 console.log(`build-drive-pages: ${cards.length} drive pages + index (JSON-LD, prerendered stops, print, GPX); ${changed} file(s) updated`)

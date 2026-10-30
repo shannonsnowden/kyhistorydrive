@@ -33,6 +33,12 @@ ok(!/Coming in the next version/i.test(html), '/about/: shipped features still l
 for (const f of ['Drive plans.', 'Research outlines.', 'Printable, PDF and Markdown copies']) ok(html.includes(f), `/about/: main list missing "${f}"`)
 ok(!/Terms/i.test(html) && !/Reviewer note/i.test(html), '/about/: reviewer note or Terms recommendation left in')
 ok(html.includes('<link rel="canonical" href="https://kyhistorydrive.com/about/"'), '/about/: canonical')
+ok(html.includes('property="og:image" content="https://kyhistorydrive.com/brand/og-about.jpg"'), '/about/: og:image')
+ok(html.includes('property="og:image:width" content="1200"') && html.includes('property="og:image:height" content="630"'), '/about/: share size')
+ok(html.includes('property="og:image:type" content="image/jpeg"'), '/about/: jpeg')
+ok(html.includes('name="twitter:card" content="summary_large_image"'), '/about/: twitter card')
+ok(html.includes('property="og:image:alt" content="Mississippi River from Columbus-Belmont, Kentucky — Kentucky History Drive"'), '/about/: og alt')
+ok(html.includes('https://kyhistorydrive.com/brand/khd-logo-512.png'), '/about/: Organization logo stays the seal')
 const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || ''
 ok(desc && desc.length <= 155, `/about/: meta description ${desc.length} chars`)
 ok(html.includes('"@type":"AboutPage"'), '/about/: AboutPage JSON-LD')

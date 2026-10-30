@@ -16,7 +16,7 @@ export function brandLogoHtml() {
   return `<picture>
             <source media="(max-width: 1099px)" type="image/svg+xml" srcset="/brand/khd-mark-48.svg" />
             <source media="(max-width: 1099px)" type="image/png" srcset="/brand/khd-mark-48.png 1x, /brand/khd-mark-96.png 2x" />
-            <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" decoding="async" />
+            <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" aria-hidden="true" decoding="async" />
           </picture>
           ${sealSrcScriptHtml()}`
 }

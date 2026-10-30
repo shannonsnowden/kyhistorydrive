@@ -130,6 +130,13 @@ class PrerenderPages {
     }
   }
   static LOGO = 'https://kyhistorydrive.com/brand/khd-logo-512.png'
+  static OG_HOME = 'https://kyhistorydrive.com/brand/og-home.jpg'
+  static OG_ABOUT = 'https://kyhistorydrive.com/brand/og-about.jpg'
+  static OG_DRIVES = 'https://kyhistorydrive.com/brand/og-drives.jpg'
+  static OG_ALT_HOME = 'Big Bone Lick State Historic Site, Kentucky — Kentucky History Drive'
+  static OG_ALT_ABOUT = 'Mississippi River from Columbus-Belmont, Kentucky — Kentucky History Drive'
+  static SHARE_W = 1200
+  static SHARE_H = 630
   static ADSENSE =
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8587137224654033" crossorigin="anonymous"></script>'
   static photoSizes = {}
@@ -415,6 +422,7 @@ class PrerenderPages {
       PrerenderPages.writePage(dist, urlPath, html)
     }
     // Drives: the index, the planner and each /drives/<slug>/ page (static files from public/drives/).
+    PrerenderPages.assertDriveShare(root)
     for (const loc of PrerenderPages.drivePaths(root)) {
       const src = `public${loc}index.html`
       entries.push({ loc: `${PrerenderPages.SITE}${loc}`, lastmod: dates.lastmod.get(src) || homeLast })
@@ -2255,7 +2263,7 @@ class PrerenderPages {
                 const imgWebp = p.image?.webp ? String(p.image.webp).replace(/-512\.webp$/, '-96.webp') : ''
                 const avatar =
                   imgJpg && imgWebp
-                    ? `<picture><source srcset="${esc(imgWebp)}" type="image/webp"><img class="usp-person-img" src="${esc(imgJpg)}" alt="" width="48" height="48" loading="lazy" decoding="async"></picture>`
+                    ? `<picture><source srcset="${esc(imgWebp)}" type="image/webp"><img class="usp-person-img" src="${esc(imgJpg)}" alt="${esc(p.name || 'Person in this story')}" width="48" height="48" loading="lazy" decoding="async"></picture>`
                     : `<span class="usp-person-avatar" aria-hidden="true">${esc(initials(p.name || ''))}</span>`
                 const href = p.id ? `/people/#${encodeURIComponent(p.id)}` : `/people/?q=${encodeURIComponent(p.name || '')}`
                 return `<li>
@@ -4819,8 +4827,10 @@ ${rows.join('\n')}
       description,
       canonical: `${PrerenderPages.SITE}/about/`,
       cssHrefs,
-      image: PrerenderPages.LOGO,
-      imageAlt: 'Kentucky History Drive official seal',
+      image: PrerenderPages.OG_ABOUT,
+      imageAlt: PrerenderPages.OG_ALT_ABOUT,
+      imageWidth: PrerenderPages.SHARE_W,
+      imageHeight: PrerenderPages.SHARE_H,
       ogType: 'website',
       jsonLd,
       main,
@@ -4882,6 +4892,21 @@ ${rows.join('\n')}
     if (!html.includes('"@type": "Organization"') && !html.includes('"@type":"Organization"')) {
       throw new Error('prerender: homepage is missing Organization JSON-LD')
     }
+    if (!html.includes(`property="og:image" content="${PrerenderPages.OG_HOME}"`)) {
+      throw new Error('prerender: homepage og:image is not /brand/og-home.jpg')
+    }
+    if (!html.includes(`property="og:image:alt" content="${PrerenderPages.OG_ALT_HOME}"`)) {
+      throw new Error('prerender: homepage og:image:alt is not the PHOTO-3 share alt')
+    }
+    if (!html.includes('property="og:image:width" content="1200"') || !html.includes('property="og:image:height" content="630"')) {
+      throw new Error('prerender: homepage share image is not 1200×630')
+    }
+    if (!html.includes('name="twitter:card" content="summary_large_image"')) {
+      throw new Error('prerender: homepage twitter card is not summary_large_image')
+    }
+    if (!html.includes(`"url": "${PrerenderPages.LOGO}"`) && !html.includes(`"url":"${PrerenderPages.LOGO}"`)) {
+      throw new Error('prerender: homepage Organization logo must stay the seal')
+    }
     const storyHrefs = (html.match(/href="\/stories\/[a-z0-9-]+\/"/g) || []).length
     const layerHrefs = (html.match(/href="\/layers\/[a-z0-9-]+\/"/g) || []).length
     if (storyHrefs < stories.length) throw new Error(`prerender: homepage has ${storyHrefs} story links, expected ${stories.length}`)
@@ -4894,6 +4919,32 @@ ${rows.join('\n')}
       throw new Error('prerender: homepage is missing the Kentucky history route maps anchor')
     }
     fs.writeFileSync(file, html)
+  }
+
+  /**
+   * Share images from PHOTO-4. /routes/ (routesPage) stays on the seal: it is the route-map
+   * index, not /drives/. Drive pages keep the B1b card photo and point og/twitter at og-<slug>.jpg.
+   */
+  static assertDriveShare(root) {
+    const read = (rel) => fs.readFileSync(path.join(root, rel), 'utf8')
+    const index = read('public/drives/index.html')
+    if (!index.includes(`property="og:image" content="${PrerenderPages.OG_DRIVES}"`)) {
+      throw new Error('prerender: /drives/ og:image is not /brand/og-drives.jpg')
+    }
+    if (!index.includes('property="og:image:width" content="1200"') || !index.includes('name="twitter:card" content="summary_large_image"')) {
+      throw new Error('prerender: /drives/ share image is missing 1200×630 or summary_large_image')
+    }
+    const themes = PrerenderPages.readJson(path.join(root, 'scripts/drive-theme-icons.json'))
+    for (const slug of Object.keys(themes.drives || {})) {
+      const html = read(`public/drives/${slug}/index.html`)
+      const share = `${PrerenderPages.SITE}/content/photos/drives/og-${slug}.jpg`
+      if (!html.includes(`property="og:image" content="${share}"`) || !html.includes(`name="twitter:image" content="${share}"`)) {
+        throw new Error(`prerender: /drives/${slug}/ og:image is not the 1200×630 crop`)
+      }
+      if (html.includes('/content/photos/caves/')) {
+        throw new Error(`prerender: /drives/${slug}/ social image uses an uncredited caves/ photo`)
+      }
+    }
   }
 
   /** /drives/, then every public/drives/<slug>/index.html in order. */
