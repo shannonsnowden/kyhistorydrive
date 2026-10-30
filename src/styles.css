@@ -564,6 +564,55 @@ a#siteSearchInput {
   font-weight: 600; margin-bottom: 0.45rem;
   border-bottom: 1px solid var(--line); padding-bottom: 0.55rem;
 }
+.start-here {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+}
+.start-here-row { font-weight: 600; margin-bottom: 0.2rem; }
+.start-here-blurb {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.start-here-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  max-width: 100%;
+  margin: 0 0 0.75rem;
+  min-height: 44px;
+  padding: 0 0.15rem 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--chip, var(--panel));
+  color: var(--heading);
+  font-weight: 700;
+}
+.start-here-chip[hidden] { display: none; }
+.start-here-chip button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--heading);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.start-here-chip button:hover,
+.start-here-chip button:focus-visible { color: var(--accent); }
+.hp-map-strip-drive { margin: 0.35rem 0 0; font-size: 0.95rem; }
+.hp-map-strip-drive a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .layer-icon {
   width: 18px; height: 18px; flex-shrink: 0;
   object-fit: contain;
@@ -1468,7 +1517,7 @@ a.related-card:hover .related-card-chevron {
 
 @media (max-width: 900px) {
   .map-section { grid-template-columns: 1fr; }
-  #mapCanvas { min-height: 55vh; order: -1; }
+  #mapCanvas { min-height: 55svh; order: -1; }
   .controls { max-height: none; }
   .stories-layout { grid-template-columns: 1fr; }
   .stories-list-pane {
@@ -1574,6 +1623,10 @@ a.related-card:hover .related-card-chevron {
   width: 100%;
 }
 .map-canvas-wrap #mapCanvas { flex: 1 1 auto; min-height: 60vh; width: 100%; height: auto; }
+@media (max-width: 900px) {
+  .map-canvas-wrap,
+  .map-canvas-wrap #mapCanvas { min-height: 55svh; }
+}
 /* Back to story and Full state share one map control: chip fill, amber edge, 44px. */
 .full-state-fab,
 .story-return {
@@ -1968,6 +2021,12 @@ a.related-card:hover .related-card-chevron {
   background-color: var(--panel) !important;
   width: 32px !important;
   height: 32px !important;
+}
+@media (max-width: 900px) {
+  .maplibregl-ctrl-group button {
+    width: 44px !important;
+    height: 44px !important;
+  }
 }
 .maplibregl-ctrl-group button + button {
   border-top: 1px solid var(--line) !important;

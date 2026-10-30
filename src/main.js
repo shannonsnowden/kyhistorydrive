@@ -75,6 +75,24 @@ import {
 import { storyUrl, timelineForwardUrl, liveStorySlugs, canonicalStorySlug } from './story-url.js'
 import { pinCardHtml, usePhoneSheet, phoneSheetPinY, phoneSheetLayout } from './pin-card.js'
 import { PIN_TEASERS } from './pin-teasers.js'
+import {
+  CLUSTER_COLOR,
+  CLUSTER_COUNT_COLOR,
+  CLUSTER_EXPAND_MIN,
+  CLUSTER_MAX_ZOOM,
+  CLUSTER_RADIUS,
+  START_HERE_CHIP_KEY,
+  START_HERE_CIRCLE,
+  START_HERE_COLOR,
+  START_HERE_HIT,
+  START_HERE_SOURCE,
+  START_HERE_URL,
+  buildFeaturedCollection,
+  clusterLayerIds,
+  omitFeaturedFeatures,
+  unclusteredPointFilter,
+  visibleFeaturedCount,
+} from './start-here.js'
 
 /**
  * CARTO Voyager. Raster tiles need VITE_CARTO_API_KEY, which Amplify sets at
@@ -99,6 +117,7 @@ function cartoRasterStyle(key) {
         tileSize: 256,
       },
     },
+    glyphs: '/fonts/glyphs/{fontstack}/{range}.pbf',
     layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
   }
 }
@@ -148,13 +167,15 @@ function attachFixedAttribution(mapInstance) {
 const CENTER = [-85.76, 37.84]
 const START_ZOOM = 6.4
 
-function createBasemap(container) {
+function createBasemap(container, { gestures = false } = {}) {
   const mapInstance = new maplibregl.Map({
     container,
     style: OSM_STYLE,
     center: CENTER,
     zoom: START_ZOOM,
     attributionControl: false,
+    // Scroll-zoom stays off. On a touch screen, one finger scrolls the page and two fingers pan the map.
+    cooperativeGestures: gestures,
   })
   attachFixedAttribution(mapInstance)
   return mapInstance
@@ -188,7 +209,7 @@ const YEAR_PRESETS = [
   { id: 'all', label: 'All', min: null, max: null },
 ]
 
-/** Match iOS ContentView layer order/labels. Defaults: Markers ON, others OFF. */
+/** Match iOS ContentView layer order/labels. The web map opens on Start here; these layers stay off until asked. */
 const DATA_LAYERS = [
   {
     id: 'markers',
@@ -655,6 +676,9 @@ let timelineState = {
 }
 
 const layerVisibility = Object.fromEntries(DATA_LAYERS.map((l) => [l.id, l.defaultOn]))
+let startHereOn = true
+let startHereSpec = null
+let startHereCollection = { type: 'FeatureCollection', features: [] }
 
 
 /* Full GeoJSON props — MapLibre truncates long strings on queryRenderedFeatures */
@@ -830,6 +854,8 @@ function applyFiltersToMapInstance(targetMap) {
       if (offsetOnly) next = ['all', ['has', 'display_offset'], filter]
       else if (battleIcons) next = ['all', ['has', 'pinIcon'], filter]
       else if (battleCircle) next = ['all', ['!', ['has', 'pinIcon']], filter]
+      // Home map clusters. Timeline does not: its year filter has to run before points group.
+      if (targetMap === map) next = unclusteredPointFilter(next)
       targetMap.setFilter(lid, next)
     }
   }
@@ -853,11 +879,12 @@ function setLayerVisible(id, on) {
   layerVisibility[id] = on
   if (!map || !mapReady) return
   const vis = on ? 'visible' : 'none'
-  for (const lid of [layerCircleId(id), layerHitId(id), layerSymbolId(id)]) {
+  for (const lid of [layerCircleId(id), layerHitId(id), layerSymbolId(id), ...clusterLayerIds(id)]) {
     if (map.getLayer(lid)) map.setLayoutProperty(lid, 'visibility', vis)
   }
   syncAllLayersCheckbox()
   applyFiltersToMapInstance(map)
+  applyFeaturedStyle()
   if (timelineMap && timelineMapReady) applyFiltersToMapInstance(timelineMap)
   updateStats()
 }
@@ -2198,8 +2225,15 @@ function updateStats() {
     }
     bits.push(`${n.toLocaleString()} ${def.label}`)
   }
+  const featuredN = visibleFeaturedCount(startHereCollection, [], startHereOn)
+  const placeWord = featuredN === 1 ? 'place' : 'places'
+  if (featuredN && !bits.length) {
+    statsEl.textContent = `Start here · ${featuredN} ${placeWord}`
+    return
+  }
+  if (featuredN) bits.unshift(`Start here · ${featuredN} ${placeWord}`)
   // A layer with its own statsText reads as a full phrase ("8 public caves · 71 counties with caves").
-  const only = bits.length === 1 && DATA_LAYERS.find((d) => layerVisibility[d.id] && d.statsText)
+  const only = bits.length === 1 && !featuredN && DATA_LAYERS.find((d) => layerVisibility[d.id] && d.statsText)
   statsEl.textContent = bits.length ? (only ? bits[0] : `Showing ${bits.join(' · ')}`) : 'No layers enabled'
 }
 
@@ -2241,6 +2275,13 @@ function renderLayerToggles() {
       setLayerVisible(def.id, on)
     }
   })
+
+  document.getElementById('startHereToggle')?.addEventListener('change', (e) => {
+    setStartHereVisible(e.target.checked)
+  })
+  document.getElementById('startHereChipDismiss')?.addEventListener('click', () => {
+    dismissStartHereChip()
+  })
 }
 
 // Tight clusters (e.g. the caves around Mammoth Cave) overlap at state zoom. Features with a
@@ -2264,6 +2305,75 @@ function dotImage(color, ring) {
   g.stroke()
   return { width: size, height: size, data: g.getImageData(0, 0, size, size).data }
 }
+function clusterTextFont(targetMap) {
+  const glyphs = String(targetMap.getStyle()?.glyphs || '')
+  // Raster style uses the self-hosted Open Sans Semibold. CARTO's vector style ships Open Sans Bold.
+  if (glyphs.includes('/fonts/glyphs/')) return ['Open Sans Semibold']
+  return ['Open Sans Bold']
+}
+
+function addClusterLayers(targetMap, def, vis) {
+  const [clusters, count] = clusterLayerIds(def.id)
+  targetMap.addLayer({
+    id: clusters,
+    type: 'circle',
+    source: def.id,
+    filter: ['has', 'point_count'],
+    layout: { visibility: vis },
+    paint: {
+      'circle-color': CLUSTER_COLOR,
+      'circle-radius': ['step', ['get', 'point_count'], 16, 25, 20, 75, 24, 200, 30],
+      'circle-opacity': 0.92,
+      'circle-stroke-width': 2,
+      'circle-stroke-color': CLUSTER_COUNT_COLOR,
+    },
+  })
+  targetMap.addLayer({
+    id: count,
+    type: 'symbol',
+    source: def.id,
+    filter: ['has', 'point_count'],
+    layout: {
+      visibility: vis,
+      'text-field': ['get', 'point_count_abbreviated'],
+      'text-font': clusterTextFont(targetMap),
+      'text-size': 12,
+      'text-allow-overlap': true,
+    },
+    paint: {
+      'text-color': CLUSTER_COUNT_COLOR,
+      'text-halo-color': '#243328',
+      'text-halo-width': 1,
+    },
+  })
+  targetMap.on('mouseenter', clusters, () => {
+    targetMap.getCanvas().style.cursor = 'pointer'
+  })
+  targetMap.on('mouseleave', clusters, () => {
+    targetMap.getCanvas().style.cursor = ''
+  })
+  targetMap.on('click', clusters, (e) => {
+    const f = e.features?.[0]
+    if (!f || f.geometry?.type !== 'Point') return
+    e.originalEvent?.stopPropagation?.()
+    const clusterId = f.properties?.cluster_id
+    const center = f.geometry.coordinates
+    const zoomBy = (z) => {
+      const base = typeof z === 'number' && !Number.isNaN(z) ? z : targetMap.getZoom() + 2
+      const next = Math.max(base, CLUSTER_EXPAND_MIN)
+      targetMap.easeTo({ center, zoom: Math.min(next, 14), essential: true })
+    }
+    const src = targetMap.getSource(def.id)
+    if (src?.getClusterExpansionZoom && clusterId != null) {
+      Promise.resolve(src.getClusterExpansionZoom(clusterId))
+        .then(zoomBy)
+        .catch(() => zoomBy(CLUSTER_EXPAND_MIN))
+    } else {
+      zoomBy(CLUSTER_EXPAND_MIN)
+    }
+  })
+}
+
 function addOffsetDotLayer(targetMap, def, vis) {
   const solid = `${def.id}-dot-solid`
   const ring = `${def.id}-dot-ring`
@@ -2293,9 +2403,21 @@ async function addDataLayerOn(targetMap, def, visMap) {
     if (def.id === 'war') stampBattlePins(data, await readyBattlePinIcons(targetMap))
     cacheLayerFeatures(def.id, data)
     if (targetMap.getSource(def.id)) return
-    targetMap.addSource(def.id, { type: 'geojson', data })
+    // Cluster on the home map only. The timeline map filters by year before draw,
+    // and MapLibre clusters the whole source, so a filter there would still group hidden pins.
+    const clusterHome = targetMap === map
+    // Featured pins are drawn on their own source and must never enter a cluster.
+    const sourced = clusterHome ? omitFeaturedFeatures(data, def.id, startHereSpec?.pins) : data
+    targetMap.addSource(def.id, {
+      type: 'geojson',
+      data: sourced,
+      ...(clusterHome
+        ? { cluster: true, clusterMaxZoom: CLUSTER_MAX_ZOOM, clusterRadius: CLUSTER_RADIUS }
+        : {}),
+    })
 
     const vis = visMap[def.id] ? 'visible' : 'none'
+    if (clusterHome) addClusterLayers(targetMap, def, vis)
     // Same size for every layer (including Markers)
     const circleRadius = def.circleRadius || [
       'interpolate',
@@ -2339,6 +2461,14 @@ async function addDataLayerOn(targetMap, def, visMap) {
           },
     }
     if (def.id === 'war') circleLayer.filter = ['!', ['has', 'pinIcon']]
+    if (clusterHome && circleLayer.paint && !def.ringKind) {
+      circleLayer.paint['circle-color'] = CLUSTER_COLOR
+      circleLayer.paint['circle-stroke-color'] = CLUSTER_COUNT_COLOR
+    }
+    if (clusterHome) {
+      const point = ['!', ['has', 'point_count']]
+      circleLayer.filter = circleLayer.filter ? ['all', point, circleLayer.filter] : point
+    }
     targetMap.addLayer(circleLayer)
     if (def.ringKind) addOffsetDotLayer(targetMap, def, vis)
     if (def.id === 'war') {
@@ -2357,13 +2487,15 @@ async function addDataLayerOn(targetMap, def, visMap) {
         },
       })
     }
-    targetMap.addLayer({
+    const hitLayer = {
       id: layerHitId(def.id),
       type: 'circle',
       source: def.id,
       layout: { visibility: vis },
       paint: { 'circle-radius': hitRadius, 'circle-opacity': 0 },
-    })
+    }
+    if (clusterHome) hitLayer.filter = ['!', ['has', 'point_count']]
+    targetMap.addLayer(hitLayer)
 
     // Map uses colored dots only (layer color). Icons stay in the Layers list UI.
 
@@ -2386,6 +2518,136 @@ async function addDataLayerOn(targetMap, def, visMap) {
 
 async function addDataLayer(def) {
   return addDataLayerOn(map, def, layerVisibility)
+}
+
+function startHereChipDismissed() {
+  try {
+    return localStorage.getItem(START_HERE_CHIP_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+function syncStartHereChip() {
+  const chip = document.getElementById('startHereChip')
+  if (!chip) return
+  chip.hidden = !startHereOn || startHereChipDismissed()
+}
+
+function dismissStartHereChip() {
+  try {
+    localStorage.setItem(START_HERE_CHIP_KEY, '1')
+  } catch {
+    /* private mode: the chip still hides for this view */
+  }
+  syncStartHereChip()
+}
+
+/** Amber while Start here is on. Turned off, the same pins stay unclustered and follow their layer in green. */
+function applyFeaturedStyle() {
+  if (!map?.getLayer(START_HERE_CIRCLE)) return
+  const amber = startHereOn
+  map.setPaintProperty(START_HERE_CIRCLE, 'circle-color', amber ? START_HERE_COLOR : CLUSTER_COLOR)
+  map.setPaintProperty(START_HERE_CIRCLE, 'circle-stroke-color', amber ? '#1b140a' : CLUSTER_COUNT_COLOR)
+  map.setPaintProperty(START_HERE_CIRCLE, 'circle-stroke-width', amber ? 2.5 : 1.5)
+  map.setPaintProperty(
+    START_HERE_CIRCLE,
+    'circle-radius',
+    amber
+      ? ['interpolate', ['linear'], ['zoom'], 6, 8, 9, 10, 12, 13]
+      : ['interpolate', ['linear'], ['zoom'], 6, 4, 9, 6, 12, 8],
+  )
+  const visible = DATA_LAYERS.filter((l) => layerVisibility[l.id]).map((l) => l.id)
+  const filter = amber
+    ? null
+    : visible.length
+      ? ['in', ['get', 'homeLayer'], ['literal', visible]]
+      : ['==', ['get', 'homeLayer'], '__none__']
+  for (const id of [START_HERE_CIRCLE, START_HERE_HIT]) {
+    if (map.getLayer(id)) {
+      map.setFilter(id, filter)
+      map.setLayoutProperty(id, 'visibility', 'visible')
+    }
+  }
+  syncStartHereChip()
+}
+
+function setStartHereVisible(on) {
+  startHereOn = on
+  applyFeaturedStyle()
+  updateStats()
+}
+
+/** Map entry without a place link: six amber pins, markers as green clusters, full state. */
+function resetMapToStartHere() {
+  const toggle = document.getElementById('startHereToggle')
+  if (toggle) toggle.checked = true
+  setStartHereVisible(true)
+  for (const def of DATA_LAYERS) {
+    const on = def.defaultOn
+    const input = document.querySelector(`#layerToggles input[data-layer="${def.id}"]`)
+    if (input) input.checked = on
+    setLayerVisible(def.id, on)
+  }
+}
+
+function paintStartHereCopy(spec) {
+  const blurb = document.getElementById('startHereBlurb')
+  if (blurb && spec?.blurb) blurb.textContent = spec.blurb
+}
+
+async function loadStartHereSpec() {
+  if (startHereSpec) return startHereSpec
+  try {
+    const res = await fetch(START_HERE_URL)
+    if (res.ok) startHereSpec = await res.json()
+  } catch {
+    startHereSpec = null
+  }
+  return startHereSpec
+}
+
+async function mountStartHere(targetMap) {
+  if (!targetMap || targetMap.getSource(START_HERE_SOURCE)) return
+  const spec = await loadStartHereSpec()
+  if (spec) {
+    startHereCollection = buildFeaturedCollection(spec, layerGeojsonCache)
+    paintStartHereCopy(spec)
+  }
+  // Not clustered. These six stay single amber pins at every zoom.
+  targetMap.addSource(START_HERE_SOURCE, { type: 'geojson', data: startHereCollection })
+  targetMap.addLayer({
+    id: START_HERE_CIRCLE,
+    type: 'circle',
+    source: START_HERE_SOURCE,
+    paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 8, 9, 10, 12, 13],
+      'circle-color': START_HERE_COLOR,
+      'circle-stroke-width': 2.5,
+      'circle-stroke-color': '#1b140a',
+      'circle-opacity': 0.96,
+    },
+  })
+  targetMap.addLayer({
+    id: START_HERE_HIT,
+    type: 'circle',
+    source: START_HERE_SOURCE,
+    paint: { 'circle-radius': 18, 'circle-opacity': 0 },
+  })
+  applyFeaturedStyle()
+  targetMap.on('mouseenter', START_HERE_HIT, () => {
+    targetMap.getCanvas().style.cursor = 'pointer'
+  })
+  targetMap.on('mouseleave', START_HERE_HIT, () => {
+    targetMap.getCanvas().style.cursor = ''
+  })
+  targetMap.on('click', START_HERE_HIT, (e) => {
+    const f = e.features?.[0]
+    if (!f) return
+    e.originalEvent?.stopPropagation?.()
+    showDetailPopup(f, f.properties?.homeLayer || 'history', e.lngLat, targetMap)
+  })
+  updateStats()
 }
 
 function fitMapToKentucky(targetMap = map, opts = {}) {
@@ -2599,7 +2861,7 @@ function initMap() {
     return
   }
   renderLayerToggles()
-  map = createBasemap('mapCanvas')
+  map = createBasemap('mapCanvas', { gestures: true })
   bindMapResize(map)
   map.addControl(new maplibregl.NavigationControl(), 'top-right')
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }))
@@ -2666,15 +2928,15 @@ function initMap() {
     }
     if (deepLink && !layers.some((def) => def.id === deepLink.placeLayer)) await startDeepLink()
 
+    await loadStartHereSpec()
     for (const def of layers) {
       await addDataLayer(def)
       if (deepLink && def.id === deepLink.placeLayer) await startDeepLink()
     }
 
-    // Home defaults: Markers on + whole-state view
-    setLayerVisible('markers', true)
-    const markersToggle = document.querySelector('input[data-layer="markers"]')
-    if (markersToggle) markersToggle.checked = true
+    // First visit: featured pins + the starter drive, not every marker.
+    mapReady = true
+    await mountStartHere(map)
     syncAllLayersCheckbox()
     if (!pendingFocus) {
       map.resize()
@@ -4418,11 +4680,7 @@ async function applyRoute() {
         revealPlaceFromHash({ placeLayer, placeId }).catch(console.error)
         return
       }
-      if (!keepLayerChoices) {
-        setLayerVisible('markers', true)
-        const markersToggle = document.querySelector('input[data-layer="markers"]')
-        if (markersToggle) markersToggle.checked = true
-      }
+      if (!keepLayerChoices) resetMapToStartHere()
       syncAllLayersCheckbox()
       updateStats()
       ensureHighlightSource(map, null)

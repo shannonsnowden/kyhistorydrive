@@ -1,0 +1,17 @@
+{
+  "_comment": "First map visit. Six amber pins, layer + id only. Coordinates stay in the layer GeoJSON. Other pins draw as muted green dots and clusters. The starter drive is the homepage CTA, not a second map control.",
+  "title": "Start here",
+  "blurb": "Six places in amber. Other pins are green and group together when you zoom out.",
+  "pins": [
+    { "layer": "parks", "id": "big-bone-lick-state-historic-site", "label": "Big Bone Lick" },
+    { "layer": "parks", "id": "old-fort-harrod-state-park", "label": "Fort Harrod" },
+    { "layer": "national", "id": "cumberland-gap-nhp", "label": "Cumberland Gap" },
+    { "layer": "national", "id": "mammoth-cave-np", "label": "Mammoth Cave" },
+    { "layer": "parks", "id": "columbus-belmont-state-park", "label": "Columbus-Belmont" },
+    { "layer": "history", "id": "pound-gap-pine-mountain-letcher-1750-1864", "label": "Pound Gap" }
+  ],
+  "drive": {
+    "id": "bluegrass-forts",
+    "cta": "Start with a drive: Bluegrass Forts (½ day) →"
+  }
+}
