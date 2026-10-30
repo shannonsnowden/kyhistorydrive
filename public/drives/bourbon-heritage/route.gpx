@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Bourbon Heritage: the family distillers of the Rolling Fork country</name>
+    <desc>Out from Bardstown into the Nelson, Washington and Marion county hollows: the Willett farm, Henry McKenna&apos;s Fairfield, Jacob Beam&apos;s Hardin&apos;s Creek and a Beam descendant&apos;s distillery at Lebanon. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/bourbon-heritage/</desc>
+    <link href="https://kyhistorydrive.com/drives/bourbon-heritage/"><text>Bourbon Heritage: the family distillers of the Rolling Fork country</text></link>
+  </metadata>
+  <wpt lat="37.7855" lon="-85.4618">
+    <name>1. Willett Distillery</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="37.5819" lon="-85.2718">
+    <name>4. Limestone Branch Distillery (Lebanon)</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <rte>
+    <name>Bourbon Heritage: the family distillers of the Rolling Fork country</name>
+    <desc>Out from Bardstown into the Nelson, Washington and Marion county hollows: the Willett farm, Henry McKenna&apos;s Fairfield, Jacob Beam&apos;s Hardin&apos;s Creek and a Beam descendant&apos;s distillery at Lebanon. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/bourbon-heritage/</desc>
+    <rtept lat="37.7855" lon="-85.4618">
+      <name>1. Willett Distillery</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="37.5819" lon="-85.2718">
+      <name>4. Limestone Branch Distillery (Lebanon)</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+  </rte>
+</gpx>

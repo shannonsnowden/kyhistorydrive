@@ -4,12 +4,16 @@
  * Idempotent; rewrites each page in place from its own STOPS array and routes/<slug>.json:
  *  - <title> and meta description (from TITLES/DESCS below when the page's own text is too long),
  *  - the prerendered stop list inside <ol id="stops"> (the page script re-renders the same list),
+ *    with a Visiting line from each stop's access text and flags,
  *  - JSON-LD: TouristTrip (itinerary = ordered ItemList of Place) + BreadcrumbList on each drive,
  *    CollectionPage + ItemList on /drives/.
  *  - optional card and page photo from scripts/drive-photos.json (image, credit, alt).
  *    An empty image leaves the theme icon (scripts/apply-drive-theme-icons.mjs).
+ *  - print sheet (src/drive-print.css), Print control, print masthead (name, miles, time),
+ *    and public/drives/<slug>/route.gpx.
  * Geo is emitted only for public, exact stops (not private, not approx). Sensitive stops get no geo;
  * build-byod-stops re-checks that against the protected/archaeology/private data.
+ * GPX uses that same gate (scripts/drive-gpx.mjs).
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -17,6 +21,7 @@ import path from 'node:path'
 const SITE = 'https://kyhistorydrive.com'
 import { parseJsLiteral } from './js-literal.mjs'
 import { applyDriveIndexPhotos, applyDrivePagePhoto, loadDrivePhotos, touristTripImage } from './drive-photos.mjs'
+import { renderDriveGpx } from './drive-gpx.mjs'
 const DP = 'public/drives'
 const SUFFIX = ' · Kentucky History Drive'
 
@@ -100,6 +105,25 @@ const crumbs = (items) => ({
 })
 
 const FL = { private: 'Private land', marker: 'Marker only', paid: 'Paid admission', limited: 'Limited hours', reservation: 'Reservation needed' }
+const fmtMin = (m) => `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`
+const VISIT_TPL = '<p class="stop-meta">${esc(s.when)}</p><p class="stop-visit"><b>Visiting:</b> ${tag} ${esc(s.access)}</p>'
+function applyDrivePrint(html, { slug, h1, route }) {
+  const oldTpl = '<p class="stop-meta">${tag}${esc(s.when)}. ${esc(s.access)}</p>'
+  if (html.includes(oldTpl)) html = html.replaceAll(oldTpl, VISIT_TPL)
+  else if (!html.includes(VISIT_TPL)) throw new Error(`build-drive-pages: ${slug} stop template has no visiting line`)
+  const link = `<!-- khd-drive-print -->\n<link rel="stylesheet" href="/drives/drive-print.css" />\n<!-- /khd-drive-print -->`
+  html = html.replace(/<!-- khd-drive-print -->[\s\S]*?<!-- \/khd-drive-print -->\n?/, '')
+  html = html.replace('</head>', `${link}\n</head>`)
+  const mast = `<!-- khd-drive-masthead -->\n<p class="print-masthead print-only">${esc(h1)} · About ${Math.round(route.miles)} miles · About ${fmtMin(route.minutes)} · Kentucky History Drive · ${SITE}/drives/${slug}/</p>\n<!-- /khd-drive-masthead -->`
+  html = html.replace(/<!-- khd-drive-masthead -->[\s\S]*?<!-- \/khd-drive-masthead -->\n?/, '')
+  if (!html.includes('<main>')) throw new Error(`build-drive-pages: ${slug} has no <main>`)
+  html = html.replace('<main>', `<main>\n${mast}`)
+  const tools = `<!-- khd-drive-tools -->\n<div class="drive-tools" role="group" aria-label="Print and GPS">\n  <button type="button" class="btn btn-quiet" data-print onclick="window.print()">Print</button>\n  <a class="btn btn-quiet" href="/drives/${slug}/route.gpx" download="${slug}.gpx">Download GPX</a>\n</div>\n<!-- /khd-drive-tools -->`
+  html = html.replace(/<!-- khd-drive-tools -->[\s\S]*?<!-- \/khd-drive-tools -->\n?/, '')
+  if (!html.includes('<h2 id="stops-h">Stops</h2>')) throw new Error(`build-drive-pages: ${slug} has no stops heading`)
+  html = html.replace('<h2 id="stops-h">Stops</h2>', `<h2 id="stops-h">Stops</h2>\n${tools}`)
+  return html
+}
 function stopLi(s, i, leg, anchorIds) {
   const tag = (s.private ? '<span class="tag warn">Private land: marker only</span>' : '<span class="tag">Public</span>') +
     (s.flags || []).filter((f) => !(s.private && f === 'private')).map((f) => `<span class="tag${f === 'private' ? ' warn' : ''}">${FL[f] || escText(f)}</span>`).join('')
@@ -110,11 +134,14 @@ function stopLi(s, i, leg, anchorIds) {
     ? s.stories.map(([slug, t]) => `<a class="story"${anchorIds && !anchorIds.has(slug) && anchorIds.add(slug) ? ` id="stop-${escText(slug)}"` : ''} href="/stories/${encodeURIComponent(slug)}/">${escText(t)} →</a>`).join('')
     : '<span class="note">No story yet for this stop.</span>'
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i + 1}</span>
-    <div><p class="stop-name">${i + 1}. ${escText(s.name)}</p><p class="stop-meta">${tag}${escText(s.when)}. ${escText(s.access)}</p>${src}</div>
+    <div><p class="stop-name">${i + 1}. ${escText(s.name)}</p><p class="stop-meta">${escText(s.when)}</p><p class="stop-visit"><b>Visiting:</b> ${tag} ${escText(s.access || '')}</p>${src}</div>
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}
     <div class="links">${links}</div></li>`
 }
 
+const printCss = fs.readFileSync(new URL('../src/drive-print.css', import.meta.url), 'utf8')
+const printCssOut = path.join(DP, 'drive-print.css')
+if (!fs.existsSync(printCssOut) || fs.readFileSync(printCssOut, 'utf8') !== printCss) fs.writeFileSync(printCssOut, printCss)
 const slugs = fs.readdirSync(DP).filter((d) => fs.existsSync(path.join(DP, d, 'index.html'))).sort()
 const drivePhotos = loadDrivePhotos()
 for (const slug of drivePhotos.keys()) {
@@ -165,7 +192,13 @@ for (const slug of slugs) {
     },
   }
   html = setLd(html, [trip, crumbs([['Home', `${SITE}/`], ['Drives', `${SITE}/drives/`], [h1, url]])])
+  // Print link goes in before the photo block. applyDrivePagePhoto rewrites </head>,
+  // and the photo test requires that rewrite to leave the page unchanged.
+  html = applyDrivePrint(html, { slug, h1, route })
   html = applyDrivePagePhoto(html, photo)
+  const gpx = renderDriveGpx({ name: h1, desc: intro, url, stops })
+  const gpxFile = path.join(DP, slug, 'route.gpx')
+  if (!fs.existsSync(gpxFile) || fs.readFileSync(gpxFile, 'utf8') !== gpx) fs.writeFileSync(gpxFile, gpx)
   cards.push({ slug, name: h1, url, intro, stops: stops.length, miles: route.miles, minutes: route.minutes })
   if (html !== before) { fs.writeFileSync(file, html); changed++ }
 }
@@ -198,7 +231,6 @@ idx = setLd(idx, [
 ])
 // Card facts: when a page's STOPS count no longer matches its /drives/ card, rewrite that card's
 // blurb, stop count, miles and minutes from the page intro and route file. Other cards are left as written.
-const fmtMin = (m) => `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`
 for (const c of cards) {
   const re = new RegExp(`(<a href="/drives/${c.slug}/">[\\s\\S]*?<p class="muted">)([\\s\\S]*?)(</p>\\s*<p class="facts"><span><b>)(\\d+)(</b> stops</span><span>About <b>)\\d+( mi</b></span><span>About <b>)[^<]*(</b>)`)
   idx = idx.replace(re, (all, a, blurb, b, n, d, e, f) => Number(n) === c.stops ? all
@@ -206,4 +238,4 @@ for (const c of cards) {
 }
 idx = applyDriveIndexPhotos(idx, drivePhotos)
 if (idx !== before) { fs.writeFileSync(idxFile, idx); changed++ }
-console.log(`build-drive-pages: ${cards.length} drive pages + index (JSON-LD, prerendered stops); ${changed} file(s) updated`)
+console.log(`build-drive-pages: ${cards.length} drive pages + index (JSON-LD, prerendered stops, print, GPX); ${changed} file(s) updated`)

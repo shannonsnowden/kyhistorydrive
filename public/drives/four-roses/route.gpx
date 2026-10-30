@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Four Roses: Lawrenceburg and the Salt River settlements · Loop 1: McAfee country and Fort Harrod</name>
+    <desc>Starting at Four Roses on the Salt River: Lawrenceburg&apos;s beginnings, the McAfee settlers of 1779, and James Harrod&apos;s 1774 town. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/four-roses/</desc>
+    <link href="https://kyhistorydrive.com/drives/four-roses/"><text>Four Roses: Lawrenceburg and the Salt River settlements · Loop 1: McAfee country and Fort Harrod</text></link>
+  </metadata>
+  <wpt lat="37.9732" lon="-84.8981">
+    <name>1. Four Roses Distillery</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.0386" lon="-84.8912">
+    <name>2. Anderson County History Museum</name>
+    <desc>Visiting: Free museum; limited open days, otherwise by appointment. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.8645" lon="-84.8527">
+    <name>3. McAfee Station and New Providence Church markers</name>
+    <desc>Visiting: Roadside markers on US 127 at the church; the station site itself is on private land. Marker only</desc>
+  </wpt>
+  <wpt lat="37.762" lon="-84.8485">
+    <name>4. Old Fort Harrod State Park</name>
+    <desc>Visiting: State park; admission charged for the fort, seasonal hours. Paid admission, Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Four Roses: Lawrenceburg and the Salt River settlements · Loop 1: McAfee country and Fort Harrod</name>
+    <desc>Starting at Four Roses on the Salt River: Lawrenceburg&apos;s beginnings, the McAfee settlers of 1779, and James Harrod&apos;s 1774 town. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/four-roses/</desc>
+    <rtept lat="37.9732" lon="-84.8981">
+      <name>1. Four Roses Distillery</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.0386" lon="-84.8912">
+      <name>2. Anderson County History Museum</name>
+      <desc>Visiting: Free museum; limited open days, otherwise by appointment. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.8645" lon="-84.8527">
+      <name>3. McAfee Station and New Providence Church markers</name>
+      <desc>Visiting: Roadside markers on US 127 at the church; the station site itself is on private land. Marker only</desc>
+    </rtept>
+    <rtept lat="37.762" lon="-84.8485">
+      <name>4. Old Fort Harrod State Park</name>
+      <desc>Visiting: State park; admission charged for the fort, seasonal hours. Paid admission, Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Buffalo Trace · Loop 2: Glenn&apos;s Creek distilleries</name>
+    <desc>Glenn&apos;s Creek distilling history just south of Frankfort: Buffalo Trace, a National Historic Landmark; Col. E.H. Taylor Jr.&apos;s 1887 Old Taylor Distillery; the former Old Crow Distillery; and the Oscar Pepper Distillery, where James C. Crow worked on sour mash and barrel-aging methods. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/buffalo-trace-loop-2/</desc>
+    <link href="https://kyhistorydrive.com/drives/buffalo-trace-loop-2/"><text>Buffalo Trace · Loop 2: Glenn&apos;s Creek distilleries</text></link>
+  </metadata>
+  <wpt lat="38.2157" lon="-84.8691">
+    <name>1. Buffalo Trace Distillery (George T. Stagg Distillery)</name>
+    <desc>Visiting: Working distillery; visitor tours by reservation. Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.1467" lon="-84.8326">
+    <name>2. Castle &amp; Key (Old Taylor Distillery)</name>
+    <desc>Visiting: Working distillery; tours and tastings by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.1463" lon="-84.8458">
+    <name>3. Glenns Creek Distilling (former Old Crow Distillery)</name>
+    <desc>Visiting: Small working distillery; check hours before visiting. Limited hours, Paid admission</desc>
+  </wpt>
+  <wpt lat="38.1133" lon="-84.8135">
+    <name>4. Woodford Reserve (Old Oscar Pepper Distillery)</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <rte>
+    <name>Buffalo Trace · Loop 2: Glenn&apos;s Creek distilleries</name>
+    <desc>Glenn&apos;s Creek distilling history just south of Frankfort: Buffalo Trace, a National Historic Landmark; Col. E.H. Taylor Jr.&apos;s 1887 Old Taylor Distillery; the former Old Crow Distillery; and the Oscar Pepper Distillery, where James C. Crow worked on sour mash and barrel-aging methods. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/buffalo-trace-loop-2/</desc>
+    <rtept lat="38.2157" lon="-84.8691">
+      <name>1. Buffalo Trace Distillery (George T. Stagg Distillery)</name>
+      <desc>Visiting: Working distillery; visitor tours by reservation. Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.1467" lon="-84.8326">
+      <name>2. Castle &amp; Key (Old Taylor Distillery)</name>
+      <desc>Visiting: Working distillery; tours and tastings by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.1463" lon="-84.8458">
+      <name>3. Glenns Creek Distilling (former Old Crow Distillery)</name>
+      <desc>Visiting: Small working distillery; check hours before visiting. Limited hours, Paid admission</desc>
+    </rtept>
+    <rtept lat="38.1133" lon="-84.8135">
+      <name>4. Woodford Reserve (Old Oscar Pepper Distillery)</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Heaven Hill: Bardstown and the road to Lincoln&apos;s birthplace · Loop 1: Bardstown, New Haven and Lincoln&apos;s birthplace</name>
+    <desc>Starting at Heaven Hill in Bardstown: the town&apos;s founding, Federal Hill, Spalding Hall and Union Church, then south to the Kentucky Railway Museum and Lincoln&apos;s birthplace. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/heaven-hill/</desc>
+    <link href="https://kyhistorydrive.com/drives/heaven-hill/"><text>Heaven Hill: Bardstown and the road to Lincoln&apos;s birthplace · Loop 1: Bardstown, New Haven and Lincoln&apos;s birthplace</text></link>
+  </metadata>
+  <wpt lat="37.7932" lon="-85.4657">
+    <name>1. Heaven Hill Distillery (Bardstown)</name>
+    <desc>Visiting: Visitor center with tours and tastings; fees apply, reservations advised. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="37.8089" lon="-85.4665">
+    <name>2. Bardstown courthouse square (KHS #1668)</name>
+    <desc>Visiting: Downtown marker; public square. Marker only</desc>
+  </wpt>
+  <wpt lat="37.8154" lon="-85.4702">
+    <name>3. Spalding Hall (Oscar Getz Museum of Whiskey History)</name>
+    <desc>Visiting: Museum; set hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.8127" lon="-85.4634">
+    <name>4. Bardstown African American Heritage Museum (Union Church)</name>
+    <desc>Visiting: Group tours by arrangement; check hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.8111" lon="-85.4623">
+    <name>5. Civil War Museum of the Western Theater</name>
+    <desc>Visiting: Paid admission; set hours. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="37.8068" lon="-85.4567">
+    <name>6. My Old Kentucky Home State Park (Federal Hill)</name>
+    <desc>Visiting: State park; mansion by guided tour with admission. Paid admission</desc>
+  </wpt>
+  <wpt lat="37.6655" lon="-85.5874">
+    <name>7. Kentucky Railway Museum (New Haven)</name>
+    <desc>Visiting: Museum and seasonal excursions; tickets required. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="37.5312" lon="-85.7369">
+    <name>8. Abraham Lincoln Birthplace National Historical Park</name>
+    <desc>Visiting: National Park Service site; free.</desc>
+  </wpt>
+  <rte>
+    <name>Heaven Hill: Bardstown and the road to Lincoln&apos;s birthplace · Loop 1: Bardstown, New Haven and Lincoln&apos;s birthplace</name>
+    <desc>Starting at Heaven Hill in Bardstown: the town&apos;s founding, Federal Hill, Spalding Hall and Union Church, then south to the Kentucky Railway Museum and Lincoln&apos;s birthplace. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/heaven-hill/</desc>
+    <rtept lat="37.7932" lon="-85.4657">
+      <name>1. Heaven Hill Distillery (Bardstown)</name>
+      <desc>Visiting: Visitor center with tours and tastings; fees apply, reservations advised. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="37.8089" lon="-85.4665">
+      <name>2. Bardstown courthouse square (KHS #1668)</name>
+      <desc>Visiting: Downtown marker; public square. Marker only</desc>
+    </rtept>
+    <rtept lat="37.8154" lon="-85.4702">
+      <name>3. Spalding Hall (Oscar Getz Museum of Whiskey History)</name>
+      <desc>Visiting: Museum; set hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.8127" lon="-85.4634">
+      <name>4. Bardstown African American Heritage Museum (Union Church)</name>
+      <desc>Visiting: Group tours by arrangement; check hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.8111" lon="-85.4623">
+      <name>5. Civil War Museum of the Western Theater</name>
+      <desc>Visiting: Paid admission; set hours. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="37.8068" lon="-85.4567">
+      <name>6. My Old Kentucky Home State Park (Federal Hill)</name>
+      <desc>Visiting: State park; mansion by guided tour with admission. Paid admission</desc>
+    </rtept>
+    <rtept lat="37.6655" lon="-85.5874">
+      <name>7. Kentucky Railway Museum (New Haven)</name>
+      <desc>Visiting: Museum and seasonal excursions; tickets required. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="37.5312" lon="-85.7369">
+      <name>8. Abraham Lincoln Birthplace National Historical Park</name>
+      <desc>Visiting: National Park Service site; free.</desc>
+    </rtept>
+  </rte>
+</gpx>

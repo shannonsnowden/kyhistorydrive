@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Big Sandy and Pine Mountain</name>
+    <desc>From Pound Gap on Pine Mountain down the Big Sandy valley: Pikeville&apos;s heritage center, the 1861–62 battles at Ivy Mountain and Middle Creek, Jenny Wiley&apos;s story and a mountain farm community. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/big-sandy-pine-mountain/</desc>
+    <link href="https://kyhistorydrive.com/drives/big-sandy-pine-mountain/"><text>Big Sandy and Pine Mountain</text></link>
+  </metadata>
+  <wpt lat="37.1548" lon="-82.6327">
+    <name>1. Pound Gap, Pine Mountain (KHS #510)</name>
+    <desc>Visiting: US 23 roadside marker at the state line. Marker only</desc>
+  </wpt>
+  <wpt lat="37.4791" lon="-82.5198">
+    <name>2. Big Sandy Heritage Center Museum (Pikeville)</name>
+    <desc>Visiting: Museum; check hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.6655" lon="-82.7555">
+    <name>3. Ivy Mountain battlefield marker (KHS #164)</name>
+    <desc>Visiting: Roadside monument and marker. Marker only</desc>
+  </wpt>
+  <wpt lat="37.6509" lon="-82.8135">
+    <name>4. Middle Creek National Battlefield</name>
+    <desc>Visiting: Battlefield park with walking trails.</desc>
+  </wpt>
+  <wpt lat="37.6975" lon="-82.725">
+    <name>5. Jenny Wiley State Resort Park</name>
+    <desc>Visiting: State resort park.</desc>
+  </wpt>
+  <wpt lat="37.8505" lon="-82.8555">
+    <name>6. Mountain HomePlace (Staffordsville)</name>
+    <desc>Visiting: Admission; open about April–October. Paid admission, Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Big Sandy and Pine Mountain</name>
+    <desc>From Pound Gap on Pine Mountain down the Big Sandy valley: Pikeville&apos;s heritage center, the 1861–62 battles at Ivy Mountain and Middle Creek, Jenny Wiley&apos;s story and a mountain farm community. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/big-sandy-pine-mountain/</desc>
+    <rtept lat="37.1548" lon="-82.6327">
+      <name>1. Pound Gap, Pine Mountain (KHS #510)</name>
+      <desc>Visiting: US 23 roadside marker at the state line. Marker only</desc>
+    </rtept>
+    <rtept lat="37.4791" lon="-82.5198">
+      <name>2. Big Sandy Heritage Center Museum (Pikeville)</name>
+      <desc>Visiting: Museum; check hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.6655" lon="-82.7555">
+      <name>3. Ivy Mountain battlefield marker (KHS #164)</name>
+      <desc>Visiting: Roadside monument and marker. Marker only</desc>
+    </rtept>
+    <rtept lat="37.6509" lon="-82.8135">
+      <name>4. Middle Creek National Battlefield</name>
+      <desc>Visiting: Battlefield park with walking trails.</desc>
+    </rtept>
+    <rtept lat="37.6975" lon="-82.725">
+      <name>5. Jenny Wiley State Resort Park</name>
+      <desc>Visiting: State resort park.</desc>
+    </rtept>
+    <rtept lat="37.8505" lon="-82.8555">
+      <name>6. Mountain HomePlace (Staffordsville)</name>
+      <desc>Visiting: Admission; open about April–October. Paid admission, Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Cave Country</name>
+    <desc>From Bowling Green&apos;s Lost River Cave to Mammoth Cave and Horse Cave: the karst country where saltpetre was mined for the War of 1812 and show caves drew paying visitors from 1816 on. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/cave-country/</desc>
+    <link href="https://kyhistorydrive.com/drives/cave-country/"><text>Cave Country</text></link>
+  </metadata>
+  <wpt lat="36.9845" lon="-86.4576">
+    <name>2. Kentucky Museum (WKU)</name>
+    <desc>Visiting: University museum; check open days. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.1166" lon="-86.063">
+    <name>3. Diamond Caverns (visitor center)</name>
+    <desc>Visiting: Privately owned show cave; paid guided tours only. Paid admission</desc>
+  </wpt>
+  <wpt lat="37.187" lon="-86.1013">
+    <name>4. Mammoth Cave National Park (visitor center)</name>
+    <desc>Visiting: National park; surface trails free, cave tours paid and often sell out. Paid admission</desc>
+  </wpt>
+  <wpt lat="37.1793" lon="-85.9057">
+    <name>5. Hidden River Cave and American Cave Museum</name>
+    <desc>Visiting: Paid cave tours; museum admission. Paid admission</desc>
+  </wpt>
+  <rte>
+    <name>Cave Country</name>
+    <desc>From Bowling Green&apos;s Lost River Cave to Mammoth Cave and Horse Cave: the karst country where saltpetre was mined for the War of 1812 and show caves drew paying visitors from 1816 on. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/cave-country/</desc>
+    <rtept lat="36.9845" lon="-86.4576">
+      <name>2. Kentucky Museum (WKU)</name>
+      <desc>Visiting: University museum; check open days. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.1166" lon="-86.063">
+      <name>3. Diamond Caverns (visitor center)</name>
+      <desc>Visiting: Privately owned show cave; paid guided tours only. Paid admission</desc>
+    </rtept>
+    <rtept lat="37.187" lon="-86.1013">
+      <name>4. Mammoth Cave National Park (visitor center)</name>
+      <desc>Visiting: National park; surface trails free, cave tours paid and often sell out. Paid admission</desc>
+    </rtept>
+    <rtept lat="37.1793" lon="-85.9057">
+      <name>5. Hidden River Cave and American Cave Museum</name>
+      <desc>Visiting: Paid cave tours; museum admission. Paid admission</desc>
+    </rtept>
+  </rte>
+</gpx>

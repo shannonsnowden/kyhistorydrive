@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Wild Turkey · Loop 2: Shaker Village of Pleasant Hill</name>
+    <desc>From the Ripy family&apos;s 1891 distillery at Tyrone to Lawrenceburg&apos;s beginnings as Kaufman&apos;s Station in the early 1780s, then south to Pleasant Hill, where Shakers signed their first family covenant in 1806 and kept a community until 1910. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/wild-turkey-loop-2/</desc>
+    <link href="https://kyhistorydrive.com/drives/wild-turkey-loop-2/"><text>Wild Turkey · Loop 2: Shaker Village of Pleasant Hill</text></link>
+  </metadata>
+  <wpt lat="38.0423" lon="-84.8505">
+    <name>1. Wild Turkey Distillery</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.0386" lon="-84.8912">
+    <name>2. Anderson County History Museum</name>
+    <desc>Visiting: Free museum; limited open days, otherwise by appointment. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.8188" lon="-84.7384">
+    <name>3. Shaker Village of Pleasant Hill</name>
+    <desc>Visiting: Nonprofit historic site; admission charged, many buildings open seasonally. Paid admission, Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Wild Turkey · Loop 2: Shaker Village of Pleasant Hill</name>
+    <desc>From the Ripy family&apos;s 1891 distillery at Tyrone to Lawrenceburg&apos;s beginnings as Kaufman&apos;s Station in the early 1780s, then south to Pleasant Hill, where Shakers signed their first family covenant in 1806 and kept a community until 1910. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/wild-turkey-loop-2/</desc>
+    <rtept lat="38.0423" lon="-84.8505">
+      <name>1. Wild Turkey Distillery</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.0386" lon="-84.8912">
+      <name>2. Anderson County History Museum</name>
+      <desc>Visiting: Free museum; limited open days, otherwise by appointment. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.8188" lon="-84.7384">
+      <name>3. Shaker Village of Pleasant Hill</name>
+      <desc>Visiting: Nonprofit historic site; admission charged, many buildings open seasonally. Paid admission, Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boone&apos;s Trail and the Wilderness Road</name>
+    <desc>From Cumberland Gap, where Thomas Walker followed an Indian road in 1750, north along the settlers&apos; route to Logan&apos;s and Whitley&apos;s stations and Boone&apos;s fort on the Kentucky River, then east to Pilot Knob, by tradition where Boone&apos;s party first looked out over Kentucky in 1769. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/boones-trail/</desc>
+    <link href="https://kyhistorydrive.com/drives/boones-trail/"><text>Boone&apos;s Trail and the Wilderness Road</text></link>
+  </metadata>
+  <wpt lat="36.6027" lon="-83.6953">
+    <name>1. Cumberland Gap National Historical Park</name>
+    <desc>Visiting: National Park Service site; free.</desc>
+  </wpt>
+  <wpt lat="36.8392" lon="-83.9192">
+    <name>2. Dr. Thomas Walker State Historic Site</name>
+    <desc>Visiting: State historic site; grounds open.</desc>
+  </wpt>
+  <wpt lat="37.4681" lon="-84.55">
+    <name>3. William Whitley House State Historic Site</name>
+    <desc>Visiting: Historic site; seasonal hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.5427" lon="-84.6528">
+    <name>4. Logan&apos;s Station / St. Asaph (Stanford)</name>
+    <desc>Visiting: Town park and marker area in Stanford; no reconstructed fort. Marker only</desc>
+  </wpt>
+  <wpt lat="37.8974" lon="-84.2668">
+    <name>5. Fort Boonesborough State Park</name>
+    <desc>Visiting: State park; fort exhibits have seasonal hours and admission. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="37.9121" lon="-83.945">
+    <name>6. Pilot Knob State Nature Preserve (Boone&apos;s Overlook)</name>
+    <desc>Visiting: State nature preserve; free, open daylight hours. Small gravel lot at the Brush Creek Road trailhead, north of Clay City. The overlook is a strenuous 1.25-mile climb each way, with unrailed cliffs at the top. Stay on the trail. Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Boone&apos;s Trail and the Wilderness Road</name>
+    <desc>From Cumberland Gap, where Thomas Walker followed an Indian road in 1750, north along the settlers&apos; route to Logan&apos;s and Whitley&apos;s stations and Boone&apos;s fort on the Kentucky River, then east to Pilot Knob, by tradition where Boone&apos;s party first looked out over Kentucky in 1769. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/boones-trail/</desc>
+    <rtept lat="36.6027" lon="-83.6953">
+      <name>1. Cumberland Gap National Historical Park</name>
+      <desc>Visiting: National Park Service site; free.</desc>
+    </rtept>
+    <rtept lat="36.8392" lon="-83.9192">
+      <name>2. Dr. Thomas Walker State Historic Site</name>
+      <desc>Visiting: State historic site; grounds open.</desc>
+    </rtept>
+    <rtept lat="37.4681" lon="-84.55">
+      <name>3. William Whitley House State Historic Site</name>
+      <desc>Visiting: Historic site; seasonal hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.5427" lon="-84.6528">
+      <name>4. Logan&apos;s Station / St. Asaph (Stanford)</name>
+      <desc>Visiting: Town park and marker area in Stanford; no reconstructed fort. Marker only</desc>
+    </rtept>
+    <rtept lat="37.8974" lon="-84.2668">
+      <name>5. Fort Boonesborough State Park</name>
+      <desc>Visiting: State park; fort exhibits have seasonal hours and admission. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="37.9121" lon="-83.945">
+      <name>6. Pilot Knob State Nature Preserve (Boone&apos;s Overlook)</name>
+      <desc>Visiting: State nature preserve; free, open daylight hours. Small gravel lot at the Brush Creek Road trailhead, north of Clay City. The overlook is a strenuous 1.25-mile climb each way, with unrailed cliffs at the top. Stay on the trail. Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>
