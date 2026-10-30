@@ -1,8 +1,8 @@
 /**
- * Approvals 112 B1a default homepage lead.
+ * Empty-pack fallback photo for the homepage lead (Approvals 112 B1a).
+ * Approvals 112 A5: withDefaultHero does not place this in front of a daily pack.
  * Photo: public/content/photos/heroes/hero-big-bone-lick.jpg (same Commons file as the Big Bone Lick layer).
  * Alt on disk, not the default: public/content/photos/heroes/hero-columbus-belmont-mississippi.jpg.
- * Today's brief stays on the rail; this lead is the picture until a later rotation.
  * No lat/lon here: this module is bundled into main.js, and a fine coordinate
  * next to a protected-site id fails check-protected-coords. The map link uses historyId.
  */

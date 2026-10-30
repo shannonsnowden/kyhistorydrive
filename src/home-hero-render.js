@@ -273,31 +273,33 @@ export function renderSwipeCard(story) {
 export const LEAD_SIZES = '(max-width: 900px) 100vw, 66vw'
 
 /**
- * Approvals 112 B1a: the homepage lead is Big Bone Lick until a later rotation.
- * Today's brief stays on the rail. An empty pin image leaves the brief order alone.
+ * Approvals 112 A5: today's brief is the homepage front, in pack order.
+ * The Big Bone Lick pin (Approvals 112 B1a) is only the empty-pack fallback.
+ * A non-empty list is returned unchanged, including when that pin's slug is already in it.
  */
 export function withDefaultHero(slides) {
-  const pin = HERO_DEFAULT
   const list = Array.isArray(slides) ? slides.filter(Boolean) : []
+  if (list.length) return list
+  const pin = HERO_DEFAULT
   if (!pin?.image || !pin?.slug) return list
-  const rest = list.filter((s) => s.slug !== pin.slug)
-  const lead = {
-    slug: pin.slug,
-    title: pin.title,
-    county: pin.county || '',
-    yearStart: pin.yearStart ?? null,
-    heroDeck: pin.heroDeck || '',
-    summary: pin.heroDeck || '',
-    historyId: pin.historyId || null,
-    photo: {
-      image_url: pin.image,
-      title: pin.alt || pin.title,
-      attribution: pin.credit || '',
-      source_url: pin.source_url || '',
-      source_label: 'Wikimedia Commons',
+  return [
+    {
+      slug: pin.slug,
+      title: pin.title,
+      county: pin.county || '',
+      yearStart: pin.yearStart ?? null,
+      heroDeck: pin.heroDeck || '',
+      summary: pin.heroDeck || '',
+      historyId: pin.historyId || null,
+      photo: {
+        image_url: pin.image,
+        title: pin.alt || pin.title,
+        attribution: pin.credit || '',
+        source_url: pin.source_url || '',
+        source_label: 'Wikimedia Commons',
+      },
     },
-  }
-  return [lead, ...rest]
+  ]
 }
 
 /** <link rel=preload> for the lead image, written into <head> at build time. */

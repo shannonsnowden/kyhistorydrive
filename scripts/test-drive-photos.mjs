@@ -1,5 +1,6 @@
 /**
- * Drive card photos (image / credit / alt) and the Big Bone Lick homepage lead.
+ * Drive card photos (image / credit / alt) and the homepage lead.
+ * A daily pack stays in brief order. Big Bone Lick is only the empty-pack fallback.
  * Empty image keeps the theme icon. Filled image renders on the card and the drive page.
  */
 import assert from 'node:assert/strict'
@@ -102,11 +103,34 @@ const slides = withDefaultHero([
   { slug: 'father-david-rice-and-kentuckys-first-presbyterian-churches', title: 'Rice', photo: { image_url: '/content/photos/stories/rice.jpg' } },
   { slug: 'la-grange-the-oldham-county-seat-with-trains-on-main-street', title: 'La Grange' },
 ])
-assert.equal(slides[0].slug, 'big-bone-lick-older-cycle')
-assert.equal(slides[0].photo.image_url, HERO_DEFAULT.image)
-assert.equal(slides[0].photo.attribution, HERO_DEFAULT.credit)
-assert.equal(slides[1].slug, 'father-david-rice-and-kentuckys-first-presbyterian-churches')
-assert.equal(slides.length, 3)
+assert.equal(slides[0].slug, 'father-david-rice-and-kentuckys-first-presbyterian-churches')
+assert.equal(slides[1].slug, 'la-grange-the-oldham-county-seat-with-trains-on-main-street')
+assert.equal(slides.length, 2)
+const kept = withDefaultHero([
+  { slug: 'la-grange-the-oldham-county-seat-with-trains-on-main-street', title: 'La Grange' },
+  { slug: 'big-bone-lick-older-cycle', title: 'From the brief' },
+])
+assert.deepEqual(
+  kept.map((s) => s.slug),
+  ['la-grange-the-oldham-county-seat-with-trains-on-main-street', 'big-bone-lick-older-cycle'],
+)
+const pack = JSON.parse(fs.readFileSync('public/content/home-preview.json', 'utf8'))
+const packSlides = withDefaultHero(pack.stories)
+assert.deepEqual(
+  packSlides.map((s) => s.slug),
+  pack.stories.map((s) => s.slug),
+)
+assert.equal(packSlides[0].briefDate, pack.briefDate)
+const visible = [packSlides[0], ...packSlides.slice(1, 5)]
+assert.deepEqual(
+  visible.map((s) => s.slug),
+  pack.stories.slice(0, 5).map((s) => s.slug),
+)
+const fallback = withDefaultHero([])
+assert.equal(fallback.length, 1)
+assert.equal(fallback[0].slug, 'big-bone-lick-older-cycle')
+assert.equal(fallback[0].photo.image_url, HERO_DEFAULT.image)
+assert.equal(fallback[0].photo.attribution, HERO_DEFAULT.credit)
 
 const css = fs.readFileSync('src/styles.css', 'utf8')
 assert.match(css, /rgba\(8, 12, 9, 0\.55\) 0%,\s*rgba\(8, 12, 9, 0\.32\) 22%,\s*rgba\(8, 12, 9, 0\.10\) 38%,\s*rgba\(8, 12, 9, 0\) 45%/)
@@ -115,4 +139,4 @@ assert.match(css, /\.hp-mag-hero \.hp-mag-hero-copy \{[^}]*background: rgba\(8, 
 assert.doesNotMatch(css, /rgba\(20, 14, 8, 0\.94\)/)
 assert.doesNotMatch(css, /rgba\(8, 12, 9, 0\.78\) 0%/)
 
-console.log('test-drive-photos: 24 drive photos, icon fallback, Big Bone Lick hero, shade')
+console.log('test-drive-photos: 24 drive photos, icon fallback, daily-pack lead, shade')
