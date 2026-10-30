@@ -15,6 +15,7 @@ import {
   renderSwipeCard,
   leadPreloadTag,
   storyPageHref,
+  withDefaultHero,
 } from '../src/home-hero-render.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -28,7 +29,7 @@ setPhotoVariants(fs.existsSync(variantsFile) ? readJson(variantsFile) : {})
 
 const all = Array.isArray(pack.stories) && pack.stories.length ? pack.stories : [pack.hero, ...(pack.features || [])].filter(Boolean)
 const withPhotos = all.filter((s) => usablePhoto(s?.photo))
-const slides = withPhotos.length ? withPhotos : all.slice(0, 1)
+const slides = withDefaultHero(withPhotos.length ? withPhotos : all.slice(0, 1))
 if (!slides.length) throw new Error('prerender-home-hero: home-preview.json has no stories')
 const lead = slides[0]
 const more = slides.slice(1, 5)

@@ -34,6 +34,7 @@ import {
   renderRailCard,
   renderSwipeCard,
   leadPreloadTag,
+  withDefaultHero,
 } from './home-hero-render.js'
 import { storyUrl } from './story-url.js'
 
@@ -140,8 +141,8 @@ function briefStories(pack) {
 function heroSlides(pack) {
   const all = briefStories(pack)
   const withPhotos = all.filter((s) => usablePhoto(s?.photo))
-  if (withPhotos.length) return withPhotos
-  return all[0] ? [all[0]] : []
+  const slides = withPhotos.length ? withPhotos : all[0] ? [all[0]] : []
+  return withDefaultHero(slides)
 }
 
 function preloadLeadImage(story) {

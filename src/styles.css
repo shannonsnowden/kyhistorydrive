@@ -2838,7 +2838,7 @@ html[data-hp-theme="light"] .about-seal {
   right: 0;
   bottom: 0;
   padding: 0.85rem 1.15rem 1rem;
-  background: rgba(8, 12, 9, 0.78);
+  background: rgba(8, 12, 9, 0.42);
   pointer-events: auto;
 }
 .hp-mag-hero-shade {
@@ -2848,10 +2848,11 @@ html[data-hp-theme="light"] .about-seal {
   pointer-events: none;
   background: linear-gradient(
     to top,
-    rgba(8, 12, 9, 0.78) 0%,
-    rgba(8, 12, 9, 0.55) 42%,
-    rgba(8, 12, 9, 0.22) 70%,
-    rgba(8, 12, 9, 0.08) 100%
+    rgba(8, 12, 9, 0.55) 0%,
+    rgba(8, 12, 9, 0.32) 22%,
+    rgba(8, 12, 9, 0.10) 38%,
+    rgba(8, 12, 9, 0) 45%,
+    transparent 100%
   );
 }
 .hp-mag-hero .hp-hero-eyebrow {
@@ -3369,7 +3370,7 @@ html[data-hp-theme="light"] .hp-map-seal.hp-plan-badge {
     object-position: 50% 0%;
   }
 }
-/* .hp-mag-hero-shade: see lead-block rules (~70% dark overlay) */
+/* .hp-mag-hero-shade: bottom-weighted, clear above ~45% (desktop) / ~48% (mobile) */
 
 .hp-mag-hero-media picture {
   position: absolute;
@@ -3721,16 +3722,16 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
      under the wrapped header. 78vh plus that header pushed the dots below the fold. */
   .hp-mag-hero { min-height: 68vh; }
   .hp-mag-hero { min-height: calc(100svh - 17.25rem); }
-  /* Mobile hero copy sits on bright parts of the photo. Keep the lower shade
-     dark enough that cream summary text stays at least 4.5:1 on a white pixel. */
+  /* Mobile hero copy sits on bright parts of the photo. Bottom shade peaks at
+     0.62 so cream type stays readable without covering the sky. */
   .hp-mag-hero-shade {
     background: linear-gradient(
       to top,
-      rgba(20, 14, 8, 0.94) 0%,
-      rgba(20, 14, 8, 0.9) 48%,
-      rgba(20, 14, 8, 0.82) 70%,
-      rgba(20, 14, 8, 0.35) 88%,
-      rgba(20, 14, 8, 0) 100%
+      rgba(20, 14, 8, 0.62) 0%,
+      rgba(20, 14, 8, 0.40) 26%,
+      rgba(20, 14, 8, 0.14) 40%,
+      rgba(20, 14, 8, 0) 48%,
+      transparent 100%
     );
   }
   .hp-hero-controls { bottom: 0.85rem; }
