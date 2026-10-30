@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Northern Kentucky: Ice Age to the Roebling Bridge</name>
+    <desc>From the Ice Age salt springs at Big Bone Lick through Boone County&apos;s seat and a Dinsmore farm to the 1862 defenses of Cincinnati and Roebling&apos;s bridge. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/northern-kentucky/</desc>
+    <link href="https://kyhistorydrive.com/drives/northern-kentucky/"><text>Northern Kentucky: Ice Age to the Roebling Bridge</text></link>
+  </metadata>
+  <wpt lat="38.8869" lon="-84.7478">
+    <name>1. Big Bone Lick State Historic Site</name>
+    <desc>Visiting: State historic site; museum hours vary. Limited hours</desc>
+  </wpt>
+  <wpt lat="39.0222" lon="-84.7217">
+    <name>2. Burlington courthouse square</name>
+    <desc>Visiting: Public town square.</desc>
+  </wpt>
+  <wpt lat="39.0008" lon="-84.8136">
+    <name>3. Dinsmore Homestead</name>
+    <desc>Visiting: Historic house; tours seasonal, admission charged. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="39.0556" lon="-84.5272">
+    <name>4. Battery Hooper Park (Fort Wright)</name>
+    <desc>Visiting: City park at 1402 Highland Pike; open daily.</desc>
+  </wpt>
+  <wpt lat="39.0929" lon="-84.5099">
+    <name>5. John A. Roebling Suspension Bridge</name>
+    <desc>Visiting: Open to traffic and pedestrians.</desc>
+  </wpt>
+  <rte>
+    <name>Northern Kentucky: Ice Age to the Roebling Bridge</name>
+    <desc>From the Ice Age salt springs at Big Bone Lick through Boone County&apos;s seat and a Dinsmore farm to the 1862 defenses of Cincinnati and Roebling&apos;s bridge. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/northern-kentucky/</desc>
+    <rtept lat="38.8869" lon="-84.7478">
+      <name>1. Big Bone Lick State Historic Site</name>
+      <desc>Visiting: State historic site; museum hours vary. Limited hours</desc>
+    </rtept>
+    <rtept lat="39.0222" lon="-84.7217">
+      <name>2. Burlington courthouse square</name>
+      <desc>Visiting: Public town square.</desc>
+    </rtept>
+    <rtept lat="39.0008" lon="-84.8136">
+      <name>3. Dinsmore Homestead</name>
+      <desc>Visiting: Historic house; tours seasonal, admission charged. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="39.0556" lon="-84.5272">
+      <name>4. Battery Hooper Park (Fort Wright)</name>
+      <desc>Visiting: City park at 1402 Highland Pike; open daily.</desc>
+    </rtept>
+    <rtept lat="39.0929" lon="-84.5099">
+      <name>5. John A. Roebling Suspension Bridge</name>
+      <desc>Visiting: Open to traffic and pedestrians.</desc>
+    </rtept>
+  </rte>
+</gpx>

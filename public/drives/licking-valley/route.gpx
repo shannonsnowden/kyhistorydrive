@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Licking Valley: Stations, Blue Licks and Covered Bridges</name>
+    <desc>Follow the Licking River country from the 1780 British-Indian expedition against Ruddell&apos;s and Martin&apos;s stations to the 1782 Battle of Blue Licks, with three of the valley&apos;s 19th-century covered bridges, ending in old Washington in Mason County. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/licking-valley/</desc>
+    <link href="https://kyhistorydrive.com/drives/licking-valley/"><text>Licking Valley: Stations, Blue Licks and Covered Bridges</text></link>
+  </metadata>
+  <wpt lat="38.3247" lon="-84.2033">
+    <name>3. Colville Covered Bridge</name>
+    <desc>Visiting: Covered bridge on a public road over Hinkston Creek; drive-through.</desc>
+  </wpt>
+  <wpt lat="38.4293" lon="-83.9939">
+    <name>4. Blue Licks Battlefield State Resort Park</name>
+    <desc>Visiting: Public state park.</desc>
+  </wpt>
+  <wpt lat="38.4811" lon="-83.9769">
+    <name>5. Johnson Creek Covered Bridge</name>
+    <desc>Visiting: Closed to vehicles; view it from the roadside pull-off.</desc>
+  </wpt>
+  <wpt lat="38.3622" lon="-83.6156">
+    <name>6. Goddard Covered Bridge</name>
+    <desc>Visiting: Public road bridge over Sand Lick Creek.</desc>
+  </wpt>
+  <wpt lat="38.6159" lon="-83.8085">
+    <name>7. Washington, Mason County</name>
+    <desc>Visiting: Historic town; visitor center and some buildings keep seasonal hours.</desc>
+  </wpt>
+  <rte>
+    <name>Licking Valley: Stations, Blue Licks and Covered Bridges</name>
+    <desc>Follow the Licking River country from the 1780 British-Indian expedition against Ruddell&apos;s and Martin&apos;s stations to the 1782 Battle of Blue Licks, with three of the valley&apos;s 19th-century covered bridges, ending in old Washington in Mason County. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/licking-valley/</desc>
+    <rtept lat="38.3247" lon="-84.2033">
+      <name>3. Colville Covered Bridge</name>
+      <desc>Visiting: Covered bridge on a public road over Hinkston Creek; drive-through.</desc>
+    </rtept>
+    <rtept lat="38.4293" lon="-83.9939">
+      <name>4. Blue Licks Battlefield State Resort Park</name>
+      <desc>Visiting: Public state park.</desc>
+    </rtept>
+    <rtept lat="38.4811" lon="-83.9769">
+      <name>5. Johnson Creek Covered Bridge</name>
+      <desc>Visiting: Closed to vehicles; view it from the roadside pull-off.</desc>
+    </rtept>
+    <rtept lat="38.3622" lon="-83.6156">
+      <name>6. Goddard Covered Bridge</name>
+      <desc>Visiting: Public road bridge over Sand Lick Creek.</desc>
+    </rtept>
+    <rtept lat="38.6159" lon="-83.8085">
+      <name>7. Washington, Mason County</name>
+      <desc>Visiting: Historic town; visitor center and some buildings keep seasonal hours.</desc>
+    </rtept>
+  </rte>
+</gpx>

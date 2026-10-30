@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Pennyrile Towns and Civil War Memory</name>
+    <desc>Pennyrile county seats from about 1800, the camp meeting that started the Great Revival, a divided state&apos;s Civil War memory at Fairview, and an eight-sided house near Franklin. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/pennyrile/</desc>
+    <link href="https://kyhistorydrive.com/drives/pennyrile/"><text>Pennyrile Towns and Civil War Memory</text></link>
+  </metadata>
+  <wpt lat="36.8484" lon="-87.4676">
+    <name>1. Pennyroyal Area Museum (Hopkinsville)</name>
+    <desc>Visiting: Paid admission; Tue–Sat hours. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="36.8419" lon="-87.3006">
+    <name>2. Jefferson Davis State Historic Site (Fairview)</name>
+    <desc>Visiting: State historic site; elevator seasonal, fee. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="36.8444" lon="-86.8856">
+    <name>3. Russellville historic district</name>
+    <desc>Visiting: Public streets.</desc>
+  </wpt>
+  <wpt lat="36.7211" lon="-86.8147">
+    <name>4. Red River Meeting House and cemetery</name>
+    <desc>Visiting: Grounds open; building by appointment. Limited hours</desc>
+  </wpt>
+  <wpt lat="36.8069" lon="-86.5569">
+    <name>5. Octagon Hall Museum (Franklin)</name>
+    <desc>Visiting: Museum; limited hours, admission. Paid admission, Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Pennyrile Towns and Civil War Memory</name>
+    <desc>Pennyrile county seats from about 1800, the camp meeting that started the Great Revival, a divided state&apos;s Civil War memory at Fairview, and an eight-sided house near Franklin. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/pennyrile/</desc>
+    <rtept lat="36.8484" lon="-87.4676">
+      <name>1. Pennyroyal Area Museum (Hopkinsville)</name>
+      <desc>Visiting: Paid admission; Tue–Sat hours. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="36.8419" lon="-87.3006">
+      <name>2. Jefferson Davis State Historic Site (Fairview)</name>
+      <desc>Visiting: State historic site; elevator seasonal, fee. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="36.8444" lon="-86.8856">
+      <name>3. Russellville historic district</name>
+      <desc>Visiting: Public streets.</desc>
+    </rtept>
+    <rtept lat="36.7211" lon="-86.8147">
+      <name>4. Red River Meeting House and cemetery</name>
+      <desc>Visiting: Grounds open; building by appointment. Limited hours</desc>
+    </rtept>
+    <rtept lat="36.8069" lon="-86.5569">
+      <name>5. Octagon Hall Museum (Franklin)</name>
+      <desc>Visiting: Museum; limited hours, admission. Paid admission, Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

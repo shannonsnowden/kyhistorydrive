@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Buffalo Trace · Loop 1: Capital and the river</name>
+    <desc>Starting at Buffalo Trace on the Kentucky River at Frankfort: where Leestown stood, the capital that grew beside it, and the Glenn&apos;s Creek distilleries a few miles south. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/buffalo-trace/</desc>
+    <link href="https://kyhistorydrive.com/drives/buffalo-trace/"><text>Buffalo Trace · Loop 1: Capital and the river</text></link>
+  </metadata>
+  <wpt lat="38.2157" lon="-84.8691">
+    <name>1. Buffalo Trace Distillery (George T. Stagg Distillery)</name>
+    <desc>Visiting: Working distillery; visitor tours by reservation. Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.2138" lon="-84.8677">
+    <name>2. Leestown marker (KHS #103)</name>
+    <desc>Visiting: Roadside marker at the Buffalo Trace entrance. Marker only</desc>
+  </wpt>
+  <wpt lat="38.1978" lon="-84.8672">
+    <name>3. Frankfort Cemetery (Daniel Boone grave)</name>
+    <desc>Visiting: Cemetery grounds open daily; please be respectful of burials.</desc>
+  </wpt>
+  <wpt lat="38.2001" lon="-84.8763">
+    <name>4. Old State Capitol</name>
+    <desc>Visiting: Kentucky Historical Society site; open on set days, admission charged for tours. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.1991" lon="-84.8818">
+    <name>5. Liberty Hall Historic Site</name>
+    <desc>Visiting: Guided house tours on a seasonal schedule; admission charged. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.1976" lon="-84.8763">
+    <name>6. Kentucky Military History Museum (State Arsenal)</name>
+    <desc>Visiting: Kentucky Historical Society museum; check open days. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.2081" lon="-84.8688">
+    <name>7. Leslie Morris Park at Fort Hill</name>
+    <desc>Visiting: City park, open dawn to dusk.</desc>
+  </wpt>
+  <wpt lat="38.1884" lon="-84.8153">
+    <name>8. Lexington &amp; Ohio Railroad marker (KHS #69)</name>
+    <desc>Visiting: Roadside marker on US 421. Marker only</desc>
+  </wpt>
+  <wpt lat="38.2539" lon="-84.7522">
+    <name>9. Switzer Covered Bridge</name>
+    <desc>Visiting: Pedestrian bridge beside the road; small roadside park.</desc>
+  </wpt>
+  <rte>
+    <name>Buffalo Trace · Loop 1: Capital and the river</name>
+    <desc>Starting at Buffalo Trace on the Kentucky River at Frankfort: where Leestown stood, the capital that grew beside it, and the Glenn&apos;s Creek distilleries a few miles south. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/buffalo-trace/</desc>
+    <rtept lat="38.2157" lon="-84.8691">
+      <name>1. Buffalo Trace Distillery (George T. Stagg Distillery)</name>
+      <desc>Visiting: Working distillery; visitor tours by reservation. Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.2138" lon="-84.8677">
+      <name>2. Leestown marker (KHS #103)</name>
+      <desc>Visiting: Roadside marker at the Buffalo Trace entrance. Marker only</desc>
+    </rtept>
+    <rtept lat="38.1978" lon="-84.8672">
+      <name>3. Frankfort Cemetery (Daniel Boone grave)</name>
+      <desc>Visiting: Cemetery grounds open daily; please be respectful of burials.</desc>
+    </rtept>
+    <rtept lat="38.2001" lon="-84.8763">
+      <name>4. Old State Capitol</name>
+      <desc>Visiting: Kentucky Historical Society site; open on set days, admission charged for tours. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.1991" lon="-84.8818">
+      <name>5. Liberty Hall Historic Site</name>
+      <desc>Visiting: Guided house tours on a seasonal schedule; admission charged. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.1976" lon="-84.8763">
+      <name>6. Kentucky Military History Museum (State Arsenal)</name>
+      <desc>Visiting: Kentucky Historical Society museum; check open days. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.2081" lon="-84.8688">
+      <name>7. Leslie Morris Park at Fort Hill</name>
+      <desc>Visiting: City park, open dawn to dusk.</desc>
+    </rtept>
+    <rtept lat="38.1884" lon="-84.8153">
+      <name>8. Lexington &amp; Ohio Railroad marker (KHS #69)</name>
+      <desc>Visiting: Roadside marker on US 421. Marker only</desc>
+    </rtept>
+    <rtept lat="38.2539" lon="-84.7522">
+      <name>9. Switzer Covered Bridge</name>
+      <desc>Visiting: Pedestrian bridge beside the road; small roadside park.</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Barton 1792: Bardstown and the Catholic Holy Land · Loop 1: Bardstown to Loretto</name>
+    <desc>Starting at Barton 1792 on the edge of Bardstown: Spalding Hall, Federal Hill, and the Holy Cross and Loretto country to the south. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/barton-1792/</desc>
+    <link href="https://kyhistorydrive.com/drives/barton-1792/"><text>Barton 1792: Bardstown and the Catholic Holy Land · Loop 1: Bardstown to Loretto</text></link>
+  </metadata>
+  <wpt lat="37.8056" lon="-85.4774">
+    <name>1. Barton 1792 Distillery</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Not yet on our map. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="37.8154" lon="-85.4702">
+    <name>2. Spalding Hall (Oscar Getz Museum of Whiskey History)</name>
+    <desc>Visiting: Museum; set hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.8068" lon="-85.4567">
+    <name>3. My Old Kentucky Home State Park (Federal Hill)</name>
+    <desc>Visiting: State park; mansion by guided tour with admission. Paid admission</desc>
+  </wpt>
+  <wpt lat="37.6741" lon="-85.4469">
+    <name>4. Holy Cross Church and Catholic Pioneers marker (KHS #913)</name>
+    <desc>Visiting: Roadside marker at KY 49/KY 457; active parish church (grounds only unless services are open). Marker only</desc>
+  </wpt>
+  <wpt lat="37.6468" lon="-85.349">
+    <name>5. Maker&apos;s Mark Distillery (Burks&apos; Distillery)</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <rte>
+    <name>Barton 1792: Bardstown and the Catholic Holy Land · Loop 1: Bardstown to Loretto</name>
+    <desc>Starting at Barton 1792 on the edge of Bardstown: Spalding Hall, Federal Hill, and the Holy Cross and Loretto country to the south. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/barton-1792/</desc>
+    <rtept lat="37.8056" lon="-85.4774">
+      <name>1. Barton 1792 Distillery</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Not yet on our map. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="37.8154" lon="-85.4702">
+      <name>2. Spalding Hall (Oscar Getz Museum of Whiskey History)</name>
+      <desc>Visiting: Museum; set hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.8068" lon="-85.4567">
+      <name>3. My Old Kentucky Home State Park (Federal Hill)</name>
+      <desc>Visiting: State park; mansion by guided tour with admission. Paid admission</desc>
+    </rtept>
+    <rtept lat="37.6741" lon="-85.4469">
+      <name>4. Holy Cross Church and Catholic Pioneers marker (KHS #913)</name>
+      <desc>Visiting: Roadside marker at KY 49/KY 457; active parish church (grounds only unless services are open). Marker only</desc>
+    </rtept>
+    <rtept lat="37.6468" lon="-85.349">
+      <name>5. Maker&apos;s Mark Distillery (Burks&apos; Distillery)</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+  </rte>
+</gpx>

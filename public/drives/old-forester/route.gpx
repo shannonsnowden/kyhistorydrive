@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Old Forester: Whiskey Row to Cave Hill · Loop 1: Whiskey Row to Zachary Taylor</name>
+    <desc>Starting at Old Forester on Louisville&apos;s Main Street: the riverfront distillers, the Filson, Cave Hill, and the Speed and Croghan homes. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/old-forester/</desc>
+    <link href="https://kyhistorydrive.com/drives/old-forester/"><text>Old Forester: Whiskey Row to Cave Hill · Loop 1: Whiskey Row to Zachary Taylor</text></link>
+  </metadata>
+  <wpt lat="38.2566" lon="-85.7524">
+    <name>1. Old Forester Distilling Co. (Whiskey Row)</name>
+    <desc>Visiting: Working distillery on Main Street; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.2555" lon="-85.7556">
+    <name>2. Old Bank of Louisville</name>
+    <desc>Visiting: View from the street. Marker only</desc>
+  </wpt>
+  <wpt lat="38.2577" lon="-85.7645">
+    <name>3. Frazier History Museum</name>
+    <desc>Visiting: Paid admission; set hours. Paid admission</desc>
+  </wpt>
+  <wpt lat="38.2323" lon="-85.7596">
+    <name>4. The Filson Historical Society</name>
+    <desc>Visiting: Research library and exhibits; check hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.2462" lon="-85.7225">
+    <name>5. Eastern Cemetery marker (KHS #2532)</name>
+    <desc>Visiting: Marker at 641 Baxter Ave.; grounds maintained by volunteers. Marker only</desc>
+  </wpt>
+  <wpt lat="38.2456" lon="-85.7161">
+    <name>6. Cave Hill Cemetery</name>
+    <desc>Visiting: Open daily; please be respectful of burials.</desc>
+  </wpt>
+  <wpt lat="38.2146" lon="-85.6681">
+    <name>7. Farmington Historic Home</name>
+    <desc>Visiting: Historic house museum; paid tours, set hours. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.2876" lon="-85.6627">
+    <name>8. Historic Locust Grove</name>
+    <desc>Visiting: Historic site; paid tours, set hours. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.2781" lon="-85.6436">
+    <name>9. Zachary Taylor National Cemetery</name>
+    <desc>Visiting: Open daily; please be respectful of burials.</desc>
+  </wpt>
+  <rte>
+    <name>Old Forester: Whiskey Row to Cave Hill · Loop 1: Whiskey Row to Zachary Taylor</name>
+    <desc>Starting at Old Forester on Louisville&apos;s Main Street: the riverfront distillers, the Filson, Cave Hill, and the Speed and Croghan homes. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/old-forester/</desc>
+    <rtept lat="38.2566" lon="-85.7524">
+      <name>1. Old Forester Distilling Co. (Whiskey Row)</name>
+      <desc>Visiting: Working distillery on Main Street; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.2555" lon="-85.7556">
+      <name>2. Old Bank of Louisville</name>
+      <desc>Visiting: View from the street. Marker only</desc>
+    </rtept>
+    <rtept lat="38.2577" lon="-85.7645">
+      <name>3. Frazier History Museum</name>
+      <desc>Visiting: Paid admission; set hours. Paid admission</desc>
+    </rtept>
+    <rtept lat="38.2323" lon="-85.7596">
+      <name>4. The Filson Historical Society</name>
+      <desc>Visiting: Research library and exhibits; check hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.2462" lon="-85.7225">
+      <name>5. Eastern Cemetery marker (KHS #2532)</name>
+      <desc>Visiting: Marker at 641 Baxter Ave.; grounds maintained by volunteers. Marker only</desc>
+    </rtept>
+    <rtept lat="38.2456" lon="-85.7161">
+      <name>6. Cave Hill Cemetery</name>
+      <desc>Visiting: Open daily; please be respectful of burials.</desc>
+    </rtept>
+    <rtept lat="38.2146" lon="-85.6681">
+      <name>7. Farmington Historic Home</name>
+      <desc>Visiting: Historic house museum; paid tours, set hours. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.2876" lon="-85.6627">
+      <name>8. Historic Locust Grove</name>
+      <desc>Visiting: Historic site; paid tours, set hours. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.2781" lon="-85.6436">
+      <name>9. Zachary Taylor National Cemetery</name>
+      <desc>Visiting: Open daily; please be respectful of burials.</desc>
+    </rtept>
+  </rte>
+</gpx>

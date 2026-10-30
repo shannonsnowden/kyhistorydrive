@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Castle &amp; Key: Glenn&apos;s Creek to the capital · Loop 1: Frankfort museums and the Elkhorn</name>
+    <desc>Starting at Castle &amp; Key on Glenn&apos;s Creek: the State Arsenal, the Kentucky Historical Society, Daniel Boone&apos;s grave and the Switzer covered bridge. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/castle-and-key/</desc>
+    <link href="https://kyhistorydrive.com/drives/castle-and-key/"><text>Castle &amp; Key: Glenn&apos;s Creek to the capital · Loop 1: Frankfort museums and the Elkhorn</text></link>
+  </metadata>
+  <wpt lat="38.1467" lon="-84.8326">
+    <name>1. Castle &amp; Key (Old Taylor Distillery)</name>
+    <desc>Visiting: Working distillery; tours and tastings by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.1976" lon="-84.8763">
+    <name>2. Kentucky Military History Museum (State Arsenal)</name>
+    <desc>Visiting: Kentucky Historical Society museum; check open days. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.199" lon="-84.8748">
+    <name>3. Thomas D. Clark Center for Kentucky History</name>
+    <desc>Visiting: Museum and library; check hours, admission may apply. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.1978" lon="-84.8672">
+    <name>4. Frankfort Cemetery (Daniel Boone grave)</name>
+    <desc>Visiting: Cemetery grounds open daily; please be respectful of burials.</desc>
+  </wpt>
+  <wpt lat="38.2539" lon="-84.7522">
+    <name>5. Switzer Covered Bridge</name>
+    <desc>Visiting: Pedestrian bridge beside the road; small roadside park.</desc>
+  </wpt>
+  <rte>
+    <name>Castle &amp; Key: Glenn&apos;s Creek to the capital · Loop 1: Frankfort museums and the Elkhorn</name>
+    <desc>Starting at Castle &amp; Key on Glenn&apos;s Creek: the State Arsenal, the Kentucky Historical Society, Daniel Boone&apos;s grave and the Switzer covered bridge. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/castle-and-key/</desc>
+    <rtept lat="38.1467" lon="-84.8326">
+      <name>1. Castle &amp; Key (Old Taylor Distillery)</name>
+      <desc>Visiting: Working distillery; tours and tastings by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.1976" lon="-84.8763">
+      <name>2. Kentucky Military History Museum (State Arsenal)</name>
+      <desc>Visiting: Kentucky Historical Society museum; check open days. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.199" lon="-84.8748">
+      <name>3. Thomas D. Clark Center for Kentucky History</name>
+      <desc>Visiting: Museum and library; check hours, admission may apply. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.1978" lon="-84.8672">
+      <name>4. Frankfort Cemetery (Daniel Boone grave)</name>
+      <desc>Visiting: Cemetery grounds open daily; please be respectful of burials.</desc>
+    </rtept>
+    <rtept lat="38.2539" lon="-84.7522">
+      <name>5. Switzer Covered Bridge</name>
+      <desc>Visiting: Pedestrian bridge beside the road; small roadside park.</desc>
+    </rtept>
+  </rte>
+</gpx>

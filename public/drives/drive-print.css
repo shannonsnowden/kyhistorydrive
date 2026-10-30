@@ -1,0 +1,41 @@
+/* Print / Save as PDF for curated drive pages. Mirrors src/story-print.css:
+   Letter, black on white, hide chrome, print URLs after links, masthead.
+   Map and directions URLs are not printed: those hrefs carry coordinates. */
+@page { size: Letter; margin: 16mm 16mm 18mm; }
+
+.print-only { display: none; }
+
+.drive-tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.stop-visit { margin: 2px 0 0; font-size: 14px; color: var(--text); }
+.stop-visit b { font-weight: 700; }
+
+@media print {
+  * { color: #000 !important; background: #fff !important; box-shadow: none !important; text-shadow: none !important; }
+  html, html[data-hp-theme="dark"], html[data-theme="dark"] { color-scheme: light; }
+  body { font-size: 11pt; background: #fff !important; color: #000 !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+  header, footer, .site-header, .skip-link, .foot, .banner, .kicker, .finder, .drive-back,
+  .drive-photo, .drive-tools, .go, .map, figure.map, section[aria-labelledby="near-h"] { display: none !important; }
+  .print-only { display: block !important; }
+  main { display: block !important; max-width: 100% !important; width: auto !important; margin: 0 !important; padding: 0 !important; }
+  .layout { display: block !important; }
+  .card { border: none !important; padding: 0 !important; background: #fff !important; }
+  .print-masthead { margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 1px solid #000; font-size: 9pt; }
+  h1 { font-size: 22pt; color: #000 !important; }
+  h2 { break-after: avoid; font-size: 14pt; }
+  ol.stops { list-style: none; padding: 0; margin: 0; }
+  ol.stops > li { display: block !important; break-inside: avoid; border-top: 1px solid #000; padding: 3mm 0; }
+  .num { border: 1px solid #000 !important; background: #fff !important; color: #000 !important; }
+  li.private .num { border-style: dashed !important; }
+  .tag, .tag.warn { border: 1px solid #000 !important; background: #fff !important; color: #000 !important; }
+  .links { display: block !important; }
+  a { text-decoration: underline; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; word-break: break-all; text-decoration: none; }
+  a[href^="/"]::after { content: " (https://kyhistorydrive.com" attr(href) ")"; font-size: 8.5pt; word-break: break-all; text-decoration: none; }
+  a[href*="google.com/maps"],
+  a[href*="maps.apple.com"],
+  a[href*="openstreetmap.org"] { display: none !important; }
+  a[href*="google.com/maps"]::after,
+  a[href*="maps.apple.com"]::after,
+  a[href*="openstreetmap.org"]::after { content: none !important; }
+}
