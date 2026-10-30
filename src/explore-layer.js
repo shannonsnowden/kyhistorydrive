@@ -207,7 +207,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
 
   function cardHtml(item, idx) {
     const credit = photoCredit(item.photo)
-    const alt = item.photo.title || item.title
+    const alt = String(item.photo?.title || item.title || 'Kentucky history photo').trim() || 'Kentucky history photo'
     const deckText = HomepageStructure.deckText(item.deck)
     const deck = deckText ? `<p class="exp-deck">${esc(deckText)}</p>` : '<p class="exp-deck"></p>'
     const map = item.mapHref

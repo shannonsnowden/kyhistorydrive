@@ -20,7 +20,7 @@ import path from 'node:path'
 
 const SITE = 'https://kyhistorydrive.com'
 import { parseJsLiteral } from './js-literal.mjs'
-import { applyDriveIndexPhotos, applyDrivePagePhoto, loadDrivePhotos, touristTripImage } from './drive-photos.mjs'
+import { applyDriveIndexPhotos, applyDrivePagePhoto, applyDrivesIndexOg, loadDrivePhotos, touristTripImage } from './drive-photos.mjs'
 import { renderDriveGpx } from './drive-gpx.mjs'
 const DP = 'public/drives'
 const SUFFIX = ' · Kentucky History Drive'
@@ -237,5 +237,6 @@ for (const c of cards) {
     : `${a}${esc(c.intro)}${b}${c.stops}${d}${Math.round(c.miles)}${e}${fmtMin(c.minutes)}${f}`)
 }
 idx = applyDriveIndexPhotos(idx, drivePhotos)
+idx = applyDrivesIndexOg(idx)
 if (idx !== before) { fs.writeFileSync(idxFile, idx); changed++ }
 console.log(`build-drive-pages: ${cards.length} drive pages + index (JSON-LD, prerendered stops, print, GPX); ${changed} file(s) updated`)

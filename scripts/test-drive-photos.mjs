@@ -12,6 +12,8 @@ import { withDefaultHero } from '../src/home-hero-render.js'
 import {
   applyDriveIndexPhotos,
   applyDrivePagePhoto,
+  applyDrivesIndexOg,
+  DRIVES_INDEX_OG,
   loadDrivePhotos,
   normalizeDrivePhoto,
   touristTripImage,
@@ -24,14 +26,20 @@ for (const slug of Object.keys(themes.drives)) {
   const photo = photos.get(slug)
   assert.ok(photo, `${slug} has no photo`)
   assert.equal(photo.image, `/content/photos/drives/drive-${slug}.jpg`)
+  assert.equal(photo.share, `/content/photos/drives/og-${slug}.jpg`)
   assert.match(photo.credit, / · Wikimedia Commons · /)
   assert.match(photo.alt, / — /)
+  assert.ok(photo.ogAlt)
   assert.ok(fs.existsSync(path.join('public', photo.image.slice(1))), photo.image)
+  assert.ok(fs.existsSync(path.join('public', photo.share.slice(1))), photo.share)
   const page = fs.readFileSync(`public/drives/${slug}/index.html`, 'utf8')
   assert.equal(applyDrivePagePhoto(page, photo), page, `${slug} page drifted from drive-photos`)
   assert.equal((page.match(/<img\b/g) || []).length, 1, `${slug} should have one photo`)
   assert.ok(page.includes(`alt="${photo.alt.replace(/&/g, '&amp;').replace(/'/g, '&#x27;')}"`) || page.includes(`alt="${photo.alt.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;')}"`))
-  assert.ok(page.includes(`https://kyhistorydrive.com${photo.image}`), `${slug} og:image`)
+  assert.ok(page.includes(`property="og:image" content="https://kyhistorydrive.com${photo.share}"`), `${slug} og:image`)
+  assert.ok(page.includes('property="og:image:width" content="1200"'), `${slug} og width`)
+  assert.ok(page.includes('property="og:image:height" content="630"'), `${slug} og height`)
+  assert.ok(page.includes('name="twitter:card" content="summary_large_image"'), `${slug} twitter card`)
   assert.ok(page.includes(`"image":"https://kyhistorydrive.com${photo.image}"`), `${slug} TouristTrip image`)
 }
 
@@ -39,7 +47,10 @@ const idx = fs.readFileSync('public/drives/index.html', 'utf8')
 assert.equal(applyDriveIndexPhotos(idx, photos), idx, '/drives/ index drifted from drive-photos')
 assert.equal((idx.match(/class="dcard-photo"/g) || []).length, 24)
 assert.equal((idx.match(/<img\b/g) || []).length, 24)
-assert.equal((idx.match(/property="og:image"/g) || []).length, 0, 'listing keeps its existing og')
+assert.equal(applyDrivesIndexOg(idx), idx, '/drives/ index drifted from the share image')
+assert.equal((idx.match(/property="og:image"/g) || []).length, 1, 'listing has one share image')
+assert.ok(idx.includes(`property="og:image" content="https://kyhistorydrive.com${DRIVES_INDEX_OG.image}"`))
+assert.ok(idx.includes(`property="og:image:alt" content="${DRIVES_INDEX_OG.alt}"`))
 
 const cleared = new Map([...photos].map(([slug]) => [slug, null]))
 const bare = `<!doctype html><html><head></head><body>
@@ -76,8 +87,11 @@ assert.equal(applyDrivePagePhoto(pageBare, null), pageBare)
 const pageFilled = applyDrivePagePhoto(pageBare, photos.get('licking-valley'))
 assert.equal(applyDrivePagePhoto(pageFilled, photos.get('licking-valley')), pageFilled)
 assert.equal(applyDrivePagePhoto(pageFilled, null), pageBare)
-assert.match(pageFilled, /property="og:image" content="https:\/\/kyhistorydrive.com\/content\/photos\/drives\/drive-licking-valley.jpg"/)
-assert.doesNotMatch(pageFilled, /og:image:width/)
+assert.match(pageFilled, /property="og:image" content="https:\/\/kyhistorydrive.com\/content\/photos\/drives\/og-licking-valley.jpg"/)
+assert.match(pageFilled, /property="og:image:width" content="1200"/)
+assert.match(pageFilled, /property="og:image:height" content="630"/)
+assert.match(pageFilled, /name="twitter:card" content="summary_large_image"/)
+assert.match(pageFilled, /src="\/content\/photos\/drives\/drive-licking-valley.jpg"/)
 assert.deepEqual(touristTripImage(null), {})
 assert.deepEqual(touristTripImage(photos.get('cave-country')), {
   image: 'https://kyhistorydrive.com/content/photos/drives/drive-cave-country.jpg',
@@ -101,6 +115,7 @@ const mixed = applyThemeIcons(filled, themes)
 assert.doesNotMatch(card(mixed, 'licking-valley'), /class="ticon"/)
 
 assert.equal(HERO_DEFAULT.image, '/content/photos/heroes/hero-big-bone-lick.jpg')
+assert.equal(HERO_DEFAULT.alt, 'Grassy Ice Age salt-lick meadow and boardwalk at Big Bone Lick State Historic Site, Boone County, Kentucky')
 assert.equal(HERO_DEFAULT.credit, 'Mattguyver · Wikimedia Commons · CC BY 3.0')
 assert.equal(HERO_DEFAULT.lat, undefined)
 assert.equal(HERO_DEFAULT.lon, undefined)

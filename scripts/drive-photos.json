@@ -1,125 +1,149 @@
 {
-  "_note": "Card and page photo for each drive. image is a file under /content/photos/drives/drive-<slug>.jpg. credit is plain text (Author · Wikimedia Commons · License). alt is \"Subject, county — drive title\". An empty image keeps the theme icon.",
+  "_note": "Card and page photo for each drive. image is /content/photos/drives/drive-<slug>.jpg. The 1200×630 share crop is the sibling og-<slug>.jpg (not a separate image field). credit is plain text (Author · Wikimedia Commons · License). alt is the visible photo (\"Subject — drive title\"). ogAlt is og:image:alt / twitter:image:alt. An empty image keeps the theme icon.",
   "drives": {
     "licking-valley": {
       "image": "/content/photos/drives/drive-licking-valley.jpg",
       "credit": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
-      "alt": "Goddard Covered Bridge, Fleming County — Licking Valley: Stations, Blue Licks and Covered Bridges"
+      "alt": "Goddard Covered Bridge — Licking Valley: Stations, Blue Licks and Covered Bridges",
+      "ogAlt": "Goddard Covered Bridge — Licking Valley"
     },
     "big-sandy-pine-mountain": {
       "image": "/content/photos/drives/drive-big-sandy-pine-mountain.jpg",
       "credit": "Nyttend · Wikimedia Commons · PD",
-      "alt": "Pound Gap, Pine Mountain, Letcher County — Big Sandy and Pine Mountain"
+      "alt": "Pound Gap, Pine Mountain — Big Sandy and Pine Mountain",
+      "ogAlt": "Pound Gap, Pine Mountain — Big Sandy and Pine Mountain"
     },
     "bluegrass-forts": {
       "image": "/content/photos/drives/drive-bluegrass-forts.jpg",
       "credit": "Kurt W. Krouse · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Bryan's Station, Fayette County — Bluegrass Forts and Stations"
+      "alt": "Fort Harrod / Bryan's Station — Bluegrass Forts and Stations",
+      "ogAlt": "Fort Harrod / Bryan's Station — Bluegrass Forts and Stations"
     },
     "boones-trail": {
       "image": "/content/photos/drives/drive-boones-trail.jpg",
       "credit": "Antony-22 · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Cumberland Gap from Pinnacle, Bell County — Boone's Trail and the Wilderness Road"
+      "alt": "Cumberland Gap from Pinnacle — Boone's Trail and the Wilderness Road",
+      "ogAlt": "Cumberland Gap from Pinnacle — Boone's Trail and the Wilderness Road"
     },
     "bourbon-heritage": {
       "image": "/content/photos/drives/drive-bourbon-heritage.jpg",
       "credit": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
-      "alt": "Fairfield, Nelson County — Bourbon Heritage: the family distillers of the Rolling Fork country"
+      "alt": "Fairfield village — Bourbon Heritage: the family distillers of the Rolling Fork country",
+      "ogAlt": "Fairfield village — Bourbon Heritage"
     },
     "capital-and-shakers": {
       "image": "/content/photos/drives/drive-capital-and-shakers.jpg",
       "credit": "Timothy Brown · Wikimedia Commons · CC BY 2.0",
-      "alt": "Shaker Village of Pleasant Hill, Mercer County — Capital, Shakers and the Early Commonwealth"
+      "alt": "Shaker Village of Pleasant Hill — Capital, Shakers and the Early Commonwealth",
+      "ogAlt": "Shaker Village of Pleasant Hill — Capital, Shakers and the Early Commonwealth"
     },
     "cave-country": {
       "image": "/content/photos/drives/drive-cave-country.jpg",
       "credit": "NPS · Wikimedia Commons · PD",
-      "alt": "Mammoth Cave Historic Entrance, Edmonson County — Cave Country"
+      "alt": "Mammoth Cave Historic Entrance — Cave Country",
+      "ogAlt": "Mammoth Cave Historic Entrance — Cave Country"
     },
     "civil-war-bluegrass": {
       "image": "/content/photos/drives/drive-civil-war-bluegrass.jpg",
       "credit": "Navin75 · Wikimedia Commons · CC BY-SA 2.0",
-      "alt": "Perryville Battlefield, Boyle County — Civil War in the Bluegrass"
+      "alt": "Perryville Battlefield — Civil War in the Bluegrass",
+      "ogAlt": "Perryville Battlefield — Civil War in the Bluegrass"
     },
     "civil-war-south-central": {
       "image": "/content/photos/drives/drive-civil-war-south-central.jpg",
       "credit": "Jerrye & Roy Klotz MD · Wikimedia Commons · CC BY-SA 3.0",
-      "alt": "Mill Springs Mill, Wayne County — Civil War in South Central Kentucky"
+      "alt": "Mill Springs mill — Civil War in South Central Kentucky",
+      "ogAlt": "Mill Springs mill — Civil War in South Central Kentucky"
     },
     "northern-kentucky": {
       "image": "/content/photos/drives/drive-northern-kentucky.jpg",
       "credit": "Derek Jensen (Tysto) · Wikimedia Commons · PD",
-      "alt": "Roebling Suspension Bridge, Kenton County — Northern Kentucky: Ice Age to the Roebling Bridge"
+      "alt": "Roebling Suspension Bridge — Northern Kentucky: Ice Age to the Roebling Bridge",
+      "ogAlt": "Roebling Suspension Bridge — Northern Kentucky"
     },
     "pennyrile": {
       "image": "/content/photos/drives/drive-pennyrile.jpg",
       "credit": "Randy Pritchett · Wikimedia Commons · PD",
-      "alt": "Jefferson Davis Monument, Fairview, Todd County — Pennyrile Towns and Civil War Memory"
+      "alt": "Jefferson Davis Monument, Fairview — Pennyrile Towns and Civil War Memory",
+      "ogAlt": "Jefferson Davis Monument, Fairview — Pennyrile Towns and Civil War Memory"
     },
     "western-rivers": {
       "image": "/content/photos/drives/drive-western-rivers.jpg",
       "credit": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
-      "alt": "Mississippi River at Columbus-Belmont, Hickman County — Western Rivers: Mississippian Towns, Clark's Fort and the Trail of Tears"
+      "alt": "Mississippi River at Columbus-Belmont — Western Rivers: Mississippian Towns, Clark's Fort and the Trail of Tears",
+      "ogAlt": "Mississippi River at Columbus-Belmont — Western Rivers"
     },
     "barton-1792": {
       "image": "/content/photos/drives/drive-barton-1792.jpg",
       "credit": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Old Talbott Tavern, Bardstown, Nelson County — Barton 1792: Bardstown and the Catholic Holy Land"
+      "alt": "Old Talbott Tavern, Bardstown — Barton 1792: Bardstown and the Catholic Holy Land · Loop 1: Bardstown to Loretto",
+      "ogAlt": "Old Talbott Tavern, Bardstown — Barton 1792"
     },
     "buffalo-trace": {
       "image": "/content/photos/drives/drive-buffalo-trace.jpg",
       "credit": "Kittugwiki · Wikimedia Commons · CC BY-SA 3.0",
-      "alt": "Buffalo Trace tower, Franklin County — Buffalo Trace · Loop 1: Capital and the river"
+      "alt": "Buffalo Trace tower — Buffalo Trace · Loop 1: Capital and the river",
+      "ogAlt": "Buffalo Trace tower — Buffalo Trace"
     },
     "buffalo-trace-loop-2": {
       "image": "/content/photos/drives/drive-buffalo-trace-loop-2.jpg",
       "credit": "Ken Thomas · Wikimedia Commons · PD",
-      "alt": "Woodford Reserve stone stillhouse, Woodford County — Buffalo Trace · Loop 2: Glenn's Creek distilleries"
+      "alt": "Woodford Reserve stone stillhouse (Glenn's Creek) — Buffalo Trace · Loop 2: Glenn's Creek distilleries",
+      "ogAlt": "Woodford Reserve stone stillhouse (Glenn's Creek) — Buffalo Trace"
     },
     "castle-and-key": {
       "image": "/content/photos/drives/drive-castle-and-key.jpg",
       "credit": "Nicknimh · Wikimedia Commons · CC BY 4.0",
-      "alt": "Old Taylor castle, Woodford County — Castle & Key: Glenn's Creek to the capital"
+      "alt": "Old Taylor castle — Castle & Key: Glenn's Creek to the capital · Loop 1: Frankfort museums and the Elkhorn",
+      "ogAlt": "Old Taylor castle — Castle & Key"
     },
     "four-roses": {
       "image": "/content/photos/drives/drive-four-roses.jpg",
       "credit": "King4120 · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Four Roses Distillery, Anderson County — Four Roses: Lawrenceburg and the Salt River settlements"
+      "alt": "Four Roses Spanish-Mission distillery — Four Roses: Lawrenceburg and the Salt River settlements",
+      "ogAlt": "Four Roses Spanish-Mission distillery — Four Roses"
     },
     "heaven-hill": {
       "image": "/content/photos/drives/drive-heaven-hill.jpg",
       "credit": "BourbonNerd · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Heaven Hill warehouses, Nelson County — Heaven Hill: Bardstown and the road to Lincoln's birthplace"
+      "alt": "Heaven Hill warehouses — Heaven Hill: Bardstown and the road to Lincoln's birthplace",
+      "ogAlt": "Heaven Hill warehouses — Heaven Hill"
     },
     "jim-beam": {
       "image": "/content/photos/drives/drive-jim-beam.jpg",
       "credit": "BourbonNerd · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Jim Beam American Stillhouse, Bullitt County — Jim Beam: Clermont, Salt River salt and Civil War forts"
+      "alt": "Jim Beam American Stillhouse — Jim Beam: Clermont, Salt River salt and Civil War forts · Loop 1: Salt River and Fort Duffield",
+      "ogAlt": "Jim Beam American Stillhouse — Jim Beam"
     },
     "makers-mark": {
       "image": "/content/photos/drives/drive-makers-mark.jpg",
       "credit": "William Gus Johnson · Wikimedia Commons · PD",
-      "alt": "Maker's Mark Distillery, Marion County — Maker's Mark: Loretto, Holy Cross and the Lincoln country"
+      "alt": "Maker's Mark distillery — Maker's Mark: Loretto, Holy Cross and the Lincoln country",
+      "ogAlt": "Maker's Mark distillery — Maker's Mark"
     },
     "old-forester": {
       "image": "/content/photos/drives/drive-old-forester.jpg",
       "credit": "Nyttend · Wikimedia Commons · PD",
-      "alt": "Whiskey Row, Jefferson County — Old Forester: Whiskey Row to Cave Hill"
+      "alt": "Whiskey Row / J.T.S. Brown complex — Old Forester: Whiskey Row to Cave Hill · Loop 1: Whiskey Row to Zachary Taylor",
+      "ogAlt": "Whiskey Row / J.T.S. Brown complex — Old Forester"
     },
     "wild-turkey": {
       "image": "/content/photos/drives/drive-wild-turkey.jpg",
       "credit": "CityEditor2 · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Wild Turkey Distillery, Anderson County — Wild Turkey · Loop 1: Tyrone, Versailles and Jack Jouett"
+      "alt": "Wild Turkey distillery — Wild Turkey · Loop 1: Tyrone, Versailles and Jack Jouett",
+      "ogAlt": "Wild Turkey distillery — Wild Turkey"
     },
     "wild-turkey-loop-2": {
       "image": "/content/photos/drives/drive-wild-turkey-loop-2.jpg",
       "credit": "Smerdis · Wikimedia Commons · CC BY-SA 4.0",
-      "alt": "Wild Turkey visitor center, Anderson County — Wild Turkey · Loop 2: Shaker Village of Pleasant Hill"
+      "alt": "Wild Turkey visitor center over Kentucky River — Wild Turkey · Loop 2: Shaker Village of Pleasant Hill",
+      "ogAlt": "Wild Turkey visitor center over Kentucky River — Wild Turkey"
     },
     "woodford-reserve": {
       "image": "/content/photos/drives/drive-woodford-reserve.jpg",
       "credit": "Ken Thomas · Wikimedia Commons · PD",
-      "alt": "Woodford Reserve Distillery, Woodford County — Woodford Reserve: Glenn's Creek, Versailles and Midway"
+      "alt": "Woodford Reserve distillery — Woodford Reserve: Glenn's Creek, Versailles and Midway · Loop 1: Versailles and Midway",
+      "ogAlt": "Woodford Reserve distillery — Woodford Reserve"
     }
   }
 }

@@ -1,10 +1,11 @@
 /**
  * Optional photo for each /drives/ card and drive page.
- * Data: scripts/drive-photos.json — image, credit, alt.
+ * Data: scripts/drive-photos.json — image, credit, alt, optional ogAlt.
  * An empty image uses the green panel fallback (public/brand/drive-card-fallback.svg).
  * The drive name is drawn in cream over that panel. The theme icon stays only
  * when a card has neither a photo nor the fallback.
- * image must be a file under public/content/photos/. This module never invents a photo.
+ * image must be a file under public/content/photos/. The share crop is the sibling
+ * og-<slug>.jpg (1200×630). This module never invents a photo.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -13,7 +14,9 @@ import { fileURLToPath } from 'node:url'
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://kyhistorydrive.com'
 const PHOTO_PATH = /^\/content\/photos\/(?:[A-Za-z0-9][A-Za-z0-9._-]*\/)*[A-Za-z0-9][A-Za-z0-9._-]*\.(?:jpe?g|png|webp)$/
-const FIELDS = ['image', 'credit', 'alt']
+const FIELDS = ['image', 'credit', 'alt', 'ogAlt']
+const SHARE_W = 1200
+const SHARE_H = 630
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;' }[c]))
 
@@ -37,16 +40,26 @@ export function normalizeDrivePhoto(slug, row, { root = ROOT, checkFile = true }
   const image = String(row.image ?? '').trim()
   const credit = String(row.credit ?? '').trim()
   const alt = String(row.alt ?? '').trim()
+  const ogAlt = String(row.ogAlt ?? '').trim()
   if (!image) return null
   if (!PHOTO_PATH.test(image) || image.includes('..') || image.includes('//')) {
     throw new Error(`drive-photos: ${slug} image must be a file under /content/photos/: ${image}`)
   }
   if (!alt) throw new Error(`drive-photos: ${slug} image needs alt`)
-  if (/[<>]/.test(alt) || /[<>]/.test(credit)) throw new Error(`drive-photos: ${slug} alt and credit are plain text`)
+  if (/[<>]/.test(alt) || /[<>]/.test(ogAlt) || /[<>]/.test(credit)) {
+    throw new Error(`drive-photos: ${slug} alt and credit are plain text`)
+  }
+  const share = image.replace(/\/drive-([^/]+)\.(?:jpe?g|png|webp)$/i, '/og-$1.jpg')
+  if (!/^\/content\/photos\/drives\/og-[A-Za-z0-9][A-Za-z0-9._-]*\.jpg$/.test(share)) {
+    throw new Error(`drive-photos: ${slug} needs a sibling og- crop next to ${image}`)
+  }
   if (checkFile && !fs.existsSync(path.join(root, 'public', image.replace(/^\//, '')))) {
     throw new Error(`drive-photos: ${slug} image is not in public/: ${image}`)
   }
-  return { image, credit, alt }
+  if (checkFile && !fs.existsSync(path.join(root, 'public', share.replace(/^\//, '')))) {
+    throw new Error(`drive-photos: ${slug} share crop is not in public/: ${share}`)
+  }
+  return { image, credit, alt, ogAlt: ogAlt || alt, share }
 }
 
 /** Map of drive slug -> photo or null. Keys match scripts/drive-theme-icons.json drives. */
@@ -99,18 +112,34 @@ function pageFigure(photo) {
   return `<!-- khd-drive-photo -->\n  <figure class="drive-photo"><img src="${esc(photo.image)}" alt="${esc(photo.alt)}" decoding="async">${cap}</figure>\n<!-- /khd-drive-photo -->\n`
 }
 
-function ogBlock(photo, site = SITE) {
-  const url = `${site}${photo.image}`
-  const alt = esc(photo.alt)
+function ogBlock(photo, site = SITE, mark = 'khd-drive-og') {
+  const url = `${site}${photo.share || photo.image}`
+  const alt = esc(photo.ogAlt || photo.alt)
   const u = esc(url)
-  return `<!-- khd-drive-og -->
+  return `<!-- ${mark} -->
 <meta property="og:image" content="${u}" />
 <meta property="og:image:secure_url" content="${u}" />
-<meta property="og:image:type" content="${imageType(photo.image)}" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="${SHARE_W}" />
+<meta property="og:image:height" content="${SHARE_H}" />
 <meta property="og:image:alt" content="${alt}" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="${u}" />
 <meta name="twitter:image:alt" content="${alt}" />
-<!-- /khd-drive-og -->\n`
+<!-- /${mark} -->\n`
+}
+
+/** /drives/ listing share image. Not a drive card photo (those stay on drive-<slug>.jpg). */
+export const DRIVES_INDEX_OG = {
+  image: '/brand/og-drives.jpg',
+  alt: 'Big Bone Lick State Historic Site — Kentucky History Drive road trips',
+}
+
+export function applyDrivesIndexOg(html, site = SITE) {
+  let out = stripMarked(html, 'khd-drives-og')
+  if (!out.includes('</head>')) throw new Error('drive-photos: /drives/ index has no </head>')
+  const block = ogBlock({ share: DRIVES_INDEX_OG.image, ogAlt: DRIVES_INDEX_OG.alt, alt: DRIVES_INDEX_OG.alt }, site, 'khd-drives-og')
+  return out.replace('</head>', `${block}</head>`)
 }
 
 function styleBlock(css) {
@@ -143,7 +172,10 @@ export function applyDriveIndexPhotos(html, photos) {
   if (any) {
     if (!out.includes('</head>')) throw new Error('drive-photos: /drives/ index has no </head>')
     const css = usedFallback ? `${CARD_CSS}\n${FALLBACK_CSS}` : CARD_CSS
-    out = out.replace('</head>', `${styleBlock(css)}</head>`)
+    const style = styleBlock(css)
+    // Keep the listing share block after the card CSS so a second pass does not move it.
+    if (out.includes('<!-- khd-drives-og -->')) out = out.replace('<!-- khd-drives-og -->', `${style}<!-- khd-drives-og -->`)
+    else out = out.replace('</head>', `${style}</head>`)
   }
   return out
 }
