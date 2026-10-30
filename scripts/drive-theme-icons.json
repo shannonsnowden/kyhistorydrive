@@ -1,5 +1,5 @@
 {
-  "_note": "Drive theme -> site icon. War, frontier, rail and Native nations icons are drawn in code (scripts/icon-src/*.svg, rendered by scripts/render-icons.py). History, national site, museums and caves are drawn the same way. *-disc.png are the older black icons downscaled (never up) to the 72px safe area.",
+  "_note": "Drive theme -> site icon. Card and page photos (image, credit, alt) live in scripts/drive-photos.json; an empty image keeps this theme icon. War, frontier, rail and Native nations icons are drawn in code (scripts/icon-src/*.svg, rendered by scripts/render-icons.py). History, national site, museums and caves are drawn the same way. *-disc.png are the older black icons downscaled (never up) to the 72px safe area.",
   "themes": {
     "bourbon": {
       "label": "Bourbon and distilleries",

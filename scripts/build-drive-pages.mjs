@@ -6,6 +6,8 @@
  *  - the prerendered stop list inside <ol id="stops"> (the page script re-renders the same list),
  *  - JSON-LD: TouristTrip (itinerary = ordered ItemList of Place) + BreadcrumbList on each drive,
  *    CollectionPage + ItemList on /drives/.
+ *  - optional card and page photo from scripts/drive-photos.json (image, credit, alt).
+ *    An empty image leaves the theme icon (scripts/apply-drive-theme-icons.mjs).
  * Geo is emitted only for public, exact stops (not private, not approx). Sensitive stops get no geo;
  * build-byod-stops re-checks that against the protected/archaeology/private data.
  */
@@ -14,6 +16,7 @@ import path from 'node:path'
 
 const SITE = 'https://kyhistorydrive.com'
 import { parseJsLiteral } from './js-literal.mjs'
+import { applyDriveIndexPhotos, applyDrivePagePhoto, loadDrivePhotos, touristTripImage } from './drive-photos.mjs'
 const DP = 'public/drives'
 const SUFFIX = ' · Kentucky History Drive'
 
@@ -113,6 +116,10 @@ function stopLi(s, i, leg, anchorIds) {
 }
 
 const slugs = fs.readdirSync(DP).filter((d) => fs.existsSync(path.join(DP, d, 'index.html'))).sort()
+const drivePhotos = loadDrivePhotos()
+for (const slug of drivePhotos.keys()) {
+  if (!slugs.includes(slug)) throw new Error(`build-drive-pages: scripts/drive-photos.json lists ${slug}, which has no drive page`)
+}
 const cards = []
 let changed = 0
 for (const slug of slugs) {
@@ -133,6 +140,8 @@ for (const slug of slugs) {
   html = setHead(html, title, desc)
   html = html.replace(/<ol class="stops" id="stops">[\s\S]*?<\/ol>/, `<ol class="stops" id="stops">${((ids) => stops.map((s, i) => stopLi(s, i, i ? route.legs?.[i - 1] : null, ids)))(new Set()).join('\n')}</ol>`)
   const url = `${SITE}/drives/${slug}/`
+  if (!drivePhotos.has(slug)) throw new Error(`build-drive-pages: ${slug} is missing from scripts/drive-photos.json`)
+  const photo = drivePhotos.get(slug)
   const trip = {
     '@context': 'https://schema.org',
     '@type': 'TouristTrip',
@@ -140,6 +149,7 @@ for (const slug of slugs) {
     name: h1,
     description: desc,
     url,
+    ...touristTripImage(photo),
     inLanguage: 'en-US',
     isPartOf: { '@type': 'WebSite', name: 'Kentucky History Drive', url: `${SITE}/` },
     itinerary: {
@@ -155,6 +165,7 @@ for (const slug of slugs) {
     },
   }
   html = setLd(html, [trip, crumbs([['Home', `${SITE}/`], ['Drives', `${SITE}/drives/`], [h1, url]])])
+  html = applyDrivePagePhoto(html, photo)
   cards.push({ slug, name: h1, url, intro, stops: stops.length, miles: route.miles, minutes: route.minutes })
   if (html !== before) { fs.writeFileSync(file, html); changed++ }
 }
@@ -193,5 +204,6 @@ for (const c of cards) {
   idx = idx.replace(re, (all, a, blurb, b, n, d, e, f) => Number(n) === c.stops ? all
     : `${a}${esc(c.intro)}${b}${c.stops}${d}${Math.round(c.miles)}${e}${fmtMin(c.minutes)}${f}`)
 }
+idx = applyDriveIndexPhotos(idx, drivePhotos)
 if (idx !== before) { fs.writeFileSync(idxFile, idx); changed++ }
 console.log(`build-drive-pages: ${cards.length} drive pages + index (JSON-LD, prerendered stops); ${changed} file(s) updated`)

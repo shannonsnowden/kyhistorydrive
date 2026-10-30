@@ -6,6 +6,7 @@
 import { HomepageStructure } from './homepage-structure.js'
 import { responsivePicture, responsiveSources } from './responsive-img.js'
 import { MD_LINK_RE } from './markdown-links.js'
+import { HERO_DEFAULT } from '../scripts/hero-default.mjs'
 
 export function escapeHtml(s) {
   return String(s)
@@ -117,8 +118,8 @@ export function isPhotoUrl(url) {
   const u = String(url || '').toLowerCase()
   if (!u) return false
   if (/\.svg(\?|$)/i.test(u)) return false
-  // Same-origin curated story heroes — skip Wikipedia schematic-map heuristics.
-  if (u.startsWith('/content/photos/stories/')) return true
+  // Vendored photos — skip Wikipedia schematic-map heuristics.
+  if (u.startsWith('/content/photos/stories/') || u.startsWith('/content/photos/heroes/') || u.startsWith('/content/photos/drives/')) return true
   if (
     /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
       u,
@@ -270,6 +271,34 @@ export function renderSwipeCard(story) {
 
 /** Lead image sizes, shared by the <picture> and the build-time <link rel=preload>. */
 export const LEAD_SIZES = '(max-width: 900px) 100vw, 66vw'
+
+/**
+ * Approvals 112 B1a: the homepage lead is Big Bone Lick until a later rotation.
+ * Today's brief stays on the rail. An empty pin image leaves the brief order alone.
+ */
+export function withDefaultHero(slides) {
+  const pin = HERO_DEFAULT
+  const list = Array.isArray(slides) ? slides.filter(Boolean) : []
+  if (!pin?.image || !pin?.slug) return list
+  const rest = list.filter((s) => s.slug !== pin.slug)
+  const lead = {
+    slug: pin.slug,
+    title: pin.title,
+    county: pin.county || '',
+    yearStart: pin.yearStart ?? null,
+    heroDeck: pin.heroDeck || '',
+    summary: pin.heroDeck || '',
+    historyId: pin.historyId || null,
+    photo: {
+      image_url: pin.image,
+      title: pin.alt || pin.title,
+      attribution: pin.credit || '',
+      source_url: pin.source_url || '',
+      source_label: 'Wikimedia Commons',
+    },
+  }
+  return [lead, ...rest]
+}
 
 /** <link rel=preload> for the lead image, written into <head> at build time. */
 export function leadPreloadTag(story) {
