@@ -1,6 +1,8 @@
 /**
  * Write the homepage lead story, the 4 "More Kentucky stories" cards and the phone swipe row
  * into dist/index.html at build time, plus a <link rel=preload> for the lead image in <head>.
+ * The lead is the first story in today's pack (home-preview.json). An empty pack falls
+ * back to the Big Bone Lick pin; a non-empty pack is not prefixed with it.
  * Without JS the homepage still has real <a href> links and images; the app re-renders the
  * same markup from src/home-hero-render.js when it loads.
  */

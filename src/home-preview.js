@@ -138,6 +138,7 @@ function briefStories(pack) {
   return list
 }
 
+/** First slide is the first story in today's pack. The Big Bone Lick pin fills in only when that pack is empty. */
 function heroSlides(pack) {
   const all = briefStories(pack)
   const withPhotos = all.filter((s) => usablePhoto(s?.photo))
