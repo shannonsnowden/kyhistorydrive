@@ -2407,7 +2407,7 @@ class PrerenderPages {
             })}
           </div>
         </details>
-        <p class="usp-report">${correctionHtml({ title: story.title, url: storyCanonicalUrl(story.slug) })}</p>
+        <div class="usp-report">${correctionHtml({ title: story.title, url: storyCanonicalUrl(story.slug) })}</div>
         ${citeBootScript()}`
 
     const prevCardHtml = prevStory
@@ -3595,15 +3595,21 @@ class PrerenderPages {
       throw new Error(`prerender: ${urlPath} citation is missing the last revised date`)
     }
     const correction = html.match(/<a class="story-correction-link"[^>]*>/)
-    const rel = correction ? correction[0].match(/\brel="([^"]*)"/) : null
-    const relValue = rel ? rel[1] : ''
-    if (!correction || !correction[0].includes('target="_blank"') || !/\bnoopener\b/.test(relValue) || !/\bnoreferrer\b/.test(relValue) || !/\bnofollow\b/.test(relValue)) {
-      throw new Error(`prerender: ${urlPath} correction link must open in a new tab`)
+    const correctionHref = correction ? (correction[0].match(/\bhref="([^"]*)"/) || [])[1] || '' : ''
+    if (!correction || correctionHref !== '/contact/' || !correction[0].includes('data-correction-mail')) {
+      throw new Error(`prerender: ${urlPath} correction link must fall back to /contact/`)
     }
-    if (!correction[0].includes('https://github.com/shannonsnowden/kyhistorydrive/issues/new?') || !correction[0].includes('labels=correction')) {
-      throw new Error(`prerender: ${urlPath} correction link is not a labeled GitHub issue`)
+    if (!correction[0].includes('data-title="') || !correction[0].includes('data-url="')) {
+      throw new Error(`prerender: ${urlPath} correction link is missing the story title or URL`)
+    }
+    if (/issues\/new|github\.com/i.test(correctionHref) || /target="_blank"|rel="noopener/.test(correction[0])) {
+      throw new Error(`prerender: ${urlPath} correction link still points off site`)
+    }
+    if (!html.includes('fromCharCode(64)') || !html.includes("['cont', 'act']")) {
+      throw new Error(`prerender: ${urlPath} correction mail is not assembled in the browser`)
     }
     if (/mailto:/i.test(html)) throw new Error(`prerender: ${urlPath} includes a mailto link`)
+    if (html.includes('contact@kyhistorydrive.com')) throw new Error(`prerender: ${urlPath} includes the plain contact address`)
     const routeForNearby = routeBySlug(story.slug)
     // Editor 10/18 (#247): no story appears in both the Related people & stories box and Related and nearby.
     const peopleBoxSlugs = peopleAside ? [...peopleAside[0].matchAll(/href="\/stories\/([^"/]+)\//g)].map((match) => match[1]) : []
