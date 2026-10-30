@@ -2296,18 +2296,12 @@
     "la-grange-the-oldham-county-seat-with-trains-on-main-street": {
       "links": [
         {
-          "id": "arthur-st-clair",
-          "name": "Arthur St. Clair",
-          "href": "/people/#arthur-st-clair"
-        },
-        {
           "id": "lafayette",
           "name": "Marquis de Lafayette",
           "href": "/people/#lafayette"
         }
       ],
       "portraits": [
-        "arthur-st-clair",
         "lafayette"
       ]
     },
