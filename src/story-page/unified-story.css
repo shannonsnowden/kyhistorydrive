@@ -1111,23 +1111,23 @@ html[data-theme="dark"] .usp-map-edge {
   display: none;
 }
 
-.usp-visit-county-svg {
-  width: 72px;
+.usp-visit-county-thumb-wrap {
+  flex: none;
+  line-height: 0;
+}
+
+.usp-visit-county-thumb-wrap picture {
+  display: block;
+}
+
+/* The SVG already includes the parchment tile. No extra slab or pin. */
+.usp-visit-county-thumb {
+  width: 48px;
   height: 48px;
   flex: none;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  background: #e7decb;
-}
-
-.usp-visit-county-fill {
-  fill: #f5efe2;
-}
-
-.usp-visit-county-line {
-  fill: none;
-  stroke: #1f3d2a;
-  stroke-width: 1.5;
+  display: block;
+  border: 0;
+  background: transparent;
 }
 
 .usp-visit a:focus-visible,

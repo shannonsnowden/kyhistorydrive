@@ -77,8 +77,11 @@ const county = visitItHtml({ story: countyStory })
 assert.match(county, /id="visit"/)
 assert.match(county, /See county on map/)
 assert.match(county, /Logan County/)
-assert.match(county, /usp-visit-county-svg/)
-assert.match(county, /usp-visit-county-fill/)
+assert.match(county, /ky-county-thumb\.svg/)
+assert.match(county, /ky-county-thumb\.png 1x, \/brand\/ky-county-thumb-128\.png 2x/)
+assert.match(county, /width="48" height="48"/)
+assert.match(county, /AI illustration · Kentucky History Drive/)
+assert.doesNotMatch(county, /Story Studio|usp-visit-county-svg|usp-visit-county-fill|usp-pin/)
 assert.doesNotMatch(county, /usp-pin-dot|usp-map-approx-ring|maps\.apple\.com|google\.com\/maps|Get directions|data-lat=/)
 
 const prot = visitItHtml({
@@ -107,6 +110,9 @@ assert.equal(
 )
 
 const css = fs.readFileSync(new URL('../src/story-page/unified-story.css', import.meta.url), 'utf8')
+assert.match(css, /\.usp-visit-county-thumb \{[^}]*width:\s*48px/)
+assert.match(css, /\.usp-visit-county-thumb \{[^}]*height:\s*48px/)
+assert.doesNotMatch(css, /\.usp-visit-county-thumb \{[^}]*border:\s*1px/)
 assert.match(css, /\.usp-visit-go \{[^}]*min-height:\s*44px/)
 assert.match(css, /\.usp-visit-go \{[^}]*#e3a650/)
 assert.match(css, /\.usp-visit-maplink \{[^}]*min-height:\s*44px/)

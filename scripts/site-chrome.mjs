@@ -6,8 +6,19 @@ export function sealRotationScriptHtml() {
 }
 
 /** Apply the rotated seal. Force a /brand/ path so a subpage cannot resolve it relatively. */
+/** Full seal srcset applies at ≥1100px (homepage seal is 132px). The ≤48px mark is a <picture> source. */
 export function sealSrcScriptHtml() {
-  return `<script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo,h=window.__khdLogoHi;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(h&&h.indexOf('/brand/')!==0)h='/brand/'+String(h).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s);if(h){im.setAttribute('srcset',s+' 176w, '+h+' 512w');im.setAttribute('sizes','(min-width: 701px) 132px, (min-width: 601px) 84px, 68px')}})()</script>`
+  return `<script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo,h=window.__khdLogoHi;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(h&&h.indexOf('/brand/')!==0)h='/brand/'+String(h).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s);if(h){im.setAttribute('srcset',s+' 176w, '+h+' 512w');im.setAttribute('sizes','(min-width: 1100px) 132px, 88px')}})()</script>`
+}
+
+/** Header mark at viewports where the chrome logo renders ≤48px. Full seal stays on the img for ≥96px. */
+export function brandLogoHtml() {
+  return `<picture>
+            <source media="(max-width: 1099px)" type="image/svg+xml" srcset="/brand/khd-mark-48.svg" />
+            <source media="(max-width: 1099px)" type="image/png" srcset="/brand/khd-mark-48.png 1x, /brand/khd-mark-96.png 2x" />
+            <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" decoding="async" />
+          </picture>
+          ${sealSrcScriptHtml()}`
 }
 
 /** Menu, search and theme toggle for the shared header on pages that are not the SPA. */
@@ -99,8 +110,7 @@ export function siteHeaderHtml(activeRoute = '', { roadsRails = roadsRailsEnable
     <header class="top site-header">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" decoding="async" />
-          ${sealSrcScriptHtml()}
+          ${brandLogoHtml()}
           <div class="brand-lockup">
             <p class="brand-title">Kentucky History Drive</p>
             <p class="tagline">History is all around us.</p>
