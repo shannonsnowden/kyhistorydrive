@@ -266,6 +266,7 @@
         <span class="hp-plan-drive" aria-hidden="true"><span class="hp-plan-drive-title">Plan Your Drive</span><span class="hp-plan-drive-promise">Pick a town and time; we’ll map the stops.</span><span class="hp-plan-drive-pill">Start planning →</span></span>
         </div>
         </a>
+        <p class="hp-map-strip-drive"><a href="/drives/bluegrass-forts/">Start with a drive: Bluegrass Forts (½ day) →</a></p>
         <p class="hp-map-strip-explore"><a href="#map" data-route="map">Explore the map →</a></p>
         </div>
         <div class="hp-map-strip-copy">
@@ -346,8 +347,8 @@
 
     <section id="hero" class="hero" data-view="map" hidden>
       <p class="hero-welcome">
-        Explore Kentucky’s historical markers on the map, then open <a href="#timeline" data-route="timeline" class="hero-inline-link">Timeline</a> for stories by era and year.
-        Tap a pin for details; use <button type="button" id="heroZoomFullState" class="hero-inline-action" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button> to zoom back out.
+        The map opens on six places in amber. Other pins are green and group when you zoom out. Open <a href="#timeline" data-route="timeline" class="hero-inline-link">Timeline</a> for stories by era and year.
+        Turn on layers to see more. Tap a pin for details; use <button type="button" id="heroZoomFullState" class="hero-inline-action" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button> to zoom back out.
       </p>
     </section>
 
@@ -358,8 +359,9 @@
           <details class="map-help">
             <summary>How to use this map</summary>
             <div class="map-help-body">
-              <p>Start with the Kentucky Historical Society’s highway markers, then turn on more layers to see what else happened nearby.</p>
+              <p>Start here marks six places in amber. Other pins are green and group into a cluster when you are zoomed out.</p>
               <ul>
+                <li>Zoomed out, nearby pins group into a numbered cluster. Tap a cluster to zoom in.</li>
                 <li>Add history sites, national sites, Civil War and frontier war sites, museums, covered bridges, industry and mills, historic newspapers, parks, cemeteries, distilleries (mostly Bourbon), caves, and good places to eat.</li>
                 <li>Tap a pin to read its marker text or story.</li>
                 <li>Lay archaeological cultures and Native American territories under today’s markers. Both are approximate areas. “Show only” opens one nation’s map, most with a year slider.</li>
@@ -368,6 +370,15 @@
               </ul>
             </div>
           </details>
+          <div id="startHere" class="start-here">
+            <label class="ctrl layer-row start-here-row">
+              <input type="checkbox" id="startHereToggle" checked />
+              <span class="layer-icon emoji" aria-hidden="true">★</span>
+              <span>Start here</span>
+              <span class="swatch" style="background:#c9893a"></span>
+            </label>
+            <p id="startHereBlurb" class="start-here-blurb muted">Six places in amber. Other pins are green and group together when you zoom out.</p>
+          </div>
           <label class="ctrl layer-row master">
             <input type="checkbox" id="allLayers" />
             <span class="layer-icon emoji" aria-hidden="true">🗂</span>
@@ -383,6 +394,17 @@
         <button type="button" id="zoomFullState" class="btn ghost full-state-btn" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </aside>
       <div class="map-canvas-wrap">
+        <div id="startHereChip" class="start-here-chip">
+          <span>Start here</span>
+          <button type="button" id="startHereChipDismiss" aria-label="Dismiss Start here">✕</button>
+        </div>
+        <script>
+          try {
+            if (localStorage.getItem('khd-start-here-dismissed') === '1') {
+              document.getElementById('startHereChip').hidden = true
+            }
+          } catch (e) {}
+        </script>
         <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
         <button type="button" id="zoomFullStateMap" class="full-state-fab" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </div>

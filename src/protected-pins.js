@@ -67,7 +67,30 @@ export function capProtectedZoom(zoom, ...candidateIds) {
 const RING_SOURCES = [
   { source: 'history', circle: 'history-circle' },
   { source: 'stories', circle: 'stories-circle' },
+  { source: 'start-here', circle: 'start-here-circle' },
 ]
+// Home layers currently drawing their own copy of a featured pin. The start-here
+// ring follows that so a protected pin is not drawn twice.
+let startHereHomeLayersOn = []
+
+function startHereRingFilter() {
+  const homes = startHereHomeLayersOn.length ? startHereHomeLayersOn : ['__none__']
+  return ['all', idFilter(), ['!', ['in', ['get', 'homeLayer'], ['literal', homes]]]]
+}
+
+function ringFilterFor(source) {
+  return source === 'start-here' ? startHereRingFilter() : idFilter()
+}
+
+/** Keep the start-here protected ring off a pin whose home layer is already on. */
+export function setStartHereProtectedHomes(map, layerIds) {
+  startHereHomeLayersOn = Array.isArray(layerIds) ? layerIds.filter(Boolean) : []
+  if (!map) return
+  const filter = startHereRingFilter()
+  for (const lid of ['start-here-protected-ring', 'start-here-protected-area']) {
+    if (map.getLayer(lid)) map.setFilter(lid, filter)
+  }
+}
 const RADIUS_M = 10000
 const KY_COS_LAT = Math.cos((37.6 * Math.PI) / 180)
 // Pixels for RADIUS_M at zoom z (512px tiles): RADIUS_M * 512 * 2^z / (40075016.7 * cos lat).
@@ -92,7 +115,7 @@ function addFor(map, { source, circle }) {
       type: 'circle',
       source,
       minzoom: 8.5,
-      filter: idFilter(),
+      filter: ringFilterFor(source),
       layout: { visibility: vis },
       paint: {
         'circle-radius': ['interpolate', ['exponential', 2], ['zoom'], 8, pxAt(8), 16, pxAt(16)],
@@ -111,7 +134,7 @@ function addFor(map, { source, circle }) {
       id: ringId,
       type: 'circle',
       source,
-      filter: idFilter(),
+      filter: ringFilterFor(source),
       layout: { visibility: vis },
       paint: {
         'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 8, 9, 10, 12, 12.5, 16, 15.5],
