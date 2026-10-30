@@ -289,8 +289,6 @@ export function withDefaultHero(slides) {
     heroDeck: pin.heroDeck || '',
     summary: pin.heroDeck || '',
     historyId: pin.historyId || null,
-    lat: pin.lat ?? null,
-    lon: pin.lon ?? null,
     photo: {
       image_url: pin.image,
       title: pin.alt || pin.title,

@@ -91,6 +91,11 @@ assert.doesNotMatch(card(mixed, 'licking-valley'), /class="ticon"/)
 
 assert.equal(HERO_DEFAULT.image, '/content/photos/heroes/hero-big-bone-lick.jpg')
 assert.equal(HERO_DEFAULT.credit, 'Mattguyver · Wikimedia Commons · CC BY 3.0')
+assert.equal(HERO_DEFAULT.lat, undefined)
+assert.equal(HERO_DEFAULT.lon, undefined)
+assert.equal('historyId' in HERO_DEFAULT, true)
+assert.doesNotMatch(fs.readFileSync('scripts/hero-default.mjs', 'utf8'), /-?\d{2}\.\d{2,}/)
+assert.doesNotMatch(fs.readFileSync('src/home-hero-render.js', 'utf8'), /pin\.lat|pin\.lon/)
 assert.ok(fs.existsSync('public/content/photos/heroes/hero-big-bone-lick.jpg'))
 assert.ok(fs.existsSync('public/content/photos/heroes/hero-columbus-belmont-mississippi.jpg'))
 const slides = withDefaultHero([
