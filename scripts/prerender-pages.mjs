@@ -96,6 +96,7 @@ import {
   matchStoryMarkers,
   renderWhereItHappenedCard,
   resolvePeopleInStory,
+  visitItHtml,
   roundStoryCoord,
   roundedStoryGeo,
   splitStoryMarkdown,
@@ -2239,8 +2240,6 @@ class PrerenderPages {
           </section>`
       : ''
 
-    const inlineMapMobileHtml = renderWhereItHappenedCard(story, matchedMarkers, 'mobile')
-
     const peopleInStory = resolvePeopleInStory(
       story,
       relatedBundle,
@@ -2382,10 +2381,11 @@ class PrerenderPages {
           ${researchFold}
         </section>`
 
-    const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug, { isProtected: isProtectedStory(story) })
+    const protStory = isProtectedStory(story)
+    const matchedDriveHtml = takeADriveHtml(PrerenderPages.storyDriveData(), story.slug, { isProtected: protStory })
     const startTown = String(story.matchedPlace || (counties[0] ? `${counties[0]} County` : 'Danville')).split(',')[0].trim() || 'Danville'
     // Protected sites never get a route-builder entry (Critiquito #345, 10/24).
-    const driveSectionHtml = isProtectedStory(story) ? '' : matchedDriveHtml
+    const driveSectionHtml = protStory ? '' : matchedDriveHtml
       ? `<aside class="usp-section usp-drive" id="drive" aria-label="Plan a drive">${matchedDriveHtml}</aside>`
       : `<aside class="usp-section usp-drive" id="drive" aria-labelledby="h-drive">
           <div class="usp-drive-copy">
@@ -2395,6 +2395,7 @@ class PrerenderPages {
           </div>
           <a class="usp-btn" href="/drives/build/#start=${encodeURIComponent(startTown)}">Open route builder →</a>
         </aside>`
+    const visitHtml = visitItHtml({ story })
 
     const citeSectionHtml = `<details class="usp-section usp-details usp-cite" id="cite" data-cite-details>
           <summary>Cite this story</summary>
@@ -2438,6 +2439,7 @@ class PrerenderPages {
         </p>`
 
     const tocEntries = [
+      ...(visitHtml ? [{ id: 'visit', label: 'Visit it' }] : []),
       { id: 'story', label: 'Story' },
       ...(kentuckyTodayHtml ? [{ id: 'today', label: 'Kentucky today' }] : []),
       ...(route ? [{ id: 'route-map', label: 'Route map' }] : []),
@@ -2461,6 +2463,7 @@ class PrerenderPages {
       ${tocListHtml}
     </nav>`
 
+    const inlineMapMobileHtml = renderWhereItHappenedCard(story, matchedMarkers, 'mobile')
     const whereCardRailHtml = renderWhereItHappenedCard(story, matchedMarkers, 'rail')
 
     const main = `<div class="usp-grid">
@@ -2473,6 +2476,7 @@ class PrerenderPages {
             <p class="usp-when story-card-meta">${whenParts.join(' <span aria-hidden="true">·</span> ')}</p>
             ${peopleParts.lead}
           </header>
+          ${visitHtml}
           ${toolsRowHtml}
           <section class="usp-story" id="story" data-story-section aria-label="Story">
             <div class="story-body">${heroIsFace ? '' : PrerenderPages.storyPortraitHtml(portraitPick.person)}${PrerenderPages.storyFigureHtml(story.figure, { priority: !photo && !film })}${peopleParts.body}</div>

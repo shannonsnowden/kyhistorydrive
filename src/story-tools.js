@@ -482,8 +482,10 @@ function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass 
   return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list">${items}</ul></nav>`
 }
 
-export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5 } = {}) {
-  const near = nearbyPlaces(story, all, markers, { excludeSlugs, excludeMarkerIds, limit })
+export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5, isProtected = isProtectedStoryCoords } = {}) {
+  // #345: a protected page never lists nearby cards. Distances name the towns and rivers around it.
+  if (typeof isProtected === 'function' && isProtected(story)) return ''
+  const near = nearbyPlaces(story, all, markers, { excludeSlugs, excludeMarkerIds, limit, isProtected })
   return relatedListHtml(near, { heading: 'Nearby', headingId: 'nearby-stories-heading', headingLevel })
 }
 
