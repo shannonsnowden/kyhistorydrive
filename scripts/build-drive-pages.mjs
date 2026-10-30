@@ -96,7 +96,14 @@ function setHead(html, title, desc) {
 }
 function setLd(html, blocks) {
   html = html.replace(/<!-- khd-drive-jsonld -->[\s\S]*?<!-- \/khd-drive-jsonld -->\n?/, '')
-  return html.replace('</head>', `<!-- khd-drive-jsonld -->\n${blocks.map(ld).join('\n')}\n<!-- /khd-drive-jsonld -->\n</head>`)
+  const block = `<!-- khd-drive-jsonld -->\n${blocks.map(ld).join('\n')}\n<!-- /khd-drive-jsonld -->\n`
+  // Keep JSON-LD before the drive photo <style>. Anchoring at </head> drops it after that
+  // style; the next applyDriveIndexPhotos pass then swaps them, so a second build drifts.
+  const photo = '<!-- khd-drive-photo-style -->'
+  const headEnd = html.indexOf('</head>')
+  const photoAt = html.indexOf(photo)
+  if (photoAt !== -1 && (headEnd === -1 || photoAt < headEnd)) return html.replace(photo, block + photo)
+  return html.replace('</head>', `${block}</head>`)
 }
 const crumbs = (items) => ({
   '@context': 'https://schema.org',
