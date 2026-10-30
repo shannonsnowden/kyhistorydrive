@@ -24,6 +24,49 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
 
+/** Header search submits GET /stories/?q= (site-search.js and the stories list both read `q`). */
+const SEARCH_URL_TEMPLATE = 'https://kyhistorydrive.com/stories/?q={search_term_string}'
+
+/**
+ * Homepage JSON-LD only: one WebSite node at #website, with SearchAction nested on that node.
+ * A second WebSite, or a SearchAction on any other page, is out of scope.
+ */
+function assertHomepageSearchAction(html, label) {
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+  assert.ok(blocks.length >= 1, `${label}: missing JSON-LD`)
+  const websites = []
+  for (const block of blocks) {
+    let data
+    try {
+      data = JSON.parse(block[1])
+    } catch (err) {
+      assert.fail(`${label}: JSON-LD is not valid JSON (${err.message})`)
+    }
+    const nodes = Array.isArray(data['@graph']) ? data['@graph'] : [data]
+    for (const node of nodes) {
+      const types = [].concat(node['@type'] || [])
+      if (types.includes('WebSite')) websites.push(node)
+    }
+  }
+  assert.equal(websites.length, 1, `${label}: expected one WebSite node, found ${websites.length}`)
+  const site = websites[0]
+  assert.equal(site['@id'], 'https://kyhistorydrive.com/#website', `${label}: WebSite @id`)
+  const action = site.potentialAction
+  assert.equal(action && action['@type'], 'SearchAction', `${label}: nest SearchAction on the existing WebSite`)
+  assert.equal(action.target && action.target['@type'], 'EntryPoint', `${label}: SearchAction target`)
+  assert.equal(action.target && action.target.urlTemplate, SEARCH_URL_TEMPLATE, `${label}: SearchAction urlTemplate`)
+  assert.equal(action['query-input'], 'required name=search_term_string', `${label}: query-input`)
+}
+
+const sourceHome = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
+assertHomepageSearchAction(sourceHome, 'index.html')
+assert.match(
+  sourceHome,
+  /<form\b[^>]*\bid="siteSearchForm"[^>]*\baction="\/stories\/"[^>]*\bmethod="get"/,
+  'index.html header search must still GET /stories/',
+)
+assert.match(sourceHome, /<input\b[^>]*\bname="q"/, 'index.html header search input must stay named q')
+
 // 1. Unit checks on unified-story-data helpers
 assert.equal(storyEraLabel('native'), 'Native nations')
 assert.equal(storyEraLabel('other'), 'More Kentucky history')
@@ -203,10 +246,7 @@ assert.ok(
 )
 
 const homeHtml = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
-assert.ok(
-  homeHtml.includes('"@type": "WebSite"') && homeHtml.includes('"@id": "https://kyhistorydrive.com/#website"'),
-  'dist/index.html JSON-LD must include #website WebSite node',
-)
+assertHomepageSearchAction(homeHtml, 'dist/index.html')
 assert.ok(
   homeHtml.includes('href="/#timeline"') && homeHtml.includes('href="/#map"'),
   'dist/index.html header nav must use /#timeline and /#map',
