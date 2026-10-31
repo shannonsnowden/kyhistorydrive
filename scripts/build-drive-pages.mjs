@@ -22,6 +22,7 @@ const SITE = 'https://kyhistorydrive.com'
 import { parseJsLiteral } from './js-literal.mjs'
 import { applyDriveIndexPhotos, applyDrivePagePhoto, applyDrivesIndexOg, loadDrivePhotos, touristTripImage } from './drive-photos.mjs'
 import { renderDriveGpx } from './drive-gpx.mjs'
+import { applyCuratedMapLinks, syncDriveLinksModule } from './drive-map-links.mjs'
 const DP = 'public/drives'
 const SUFFIX = ' · Kentucky History Drive'
 
@@ -149,6 +150,7 @@ function stopLi(s, i, leg, anchorIds) {
 const printCss = fs.readFileSync(new URL('../src/drive-print.css', import.meta.url), 'utf8')
 const printCssOut = path.join(DP, 'drive-print.css')
 if (!fs.existsSync(printCssOut) || fs.readFileSync(printCssOut, 'utf8') !== printCss) fs.writeFileSync(printCssOut, printCss)
+syncDriveLinksModule(path.resolve(path.dirname(new URL(import.meta.url).pathname), '..'))
 const slugs = fs.readdirSync(DP).filter((d) => fs.existsSync(path.join(DP, d, 'index.html'))).sort()
 const drivePhotos = loadDrivePhotos()
 for (const slug of drivePhotos.keys()) {
@@ -202,6 +204,7 @@ for (const slug of slugs) {
   // Print link goes in before the photo block. applyDrivePagePhoto rewrites </head>,
   // and the photo test requires that rewrite to leave the page unchanged.
   html = applyDrivePrint(html, { slug, h1, route })
+  html = applyCuratedMapLinks(html, slug)
   html = applyDrivePagePhoto(html, photo)
   const gpx = renderDriveGpx({ name: h1, desc: intro, url, stops })
   const gpxFile = path.join(DP, slug, 'route.gpx')

@@ -4,10 +4,10 @@
  * geolocation) is never a parameter here, so it cannot end up in a link. Leg 1 has no origin (the maps
  * app uses the device's own location); leg k>1 starts at leg k-1's last stop.
  * Caps: 4 stops per leg everywhere (Google allows 3 waypoints + destination in phone browsers;
- *   Apple multistop is untested), so both apps open the same stops for each leg.
+ *   Apple repeats waypoint= on /directions, documented for iOS 18.4+), so both apps open the same stops.
  */
 // One cap for every app and screen: 4 stops per leg (3 waypoints + destination). That fits Google's
-// phone-browser limit and Apple's untested multistop, and matches the legs shown to visitors.
+// phone-browser limit and Apple's documented multistop, and matches the legs shown to visitors.
 export const LEG_STOPS = 4
 export const legSize = () => LEG_STOPS
 const ll = (s) => `${s.lat.toFixed(4)},${s.lon.toFixed(4)}`

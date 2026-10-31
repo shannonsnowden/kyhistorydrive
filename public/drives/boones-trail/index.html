@@ -146,6 +146,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 import { spreadBadges, labelBox } from '/drives/badge-spread.js'
+import { LEG_STOPS, buildLegs, appleUrl, googleUrl } from '/drives/drive-links.js'
 const STOPS = [
   { id:"cumberland-gap-nhp", name:"Cumberland Gap National Historical Park", lat:36.6027, lon:-83.6953,
     flags:[], onMap:"national-sites:cumberland-gap-nhp; story:thomas-walker-and-cumberland-gap",
@@ -209,25 +210,29 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     <div class="links">${links}${dir}</div></li>`
 }).join('')
 
-// Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
+// Directions: public exact stops only, same legs for Apple Maps and Google Maps. Leg 1 has no origin.
 function google(list){
   if (list.length===1 && list[0].approx) return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(list[0].name+', Kentucky')}`
-  list = list.filter(s => !s.approx)
-  const ll = (s) => `${s.lat.toFixed(5)},${s.lon.toFixed(5)}`
-  const dest = list[list.length-1]
-  const way = list.slice(0,-1).map(ll).join('|')
-  return `https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=${encodeURIComponent(ll(dest))}` + (way ? `&waypoints=${encodeURIComponent(way)}` : '')
+  return googleUrl(null, list.filter(s => !s.approx))
 }
 function apple(list){
-  if (list[0] && list[0].approx) return `https://maps.apple.com/?q=${encodeURIComponent(list[0].name+', Kentucky')}`
-  // Apple Maps URLs take one destination; open the first public stop.
-  const s = list[0]
-  return `https://maps.apple.com/?daddr=${s.lat.toFixed(5)},${s.lon.toFixed(5)}&dirflg=d`
+  if (list.length===1 && list[0].approx) return `https://maps.apple.com/?q=${encodeURIComponent(list[0].name+', Kentucky')}`
+  return appleUrl(null, list.filter(s => !s.approx))
 }
 const PUBLIC = STOPS.filter(s => !s.private)
-$('go').innerHTML = `<a class="btn" href="${google(PUBLIC)}" rel="noopener noreferrer" target="_blank">Open in Google Maps</a>
-  <a class="btn btn-quiet" href="${apple(PUBLIC)}" rel="noopener noreferrer" target="_blank">Open in Apple Maps</a>`
-$('go').insertAdjacentHTML('afterend', '<p class="note">Google Maps opens all public stops in order. Apple Maps links can carry one destination, so the Apple button opens the first public stop; each stop has its own buttons too.</p>')
+const EXACT = PUBLIC.filter(s => !s.approx)
+const legs = {
+  google: buildLegs(EXACT, LEG_STOPS, 'google'),
+  apple: buildLegs(EXACT, LEG_STOPS, 'apple'),
+}
+const multi = legs.google.length > 1
+const apps = [['google', 'Google Maps', 'btn'], ['apple', 'Apple Maps', 'btn btn-quiet']]
+$('go').innerHTML = legs.google.map((_, i) => apps.map(([app, name, cls]) => {
+  const leg = legs[app][i]
+  const label = multi ? `Leg ${leg.k} (stops ${leg.firstNo}–${leg.lastNo}) · ${name}` : `Open in ${name}`
+  return `<a class="${cls}" href="${leg.url}" rel="noopener noreferrer" target="_blank">${label}</a>`
+}).join('\n  ')).join('\n  ')
+$('go').insertAdjacentHTML('afterend', '<p class="note">Long drives open in legs of up to 4 stops.</p>')
 
 // Route map (route-map style: painted outline under an amber route, numbered green stops)
 const P = base.proj
