@@ -19,8 +19,11 @@
   <form class="ask" id="form" novalidate>
     <label for="q" class="ask-q">Where are you, or where are you going?</label>
     <div class="ask-row">
-      <input id="q" type="text" inputmode="search" placeholder="Town, ZIP, or a place on our map" autocomplete="off" list="qList" aria-describedby="qMsg" />
-      <datalist id="qList"></datalist>
+      <div class="ask-start">
+        <input id="q" type="text" inputmode="search" placeholder="Town, ZIP, or a place on our map" autocomplete="off" list="qList" aria-describedby="qMsg" />
+        <datalist id="qList"></datalist>
+        <button type="submit" class="btn-primary" id="goStart">Go</button>
+      </div>
       <button type="button" id="useLoc" class="btn-secondary"><span aria-hidden="true">📍</span> Use my location</button>
     </div>
     <p id="qMsg" class="field-msg" aria-live="polite"></p>
