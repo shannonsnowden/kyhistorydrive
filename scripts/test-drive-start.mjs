@@ -14,6 +14,7 @@ const locals = JSON.parse(fs.readFileSync(new URL('public/data/app/locals.json',
 const pageSrc = fs.readFileSync(new URL('src/build-a-drive.js', root), 'utf8')
 const startSrc = fs.readFileSync(new URL('src/drive-start.js', root), 'utf8')
 const htmlSrc = fs.readFileSync(new URL('drives/build/index.html', root), 'utf8')
+const cssSrc = fs.readFileSync(new URL('src/build-a-drive.css', root), 'utf8')
 const names = collectNamedPlaces(locals, byod.stops)
 
 const errors = []
@@ -211,6 +212,53 @@ if (!pageSrc.includes('PLACE_MISS')) fail('miss copy is not wired into the page'
 if (!startSrc.includes(PLACE_MISS)) fail('PLACE_MISS missing from the resolver module')
 if (pageSrc.includes('We couldn’t find')) fail('old miss copy still in the page')
 if (!/return resolveStart\(/.test(pageSrc)) fail('resolve() does not call resolveStart')
+
+// Go sits beside the start field and uses the same form submit as Enter.
+// Enter has no key handler: a text field in #form submits, and the one
+// submit listener calls resolve() → resolveStart. Go is type="submit"
+// in that form, so it must not grow its own click path.
+cases++
+const form = htmlSrc.match(/<form\b[^>]*\bid="form"[^>]*>([\s\S]*?)<\/form>/)
+if (!form) fail('planner form #form missing')
+else {
+  const formHtml = form[1]
+  const grouped = formHtml.match(/<div class="ask-start">([\s\S]*?)<\/div>/)
+  if (!grouped) fail('start field and Go are not grouped beside each other')
+  else {
+    const block = grouped[1]
+    const qAt = block.search(/\bid="q"/)
+    const go = block.match(/<button\b([^>]*)>\s*Go\s*<\/button>/)
+    if (qAt < 0) fail('start field #q is not in the Go group')
+    if (!go) fail('visible Go control is missing beside the start field')
+    else {
+      if (block.indexOf(go[0]) < qAt) fail('Go is not after the start field')
+      if (!/\btype="submit"/.test(go[1])) fail('Go does not submit the form the way Enter does')
+      if (!/\bbtn-primary\b/.test(go[1])) fail('Go does not reuse the Suggest a drive primary style')
+      if (/\btype="button"/.test(go[1])) fail('Go is a separate button instead of the form submit')
+    }
+  }
+  if (!/<button type="submit" class="btn-primary">Suggest a drive<\/button>/.test(formHtml)) {
+    fail('Suggest a drive submit control was removed or restyled')
+  }
+  if (!/id="useLoc"[\s\S]*type="button"|type="button"[\s\S]*id="useLoc"/.test(formHtml)) {
+    fail('Use my location must stay a non-submit control')
+  }
+}
+const submitListeners = pageSrc.match(/addEventListener\(\s*'submit'/g) || []
+if (submitListeners.length !== 1) fail(`expected one form submit handler, found ${submitListeners.length}`)
+if (/\$\(\s*'goStart'\s*\)|getElementById\(\s*'goStart'\s*\)|querySelector\(\s*['"][^'"]*goStart/.test(pageSrc)) {
+  fail('Go has its own script handler instead of the form submit path')
+}
+if (/nominatim|mapbox|opencage|photon\.komoot|maps\.googleapis/i.test(htmlSrc + cssSrc)) {
+  fail('planner markup adds a geocoder')
+}
+if (!/\.ask-row\s*\{[^}]*min-width:\s*0/.test(cssSrc)) fail('ask row can force the page wider than the screen')
+if (!/\.ask-start\s*\{[^}]*min-width:\s*0/.test(cssSrc)) fail('Go group can force the page wider than the screen')
+if (!/\.ask-start\s*\{[^}]*display:\s*flex/.test(cssSrc)) fail('start field and Go are not a flex row')
+if (!/\.ask-start\s*\{[^}]*flex-wrap:\s*nowrap/.test(cssSrc)) fail('Go can wrap away from the start field')
+if (!/\.ask-start\s+\.btn-primary\s*\{[^}]*width:\s*auto/.test(cssSrc)) {
+  fail('Go uses the full-width primary rule and will not sit beside the field')
+}
 
 if (errors.length) {
   for (const e of errors) console.error('test-drive-start:', e)
