@@ -66,7 +66,7 @@ assert.match(main, /ky-sheet/, 'main.js opens the phone bottom sheet')
 assert.match(main, /ensureHighlightSource\(map, \{ lon, lat, title: [^}]*layerId: placeLayer \}\)\s*\n\s*await showDetailPopup\(feature, placeLayer/, 'map deep links mark the selected pin in its layer color')
 assert.match(main, /protectedNote:\s*protectedPinNoteHtml\(/, 'main.js passes protectedPinNoteHtml into pinCardHtml')
 const manifest = JSON.parse(fs.readFileSync(new URL('../public/data/app/ky-history-manifest.json', import.meta.url)))
-assert.equal(manifest.data_version, 103, `data_version ${manifest.data_version} must be 103 (merge order after v2 96: #346=97, #347=98, #348=99, #350=100, #355=101, item 88 Turk/Read=102, item 88 next-7=103)`)
+assert.equal(manifest.data_version, 104, `data_version ${manifest.data_version} must be 104 (merge order after v2 96: #346=97, #347=98, #348=99, #350=100, #355=101, item 88 Turk/Read=102, item 88 next-7=103, closed Good Eats removals=104)`)
 
 // Critiquito fixes on #350.
 const css = fs.readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')

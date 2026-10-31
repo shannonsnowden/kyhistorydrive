@@ -606,25 +606,6 @@
     "geocode_source": "photon"
   },
   {
-    "id": "mariahs-bowling-green",
-    "name": "Mariah's",
-    "city": "Bowling Green",
-    "county": "Warren",
-    "address": "801 State St, Bowling Green, KY 42101",
-    "latitude": 36.9994818,
-    "longitude": -86.4302691,
-    "category": "restaurant",
-    "cuisine_or_type": "American fine casual",
-    "history": "Longtime independent Bowling Green restaurant in a historic mansion setting\u2014local fine-casual landmark, not a regional chain.",
-    "sources": [],
-    "yelp_rating": 4.0,
-    "google_rating": 4.4,
-    "combined_rating": 4.2,
-    "rating_note": "avg of Yelp+Google",
-    "review_count_approx": 800,
-    "geocode_source": "photon"
-  },
-  {
     "id": "mommas-mustard-pickles-bbq",
     "name": "Momma's Mustard, Pickles & BBQ",
     "city": "Louisville",
@@ -2695,25 +2676,6 @@
     "geocode_source": "photon"
   },
   {
-    "id": "chez-nora-covington",
-    "name": "Chez Nora",
-    "city": "Covington",
-    "county": "Kenton",
-    "address": "530 Main St, Covington, KY 41011",
-    "latitude": 39.0844816,
-    "longitude": -84.5172495,
-    "category": "restaurant",
-    "cuisine_or_type": "American rooftop",
-    "history": "Mainstrasse independent with rooftop dining\u2014Covington local classic.",
-    "sources": [],
-    "yelp_rating": null,
-    "google_rating": 4.4,
-    "combined_rating": 4.4,
-    "rating_note": "Google only",
-    "review_count_approx": 900,
-    "geocode_source": "photon"
-  },
-  {
     "id": "maysville-mason",
     "name": "Caproni's on the River",
     "city": "Maysville",
@@ -2824,25 +2786,6 @@
     "geocode_source": "photon"
   },
   {
-    "id": "harvest-louisville",
-    "name": "Harvest",
-    "city": "Louisville",
-    "county": "Jefferson",
-    "address": "624 E Market St, Louisville, KY 40202",
-    "latitude": 38.2532916,
-    "longitude": -85.7409077,
-    "category": "restaurant",
-    "cuisine_or_type": "farm-to-table",
-    "history": "NuLu farm-to-table independent emphasizing Kentucky producers\u2014Jefferson County icon.",
-    "sources": [],
-    "yelp_rating": null,
-    "google_rating": 4.5,
-    "combined_rating": 4.5,
-    "rating_note": "Google only",
-    "review_count_approx": 800,
-    "geocode_source": "photon"
-  },
-  {
     "id": "varanese",
     "name": "Varanese",
     "city": "Louisville",
@@ -2884,25 +2827,6 @@
     "combined_rating": 4.5,
     "rating_note": "Google only",
     "review_count_approx": 700,
-    "geocode_source": "photon"
-  },
-  {
-    "id": "silver-dollar-louisville",
-    "name": "The Silver Dollar",
-    "city": "Louisville",
-    "county": "Jefferson",
-    "address": "1761 Frankfort Ave, Louisville, KY 40206",
-    "latitude": 38.2569953,
-    "longitude": -85.7167244,
-    "category": "restaurant",
-    "cuisine_or_type": "Southern & whiskey",
-    "history": "Clifton Southern/whiskey bar independent\u2014Louisville cult favorite.",
-    "sources": [],
-    "yelp_rating": null,
-    "google_rating": 4.5,
-    "combined_rating": 4.5,
-    "rating_note": "Google only",
-    "review_count_approx": 1200,
     "geocode_source": "photon"
   },
   {
