@@ -2,10 +2,12 @@
  * Build your own drive (/drives/build/).
  *
  * Privacy: everything runs in this browser. The page fetches only static files from this site
- * (byod-stops.json, ky-places.json) plus basemap tiles. navigator.geolocation runs only when the
- * visitor presses "Use my location"; the position lives in a local variable and is never written to
- * storage, a URL, a cookie or a request. Maps links (buildLegs/googleUrl/appleUrl) are built from
- * STOP coordinates only: the visitor's start (typed place or position) is never passed to them.
+ * (byod-stops.json, ky-places.json) plus basemap tiles. A pasted street address is read in this
+ * browser for a Kentucky ZIP, town, or distillery in those files; it is not sent anywhere.
+ * navigator.geolocation runs only when the visitor presses "Use my location"; the position lives
+ * in a local variable and is never written to storage, a URL, a cookie or a request. Maps links
+ * (buildLegs/googleUrl/appleUrl) are built from STOP coordinates only: the visitor's start
+ * (typed place or position) is never passed to them.
  *
  * Safety: byod-stops.json is pre-filtered and self-checked at build time (scripts/build-byod-stops.mjs).
  */
@@ -25,6 +27,7 @@ const kindIcon = (k) => {
   return `<span class="kicon" aria-hidden="true">${escHtml(v)}</span>`
 }
 import { legSize, googleUrl, appleUrl, buildLegs } from './drive-links.js'
+import { PLACE_MISS, resolveStart } from './drive-start.js'
 
 const ROAD_FACTOR = 1.3
 const MPH = 40
@@ -300,21 +303,10 @@ async function main() {
   })
   async function resolve(v) {
     const db = await loadPlaces()
-    if (/^\d{5}$/.test(v)) { const z = db.zips.find((z) => z[0] === v); return z ? { label: `ZIP ${v}`, lat: z[1], lon: z[2] } : null }
-    const n = v.toLowerCase().replace(/,?\s*(ky|kentucky)$/, '').trim()
-    const d = data.distilleries.find((d) => d[0].toLowerCase() === n) || (n.length > 3 && data.distilleries.find((d) => d[0].toLowerCase().includes(n)))
-    if (d && (d[0].toLowerCase() === n || /distill|trace|turkey|roses|beam|mark|forester|reserve|hill|key|barton/.test(n))) return { label: d[0], lat: d[1], lon: d[2] }
-    const p = db.places.find((p) => p[0].toLowerCase() === n) || db.places.find((p) => p[0].toLowerCase().startsWith(n))
-    if (p) return { label: p[0], lat: p[1], lon: p[2] }
-    if (d) return { label: d[0], lat: d[1], lon: d[2] }
-    return null
+    return resolveStart(v, db, data.distilleries)
   }
-  async function suggest(v) {
-    const db = await loadPlaces()
-    const n = v.toLowerCase().slice(0, 2)
-    const hits = [...data.distilleries.map((d) => d[0]), ...db.places.map((p) => p[0])].filter((x) => x.toLowerCase().startsWith(n)).slice(0, 5)
-    say(`We couldn’t find “${esc(v)}” in Kentucky.` + (hits.length ? ` Did you mean: ${hits.map((h) => `<button type="button" class="sugg">${esc(h)}</button>`).join('')}` : ' Try a town name or a 5-digit ZIP.'))
-    document.querySelectorAll('.sugg').forEach((b) => b.addEventListener('click', () => { $('q').value = b.textContent; $('form').requestSubmit() }))
+  function suggest() {
+    say(PLACE_MISS)
   }
   $('form').addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -325,7 +317,7 @@ async function main() {
     }
     here = null
     const start = await resolve(v)
-    if (!start) { pre(); return suggest(v) }
+    if (!start) { pre(); return suggest() }
     render(start, budget())
   })
   document.querySelectorAll('input[name=budget]').forEach((r) => r.addEventListener('change', () => { if ($('stops').querySelector('li[data-i]')) $('form').requestSubmit() }))
