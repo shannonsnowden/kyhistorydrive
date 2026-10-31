@@ -232,7 +232,7 @@ async function main() {
     }
     $('status').textContent = `${order.length} stops from ${start.label}: about ${fmt(min)} with stops (estimate).`
     $('facts').innerHTML = `<span>About <b>${Math.round(mi)} miles</b> round trip</span><span><b>${fmt(min)}</b> with stops${BREAK_BY[b] ? ' and a meal break' : ''}</span>`
-    // One leg split for the list and both apps: 4 stops per leg (Apple's untested cap; within Google's
+    // One leg split for the list and both apps: 4 stops per leg (Apple's documented multistop; within Google's
     // phone cap). Leg k>1 starts at leg k-1's last stop. Links carry stops only, never the start.
     const n = legSize()
     const apps = IS_APPLE ? ['apple', 'google'] : ['google', 'apple']
