@@ -2,8 +2,9 @@
  * Build your own drive (/drives/build/).
  *
  * Privacy: everything runs in this browser. The page fetches only static files from this site
- * (byod-stops.json, ky-places.json) plus basemap tiles. A pasted street address is read in this
- * browser for a Kentucky ZIP, town, or distillery in those files; it is not sent anywhere.
+ * (byod-stops.json, ky-places.json, locals.json) plus basemap tiles. A pasted street address is
+ * read in this browser for a Kentucky ZIP, town, or distillery in those files, and a business or
+ * attraction name is matched to a pin already on the map. Nothing is sent anywhere.
  * navigator.geolocation runs only when the visitor presses "Use my location"; the position lives
  * in a local variable and is never written to storage, a URL, a cookie or a request. Maps links
  * (buildLegs/googleUrl/appleUrl) are built from STOP coordinates only: the visitor's start
@@ -27,7 +28,7 @@ const kindIcon = (k) => {
   return `<span class="kicon" aria-hidden="true">${escHtml(v)}</span>`
 }
 import { legSize, googleUrl, appleUrl, buildLegs } from './drive-links.js'
-import { PLACE_MISS, resolveStart } from './drive-start.js'
+import { PLACE_AMBIGUOUS, PLACE_MISS, collectNamedPlaces, resolveStart } from './drive-start.js'
 
 const ROAD_FACTOR = 1.3
 const MPH = 40
@@ -128,10 +129,25 @@ const stopUrl = (s) => (IS_APPLE ? appleUrl(null, [s]) : googleUrl(null, [s]))
 async function main() {
   const data = await fetch('/drives/byod-stops.json').then((r) => r.json())
   let places = null
+  let namedPlaces = []
   const loadPlaces = async () => {
     if (!places) {
       places = await fetch('/drives/ky-places.json').then((r) => r.json())
-      $('qList').innerHTML = data.distilleries.map(([n]) => `<option value="${esc(n)}">`).join('') + places.places.map((p) => `<option value="${esc(p[0])}">`).join('')
+      let locals = []
+      try {
+        const res = await fetch('/data/app/locals.json')
+        if (res.ok) locals = await res.json()
+      } catch (e) { locals = [] }
+      namedPlaces = collectNamedPlaces(locals, data.stops)
+      const seen = new Set()
+      const opt = (n) => {
+        if (!n || seen.has(n)) return ''
+        seen.add(n)
+        return `<option value="${esc(n)}">`
+      }
+      $('qList').innerHTML = data.distilleries.map(([n]) => opt(n)).join('')
+        + places.places.map((p) => opt(p[0])).join('')
+        + namedPlaces.map((p) => opt(p[0])).join('')
     }
     return places
   }
@@ -209,7 +225,7 @@ async function main() {
   function pre() {
     $('status').textContent = ''
     $('facts').innerHTML = ''
-    $('stops').innerHTML = '<p class="note">Enter a town, ZIP or distillery, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</p>'
+    $('stops').innerHTML = '<p class="note">Enter a town, ZIP, distillery, or a place on our map, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</p>'
     $('stickyBar').hidden = true
     document.body.classList.remove('has-bar')
     draw(null, [])
@@ -293,17 +309,17 @@ async function main() {
   // ---------- inputs ----------
   let here = null // in memory only
   $('useLoc').addEventListener('click', () => {
-    if (!('geolocation' in navigator)) { say('Location isn’t available in this browser. Type a town or ZIP instead.'); $('q').focus(); return }
+    if (!('geolocation' in navigator)) { say('Location isn’t available in this browser. Type a town, ZIP, or a place on our map instead.'); $('q').focus(); return }
     say('Asking your browser for your location…')
     navigator.geolocation.getCurrentPosition(
       (pos) => { here = { lat: pos.coords.latitude, lon: pos.coords.longitude, label: 'your location' }; $('q').value = ''; render(here, budget()) },
-      () => { say('Couldn’t get your location. Type a town or ZIP instead.'); $('q').focus() },
+      () => { say('Couldn’t get your location. Type a town, ZIP, or a place on our map instead.'); $('q').focus() },
       { enableHighAccuracy: false, maximumAge: 0, timeout: 10000 },
     )
   })
   async function resolve(v) {
     const db = await loadPlaces()
-    return resolveStart(v, db, data.distilleries)
+    return resolveStart(v, db, data.distilleries, namedPlaces)
   }
   function suggest() {
     say(PLACE_MISS)
@@ -313,10 +329,11 @@ async function main() {
     const v = $('q').value.trim()
     if (!v) {
       if (here) return render(here, budget())
-      say('Type a town, ZIP or distillery, or press “Use my location”.'); $('q').focus(); return
+      say('Type a town, ZIP, distillery, or a place on our map, or press “Use my location”.'); $('q').focus(); return
     }
     here = null
     const start = await resolve(v)
+    if (start && start.ambiguous) { pre(); say(PLACE_AMBIGUOUS); return }
     if (!start) { pre(); return suggest() }
     render(start, budget())
   })
