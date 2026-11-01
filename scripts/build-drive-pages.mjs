@@ -113,7 +113,13 @@ const crumbs = (items) => ({
 })
 
 const FL = { private: 'Private land', marker: 'Marker only', paid: 'Paid admission', limited: 'Limited hours', reservation: 'Reservation needed' }
-const fmtMin = (m) => `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`
+const fmtMin = (m) => {
+  const h = Math.floor(m / 60)
+  const min = Math.round(m % 60)
+  return h < 1 ? `${min} min` : `${h} h ${String(min).padStart(2, '0')} min`
+}
+const FMT_MIN_OLD = "const fmtMin = (m) => `${Math.floor(m/60)} h ${String(Math.round(m%60)).padStart(2,'0')} min`"
+const FMT_MIN_JS = "const fmtMin = (m) => { const h = Math.floor(m/60), min = Math.round(m%60); return h < 1 ? `${min} min` : `${h} h ${String(min).padStart(2,'0')} min` }"
 const VISIT_TPL = '<p class="stop-meta">${esc(s.when)}</p><p class="stop-visit"><b>Visiting:</b> ${tag} ${esc(s.access)}</p>'
 function applyDrivePrint(html, { slug, h1, route }) {
   const oldTpl = '<p class="stop-meta">${tag}${esc(s.when)}. ${esc(s.access)}</p>'
@@ -126,7 +132,7 @@ function applyDrivePrint(html, { slug, h1, route }) {
   html = html.replace(/<!-- khd-drive-masthead -->[\s\S]*?<!-- \/khd-drive-masthead -->\n?/, '')
   if (!html.includes('<main>')) throw new Error(`build-drive-pages: ${slug} has no <main>`)
   html = html.replace('<main>', `<main>\n${mast}`)
-  const tools = `<!-- khd-drive-tools -->\n<div class="drive-tools" role="group" aria-label="Print and GPS">\n  <button type="button" class="btn btn-quiet" data-print onclick="window.print()">Print</button>\n  <a class="btn btn-quiet" href="/drives/${slug}/route.gpx" download="${slug}.gpx">Download GPX</a>\n</div>\n<!-- /khd-drive-tools -->`
+  const tools = `<!-- khd-drive-tools -->\n<div class="drive-tools" role="group" aria-label="Print and GPS">\n  <button type="button" class="btn btn-quiet" data-print onclick="window.print()">Print / Save PDF</button>\n  <a class="btn btn-quiet" href="/drives/${slug}/route.gpx" download="${slug}.gpx">Download GPX</a>\n</div>\n<!-- /khd-drive-tools -->`
   html = html.replace(/<!-- khd-drive-tools -->[\s\S]*?<!-- \/khd-drive-tools -->\n?/, '')
   if (!html.includes('<h2 id="stops-h">Stops</h2>')) throw new Error(`build-drive-pages: ${slug} has no stops heading`)
   html = html.replace('<h2 id="stops-h">Stops</h2>', `<h2 id="stops-h">Stops</h2>\n${tools}`)
@@ -204,6 +210,8 @@ for (const slug of slugs) {
   // Print link goes in before the photo block. applyDrivePagePhoto rewrites </head>,
   // and the photo test requires that rewrite to leave the page unchanged.
   html = applyDrivePrint(html, { slug, h1, route })
+  if (html.includes(FMT_MIN_OLD)) html = html.replaceAll(FMT_MIN_OLD, FMT_MIN_JS)
+  else if (!html.includes(FMT_MIN_JS)) throw new Error(`build-drive-pages: ${slug} has no fmtMin`)
   html = applyCuratedMapLinks(html, slug)
   html = applyDrivePagePhoto(html, photo)
   const gpx = renderDriveGpx({ name: h1, desc: intro, url, stops })
@@ -245,6 +253,9 @@ for (const c of cards) {
   const re = new RegExp(`(<a href="/drives/${c.slug}/">[\\s\\S]*?<p class="muted">)([\\s\\S]*?)(</p>\\s*<p class="facts"><span><b>)(\\d+)(</b> stops</span><span>About <b>)\\d+( mi</b></span><span>About <b>)[^<]*(</b>)`)
   idx = idx.replace(re, (all, a, blurb, b, n, d, e, f) => Number(n) === c.stops ? all
     : `${a}${esc(c.intro)}${b}${c.stops}${d}${Math.round(c.miles)}${e}${fmtMin(c.minutes)}${f}`)
+  const timeRe = new RegExp(`(<a href="/drives/${c.slug}/">[\\s\\S]*?<span>About <b>\\d+ mi</b></span><span>About <b>)[^<]+(</b>)`)
+  if (!timeRe.test(idx)) throw new Error(`build-drive-pages: ${c.slug} card has no duration fact`)
+  idx = idx.replace(timeRe, `$1${fmtMin(c.minutes)}$2`)
 }
 idx = applyDriveIndexPhotos(idx, drivePhotos)
 idx = applyDrivesIndexOg(idx)
