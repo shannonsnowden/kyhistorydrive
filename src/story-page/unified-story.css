@@ -1090,25 +1090,22 @@ html[data-theme="dark"] .usp-map-edge {
 }
 
 .usp-visit-app {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 44px;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: transparent;
-  color: var(--text);
+  color: var(--text) !important;
   font: inherit;
   font-size: 0.85rem;
   font-weight: 700;
+  text-decoration: none;
 }
 
-.usp-visit-app[aria-pressed="true"] {
-  border-color: #9a7b3c;
-  background: #efe3c4;
-  color: #1a140c;
-  font-weight: 700;
-}
-
-/* 390: the Google/Apple toggle stays a 44px target but reads quieter, and the
+/* 390: Apple and Google stay 44px targets but read quieter, and the
    place line is not the same weight and color as the story h1. */
 @media (max-width: 390px) {
   .usp-visit-place {
@@ -1121,13 +1118,8 @@ html[data-theme="dark"] .usp-map-edge {
     padding: 0.15rem 0.5rem;
     font-size: 0.72rem;
     font-weight: 600;
-    color: var(--muted);
+    color: var(--muted) !important;
     background: transparent;
-  }
-  .usp-visit-app[aria-pressed="true"] {
-    background: #efe3c4;
-    color: #1a140c;
-    border-color: #9a7b3c;
   }
 }
 

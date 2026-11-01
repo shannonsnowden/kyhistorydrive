@@ -933,19 +933,21 @@ export function visitItHtml({ story } = {}) {
   const latStr = geo.lat.toFixed(geo.decimals)
   const lonStr = geo.lon.toFixed(geo.decimals)
   const google = `https://www.google.com/maps/dir/?api=1&destination=${latStr},${lonStr}`
+  // Same single-pin Apple URL as marker cards. Curated drives use appleUrl()
+  // (/directions?destination= plus waypoints) for multi-stop legs, not this strip.
   const apple = `https://maps.apple.com/?daddr=${latStr},${lonStr}`
   return `<section class="usp-visit" id="visit" aria-labelledby="h-visit">
     <h2 id="h-visit">Visit it</h2>
     <div class="usp-visit-row">
       <p class="usp-visit-place">${escapeHtml(placeName)}</p>
       <div class="usp-visit-actions" data-visit-dirs>
-        <a class="usp-visit-go" data-visit-go href="${escapeHtml(google)}" data-google="${escapeHtml(google)}" data-apple="${escapeHtml(apple)}" aria-label="Get directions">
+        <a class="usp-visit-go" data-visit-go href="${escapeHtml(google)}" data-google="${escapeHtml(google)}" data-apple="${escapeHtml(apple)}" target="_blank" rel="noopener noreferrer" aria-label="Get directions">
           <span class="usp-visit-go-short">Directions</span>
           <span class="usp-visit-go-full">Get directions</span>
         </a>
         <span class="usp-visit-apps" role="group" aria-label="Maps app">
-          <button type="button" class="usp-visit-app" data-visit-app="google" aria-pressed="true">Google</button>
-          <button type="button" class="usp-visit-app" data-visit-app="apple" aria-pressed="false">Apple</button>
+          <a class="usp-visit-app" href="${escapeHtml(google)}" target="_blank" rel="noopener noreferrer">Google</a>
+          <a class="usp-visit-app" href="${escapeHtml(apple)}" target="_blank" rel="noopener noreferrer">Apple</a>
         </span>
         <a class="usp-visit-maplink" data-story-map href="${escapeHtml(storyMapHref(story))}" aria-label="See on the history map">
           <span class="usp-visit-map-short">See on map</span>
