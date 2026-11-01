@@ -19,6 +19,7 @@ function apple(list){
   if (list.length===1 && list[0].approx) return \`https://maps.apple.com/?q=\${encodeURIComponent(list[0].name+', Kentucky')}\`
   return appleUrl(null, list.filter(s => !s.approx))
 }
+STOPS.forEach((s, i) => { s.listNo = i + 1 })
 const PUBLIC = STOPS.filter(s => !s.private)
 const EXACT = PUBLIC.filter(s => !s.approx)
 const legs = {
@@ -26,13 +27,14 @@ const legs = {
   apple: buildLegs(EXACT, LEG_STOPS, 'apple'),
 }
 const multi = legs.google.length > 1
+\$('go').dataset.legs = String(legs.google.length)
 const apps = [['google', 'Google Maps', 'btn'], ['apple', 'Apple Maps', 'btn btn-quiet']]
 \$('go').innerHTML = legs.google.map((_, i) => apps.map(([app, name, cls]) => {
   const leg = legs[app][i]
   const label = multi ? \`Leg \${leg.k} (stops \${leg.firstNo}–\${leg.lastNo}) · \${name}\` : \`Open in \${name}\`
   return \`<a class="\${cls}" href="\${leg.url}" rel="noopener noreferrer" target="_blank">\${label}</a>\`
 }).join('\\n  ')).join('\\n  ')
-\$('go').insertAdjacentHTML('afterend', '<p class="note">Long drives open in legs of up to 4 stops.</p>')
+if (multi) \$('go').insertAdjacentHTML('afterend', '<p class="note">Long drives open in legs of up to 4 stops.</p>')
 `
 
 const BADGE_IMPORT = "import { spreadBadges, labelBox } from '/drives/badge-spread.js'"

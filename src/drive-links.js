@@ -27,13 +27,18 @@ export function appleUrl(from, stops) {
   u.searchParams.set('mode', 'driving')
   return u.toString()
 }
+// Visitor-facing stop number. Curated pages set listNo to the STOPS list index (private and
+// approx rows keep their number). Build-a-Drive leaves it unset and keeps the 1-based index here.
+const listedNo = (stop, fallback) => (stop && Number.isFinite(stop.listNo) ? stop.listNo : fallback)
 /** Split the ordered stops into legs of at most n stops; leg k>1 starts at leg k-1's last stop. */
 export function buildLegs(order, n, app) {
   const legs = []
   for (let i = 0, k = 1; i < order.length; i += n, k++) {
     const from = i ? order[i - 1] : null
     const stops = order.slice(i, i + n)
-    legs.push({ k, firstNo: i ? i : 1, lastNo: i + stops.length, url: (app === 'apple' ? appleUrl : googleUrl)(from, stops) })
+    const firstNo = from ? listedNo(from, i) : listedNo(stops[0], 1)
+    const lastNo = listedNo(stops[stops.length - 1], i + stops.length)
+    legs.push({ k, firstNo, lastNo, url: (app === 'apple' ? appleUrl : googleUrl)(from, stops) })
   }
   return legs
 }

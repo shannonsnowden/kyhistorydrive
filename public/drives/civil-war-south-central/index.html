@@ -48,6 +48,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .links a.story{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:10px;color:var(--text);text-decoration:none;font-size:14px}
 .links a.story:hover{border-color:var(--accent)}
 .go{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+@media (max-width:420px){.go[data-legs="3"]{flex-direction:column;align-items:stretch}.go[data-legs="3"]>.btn{flex:1 1 100%;width:100%;min-width:0;white-space:normal;text-align:center;height:auto;line-height:1.25}}
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
@@ -222,6 +223,7 @@ function apple(list){
   if (list.length===1 && list[0].approx) return `https://maps.apple.com/?q=${encodeURIComponent(list[0].name+', Kentucky')}`
   return appleUrl(null, list.filter(s => !s.approx))
 }
+STOPS.forEach((s, i) => { s.listNo = i + 1 })
 const PUBLIC = STOPS.filter(s => !s.private)
 const EXACT = PUBLIC.filter(s => !s.approx)
 const legs = {
@@ -229,13 +231,14 @@ const legs = {
   apple: buildLegs(EXACT, LEG_STOPS, 'apple'),
 }
 const multi = legs.google.length > 1
+$('go').dataset.legs = String(legs.google.length)
 const apps = [['google', 'Google Maps', 'btn'], ['apple', 'Apple Maps', 'btn btn-quiet']]
 $('go').innerHTML = legs.google.map((_, i) => apps.map(([app, name, cls]) => {
   const leg = legs[app][i]
   const label = multi ? `Leg ${leg.k} (stops ${leg.firstNo}–${leg.lastNo}) · ${name}` : `Open in ${name}`
   return `<a class="${cls}" href="${leg.url}" rel="noopener noreferrer" target="_blank">${label}</a>`
 }).join('\n  ')).join('\n  ')
-$('go').insertAdjacentHTML('afterend', '<p class="note">Long drives open in legs of up to 4 stops.</p>')
+if (multi) $('go').insertAdjacentHTML('afterend', '<p class="note">Long drives open in legs of up to 4 stops.</p>')
 
 // Route map (route-map style: painted outline under an amber route, numbered green stops)
 const P = base.proj
