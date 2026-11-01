@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** Homepage hero renderers keep only same-origin paths for links, map links and images. */
 import assert from 'node:assert/strict'
-import { safeLocalUrl, storyMapHref, storyPageHref, renderLeadStory, renderRailCard, leadPreloadTag } from '../src/home-hero-render.js'
+import { safeLocalUrl, storyMapHref, storyPageHref, renderLeadStory, renderRailCard, renderSwipeCard, leadPreloadTag, heroSlidesFromPack } from '../src/home-hero-render.js'
 
 assert.equal(safeLocalUrl('/stories/a/'), '/stories/a/')
 assert.equal(safeLocalUrl('/#map/history/x'), '/#map/history/x')
@@ -17,7 +17,22 @@ const evil = { slug: 'x', title: 'T', mapHref: '//evil.example/m', photo: { imag
 for (const html of [renderLeadStory(evil), renderRailCard(evil), leadPreloadTag(evil)]) {
   assert.ok(!html.includes('evil.example'), html)
 }
-const ok = { slug: 'x', title: 'T', mapHref: '/#map/stories/x', photo: { image_url: '/content/photos/stories/x.jpg', title: 'p' } }
+const ok = { slug: 'x', title: 'T', mapHref: '/#map/stories/x', photo: { image_url: '/content/photos/stories/x.jpg', title: 'p', credit: 'Ada Lovelace' } }
 assert.ok(renderLeadStory(ok).includes('src="/content/photos/stories/x.jpg"'))
 assert.ok(renderLeadStory(ok).includes('href="/#map/stories/x"'))
+assert.match(renderRailCard(ok), /class="hp-photo-credit hp-rail-card-credit">Photo: Ada Lovelace</)
+assert.match(renderSwipeCard(ok), /class="hp-photo-credit hp-swipe-card-credit">Photo: Ada Lovelace</)
+assert.doesNotMatch(renderRailCard({ slug: 'blank', title: 'No photo' }), /hp-rail-card-credit/)
+assert.doesNotMatch(renderSwipeCard({ slug: 'blank', title: 'No photo' }), /hp-swipe-card-credit/)
+
+const skipped = heroSlidesFromPack({
+  stories: [
+    { slug: 'no-photo', title: 'Blank lead' },
+    { slug: 'shown', title: 'Shown', photo: { image_url: '/content/photos/stories/shown.jpg', credit: 'Shown credit' } },
+  ],
+})
+assert.deepEqual(skipped.map((s) => s.slug), ['shown'])
+const empty = heroSlidesFromPack({ stories: [{ slug: 'no-photo', title: 'Blank lead' }] })
+assert.equal(empty[0].slug, 'big-bone-lick-older-cycle')
+assert.ok(empty[0].photo?.image_url)
 console.log('test-home-hero-urls: ok')

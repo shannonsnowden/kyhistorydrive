@@ -2955,6 +2955,17 @@ html[data-hp-theme="light"] .about-seal {
   font-size: 0.8rem;
   color: var(--muted);
 }
+.hp-rail-card-credit,
+.hp-swipe-card-credit {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .hp-story-swipe {
   display: none;
   list-style: none;

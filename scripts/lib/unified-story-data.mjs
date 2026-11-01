@@ -812,11 +812,81 @@ export function extractResearchClaims(notes) {
   return out
 }
 
-/** Whole-state Kentucky outline for a county-only Visit it row. A single-county polygon is later. */
+function pointInRing(x, y, pts) {
+  let inside = false
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+    const xi = pts[i][0]
+    const yi = pts[i][1]
+    const xj = pts[j][0]
+    const yj = pts[j][1]
+    const intersect = (yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi
+    if (intersect) inside = !inside
+  }
+  return inside
+}
+
+/** Closed county subpaths from the homepage strip, keyed by county name. */
+let cachedCountyPolys = null
+function countyPolygonIndex() {
+  if (cachedCountyPolys) return cachedCountyPolys
+  const { countiesPathD, frame, project } = getMapAssets()
+  const polys = String(countiesPathD)
+    .split(/Z/i)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      const nums = part.match(/-?\d+(?:\.\d+)?/g)?.map(Number) || []
+      const pts = []
+      for (let i = 0; i + 1 < nums.length; i += 2) pts.push([nums[i], nums[i + 1]])
+      return pts
+    })
+    .filter((pts) => pts.length >= 3)
+  const centroids = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/data/county-centroids.json'), 'utf8'))
+  const byName = new Map()
+  for (const [name, coords] of Object.entries(centroids)) {
+    if (!Array.isArray(coords) || coords.length < 2) continue
+    const [mx, my] = project(coords[0], coords[1])
+    const x = frame.xFit.scale * mx + frame.xFit.offset
+    const y = frame.yFit.scale * my + frame.yFit.offset
+    const hit = polys.find((pts) => pointInRing(x, y, pts))
+    if (hit) byName.set(name.toLowerCase(), hit)
+  }
+  cachedCountyPolys = byName
+  return byName
+}
+
+function wholeStateThumbHtml() {
+  return `<span class="usp-visit-county-thumb-wrap"><picture><source type="image/svg+xml" srcset="/brand/ky-county-thumb.svg" /><img class="usp-visit-county-thumb" src="/brand/ky-county-thumb.png" srcset="/brand/ky-county-thumb.png 1x, /brand/ky-county-thumb-128.png 2x" width="48" height="48" alt="Kentucky outline" decoding="async" /></picture><span class="visually-hidden">AI illustration · Kentucky History Drive</span></span>`
+}
+
+function oneCountyThumbHtml(name, pts) {
+  let minX = Infinity
+  let minY = Infinity
+  let maxX = -Infinity
+  let maxY = -Infinity
+  for (const [x, y] of pts) {
+    if (x < minX) minX = x
+    if (y < minY) minY = y
+    if (x > maxX) maxX = x
+    if (y > maxY) maxY = y
+  }
+  const w = maxX - minX
+  const h = maxY - minY
+  const pad = Math.max(w, h, 1) * 0.12
+  const side = Math.max(w, h) + pad * 2
+  const vx = minX - (side - w) / 2
+  const vy = minY - (side - h) / 2
+  const d = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join('') + 'Z'
+  const label = `${name} County outline`
+  return `<span class="usp-visit-county-thumb-wrap"><svg class="usp-visit-county-thumb" xmlns="http://www.w3.org/2000/svg" viewBox="${vx.toFixed(1)} ${vy.toFixed(1)} ${side.toFixed(1)} ${side.toFixed(1)}" width="48" height="48" role="img" aria-label="${escapeHtml(label)}"><rect x="${vx.toFixed(1)}" y="${vy.toFixed(1)}" width="${side.toFixed(1)}" height="${side.toFixed(1)}" rx="${(side * 0.08).toFixed(1)}" fill="#f4ead6"/><path d="${d}" fill="#2f5a3a" fill-opacity="0.06" stroke="#9a7b3c" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" fill-rule="evenodd"/></svg><span class="visually-hidden">AI illustration · Kentucky History Drive</span></span>`
+}
+
+/** County outline when the strip has that county; otherwise the whole-state thumb. */
 export function countyOutlineThumbHtml(county) {
   const key = String(county || '').replace(/\s+County$/i, '').trim()
   if (!key) return ''
-  return `<span class="usp-visit-county-thumb-wrap"><picture><source type="image/svg+xml" srcset="/brand/ky-county-thumb.svg" /><img class="usp-visit-county-thumb" src="/brand/ky-county-thumb.png" srcset="/brand/ky-county-thumb.png 1x, /brand/ky-county-thumb-128.png 2x" width="48" height="48" alt="Kentucky outline" decoding="async" /></picture><span class="visually-hidden">AI illustration · Kentucky History Drive</span></span>`
+  const pts = countyPolygonIndex().get(key.toLowerCase())
+  return pts ? oneCountyThumbHtml(key, pts) : wholeStateThumbHtml()
 }
 
 function storyMapHref(story) {
@@ -825,23 +895,13 @@ function storyMapHref(story) {
   return `/#map/stories/${encodeURIComponent(slug)}`
 }
 
-function interpretiveLinkHtml(story, interpretive) {
-  const href = String(interpretive?.href || '')
-  const title = String(interpretive?.title || '').trim()
-  const slug = String(interpretive?.slug || '')
-  if (!title || !/^\/stories\/[a-z0-9-]+\/$/.test(href)) return ''
-  const banned = new Set(PROTECTED_REFERENCE_SITES[story?.slug] || [])
-  if (banned.has(slug) || banned.has(href.split('/')[2])) return ''
-  return `<p class="usp-visit-interpretive"><a href="${escapeHtml(href)}">${escapeHtml(title)}</a></p>`
-}
-
 /**
  * Compact Visit it strip. The full map card stays in the rail and the mobile slot.
  * No coordinates: nothing. County centroid: outline thumb, no directions.
- * Protected: county copy only, no dot and no directions (#345 / #346).
+ * Protected: county copy only, no dot, no directions, and no interpretive link (#345 / #346 / #391).
  * The timeline hash reader was retired (#347); prerender is the story renderer.
  */
-export function visitItHtml({ story, interpretive = null } = {}) {
+export function visitItHtml({ story } = {}) {
   if (!story) return ''
   const prot = isProtectedStory(story)
   const county = story.county ? countyLong(story.county) : ''
@@ -849,12 +909,10 @@ export function visitItHtml({ story, interpretive = null } = {}) {
   const countyOnly = String(story.mapConfidence || '') === 'county'
   if (prot) {
     if (!county && !geo) return ''
-    const link = interpretiveLinkHtml(story, interpretive)
     return `<section class="usp-visit usp-visit-withheld" id="visit" aria-labelledby="h-visit">
     <h2 id="h-visit">Visit it</h2>
     <p class="usp-visit-place">${county ? escapeHtml(county) : 'Kentucky'}</p>
     <p class="usp-visit-note">The exact place is withheld to protect the site.</p>
-    ${link}
   </section>`
   }
   if (countyOnly) {

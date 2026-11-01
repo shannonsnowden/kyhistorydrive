@@ -166,6 +166,14 @@ function main() {
   for (const p of redirectProblems(amplify)) fail(p)
 
   const blocks = patternBlocks(customHttp)
+  const driveGpx = blocks.find((block) => block.pattern === "'/drives/**/*.gpx'")
+  const routeGpx = blocks.find((block) => block.pattern === "'/maps/routes/**/*.gpx'")
+  if (!driveGpx) fail('customHttp.yml is missing /drives/**/*.gpx')
+  else if (!headerValues(driveGpx.text, 'X-Robots-Tag').includes('noindex')) fail('/drives/**/*.gpx is missing X-Robots-Tag noindex')
+  if (!routeGpx) fail('customHttp.yml is missing /maps/routes/**/*.gpx')
+  else if (driveGpx && headerValues(driveGpx.text, 'X-Robots-Tag').join('|') !== headerValues(routeGpx.text, 'X-Robots-Tag').join('|')) {
+    fail('/drives/**/*.gpx X-Robots-Tag does not match /maps/routes/**/*.gpx')
+  }
   const feed = blocks.find((block) => block.pattern === "'/feed.xml'")
   if (!feed) fail('customHttp.yml is missing /feed.xml')
   else if (!feed.text.includes("value: 'application/rss+xml; charset=utf-8'")) {
