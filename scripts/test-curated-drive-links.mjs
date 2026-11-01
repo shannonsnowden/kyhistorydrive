@@ -30,7 +30,14 @@ const pubLinks = path.join(dp, 'drive-links.js')
 assert.equal(fs.existsSync(pubLinks) ? fs.readFileSync(pubLinks, 'utf8') : '', srcLinks, 'public/drives/drive-links.js must be a copy of src/drive-links.js')
 
 const pages = fs.readdirSync(dp).filter((slug) => fs.existsSync(path.join(dp, slug, 'index.html'))).sort()
-assert.ok(pages.length >= 24, `expected the curated drives, found ${pages.length}`)
+// 24 curated drive pages. The /drives/ index also links the planner (/drives/build/),
+// so a raw href count is 25. That planner is not a curated drive.
+const photoSlugs = Object.keys(JSON.parse(fs.readFileSync(path.join(root, 'scripts/drive-photos.json'), 'utf8')).drives).sort()
+assert.equal(pages.length, 24, `live curated drives are 24, found ${pages.length}`)
+assert.deepEqual(pages, photoSlugs, 'drive-photos fixture must match the live curated drive pages')
+const indexHrefs = [...fs.readFileSync(path.join(dp, 'index.html'), 'utf8').matchAll(/href="\/drives\/([a-z0-9-]+)\//g)].map((m) => m[1])
+assert.equal(indexHrefs.length, 25, `drives index hrefs are the 24 curated drives plus the planner, found ${indexHrefs.length}`)
+assert.deepEqual(indexHrefs.filter((s) => s !== 'build').sort(), pages, 'the extra index href must be the planner, not a 25th curated drive')
 
 const summary = []
 for (const slug of pages) {
@@ -43,21 +50,34 @@ for (const slug of pages) {
   assert.ok(exact.length, `${slug}: no public exact stops`)
 
   assert.match(html, /import \{ LEG_STOPS, buildLegs, appleUrl, googleUrl \} from '\/drives\/drive-links\.js'/, `${slug}: must import buildLegs from /drives/drive-links.js`)
+  assert.match(html, /STOPS\.forEach\(\(s, i\) => \{ s\.listNo = i \+ 1 \}\)/, `${slug}: leg labels need the STOPS list number`)
   assert.match(html, /const PUBLIC = STOPS\.filter\(s => !s\.private\)/, `${slug}: PUBLIC must stay non-private stops`)
   assert.match(html, /const EXACT = PUBLIC\.filter\(s => !s\.approx\)/, `${slug}: route stops are public exact stops`)
   assert.match(html, /google: buildLegs\(EXACT, LEG_STOPS, 'google'\)/, `${slug}: Google drive buttons must use buildLegs`)
   assert.match(html, /apple: buildLegs\(EXACT, LEG_STOPS, 'apple'\)/, `${slug}: Apple drive buttons must use buildLegs`)
   assert.match(html, /href="\$\{leg\.url\}"/, `${slug}: drive buttons must use the leg url`)
   assert.match(html, /const multi = legs\.google\.length > 1/, `${slug}: one pair of buttons unless the route needs another leg`)
+  assert.match(html, /\$\('go'\)\.dataset\.legs = String\(legs\.google\.length\)/, `${slug}: Open-in row must record how many legs it has`)
+  assert.match(html, /\.go\[data-legs="3"\]\{flex-direction:column/, `${slug}: 3-leg Open-in rows need a phone layout`)
   assert.match(html, /Open in \$\{name\}/, `${slug}: a short drive keeps Open in Apple / Open in Google`)
   assert.match(html, /Leg \$\{leg\.k\} \(stops \$\{leg\.firstNo\}–\$\{leg\.lastNo\}\) · \$\{name\}/, `${slug}: a long drive labels Leg N (stops a–b) for each app`)
-  assert.match(html, /Long drives open in legs of up to 4 stops\./, `${slug}: missing legs note`)
+  assert.match(html, /if \(multi\) \$\('go'\)\.insertAdjacentHTML\('afterend', '<p class="note">Long drives open in legs of up to 4 stops\.<\/p>'\)/, `${slug}: the long-drives note must be gated on multi`)
+  assert.doesNotMatch(html, /\n\$\('go'\)\.insertAdjacentHTML\('afterend', '<p class="note">Long drives open in legs of up to 4 stops\.<\/p>'\)/, `${slug}: the long-drives note is still unconditional`)
   assert.doesNotMatch(html, /Apple Maps links can carry one destination|opens the first public stop/, `${slug}: old Apple one-destination note is still on the page`)
   assert.doesNotMatch(html, /daddr=/, `${slug}: single-stop daddr= drive button remains`)
   assert.doesNotMatch(html, /apple\(PUBLIC\)|google\(PUBLIC\)/, `${slug}: drive buttons still call the old whole-list helper`)
 
+  stops.forEach((s, i) => { s.listNo = i + 1 })
   const google = buildLegs(exact, LEG_STOPS, 'google')
   const apple = buildLegs(exact, LEG_STOPS, 'apple')
+  for (let i = 0, k = 0; i < exact.length; i += LEG_STOPS, k++) {
+    const slice = exact.slice(i, i + LEG_STOPS)
+    const from = i ? exact[i - 1] : slice[0]
+    assert.equal(apple[k].firstNo, from.listNo, `${slug}: leg ${k + 1} first stop number`)
+    assert.equal(apple[k].lastNo, slice[slice.length - 1].listNo, `${slug}: leg ${k + 1} last stop number`)
+    assert.equal(google[k].firstNo, apple[k].firstNo, `${slug}: leg ${k + 1} Google label`)
+    assert.equal(google[k].lastNo, apple[k].lastNo, `${slug}: leg ${k + 1} Google label`)
+  }
   const expectLegs = Math.ceil(exact.length / LEG_STOPS)
   assert.equal(apple.length, expectLegs, `${slug}: Apple leg count`)
   assert.equal(google.length, expectLegs, `${slug}: Google leg count`)
@@ -95,6 +115,17 @@ for (const slug of pages) {
   for (const s of hidden) {
     assert.ok(!urls.includes(ll(s)), `${slug}: ${s.private ? 'private' : 'approximate'} stop ${s.id} is in a maps URL`)
   }
+  for (const s of stops.filter((s) => s.approx && !s.private)) {
+    const q = encodeURIComponent(`${s.name}, Kentucky`)
+    const appleSearch = `https://maps.apple.com/?q=${q}`
+    const googleSearch = `https://www.google.com/maps/search/?api=1&query=${q}`
+    assert.match(html, /maps\.apple\.com\/\?q=/, `${slug}: approx stop keeps an Apple ?q= search`)
+    assert.match(html, /google\.com\/maps\/search\/\?api=1&query=/, `${slug}: approx stop keeps a Google place search`)
+    assert.match(html, /list\.length===1 && list\[0\]\.approx/, `${slug}: a single approx stop must use search, not directions`)
+    assert.equal(appleSearch.includes('?q='), true)
+    assert.ok(!appleSearch.includes(ll(s)) && !googleSearch.includes(ll(s)), `${slug}: approx search for ${s.id} must not carry coordinates`)
+    assert.ok(appleSearch.includes(q) && googleSearch.includes(q), `${slug}: approx search for ${s.id} must use the place name`)
+  }
   summary.push(`${slug}: ${exact.length} public exact, ${apple.length} leg${apple.length === 1 ? '' : 's'}`)
 }
 
@@ -102,8 +133,11 @@ const licking = summary.find((s) => s.startsWith('licking-valley:'))
 assert.match(licking, /5 public exact, 2 legs/, `Licking Valley should be 2 legs, got ${licking}`)
 {
   const html = fs.readFileSync(path.join(dp, 'licking-valley/index.html'), 'utf8')
-  const stops = parseJsLiteral(html.match(/const STOPS = (\[[\s\S]*?\n\])/)[1]).filter((s) => !s.private && !s.approx)
-  const legs = buildLegs(stops, LEG_STOPS, 'apple')
-  assert.deepEqual(legs.map((l) => [l.k, l.firstNo, l.lastNo]), [[1, 1, 4], [2, 4, 5]], 'Licking Valley Apple legs')
+  const stops = parseJsLiteral(html.match(/const STOPS = (\[[\s\S]*?\n\])/)[1])
+  stops.forEach((s, i) => { s.listNo = i + 1 })
+  const exact = stops.filter((s) => !s.private && !s.approx)
+  const legs = buildLegs(exact, LEG_STOPS, 'apple')
+  assert.deepEqual(exact.map((s) => s.listNo), [3, 4, 5, 6, 7], 'Licking Valley public stops keep list numbers 3–7')
+  assert.deepEqual(legs.map((l) => [l.k, l.firstNo, l.lastNo]), [[1, 3, 6], [2, 6, 7]], 'Licking Valley legs use the STOPS list numbers')
 }
 console.log(`test-curated-drive-links: ${pages.length} drives\n  ${summary.join('\n  ')}`)
