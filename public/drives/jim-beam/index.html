@@ -106,7 +106,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
       <h2 id="stops-h">Stops</h2>
 <!-- khd-drive-tools -->
 <div class="drive-tools" role="group" aria-label="Print and GPS">
-  <button type="button" class="btn btn-quiet" data-print onclick="window.print()">Print</button>
+  <button type="button" class="btn btn-quiet" data-print onclick="window.print()">Print / Save PDF</button>
   <a class="btn btn-quiet" href="/drives/jim-beam/route.gpx" download="jim-beam.gpx">Download GPX</a>
 </div>
 <!-- /khd-drive-tools -->
@@ -177,7 +177,7 @@ const STOPS = [
 ]
 const $ = (id) => document.getElementById(id)
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]))
-const fmtMin = (m) => `${Math.floor(m/60)} h ${String(Math.round(m%60)).padStart(2,'0')} min`
+const fmtMin = (m) => { const h = Math.floor(m/60), min = Math.round(m%60); return h < 1 ? `${min} min` : `${h} h ${String(min).padStart(2,'0')} min` }
 const [route, base] = await Promise.all([fetch('/drives/routes/jim-beam.json').then(r=>r.json()), fetch('/drives/ky-base.json').then(r=>r.json())])
 
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, round trip back to the start (estimate)</span><span>Theme: <b>Salt-making, a 1793 town and a Union fort</b></span>`

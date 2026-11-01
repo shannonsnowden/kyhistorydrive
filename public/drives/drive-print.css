@@ -29,6 +29,8 @@
   li.private .num { border-style: dashed !important; }
   .tag, .tag.warn { border: 1px solid #000 !important; background: #fff !important; color: #000 !important; }
   .links { display: block !important; }
+  /* Empty story placeholder. Source notes sit in .stop-meta and still print. */
+  .links > span.note { display: none !important; }
   a { text-decoration: underline; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; word-break: break-all; text-decoration: none; }
   a[href^="/"]::after { content: " (https://kyhistorydrive.com" attr(href) ")"; font-size: 8.5pt; word-break: break-all; text-decoration: none; }
