@@ -34,7 +34,7 @@ import {
   renderRailCard,
   renderSwipeCard,
   leadPreloadTag,
-  withDefaultHero,
+  heroSlidesFromPack,
 } from './home-hero-render.js'
 import { storyUrl } from './story-url.js'
 
@@ -138,12 +138,9 @@ function briefStories(pack) {
   return list
 }
 
-/** First slide is the first story in today's pack. The Big Bone Lick pin fills in only when that pack is empty. */
+/** Photo stories in pack order. A no-photo lead is skipped so the hero is never blank. */
 function heroSlides(pack) {
-  const all = briefStories(pack)
-  const withPhotos = all.filter((s) => usablePhoto(s?.photo))
-  const slides = withPhotos.length ? withPhotos : all[0] ? [all[0]] : []
-  return withDefaultHero(slides)
+  return heroSlidesFromPack(pack)
 }
 
 function preloadLeadImage(story) {

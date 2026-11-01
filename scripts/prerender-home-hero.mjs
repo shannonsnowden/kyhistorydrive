@@ -1,8 +1,9 @@
 /**
  * Write the homepage lead story, the 4 "More Kentucky stories" cards and the phone swipe row
  * into dist/index.html at build time, plus a <link rel=preload> for the lead image in <head>.
- * The lead is the first story in today's pack (home-preview.json). An empty pack falls
- * back to the Big Bone Lick pin; a non-empty pack is not prefixed with it.
+ * The lead is the first story in today's pack that has a photo (home-preview.json).
+ * A no-photo lead is skipped. An empty photo set falls back to the Big Bone Lick pin;
+ * a non-empty pack is not prefixed with it.
  * Without JS the homepage still has real <a href> links and images; the app re-renders the
  * same markup from src/home-hero-render.js when it loads.
  */
@@ -11,13 +12,12 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { setPhotoVariants } from '../src/responsive-img.js'
 import {
-  usablePhoto,
   renderLeadStory,
   renderRailCard,
   renderSwipeCard,
   leadPreloadTag,
   storyPageHref,
-  withDefaultHero,
+  heroSlidesFromPack,
 } from '../src/home-hero-render.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -29,9 +29,7 @@ const pack = readJson(path.join(root, 'public/content/home-preview.json'))
 const variantsFile = path.join(root, 'public/content/photos/responsive.json')
 setPhotoVariants(fs.existsSync(variantsFile) ? readJson(variantsFile) : {})
 
-const all = Array.isArray(pack.stories) && pack.stories.length ? pack.stories : [pack.hero, ...(pack.features || [])].filter(Boolean)
-const withPhotos = all.filter((s) => usablePhoto(s?.photo))
-const slides = withDefaultHero(withPhotos.length ? withPhotos : all.slice(0, 1))
+const slides = heroSlidesFromPack(pack)
 if (!slides.length) throw new Error('prerender-home-hero: home-preview.json has no stories')
 const lead = slides[0]
 const more = slides.slice(1, 5)

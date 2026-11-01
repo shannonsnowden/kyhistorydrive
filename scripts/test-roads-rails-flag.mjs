@@ -69,6 +69,8 @@ const stripLight = fs.readFileSync(path.join(root, 'public/brand/ky-map-strip-co
 assert.match(strip, /fill: #2f5a3a; fill-opacity: 0\.06/)
 assert.match(strip, /stroke: #b9a985; stroke-width: 1px/)
 assert.match(stripLight, /fill: #2f5a3a; fill-opacity: 0\.06/)
+assert.match(stripLight, /\.hp-ky-markers \{ fill: #9a7b3c; stroke: none; opacity: \.6; \}/)
+assert.doesNotMatch(stripLight, /#6[Ee]4214/)
 const thumb = fs.readFileSync(path.join(root, 'public/brand/ky-county-thumb.svg'), 'utf8')
 assert.match(thumb, /stroke="#9a7b3c" stroke-width="1\.5"/)
 assert.ok(fs.existsSync(path.join(root, 'public/brand/khd-logo-512.png')))

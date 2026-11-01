@@ -8,7 +8,7 @@
  * and `npm run build` so a new marker shows up on the next build.
  *
  * Each dot is r=1.25, no stroke, opacity .6. Dark fill is --heading #E8D5A8.
- * Light fill is --accent-deep #6E4214.
+ * Light fill is parchment #9a7b3c (the county-thumb stroke), not #6E4214.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -216,7 +216,7 @@ function main() {
   if (dots.length < 1900) throw new Error(`only ${dots.length} markers were plotted; expected about 1,921`)
   const markup = circles(dots)
   const darkOut = rewrite(dark, '.hp-ky-markers { fill: #E8D5A8; stroke: none; opacity: .6; }', markup)
-  const lightOut = rewrite(light, '.hp-ky-markers { fill: #6E4214; stroke: none; opacity: .6; }', markup)
+  const lightOut = rewrite(light, '.hp-ky-markers { fill: #9a7b3c; stroke: none; opacity: .6; }', markup)
   fs.writeFileSync(DARK_SVG, darkOut)
   fs.writeFileSync(LIGHT_SVG, lightOut)
   console.log(

@@ -223,6 +223,14 @@ export function renderLeadStory(story) {
     </article>`
 }
 
+/** Credit line for a photo the card actually shows. Empty when that photo is missing. */
+function cardCreditHtml(story, className) {
+  const credit = photoCredit(localPhoto(story))
+  if (!credit) return ''
+  const prefix = /^AI illustration\b/i.test(credit) ? '' : 'Photo: '
+  return `<small class="hp-photo-credit ${className}">${prefix}${escapeHtml(credit)}</small>`
+}
+
 export function renderRailCard(story) {
   const href = storyPageHref(story)
   const alt = cardAlt(story)
@@ -237,11 +245,13 @@ export function renderRailCard(story) {
         height: 96,
       })
     : `<span class="hp-rail-card-ph" aria-hidden="true"></span>`
+  const credit = cardCreditHtml(story, 'hp-rail-card-credit')
   return `<a class="hp-rail-card" href="${escapeHtml(href)}">
       ${img}
       <span class="hp-rail-card-copy">
         <h3 class="hp-rail-card-title">${escapeHtml(story.title)}</h3>
         <small class="hp-rail-card-meta">${escapeHtml(placeCaption(story))}</small>
+        ${credit}
       </span>
     </a>`
 }
@@ -260,17 +270,40 @@ export function renderSwipeCard(story) {
         height: 90,
       })
     : `<span class="hp-swipe-card-ph" aria-hidden="true"></span>`
+  const credit = cardCreditHtml(story, 'hp-swipe-card-credit')
   return `<li class="hp-swipe-card">
       <a class="hp-swipe-card-link" href="${escapeHtml(href)}">
         ${img}
         <h3 class="hp-swipe-card-title">${escapeHtml(story.title)}</h3>
         <small class="hp-swipe-card-meta">${escapeHtml(placeCaption(story))}</small>
+        ${credit}
       </a>
     </li>`
 }
 
 /** Lead image sizes, shared by the <picture> and the build-time <link rel=preload>. */
 export const LEAD_SIZES = '(max-width: 900px) 100vw, 66vw'
+
+/** Pack order: `stories` when the build wrote it, otherwise hero then features. */
+export function packStories(pack) {
+  if (Array.isArray(pack?.stories) && pack.stories.length) return pack.stories
+  const list = []
+  if (pack?.hero) list.push(pack.hero)
+  for (const item of pack?.features || []) {
+    if (item && item.slug !== pack.hero?.slug) list.push(item)
+  }
+  return list
+}
+
+/**
+ * Homepage lead, rail, and swipe. A story with no usable photo is skipped,
+ * including when it is pack[0]. Keeping that blank slide would leave an empty
+ * hero and stall the rest of the pack. The Big Bone Lick pin is only the
+ * fallback when nothing in the pack has a photo.
+ */
+export function heroSlidesFromPack(pack) {
+  return withDefaultHero(packStories(pack).filter((story) => usablePhoto(story?.photo)))
+}
 
 /**
  * Approvals 112 A5: today's brief is the homepage front, in pack order.
