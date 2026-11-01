@@ -28,7 +28,7 @@ const kindIcon = (k) => {
   return `<span class="kicon" aria-hidden="true">${escHtml(v)}</span>`
 }
 import { legSize, googleUrl, appleUrl, buildLegs } from './drive-links.js'
-import { PLACE_AMBIGUOUS, PLACE_MISS, collectNamedPlaces, resolveStart } from './drive-start.js'
+import { PLACE_AMBIGUOUS, PLACE_MISS, PLACE_OOS, START_HINT, collectNamedPlaces, resolveStart } from './drive-start.js'
 
 const ROAD_FACTOR = 1.3
 const MPH = 40
@@ -225,7 +225,7 @@ async function main() {
   function pre() {
     $('status').textContent = ''
     $('facts').innerHTML = ''
-    $('stops').innerHTML = '<p class="note">Enter a town, ZIP, distillery, or a place on our map, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</p>'
+    $('stops').innerHTML = `<p class="note">Enter a ${START_HINT}, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</p>`
     $('stickyBar').hidden = true
     document.body.classList.remove('has-bar')
     draw(null, [])
@@ -309,17 +309,25 @@ async function main() {
   // ---------- inputs ----------
   let here = null // in memory only
   $('useLoc').addEventListener('click', () => {
-    if (!('geolocation' in navigator)) { say('Location isn’t available in this browser. Type a town, ZIP, or a place on our map instead.'); $('q').focus(); return }
+    if (!('geolocation' in navigator)) { say(`Location isn’t available in this browser. Type a ${START_HINT} instead.`); $('q').focus(); return }
     say('Asking your browser for your location…')
     navigator.geolocation.getCurrentPosition(
       (pos) => { here = { lat: pos.coords.latitude, lon: pos.coords.longitude, label: 'your location' }; $('q').value = ''; render(here, budget()) },
-      () => { say('Couldn’t get your location. Type a town, ZIP, or a place on our map instead.'); $('q').focus() },
+      () => { say(`Couldn’t get your location. Type a ${START_HINT} instead.`); $('q').focus() },
       { enableHighAccuracy: false, maximumAge: 0, timeout: 10000 },
     )
   })
   async function resolve(v) {
     const db = await loadPlaces()
     return resolveStart(v, db, data.distilleries, namedPlaces)
+  }
+  function sayChips(lead, suggestions) {
+    const chips = (suggestions || []).slice(0, 5).map((h) => `<button type="button" class="sugg">${esc(h)}</button>`).join('')
+    say(chips ? `${lead} ${chips}` : lead)
+    document.querySelectorAll('#qMsg .sugg').forEach((b) => b.addEventListener('click', () => {
+      $('q').value = b.textContent
+      $('form').requestSubmit()
+    }))
   }
   function suggest() {
     say(PLACE_MISS)
@@ -329,11 +337,13 @@ async function main() {
     const v = $('q').value.trim()
     if (!v) {
       if (here) return render(here, budget())
-      say('Type a town, ZIP, distillery, or a place on our map, or press “Use my location”.'); $('q').focus(); return
+      say(`Type a ${START_HINT}, or press “Use my location”.`); $('q').focus(); return
     }
     here = null
     const start = await resolve(v)
-    if (start && start.ambiguous) { pre(); say(PLACE_AMBIGUOUS); return }
+    if (start && start.ambiguous) { pre(); sayChips(`${PLACE_AMBIGUOUS} Did you mean:`, start.suggestions); return }
+    if (start && start.oosZip) { pre(); say(PLACE_OOS); return }
+    if (start && start.suggestions) { pre(); sayChips('Did you mean:', start.suggestions); return }
     if (!start) { pre(); return suggest() }
     render(start, budget())
   })

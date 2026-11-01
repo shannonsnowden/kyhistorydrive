@@ -50,6 +50,15 @@ function check(input, expect) {
     fail(`${JSON.stringify(input)} returned a promise`)
     return
   }
+  if (expect && expect.oosZip) {
+    if (!got || !got.oosZip) {
+      fail(`${JSON.stringify(input)} should say the ZIP is outside Kentucky, got ${got && JSON.stringify(got)}`)
+    }
+    if (got && (got.label || got.lat != null || got.lon != null || got.ambiguous)) {
+      fail(`${JSON.stringify(input)} out-of-state ZIP picked a pin`)
+    }
+    return
+  }
   if (expect && expect.ambiguous) {
     if (!got || !got.ambiguous) {
       fail(`${JSON.stringify(input)} should ask for a more specific name, got ${got && (got.label || JSON.stringify(got))}`)
@@ -57,6 +66,25 @@ function check(input, expect) {
     if (got && (got.label || got.lat != null || got.lon != null)) {
       fail(`${JSON.stringify(input)} ambiguous result picked a pin`)
     }
+    const gotNames = (got && got.suggestions) || []
+    if (!Array.isArray(gotNames) || gotNames.length < 2) {
+      fail(`${JSON.stringify(input)} ambiguous result has no Did-you-mean names`)
+    }
+    if (expect.suggestions) {
+      const gotS = gotNames.slice().sort().join('|')
+      const want = expect.suggestions.slice().sort().join('|')
+      if (gotS !== want) fail(`${JSON.stringify(input)} suggestions ${gotS} != ${want}`)
+    }
+    return
+  }
+  if (expect && expect.suggestions && !expect.label) {
+    const gotNames = (got && got.suggestions) || []
+    if (!got || got.label || got.lat != null || got.lon != null || got.ambiguous || got.oosZip) {
+      fail(`${JSON.stringify(input)} near-miss should offer chips, not a pin: ${got && JSON.stringify(got)}`)
+    }
+    const gotS = gotNames.slice().sort().join('|')
+    const want = expect.suggestions.slice().sort().join('|')
+    if (gotS !== want) fail(`${JSON.stringify(input)} suggestions ${gotS} != ${want}`)
     return
   }
   if (!expect) {
@@ -76,7 +104,7 @@ function check(input, expect) {
 
 const atZip = (code, fromAddress) => {
   const row = zip(code)
-  return { label: fromAddress ? `ZIP ${code} (from address)` : `ZIP ${code}`, lat: row[1], lon: row[2] }
+  return { label: fromAddress ? `ZIP ${code} · address` : `ZIP ${code}`, lat: row[1], lon: row[2] }
 }
 const atPlace = (name) => {
   const row = place(name)
@@ -101,6 +129,8 @@ const atStop = (id) => {
 check('40258', atZip('40258', false))
 check('Louisville', atPlace('Louisville'))
 check('Louisville, KY', atPlace('Louisville'))
+check('Louisville KY', atPlace('Louisville'))
+check('LOUISVILLE, ky. usa', atPlace('Louisville'))
 check('Buffalo Trace', atStill('Buffalo Trace Distillery'))
 check("Maker's Mark", atStill("Maker's Mark Distillery"))
 
@@ -163,15 +193,21 @@ check('Muhammad Ali', atStop('muhammad-ali-center'))
 check('Muhammad Ali Center', atStop('muhammad-ali-center'))
 check('David Snowden homeplace', atStop('david-snowden-jr-homestead-st-helens'))
 check('Big Bone Lick State Historic Site', atStop('big-bone-lick-state-historic-site'))
-check('Keeneland', { ambiguous: true })
-check('lost river', { ambiguous: true })
+check('Keeneland', { ambiguous: true, suggestions: ['Keeneland Race Course', 'Keeneland Track Kitchen'] })
+check('lost river', { ambiguous: true, suggestions: ['Lost River Cave Cafe', 'Lost River Pizza Co'] })
+check('Louisvile', { suggestions: ['Louisville'] })
+check('Bardstownn', { suggestions: ['Bardstown'] })
+check('Frankfrt', { suggestions: ['Frankfort'] })
 
 // Still a miss: out-of-state ZIP, or a street with no KY town or ZIP.
 check('', null)
 check('   ', null)
 check('United States', null)
 check('10001 Louisville', atPlace('Louisville'))
-check('10001', null)
+check('10001', { oosZip: true })
+check('KY', null)
+check('Ky', null)
+check('Kentucky', { ambiguous: true })
 check('Cane Run', null)
 check('Cane Run Rd', null)
 check('123 Main St', null)
@@ -180,20 +216,31 @@ check('123 Bardstown Rd', null)
 check('123 Boston Rd', null)
 check('123 Buffalo Trace Rd', null)
 check('123 Main St, New York, NY 10001', null)
-check('10001-0001', null)
+check('10001-0001', { oosZip: true })
 
+const START_HINT = 'town, ZIP, distillery, or mapped place'
+const START_FIELD = 'Town, ZIP, distillery, place'
 cases++
-if (PLACE_MISS !== 'We can’t place street addresses yet. Try a town, a 5-digit ZIP, or a place on our map.') {
+if (PLACE_MISS !== `We can’t place street addresses yet. Try a ${START_HINT}.`) {
   fail(`PLACE_MISS is ${JSON.stringify(PLACE_MISS)}`)
 }
 const ambiguousExport = startSrc.match(/export const PLACE_AMBIGUOUS = '([^']*)'/)
-if (!ambiguousExport || !/be more specific/i.test(ambiguousExport[1])) {
+if (!ambiguousExport || !/Try the full name/.test(ambiguousExport[1])) {
   fail(`PLACE_AMBIGUOUS missing or unclear: ${ambiguousExport && ambiguousExport[1]}`)
 }
 if (!pageSrc.includes('PLACE_AMBIGUOUS')) fail('ambiguous copy is not wired into the page')
+if (!/export const PLACE_OOS = '[^']*KY ZIPs only/.test(startSrc)) fail('out-of-state ZIP copy is missing')
+if (!pageSrc.includes('PLACE_OOS')) fail('out-of-state ZIP copy is not wired into the page')
+if (!pageSrc.includes('Did you mean:')) fail('Did-you-mean chips are not wired')
+if (!pageSrc.includes('class="sugg"')) fail('Did-you-mean chips do not reuse the suggestion button')
+if (!startSrc.includes(`export const START_HINT = '${START_HINT}'`)) fail('shared start hint missing')
+if (!pageSrc.includes('START_HINT')) fail('page does not use the shared start hint')
+if (pageSrc.includes('place on our map') || htmlSrc.includes('place on our map')) fail('an old start hint is still in the planner')
+if (!htmlSrc.includes(`placeholder="${START_FIELD}"`)) fail('start field placeholder is not the short hint that fits beside Go')
+if (!htmlSrc.includes(START_HINT)) fail('longer start hint is missing from the planner page')
+const qTag = htmlSrc.match(/<input\b[^>]*\bid="q"[^>]*>/)
+if (!qTag || !/\bmaxlength="200"/.test(qTag[0])) fail(`#q needs maxlength 200: ${qTag && qTag[0]}`)
 if (!pageSrc.includes('/data/app/locals.json')) fail('page does not load locals for name match')
-if (!pageSrc.includes('place on our map')) fail('empty-state hint does not mention a place on our map')
-if (!htmlSrc.includes('place on our map')) fail('start field hint does not mention a place on our map')
 if (!pageSrc.includes('namedPlaces')) fail('typeahead does not take place names from the name index')
 if (!startSrc.includes('collectNamedPlaces')) fail('name index helper missing from the resolver')
 cases++
