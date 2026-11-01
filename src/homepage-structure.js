@@ -84,7 +84,7 @@ export class HomepageStructure {
     const figure = known ? String(n) : ''
     return {
       kicker: 'Story archive',
-      title: known ? `Browse all ${figure} stories` : 'Browse all stories',
+      title: 'Browse all stories',
       features: known ? `Picked from our ${figure} stories.` : 'Picked from our stories.',
     }
   }
