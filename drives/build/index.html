@@ -8,7 +8,7 @@
 <!-- khd-no-analytics -->
 <title>Build your own drive (Kentucky History Drive)</title>
 <link rel="canonical" href="https://kyhistorydrive.com/drives/build/" />
-<meta name="description" content="Build your own Kentucky history drive: pick a town, ZIP, distillery, or a place on our map and the time you have, and get a loop of nearby markers and stories." />
+<meta name="description" content="Build your own Kentucky history drive: pick a town, ZIP, distillery, or mapped place and the time you have, and get a loop of nearby markers and stories." />
 <link rel="stylesheet" href="/src/build-a-drive.css" />
 </head>
 <body>
@@ -20,7 +20,7 @@
     <label for="q" class="ask-q">Where are you, or where are you going?</label>
     <div class="ask-row">
       <div class="ask-start">
-        <input id="q" type="text" inputmode="search" placeholder="Town, ZIP, or a place on our map" autocomplete="off" list="qList" aria-describedby="qMsg" />
+        <input id="q" type="text" inputmode="search" maxlength="200" placeholder="Town, ZIP, distillery, place" autocomplete="off" list="qList" aria-describedby="qMsg" />
         <datalist id="qList"></datalist>
         <button type="submit" class="btn-primary" id="goStart">Go</button>
       </div>

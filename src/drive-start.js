@@ -4,8 +4,10 @@
  * already in those lists, then for a business or attraction in the name list.
  * Nothing is geocoded and no coordinates are invented.
  */
-export const PLACE_MISS = 'We can’t place street addresses yet. Try a town, a 5-digit ZIP, or a place on our map.'
-export const PLACE_AMBIGUOUS = 'Several places on our map match that. Be more specific.'
+export const START_HINT = 'town, ZIP, distillery, or mapped place'
+export const PLACE_MISS = 'We can’t place street addresses yet. Try a town, ZIP, distillery, or mapped place.'
+export const PLACE_AMBIGUOUS = 'Several places on our map match that. Try the full name.'
+export const PLACE_OOS = 'That ZIP isn’t in Kentucky. KY ZIPs only.'
 
 // Mapped stops already on the drive map. Stories and distilleries stay on their own steps.
 const NAMED_KINDS = new Set(['museums', 'history', 'war', 'national', 'parks', 'bridges'])
@@ -55,7 +57,9 @@ const nextWord = (hay, end) => (/^\s+([a-z0-9]+)/.exec(hay.slice(end)) || [])[1]
 
 /** Whole typed name: exact ZIP, then the existing town / distillery rules. */
 function matchWhole(v, db, distilleries) {
-  const n = v.toLowerCase().replace(/,?\s*(ky|kentucky)$/, '').trim()
+  // A trailing state token only. "KY" alone must not match every town.
+  const n = v.toLowerCase().replace(/,?\s*\b(?:kentucky|ky)\.?$/, '').trim()
+  if (!n) return null
   const d = distilleries.find((row) => row[0].toLowerCase() === n) || (n.length > 3 && distilleries.find((row) => row[0].toLowerCase().includes(n)))
   if (d && (d[0].toLowerCase() === n || /distill|trace|turkey|roses|beam|mark|forester|reserve|hill|key|barton/.test(n))) {
     return { label: d[0], lat: d[1], lon: d[2] }
@@ -81,7 +85,7 @@ function zipInText(v, zips) {
     .replace(/\b(?:ky|kentucky|usa|united states)\b/g, ' ')
     .trim()
   const fromAddress = /[a-z]/.test(rest)
-  return { label: fromAddress ? `ZIP ${five} (from address)` : `ZIP ${five}`, lat: z[1], lon: z[2] }
+  return { label: fromAddress ? `ZIP ${five} · address` : `ZIP ${five}`, lat: z[1], lon: z[2] }
 }
 
 function stillNeedles(name) {
@@ -219,7 +223,17 @@ function pickNamed(hits) {
     rows.push(row)
   }
   if (rows.length === 1) return asPin(rows[0])
-  if (rows.length > 1) return { ambiguous: true }
+  if (rows.length > 1) {
+    const suggestions = []
+    const seenLabel = new Set()
+    for (const row of rows) {
+      if (seenLabel.has(row.label)) continue
+      seenLabel.add(row.label)
+      suggestions.push(row.label)
+      if (suggestions.length === 5) break
+    }
+    return { ambiguous: true, suggestions }
+  }
   return null
 }
 
@@ -255,12 +269,35 @@ function matchName(v, names) {
   return pickNamed(index.filter((row) => row.key.length >= 8 && editDistanceCap1(query, row.key) === 1))
 }
 
+/** One-character miss of a town, distillery, or mapped place. No pin: the page offers chips. */
+function nearMiss(v, db, distilleries, names) {
+  const query = nameKey(v)
+  if (!query || query.length < 5 || NAME_FILLER.has(query) || /\d/.test(v)) return null
+  const suggestions = []
+  const seen = new Set()
+  const add = (label, key) => {
+    if (!label || seen.has(label) || suggestions.length >= 5) return
+    if (!key || key === query || editDistanceCap1(query, key) !== 1) return
+    seen.add(label)
+    suggestions.push(label)
+  }
+  for (const p of db.places) add(p[0], nameKey(p[0]))
+  for (const d of distilleries) {
+    for (const needle of stillNeedles(d[0])) add(d[0], needle)
+  }
+  if (names) {
+    for (const row of names) add(row[0], nameKey(row[0]))
+  }
+  return suggestions.length ? { suggestions } : null
+}
+
 export function resolveStart(v, db, distilleries, names) {
   v = String(v ?? '').trim()
   if (!v) return null
-  if (/^\d{5}$/.test(v)) {
-    const z = db.zips.find((row) => row[0] === v)
-    return z ? { label: `ZIP ${v}`, lat: z[1], lon: z[2] } : null
+  if (/^\d{5}(?:-\d{4})?$/.test(v)) {
+    const five = v.slice(0, 5)
+    const z = db.zips.find((row) => row[0] === five)
+    return z ? { label: `ZIP ${five}`, lat: z[1], lon: z[2] } : { oosZip: true }
   }
-  return matchWhole(v, db, distilleries) || zipInText(v, db.zips) || segmentInText(v, db.places, distilleries) || matchName(v, names)
+  return matchWhole(v, db, distilleries) || zipInText(v, db.zips) || segmentInText(v, db.places, distilleries) || matchName(v, names) || nearMiss(v, db, distilleries, names)
 }
