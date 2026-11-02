@@ -114,7 +114,7 @@ const pinOf = (slug) => { const x = read(FILES[0]).stories.find((y) => y.slug ==
 const historyPin = (hid) => read(FILES[3]).features.find((f) => f.properties.id === hid).geometry.coordinates
 const DOVER = 'dover-mound-mason-county'
 const DOVER_H = 'dover-mound-adena-mason-county'
-setPin(DOVER, DOVER_H, 38.756412, -83.884411) // prehistoric, not allowlisted
+setPin(DOVER, DOVER_H, 38.76, -83.86) // prehistoric, not allowlisted; made-up fixture, still rounds to 0.1°
 setPin('harry-innes', 'harry-innes-frankfort-1783-1816', 38.193912, -84.865812) // modern (frontier): must stay
 setPin('page-site-lost-city-15lo1', null, 36.824611, -86.848911) // county-level allowlist: must stay
 setPin('mount-horeb-earthworks', 'mount-horeb-adena-park', 38.1588727, -84.4652044) // tier C: must stay
