@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Rice Wave 7 adds the last two body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged. Oct 31 closed Good Eats removals allow the four place rows to drop and the search-index counts object to follow.",
+  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Rice Wave 7 adds the last two body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged. Oct 31 closed Good Eats removals allow the four place rows to drop and the search-index counts object to follow. Soft pack #413 adds Mount Sterling and Treaty of Greenville so those link-audit edits are not treated as generated-diff noise.",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -136,7 +136,9 @@
     "william-hoy-and-hoys-station",
     "mary-draper-ingles-escapes-through-kentucky-1755",
     "iroquois-beaver-wars",
-    "shaker-village-of-pleasant-hill"
+    "shaker-village-of-pleasant-hill",
+    "mount-sterling-little-mountain-town",
+    "treaty-of-greenville-1795-the-line-to-the-kentucky-river"
   ],
   "storyFiles": [
     "sweet-lick-knob-fort-ancient-gathering-place.json",
@@ -221,6 +223,8 @@
     "mary-draper-ingles-escapes-through-kentucky-1755.json",
     "campbellsville-from-buckhorn-creek-to-county-seat.json",
     "iroquois-beaver-wars.json",
-    "shaker-village-of-pleasant-hill.json"
+    "shaker-village-of-pleasant-hill.json",
+    "mount-sterling-little-mountain-town.json",
+    "treaty-of-greenville-1795-the-line-to-the-kentucky-river.json"
   ]
 }

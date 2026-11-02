@@ -643,7 +643,7 @@
       "county": "Franklin"
     },
     "simon-girty-interpreter-at-bryan-station-1782": {
-      "reason": "Shares the existing Bryan Station siege pin (historyId bryans-station-siege-1782); county only, so the siege pin keeps its own years. County Fayette. Story years 1778 (joins British Indian Department)–1795 (retires). Text: Wikipedia says he retired in 1795, but the Dictionary of Canadian Biography says he stayed on the payroll after 1796, so the retirement date is softened; DCB added as a source (QA 2026-10-11).",
+      "reason": "Shares the existing Bryan Station siege pin (historyId bryans-station-siege-1782); county only, so the siege pin keeps its own years. County Fayette. Story years 1778 (joins British Indian Department)–1795 (retires). Text: Wikipedia says he retired in 1795, but the Dictionary of Canadian Biography says he stayed on the payroll after 1796, so the retirement date is softened; DCB added as a source (QA 2026-10-11). Soft pack #413: the Simon Girty source line is the Grokipedia page, so the applied text matches that URL.",
       "date": "2026-10-11",
       "historyId": "bryans-station-siege-1782",
       "county": "Fayette",
@@ -654,7 +654,7 @@
         },
         {
           "old": "own story here.\nSource: [https://en.wikipedia.org/wiki/Simon_Girty](https://en.wikipedia.org/wiki/Simon_Girty)",
-          "new": "own story here.\nSource: [https://www.biographi.ca/en/bio/girty_simon_5E.html](https://www.biographi.ca/en/bio/girty_simon_5E.html)\nSource: [https://en.wikipedia.org/wiki/Simon_Girty](https://en.wikipedia.org/wiki/Simon_Girty)"
+          "new": "own story here.\nSource: [https://www.biographi.ca/en/bio/girty_simon_5E.html](https://www.biographi.ca/en/bio/girty_simon_5E.html)\nSource: [https://grokipedia.com/page/Simon_Girty](https://grokipedia.com/page/Simon_Girty)"
         }
       ]
     },
