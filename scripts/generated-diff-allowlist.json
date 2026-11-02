@@ -1,5 +1,5 @@
 {
-  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Rice Wave 7 adds the last two body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged. Oct 31 closed Good Eats removals allow the four place rows to drop and the search-index counts object to follow. Soft pack #413 adds Mount Sterling and Treaty of Greenville so those link-audit edits are not treated as generated-diff noise.",
+  "note": "Approvals 111. Keeps Adena P2 story files from #379 and adds Mississippian + Fort Ancient culture-hero patterns and story files. Archaic P3 adds the five Green River Archaic photo-hero slugs. Rice Wave 3 adds the eight body slugs so rebuilt prose counts and search text stay in sync. Rice Wave 4 adds the next eight body slugs the same way. Rice Wave 5 adds the next eight body slugs the same way. Rice Wave 6 adds the next eight body slugs the same way. Rice Wave 7 adds the last two body slugs the same way. Approvals 108 held. Earlier housekeeping patterns stay so unrelated generated rows are unchanged. Oct 31 closed Good Eats removals allow the four place rows to drop and the search-index counts object to follow. Soft pack #413 adds Mount Sterling and Treaty of Greenville so those link-audit edits are not treated as generated-diff noise. Soft pack retire Dee Felice allows place:dee-felice-covington to drop (counts already allowlisted).",
   "patterns": [
     "sweet-lick-knob-fort-ancient-gathering-place",
     "sweet-lick-knob-fort-ancient-estill",
@@ -53,6 +53,7 @@
     "place:mariahs-bowling-green",
     "place:chez-nora-covington",
     "place:harvest-louisville",
+    "place:dee-felice-covington",
     "counts",
     "prestonsburg-first-seat-on-the-big-sandy",
     "prestonsburg-founding-floyd-1797-1818",
