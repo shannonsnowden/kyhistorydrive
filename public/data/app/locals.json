@@ -2568,25 +2568,6 @@
     "geocode_source": "photon"
   },
   {
-    "id": "dee-felice-covington",
-    "name": "Dee Felice Cafe",
-    "city": "Covington",
-    "county": "Kenton",
-    "address": "529 Main St, Covington, KY 41011",
-    "latitude": 39.0845041,
-    "longitude": -84.5175916,
-    "category": "restaurant",
-    "cuisine_or_type": "Creole Cajun",
-    "history": "Live-music Creole/Cajun independent on Mainstrasse\u2014Covington nightlife classic.",
-    "sources": [],
-    "yelp_rating": null,
-    "google_rating": 4.4,
-    "combined_rating": 4.4,
-    "rating_note": "Google only",
-    "review_count_approx": 800,
-    "geocode_source": "photon"
-  },
-  {
     "id": "walts-hitching-post",
     "name": "Walt's Hitching Post",
     "city": "Fort Wright",
