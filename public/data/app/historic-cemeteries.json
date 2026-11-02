@@ -10,9 +10,9 @@
     "cemetery_type": "municipal",
     "nrhp": null,
     "history": "Municipal cemetery in Glasgow holding the grave of Confederate Brig. Gen. Joseph H. Lewis, commander of the First Kentucky (Orphan) Brigade. Lewis later served in Congress and as chief justice of the Kentucky Court of Appeals.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Joseph_H._Lewis",
+    "why_historic_url": "https://en.wikipedia.org/wiki/Joseph_Horace_Lewis",
     "sources": [
-      "https://en.wikipedia.org/wiki/Joseph_H._Lewis"
+      "https://en.wikipedia.org/wiki/Joseph_Horace_Lewis"
     ],
     "geocode_source": "photon",
     "marker_number": null,
@@ -21,7 +21,7 @@
         "name": "Joseph H. Lewis",
         "lifespan": "1824–1904",
         "significance": "Commander of the Orphan Brigade; later Kentucky chief justice",
-        "bio_url": "https://en.wikipedia.org/wiki/Joseph_H._Lewis"
+        "bio_url": "https://en.wikipedia.org/wiki/Joseph_Horace_Lewis"
       }
     ]
   },
@@ -268,7 +268,7 @@
         "name": "U.S. Colored Troops veterans",
         "lifespan": null,
         "significance": "Civil War soldiers interred among community leaders buried here",
-        "bio_url": "https://en.wikipedia.org/wiki/United_States_Colored_Troops"
+        "bio_url": "https://grokipedia.com/page/United_States_Colored_Troops"
       }
     ]
   },
@@ -378,9 +378,9 @@
     "cemetery_type": "municipal",
     "nrhp": null,
     "history": "Fleming County cemetery interpreted by KHS markers for World War II Marine hero Pfc. Franklin Sousley, one of the Iwo Jima flag raisers, who was later reinterred in Fleming County. It is a well-known eastern Kentucky memorial landscape.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Franklin_Sousley",
+    "why_historic_url": "https://grokipedia.com/page/Franklin_Sousley",
     "sources": [
-      "https://en.wikipedia.org/wiki/Franklin_Sousley",
+      "https://grokipedia.com/page/Franklin_Sousley",
       "https://history.ky.gov/markers/iwo-jima-hero"
     ],
     "geocode_source": "khs-marker",
@@ -390,7 +390,7 @@
         "name": "Franklin Sousley",
         "lifespan": "1925–1945",
         "significance": "Marine who helped raise the flag on Iwo Jima; later reinterred in Fleming County",
-        "bio_url": "https://en.wikipedia.org/wiki/Franklin_Sousley"
+        "bio_url": "https://grokipedia.com/page/Franklin_Sousley"
       }
     ]
   },
@@ -488,7 +488,7 @@
         "name": "U.S. Colored Troops veterans",
         "lifespan": null,
         "significance": "Names of 142 Central Kentucky USCT men are etched on the 1924 memorial",
-        "bio_url": "https://en.wikipedia.org/wiki/United_States_Colored_Troops"
+        "bio_url": "https://grokipedia.com/page/United_States_Colored_Troops"
       }
     ]
   },
@@ -1247,7 +1247,7 @@
     "why_historic_url": "https://history.ky.gov/markers/mccoy-cemetery",
     "sources": [
       "https://history.ky.gov/markers/mccoy-cemetery",
-      "https://en.wikipedia.org/wiki/Hatfield%E2%80%93McCoy_feud"
+      "https://grokipedia.com/page/Hatfield%E2%80%93McCoy_feud"
     ],
     "geocode_source": "khs-marker",
     "marker_number": "2067",
@@ -1256,19 +1256,19 @@
         "name": "Tolbert McCoy",
         "lifespan": null,
         "significance": "Son of Randolph McCoy; killed during the Hatfield-McCoy feud",
-        "bio_url": "https://en.wikipedia.org/wiki/Hatfield%E2%80%93McCoy_feud"
+        "bio_url": "https://grokipedia.com/page/Hatfield%E2%80%93McCoy_feud"
       },
       {
         "name": "Alifair McCoy",
         "lifespan": null,
         "significance": "Daughter of Randolph McCoy; killed in the New Year 1888 cabin attack",
-        "bio_url": "https://en.wikipedia.org/wiki/Hatfield%E2%80%93McCoy_feud"
+        "bio_url": "https://grokipedia.com/page/Hatfield%E2%80%93McCoy_feud"
       },
       {
         "name": "Calvin McCoy",
         "lifespan": null,
         "significance": "Son of Randolph McCoy; killed in the New Year 1888 cabin attack",
-        "bio_url": "https://en.wikipedia.org/wiki/Hatfield%E2%80%93McCoy_feud"
+        "bio_url": "https://grokipedia.com/page/Hatfield%E2%80%93McCoy_feud"
       }
     ]
   },
