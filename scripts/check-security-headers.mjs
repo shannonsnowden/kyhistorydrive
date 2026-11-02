@@ -1,16 +1,23 @@
 #!/usr/bin/env node
 /**
- * Fails the build when a customHttp.yml pattern drops one of the six security
+ * Fails the build when a customHttp.yml pattern drops one of the seven security
  * headers or changes its value. Specific Amplify patterns do not inherit '**',
  * so each block is checked on its own. Fixtures prove a weakened HSTS max-age
  * in one block, and a /feed.xml block missing X-Frame-Options, both fail.
+ * CSP stays report-only. The report URL is the unset csp-collector.invalid host.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+// Unset on purpose. .invalid does not resolve (RFC 2606), so reports are not
+// delivered to a host that discards them. Replace this when a real collector
+// exists. See docs/SECURITY-HEADERS.md.
+export const CSP_REPORT_GROUP = 'csp-endpoint'
+export const CSP_REPORT_ENDPOINT = 'https://csp-collector.invalid/csp-reports'
+export const REPORTING_ENDPOINTS = `${CSP_REPORT_GROUP}="${CSP_REPORT_ENDPOINT}"`
+const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; report-to " + CSP_REPORT_GROUP + '; report-uri ' + CSP_REPORT_ENDPOINT
 
 export const SECURITY_HEADERS = [
   ['Strict-Transport-Security', 'max-age=31536000; includeSubDomains'],
@@ -19,6 +26,7 @@ export const SECURITY_HEADERS = [
   ['Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'],
   ['X-Frame-Options', 'SAMEORIGIN'],
   ['Content-Security-Policy-Report-Only', CSP],
+  ['Reporting-Endpoints', REPORTING_ENDPOINTS],
 ]
 
 export const DRIVES_PATTERN = "'/drives/**'"
@@ -87,7 +95,7 @@ function headerValues(block, key) {
   return values
 }
 
-/** Problems for the six exact security headers. Empty means every block is complete. */
+/** Problems for the seven exact security headers. Empty means every block is complete. */
 export function checkPatternBlocks(text) {
   const blocks = patternBlocks(text)
   if (!blocks.length) return ['customHttp has no pattern blocks']
@@ -184,7 +192,7 @@ function main() {
     console.error(`check-security-headers: ${failures.length} problem(s)`)
     process.exit(1)
   }
-  console.log(`check-security-headers: ${blocks.length} patterns each have the six security headers; fixtures caught a weak HSTS block and a /feed.xml block missing X-Frame-Options`)
+  console.log(`check-security-headers: ${blocks.length} patterns each have the seven security headers; CSP reports target the unset endpoint ${CSP_REPORT_ENDPOINT}; fixtures caught a weak HSTS block and a /feed.xml block missing X-Frame-Options`)
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
