@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Civil War in South Central Kentucky</name>
+    <desc>From the January 1862 Union victory at Mill Springs to Morgan&apos;s 1863 raid at Tebbs Bend and Lebanon, then the fights for the Green River bridge and Glasgow&apos;s fort. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/civil-war-south-central/</desc>
+    <link href="https://kyhistorydrive.com/drives/civil-war-south-central/"><text>Civil War in South Central Kentucky</text></link>
+  </metadata>
+  <wpt lat="37.0577" lon="-84.7387">
+    <name>1. Mill Springs Battlefield National Monument</name>
+    <desc>Visiting: National Park Service site with visitor center at Nancy.</desc>
+  </wpt>
+  <wpt lat="37.2378" lon="-85.3536">
+    <name>2. Tebbs Bend Battlefield</name>
+    <desc>Visiting: Driving tour and markers; parts of the field are private. Marker only</desc>
+  </wpt>
+  <wpt lat="37.5697" lon="-85.2528">
+    <name>3. Battle of Lebanon marker (KHS #600)</name>
+    <desc>Visiting: Roadside marker at the old railroad station. Marker only</desc>
+  </wpt>
+  <wpt lat="37.2573" lon="-85.8878">
+    <name>4. Battle for the Bridge Historic Preserve (Munfordville)</name>
+    <desc>Visiting: Preserve with trails; free.</desc>
+  </wpt>
+  <wpt lat="37.2704" lon="-85.8991">
+    <name>5. Rowlett&apos;s Station marker (KHS #1504)</name>
+    <desc>Visiting: Roadside marker on US 31-W; battlefield is private land. Marker only</desc>
+  </wpt>
+  <wpt lat="36.9977" lon="-85.9256">
+    <name>6. Fort Williams marker (KHS #1290)</name>
+    <desc>Visiting: Marker between Glasgow Municipal Cemetery and US 31-E bypass. Marker only</desc>
+  </wpt>
+  <rte>
+    <name>Civil War in South Central Kentucky</name>
+    <desc>From the January 1862 Union victory at Mill Springs to Morgan&apos;s 1863 raid at Tebbs Bend and Lebanon, then the fights for the Green River bridge and Glasgow&apos;s fort. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/civil-war-south-central/</desc>
+    <rtept lat="37.0577" lon="-84.7387">
+      <name>1. Mill Springs Battlefield National Monument</name>
+      <desc>Visiting: National Park Service site with visitor center at Nancy.</desc>
+    </rtept>
+    <rtept lat="37.2378" lon="-85.3536">
+      <name>2. Tebbs Bend Battlefield</name>
+      <desc>Visiting: Driving tour and markers; parts of the field are private. Marker only</desc>
+    </rtept>
+    <rtept lat="37.5697" lon="-85.2528">
+      <name>3. Battle of Lebanon marker (KHS #600)</name>
+      <desc>Visiting: Roadside marker at the old railroad station. Marker only</desc>
+    </rtept>
+    <rtept lat="37.2573" lon="-85.8878">
+      <name>4. Battle for the Bridge Historic Preserve (Munfordville)</name>
+      <desc>Visiting: Preserve with trails; free.</desc>
+    </rtept>
+    <rtept lat="37.2704" lon="-85.8991">
+      <name>5. Rowlett&apos;s Station marker (KHS #1504)</name>
+      <desc>Visiting: Roadside marker on US 31-W; battlefield is private land. Marker only</desc>
+    </rtept>
+    <rtept lat="36.9977" lon="-85.9256">
+      <name>6. Fort Williams marker (KHS #1290)</name>
+      <desc>Visiting: Marker between Glasgow Municipal Cemetery and US 31-E bypass. Marker only</desc>
+    </rtept>
+  </rte>
+</gpx>

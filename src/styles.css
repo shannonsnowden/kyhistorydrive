@@ -1,3 +1,5 @@
+@import "./story-page/unified-story.css";
+@import "./story-print.css";
 :root {
   /* Bluegrass green, thoroughbred leather, bourbon amber */
   --bg: #101812;
@@ -113,6 +115,11 @@ html[data-hp-theme="light"] body.hp-page header.top {
   cursor: pointer;
   min-width: 0;
 }
+.brand-home > picture {
+  display: flex;
+  flex: 0 0 auto;
+  line-height: 0;
+}
 .brand-logo {
   width: 88px;
   height: 88px;
@@ -196,6 +203,12 @@ nav a {
   padding: 0 0.35rem;
 }
 nav a:hover, nav a.active { color: var(--accent); }
+nav a.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.28em;
+  text-decoration-color: var(--chip-active);
+}
 .nav-mobile-tools { display: none; }
 .nav-icon-btn {
   appearance: none;
@@ -243,8 +256,9 @@ nav a:hover, nav a.active { color: var(--accent); }
 .nav-search form { margin: 0; }
 #siteSearchInput {
   width: 100%;
+  min-height: 44px;
   box-sizing: border-box;
-  padding: 0.4rem 0.65rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--surface);
@@ -502,14 +516,45 @@ a#siteSearchInput {
 .foot {
   display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.25rem; color: var(--muted); font-size: 0.75rem;
+  padding: 1rem 1.25rem; color: var(--muted); font-size: 0.875rem;
   border-top: 1px solid var(--line);
+}
+.foot-copy {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
 }
 .foot a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 0.35rem;
+  padding: 0 0.45rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.foot a:hover, .foot a:focus-visible {
+  color: var(--accent);
+}
+.foot-sep {
+  color: var(--muted);
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .foot-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.15rem 0.75rem;
+    width: 100%;
+  }
+  .foot-sep { display: none; }
+  .foot a { padding: 0; }
 }
 
 /* Layers panel */
@@ -529,6 +574,55 @@ a#siteSearchInput {
 .layer-row.master {
   font-weight: 600; margin-bottom: 0.45rem;
   border-bottom: 1px solid var(--line); padding-bottom: 0.55rem;
+}
+.start-here {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+}
+.start-here-row { font-weight: 600; margin-bottom: 0.2rem; }
+.start-here-blurb {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.start-here-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  max-width: 100%;
+  margin: 0 0 0.75rem;
+  min-height: 44px;
+  padding: 0 0.15rem 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--chip, var(--panel));
+  color: var(--heading);
+  font-weight: 700;
+}
+.start-here-chip[hidden] { display: none; }
+.start-here-chip button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--heading);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.start-here-chip button:hover,
+.start-here-chip button:focus-visible { color: var(--accent); }
+.hp-map-strip-drive { margin: 0.35rem 0 0; font-size: 0.95rem; }
+.hp-map-strip-drive a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .layer-icon {
   width: 18px; height: 18px; flex-shrink: 0;
@@ -1041,6 +1135,41 @@ html[data-hp-theme="light"] .story-glance td {
 .research-section ul,
 .research-section ol { margin: 0; padding-left: 1.25rem; }
 .research-section li { margin: 0.4rem 0; overflow-wrap: anywhere; }
+/* v2 Phase 5 (#340): research notes folded into the story's Sources and research section. */
+.research-fold { margin: 1.25rem 0 0; scroll-margin-top: 5rem; }
+.research-fold a { color: var(--accent); }
+.research-fold summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; min-height: 44px; box-sizing: border-box; }
+.research-fold summary::-webkit-details-marker { display: none; }
+.research-fold summary::before {
+  content: ""; flex: none; width: 0.55rem; height: 0.55rem;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg); transition: transform 0.15s ease; margin-right: 0.15rem;
+}
+.research-fold details[open] > summary::before,
+.research-fold[open] > summary::before { transform: rotate(45deg); }
+.research-fold-summary { min-height: 44px; padding: 0.6rem 1rem; color: var(--heading); font-weight: 700; }
+.research-fold-summary:focus-visible,
+.research-sub > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.research-fold .research-sub { border-top: 1px solid var(--line); }
+.research-fold .research-sub:first-of-type { border-top: 0; }
+.research-fold .research-sub > summary { padding: 0.25rem 0; color: var(--heading); }
+.research-fold .research-sub > summary h3 { font-size: 1rem; line-height: 1.3; margin: 0; color: var(--heading); }
+.research-fold .research-sub-body { padding: 0 0 0.75rem 1.3rem; }
+.research-fold .research-sub-body > ul,
+.research-fold .research-sub-body > ol { margin: 0; }
+.research-fold [id^="rn-source-"] { scroll-margin-top: 5rem; }
+.research-jump { color: var(--accent); }
+.research-fold .rn-cites { display: inline; margin-left: 0.2rem; font-size: 0.88em; color: var(--muted); }
+.research-fold .rn-cite { display: inline; padding: 0.6rem 0.15rem; margin: -0.6rem 0; line-height: 1.6; }
+.research-fold a.rn-cite { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.research-fold a.rn-cite:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 0; }
+.research-fold .rn-sep { color: var(--muted); }
+.research-fold .research-sub-body li { line-height: 1.6; }
+@media print {
+  .research-fold summary::before { display: none; }
+  .research-fold details > :not(summary),
+  details.research-fold > :not(summary) { display: block !important; }
+}
 .research-cites { color: var(--muted); font-size: 0.88em; }
 .research-cites a { color: var(--accent); }
 .research-year { font-weight: 700; color: var(--heading); }
@@ -1399,7 +1528,7 @@ a.related-card:hover .related-card-chevron {
 
 @media (max-width: 900px) {
   .map-section { grid-template-columns: 1fr; }
-  #mapCanvas { min-height: 55vh; order: -1; }
+  #mapCanvas { min-height: 55svh; order: -1; }
   .controls { max-height: none; }
   .stories-layout { grid-template-columns: 1fr; }
   .stories-list-pane {
@@ -1505,6 +1634,10 @@ a.related-card:hover .related-card-chevron {
   width: 100%;
 }
 .map-canvas-wrap #mapCanvas { flex: 1 1 auto; min-height: 60vh; width: 100%; height: auto; }
+@media (max-width: 900px) {
+  .map-canvas-wrap,
+  .map-canvas-wrap #mapCanvas { min-height: 55svh; }
+}
 /* Back to story and Full state share one map control: chip fill, amber edge, 44px. */
 .full-state-fab,
 .story-return {
@@ -1581,7 +1714,7 @@ a.related-card:hover .related-card-chevron {
 .about-credits li { margin: 0.35rem 0; }
 .about-credits a { color: var(--accent); }
 .contact-reveal { display: inline; }
-.contact-reveal .btn { vertical-align: baseline; margin: 0 0.15rem; }
+.contact-reveal .btn { vertical-align: middle; margin: 0 0.15rem; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; }
 .contact-reveal button:focus-visible,
 .contact-reveal a:focus {
   outline: 3px solid var(--focus-ring);
@@ -1899,6 +2032,12 @@ a.related-card:hover .related-card-chevron {
   background-color: var(--panel) !important;
   width: 32px !important;
   height: 32px !important;
+}
+@media (max-width: 900px) {
+  .maplibregl-ctrl-group button {
+    width: 44px !important;
+    height: 44px !important;
+  }
 }
 .maplibregl-ctrl-group button + button {
   border-top: 1px solid var(--line) !important;
@@ -2390,8 +2529,9 @@ html[data-hp-theme="light"] .about-seal {
   color: var(--muted);
 }
 @media (max-width: 479px) {
-  .about-seals-list { flex-direction: column; align-items: center; gap: 0.9rem; }
-  .about-seal { width: 132px; }
+  /* One row of three at phone widths. */
+  .about-seals-list { flex-wrap: nowrap; gap: 0.6rem; }
+  .about-seal { width: min(96px, 26vw); }
 }
 
 
@@ -2495,6 +2635,9 @@ html[data-hp-theme="light"] .about-seal {
 .hp-theme-toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
   gap: 0.4rem;
   margin: 0;
   padding: 0.32rem 0.75rem;
@@ -2706,7 +2849,7 @@ html[data-hp-theme="light"] .about-seal {
   right: 0;
   bottom: 0;
   padding: 0.85rem 1.15rem 1rem;
-  background: rgba(8, 12, 9, 0.78);
+  background: rgba(8, 12, 9, 0.42);
   pointer-events: auto;
 }
 .hp-mag-hero-shade {
@@ -2716,10 +2859,11 @@ html[data-hp-theme="light"] .about-seal {
   pointer-events: none;
   background: linear-gradient(
     to top,
-    rgba(8, 12, 9, 0.78) 0%,
-    rgba(8, 12, 9, 0.55) 42%,
-    rgba(8, 12, 9, 0.22) 70%,
-    rgba(8, 12, 9, 0.08) 100%
+    rgba(8, 12, 9, 0.55) 0%,
+    rgba(8, 12, 9, 0.32) 22%,
+    rgba(8, 12, 9, 0.10) 38%,
+    rgba(8, 12, 9, 0) 45%,
+    transparent 100%
   );
 }
 .hp-mag-hero .hp-hero-eyebrow {
@@ -2810,6 +2954,17 @@ html[data-hp-theme="light"] .about-seal {
   margin-top: 0.25rem;
   font-size: 0.8rem;
   color: var(--muted);
+}
+.hp-rail-card-credit,
+.hp-swipe-card-credit {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .hp-story-swipe {
   display: none;
@@ -3237,7 +3392,7 @@ html[data-hp-theme="light"] .hp-map-seal.hp-plan-badge {
     object-position: 50% 0%;
   }
 }
-/* .hp-mag-hero-shade: see lead-block rules (~70% dark overlay) */
+/* .hp-mag-hero-shade: bottom-weighted, clear above ~45% (desktop) / ~48% (mobile) */
 
 .hp-mag-hero-media picture {
   position: absolute;
@@ -3589,16 +3744,16 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
      under the wrapped header. 78vh plus that header pushed the dots below the fold. */
   .hp-mag-hero { min-height: 68vh; }
   .hp-mag-hero { min-height: calc(100svh - 17.25rem); }
-  /* Mobile hero copy sits on bright parts of the photo. Keep the lower shade
-     dark enough that cream summary text stays at least 4.5:1 on a white pixel. */
+  /* Mobile hero copy sits on bright parts of the photo. Bottom shade peaks at
+     0.62 so cream type stays readable without covering the sky. */
   .hp-mag-hero-shade {
     background: linear-gradient(
       to top,
-      rgba(20, 14, 8, 0.94) 0%,
-      rgba(20, 14, 8, 0.9) 48%,
-      rgba(20, 14, 8, 0.82) 70%,
-      rgba(20, 14, 8, 0.35) 88%,
-      rgba(20, 14, 8, 0) 100%
+      rgba(20, 14, 8, 0.62) 0%,
+      rgba(20, 14, 8, 0.40) 26%,
+      rgba(20, 14, 8, 0.14) 40%,
+      rgba(20, 14, 8, 0) 48%,
+      transparent 100%
     );
   }
   .hp-hero-controls { bottom: 0.85rem; }
@@ -3612,7 +3767,16 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
 
 /* Laptop widths, including 1366 and 1280: keep the nav on one row.
    A wrapped header is about 193px and pushes "Read the story" below an 800px screen. */
-@media (max-width: 1400px) and (min-width: 701px) {
+@media (min-width: 1100px) {
+  .site-header {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .site-header nav#mainNav {
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width: 1400px) and (min-width: 1100px) {
   .site-header {
     flex-wrap: nowrap;
     align-items: center;
@@ -3645,7 +3809,7 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
   .site-header nav a {
     padding: 0 0.12rem;
-    font-size: 0.84rem;
+    font-size: 15px;
     white-space: nowrap;
   }
   .site-header .nav-today-btn {
@@ -3654,21 +3818,24 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     font-size: 0.78rem;
   }
   .site-header .hp-theme-toggle {
+    min-height: 44px;
+    min-width: 44px;
     padding: 0.28rem 0.45rem;
     font-size: 0.76rem;
     white-space: nowrap;
     gap: 0.25rem;
   }
   .site-header #siteSearchInput {
+    min-height: 44px;
     padding: 0.28rem 0.5rem;
     font-size: 0.8rem;
   }
 }
 
 /* Homepage big seal: win over the compact laptop/phone header rules. */
-@media (max-width: 1400px) and (min-width: 701px) {
+@media (max-width: 1400px) and (min-width: 1100px) {
   body.hp-page .site-header {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     padding: 0.7rem clamp(1rem, 3vw, 2.5rem);
     gap: 0.75rem 1rem;
@@ -3699,8 +3866,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     gap: 0.5rem;
   }
   body.hp-page .site-header .brand-logo {
-    width: var(--hp-logo, 84px);
-    height: var(--hp-logo, 84px);
+    width: var(--hp-logo, 48px);
+    height: var(--hp-logo, 48px);
   }
   body.hp-page .site-header .brand :is(h1, .brand-title) {
     font-size: 1.15rem;
@@ -3718,8 +3885,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   }
 }
 
-/* Phone header: one 60px bar. Wider than 600px keeps the full nav row. */
-@media (max-width: 600px) {
+/* Header <1100px: collapses to 44px search and menu icon buttons. */
+@media (max-width: 1099px) {
   .site-header {
     flex-wrap: nowrap;
     align-items: center;
@@ -3740,8 +3907,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     gap: 0.45rem;
   }
   .site-header .brand-logo {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
   }
   .site-header .brand :is(h1, .brand-title) {
     font-size: 0.95rem;
@@ -3782,14 +3949,13 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
   .site-header.is-menu-open nav#mainNav { display: flex; }
   .site-header.is-menu-open .nav-search { display: none; }
   .site-header.is-menu-open nav a[data-route="home"] { order: 1; }
-  .site-header.is-menu-open nav a[data-route="map"] { order: 2; }
+  .site-header.is-menu-open nav a[data-route="stories"] { order: 2; }
   .site-header.is-menu-open nav a[data-route="timeline"] { order: 3; }
-  .site-header.is-menu-open nav a[data-route="people"] { order: 4; }
-  .site-header.is-menu-open nav a[data-route="drives"] { order: 5; }
-  .site-header.is-menu-open nav a[data-route="roads"] { order: 6; }
-  .site-header.is-menu-open nav a[data-route="about"] { order: 7; }
-  .site-header.is-menu-open nav a[data-route="app"] { order: 8; }
-  .site-header.is-menu-open .nav-today { order: 9; }
+  .site-header.is-menu-open nav a[data-route="map"] { order: 4; }
+  .site-header.is-menu-open nav a[data-route="people"] { order: 5; }
+  .site-header.is-menu-open nav a[data-route="drives"] { order: 6; }
+  .site-header.is-menu-open nav a[data-route="roads"] { order: 7; }
+  .site-header.is-menu-open nav a[data-route="about"] { order: 8; }
   .site-header.is-menu-open .hp-theme-toggle { order: 10; }
   .site-header.is-menu-open nav a,
   .site-header.is-menu-open .nav-today-btn,
@@ -3858,6 +4024,8 @@ html[data-hp-theme="light"] .hp-page .hp-hero-playback:focus-visible {
     min-height: 44px;
     font-size: 1rem;
   }
+}
+@media (max-width: 600px) {
   /* The bar is 60px and the value line above the hero is up to three lines
      (~5.5rem). Size the hero to what is left of the first screen so the credit
      and the control row stay on screen. */
@@ -5379,19 +5547,19 @@ html[data-hp-theme="light"] .about-seal-btn::after {
 }
 .about-seals-hint { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
 
-/* Homepage phone header (#261): one compact row, ~100px tall.
-   Seal 68px left, name + tagline beside it, search + menu top-right.
-   The third line (subhead) is desktop-only. Reserved height: 68px seal + 2×16px pad = 100px. */
+/* Homepage phone header (#261, Approvals 112 B3): one compact row.
+   The ≤48px mark sits left, name + tagline beside it, search + menu top-right.
+   The third line (subhead) is desktop-only. Reserved height: 48px mark + 2×16px pad = 80px. */
 @media (max-width: 600px) {
   body.hp-page {
-    --hp-logo: 68px;
+    --hp-logo: 48px;
   }
   body.hp-page .site-header {
     flex-wrap: nowrap;
     align-items: flex-start;
     gap: 0.35rem;
     height: auto;
-    min-height: 100px;
+    min-height: 80px;
     max-height: none;
     padding: 16px 0.35rem 16px 0.75rem;
   }
@@ -5409,9 +5577,9 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     gap: 0.65rem;
   }
   body.hp-page .site-header .brand-logo {
-    width: 68px;
-    height: 68px;
-    flex: 0 0 68px;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
   }
   body.hp-page .site-header .brand-lockup {
     align-items: flex-start;
@@ -6101,6 +6269,22 @@ html:not([data-hp-theme="light"]) .brand-logo,
 html:not([data-hp-theme="light"]) .hp-page .brand-logo {
   box-shadow: 0 0 0 2px #f6edd8, 0 2px 8px rgba(0, 0, 0, 0.35);
 }
+/* The small mark already draws its own 2px ring. The header's extra border, padding and
+   cream halo would double that ring and clip the KY outline at ≤48px. */
+@media (max-width: 1099px) {
+  .brand-logo,
+  .hp-page .brand-logo,
+  html[data-hp-theme="light"] .brand-logo,
+  html[data-hp-theme="light"] .hp-page .brand-logo,
+  html:not([data-hp-theme="light"]) .brand-logo,
+  html:not([data-hp-theme="light"]) .hp-page .brand-logo,
+  body.hp-page .site-header .brand-logo {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+}
 
 /* Roads & Rails opening ticks (#291 follow-up; Critiquito #326): one tick per opening year, each with a
  * visible label. Crowded labels stagger onto extra rows with leader lines. Marks and labels share one colour
@@ -6323,3 +6507,48 @@ html[data-hp-theme='dark'] .rr-sym-town { background: #100e0c; border-color: #f6
   .roads-rails-page .transport-section .maplibregl-ctrl-bottom-right,
   .roads-rails-page .transport-section .maplibregl-ctrl-bottom-left { bottom: 44px; }
 }
+
+/* #338: Timeline rows open the story page; the title is the real link. */
+.timeline-item .timeline-link { color: inherit; text-decoration: none; }
+.timeline-item .timeline-link:hover, .timeline-item .timeline-link:focus-visible { text-decoration: underline; }
+.timeline-item { cursor: pointer; }
+
+/* Pill-row labels (Critiquito #347) */
+.filter-label { margin: 0.4rem 0 0.15rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Pin teaser cards (#339) */
+.pin-card:focus { outline: none; }
+.pin-card h3 { margin: 0.15rem 0 0.25rem; }
+.pin-card-teaser { margin: 0.4rem 0 0.6rem; line-height: 1.45; }
+.pin-card-actions { margin: 0.5rem 0 0; }
+.pin-card-read { display: inline-block; box-shadow: none; outline: none; }
+/* One clean focus ring on "Read the story" (no doubled/offset outline) */
+.ky-popup a.pin-card-read:focus { outline: none; box-shadow: none; }
+.ky-popup a.pin-card-read:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 0; box-shadow: none; border-radius: 6px; }
+
+/* Phones: map-first bottom sheet instead of a floating card (#339). */
+@media (max-width: 600px) {
+  .ky-popup.ky-sheet {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    z-index: 50;
+    animation: ky-sheet-up 0.22s ease-out;
+  }
+  .ky-popup.ky-sheet .maplibregl-popup-tip { display: none; }
+  .ky-popup.ky-sheet .map-popup { max-height: 45vh !important; }
+  .ky-popup:has(.pin-card) .popup-more-hint,
+  .ky-popup:has(.pin-card) .maplibregl-popup-content::after { display: none !important; }
+  .ky-popup.ky-sheet .maplibregl-popup-content {
+    border-radius: 14px 14px 0 0;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.18);
+  }
+}
+@keyframes ky-sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ky-popup.ky-sheet { animation: none; } }

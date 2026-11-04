@@ -8,7 +8,7 @@ The build fails if `amplify.yml` gains a `customHeaders` block, or if `customHtt
 
 Cache-Control, CORS, and Content-Type rules that were already on `/data/app/*.json`, `ads.txt`, `robots.txt`, the sitemaps, `/privacy`, `/about`, `/videos`, and caption `.vtt` files are unchanged. `/feed.xml` is `application/rss+xml; charset=utf-8`. Security headers are repeated on every pattern, including `**` and `/feed.xml`. A more specific pattern is its own edge behavior and does not inherit `**`.
 
-`Content-Security-Policy-Report-Only` reports violations in the browser console. It does not block a script, image, map tile, film, or ad. There is no enforcing `Content-Security-Policy` header.
+`Content-Security-Policy-Report-Only` does not block a script, image, map tile, film, or ad. The browser prints violations in its console. It does not store them yet: the reporting URL below does not resolve. There is no enforcing `Content-Security-Policy` header. `'unsafe-inline'` and `'unsafe-eval'` stay in this policy.
 
 ## Headers on every response
 
@@ -19,11 +19,37 @@ Cache-Control, CORS, and Content-Type rules that were already on `/data/app/*.js
 | Referrer-Policy | `strict-origin-when-cross-origin` |
 | Permissions-Policy | `camera=(), microphone=(), geolocation=(), payment=(), usb=()` |
 | X-Frame-Options | `SAMEORIGIN` |
-| Content-Security-Policy-Report-Only | The policy below |
+| Content-Security-Policy-Report-Only | The policy below, plus `report-to csp-endpoint` and `report-uri https://csp-collector.invalid/csp-reports` |
+| Reporting-Endpoints | `csp-endpoint="https://csp-collector.invalid/csp-reports"` |
 
 HSTS is one year and covers subdomains. It does not include `preload`. Do not add `preload` until the site has served this header without issues and someone intends to submit the domain to the preload list.
 
 `X-Frame-Options: SAMEORIGIN` and `frame-ancestors 'self'` both keep other sites from embedding Kentucky History Drive. The CSP directive is the one current browsers follow. The older header covers browsers that ignore `frame-ancestors`.
+
+### Violation reports
+
+Every policy ends with `report-to csp-endpoint` and `report-uri https://csp-collector.invalid/csp-reports`. `report-to` is the current directive. A browser that supports it ignores `report-uri`. Older browsers use `report-uri`.
+
+`Reporting-Endpoints` maps the name `csp-endpoint` to that same URL. Amplify custom headers can send it. It is repeated on every pattern, because a specific pattern does not inherit `**`.
+
+`https://csp-collector.invalid` is not a collector. `.invalid` is a reserved name that does not resolve, so the report is not handed to a server that throws it away. A failed lookup in the browser network panel is expected until this URL is replaced.
+
+A static Amplify site cannot be the collector. The browser POSTs `application/reports+json` (for `report-to`) or `application/csp-report` (for `report-uri`). CloudFront and S3 serve files. They do not keep that POST. A same-origin path such as `/csp-reports` would answer with an error and drop the body.
+
+Nothing in this repo can receive the POST without an account Shannon owns:
+
+- A hosted collector (Report URI, CentralCSP, or Sentry) needs that account. The ingest URL is public. It is not a secret, and it does not belong here until the account exists.
+- An Amplify Function, API Gateway, or Lambda that returns 204 and stores the JSON needs the AWS account.
+
+TODO for the Editor and CoS, before this report-only period counts as telemetry:
+
+1. Choose one of those collectors.
+2. Replace `https://csp-collector.invalid/csp-reports` in `customHttp.yml` (the `report-uri` directive and every `Reporting-Endpoints` value) and the same constant in `scripts/check-security-headers.mjs` (`CSP_REPORT_ENDPOINT`). Update the three fixtures in `scripts/fixtures/security-headers/`. If the vendor has a report-only path, use that path.
+3. Keep the CSP value at or under 1783 characters. CloudFront rejects a longer custom header, and `check-security-headers.mjs` fails the build. `report-uri` sits inside the CSP. A long ingest URL may not fit there. Put that URL in `Reporting-Endpoints` and drop `report-uri` if the CSP would pass 1783.
+4. Load a page, cause one violation, and confirm the collector shows the report. Console text is not that confirmation.
+5. Leave the header name as `Content-Security-Policy-Report-Only`. Do not remove `'unsafe-inline'` or `'unsafe-eval'` in that follow-up. AdSense and GA4 hosts stay.
+
+The report POST is not a page fetch. Do not add the collector host to `connect-src`. A report includes the page URL and the blocked URL. Send those only to the collector chosen above.
 
 ### Permissions-Policy
 
@@ -142,9 +168,9 @@ A host written as `https://*.example.com` matches one subdomain label (`www`, `r
 
 ## Switch to an enforcing CSP later
 
-Do this only after the report-only header has been live and the pages below have been checked with the browser console open. Report-only will keep working through that review. An enforcing policy with a missing host will blank the map, the film, a historic photo, GA4, or AdSense.
+Do this only after a real collector has replaced `https://csp-collector.invalid/csp-reports` and the report-only header has been live long enough to read. Check the pages below in that collector and with the browser console open. The `.invalid` host does not receive reports, so a console-only pass is not enough. Report-only stays in place through that review. An enforcing policy with a missing host will blank the map, the film, a historic photo, GA4, or AdSense. Adding the reporting directives does not start that review, and it does not remove `'unsafe-inline'` or `'unsafe-eval'`.
 
-1. Load `/`, `/#map`, a story that shows historic photos, `/videos/`, and `/privacy/`. In an EEA, UK, or Switzerland session, also confirm the Funding Choices message can open. Note every `Content-Security-Policy-Report-Only` violation.
+1. Load `/`, `/#map`, a story that shows historic photos, `/videos/`, and `/privacy/`. In an EEA, UK, or Switzerland session, also confirm the Funding Choices message can open. Note every `Content-Security-Policy-Report-Only` violation in the collector.
 2. Add a host only when the page actually needs it. Google adds AdSense hosts over time. Their AdSense help says a fixed allowlist is not the CSP they support long term. The supported AdSense policy is a per-request nonce plus `'strict-dynamic'`. Amplify's custom headers are a static string, so they cannot do that. A nonce means a later edge change (a CloudFront Function or Lambda@Edge) that stamps the same nonce on the header and on every inline script. That is a separate project. Until then, this allowlist is the policy.
 3. When those pages are quiet, copy this value to a `Content-Security-Policy` header and leave `Content-Security-Policy-Report-Only` in place for one deploy so new violations are still reported. Then remove the report-only header.
 4. Retest GA4 (`G-83G4SBQKT1` still sends `page_view`), AdSense (the loader still runs; reserved slots still do not shift layout), the map canvas, and the film. Keep HSTS without `preload` in that change.

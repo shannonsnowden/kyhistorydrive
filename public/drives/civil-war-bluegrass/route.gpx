@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Civil War in the Bluegrass</name>
+    <desc>From Kentucky&apos;s largest Civil War battle at Perryville to the Union recruiting camps at Camp Dick Robinson and Camp Nelson, the 1862 fight at Richmond, and the Lexington home of the Hunt and Morgan families. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/civil-war-bluegrass/</desc>
+    <link href="https://kyhistorydrive.com/drives/civil-war-bluegrass/"><text>Civil War in the Bluegrass</text></link>
+  </metadata>
+  <wpt lat="37.6751" lon="-84.9705">
+    <name>1. Perryville Battlefield State Historic Site</name>
+    <desc>Visiting: State historic site; grounds open, museum keeps set hours with admission. Limited hours, Paid admission</desc>
+  </wpt>
+  <wpt lat="37.6455" lon="-84.7125">
+    <name>2. Camp Dick Robinson marker (KHS #1750)</name>
+    <desc>Visiting: Roadside marker; the house is not a public museum. Marker only</desc>
+  </wpt>
+  <wpt lat="37.7904" lon="-84.5985">
+    <name>3. Camp Nelson National Monument</name>
+    <desc>Visiting: National Park Service site; free. The national cemetery is next door.</desc>
+  </wpt>
+  <wpt lat="37.6847" lon="-84.2581">
+    <name>4. Richmond Battlefield Park</name>
+    <desc>Visiting: County park and visitor center; visitor center hours are limited. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.0501" lon="-84.4961">
+    <name>5. Hunt-Morgan House (Hopemont)</name>
+    <desc>Visiting: Blue Grass Trust house museum; guided tours with admission, set hours. Paid admission, Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Civil War in the Bluegrass</name>
+    <desc>From Kentucky&apos;s largest Civil War battle at Perryville to the Union recruiting camps at Camp Dick Robinson and Camp Nelson, the 1862 fight at Richmond, and the Lexington home of the Hunt and Morgan families. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/civil-war-bluegrass/</desc>
+    <rtept lat="37.6751" lon="-84.9705">
+      <name>1. Perryville Battlefield State Historic Site</name>
+      <desc>Visiting: State historic site; grounds open, museum keeps set hours with admission. Limited hours, Paid admission</desc>
+    </rtept>
+    <rtept lat="37.6455" lon="-84.7125">
+      <name>2. Camp Dick Robinson marker (KHS #1750)</name>
+      <desc>Visiting: Roadside marker; the house is not a public museum. Marker only</desc>
+    </rtept>
+    <rtept lat="37.7904" lon="-84.5985">
+      <name>3. Camp Nelson National Monument</name>
+      <desc>Visiting: National Park Service site; free. The national cemetery is next door.</desc>
+    </rtept>
+    <rtept lat="37.6847" lon="-84.2581">
+      <name>4. Richmond Battlefield Park</name>
+      <desc>Visiting: County park and visitor center; visitor center hours are limited. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.0501" lon="-84.4961">
+      <name>5. Hunt-Morgan House (Hopemont)</name>
+      <desc>Visiting: Blue Grass Trust house museum; guided tours with admission, set hours. Paid admission, Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

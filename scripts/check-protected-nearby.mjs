@@ -33,6 +33,8 @@ const protectedSlugs = new Set(
 
 const onGrid = (v) => Math.abs(v * 10 - Math.round(v * 10)) < 1e-9
 const r1 = (v) => Math.round(v * 10) / 10
+// v2 storyOrigin() also rounds every destination (0.1° protected, 1e-4 otherwise); on-grid points are unchanged.
+const r4 = (v) => Math.round(v * 10000) / 10000
 const problems = []
 let checked = 0
 for (const base of ['public', 'dist']) {
@@ -50,7 +52,7 @@ for (const base of ['public', 'dist']) {
     }
     for (const row of nearbyStories(l, all, { limit: 5 })) {
       const o = locs[row.slug]
-      const want = haversineMiles(r1(l.lat), r1(l.lon), o.lat, o.lon)
+      const want = haversineMiles(r1(l.lat), r1(l.lon), r4(o.lat), r4(o.lon))
       if (Math.abs(want - row.miles) > 1e-9) problems.push(`${base}: ${slug} nearby distance not from the rounded point`)
       if (protectedSlugs.has(row.slug) && (!onGrid(o.lat) || !onGrid(o.lon))) problems.push(`${base}: ${slug} lists protected ${row.slug} at an unrounded point`)
     }

@@ -16,6 +16,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { storyDrives, DRIVE_ID_RE } from './story-drives-lib.mjs'
+import { isProtectedStory } from './lib/unified-story-data.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const ai = process.argv.indexOf('--dist')
@@ -42,6 +43,12 @@ for (const slug of slugs) {
   const tags = [...html.matchAll(/<a\b[^>]*class="take-a-drive-(?:btn|alt)"[^>]*>/g)].map((m) => m[0])
   const nBtn = tags.filter((t) => t.includes('class="take-a-drive-btn"')).length
   const want = expected.stories[slug] || []
+  // Protected stories never get a route/drive entry on their page (Critiquito #345, 10/24).
+  const sf = path.join(root, 'public/content/stories', `${slug}.json`)
+  if (isProtectedStory(fs.existsSync(sf) ? JSON.parse(fs.readFileSync(sf, 'utf8')) : { slug })) {
+    if (tags.length || html.includes('data-take-a-drive')) errors.push(`${slug}: protected story shows a Take a Drive link`)
+    continue
+  }
   if (!want.length) {
     if (tags.length || html.includes('data-take-a-drive')) errors.push(`${slug}: has a Take a Drive button but is on no drive`)
     continue

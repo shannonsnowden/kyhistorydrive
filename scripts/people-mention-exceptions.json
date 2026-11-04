@@ -1,0 +1,84 @@
+{
+  "_about": "Full-name matches that are a different person or only a source title (scripts/fix-people-mentions.mjs, #337). Key: person id; value: story slug -> reason.",
+  "exceptions": {
+    "benjamin-harrison-col": {
+      "battle-of-blue-licks": "Gov. Benjamin Harrison V (Virginia), not Col. Benjamin Harrison",
+      "walker-daniel-danvilles-namesake": "Gov. Benjamin Harrison V (Virginia), not Col. Benjamin Harrison"
+    },
+    "william-russell-iii": {
+      "michael-stoner-german-long-hunter": "Capt. William Russell of 1774 is the elder Russell (1735-1793), not Gen. William Russell"
+    },
+    "mary-todd-lincoln": {
+      "battle-of-blue-licks": "named only in a source title (John Todd, great-uncle of Mary Todd Lincoln)"
+    },
+    "william-campbell": {
+      "isaac-shelby-old-kings-mountain": "Approvals 111 Q4: keep unlinked this wave until History confirms this entry is the Kings Mountain colonel"
+    },
+    "daniel-boone": {
+      "wyandot-on-kentuckys-northern-frontier": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave",
+      "col-john-holder-at-lower-howards-creek": "Approvals 111 Wave 5: people.json held; no stories[] edits this wave"
+    },
+    "simon-girty": {
+      "wyandot-on-kentuckys-northern-frontier": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave"
+    },
+    "little-turtle": {
+      "egushawa-and-the-odawa-in-kentuckys-war-years": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave"
+    },
+    "blue-jacket": {
+      "egushawa-and-the-odawa-in-kentuckys-war-years": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave"
+    },
+    "richard-m-johnson": {
+      "isaac-shelby-old-kings-mountain": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave"
+    },
+    "isaac-ruddell": {
+      "egushawa-and-the-odawa-in-kentuckys-war-years": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave"
+    },
+    "andrew-lewis": {
+      "isaac-shelby-old-kings-mountain": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave",
+      "treaty-of-camp-charlotte-1774": "Approvals 111 Wave 5: Andrew Lewis stays unlinked; no stories[] edits this wave"
+    },
+    "richard-callaway": {
+      "col-john-holder-at-lower-howards-creek": "Approvals 111 Wave 5: people.json held; no stories[] edits this wave"
+    },
+    "anthony-wayne": {
+      "blue-jacket-weyapiersenwah": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave",
+      "potawatomi-fire-keepers-and-the-ohio-valley-wars": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave"
+    },
+    "josiah-harmar": {
+      "blue-jacket-weyapiersenwah": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave",
+      "egushawa-and-the-odawa-in-kentuckys-war-years": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave"
+    },
+    "andrew-jackson": {
+      "isaac-shelby-old-kings-mountain": "Approvals 111 Wave 3: people.json held; no stories[] edits this wave"
+    },
+    "george-rogers-clark": {
+      "delaware-lenape-in-the-1780-kentucky-raids": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave"
+    },
+    "richard-henderson": {
+      "treaties-of-hard-labour-and-lochaber": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave"
+    },
+    "hancock-taylor": {
+      "treaties-of-hard-labour-and-lochaber": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave"
+    },
+    "john-filson": {
+      "delaware-winter-camps-on-kentucky-ground": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave"
+    },
+    "robert-patterson": {
+      "levi-todd-lexington-co-founder": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave"
+    },
+    "william-johnson": {
+      "treaties-of-hard-labour-and-lochaber": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave",
+      "iroquois-beaver-wars": "Approvals 111 Wave 7: people.json held; no stories[] edits this wave"
+    },
+    "arthur-st-clair": {
+      "potawatomi-fire-keepers-and-the-ohio-valley-wars": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave",
+      "la-grange-the-oldham-county-seat-with-trains-on-main-street": "Editor CLEAR Oct 30: passing mention (Oldham died in St. Clair's 1791 campaign); no people float on this story"
+    },
+    "zachary-taylor": {
+      "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "Approvals 111 Wave 4: people.json held; no stories[] edits this wave"
+    },
+    "henry-clay": {
+      "shaker-village-of-pleasant-hill": "Approvals 111 Wave 7: people.json held; no stories[] edits this wave"
+    }
+  }
+}

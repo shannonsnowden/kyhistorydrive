@@ -4,8 +4,10 @@
  * Writes public/content/stories-locations.json and merges lat/lon/mapConfidence into stories.json.
  */
 import fs from 'node:fs'
+import { bodyMatchFitsStoryCounty, stripLinkTargets } from './lib/story-location-match.mjs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { applyPinLinks } from './lib/story-pin-links.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -198,6 +200,22 @@ const MANUAL_OVERRIDES = {
   // Tutelo: the body names Lower Shawneetown only as a mixed town where Henderson (1992) lists
   // Tutelo among residents; a Tutelo pin there would imply a Tutelo village in Kentucky. Unpinned.
   'tutelo-the-totteroy': {},
+  // #346: expanded text mentions the Falls of the Ohio in passing (a link); keep this nation story unpinned as on v2.
+  'ojibwe-on-birds-war-road': {},
+  // Approvals 111 Wave 3: the expanded Wyandot body names Blue Licks and Bryan Station.
+  // v2 left this nation story unpinned (county ""); keep that. Blue Licks has its own story pin.
+  'wyandot-on-kentuckys-northern-frontier': {},
+  // Approvals 111 Wave 4: the expanded body names John Filson. v2 left this story unpinned.
+  // Filson has his own pin. Keep the winter-camps story unpinned.
+  'delaware-winter-camps-on-kentucky-ground': {},
+  // Approvals 111 Wave 7: the expanded body names Lower Shawneetown only as a Shawnee town
+  // on the Ohio (a protected site with its own story). v2 left this nation story unpinned.
+  'iroquois-beaver-wars': {},
+  // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
+  // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
+  'covington-at-the-point': {},
+  'erie-the-cat-nation': {},
+  'shawnee-chillicothe-divisions': {},
   // Sep 15 — avoid Col. John Bowman fuzzy; use iOS pin coords
   'col-john-todd-of-lexington': {
     matchName: 'Col. John Todd of Lexington',
@@ -418,7 +436,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   // Erie / Cat Nation — theme-only, no KY place pin
-  'buckner-site-fort-ancient-villages-on-strodes-creek': {
+  'buckner-site-fort-ancient-villages': {
     matchName: 'Buckner Site (15Bb12)',
     lat: 38.2,
     lon: -84.2,
@@ -443,7 +461,7 @@ const MANUAL_OVERRIDES = {
     lon: -85.0577313,
     confidence: 'override',
   },
-  'muir-site-early-fort-ancient-on-a-jessamine-ridge': {
+  'muir-site-early-fort-ancient': {
     matchName: 'Muir Site (15Js86)',
     lat: 37.9,
     lon: -84.6,
@@ -558,7 +576,7 @@ const MANUAL_OVERRIDES = {
     lon: -84.832567,
     confidence: 'override',
   },
-  'singer-hieronymus-fort-ancient-villages-on-north-elkhorn': {
+  'singer-hieronymus-fort-ancient-villages': {
     matchName: 'Singer-Hieronymus Site Complex (15Sc3 / 15Sc225)',
     lat: 38.3,
     lon: -84.6,
@@ -712,8 +730,8 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'tellico-cession-1805-south-of-the-cumberland': {},
-  'rowlandton-mound-site-15mcn3-paducah': {
-    matchName: "Rowlandton Mound Site (15McN3), Paducah",
+  'rowlandton-mound-site-15mcn3': {
+    matchName: "Rowlandton Mound Site (15McN3), McCracken County",
     lat: 37.1,
     lon: -88.6,
     confidence: 'override',
@@ -769,8 +787,8 @@ const MANUAL_OVERRIDES = {
     lon: -83.936,
     confidence: 'override',
   },
-  'red-bird-river-petroglyphs-clay-county': {
-    matchName: "Red Bird River Petroglyphs, original site near Eriline (15CY51)",
+  'red-bird-petroglyphs-clay-county': {
+    matchName: "Red Bird Petroglyphs (15CY51)",
     lat: 37.2,
     lon: -83.8,
     confidence: 'override',
@@ -801,7 +819,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'old-fort-earthworks-15gp1-greenup-county': {
-    matchName: "Old Fort Earthworks (15Gp1), Portsmouth Earthworks Group A (generalized)",
+    matchName: "Old Fort Earthworks (15Gp1), Greenup County (generalized)",
     lat: 38.7,
     lon: -83.0,
     confidence: 'override',
@@ -910,7 +928,7 @@ const MANUAL_OVERRIDES = {
     confidence: 'override',
   },
   'tinsley-hill-15ly18-lyon-county': {
-    matchName: "Tinsley Hill (15Ly18), under Lake Barkley (approximate)",
+    matchName: "Tinsley Hill (15Ly18), Lyon County (approximate)",
     lat: 37.0,
     lon: -88.0,
     confidence: 'override',
@@ -1000,8 +1018,8 @@ const MANUAL_OVERRIDES = {
     lon: -84.5593,
     confidence: 'override',
   },
-  'the-c-and-o-mounds-at-paintsville': {
-    matchName: "C. and O. Mounds, Paintsville (approximate)",
+  'the-c-and-o-mounds-johnson-county': {
+    matchName: "C. and O. Mounds, Johnson County (approximate)",
     lat: 37.8,
     lon: -82.8,
     confidence: 'override',
@@ -1066,14 +1084,16 @@ function findHistory(story, bodyText) {
   }
 
   // search body/summary for history place names
-  const blob = norm([story.title, story.summary, bodyText].filter(Boolean).join(' '))
+  const blob = norm([story.title, story.summary, stripLinkTargets(bodyText)].filter(Boolean).join(' '))
   let best = null
   for (const [n, f] of byName) {
     if (n.length >= 8 && blob.includes(n)) {
       if (!best || n.length > best.n.length) best = { n, f }
     }
   }
-  if (best) return { feature: best.f, confidence: 'fuzzy', match: best.f.properties.name }
+  if (best && bodyMatchFitsStoryCounty(best.f, story, countyNames, centroids)) {
+    return { feature: best.f, confidence: 'fuzzy', match: best.f.properties.name }
+  }
 
   return null
 }
@@ -1088,6 +1108,8 @@ function countyFallback(text) {
   return { lon: c[0], lat: c[1], county, confidence: 'county' }
 }
 
+const STORY_PIN_OVERRIDES = JSON.parse(fs.readFileSync(path.join(__dirname, 'story-overrides.json'), 'utf8')).overrides || {}
+const HISTORY_IDS = new Set(history.map((f) => f.properties?.id).filter(Boolean))
 const locations = {}
 const stats = { exact: 0, fuzzy: 0, county: 0, override: 0, none: 0 }
 
@@ -1178,6 +1200,7 @@ for (const story of idx.stories) {
       stats.none++
     }
   }
+  applyPinLinks(loc, STORY_PIN_OVERRIDES[story.slug], HISTORY_IDS)
   locations[story.slug] = loc
   // merge onto index entry
   story.lat = loc.lat

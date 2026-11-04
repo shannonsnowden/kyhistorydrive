@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Capital, Shakers and the Early Commonwealth</name>
+    <desc>From the Old State Capitol and Liberty Hall in Frankfort to the Glenn&apos;s Creek distillery, the Shakers of Pleasant Hill, and Danville&apos;s square where Kentucky&apos;s statehood conventions met. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/capital-and-shakers/</desc>
+    <link href="https://kyhistorydrive.com/drives/capital-and-shakers/"><text>Capital, Shakers and the Early Commonwealth</text></link>
+  </metadata>
+  <wpt lat="38.2001" lon="-84.8763">
+    <name>1. Old State Capitol</name>
+    <desc>Visiting: Kentucky Historical Society site; open on set days, admission charged for tours. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.1991" lon="-84.8818">
+    <name>2. Liberty Hall Historic Site</name>
+    <desc>Visiting: Guided house tours on a seasonal schedule; admission charged. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.1128" lon="-84.8119">
+    <name>3. Glenn&apos;s Creek: James Crow and the Pepper still (at Woodford Reserve)</name>
+    <desc>Visiting: Working distillery visitor center; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="37.8188" lon="-84.7384">
+    <name>4. Shaker Village of Pleasant Hill</name>
+    <desc>Visiting: Nonprofit historic site; admission charged, many buildings open seasonally. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="37.6453" lon="-84.7708">
+    <name>5. Constitution Square Historic Site (Danville)</name>
+    <desc>Visiting: County-run park; grounds open, buildings limited hours. Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Capital, Shakers and the Early Commonwealth</name>
+    <desc>From the Old State Capitol and Liberty Hall in Frankfort to the Glenn&apos;s Creek distillery, the Shakers of Pleasant Hill, and Danville&apos;s square where Kentucky&apos;s statehood conventions met. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/capital-and-shakers/</desc>
+    <rtept lat="38.2001" lon="-84.8763">
+      <name>1. Old State Capitol</name>
+      <desc>Visiting: Kentucky Historical Society site; open on set days, admission charged for tours. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.1991" lon="-84.8818">
+      <name>2. Liberty Hall Historic Site</name>
+      <desc>Visiting: Guided house tours on a seasonal schedule; admission charged. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.1128" lon="-84.8119">
+      <name>3. Glenn&apos;s Creek: James Crow and the Pepper still (at Woodford Reserve)</name>
+      <desc>Visiting: Working distillery visitor center; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="37.8188" lon="-84.7384">
+      <name>4. Shaker Village of Pleasant Hill</name>
+      <desc>Visiting: Nonprofit historic site; admission charged, many buildings open seasonally. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="37.6453" lon="-84.7708">
+      <name>5. Constitution Square Historic Site (Danville)</name>
+      <desc>Visiting: County-run park; grounds open, buildings limited hours. Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

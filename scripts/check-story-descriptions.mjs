@@ -19,14 +19,15 @@ const stories = PrerenderPages.loadStories(root)
 const problems = []
 const unfinished = []
 const missing = []
+const shortMetas = []
 const kinds = { summary: 0, body: 0 }
 const strict = process.env.META_CHECK !== 'warn' && !process.argv.includes('--warn')
 
 const abbrevSample =
-  'He met Col. Boone and Gen. Scott c. AD 1750, with Capt. Bird, Lt. Col. Todd, near St. Asaph and Mt. Sterling, where Dr. Walker and Rev. Metcalf joined Baker Jr. and Baker Sr. at camp. Then he left.'
+  'He met Col. Boone and Gen. Scott c. AD 1750, with Capt. Bird, Lt. Col. Todd, near St. Asaph, Ste. Genevieve, and Mt. Sterling, where Dr. Walker and Rev. Metcalf joined Baker Jr. and Baker Sr. at camp. Then he left.'
 const abbrevSentences = PrerenderPages.splitSentences(abbrevSample)
-if (abbrevSentences.length !== 2 || /\b(?:Col|Gen|Capt|Lt|St|Mt|Dr|Jr|Sr|Rev|c)\.$/.test(abbrevSentences[0])) {
-  problems.push('check-story-descriptions: sentence splitter still stops on Col., Gen., c., Capt., Lt., St., Mt., Dr., Jr., Sr., or Rev.')
+if (abbrevSentences.length !== 2 || /\b(?:Col|Gen|Capt|Lt|St|Ste|Mt|Dr|Jr|Sr|Rev|c)\.$/.test(abbrevSentences[0])) {
+  problems.push('check-story-descriptions: sentence splitter still stops on Col., Gen., c., Capt., Lt., St., Ste., Mt., Dr., Jr., Sr., or Rev.')
 }
 
 for (const story of stories) {
@@ -39,6 +40,7 @@ for (const story of stories) {
     problems.push(err.message)
   }
   if (!PrerenderPages.isFinishedMeta(description)) unfinished.push(`${urlPath} (${description.length}): ${description}`)
+  if (description.length < 120) shortMetas.push(`${urlPath} (${description.length}): ${description}`)
   kinds[choice.kind] = (kinds[choice.kind] || 0) + 1
   const sp = PrerenderPages.metaSubjectPlace(story, description)
   if (!sp.subject || !sp.place) {
@@ -92,6 +94,10 @@ if (missing.length) {
   if (strict) problems.push(`check-story-descriptions: ${missing.length} meta description(s) missing subject or place`)
 }
 
+if (shortMetas.length) {
+  console.warn(`check-story-descriptions: ${shortMetas.length} meta description(s) under 120 characters (warn-only)`)
+}
+
 if (problems.length) {
   console.error(problems.slice(0, 30).join('\n'))
   console.error(`check-story-descriptions: ${problems.length} problem(s)`)
@@ -99,5 +105,5 @@ if (problems.length) {
 }
 
 console.log(
-  `check-story-descriptions: ${stories.length} story meta descriptions at most 155 characters; ${kinds.summary} from summary, ${kinds.body} from body; ${stories.length - unfinished.length} finished, ${unfinished.length} unfinished, ${missing.length} missing subject/place (${strict ? 'strict' : 'warn-only'})`,
+  `check-story-descriptions: ${stories.length} story meta descriptions at most 155 characters; ${kinds.summary} from summary, ${kinds.body} from body; ${stories.length - unfinished.length} finished, ${unfinished.length} unfinished, ${shortMetas.length} <120 chars, ${missing.length} missing subject/place (${strict ? 'strict' : 'warn-only'})`,
 )

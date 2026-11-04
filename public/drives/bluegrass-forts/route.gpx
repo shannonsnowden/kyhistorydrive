@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Bluegrass Forts and Stations</name>
+    <desc>From James Harrod&apos;s 1774 settlement to the springs where Lexington was named, then east to the stations near Winchester and Boonesborough that settlers held through the raids of 1779–1782. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/bluegrass-forts/</desc>
+    <link href="https://kyhistorydrive.com/drives/bluegrass-forts/"><text>Bluegrass Forts and Stations</text></link>
+  </metadata>
+  <wpt lat="37.762" lon="-84.8485">
+    <name>1. Old Fort Harrod State Park</name>
+    <desc>Visiting: State park; admission charged for the fort, seasonal hours. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.0549" lon="-84.5277">
+    <name>2. McConnell Springs</name>
+    <desc>Visiting: Free city park and nature area.</desc>
+  </wpt>
+  <wpt lat="38.0767" lon="-84.4113">
+    <name>3. Bryan&apos;s Station Memorial</name>
+    <desc>Visiting: Roadside memorial wall on Bryan Station Road; surrounding land is private. Marker only</desc>
+  </wpt>
+  <wpt lat="38.0089" lon="-84.2147">
+    <name>4. Capt. John Strode marker (KHS #1047)</name>
+    <desc>Visiting: Roadside marker on US 60 west of Winchester; the station site itself is not open. Marker only</desc>
+  </wpt>
+  <wpt lat="37.9181" lon="-84.2727">
+    <name>5. Lower Howard&apos;s Creek Nature &amp; Heritage Preserve (Holder&apos;s Station area)</name>
+    <desc>Visiting: Nature preserve; check access and hours before visiting. Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Bluegrass Forts and Stations</name>
+    <desc>From James Harrod&apos;s 1774 settlement to the springs where Lexington was named, then east to the stations near Winchester and Boonesborough that settlers held through the raids of 1779–1782. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/bluegrass-forts/</desc>
+    <rtept lat="37.762" lon="-84.8485">
+      <name>1. Old Fort Harrod State Park</name>
+      <desc>Visiting: State park; admission charged for the fort, seasonal hours. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.0549" lon="-84.5277">
+      <name>2. McConnell Springs</name>
+      <desc>Visiting: Free city park and nature area.</desc>
+    </rtept>
+    <rtept lat="38.0767" lon="-84.4113">
+      <name>3. Bryan&apos;s Station Memorial</name>
+      <desc>Visiting: Roadside memorial wall on Bryan Station Road; surrounding land is private. Marker only</desc>
+    </rtept>
+    <rtept lat="38.0089" lon="-84.2147">
+      <name>4. Capt. John Strode marker (KHS #1047)</name>
+      <desc>Visiting: Roadside marker on US 60 west of Winchester; the station site itself is not open. Marker only</desc>
+    </rtept>
+    <rtept lat="37.9181" lon="-84.2727">
+      <name>5. Lower Howard&apos;s Creek Nature &amp; Heritage Preserve (Holder&apos;s Station area)</name>
+      <desc>Visiting: Nature preserve; check access and hours before visiting. Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

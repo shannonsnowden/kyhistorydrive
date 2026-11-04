@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Woodford Reserve: Glenn&apos;s Creek, Versailles and Midway · Loop 1: Versailles and Midway</name>
+    <desc>Starting at Woodford Reserve on Glenn&apos;s Creek: Versailles, Jack Jouett&apos;s house, Midway&apos;s mill and cemetery, and Woodford County&apos;s rail history. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/woodford-reserve/</desc>
+    <link href="https://kyhistorydrive.com/drives/woodford-reserve/"><text>Woodford Reserve: Glenn&apos;s Creek, Versailles and Midway · Loop 1: Versailles and Midway</text></link>
+  </metadata>
+  <wpt lat="38.1133" lon="-84.8135">
+    <name>1. Woodford Reserve (Old Oscar Pepper Distillery)</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.0459" lon="-84.7598">
+    <name>2. Bluegrass Railroad and Museum</name>
+    <desc>Visiting: Seasonal excursions; tickets required. Paid admission, Limited hours</desc>
+  </wpt>
+  <wpt lat="38.0523" lon="-84.7301">
+    <name>3. Woodford County Historical Society Museum (Versailles)</name>
+    <desc>Visiting: Free museum; limited open days. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.1261" lon="-84.6369">
+    <name>4. Weisenberger Mill</name>
+    <desc>Visiting: Working mill with a small retail shop; check hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.1509" lon="-84.6875">
+    <name>5. Sons &amp; Daughters of Relief Cemetery (Midway)</name>
+    <desc>Visiting: Marker at W. Bruen and Wausau Sts.; please be respectful of burials. Marker only</desc>
+  </wpt>
+  <rte>
+    <name>Woodford Reserve: Glenn&apos;s Creek, Versailles and Midway · Loop 1: Versailles and Midway</name>
+    <desc>Starting at Woodford Reserve on Glenn&apos;s Creek: Versailles, Jack Jouett&apos;s house, Midway&apos;s mill and cemetery, and Woodford County&apos;s rail history. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/woodford-reserve/</desc>
+    <rtept lat="38.1133" lon="-84.8135">
+      <name>1. Woodford Reserve (Old Oscar Pepper Distillery)</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.0459" lon="-84.7598">
+      <name>2. Bluegrass Railroad and Museum</name>
+      <desc>Visiting: Seasonal excursions; tickets required. Paid admission, Limited hours</desc>
+    </rtept>
+    <rtept lat="38.0523" lon="-84.7301">
+      <name>3. Woodford County Historical Society Museum (Versailles)</name>
+      <desc>Visiting: Free museum; limited open days. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.1261" lon="-84.6369">
+      <name>4. Weisenberger Mill</name>
+      <desc>Visiting: Working mill with a small retail shop; check hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.1509" lon="-84.6875">
+      <name>5. Sons &amp; Daughters of Relief Cemetery (Midway)</name>
+      <desc>Visiting: Marker at W. Bruen and Wausau Sts.; please be respectful of burials. Marker only</desc>
+    </rtept>
+  </rte>
+</gpx>

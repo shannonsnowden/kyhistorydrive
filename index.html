@@ -16,39 +16,62 @@
     <meta property="og:url" content="https://kyhistorydrive.com/" />
     <meta property="og:title" content="Kentucky History Drive" />
     <meta property="og:description" content="Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers." />
-    <meta property="og:image" content="https://kyhistorydrive.com/brand/khd-logo-512.png" />
-    <meta property="og:image:secure_url" content="https://kyhistorydrive.com/brand/khd-logo-512.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
-    <meta property="og:image:alt" content="Kentucky History Drive official seal" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://kyhistorydrive.com/brand/og-home.jpg" />
+    <meta property="og:image:secure_url" content="https://kyhistorydrive.com/brand/og-home.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Big Bone Lick State Historic Site, Kentucky — Kentucky History Drive" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Kentucky History Drive" />
     <meta name="twitter:description" content="Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers." />
-    <meta name="twitter:image" content="https://kyhistorydrive.com/brand/khd-logo-512.png" />
-    <meta name="twitter:image:alt" content="Kentucky History Drive official seal" />
+    <meta name="twitter:image" content="https://kyhistorydrive.com/brand/og-home.jpg" />
+    <meta name="twitter:image:alt" content="Big Bone Lick State Historic Site, Kentucky — Kentucky History Drive" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://kyhistorydrive.com/#organization",
-        "name": "Kentucky History Drive",
-        "url": "https://kyhistorydrive.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://kyhistorydrive.com/brand/khd-logo-512.png"
-        },
-        "description": "Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "url": "https://kyhistorydrive.com/about/"
-        },
-        "founder": {
-          "@type": "Person",
-          "name": "Shannon Snowden",
-          "url": "https://kyhistorydrive.com/about/"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://kyhistorydrive.com/#organization",
+            "name": "Kentucky History Drive",
+            "url": "https://kyhistorydrive.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://kyhistorydrive.com/brand/khd-logo-512.png"
+            },
+            "description": "Explore Kentucky history on a living map: pioneers, Native nations, soldiers and distillers, with daily stories, a timeline and historical markers.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://kyhistorydrive.com/about/"
+            },
+            "founder": {
+              "@type": "Person",
+              "@id": "https://kyhistorydrive.com/about/#shannon-snowden",
+              "name": "Shannon Snowden",
+              "url": "https://kyhistorydrive.com/about/"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kyhistorydrive.com/#website",
+            "name": "Kentucky History Drive",
+            "url": "https://kyhistorydrive.com/",
+            "publisher": {
+              "@id": "https://kyhistorydrive.com/#organization"
+            },
+            "inLanguage": "en-US",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://kyhistorydrive.com/stories/?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
       }
     </script>
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -87,8 +110,12 @@
     <header class="top site-header">
       <div class="brand">
         <a href="/" class="brand-home" title="Home">
-          <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" decoding="async" />
-          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo,h=window.__khdLogoHi;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(h&&h.indexOf('/brand/')!==0)h='/brand/'+String(h).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s);if(h){im.setAttribute('srcset',s+' 176w, '+h+' 512w');im.setAttribute('sizes','(min-width: 701px) 132px, (min-width: 601px) 84px, 68px')}})()</script>
+          <picture>
+            <source media="(max-width: 1099px)" type="image/svg+xml" srcset="/brand/khd-mark-48.svg" />
+            <source media="(max-width: 1099px)" type="image/png" srcset="/brand/khd-mark-48.png 1x, /brand/khd-mark-96.png 2x" />
+            <img class="brand-logo" id="brandLogo" src="/brand/khd-logo.png" width="88" height="88" alt="" aria-hidden="true" decoding="async" />
+          </picture>
+          <script>(function(){var im=document.getElementById('brandLogo'),s=window.__khdLogo,h=window.__khdLogoHi;if(!im||!s)return;if(s.indexOf('/brand/')!==0)s='/brand/'+String(s).split('/').pop();if(h&&h.indexOf('/brand/')!==0)h='/brand/'+String(h).split('/').pop();if(im.getAttribute('src')!==s)im.setAttribute('src',s);if(h){im.setAttribute('srcset',s+' 176w, '+h+' 512w');im.setAttribute('sizes','(min-width: 1100px) 132px, 88px')}})()</script>
           <div class="brand-lockup">
             <h1>Kentucky History Drive</h1>
             <p class="tagline">History is all around us.</p>
@@ -131,14 +158,14 @@
       </div>
       <nav id="mainNav" aria-label="Primary">
         <div class="nav-search" id="navSearch">
-          <form id="siteSearchForm" role="search" action="#" autocomplete="off">
+          <form id="siteSearchForm" role="search" action="/stories/" method="get" autocomplete="off">
             <label class="visually-hidden" for="siteSearchInput">Search places and stories</label>
             <input
               type="search"
               id="siteSearchInput"
               role="combobox"
               name="q"
-              placeholder="Search places &amp; stories…"
+              placeholder="Search stories"
               enterkeyhint="search"
               autocomplete="off"
               autocorrect="off"
@@ -150,33 +177,16 @@
           </form>
           <div id="siteSearchResults" class="nav-search-results" role="listbox" hidden></div>
         </div>
-        <div class="nav-today is-reserved" id="navToday">
-          <button
-            type="button"
-            class="nav-today-btn"
-            id="navTodayBtn"
-            aria-expanded="false"
-            aria-controls="navTodayMenu"
-            aria-haspopup="true"
-            tabindex="-1"
-          >
-            Today’s stories
-            <span class="nav-today-caret" aria-hidden="true">▾</span>
-          </button>
-          <div id="navTodayMenu" class="nav-today-menu" hidden role="menu" aria-label="Today’s stories">
-            <p class="nav-today-heading">Jump to a story</p>
-            <ul class="nav-today-list" id="navTodayList"></ul>
-          </div>
-        </div>
         <a href="/" data-route="home">Home</a>
-        <a href="#map" data-route="map">Map</a>
-        <a href="#timeline" data-route="timeline">Timeline</a>
+        <a href="/stories/" data-route="stories">Stories</a>
+        <a href="/#timeline" data-route="timeline">Timeline</a>
+        <a href="/#map" data-route="map">Map</a>
         <a href="/people/" data-route="people">People</a>
         <a href="/drives/" data-route="drives">Drives</a>
         <!-- khd-roads-rails:on -->
         <a href="/roads-and-rails/" data-route="roads">Roads &amp; Rails</a>
         <!-- /khd-roads-rails:on -->
-        <a href="#about" data-route="about">About</a>
+        <a href="/about/" data-route="about">About</a>
         <button
           type="button"
           id="hpThemeToggle"
@@ -260,6 +270,7 @@
         <span class="hp-plan-drive" aria-hidden="true"><span class="hp-plan-drive-title">Plan Your Drive</span><span class="hp-plan-drive-promise">Pick a town and time; we’ll map the stops.</span><span class="hp-plan-drive-pill">Start planning →</span></span>
         </div>
         </a>
+        <p class="hp-map-strip-drive"><a href="/drives/bluegrass-forts/">Start with a drive: Bluegrass Forts (½ day) →</a></p>
         <p class="hp-map-strip-explore"><a href="#map" data-route="map">Explore the map →</a></p>
         </div>
         <div class="hp-map-strip-copy">
@@ -282,6 +293,7 @@
                   width="72"
                   height="31"
                   alt=""
+                  aria-hidden="true"
                   decoding="async"
                 />
               </span>
@@ -293,7 +305,7 @@
                   <source data-theme="dark" type="image/webp" media="(prefers-color-scheme: dark)" srcset="/maps/homepage-card/route-maps-pill-dark.webp 1x, /maps/homepage-card/route-maps-pill-dark@2x.webp 2x" />
                   <source data-theme="dark" type="image/jpeg" media="(prefers-color-scheme: dark)" srcset="/maps/homepage-card/route-maps-pill-dark.jpg 1x, /maps/homepage-card/route-maps-pill-dark@2x.jpg 2x" />
                   <source data-theme="light" type="image/webp" srcset="/maps/homepage-card/route-maps-pill-light.webp 1x, /maps/homepage-card/route-maps-pill-light@2x.webp 2x" />
-                  <img src="/maps/homepage-card/route-maps-pill-light.jpg" srcset="/maps/homepage-card/route-maps-pill-light.jpg 1x, /maps/homepage-card/route-maps-pill-light@2x.jpg 2x" width="72" height="41" alt="" loading="lazy" decoding="async" />
+                  <img src="/maps/homepage-card/route-maps-pill-light.jpg" srcset="/maps/homepage-card/route-maps-pill-light.jpg 1x, /maps/homepage-card/route-maps-pill-light@2x.jpg 2x" width="72" height="41" alt="" aria-hidden="true" loading="lazy" decoding="async" />
                 </picture>
               </span>
             <span class="hp-thumb-label">Kentucky history route maps</span>
@@ -340,20 +352,32 @@
 
     <section id="hero" class="hero" data-view="map" hidden>
       <p class="hero-welcome">
-        Explore Kentucky’s historical markers on the map, then open <a href="#timeline" data-route="timeline" class="hero-inline-link">Timeline</a> for stories by era and year.
-        Tap a pin for details; use <button type="button" id="heroZoomFullState" class="hero-inline-action" title="Reset zoom to all of Kentucky" aria-label="Reset zoom to all of Kentucky">Full state</button> to zoom back out.
+        The map opens on six places in amber. Other pins are green and group when you zoom out. Open <a href="#timeline" data-route="timeline" class="hero-inline-link">Timeline</a> for stories by era and year.
+        Turn on layers to see more. Tap a pin for details; use <button type="button" id="heroZoomFullState" class="hero-inline-action" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button> to zoom back out.
       </p>
     </section>
 
     <section id="map" class="map-section view" data-view="map" hidden>
       <aside class="controls">
+        <div id="startHereChip" class="start-here-chip">
+          <span>Start here</span>
+          <button type="button" id="startHereChipDismiss" aria-label="Dismiss Start here">✕</button>
+        </div>
+        <script>
+          try {
+            if (localStorage.getItem('khd-start-here-dismissed') === '1') {
+              document.getElementById('startHereChip').hidden = true
+            }
+          } catch (e) {}
+        </script>
         <div class="layers-panel">
           <h2 class="layers-heading">Layers</h2>
           <details class="map-help">
             <summary>How to use this map</summary>
             <div class="map-help-body">
-              <p>Start with the Kentucky Historical Society’s highway markers, then turn on more layers to see what else happened nearby.</p>
+              <p>Start here marks six places in amber. Other pins are green and group into a cluster when you are zoomed out.</p>
               <ul>
+                <li>Zoomed out, nearby pins group into a numbered cluster. Tap a cluster to zoom in.</li>
                 <li>Add history sites, national sites, Civil War and frontier war sites, museums, covered bridges, industry and mills, historic newspapers, parks, cemeteries, distilleries (mostly Bourbon), caves, and good places to eat.</li>
                 <li>Tap a pin to read its marker text or story.</li>
                 <li>Lay archaeological cultures and Native American territories under today’s markers. Both are approximate areas. “Show only” opens one nation’s map, most with a year slider.</li>
@@ -362,6 +386,15 @@
               </ul>
             </div>
           </details>
+          <div id="startHere" class="start-here">
+            <label class="ctrl layer-row start-here-row">
+              <input type="checkbox" id="startHereToggle" checked />
+              <span class="layer-icon emoji" aria-hidden="true">★</span>
+              <span>Start here</span>
+              <span class="swatch" style="background:#c9893a"></span>
+            </label>
+            <p id="startHereBlurb" class="start-here-blurb muted">Six places in amber. Other pins are green and group together when you zoom out.</p>
+          </div>
           <label class="ctrl layer-row master">
             <input type="checkbox" id="allLayers" />
             <span class="layer-icon emoji" aria-hidden="true">🗂</span>
@@ -374,11 +407,11 @@
         </div>
         <p id="stats" class="stats"></p>
         <p class="muted map-click-hint">Tap a pin on the map for details.</p>
-        <button type="button" id="zoomFullState" class="btn ghost full-state-btn">Full state</button>
+        <button type="button" id="zoomFullState" class="btn ghost full-state-btn" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </aside>
       <div class="map-canvas-wrap">
         <div id="mapCanvas" aria-label="Kentucky historical markers map"></div>
-        <button type="button" id="zoomFullStateMap" class="full-state-fab" title="Reset zoom to all of Kentucky" aria-label="Reset zoom to all of Kentucky">Full state</button>
+        <button type="button" id="zoomFullStateMap" class="full-state-fab" title="Reset zoom to all of Kentucky" aria-label="Full state: reset zoom to all of Kentucky">Full state</button>
       </div>
     </section>
 
@@ -402,10 +435,12 @@
             </button>
           </div>
           <div class="panel-head">
-            <p class="muted">Filter by era or timeframe, then open a story to read it. The map highlights the story’s location when it has one.</p>
+            <p class="muted">Filter by era or timeframe, then open a story to read it on its own page. The map shows each story’s place when it has one.</p>
           </div>
           <div id="timelineFilters" class="filters">
+            <p class="filter-label muted">Era</p>
             <div class="filter-row" id="eraChips" aria-label="Era filters"></div>
+            <p class="filter-label muted">Years</p>
             <div class="filter-row year-presets" id="yearPresets" aria-label="Year range presets"></div>
             <div class="filter-row year-clear-row">
               <button type="button" id="yearClear" class="btn ghost">Clear filters</button>
@@ -427,21 +462,13 @@
               </label>
               <p id="timelineStoriesSortMeta" class="muted stories-sort-meta"></p>
               <div class="stories-scroll-controls timeline-jump-controls" aria-label="Jump on Timeline">
-                <button type="button" id="timelineJumpFilters" class="scroll-fab nav-jump" title="Jump to filters"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Filters</span></button>
-                <button type="button" id="timelineJumpStories" class="scroll-fab nav-jump" title="Jump to story list"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Stories</span></button>
+                <button type="button" id="timelineJumpFilters" class="scroll-fab nav-jump" title="Back to filters"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Back to filters</span></button>
+                <button type="button" id="timelineJumpStories" class="scroll-fab nav-jump" title="Jump to stories"><span class="nav-jump-ico" aria-hidden="true">↓</span><span class="nav-jump-label">Jump to stories</span></button>
                 <button type="button" id="timelineJumpReset" class="scroll-fab nav-jump" title="Reset filters and show all stories"><span class="nav-jump-ico" aria-hidden="true">↺</span><span class="nav-jump-label">Reset</span></button>
               </div>
             </div>
           </div>
           <ol id="timelineList" class="timeline-list"></ol>
-          <article id="timelineStoryReader" class="story-reader is-empty" aria-live="polite"></article>
-          <div class="timeline-reader-jump" id="timelineReaderJump" hidden>
-            <button type="button" id="timelineJumpHome" class="scroll-fab nav-jump" title="Back to the home page"><span class="nav-jump-ico" aria-hidden="true">⌂</span><span class="nav-jump-label">Home</span></button>
-            <button type="button" id="timelineJumpFiltersBottom" class="scroll-fab nav-jump" title="Jump to filters"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Filters</span></button>
-            <button type="button" id="timelineJumpStoriesBottom" class="scroll-fab nav-jump" title="Jump to story list"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Stories</span></button>
-            <button type="button" id="timelineJumpTop" class="scroll-fab nav-jump" title="Back to top"><span class="nav-jump-ico" aria-hidden="true">↑</span><span class="nav-jump-label">Top</span></button>
-            <button type="button" id="timelineJumpResetBottom" class="scroll-fab nav-jump" title="Reset filters and show all stories"><span class="nav-jump-ico" aria-hidden="true">↺</span><span class="nav-jump-label">Reset</span></button>
-          </div>
         </div>
         <aside class="timeline-map-pane" id="timelineMapPane" aria-label="Timeline places map">
           <div class="timeline-map-head">
@@ -455,44 +482,6 @@
     </section>
 
 
-    <section id="about" class="view panel" data-view="about" hidden>
-      <h2>About</h2>
-      <figure class="about-seals" aria-labelledby="aboutSealsTitle">
-        <h3 class="about-seals-title" id="aboutSealsTitle">Our seals</h3>
-        <ul class="about-seals-list">
-          <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge original black edition seal" data-full-src="/brand/khd-logo-512.webp"><img class="about-seal about-seal-0" src="/brand/khd-logo-512.png" loading="lazy" data-src="/brand/khd-logo-512.png" width="160" height="160" alt="Kentucky History Drive seal, original black edition: gold lettering, Kentucky outline, a road, a historical marker and crossed muskets on black" decoding="async" /></button></li>
-          <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge navy edition seal" data-full-src="/brand/khd-logo-c-512.webp"><img class="about-seal about-seal-1" src="/brand/khd-logo-c-512.png" loading="lazy" data-src="/brand/khd-logo-c-512.png" width="160" height="160" alt="Kentucky History Drive seal, navy edition: cream center with a gold road, historical marker and crossed muskets inside a navy band with gold lettering" decoding="async" /></button></li>
-          <li><button type="button" class="about-seal-btn" aria-haspopup="dialog" aria-controls="route-map-lightbox" aria-label="Enlarge gold-rim edition seal" data-full-src="/brand/khd-logo-c2-512.webp"><img class="about-seal about-seal-2" src="/brand/khd-logo-c2-512.png" loading="lazy" data-src="/brand/khd-logo-c2-512.png" width="160" height="160" alt="Kentucky History Drive seal, gold-rim edition: cream center and navy band with gold lettering, framed by a bright gold outer rim" decoding="async" /></button></li>
-        </ul>
-        <figcaption class="about-seals-caption">One of these three seals rotates into the header on each visit. Tap a seal to enlarge it.</figcaption>
-      </figure>
-      <p>
-        Kentucky History Drive helps you explore Kentucky’s historical highway markers on a map,
-        and browse Kentucky history stories on a timeline by era and year. An iPhone app is coming soon.
-      </p>
-      <h3 class="about-credits-heading">Credits</h3>
-      <ul class="about-credits">
-        <li>Marker text and locations: Kentucky Historical Society / <a href="https://history.ky.gov/markers" target="_blank" rel="noopener">history.ky.gov</a></li>
-        <li>Map rendering: <a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre GL JS</a></li>
-        <li>Basemap tiles: <a href="https://carto.com/basemaps/" target="_blank" rel="noopener">CARTO</a> Voyager (OpenStreetMap data)</li>
-        <li>Map data: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</li>
-        <li>State outline: Natural Earth</li>
-        <li>Stories: Kentucky history for the KY History Drive project</li>
-        <li>Layer places (history, museums, parks, and more): Kentucky History Drive project data</li>
-      </ul>
-      <p class="muted about-app-data">
-        iOS app data:
-        <a href="/data/app/ky-history-manifest.json">/data/app/</a>
-      </p>
-    </section>
-
-    <section id="app" class="view panel" data-view="app" hidden>
-      <h2>iPhone app</h2>
-      <p>
-        Our iPhone app is coming soon. We’ll link it here when it’s live.
-      </p>
-    </section>
-
     <section id="resources" class="view panel hp-resources" data-view="resources" hidden>
       <h2>Kentucky history resources</h2>
       <p class="muted">
@@ -504,14 +493,22 @@
     </main>
 
     <footer class="foot">
-      <span>kyhistorydrive.com</span>
-      <a href="/about/">About</a>
-      <a href="/people/">People</a>
-      <a href="/videos/">Videos</a>
-      <a href="/routes/">Kentucky history route maps</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
-      <span>Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</span>
+      <div class="foot-copy">kyhistorydrive.com · Data © Kentucky Historical Society (public markers) · Map © OpenStreetMap contributors</div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/stories/" data-route="stories">Stories</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#map" data-route="map">Map</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#timeline" data-route="timeline">Timeline</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/people/" data-route="people">People</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/drives/" data-route="drives">Drives</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/routes/">Kentucky history route maps</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/videos/" data-route="videos">Videos</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/#resources" data-route="resources">Resources</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/about/" data-route="about">About</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/editorial/" data-route="editorial">Editorial</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/contact/" data-route="contact">Contact</a><span class="foot-sep" aria-hidden="true">·</span>
+        <a href="/privacy/">Privacy</a>
+        <a href="/privacy/" data-privacy-choices hidden>Privacy choices</a>
+      </nav>
     </footer>
 
     <script src="/route-map-lightbox.js" defer></script>

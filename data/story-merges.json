@@ -1,0 +1,12 @@
+{
+  "_about": "KY History's duplicate-story merges (v2 Phase 2, #337). Each retired slug 301s to the kept page; the kept page is protected if either source was. Source: cleanup plan Oct 19, 2026, Appendix B.",
+  "merges": [
+    { "retired": "capt-jack-jouett", "kept": "jack-jouett-kentuckys-midnight-rider" },
+    { "retired": "yellow-banks-becomes-owensboro", "kept": "owensboro-yellow-banks" },
+    { "retired": "camp-nelson-jessamine-county", "kept": "camp-nelson-kentucky-us-colored-troops" },
+    { "retired": "peter-village-early-woodland-enclosure-near-lexington", "kept": "peter-village-enclosure-15fa166" },
+    { "retired": "chickamauga-cherokee-hold-the-southern-flank", "kept": "chickamauga-cherokee" },
+    { "retired": "jacob-beam-sells-old-jakes-first-barrel", "kept": "jacob-beam-on-hardin-creek" },
+    { "retired": "wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid", "kept": "wea-waayaahtanwa-on-the-wabash" }
+  ]
+}

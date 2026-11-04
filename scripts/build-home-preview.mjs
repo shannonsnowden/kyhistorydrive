@@ -249,18 +249,23 @@ function curatedFileBase(id, row) {
   return base || id
 }
 
-function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
+export function curatedPublicPhoto(id, row, publicDir = '/content/photos/stories') {
   const ext = row.ext || 'jpg'
   const base = curatedFileBase(id, row)
-  return {
+  const photo = {
     image_url: `${publicDir}/${base}.${ext}`,
     title: row.title,
     source_url: row.source_url,
     source_label: row.source_label || 'Wikimedia Commons',
     attribution: row.attribution,
     year: row.year || null,
-    ...(row.cardThumb === false ? { cardThumb: false } : {}),
   }
+  // CC BY-SA credits must survive the build (Muir storage jar, Herb Roe).
+  for (const k of ['credit', 'license', 'license_url', 'artwork']) {
+    if (row[k]) photo[k] = row[k]
+  }
+  if (row.cardThumb === false) photo.cardThumb = false
+  return photo
 }
 
 function vendorCandidateUrls(row) {
@@ -474,7 +479,7 @@ function editorPackQuote(doc, hero) {
     return {
       slug: pin.slug,
       pinned: pin.allowsHero,
-      href: `/#timeline/${encodeURIComponent(pin.slug)}`,
+      href: `/stories/${encodeURIComponent(pin.slug)}/`,
     }
   }
   return hero?.quote ? { text: hero.quote, source: hero.title, href: hero.href } : null
@@ -563,7 +568,7 @@ async function main() {
       yearStart: full.yearStart ?? meta.yearStart ?? null,
       county: full.county || meta.county || null,
       briefDate: full.briefDate || meta.briefDate || briefDate,
-      href: `/#timeline/${encodeURIComponent(slug)}`,
+      href: `/stories/${encodeURIComponent(slug)}/`,
       place: loc.matchedPlace || null,
       lat,
       lon,
@@ -591,9 +596,13 @@ async function main() {
     }
   }
 
+  // #345: the homepage shows only stories with a photo. A no-photo story (e.g. a protected site such as
+  // C&O Mounds) is skipped, so each build yields the same hero set without a hand restore.
   const withPhotos = cards.filter((c) => c.photo?.image_url)
-  const hero = withPhotos[0] || cards[0] || null
-  const features = cards.filter((c) => c !== hero)
+  const skipped = cards.filter((c) => !c.photo?.image_url).map((c) => c.slug)
+  if (skipped.length) console.log(`home-preview: skipped ${skipped.length} story(ies) with no photo: ${skipped.join(', ')}`)
+  const hero = withPhotos[0] || null
+  const features = withPhotos.filter((c) => c !== hero)
 
   let persisted = 0
   for (const card of cards) {
@@ -648,7 +657,7 @@ async function main() {
     displayDate: formatDisplayDate(briefDate),
     howToRefresh:
       'Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.',
-    stories: cards,
+    stories: withPhotos,
     hero,
     features,
     layers,
@@ -662,11 +671,14 @@ async function main() {
   fs.writeFileSync(out, `${JSON.stringify(pack, null, 2)}\n`)
   const photoCount = [hero, ...features, ...layers].filter((x) => x?.photo?.image_url).length
   console.log(
-    `Wrote ${out} (${briefDate}, ${cards.length} stories, ${photoCount} photos; persisted ${persisted} story photos, index ${photoIndex?.slugCount || 0}, stories.json +${indexPatched})`,
+    `Wrote ${out} (${briefDate}, ${withPhotos.length} stories, ${photoCount} photos; persisted ${persisted} story photos, index ${photoIndex?.slugCount || 0}, stories.json +${indexPatched})`,
   )
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+const isDirect = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
+if (isDirect) {
+  main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+}

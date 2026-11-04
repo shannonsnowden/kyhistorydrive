@@ -260,7 +260,7 @@ How to use: each section lists what the map currently claims (years, confidence,
 - Confidence: low-medium
 - presenceLabel: Ojibwe and Odawa war road, June 1780
 - basis: Wikipedia (Bird's invasion of Kentucky) for the route and the ~100 Odawa and Ojibwe, ExploreKYHistory #591, Greenville Art. 3 for Loramie's store. Route drawn on base-map river centrelines.
-- overlapNote: The route followed the Great Miami through Shawnee country and the Licking through the northern Kentucky hunting grounds (Henderson). Bird’s force also had Delaware, Wyandot and Shawnee (ExploreKYHistory lists Delaware, Shawnee, Ottawa, Chippewa and Huron).
+- overlapNote: The route followed the Great Miami through Shawnee country and the Licking through the northern Kentucky hunting grounds (Henderson). Bird’s force also had Delaware, Wyandot and Shawnee, and [Delaware, Shawnee, Ottawa, Chippewa and Huron](https://explorekyhistory.ky.gov/items/show/591).
 - Sources:
   - [Bird's invasion of Kentucky (Wikipedia)](https://en.wikipedia.org/wiki/Bird%27s_invasion_of_Kentucky) (HTTP 200)
   - [British, Indian Raid (ExploreKYHistory #591)](https://explorekyhistory.ky.gov/items/show/591) (HTTP 200)

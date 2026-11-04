@@ -1,16 +1,23 @@
 #!/usr/bin/env node
 /**
- * Fails the build when a customHttp.yml pattern drops one of the six security
+ * Fails the build when a customHttp.yml pattern drops one of the seven security
  * headers or changes its value. Specific Amplify patterns do not inherit '**',
  * so each block is checked on its own. Fixtures prove a weakened HSTS max-age
  * in one block, and a /feed.xml block missing X-Frame-Options, both fail.
+ * CSP stays report-only. The report URL is the unset csp-collector.invalid host.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+// Unset on purpose. .invalid does not resolve (RFC 2606), so reports are not
+// delivered to a host that discards them. Replace this when a real collector
+// exists. See docs/SECURITY-HEADERS.md.
+export const CSP_REPORT_GROUP = 'csp-endpoint'
+export const CSP_REPORT_ENDPOINT = 'https://csp-collector.invalid/csp-reports'
+export const REPORTING_ENDPOINTS = `${CSP_REPORT_GROUP}="${CSP_REPORT_ENDPOINT}"`
+const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://googleads.g.doubleclick.net https://*.gstatic.com https://adservice.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://upload.wikimedia.org https://media.historypin.org https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com https://*.adtrafficquality.google; connect-src 'self' https://*.google-analytics.com https://region1.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://*.googlesyndication.com https://*.g.doubleclick.net https://fundingchoicesmessages.google.com https://adservice.google.com https://*.gstatic.com https://*.adtrafficquality.google https://www.google.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://en.wikipedia.org https://commons.wikimedia.org; media-src 'self' blob: https://kyhistorydrive-videos.s3.us-east-1.amazonaws.com; frame-src 'self' https://*.g.doubleclick.net https://*.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.adtrafficquality.google; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; report-to " + CSP_REPORT_GROUP + '; report-uri ' + CSP_REPORT_ENDPOINT
 
 export const SECURITY_HEADERS = [
   ['Strict-Transport-Security', 'max-age=31536000; includeSubDomains'],
@@ -19,6 +26,7 @@ export const SECURITY_HEADERS = [
   ['Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'],
   ['X-Frame-Options', 'SAMEORIGIN'],
   ['Content-Security-Policy-Report-Only', CSP],
+  ['Reporting-Endpoints', REPORTING_ENDPOINTS],
 ]
 
 export const DRIVES_PATTERN = "'/drives/**'"
@@ -38,6 +46,48 @@ export function patternBlocks(text) {
   })
 }
 
+// Editor ruling (#345): amplify.yml keeps only these 301s. The four slashless rules the console lacks,
+// plus 7 retired block-f slugs x slash/no slash. Every other 301 lives in the Amplify console.
+const SLASHLESS_KEPT = ['/about', '/videos', '/timeline', '/drives']
+const OLD_SLUG_301S = [
+  ['capt-jack-jouett', 'jack-jouett-kentuckys-midnight-rider'],
+  ['yellow-banks-becomes-owensboro', 'owensboro-yellow-banks'],
+  ['camp-nelson-jessamine-county', 'camp-nelson-kentucky-us-colored-troops'],
+  ['peter-village-early-woodland-enclosure-near-lexington', 'peter-village-enclosure-15fa166'],
+  ['chickamauga-cherokee-hold-the-southern-flank', 'chickamauga-cherokee'],
+  ['jacob-beam-sells-old-jakes-first-barrel', 'jacob-beam-on-hardin-creek'],
+  ['wea-towns-at-ouiatenon-and-scotts-1791-kentucky-raid', 'wea-waayaahtanwa-on-the-wabash'],
+  ['red-bird-river-petroglyphs-clay-county', 'red-bird-petroglyphs-clay-county'], // Editor ruling #346: county-level slug
+  ['muir-site-early-fort-ancient-on-a-jessamine-ridge', 'muir-site-early-fort-ancient'],
+  // Console rule used to land on the ridge slug (a second hop). One hop to the county slug.
+  ['muir-site-15js86', 'muir-site-early-fort-ancient'],
+  ['buckner-site-fort-ancient-villages-on-strodes-creek', 'buckner-site-fort-ancient-villages'],
+  ['lower-shawneetown-at-the-scioto-mouth', 'lower-shawneetown-greenup-county'],
+  ['the-c-and-o-mounds-at-paintsville', 'the-c-and-o-mounds-johnson-county'],
+  ['indian-knoll-on-the-green-river', 'indian-knoll-ohio-county'],
+  ['singer-hieronymus-fort-ancient-villages-on-north-elkhorn', 'singer-hieronymus-fort-ancient-villages'],
+  ['rowlandton-mound-site-15mcn3-paducah', 'rowlandton-mound-site-15mcn3'],
+  ['howard-site-late-fort-ancient-above-harts-fork', 'howard-site-late-fort-ancient'],
+  ['tolu-site-mississippian-mounds-on-the-lower-ohio', 'tolu-site-mississippian-mounds'],
+]
+export const REDIRECT_ALLOWLIST = [
+  ...SLASHLESS_KEPT.map((p) => `${p}->${p}/:301`),
+  ...OLD_SLUG_301S.flatMap(([from, to]) => [`/stories/${from}->/stories/${to}/:301`, `/stories/${from}/->/stories/${to}/:301`]),
+].sort()
+
+export function redirectProblems(amplify) {
+  const problems = []
+  const got = [...amplify.matchAll(/-\s*source:\s*'([^']*)'\s*\n\s*target:\s*'([^']*)'\s*\n\s*status:\s*'(30[1278])'/g)]
+    .map((m) => `${m[1]}->${m[2]}:${m[3]}`)
+  const allowed = new Set(REDIRECT_ALLOWLIST)
+  for (const r of got) if (!allowed.has(r)) problems.push(`amplify.yml redirect ${r} is not in the allowlist (move it to the Amplify console)`)
+  for (const r of REDIRECT_ALLOWLIST) if (!got.includes(r)) problems.push(`amplify.yml is missing required redirect ${r}`)
+  if (new Set(got).size !== got.length) problems.push('amplify.yml has duplicate redirect rules')
+  const statusCount = (amplify.match(/status:\s*'30[1278]'/g) || []).length
+  if (statusCount !== REDIRECT_ALLOWLIST.length) problems.push(`amplify.yml has ${statusCount} redirect statuses; expected ${REDIRECT_ALLOWLIST.length}`)
+  return problems
+}
+
 function headerValues(block, key) {
   const re = new RegExp(`- key: '${key}'\\n\\s*value: (?:'([^']*)'|"([^"]*)")`, 'g')
   const values = []
@@ -45,7 +95,7 @@ function headerValues(block, key) {
   return values
 }
 
-/** Problems for the six exact security headers. Empty means every block is complete. */
+/** Problems for the seven exact security headers. Empty means every block is complete. */
 export function checkPatternBlocks(text) {
   const blocks = patternBlocks(text)
   if (!blocks.length) return ['customHttp has no pattern blocks']
@@ -120,20 +170,18 @@ function main() {
     fail('missing value: \'public, max-age=0, s-maxage=60, must-revalidate\'')
   }
 
-  // Item 90: the 301s live in the Amplify console; amplify.yml keeps the 200 rewrites plus exactly
-  // four slashless 301s the console does not have (/about, /videos, /timeline, /drives).
-  {
-    const kept = ['/about', '/videos', '/timeline', '/drives']
-    const redirects = [...amplify.matchAll(/-\s*source:\s*'([^']*)'\s*\n\s*target:\s*'([^']*)'\s*\n\s*status:\s*'(30[1278])'/g)]
-      .map((m) => ({ source: m[1], target: m[2], status: m[3] }))
-    const got = redirects.map((r) => `${r.source}->${r.target}:${r.status}`).sort()
-    const want = kept.map((p) => `${p}->${p}/:301`).sort()
-    if (JSON.stringify(got) !== JSON.stringify(want)) fail(`amplify.yml redirect rules must be exactly ${want.join(', ')}; found ${got.join(', ') || 'none'} (item 90)`)
-    const statusCount = (amplify.match(/status:\s*'30[1278]'/g) || []).length
-    if (statusCount !== kept.length) fail(`amplify.yml has ${statusCount} redirect statuses; expected ${kept.length} (item 90)`)
-  }
+  // Item 90 + Editor ruling #345: amplify.yml 301s are an explicit allowlist; anything else fails.
+  for (const p of redirectProblems(amplify)) fail(p)
 
   const blocks = patternBlocks(customHttp)
+  const driveGpx = blocks.find((block) => block.pattern === "'/drives/**/*.gpx'")
+  const routeGpx = blocks.find((block) => block.pattern === "'/maps/routes/**/*.gpx'")
+  if (!driveGpx) fail('customHttp.yml is missing /drives/**/*.gpx')
+  else if (!headerValues(driveGpx.text, 'X-Robots-Tag').includes('noindex')) fail('/drives/**/*.gpx is missing X-Robots-Tag noindex')
+  if (!routeGpx) fail('customHttp.yml is missing /maps/routes/**/*.gpx')
+  else if (driveGpx && headerValues(driveGpx.text, 'X-Robots-Tag').join('|') !== headerValues(routeGpx.text, 'X-Robots-Tag').join('|')) {
+    fail('/drives/**/*.gpx X-Robots-Tag does not match /maps/routes/**/*.gpx')
+  }
   const feed = blocks.find((block) => block.pattern === "'/feed.xml'")
   if (!feed) fail('customHttp.yml is missing /feed.xml')
   else if (!feed.text.includes("value: 'application/rss+xml; charset=utf-8'")) {
@@ -144,7 +192,7 @@ function main() {
     console.error(`check-security-headers: ${failures.length} problem(s)`)
     process.exit(1)
   }
-  console.log(`check-security-headers: ${blocks.length} patterns each have the six security headers; fixtures caught a weak HSTS block and a /feed.xml block missing X-Frame-Options`)
+  console.log(`check-security-headers: ${blocks.length} patterns each have the seven security headers; CSP reports target the unset endpoint ${CSP_REPORT_ENDPOINT}; fixtures caught a weak HSTS block and a /feed.xml block missing X-Frame-Options`)
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)

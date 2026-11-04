@@ -45,6 +45,9 @@ export const PORTRAIT_ALTS = {
   'george-rogers-clark': 'AI illustration of George Rogers Clark, after his c. 1810 portrait by C. D. Cook',
   'john-bradford': 'AI illustration of John Bradford, printer of the Kentucke Gazette',
   moluntha: 'AI illustration of Moluntha, elderly Mekoche Shawnee civil chief, about 1786',
+  blackfish: 'AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778',
+  'blue-jacket': 'AI illustration of Blue Jacket (Weyapiersenwah), Shawnee war chief, about 1787',
+  egushawa: 'AI illustration of Egushawa, Odawa war leader, about 1780',
   'robert-johnson': "AI illustration of Robert Johnson, founder of Johnson's Station, about 1783",
   // Item 69: related-box people and Jack Jouett.
   'john-todd': "AI illustration of John Todd, Kentucky militia colonel, about 1782",
@@ -106,7 +109,17 @@ export const PORTRAIT_ALTS = {
   'william-campbell': "AI illustration of William Campbell, Kings Mountain commander, about 1780",
   'william-fleming': "AI illustration of Col. William Fleming, physician-soldier, about 1780",
   'william-preston': "AI illustration of William Preston, Fincastle surveyor, about 1772",
+  // River Raisin: modeled on the Earl oil, c. 1817. A real likeness exists.
+  'james-winchester': 'AI illustration of Brig. Gen. James Winchester, about age 60 at River Raisin, 1813, modeled on the Ralph E.W. Earl portrait',
+  // Susannah Hart Shelby v1 (Oct 2026). None-known.
+  'susannah-shelby': 'AI illustration of Susannah Hart Shelby, Kentucky first First Lady, about 1792–95',
   'george-garvin-brown': 'Portrait photograph of George Garvin Brown, founder of Brown-Forman, about 1905',
+  // Approvals 111: Rice Wave 1 (Oct 2026). All v1, none-known.
+  'abraham-lincoln-capt': "AI illustration of Capt. Abraham Lincoln, the president's grandfather, about 1784",
+  'henry-bird': 'AI illustration of Henry Bird, British officer on the 1780 Kentucky expedition',
+  'robert-tyler': 'AI illustration of Robert Tyler, co-founder of Tyler Station, about 1781',
+  'william-caldwell': "AI illustration of Capt. William Caldwell of Butler's Rangers, about 1782",
+  'edward-worthington': "AI illustration of Edward Worthington, founder of Worthington's Fort, about 1780",
 }
 
 export function portraitAlt(person) {

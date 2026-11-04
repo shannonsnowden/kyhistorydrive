@@ -30,16 +30,6 @@
     "attribution": "Hammer51012 · Wikimedia Commons · CC BY-SA 2.0",
     "year": 2008
   },
-  "adams-site-15fu4": {
-    "ext": "jpg",
-    "commonsFile": "Hickman_Carnegie_Library.jpg",
-    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Hickman_Carnegie_Library.jpg/1280px-Hickman_Carnegie_Library.jpg",
-    "title": "Hickman Carnegie Library, Fulton County",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Hickman_Carnegie_Library.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · Public domain",
-    "year": 2013
-  },
   "henry-mckennas-fairfield-sour-mash": {
     "ext": "jpg",
     "commonsFile": "Fairfield-KY48-ky.jpg",
@@ -63,19 +53,6 @@
     "credit": "George Caleb Bingham",
     "license": "Public domain",
     "artwork": "painting"
-  },
-  "peter-village-early-woodland-enclosure-near-lexington": {
-    "ext": "jpg",
-    "commonsFile": "Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "title": "Peter Village enclosure (Squier & Davis 1848)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Peter_Village_enclosure_Squier_and_Davis_Plate_XIV_Figure_3.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Ephraim George Squier and Edwin Hamilton Davis · Wikimedia Commons · Public domain",
-    "year": 1848,
-    "credit": "Ephraim George Squier and Edwin Hamilton Davis",
-    "license": "Public domain",
-    "artwork": "engraving"
   },
   "isaac-ruddell-and-the-guns-at-ruddells-station": {
     "ext": "jpg",
@@ -155,16 +132,6 @@
     "attribution": "Day tripper · Wikimedia Commons · Public domain",
     "year": null
   },
-  "tolu-site-mississippian-mounds-on-the-lower-ohio": {
-    "ext": "jpg",
-    "commonsFile": "Wickliffe_Mound_SHS,_KY.jpg",
-    "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Wickliffe_Mound_SHS%2C_KY.jpg/1280px-Wickliffe_Mound_SHS%2C_KY.jpg",
-    "title": "Wickliffe Mounds (peer Angel-phase / Kincaid Set site)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_SHS,_KY.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 4.0",
-    "year": null
-  },
   "jenny-wileys-captivity-and-escape": {
     "ext": "jpg",
     "commonsFile": "Dewey_Lake_fall.jpg",
@@ -191,16 +158,6 @@
     "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Cat-Nation.png",
     "title": "Erie / Cat Nation territory (historical map)",
     "source_url": "https://commons.wikimedia.org/wiki/File:Cat-Nation.png",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons",
-    "year": null
-  },
-  "buckner-site-fort-ancient-villages-on-strodes-creek": {
-    "ext": "jpg",
-    "commonsFile": "Paris_Kentucky.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Paris_Kentucky.jpg",
-    "title": "Paris, Bourbon County (nearest city to Buckner Site)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Paris_Kentucky.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Wikimedia Commons",
     "year": null
@@ -286,16 +243,6 @@
     "credit": "Unknown photographer",
     "license": "Public domain"
   },
-  "sweet-lick-knob-fort-ancient-gathering-place": {
-    "ext": "jpg",
-    "commonsFile": "Estill_County,_Kentucky_courthouse.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Estill_County%2C_Kentucky_courthouse.jpg/1280px-Estill_County%2C_Kentucky_courthouse.jpg",
-    "title": "Estill County Courthouse, Irvine",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Estill_County,_Kentucky_courthouse.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons · Public domain",
-    "year": null
-  },
   "falmouth-at-the-licking-forks": {
     "ext": "jpg",
     "commonsFile": "Pendleton_County_Courthouse,_Main_Street_and_Shelby_Street,_Falmouth,_KY.jpg",
@@ -338,16 +285,6 @@
     "credit": "Unknown photographer",
     "license": "Public domain"
   },
-  "slack-farm-15un28-union-county": {
-    "ext": "jpg",
-    "commonsFile": "Uniontown-Ohio-River-ky.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Uniontown-Ohio-River-ky.jpg/1280px-Uniontown-Ohio-River-ky.jpg",
-    "title": "Ohio River at Uniontown, Union County — the floodplain setting of Slack Farm",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Uniontown-Ohio-River-ky.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Brian Stansberry · Wikimedia Commons · CC BY 4.0",
-    "year": 2020
-  },
   "the-travelling-church-1781": {
     "ext": "jpg",
     "commonsFile": "Roadside_marker_with_hilltop_church_site_behind.JPG",
@@ -388,24 +325,11 @@
     "attribution": "Christopher L. Riley · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2020
   },
-  "egushawa-and-the-odawa-in-kentuckys-war-years": {
-    "ext": "jpg",
-    "commonsFile": "Treaty of Greenville.jpg",
-    "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Treaty_of_Greenville.jpg/1280px-Treaty_of_Greenville.jpg",
-    "title": "Treaty of Greenville (1795) — Egushawa was among the Odawa signers",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
-    "year": "about 1795",
-    "credit": "Unidentified painter",
-    "license": "Public domain",
-    "artwork": "painting"
-  },
   "cloudsplitter-rockshelter-menifee-county": {
     "ext": "jpg",
     "commonsFile": "Red river gorge (1698844416).jpg",
     "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Red_river_gorge_%281698844416%29.jpg/1280px-Red_river_gorge_%281698844416%29.jpg",
-    "title": "Sandstone cliffs in the Red River Gorge Geological Area",
+    "title": "Sandstone outcrop in eastern Kentucky",
     "source_url": "https://commons.wikimedia.org/wiki/File:Red_river_gorge_(1698844416).jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "Ken Lund · Wikimedia Commons · CC BY-SA 2.0",
@@ -440,19 +364,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Nicknimh · Wikimedia Commons · CC BY 4.0",
     "year": 2016
-  },
-  "singer-hieronymus-fort-ancient-villages-on-north-elkhorn": {
-    "ext": "jpg",
-    "commonsFile": "Fort Ancient Tools and other artifacts HRoe 2011.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg?width=1000",
-    "title": "Fort Ancient artifacts (bone awls, beads, pipes, chunkey discoidals) on display in Maysville, Kentucky",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Ancient_Tools_and_other_artifacts_HRoe_2011.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2011,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "quapaw-the-downstream-people-of-the-ohio-valley": {
     "ext": "jpg",
@@ -497,19 +408,6 @@
     "attribution": "Ruhrfisch (US Census) · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2007
   },
-  "dover-mound-mason-county": {
-    "ext": "jpg",
-    "commonsFile": "Adena SerpMd gorget points HRoe 2009.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Adena_SerpMd_gorget_points_HRoe_2009.jpg?width=1280",
-    "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-  },
   "bryan-station-siege-august-1782": {
     "ext": "jpg",
     "commonsFile": "Bryan's Station.jpg",
@@ -549,19 +447,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Acroterion · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2016
-  },
-  "croley-evans-site": {
-    "ext": "jpg",
-    "commonsFile": "Wickliffe Pottery artifacts HRoe 02.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Pottery_artifacts_HRoe_02.jpg?width=1280",
-    "title": "Mississippian pottery from Wickliffe Mounds (western Kentucky) — an illustration of Mississippian ceramics, not from Croley-Evans (15KX24; address restricted)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_02.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "mammoth-cave-saltpeter": {
     "ext": "jpg",
@@ -603,29 +488,6 @@
     "attribution": "Preston County · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2019
   },
-  "twin-mounds-site": {
-    "ext": "jpg",
-    "commonsFile": "Wickliffe_Mound_A_HRoe.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Mound_A_HRoe.jpg?width=1280",
-    "title": "Wickliffe Mound A — contemporary Mississippian neighbor a few miles southeast of Twin Mounds (15Ba2); not the Twin Mounds earthworks themselves",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mound_A_HRoe.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-  },
-  "nonhelema": {
-    "ext": "jpg",
-    "commonsFile": "Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg?width=1280",
-    "title": "Scioto–Ohio confluence at Portsmouth — Lower Shawneetown corridor where Nonhelema held mid-century influence (Kentucky shore opposite)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Scioto_River-Ohio_River_confluence_(Portsmouth,_Ohio,_USA)_2_(46891619805).jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "James St. John · Wikimedia Commons · CC BY 2.0",
-    "year": 2019
-  },
   "mcafee-station-on-the-salt-river": {
     "ext": "jpg",
     "commonsFile": "New_Providence_Presbyterian_Church.JPG",
@@ -645,32 +507,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Greg Hume · Wikimedia Commons · CC BY-SA 3.0",
     "year": 2011
-  },
-  "blue-jacket-weyapiersenwah": {
-    "ext": "jpg",
-    "commonsFile": "Treaty_of_Greenville.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Treaty_of_Greenville.jpg?width=1280",
-    "title": "Treaty of Greenville (1795) — Blue Jacket among Shawnee leaders who signed after Fallen Timbers",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Greenville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Unidentified painter · Wikimedia Commons · Public domain",
-    "year": "about 1795",
-    "credit": "Unidentified painter",
-    "license": "Public domain",
-    "artwork": "painting"
-  },
-  "slone-site-15pi11-pike-county": {
-    "ext": "jpg",
-    "commonsFile": "Stone_discoidals_SOMACC_HRoe_2010.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Stone_discoidals_SOMACC_HRoe_2010.jpg?width=1280",
-    "title": "Stone discoidals (chunkey pieces) — Slone yielded 150+ discoidals; museum examples from Ohio Fort Ancient collections (not Slone artifacts)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Stone_discoidals_SOMACC_HRoe_2010.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "louisville-nashville-railroad-opens-the-interior": {
     "ext": "jpg",
@@ -712,19 +548,6 @@
     "attribution": "Victoria Stauffenberg / NPGallery · Wikimedia Commons · public domain",
     "year": 2022
   },
-  "andalex-village-15hk22-hopkins-county": {
-    "ext": "jpg",
-    "commonsFile": "Wickliffe_Pottery_artifacts_HRoe_01.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Pottery_artifacts_HRoe_01.jpg?width=1280",
-    "title": "Mississippian artifacts on display at Wickliffe Mounds (Ballard County)—a regional stand-in, not from Andalex",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Pottery_artifacts_HRoe_01.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2010,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
-  },
   "louisville-and-portland-canal": {
     "ext": "jpg",
     "commonsFile": "Barge_hauling_coal,_Louisville_and_Portland_Canal.jpg",
@@ -764,19 +587,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "J. E. Daniel & G. D. Rawlings / Kentucky Transportation Cabinet (HAER) · Wikimedia Commons · public domain",
     "year": null
-  },
-  "rowlandton-mound-site-15mcn3-paducah": {
-    "ext": "jpg",
-    "commonsFile": "Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg?width=1280",
-    "title": "The Rowlandton platform mound in Paducah, with a pit dug by archaeologists",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Rowlandtown_Mound_with_pit_dug_by_archaeologists_HRoe_2003_01.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2003,
-    "credit": "Herb Roe",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "hidden-river-cave-under-horse-cave": {
     "ext": "jpg",
@@ -874,11 +684,11 @@
     "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
     "year": 2008
   },
-  "red-bird-river-petroglyphs-clay-county": {
+  "red-bird-petroglyphs-clay-county": {
     "ext": "jpg",
     "commonsFile": "RedBirdMcC5.jpg",
     "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/RedBirdMcC5.jpg?width=1280",
-    "title": "The Red Bird inscription in place above the Red Bird River, about 1988, before it fell",
+    "title": "The Red Bird inscription in place in Clay County, about 1988, before it fell",
     "source_url": "https://commons.wikimedia.org/wiki/File:RedBirdMcC5.jpg",
     "source_label": "Wikimedia Commons",
     "attribution": "HuMcCulloch · Wikimedia Commons · CC BY-SA 4.0",
@@ -925,12 +735,12 @@
   },
   "old-fort-earthworks-15gp1-greenup-county": {
     "ext": "jpg",
-    "commonsFile": "Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg?width=1280",
-    "title": "A surviving wall of Portsmouth Earthworks Group A in South Portsmouth (photographed 2012)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Portsmouth_Earthworks,_Group_A,_wall_remnant.jpg",
+    "commonsFile": "Pipe_MET_DT262939.jpg",
+    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pipe_MET_DT262939.jpg?width=1280",
+    "title": "A Hopewell platform pipe (Metropolitan Museum of Art, CC0); stand-in, not a photograph of the Greenup County enclosure",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pipe_MET_DT262939.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "attribution": "The Metropolitan Museum of Art · Wikimedia Commons · CC0",
     "year": 2012
   },
   "cane-ridge-meeting-house-and-the-1801-camp-meeting": {
@@ -1115,28 +925,6 @@
     "attribution": "Nyttend · Wikimedia Commons · public domain",
     "year": 2017
   },
-  "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief": {
-    "ext": "jpg",
-    "commonsFile": "Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper's_Weekly_June_1887.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg?width=1280",
-    "title": "Defenders in the Siege of Boonesborough, Howard Pyle engraving in Harper’s Weekly, June 1887 (illustration, not a life portrait of Blackfish)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Defenders_In_Siege_Of_Boonesborough_H_Pyle_Harper%27s_Weekly_June_1887.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Howard Pyle, Harper's Weekly · Wikimedia Commons · Public domain",
-    "year": 1887,
-    "credit": "Howard Pyle, Harper's Weekly",
-    "license": "Public domain",
-    "artwork": "print"
-  },
-  "tinsley-hill-15ly18-lyon-county": {
-    "ext": "jpg",
-    "commonsFile": "Kentucky_and_Barkley_Lakes_aerial_view.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kentucky_and_Barkley_Lakes_aerial_view.jpg?width=1280",
-    "title": "Aerial view of Kentucky Lake and Lake Barkley (U.S. Army Corps of Engineers); stand-in — Tinsley Hill (15Ly18) now lies under Lake Barkley, and no surface photo of the site survives",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Kentucky_and_Barkley_Lakes_aerial_view.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "George Green, U.S. Army Corps of Engineers · Wikimedia Commons · public domain"
-  },
   "burlington-boone-county-seat": {
     "ext": "jpg",
     "commonsFile": "Boone_County_Courthouse,_Burlington,_KY.jpg",
@@ -1177,29 +965,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Nyttend · Wikimedia Commons · public domain",
     "year": 2012
-  },
-  "moluntha-and-logans-raid-1786": {
-    "ext": "jpg",
-    "commonsFile": "Logans_Raid.png",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Logans_Raid.png?width=1280",
-    "title": "Map of Logan’s Raid into the Ohio Country, 1786 (modern map, 2021)",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Logans_Raid.png",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Kevin1776 · Wikimedia Commons · CC BY-SA 4.0",
-    "year": 2021,
-    "credit": "Kevin1776",
-    "license": "CC BY-SA 4.0",
-    "artwork": "map"
-  },
-  "sassafras-ridge-15fu3-fulton-county": {
-    "ext": "jpg",
-    "commonsFile": "Wickliffe_Mounds_Mound_A.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wickliffe_Mounds_Mound_A.jpg?width=1280",
-    "title": "Mound A at Wickliffe Mounds, Ballard County (photographed 2008); stand-in, since Sassafras Ridge is address-restricted and no public photo is used",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Wickliffe_Mounds_Mound_A.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "Chris Light · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2008
   },
   "hartford-fort-hartford-on-the-rough-river": {
     "ext": "jpg",
@@ -1270,16 +1035,6 @@
     "source_label": "Wikimedia Commons",
     "attribution": "Notorious4life · Wikimedia Commons · public domain",
     "year": 2010
-  },
-  "the-c-and-o-mounds-at-paintsville": {
-    "ext": "jpg",
-    "commonsFile": "Levisa Fork in Paintsville.jpg",
-    "thumb_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Levisa_Fork_in_Paintsville.jpg?width=1280",
-    "title": "The Levisa Fork at Paintsville (photographed 2009); stand-in, since the mound sites are not public",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Levisa_Fork_in_Paintsville.jpg",
-    "source_label": "Wikimedia Commons",
-    "attribution": "J654567 · Wikimedia Commons · CC BY-SA 3.0",
-    "year": 2009
   },
   "the-maysville-road-and-jacksons-veto-1830": {
     "ext": "jpg",

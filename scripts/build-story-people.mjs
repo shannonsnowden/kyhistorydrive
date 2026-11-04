@@ -8,21 +8,28 @@
  * Conservative matching:
  *  - candidates are only people whose people.json `stories` list includes this story;
  *  - only the full public name, exact case, whole words (no surnames, no aliases);
- *  - a name followed by a place word (Red Bird River, Boone County) does not count;
+ *  - a name followed by a place word (Sample River, Boone County) does not count;
  *  - a name contained in another candidate's name that also matches there is skipped;
  *  - one-word names are skipped unless they are the story's title subject;
  *  - exception: a per-story alias in scripts/portrait-sweep.json (`aliases: { id: 'Surname' }`)
  *    matches that exact text for that one story only (e.g. 'Clark' → george-rogers-clark at
- *    Cahokia). Never a global surname match.
+ *    Cahokia). Never a global surname match. A sample story keeps those aliases when the
+ *    same slug is also in the sweep (one-word names and "Ann Logan").
  * Portraits: real or AI (AI credit "AI illustration · Kentucky History Drive"); never the story's
- * title-subject portrait (already shown) and never the Photos sidebar image.
- * Scope: scripts/story-people-samples.json slugs until site-wide OK.
+ * title-subject portrait (already shown) unless this sweep lists that id, and never the Photos
+ * sidebar image. When that sidebar image is this person's portrait, they are the story hero and
+ * are dropped from the portraits strip (same rule as Will Emery). Prerender then omits the lead
+ * portrait too, so the hero is the one large face.
+ * Scope: every story JSON under public/content/stories/ (Shannon site-wide OK, Oct 28, 2026).
+ * Portrait-sweep stories still link only the listed ids, except original PR B sample slugs in
+ * scripts/story-people-samples.json, which widen links when the same slug is also in the sweep.
+ * Wave-1 linksOnly slugs in that file stay links-only (no inline portraits).
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { marked } from 'marked'
-import { storySubject, hasSafePortrait, PLACE_WORD } from '../src/related-people.js'
+import { storySubject, hasSafePortrait, heroPhotoIsPortrait, PLACE_WORD } from '../src/related-people.js'
 import { applyStoryPeople, nameRegex, MAX_INLINE } from '../src/story-people.js'
 import { commonsName } from './dedupe-portrait-photos-lib.mjs'
 
@@ -30,12 +37,21 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'))
 const people = read('public/data/people.json')
 const related = read('public/data/web/related-people.json')
-const scope = read('scripts/story-people-samples.json')
-// Portrait sweep (batches): only the listed ids are linked/portrayed in these stories.
+const samples = read('scripts/story-people-samples.json')
+// Wave 1: link these slugs, but do not add inline portraits (no portrait wiring).
+const linksOnly = new Set(samples.linksOnly || [])
+// Original PR B samples. A sample that is also in the portrait sweep widens links past
+// the sweep id list. Curated portraits still apply below.
+const widenLinks = new Set(samples.slugs || [])
+// Portrait sweep (batches): only the listed ids are linked/portrayed in these stories,
+// unless the slug is a PR B sample (widenLinks).
 const sweep = read('scripts/portrait-sweep.json').stories || {}
-const slugsInScope = [...new Set([...scope.slugs, ...Object.keys(sweep)])]
 const dir = path.join(root, 'public/content/stories')
-const stories = new Set(fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'index.json').map((f) => f.slice(0, -5)))
+const slugsInScope = fs.readdirSync(dir)
+  .filter((f) => f.endsWith('.json') && f !== 'index.json')
+  .map((f) => f.slice(0, -5))
+  .sort()
+const stories = new Set(slugsInScope)
 const byId = new Map(people.people.map((p) => [p.id, p]))
 const strip = (md) => String(md || '').replace(/^[ \t]*source:[ \t]*.+$/gim, '').replace(/\n{3,}/g, '\n\n').trim()
 
@@ -78,7 +94,7 @@ const out = { _note: 'Built by scripts/build-story-people.mjs. Do not edit.', st
 const report = []
 for (const slug of slugsInScope) {
   if (!stories.has(slug)) throw new Error(`build-story-people: story ${slug} missing`)
-  const sw = scope.slugs.includes(slug) ? null : sweep[slug]
+  const sw = widenLinks.has(slug) ? null : sweep[slug]
   const swIds = sw ? new Set([...(sw.links || []), ...(sw.portraits || [])]) : null
   const story = JSON.parse(fs.readFileSync(path.join(dir, `${slug}.json`), 'utf8'))
   const body = strip(story.bodyMarkdown)
@@ -86,7 +102,8 @@ for (const slug of slugsInScope) {
   const cands = people.people.filter((p) => (p.stories || []).includes(slug) && (!swIds || swIds.has(p.id)))
   const skipped = []
   const hits = []
-  const aliases = (sw && sw.aliases) || {}
+  // Samples drop the sweep id filter (sw is null) but still need its aliases.
+  const aliases = (sw && sw.aliases) || sweep[slug]?.aliases || {}
   const matchName = new Map()
   for (const p of cands) {
     const alias = typeof aliases[p.id] === 'string' ? aliases[p.id].trim() : ''
@@ -105,16 +122,26 @@ for (const slug of slugsInScope) {
   hits.sort((a, b) => a.at - b.at)
   const links = hits.map(({ p }) => {
     const own = ownStory(p, slug)
-    return { id: p.id, name: matchName.get(p.id) || p.name, href: own ? `#timeline/${encodeURIComponent(own)}` : `/people/#${p.id}` }
+    return { id: p.id, name: matchName.get(p.id) || p.name, href: own ? `/stories/${encodeURIComponent(own)}/` : `/people/#${p.id}` }
   })
   const sidebar = story.photo?.source_url ? commonsName(story.photo.source_url) : ''
   const portraits = []
+  // Promoting a sweep story into samples widens links only. A non-empty sweep
+  // portrait list stays as curated (no new faces on that story).
+  const curatedPortraits = sweep[slug]?.portraits
+  const keepCurated = Array.isArray(curatedPortraits) && curatedPortraits.length > 0
   for (const { p } of hits) {
+    if (linksOnly.has(slug)) continue
     if (sw && !(sw.portraits || []).includes(p.id)) continue
+    if (keepCurated && !curatedPortraits.includes(p.id)) continue
     if (!hasSafePortrait(p)) continue
-    if (subject && p.id === subject.id) continue
+    // Story hero photo is this face: drop them from the portraits strip (Will Emery; N1 leaders).
+    if (heroPhotoIsPortrait(story.photo, p)) { skipped.push(`${p.name} portrait (story hero)`); continue }
+    // An explicit sweep portrait is recorded even when this person is the title subject.
+    // prerender omits that second figure; the subject portrait is already the face.
+    const explicitPortrait = (sweep[slug]?.portraits || []).includes(p.id)
+    if (subject && p.id === subject.id && !explicitPortrait) continue
     if (sidebar && p.sourceFile && p.sourceFile.replace(/_/g, ' ').toLowerCase() === sidebar) { skipped.push(`${p.name} portrait (same as Photos sidebar)`); continue }
-    if (story.photo?.image_url && [p.image.jpg, p.image.webp].includes(story.photo.image_url)) continue
     portraits.push(p.id)
   }
   out.stories[slug] = { links, portraits }
@@ -136,5 +163,23 @@ for (const slug of slugsInScope) {
   }
   report.push(`  ${slug}: links ${links.map((l) => `${l.name}→${l.href}`).join(', ') || 'none'}; portraits ${figs.join(', ') || 'none'}${skipped.length ? `; skipped ${skipped.join(', ')}` : ''}`)
 }
-fs.writeFileSync(path.join(root, 'public/data/web/story-people.json'), `${JSON.stringify(out, null, 2)}\n`)
-console.log(`build-story-people: ${slugsInScope.length} stories (${scope.slugs.length} samples + portrait sweep)\n${report.join('\n')}`)
+// Keep existing key order, and append stories that are new to this file
+// (alphabetical, via slugsInScope).
+const spPath = path.join(root, 'public/data/web/story-people.json')
+try {
+  const prevOrder = Object.keys(JSON.parse(fs.readFileSync(spPath, 'utf8')).stories || {})
+  if (prevOrder.length) {
+    const rank = new Map(prevOrder.map((s, i) => [s, i]))
+    const end = prevOrder.length
+    const ordered = {}
+    for (const slug of Object.keys(out.stories).sort((a, b) => {
+      const ra = rank.has(a) ? rank.get(a) : end
+      const rb = rank.has(b) ? rank.get(b) : end
+      if (ra !== rb) return ra - rb
+      return slugsInScope.indexOf(a) - slugsInScope.indexOf(b)
+    })) ordered[slug] = out.stories[slug]
+    out.stories = ordered
+  }
+} catch { /* first build: slugsInScope order */ }
+fs.writeFileSync(spPath, `${JSON.stringify(out, null, 2)}\n`)
+console.log(`build-story-people: ${slugsInScope.length} stories (site-wide; ${widenLinks.size} sample-widen, ${linksOnly.size} links-only, ${Object.keys(sweep).length} portrait-sweep)\n${report.join('\n')}`)

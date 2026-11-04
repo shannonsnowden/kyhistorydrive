@@ -10,6 +10,7 @@
  *  - /home-preview/ and /drive-preview/ are not built (their redirects can fire).
  *  - /privacy/ has one h1 and a "Last updated" date.
  *  - /videos/ and /routes/ are noindex,follow and out of sitemap.xml; no sitemap URL is noindex.
+ *  - /editorial/ and /contact/ are built, indexable, and listed in sitemap.xml.
  * Links are parsed with URL, never matched as substrings.
  *   node scripts/check-site-hygiene.mjs [--dist <dir>]
  */
@@ -167,6 +168,12 @@ for (const p of ['/videos/', '/routes/']) {
   if (robots(html).replace(/\s/g, '') !== 'noindex,follow') fail(`${p}: needs meta robots "noindex, follow"`)
   if (locs.includes(p)) fail(`sitemap.xml still lists ${p}`)
 }
+for (const p of ['/editorial/', '/contact/']) {
+  const html = read(`${p.slice(1)}index.html`) || ''
+  if (!html) fail(`${p} is not built`)
+  if (/\bnoindex\b/.test(robots(html))) fail(`${p} must be indexable`)
+  if (!locs.includes(p)) fail(`sitemap.xml is missing ${p}`)
+}
 for (const p of locs) {
   const html = read(p.endsWith('/') ? `${p.slice(1)}index.html` : p.slice(1))
   if (html && /\bnoindex\b/.test(robots(html))) fail(`sitemap.xml lists noindex page ${p}`)
@@ -176,4 +183,4 @@ if (problems.length) {
   console.error(`check-site-hygiene: ${problems.length} problem(s):\n  ${problems.join('\n  ')}`)
   process.exit(1)
 }
-console.log(`check-site-hygiene: 404 page at /404.html and /404/ (no client guard or ?from= pre-fill), ${drivePages.length} drive footers and links, no preview stubs, privacy h1 + date, ${locs.length} sitemap URLs with /videos/ and /routes/ noindexed and out`)
+console.log(`check-site-hygiene: 404 page at /404.html and /404/ (no client guard or ?from= pre-fill), ${drivePages.length} drive footers and links, no preview stubs, privacy h1 + date, ${locs.length} sitemap URLs with /videos/ and /routes/ noindexed and out, /editorial/ and /contact/ indexed`)

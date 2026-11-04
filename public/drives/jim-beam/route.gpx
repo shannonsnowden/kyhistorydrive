@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Jim Beam: Clermont, Salt River salt and Civil War forts · Loop 1: Salt River and Fort Duffield</name>
+    <desc>Starting at Jim Beam in Clermont: the Bullitt&apos;s Lick salt works, the Salt River falls at Shepherdsville, and a Union fort above West Point. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/jim-beam/</desc>
+    <link href="https://kyhistorydrive.com/drives/jim-beam/"><text>Jim Beam: Clermont, Salt River salt and Civil War forts · Loop 1: Salt River and Fort Duffield</text></link>
+  </metadata>
+  <wpt lat="37.9298" lon="-85.6527">
+    <name>1. Jim Beam (Clermont)</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="37.9183" lon="-85.599">
+    <name>2. Mystery Cemetery marker (KHS #1415)</name>
+    <desc>Visiting: Roadside marker on KY 245. Marker only</desc>
+  </wpt>
+  <wpt lat="37.9881" lon="-85.7161">
+    <name>3. Bullitt County History Museum (Shepherdsville)</name>
+    <desc>Visiting: Free; weekday hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.0008" lon="-85.764">
+    <name>4. Bullitt&apos;s Lick marker (KHS #133)</name>
+    <desc>Visiting: Marker only. Marker only</desc>
+  </wpt>
+  <wpt lat="37.9943" lon="-85.9427">
+    <name>5. Fort Duffield Park &amp; Historic Site</name>
+    <desc>Visiting: Public park with trails; open daylight hours.</desc>
+  </wpt>
+  <rte>
+    <name>Jim Beam: Clermont, Salt River salt and Civil War forts · Loop 1: Salt River and Fort Duffield</name>
+    <desc>Starting at Jim Beam in Clermont: the Bullitt&apos;s Lick salt works, the Salt River falls at Shepherdsville, and a Union fort above West Point. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/jim-beam/</desc>
+    <rtept lat="37.9298" lon="-85.6527">
+      <name>1. Jim Beam (Clermont)</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="37.9183" lon="-85.599">
+      <name>2. Mystery Cemetery marker (KHS #1415)</name>
+      <desc>Visiting: Roadside marker on KY 245. Marker only</desc>
+    </rtept>
+    <rtept lat="37.9881" lon="-85.7161">
+      <name>3. Bullitt County History Museum (Shepherdsville)</name>
+      <desc>Visiting: Free; weekday hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.0008" lon="-85.764">
+      <name>4. Bullitt&apos;s Lick marker (KHS #133)</name>
+      <desc>Visiting: Marker only. Marker only</desc>
+    </rtept>
+    <rtept lat="37.9943" lon="-85.9427">
+      <name>5. Fort Duffield Park &amp; Historic Site</name>
+      <desc>Visiting: Public park with trails; open daylight hours.</desc>
+    </rtept>
+  </rte>
+</gpx>

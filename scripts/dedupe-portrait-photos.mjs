@@ -74,7 +74,10 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !=
   const url = story.photo?.image_url
   if (!url || !url.startsWith('/content/')) continue
   const d = imageDims(path.join(root, 'public', url.split(/[?#]/)[0]))
-  const want = d && d.width > 0 && d.height / d.width >= TALL ? 'contain' : undefined
+  const ratio = d && d.width > 0 ? d.height / d.width : 0
+  // Tall frames get contain automatically. An editor-set contain on a square or
+  // portrait frame (Met dog bottle, ratio about 1.05) stays; landscape contain is cleared.
+  const want = ratio >= TALL || (story.photo.fit === 'contain' && ratio >= 1) ? 'contain' : undefined
   if (story.photo.fit === want) continue
   if (want) story.photo.fit = want
   else delete story.photo.fit

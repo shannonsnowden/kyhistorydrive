@@ -6,6 +6,7 @@
 import { HomepageStructure } from './homepage-structure.js'
 import { responsivePicture, responsiveSources } from './responsive-img.js'
 import { MD_LINK_RE } from './markdown-links.js'
+import { HERO_DEFAULT } from '../scripts/hero-default.mjs'
 
 export function escapeHtml(s) {
   return String(s)
@@ -36,12 +37,14 @@ export function storyYearLabel(y) {
 export function eraLabel(era) {
   const map = {
     prehistoric: 'Prehistoric',
-    native: 'Native',
+    native: 'Native nations',
+    revolution: 'Frontier',
     frontier: 'Frontier',
     'early-commonwealth': 'Early commonwealth',
-    other: 'Kentucky',
+    other: 'More Kentucky history',
+    modern: 'More Kentucky history',
   }
-  return map[era] || 'Kentucky'
+  return map[era] || 'More Kentucky history'
 }
 
 export function firstSentence(text) {
@@ -115,8 +118,8 @@ export function isPhotoUrl(url) {
   const u = String(url || '').toLowerCase()
   if (!u) return false
   if (/\.svg(\?|$)/i.test(u)) return false
-  // Same-origin curated story heroes — skip Wikipedia schematic-map heuristics.
-  if (u.startsWith('/content/photos/stories/')) return true
+  // Vendored photos — skip Wikipedia schematic-map heuristics.
+  if (u.startsWith('/content/photos/stories/') || u.startsWith('/content/photos/heroes/') || u.startsWith('/content/photos/drives/')) return true
   if (
     /silhouette|locator[_\s-]?map|coat_of_arms|flag_of|sanborn|enumeration_district|landsat|schematic|diagram|_map_hroe|sites_on_.*map|lower_ohio_map|highlighted_\d+/i.test(
       u,
@@ -133,9 +136,12 @@ export function usablePhoto(photo) {
 }
 export function photoCredit(photo) {
   if (!photo) return ''
-  const label = photo.attribution || photo.source_label || ''
-  const year = photo.year ? ` · ${photo.year}` : ''
-  return label ? `${label}${year}` : ''
+  const label = String(photo.attribution || photo.source_label || '').trim()
+  if (label) {
+    const year = photo.year ? ` · ${photo.year}` : ''
+    return `${label}${year}`
+  }
+  return String(photo.credit || '').trim()
 }
 /** Crawlable story page (/stories/<slug>/), never the #timeline hash route. */
 export function storyPageHref(story) {
@@ -143,10 +149,9 @@ export function storyPageHref(story) {
   return safeLocalUrl(story?.href) || '/#timeline'
 }
 
-/** In-app reader (Timeline view) target for homepage story cards: /#timeline/<slug>. Cards keep href=storyPageHref (crawlable); a plain left click is sent here by home-preview.js. */
+/** #337: homepage cards open the static story page (storyPageHref); kept for callers. */
 export function storyReaderHref(story) {
-  if (story?.slug) return `/#timeline/${encodeURIComponent(story.slug)}`
-  return '/#timeline'
+  return storyPageHref(story)
 }
 
 export function placeCaption(story) {
@@ -185,7 +190,6 @@ export function cardAlt(story) {
 
 export function renderLeadStory(story) {
   const href = storyPageHref(story)
-  const tl = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -199,7 +203,7 @@ export function renderLeadStory(story) {
     : ''
   const credit = photoCredit(story.photo)
   return `<article class="hp-lead-story">
-      <a class="hp-lead-media-link" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">
+      <a class="hp-lead-media-link" href="${escapeHtml(href)}">
         <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade" aria-hidden="true"></div></div>
         <h2 id="hp-hero-title" class="hp-lead-title">${escapeHtml(story.title)}</h2>
       </a>
@@ -207,21 +211,28 @@ export function renderLeadStory(story) {
         <p class="hp-hero-eyebrow">${escapeHtml(placeCaption(story))}</p>
         <p class="hp-hero-deck">${escapeHtml(heroDeckText(story))}</p>
         <div class="hp-cta-row">
-          <a class="btn hp-cta" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">Read the story</a>
+          <a class="btn hp-cta" href="${escapeHtml(href)}">Read the story</a>
           ${
             storyMapHref(story)
               ? `<a class="btn hp-cta" data-story-map href="${escapeHtml(storyMapHref(story))}">Open on the map</a>`
               : ''
           }
         </div>
-        ${credit ? `<p class="hp-photo-credit">Photo: ${escapeHtml(credit)}</p>` : ''}
+        ${credit ? `<p class="hp-photo-credit">${/^AI illustration\b/i.test(credit) ? '' : 'Photo: '}${escapeHtml(credit)}</p>` : ''}
       </div>
     </article>`
 }
 
+/** Credit line for a photo the card actually shows. Empty when that photo is missing. */
+function cardCreditHtml(story, className) {
+  const credit = photoCredit(localPhoto(story))
+  if (!credit) return ''
+  const prefix = /^AI illustration\b/i.test(credit) ? '' : 'Photo: '
+  return `<small class="hp-photo-credit ${className}">${prefix}${escapeHtml(credit)}</small>`
+}
+
 export function renderRailCard(story) {
   const href = storyPageHref(story)
-  const tl = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -234,18 +245,19 @@ export function renderRailCard(story) {
         height: 96,
       })
     : `<span class="hp-rail-card-ph" aria-hidden="true"></span>`
-  return `<a class="hp-rail-card" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">
+  const credit = cardCreditHtml(story, 'hp-rail-card-credit')
+  return `<a class="hp-rail-card" href="${escapeHtml(href)}">
       ${img}
       <span class="hp-rail-card-copy">
         <h3 class="hp-rail-card-title">${escapeHtml(story.title)}</h3>
         <small class="hp-rail-card-meta">${escapeHtml(placeCaption(story))}</small>
+        ${credit}
       </span>
     </a>`
 }
 
 export function renderSwipeCard(story) {
   const href = storyPageHref(story)
-  const tl = storyReaderHref(story)
   const alt = cardAlt(story)
   const img = localPhoto(story)
     ? responsivePicture({
@@ -258,17 +270,70 @@ export function renderSwipeCard(story) {
         height: 90,
       })
     : `<span class="hp-swipe-card-ph" aria-hidden="true"></span>`
+  const credit = cardCreditHtml(story, 'hp-swipe-card-credit')
   return `<li class="hp-swipe-card">
-      <a class="hp-swipe-card-link" href="${escapeHtml(href)}" data-timeline="${escapeHtml(tl)}">
+      <a class="hp-swipe-card-link" href="${escapeHtml(href)}">
         ${img}
         <h3 class="hp-swipe-card-title">${escapeHtml(story.title)}</h3>
         <small class="hp-swipe-card-meta">${escapeHtml(placeCaption(story))}</small>
+        ${credit}
       </a>
     </li>`
 }
 
 /** Lead image sizes, shared by the <picture> and the build-time <link rel=preload>. */
 export const LEAD_SIZES = '(max-width: 900px) 100vw, 66vw'
+
+/** Pack order: `stories` when the build wrote it, otherwise hero then features. */
+export function packStories(pack) {
+  if (Array.isArray(pack?.stories) && pack.stories.length) return pack.stories
+  const list = []
+  if (pack?.hero) list.push(pack.hero)
+  for (const item of pack?.features || []) {
+    if (item && item.slug !== pack.hero?.slug) list.push(item)
+  }
+  return list
+}
+
+/**
+ * Homepage lead, rail, and swipe. A story with no usable photo is skipped,
+ * including when it is pack[0]. Keeping that blank slide would leave an empty
+ * hero and stall the rest of the pack. The Big Bone Lick pin is only the
+ * fallback when nothing in the pack has a photo.
+ */
+export function heroSlidesFromPack(pack) {
+  return withDefaultHero(packStories(pack).filter((story) => usablePhoto(story?.photo)))
+}
+
+/**
+ * Approvals 112 A5: today's brief is the homepage front, in pack order.
+ * The Big Bone Lick pin (Approvals 112 B1a) is only the empty-pack fallback.
+ * A non-empty list is returned unchanged, including when that pin's slug is already in it.
+ */
+export function withDefaultHero(slides) {
+  const list = Array.isArray(slides) ? slides.filter(Boolean) : []
+  if (list.length) return list
+  const pin = HERO_DEFAULT
+  if (!pin?.image || !pin?.slug) return list
+  return [
+    {
+      slug: pin.slug,
+      title: pin.title,
+      county: pin.county || '',
+      yearStart: pin.yearStart ?? null,
+      heroDeck: pin.heroDeck || '',
+      summary: pin.heroDeck || '',
+      historyId: pin.historyId || null,
+      photo: {
+        image_url: pin.image,
+        title: pin.alt || pin.title,
+        attribution: pin.credit || '',
+        source_url: pin.source_url || '',
+        source_label: 'Wikimedia Commons',
+      },
+    },
+  ]
+}
 
 /** <link rel=preload> for the lead image, written into <head> at build time. */
 export function leadPreloadTag(story) {

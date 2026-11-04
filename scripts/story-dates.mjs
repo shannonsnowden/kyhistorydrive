@@ -13,7 +13,69 @@ import { resolveArticleDates } from '../src/story-tools.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
+/**
+ * #355 renamed these six slugs. `git log` without --follow treats the rename commit
+ * (2026-10-24) as the first publish, so a full-clone rebuild restamps both fields.
+ * Following the old path still finds same-day prose edits, and origin/v2 pins published
+ * (and, until a real prose revision, modified) to the publication day below.
+ * SEO rejected 2026-10-24 as false freshness. Keyed rebuilds must keep these pins.
+ * Item 88 next-7 revised Indian Knoll, Rowlandton, and Singer-Hieronymus, so those
+ * modified dates are 2026-10-26. Dates are checked against this pin table.
+ */
+export const STORY_DATE_PINS = {
+  'public/content/stories/howard-site-late-fort-ancient.json': { published: '2026-09-09', modified: '2026-09-09' },
+  'public/content/stories/indian-knoll-ohio-county.json': { published: '2026-08-29', modified: '2026-10-26' },
+  'public/content/stories/rowlandton-mound-site-15mcn3.json': { published: '2026-10-05', modified: '2026-10-26' },
+  'public/content/stories/singer-hieronymus-fort-ancient-villages.json': { published: '2026-09-29', modified: '2026-10-26' },
+  'public/content/stories/the-c-and-o-mounds-johnson-county.json': { published: '2026-10-19', modified: '2026-10-19' },
+  'public/content/stories/tolu-site-mississippian-mounds.json': { published: '2026-09-23', modified: '2026-09-23' },
+}
+
+function applyStoryDatePins(cwd, created, modified) {
+  for (const [file, pin] of Object.entries(STORY_DATE_PINS)) {
+    if (!fs.existsSync(path.join(cwd, file))) continue
+    if (created) created.set(file, pin.published)
+    if (modified) modified.set(file, pin.modified)
+  }
+}
+
+/**
+ * Item 88 / SEO: a shallow clone (Amplify's default) gives every file the head commit's date, which
+ * would stamp every story's lastmod with the deploy day. Detect it so callers fall back to the
+ * story JSON's stored date instead (never today).
+ */
+export function isShallowRepo(cwd = root) {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd, encoding: 'utf8' }).trim() === 'true'
+  } catch {
+    return false
+  }
+}
+
+const warned = new Set()
+function warnShallow(cwd) {
+  if (warned.has(cwd)) return
+  warned.add(cwd)
+  console.warn('story-dates: WARNING shallow git clone; git dates ignored, using story JSON dates (run `git fetch --unshallow`)')
+}
+
+/** The story's own stored date (publishedDate, else briefDate), YYYY-MM-DD or ''. Never today. */
+export function storyStoredDate(story) {
+  for (const v of [story?.publishedDate, story?.briefDate]) {
+    const d = String(v || '').slice(0, 10)
+    if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return d
+  }
+  return ''
+}
+
 export function gitFileDates(cwd = root) {
+  if (isShallowRepo(cwd)) {
+    warnShallow(cwd)
+    const lastmod = new Map()
+    const created = new Map()
+    applyStoryDatePins(cwd, created, lastmod)
+    return { lastmod, created, shallow: true }
+  }
   const lastmod = new Map()
   const created = new Map()
   const out = execFileSync('git', ['log', '--name-only', '--pretty=format:%cs'], {
@@ -32,6 +94,7 @@ export function gitFileDates(cwd = root) {
     if (!lastmod.has(line)) lastmod.set(line, date)
     created.set(line, date)
   }
+  applyStoryDatePins(cwd, created, lastmod)
   return { lastmod, created }
 }
 
@@ -117,6 +180,11 @@ export function textRevisionForFile(cwd, file) {
 export function gitStoryTextDates(cwd = root) {
   const modified = new Map()
   const created = new Map()
+  if (isShallowRepo(cwd)) {
+    warnShallow(cwd)
+    applyStoryDatePins(cwd, created, modified)
+    return { created, modified, shallow: true }
+  }
   const dir = path.join(cwd, 'public/content/stories')
   for (const name of fs.readdirSync(dir).filter((file) => file.endsWith('.json'))) {
     const file = `public/content/stories/${name}`
@@ -124,13 +192,15 @@ export function gitStoryTextDates(cwd = root) {
     if (dates.published) created.set(file, dates.published)
     if (dates.modified) modified.set(file, dates.modified)
   }
+  applyStoryDatePins(cwd, created, modified)
   return { created, modified }
 }
 
 export function datesForStory(story, git, file) {
+  const pin = STORY_DATE_PINS[file]
   return resolveArticleDates(story, {
-    published: git.created.get(file) || '',
-    modified: (git.textModified && git.textModified.get(file)) || git.created.get(file) || '',
+    published: pin?.published || git.created.get(file) || storyStoredDate(story),
+    modified: pin?.modified || (git.textModified && git.textModified.get(file)) || git.created.get(file) || storyStoredDate(story),
   })
 }
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Western Rivers: Mississippian Towns, Clark&apos;s Fort and the Trail of Tears</name>
+    <desc>Along the lower Ohio and Mississippi: the Cherokee Trail of Tears at Mantle Rock, Civil War Paducah, the Mississippian town at Wickliffe, Clark&apos;s 1780 fort and the Confederate river fort at Columbus. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/western-rivers/</desc>
+    <link href="https://kyhistorydrive.com/drives/western-rivers/"><text>Western Rivers: Mississippian Towns, Clark&apos;s Fort and the Trail of Tears</text></link>
+  </metadata>
+  <wpt lat="37.3605" lon="-88.423">
+    <name>1. Mantle Rock Preserve</name>
+    <desc>Visiting: The Nature Conservancy preserve; trail open daylight hours.</desc>
+  </wpt>
+  <wpt lat="37.0722" lon="-88.6307">
+    <name>2. Lloyd Tilghman House &amp; Civil War Museum (Paducah)</name>
+    <desc>Visiting: Museum; limited hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="36.9531" lon="-89.0898">
+    <name>4. Fort Jefferson Memorial Cross (approximate fort site)</name>
+    <desc>Visiting: Memorial cross park and marker; the exact fort site is approximate. Marker only</desc>
+  </wpt>
+  <wpt lat="36.7672" lon="-89.1106">
+    <name>5. Columbus-Belmont State Park</name>
+    <desc>Visiting: State park; museum seasonal. Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Western Rivers: Mississippian Towns, Clark&apos;s Fort and the Trail of Tears</name>
+    <desc>Along the lower Ohio and Mississippi: the Cherokee Trail of Tears at Mantle Rock, Civil War Paducah, the Mississippian town at Wickliffe, Clark&apos;s 1780 fort and the Confederate river fort at Columbus. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/western-rivers/</desc>
+    <rtept lat="37.3605" lon="-88.423">
+      <name>1. Mantle Rock Preserve</name>
+      <desc>Visiting: The Nature Conservancy preserve; trail open daylight hours.</desc>
+    </rtept>
+    <rtept lat="37.0722" lon="-88.6307">
+      <name>2. Lloyd Tilghman House &amp; Civil War Museum (Paducah)</name>
+      <desc>Visiting: Museum; limited hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="36.9531" lon="-89.0898">
+      <name>4. Fort Jefferson Memorial Cross (approximate fort site)</name>
+      <desc>Visiting: Memorial cross park and marker; the exact fort site is approximate. Marker only</desc>
+    </rtept>
+    <rtept lat="36.7672" lon="-89.1106">
+      <name>5. Columbus-Belmont State Park</name>
+      <desc>Visiting: State park; museum seasonal. Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

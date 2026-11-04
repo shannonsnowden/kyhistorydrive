@@ -16,6 +16,7 @@ for (const f of files) {
   stories.push({
     slug: raw.slug,
     title: raw.title,
+    ...(raw.seoTitle ? { seoTitle: raw.seoTitle } : {}),
     publishedDate: raw.publishedDate,
     summary: raw.summary,
     proseChars: String(raw.bodyMarkdown || '').length,

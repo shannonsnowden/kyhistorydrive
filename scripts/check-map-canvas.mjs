@@ -14,6 +14,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright-core'
 import { preview } from 'vite'
+import { isSameOriginStoryHref } from '../src/pin-card.js'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const failures = []
@@ -110,6 +111,9 @@ async function inspect(page) {
       offenders,
       title: popup?.querySelector('h3')?.textContent || '',
       scrollable: popup ? popup.scrollHeight > popup.clientHeight + 40 : false,
+      // #339: a story pin opens a short teaser card that links to the story page.
+      readHref: popup?.querySelector('a.pin-card-read')?.getAttribute('href') || '',
+      sheet: !!document.querySelector('.ky-popup.ky-sheet'),
       shellOverflow: document.querySelector('.maplibregl-popup-content')
         ? getComputedStyle(document.querySelector('.maplibregl-popup-content')).overflowY
         : '',
@@ -194,7 +198,13 @@ async function checkViewport(page, base, viewport, hash, { popup }) {
   }
   if (popup) {
     if (!/Whitley/i.test(info.title)) fail(`${label}: pin popup did not show William Whitley`)
-    if (!info.scrollable) fail(`${label}: pin card cannot scroll`)
+    if (!info.readHref) {
+      fail(`${label}: story pin card has no Read the story link`)
+    } else if (!isSameOriginStoryHref(info.readHref, base)) {
+      fail(`${label}: Read the story link ${info.readHref} is not a same-origin /stories/ page`)
+    }
+    if (viewport.width <= 600 && !info.sheet) fail(`${label}: phone pin card is not a bottom sheet`)
+    if (viewport.width > 600 && info.sheet) fail(`${label}: desktop pin card opened as a bottom sheet`)
     if (info.shellOverflow === 'auto' || info.shellOverflow === 'scroll') {
       fail(`${label}: popup shell overflow is ${info.shellOverflow}`)
     }

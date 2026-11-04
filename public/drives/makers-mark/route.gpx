@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Maker&apos;s Mark: Loretto, Holy Cross and the Lincoln country · Loop 1: Holy Cross, Lebanon and Springfield</name>
+    <desc>Starting at Maker&apos;s Mark in Loretto: the Maryland Catholic settlement at Holy Cross, Civil War Lebanon, and the Springfield courthouse and homestead tied to Abraham Lincoln&apos;s parents. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/makers-mark/</desc>
+    <link href="https://kyhistorydrive.com/drives/makers-mark/"><text>Maker&apos;s Mark: Loretto, Holy Cross and the Lincoln country · Loop 1: Holy Cross, Lebanon and Springfield</text></link>
+  </metadata>
+  <wpt lat="37.6468" lon="-85.349">
+    <name>1. Maker&apos;s Mark Distillery (Burks&apos; Distillery)</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="37.6741" lon="-85.4469">
+    <name>2. Holy Cross Church and Catholic Pioneers marker (KHS #913)</name>
+    <desc>Visiting: Roadside marker at KY 49/KY 457; active parish church (grounds only unless services are open). Marker only</desc>
+  </wpt>
+  <wpt lat="37.6853" lon="-85.2222">
+    <name>3. Washington County Courthouse, Springfield (KHS #526)</name>
+    <desc>Visiting: Marker on the courthouse lawn; courthouse open business hours. Marker only</desc>
+  </wpt>
+  <wpt lat="37.7483" lon="-85.2097">
+    <name>4. Lincoln Homestead State Park</name>
+    <desc>Visiting: State park; the historic buildings keep seasonal hours. Limited hours</desc>
+  </wpt>
+  <wpt lat="37.5697" lon="-85.2528">
+    <name>5. Battle of Lebanon marker (KHS #600)</name>
+    <desc>Visiting: Roadside marker at the old railroad station. Marker only</desc>
+  </wpt>
+  <wpt lat="37.5528" lon="-85.2686">
+    <name>6. Lebanon National Cemetery</name>
+    <desc>Visiting: VA national cemetery; grounds open daily.</desc>
+  </wpt>
+  <rte>
+    <name>Maker&apos;s Mark: Loretto, Holy Cross and the Lincoln country · Loop 1: Holy Cross, Lebanon and Springfield</name>
+    <desc>Starting at Maker&apos;s Mark in Loretto: the Maryland Catholic settlement at Holy Cross, Civil War Lebanon, and the Springfield courthouse and homestead tied to Abraham Lincoln&apos;s parents. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/makers-mark/</desc>
+    <rtept lat="37.6468" lon="-85.349">
+      <name>1. Maker&apos;s Mark Distillery (Burks&apos; Distillery)</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="37.6741" lon="-85.4469">
+      <name>2. Holy Cross Church and Catholic Pioneers marker (KHS #913)</name>
+      <desc>Visiting: Roadside marker at KY 49/KY 457; active parish church (grounds only unless services are open). Marker only</desc>
+    </rtept>
+    <rtept lat="37.6853" lon="-85.2222">
+      <name>3. Washington County Courthouse, Springfield (KHS #526)</name>
+      <desc>Visiting: Marker on the courthouse lawn; courthouse open business hours. Marker only</desc>
+    </rtept>
+    <rtept lat="37.7483" lon="-85.2097">
+      <name>4. Lincoln Homestead State Park</name>
+      <desc>Visiting: State park; the historic buildings keep seasonal hours. Limited hours</desc>
+    </rtept>
+    <rtept lat="37.5697" lon="-85.2528">
+      <name>5. Battle of Lebanon marker (KHS #600)</name>
+      <desc>Visiting: Roadside marker at the old railroad station. Marker only</desc>
+    </rtept>
+    <rtept lat="37.5528" lon="-85.2686">
+      <name>6. Lebanon National Cemetery</name>
+      <desc>Visiting: VA national cemetery; grounds open daily.</desc>
+    </rtept>
+  </rte>
+</gpx>

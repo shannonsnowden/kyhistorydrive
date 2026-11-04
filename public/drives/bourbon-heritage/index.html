@@ -48,6 +48,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .links a.story{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:10px;color:var(--text);text-decoration:none;font-size:14px}
 .links a.story:hover{border-color:var(--accent)}
 .go{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+@media (max-width:420px){.go[data-legs="3"]{flex-direction:column;align-items:stretch}.go[data-legs="3"]>.btn{flex:1 1 100%;width:100%;min-width:0;white-space:normal;text-align:center;height:auto;line-height:1.25}}
 .note{font-size:13px;color:var(--muted)}
 .leg{grid-column:2;font-size:12px;color:var(--muted)}
 @media (max-width:860px){.layout{grid-template-columns:1fr}.map{order:-1}h1{font-size:26px}}
@@ -55,15 +56,40 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 .stops li{scroll-margin-top:72px}.stops li.is-target,.stops li:has(.story:target){outline:3px solid var(--amber);outline-offset:2px;border-radius:10px;background:var(--green-soft)}
 </style>
 <!-- khd-drive-jsonld -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/bourbon-heritage/#trip","name":"Bourbon Heritage: the family distillers of the Rolling Fork country","description":"Out from Bardstown into the Nelson, Washington and Marion county hollows: the Willett farm, Henry McKenna's Fairfield.","url":"https://kyhistorydrive.com/drives/bourbon-heritage/","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Willett Distillery","identifier":"willett","geo":{"@type":"GeoCoordinates","latitude":37.7855,"longitude":-85.4618}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Fairfield (Henry McKenna's distillery village)","identifier":"henry-mckennas-fairfield-sour-mash","url":"https://kyhistorydrive.com/stories/henry-mckennas-fairfield-sour-mash/"}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Hardin's Creek (Jacob Beam country, approximate)","identifier":"jacob-beam-on-hardin-creek","url":"https://kyhistorydrive.com/stories/jacob-beam-on-hardin-creek/"}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Limestone Branch Distillery (Lebanon)","identifier":"limestone-branch","geo":{"@type":"GeoCoordinates","latitude":37.5819,"longitude":-85.2718}}}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","@id":"https://kyhistorydrive.com/drives/bourbon-heritage/#trip","name":"Bourbon Heritage: the family distillers of the Rolling Fork country","description":"Out from Bardstown into the Nelson, Washington and Marion county hollows: the Willett farm, Henry McKenna's Fairfield.","url":"https://kyhistorydrive.com/drives/bourbon-heritage/","image":"https://kyhistorydrive.com/content/photos/drives/drive-bourbon-heritage.jpg","inLanguage":"en-US","isPartOf":{"@type":"WebSite","name":"Kentucky History Drive","url":"https://kyhistorydrive.com/"},"itinerary":{"@type":"ItemList","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Place","name":"Willett Distillery","identifier":"willett","geo":{"@type":"GeoCoordinates","latitude":37.7855,"longitude":-85.4618}}},{"@type":"ListItem","position":2,"item":{"@type":"Place","name":"Fairfield (Henry McKenna's distillery village)","identifier":"henry-mckennas-fairfield-sour-mash","url":"https://kyhistorydrive.com/stories/henry-mckennas-fairfield-sour-mash/"}},{"@type":"ListItem","position":3,"item":{"@type":"Place","name":"Hardin's Creek (Jacob Beam country, approximate)","identifier":"jacob-beam-on-hardin-creek","url":"https://kyhistorydrive.com/stories/jacob-beam-on-hardin-creek/"}},{"@type":"ListItem","position":4,"item":{"@type":"Place","name":"Limestone Branch Distillery (Lebanon)","identifier":"limestone-branch","geo":{"@type":"GeoCoordinates","latitude":37.5819,"longitude":-85.2718}}}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kyhistorydrive.com/"},{"@type":"ListItem","position":2,"name":"Drives","item":"https://kyhistorydrive.com/drives/"},{"@type":"ListItem","position":3,"name":"Bourbon Heritage: the family distillers of the Rolling Fork country","item":"https://kyhistorydrive.com/drives/bourbon-heritage/"}]}</script>
 <!-- /khd-drive-jsonld -->
+<!-- khd-drive-print -->
+<link rel="stylesheet" href="/drives/drive-print.css" />
+<!-- /khd-drive-print -->
+<!-- khd-drive-photo-style -->
+<style id="khd-drive-photo">.drive-photo{margin:14px 0 8px}
+.drive-photo img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:var(--parch)}
+.drive-photo figcaption{margin:6px 0 0;font-size:13px;line-height:1.4;color:var(--muted)}</style>
+<!-- /khd-drive-photo-style -->
+<!-- khd-drive-og -->
+<meta property="og:image" content="https://kyhistorydrive.com/content/photos/drives/og-bourbon-heritage.jpg" />
+<meta property="og:image:secure_url" content="https://kyhistorydrive.com/content/photos/drives/og-bourbon-heritage.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Fairfield village — Bourbon Heritage" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://kyhistorydrive.com/content/photos/drives/og-bourbon-heritage.jpg" />
+<meta name="twitter:image:alt" content="Fairfield village — Bourbon Heritage" />
+<!-- /khd-drive-og -->
 </head>
 <body>
 <main>
+<!-- khd-drive-masthead -->
+<p class="print-masthead print-only">Bourbon Heritage: the family distillers of the Rolling Fork country · About 56 miles · About 1 h 25 min · Kentucky History Drive · https://kyhistorydrive.com/drives/bourbon-heritage/</p>
+<!-- /khd-drive-masthead -->
   <p class="kicker"><a href="/drives/">All drives</a> · Plan a history drive · Day drive</p>
   <h1>Bourbon Heritage: the family distillers of the Rolling Fork country</h1>
   <p class="muted" style="margin:0">Out from Bardstown into the Nelson, Washington and Marion county hollows: the Willett farm, Henry McKenna&#x27;s Fairfield, Jacob Beam&#x27;s Hardin&#x27;s Creek and a Beam descendant&#x27;s distillery at Lebanon.</p>
+<!-- khd-drive-photo -->
+  <figure class="drive-photo"><img src="/content/photos/drives/drive-bourbon-heritage.jpg" alt="Fairfield village — Bourbon Heritage: the family distillers of the Rolling Fork country" decoding="async"><figcaption>Brian Stansberry · Wikimedia Commons · CC BY 4.0</figcaption></figure>
+<!-- /khd-drive-photo -->
   <div class="facts" id="facts"></div>
 
   <div class="finder" role="search" aria-label="Distance to this drive">
@@ -79,20 +105,26 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
   <div class="layout">
     <section class="card" aria-labelledby="stops-h">
       <h2 id="stops-h">Stops</h2>
+<!-- khd-drive-tools -->
+<div class="drive-tools" role="group" aria-label="Print and GPS">
+  <button type="button" class="btn btn-quiet" data-print onclick="window.print()">Print / Save PDF</button>
+  <a class="btn btn-quiet" href="/drives/bourbon-heritage/route.gpx" download="bourbon-heritage.gpx">Download GPX</a>
+</div>
+<!-- /khd-drive-tools -->
       <ol class="stops" id="stops"><li class=""><span class="num" aria-hidden="true">1</span>
-    <div><p class="stop-name">1. Willett Distillery</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span>Family farm. Working distillery; tours by reservation, fees apply.</p><p class="stop-meta">A family-owned distillery on the outskirts of Bardstown, on land that began as a Willett family farm; it was called Kentucky Bourbon Distillers from 1984 to 2012. <span class="note">Sources: <a href="https://grokipedia.com/page/Willett_Distillery" rel="noopener noreferrer" target="_blank">Grokipedia: Willett Distillery</a></span></p></div>
+    <div><p class="stop-name">1. Willett Distillery</p><p class="stop-meta">Family farm</p><p class="stop-visit"><b>Visiting:</b> <span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span> Working distillery; tours by reservation, fees apply.</p><p class="stop-meta">A family-owned distillery on the outskirts of Bardstown, on land that began as a Willett family farm; it was called Kentucky Bourbon Distillers from 1984 to 2012. <span class="note">Sources: <a href="https://grokipedia.com/page/Willett_Distillery" rel="noopener noreferrer" target="_blank">Grokipedia: Willett Distillery</a></span></p></div>
     
     <div class="links"><span class="note">No story yet for this stop.</span></div></li>
 <li class="private"><span class="num" aria-hidden="true">2</span>
-    <div><p class="stop-name">2. Fairfield (Henry McKenna's distillery village)</p><p class="stop-meta"><span class="tag warn">Private land: marker only</span>Distilling by 1855. Small village; no visitor site. View from public roads only.</p><p class="stop-meta">Irish-born turnpike builder Henry McKenna settled in Fairfield in 1851 and by 1855 was making whiskey in a shed beside his mill. <span class="note">Sources: <a href="https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/" rel="noopener noreferrer" target="_blank">Kentucky Bourbon Trail: 160 years of H. McKenna</a></span></p></div>
+    <div><p class="stop-name">2. Fairfield (Henry McKenna's distillery village)</p><p class="stop-meta">Distilling by 1855</p><p class="stop-visit"><b>Visiting:</b> <span class="tag warn">Private land: marker only</span> Small village; no visitor site. View from public roads only.</p><p class="stop-meta">Irish-born turnpike builder Henry McKenna settled in Fairfield in 1851 and by 1855 was making whiskey in a shed beside his mill. <span class="note">Sources: <a href="https://kybourbon.com/enthusiast-stories/160-years-of-h-mckenna-medicinal-whiskey/" rel="noopener noreferrer" target="_blank">Kentucky Bourbon Trail: 160 years of H. McKenna</a></span></p></div>
     <span class="leg">16.2 mi, about 33 min from stop 1</span>
     <div class="links"><a class="story" id="stop-henry-mckennas-fairfield-sour-mash" href="/stories/henry-mckennas-fairfield-sour-mash/">Henry McKenna's Fairfield sour mash →</a></div></li>
 <li class="private"><span class="num" aria-hidden="true">3</span>
-    <div><p class="stop-name">3. Hardin's Creek (Jacob Beam country, approximate)</p><p class="stop-meta"><span class="tag warn">Private land: marker only</span>About 1795. Approximate area only; farmland is private. View from public roads.</p><p class="stop-meta">After 1790 Jacob Beam settled a farm and mill on Hardin's Creek in Washington County; Beam family history dates the first barrel to about 1795. <span class="note">Sources: <a href="https://www.jimbeam.com/en-us/our-story/beam-history" rel="noopener noreferrer" target="_blank">Jim Beam: Beam history</a></span></p></div>
+    <div><p class="stop-name">3. Hardin's Creek (Jacob Beam country, approximate)</p><p class="stop-meta">About 1795</p><p class="stop-visit"><b>Visiting:</b> <span class="tag warn">Private land: marker only</span> Approximate area only; farmland is private. View from public roads.</p><p class="stop-meta">In the early 1790s Jacob Beam settled a farm and mill on Hardin's Creek in Washington County; Beam family tradition dates the first barrel to about 1795. <span class="note">Sources: <a href="https://www.jimbeam.com/en-us/our-story/beam-history" rel="noopener noreferrer" target="_blank">Jim Beam: Beam history</a></span></p></div>
     <span class="leg">22.3 mi, about 31 min from stop 2</span>
-    <div class="links"><a class="story" id="stop-jacob-beam-on-hardin-creek" href="/stories/jacob-beam-on-hardin-creek/">Jacob Beam on Hardin Creek →</a><a class="story" id="stop-jacob-beam-sells-old-jakes-first-barrel" href="/stories/jacob-beam-sells-old-jakes-first-barrel/">Jacob Beam sells Old Jake’s first barrel →</a></div></li>
+    <div class="links"><a class="story" id="stop-jacob-beam-on-hardin-creek" href="/stories/jacob-beam-on-hardin-creek/">Jacob Beam on Hardin Creek →</a></div></li>
 <li class=""><span class="num" aria-hidden="true">4</span>
-    <div><p class="stop-name">4. Limestone Branch Distillery (Lebanon)</p><p class="stop-meta"><span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span>Yellowstone brand 1872. Working distillery; tours by reservation, fees apply.</p><p class="stop-meta">Founded by Stephen Beam, of the distilling family; its flagship Yellowstone bourbon brand dates to 1872. <span class="note">Sources: <a href="https://limestonebranch.com" rel="noopener noreferrer" target="_blank">Limestone Branch Distillery</a></span></p></div>
+    <div><p class="stop-name">4. Limestone Branch Distillery (Lebanon)</p><p class="stop-meta">Yellowstone brand 1872</p><p class="stop-visit"><b>Visiting:</b> <span class="tag">Public</span><span class="tag">Paid admission</span><span class="tag">Reservation needed</span> Working distillery; tours by reservation, fees apply.</p><p class="stop-meta">Founded by Stephen Beam, of the distilling family; its flagship Yellowstone bourbon brand dates to 1872. <span class="note">Sources: <a href="https://limestonebranch.com" rel="noopener noreferrer" target="_blank">Limestone Branch Distillery</a></span></p></div>
     <span class="leg">17.2 mi, about 21 min from stop 3</span>
     <div class="links"><span class="note">No story yet for this stop.</span></div></li></ol>
       <div class="go" id="go"></div>
@@ -107,6 +139,7 @@ li.private .num{background:transparent;color:var(--green);border:2px dashed var(
 </main>
 <script type="module">
 import { spreadBadges, labelBox } from '/drives/badge-spread.js'
+import { LEG_STOPS, buildLegs, appleUrl, googleUrl } from '/drives/drive-links.js'
 const STOPS = [
   { id:"willett", name:"Willett Distillery", lat:37.7855, lon:-85.4618,
     flags:["paid", "reservation"], onMap:"distilleries:willett",
@@ -123,9 +156,9 @@ const STOPS = [
   { id:"jacob-beam-on-hardin-creek", name:"Hardin's Creek (Jacob Beam country, approximate)", lat:37.76, lon:-85.34, private:true,
     flags:["private"], onMap:"story:jacob-beam-on-hardin-creek (approximate)",
     access:"Approximate area only; farmland is private. View from public roads.", when:"About 1795",
-    note:"After 1790 Jacob Beam settled a farm and mill on Hardin's Creek in Washington County; Beam family history dates the first barrel to about 1795.",
+    note:"In the early 1790s Jacob Beam settled a farm and mill on Hardin's Creek in Washington County; Beam family tradition dates the first barrel to about 1795.",
     sources:[["Jim Beam: Beam history", "https://www.jimbeam.com/en-us/our-story/beam-history"]],
-    stories:[["jacob-beam-on-hardin-creek", "Jacob Beam on Hardin Creek"], ["jacob-beam-sells-old-jakes-first-barrel", "Jacob Beam sells Old Jake’s first barrel"]] },
+    stories:[["jacob-beam-on-hardin-creek", "Jacob Beam on Hardin Creek"]] },
   { id:"limestone-branch", name:"Limestone Branch Distillery (Lebanon)", lat:37.5819, lon:-85.2718,
     flags:["paid", "reservation"], onMap:"distilleries:limestone-branch",
     access:"Working distillery; tours by reservation, fees apply.", when:"Yellowstone brand 1872",
@@ -135,7 +168,7 @@ const STOPS = [
 ]
 const $ = (id) => document.getElementById(id)
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]))
-const fmtMin = (m) => `${Math.floor(m/60)} h ${String(Math.round(m%60)).padStart(2,'0')} min`
+const fmtMin = (m) => { const h = Math.floor(m/60), min = Math.round(m%60); return h < 1 ? `${min} min` : `${h} h ${String(min).padStart(2,'0')} min` }
 const [route, base] = await Promise.all([fetch('/drives/routes/bourbon-heritage.json').then(r=>r.json()), fetch('/drives/ky-base.json').then(r=>r.json())])
 
 $('facts').innerHTML = `<span><b>${STOPS.length}</b> stops</span><span>About <b>${Math.round(route.miles)} miles</b></span><span>About <b>${fmtMin(route.minutes)}</b> driving, one way (estimate)</span><span>Theme: <b>Distilling families, 1795–today</b></span>`
@@ -153,7 +186,7 @@ $('stops').innerHTML = STOPS.map((s, i) => {
     : '<span class="note">No story yet for this stop.</span>'
   const dir = s.private ? '' : `<a class="story" href="${apple([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Apple Maps">Apple Maps</a><a class="story" href="${google([s])}" rel="noopener noreferrer" target="_blank" aria-label="Directions to ${esc(s.name)} in Google Maps">Google Maps</a>`
   return `<li class="${s.private ? 'private' : ''}"><span class="num" aria-hidden="true">${i+1}</span>
-    <div><p class="stop-name">${i+1}. ${esc(s.name)}</p><p class="stop-meta">${tag}${esc(s.when)}. ${esc(s.access)}</p>${src}${onmap}</div>
+    <div><p class="stop-name">${i+1}. ${esc(s.name)}</p><p class="stop-meta">${esc(s.when)}</p><p class="stop-visit"><b>Visiting:</b> ${tag} ${esc(s.access)}</p>${src}${onmap}</div>
     ${leg ? `<span class="leg">${leg[0]} mi, about ${leg[1]} min from stop ${i}</span>` : ''}
     <div class="links">${links}${dir}</div></li>`
 }).join('')
@@ -161,25 +194,31 @@ $('stops').innerHTML = STOPS.map((s, i) => {
 // #stop-<slug> deep link (Take a Drive): bring the whole stop into view, not just its story link.
 { const h = location.hash.slice(1); const t = /^stop-[a-z0-9-]+$/.test(h) && document.getElementById(h); if (t) requestAnimationFrame(() => t.closest('li').scrollIntoView({ block: 'start' })) }
 
-// Directions: public stops only, no origin (the maps app uses its own location if the user allows it there)
+// Directions: public exact stops only, same legs for Apple Maps and Google Maps. Leg 1 has no origin.
 function google(list){
   if (list.length===1 && list[0].approx) return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(list[0].name+', Kentucky')}`
-  list = list.filter(s => !s.approx)
-  const ll = (s) => `${s.lat.toFixed(5)},${s.lon.toFixed(5)}`
-  const dest = list[list.length-1]
-  const way = list.slice(0,-1).map(ll).join('|')
-  return `https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=${encodeURIComponent(ll(dest))}` + (way ? `&waypoints=${encodeURIComponent(way)}` : '')
+  return googleUrl(null, list.filter(s => !s.approx))
 }
 function apple(list){
-  if (list[0] && list[0].approx) return `https://maps.apple.com/?q=${encodeURIComponent(list[0].name+', Kentucky')}`
-  // Apple Maps URLs take one destination; open the first public stop.
-  const s = list[0]
-  return `https://maps.apple.com/?daddr=${s.lat.toFixed(5)},${s.lon.toFixed(5)}&dirflg=d`
+  if (list.length===1 && list[0].approx) return `https://maps.apple.com/?q=${encodeURIComponent(list[0].name+', Kentucky')}`
+  return appleUrl(null, list.filter(s => !s.approx))
 }
+STOPS.forEach((s, i) => { s.listNo = i + 1 })
 const PUBLIC = STOPS.filter(s => !s.private)
-$('go').innerHTML = `<a class="btn" href="${google(PUBLIC)}" rel="noopener noreferrer" target="_blank">Open in Google Maps</a>
-  <a class="btn btn-quiet" href="${apple(PUBLIC)}" rel="noopener noreferrer" target="_blank">Open in Apple Maps</a>`
-$('go').insertAdjacentHTML('afterend', '<p class="note">Google Maps opens all public stops in order. Apple Maps links can carry one destination, so the Apple button opens the first public stop; each stop has its own buttons too.</p>')
+const EXACT = PUBLIC.filter(s => !s.approx)
+const legs = {
+  google: buildLegs(EXACT, LEG_STOPS, 'google'),
+  apple: buildLegs(EXACT, LEG_STOPS, 'apple'),
+}
+const multi = legs.google.length > 1
+$('go').dataset.legs = String(legs.google.length)
+const apps = [['google', 'Google Maps', 'btn'], ['apple', 'Apple Maps', 'btn btn-quiet']]
+$('go').innerHTML = legs.google.map((_, i) => apps.map(([app, name, cls]) => {
+  const leg = legs[app][i]
+  const label = multi ? `Leg ${leg.k} (stops ${leg.firstNo}–${leg.lastNo}) · ${name}` : `Open in ${name}`
+  return `<a class="${cls}" href="${leg.url}" rel="noopener noreferrer" target="_blank">${label}</a>`
+}).join('\n  ')).join('\n  ')
+if (multi) $('go').insertAdjacentHTML('afterend', '<p class="note">Long drives open in legs of up to 4 stops.</p>')
 
 // Route map (route-map style: painted outline under an amber route, numbered green stops)
 const P = base.proj

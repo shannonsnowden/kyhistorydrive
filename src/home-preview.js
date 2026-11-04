@@ -34,7 +34,9 @@ import {
   renderRailCard,
   renderSwipeCard,
   leadPreloadTag,
+  heroSlidesFromPack,
 } from './home-hero-render.js'
+import { storyUrl } from './story-url.js'
 
 function extractWikipediaUrl(markdown) {
   const m = String(markdown || '').match(/https?:\/\/en\.wikipedia\.org\/wiki\/[^\s)\]">]+/i)
@@ -103,7 +105,7 @@ async function liveStoriesForDate(briefDate, index, locations = {}) {
       yearStart: full.yearStart ?? meta.yearStart ?? null,
       county: full.county || meta.county || null,
       briefDate,
-      href: `/#timeline/${encodeURIComponent(slug)}`,
+      href: storyUrl(slug),
       place: loc.matchedPlace || null,
       lat,
       lon,
@@ -136,11 +138,9 @@ function briefStories(pack) {
   return list
 }
 
+/** Photo stories in pack order. A no-photo lead is skipped so the hero is never blank. */
 function heroSlides(pack) {
-  const all = briefStories(pack)
-  const withPhotos = all.filter((s) => usablePhoto(s?.photo))
-  if (withPhotos.length) return withPhotos
-  return all[0] ? [all[0]] : []
+  return heroSlidesFromPack(pack)
 }
 
 function preloadLeadImage(story) {
@@ -376,7 +376,7 @@ function relatedCardHtml(item) {
 
 function storyNavHref(item) {
   if (item?.href) return item.href
-  if (item?.slug) return `/#timeline/${encodeURIComponent(item.slug)}`
+  if (item?.slug) return storyUrl(item.slug)
   return '/#timeline'
 }
 
@@ -543,34 +543,10 @@ async function loadPack() {
 
 let homePageStarted = false
 
-/**
- * Homepage story cards keep a crawlable href="/stories/<slug>/". A plain left click
- * (no modifier keys) opens the same story in the Timeline reader instead (data-timeline),
- * as a same-document hash navigation so Back returns to the homepage.
- */
-let timelineClicksBound = false
-function bindTimelineCardClicks() {
-  if (timelineClicksBound) return
-  timelineClicksBound = true
-  document.addEventListener('click', (e) => {
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    const a = e.target instanceof Element ? e.target.closest('a[data-timeline]') : null
-    if (!a || !a.closest('#home')) return
-    const tl = a.getAttribute('data-timeline') || ''
-    if (!/^\/#timeline\/[A-Za-z0-9%._-]+$/.test(tl)) return
-    e.preventDefault()
-    try {
-      sessionStorage.setItem('khd-from-home', decodeURIComponent(tl.slice('/#timeline/'.length)))
-    } catch {}
-    location.hash = tl.slice(1)
-  })
-}
-
 export function initHomePage() {
   if (homePageStarted) return
   if (!document.getElementById('hpHero')) return
   homePageStarted = true
-  bindTimelineCardClicks()
   AdSlot.mount(document.getElementById('home'), 'home')
   renderRelatedCards()
   Promise.all([loadPack(), loadPhotoVariants(), HomepageStructure.loadCatalog()])

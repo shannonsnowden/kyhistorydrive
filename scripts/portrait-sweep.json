@@ -18,9 +18,15 @@
     },
     "capt-nathaniel-hart": {
       "links": [
-        "nathaniel-hart"
+        "nathaniel-hart",
+        "susannah-shelby"
       ],
-      "portraits": []
+      "portraits": [
+        "susannah-shelby"
+      ],
+      "aliases": {
+        "susannah-shelby": "Susannah"
+      }
     },
     "capt-abraham-lincoln-on-long-run": {
       "links": [
@@ -41,7 +47,9 @@
       "links": [
         "john-todd"
       ],
-      "portraits": []
+      "portraits": [
+        "john-todd"
+      ]
     },
     "thomas-walker-and-cumberland-gap": {
       "links": [
@@ -53,7 +61,9 @@
       "links": [
         "john-finley"
       ],
-      "portraits": []
+      "portraits": [
+        "john-finley"
+      ]
     },
     "treaty-of-logstown-1752": {
       "links": [
@@ -203,7 +213,9 @@
       "links": [
         "william-christian"
       ],
-      "portraits": []
+      "portraits": [
+        "william-christian"
+      ]
     },
     "bardstown": {
       "links": [
@@ -433,7 +445,7 @@
       ],
       "portraits": []
     },
-    "yellow-banks-becomes-owensboro": {
+    "owensboro-yellow-banks": {
       "links": [
         "william-smeathers"
       ],
@@ -564,7 +576,8 @@
         "ann-logan"
       ],
       "portraits": [
-        "ann-logan"
+        "ann-logan",
+        "john-hardin"
       ],
       "aliases": {
         "ann-logan": "Ann Logan"
@@ -657,7 +670,33 @@
       "links": [
         "james-winchester"
       ],
-      "portraits": []
+      "portraits": [
+        "james-winchester"
+      ]
+    },
+    "col-stephen-trigg-of-viney-grove": {
+      "links": [
+        "stephen-trigg"
+      ],
+      "portraits": [
+        "stephen-trigg"
+      ]
+    },
+    "levi-todd-lexington-co-founder": {
+      "links": [
+        "levi-todd"
+      ],
+      "portraits": [
+        "levi-todd"
+      ]
+    },
+    "squire-boones-painted-stone": {
+      "links": [
+        "squire-boone"
+      ],
+      "portraits": [
+        "squire-boone"
+      ]
     }
   }
 }

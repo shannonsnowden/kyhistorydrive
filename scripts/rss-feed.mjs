@@ -22,6 +22,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ROUTE_MAPS, routeBySlug } from '../src/route-maps.js'
 import { PrerenderPages } from './prerender-pages.mjs'
+import { isThinStory } from './lib/thin-stories.mjs'
 
 const SITE = 'https://kyhistorydrive.com'
 const STORY_FEED_PATH = '/feed.xml'
@@ -218,11 +219,14 @@ ${items.map(itemXml).join('\n')}
 export function planStoryItems(root) {
   const loaded = PrerenderPages.loadStories(root)
   const stories = PrerenderPages.liveStories(loaded)
-  const liveSlugs = new Set(stories.map((story) => story.slug))
+  // Item 88: thin (noindex) stories are left out of every feed, like unpublished ones.
+  const thin = stories.filter((story) => isThinStory(story)).map((story) => story.slug)
+  const liveSlugs = new Set(stories.filter((story) => !isThinStory(story)).map((story) => story.slug))
   const dates = PrerenderPages.gitFileDates(root)
   const ranked = []
   const dropped = []
   for (const story of stories) {
+    if (!liveSlugs.has(story.slug)) continue
     const file = `public/content/stories/${story.slug}.json`
     const route = routeBySlug(story.slug)
     const added = dates.created.get(file) || PrerenderPages.isoDate(story.publishedDate) || ''
@@ -253,7 +257,8 @@ export function planStoryItems(root) {
     items,
     eligible: ranked.length,
     dropped,
-    unpublished: loaded.filter((story) => !liveSlugs.has(story.slug)).map((story) => story.slug),
+    thin,
+    unpublished: loaded.filter((story) => !stories.includes(story)).map((story) => story.slug),
     slugs: liveSlugs,
   }
 }
@@ -818,7 +823,7 @@ function report(plan) {
   const newest = plan.stories.items[0]?.added || 'n/a'
   const held = plan.stories.unpublished?.length || 0
   console.log(
-    `rss: ${STORY_FEED_PATH} ${plan.stories.items.length} items (eligible ${plan.stories.eligible}, newest ${newest}${held ? `, withheld ${held} unpublished` : ''})`,
+    `rss: ${STORY_FEED_PATH} ${plan.stories.items.length} items (eligible ${plan.stories.eligible}, newest ${newest}${held ? `, withheld ${held} unpublished` : ''}${plan.stories.thin?.length ? `, ${plan.stories.thin.length} thin noindex left out` : ''})`,
   )
   for (const layer of plan.layers) {
     if (layer.skip) console.log(`rss: skip ${layer.outPath} — ${layer.skip}`)

@@ -16,13 +16,14 @@
 import { AdSlot } from './ad-slot.js'
 import { responsivePicture } from './responsive-img.js'
 import { HomepageStructure } from './homepage-structure.js'
+import { storyUrl } from './story-url.js'
 
 const TABS_ERA = [
   { id: 'prehistoric', label: 'Prehistoric' },
-  { id: 'native', label: 'Native' },
+  { id: 'native', label: 'Native nations' },
   { id: 'frontier', label: 'Frontier' },
   { id: 'early-commonwealth', label: 'Early commonwealth' },
-  { id: 'other', label: 'Other' },
+  { id: 'other', label: 'More Kentucky history' },
 ]
 const MAP_TAB = { id: 'map', label: 'On the map' }
 // First daily pack published under the magazine homepage (#72 went live 2026-09-20 after that
@@ -136,7 +137,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
       kicker: `${eraLabel(era)}${year ? ` · ${year}` : ''}`,
       title: s.title,
       deck: HomepageStructure.finishedSummary(s.summary || ''),
-      href: `/#timeline/${encodeURIComponent(s.slug)}`,
+      href: storyUrl(s.slug),
       cta: 'Read the story',
       mapHref,
       photo,
@@ -206,7 +207,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
 
   function cardHtml(item, idx) {
     const credit = photoCredit(item.photo)
-    const alt = item.photo.title || item.title
+    const alt = String(item.photo?.title || item.title || 'Kentucky history photo').trim() || 'Kentucky history photo'
     const deckText = HomepageStructure.deckText(item.deck)
     const deck = deckText ? `<p class="exp-deck">${esc(deckText)}</p>` : '<p class="exp-deck"></p>'
     const map = item.mapHref
@@ -227,7 +228,7 @@ export async function initExploreLayer({ root, layers, helpers, skipSlugs = [] }
           <a class="hp-layer-cta" href="${esc(item.href)}" aria-label="${esc(item.cta)}: ${esc(item.title)}">${esc(item.cta)}</a>
           ${map}
         </div>
-        <p class="hp-photo-credit exp-credit">Photo: ${esc(credit)}</p>
+        <p class="hp-photo-credit exp-credit">${/^AI illustration\b/i.test(credit) ? '' : 'Photo: '}${esc(credit)}</p>
       </div>
     </article>`
   }

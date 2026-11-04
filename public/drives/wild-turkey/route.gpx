@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kentucky History Drive" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Wild Turkey · Loop 1: Tyrone, Versailles and Jack Jouett</name>
+    <desc>Starting at Wild Turkey above the Kentucky River: the Tyrone distilling past, Versailles and Jack Jouett, and the Shakers of Pleasant Hill. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/wild-turkey/</desc>
+    <link href="https://kyhistorydrive.com/drives/wild-turkey/"><text>Wild Turkey · Loop 1: Tyrone, Versailles and Jack Jouett</text></link>
+  </metadata>
+  <wpt lat="38.0423" lon="-84.8505">
+    <name>1. Wild Turkey Distillery</name>
+    <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+  </wpt>
+  <wpt lat="38.0523" lon="-84.7301">
+    <name>3. Woodford County Historical Society Museum (Versailles)</name>
+    <desc>Visiting: Free museum; limited open days. Limited hours</desc>
+  </wpt>
+  <wpt lat="38.0106" lon="-84.7717">
+    <name>4. Jack Jouett House Historic Site</name>
+    <desc>Visiting: Historic house; tours by appointment in the off-season. Limited hours</desc>
+  </wpt>
+  <rte>
+    <name>Wild Turkey · Loop 1: Tyrone, Versailles and Jack Jouett</name>
+    <desc>Starting at Wild Turkey above the Kentucky River: the Tyrone distilling past, Versailles and Jack Jouett, and the Shakers of Pleasant Hill. Public, exact waypoints only. Private land and approximate stops are omitted. https://kyhistorydrive.com/drives/wild-turkey/</desc>
+    <rtept lat="38.0423" lon="-84.8505">
+      <name>1. Wild Turkey Distillery</name>
+      <desc>Visiting: Working distillery; tours by reservation, fees apply. Paid admission, Reservation needed</desc>
+    </rtept>
+    <rtept lat="38.0523" lon="-84.7301">
+      <name>3. Woodford County Historical Society Museum (Versailles)</name>
+      <desc>Visiting: Free museum; limited open days. Limited hours</desc>
+    </rtept>
+    <rtept lat="38.0106" lon="-84.7717">
+      <name>4. Jack Jouett House Historic Site</name>
+      <desc>Visiting: Historic house; tours by appointment in the off-season. Limited hours</desc>
+    </rtept>
+  </rte>
+</gpx>

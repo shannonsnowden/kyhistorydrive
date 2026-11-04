@@ -2,10 +2,13 @@
  * Build your own drive (/drives/build/).
  *
  * Privacy: everything runs in this browser. The page fetches only static files from this site
- * (byod-stops.json, ky-places.json) plus basemap tiles. navigator.geolocation runs only when the
- * visitor presses "Use my location"; the position lives in a local variable and is never written to
- * storage, a URL, a cookie or a request. Maps links (buildLegs/googleUrl/appleUrl) are built from
- * STOP coordinates only: the visitor's start (typed place or position) is never passed to them.
+ * (byod-stops.json, ky-places.json, locals.json) plus basemap tiles. A pasted street address is
+ * read in this browser for a Kentucky ZIP, town, or distillery in those files, and a business or
+ * attraction name is matched to a pin already on the map. Nothing is sent anywhere.
+ * navigator.geolocation runs only when the visitor presses "Use my location"; the position lives
+ * in a local variable and is never written to storage, a URL, a cookie or a request. Maps links
+ * (buildLegs/googleUrl/appleUrl) are built from STOP coordinates only: the visitor's start
+ * (typed place or position) is never passed to them.
  *
  * Safety: byod-stops.json is pre-filtered and self-checked at build time (scripts/build-byod-stops.mjs).
  */
@@ -25,6 +28,7 @@ const kindIcon = (k) => {
   return `<span class="kicon" aria-hidden="true">${escHtml(v)}</span>`
 }
 import { legSize, googleUrl, appleUrl, buildLegs } from './drive-links.js'
+import { PLACE_AMBIGUOUS, PLACE_MISS, PLACE_OOS, START_HINT, collectNamedPlaces, resolveStart } from './drive-start.js'
 
 const ROAD_FACTOR = 1.3
 const MPH = 40
@@ -125,10 +129,25 @@ const stopUrl = (s) => (IS_APPLE ? appleUrl(null, [s]) : googleUrl(null, [s]))
 async function main() {
   const data = await fetch('/drives/byod-stops.json').then((r) => r.json())
   let places = null
+  let namedPlaces = []
   const loadPlaces = async () => {
     if (!places) {
       places = await fetch('/drives/ky-places.json').then((r) => r.json())
-      $('qList').innerHTML = data.distilleries.map(([n]) => `<option value="${esc(n)}">`).join('') + places.places.map((p) => `<option value="${esc(p[0])}">`).join('')
+      let locals = []
+      try {
+        const res = await fetch('/data/app/locals.json')
+        if (res.ok) locals = await res.json()
+      } catch (e) { locals = [] }
+      namedPlaces = collectNamedPlaces(locals, data.stops)
+      const seen = new Set()
+      const opt = (n) => {
+        if (!n || seen.has(n)) return ''
+        seen.add(n)
+        return `<option value="${esc(n)}">`
+      }
+      $('qList').innerHTML = data.distilleries.map(([n]) => opt(n)).join('')
+        + places.places.map((p) => opt(p[0])).join('')
+        + namedPlaces.map((p) => opt(p[0])).join('')
     }
     return places
   }
@@ -206,7 +225,7 @@ async function main() {
   function pre() {
     $('status').textContent = ''
     $('facts').innerHTML = ''
-    $('stops').innerHTML = '<p class="note">Enter a town, ZIP or distillery, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</p>'
+    $('stops').innerHTML = `<p class="note">Enter a ${START_HINT}, or use your location, to see nearby history stops. The faint dots on the map are every stop we can suggest.</p>`
     $('stickyBar').hidden = true
     document.body.classList.remove('has-bar')
     draw(null, [])
@@ -229,7 +248,7 @@ async function main() {
     }
     $('status').textContent = `${order.length} stops from ${start.label}: about ${fmt(min)} with stops (estimate).`
     $('facts').innerHTML = `<span>About <b>${Math.round(mi)} miles</b> round trip</span><span><b>${fmt(min)}</b> with stops${BREAK_BY[b] ? ' and a meal break' : ''}</span>`
-    // One leg split for the list and both apps: 4 stops per leg (Apple's untested cap; within Google's
+    // One leg split for the list and both apps: 4 stops per leg (Apple's documented multistop; within Google's
     // phone cap). Leg k>1 starts at leg k-1's last stop. Links carry stops only, never the start.
     const n = legSize()
     const apps = IS_APPLE ? ['apple', 'google'] : ['google', 'apple']
@@ -290,42 +309,42 @@ async function main() {
   // ---------- inputs ----------
   let here = null // in memory only
   $('useLoc').addEventListener('click', () => {
-    if (!('geolocation' in navigator)) { say('Location isn’t available in this browser. Type a town or ZIP instead.'); $('q').focus(); return }
+    if (!('geolocation' in navigator)) { say(`Location isn’t available in this browser. Type a ${START_HINT} instead.`); $('q').focus(); return }
     say('Asking your browser for your location…')
     navigator.geolocation.getCurrentPosition(
       (pos) => { here = { lat: pos.coords.latitude, lon: pos.coords.longitude, label: 'your location' }; $('q').value = ''; render(here, budget()) },
-      () => { say('Couldn’t get your location. Type a town or ZIP instead.'); $('q').focus() },
+      () => { say(`Couldn’t get your location. Type a ${START_HINT} instead.`); $('q').focus() },
       { enableHighAccuracy: false, maximumAge: 0, timeout: 10000 },
     )
   })
   async function resolve(v) {
     const db = await loadPlaces()
-    if (/^\d{5}$/.test(v)) { const z = db.zips.find((z) => z[0] === v); return z ? { label: `ZIP ${v}`, lat: z[1], lon: z[2] } : null }
-    const n = v.toLowerCase().replace(/,?\s*(ky|kentucky)$/, '').trim()
-    const d = data.distilleries.find((d) => d[0].toLowerCase() === n) || (n.length > 3 && data.distilleries.find((d) => d[0].toLowerCase().includes(n)))
-    if (d && (d[0].toLowerCase() === n || /distill|trace|turkey|roses|beam|mark|forester|reserve|hill|key|barton/.test(n))) return { label: d[0], lat: d[1], lon: d[2] }
-    const p = db.places.find((p) => p[0].toLowerCase() === n) || db.places.find((p) => p[0].toLowerCase().startsWith(n))
-    if (p) return { label: p[0], lat: p[1], lon: p[2] }
-    if (d) return { label: d[0], lat: d[1], lon: d[2] }
-    return null
+    return resolveStart(v, db, data.distilleries, namedPlaces)
   }
-  async function suggest(v) {
-    const db = await loadPlaces()
-    const n = v.toLowerCase().slice(0, 2)
-    const hits = [...data.distilleries.map((d) => d[0]), ...db.places.map((p) => p[0])].filter((x) => x.toLowerCase().startsWith(n)).slice(0, 5)
-    say(`We couldn’t find “${esc(v)}” in Kentucky.` + (hits.length ? ` Did you mean: ${hits.map((h) => `<button type="button" class="sugg">${esc(h)}</button>`).join('')}` : ' Try a town name or a 5-digit ZIP.'))
-    document.querySelectorAll('.sugg').forEach((b) => b.addEventListener('click', () => { $('q').value = b.textContent; $('form').requestSubmit() }))
+  function sayChips(lead, suggestions) {
+    const chips = (suggestions || []).slice(0, 5).map((h) => `<button type="button" class="sugg">${esc(h)}</button>`).join('')
+    say(chips ? `${lead} ${chips}` : lead)
+    document.querySelectorAll('#qMsg .sugg').forEach((b) => b.addEventListener('click', () => {
+      $('q').value = b.textContent
+      $('form').requestSubmit()
+    }))
+  }
+  function suggest() {
+    say(PLACE_MISS)
   }
   $('form').addEventListener('submit', async (e) => {
     e.preventDefault()
     const v = $('q').value.trim()
     if (!v) {
       if (here) return render(here, budget())
-      say('Type a town, ZIP or distillery, or press “Use my location”.'); $('q').focus(); return
+      say(`Type a ${START_HINT}, or press “Use my location”.`); $('q').focus(); return
     }
     here = null
     const start = await resolve(v)
-    if (!start) { pre(); return suggest(v) }
+    if (start && start.ambiguous) { pre(); sayChips(`${PLACE_AMBIGUOUS} Did you mean:`, start.suggestions); return }
+    if (start && start.oosZip) { pre(); say(PLACE_OOS); return }
+    if (start && start.suggestions) { pre(); sayChips('Did you mean:', start.suggestions); return }
+    if (!start) { pre(); return suggest() }
     render(start, budget())
   })
   document.querySelectorAll('input[name=budget]').forEach((r) => r.addEventListener('change', () => { if ($('stops').querySelector('li[data-i]')) $('form').requestSubmit() }))

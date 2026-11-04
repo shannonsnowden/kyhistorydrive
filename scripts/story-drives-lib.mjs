@@ -6,6 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { parseJsLiteral } from './js-literal.mjs'
+import { isProtectedStory } from './lib/unified-story-data.mjs'
 
 const ENT = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#x27;': "'", '&#39;': "'" }
 const plain = (s) => {
@@ -39,6 +40,11 @@ export function storyDrives(root) {
       const list = (stories[slug] ??= [])
       if (!list.includes(id)) list.push(id)
     }
+  }
+  // Protected stories never get a Take a Drive link (Security #345, 10/24); drive pages are unchanged.
+  for (const slug of Object.keys(stories)) {
+    const sf = path.join(root, 'public/content/stories', `${slug}.json`)
+    if (isProtectedStory(fs.existsSync(sf) ? JSON.parse(fs.readFileSync(sf, 'utf8')) : { slug })) delete stories[slug]
   }
   return { drives, stories }
 }

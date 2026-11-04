@@ -125,15 +125,11 @@ export function looksLikeUnlabeledArtwork(photo) {
 
 /** Reviewed non-photographs (Editor 10/18, #199): each must keep a photo.artwork medium. */
 export const REVIEWED_ARTWORK_SLUGS = new Set([
-  'annis-mound-village',
   'benjamin-logan',
-  'blackfish-cot-ta-wa-ma-go-chillicothe-war-chief',
   'bland-w-ballard-of-tick-creek',
-  'blue-jacket-weyapiersenwah',
   'capt-abraham-lincoln-on-long-run',
   'chickamauga-cherokee-hold-the-southern-flank',
   'delaware-winter-camps-on-kentucky-ground',
-  'egushawa-and-the-odawa-in-kentuckys-war-years',
   'erie-the-cat-nation',
   'gen-james-wilkinson-kentuckys-agent-13',
   'iroquois-beaver-wars',
@@ -145,9 +141,8 @@ export const REVIEWED_ARTWORK_SLUGS = new Set([
   'kentucky-association-1826-lexington-race-course',
   'levi-todd-lexington-co-founder',
   'little-turtle-and-hardins-defeat-1790',
-  'moluntha-and-logans-raid-1786',
   'mount-horeb-earthworks',
-  'peter-village-early-woodland-enclosure-near-lexington',
+  'peter-village-enclosure-15fa166',
   'richard-henderson',
   'squire-boones-painted-stone',
   'treaty-of-fort-stanwix-1768',

@@ -13,6 +13,21 @@ const PAL = { parch: '#efe3c4', ink: '#2a1d10', river: '#8fbdd6', cream: '#f5ecd
 const esc = (s) =>
   String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
+/** [label](https://…) on the fact. Only Wikipedia and ExploreKYHistory become links; the rest stays text. */
+const linkPlain = (s) => {
+  const text = String(s ?? '')
+  const re = /\[([^\]\n]+)\]\((https:\/\/[^)\s]+)\)/g
+  let out = ''
+  let last = 0
+  for (const m of text.matchAll(re)) {
+    out += esc(text.slice(last, m.index))
+    const ok = /^https:\/\/(?:en\.wikipedia\.org\/|explorekyhistory\.ky\.gov\/)/.test(m[2])
+    out += ok ? `<a href="${esc(m[2])}" rel="noopener noreferrer">${esc(m[1])}</a>` : esc(m[0])
+    last = m.index + m[0].length
+  }
+  return out + esc(text.slice(last))
+}
+
 const INDEX_URL = '/data/web/territories/index.json'
 
 export const territoryEnabled = () => TRIBAL_TERRITORY_ENABLED === true
@@ -385,8 +400,8 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
   // One dated phase only (nothing for a slider to change): fixed view, dates kept in the heading.
   const controls = tagOnly || eras.length < 2 ? `<div hidden style="display:none">${controlsHtml}</div>` : controlsHtml
   const eraBox = `<div class="terr-era" aria-live="polite"><h4></h4><p></p></div><div class="terr-tags"></div>
-<p class="terr-note"><b>Territories overlapped and shifted.</b> ${esc(T.overlapNote)}</p>
-<p class="terr-span">${esc(T.stories?.[slug]?.presenceNote || T.presenceNote)}</p>
+<p class="terr-note"><b>Territories overlapped and shifted.</b> ${linkPlain(T.overlapNote)}</p>
+<p class="terr-span">${linkPlain(T.stories?.[slug]?.presenceNote || T.presenceNote)}</p>
 <p class="terr-src"><b>Source:</b> <span class="terr-srclist"></span></p>`
   const openLink = mode === 'card'
     ? `<a class="terr-open" data-story-map href="/${territoryMapHash(slug)}">Open full-screen territory map →</a>`
@@ -422,7 +437,7 @@ export function mountTerritory(el, { T, base, mode, slug, color = '#b3261e', nat
     if (e.id !== lastEra) {
       lastEra = e.id
       root.querySelector('.terr-era h4').textContent = e.label
-      root.querySelector('.terr-era p').textContent = e.text
+      root.querySelector('.terr-era p').innerHTML = linkPlain(e.text)
       root.querySelector('.terr-tags').innerHTML = tags(e)
       root.querySelector('.terr-srclist').innerHTML = sourcesHtml(T, e.sources)
       root.querySelectorAll('.terr-chips button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.era === e.id ? 'true' : 'false'))

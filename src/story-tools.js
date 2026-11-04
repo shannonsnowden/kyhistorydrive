@@ -3,13 +3,13 @@
  * Dates passed in here are already resolved. This module never invents one.
  */
 import { ccByLicense, artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS } from './photo-credit.js'
+import { isProtectedStoryRule } from './protected-story-rule.js'
 export { artworkLead, ARTWORK_LEADS, looksLikeUnlabeledArtwork, REVIEWED_ARTWORK_SLUGS }
 
 export const SITE_NAME = 'Kentucky History Drive'
 export const SITE_AUTHOR = 'Shannon Snowden'
 export const CITE_AUTHOR_FALLBACK = 'KY History Drive'
 export const SITE_ORIGIN = 'https://kyhistorydrive.com'
-export const CORRECTION_REPO = 'shannonsnowden/kyhistorydrive'
 
 const CHICAGO_MONTHS = [
   'January',
@@ -194,18 +194,51 @@ export function citeBoxHtml({ title, url, published = '', modified = '', heading
     </section>`
 }
 
-export function correctionUrl({ title, url }) {
-  const params = new URLSearchParams({
-    labels: 'correction',
-    title: `Correction: ${title || 'Story'}`,
-    body: `Story: ${title || ''}\nURL: ${url || ''}\n\nWhat should be corrected?\n\n`,
-  })
-  return `https://github.com/${CORRECTION_REPO}/issues/new?${params.toString()}`
+/** Subject and body for a correction email. No address and no mailto scheme. */
+export function correctionMessage({ title, url } = {}) {
+  const storyTitle = title || ''
+  const storyUrl = url || ''
+  return {
+    subject: `Correction: ${storyTitle || 'Story'}`,
+    body: `Story: ${storyTitle}\nURL: ${storyUrl}\n\nWhat should be corrected?\n\n`,
+  }
 }
 
-export function correctionHtml({ title, url }) {
-  const href = correctionUrl({ title, url })
-  return `<p class="story-correction"><a class="story-correction-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer nofollow">Report a correction<span class="visually-hidden"> for ${esc(title || 'this story')} (opens in a new tab)</span></a></p>`
+/**
+ * First click is the human gesture. The address is assembled here from split
+ * parts, the same way Contact reveals it, then the mail client opens.
+ * The link's href stays /contact/ for no-JS and is never a mailto URL.
+ */
+export function wireCorrectionLinks(root) {
+  const scope = root && typeof root.querySelectorAll === 'function' ? root : document
+  scope.querySelectorAll('[data-correction-mail]').forEach((link) => {
+    if (link.getAttribute('data-bound')) return
+    link.setAttribute('data-bound', '1')
+    link.addEventListener('click', (event) => {
+      if (event.defaultPrevented) return
+      if (event.button && event.button !== 0) return
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      event.preventDefault()
+      const storyTitle = link.getAttribute('data-title') || ''
+      const storyUrl = link.getAttribute('data-url') || ''
+      const message = correctionMessage({ title: storyTitle, url: storyUrl })
+      const local = ['cont', 'act'].join('')
+      const domain = ['kyhistory', 'drive'].join('') + '.' + 'com'
+      const addr = local + String.fromCharCode(64) + domain
+      const scheme = 'mail' + 'to:'
+      globalThis.window.location.href = `${scheme}${addr}?subject=${encodeURIComponent(message.subject)}&body=${encodeURIComponent(message.body)}`
+    })
+  })
+}
+
+export function correctionBindScript() {
+  return `<script>${correctionMessage}\n(${wireCorrectionLinks})(document);</script>`
+}
+
+export function correctionHtml({ title, url } = {}) {
+  const storyTitle = title || ''
+  const storyUrl = url || ''
+  return `<p class="story-correction"><a class="story-correction-link" href="/contact/" data-correction-mail data-title="${esc(storyTitle)}" data-url="${esc(storyUrl)}">Report a correction<span class="visually-hidden"> for ${esc(storyTitle || 'this story')}</span></a></p>${correctionBindScript()}`
 }
 
 const EARTH_MILES = 3958.7613
@@ -232,11 +265,25 @@ function finiteCoord(value) {
   return Number.isFinite(n) ? n : null
 }
 
+// Same rule as the build (scripts/lib/unified-story-data.mjs). protected-pins.js feeds the id lists
+// from public/data/web/protected-pins.json; until then only the flags and heuristics apply.
+let protectedStoryIds = { protectedIds: new Set(), skipIds: new Set() }
+export function setProtectedStoryIds(ids, skipIds) {
+  protectedStoryIds = { protectedIds: new Set(ids || []), skipIds: new Set(skipIds || []) }
+}
+
+export function isProtectedStoryCoords(story) {
+  return isProtectedStoryRule(story, protectedStoryIds)
+}
+
 function storyOrigin(story) {
-  const lat = finiteCoord(story?.lat)
-  const lon = finiteCoord(story?.lon)
-  if (lat == null || lon == null || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
-  if (lat === 0 && lon === 0) return null
+  const rawLat = finiteCoord(story?.lat)
+  const rawLon = finiteCoord(story?.lon)
+  if (rawLat == null || rawLon == null || Math.abs(rawLat) > 90 || Math.abs(rawLon) > 180) return null
+  if (rawLat === 0 && rawLon === 0) return null
+  const factor = isProtectedStoryCoords(story) ? 10 : 10000
+  const lat = Math.round(rawLat * factor) / factor
+  const lon = Math.round(rawLon * factor) / factor
   return { lat, lon }
 }
 
@@ -255,14 +302,13 @@ export function nearbyStories(story, all, { limit = 5, excludeSlugs = [] } = {})
   const skip = new Set(excludeSlugs || [])
   const rows = []
   for (const other of collapseSamePlace(story, all, skip)) {
-    const olat = finiteCoord(other.lat)
-    const olon = finiteCoord(other.lon)
-    if (!validPin(olat, olon)) continue
+    const otherOrigin = storyOrigin(other)
+    if (!otherOrigin) continue
     rows.push({
       kind: 'story',
       slug: other.slug,
       title: other.title,
-      miles: haversineMiles(origin.lat, origin.lon, olat, olon),
+      miles: haversineMiles(origin.lat, origin.lon, otherOrigin.lat, otherOrigin.lon),
     })
   }
   rows.sort((a, b) => a.miles - b.miles || a.title.localeCompare(b.title))
@@ -280,7 +326,16 @@ export function markerRecords(features) {
     const id = props.marker_number ?? props.id
     const title = props.title || props.name
     if (id == null || String(id).trim() === '' || !title) continue
-    rows.push({ id: String(id), title: String(title), lat, lon })
+    rows.push({
+      id: String(id),
+      title: String(title),
+      lat,
+      lon,
+      county: props.county ? String(props.county) : '',
+      location_text: props.location_text ? String(props.location_text) : '',
+      inscription: props.inscription ? String(props.inscription) : '',
+      source_url: props.source_url ? String(props.source_url) : '',
+    })
   }
   return rows
 }
@@ -317,8 +372,10 @@ export function nearbyMarkers(story, markers, { limit = 5, excludeMarkerIds = []
  * Up to five nearest stories and up to five nearest historical markers,
  * one list, nearest first. Stories stay on /stories/<slug>/.
  */
-export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = [], excludeMarkerIds = [] } = {}) {
-  const storiesNear = nearbyStories(story, all, { limit, excludeSlugs })
+export function nearbyPlaces(story, all, markers, { limit = 5, excludeSlugs = [], excludeMarkerIds = [], isProtected = isProtectedStoryCoords } = {}) {
+  // #346 (Critiquito): a protected site is never a nearby card; "3.2 miles" from a public story places it.
+  const pool = (all || []).filter((other) => other === story || !(other?.coordinatesProtected || (typeof isProtected === 'function' && isProtected(other))))
+  const storiesNear = nearbyStories(story, pool, { limit, excludeSlugs })
   const markersNear = nearbyMarkers(story, markers, { limit, excludeMarkerIds })
   const rows = [
     ...(storiesNear.length >= 3 ? storiesNear : []),
@@ -386,8 +443,10 @@ export function relatedCardPortraitAlt(person) {
 function cardMediaHtml(row) {
   if (row.kind !== 'marker' && row.thumb) {
     const src = esc(row.thumb)
-    // Person portraits carry alt text; a story photo thumb stays decorative (the title is beside it).
-    const alt = esc(row.thumbAlt || '')
+    // Decorative: the card title sits in the same link, so a title-based alt only repeats it
+    // (and on protected pages it repeated nearby place names). An explicit row.alt still wins.
+    // Person portraits set thumbAlt ("AI illustration of <name>", or the name) — #334.
+    const alt = esc(row.alt || row.thumbAlt || '')
     return `<span class="related-card-media"><img class="related-card-img" src="${src}" srcset="${src} 2x" alt="${alt}" width="56" height="56" loading="lazy" decoding="async"></span>`
   }
   return `<span class="related-card-media related-card-pin" aria-hidden="true">${PIN_ICON}</span>`
@@ -406,18 +465,27 @@ function nearbyRowHtml(row) {
   const href = row.kind === 'marker' ? markerMapHref(row.id) : `/stories/${encodeURIComponent(row.slug)}/`
   const liClass = row.related ? 'related-story' : 'nearby-place'
   const mapAttr = row.kind === 'marker' ? ' data-story-map' : ''
-  return `<li class="${liClass}"><a class="related-card"${mapAttr} href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span></span>${CHEVRON_ICON}</a></li>`
+  const whyHtml = row.why ? `<span class="usp-rel-why">${esc(row.why)}</span>` : ''
+  return `<li class="${liClass}"><a class="related-card"${mapAttr} href="${esc(href)}">${cardMediaHtml(row)}<span class="related-card-copy"><span class="related-card-title">${esc(row.title)}</span><span class="related-card-meta">${cardMetaHtml(row)}</span>${whyHtml}</span>${CHEVRON_ICON}</a></li>`
 }
 
-function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby' } = {}) {
+function relatedListHtml(rows, { heading, headingId, headingLevel = 2, navClass = 'story-nearby', collapsible = false } = {}) {
   if (!rows?.length) return ''
   const level = headingLevel === 3 ? 3 : 2
+  if (collapsible && rows.length > 3) {
+    const primary = rows.slice(0, 3).map((row) => nearbyRowHtml(row)).join('')
+    const extraRows = rows.slice(3)
+    const extra = extraRows.map((row) => nearbyRowHtml(row)).join('')
+    return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list usp-related-grid">${primary}</ul><button type="button" class="usp-more-btn" data-more-btn aria-expanded="false">More related stories (${extraRows.length})</button><ul class="related-list usp-related-grid usp-related-more" data-more-grid hidden>${extra}</ul></nav>`
+  }
   const items = rows.map((row) => nearbyRowHtml(row)).join('')
   return `<nav class="${navClass}" aria-labelledby="${headingId}"><h${level} id="${headingId}">${heading}</h${level}><ul class="related-list">${items}</ul></nav>`
 }
 
-export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5 } = {}) {
-  const near = nearbyPlaces(story, all, markers, { excludeSlugs, excludeMarkerIds, limit })
+export function nearbyHtml(story, all, { headingLevel = 2, markers = [], excludeSlugs = [], excludeMarkerIds = [], limit = 5, isProtected = isProtectedStoryCoords } = {}) {
+  // #345: a protected page never lists nearby cards. Distances name the towns and rivers around it.
+  if (typeof isProtected === 'function' && isProtected(story)) return ''
+  const near = nearbyPlaces(story, all, markers, { excludeSlugs, excludeMarkerIds, limit, isProtected })
   return relatedListHtml(near, { heading: 'Nearby', headingId: 'nearby-stories-heading', headingLevel })
 }
 
@@ -458,9 +526,13 @@ function storyRichness(story) {
   return proseLength(story) * 1000 + String(story?.summary || '').length
 }
 
+const _trinomialCache = new Map()
 function trinomialsOf(story) {
   const blob = [story?.slug, story?.title, story?.matchedPlace].filter(Boolean).join(' ')
-  return new Set(trinomialMatches(blob))
+  if (_trinomialCache.has(blob)) return _trinomialCache.get(blob)
+  const set = new Set(trinomialMatches(blob))
+  _trinomialCache.set(blob, set)
+  return set
 }
 
 function sharedTrinomial(a, b) {
@@ -470,13 +542,16 @@ function sharedTrinomial(a, b) {
   return false
 }
 
+const _titleLabelsCache = new Map()
 function titleLabels(title) {
-  let text = String(title || '')
+  const key = String(title || '')
+  if (_titleLabelsCache.has(key)) return _titleLabelsCache.get(key)
+  let text = key
     .toLowerCase()
     .replace(/[’']/g, '')
   text = text.replace(/\b15[a-z]{2}\d{1,4}\b/gi, ' ')
   text = text.replace(/\([^)]*\)/g, ' ')
-  return text
+  const out = text
     .split(/\s*(?::|\/|—|–)\s*/)
     .map((part) => {
       const words = part
@@ -489,9 +564,14 @@ function titleLabels(title) {
       return words.join(' ')
     })
     .filter(Boolean)
+  _titleLabelsCache.set(key, out)
+  return out
 }
 
+const _leadingStemsCache = new Map()
 function leadingStems(title) {
+  const key = String(title || '')
+  if (_leadingStemsCache.has(key)) return _leadingStemsCache.get(key)
   const stems = []
   for (const label of titleLabels(title)) {
     const words = label.split(' ').filter(Boolean)
@@ -499,6 +579,7 @@ function leadingStems(title) {
     stems.push(words[0])
     if (words.length >= 2) stems.push(`${words[0]} ${words[1]}`)
   }
+  _leadingStemsCache.set(key, stems)
   return stems
 }
 
@@ -542,22 +623,29 @@ function coordsClose(a, b) {
 function samePlace(a, b) {
   if (!a?.slug || !b?.slug || a.slug === b.slug) return false
   if (sharedTrinomial(a, b)) return true
-  if (!sharedTitleStem(a?.title, b?.title)) return false
-  return sameHistoryId(a, b) || coordsClose(a, b)
+  if (!sameHistoryId(a, b) && !coordsClose(a, b)) return false
+  return sharedTitleStem(a?.title, b?.title)
 }
 
 /**
  * Same person: both titles lead with the same personal name before a comma
  * ("Hugh McGary, the hothead major" / "Hugh McGary, the Blue Licks Hothead").
  */
+const _titlePersonCache = new Map()
 function titlePerson(title) {
-  const m = /^([^,:]+),\s/.exec(String(title || ''))
-  if (!m) return ''
+  const key = String(title || '')
+  if (_titlePersonCache.has(key)) return _titlePersonCache.get(key)
+  const m = /^([^,:]+),\s/.exec(key)
+  if (!m) { _titlePersonCache.set(key, ''); return '' }
   const name = m[1].trim()
   const words = name.split(/\s+/)
-  if (words.length < 2 || words.length > 4) return ''
-  if (!words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) return ''
-  return name.toLowerCase()
+  if (words.length < 2 || words.length > 4 || !words.every((w) => /^[A-Z][\p{L}'’.-]*$/u.test(w))) {
+    _titlePersonCache.set(key, '')
+    return ''
+  }
+  const out = name.toLowerCase()
+  _titlePersonCache.set(key, out)
+  return out
 }
 
 function samePerson(a, b) {
@@ -626,10 +714,9 @@ function sameCounty(story, other) {
 
 function relatedMiles(story, other) {
   const origin = storyOrigin(story)
-  const lat = finiteCoord(other?.lat)
-  const lon = finiteCoord(other?.lon)
-  if (!origin || !validPin(lat, lon)) return Number.POSITIVE_INFINITY
-  return haversineMiles(origin.lat, origin.lon, lat, lon)
+  const otherOrigin = storyOrigin(other)
+  if (!origin || !otherOrigin) return Number.POSITIVE_INFINITY
+  return haversineMiles(origin.lat, origin.lon, otherOrigin.lat, otherOrigin.lon)
 }
 
 /**
@@ -638,14 +725,24 @@ function relatedMiles(story, other) {
  * One specific tag does not outrank the same county or a nearer story.
  * Then the same county, then nearer, then title.
  */
-export function pickRelatedStories(story, all, excludeSlugs = []) {
+// #346: a public archaeological site in the same county is a reference site for a protected one; never card it.
+function isPublicArchaeologySite(other, isProtected) {
+  if (isProtected(other)) return false
+  return (other?.tags || []).map((t) => String(t).toLowerCase()).includes('archaeology')
+}
+
+export function pickRelatedStories(story, all, excludeSlugs = [], { isProtected = isProtectedStoryCoords } = {}) {
   const skip = new Set(excludeSlugs || [])
   const originTags = relatedTagSets(story)
-  const pool = collapseSamePlace(story, all, skip)
+  let pool = collapseSamePlace(story, all, skip)
+  // #345: a protected site's related cards are same-county only; distance picks name nearby towns and rivers.
+  if (typeof isProtected === 'function' && isProtected(story)) pool = pool.filter((other) => sameCounty(story, other) && !isPublicArchaeologySite(other, isProtected))
   const strongCount = (other) => {
     const shared = sharedCount(originTags.specific, relatedTagSets(other).specific)
     return shared >= 2 ? shared : 0
   }
+  // #346: a public story cards a protected site only by county or strong shared tags, never because it is close by.
+  if (typeof isProtected === 'function' && !isProtected(story)) pool = pool.filter((other) => !isProtected(other) || sameCounty(story, other) || strongCount(other) > 0)
   pool.sort((a, b) => {
     const specificDelta = strongCount(b) - strongCount(a)
     if (specificDelta) return specificDelta
@@ -659,13 +756,14 @@ export function pickRelatedStories(story, all, excludeSlugs = []) {
 }
 
 /** Related stories first, then nearby places that are not already listed. */
-export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2 } = {}) {
+export function relatedAndNearbyHtml(related, nearby, { headingLevel = 2, collapsible = false, heading = 'Related and nearby' } = {}) {
   const rows = [...(related || []), ...(nearby || [])]
   return relatedListHtml(rows, {
-    heading: 'Related and nearby',
+    heading,
     headingId: 'related-nearby-heading',
     headingLevel,
     navClass: 'static-related story-nearby',
+    collapsible,
   })
 }
 
@@ -674,15 +772,17 @@ export function relatedAndNearbyForStory(
   story,
   all,
   markers,
-  { headingLevel = 2, excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', personFor = () => null } = {},
+  { headingLevel = 2, heading = 'Related stories', excludeSlugs = [], excludeMarkerIds = [], limit = 3, thumbFor = storyThumbSrc, portraitFor = () => '', personFor = () => null, whyFor = null, collapsible = false, isProtected = isProtectedStoryCoords } = {},
 ) {
-  // Person cards always use the canonical portrait, with the standard portrait alt.
+  const related = pickRelatedStories(story, all, excludeSlugs, { isProtected })
+  // #345: protected sites show no nearby cards. Their titles and distances name nearby towns and rivers.
+  const protectedSite = typeof isProtected === 'function' && isProtected(story)
+  // Person cards always use the canonical portrait, with the standard portrait alt (#334).
   const media = (other) => {
     const portrait = portraitFor(other.slug) || ''
     if (portrait) return { thumb: portrait, thumbAlt: relatedCardPortraitAlt(personFor(other.slug)) }
     return { thumb: thumbFor(other) || '', thumbAlt: '' }
   }
-  const related = pickRelatedStories(story, all, excludeSlugs)
   const bySlug = new Map((all || []).filter((item) => item?.slug).map((item) => [item.slug, item]))
   const relatedRows = related.map((other) => ({
     kind: 'story',
@@ -690,23 +790,26 @@ export function relatedAndNearbyForStory(
     slug: other.slug,
     title: other.title,
     detail: storyDetail(other),
+    why: typeof whyFor === 'function' ? whyFor(story, other) : '',
     ...media(other),
   }))
-  const nearby = nearbyPlaces(story, all, markers, {
+  const nearby = (protectedSite ? [] : nearbyPlaces(story, all, markers, {
     limit,
     excludeSlugs: [...excludeSlugs, ...related.map((item) => item.slug)],
     excludeMarkerIds,
-  }).map((row) => {
+    isProtected,
+  })).map((row) => {
     if (row.kind !== 'story') return { ...row, thumb: '' }
     const other = bySlug.get(row.slug)
     return {
       ...row,
       title: other?.title || row.title,
       detail: other ? storyDetail(other) : '',
+      why: other && typeof whyFor === 'function' ? whyFor(story, other) : '',
       ...(other ? media(other) : { thumb: '', thumbAlt: '' }),
     }
   })
-  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel })
+  return relatedAndNearbyHtml(relatedRows, nearby, { headingLevel, collapsible, heading })
 }
 
 const SOURCE_BY_DOMAIN = [
@@ -936,8 +1039,10 @@ export function photoCreditHtml(photo, { block = true } = {}) {
   // following piece, so a separator never hangs at a line end and no stray ' .' follows a link.
   const segs = chunks.map((c) => `<span class="seg">${c}</span>`)
   // Human-made art (e.g. Herb Roe's paintings) leads with its own label, never 'Photo:' or 'AI illustration'.
+  // A Kentucky History Drive AI portrait is not a photograph: keep its credit as written.
   const artwork = artworkLead(photo)
-  const lead = artwork ? esc(artwork) : 'Photo: '
+  const aiCredit = !artwork && /^AI illustration\b/i.test(String(photo?.credit || '').trim())
+  const lead = artwork ? esc(artwork) : aiCredit ? '' : 'Photo: '
   const first = artwork && model.photographer && photo?.artwork !== 'reconstruction' && photo?.year ? `${chunks[0]}, ${esc(String(photo.year))}` : chunks[0]
   if (segs.length) segs[0] = `<span class="seg">${lead}${first}</span>`
   // A rights statement that is not a license (e.g. LoC 'No known restrictions') shows as written.

@@ -35,4 +35,24 @@ for (let t = 0; t < 200; t++) {
     })
   }
 }
+// Private rows keep their place in the STOPS list. Leg labels use that number, not a recount of exact stops.
+const listed = [
+  { lat: 38.4, lon: -84.28, listNo: 1 },
+  { lat: 38.33, lon: -84.26, listNo: 2 },
+  { lat: 38.3247, lon: -84.2033, listNo: 3 },
+  { lat: 38.4293, lon: -83.9939, listNo: 4 },
+  { lat: 38.4811, lon: -83.9769, listNo: 5 },
+  { lat: 38.3622, lon: -83.6156, listNo: 6 },
+  { lat: 38.6159, lon: -83.8085, listNo: 7 },
+]
+const exactListed = listed.slice(2)
+const labeled = buildLegs(exactListed, LEG_STOPS, 'apple')
+const plain = buildLegs(exactListed.map(({ lat, lon }) => ({ lat, lon })), LEG_STOPS, 'apple')
+if (JSON.stringify(labeled.map((l) => [l.k, l.firstNo, l.lastNo])) !== '[[1,3,6],[2,6,7]]') {
+  fail(`list numbers on legs should match the STOPS list, got ${JSON.stringify(labeled.map((l) => [l.k, l.firstNo, l.lastNo]))}`)
+}
+if (JSON.stringify(plain.map((l) => [l.firstNo, l.lastNo])) !== '[[1,4],[4,5]]') {
+  fail(`legs without listNo keep exact ordinals, got ${JSON.stringify(plain.map((l) => [l.firstNo, l.lastNo]))}`)
+}
+if (labeled.map((l) => l.url).join('|') !== plain.map((l) => l.url).join('|')) fail('listNo changed a maps URL')
 console.log(`test-drive-links: ${urls} leg URLs checked; no origin on leg 1, only stop coordinates, caps hold`)

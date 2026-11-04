@@ -10,7 +10,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseRouteNotes, parseSingleCoordinate } from './route-notes.mjs'
 import { isProtectedWaypoint, roundProtectedWaypoint } from './protected-waypoints.mjs'
-import { modifiedFromProseHistory, storyProse, textRevisionForFile } from './story-dates.mjs'
+import { STORY_DATE_PINS, gitFileDates, isShallowRepo, modifiedFromProseHistory, storyProse, textRevisionForFile } from './story-dates.mjs'
 import {
   CITE_AUTHOR_FALLBACK,
   SITE_NAME,
@@ -18,7 +18,8 @@ import {
   buildCitation,
   citeBoxHtml,
   correctionHtml,
-  correctionUrl,
+  correctionMessage,
+  wireCorrectionLinks,
   formatMiles,
   haversineMiles,
   markerMapHref,
@@ -67,7 +68,7 @@ coord('', null)
 
 const protectedNames = ['Lower Shawneetown', 'Eskippakithiki', 'Indian Old Fields']
 const shawnee = roundProtectedWaypoint(
-  { name: 'Lower Shawneetown (Ohio crossing)', place: 'South Portsmouth', lat: 38.7, lon: -83.1, latText: '38.7', lonText: '-83.1' },
+  { name: 'Lower Shawneetown (Ohio crossing)', place: 'Greenup County', lat: 38.7, lon: -83.1, latText: '38.7', lonText: '-83.1' },
   protectedNames,
 )
 assert.equal(shawnee.latText, '38.7')
@@ -164,17 +165,91 @@ assert.deepEqual(fromGit, { published: '2026-08-01', modified: '2026-08-02' })
 const revisedGitOnly = resolveArticleDates({ publishedDate: '2026-08-30' }, { modified: '2026-10-05' })
 assert.deepEqual(revisedGitOnly, { published: '', modified: '2026-10-05' })
 
-const href = correctionUrl({ title: 'Battle of Blue Licks', url: fields.url })
-const issue = new URL(href)
-assert.equal(issue.origin + issue.pathname, 'https://github.com/shannonsnowden/kyhistorydrive/issues/new')
-assert.equal(issue.searchParams.get('labels'), 'correction')
-assert.match(issue.searchParams.get('title'), /Battle of Blue Licks/)
-assert.match(issue.searchParams.get('body'), /https:\/\/kyhistorydrive\.com\/stories\/battle-of-blue-licks\//)
-assert.doesNotMatch(href, /contact@|mailto:/i)
+const message = correctionMessage({ title: 'Battle of Blue Licks', url: fields.url })
+assert.equal(message.subject, 'Correction: Battle of Blue Licks')
+assert.equal(
+  message.body,
+  `Story: Battle of Blue Licks\nURL: ${fields.url}\n\nWhat should be corrected?\n\n`,
+)
 const correction = correctionHtml({ title: 'Battle of Blue Licks', url: fields.url })
-assert.match(correction, /rel="noopener noreferrer nofollow"/)
-assert.match(correction, /target="_blank"/)
+assert.match(correction, /Report a correction/)
+assert.match(correction, /href="\/contact\/"/)
+assert.match(correction, /data-correction-mail/)
+assert.match(correction, /data-title="Battle of Blue Licks"/)
+assert.match(correction, new RegExp(`data-url="${fields.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`))
+assert.match(correction, /fromCharCode\(64\)/)
+assert.match(correction, /\['cont', 'act'\]/)
 assert.doesNotMatch(correction, /mailto:|contact@/i)
+assert.doesNotMatch(correction, /github\.com|issues\/new|target="_blank"|noopener/)
+const quoted = correctionHtml({ title: 'Blue & Licks "1778"', url: fields.url })
+assert.match(quoted, /data-title="Blue &amp; Licks &quot;1778&quot;"/)
+assert.doesNotMatch(quoted, /mailto:|contact@/i)
+
+{
+  const clicks = []
+  const link = {
+    attrs: { 'data-title': 'Battle of Blue Licks', 'data-url': fields.url, href: '/contact/' },
+    getAttribute(name) {
+      return Object.prototype.hasOwnProperty.call(this.attrs, name) ? this.attrs[name] : null
+    },
+    setAttribute(name, value) {
+      this.attrs[name] = String(value)
+    },
+    addEventListener(type, fn) {
+      assert.equal(type, 'click')
+      this.onclick = fn
+    },
+  }
+  const root = { querySelectorAll: () => [link] }
+  const previousWindow = globalThis.window
+  globalThis.window = {
+    location: {
+      set href(value) {
+        clicks.push(value)
+      },
+    },
+  }
+  try {
+    wireCorrectionLinks(root)
+    assert.equal(link.attrs['data-bound'], '1')
+    assert.equal(link.attrs.href, '/contact/')
+    link.onclick({
+      defaultPrevented: false,
+      button: 0,
+      metaKey: false,
+      ctrlKey: true,
+      shiftKey: false,
+      altKey: false,
+      preventDefault() {
+        throw new Error('modified click should keep the /contact/ fallback')
+      },
+    })
+    assert.equal(clicks.length, 0)
+    let prevented = false
+    link.onclick({
+      defaultPrevented: false,
+      button: 0,
+      metaKey: false,
+      ctrlKey: false,
+      shiftKey: false,
+      altKey: false,
+      preventDefault() {
+        prevented = true
+      },
+    })
+    assert.equal(prevented, true)
+    assert.equal(clicks.length, 1)
+    const opened = new URL(clicks[0])
+    assert.equal(opened.protocol, 'mailto:')
+    assert.equal(opened.pathname, 'contact@kyhistorydrive.com')
+    assert.equal(opened.searchParams.get('subject'), message.subject)
+    assert.equal(opened.searchParams.get('body'), message.body)
+    assert.equal(link.attrs.href, '/contact/')
+  } finally {
+    if (previousWindow === undefined) delete globalThis.window
+    else globalThis.window = previousWindow
+  }
+}
 
 assert.equal(
   modifiedFromProseHistory([
@@ -191,12 +266,27 @@ assert.equal(
   '2026-10-11',
 )
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const camp = textRevisionForFile(root, 'public/content/stories/camp-nelson-jessamine-county.json')
-assert.equal(camp.published, '2026-10-04')
-assert.equal(camp.modified, '2026-10-04')
-const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
-assert.equal(mantle.published, '2026-10-09')
-assert.equal(mantle.modified, '2026-10-09')
+// Git-history checks need full history; a --depth 1 clone has none (SEO #344).
+if (isShallowRepo(root)) {
+  console.warn('test-story-quick-wins: shallow clone, skipping git-history date checks')
+} else {
+  const camp = textRevisionForFile(root, 'public/content/stories/camp-nelson-jessamine-county.json')
+  assert.equal(camp.published, '2026-10-04')
+  assert.equal(camp.modified, '2026-10-04')
+  const mantle = textRevisionForFile(root, 'public/content/stories/mantle-rock-and-the-trail-of-tears.json')
+  assert.equal(mantle.published, '2026-10-09')
+  assert.equal(mantle.modified, '2026-10-09')
+  // #355 renames keep the publication-day pin. Git would say 2026-10-24.
+  // A later prose revision updates that pin's modified date (Item 88 next-7).
+  const pinnedJson = JSON.parse(fs.readFileSync(path.join(root, 'public/content/story-dates.json'), 'utf8'))
+  const gitDates = gitFileDates(root)
+  for (const [file, pin] of Object.entries(STORY_DATE_PINS)) {
+    const slug = path.basename(file, '.json')
+    assert.deepEqual(pinnedJson[slug], pin, `${slug} story-dates must match the v2 pin`)
+    assert.equal(gitDates.created.get(file), pin.published, `${slug} datePublished pin`)
+    assert.equal(gitDates.lastmod.get(file), pin.modified, `${slug} lastmod pin`)
+  }
+}
 
 // Summary-only edits are meta/card copy, not a revision (Editor ruling, #319).
 {
@@ -258,6 +348,16 @@ assert.match(creditHtml, /target="_blank"/)
 assert.doesNotMatch(creditHtml, /<\/a>\s*\./, 'no stray period after a link in the photo credit')
 assert.match(creditHtml, /<\/span> <span class="seg photo-license">License:/)
 assert.doesNotMatch(creditHtml, / · /, 'separators are drawn by CSS (.seg + .seg::before), not in the markup')
+
+const aiHero = photoCreditHtml({
+  image_url: '/people/portraits/blackfish__ai-portrait-v1-512.jpg',
+  title: 'AI illustration of Blackfish, Chillicothe Shawnee war chief, about 1778',
+  credit: 'AI illustration · Kentucky History Drive; no known likeness exists',
+  license: 'Original AI illustration',
+})
+assert.match(aiHero, /AI illustration · Kentucky History Drive; no known likeness exists/)
+assert.match(aiHero, /License: Original AI illustration/)
+assert.doesNotMatch(aiHero, /Photo: /)
 
 const sourceOnly = photoCreditModel({
   image_url: '/photo.jpg',

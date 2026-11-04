@@ -1,6 +1,9 @@
 /**
  * Write the homepage lead story, the 4 "More Kentucky stories" cards and the phone swipe row
  * into dist/index.html at build time, plus a <link rel=preload> for the lead image in <head>.
+ * The lead is the first story in today's pack that has a photo (home-preview.json).
+ * A no-photo lead is skipped. An empty photo set falls back to the Big Bone Lick pin;
+ * a non-empty pack is not prefixed with it.
  * Without JS the homepage still has real <a href> links and images; the app re-renders the
  * same markup from src/home-hero-render.js when it loads.
  */
@@ -9,12 +12,12 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { setPhotoVariants } from '../src/responsive-img.js'
 import {
-  usablePhoto,
   renderLeadStory,
   renderRailCard,
   renderSwipeCard,
   leadPreloadTag,
   storyPageHref,
+  heroSlidesFromPack,
 } from '../src/home-hero-render.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -26,9 +29,7 @@ const pack = readJson(path.join(root, 'public/content/home-preview.json'))
 const variantsFile = path.join(root, 'public/content/photos/responsive.json')
 setPhotoVariants(fs.existsSync(variantsFile) ? readJson(variantsFile) : {})
 
-const all = Array.isArray(pack.stories) && pack.stories.length ? pack.stories : [pack.hero, ...(pack.features || [])].filter(Boolean)
-const withPhotos = all.filter((s) => usablePhoto(s?.photo))
-const slides = withPhotos.length ? withPhotos : all.slice(0, 1)
+const slides = heroSlidesFromPack(pack)
 if (!slides.length) throw new Error('prerender-home-hero: home-preview.json has no stories')
 const lead = slides[0]
 const more = slides.slice(1, 5)
@@ -56,8 +57,9 @@ if ((out.match(/class="hp-rail-card" href="/g) || []).length !== more.length) pr
 if ((out.match(/class="hp-swipe-card-link" href="/g) || []).length !== more.length) problems.push('swipe cards')
 if (tag && !/<head>[\s\S]*id="hpLeadPreload"[\s\S]*<\/head>/.test(out)) problems.push('head preload')
 if (/<section id="hpHero"[\s\S]*?<\/ul>/.exec(out)?.[0].includes('href="/#timeline/')) problems.push('hash #timeline story links')
-// Plain left clicks on these cards open the Timeline reader via data-timeline (src/home-preview.js).
-if (!out.includes(`data-timeline="/#timeline/${encodeURIComponent(lead.slug)}"`)) problems.push('lead data-timeline')
+// #337: cards open the static story page; the old Timeline-reader click hook is gone.
+if (out.includes('data-timeline="')) problems.push('stale data-timeline attribute')
+if (!out.includes(`href="/stories/${encodeURIComponent(lead.slug)}/"`)) problems.push('lead story href')
 for (const s of [lead, ...more]) if (!fs.existsSync(path.join(dist, 'stories', s.slug, 'index.html'))) problems.push(`no /stories/${s.slug}/ page`)
 if (problems.length) throw new Error(`prerender-home-hero: missing ${problems.join(', ')}`)
 console.log(`prerender-home-hero: lead "${lead.title}" + ${more.length} cards in dist/index.html${tag ? ', preload in <head>' : ''}`)

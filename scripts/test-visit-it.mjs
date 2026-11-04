@@ -1,0 +1,201 @@
+#!/usr/bin/env node
+/**
+ * Approvals 112 A3, Editor design softs: Visit it is a compact strip under the dek.
+ * 390: place + Directions (amber) + Apple + Google + See on map.
+ * 1280: Get directions, plus Apple and Google as real maps links, and See on the history map.
+ * Apple and Google are anchors that open Maps. They are not toggles that only
+ * rewrite the Get directions href. Apple stays maps.apple.com/?daddr= (marker cards
+ * and the existing Visit-it emission). Curated drive appleUrl() is the multi-stop
+ * /directions helper and is not used here.
+ * The full map card stays in the rail / mobile slot.
+ * No coords hides the strip. County-only is an outline and "See county on map".
+ * Protected stories are copy only: no dot, no directions, no locator leaks.
+ * Four private-land stories keep emitting directions until a later Editor CLEAR.
+ */
+import assert from 'node:assert/strict'
+import fs from 'node:fs'
+import { visitItHtml } from './lib/unified-story-data.mjs'
+import { findLocators } from './lib/protected-locators.mjs'
+
+const publicStory = {
+  slug: 'sample-visit-story',
+  title: 'Sample Visit Story',
+  county: 'Mercer',
+  matchedPlace: 'Harrodsburg',
+  era: 'frontier',
+  lat: 37.6456,
+  lon: -84.7789,
+  mapConfidence: 'exact',
+  tags: ['frontier'],
+}
+
+const protectedStory = {
+  slug: 'sample-protected-visit',
+  title: 'Sample Protected Visit',
+  county: 'Mercer',
+  matchedPlace: 'Sample Creek near Harrodsburg',
+  era: 'frontier',
+  coordinatesProtected: true,
+  lat: 37.6456,
+  lon: -84.7789,
+  mapConfidence: 'override',
+  tags: [],
+}
+
+const countyStory = {
+  slug: 'sample-county-story',
+  title: 'Sample County Story',
+  county: 'Logan',
+  matchedPlace: 'Logan County (centroid)',
+  era: 'frontier',
+  lat: 36.82461,
+  lon: -86.84895,
+  mapConfidence: 'county',
+  tags: ['frontier'],
+}
+
+function visibleText(html) {
+  return html
+    .replace(/<svg[\s\S]*?<\/svg>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+}
+
+function re(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+const pub = visitItHtml({ story: publicStory })
+assert.match(pub, /id="visit"/)
+assert.match(pub, /<h2 id="h-visit">Visit it<\/h2>/)
+assert.match(pub, /Harrodsburg/)
+assert.match(pub, /usp-visit-go-short">Directions</)
+assert.match(pub, /usp-visit-go-full">Get directions</)
+assert.match(pub, /usp-visit-map-short">See on map</)
+assert.match(pub, /usp-visit-map-full">See on the history map</)
+assert.match(pub, /data-visit-go/)
+assert.doesNotMatch(pub, /<button/)
+assert.doesNotMatch(pub, /data-visit-app/)
+assert.doesNotMatch(pub, /aria-pressed/)
+const googleHref = 'https://www.google.com/maps/dir/?api=1&amp;destination=37.6456,-84.7789'
+const appleHref = 'https://maps.apple.com/?daddr=37.6456,-84.7789'
+assert.match(pub, new RegExp(`data-visit-go href="${re(googleHref)}"`))
+assert.match(pub, new RegExp(`data-apple="${re(appleHref)}"`))
+assert.match(
+  pub,
+  new RegExp(`<a class="usp-visit-app" href="${re(googleHref)}" target="_blank" rel="noopener noreferrer"[^>]*>Google</a>`),
+)
+assert.match(
+  pub,
+  new RegExp(`<a class="usp-visit-app" href="${re(appleHref)}" target="_blank" rel="noopener noreferrer"[^>]*>Apple</a>`),
+)
+assert.match(pub, /target="_blank" rel="noopener noreferrer" aria-label="Get directions"/)
+assert.equal((pub.match(/<a /g) || []).length, 4, 'Get directions, Google, Apple, and the history map are openable links')
+assert.doesNotMatch(pub, /usp-map-approx-ring|data-approximate|nearby-miles|drives\/build|mailto:|contact@/i)
+assert.doesNotMatch(pub, /class="usp-railmap-dirs"/)
+
+const county = visitItHtml({ story: countyStory })
+assert.match(county, /id="visit"/)
+assert.match(county, /See county on map/)
+assert.match(county, /Logan County/)
+assert.match(county, /aria-label="Logan County outline"/)
+assert.match(county, /stroke="#9a7b3c"/)
+assert.match(county, /width="48" height="48"/)
+assert.match(county, /AI illustration · Kentucky History Drive/)
+assert.doesNotMatch(county, /ky-county-thumb\.svg/)
+assert.doesNotMatch(county, /Story Studio|usp-visit-county-svg|usp-visit-county-fill|usp-pin/)
+assert.doesNotMatch(county, /usp-pin-dot|usp-map-approx-ring|maps\.apple\.com|google\.com\/maps|Get directions|data-lat=/)
+const unknownCounty = visitItHtml({ story: { ...countyStory, county: 'NotACounty' } })
+assert.match(unknownCounty, /ky-county-thumb\.svg/)
+assert.match(unknownCounty, /ky-county-thumb\.png 1x, \/brand\/ky-county-thumb-128\.png 2x/)
+assert.match(unknownCounty, /alt="Kentucky outline"/)
+
+const prot = visitItHtml({
+  story: protectedStory,
+  interpretive: { slug: 'public-museum', href: '/stories/public-museum/', title: 'Public Museum' },
+})
+assert.match(prot, /id="visit"/)
+assert.match(prot, /Mercer County/)
+assert.doesNotMatch(prot, /public-museum|Public Museum|usp-visit-interpretive/)
+assert.doesNotMatch(prot, /Sample Creek|Harrodsburg|maps\.apple\.com|google\.com\/maps|historypin|drives\/build|data-lat=|data-lon=|usp-pin|usp-map-approx-ring|Get directions|See on map|See county on map/)
+const protText = visibleText(prot)
+assert.doesNotMatch(protText, /-?\d{1,3}\.\d{2,}/)
+assert.deepEqual(findLocators(protText, protectedStory.slug), [])
+
+const banned = visitItHtml({
+  story: { ...protectedStory, slug: 'peter-village-enclosure-15fa166' },
+  interpretive: { slug: 'mount-horeb-earthworks', href: '/stories/mount-horeb-earthworks/', title: 'Mount Horeb Earthworks' },
+})
+assert.doesNotMatch(banned, /mount-horeb|Mount Horeb/)
+
+assert.equal(visitItHtml({ story: { slug: 'no-pin', title: 'No Pin', era: 'frontier', county: 'Boyle', tags: [] } }), '')
+assert.equal(
+  visitItHtml({ story: { slug: 'no-pin-prot', title: 'No Pin Protected', era: 'frontier', coordinatesProtected: true, tags: [] } }),
+  '',
+)
+
+const css = fs.readFileSync(new URL('../src/story-page/unified-story.css', import.meta.url), 'utf8')
+assert.match(css, /\.usp-visit-county-thumb \{[^}]*width:\s*48px/)
+assert.match(css, /\.usp-visit-county-thumb \{[^}]*height:\s*48px/)
+assert.doesNotMatch(css, /\.usp-visit-county-thumb \{[^}]*border:\s*1px/)
+assert.match(css, /\.usp-visit-go \{[^}]*min-height:\s*44px/)
+assert.match(css, /\.usp-visit-go \{[^}]*#e3a650/)
+assert.match(css, /\.usp-visit-app \{[^}]*min-height:\s*44px/)
+assert.match(css, /\.usp-visit-app \{[^}]*text-decoration:\s*none/)
+assert.doesNotMatch(css, /\.usp-visit-app\[aria-pressed/)
+assert.match(css, /\.usp-visit-maplink \{[^}]*min-height:\s*44px/)
+assert.match(css, /\.usp-visit a:focus-visible/)
+assert.match(css, /min-width:\s*1000px\)[\s\S]*\.usp-visit-go-short/)
+assert.match(css, /max-width:\s*390px\)[\s\S]*\.usp-visit-place \{[^}]*font-weight:\s*600/)
+assert.match(css, /max-width:\s*390px\)[\s\S]*\.usp-visit-place \{[^}]*color:\s*var\(--text\)/)
+assert.match(css, /max-width:\s*390px\)[\s\S]*\.usp-visit-app \{[^}]*font-size:\s*0\.72rem/)
+
+const printCss = fs.readFileSync(new URL('../src/story-print.css', import.meta.url), 'utf8')
+const sectionShow = printCss.indexOf('.usp-section {')
+const visitHide = printCss.indexOf('.usp-visit { display: none !important; }')
+assert.ok(sectionShow > 0 && visitHide > sectionShow)
+
+const prerender = fs.readFileSync(new URL('./prerender-pages.mjs', import.meta.url), 'utf8')
+assert.match(prerender, /visitItHtml\(/)
+const visitAt = prerender.indexOf('${visitHtml}')
+const headerAt = prerender.indexOf('</header>')
+const storyAt = prerender.indexOf('id="story"')
+assert.ok(headerAt > 0 && visitAt > headerAt && storyAt > visitAt, 'Visit it sits under the dek and above the story')
+assert.match(prerender, /renderWhereItHappenedCard\(story, matchedMarkers, 'rail'\)/)
+assert.match(prerender, /renderWhereItHappenedCard\(story, matchedMarkers, 'mobile'\)/)
+assert.match(prerender, /\$\{driveSectionHtml\}/)
+
+const pageJs = fs.readFileSync(new URL('../public/story-page.js', import.meta.url), 'utf8')
+assert.match(pageJs, /data-visit-go/)
+assert.match(pageJs, /iPhone|iPad|iPod/)
+assert.doesNotMatch(pageJs, /data-visit-app/)
+assert.doesNotMatch(pageJs, /aria-pressed/)
+assert.doesNotMatch(pageJs, /setApp/)
+
+// Parked until a later Editor CLEAR: these private-land stories still emit
+// Visit-it directions. This Soft does not strip or add Visit-it for them.
+const PARKED_DIRECTIONS = [
+  'isaac-ruddell-and-the-guns-at-ruddells-station',
+  'egushawa-and-the-odawa-in-kentuckys-war-years',
+  'henry-mckennas-fairfield-sour-mash',
+  'jacob-beam-on-hardin-creek',
+]
+const locations = JSON.parse(
+  fs.readFileSync(new URL('../public/content/stories-locations.json', import.meta.url), 'utf8'),
+).locations
+for (const slug of PARKED_DIRECTIONS) {
+  const loc = locations[slug]
+  assert.ok(loc?.lat != null && loc?.lon != null, `${slug} location`)
+  const html = visitItHtml({ story: { ...loc, era: 'frontier', tags: [] } })
+  const lat = Number(loc.lat).toFixed(4)
+  const lon = Number(loc.lon).toFixed(4)
+  assert.match(html, new RegExp(`maps\\.apple\\.com/\\?daddr=${lat},${lon}`), `${slug} Apple directions`)
+  assert.match(html, new RegExp(`google\\.com/maps/dir/\\?api=1&amp;destination=${lat},${lon}`), `${slug} Google directions`)
+  assert.match(html, /<a class="usp-visit-app"/, `${slug} Apple and Google are links`)
+  assert.doesNotMatch(html, /<button|withheld|See county on map/, `${slug} Visit-it directions stay`)
+}
+
+const main = fs.readFileSync(new URL('../src/main.js', import.meta.url), 'utf8')
+assert.doesNotMatch(main, /\bshowStoryInReader\b/)
+
+console.log('test-visit-it: ok')

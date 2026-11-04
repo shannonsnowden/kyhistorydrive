@@ -18,9 +18,13 @@ button,.btn{min-height:44px;min-width:44px;border-radius:10px;border:1px solid v
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .ask{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;margin:4px 0 10px}
 .ask-q{font:700 clamp(1.4rem,3vw,2rem)/1.2 Georgia,serif;color:var(--heading)}
-.ask-row{display:flex;gap:10px;flex-wrap:wrap}
+.ask-row{display:flex;gap:10px;flex-wrap:wrap;min-width:0}
 .ask-row input{flex:1 1 260px;min-height:52px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--text);padding:0 14px;font-size:18px;min-width:0}
 .ask-row input:focus{border-color:var(--accent)}
+/* Go shares the row with the start field; Use my location may wrap. */
+.ask-start{display:flex;flex-wrap:nowrap;gap:10px;flex:1 1 16rem;min-width:0;align-items:stretch}
+.ask-row .ask-start input{flex:1 1 auto;width:auto;min-width:0}
+.ask-start .btn-primary{width:auto;flex:0 0 auto;padding:0 18px;white-space:nowrap}
 .field-msg{margin:-4px 0 0;min-height:0;font-size:15px;font-weight:600;color:var(--accent)}
 .field-msg:empty{display:none}
 .field-msg button{min-height:44px;margin:4px 6px 0 0;background:var(--panel);border-color:var(--line);color:var(--text)}
