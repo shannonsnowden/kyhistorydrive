@@ -583,15 +583,10 @@
       "slug": "dover-mound-mason-county",
       "historyId": "dover-mound-adena-mason-county",
       "photo": {
-        "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
-        "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     },
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": {
@@ -2034,14 +2029,10 @@
       "slug": "the-c-and-o-mounds-johnson-county",
       "historyId": "c-and-o-mounds-johnson-county-adena",
       "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-johnson-county.jpg",
-        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "Cleveland Museum of Art",
-        "license": "CC0"
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     },
     "the-maysville-road-and-jacksons-veto-1830": {
@@ -2311,6 +2302,79 @@
         "attribution": "Mason Brock · Wikimedia Commons · public domain",
         "year": 2008,
         "fit": "contain"
+      }
+    },
+    "capt-thomas-bullitts-1773-survey-party": {
+      "slug": "capt-thomas-bullitts-1773-survey-party",
+      "historyId": "bullitt-survey-falls-of-the-ohio-jefferson-1773",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-thomas-bullitts-1773-survey-party.jpg",
+        "title": "The Rapids of the Ohio at Louisville, drawn by Thomas Hutchins and published in 1778",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rapids_of_Ohio_River_by_Hutchins.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Thomas Hutchins · Wikimedia Commons · public domain",
+        "year": 1778,
+        "credit": "Thomas Hutchins",
+        "license": "Public domain",
+        "artwork": "map"
+      }
+    },
+    "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
+      "slug": "lost-john-the-miner-under-the-boulder-in-mammoth-cave",
+      "historyId": "lost-john-mammoth-cave-edmonson-woodland",
+      "photo": {
+        "image_url": "/content/photos/stories/lost-john-the-miner-under-the-boulder-in-mammoth-cave.jpg",
+        "title": "The Historic Entrance of Mammoth Cave (not the Lost John find site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Historic_Entrance.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "National Park Service · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "National Park Service",
+        "license": "Public domain"
+      }
+    },
+    "mount-washington-grows-from-the-crossroads": {
+      "slug": "mount-washington-grows-from-the-crossroads",
+      "historyId": "mount-washington-crossroads-bullitt-1833",
+      "photo": {
+        "image_url": "/content/photos/stories/mount-washington-grows-from-the-crossroads.jpg",
+        "title": "Zack Stansbury House (1867) on Old Bardstown Road southeast of Mount Washington",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Zack_Stansbury_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "Nyttend",
+        "license": "Public domain"
+      }
+    },
+    "tecumseh-falls-at-the-thames-oct-5-1813": {
+      "slug": "tecumseh-falls-at-the-thames-oct-5-1813",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/tecumseh-falls-at-the-thames-oct-5-1813.jpg",
+        "title": "Tecumseh, portrait attributed to Owen Staples after an earlier sketch",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Tecumseh02.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons · public domain",
+        "year": null,
+        "license": "Public domain",
+        "fit": "contain",
+        "artwork": "portrait"
+      }
+    },
+    "zanes-trace-ends-at-maysville": {
+      "slug": "zanes-trace-ends-at-maysville",
+      "historyId": "zanes-trace-maysville-mason-1796-1797",
+      "photo": {
+        "image_url": "/content/photos/stories/zanes-trace-ends-at-maysville.jpg",
+        "title": "Map of Zane’s Trace from Wheeling to the Ohio River opposite Maysville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Zane%27s_Trace.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Clement Martzloff · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "Clement Martzloff",
+        "license": "Public domain",
+        "artwork": "map"
       }
     }
   },
@@ -2829,15 +2893,10 @@
       "slug": "dover-mound-mason-county",
       "historyId": "dover-mound-adena-mason-county",
       "photo": {
-        "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
-        "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     },
     "old-taylor-distillery-bottled-in-bond-1897": {
@@ -4046,14 +4105,10 @@
       "slug": "the-c-and-o-mounds-johnson-county",
       "historyId": "c-and-o-mounds-johnson-county-adena",
       "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-johnson-county.jpg",
-        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "Cleveland Museum of Art",
-        "license": "CC0"
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       }
     },
     "maysville-lexington-turnpike-mason-1829-1835": {
@@ -4199,6 +4254,64 @@
         "attribution": "Mason Brock · Wikimedia Commons · public domain",
         "year": 2008,
         "fit": "contain"
+      }
+    },
+    "bullitt-survey-falls-of-the-ohio-jefferson-1773": {
+      "slug": "capt-thomas-bullitts-1773-survey-party",
+      "historyId": "bullitt-survey-falls-of-the-ohio-jefferson-1773",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-thomas-bullitts-1773-survey-party.jpg",
+        "title": "The Rapids of the Ohio at Louisville, drawn by Thomas Hutchins and published in 1778",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rapids_of_Ohio_River_by_Hutchins.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Thomas Hutchins · Wikimedia Commons · public domain",
+        "year": 1778,
+        "credit": "Thomas Hutchins",
+        "license": "Public domain",
+        "artwork": "map"
+      }
+    },
+    "lost-john-mammoth-cave-edmonson-woodland": {
+      "slug": "lost-john-the-miner-under-the-boulder-in-mammoth-cave",
+      "historyId": "lost-john-mammoth-cave-edmonson-woodland",
+      "photo": {
+        "image_url": "/content/photos/stories/lost-john-the-miner-under-the-boulder-in-mammoth-cave.jpg",
+        "title": "The Historic Entrance of Mammoth Cave (not the Lost John find site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Historic_Entrance.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "National Park Service · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "National Park Service",
+        "license": "Public domain"
+      }
+    },
+    "mount-washington-crossroads-bullitt-1833": {
+      "slug": "mount-washington-grows-from-the-crossroads",
+      "historyId": "mount-washington-crossroads-bullitt-1833",
+      "photo": {
+        "image_url": "/content/photos/stories/mount-washington-grows-from-the-crossroads.jpg",
+        "title": "Zack Stansbury House (1867) on Old Bardstown Road southeast of Mount Washington",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Zack_Stansbury_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "Nyttend",
+        "license": "Public domain"
+      }
+    },
+    "zanes-trace-maysville-mason-1796-1797": {
+      "slug": "zanes-trace-ends-at-maysville",
+      "historyId": "zanes-trace-maysville-mason-1796-1797",
+      "photo": {
+        "image_url": "/content/photos/stories/zanes-trace-ends-at-maysville.jpg",
+        "title": "Map of Zane’s Trace from Wheeling to the Ohio River opposite Maysville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Zane%27s_Trace.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Clement Martzloff · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "Clement Martzloff",
+        "license": "Public domain",
+        "artwork": "map"
       }
     }
   }

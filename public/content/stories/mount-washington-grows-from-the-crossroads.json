@@ -1,0 +1,29 @@
+{
+  "slug": "mount-washington-grows-from-the-crossroads",
+  "title": "Mount Washington grows from \"The Crossroads\"",
+  "publishedDate": "2026-11-05",
+  "summary": "Northeast Bullitt County's main town started as a junction, not a fort. Settlers called it \"The Crossroads\" because the Bardstown–Louisville road crossed the…",
+  "bodyMarkdown": "Northeast Bullitt County's main town started as a junction, not a fort. Settlers called it \"The Crossroads\" because the Bardstown–Louisville road crossed the Shepherdsville–Shelbyville road there, near McCullough's Run in the Salt River country. It was renamed Mount Vernon, then became Mount Washington when it incorporated in 1833, which avoided a post-office name conflict.\n\nBy 1847 about 700 people lived there, with three churches, two schools, six stores, five doctors, and two taverns serving traffic between Louisville and Bardstown. Confederate cavalry briefly held the town in the fall of 1862 before Union troops marching toward Perryville drove them out. The road it sat on still runs from Shelby County. ([Grokipedia](https://grokipedia.com/page/Mount_Washington,_Kentucky))",
+  "yearStart": 1833,
+  "yearEnd": 1862,
+  "era": "other",
+  "tags": [
+    "other",
+    "kentucky",
+    "town-founding",
+    "civil-war"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-11-05",
+  "county": "Bullitt",
+  "photo": {
+    "image_url": "/content/photos/stories/mount-washington-grows-from-the-crossroads.jpg",
+    "title": "Zack Stansbury House (1867) on Old Bardstown Road southeast of Mount Washington",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Zack_Stansbury_House.jpg",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Nyttend · Wikimedia Commons · public domain",
+    "year": null,
+    "credit": "Nyttend",
+    "license": "Public domain"
+  }
+}

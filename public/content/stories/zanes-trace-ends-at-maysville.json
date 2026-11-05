@@ -1,0 +1,29 @@
+{
+  "slug": "zanes-trace-ends-at-maysville",
+  "title": "Zane's Trace ends at Maysville",
+  "publishedDate": "2026-11-05",
+  "summary": "In May 1796, Congress backed Col. Ebenezer Zane's plan to cut a road through the Northwest Territory \"to speed up travel times to Kentucky.\" Built in 1796–97 with his brother…",
+  "bodyMarkdown": "In May 1796, Congress backed Col. Ebenezer Zane's plan to cut a road through the Northwest Territory \"to speed up travel times to Kentucky.\" Built in 1796–97 with his brother Jonathan, son-in-law John McIntire, and a Native guide named Tomepomehala, the road followed old Indian paths such as the Mingo and Moxahala trails. It ran more than 230 miles from Wheeling to the Ohio River across from Maysville (old Limestone).\n\nFor settlers who didn't want to float the river, it made Maysville the overland door into the Bluegrass. That traffic helps explain why the road south from Maysville to Lexington mattered so much later. ([Wikipedia](https://en.wikipedia.org/wiki/Zane%27s_Trace))",
+  "yearStart": 1796,
+  "yearEnd": 1797,
+  "era": "early-commonwealth",
+  "tags": [
+    "early-commonwealth",
+    "kentucky",
+    "transport"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-11-05",
+  "county": "Mason",
+  "photo": {
+    "image_url": "/content/photos/stories/zanes-trace-ends-at-maysville.jpg",
+    "title": "Map of Zane’s Trace from Wheeling to the Ohio River opposite Maysville",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Zane%27s_Trace.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Clement Martzloff · Wikimedia Commons · public domain",
+    "year": null,
+    "credit": "Clement Martzloff",
+    "license": "Public domain",
+    "artwork": "map"
+  }
+}

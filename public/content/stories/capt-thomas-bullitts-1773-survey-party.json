@@ -1,0 +1,30 @@
+{
+  "slug": "capt-thomas-bullitts-1773-survey-party",
+  "title": "Capt. Thomas Bullitt's 1773 survey party",
+  "publishedDate": "2026-11-05",
+  "summary": "In the summer of 1773, Virginia officer Thomas Bullitt (c. 1730–1778) led one of the first surveying parties into the Kentucky country. About thirty-four men set out; Isaac…",
+  "bodyMarkdown": "In the summer of 1773, Virginia officer Thomas Bullitt (c. 1730–1778) led one of the first surveying parties into the Kentucky country. About thirty-four men set out; Isaac Hite and six others joined them on the Ohio, and the McAfee brothers split off at Big Bone Lick to survey on their own. Bullitt's party reached the Falls of the Ohio in July 1773 and ran surveys under claims from the Proclamation of 1763, even though Governor Dunmore wrote that he \"knew nothing\" of the work and wanted him back.\n\nBullitt is credited with locating the salt spring on Salt River later called Bullitt's Lick. Old family accounts say he also laid off Louisville in 1773, but an 1882 Falls-cities history found no reliable plat. Louisville's half-acre lots came with the settlers of 1778 and a 1779 survey. Bullitt County is named for his nephew, Alexander Scott Bullitt. ([Grokipedia](https://grokipedia.com/page/Thomas_Bullitt))",
+  "yearStart": 1773,
+  "yearEnd": 1773,
+  "era": "frontier",
+  "tags": [
+    "frontier",
+    "kentucky",
+    "surveying",
+    "salt"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-11-05",
+  "county": "Jefferson",
+  "photo": {
+    "image_url": "/content/photos/stories/capt-thomas-bullitts-1773-survey-party.jpg",
+    "title": "The Rapids of the Ohio at Louisville, drawn by Thomas Hutchins and published in 1778",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rapids_of_Ohio_River_by_Hutchins.png",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Thomas Hutchins · Wikimedia Commons · public domain",
+    "year": 1778,
+    "credit": "Thomas Hutchins",
+    "license": "Public domain",
+    "artwork": "map"
+  }
+}

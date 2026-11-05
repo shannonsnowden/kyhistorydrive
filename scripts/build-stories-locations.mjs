@@ -211,6 +211,8 @@ const MANUAL_OVERRIDES = {
   // Approvals 111 Wave 7: the expanded body names Lower Shawneetown only as a Shawnee town
   // on the Ohio (a protected site with its own story). v2 left this nation story unpinned.
   'iroquois-beaver-wars': {},
+  // Nov 5 2026 restart: Thames battle is in Ontario; explicit no-place (county null). Do not fuzzy-match Isaac Shelby.
+  'tecumseh-falls-at-the-thames-oct-5-1813': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
