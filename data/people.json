@@ -1669,12 +1669,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "christopher-gist",
@@ -1802,12 +1803,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "Only a modern statue (CC BY-SA 4.0 photo); no historical likeness."
+      "notes": "Only a modern statue (CC BY-SA 4.0 photo); no historical likeness. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "jenny-wiley",
@@ -1826,12 +1828,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "thomas-wiley",
@@ -2021,12 +2024,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "william-hubbell",
@@ -2107,14 +2111,15 @@
       "native": false,
       "likeness": "portrait",
       "timing": "life",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Bland_Ballard_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bland_Ballard_2.jpg",
-      "license": "Public domain",
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": "Unknown artist · Public domain · via Wikimedia Commons",
-      "freeToUse": true,
+      "credit": "AI illustration · Kentucky History Drive",
+      "freeToUse": false,
       "verified": false,
-      "notes": "From \"Kentucky Ante-Bellum Portraiture\"; Commons lists no artist or date. Check the source before use."
+      "notes": "Canonical face: cleared AI illustration pack (v1), Nov 5 2026, modeled on the portrait in Kentucky Ante-Bellum Portraiture (Commons Bland_Ballard_2.jpg).",
+      "ai": true
     },
     {
       "id": "robert-tyler",
@@ -2634,12 +2639,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found."
+      "notes": "No Wikipedia article or Commons likeness found. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "harry-innes",
@@ -5125,12 +5131,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No Wikipedia article or Commons likeness found. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting."
+      "notes": "No Wikipedia article or Commons likeness found. Native leader: treat any online \"portrait\" as suspect unless sourced to a life sitting. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "james-garrard",
@@ -5532,12 +5539,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "william-fleming",
@@ -6061,12 +6069,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "No image on Wikipedia/Commons for the matching article."
+      "notes": "No image on Wikipedia/Commons for the matching article. Canonical face: cleared AI illustration pack (v1), Nov 5 2026.",
+      "ai": true
     },
     {
       "id": "john-stuart",
@@ -7135,13 +7144,14 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive",
       "freeToUse": false,
       "verified": false,
       "likeness": "portrait",
-      "notes": "Several stories name him only through Dunmore’s War. Reynolds 1765 portrait saved as a likeness source in the portrait sweep. Portrait freeze (#331/#334): no image added in #337."
+      "notes": "Several stories name him only through Dunmore’s War. Canonical face: cleared AI illustration pack (v1), Nov 5 2026, modeled on the Sir Joshua Reynolds portrait, 1765 (SNPG / Commons).",
+      "ai": true
     },
     {
       "id": "barton-stone",

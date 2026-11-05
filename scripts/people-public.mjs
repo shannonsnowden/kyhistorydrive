@@ -123,6 +123,17 @@ export const AI_IDS = [
   'robert-tyler',
   'william-caldwell',
   'edward-worthington',
+  // Nov 5 2026 batch: cleared v1 faces. Dunmore is modeled on Reynolds 1765; Ballard on Ante-Bellum Portraiture. The rest are none-known.
+  'thomas-walker',
+  'lord-dunmore',
+  'thomas-bullitt',
+  'mary-draper-ingles',
+  'jenny-wiley',
+  'nathaniel-hart',
+  'william-calk',
+  'bland-ballard',
+  'john-donelson',
+  'chief-paduke',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
