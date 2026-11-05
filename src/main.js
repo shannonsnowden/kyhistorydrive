@@ -73,6 +73,12 @@ import {
   CULTURE_EDGE,
 } from './territory.js'
 import { storyUrl, timelineForwardUrl, liveStorySlugs, canonicalStorySlug } from './story-url.js'
+import {
+  timelineLayerFilter,
+  placeMatchesTimelineFilter,
+  storyMatchesTimelineFilters,
+  timelineFilterActive,
+} from './timeline-map-filter.js'
 import { pinCardHtml, usePhoneSheet, phoneSheetPinY, phoneSheetLayout } from './pin-card.js'
 import { PIN_TEASERS } from './pin-teasers.js'
 import {
@@ -767,71 +773,12 @@ function layerSymbolId(id) {
   return `${id}-symbol`
 }
 
-function buildYearEraFilter(layerDef) {
-  if (!layerDef.yearFilter) return null
-  const parts = []
-  const eras = [...timelineState.eras]
-  const allEras = eras.length === ERAS.length
-  if (layerDef.filterByEra) {
-    if (!allEras && eras.length) {
-      parts.push(['in', ['get', 'era'], ['literal', eras]])
-    } else if (!allEras && eras.length === 0) {
-      return ['==', ['get', 'id'], '__none__']
-    }
-  }
-  const { yearMin, yearMax } = timelineState
-  if (yearMin != null || yearMax != null) {
-    // Overlap: feature [yearStart, yearEnd||yearStart] intersects [yearMin, yearMax]
-    parts.push(['has', 'yearStart'])
-    if (yearMax != null) {
-      parts.push(['<=', ['to-number', ['get', 'yearStart']], yearMax])
-    }
-    if (yearMin != null) {
-      parts.push([
-        '>=',
-        ['to-number', ['coalesce', ['get', 'yearEnd'], ['get', 'yearStart']]],
-        yearMin,
-      ])
-    }
-  }
-  if (!parts.length) return null
-  return parts.length === 1 ? parts[0] : ['all', ...parts]
-}
-
-
-
 function timelineHasActivePlaceFilter() {
-  const hasYear = timelineState.yearMin != null || timelineState.yearMax != null
-  const erasNarrowed = timelineState.eras.size > 0 && timelineState.eras.size !== ERAS.length
-  return hasYear || erasNarrowed
+  return timelineFilterActive(timelineState, ERAS.length)
 }
 
 function buildTimelineMapFilter(layerDef) {
-  // Timeline map: never show a full unfiltered layer — wait for year/era filter
-  if (!timelineHasActivePlaceFilter()) {
-    return ['==', ['get', 'id'], '__none__']
-  }
-  const filter = buildYearEraFilter({ ...layerDef, yearFilter: true })
-  // Year range selected but this layer has no yearFilter logic / no match → still require year overlap
-  if (filter) return filter
-  const { yearMin, yearMax } = timelineState
-  if (yearMin != null || yearMax != null) {
-    const parts = [['has', 'yearStart']]
-    if (yearMax != null) parts.push(['<=', ['to-number', ['get', 'yearStart']], yearMax])
-    if (yearMin != null) {
-      parts.push([
-        '>=',
-        ['to-number', ['coalesce', ['get', 'yearEnd'], ['get', 'yearStart']]],
-        yearMin,
-      ])
-    }
-    return parts.length === 1 ? parts[0] : ['all', ...parts]
-  }
-  // Era-only and layer isn't era-aware → show nothing (don't dump whole layer)
-  if (!layerDef.filterByEra) {
-    return ['==', ['get', 'id'], '__none__']
-  }
-  return ['==', ['get', 'id'], '__none__']
+  return timelineLayerFilter(timelineState, ERAS.map((e) => e.id), layerDef)
 }
 
 function applyFiltersToMapInstance(targetMap) {
@@ -862,7 +809,7 @@ function applyFiltersToMapInstance(targetMap) {
   for (const lid of ['stories-circle', 'stories-hit', 'stories-highlight']) {
     if (!targetMap.getLayer(lid)) continue
     const f = onTimeline
-      ? buildTimelineMapFilter({ yearFilter: true, filterByEra: true })
+      ? buildTimelineMapFilter({ yearFilter: true, filterByEra: true, storyPlaces: true })
       : null
     targetMap.setFilter(lid, f)
   }
@@ -2123,7 +2070,7 @@ async function showDetailPopup(feature, layerId, lngLat, targetMap = map) {
   const popupHtml = storySlug
     ? `<div class="map-popup">${pinCardHtml({
         name: props.name || props.title || 'Untitled',
-        layerLabel: DATA_LAYERS.find((l) => l.id === layerId)?.label || layerId,
+        layerLabel: DATA_LAYERS.find((l) => l.id === layerId)?.label || (layerId === 'stories' ? 'Story' : layerId),
         meta: [props.county ? countyLabel(props.county, true) : '', pinEraLabel(props.era)].filter(Boolean).join(' · '),
         slug: storySlug,
         teaser: PIN_TEASERS[canonicalStorySlug(storySlug)] || '',
@@ -3034,44 +2981,31 @@ function renderTimelineLayerToggles() {
 }
 
 function featureMatchesTimelineFilter(props, layerDef) {
-  if (!props) return false
-  if (!timelineHasActivePlaceFilter()) return false
-  if (layerDef.filterByEra) {
-    const eras = timelineState.eras
-    if (eras.size !== ERAS.length) {
-      if (!eras.size) return false
-      if (!eras.has(props.era)) return false
-    }
-  }
-  const { yearMin, yearMax } = timelineState
-  if (yearMin == null && yearMax == null) {
-    // Era-only: non-era layers don't match
-    return Boolean(layerDef.filterByEra && props.era)
-  }
-  if (props.yearStart == null) return false
-  const start = Number(props.yearStart)
-  const end = Number(props.yearEnd != null ? props.yearEnd : props.yearStart)
-  if (Number.isNaN(start)) return false
-  if (yearMax != null && start > yearMax) return false
-  if (yearMin != null && end < yearMin) return false
-  return true
+  return placeMatchesTimelineFilter(props, timelineState, ERAS.length, layerDef)
 }
 
 function updateTimelineMapCounts() {
   const el = document.getElementById('timelineMapCounts')
   const meta = document.getElementById('timelineMapMeta')
   if (!el) return
-  // "All" is the unfiltered state: the map waits for an era or timeframe,
-  // so the "no places in this filter" line would be a false empty result.
-  if (!timelineMap || !timelineMapReady || !timelineHasActivePlaceFilter()) {
+  // All years is a real filter: every story place. An empty era set is not.
+  const allYearsAllEras = !timelineHasActivePlaceFilter() && timelineState.eras.size === ERAS.length
+  if (!timelineMap || !timelineMapReady || (!timelineHasActivePlaceFilter() && !allYearsAllEras)) {
     el.textContent = ''
     el.hidden = true
   } else {
     const bits = []
     let total = 0
-    for (const def of DATA_LAYERS) {
-      if (!timelineLayerVisibility[def.id]) continue
-      const feats = sourceFeatureList(timelineMap.getSource(def.id))
+    const layers = [
+      ...DATA_LAYERS.map((def) => ({ def, sourceId: def.id })),
+      {
+        def: { id: 'stories', label: 'story places', yearFilter: true, filterByEra: true, storyPlaces: true },
+        sourceId: 'stories',
+      },
+    ]
+    for (const { def, sourceId } of layers) {
+      if (def.id !== 'stories' && !timelineLayerVisibility[def.id]) continue
+      const feats = sourceFeatureList(timelineMap.getSource(sourceId))
       if (!feats) continue
       const n = feats.filter((f) => featureMatchesTimelineFilter(f.properties || {}, def)).length
       if (n) {
@@ -3085,12 +3019,16 @@ function updateTimelineMapCounts() {
     }
     el.hidden = false
     el.textContent = bits.length
-      ? `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
+      ? allYearsAllEras
+        ? `Map showing ${total.toLocaleString()} story places`
+        : `Map showing ${total.toLocaleString()} places · ${bits.join(' · ')}`
       : 'Map: no places in this filter (try another timeframe or era)'
   }
   if (meta && !pendingFocus) {
     const { yearMin, yearMax } = timelineState
-    if (!timelineHasActivePlaceFilter()) {
+    if (allYearsAllEras) {
+      meta.textContent = 'Showing each story’s place.'
+    } else if (!timelineHasActivePlaceFilter()) {
       meta.textContent = 'Pick an era or timeframe to see matching places.'
     } else {
       const range =
@@ -3099,6 +3037,49 @@ function updateTimelineMapCounts() {
           : 'selected eras'
       meta.textContent = `Showing places in ${range}.`
     }
+  }
+}
+
+/** Story coordinates on the timeline map. Same filter path as the other layers. */
+async function addTimelineStoryPlaces(targetMap) {
+  if (!targetMap || targetMap.getSource('stories')) return
+  try {
+    const res = await fetch('/data/layers/stories.geojson')
+    if (!res.ok) return
+    const data = await res.json()
+    targetMap.addSource('stories', { type: 'geojson', data })
+    targetMap.addLayer({
+      id: 'stories-circle',
+      type: 'circle',
+      source: 'stories',
+      paint: {
+        'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 4, 9, 6, 12, 8, 16, 11],
+        'circle-color': '#c9893a',
+        'circle-stroke-width': 1.5,
+        'circle-stroke-color': '#1b140a',
+        'circle-opacity': 0.95,
+      },
+    })
+    targetMap.addLayer({
+      id: 'stories-hit',
+      type: 'circle',
+      source: 'stories',
+      paint: { 'circle-radius': 16, 'circle-opacity': 0 },
+    })
+    targetMap.on('mouseenter', 'stories-hit', () => {
+      targetMap.getCanvas().style.cursor = 'pointer'
+    })
+    targetMap.on('mouseleave', 'stories-hit', () => {
+      targetMap.getCanvas().style.cursor = ''
+    })
+    targetMap.on('click', 'stories-hit', (e) => {
+      const f = e.features?.[0]
+      if (!f) return
+      e.originalEvent?.stopPropagation?.()
+      showDetailPopup(f, 'stories', e.lngLat, targetMap)
+    })
+  } catch (err) {
+    console.warn('timeline story places failed', err)
   }
 }
 
@@ -3142,6 +3123,7 @@ async function initTimelineMap() {
     for (const def of DATA_LAYERS) {
       await addDataLayerOn(timelineMap, def, timelineLayerVisibility)
     }
+    await addTimelineStoryPlaces(timelineMap)
     timelineMapReady = true
     applyFiltersToMapInstance(timelineMap)
     if (pendingFocus) {
@@ -3637,24 +3619,8 @@ function setupTimelineFilters() {
   })
 }
 
-function normalizeTimelineEra(era) {
-  if (era === 'revolution') return 'frontier'
-  if (era === 'modern') return 'other'
-  return era || 'other'
-}
-
 function storyMatchesFilters(s) {
-  if (!timelineState.eras.has(normalizeTimelineEra(s.era))) return false
-  const { yearMin, yearMax } = timelineState
-  if (yearMin != null || yearMax != null) {
-    if (s.yearStart == null) return false
-    const start = Number(s.yearStart)
-    const end = Number(s.yearEnd != null ? s.yearEnd : s.yearStart)
-    // Overlap: story [start, end] intersects filter [yearMin, yearMax]
-    if (yearMax != null && start > yearMax) return false
-    if (yearMin != null && end < yearMin) return false
-  }
-  return true
+  return storyMatchesTimelineFilters(s, timelineState)
 }
 
 function setupTimelineJumpControls() {
