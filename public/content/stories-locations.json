@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-28T17:11:50.373Z",
+  "generatedAt": "2026-11-05T15:07:27.188Z",
   "stats": {
     "exact": 12,
-    "fuzzy": 44,
+    "fuzzy": 48,
     "county": 4,
     "override": 140,
-    "none": 37
+    "none": 38
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -1909,6 +1909,46 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "tecumseh-falls-at-the-thames-oct-5-1813": {
+      "slug": "tecumseh-falls-at-the-thames-oct-5-1813",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "capt-thomas-bullitts-1773-survey-party": {
+      "slug": "capt-thomas-bullitts-1773-survey-party",
+      "lat": 38.2589,
+      "lon": -85.7577,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Capt. Thomas Bullitt's 1773 survey at the Falls of the Ohio",
+      "historyId": "bullitt-survey-falls-of-the-ohio-jefferson-1773"
+    },
+    "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
+      "slug": "lost-john-the-miner-under-the-boulder-in-mammoth-cave",
+      "lat": 37.2,
+      "lon": -86.1,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lost John, Mammoth Cave",
+      "historyId": "lost-john-mammoth-cave-edmonson-woodland"
+    },
+    "mount-washington-grows-from-the-crossroads": {
+      "slug": "mount-washington-grows-from-the-crossroads",
+      "lat": 38.05,
+      "lon": -85.7458,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Mount Washington (The Crossroads)",
+      "historyId": "mount-washington-crossroads-bullitt-1833"
+    },
+    "zanes-trace-ends-at-maysville": {
+      "slug": "zanes-trace-ends-at-maysville",
+      "lat": 38.6412,
+      "lon": -83.7444,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Zane's Trace at Maysville",
+      "historyId": "zanes-trace-maysville-mason-1796-1797"
     }
   }
 }

@@ -644,10 +644,10 @@ function selfTest() {
   assert(hitsIn('Portsmouth Earthworks in the research file.', oldFort, { research: true }).includes('Portsmouth'), 'a shortened official title in research still fails')
   assert(findLocators('A square earthwork in Greenup County. Portsmouth.').length === 0, 'bare Portsmouth is not a generic pattern')
   assert(findLocators('A square earthwork in Greenup County. Portsmouth.', oldFort.slugs[0]).some((h) => h.match === 'Portsmouth'), 'Old Fort term catches bare Portsmouth')
-  assert(protectedStoryCount() === 38, `generic pass covers all 38 protected stories (got ${protectedStoryCount()})`)
+  assert(protectedStoryCount() === 39, `generic pass covers all 39 protected stories (got ${protectedStoryCount()})`)
   const storyFiles = fs.readdirSync(path.join(ROOT, 'public/content/stories')).filter((f) => f.endsWith('.json'))
   const protFiles = storyFiles.filter((f) => isProtectedStory(JSON.parse(fs.readFileSync(path.join(ROOT, 'public/content/stories', f), 'utf8'))))
-  assert(protFiles.length === 38, `protected story files: ${protFiles.length}`)
+  assert(protFiles.length === 39, `protected story files: ${protFiles.length}`)
   const planted = []
   scanGeneric({ slug: oldFort.slugs[0], summary: 'A square earthwork in Greenup County. Portsmouth.' }, `content/stories/${oldFort.slugs[0]}.json`, planted)
   const bare = planted.filter((h) => h.match === 'Portsmouth')

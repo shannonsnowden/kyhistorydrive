@@ -968,6 +968,46 @@
       "lat": 37.8909,
       "lon": -84.2666,
       "county": "Madison"
+    },
+    "capt-thomas-bullitts-1773-survey-party": {
+      "reason": "Approximate Louisville riverfront point at the Falls of the Ohio. Years: 1773 survey only (his life c.1730–1778). County Jefferson.",
+      "date": "2026-11-05",
+      "historyId": "bullitt-survey-falls-of-the-ohio-jefferson-1773",
+      "lat": 38.2589,
+      "lon": -85.7577,
+      "yearStart": 1773,
+      "yearEnd": 1773,
+      "county": "Jefferson"
+    },
+    "mount-washington-grows-from-the-crossroads": {
+      "reason": "Town center pin. Years 1833 (incorporated) to 1862 (Confederate occupation). County Bullitt.",
+      "date": "2026-11-05",
+      "historyId": "mount-washington-crossroads-bullitt-1833",
+      "lat": 38.05,
+      "lon": -85.7458,
+      "yearStart": 1833,
+      "yearEnd": 1862,
+      "county": "Bullitt"
+    },
+    "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
+      "reason": "Generalized to the Mammoth Cave historic entrance area; the burial spot is not published. Years: Woodland occupation (c. 500 BC–AD 1), not the modern find or display dates. County Edmonson.",
+      "date": "2026-11-05",
+      "historyId": "lost-john-mammoth-cave-edmonson-woodland",
+      "lat": 37.2,
+      "lon": -86.1,
+      "yearStart": -500,
+      "yearEnd": 0,
+      "county": "Edmonson"
+    },
+    "zanes-trace-ends-at-maysville": {
+      "reason": "Maysville riverfront, opposite the trace's Ohio-side end at Aberdeen. Years 1796–1797 (road built). County Mason.",
+      "date": "2026-11-05",
+      "historyId": "zanes-trace-maysville-mason-1796-1797",
+      "lat": 38.6412,
+      "lon": -83.7444,
+      "yearStart": 1796,
+      "yearEnd": 1797,
+      "county": "Mason"
     }
   }
 }

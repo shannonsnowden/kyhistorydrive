@@ -3073,6 +3073,32 @@
     "yuchi-on-the-green-river-maps": {
       "links": [],
       "portraits": []
+    },
+    "capt-thomas-bullitts-1773-survey-party": {
+      "links": [
+        {
+          "id": "thomas-bullitt",
+          "name": "Thomas Bullitt",
+          "href": "/people/#thomas-bullitt"
+        }
+      ],
+      "portraits": []
+    },
+    "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
+      "links": [],
+      "portraits": []
+    },
+    "mount-washington-grows-from-the-crossroads": {
+      "links": [],
+      "portraits": []
+    },
+    "tecumseh-falls-at-the-thames-oct-5-1813": {
+      "links": [],
+      "portraits": []
+    },
+    "zanes-trace-ends-at-maysville": {
+      "links": [],
+      "portraits": []
     }
   }
 }

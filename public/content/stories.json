@@ -1,9 +1,9 @@
 {
   "generatedAt": "2026-10-29T13:09:25.599Z",
-  "count": 237,
+  "count": 242,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-10-19"
+    "end": "2026-11-05"
   },
   "eras": [
     "early-commonwealth",
@@ -248,15 +248,10 @@
       "source": "ky-history",
       "briefDate": "2026-09-30",
       "photo": {
-        "image_url": "/content/photos/stories/dover-mound-mason-county.jpg",
-        "title": "Adena-culture stone gorgets and points from the Serpent Mound site, Ohio — representative Adena artifacts, not from Dover Mound",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Adena_SerpMd_gorget_points_HRoe_2009.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Herb Roe · Wikimedia Commons · CC BY-SA 3.0",
-        "year": 2009,
-        "credit": "Herb Roe",
-        "license": "CC BY-SA 3.0",
-        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "territory": {
         "ref": "/data/web/territories/adena-mounds-and-earthworks.json",
@@ -297,6 +292,39 @@
       "lon": -83.9511,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Gaitskill Mound"
+    },
+    {
+      "slug": "lost-john-the-miner-under-the-boulder-in-mammoth-cave",
+      "title": "\"Lost John,\" the miner under the boulder in Mammoth Cave",
+      "publishedDate": "2026-11-05",
+      "summary": "In 1935, guides deep in Mammoth Cave found the body of an adult man pinned under a huge boulder. He was a pre-Columbian miner who had been digging out cave minerals and…",
+      "proseChars": 703,
+      "yearStart": -500,
+      "yearEnd": 0,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology",
+        "caves"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-05",
+      "county": "Edmonson",
+      "photo": {
+        "image_url": "/content/photos/stories/lost-john-the-miner-under-the-boulder-in-mammoth-cave.jpg",
+        "title": "The Historic Entrance of Mammoth Cave (not the Lost John find site)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Historic_Entrance.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "National Park Service · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "National Park Service",
+        "license": "Public domain"
+      },
+      "lat": 37.2,
+      "lon": -86.1,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lost John, Mammoth Cave"
     },
     {
       "slug": "ashlands-adena-mounds",
@@ -355,14 +383,10 @@
       "briefDate": "2026-10-19",
       "county": "Johnson",
       "photo": {
-        "image_url": "/content/photos/stories/the-c-and-o-mounds-johnson-county.jpg",
-        "title": "An Adena bird effigy pipe from Ohio, Cleveland Museum of Art; a generic Adena artifact, not from the Johnson County mounds",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Clevelandart_1963.272.jpg",
-        "source_label": "Wikimedia Commons",
-        "attribution": "Cleveland Museum of Art · Wikimedia Commons · CC0",
-        "year": null,
-        "credit": "Cleveland Museum of Art",
-        "license": "CC0"
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": 37.8,
       "lon": -82.8,
@@ -436,7 +460,13 @@
       "lat": 38,
       "lon": -84.5,
       "mapConfidence": "exact",
-      "matchedPlace": "Peter Village enclosure (15Fa166)"
+      "matchedPlace": "Peter Village enclosure (15Fa166)",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Early Woodland (Adena) people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
     },
     {
       "slug": "old-fort-earthworks-15gp1-greenup-county",
@@ -498,7 +528,13 @@
       "lat": 39.1,
       "lon": -84.7,
       "mapConfidence": "fuzzy",
-      "matchedPlace": "Robbins Mounds (Boone County Adena)"
+      "matchedPlace": "Robbins Mounds (Boone County Adena)",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
     },
     {
       "slug": "indian-fort-mountain",
@@ -549,7 +585,13 @@
       "lat": 38.1,
       "lon": -83.9,
       "mapConfidence": "override",
-      "matchedPlace": "Wright Mounds (Montgomery County Adena)"
+      "matchedPlace": "Wright Mounds (Montgomery County Adena)",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-adena__ai-v1-1280.jpg",
+        "title": "AI illustration: Adena people near a conical burial mound; reconstructed from archaeological evidence",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
     },
     {
       "slug": "muir-site-early-fort-ancient",
@@ -2445,6 +2487,40 @@
       "lon": -85.7640065,
       "mapConfidence": "fuzzy",
       "matchedPlace": "Bullitt's Lick"
+    },
+    {
+      "slug": "capt-thomas-bullitts-1773-survey-party",
+      "title": "Capt. Thomas Bullitt's 1773 survey party",
+      "publishedDate": "2026-11-05",
+      "summary": "In the summer of 1773, Virginia officer Thomas Bullitt (c. 1730–1778) led one of the first surveying parties into the Kentucky country. About thirty-four men set out; Isaac…",
+      "proseChars": 916,
+      "yearStart": 1773,
+      "yearEnd": 1773,
+      "era": "frontier",
+      "tags": [
+        "frontier",
+        "kentucky",
+        "surveying",
+        "salt"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-05",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-thomas-bullitts-1773-survey-party.jpg",
+        "title": "The Rapids of the Ohio at Louisville, drawn by Thomas Hutchins and published in 1778",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rapids_of_Ohio_River_by_Hutchins.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Thomas Hutchins · Wikimedia Commons · public domain",
+        "year": 1778,
+        "credit": "Thomas Hutchins",
+        "license": "Public domain",
+        "artwork": "map"
+      },
+      "lat": 38.2589,
+      "lon": -85.7577,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Capt. Thomas Bullitt's 1773 survey at the Falls of the Ohio"
     },
     {
       "slug": "drennon-springs-salt-works",
@@ -5419,6 +5495,39 @@
       "matchedPlace": "Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house)"
     },
     {
+      "slug": "zanes-trace-ends-at-maysville",
+      "title": "Zane's Trace ends at Maysville",
+      "publishedDate": "2026-11-05",
+      "summary": "In May 1796, Congress backed Col. Ebenezer Zane's plan to cut a road through the Northwest Territory \"to speed up travel times to Kentucky.\" Built in 1796–97 with his brother…",
+      "proseChars": 685,
+      "yearStart": 1796,
+      "yearEnd": 1797,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "transport"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-05",
+      "county": "Mason",
+      "photo": {
+        "image_url": "/content/photos/stories/zanes-trace-ends-at-maysville.jpg",
+        "title": "Map of Zane’s Trace from Wheeling to the Ohio River opposite Maysville",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Zane%27s_Trace.png",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Clement Martzloff · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "Clement Martzloff",
+        "license": "Public domain",
+        "artwork": "map"
+      },
+      "lat": 38.6412,
+      "lon": -83.7444,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Zane's Trace at Maysville"
+    },
+    {
       "slug": "augusta-on-the-ohio-1797",
       "title": "Augusta on the Ohio (1797)",
       "publishedDate": "2026-09-28",
@@ -6063,6 +6172,40 @@
       "matchedPlace": "Saltpeter Cave (Carter Caves)"
     },
     {
+      "slug": "tecumseh-falls-at-the-thames-oct-5-1813",
+      "title": "Tecumseh falls at the Thames, Oct. 5, 1813",
+      "publishedDate": "2026-11-05",
+      "summary": "Tecumseh was killed at the Thames in Ontario on Oct. 5, 1813, when Isaac Shelby's Kentucky volunteers broke the British line and his confederacy collapsed.",
+      "proseChars": 766,
+      "yearStart": 1813,
+      "yearEnd": 1813,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "native-history",
+        "war-of-1812"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-05",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/tecumseh-falls-at-the-thames-oct-5-1813.jpg",
+        "title": "Tecumseh, portrait attributed to Owen Staples after an earlier sketch",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Tecumseh02.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Wikimedia Commons · public domain",
+        "year": null,
+        "license": "Public domain",
+        "fit": "contain",
+        "artwork": "portrait"
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "title": "Catherine Spears Carpenter 1818 Casey County sweet-mash and sour-mash recipes",
       "seoTitle": "Catherine Spears Carpenter: 1818 Casey County Mash Recipes",
@@ -6359,6 +6502,39 @@
       "lon": -84.78761913468118,
       "mapConfidence": "override",
       "matchedPlace": "James C. Crow / Oscar Pepper"
+    },
+    {
+      "slug": "mount-washington-grows-from-the-crossroads",
+      "title": "Mount Washington grows from \"The Crossroads\"",
+      "publishedDate": "2026-11-05",
+      "summary": "Northeast Bullitt County's main town started as a junction, not a fort. Settlers called it \"The Crossroads\" because the Bardstown–Louisville road crossed the…",
+      "proseChars": 787,
+      "yearStart": 1833,
+      "yearEnd": 1862,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "town-founding",
+        "civil-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-05",
+      "county": "Bullitt",
+      "photo": {
+        "image_url": "/content/photos/stories/mount-washington-grows-from-the-crossroads.jpg",
+        "title": "Zack Stansbury House (1867) on Old Bardstown Road southeast of Mount Washington",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Zack_Stansbury_House.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Nyttend · Wikimedia Commons · public domain",
+        "year": null,
+        "credit": "Nyttend",
+        "license": "Public domain"
+      },
+      "lat": 38.05,
+      "lon": -85.7458,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Mount Washington (The Crossroads)"
     },
     {
       "slug": "mantle-rock-and-the-trail-of-tears",

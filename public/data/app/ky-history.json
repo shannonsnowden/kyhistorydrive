@@ -3737,5 +3737,104 @@
       "attribution": "Federal Highway Administration · Wikimedia Commons · public domain",
       "year": 1976
     }
+  },
+  {
+    "id": "bullitt-survey-falls-of-the-ohio-jefferson-1773",
+    "name": "Capt. Thomas Bullitt's 1773 survey at the Falls of the Ohio",
+    "subtitle": "Jefferson County · Falls of the Ohio · survey party 1773",
+    "latitude": 38.2589,
+    "longitude": -85.7577,
+    "history": "In the summer of 1773, Virginia officer Thomas Bullitt (c. 1730–1778) led one of the first surveying parties into the Kentucky country. About thirty-four men set out; Isaac Hite and six others joined them on the Ohio, and the McAfee brothers split off at Big Bone Lick to survey on their own. Bullitt's party reached the Falls of the Ohio in July 1773 and ran surveys under claims from the Proclamation of 1763, even though Governor Dunmore wrote that he \"knew nothing\" of the work and wanted him back.\n\nBullitt is credited with locating the salt spring on Salt River later called Bullitt's Lick. Old family accounts say he also laid off Louisville in 1773, but an 1882 Falls-cities history found no reliable plat. Louisville's half-acre lots came with the settlers of 1778 and a 1779 survey. Bullitt County is named for his nephew, Alexander Scott Bullitt. (Grokipedia)",
+    "source_date": "2026-11-05",
+    "geocode_source": "override",
+    "geocode_note": "Approximate Louisville riverfront at the Falls of the Ohio. Years: 1773 survey. County Jefferson.",
+    "category": "person",
+    "website": "https://grokipedia.com/page/Thomas_Bullitt",
+    "year_start": 1773,
+    "year_end": 1773,
+    "photo": {
+      "image_url": "/content/photos/stories/capt-thomas-bullitts-1773-survey-party.jpg",
+      "title": "The Rapids of the Ohio at Louisville, drawn by Thomas Hutchins and published in 1778",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Rapids_of_Ohio_River_by_Hutchins.png",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Thomas Hutchins · Wikimedia Commons · public domain",
+      "year": 1778,
+      "credit": "Thomas Hutchins",
+      "license": "Public domain",
+      "artwork": "map"
+    }
+  },
+  {
+    "id": "lost-john-mammoth-cave-edmonson-woodland",
+    "name": "Lost John, Mammoth Cave",
+    "subtitle": "Edmonson County · Mammoth Cave National Park · Historic Entrance public area",
+    "latitude": 37.2,
+    "longitude": -86.1,
+    "history": "In 1935, guides deep in Mammoth Cave found the body of an adult man pinned under a huge boulder. He was a pre-Columbian miner who had been digging out cave minerals and disturbed the rubble holding the rock up, and it shifted and settled onto him. The dry cave air naturally mummified him, and the artifacts found with him point to an age of more than 2,000 years.\n\n\"Lost John,\" along with remains from other caves nearby, shows how far Woodland-era Kentuckians went underground and what it could cost them. He was displayed to visitors into the 1970s and then reburied in a secret spot inside the cave. (Grokipedia — Mammoth Cave National Park)",
+    "source_date": "2026-11-05",
+    "geocode_source": "generalized-historic-entrance",
+    "geocode_note": "Public Mammoth Cave Historic Entrance area only. The burial spot is not published. County Edmonson. Years are Woodland occupation, not the 1935 find.",
+    "category": "archaeology",
+    "website": "https://grokipedia.com/page/Mammoth_Cave_National_Park",
+    "year_start": -500,
+    "year_end": 0,
+    "photo": {
+      "image_url": "/content/photos/stories/lost-john-the-miner-under-the-boulder-in-mammoth-cave.jpg",
+      "title": "The Historic Entrance of Mammoth Cave (not the Lost John find site)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Historic_Entrance.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "National Park Service · Wikimedia Commons · public domain",
+      "credit": "National Park Service",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "mount-washington-crossroads-bullitt-1833",
+    "name": "Mount Washington (The Crossroads)",
+    "subtitle": "Bullitt County · incorporated 1833",
+    "latitude": 38.05,
+    "longitude": -85.7458,
+    "history": "Northeast Bullitt County's main town started as a junction, not a fort. Settlers called it \"The Crossroads\" because the Bardstown–Louisville road crossed the Shepherdsville–Shelbyville road there, near McCullough's Run in the Salt River country. It was renamed Mount Vernon, then became Mount Washington when it incorporated in 1833, which avoided a post-office name conflict.\n\nBy 1847 about 700 people lived there, with three churches, two schools, six stores, five doctors, and two taverns serving traffic between Louisville and Bardstown. Confederate cavalry briefly held the town in the fall of 1862 before Union troops marching toward Perryville drove them out. The road it sat on still runs from Shelby County. (Grokipedia)",
+    "source_date": "2026-11-05",
+    "geocode_source": "override",
+    "geocode_note": "Town center. Years 1833 (incorporated) to 1862 (Confederate occupation). County Bullitt.",
+    "category": "town",
+    "website": "https://grokipedia.com/page/Mount_Washington,_Kentucky",
+    "year_start": 1833,
+    "year_end": 1862,
+    "photo": {
+      "image_url": "/content/photos/stories/mount-washington-grows-from-the-crossroads.jpg",
+      "title": "Zack Stansbury House (1867) on Old Bardstown Road southeast of Mount Washington",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Zack_Stansbury_House.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Nyttend · Wikimedia Commons · public domain",
+      "credit": "Nyttend",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "zanes-trace-maysville-mason-1796-1797",
+    "name": "Zane's Trace at Maysville",
+    "subtitle": "Mason County · road built 1796–1797 · Ohio landing opposite Maysville",
+    "latitude": 38.6412,
+    "longitude": -83.7444,
+    "history": "In May 1796, Congress backed Col. Ebenezer Zane's plan to cut a road through the Northwest Territory \"to speed up travel times to Kentucky.\" Built in 1796–97 with his brother Jonathan, son-in-law John McIntire, and a Native guide named Tomepomehala, the road followed old Indian paths such as the Mingo and Moxahala trails. It ran more than 230 miles from Wheeling to the Ohio River across from Maysville (old Limestone).\n\nFor settlers who didn't want to float the river, it made Maysville the overland door into the Bluegrass. That traffic helps explain why the road south from Maysville to Lexington mattered so much later. (Wikipedia)",
+    "source_date": "2026-11-05",
+    "geocode_source": "override",
+    "geocode_note": "Maysville riverfront, opposite the trace’s Ohio-side end. Years 1796–1797. County Mason.",
+    "category": "transport",
+    "website": "https://en.wikipedia.org/wiki/Zane%27s_Trace",
+    "year_start": 1796,
+    "year_end": 1797,
+    "photo": {
+      "image_url": "/content/photos/stories/zanes-trace-ends-at-maysville.jpg",
+      "title": "Map of Zane’s Trace from Wheeling to the Ohio River opposite Maysville",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Zane%27s_Trace.png",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Clement Martzloff · Wikimedia Commons · public domain",
+      "credit": "Clement Martzloff",
+      "license": "Public domain",
+      "artwork": "map"
+    }
   }
 ]
