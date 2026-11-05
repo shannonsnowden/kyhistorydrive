@@ -120,6 +120,17 @@ export const PORTRAIT_ALTS = {
   'robert-tyler': 'AI illustration of Robert Tyler, co-founder of Tyler Station, about 1781',
   'william-caldwell': "AI illustration of Capt. William Caldwell of Butler's Rangers, about 1782",
   'edward-worthington': "AI illustration of Edward Worthington, founder of Worthington's Fort, about 1780",
+  // Nov 5 2026 batch. Dunmore and Ballard are modeled on known likenesses; the rest are none-known.
+  'thomas-walker': 'AI illustration of Dr. Thomas Walker, physician and explorer of Cumberland Gap, about 1750',
+  'lord-dunmore': 'AI illustration of John Murray, 4th Earl of Dunmore, royal governor of Virginia, modeled on the Sir Joshua Reynolds portrait of 1765',
+  'thomas-bullitt': "AI illustration of Capt. Thomas Bullitt, surveyor of Bullitt's Lick, about 1773",
+  'mary-draper-ingles': 'AI illustration of Mary Draper Ingles after her 1755 escape through Kentucky, about age 23',
+  'jenny-wiley': 'AI illustration of Jenny Wiley after her 1789 escape from captivity, about age 29',
+  'nathaniel-hart': 'AI illustration of Capt. Nathaniel Hart, Transylvania Company proprietor, about 1775',
+  'william-calk': 'AI illustration of William Calk, diarist of the 1775 journey into Kentucky, about age 35',
+  'bland-ballard': 'AI illustration of Bland W. Ballard in late life, modeled on the portrait in Kentucky Ante-Bellum Portraiture',
+  'john-donelson': 'AI illustration of Col. John Donelson, surveyor, about 1771',
+  'chief-paduke': 'AI illustration of Chief Paduke, legendary Chickasaw namesake of Paducah',
 }
 
 export function portraitAlt(person) {

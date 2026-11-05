@@ -145,6 +145,7 @@
         }
       ],
       "portraits": [
+        "thomas-walker",
         "christopher-gist",
         "john-finley",
         "daniel-boone",
@@ -1530,6 +1531,7 @@
         }
       ],
       "portraits": [
+        "lord-dunmore",
         "benjamin-logan",
         "little-turtle"
       ]
@@ -1617,7 +1619,9 @@
           "href": "/stories/thomas-walker-and-cumberland-gap/"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "thomas-walker"
+      ]
     },
     "cleek-mccabe-a-circular-fort-ancient-village-in-boone-county": {
       "links": [],
@@ -1676,7 +1680,9 @@
           "href": "/stories/thomas-walker-and-cumberland-gap/"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "thomas-walker"
+      ]
     },
     "cumberland-falls": {
       "links": [
@@ -2137,7 +2143,9 @@
           "href": "/people/#lord-dunmore"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "lord-dunmore"
+      ]
     },
     "jack-jouett-kentuckys-midnight-rider": {
       "links": [
@@ -2262,6 +2270,7 @@
       ],
       "portraits": [
         "william-preston",
+        "lord-dunmore",
         "jemima-boone",
         "george-rogers-clark",
         "william-christian"
@@ -2427,6 +2436,7 @@
       ],
       "portraits": [
         "george-rogers-clark",
+        "lord-dunmore",
         "john-bowman",
         "henry-hamilton",
         "patrick-henry"
@@ -2494,6 +2504,7 @@
         }
       ],
       "portraits": [
+        "thomas-bullitt",
         "john-todd"
       ]
     },
@@ -2556,7 +2567,9 @@
           "href": "/people/#leonard-stom"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "thomas-walker"
+      ]
     },
     "miami-hunters-return-north-of-the-ohio": {
       "links": [
@@ -2877,7 +2890,9 @@
           "href": "/people/#adam-shepherd"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "thomas-bullitt"
+      ]
     },
     "singer-hieronymus-fort-ancient-villages": {
       "links": [],
@@ -2953,6 +2968,7 @@
         }
       ],
       "portraits": [
+        "lord-dunmore",
         "richard-henderson"
       ]
     },

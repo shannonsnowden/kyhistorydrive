@@ -1264,10 +1264,13 @@
       "id": "thomas-walker",
       "name": "Thomas Walker",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/thomas-walker__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/thomas-walker__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "athiamiowee-the-warriors-path-through-kentucky",
@@ -1276,7 +1279,8 @@
         "christopher-gist-1750-51",
         "croley-evans-site",
         "john-finley-the-trader-who-put-kentucky-on-boones-map"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "christopher-gist",
@@ -1359,27 +1363,35 @@
       "id": "mary-draper-ingles",
       "name": "Mary Draper Ingles",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/mary-draper-ingles__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/mary-draper-ingles__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "mary-draper-ingles-escapes-through-kentucky-1755"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "jenny-wiley",
       "name": "Jenny Wiley",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jenny-wiley__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jenny-wiley__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "jenny-wileys-captivity-and-escape"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "thomas-wiley",
@@ -1502,14 +1514,18 @@
       "id": "nathaniel-hart",
       "name": "Nathaniel Hart",
       "dates": "1734–1782",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/nathaniel-hart__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/nathaniel-hart__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-nathaniel-hart"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "william-hubbell",
@@ -1555,15 +1571,19 @@
       "id": "bland-ballard",
       "name": "Bland W. Ballard",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/bland-ballard__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/bland-ballard__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "bland-w-ballard-of-tick-creek",
         "river-raisin-1813-kentuckys-winter-defeat-in-michigan"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "robert-tyler",
@@ -1923,15 +1943,19 @@
       "id": "william-calk",
       "name": "William Calk",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-calk__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-calk__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "william-calks-1775-journal",
         "mount-sterling-little-mountain-town"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "harry-innes",
@@ -3585,14 +3609,18 @@
       "id": "chief-paduke",
       "name": "Chief Paduke",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/chief-paduke__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/chief-paduke__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "paducah-at-the-tennessee-mouth"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "james-garrard",
@@ -3846,17 +3874,21 @@
       "id": "thomas-bullitt",
       "name": "Thomas Bullitt",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/thomas-bullitt__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/thomas-bullitt__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "bullitts-lick-kentuckys-first-industry",
         "manns-lick-louisvilles-salt-town",
         "mcafee-station-on-the-salt-river",
         "shepherdsville-on-salt-river"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "william-fleming",
@@ -4234,15 +4266,19 @@
       "id": "john-donelson",
       "name": "John Donelson",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/john-donelson__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/john-donelson__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "treaties-of-hard-labour-and-lochaber",
         "richard-henderson"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "john-stuart",
@@ -5024,10 +5060,13 @@
       "id": "lord-dunmore",
       "name": "Lord Dunmore",
       "dates": "1730–1809",
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/lord-dunmore__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/lord-dunmore__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "blackfish-cot-ta-wa-ma-go-chillicothe-war-chief",
@@ -5042,7 +5081,8 @@
         "treaty-of-fort-stanwix-1768",
         "john-floyd",
         "maj-joseph-bowman"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "barton-stone",
