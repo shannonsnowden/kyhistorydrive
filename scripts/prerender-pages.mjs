@@ -4161,9 +4161,22 @@ class PrerenderPages {
     if (licenseLinks.length !== licensed.length) {
       throw new Error(`prerender: /people/ has ${licenseLinks.length} license links, expected ${licensed.length}`)
     }
-    const ballard = html.match(/<li class="people-card" id="bland-ballard">[\s\S]*?<\/li>/)
-    if (!ballard || !ballard[0].includes('class="people-fallback"') || /<img\b/.test(ballard[0])) {
-      throw new Error('prerender: Bland Ballard must stay a placeholder, with no image')
+    const ballardCard = html.match(/<li class="people-card" id="bland-ballard">[\s\S]*?<\/li>/)
+    const ballard = peopleFile.people.find((person) => person.id === 'bland-ballard')
+    const ballardCredit = 'AI illustration · Kentucky History Drive'
+    const ballardFace = 'bland-ballard__ai-portrait-v1-'
+    const ballardShown =
+      ballard?.ai === true &&
+      ballard.credit === ballardCredit &&
+      String(ballard.image?.webp || '').includes(ballardFace) &&
+      String(ballard.image?.jpg || '').includes(ballardFace) &&
+      ballardCard &&
+      !ballardCard[0].includes('class="people-fallback"') &&
+      ballardCard[0].includes(ballardFace) &&
+      ballardCard[0].includes('>AI illustration<') &&
+      ballardCard[0].includes(PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(ballard)))
+    if (!ballardShown) {
+      throw new Error('prerender: Bland Ballard must show the cleared v1 AI portrait (bland-ballard__ai-portrait-v1, AI illustration · Kentucky History Drive)')
     }
     for (const person of illustrated) {
       const alt = portraitAlt(person)
