@@ -15,14 +15,13 @@ export const PUBLIC_PEOPLE = 'public/data/people.json'
  * Never ship a headshot for these ids.
  * Lomax: the Commons file is Confederate general Lunsford L. Lomax, a different man.
  * Marshall: HMarshall.jpg is Confederate general Humphrey Marshall, the grandson.
- * Briscoe was an infant landowner. Harrison is unidentified. Stitzel’s photo rights are unknown.
+ * Briscoe was an infant landowner. Harrison is unidentified.
  */
 export const NO_PORTRAIT_IDS = [
   'lunsford-lomax',
   'humphrey-marshall',
   'hezekiah-briscoe',
   'benjamin-harrison-col',
-  'frederick-stitzel',
 ]
 
 /** Approved AI illustrations already in the repo. Dragging Canoe is v2. */
@@ -136,6 +135,8 @@ export const AI_IDS = [
   'catherine-spears-carpenter',
   'ebenezer-zane',
   'tomepomehala',
+  // Frederick Stitzel v1 (Nov 6 2026). A photograph exists but the rights are unknown, so this illustration is the shipped face. Not E. H. Taylor Jr.
+  'frederick-stitzel',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [

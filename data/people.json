@@ -2912,12 +2912,13 @@
       "timing": null,
       "image": null,
       "sourcePage": null,
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "A photograph exists, but the rights are unknown. Held: no image until those rights are cleared."
+      "notes": "A photograph exists, but the rights are unknown, so that photo stays unshipped. Canonical face: AI illustration (v1), Nov 6 2026; no likeness in the public domain is cleared for use. Soft-park: brow and temples can read a bit past age 36; a touch of crown headroom. Design confirmed it does not read as E. H. Taylor Jr.",
+      "ai": true
     },
     {
       "id": "henry-mckenna",

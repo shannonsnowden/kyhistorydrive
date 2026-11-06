@@ -135,6 +135,8 @@ export const PORTRAIT_ALTS = {
   'catherine-spears-carpenter': 'AI illustration: imagined portrait of Catherine Spears Carpenter, rural Kentucky farm woman associated with an 1818 Casey County mash-recipe sheet. No likeness survives.',
   'ebenezer-zane': 'AI illustration: imagined portrait of Col. Ebenezer Zane, who cut Zane’s Trace in 1796–97. No likeness survives.',
   'tomepomehala': 'AI illustration: imagined portrait of Tomepomehala, a Native guide on Zane’s Trace in 1796–97. No likeness survives.',
+  // Frederick Stitzel v1 (Nov 6 2026). None-known; not E. H. Taylor Jr.
+  'frederick-stitzel': 'AI illustration: imagined portrait of Frederick Stitzel, Louisville distiller who patented barrel warehouse racks in 1879. No likeness in the public domain is cleared for use.',
 }
 
 export function portraitAlt(person) {
