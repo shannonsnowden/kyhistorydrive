@@ -1,0 +1,29 @@
+{
+  "slug": "greensburg-takes-shape-on-the-green-river",
+  "title": "Greensburg takes shape on the Green River",
+  "publishedDate": "2026-11-06",
+  "summary": "On Dec. 4, 1794, Walter Beal laid out Greensburg above a Green River ford on the site of Glover's Station; its 1804 stone courthouse still stands.",
+  "bodyMarkdown": "On December 4, 1794, Walter Beal laid out about 100 acres into lots around a public square above a natural ford on the Green River. The ground was the former site of Glover's Station, which John Glover had built in the fall of 1779 and which was abandoned after attacks in 1781.\n\n[Greensburg](https://grokipedia.com/page/greensburg_kentucky) was the seat of Green County from the start. The legislature had formed the county from Lincoln and Nelson counties in December 1792 and named it for Gen. Nathanael Greene of the Revolution.\n\nA log courthouse went up in 1796. The two-story Old Stone Courthouse, finished in 1804, is widely cited as the oldest surviving courthouse west of the Alleghenies.\n\n## Kentucky today\n\nThe Old Stone Courthouse stands on the public square in the Downtown Greensburg Historic District.",
+  "yearStart": 1779,
+  "yearEnd": 1804,
+  "era": "frontier",
+  "tags": [
+    "frontier",
+    "kentucky",
+    "towns",
+    "county-seats"
+  ],
+  "source": "ky-history",
+  "briefDate": "2026-11-06",
+  "county": "Green",
+  "photo": {
+    "image_url": "/content/photos/stories/greensburg-takes-shape-on-the-green-river.jpg",
+    "title": "Old Courthouse, Greensburg, photographed for the Historic American Buildings Survey in 1934",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Theodore_Webb,_Photographer,_Jan._31,_1934_GENERAL_VIEW_(SOUTHWEST)_-_Old_Courthouse,_Main_Street,_Greensburg,_Green_County,_KY_HABS_KY,44-GREBU,1-3.tif",
+    "source_label": "Wikimedia Commons",
+    "attribution": "Theodore Webb, HABS · Wikimedia Commons · public domain",
+    "year": 1934,
+    "credit": "Theodore Webb, Historic American Buildings Survey",
+    "license": "Public domain"
+  }
+}

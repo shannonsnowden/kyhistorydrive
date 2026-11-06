@@ -3,7 +3,7 @@
   "title": "Tecumseh falls at the Thames, Oct. 5, 1813",
   "publishedDate": "2026-11-05",
   "summary": "Tecumseh was killed at the Thames in Ontario on Oct. 5, 1813, when Isaac Shelby's Kentucky volunteers broke the British line and his confederacy collapsed.",
-  "bodyMarkdown": "Kentucky's frontier wars with the Shawnee-led confederacy ended in Ontario. After the American win on Lake Erie, Governor Isaac Shelby, then 63 and a veteran of Kings Mountain, personally led more than 3,500 Kentucky volunteers, mostly mounted riflemen, north to join William Henry Harrison.\n\nOn October 5, 1813, near Moraviantown on the Thames River, Col. Richard Mentor Johnson's Kentucky horsemen charged through swampy ground and broke Procter's British line. Tecumseh was killed fighting in the woods next to it. His multi-tribal alliance collapsed after his death, which effectively ended organized Native resistance in the Old Northwest and the last Native threat to Kentucky's northern border. ([Grokipedia](https://grokipedia.com/page/Battle_of_the_Thames))",
+  "bodyMarkdown": "Kentucky's frontier wars with the Shawnee-led confederacy ended in Ontario. After the American win on Lake Erie, Governor Isaac Shelby, then 63 and a veteran of Kings Mountain, personally led more than 3,500 Kentucky volunteers, mostly mounted riflemen, north to join William Henry Harrison.\n\nOn October 5, 1813, near Moraviantown on the Thames River, Col. Richard Mentor Johnson's Kentucky horsemen charged through swampy ground and broke Procter's British line. [Tecumseh](/people/#tecumseh) was killed fighting in the woods next to it. His multi-tribal alliance collapsed after his death, which effectively ended organized Native resistance in the Old Northwest and the last Native threat to Kentucky's northern border. ([Grokipedia](https://grokipedia.com/page/Battle_of_the_Thames))",
   "yearStart": 1813,
   "yearEnd": 1813,
   "era": "early-commonwealth",
@@ -17,14 +17,14 @@
   "briefDate": "2026-11-05",
   "photo": {
     "image_url": "/content/photos/stories/tecumseh-falls-at-the-thames-oct-5-1813.jpg",
-    "title": "Tecumseh, portrait attributed to Owen Staples after an earlier sketch",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Tecumseh02.jpg",
+    "title": "Battle of the Thames and the death of Tecumseh, hand-coloured lithograph by William Emmons, 1833",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Battle_of_the_Thames.PNG",
     "source_label": "Wikimedia Commons",
-    "attribution": "Wikimedia Commons · public domain",
-    "year": null,
+    "attribution": "William Emmons · Wikimedia Commons · public domain",
+    "year": 1833,
+    "credit": "William Emmons",
     "license": "Public domain",
-    "fit": "contain",
-    "artwork": "portrait"
+    "artwork": "painting"
   },
   "county": "",
   "metaSource": "summary"

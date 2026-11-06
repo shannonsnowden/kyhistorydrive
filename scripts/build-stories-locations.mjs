@@ -213,6 +213,8 @@ const MANUAL_OVERRIDES = {
   'iroquois-beaver-wars': {},
   // Nov 5 2026 restart: Thames battle is in Ontario; explicit no-place (county null). Do not fuzzy-match Isaac Shelby.
   'tecumseh-falls-at-the-thames-oct-5-1813': {},
+  // Nov 6 2026: Neutral collapse was in Ontario. Explicit no-place. Do not fuzzy-match a Kentucky site.
+  'when-the-neutral-fell-the-hunting-ground-opened': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
@@ -1111,6 +1113,20 @@ function countyFallback(text) {
 }
 
 const STORY_PIN_OVERRIDES = JSON.parse(fs.readFileSync(path.join(__dirname, 'story-overrides.json'), 'utf8')).overrides || {}
+// Nov 6 pins live in story-overrides.json. Copy lat/lon here so the location build
+// does not fuzzy-match first (Bush must not land on Boonesborough or Holder's Station).
+const NOV6_PIN_NAMES = {
+  'lexington-blind-hero-of-woodburn': 'Woodburn Stud near Midway',
+  'capt-billy-bush-and-the-bush-settlement': "Bush Settlement / Lower Howard's Creek",
+  'greensburg-takes-shape-on-the-green-river': 'Greensburg public square',
+  'guilfoil-village-15fa176-fayette-county': 'Guilfoil Village, Fayette County',
+}
+for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
+  const pin = STORY_PIN_OVERRIDES[slug]
+  if (pin && pin.lat != null && pin.lon != null) {
+    MANUAL_OVERRIDES[slug] = { matchName, lat: pin.lat, lon: pin.lon, confidence: 'override' }
+  }
+}
 const HISTORY_IDS = new Set(history.map((f) => f.properties?.id).filter(Boolean))
 const locations = {}
 const stats = { exact: 0, fuzzy: 0, county: 0, override: 0, none: 0 }

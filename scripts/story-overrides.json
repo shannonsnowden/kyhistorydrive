@@ -1008,6 +1008,53 @@
       "yearStart": 1796,
       "yearEnd": 1797,
       "county": "Mason"
+    },
+    "lexington-blind-hero-of-woodburn": {
+      "reason": "Woodburn Stud near Midway, Woodford County. Years 1850–1875 (foaled through death at Woodburn).",
+      "date": "2026-11-06",
+      "historyId": "lexington-horse-woodburn-woodford-1850-1875",
+      "lat": 38.1373,
+      "lon": -84.7373,
+      "yearStart": 1850,
+      "yearEnd": 1875,
+      "county": "Woodford"
+    },
+    "capt-billy-bush-and-the-bush-settlement": {
+      "reason": "Bush Settlement / Lower Howard’s Creek, Clark County (KHS Bush Settlement marker). Not Boonesborough or Holder’s Station. Years 1783–1799.",
+      "date": "2026-11-06",
+      "historyId": "bush-settlement-lower-howards-creek-clark-1783",
+      "lat": 37.9297898,
+      "lon": -84.2455158,
+      "yearStart": 1783,
+      "yearEnd": 1799,
+      "county": "Clark"
+    },
+    "greensburg-takes-shape-on-the-green-river": {
+      "reason": "Greensburg public square, Green County (old stone courthouse). Years 1779–1804.",
+      "date": "2026-11-06",
+      "historyId": "greensburg-green-river-green-1794",
+      "lat": 37.2607667,
+      "lon": -85.5019667,
+      "yearStart": 1779,
+      "yearEnd": 1804,
+      "county": "Green"
+    },
+    "when-the-neutral-fell-the-hunting-ground-opened": {
+      "reason": "Unpinned. The Neutral collapse was in Ontario; county stays blank and the story must not fuzzy-match a Kentucky place.",
+      "date": "2026-11-06",
+      "yearStart": 1651,
+      "yearEnd": 1750,
+      "county": ""
+    },
+    "guilfoil-village-15fa176-fayette-county": {
+      "reason": "Protected Fort Ancient site on private land, restricted address; public pin generalized to Fayette County at 0.1°. Years: occupation AD 1000–1499, not the 1985 NRHP listing.",
+      "date": "2026-11-06",
+      "historyId": "guilfoil-village-15fa176-fayette-county",
+      "lat": 38,
+      "lon": -84.5,
+      "yearStart": 1000,
+      "yearEnd": 1499,
+      "county": "Fayette"
     }
   }
 }

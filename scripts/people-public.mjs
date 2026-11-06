@@ -137,6 +137,8 @@ export const AI_IDS = [
   'tomepomehala',
   // Frederick Stitzel v1 (Nov 6 2026). A photograph exists but the rights are unknown, so this illustration is the shipped face. Not E. H. Taylor Jr.
   'frederick-stitzel',
+  // Nov 6 2026: Capt. William Bush v1. No known likeness. Editor should eyeball it.
+  'william-bush',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [

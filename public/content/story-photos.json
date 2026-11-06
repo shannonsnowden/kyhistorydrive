@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T13:14:25.317Z",
+  "generatedAt": "2026-11-06T10:42:30.532Z",
   "bySlug": {
     "adams-site-15fu4": {
       "slug": "adams-site-15fu4",
@@ -2352,14 +2352,14 @@
       "historyId": null,
       "photo": {
         "image_url": "/content/photos/stories/tecumseh-falls-at-the-thames-oct-5-1813.jpg",
-        "title": "Tecumseh, portrait attributed to Owen Staples after an earlier sketch",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Tecumseh02.jpg",
+        "title": "Battle of the Thames and the death of Tecumseh, hand-coloured lithograph by William Emmons, 1833",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Battle_of_the_Thames.PNG",
         "source_label": "Wikimedia Commons",
-        "attribution": "Wikimedia Commons · public domain",
-        "year": null,
+        "attribution": "William Emmons · Wikimedia Commons · public domain",
+        "year": 1833,
+        "credit": "William Emmons",
         "license": "Public domain",
-        "fit": "contain",
-        "artwork": "portrait"
+        "artwork": "painting"
       }
     },
     "zanes-trace-ends-at-maysville": {
@@ -2375,6 +2375,79 @@
         "credit": "Clement Martzloff",
         "license": "Public domain",
         "artwork": "map"
+      }
+    },
+    "capt-billy-bush-and-the-bush-settlement": {
+      "slug": "capt-billy-bush-and-the-bush-settlement",
+      "historyId": "bush-settlement-lower-howards-creek-clark-1783",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-billy-bush-and-the-bush-settlement.jpg",
+        "title": "Old Providence Church, Clark County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:OldKyChurch.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
+        "year": null,
+        "credit": "GRChistory",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    "greensburg-takes-shape-on-the-green-river": {
+      "slug": "greensburg-takes-shape-on-the-green-river",
+      "historyId": "greensburg-green-river-green-1794",
+      "photo": {
+        "image_url": "/content/photos/stories/greensburg-takes-shape-on-the-green-river.jpg",
+        "title": "Old Courthouse, Greensburg, photographed for the Historic American Buildings Survey in 1934",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Theodore_Webb,_Photographer,_Jan._31,_1934_GENERAL_VIEW_(SOUTHWEST)_-_Old_Courthouse,_Main_Street,_Greensburg,_Green_County,_KY_HABS_KY,44-GREBU,1-3.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Theodore Webb, HABS · Wikimedia Commons · public domain",
+        "year": 1934,
+        "credit": "Theodore Webb, Historic American Buildings Survey",
+        "license": "Public domain"
+      }
+    },
+    "guilfoil-village-15fa176-fayette-county": {
+      "slug": "guilfoil-village-15fa176-fayette-county",
+      "historyId": "guilfoil-village-15fa176-fayette-county",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "source_url": null,
+        "source_label": null,
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "year": null,
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration",
+        "artwork": "illustration"
+      }
+    },
+    "lexington-blind-hero-of-woodburn": {
+      "slug": "lexington-blind-hero-of-woodburn",
+      "historyId": "lexington-horse-woodburn-woodford-1850-1875",
+      "photo": {
+        "image_url": "/content/photos/stories/lexington-blind-hero-of-woodburn--topic.jpg",
+        "title": "Lexington, painted by Edward Troye about 1860",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_(Edward_Troye).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Edward Troye · Wikimedia Commons · public domain",
+        "year": 1860,
+        "credit": "Edward Troye",
+        "license": "Public domain",
+        "artwork": "painting"
+      }
+    },
+    "when-the-neutral-fell-the-hunting-ground-opened": {
+      "slug": "when-the-neutral-fell-the-hunting-ground-opened",
+      "historyId": null,
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-neutral-attawandaron__ai-v1-1280.jpg",
+        "title": "AI illustration: Neutral (Attawandaron) people at a longhouse village; reconstructed from historical and archaeological evidence",
+        "source_url": null,
+        "source_label": null,
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "year": null,
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration",
+        "artwork": "illustration"
       }
     }
   },
@@ -4312,6 +4385,64 @@
         "credit": "Clement Martzloff",
         "license": "Public domain",
         "artwork": "map"
+      }
+    },
+    "bush-settlement-lower-howards-creek-clark-1783": {
+      "slug": "capt-billy-bush-and-the-bush-settlement",
+      "historyId": "bush-settlement-lower-howards-creek-clark-1783",
+      "photo": {
+        "image_url": "/content/photos/stories/capt-billy-bush-and-the-bush-settlement.jpg",
+        "title": "Old Providence Church, Clark County",
+        "source_url": "https://commons.wikimedia.org/wiki/File:OldKyChurch.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
+        "year": null,
+        "credit": "GRChistory",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    "greensburg-green-river-green-1794": {
+      "slug": "greensburg-takes-shape-on-the-green-river",
+      "historyId": "greensburg-green-river-green-1794",
+      "photo": {
+        "image_url": "/content/photos/stories/greensburg-takes-shape-on-the-green-river.jpg",
+        "title": "Old Courthouse, Greensburg, photographed for the Historic American Buildings Survey in 1934",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Theodore_Webb,_Photographer,_Jan._31,_1934_GENERAL_VIEW_(SOUTHWEST)_-_Old_Courthouse,_Main_Street,_Greensburg,_Green_County,_KY_HABS_KY,44-GREBU,1-3.tif",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Theodore Webb, HABS · Wikimedia Commons · public domain",
+        "year": 1934,
+        "credit": "Theodore Webb, Historic American Buildings Survey",
+        "license": "Public domain"
+      }
+    },
+    "guilfoil-village-15fa176-fayette-county": {
+      "slug": "guilfoil-village-15fa176-fayette-county",
+      "historyId": "guilfoil-village-15fa176-fayette-county",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+        "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+        "source_url": null,
+        "source_label": null,
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "year": null,
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration",
+        "artwork": "illustration"
+      }
+    },
+    "lexington-horse-woodburn-woodford-1850-1875": {
+      "slug": "lexington-blind-hero-of-woodburn",
+      "historyId": "lexington-horse-woodburn-woodford-1850-1875",
+      "photo": {
+        "image_url": "/content/photos/stories/lexington-blind-hero-of-woodburn--topic.jpg",
+        "title": "Lexington, painted by Edward Troye about 1860",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_(Edward_Troye).jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Edward Troye · Wikimedia Commons · public domain",
+        "year": 1860,
+        "credit": "Edward Troye",
+        "license": "Public domain",
+        "artwork": "painting"
       }
     }
   }
