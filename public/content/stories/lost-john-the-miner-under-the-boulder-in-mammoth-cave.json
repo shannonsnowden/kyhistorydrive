@@ -25,5 +25,13 @@
     "year": null,
     "credit": "National Park Service",
     "license": "Public domain"
+  },
+  "figure": {
+    "webp": "/content/photos/stories/figures/culture-early-woodland-cavers__ai-v2.2-1280.webp",
+    "jpg": "/content/photos/stories/figures/culture-early-woodland-cavers__ai-v2.2-1280.jpg",
+    "alt": "AI illustration: An Early Woodland caver scraping gypsum from a cave wall by cane-torch light, Mammoth Cave area",
+    "credit": "AI illustration · Kentucky History Drive",
+    "note": "This picture is an AI illustration reconstructed from the available archaeological evidence for the Early Woodland period in Kentucky; details without direct evidence are informed guesses.",
+    "evidence": "culture-early-woodland-cavers-image-evidence"
   }
 }

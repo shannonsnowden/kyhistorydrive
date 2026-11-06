@@ -288,12 +288,25 @@ export function titlePeople(people, title, slug = '') {
   return out
 }
 
+/**
+ * Title match misses these. "Zane's Trace ends at Maysville" names the road, not Col. Ebenezer Zane,
+ * who is still that story's subject portrait.
+ */
+const FORCED_STORY_SUBJECTS = {
+  'zanes-trace-ends-at-maysville': 'ebenezer-zane',
+}
+
 /** slug → person id for stories whose title names exactly one person (ids only; aliases stay private). */
 export function buildStorySubjects(people, stories) {
   const map = {}
   for (const st of stories || []) {
     const hits = titlePeople(people, st.title, st.slug)
     if (hits.length === 1) map[st.slug] = hits[0].person.id
+  }
+  const ids = new Set((people || []).map((p) => p.id))
+  const slugs = new Set((stories || []).map((st) => st.slug))
+  for (const [slug, id] of Object.entries(FORCED_STORY_SUBJECTS)) {
+    if (ids.has(id) && slugs.has(slug)) map[slug] = id
   }
   return map
 }

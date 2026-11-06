@@ -131,6 +131,10 @@ export const PORTRAIT_ALTS = {
   'bland-ballard': 'AI illustration of Bland W. Ballard in late life, modeled on the portrait in Kentucky Ante-Bellum Portraiture',
   'john-donelson': 'AI illustration of Col. John Donelson, surveyor, about 1771',
   'chief-paduke': 'AI illustration of Chief Paduke, legendary Chickasaw namesake of Paducah',
+  // Nov 6 2026. None-known. Studio/History alts.
+  'catherine-spears-carpenter': 'AI illustration: imagined portrait of Catherine Spears Carpenter, rural Kentucky farm woman associated with an 1818 Casey County mash-recipe sheet. No likeness survives.',
+  'ebenezer-zane': 'AI illustration: imagined portrait of Col. Ebenezer Zane, who cut Zane’s Trace in 1796–97. No likeness survives.',
+  'tomepomehala': 'AI illustration: imagined portrait of Tomepomehala, a Native guide on Zane’s Trace in 1796–97. No likeness survives.',
 }
 
 export function portraitAlt(person) {

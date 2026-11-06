@@ -697,6 +697,18 @@
       "portraits": [
         "squire-boone"
       ]
+    },
+    "zanes-trace-ends-at-maysville": {
+      "links": [
+        "ebenezer-zane",
+        "tomepomehala"
+      ],
+      "portraits": [
+        "tomepomehala"
+      ],
+      "aliases": {
+        "tomepomehala": "Tomepomehala"
+      }
     }
   }
 }

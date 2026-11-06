@@ -15,13 +15,11 @@ export const PUBLIC_PEOPLE = 'public/data/people.json'
  * Never ship a headshot for these ids.
  * Lomax: the Commons file is Confederate general Lunsford L. Lomax, a different man.
  * Marshall: HMarshall.jpg is Confederate general Humphrey Marshall, the grandson.
- * Crow: the Commons file is a 2024 upload with no historical source.
  * Briscoe was an infant landowner. Harrison is unidentified. Stitzel’s photo rights are unknown.
  */
 export const NO_PORTRAIT_IDS = [
   'lunsford-lomax',
   'humphrey-marshall',
-  'james-c-crow',
   'hezekiah-briscoe',
   'benjamin-harrison-col',
   'frederick-stitzel',
@@ -134,6 +132,10 @@ export const AI_IDS = [
   'bland-ballard',
   'john-donelson',
   'chief-paduke',
+  // Nov 6 2026: cleared v1 faces, none-known.
+  'catherine-spears-carpenter',
+  'ebenezer-zane',
+  'tomepomehala',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
