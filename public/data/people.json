@@ -2157,15 +2157,19 @@
       "id": "frederick-stitzel",
       "name": "Frederick Stitzel",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/frederick-stitzel__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/frederick-stitzel__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "frederick-stitzels-barrel-racks-1879",
         "george-garvin-brown-and-old-forester"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "henry-mckenna",

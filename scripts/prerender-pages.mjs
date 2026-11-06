@@ -3528,6 +3528,30 @@ class PrerenderPages {
     if (story.slug === 'treaty-of-camp-charlotte-1774' && !html.includes('alt="AI illustration of Nonhelema, Shawnee Chalakatha chief and diplomat, about 1786"')) {
       throw new Error('prerender: Camp Charlotte story is missing the Nonhelema AI headshot')
     }
+    if (story.slug === 'frederick-stitzels-barrel-racks-1879') {
+      const stitzelAlt = 'AI illustration: imagined portrait of Frederick Stitzel, Louisville distiller who patented barrel warehouse racks in 1879. No likeness in the public domain is cleared for use.'
+      const bodyAt = html.indexOf('class="story-body"')
+      const figAt = bodyAt < 0 ? -1 : html.indexOf('<figure', bodyAt)
+      const figEnd = figAt < 0 ? -1 : html.indexOf('</figure>', figAt)
+      const lead = figAt < 0 ? '' : html.slice(figAt, figEnd)
+      const leadOk =
+        lead.includes('story-portrait') &&
+        lead.includes('frederick-stitzel__ai-portrait-v1-512') &&
+        lead.includes(`alt="${stitzelAlt}"`) &&
+        lead.includes('>Frederick Stitzel<') &&
+        lead.includes('no known likeness exists') &&
+        !lead.includes('e-h-taylor')
+      if (!leadOk) {
+        throw new Error('prerender: Frederick Stitzel lead portrait must be his v1 AI face, with the illustration credit, not E. H. Taylor Jr.')
+      }
+      if (!html.includes('/content/photos/stories/frederick-stitzels-barrel-racks-1879.jpg')) {
+        throw new Error('prerender: Frederick Stitzel sidebar must stay the Stitzel-Weller Distillery photo')
+      }
+      const card = html.match(/<a class="usp-person-card" href="\/people\/#frederick-stitzel">[\s\S]*?<\/a>/)
+      if (!card || !card[0].includes('frederick-stitzel__ai-portrait-v1-96') || card[0].includes('e-h-taylor')) {
+        throw new Error('prerender: Frederick Stitzel People card must use his 96px portrait')
+      }
+    }
     // #345: protected sites list same-county stories only, so they may have fewer than 3 (or none).
     const protectedRelated = isProtectedStory(story)
     const related = html.match(/<nav class="static-related[^"]*"[\s\S]*?<\/nav>/) || (protectedRelated ? [''] : null)
@@ -4177,6 +4201,26 @@ class PrerenderPages {
       ballardCard[0].includes(PrerenderPages.escapeHtml(PrerenderPages.peopleCreditLead(ballard)))
     if (!ballardShown) {
       throw new Error('prerender: Bland Ballard must show the cleared v1 AI portrait (bland-ballard__ai-portrait-v1, AI illustration · Kentucky History Drive)')
+    }
+    const stitzelCard = html.match(/<li class="people-card" id="frederick-stitzel">[\s\S]*?<\/li>/)
+    const stitzel = peopleFile.people.find((person) => person.id === 'frederick-stitzel')
+    const stitzelCredit = 'AI illustration · Kentucky History Drive; no known likeness exists'
+    const stitzelFace = 'frederick-stitzel__ai-portrait-v1-'
+    const stitzelAlt = 'AI illustration: imagined portrait of Frederick Stitzel, Louisville distiller who patented barrel warehouse racks in 1879. No likeness in the public domain is cleared for use.'
+    const stitzelShown =
+      stitzel?.ai === true &&
+      stitzel.credit === stitzelCredit &&
+      String(stitzel.image?.webp || '').includes(`${stitzelFace}512`) &&
+      String(stitzel.image?.jpg || '').includes(`${stitzelFace}512`) &&
+      stitzelCard &&
+      !stitzelCard[0].includes('class="people-fallback"') &&
+      !stitzelCard[0].includes('e-h-taylor') &&
+      stitzelCard[0].includes(stitzelFace) &&
+      stitzelCard[0].includes(`alt="${PrerenderPages.escapeHtml(stitzelAlt)}"`) &&
+      stitzelCard[0].includes('>AI illustration<') &&
+      stitzelCard[0].includes('Kentucky History Drive · no known likeness exists')
+    if (!stitzelShown) {
+      throw new Error('prerender: Frederick Stitzel must show the v1 AI portrait (frederick-stitzel__ai-portrait-v1), not a placeholder or E. H. Taylor Jr.')
     }
     for (const person of illustrated) {
       const alt = portraitAlt(person)
