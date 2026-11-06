@@ -3112,6 +3112,53 @@
       "portraits": [
         "tomepomehala"
       ]
+    },
+    "lexington-blind-hero-of-woodburn": {
+      "links": [
+        {
+          "id": "elisha-warfield",
+          "name": "Elisha Warfield",
+          "href": "/people/#elisha-warfield"
+        }
+      ],
+      "portraits": [
+        "elisha-warfield"
+      ]
+    },
+    "capt-billy-bush-and-the-bush-settlement": {
+      "links": [
+        {
+          "id": "william-bush",
+          "name": "William \"Billy\" Bush",
+          "href": "/people/#william-bush"
+        },
+        {
+          "id": "daniel-boone",
+          "name": "Daniel Boone",
+          "href": "/people/#daniel-boone"
+        },
+        {
+          "id": "john-holder",
+          "name": "John Holder",
+          "href": "/stories/col-john-holder-at-lower-howards-creek/"
+        }
+      ],
+      "portraits": [
+        "daniel-boone",
+        "john-holder"
+      ]
+    },
+    "greensburg-takes-shape-on-the-green-river": {
+      "links": [],
+      "portraits": []
+    },
+    "when-the-neutral-fell-the-hunting-ground-opened": {
+      "links": [],
+      "portraits": []
+    },
+    "guilfoil-village-15fa176-fayette-county": {
+      "links": [],
+      "portraits": []
     }
   }
 }

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-05T15:07:27.188Z",
+  "generatedAt": "2026-11-06T10:42:29.026Z",
   "stats": {
     "exact": 12,
-    "fuzzy": 48,
+    "fuzzy": 49,
     "county": 4,
-    "override": 140,
+    "override": 144,
     "none": 38
   },
   "locations": {
@@ -1949,6 +1949,46 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Zane's Trace at Maysville",
       "historyId": "zanes-trace-maysville-mason-1796-1797"
+    },
+    "lexington-blind-hero-of-woodburn": {
+      "slug": "lexington-blind-hero-of-woodburn",
+      "lat": 38.1373,
+      "lon": -84.7373,
+      "mapConfidence": "override",
+      "matchedPlace": "Woodburn Stud near Midway",
+      "historyId": "lexington-horse-woodburn-woodford-1850-1875"
+    },
+    "capt-billy-bush-and-the-bush-settlement": {
+      "slug": "capt-billy-bush-and-the-bush-settlement",
+      "lat": 37.9297898,
+      "lon": -84.2455158,
+      "mapConfidence": "override",
+      "matchedPlace": "Bush Settlement / Lower Howard's Creek",
+      "historyId": "bush-settlement-lower-howards-creek-clark-1783"
+    },
+    "greensburg-takes-shape-on-the-green-river": {
+      "slug": "greensburg-takes-shape-on-the-green-river",
+      "lat": 37.2607667,
+      "lon": -85.5019667,
+      "mapConfidence": "override",
+      "matchedPlace": "Greensburg public square",
+      "historyId": "greensburg-green-river-green-1794"
+    },
+    "when-the-neutral-fell-the-hunting-ground-opened": {
+      "slug": "when-the-neutral-fell-the-hunting-ground-opened",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "guilfoil-village-15fa176-fayette-county": {
+      "slug": "guilfoil-village-15fa176-fayette-county",
+      "lat": 38,
+      "lon": -84.5,
+      "mapConfidence": "override",
+      "matchedPlace": "Guilfoil Village, Fayette County",
+      "historyId": "guilfoil-village-15fa176-fayette-county"
     }
   }
 }

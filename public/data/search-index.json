@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-05T15:07:27.352Z",
+  "generatedAt": "2026-11-06T10:42:30.335Z",
   "version": 2,
   "counts": {
-    "places": 2943,
-    "stories": 242,
-    "total": 3185,
+    "places": 2947,
+    "stories": 247,
+    "total": 3194,
     "byLayer": {
       "markers": 1921,
-      "history": 198,
+      "history": 202,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -46527,6 +46527,114 @@
       "slug": "zanes-trace-ends-at-maysville",
       "lat": 38.6412,
       "lon": -83.7444
+    },
+    {
+      "id": "place:lexington-horse-woodburn-woodford-1850-1875",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Lexington, the Blind Hero of Woodburn",
+      "text": "Lexington, the Blind Hero of Woodburn Lexington) was foaled on March 17, 1850, at The Meadows, the Fayette County farm of Dr. Elisha Warfield, and was first named Darley. Through Boston, Timoleon, and Sir Archy, he traced back to the imported stallion Diomed, a line that helped shape Bluegrass breeding. Raced under the name Lexington, he won six of his seven starts. Failing eyesight, which left him nearly blind, ended his racing career. In 1856 Robert A. Alexander of Woodburn Stud near Midway bought him for $15,000, then a U.S. record price for an American horse. At Woodburn he became known as the \"Blind Hero of Woodburn.\" He led the North American sire list every year from 1861 through 1874",
+      "snippet": "Lexington) was foaled on March 17, 1850, at The Meadows, the Fayette County farm of Dr. Elisha Warfield, and was first named Darley. Throug…",
+      "lat": 38.1373,
+      "lon": -84.7373,
+      "shareId": "lexington-horse-woodburn-woodford-1850-1875",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:bush-settlement-lower-howards-creek-clark-1783",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Bush Settlement / Lower Howard’s Creek",
+      "text": "Bush Settlement / Lower Howard’s Creek Capt. William \"Billy\" Bush organized the Bush Settlement on Lower Howard's Creek in what became Clark County. He located the land for himself and others. Beginning January 7, 1783, he piloted and marked the lines while Daniel Boone, acting only as a deputy surveyor, ran the first eleven surveys for him, totaling 6,147 acres. Baptist families from Virginia and North Carolina began settling there in November 1784. Providence Church on Lower Howard's Creek became the center of the community. Bush had come west with Boone's party in 1775, but his lasting mark is this Clark County settlement and its church. The Lower Howard's Creek Nature and Heritage Preser",
+      "snippet": "Capt. William \"Billy\" Bush organized the Bush Settlement on Lower Howard's Creek in what became Clark County. He located the land for himse…",
+      "lat": 37.9297898,
+      "lon": -84.2455158,
+      "shareId": "bush-settlement-lower-howards-creek-clark-1783",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:greensburg-green-river-green-1794",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Greensburg on the Green River",
+      "text": "Greensburg on the Green River On December 4, 1794, Walter Beal laid out about 100 acres into lots around a public square above a natural ford on the Green River. The ground was the former site of Glover's Station, which John Glover had built in the fall of 1779 and which was abandoned after attacks in 1781. Greensburg was the seat of Green County from the start. The legislature had formed the county from Lincoln and Nelson counties in December 1792 and named it for Gen. Nathanael Greene of the Revolution. A log courthouse went up in 1796. The two-story Old Stone Courthouse, finished in 1804, is widely cited as the oldest surviving courthouse west of the Alleghenies. The Old Stone Courthouse ",
+      "snippet": "On December 4, 1794, Walter Beal laid out about 100 acres into lots around a public square above a natural ford on the Green River. The gro…",
+      "lat": 37.2607667,
+      "lon": -85.5019667,
+      "shareId": "greensburg-green-river-green-1794",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:guilfoil-village-15fa176-fayette-county",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Guilfoil Village (15Fa176), Fayette County",
+      "text": "Guilfoil Village (15Fa176), Fayette County Guilfoil Village is a Middle Fort Ancient village in Fayette County, recorded by archaeologists as site 15Fa176. It was listed on the National Register of Historic Places in 1985, with a period of significance of AD 1000 to 1499. Fort Ancient is an archaeologists' name for a shared way of life in the middle Ohio Valley, not the name of a single tribe. Communities like this one farmed corn, beans, and squash, hunted deer, and lived in villages that were often ringed by a wooden stockade. Guilfoil belongs to the centuries just before European contact, when farming villages like it were spread across the Bluegrass. It is a separate site from the other ",
+      "snippet": "Guilfoil Village is a Middle Fort Ancient village in Fayette County, recorded by archaeologists as site 15Fa176. It was listed on the Natio…",
+      "lat": 38,
+      "lon": -84.5,
+      "shareId": "guilfoil-village-15fa176-fayette-county",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "story:capt-billy-bush-and-the-bush-settlement",
+      "type": "story",
+      "title": "Capt. Billy Bush and the Bush Settlement",
+      "text": "Capt. Billy Bush and the Bush Settlement Capt. William \"Billy\" Bush organized the Bush Settlement on Lower Howard's Creek in Clark County, where Baptist families settled from 1784 around Providence Church. Capt. William \"Billy\" Bush organized the Bush Settlement on Lower Howard's Creek in what became Clark County. He located the land for himself and others. Beginning January 7, 1783, he piloted and marked the lines while Daniel Boone, acting only as a deputy surveyor, ran the first eleven surveys for him, totaling 6,147 acres. Baptist families from Virginia and North Carolina began settling there in November 1784. Providence Church on Lower Howard's Creek became the center of the community. ",
+      "snippet": "Capt. William \"Billy\" Bush organized the Bush Settlement on Lower Howard's Creek in Clark County, where Baptist families settled from 1784…",
+      "slug": "capt-billy-bush-and-the-bush-settlement",
+      "lat": 37.9297898,
+      "lon": -84.2455158
+    },
+    {
+      "id": "story:greensburg-takes-shape-on-the-green-river",
+      "type": "story",
+      "title": "Greensburg takes shape on the Green River",
+      "text": "Greensburg takes shape on the Green River On Dec. 4, 1794, Walter Beal laid out Greensburg above a Green River ford on the site of Glover's Station; its 1804 stone courthouse still stands. On December 4, 1794, Walter Beal laid out about 100 acres into lots around a public square above a natural ford on the Green River. The ground was the former site of Glover's Station, which John Glover had built in the fall of 1779 and which was abandoned after attacks in 1781. Greensburg was the seat of Green County from the start. The legislature had formed the county from Lincoln and Nelson counties in December 1792 and named it for Gen. Nathanael Greene of the Revolution. A log courthouse went up in 17",
+      "snippet": "On Dec. 4, 1794, Walter Beal laid out Greensburg above a Green River ford on the site of Glover's Station; its 1804 stone courthouse still…",
+      "slug": "greensburg-takes-shape-on-the-green-river",
+      "lat": 37.2607667,
+      "lon": -85.5019667
+    },
+    {
+      "id": "story:guilfoil-village-15fa176-fayette-county",
+      "type": "story",
+      "title": "Guilfoil Village (15Fa176), Fayette County",
+      "text": "Guilfoil Village (15Fa176), Fayette County Guilfoil Village (15Fa176) in Fayette County was a Middle Fort Ancient farming village of about AD 1000–1499. It is a protected site. Guilfoil Village is a Middle Fort Ancient village in Fayette County, recorded by archaeologists as site 15Fa176. It was listed on the National Register of Historic Places in 1985, with a period of significance of AD 1000 to 1499. Fort Ancient is an archaeologists' name for a shared way of life in the middle Ohio Valley, not the name of a single tribe. Communities like this one farmed corn, beans, and squash, hunted deer, and lived in villages that were often ringed by a wooden stockade. Guilfoil belongs to the centuri",
+      "snippet": "Guilfoil Village (15Fa176) in Fayette County was a Middle Fort Ancient farming village of about AD 1000–1499. It is a protected site.",
+      "slug": "guilfoil-village-15fa176-fayette-county",
+      "lat": 38,
+      "lon": -84.5
+    },
+    {
+      "id": "story:lexington-blind-hero-of-woodburn",
+      "type": "story",
+      "title": "Horse series: Lexington, the Blind Hero of Woodburn",
+      "text": "Horse series: Lexington, the Blind Hero of Woodburn Foaled in 1850 at Elisha Warfield's farm, the racehorse Lexington went blind, then led the North American sire list 16 times from Woodburn Stud near Midway. Lexington was foaled on March 17, 1850, at The Meadows, the Fayette County farm of Dr. Elisha Warfield, and was first named Darley. Through Boston, Timoleon, and Sir Archy, he traced back to the imported stallion Diomed, a line that helped shape Bluegrass breeding. Raced under the name Lexington, he won six of his seven starts. Failing eyesight, which left him nearly blind, ended his racing career. In 1856 Robert A. Alexander of Woodburn Stud near Midway bought him for $15,000, then a U",
+      "snippet": "Foaled in 1850 at Elisha Warfield's farm, the racehorse Lexington went blind, then led the North American sire list 16 times from Woodburn…",
+      "slug": "lexington-blind-hero-of-woodburn",
+      "lat": 38.1373,
+      "lon": -84.7373
+    },
+    {
+      "id": "story:when-the-neutral-fell-the-hunting-ground-opened",
+      "type": "story",
+      "title": "When the Neutral fell, the hunting ground opened",
+      "text": "When the Neutral fell, the hunting ground opened In the winter of 1650–51 Haudenosaunee war parties destroyed the Neutral Confederacy in Ontario, part of the shift that left Kentucky a contested hunting ground. In the winter of 1650–51, after destroying the Huron towns, Haudenosaunee war parties overran the country of the Neutral (Attawandaron) in what is now southern Ontario. They burned villages and ended the Neutral Confederacy as a separate nation. It was one campaign in the Beaver Wars, covered more broadly in the Iroquois Beaver Wars story. With the Neutral, and soon the Erie, broken, Iroquois power reached over the hunting ranges of former rivals. The upper Ohio Valley was left withou",
+      "snippet": "In the winter of 1650–51 Haudenosaunee war parties destroyed the Neutral Confederacy in Ontario, part of the shift that left Kentucky a con…",
+      "slug": "when-the-neutral-fell-the-hunting-ground-opened"
     }
   ]
 }

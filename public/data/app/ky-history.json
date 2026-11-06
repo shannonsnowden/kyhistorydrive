@@ -3836,5 +3836,101 @@
       "license": "Public domain",
       "artwork": "map"
     }
+  },
+  {
+    "id": "lexington-horse-woodburn-woodford-1850-1875",
+    "name": "Lexington, the Blind Hero of Woodburn",
+    "subtitle": "Woodford County · Woodburn Stud near Midway · 1850–1875",
+    "latitude": 38.1373,
+    "longitude": -84.7373,
+    "history": "Lexington) was foaled on March 17, 1850, at The Meadows, the Fayette County farm of Dr. Elisha Warfield, and was first named Darley. Through Boston, Timoleon, and Sir Archy, he traced back to the imported stallion Diomed, a line that helped shape Bluegrass breeding.\n\nRaced under the name Lexington, he won six of his seven starts. Failing eyesight, which left him nearly blind, ended his racing career.\n\nIn 1856 Robert A. Alexander of Woodburn Stud near Midway bought him for $15,000, then a U.S. record price for an American horse. At Woodburn he became known as the \"Blind Hero of Woodburn.\" He led the North American sire list every year from 1861 through 1874, and again after his death, and his offspring helped make the Inner Bluegrass the center of American Thoroughbred breeding.\n\nLexington died at Woodburn on July 1, 1875.\n\nWoodburn is a private working farm in Woodford County, so view it from the public road only. The Kentucky Association race course story covers the Lexington track where Warfield and other Bluegrass horsemen raced.",
+    "source_date": "2026-11-06",
+    "geocode_source": "override",
+    "geocode_note": "Woodburn Stud near Midway, Woodford County. Years 1850–1875.",
+    "category": "horses",
+    "website": "https://grokipedia.com/page/Lexington_(horse)",
+    "year_start": 1850,
+    "year_end": 1875,
+    "photo": {
+      "image_url": "/content/photos/stories/lexington-blind-hero-of-woodburn--topic.jpg",
+      "title": "Lexington, photographed by James Mullen before 1875",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_horse_Mullen.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "James Mullen · Wikimedia Commons · public domain",
+      "year": null,
+      "credit": "James Mullen",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "bush-settlement-lower-howards-creek-clark-1783",
+    "name": "Bush Settlement / Lower Howard’s Creek",
+    "subtitle": "Clark County · Bush Settlement · 1783–1799",
+    "latitude": 37.9297898,
+    "longitude": -84.2455158,
+    "history": "Capt. William \"Billy\" Bush organized the Bush Settlement on Lower Howard's Creek in what became Clark County. He located the land for himself and others. Beginning January 7, 1783, he piloted and marked the lines while Daniel Boone, acting only as a deputy surveyor, ran the first eleven surveys for him, totaling 6,147 acres.\n\nBaptist families from Virginia and North Carolina began settling there in November 1784. Providence Church on Lower Howard's Creek became the center of the community.\n\nBush had come west with Boone's party in 1775, but his lasting mark is this Clark County settlement and its church.\n\nThe Lower Howard's Creek Nature and Heritage Preserve protects part of the creek valley. The Col. John Holder story covers the station and mills at the creek's mouth. Much of the surrounding land is private; ask before you cross it.",
+    "source_date": "2026-11-06",
+    "geocode_source": "override",
+    "geocode_note": "Bush Settlement marker on Lower Howard’s Creek, Clark County. Not Boonesborough or Holder’s Station. Years 1783–1799.",
+    "category": "settlement",
+    "website": "https://explorekyhistory.ky.gov/items/show/824",
+    "year_start": 1783,
+    "year_end": 1799,
+    "photo": {
+      "image_url": "/content/photos/stories/capt-billy-bush-and-the-bush-settlement.jpg",
+      "title": "Old Providence Church, Clark County",
+      "source_url": "https://commons.wikimedia.org/wiki/File:OldKyChurch.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "GRChistory · Wikimedia Commons · CC BY-SA 4.0",
+      "credit": "GRChistory",
+      "license": "CC BY-SA 4.0"
+    }
+  },
+  {
+    "id": "greensburg-green-river-green-1794",
+    "name": "Greensburg on the Green River",
+    "subtitle": "Green County · public square · 1779–1804",
+    "latitude": 37.2607667,
+    "longitude": -85.5019667,
+    "history": "On December 4, 1794, Walter Beal laid out about 100 acres into lots around a public square above a natural ford on the Green River. The ground was the former site of Glover's Station, which John Glover had built in the fall of 1779 and which was abandoned after attacks in 1781.\n\nGreensburg was the seat of Green County from the start. The legislature had formed the county from Lincoln and Nelson counties in December 1792 and named it for Gen. Nathanael Greene of the Revolution.\n\nA log courthouse went up in 1796. The two-story Old Stone Courthouse, finished in 1804, is widely cited as the oldest surviving courthouse west of the Alleghenies.\n\nThe Old Stone Courthouse stands on the public square in the Downtown Greensburg Historic District.",
+    "source_date": "2026-11-06",
+    "geocode_source": "override",
+    "geocode_note": "Greensburg public square, Green County. Years 1779–1804.",
+    "category": "town",
+    "website": "https://grokipedia.com/page/greensburg_kentucky",
+    "year_start": 1779,
+    "year_end": 1804,
+    "photo": {
+      "image_url": "/content/photos/stories/greensburg-takes-shape-on-the-green-river.jpg",
+      "title": "Old Courthouse, Greensburg, photographed for the Historic American Buildings Survey in 1934",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Theodore_Webb,_Photographer,_Jan._31,_1934_GENERAL_VIEW_(SOUTHWEST)_-_Old_Courthouse,_Main_Street,_Greensburg,_Green_County,_KY_HABS_KY,44-GREBU,1-3.tif",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Theodore Webb, HABS · Wikimedia Commons · public domain",
+      "year": 1934,
+      "credit": "Theodore Webb, Historic American Buildings Survey",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "guilfoil-village-15fa176-fayette-county",
+    "name": "Guilfoil Village (15Fa176), Fayette County",
+    "subtitle": "Fayette County · county-level pin · occupation AD 1000–1499",
+    "latitude": 38,
+    "longitude": -84.5,
+    "history": "Guilfoil Village is a Middle Fort Ancient village in Fayette County, recorded by archaeologists as site 15Fa176. It was listed on the National Register of Historic Places in 1985, with a period of significance of AD 1000 to 1499.\n\nFort Ancient is an archaeologists' name for a shared way of life in the middle Ohio Valley, not the name of a single tribe. Communities like this one farmed corn, beans, and squash, hunted deer, and lived in villages that were often ringed by a wooden stockade.\n\nGuilfoil belongs to the centuries just before European contact, when farming villages like it were spread across the Bluegrass. It is a separate site from the other Fort Ancient villages already on the Kentucky History Drive map.\n\nGuilfoil Village is a protected archaeological site on private land, so this site names it but does not map it; the pin is a rounded, county-level point. Digging or collecting at archaeological sites without permission is a crime in Kentucky. Ask before you visit any site on private land.",
+    "source_date": "2026-11-06",
+    "geocode_source": "generalized-fayette-county",
+    "geocode_note": "Generalized to 0.1° within Fayette County. The site address is not published. Years are the occupation, AD 1000–1499, not the 1985 NRHP listing.",
+    "category": "archaeology",
+    "website": "https://npgallery.nps.gov/AssetDetail/NRIS/85003063",
+    "year_start": 1000,
+    "year_end": 1499,
+    "photo": {
+      "image_url": "/content/photos/stories/figures/culture-fort-ancient__ai-v2.6-1280.jpg",
+      "title": "AI illustration: Fort Ancient people in a village of houses around an open plaza; reconstructed from archaeological evidence",
+      "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration"
+    }
   }
 ]

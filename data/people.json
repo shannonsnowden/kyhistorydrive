@@ -51,7 +51,8 @@
         "william-calks-1775-journal",
         "bland-w-ballard-of-tick-creek",
         "bryan-station-siege-august-1782",
-        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow"
+        "wyandot-name-kah-ten-tah-teh-fair-land-of-tomorrow",
+        "capt-billy-bush-and-the-bush-settlement"
       ],
       "role": "Long hunter, explorer, Boonesborough founder",
       "native": false,
@@ -580,7 +581,8 @@
       "lifeDates": null,
       "stories": [
         "hancock-taylor-fincastle-surveyor",
-        "leestown"
+        "leestown",
+        "capt-thomas-bullitts-1773-survey-party"
       ],
       "role": "Fincastle County deputy surveyor",
       "native": false,
@@ -603,7 +605,8 @@
       "lifeDates": "1753–1799",
       "stories": [
         "col-john-holder-at-lower-howards-creek",
-        "william-hoy-and-hoys-station"
+        "william-hoy-and-hoys-station",
+        "capt-billy-bush-and-the-bush-settlement"
       ],
       "role": "Colonel, station founder on Lower Howard's Creek",
       "native": false,
@@ -789,7 +792,8 @@
       "lifeDates": null,
       "stories": [
         "henry-skaggs-green-river-long-hunter",
-        "james-knox"
+        "james-knox",
+        "greensburg-takes-shape-on-the-green-river"
       ],
       "role": "Long hunter",
       "native": false,
@@ -1425,7 +1429,8 @@
       "lifeDates": null,
       "stories": [
         "capt-robert-johnson-and-big-crossing-station",
-        "william-whitley-sportsmans-hill"
+        "william-whitley-sportsmans-hill",
+        "tecumseh-falls-at-the-thames-oct-5-1813"
       ],
       "role": "Senator, U.S. vice president",
       "native": false,
@@ -2724,7 +2729,9 @@
         "col-thomas-marshall-at-buck-pond",
         "mingo-camps-south-of-the-ohio",
         "hopkinsville",
-        "georgetown-and-royal-spring"
+        "georgetown-and-royal-spring",
+        "capt-thomas-bullitts-1773-survey-party",
+        "mount-washington-grows-from-the-crossroads"
       ],
       "role": "President (mention)",
       "native": false,
@@ -3104,7 +3111,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "kentucky-association-1826-lexington-race-course"
+        "kentucky-association-1826-lexington-race-course",
+        "lexington-blind-hero-of-woodburn"
       ],
       "role": "Physician, horse breeder",
       "native": false,
@@ -6584,7 +6592,8 @@
       "stories": [
         "chickasaw-hunting-grounds",
         "russellville-from-big-boiling-spring-to-county-seat",
-        "the-maysville-road-and-jacksons-veto-1830"
+        "the-maysville-road-and-jacksons-veto-1830",
+        "zanes-trace-ends-at-maysville"
       ],
       "role": "President, Jackson Purchase",
       "native": false,
@@ -6930,7 +6939,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "jacob-spears-early-bourbon-whiskey"
+        "jacob-spears-early-bourbon-whiskey",
+        "greensburg-takes-shape-on-the-green-river"
       ],
       "role": "Stonemason, tenth governor (\"Old Stone Hammer\")",
       "native": false,
@@ -7141,7 +7151,8 @@
         "treaty-of-camp-charlotte-1774",
         "treaty-of-fort-stanwix-1768",
         "john-floyd",
-        "maj-joseph-bowman"
+        "maj-joseph-bowman",
+        "capt-thomas-bullitts-1773-survey-party"
       ],
       "role": "Royal governor of Virginia; led Dunmore’s War (1774)",
       "native": false,
@@ -7268,6 +7279,79 @@
       "verified": false,
       "notes": "Native guide named in the Zane's Trace story. No nation is recorded here. Not the circulating Onward Ohio History photograph. Canonical face: cleared AI illustration (v1), Nov 6 2026.",
       "ai": true
+    },
+    {
+      "id": "lexington-stallion",
+      "name": "Lexington (stallion)",
+      "aliases": [
+        "Darley",
+        "Blind Hero of Woodburn"
+      ],
+      "lifeDates": "1850–1875",
+      "stories": [
+        "lexington-blind-hero-of-woodburn"
+      ],
+      "role": "Racehorse, Blind Hero of Woodburn",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://commons.wikimedia.org/wiki/File:Lexington_(Edward_Troye).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Lexington_(Edward_Troye).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Lexington_(Edward_Troye).jpg",
+      "credit": "Edward Troye · Wikimedia Commons · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Square crop of Edward Troye’s c. 1860 painting. The full canvas stays the story sidebar.",
+      "ai": false
+    },
+    {
+      "id": "william-bush",
+      "name": "William \"Billy\" Bush",
+      "aliases": [
+        "Billy Bush",
+        "Capt. Billy Bush",
+        "William Bush"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "capt-billy-bush-and-the-bush-settlement"
+      ],
+      "role": "Organizer of the Bush Settlement on Lower Howard’s Creek",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": null,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "freeToUse": false,
+      "verified": false,
+      "notes": "No known historical likeness. AI portrait v1 (2026-11-06). Editor should eyeball it. Credit keeps the site AI line; the no-likeness ending is required when likeness is none-known.",
+      "ai": true
+    },
+    {
+      "id": "tecumseh",
+      "name": "Tecumseh",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "tecumseh-falls-at-the-thames-oct-5-1813"
+      ],
+      "role": "Shawnee leader",
+      "native": true,
+      "likeness": "portrait",
+      "timing": "posthumous",
+      "image": "https://commons.wikimedia.org/wiki/File:Tecumseh02.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tecumseh02.jpg",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "Owen Staples (attributed) · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Owen Staples watercolor on platinum print, 1915, after Lossing’s 1868 engraving. Commons File:Tecumseh02.jpg.",
+      "ai": false
     }
   ]
 }
