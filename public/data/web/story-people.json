@@ -1857,7 +1857,9 @@
           "href": "/stories/jacob-spears-early-bourbon-whiskey/"
         }
       ],
-      "portraits": []
+      "portraits": [
+        "jacob-spears"
+      ]
     },
     "falls-of-the-ohio": {
       "links": [
@@ -2986,7 +2988,8 @@
         }
       ],
       "portraits": [
-        "george-rogers-clark"
+        "george-rogers-clark",
+        "william-hubbell"
       ]
     },
     "treaty-of-fort-stanwix-1768": {

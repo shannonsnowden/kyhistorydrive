@@ -1,11 +1,6 @@
 {
   "_comment": "Person-subject stories that shipped without an inline portrait before scripts/check-story-portraits.mjs existed (Oct 13, 2026). The check warns instead of failing for these. Remove a slug once its portrait lands; never add new ones to get a pack past the check.",
   "slugs": [
-    "ann-mcginty-and-kentuckys-first-spinning-wheel",
-    "basil-haydens-high-rye-trail",
-    "campbellsville-from-buckhorn-creek-to-county-seat",
-    "capt-william-hubbells-ohio-flatboat-stand-1791",
-    "henry-mckennas-fairfield-sour-mash",
-    "jacob-spears-early-bourbon-whiskey"
+    "campbellsville-from-buckhorn-creek-to-county-seat"
   ]
 }

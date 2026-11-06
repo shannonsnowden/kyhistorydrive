@@ -1445,15 +1445,19 @@
       "id": "ann-mcginty",
       "name": "Ann McGinty",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/ann-mcginty__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/ann-mcginty__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "ann-mcginty-and-kentuckys-first-spinning-wheel",
         "mcafee-station-on-the-salt-river"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "william-poage",
@@ -1553,15 +1557,19 @@
       "id": "william-hubbell",
       "name": "William Hubbell",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/william-hubbell__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/william-hubbell__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "capt-william-hubbells-ohio-flatboat-stand-1791",
         "treaty-of-fort-mcintosh-1785"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "daniel-light",
@@ -2204,14 +2212,18 @@
       "id": "henry-mckenna",
       "name": "Henry McKenna",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/henry-mckenna__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/henry-mckenna__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "henry-mckennas-fairfield-sour-mash"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "james-c-crow",
@@ -2248,16 +2260,20 @@
       "id": "jacob-spears",
       "name": "Jacob Spears",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/jacob-spears__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/jacob-spears__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "jacob-spears-early-bourbon-whiskey",
         "jacob-beam-on-hardin-creek",
         "evan-williams-on-the-louisville-wharf"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "catherine-spears-carpenter",
@@ -2280,15 +2296,19 @@
       "id": "basil-hayden",
       "name": "Basil Hayden Sr.",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/basil-hayden__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/basil-hayden__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "basil-haydens-high-rye-trail",
         "jacob-beam-on-hardin-creek"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "henry-clay",

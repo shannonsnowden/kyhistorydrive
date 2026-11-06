@@ -137,6 +137,12 @@ export const PORTRAIT_ALTS = {
   'tomepomehala': 'AI illustration: imagined portrait of Tomepomehala, a Native guide on Zane’s Trace in 1796–97. No likeness survives.',
   // Frederick Stitzel v1 (Nov 6 2026). None-known; not E. H. Taylor Jr.
   'frederick-stitzel': 'AI illustration: imagined portrait of Frederick Stitzel, Louisville distiller who patented barrel warehouse racks in 1879. No likeness in the public domain is cleared for use.',
+  // Nov 6 2026 v1 faces. None-known. Inline only; the Photos sidebar stays the topic image.
+  'basil-hayden': 'AI illustration: imagined portrait of Basil Hayden Sr., Maryland Catholic settler and distiller, in the 1780s. No known likeness exists.',
+  'jacob-spears': 'AI illustration: imagined portrait of Jacob Spears, early Bourbon County distiller, about 1794. No known likeness exists.',
+  'ann-mcginty': 'AI illustration: imagined portrait of Ann McGinty, who brought a spinning wheel to Harrodstown in 1775. No known likeness exists.',
+  'william-hubbell': 'AI illustration: imagined portrait of Capt. William Hubbell, Ohio River flatboat captain, 1791. No known likeness exists.',
+  'henry-mckenna': 'AI illustration: imagined portrait of Henry McKenna, Fairfield distiller, about 1855. No known likeness exists.',
 }
 
 export function portraitAlt(person) {

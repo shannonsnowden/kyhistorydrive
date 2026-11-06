@@ -139,6 +139,12 @@ export const AI_IDS = [
   'frederick-stitzel',
   // Nov 6 2026: Capt. William Bush v1. No known likeness. Editor should eyeball it.
   'william-bush',
+  // Nov 6 2026: cleared v1 faces. All none-known. Photos sidebar stays the topic image.
+  'basil-hayden',
+  'jacob-spears',
+  'ann-mcginty',
+  'william-hubbell',
+  'henry-mckenna',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
