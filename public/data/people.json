@@ -2184,14 +2184,18 @@
       "id": "james-c-crow",
       "name": "James C. Crow",
       "dates": null,
-      "image": null,
-      "credit": null,
+      "image": {
+        "webp": "/people/portraits/james-c-crow-512.webp",
+        "jpg": "/people/portraits/james-c-crow-512.jpg"
+      },
+      "credit": "Shckwv · CC BY-SA 4.0 · via Wikimedia Commons",
       "ai": false,
-      "license": null,
-      "licenseUrl": null,
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "stories": [
         "james-crow-on-glenns-creek"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "oscar-pepper",
@@ -2226,14 +2230,18 @@
       "id": "catherine-spears-carpenter",
       "name": "Catherine Spears Carpenter",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/catherine-spears-carpenter__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/catherine-spears-carpenter__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "basil-hayden",
@@ -5126,6 +5134,40 @@
       "stories": [
         "prestonsburg-first-seat-on-the-big-sandy"
       ]
+    },
+    {
+      "id": "ebenezer-zane",
+      "name": "Ebenezer Zane",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/ebenezer-zane__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/ebenezer-zane__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "zanes-trace-ends-at-maysville"
+      ],
+      "sourceFile": null
+    },
+    {
+      "id": "tomepomehala",
+      "name": "Tomepomehala",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/tomepomehala__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/tomepomehala__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
+      "licenseUrl": null,
+      "stories": [
+        "zanes-trace-ends-at-maysville"
+      ],
+      "sourceFile": null
     }
   ],
   "storySubjects": {
@@ -5200,6 +5242,7 @@
     "george-garvin-brown-and-old-forester": "george-garvin-brown",
     "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr",
-    "capt-thomas-bullitts-1773-survey-party": "thomas-bullitt"
+    "capt-thomas-bullitts-1773-survey-party": "thomas-bullitt",
+    "zanes-trace-ends-at-maysville": "ebenezer-zane"
   }
 }

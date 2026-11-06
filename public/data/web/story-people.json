@@ -3097,8 +3097,21 @@
       "portraits": []
     },
     "zanes-trace-ends-at-maysville": {
-      "links": [],
-      "portraits": []
+      "links": [
+        {
+          "id": "ebenezer-zane",
+          "name": "Ebenezer Zane",
+          "href": "/people/#ebenezer-zane"
+        },
+        {
+          "id": "tomepomehala",
+          "name": "Tomepomehala",
+          "href": "/people/#tomepomehala"
+        }
+      ],
+      "portraits": [
+        "tomepomehala"
+      ]
     }
   }
 }
