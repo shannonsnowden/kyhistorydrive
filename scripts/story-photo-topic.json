@@ -63,12 +63,10 @@
     "year": 2008
   },
   "lexington-blind-hero-of-woodburn": {
-    "commonsFile": "Lexington_(Edward_Troye).jpg",
-    "title": "Lexington, painted by Edward Troye about 1860",
-    "attribution": "Edward Troye · Wikimedia Commons · public domain",
+    "commonsFile": "Lexington_horse_Mullen.jpg",
+    "title": "Lexington, photographed by James Mullen before 1875",
+    "attribution": "James Mullen · Wikimedia Commons · public domain",
     "license": "Public domain",
-    "year": 1860,
-    "artwork": "painting",
-    "credit": "Edward Troye"
+    "credit": "James Mullen"
   }
 }

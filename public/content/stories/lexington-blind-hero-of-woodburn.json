@@ -18,13 +18,12 @@
   "county": "Woodford",
   "photo": {
     "image_url": "/content/photos/stories/lexington-blind-hero-of-woodburn--topic.jpg",
-    "title": "Lexington, painted by Edward Troye about 1860",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_(Edward_Troye).jpg",
+    "title": "Lexington, photographed by James Mullen before 1875",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lexington_horse_Mullen.jpg",
     "source_label": "Wikimedia Commons",
-    "attribution": "Edward Troye · Wikimedia Commons · public domain",
-    "year": 1860,
-    "credit": "Edward Troye",
-    "license": "Public domain",
-    "artwork": "painting"
+    "attribution": "James Mullen · Wikimedia Commons · public domain",
+    "year": null,
+    "credit": "James Mullen",
+    "license": "Public domain"
   }
 }
