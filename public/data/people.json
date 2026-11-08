@@ -5280,6 +5280,97 @@
         "tecumseh-falls-at-the-thames-oct-5-1813"
       ],
       "sourceFile": "Tecumseh02.jpg"
+    },
+    {
+      "id": "david-leitch",
+      "name": "David Leitch",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ]
+    },
+    {
+      "id": "catherine-drake",
+      "name": "Catherine Drake",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ]
+    },
+    {
+      "id": "joseph-hough",
+      "name": "Joseph Hough",
+      "dates": null,
+      "image": null,
+      "credit": null,
+      "ai": false,
+      "license": null,
+      "licenseUrl": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ]
+    },
+    {
+      "id": "braxton-bragg",
+      "name": "Braxton Bragg",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/braxton-bragg-512.webp",
+        "jpg": "/people/portraits/braxton-bragg-512.jpg"
+      },
+      "credit": "Unknown photographer; restoration by Adam Cuerden · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads",
+        "glasgow-the-barrens"
+      ],
+      "sourceFile": "Braxton Bragg.jpg"
+    },
+    {
+      "id": "john-austin-wharton",
+      "name": "John Austin Wharton",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/john-austin-wharton-512.webp",
+        "jpg": "/people/portraits/john-austin-wharton-512.jpg"
+      },
+      "credit": "Unknown photographer · Confederate Veteran (1897) · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ],
+      "sourceFile": "MAJ. GEN. JOHN A. WHARTON.jpg"
+    },
+    {
+      "id": "don-carlos-buell",
+      "name": "Don Carlos Buell",
+      "dates": null,
+      "image": {
+        "webp": "/people/portraits/don-carlos-buell-512.webp",
+        "jpg": "/people/portraits/don-carlos-buell-512.jpg"
+      },
+      "credit": "Unknown photographer · Brady-Handy collection, Library of Congress · Public domain · via Wikimedia Commons",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ],
+      "sourceFile": "Don Carlos Buell.jpg"
     }
   ],
   "storySubjects": {

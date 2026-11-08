@@ -709,6 +709,22 @@
       "aliases": {
         "tomepomehala": "Tomepomehala"
       }
+    },
+    "mount-washington-grows-from-the-crossroads": {
+      "links": [
+        "david-leitch",
+        "catherine-drake",
+        "joseph-hough",
+        "braxton-bragg",
+        "john-austin-wharton",
+        "don-carlos-buell"
+      ],
+      "portraits": [
+        "braxton-bragg"
+      ],
+      "aliases": {
+        "john-austin-wharton": "John Wharton"
+      }
     }
   }
 }

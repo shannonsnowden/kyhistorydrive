@@ -3092,8 +3092,41 @@
       "portraits": []
     },
     "mount-washington-grows-from-the-crossroads": {
-      "links": [],
-      "portraits": []
+      "links": [
+        {
+          "id": "david-leitch",
+          "name": "David Leitch",
+          "href": "/people/#david-leitch"
+        },
+        {
+          "id": "catherine-drake",
+          "name": "Catherine Drake",
+          "href": "/people/#catherine-drake"
+        },
+        {
+          "id": "joseph-hough",
+          "name": "Joseph Hough",
+          "href": "/people/#joseph-hough"
+        },
+        {
+          "id": "braxton-bragg",
+          "name": "Braxton Bragg",
+          "href": "/people/#braxton-bragg"
+        },
+        {
+          "id": "john-austin-wharton",
+          "name": "John Wharton",
+          "href": "/people/#john-austin-wharton"
+        },
+        {
+          "id": "don-carlos-buell",
+          "name": "Don Carlos Buell",
+          "href": "/people/#don-carlos-buell"
+        }
+      ],
+      "portraits": [
+        "braxton-bragg"
+      ]
     },
     "tecumseh-falls-at-the-thames-oct-5-1813": {
       "links": [],

@@ -7357,6 +7357,138 @@
       "verified": true,
       "notes": "Owen Staples watercolor on platinum print, 1915, after Lossing’s 1868 engraving. Commons File:Tecumseh02.jpg.",
       "ai": false
+    },
+    {
+      "id": "david-leitch",
+      "name": "David Leitch",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ],
+      "role": "Revolutionary War veteran and Mount Washington landholder",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": "https://bullittcountyhistory.org/memories/mw.html",
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "History confirmed this identity via the Kentucky Historical Society marker, https://explorekyhistory.ky.gov/items/show/531. The Bullitt County History Museum identifies him as the Leitchfield namesake. No historical likeness found in Commons/LOC/KHS/Find a Grave targeted searches; modern film director is a different person."
+    },
+    {
+      "id": "catherine-drake",
+      "name": "Catherine Drake",
+      "aliases": [
+        "Catherine Hough"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ],
+      "role": "Mount Washington town-lot seller, 1818",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": "https://bullittcountyhistory.org/memories/mw.html",
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Bullitt County History Museum and https://mtwashingtonhistory.yolasite.com/ identify the 1818 seller. She had remarried David Drake before the 1818 sale; formerly Joseph Hough\u2019s widow. David Drake is not a separate People record. No historical likeness found in targeted searches; no physical appearance or life dates established."
+    },
+    {
+      "id": "joseph-hough",
+      "name": "Joseph Hough",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ],
+      "role": "Crossroads landowner",
+      "native": false,
+      "likeness": "none-known",
+      "timing": null,
+      "image": null,
+      "sourcePage": "https://bullittcountyhistory.org/memories/mw.html",
+      "license": null,
+      "licenseUrl": null,
+      "credit": null,
+      "freeToUse": false,
+      "verified": false,
+      "notes": "Bullitt County History Museum identifies the Crossroads landowner. No historical likeness found; link-only supporting mention. No unsupported life dates or family expansion."
+    },
+    {
+      "id": "braxton-bragg",
+      "name": "Braxton Bragg",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads",
+        "glasgow-the-barrens"
+      ],
+      "role": "Confederate commander, 1862 Kentucky Campaign",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Braxton_Bragg.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Braxton_Bragg.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "credit": "Unknown photographer; restoration by Adam Cuerden · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Photograph dated 1861–1865; Library of Congress cph.3g07984. Commons PD-US-expired. Glasgow prose is unchanged; glasgow-the-barrens is associated because that story names him."
+    },
+    {
+      "id": "john-austin-wharton",
+      "name": "John Austin Wharton",
+      "aliases": [
+        "John Wharton",
+        "John A. Wharton"
+      ],
+      "lifeDates": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ],
+      "role": "Confederate cavalry commander, 1862 Kentucky Campaign",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/MAJ._GEN._JOHN_A._WHARTON.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:MAJ._GEN._JOHN_A._WHARTON.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "credit": "Unknown photographer · Confederate Veteran (1897) · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Identity: https://www.tshaonline.org/handbook/entries/wharton-john-austin-2. Photograph taken 1861–1865, published Confederate Veteran V, no. 9 (1897); Commons PD-old and PD-US-expired. Avoided alternate Alamy-metadata scan. Body spelling remains John Wharton; alias scoped via portrait sweep."
+    },
+    {
+      "id": "don-carlos-buell",
+      "name": "Don Carlos Buell",
+      "aliases": [],
+      "lifeDates": null,
+      "stories": [
+        "mount-washington-grows-from-the-crossroads"
+      ],
+      "role": "Union commander, 1862 Kentucky Campaign",
+      "native": false,
+      "likeness": "photo",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Don_Carlos_Buell.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Don_Carlos_Buell.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "credit": "Unknown photographer · Brady-Handy collection, Library of Congress · Public domain · via Wikimedia Commons",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Photograph dated 1855–1865; Library of Congress cwpbh.01154. Commons PD-Brady-Handy. Used only for this story."
     }
   ]
 }
