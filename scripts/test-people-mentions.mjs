@@ -59,7 +59,7 @@ assert.match(catherine.notes, /remarried David Drake before/)
 assert.match(catherine.notes, new RegExp(FORMERLY.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
 assert.doesNotMatch(catherine.notes, /widow at the (1818 )?sale/i)
 assert.match(byId.get('david-leitch').notes, /explorekyhistory\.ky\.gov\/items\/show\/531/)
-assert.match(byId.get('joseph-hough').notes, /link-only/)
+assert.match(byId.get('joseph-hough').notes, /not an inline story figure/)
 for (const id of REAL_IDS) {
   const person = byId.get(id)
   assert.equal(person.likeness, 'photo', id)
@@ -81,8 +81,12 @@ for (const id of ['david-leitch', 'catherine-drake']) {
     assert.equal(aiReady(id), false, id)
   }
 }
-assert.equal(byId.get('joseph-hough').image, null)
-assert.equal(aiReady('joseph-hough'), false, 'Joseph Hough stays link-only')
+const hough = byId.get('joseph-hough')
+assert.equal(hough.image, null, 'research image stays null; files are discovered')
+assert.equal(hough.likeness, 'none-known')
+assert.equal(hough.ai, true)
+assert.equal(hough.credit, 'AI illustration · Kentucky History Drive; no known likeness exists')
+assert.equal(aiReady('joseph-hough'), true, 'Joseph Hough profile files')
 
 const story = read(`public/content/stories/${SLUG}.json`)
 assert.match(story.bodyMarkdown, new RegExp(FORMERLY.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
@@ -126,6 +130,11 @@ for (const id of IDS) {
   assert.ok(person, `public ${id}`)
   assert.deepEqual(person.stories, byId.get(id).stories, id)
 }
+const pubHough = pub.people.find((row) => row.id === 'joseph-hough')
+assert.equal(pubHough.ai, true)
+assert.equal(pubHough.credit, 'AI illustration · Kentucky History Drive; no known likeness exists')
+assert.equal(pubHough.image.jpg, '/people/portraits/joseph-hough__ai-portrait-v1-512.jpg')
+assert.equal(pubHough.image.webp, '/people/portraits/joseph-hough__ai-portrait-v1-512.webp')
 const entry = read('public/data/web/story-people.json').stories[SLUG]
 assert.deepEqual(entry.links.map((link) => link.id), IDS)
 assert.equal(entry.links.find((link) => link.id === 'john-austin-wharton').name, 'John Wharton')

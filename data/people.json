@@ -7418,12 +7418,13 @@
       "timing": null,
       "image": null,
       "sourcePage": "https://bullittcountyhistory.org/memories/mw.html",
-      "license": null,
+      "license": "Original AI illustration",
       "licenseUrl": null,
-      "credit": null,
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "Bullitt County History Museum identifies the Crossroads landowner. No historical likeness found; link-only supporting mention. No unsupported life dates or family expansion."
+      "notes": "Bullitt County History Museum identifies the Crossroads landowner. No historical likeness found. Approved imagined profile portrait v1; not an inline story figure. No unsupported life dates or family expansion.",
+      "ai": true
     },
     {
       "id": "braxton-bragg",

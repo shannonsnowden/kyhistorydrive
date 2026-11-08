@@ -6095,6 +6095,16 @@ html[data-hp-theme="light"] .hp-plan-drive {
   .story-portrait figcaption { width: auto; max-width: 100%; left: 0; transform: none; overflow-wrap: anywhere; }
 }
 .story-portrait-note { white-space: nowrap; }
+/* Static story pages are not size containers, so inline portraits stay 120px floats.
+   A nowrap credit wider than that float paints over the body. Wrap it inside the figure. */
+.static-story .story-portrait figcaption {
+  max-width: 100%;
+}
+.static-story .story-portrait .credit-site,
+.static-story .story-portrait .story-portrait-note {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 
 
 /* Item 70: /roads-and-rails/ page (mockup B). The transport map from #258 with a page title and intro. */
