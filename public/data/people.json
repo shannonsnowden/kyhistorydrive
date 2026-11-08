@@ -5285,27 +5285,35 @@
       "id": "david-leitch",
       "name": "David Leitch",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/david-leitch__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/david-leitch__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "mount-washington-grows-from-the-crossroads"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "catherine-drake",
       "name": "Catherine Drake",
       "dates": null,
-      "image": null,
-      "credit": null,
-      "ai": false,
-      "license": null,
+      "image": {
+        "webp": "/people/portraits/catherine-drake__ai-portrait-v1-512.webp",
+        "jpg": "/people/portraits/catherine-drake__ai-portrait-v1-512.jpg"
+      },
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "ai": true,
+      "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
         "mount-washington-grows-from-the-crossroads"
-      ]
+      ],
+      "sourceFile": null
     },
     {
       "id": "joseph-hough",

@@ -145,6 +145,9 @@ export const AI_IDS = [
   'ann-mcginty',
   'william-hubbell',
   'henry-mckenna',
+  // Nov 8 2026: Mount Washington founding faces. None-known. Photos sidebar stays the house.
+  'david-leitch',
+  'catherine-drake',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
