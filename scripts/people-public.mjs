@@ -145,6 +145,11 @@ export const AI_IDS = [
   'ann-mcginty',
   'william-hubbell',
   'henry-mckenna',
+  // Nov 8 2026: Mount Washington founding faces. None-known. Photos sidebar stays the house.
+  'david-leitch',
+  'catherine-drake',
+  // Joseph Hough v1 is a People-card face only. Not an inline story portrait.
+  'joseph-hough',
 ]
 
 const FORBIDDEN_PUBLIC_KEYS = [
