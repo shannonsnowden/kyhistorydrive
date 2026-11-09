@@ -310,10 +310,10 @@
     "cemetery_type": "municipal",
     "nrhp": "76000873",
     "history": "Incorporated in 1849 as a naturalistic landscape park and arboretum, and NRHP-listed with the Henry Clay Monument. Notable Bluegrass burials include Henry Clay, Vice President John C. Breckinridge, Confederate cavalryman John Hunt Morgan, and author James Lane Allen.",
-    "why_historic_url": "https://en.wikipedia.org/wiki/Lexington_Cemetery",
+    "why_historic_url": "https://grokipedia.com/page/Lexington_Cemetery",
     "website": "https://www.lexcem.org/",
     "sources": [
-      "https://en.wikipedia.org/wiki/Lexington_Cemetery",
+      "https://grokipedia.com/page/Lexington_Cemetery",
       "https://www.lexcem.org/",
       "https://history.ky.gov/markers/lexington-cemetery"
     ],
@@ -324,7 +324,7 @@
         "name": "Henry Clay",
         "lifespan": "1777–1852",
         "significance": "Speaker of the House, senator, and Great Compromiser",
-        "bio_url": "https://en.wikipedia.org/wiki/Henry_Clay"
+        "bio_url": "https://grokipedia.com/page/Henry_Clay"
       },
       {
         "name": "John C. Breckinridge",
@@ -419,7 +419,7 @@
         "name": "Daniel Boone",
         "lifespan": "1734–1820",
         "significance": "Pioneer explorer; reinterred from Missouri in 1845",
-        "bio_url": "https://en.wikipedia.org/wiki/Daniel_Boone"
+        "bio_url": "https://grokipedia.com/page/Daniel_Boone"
       },
       {
         "name": "Rebecca Boone",
@@ -525,7 +525,7 @@
     "why_historic_url": "https://history.ky.gov/markers/helm-cemetery",
     "sources": [
       "https://history.ky.gov/markers/helm-cemetery",
-      "https://en.wikipedia.org/wiki/Benjamin_Hardin_Helm"
+      "https://grokipedia.com/page/Benjamin_Hardin_Helm"
     ],
     "geocode_source": "khs-marker",
     "marker_number": "833",
@@ -540,7 +540,7 @@
         "name": "Benjamin Hardin Helm",
         "lifespan": "1831–1863",
         "significance": "Confederate general; brother-in-law of Abraham Lincoln",
-        "bio_url": "https://en.wikipedia.org/wiki/Benjamin_Hardin_Helm"
+        "bio_url": "https://grokipedia.com/page/Benjamin_Hardin_Helm"
       }
     ]
   },
