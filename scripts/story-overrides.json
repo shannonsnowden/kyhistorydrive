@@ -1065,6 +1065,43 @@
       "yearStart": 1000,
       "yearEnd": 1499,
       "county": "Fayette"
+    },
+    "col-james-smith-captive-scout-and-cane-ridge-elder": {
+      "reason": "Pin KHS marker #51 (Cane Ridge Meeting House), KY 537 east of Paris; Smith was an elder of the Cane Ridge church and his 100-acre farm nearby is not located. Years 1788 (moved to Bourbon County)–1812 (left with the army). County Bourbon.",
+      "date": "2026-11-10",
+      "historyId": "col-james-smith-cane-ridge-bourbon-1788-1812",
+      "lat": 38.21113,
+      "lon": -84.11874,
+      "yearStart": 1788,
+      "yearEnd": 1812,
+      "county": "Bourbon"
+    },
+    "princeton-grows-from-the-big-spring-at-eddy-grove": {
+      "reason": "Pin KHS marker #1902 (Shandy Hall), Big Spring Park, E. Washington St., Princeton. Years 1797 (Prince explores Eddy Grove)–1820 (incorporation). County Caldwell.",
+      "date": "2026-11-10",
+      "historyId": "princeton-big-spring-caldwell-1797-1820",
+      "lat": 37.10813,
+      "lon": -87.8809,
+      "yearStart": 1797,
+      "yearEnd": 1820,
+      "county": "Caldwell"
+    },
+    "middlesboro-a-town-built-inside-a-meteor-crater": {
+      "reason": "Pin KHS marker #2225 (Middlesboro Meteorite Crater Impact Site), 324 12th St.; coordinates from HMDB m33296. Years 1889 (city built in the basin, per the marker); the impact is ~300 Ma and no study dates are used. County Bell.",
+      "date": "2026-11-10",
+      "historyId": "middlesboro-crater-basin-bell-1889",
+      "lat": 36.61083,
+      "lon": -83.70213,
+      "yearStart": 1889,
+      "yearEnd": 1889,
+      "county": "Bell"
+    },
+    "the-westo-erie-refugees-who-carried-the-beaver-wars-south": {
+      "reason": "Unpinned. The Westo lived in Virginia and on the Savannah River, not in Kentucky; county stays blank and the story must not fuzzy-match a Kentucky place.",
+      "date": "2026-11-10",
+      "yearStart": 1656,
+      "yearEnd": 1680,
+      "county": ""
     }
   }
 }

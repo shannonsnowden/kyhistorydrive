@@ -7492,6 +7492,31 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Photograph dated 1855–1865; Library of Congress cwpbh.01154. Commons PD-Brady-Handy. Used only for this story."
+    },
+    {
+      "id": "james-smith",
+      "name": "Col. James Smith",
+      "aliases": [
+        "James Smith",
+        "Colonel James Smith"
+      ],
+      "lifeDates": "1737–1813",
+      "stories": [
+        "col-james-smith-captive-scout-and-cane-ridge-elder"
+      ],
+      "role": "Captive, frontier scout, Bourbon County legislator",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/63/James-Smith.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:James-Smith.png",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:James-Smith.png",
+      "credit": "Unknown Kentucky artist, c. 1800–1810 · Northern Kentucky University, Shonert Americana Collection · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Oil portrait painted from life c. 1800–1810 by an unknown Kentucky artist; Warren J. Shonert Americana Collection, Eva G. Farris Special Collections, W. Frank Steely Library, Northern Kentucky University (shown at the Fort Pitt Museum 2015–16, per Heinz History Center). Commons File:James-Smith.png, public domain. Square crop keeps the face in frame. Not the signer James Smith (1719–1806). Story sidebar is the 1799 title page, not the portrait.",
+      "ai": false
     }
   ]
 }
