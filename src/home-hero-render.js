@@ -194,6 +194,7 @@ export function renderLeadStory(story) {
   const img = localPhoto(story)
     ? responsivePicture({
         src: story.photo.image_url,
+        webp: story.photo.webp,
         alt,
         className: 'hp-mag-hero-img',
         loading: 'eager',
