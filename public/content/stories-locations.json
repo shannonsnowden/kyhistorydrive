@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-06T10:42:29.026Z",
+  "generatedAt": "2026-11-10T10:30:57.167Z",
   "stats": {
     "exact": 12,
     "fuzzy": 49,
     "county": 4,
-    "override": 144,
-    "none": 38
+    "override": 147,
+    "none": 39
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -1989,6 +1989,38 @@
       "mapConfidence": "override",
       "matchedPlace": "Guilfoil Village, Fayette County",
       "historyId": "guilfoil-village-15fa176-fayette-county"
+    },
+    "the-westo-erie-refugees-who-carried-the-beaver-wars-south": {
+      "slug": "the-westo-erie-refugees-who-carried-the-beaver-wars-south",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "col-james-smith-captive-scout-and-cane-ridge-elder": {
+      "slug": "col-james-smith-captive-scout-and-cane-ridge-elder",
+      "lat": 38.21113,
+      "lon": -84.11874,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. James Smith at Cane Ridge",
+      "historyId": "col-james-smith-cane-ridge-bourbon-1788-1812"
+    },
+    "princeton-grows-from-the-big-spring-at-eddy-grove": {
+      "slug": "princeton-grows-from-the-big-spring-at-eddy-grove",
+      "lat": 37.10813,
+      "lon": -87.8809,
+      "mapConfidence": "override",
+      "matchedPlace": "Big Spring at Eddy Grove, Princeton",
+      "historyId": "princeton-big-spring-caldwell-1797-1820"
+    },
+    "middlesboro-a-town-built-inside-a-meteor-crater": {
+      "slug": "middlesboro-a-town-built-inside-a-meteor-crater",
+      "lat": 36.61083,
+      "lon": -83.70213,
+      "mapConfidence": "override",
+      "matchedPlace": "Middlesboro crater basin",
+      "historyId": "middlesboro-crater-basin-bell-1889"
     }
   }
 }

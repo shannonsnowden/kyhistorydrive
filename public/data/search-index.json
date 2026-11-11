@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-06T10:42:30.335Z",
+  "generatedAt": "2026-11-10T10:30:57.366Z",
   "version": 2,
   "counts": {
-    "places": 2947,
-    "stories": 247,
-    "total": 3194,
+    "places": 2950,
+    "stories": 251,
+    "total": 3201,
     "byLayer": {
       "markers": 1921,
-      "history": 202,
+      "history": 205,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -44553,6 +44553,16 @@
       "lon": -83.6
     },
     {
+      "id": "story:col-james-smith-captive-scout-and-cane-ridge-elder",
+      "type": "story",
+      "title": "Col. James Smith, captive, scout and Cane Ridge elder",
+      "text": "Col. James Smith, captive, scout and Cane Ridge elder Taken captive at 18 in 1755, James Smith learned the woods as an adopted Mohawk, walked the Tennessee country in 1766, and settled near Cane Ridge in 1788. In the summer of 1755, eighteen-year-old James Smith was helping cut a wagon road west from Fort Loudon, Pennsylvania, to join General Braddock’s road when a war party took him captive. He ran the gauntlet, was adopted into a Kahnawake Mohawk family, and learned their languages, hunting, and way of war. When he escaped in 1759 and walked home, his own family did not know him at first. What he had learned shaped the rest of his life. During Pontiac’s War he dressed a ranger company, the",
+      "snippet": "Taken captive at 18 in 1755, James Smith learned the woods as an adopted Mohawk, walked the Tennessee country in 1766, and settled near Can…",
+      "slug": "col-james-smith-captive-scout-and-cane-ridge-elder",
+      "lat": 38.21113,
+      "lon": -84.11874
+    },
+    {
       "id": "story:col-john-bowman-at-old-chillicothe",
       "type": "story",
       "title": "Col. John Bowman at Old Chillicothe",
@@ -45559,6 +45569,16 @@
       "lon": -84.2666
     },
     {
+      "id": "story:middlesboro-a-town-built-inside-a-meteor-crater",
+      "type": "story",
+      "title": "Middlesboro, a town built inside a meteor crater",
+      "text": "Middlesboro, a town built inside a meteor crater About 300 million years ago an impact carved a basin west of Cumberland Gap. In 1889 Middlesboro was built inside it, unaware it sat in a crater. Middlesboro sits in a bowl. Stand at the Pinnacle Overlook in Cumberland Gap and the whole town lies spread across a round, nearly flat basin about three miles wide, walled by Pine Mountain on the northwest and the Cumberland Mountains on the southeast. For most of the town’s life people took it for an ordinary mountain valley. It is the scar of a collision from space. ## The impact Geologists estimate that a stony body about half a kilometer across struck here at roughly 20 kilometers a second, some",
+      "snippet": "About 300 million years ago an impact carved a basin west of Cumberland Gap. In 1889 Middlesboro was built inside it, unaware it sat in a c…",
+      "slug": "middlesboro-a-town-built-inside-a-meteor-crater",
+      "lat": 36.61083,
+      "lon": -83.70213
+    },
+    {
       "id": "story:mingo-camps-south-of-the-ohio",
       "type": "story",
       "title": "Mingo camps south of the Ohio",
@@ -45839,6 +45859,16 @@
       "slug": "prestonsburg-first-seat-on-the-big-sandy",
       "lat": 37.681667,
       "lon": -82.766944
+    },
+    {
+      "id": "story:princeton-grows-from-the-big-spring-at-eddy-grove",
+      "type": "story",
+      "title": "Princeton grows from the Big Spring at Eddy Grove",
+      "text": "Princeton grows from the Big Spring at Eddy Grove Capt. William Prince found a big spring at Eddy Grove in 1797; Princeton grew around it and became the Caldwell County seat by 1817. Princeton began at a spring. In 1797 a Revolutionary War captain named William Prince explored a place called Eddy Grove, on the waters of Eddy Creek in western Kentucky. He found a large spring and good land around it, and the next year he brought his family to stay. Prince had come a long way to get there. Born in Virginia in 1752, he moved with his family to Spartanburg County, South Carolina, in 1768, and during the Revolution he was a captain in Col. Benjamin Roebuck’s Spartan regiment. After the war he led",
+      "snippet": "Capt. William Prince found a big spring at Eddy Grove in 1797; Princeton grew around it and became the Caldwell County seat by 1817.",
+      "slug": "princeton-grows-from-the-big-spring-at-eddy-grove",
+      "lat": 37.10813,
+      "lon": -87.8809
     },
     {
       "id": "story:quapaw-the-downstream-people-of-the-ohio-valley",
@@ -46161,6 +46191,14 @@
       "slug": "the-travelling-church-1781",
       "lat": 37.577915,
       "lon": -84.558316
+    },
+    {
+      "id": "story:the-westo-erie-refugees-who-carried-the-beaver-wars-south",
+      "type": "story",
+      "title": "The Westo, Erie refugees who carried the Beaver Wars south",
+      "text": "The Westo, Erie refugees who carried the Beaver Wars south Driven from Lake Erie in the 1650s, the Westo crossed the mountains, traded captives for English guns and held the Savannah River until the 1680 Westo War. In the 1650s the Beaver Wars reached the south shore of Lake Erie. The Five Nations of the Iroquois, fighting to control the fur and gun trade, had already broken the Huron and the Neutral, and in the mid-1650s their war parties destroyed the towns of the Erie. The same wars left the Ohio Valley, Kentucky included, a contested hunting ground for the rest of the century. Many Erie were killed or taken into Iroquois towns. One band went south instead. ## Over the mountains By 1656 a",
+      "snippet": "Driven from Lake Erie in the 1650s, the Westo crossed the mountains, traded captives for English guns and held the Savannah River until the…",
+      "slug": "the-westo-erie-refugees-who-carried-the-beaver-wars-south"
     },
     {
       "id": "story:thomas-walker-and-cumberland-gap",
@@ -46584,6 +46622,51 @@
       "lat": 38,
       "lon": -84.5,
       "shareId": "guilfoil-village-15fa176-fayette-county",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:col-james-smith-cane-ridge-bourbon-1788-1812",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Col. James Smith at Cane Ridge",
+      "text": "Col. James Smith at Cane Ridge James Smith was taken captive in Pennsylvania in 1755 at age 18 and adopted into a Kahnawake Mohawk family. He escaped in 1759. In 1766 he explored the Cumberland and Tennessee country to the mouth of the Tennessee, then walked back east with an enslaved youth named Jamie after a cane stalk lamed his foot. In 1788 Smith bought 100 acres from James Garrard near Cane Ridge, about eight miles east of Paris. He sat in the Danville convention on separation from Virginia, served in the 1799 constitutional convention and the General Assembly, and was an elder of the Cane Ridge church. John Bradford printed his captivity narrative in Lexington in 1799. He followed the ",
+      "snippet": "James Smith was taken captive in Pennsylvania in 1755 at age 18 and adopted into a Kahnawake Mohawk family. He escaped in 1759. In 1766 he…",
+      "lat": 38.21113,
+      "lon": -84.11874,
+      "shareId": "col-james-smith-cane-ridge-bourbon-1788-1812",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:princeton-big-spring-caldwell-1797-1820",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Big Spring at Eddy Grove, Princeton",
+      "text": "Big Spring at Eddy Grove, Princeton In 1797 Capt. William Prince, a Revolutionary War veteran born in Virginia, explored Eddy Grove on the waters of Eddy Creek and found a large spring. He moved his family here in 1798 and built Shandy Hall, a two-story stone house, on the bluff above the Big Spring. The Saline, Eddy and Varmint traces met at the spring. Caldwell County was formed from Livingston on January 31, 1809. Prince died in 1810, and his widow gave 50 acres for public use, including the first courthouse lot. In 1817 Princetown became the county seat, and the next year the name became Princeton. The town was incorporated on December 6, 1820. In 1838 Cherokee detachments on the Trail o",
+      "snippet": "In 1797 Capt. William Prince, a Revolutionary War veteran born in Virginia, explored Eddy Grove on the waters of Eddy Creek and found a lar…",
+      "lat": 37.10813,
+      "lon": -87.8809,
+      "shareId": "princeton-big-spring-caldwell-1797-1820",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:middlesboro-crater-basin-bell-1889",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Middlesboro crater basin",
+      "text": "Middlesboro crater basin Middlesboro lies in a round basin about three miles across between Pine Mountain and the Cumberland Mountains, just west of Cumberland Gap. Geologists estimate that a body about half a kilometer wide struck here roughly 300 million years ago, in the late Pennsylvanian or early Permian, leaving a crater about 5.5 to 6 kilometers across. Erosion has since removed about 1.5 kilometers of rock. Shatter cones found in 1966 confirmed the impact. The city was built inside the basin in 1889, after Alexander A. Arthur’s British-backed American Association began developing an iron and steel town there in 1886. When iron failed in the 1890s, coal carried the town; Middlesboro i",
+      "snippet": "Middlesboro lies in a round basin about three miles across between Pine Mountain and the Cumberland Mountains, just west of Cumberland Gap.…",
+      "lat": 36.61083,
+      "lon": -83.70213,
+      "shareId": "middlesboro-crater-basin-bell-1889",
       "layerIds": [
         "history"
       ]

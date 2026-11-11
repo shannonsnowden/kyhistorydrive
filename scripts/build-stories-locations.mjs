@@ -215,6 +215,8 @@ const MANUAL_OVERRIDES = {
   'tecumseh-falls-at-the-thames-oct-5-1813': {},
   // Nov 6 2026: Neutral collapse was in Ontario. Explicit no-place. Do not fuzzy-match a Kentucky site.
   'when-the-neutral-fell-the-hunting-ground-opened': {},
+  // Nov 10 2026: the Westo lived in Virginia and on the Savannah River. Explicit no-place. Do not fuzzy-match Erie or a Kentucky site.
+  'the-westo-erie-refugees-who-carried-the-beaver-wars-south': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
@@ -1121,6 +1123,12 @@ const NOV6_PIN_NAMES = {
   'greensburg-takes-shape-on-the-green-river': 'Greensburg public square',
   'guilfoil-village-15fa176-fayette-county': 'Guilfoil Village, Fayette County',
 }
+// Nov 10 pins live in story-overrides.json too. Smith must land on the Cane Ridge marker, not Paris or Green County.
+Object.assign(NOV6_PIN_NAMES, {
+  'col-james-smith-captive-scout-and-cane-ridge-elder': 'Col. James Smith at Cane Ridge',
+  'princeton-grows-from-the-big-spring-at-eddy-grove': 'Big Spring at Eddy Grove, Princeton',
+  'middlesboro-a-town-built-inside-a-meteor-crater': 'Middlesboro crater basin',
+})
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]
   if (pin && pin.lat != null && pin.lon != null) {

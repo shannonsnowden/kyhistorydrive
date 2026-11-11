@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-06T10:42:28.962Z",
-  "count": 247,
+  "generatedAt": "2026-11-10T10:30:57.017Z",
+  "count": 251,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-11-06"
+    "end": "2026-11-10"
   },
   "eras": [
     "early-commonwealth",
@@ -1485,6 +1485,38 @@
         "credit": "Uncredited Wikimedia Commons contributor",
         "license": "CC BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
+    },
+    {
+      "slug": "the-westo-erie-refugees-who-carried-the-beaver-wars-south",
+      "title": "The Westo, Erie refugees who carried the Beaver Wars south",
+      "publishedDate": "2026-11-10",
+      "summary": "Driven from Lake Erie in the 1650s, the Westo crossed the mountains, traded captives for English guns and held the Savannah River until the 1680 Westo War.",
+      "proseChars": 4003,
+      "yearStart": 1656,
+      "yearEnd": 1680,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-10",
+      "county": "",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-westo__ai-v1-1280.jpg",
+        "title": "AI illustration: Westo people at a palisaded town on the Savannah River in the 1670s; reconstructed from historical accounts",
+        "source_url": null,
+        "source_label": null,
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "year": null,
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
       },
       "lat": null,
       "lon": null,
@@ -4896,6 +4928,38 @@
       "matchedPlace": "William Whitley / Sportsman's Hill"
     },
     {
+      "slug": "col-james-smith-captive-scout-and-cane-ridge-elder",
+      "title": "Col. James Smith, captive, scout and Cane Ridge elder",
+      "publishedDate": "2026-11-10",
+      "summary": "Taken captive at 18 in 1755, James Smith learned the woods as an adopted Mohawk, walked the Tennessee country in 1766, and settled near Cane Ridge in 1788.",
+      "proseChars": 4259,
+      "yearStart": 1788,
+      "yearEnd": 1812,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "frontier"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-10",
+      "county": "Bourbon",
+      "photo": {
+        "image_url": "/content/photos/stories/col-james-smith-captive-scout-and-cane-ridge-elder.jpg",
+        "title": "Title page of Smith’s 1799 Lexington narrative, from the University of Pittsburgh copy catalogued as the first edition",
+        "source_url": "https://archive.org/details/accountofremarka00smit",
+        "source_label": "Internet Archive",
+        "attribution": "University of Pittsburgh Library System · Internet Archive · public domain",
+        "year": 1799,
+        "credit": "University of Pittsburgh Library System",
+        "license": "Public domain"
+      },
+      "lat": 38.21113,
+      "lon": -84.11874,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. James Smith at Cane Ridge"
+    },
+    {
       "slug": "jenny-wileys-captivity-and-escape",
       "title": "Jenny Wiley’s captivity and escape",
       "publishedDate": "2026-09-24",
@@ -5778,6 +5842,39 @@
       "lon": -82.766944,
       "mapConfidence": "override",
       "matchedPlace": "Prestonsburg founding / Preston’s Station"
+    },
+    {
+      "slug": "princeton-grows-from-the-big-spring-at-eddy-grove",
+      "title": "Princeton grows from the Big Spring at Eddy Grove",
+      "publishedDate": "2026-11-10",
+      "summary": "Capt. William Prince found a big spring at Eddy Grove in 1797; Princeton grew around it and became the Caldwell County seat by 1817.",
+      "proseChars": 3307,
+      "yearStart": 1797,
+      "yearEnd": 1820,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding",
+        "county-seats"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-10",
+      "county": "Caldwell",
+      "photo": {
+        "image_url": "/content/photos/stories/princeton-grows-from-the-big-spring-at-eddy-grove.jpg",
+        "title": "Big Spring in Princeton, where William Prince settled at Eddy Grove (photographed 2010)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Big_Spring_%28Princeton,_Kentucky%29_on_the_Trail_of_Tears_National_Historic_Trail_%282010%29_%28d4f42eea-3fe6-43b1-9b9e-c64510d0253f%29.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "National Park Service · Wikimedia Commons · public domain",
+        "year": 2010,
+        "credit": "National Park Service",
+        "license": "Public domain"
+      },
+      "lat": 37.10813,
+      "lon": -87.8809,
+      "mapConfidence": "override",
+      "matchedPlace": "Big Spring at Eddy Grove, Princeton"
     },
     {
       "slug": "bowling-green-takes-shape-on-the-barren-1798",
@@ -6979,6 +7076,40 @@
       "lon": -85.10823,
       "mapConfidence": "override",
       "matchedPlace": "Jeptha’s Knob marker, Clay Village (KHS #161)"
+    },
+    {
+      "slug": "middlesboro-a-town-built-inside-a-meteor-crater",
+      "title": "Middlesboro, a town built inside a meteor crater",
+      "publishedDate": "2026-11-10",
+      "summary": "About 300 million years ago an impact carved a basin west of Cumberland Gap. In 1889 Middlesboro was built inside it, unaware it sat in a crater.",
+      "proseChars": 3648,
+      "yearStart": 1889,
+      "yearEnd": 1889,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "geology",
+        "town-founding"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-10",
+      "county": "Bell",
+      "photo": {
+        "image_url": "/content/photos/stories/middlesboro-a-town-built-inside-a-meteor-crater.jpg",
+        "title": "Middlesboro in its crater basin, seen from the Pinnacle Overlook in Cumberland Gap National Historical Park (photographed 2025)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Gap_Pinnacles_Overlook_2025b.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Antony-22 · Wikimedia Commons · CC BY-SA 4.0",
+        "year": 2025,
+        "credit": "Antony-22",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "lat": 36.61083,
+      "lon": -83.70213,
+      "mapConfidence": "override",
+      "matchedPlace": "Middlesboro crater basin"
     },
     {
       "slug": "hidden-river-cave-under-horse-cave",

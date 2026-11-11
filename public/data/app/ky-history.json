@@ -3932,5 +3932,81 @@
       "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "license": "Original AI illustration"
     }
+  },
+  {
+    "id": "col-james-smith-cane-ridge-bourbon-1788-1812",
+    "name": "Col. James Smith at Cane Ridge",
+    "subtitle": "Bourbon County · Cane Ridge Meeting House marker (KHS #51) · Smith’s Bourbon County years 1788–1812",
+    "latitude": 38.21113,
+    "longitude": -84.11874,
+    "history": "James Smith was taken captive in Pennsylvania in 1755 at age 18 and adopted into a Kahnawake Mohawk family. He escaped in 1759. In 1766 he explored the Cumberland and Tennessee country to the mouth of the Tennessee, then walked back east with an enslaved youth named Jamie after a cane stalk lamed his foot.\n\nIn 1788 Smith bought 100 acres from James Garrard near Cane Ridge, about eight miles east of Paris. He sat in the Danville convention on separation from Virginia, served in the 1799 constitutional convention and the General Assembly, and was an elder of the Cane Ridge church. John Bradford printed his captivity narrative in Lexington in 1799.\n\nHe followed the army to Fort Wayne in 1812 and died in Green County on April 11, 1813.\n\nThe pin marks the Cane Ridge Meeting House marker; Smith’s own farm nearby is not mapped.",
+    "source_date": "2026-11-10",
+    "geocode_source": "khs-marker-51-cane-ridge",
+    "geocode_note": "KHS marker #51 (Cane Ridge Meeting House), KY 537, 6 mi. east of Paris (38.2111286, -84.1187449). Smith was an elder of the Cane Ridge church; his 100-acre farm “near Cane Ridge, eight miles east of Paris” is not located and not pinned. Years 1788 (moved to Bourbon County) to 1812 (left with the army); he died in Green County in 1813.",
+    "category": "person",
+    "website": "https://history.ky.gov/kentucky-ancestors/colonel-james-smiths-death-verified",
+    "year_start": 1788,
+    "year_end": 1812,
+    "photo": {
+      "image_url": "/content/photos/stories/col-james-smith-captive-scout-and-cane-ridge-elder.jpg",
+      "title": "Title page of Smith’s 1799 Lexington narrative, from the University of Pittsburgh copy catalogued as the first edition",
+      "source_url": "https://archive.org/details/accountofremarka00smit",
+      "source_label": "Internet Archive",
+      "attribution": "University of Pittsburgh Library System · Internet Archive · public domain",
+      "year": 1799,
+      "credit": "University of Pittsburgh Library System",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "princeton-big-spring-caldwell-1797-1820",
+    "name": "Big Spring at Eddy Grove, Princeton",
+    "subtitle": "Caldwell County · Big Spring Park, E. Washington St. · William Prince’s spring 1797 · town incorporated 1820",
+    "latitude": 37.10813,
+    "longitude": -87.8809,
+    "history": "In 1797 Capt. William Prince, a Revolutionary War veteran born in Virginia, explored Eddy Grove on the waters of Eddy Creek and found a large spring. He moved his family here in 1798 and built Shandy Hall, a two-story stone house, on the bluff above the Big Spring. The Saline, Eddy and Varmint traces met at the spring.\n\nCaldwell County was formed from Livingston on January 31, 1809. Prince died in 1810, and his widow gave 50 acres for public use, including the first courthouse lot. In 1817 Princetown became the county seat, and the next year the name became Princeton. The town was incorporated on December 6, 1820.\n\nIn 1838 Cherokee detachments on the Trail of Tears camped at the Big Spring.\n\nThe pin marks Big Spring Park at the Shandy Hall marker (KHS #1902).",
+    "source_date": "2026-11-10",
+    "geocode_source": "khs-marker-1902-shandy-hall",
+    "geocode_note": "KHS marker #1902 (Shandy Hall), Big Spring Park, E. Washington St., Princeton (37.1081333, -87.8809). Public park. Years 1797 (Prince explores Eddy Grove) to 1820 (incorporation).",
+    "category": "town",
+    "website": "https://grokipedia.com/page/Princeton,_Kentucky",
+    "year_start": 1797,
+    "year_end": 1820,
+    "photo": {
+      "image_url": "/content/photos/stories/princeton-grows-from-the-big-spring-at-eddy-grove.jpg",
+      "title": "Big Spring in Princeton, where William Prince settled at Eddy Grove (photographed 2010)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Big_Spring_%28Princeton,_Kentucky%29_on_the_Trail_of_Tears_National_Historic_Trail_%282010%29_%28d4f42eea-3fe6-43b1-9b9e-c64510d0253f%29.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "National Park Service · Wikimedia Commons · public domain",
+      "year": 2010,
+      "credit": "National Park Service",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "middlesboro-crater-basin-bell-1889",
+    "name": "Middlesboro crater basin",
+    "subtitle": "Bell County · Middlesboro Meteorite Crater Impact Site marker (KHS #2225), 324 12th St. · impact roughly 300 million years ago · town built 1889",
+    "latitude": 36.61083,
+    "longitude": -83.70213,
+    "history": "Middlesboro lies in a round basin about three miles across between Pine Mountain and the Cumberland Mountains, just west of Cumberland Gap. Geologists estimate that a body about half a kilometer wide struck here roughly 300 million years ago, in the late Pennsylvanian or early Permian, leaving a crater about 5.5 to 6 kilometers across. Erosion has since removed about 1.5 kilometers of rock. Shatter cones found in 1966 confirmed the impact.\n\nThe city was built inside the basin in 1889, after Alexander A. Arthur’s British-backed American Association began developing an iron and steel town there in 1886. When iron failed in the 1890s, coal carried the town; Middlesboro is believed to be the only place where coal has been mined inside an impact crater.\n\nThe pin marks the state historical marker on 12th Street. The years are the town’s founding in the basin, not the age of the crater.",
+    "source_date": "2026-11-10",
+    "geocode_source": "khs-marker-2225-hmdb",
+    "geocode_note": "KHS marker #2225 (Middlesboro Meteorite Crater Impact Site), 324 12th St. (US 25E), Middlesboro; coordinates from HMDB m33296 (36° 36.65′ N, 83° 42.128′ W). Years 1889 (city built in the basin, per the marker). The impact itself is roughly 300 million years old; no study or confirmation dates are used as pin years.",
+    "category": "geology",
+    "website": "https://history.ky.gov/markers/middlesboro-meteorite-crater-impact-site",
+    "year_start": 1889,
+    "year_end": 1889,
+    "photo": {
+      "image_url": "/content/photos/stories/middlesboro-a-town-built-inside-a-meteor-crater.jpg",
+      "title": "Middlesboro in its crater basin, seen from the Pinnacle Overlook in Cumberland Gap National Historical Park (photographed 2025)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Cumberland_Gap_Pinnacles_Overlook_2025b.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Antony-22 · Wikimedia Commons · CC BY-SA 4.0",
+      "year": 2025,
+      "credit": "Antony-22",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+    }
   }
 ]

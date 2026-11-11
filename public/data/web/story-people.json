@@ -3197,6 +3197,42 @@
     "guilfoil-village-15fa176-fayette-county": {
       "links": [],
       "portraits": []
+    },
+    "col-james-smith-captive-scout-and-cane-ridge-elder": {
+      "links": [
+        {
+          "id": "james-garrard",
+          "name": "James Garrard",
+          "href": "/people/#james-garrard"
+        },
+        {
+          "id": "john-bradford",
+          "name": "John Bradford",
+          "href": "/stories/john-bradford-and-the-kentucke-gazette/"
+        }
+      ],
+      "portraits": [
+        "james-garrard",
+        "john-bradford"
+      ]
+    },
+    "middlesboro-a-town-built-inside-a-meteor-crater": {
+      "links": [],
+      "portraits": []
+    },
+    "princeton-grows-from-the-big-spring-at-eddy-grove": {
+      "links": [],
+      "portraits": []
+    },
+    "the-westo-erie-refugees-who-carried-the-beaver-wars-south": {
+      "links": [
+        {
+          "id": "abraham-wood",
+          "name": "Abraham Wood",
+          "href": "/people/#abraham-wood"
+        }
+      ],
+      "portraits": []
     }
   }
 }

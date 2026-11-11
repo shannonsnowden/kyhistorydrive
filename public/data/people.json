@@ -855,7 +855,8 @@
       "license": "Original AI illustration",
       "licenseUrl": null,
       "stories": [
-        "john-bradford-and-the-kentucke-gazette"
+        "john-bradford-and-the-kentucke-gazette",
+        "col-james-smith-captive-scout-and-cane-ridge-elder"
       ],
       "sourceFile": null
     },
@@ -1364,7 +1365,8 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "moneton"
+        "moneton",
+        "the-westo-erie-refugees-who-carried-the-beaver-wars-south"
       ]
     },
     {
@@ -3699,7 +3701,8 @@
       "licenseUrl": null,
       "stories": [
         "lancaster-at-wallaces-crossroads",
-        "paris-from-hopewell"
+        "paris-from-hopewell",
+        "col-james-smith-captive-scout-and-cane-ridge-elder"
       ],
       "sourceFile": "JGarrard.jpg"
     },
@@ -5383,6 +5386,23 @@
         "mount-washington-grows-from-the-crossroads"
       ],
       "sourceFile": "Don Carlos Buell.jpg"
+    },
+    {
+      "id": "james-smith",
+      "name": "Col. James Smith",
+      "dates": "1737–1813",
+      "image": {
+        "webp": "/people/portraits/james-smith-512.webp",
+        "jpg": "/people/portraits/james-smith-512.jpg"
+      },
+      "credit": "Unknown Kentucky artist, c. 1800–1810 · Northern Kentucky University, Shonert Americana Collection · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "col-james-smith-captive-scout-and-cane-ridge-elder"
+      ],
+      "sourceFile": "James-Smith.png"
     }
   ],
   "storySubjects": {
@@ -5447,6 +5467,7 @@
     "blue-jacket-weyapiersenwah": "blue-jacket",
     "john-bradford-and-the-kentucke-gazette": "john-bradford",
     "william-whitley-sportsmans-hill": "william-whitley",
+    "col-james-smith-captive-scout-and-cane-ridge-elder": "james-smith",
     "jenny-wileys-captivity-and-escape": "jenny-wiley",
     "jacob-spears-early-bourbon-whiskey": "jacob-spears",
     "little-turtle-and-hardins-defeat-1790": "little-turtle",
