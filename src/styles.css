@@ -2943,6 +2943,17 @@ html[data-hp-theme="light"] .about-seal {
   background: var(--surface);
   border: 1px solid var(--line);
 }
+.hp-rail-card-copy { min-width: 0; }
+.hp-rail-card-title,
+.hp-swipe-card-title {
+  min-width: 0;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
 .hp-rail-card-title {
   margin: 0;
   font-size: 1rem;
@@ -3031,10 +3042,6 @@ html[data-hp-theme="light"] .about-seal {
   font-size: 0.9rem;
   line-height: 1.25;
   color: var(--heading);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .hp-swipe-card-meta {
   font-size: 0.75rem;
@@ -5712,13 +5719,13 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   }
 }
 
-/* #262: phone swipe titles show up to 3 lines with no ellipsis; the row's fixed
-   height grows to fit (still reserved in CSS, not set by JS). */
+/* Phone more-stories titles: at most 3 lines inside the reserved row.
+   Hidden overflow so a longer title cannot paint over the date line. */
 .hp-story-swipe { height: 208px; }
 .hp-swipe-card-title {
-  display: block;
-  -webkit-line-clamp: unset;
-  overflow: visible;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
   max-height: calc(0.9rem * 1.25 * 3);
 }
 /* 1280: lead capped at 440px tall; the photo covers that box. */

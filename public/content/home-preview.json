@@ -20,13 +20,10 @@
       "mapHref": "/#map/history/col-james-smith-cane-ridge-bourbon-1788-1812",
       "quote": "In the summer of 1755, eighteen-year-old James Smith was helping cut a wagon road west from Fort Loudon, Pennsylvania, to join General Braddock’s road when a war party took him captive.",
       "photo": {
-        "image_url": "/content/photos/stories/col-james-smith-captive-scout-and-cane-ridge-elder.jpg",
-        "title": "Title page of Smith’s 1799 Lexington narrative, from the University of Pittsburgh copy catalogued as the first edition",
-        "source_url": "https://archive.org/details/accountofremarka00smit",
-        "source_label": "Internet Archive",
-        "attribution": "University of Pittsburgh Library System · Internet Archive · public domain",
-        "year": 1799,
-        "credit": "University of Pittsburgh Library System",
+        "image_url": "/people/portraits/james-smith-512.jpg",
+        "webp": "/people/portraits/james-smith-512.webp",
+        "title": "Portrait of Col. James Smith",
+        "credit": "Unknown Kentucky artist, c. 1800–1810 · Northern Kentucky University, Shonert Americana Collection · public domain",
         "license": "Public domain"
       },
       "heroDeck": "In the summer of 1755, eighteen-year-old James Smith was helping cut a wagon road west from Fort Loudon, Pennsylvania, to join General Braddock’s road when a war party took him captive."
@@ -130,13 +127,10 @@
     "mapHref": "/#map/history/col-james-smith-cane-ridge-bourbon-1788-1812",
     "quote": "In the summer of 1755, eighteen-year-old James Smith was helping cut a wagon road west from Fort Loudon, Pennsylvania, to join General Braddock’s road when a war party took him captive.",
     "photo": {
-      "image_url": "/content/photos/stories/col-james-smith-captive-scout-and-cane-ridge-elder.jpg",
-      "title": "Title page of Smith’s 1799 Lexington narrative, from the University of Pittsburgh copy catalogued as the first edition",
-      "source_url": "https://archive.org/details/accountofremarka00smit",
-      "source_label": "Internet Archive",
-      "attribution": "University of Pittsburgh Library System · Internet Archive · public domain",
-      "year": 1799,
-      "credit": "University of Pittsburgh Library System",
+      "image_url": "/people/portraits/james-smith-512.jpg",
+      "webp": "/people/portraits/james-smith-512.webp",
+      "title": "Portrait of Col. James Smith",
+      "credit": "Unknown Kentucky artist, c. 1800–1810 · Northern Kentucky University, Shonert Americana Collection · public domain",
       "license": "Public domain"
     },
     "heroDeck": "In the summer of 1755, eighteen-year-old James Smith was helping cut a wagon road west from Fort Loudon, Pennsylvania, to join General Braddock’s road when a war party took him captive."

@@ -19,6 +19,7 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { HomepageStructure } from '../src/homepage-structure.js'
 import { storyBlocksAutoPhoto } from '../src/no-auto-story-photos.js'
+import { storySubject, hasSafePortrait, portraitCreditText, portraitAlt } from '../src/related-people.js'
 import { parseBriefOrder } from './lib/brief-order.mjs'
 import { MD_LINK_RE } from '../src/markdown-links.js'
 
@@ -411,6 +412,28 @@ async function resolvePhoto({
   return null
 }
 
+/**
+ * Person stories lead with the subject portrait (same storySubject rule as the story page).
+ * Credit text is the portrait credit already on the person. The story-file photo is left
+ * alone, so a title page or topic image stays on the story and the pin card.
+ */
+function subjectPortraitPhoto(slug) {
+  const people = readJson('public/data/people.json')
+  const related = readJson('public/data/web/related-people.json')
+  const story = loadStory(slug)
+  if (!story || !Array.isArray(people?.people)) return null
+  const { person } = storySubject(related, people.people, story, people.storySubjects)
+  if (!person || !hasSafePortrait(person)) return null
+  const credit = portraitCreditText(person)
+  return {
+    image_url: person.image.jpg,
+    webp: person.image.webp,
+    title: portraitAlt(person),
+    credit,
+    license: person.license || undefined,
+  }
+}
+
 function loadStory(slug) {
   const file = path.join(ROOT, 'public/content/stories', `${slug}.json`)
   if (!fs.existsSync(file)) return null
@@ -619,6 +642,11 @@ async function main() {
   }
   const photoIndex = writeStoryPhotoIndex(locations)
   const indexPatched = patchStoriesIndexPhotos()
+  // After story photos are persisted, so this swap is homepage-only.
+  if (hero) {
+    const face = subjectPortraitPhoto(hero.slug)
+    if (face) hero.photo = face
+  }
 
   const layers = []
   for (const item of LAYER_HIGHLIGHTS) {
