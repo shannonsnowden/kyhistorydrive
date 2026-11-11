@@ -5747,6 +5747,28 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     height: 100%;
     object-fit: cover;
   }
+  /* Square subject portraits: a center cover crop puts the mouth and chin under the
+     full-width copy panel (Col. James Smith at 1280). Show the whole headshot on the
+     right and keep the title and copy in the left column so eyes through chin stay clear.
+     Phone layouts do not use these rules. */
+  .hp-lead-story.has-headshot .hp-mag-hero-media picture {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+  }
+  .hp-lead-story.has-headshot .hp-lead-media-link picture img.hp-mag-hero-img.is-headshot {
+    width: auto;
+    max-width: none;
+    height: 100%;
+    margin-left: auto;
+    object-fit: contain;
+    object-position: 100% 22%;
+  }
+  .hp-lead-story.has-headshot .hp-lead-title,
+  .hp-lead-story.has-headshot .hp-mag-hero-copy {
+    width: min(34rem, calc(100% - 17.5rem));
+    max-width: min(34rem, calc(100% - 17.5rem));
+  }
 }
 
 /* 1280: side list matches the 440px lead exactly — smaller thumbs (96×80, same ratio),
