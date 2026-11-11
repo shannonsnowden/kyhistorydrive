@@ -5747,10 +5747,13 @@ html[data-hp-theme="light"] .about-seal-btn::after {
     height: 100%;
     object-fit: cover;
   }
-  /* Square subject portraits: a center cover crop puts the mouth and chin under the
-     full-width copy panel (Col. James Smith at 1280). Show the whole headshot on the
-     right and keep the title and copy in the left column so eyes through chin stay clear.
-     Phone layouts do not use these rules. */
+}
+
+/* Subject portraits sit on the right only once a full title fits beside the
+   440px painting. From 901px to here the lead is too narrow: the title wraps
+   to a single visible word ("elder") and the 440px card clips the rest.
+   Phone layouts (≤900px) do not use these rules. */
+@media (min-width: 980px) {
   .hp-lead-story.has-headshot .hp-mag-hero-media picture {
     display: flex;
     justify-content: flex-end;
@@ -5768,6 +5771,22 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   .hp-lead-story.has-headshot .hp-mag-hero-copy {
     width: min(34rem, calc(100% - 17.5rem));
     max-width: min(34rem, calc(100% - 17.5rem));
+    min-width: 0;
+  }
+  .hp-lead-story.has-headshot .hp-lead-title {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    padding: 1.15rem 1rem 0.35rem;
+  }
+}
+
+/* 1260+: the leftover column can hold a two-line title, so the copy stops at
+   the painting instead of covering its left ground. */
+@media (min-width: 1260px) {
+  .hp-lead-story.has-headshot .hp-lead-title,
+  .hp-lead-story.has-headshot .hp-mag-hero-copy {
+    width: min(34rem, calc(100% - 440px));
+    max-width: min(34rem, calc(100% - 440px));
   }
 }
 
