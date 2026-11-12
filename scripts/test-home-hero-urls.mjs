@@ -20,6 +20,15 @@ for (const html of [renderLeadStory(evil), renderRailCard(evil), leadPreloadTag(
 const ok = { slug: 'x', title: 'T', mapHref: '/#map/stories/x', photo: { image_url: '/content/photos/stories/x.jpg', title: 'p', credit: 'Ada Lovelace' } }
 assert.ok(renderLeadStory(ok).includes('src="/content/photos/stories/x.jpg"'))
 assert.ok(renderLeadStory(ok).includes('href="/#map/stories/x"'))
+assert.doesNotMatch(renderLeadStory(ok), /is-headshot|has-headshot/)
+const portraitLead = {
+  slug: 'x',
+  title: 'T',
+  photo: { image_url: '/people/portraits/james-smith-512.jpg', webp: '/people/portraits/james-smith-512.webp', title: 'p' },
+}
+const portraitHtml = renderLeadStory(portraitLead)
+assert.match(portraitHtml, /class="hp-lead-story has-headshot"/)
+assert.match(portraitHtml, /class="hp-mag-hero-img is-headshot"/)
 assert.match(renderRailCard(ok), /class="hp-photo-credit hp-rail-card-credit">Photo: Ada Lovelace</)
 assert.match(renderSwipeCard(ok), /class="hp-photo-credit hp-swipe-card-credit">Photo: Ada Lovelace</)
 assert.doesNotMatch(renderRailCard({ slug: 'blank', title: 'No photo' }), /hp-rail-card-credit/)

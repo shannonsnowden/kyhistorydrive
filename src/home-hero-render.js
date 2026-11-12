@@ -188,22 +188,29 @@ export function cardAlt(story) {
   return title || 'Kentucky history story'
 }
 
+/** Square subject portraits (/people/portraits/) are headshots, not scene photos. */
+function isSubjectPortrait(story) {
+  const src = safeLocalUrl(localPhoto(story)?.image_url)
+  return src.startsWith('/people/portraits/')
+}
+
 export function renderLeadStory(story) {
   const href = storyPageHref(story)
   const alt = cardAlt(story)
+  const headshot = isSubjectPortrait(story)
   const img = localPhoto(story)
     ? responsivePicture({
         src: story.photo.image_url,
         webp: story.photo.webp,
         alt,
-        className: 'hp-mag-hero-img',
+        className: headshot ? 'hp-mag-hero-img is-headshot' : 'hp-mag-hero-img',
         loading: 'eager',
         fetchPriority: 'high',
         sizes: LEAD_SIZES,
       })
     : ''
   const credit = photoCredit(story.photo)
-  return `<article class="hp-lead-story">
+  return `<article class="hp-lead-story${headshot ? ' has-headshot' : ''}">
       <a class="hp-lead-media-link" href="${escapeHtml(href)}">
         <div class="hp-mag-hero-media">${img}<div class="hp-mag-hero-shade" aria-hidden="true"></div></div>
         <h2 id="hp-hero-title" class="hp-lead-title">${escapeHtml(story.title)}</h2>
