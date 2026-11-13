@@ -3271,6 +3271,18 @@
       "portraits": [
         "james-garrard"
       ]
+    },
+    "the-catawba-and-the-northern-war-parties": {
+      "links": [
+        {
+          "id": "john-finley",
+          "name": "John Finley",
+          "href": "/stories/john-finley-the-trader-who-put-kentucky-on-boones-map/"
+        }
+      ],
+      "portraits": [
+        "john-finley"
+      ]
     }
   }
 }

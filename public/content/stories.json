@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-11-13T10:51:38.872Z",
-  "count": 255,
+  "count": 256,
   "briefDateRange": {
     "start": "2026-08-27",
     "end": "2026-11-13"
@@ -1677,6 +1677,29 @@
       "lon": -83.9368333,
       "mapConfidence": "override",
       "matchedPlace": "Warriors’ Path (Athiamiowee), KHS marker #697, Gray Hawk"
+    },
+    {
+      "slug": "the-catawba-and-the-northern-war-parties",
+      "title": "The Catawba and the northern war parties",
+      "publishedDate": "2026-11-13",
+      "summary": "For half a century after the Great Peace of 1701, Iroquois and other northern war parties crossed the mountains to strike the Catawba of the Carolina Piedmont, some by way of Kentucky.",
+      "proseChars": 3912,
+      "yearStart": 1701,
+      "yearEnd": 1754,
+      "era": "native",
+      "tags": [
+        "native",
+        "kentucky",
+        "native-history",
+        "frontier-war"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-13",
+      "county": "",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null
     },
     {
       "slug": "col-richard-callaway-of-boonesborough",

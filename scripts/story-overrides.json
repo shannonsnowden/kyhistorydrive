@@ -991,11 +991,11 @@
       "replace": [
         {
           "old": "Catherine Drake, widow of local landowner Joseph Hough,",
-          "new": "Catherine Drake, formerly Joseph Hough’s widow,"
+          "new": "Catherine Drake, formerly Joseph Hough\u2019s widow,"
         },
         {
-          "old": "George Washington’s estate",
-          "new": "[George Washington](/people/#george-washington)’s estate"
+          "old": "George Washington\u2019s estate",
+          "new": "[George Washington](/people/#george-washington)\u2019s estate"
         }
       ]
     },
@@ -1142,6 +1142,13 @@
       "yearStart": -1200,
       "yearEnd": -1000,
       "county": "Lee"
+    },
+    "the-catawba-and-the-northern-war-parties": {
+      "reason": "Unpinned. The Catawba lived in the Carolina Piedmont, not in Kentucky. Their Kentucky link is transit by northern war parties on routes already pinned for other stories (Warriors' Path KHS #697 for athiamiowee; Eskippakithiki for the 1753 Odawa raid), so no defensible Catawba point exists. County blank; must not fuzzy-match the Warriors' Path or a Kentucky place.",
+      "date": "2026-11-13",
+      "yearStart": 1701,
+      "yearEnd": 1754,
+      "county": ""
     }
   }
 }

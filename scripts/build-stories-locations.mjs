@@ -218,6 +218,7 @@ const MANUAL_OVERRIDES = {
   // Nov 10 2026: the Westo lived in Virginia and on the Savannah River. Explicit no-place. Do not fuzzy-match Erie or a Kentucky site.
   'the-westo-erie-refugees-who-carried-the-beaver-wars-south': {},
   // Nov 13 2026: the Catawba lived in the Carolina Piedmont. Explicit no-place. Do not fuzzy-match the Warriors' Path or a Kentucky site.
+  'the-catawba-and-the-northern-war-parties': {},
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},

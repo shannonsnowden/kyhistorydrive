@@ -3,8 +3,8 @@
   "version": 2,
   "counts": {
     "places": 2954,
-    "stories": 255,
-    "total": 3209,
+    "stories": 256,
+    "total": 3210,
     "byLayer": {
       "markers": 1921,
       "history": 209,
@@ -46818,6 +46818,14 @@
       "slug": "gen-green-clay-the-surveyor-who-built-clermont",
       "lat": 37.83333,
       "lon": -84.35273
+    },
+    {
+      "id": "story:the-catawba-and-the-northern-war-parties",
+      "type": "story",
+      "title": "The Catawba and the northern war parties",
+      "text": "The Catawba and the northern war parties For half a century after the Great Peace of 1701, Iroquois and other northern war parties crossed the mountains to strike the Catawba of the Carolina Piedmont, some by way of Kentucky. The Catawba never lived in Kentucky, whatever some nineteenth-century writers claimed. For much of the eighteenth century, though, they were the reason northern war parties kept crossing the mountains, and some of those parties walked through the Kentucky country to reach them. ## People of the river The Catawba are a Siouan-speaking people whose homeland lay along the Catawba River in the Piedmont of the present Carolinas, where Juan Pardo’s Spanish expedition met thei",
+      "snippet": "For half a century after the Great Peace of 1701, Iroquois and other northern war parties crossed the mountains to strike the Catawba of th…",
+      "slug": "the-catawba-and-the-northern-war-parties"
     }
   ]
 }

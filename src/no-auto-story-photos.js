@@ -43,6 +43,7 @@ export const NO_AUTO_STORY_PHOTOS = [
   'barbourville-the-knox-county-seat-on-the-cumberland',
   'aristides-winner-of-the-first-kentucky-derby',
   'cold-oak-shelter-lee-county',
+  'the-catawba-and-the-northern-war-parties',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)
