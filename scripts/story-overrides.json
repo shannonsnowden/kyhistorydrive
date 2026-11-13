@@ -991,11 +991,11 @@
       "replace": [
         {
           "old": "Catherine Drake, widow of local landowner Joseph Hough,",
-          "new": "Catherine Drake, formerly Joseph Hough\u2019s widow,"
+          "new": "Catherine Drake, formerly Joseph Hough’s widow,"
         },
         {
-          "old": "George Washington\u2019s estate",
-          "new": "[George Washington](/people/#george-washington)\u2019s estate"
+          "old": "George Washington’s estate",
+          "new": "[George Washington](/people/#george-washington)’s estate"
         }
       ]
     },
@@ -1102,6 +1102,36 @@
       "yearStart": 1656,
       "yearEnd": 1680,
       "county": ""
+    },
+    "gen-green-clay-the-surveyor-who-built-clermont": {
+      "reason": "Pin KHS marker #2185 (White Hall), 500 White Hall Shrine Rd., Madison County; Clay completed Clermont there in 1799. Years 1780–1813 (Editor brief: Kentucky surveying years to Fort Meigs). Not Clay County. County Madison.",
+      "date": "2026-11-13",
+      "historyId": "green-clay-clermont-white-hall-madison-1780-1813",
+      "lat": 37.83333,
+      "lon": -84.35273,
+      "yearStart": 1780,
+      "yearEnd": 1813,
+      "county": "Madison"
+    },
+    "barbourville-the-knox-county-seat-on-the-cumberland": {
+      "reason": "Pin the Barbourville court square (courthouse lawn, KHS #1884 marker coordinates), the public square James Barbour gave the county. Years 1799 (Knox County formed Dec. 19)–1800 (Barbour’s offer). County Knox.",
+      "date": "2026-11-13",
+      "historyId": "barbourville-court-square-knox-1799-1800",
+      "lat": 36.86626,
+      "lon": -83.88867,
+      "yearStart": 1799,
+      "yearEnd": 1800,
+      "county": "Knox"
+    },
+    "aristides-winner-of-the-first-kentucky-derby": {
+      "reason": "Pin KHS marker #1885 (Churchill Downs), 704 Central Ave., Louisville, where Aristides won the first Kentucky Derby on May 17, 1875. McGrathiana (KHS #2381) is named but not pinned. County Jefferson.",
+      "date": "2026-11-13",
+      "historyId": "aristides-first-kentucky-derby-churchill-downs-1875",
+      "lat": 38.20567,
+      "lon": -85.77173,
+      "yearStart": 1875,
+      "yearEnd": 1875,
+      "county": "Jefferson"
     }
   }
 }

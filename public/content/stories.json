@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-10T10:30:57.017Z",
-  "count": 251,
+  "generatedAt": "2026-11-13T10:51:38.872Z",
+  "count": 254,
   "briefDateRange": {
     "start": "2026-08-27",
-    "end": "2026-11-10"
+    "end": "2026-11-13"
   },
   "eras": [
     "early-commonwealth",
@@ -3862,6 +3862,40 @@
       "matchedPlace": "Frankfort Founding"
     },
     {
+      "slug": "gen-green-clay-the-surveyor-who-built-clermont",
+      "title": "Gen. Green Clay, the surveyor who built Clermont",
+      "publishedDate": "2026-11-13",
+      "summary": "Green Clay came to Kentucky as a young surveyor, took his pay in land until he held more than 40,000 acres, built Clermont in Madison County, and held Fort Meigs in 1813.",
+      "proseChars": 3939,
+      "yearStart": 1780,
+      "yearEnd": 1813,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "frontier",
+        "war-of-1812",
+        "surveying"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-13",
+      "county": "Madison",
+      "photo": {
+        "image_url": "/content/photos/stories/gen-green-clay-the-surveyor-who-built-clermont.jpg",
+        "title": "White Hall before its restoration, photographed for the Historic American Buildings Survey in 1968; Green Clay’s Clermont of 1799 was remodeled into this house in the 1860s",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Whitehall_near_Richmond.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Charles N. Bayless, Historic American Buildings Survey · Library of Congress · public domain",
+        "year": 1968,
+        "credit": "Charles N. Bayless, Historic American Buildings Survey",
+        "license": "Public domain"
+      },
+      "lat": 37.83333,
+      "lon": -84.35273,
+      "mapConfidence": "override",
+      "matchedPlace": "Gen. Green Clay at Clermont (White Hall)"
+    },
+    {
       "slug": "hodgenville-from-hodgens-mill-to-county-seat",
       "title": "Hodgenville: from Hodgen’s Mill to a county seat",
       "publishedDate": "2026-10-08",
@@ -5979,6 +6013,40 @@
       "matchedPlace": "Richmond Founding"
     },
     {
+      "slug": "barbourville-the-knox-county-seat-on-the-cumberland",
+      "title": "Barbourville, the Knox County seat on the Cumberland",
+      "publishedDate": "2026-11-13",
+      "summary": "Knox County was formed on December 19, 1799, and James Barbour’s offer of land broke a tied court in 1800; the town on the Cumberland took his name.",
+      "proseChars": 3871,
+      "yearStart": 1799,
+      "yearEnd": 1800,
+      "era": "early-commonwealth",
+      "tags": [
+        "early-commonwealth",
+        "kentucky",
+        "town-founding",
+        "county-seats"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-13",
+      "county": "Knox",
+      "photo": {
+        "image_url": "/content/photos/stories/barbourville-the-knox-county-seat-on-the-cumberland.jpg",
+        "title": "The Knox County Courthouse on Barbourville’s court square, the public square James Barbour gave the county (photographed 2007)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Knox_County_Kentucky_Courthouse.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+        "year": 2007,
+        "credit": "W.marsh",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      "lat": 36.86626,
+      "lon": -83.88867,
+      "mapConfidence": "override",
+      "matchedPlace": "Barbourville court square"
+    },
+    {
       "slug": "burlington-boone-county-seat",
       "title": "Burlington: from Craig’s Camp to Boone’s seat",
       "publishedDate": "2026-10-12",
@@ -7013,6 +7081,40 @@
       "lon": -85.7525,
       "mapConfidence": "override",
       "matchedPlace": "Old Forester / Whiskey Row (Louisville)"
+    },
+    {
+      "slug": "aristides-winner-of-the-first-kentucky-derby",
+      "title": "Horse series: Aristides, winner of the first Kentucky Derby",
+      "publishedDate": "2026-11-13",
+      "summary": "Bred at McGrathiana near Lexington, the little chestnut Aristides was entered as a pacesetter and won the first Kentucky Derby on May 17, 1875, for trainer Ansel Williamson and jockey Oliver Lewis.",
+      "proseChars": 3511,
+      "yearStart": 1875,
+      "yearEnd": 1875,
+      "era": "other",
+      "tags": [
+        "other",
+        "kentucky",
+        "horses",
+        "horse-racing",
+        "african-american"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-13",
+      "county": "Jefferson",
+      "photo": {
+        "image_url": "/content/photos/stories/aristides-winner-of-the-first-kentucky-derby.jpg",
+        "title": "Churchill Downs in 1901, the Louisville track where Aristides won the first Kentucky Derby in 1875; the twin-spired grandstand dates from 1895",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Churchill_Downs_1901.jpg",
+        "source_label": "Wikimedia Commons",
+        "attribution": "Unknown photographer · Wikimedia Commons · public domain",
+        "year": 1901,
+        "credit": "Unknown photographer",
+        "license": "Public domain"
+      },
+      "lat": 38.20567,
+      "lon": -85.77173,
+      "mapConfidence": "override",
+      "matchedPlace": "Aristides wins the first Kentucky Derby"
     },
     {
       "slug": "frederick-stitzels-barrel-racks-1879",

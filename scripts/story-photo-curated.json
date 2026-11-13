@@ -1,5 +1,5 @@
 {
-  "_comment": "Curated, attributed homepage photos. Vendored under public/content/photos/stories/ so Wikimedia hotlink 403s cannot blank the magazine cards. build-home-preview.mjs prefers these over Wikipedia lead images (which are often maps).",
+  "_comment": "Curated, attributed homepage photos. Vendored under public/content/photos/stories/ so Wikimedia hotlink 403s cannot blank the magazine cards. build-home-preview.mjs prefers these over Wikipedia lead images (which are often maps). Nov 13 2026 story photos for Green Clay, Barbourville and Aristides are already on the story JSON. Cold Oak and the Catawba have no picture until images/cold-oak-people-art and images/catawba-people-art arrive.",
   "ann-mcginty-and-kentuckys-first-spinning-wheel": {
     "ext": "jpg",
     "commonsFile": "Old_Fort_Harrod_State_Park.jpg",

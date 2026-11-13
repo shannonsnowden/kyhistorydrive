@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-10T10:30:57.366Z",
+  "generatedAt": "2026-11-13T10:51:39.067Z",
   "version": 2,
   "counts": {
-    "places": 2950,
-    "stories": 251,
-    "total": 3201,
+    "places": 2953,
+    "stories": 254,
+    "total": 3207,
     "byLayer": {
       "markers": 1921,
-      "history": 205,
+      "history": 208,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -46718,6 +46718,81 @@
       "text": "When the Neutral fell, the hunting ground opened In the winter of 1650–51 Haudenosaunee war parties destroyed the Neutral Confederacy in Ontario, part of the shift that left Kentucky a contested hunting ground. In the winter of 1650–51, after destroying the Huron towns, Haudenosaunee war parties overran the country of the Neutral (Attawandaron) in what is now southern Ontario. They burned villages and ended the Neutral Confederacy as a separate nation. It was one campaign in the Beaver Wars, covered more broadly in the Iroquois Beaver Wars story. With the Neutral, and soon the Erie, broken, Iroquois power reached over the hunting ranges of former rivals. The upper Ohio Valley was left withou",
       "snippet": "In the winter of 1650–51 Haudenosaunee war parties destroyed the Neutral Confederacy in Ontario, part of the shift that left Kentucky a con…",
       "slug": "when-the-neutral-fell-the-hunting-ground-opened"
+    },
+    {
+      "id": "place:green-clay-clermont-white-hall-madison-1780-1813",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Gen. Green Clay at Clermont (White Hall)",
+      "text": "Gen. Green Clay at Clermont (White Hall) Green Clay, born in Virginia in 1757, was in Kentucky by 1777 and a deputy surveyor of Lincoln County by 1781. Through surveying and speculation he came to hold more than 40,000 acres, much of it in Madison County, and in 1798 bought the Kentucky River crossing that became Clay’s Ferry. In 1799 he completed Clermont, a Georgian brick house; his son Cassius M. Clay later remodeled it as White Hall. Clay sat in the Virginia ratifying convention of 1788 and both houses of the Kentucky legislature. In May 1813 he led a Kentucky militia brigade to relieve Fort Meigs and held the fort through the July siege. The pin marks the White Hall state marker. Madiso",
+      "snippet": "Green Clay, born in Virginia in 1757, was in Kentucky by 1777 and a deputy surveyor of Lincoln County by 1781. Through surveying and specul…",
+      "lat": 37.83333,
+      "lon": -84.35273,
+      "shareId": "green-clay-clermont-white-hall-madison-1780-1813",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:barbourville-court-square-knox-1799-1800",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Barbourville court square",
+      "text": "Barbourville court square Knox County was created on December 19, 1799, from Lincoln County. When the new county court deadlocked in 1800 between Flat Lick and a site near the mouth of Richland Creek, James Barbour, a Virginia-born settler, offered two acres for a public square and 36 more for town lots. The court accepted and named the town Barbourville. Lots around the square were sold in 1802–1803. The pin marks the courthouse lawn on that square. Thomas Walker’s 1750 cabin and the September 19, 1861, skirmish have their own markers in town. Knox History",
+      "snippet": "Knox County was created on December 19, 1799, from Lincoln County. When the new county court deadlocked in 1800 between Flat Lick and a sit…",
+      "lat": 36.86626,
+      "lon": -83.88867,
+      "shareId": "barbourville-court-square-knox-1799-1800",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:aristides-first-kentucky-derby-churchill-downs-1875",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Aristides wins the first Kentucky Derby",
+      "text": "Aristides wins the first Kentucky Derby On May 17, 1875, about 10,000 people watched fifteen three-year-olds run the first Kentucky Derby at the Louisville Jockey Club track, later named Churchill Downs. H. Price McGrath’s chestnut Aristides, bred at McGrathiana near Lexington and trained by Ansel Williamson, was ridden by Oliver Lewis. Entered to set the pace for his stablemate Chesapeake, he led and won in 2:37¾. The pin marks the Churchill Downs state marker at the Kentucky Derby Museum. A separate KHS marker for Aristides stands at the old McGrathiana farm in Lexington. Jefferson History",
+      "snippet": "On May 17, 1875, about 10,000 people watched fifteen three-year-olds run the first Kentucky Derby at the Louisville Jockey Club track, late…",
+      "lat": 38.20567,
+      "lon": -85.77173,
+      "shareId": "aristides-first-kentucky-derby-churchill-downs-1875",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "story:aristides-winner-of-the-first-kentucky-derby",
+      "type": "story",
+      "title": "Horse series: Aristides, winner of the first Kentucky Derby",
+      "text": "Horse series: Aristides, winner of the first Kentucky Derby Bred at McGrathiana near Lexington, the little chestnut Aristides was entered as a pacesetter and won the first Kentucky Derby on May 17, 1875, for trainer Ansel Williamson and jockey Oliver Lewis. Nobody expected Aristides to win the first Kentucky Derby. He was entered to set the pace for a better horse. ## A small colt at McGrathiana Aristides was foaled in 1872 at McGrathiana, the Fayette County farm of H. Price McGrath. Born poor in Jessamine County, McGrath had gone west in the Gold Rush and later opened a gambling house in New York; the story goes that one night’s winnings of $105,000 paid for his return to Kentucky and his s",
+      "snippet": "Bred at McGrathiana near Lexington, the little chestnut Aristides was entered as a pacesetter and won the first Kentucky Derby on May 17, 1…",
+      "slug": "aristides-winner-of-the-first-kentucky-derby",
+      "lat": 38.20567,
+      "lon": -85.77173
+    },
+    {
+      "id": "story:barbourville-the-knox-county-seat-on-the-cumberland",
+      "type": "story",
+      "title": "Barbourville, the Knox County seat on the Cumberland",
+      "text": "Barbourville, the Knox County seat on the Cumberland Knox County was formed on December 19, 1799, and James Barbour’s offer of land broke a tied court in 1800; the town on the Cumberland took his name. Barbourville sits in the valley of the upper Cumberland River where Richland Creek comes in, near the middle of Knox County. It began as a bargain struck to break a deadlocked county court. ## A new county The General Assembly created Knox County on December 19, 1799, carving it entirely out of Lincoln County. It was Kentucky’s forty-first county, and at first it took in some 2,300 square miles of the upper Cumberland country; Clay, Rockcastle, Whitley, Harlan, Laurel and Bell counties were la",
+      "snippet": "Knox County was formed on December 19, 1799, and James Barbour’s offer of land broke a tied court in 1800; the town on the Cumberland took…",
+      "slug": "barbourville-the-knox-county-seat-on-the-cumberland",
+      "lat": 36.86626,
+      "lon": -83.88867
+    },
+    {
+      "id": "story:gen-green-clay-the-surveyor-who-built-clermont",
+      "type": "story",
+      "title": "Gen. Green Clay, the surveyor who built Clermont",
+      "text": "Gen. Green Clay, the surveyor who built Clermont Green Clay came to Kentucky as a young surveyor, took his pay in land until he held more than 40,000 acres, built Clermont in Madison County, and held Fort Meigs in 1813. Green Clay crossed the mountains carrying a surveyor’s compass and chain, and the chain made him rich. Born on August 14, 1757, in what became Powhatan County, Virginia, he apprenticed to a surveyor and was in Kentucky by 1777. By 1781 he held an appointment as deputy surveyor of Lincoln County, Virginia. Kentucky titles were then a tangle of overlapping warrants and careless early surveys, and a man who could run the lines and file the claims could take his pay in land. ## P",
+      "snippet": "Green Clay came to Kentucky as a young surveyor, took his pay in land until he held more than 40,000 acres, built Clermont in Madison Count…",
+      "slug": "gen-green-clay-the-surveyor-who-built-clermont",
+      "lat": 37.83333,
+      "lon": -84.35273
     }
   ]
 }

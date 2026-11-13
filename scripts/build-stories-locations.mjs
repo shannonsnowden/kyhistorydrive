@@ -217,6 +217,7 @@ const MANUAL_OVERRIDES = {
   'when-the-neutral-fell-the-hunting-ground-opened': {},
   // Nov 10 2026: the Westo lived in Virginia and on the Savannah River. Explicit no-place. Do not fuzzy-match Erie or a Kentucky site.
   'the-westo-erie-refugees-who-carried-the-beaver-wars-south': {},
+  // Nov 13 2026: the Catawba lived in the Carolina Piedmont. Explicit no-place. Do not fuzzy-match the Warriors' Path or a Kentucky site.
   // #346: Grokipedia link swaps let fuzzy body matching attach these to Newport / Lower Shawneetown
   // (a protected site). v2 has them unpinned with historyId null; keep that explicitly.
   'covington-at-the-point': {},
@@ -1128,6 +1129,12 @@ Object.assign(NOV6_PIN_NAMES, {
   'col-james-smith-captive-scout-and-cane-ridge-elder': 'Col. James Smith at Cane Ridge',
   'princeton-grows-from-the-big-spring-at-eddy-grove': 'Big Spring at Eddy Grove, Princeton',
   'middlesboro-a-town-built-inside-a-meteor-crater': 'Middlesboro crater basin',
+})
+// Nov 13 pins live in story-overrides.json too. Cold Oak stays county-level. The Catawba story is unpinned.
+Object.assign(NOV6_PIN_NAMES, {
+  'gen-green-clay-the-surveyor-who-built-clermont': 'Gen. Green Clay at Clermont (White Hall)',
+  'barbourville-the-knox-county-seat-on-the-cumberland': 'Barbourville court square',
+  'aristides-winner-of-the-first-kentucky-derby': 'Aristides wins the first Kentucky Derby',
 })
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]

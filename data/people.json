@@ -793,7 +793,8 @@
       "stories": [
         "henry-skaggs-green-river-long-hunter",
         "james-knox",
-        "greensburg-takes-shape-on-the-green-river"
+        "greensburg-takes-shape-on-the-green-river",
+        "barbourville-the-knox-county-seat-on-the-cumberland"
       ],
       "role": "Long hunter",
       "native": false,
@@ -1668,7 +1669,8 @@
         "thomas-walker-and-cumberland-gap",
         "christopher-gist-1750-51",
         "croley-evans-site",
-        "john-finley-the-trader-who-put-kentucky-on-boones-map"
+        "john-finley-the-trader-who-put-kentucky-on-boones-map",
+        "barbourville-the-knox-county-seat-on-the-cumberland"
       ],
       "role": "Explorer, named Cumberland Gap",
       "native": false,
@@ -5165,7 +5167,8 @@
       "stories": [
         "lancaster-at-wallaces-crossroads",
         "paris-from-hopewell",
-        "col-james-smith-captive-scout-and-cane-ridge-elder"
+        "col-james-smith-captive-scout-and-cane-ridge-elder",
+        "gen-green-clay-the-surveyor-who-built-clermont"
       ],
       "role": "Second governor",
       "native": false,
@@ -7404,7 +7407,7 @@
       "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
       "freeToUse": false,
       "verified": false,
-      "notes": "Bullitt County History Museum and https://mtwashingtonhistory.yolasite.com/ identify the 1818 seller. She had remarried David Drake before the 1818 sale; formerly Joseph Hough\u2019s widow. David Drake is not a separate People record. No historical likeness found in targeted searches; no physical appearance or life dates established. Approved imagined portrait v1, Nov 8 2026.",
+      "notes": "Bullitt County History Museum and https://mtwashingtonhistory.yolasite.com/ identify the 1818 seller. She had remarried David Drake before the 1818 sale; formerly Joseph Hough’s widow. David Drake is not a separate People record. No historical likeness found in targeted searches; no physical appearance or life dates established. Approved imagined portrait v1, Nov 8 2026.",
       "ai": true
     },
     {
@@ -7519,6 +7522,56 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Oil portrait painted from life c. 1800–1810 by an unknown Kentucky artist; Warren J. Shonert Americana Collection, Eva G. Farris Special Collections, W. Frank Steely Library, Northern Kentucky University (shown at the Fort Pitt Museum 2015–16, per Heinz History Center). Commons File:James-Smith.png, public domain. Square crop keeps the face in frame. Not the signer James Smith (1719–1806). Story sidebar is the 1799 title page, not the portrait.",
+      "ai": false
+    },
+    {
+      "id": "green-clay",
+      "name": "Gen. Green Clay",
+      "aliases": [
+        "Green Clay",
+        "General Green Clay"
+      ],
+      "lifeDates": "1757–1828",
+      "stories": [
+        "gen-green-clay-the-surveyor-who-built-clermont"
+      ],
+      "role": "Surveyor, Madison County planter, War of 1812 militia general",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "posthumous",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Green-Clay-oval.jpg",
+      "sourcePage": "https://archive.org/details/clayfamily00smit/page/n156/mode/1up",
+      "license": "Public domain",
+      "licenseUrl": null,
+      "credit": "Unknown artist, halftone plate, 1899 · The Clay Family (Filson Club Publications No. 14) · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Rev 2 (Nov 13 2026): halftone portrait plate captioned General GREEN CLAY in Z. F. Smith and Mary Rogers Clay, The Clay Family (Filson Club Publications No. 14; Louisville: John P. Morton and Company, printers to the Filson Club, 1899), plate between pp. 136 and 137. Internet Archive item clayfamily00smit, leaf n156. US publication of 1899, public domain. The shipped crop is the top-left Green Clay likeness. The White Hall oil is not used. Story sidebar is the 1968 HABS photo of White Hall.",
+      "ai": false
+    },
+    {
+      "id": "aristides-horse",
+      "name": "Aristides (horse)",
+      "aliases": [
+        "Aristides",
+        "the little red horse"
+      ],
+      "lifeDates": "1872–1893",
+      "stories": [
+        "aristides-winner-of-the-first-kentucky-derby"
+      ],
+      "role": "Racehorse, winner of the first Kentucky Derby",
+      "native": false,
+      "likeness": "drawing",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Aristides_%28horse%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Aristides_%28horse%29.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aristides_%28horse%29.jpg",
+      "credit": "C. Lloyd, etching, 1877 · Famous Horses of America · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Etching by C. Lloyd (engraved by Fay), plate in Famous Horses of America (Porter & Coates, Philadelphia, 1877), made in the horse's lifetime. Commons public domain. 512 square is the full etching padded with white top and bottom (horse, head and jockey all in frame). Story sidebar is the 1901 Churchill Downs view. Do NOT use File:Jockey_Oliver_Lewis_atop_winner_Aristides_in_first_Kentucky_Derby.png: it is a motion photograph that cannot date from 1875 and its identity is doubtful.",
       "ai": false
     }
   ]
