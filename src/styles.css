@@ -5749,9 +5749,9 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   }
 }
 
-/* Subject portraits sit on the right only once a full title fits beside the
-   440px painting. From 901px to here the lead is too narrow: the title wraps
-   to a single visible word ("elder") and the 440px card clips the rest.
+/* Subject portraits sit on the right from 980px up, and the copy column stops
+   at the 440px painting so the title does not cover the face. From 901px to
+   979px the lead is too narrow for that column, so the hero stays full-bleed.
    Phone layouts (≤900px) do not use these rules. */
 @media (min-width: 980px) {
   .hp-lead-story.has-headshot .hp-mag-hero-media picture {
@@ -5769,24 +5769,14 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   }
   .hp-lead-story.has-headshot .hp-lead-title,
   .hp-lead-story.has-headshot .hp-mag-hero-copy {
-    width: min(34rem, calc(100% - 17.5rem));
-    max-width: min(34rem, calc(100% - 17.5rem));
+    width: min(34rem, calc(100% - 440px));
+    max-width: min(34rem, calc(100% - 440px));
     min-width: 0;
   }
   .hp-lead-story.has-headshot .hp-lead-title {
     font-size: 1.2rem;
     line-height: 1.2;
     padding: 1.15rem 1rem 0.35rem;
-  }
-}
-
-/* 1260+: the leftover column can hold a two-line title, so the copy stops at
-   the painting instead of covering its left ground. */
-@media (min-width: 1260px) {
-  .hp-lead-story.has-headshot .hp-lead-title,
-  .hp-lead-story.has-headshot .hp-mag-hero-copy {
-    width: min(34rem, calc(100% - 440px));
-    max-width: min(34rem, calc(100% - 440px));
   }
 }
 
