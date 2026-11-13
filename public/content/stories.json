@@ -1706,7 +1706,14 @@
       "lat": null,
       "lon": null,
       "mapConfidence": null,
-      "matchedPlace": null
+      "matchedPlace": null,
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-catawba__ai-v1-1280.jpg",
+        "title": "Imagined scene: Catawba travelers on a Carolina Piedmont path, mid-1700s",
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      }
     },
     {
       "slug": "col-richard-callaway-of-boonesborough",

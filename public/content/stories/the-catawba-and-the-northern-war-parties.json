@@ -17,13 +17,16 @@
   "briefDate": "2026-11-13",
   "county": "",
   "photo": {
+    "image_url": "/content/photos/stories/figures/culture-catawba__ai-v1-1280.jpg",
     "title": "Imagined scene: Catawba travelers on a Carolina Piedmont path, mid-1700s",
     "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
     "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
     "license": "Original AI illustration"
   },
   "figure": {
-    "alt": "AI illustration of three Catawba travelers in trade-cloth shirts and matchcoats walking a forest path in the Carolina Piedmont, mid-1700s",
+    "webp": "/content/photos/stories/figures/culture-catawba__ai-v1-1280.webp",
+    "jpg": "/content/photos/stories/figures/culture-catawba__ai-v1-1280.jpg",
+    "alt": "AI illustration: Catawba people on a path in the Carolina Piedmont, mid-1700s; imagined scene, no known likeness exists",
     "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
     "note": "Imagined scene: Catawba travelers on a Carolina Piedmont path, mid-1700s"
   }

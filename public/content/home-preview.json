@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T11:03:23.362Z",
+  "generatedAt": "2026-11-13T11:19:12.157Z",
   "briefDate": "2026-11-13",
   "displayDate": "Friday, November 13, 2026",
   "howToRefresh": "Ingest the KY History morning email to public/content/raw-briefs/YYYY-MM-DD.md, run npm run parse-briefs, then npm run build (includes build-home-preview). The homepage also re-reads stories.json in the browser.",
@@ -106,6 +106,30 @@
         "license": "Original AI illustration"
       },
       "heroDeck": "Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County."
+    },
+    {
+      "slug": "the-catawba-and-the-northern-war-parties",
+      "title": "The Catawba and the northern war parties",
+      "summary": "For half a century after the Great Peace of 1701, Iroquois and other northern war parties crossed the mountains to strike the Catawba of the Carolina Piedmont, some by way of Kentucky.",
+      "era": "native",
+      "yearStart": 1701,
+      "county": null,
+      "briefDate": "2026-11-13",
+      "href": "/stories/the-catawba-and-the-northern-war-parties/",
+      "place": null,
+      "lat": null,
+      "lon": null,
+      "historyId": null,
+      "mapHref": null,
+      "quote": "The Catawba never lived in Kentucky, whatever some nineteenth-century writers claimed.",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-catawba__ai-v1-1280.jpg",
+        "title": "Imagined scene: Catawba travelers on a Carolina Piedmont path, mid-1700s",
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
+      "heroDeck": "The Catawba never lived in Kentucky, whatever some nineteenth-century writers claimed."
     }
   ],
   "hero": {
@@ -211,6 +235,30 @@
         "license": "Original AI illustration"
       },
       "heroDeck": "Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County."
+    },
+    {
+      "slug": "the-catawba-and-the-northern-war-parties",
+      "title": "The Catawba and the northern war parties",
+      "summary": "For half a century after the Great Peace of 1701, Iroquois and other northern war parties crossed the mountains to strike the Catawba of the Carolina Piedmont, some by way of Kentucky.",
+      "era": "native",
+      "yearStart": 1701,
+      "county": null,
+      "briefDate": "2026-11-13",
+      "href": "/stories/the-catawba-and-the-northern-war-parties/",
+      "place": null,
+      "lat": null,
+      "lon": null,
+      "historyId": null,
+      "mapHref": null,
+      "quote": "The Catawba never lived in Kentucky, whatever some nineteenth-century writers claimed.",
+      "photo": {
+        "image_url": "/content/photos/stories/figures/culture-catawba__ai-v1-1280.jpg",
+        "title": "Imagined scene: Catawba travelers on a Carolina Piedmont path, mid-1700s",
+        "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+        "license": "Original AI illustration"
+      },
+      "heroDeck": "The Catawba never lived in Kentucky, whatever some nineteenth-century writers claimed."
     }
   ],
   "layers": [
