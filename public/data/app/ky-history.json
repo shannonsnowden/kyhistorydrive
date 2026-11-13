@@ -956,7 +956,7 @@
     "category": "archaeology",
     "year_start": -3000,
     "year_end": -1000,
-    "geocode_note": "Generalized to the McLean County internal point (Census 2025 Gazetteer 37.5267, -87.2656, rounded to 2 decimals); exact site location is not published. Corrected from a geocoder hit far west of McLean County (36.66, -88.31)."
+    "geocode_note": "county-level placement; protected site"
   },
   {
     "id": "carter-caves-cascade-cave-and-falls",
@@ -4007,6 +4007,110 @@
       "credit": "Antony-22",
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+    }
+  },
+  {
+    "id": "green-clay-clermont-white-hall-madison-1780-1813",
+    "name": "Gen. Green Clay at Clermont (White Hall)",
+    "subtitle": "Madison County · White Hall marker (KHS #2185) · Clay’s surveying-to-Fort Meigs years 1780–1813",
+    "latitude": 37.83333,
+    "longitude": -84.35273,
+    "history": "Green Clay, born in Virginia in 1757, was in Kentucky by 1777 and a deputy surveyor of Lincoln County by 1781. Through surveying and speculation he came to hold more than 40,000 acres, much of it in Madison County, and in 1798 bought the Kentucky River crossing that became Clay’s Ferry.\n\nIn 1799 he completed Clermont, a Georgian brick house; his son Cassius M. Clay later remodeled it as White Hall. Clay sat in the Virginia ratifying convention of 1788 and both houses of the Kentucky legislature. In May 1813 he led a Kentucky militia brigade to relieve Fort Meigs and held the fort through the July siege.\n\nThe pin marks the White Hall state marker.",
+    "source_date": "2026-11-13",
+    "marker_title": "White Hall",
+    "marker_number": 2185,
+    "geocode_source": "khs-marker-2185-white-hall",
+    "geocode_note": "KHS marker #2185 (White Hall), 500 White Hall Shrine Road, Madison County (37.8333321, -84.3527268; repo markers.phase1.json, khs-api). Clermont, completed 1799, is the core of White Hall. Years 1780 (start of Clay’s Kentucky land papers; he was in Kentucky by 1777 per KHS #836) to 1813 (Fort Meigs). He died in 1828; Clay County is only named for him and is not pinned.",
+    "category": "person",
+    "website": "https://history.ky.gov/markers/white-hall",
+    "year_start": 1780,
+    "year_end": 1813,
+    "photo": {
+      "image_url": "/content/photos/stories/gen-green-clay-the-surveyor-who-built-clermont.jpg",
+      "title": "White Hall before its restoration, photographed for the Historic American Buildings Survey in 1968; Green Clay’s Clermont of 1799 was remodeled into this house in the 1860s",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Whitehall_near_Richmond.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Charles N. Bayless, Historic American Buildings Survey · Library of Congress · public domain",
+      "year": 1968,
+      "credit": "Charles N. Bayless, Historic American Buildings Survey",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "barbourville-court-square-knox-1799-1800",
+    "name": "Barbourville court square",
+    "subtitle": "Knox County · courthouse lawn (KHS #1884 marker site) · county formed 1799, town site given 1800",
+    "latitude": 36.86626,
+    "longitude": -83.88867,
+    "history": "Knox County was created on December 19, 1799, from Lincoln County. When the new county court deadlocked in 1800 between Flat Lick and a site near the mouth of Richland Creek, James Barbour, a Virginia-born settler, offered two acres for a public square and 36 more for town lots. The court accepted and named the town Barbourville. Lots around the square were sold in 1802–1803.\n\nThe pin marks the courthouse lawn on that square. Thomas Walker’s 1750 cabin and the September 19, 1861, skirmish have their own markers in town.",
+    "source_date": "2026-11-13",
+    "marker_title": "Flem D. Sampson (1875-1967)",
+    "marker_number": 1884,
+    "geocode_source": "khs-marker-1884-courthouse-lawn",
+    "geocode_note": "KHS marker #1884 stands on the Barbourville courthouse lawn (36.8662578, -83.8886686; repo markers.phase1.json, khs-api); the courthouse stands on the original two-acre court square (NRHP 84003885 nomination). Markers #72, #518 and #782 share one identical KHS-API coordinate (36.867721, -83.8799217), so they were not used. Years 1799 (county formed) to 1800 (Barbour’s offer; court accepted Jan. 1801 per Rennick).",
+    "category": "town",
+    "website": "https://history.ky.gov/markers/county-named-1799",
+    "year_start": 1799,
+    "year_end": 1800,
+    "photo": {
+      "image_url": "/content/photos/stories/barbourville-the-knox-county-seat-on-the-cumberland.jpg",
+      "title": "The Knox County Courthouse on Barbourville’s court square, the public square James Barbour gave the county (photographed 2007)",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Knox_County_Kentucky_Courthouse.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "W.marsh · Wikimedia Commons · CC BY-SA 3.0",
+      "year": 2007,
+      "credit": "W.marsh",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+    }
+  },
+  {
+    "id": "aristides-first-kentucky-derby-churchill-downs-1875",
+    "name": "Aristides wins the first Kentucky Derby",
+    "subtitle": "Jefferson County · Churchill Downs marker (KHS #1885) · May 17, 1875",
+    "latitude": 38.20567,
+    "longitude": -85.77173,
+    "history": "On May 17, 1875, about 10,000 people watched fifteen three-year-olds run the first Kentucky Derby at the Louisville Jockey Club track, later named Churchill Downs. H. Price McGrath’s chestnut Aristides, bred at McGrathiana near Lexington and trained by Ansel Williamson, was ridden by Oliver Lewis. Entered to set the pace for his stablemate Chesapeake, he led and won in 2:37¾.\n\nThe pin marks the Churchill Downs state marker at the Kentucky Derby Museum. A separate KHS marker for Aristides stands at the old McGrathiana farm in Lexington.",
+    "source_date": "2026-11-13",
+    "marker_title": "Churchill Downs",
+    "marker_number": 1885,
+    "geocode_source": "khs-marker-1885-churchill-downs",
+    "geocode_note": "KHS marker #1885 (Churchill Downs), Ky. Derby Museum, 704 Central Ave., Louisville (38.2056667, -85.7717333; repo markers.phase1.json). Event date 1875-05-17. Alternative not used: KHS #2381 (Aristides) at Coldstream/McGrathiana, Lexington (38.0932587, -84.4881177).",
+    "category": "horses",
+    "website": "https://history.ky.gov/markers/churchill-downs",
+    "year_start": 1875,
+    "year_end": 1875,
+    "photo": {
+      "image_url": "/content/photos/stories/aristides-winner-of-the-first-kentucky-derby.jpg",
+      "title": "Churchill Downs in 1901, the Louisville track where Aristides won the first Kentucky Derby in 1875; the twin-spired grandstand dates from 1895",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Churchill_Downs_1901.jpg",
+      "source_label": "Wikimedia Commons",
+      "attribution": "Unknown photographer · Wikimedia Commons · public domain",
+      "year": 1901,
+      "credit": "Unknown photographer",
+      "license": "Public domain"
+    }
+  },
+  {
+    "id": "cold-oak-shelter-lee-county",
+    "name": "Cold Oak Shelter, Lee County",
+    "subtitle": "Lee County · Late Archaic rockshelter · occupation about 1200–1000 BC · county-level pin (site location not public)",
+    "latitude": 37.6,
+    "longitude": -83.7,
+    "history": "Cold Oak is a rock overhang in Lee County where Late Archaic families, about 1200 to 1000 BC, returned season after season. Storage pits held charred and uncharred seeds of sunflower, goosefoot, knotweed, marshelder and squash, and possibly maygrass, crops of the Eastern Agricultural Complex, alongside hickory nuts, walnuts, acorns and chestnuts.\n\nThe state archaeology site does not publish the location, so the pin is a county-level point for Lee County.",
+    "source_date": "2026-11-13",
+    "geocode_source": "lee-county-centroid-generalized",
+    "geocode_note": "county-level placement; protected site",
+    "category": "archaeology",
+    "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Cold-Oak.aspx",
+    "year_start": -1200,
+    "year_end": -1000,
+    "photo": {
+      "image_url": "/content/photos/stories/figures/culture-cold-oak-late-archaic__ai-v1-1280.jpg",
+      "title": "AI illustration: Late Archaic people storing garden seed under a rock overhang in eastern Kentucky; reconstructed from archaeological evidence, not a view of Cold Oak. No known likeness exists.",
+      "attribution": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "credit": "AI illustration · Kentucky History Drive; no known likeness exists",
+      "license": "Original AI illustration"
     }
   }
 ]

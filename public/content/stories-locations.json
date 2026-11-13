@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-10T10:30:57.167Z",
+  "generatedAt": "2026-11-13T10:43:28.455Z",
   "stats": {
     "exact": 12,
     "fuzzy": 49,
     "county": 4,
-    "override": 147,
-    "none": 39
+    "override": 151,
+    "none": 40
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -2021,6 +2021,46 @@
       "mapConfidence": "override",
       "matchedPlace": "Middlesboro crater basin",
       "historyId": "middlesboro-crater-basin-bell-1889"
+    },
+    "cold-oak-shelter-lee-county": {
+      "slug": "cold-oak-shelter-lee-county",
+      "lat": 37.6,
+      "lon": -83.7,
+      "mapConfidence": "override",
+      "matchedPlace": "Cold Oak Shelter, Lee County",
+      "historyId": "cold-oak-shelter-lee-county"
+    },
+    "gen-green-clay-the-surveyor-who-built-clermont": {
+      "slug": "gen-green-clay-the-surveyor-who-built-clermont",
+      "lat": 37.83333,
+      "lon": -84.35273,
+      "mapConfidence": "override",
+      "matchedPlace": "Gen. Green Clay at Clermont (White Hall)",
+      "historyId": "green-clay-clermont-white-hall-madison-1780-1813"
+    },
+    "barbourville-the-knox-county-seat-on-the-cumberland": {
+      "slug": "barbourville-the-knox-county-seat-on-the-cumberland",
+      "lat": 36.86626,
+      "lon": -83.88867,
+      "mapConfidence": "override",
+      "matchedPlace": "Barbourville court square",
+      "historyId": "barbourville-court-square-knox-1799-1800"
+    },
+    "aristides-winner-of-the-first-kentucky-derby": {
+      "slug": "aristides-winner-of-the-first-kentucky-derby",
+      "lat": 38.20567,
+      "lon": -85.77173,
+      "mapConfidence": "override",
+      "matchedPlace": "Aristides wins the first Kentucky Derby",
+      "historyId": "aristides-first-kentucky-derby-churchill-downs-1875"
+    },
+    "the-catawba-and-the-northern-war-parties": {
+      "slug": "the-catawba-and-the-northern-war-parties",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     }
   }
 }

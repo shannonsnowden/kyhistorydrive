@@ -1,7 +1,107 @@
 {
-  "generatedAt": "2026-10-25T12:54:53.643Z",
+  "generatedAt": "2026-11-13T10:44:01.684Z",
   "maxBytes": 204800,
   "images": {
+    "/content/photos/stories/barbourville-the-knox-county-seat-on-the-cumberland.jpg": {
+      "sha256": "a5b47c71e967ade6f4be9141c6a8ec1db73236ede0610107cf20665635ae4b05",
+      "width": 1280,
+      "height": 960,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/barbourville-the-knox-county-seat-on-the-cumberland-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/barbourville-the-knox-county-seat-on-the-cumberland-1280.avif",
+          "w": 1280
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/barbourville-the-knox-county-seat-on-the-cumberland-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/barbourville-the-knox-county-seat-on-the-cumberland-1280.webp",
+          "w": 1280
+        }
+      ]
+    },
+    "/content/photos/stories/aristides-winner-of-the-first-kentucky-derby.jpg": {
+      "sha256": "925f66ff29e4425010f70eb7cbb123b5d5f53ee779c7d43f7e5a506d33b015f0",
+      "width": 912,
+      "height": 393,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/aristides-winner-of-the-first-kentucky-derby-800.avif",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/aristides-winner-of-the-first-kentucky-derby-912.avif",
+          "w": 912
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/aristides-winner-of-the-first-kentucky-derby-800.webp",
+          "w": 800
+        },
+        {
+          "src": "/content/photos/opt/stories/aristides-winner-of-the-first-kentucky-derby-912.webp",
+          "w": 912
+        }
+      ]
+    },
+    "/content/photos/stories/capt-billy-bush-and-the-bush-settlement.jpg": {
+      "sha256": "4f44a47246d517042be210ef66b3ca5dda8d201d0498df7f8218ee5fe1519f58",
+      "width": 559,
+      "height": 379,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/capt-billy-bush-and-the-bush-settlement-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-billy-bush-and-the-bush-settlement-559.avif",
+          "w": 559
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/capt-billy-bush-and-the-bush-settlement-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/capt-billy-bush-and-the-bush-settlement-559.webp",
+          "w": 559
+        }
+      ]
+    },
+    "/content/photos/stories/col-james-smith-captive-scout-and-cane-ridge-elder.jpg": {
+      "sha256": "0049838f509f598d0fe037b45f9013f429df6639a6a1be3f275353c6a2689eb6",
+      "width": 799,
+      "height": 1280,
+      "avif": [
+        {
+          "src": "/content/photos/opt/stories/col-james-smith-captive-scout-and-cane-ridge-elder-480.avif",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/col-james-smith-captive-scout-and-cane-ridge-elder-720.avif",
+          "w": 720
+        }
+      ],
+      "webp": [
+        {
+          "src": "/content/photos/opt/stories/col-james-smith-captive-scout-and-cane-ridge-elder-480.webp",
+          "w": 480
+        },
+        {
+          "src": "/content/photos/opt/stories/col-james-smith-captive-scout-and-cane-ridge-elder-720.webp",
+          "w": 720
+        }
+      ]
+    },
     "/content/photos/stories/father-david-rice-and-kentuckys-first-presbyterian-churches.jpg": {
       "sha256": "83d52b3cb87e5620b532945cdded64d50a556b31db3602ff21862048b8bfbf80",
       "width": 1280,
@@ -428,17 +528,17 @@
       ]
     },
     "/content/photos/stories/tecumseh-falls-at-the-thames-oct-5-1813.jpg": {
-      "sha256": "150cb47823c66367574e2d226e61f9d99e9dcb85a47cd744f9895163fd26a43d",
-      "width": 1200,
-      "height": 1623,
+      "sha256": "bba1c7fd7a3477e1e6846658b2db34d78e2fc458d0c09e6b69e96e7d52684dcc",
+      "width": 1280,
+      "height": 779,
       "avif": [
         {
           "src": "/content/photos/opt/stories/tecumseh-falls-at-the-thames-oct-5-1813-800.avif",
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/tecumseh-falls-at-the-thames-oct-5-1813-1200.avif",
-          "w": 1200
+          "src": "/content/photos/opt/stories/tecumseh-falls-at-the-thames-oct-5-1813-1280.avif",
+          "w": 1280
         }
       ],
       "webp": [
@@ -447,8 +547,8 @@
           "w": 800
         },
         {
-          "src": "/content/photos/opt/stories/tecumseh-falls-at-the-thames-oct-5-1813-1200.webp",
-          "w": 1200
+          "src": "/content/photos/opt/stories/tecumseh-falls-at-the-thames-oct-5-1813-1280.webp",
+          "w": 1280
         }
       ]
     },

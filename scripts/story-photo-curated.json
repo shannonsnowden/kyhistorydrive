@@ -1,5 +1,5 @@
 {
-  "_comment": "Curated, attributed homepage photos. Vendored under public/content/photos/stories/ so Wikimedia hotlink 403s cannot blank the magazine cards. build-home-preview.mjs prefers these over Wikipedia lead images (which are often maps).",
+  "_comment": "Curated, attributed homepage photos. Vendored under public/content/photos/stories/ so Wikimedia hotlink 403s cannot blank the magazine cards. build-home-preview.mjs prefers these over Wikipedia lead images (which are often maps). Nov 13 2026 story photos and figures are already on the story JSON.",
   "ann-mcginty-and-kentuckys-first-spinning-wheel": {
     "ext": "jpg",
     "commonsFile": "Old_Fort_Harrod_State_Park.jpg",

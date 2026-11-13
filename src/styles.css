@@ -5749,11 +5749,62 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   }
 }
 
-/* Subject portraits sit on the right only once a full title fits beside the
-   440px painting. From 901px to here the lead is too narrow: the title wraps
-   to a single visible word ("elder") and the 440px card clips the rest.
-   Phone layouts (≤900px) do not use these rules. */
-@media (min-width: 980px) {
+/* Headshot leads below 1260 stack: the picture is on top and the title and
+   copy sit under it in normal flow. No title overlay and no clipped overflow. */
+@media (max-width: 1259px) {
+  .hp-lead-grid > .hp-mag-hero:has(> .hp-lead-story.has-headshot) {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hp-lead-story.has-headshot {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible;
+    justify-content: flex-start;
+  }
+  .hp-lead-story.has-headshot .hp-lead-media-link {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    flex: none;
+  }
+  .hp-lead-story.has-headshot .hp-lead-media-link .hp-mag-hero-media {
+    position: relative;
+    inset: auto;
+    height: 220px;
+    flex: 0 0 220px;
+  }
+  .hp-lead-story.has-headshot .hp-mag-hero-shade { display: none; }
+  .hp-lead-story.has-headshot .hp-lead-title {
+    position: static;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.85rem 1.15rem 0.15rem;
+    margin: 0;
+    color: var(--heading);
+    text-shadow: none;
+    background: var(--panel, #f6f1e7);
+    font-size: 1.35rem;
+  }
+  .hp-mag-hero:has(> .hp-lead-story.has-headshot) .hp-mag-hero-copy {
+    position: relative;
+    background: var(--panel, #162018);
+    color: var(--text);
+  }
+  .hp-mag-hero:has(> .hp-lead-story.has-headshot) .hp-hero-eyebrow { color: var(--accent); }
+  .hp-mag-hero:has(> .hp-lead-story.has-headshot) .hp-hero-deck { color: var(--text); }
+  .hp-mag-hero:has(> .hp-lead-story.has-headshot) .hp-photo-credit { color: var(--muted); }
+}
+/* 1260+: the portrait sits on the right and the copy stops at the 440px painting. */
+@media (min-width: 1260px) {
   .hp-lead-story.has-headshot .hp-mag-hero-media picture {
     display: flex;
     justify-content: flex-end;
@@ -5769,24 +5820,14 @@ html[data-hp-theme="light"] .about-seal-btn::after {
   }
   .hp-lead-story.has-headshot .hp-lead-title,
   .hp-lead-story.has-headshot .hp-mag-hero-copy {
-    width: min(34rem, calc(100% - 17.5rem));
-    max-width: min(34rem, calc(100% - 17.5rem));
+    width: min(34rem, calc(100% - 440px));
+    max-width: min(34rem, calc(100% - 440px));
     min-width: 0;
   }
   .hp-lead-story.has-headshot .hp-lead-title {
     font-size: 1.2rem;
     line-height: 1.2;
     padding: 1.15rem 1rem 0.35rem;
-  }
-}
-
-/* 1260+: the leftover column can hold a two-line title, so the copy stops at
-   the painting instead of covering its left ground. */
-@media (min-width: 1260px) {
-  .hp-lead-story.has-headshot .hp-lead-title,
-  .hp-lead-story.has-headshot .hp-mag-hero-copy {
-    width: min(34rem, calc(100% - 440px));
-    max-width: min(34rem, calc(100% - 440px));
   }
 }
 
