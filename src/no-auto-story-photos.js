@@ -37,8 +37,7 @@ export const NO_AUTO_STORY_PHOTOS = [
   'chambers-site-15ml109-marshall-county',
   // Tolu: Wickliffe stand-in photo removed; a reference site (KY History 10/24).
   'tolu-site-mississippian-mounds',
-  // Nov 13 2026 pack. Cold Oak and the Catawba have no picture until Story Studio art arrives.
-  // The other three keep their hand-placed files; do not fetch a stand-in.
+  // Nov 13 2026 pack. Hand-placed photos and figures stay; do not fetch a stand-in.
   'gen-green-clay-the-surveyor-who-built-clermont',
   'barbourville-the-knox-county-seat-on-the-cumberland',
   'aristides-winner-of-the-first-kentucky-derby',

@@ -956,7 +956,7 @@
     "category": "archaeology",
     "year_start": -3000,
     "year_end": -1000,
-    "geocode_note": "Generalized to the McLean County internal point (Census 2025 Gazetteer 37.5267, -87.2656, rounded to 2 decimals); exact site location is not published. Corrected from a geocoder hit far west of McLean County (36.66, -88.31)."
+    "geocode_note": "county-level placement; protected site"
   },
   {
     "id": "carter-caves-cascade-cave-and-falls",
