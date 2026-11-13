@@ -2,12 +2,12 @@
   "generatedAt": "2026-11-13T10:51:39.067Z",
   "version": 2,
   "counts": {
-    "places": 2953,
-    "stories": 254,
-    "total": 3207,
+    "places": 2954,
+    "stories": 255,
+    "total": 3209,
     "byLayer": {
       "markers": 1921,
-      "history": 208,
+      "history": 209,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -46765,6 +46765,21 @@
       ]
     },
     {
+      "id": "place:cold-oak-shelter-lee-county",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Cold Oak Shelter, Lee County",
+      "text": "Cold Oak Shelter, Lee County Cold Oak is a rock overhang in Lee County where Late Archaic families, about 1200 to 1000 BC, returned season after season. Storage pits held charred and uncharred seeds of sunflower, goosefoot, knotweed, marshelder and squash, and possibly maygrass, crops of the Eastern Agricultural Complex, alongside hickory nuts, walnuts, acorns and chestnuts. The state archaeology site does not publish the location, so the pin is a county-level point for Lee County. Lee History",
+      "snippet": "Cold Oak is a rock overhang in Lee County where Late Archaic families, about 1200 to 1000 BC, returned season after season. Storage pits he…",
+      "lat": 37.6,
+      "lon": -83.7,
+      "shareId": "cold-oak-shelter-lee-county",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
       "id": "story:aristides-winner-of-the-first-kentucky-derby",
       "type": "story",
       "title": "Horse series: Aristides, winner of the first Kentucky Derby",
@@ -46783,6 +46798,16 @@
       "slug": "barbourville-the-knox-county-seat-on-the-cumberland",
       "lat": 36.86626,
       "lon": -83.88867
+    },
+    {
+      "id": "story:cold-oak-shelter-lee-county",
+      "type": "story",
+      "title": "Cold Oak Shelter, Lee County",
+      "text": "Cold Oak Shelter, Lee County At Cold Oak, a rock overhang in Lee County, Late Archaic families of about 1200–1000 BC stored seeds of sunflower, goosefoot and squash they had grown themselves. Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County. Under the ledge they cracked nuts, worked wood, twisted cordage and dug storage pits. What they left in those pits has made Cold Oak one of the places archaeologists turn to when they ask how farming began in eastern North America. ## Who lived here, and when The main use of the shelter came at the end of the Late Archaic period, about 1200 to 1000 BC. People did not live there year-round. The ",
+      "snippet": "At Cold Oak, a rock overhang in Lee County, Late Archaic families of about 1200–1000 BC stored seeds of sunflower, goosefoot and squash the…",
+      "slug": "cold-oak-shelter-lee-county",
+      "lat": 37.6,
+      "lon": -83.7
     },
     {
       "id": "story:gen-green-clay-the-surveyor-who-built-clermont",

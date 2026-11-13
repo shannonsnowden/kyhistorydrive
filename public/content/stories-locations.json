@@ -2022,6 +2022,14 @@
       "matchedPlace": "Middlesboro crater basin",
       "historyId": "middlesboro-crater-basin-bell-1889"
     },
+    "cold-oak-shelter-lee-county": {
+      "slug": "cold-oak-shelter-lee-county",
+      "lat": 37.6,
+      "lon": -83.7,
+      "mapConfidence": "override",
+      "matchedPlace": "Cold Oak Shelter, Lee County",
+      "historyId": "cold-oak-shelter-lee-county"
+    },
     "gen-green-clay-the-surveyor-who-built-clermont": {
       "slug": "gen-green-clay-the-surveyor-who-built-clermont",
       "lat": 37.83333,

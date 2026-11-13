@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-11-13T10:51:38.872Z",
-  "count": 254,
+  "count": 255,
   "briefDateRange": {
     "start": "2026-08-27",
     "end": "2026-11-13"
@@ -207,6 +207,28 @@
       "lon": -82.9,
       "mapConfidence": "override",
       "matchedPlace": "Hansen Site (15GP14)"
+    },
+    {
+      "slug": "cold-oak-shelter-lee-county",
+      "title": "Cold Oak Shelter, Lee County",
+      "publishedDate": "2026-11-13",
+      "summary": "At Cold Oak, a rock overhang in Lee County, Late Archaic families of about 1200–1000 BC stored seeds of sunflower, goosefoot and squash they had grown themselves.",
+      "proseChars": 3826,
+      "yearStart": -1200,
+      "yearEnd": -1000,
+      "era": "prehistoric",
+      "tags": [
+        "prehistoric",
+        "kentucky",
+        "archaeology"
+      ],
+      "source": "ky-history",
+      "briefDate": "2026-11-13",
+      "county": "Lee",
+      "lat": 37.6,
+      "lon": -83.7,
+      "mapConfidence": "override",
+      "matchedPlace": "Cold Oak Shelter, Lee County"
     },
     {
       "slug": "salts-cave-15ht4",

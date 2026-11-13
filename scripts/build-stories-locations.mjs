@@ -1135,6 +1135,7 @@ Object.assign(NOV6_PIN_NAMES, {
   'gen-green-clay-the-surveyor-who-built-clermont': 'Gen. Green Clay at Clermont (White Hall)',
   'barbourville-the-knox-county-seat-on-the-cumberland': 'Barbourville court square',
   'aristides-winner-of-the-first-kentucky-derby': 'Aristides wins the first Kentucky Derby',
+  'cold-oak-shelter-lee-county': 'Cold Oak Shelter, Lee County',
 })
 for (const [slug, matchName] of Object.entries(NOV6_PIN_NAMES)) {
   const pin = STORY_PIN_OVERRIDES[slug]

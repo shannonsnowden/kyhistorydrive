@@ -4090,5 +4090,20 @@
       "credit": "Unknown photographer",
       "license": "Public domain"
     }
+  },
+  {
+    "id": "cold-oak-shelter-lee-county",
+    "name": "Cold Oak Shelter, Lee County",
+    "subtitle": "Lee County · Late Archaic rockshelter · occupation about 1200–1000 BC · county-level pin (site location not public)",
+    "latitude": 37.6,
+    "longitude": -83.7,
+    "history": "Cold Oak is a rock overhang in Lee County where Late Archaic families, about 1200 to 1000 BC, returned season after season. Storage pits held charred and uncharred seeds of sunflower, goosefoot, knotweed, marshelder and squash, and possibly maygrass, crops of the Eastern Agricultural Complex, alongside hickory nuts, walnuts, acorns and chestnuts.\n\nThe state archaeology site does not publish the location, so the pin is a county-level point for Lee County.",
+    "source_date": "2026-11-13",
+    "geocode_source": "lee-county-centroid-generalized",
+    "geocode_note": "Site location is not published (Kentucky Archaeological Survey). Public pin is the Lee County center rounded to 0.1° (about 10 km), same method as Andalex: tDAR county bounding box 37.487–37.72 N, 83.522–83.906 W, center 37.60, -83.71 -> 37.6, -83.7. Not site coordinates. Occupation years 1200–1000 BC (not the 1983 recording, 1984/1994 excavations, or the 1993 study).",
+    "category": "archaeology",
+    "website": "https://archaeology.ky.gov/Find-a-Site/Pages/Cold-Oak.aspx",
+    "year_start": -1200,
+    "year_end": -1000
   }
 ]

@@ -42,6 +42,7 @@ export const NO_AUTO_STORY_PHOTOS = [
   'gen-green-clay-the-surveyor-who-built-clermont',
   'barbourville-the-knox-county-seat-on-the-cumberland',
   'aristides-winner-of-the-first-kentucky-derby',
+  'cold-oak-shelter-lee-county',
 ]
 
 const blocked = new Set(NO_AUTO_STORY_PHOTOS)
