@@ -630,7 +630,8 @@
       "stories": [
         "henry-skaggs-green-river-long-hunter",
         "james-knox",
-        "greensburg-takes-shape-on-the-green-river"
+        "greensburg-takes-shape-on-the-green-river",
+        "barbourville-the-knox-county-seat-on-the-cumberland"
       ],
       "sourceFile": null
     },
@@ -1299,7 +1300,8 @@
         "thomas-walker-and-cumberland-gap",
         "christopher-gist-1750-51",
         "croley-evans-site",
-        "john-finley-the-trader-who-put-kentucky-on-boones-map"
+        "john-finley-the-trader-who-put-kentucky-on-boones-map",
+        "barbourville-the-knox-county-seat-on-the-cumberland"
       ],
       "sourceFile": null
     },
@@ -3534,7 +3536,8 @@
       "license": null,
       "licenseUrl": null,
       "stories": [
-        "richmond-from-millers-barn"
+        "richmond-from-millers-barn",
+        "gen-green-clay-the-surveyor-who-built-clermont"
       ]
     },
     {
@@ -5403,6 +5406,40 @@
         "col-james-smith-captive-scout-and-cane-ridge-elder"
       ],
       "sourceFile": "James-Smith.png"
+    },
+    {
+      "id": "green-clay",
+      "name": "Gen. Green Clay",
+      "dates": "1757–1828",
+      "image": {
+        "webp": "/people/portraits/green-clay-512.webp",
+        "jpg": "/people/portraits/green-clay-512.jpg"
+      },
+      "credit": "Unknown artist, probably Matthew Harris Jouett, early 19th century · White Hall State Historic Site · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "gen-green-clay-the-surveyor-who-built-clermont"
+      ],
+      "sourceFile": "General Green Clay.jpg"
+    },
+    {
+      "id": "aristides-horse",
+      "name": "Aristides (horse)",
+      "dates": "1872–1893",
+      "image": {
+        "webp": "/people/portraits/aristides-horse-512.webp",
+        "jpg": "/people/portraits/aristides-horse-512.jpg"
+      },
+      "credit": "C. Lloyd, etching, 1877 · Famous Horses of America · public domain",
+      "ai": false,
+      "license": "Public domain",
+      "licenseUrl": null,
+      "stories": [
+        "aristides-winner-of-the-first-kentucky-derby"
+      ],
+      "sourceFile": "Aristides (horse).jpg"
     }
   ],
   "storySubjects": {
@@ -5447,6 +5484,7 @@
     "william-christian-of-beargrass": "william-christian",
     "capt-robert-johnson-and-big-crossing-station": "robert-johnson",
     "egushawa-and-the-odawa-in-kentuckys-war-years": "egushawa",
+    "gen-green-clay-the-surveyor-who-built-clermont": "green-clay",
     "isaac-shelby-old-kings-mountain": "isaac-shelby",
     "squire-boones-painted-stone": "squire-boone",
     "jack-jouett-kentuckys-midnight-rider": "jack-jouett",
@@ -5480,6 +5518,7 @@
     "lexington-blind-hero-of-woodburn": "lexington-stallion",
     "henry-mckennas-fairfield-sour-mash": "henry-mckenna",
     "george-garvin-brown-and-old-forester": "george-garvin-brown",
+    "aristides-winner-of-the-first-kentucky-derby": "aristides-horse",
     "frederick-stitzels-barrel-racks-1879": "frederick-stitzel",
     "e-h-taylor-jr-and-the-bottled-in-bond-act-1897": "e-h-taylor-jr",
     "zanes-trace-ends-at-maysville": "ebenezer-zane"

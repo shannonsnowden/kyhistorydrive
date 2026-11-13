@@ -1102,6 +1102,53 @@
       "yearStart": 1656,
       "yearEnd": 1680,
       "county": ""
+    },
+    "gen-green-clay-the-surveyor-who-built-clermont": {
+      "reason": "Pin KHS marker #2185 (White Hall), 500 White Hall Shrine Rd., Madison County; Clay completed Clermont there in 1799. Years 1780 (settles in the Madison County country as a surveyor)–1828 (dies at home). Not Clay County, which is only named for him. County Madison.",
+      "date": "2026-11-13",
+      "historyId": "gen-green-clay-white-hall-madison-1780-1828",
+      "lat": 37.83333,
+      "lon": -84.35273,
+      "yearStart": 1780,
+      "yearEnd": 1828,
+      "county": "Madison"
+    },
+    "barbourville-the-knox-county-seat-on-the-cumberland": {
+      "reason": "Pin KHS marker #518 (Civil War Actions), Barbourville Civil War Park, KY 11 & KY 2421, Barbourville. Years 1799 (Knox County formed Dec. 19)–1861 (skirmish Sept. 19). County Knox.",
+      "date": "2026-11-13",
+      "historyId": "barbourville-knox-county-seat-knox-1799-1861",
+      "lat": 36.86772,
+      "lon": -83.87992,
+      "yearStart": 1799,
+      "yearEnd": 1861,
+      "county": "Knox"
+    },
+    "aristides-winner-of-the-first-kentucky-derby": {
+      "reason": "Pin KHS marker #1885 (Churchill Downs), Ky. Derby Museum, 704 Central Ave., Louisville, where Aristides won the first Kentucky Derby on May 17, 1875. Event year 1875. McGrathiana (KHS #2381, Lexington) is named in the story but not pinned. County Jefferson.",
+      "date": "2026-11-13",
+      "historyId": "aristides-first-derby-churchill-downs-jefferson-1875",
+      "lat": 38.20567,
+      "lon": -85.77173,
+      "yearStart": 1875,
+      "yearEnd": 1875,
+      "county": "Jefferson"
+    },
+    "cold-oak-shelter-lee-county": {
+      "reason": "Protected Late Archaic rockshelter; public pin generalized to Lee County at 0.1°. Years: occupation 1200–1000 BC, not the 1983 recording, 1984/1994 excavations, or the 1993 study.",
+      "date": "2026-11-13",
+      "historyId": "cold-oak-shelter-lee-county",
+      "lat": 37.6,
+      "lon": -83.7,
+      "yearStart": -1200,
+      "yearEnd": -1000,
+      "county": "Lee"
+    },
+    "the-catawba-and-the-northern-war-parties": {
+      "reason": "Unpinned. The Catawba lived in the Carolina Piedmont, not in Kentucky; county stays blank and the story must not fuzzy-match the Warriors' Path or a Kentucky place.",
+      "date": "2026-11-13",
+      "yearStart": 1701,
+      "yearEnd": 1763,
+      "county": ""
     }
   }
 }

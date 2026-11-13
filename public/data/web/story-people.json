@@ -3233,6 +3233,46 @@
         }
       ],
       "portraits": []
+    },
+    "aristides-winner-of-the-first-kentucky-derby": {
+      "links": [],
+      "portraits": []
+    },
+    "barbourville-the-knox-county-seat-on-the-cumberland": {
+      "links": [
+        {
+          "id": "james-knox",
+          "name": "James Knox",
+          "href": "/stories/james-knox/"
+        },
+        {
+          "id": "thomas-walker",
+          "name": "Thomas Walker",
+          "href": "/stories/thomas-walker-and-cumberland-gap/"
+        }
+      ],
+      "portraits": [
+        "james-knox",
+        "thomas-walker"
+      ]
+    },
+    "cold-oak-shelter-lee-county": {
+      "links": [],
+      "portraits": []
+    },
+    "gen-green-clay-the-surveyor-who-built-clermont": {
+      "links": [
+        {
+          "id": "john-miller",
+          "name": "John Miller",
+          "href": "/people/#john-miller"
+        }
+      ],
+      "portraits": []
+    },
+    "the-catawba-and-the-northern-war-parties": {
+      "links": [],
+      "portraits": []
     }
   }
 }

@@ -2,12 +2,12 @@
   "generatedAt": "2026-11-10T10:30:57.366Z",
   "version": 2,
   "counts": {
-    "places": 2950,
-    "stories": 251,
-    "total": 3201,
+    "places": 2954,
+    "stories": 256,
+    "total": 3210,
     "byLayer": {
       "markers": 1921,
-      "history": 205,
+      "history": 209,
       "museums": 94,
       "national": 36,
       "war": 50,
@@ -31918,6 +31918,66 @@
       ]
     },
     {
+      "id": "place:gen-green-clay-white-hall-madison-1780-1828",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Gen. Green Clay at White Hall (Clermont)",
+      "text": "Gen. Green Clay at White Hall (Clermont) Green Clay, a Virginia-born surveyor, was in Kentucky by 1777 and a deputy surveyor of Lincoln County by 1781. Surveyors were often paid in a share of the land they laid off, and Clay’s holdings grew past 40,000 acres, much of it in Madison County. He built distilleries and a tavern and ran ferries across the Kentucky River, including the crossing still called Clay’s Ferry. He represented Madison County at the Virginia ratifying convention of 1788 and later in both houses of the Kentucky legislature. In 1799 he completed Clermont, a Georgian brick house, on this land. He was one of the largest slaveholders in Kentucky. In May 1813, as a general of Ken",
+      "snippet": "Green Clay, a Virginia-born surveyor, was in Kentucky by 1777 and a deputy surveyor of Lincoln County by 1781. Surveyors were often paid in…",
+      "lat": 37.83333,
+      "lon": -84.35273,
+      "shareId": "gen-green-clay-white-hall-madison-1780-1828",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:barbourville-knox-county-seat-knox-1799-1861",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Barbourville, Knox County seat",
+      "text": "Barbourville, Knox County seat Knox County was created from Lincoln County on December 19, 1799. James Barbour, a Virginia-born settler, offered 38 acres of his 5,000-acre holding for the county seat, and the town laid out in 1800 took his name. It grew beside Richard Ballinger’s tavern on the Wilderness Road; the post office opened in 1804, and the legislature formally established the town in 1812. On September 19, 1861, about 800 Confederates sent by Gen. Felix Zollicoffer moved on Camp Andrew Johnson, a Union recruiting camp near town. About 300 Home Guards pulled the planks off the bridge and held the crossing until they were driven off. It was the first skirmish in eastern Kentucky and ",
+      "snippet": "Knox County was created from Lincoln County on December 19, 1799. James Barbour, a Virginia-born settler, offered 38 acres of his 5,000-acr…",
+      "lat": 36.86772,
+      "lon": -83.87992,
+      "shareId": "barbourville-knox-county-seat-knox-1799-1861",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:aristides-first-derby-churchill-downs-jefferson-1875",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Aristides at Churchill Downs",
+      "text": "Aristides at Churchill Downs Aristides was foaled in 1872 at McGrathiana, H. Price McGrath’s farm near Lexington, by Leamington out of Sarong, a daughter of Lexington. He was small, a chestnut remembered as “the little red horse.” On May 17, 1875, about 10,000 people watched fifteen three-year-olds run the first Kentucky Derby, a mile and a half, at the Louisville Jockey Club track that later took the name Churchill Downs. McGrath entered Aristides to set the pace for his stablemate Chesapeake. Instead Aristides led almost all the way and won by about two lengths in 2:37¾, an American record for the distance. His trainer, Ansel Williamson, had been born enslaved in Virginia, and his 19-year-",
+      "snippet": "Aristides was foaled in 1872 at McGrathiana, H. Price McGrath’s farm near Lexington, by Leamington out of Sarong, a daughter of Lexington.…",
+      "lat": 38.20567,
+      "lon": -85.77173,
+      "shareId": "aristides-first-derby-churchill-downs-jefferson-1875",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
+      "id": "place:cold-oak-shelter-lee-county",
+      "type": "place",
+      "layerId": "history",
+      "layerLabel": "History",
+      "title": "Cold Oak Shelter, Lee County",
+      "text": "Cold Oak Shelter, Lee County Cold Oak is a rock overhang in Lee County used seasonally at the end of the Late Archaic period, about 1200 to 1000 BC. The people who camped there were hunter-gatherers who gathered hickory nuts, walnuts, acorns, and chestnuts and hunted deer, turkey, and bear. They also grew crops. Storage pits held seeds of sunflower, goosefoot, knotweed, marshelder, and squash, and possibly maygrass, plants of the Eastern Agricultural Complex, one of the world’s independent centers of plant domestication. Cordage, a possible weaving tool, and wood chips show other work done at the shelter. Cold Oak is a protected archaeological site, so this site names it but does not map it;",
+      "snippet": "Cold Oak is a rock overhang in Lee County used seasonally at the end of the Late Archaic period, about 1200 to 1000 BC. The people who camp…",
+      "lat": 37.6,
+      "lon": -83.7,
+      "shareId": "cold-oak-shelter-lee-county",
+      "layerIds": [
+        "history"
+      ]
+    },
+    {
       "id": "place:georgetown-scott-county-museum",
       "type": "place",
       "layerId": "museums",
@@ -44275,6 +44335,16 @@
       "lon": -85.2361795
     },
     {
+      "id": "story:aristides-winner-of-the-first-kentucky-derby",
+      "type": "story",
+      "title": "Horse series: Aristides, winner of the first Kentucky Derby",
+      "text": "Horse series: Aristides, winner of the first Kentucky Derby Bred at McGrathiana near Lexington, the little chestnut Aristides was entered as a pacesetter and won the first Kentucky Derby on May 17, 1875, for trainer Ansel Williamson and jockey Oliver Lewis. Nobody expected Aristides to win the first Kentucky Derby. He was supposed to set the pace for a better horse. ## A small colt at McGrathiana Aristides was foaled in 1872 on McGrathiana, the Fayette County farm of H. Price McGrath. McGrath had been born poor in Jessamine County, went west in the Gold Rush, and opened a gambling house in New York; the story goes that a single night’s winnings of $105,000 paid for his return to Kentucky and",
+      "snippet": "Bred at McGrathiana near Lexington, the little chestnut Aristides was entered as a pacesetter and won the first Kentucky Derby on May 17, 1…",
+      "slug": "aristides-winner-of-the-first-kentucky-derby",
+      "lat": 38.20567,
+      "lon": -85.77173
+    },
+    {
       "id": "story:blue-jacket-weyapiersenwah",
       "type": "story",
       "title": "Blue Jacket (Weyapiersenwah)",
@@ -44313,6 +44383,16 @@
       "slug": "buckner-site-fort-ancient-villages",
       "lat": 38.2,
       "lon": -84.2
+    },
+    {
+      "id": "story:barbourville-the-knox-county-seat-on-the-cumberland",
+      "type": "story",
+      "title": "Barbourville, the Knox County seat on the Cumberland",
+      "text": "Barbourville, the Knox County seat on the Cumberland Knox County was formed on December 19, 1799, and James Barbour’s gift of 38 acres became its seat, a Wilderness Road town that saw eastern Kentucky’s first Civil War skirmish in 1861. Barbourville sits in the valley of the upper Cumberland River, where Richland Creek comes in, near the middle of Knox County. For most of its life the town has risen and stalled with the roads that ran past it. ## A county and a gift of land The General Assembly created Knox County on December 19, 1799, carving it entirely out of Lincoln County. It was Kentucky’s forty-first county, and at first it reached across some 2,300 square miles of the upper Cumberlan",
+      "snippet": "Knox County was formed on December 19, 1799, and James Barbour’s gift of 38 acres became its seat, a Wilderness Road town that saw eastern…",
+      "slug": "barbourville-the-knox-county-seat-on-the-cumberland",
+      "lat": 36.86772,
+      "lon": -83.87992
     },
     {
       "id": "story:bullitts-lick-kentuckys-first-industry",
@@ -44773,6 +44853,16 @@
       "lon": -84.832567
     },
     {
+      "id": "story:cold-oak-shelter-lee-county",
+      "type": "story",
+      "title": "Cold Oak Shelter, Lee County",
+      "text": "Cold Oak Shelter, Lee County At Cold Oak, a rock overhang in Lee County, Late Archaic families of about 1200–1000 BC stored seeds of sunflower, goosefoot, and squash they had grown themselves. Three thousand years ago, families came back again and again to a dry rock overhang in what is now Lee County. In its shelter they cracked nuts, worked wood, twisted cordage, and dug storage pits. What they put in those pits has made Cold Oak one of the places archaeologists turn to when they ask how farming began in eastern North America. ## Who lived here, and when The main use of the shelter dates to the end of the Late Archaic period, about 1200 to 1000 BC. People did not live there year-round in o",
+      "snippet": "At Cold Oak, a rock overhang in Lee County, Late Archaic families of about 1200–1000 BC stored seeds of sunflower, goosefoot, and squash th…",
+      "slug": "cold-oak-shelter-lee-county",
+      "lat": 37.6,
+      "lon": -83.7
+    },
+    {
       "id": "story:edward-worthington-at-worthingtons-fort",
       "type": "story",
       "title": "Edward Worthington at Worthington's Fort",
@@ -45059,6 +45149,16 @@
       "slug": "henry-mckennas-fairfield-sour-mash",
       "lat": 37.932222,
       "lon": -85.3838837
+    },
+    {
+      "id": "story:gen-green-clay-the-surveyor-who-built-clermont",
+      "type": "story",
+      "title": "Gen. Green Clay, the surveyor who built Clermont",
+      "text": "Gen. Green Clay, the surveyor who built Clermont Green Clay came to Kentucky as a young surveyor, took his pay in land until he held more than 40,000 acres, built Clermont in Madison County, and held Fort Meigs in 1813. Green Clay crossed the mountains carrying a surveyor’s compass and chain, and the chain made him rich. Born on August 14, 1757, in the part of Virginia that became Powhatan County, he learned the trade as an apprentice and was in Kentucky County by 1777. By 1781 he held an appointment as deputy surveyor of Lincoln County, Virginia, at a time when overlapping warrants and careless early surveys were seeding lawsuits that would outlast most of the men who filed them. ## Paid in",
+      "snippet": "Green Clay came to Kentucky as a young surveyor, took his pay in land until he held more than 40,000 acres, built Clermont in Madison Count…",
+      "slug": "gen-green-clay-the-surveyor-who-built-clermont",
+      "lat": 37.83333,
+      "lon": -84.35273
     },
     {
       "id": "story:henry-skaggs-green-river-long-hunter",
@@ -46345,6 +46445,14 @@
       "slug": "washington-mason-county",
       "lat": 38.615908,
       "lon": -83.808533
+    },
+    {
+      "id": "story:the-catawba-and-the-northern-war-parties",
+      "type": "story",
+      "title": "The Catawba and the northern war parties",
+      "text": "The Catawba and the northern war parties For half a century after the Great Peace of 1701, Iroquois and Shawnee war parties crossed the mountains to strike the Catawba of the Carolina Piedmont, along paths that ran beside Kentucky. The Catawba never lived in Kentucky. For much of the eighteenth century, though, they were the reason war parties from the north crossed the mountains, and some of the paths those parties walked ran through or beside the Kentucky country. ## People of the river The Catawba are a Siouan-speaking people whose ancestors lived for thousands of years along the Catawba River in the Piedmont of the present Carolinas. A Spanish expedition recorded them there in 1567. In t",
+      "snippet": "For half a century after the Great Peace of 1701, Iroquois and Shawnee war parties crossed the mountains to strike the Catawba of the Carol…",
+      "slug": "the-catawba-and-the-northern-war-parties"
     },
     {
       "id": "story:wea-waayaahtanwa-on-the-wabash",

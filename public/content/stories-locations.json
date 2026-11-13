@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-10T10:30:57.167Z",
+  "generatedAt": "2026-11-13T10:41:30.587Z",
   "stats": {
     "exact": 12,
     "fuzzy": 49,
     "county": 4,
-    "override": 147,
-    "none": 39
+    "override": 151,
+    "none": 40
   },
   "locations": {
     "carlston-annis-shell-mound": {
@@ -64,6 +64,14 @@
       "matchedPlace": "Hansen Site (15GP14)",
       "historyId": "hansen-site-15gp14-greenup-county"
     },
+    "cold-oak-shelter-lee-county": {
+      "slug": "cold-oak-shelter-lee-county",
+      "lat": 37.6,
+      "lon": -83.7,
+      "mapConfidence": "override",
+      "matchedPlace": "Cold Oak Shelter, Lee County",
+      "historyId": "cold-oak-shelter-lee-county"
+    },
     "salts-cave-15ht4": {
       "slug": "salts-cave-15ht4",
       "lat": 37.3,
@@ -87,6 +95,14 @@
       "mapConfidence": "fuzzy",
       "matchedPlace": "Gaitskill Mound",
       "historyId": "gaitskill-mound"
+    },
+    "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
+      "slug": "lost-john-the-miner-under-the-boulder-in-mammoth-cave",
+      "lat": 37.2,
+      "lon": -86.1,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Lost John, Mammoth Cave",
+      "historyId": "lost-john-mammoth-cave-edmonson-woodland"
     },
     "ashlands-adena-mounds": {
       "slug": "ashlands-adena-mounds",
@@ -151,6 +167,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Wright Mounds (Montgomery County Adena)",
       "historyId": "wright-mounds-15mm6-8-montgomery-county-adena"
+    },
+    "guilfoil-village-15fa176-fayette-county": {
+      "slug": "guilfoil-village-15fa176-fayette-county",
+      "lat": 38,
+      "lon": -84.5,
+      "mapConfidence": "override",
+      "matchedPlace": "Guilfoil Village, Fayette County",
+      "historyId": "guilfoil-village-15fa176-fayette-county"
     },
     "muir-site-early-fort-ancient": {
       "slug": "muir-site-early-fort-ancient",
@@ -344,8 +368,24 @@
       "matchedPlace": null,
       "historyId": null
     },
+    "when-the-neutral-fell-the-hunting-ground-opened": {
+      "slug": "when-the-neutral-fell-the-hunting-ground-opened",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "erie-the-cat-nation": {
       "slug": "erie-the-cat-nation",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
+    "the-westo-erie-refugees-who-carried-the-beaver-wars-south": {
+      "slug": "the-westo-erie-refugees-who-carried-the-beaver-wars-south",
       "lat": null,
       "lon": null,
       "mapConfidence": null,
@@ -383,6 +423,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Warriors’ Path (Athiamiowee), KHS marker #697, Gray Hawk",
       "historyId": "warriors-path-athiamiowee-gray-hawk-jackson-1674-1769"
+    },
+    "the-catawba-and-the-northern-war-parties": {
+      "slug": "the-catawba-and-the-northern-war-parties",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
     },
     "col-richard-callaway-of-boonesborough": {
       "slug": "col-richard-callaway-of-boonesborough",
@@ -640,6 +688,14 @@
       "matchedPlace": "Bullitt's Lick",
       "historyId": "bullitts-lick"
     },
+    "capt-thomas-bullitts-1773-survey-party": {
+      "slug": "capt-thomas-bullitts-1773-survey-party",
+      "lat": 38.2589,
+      "lon": -85.7577,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Capt. Thomas Bullitt's 1773 survey at the Falls of the Ohio",
+      "historyId": "bullitt-survey-falls-of-the-ohio-jefferson-1773"
+    },
     "drennon-springs-salt-works": {
       "slug": "drennon-springs-salt-works",
       "lat": 38.4400769,
@@ -896,6 +952,14 @@
       "matchedPlace": "Worthington's Fort (Edward Worthington)",
       "historyId": "worthingtons-fort-danville"
     },
+    "greensburg-takes-shape-on-the-green-river": {
+      "slug": "greensburg-takes-shape-on-the-green-river",
+      "lat": 37.2607667,
+      "lon": -85.5019667,
+      "mapConfidence": "override",
+      "matchedPlace": "Greensburg public square",
+      "historyId": "greensburg-green-river-green-1794"
+    },
     "isaac-ruddell-and-the-guns-at-ruddells-station": {
       "slug": "isaac-ruddell-and-the-guns-at-ruddells-station",
       "lat": 38.3351,
@@ -951,6 +1015,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Frankfort Founding",
       "historyId": "frankfort-founding"
+    },
+    "gen-green-clay-the-surveyor-who-built-clermont": {
+      "slug": "gen-green-clay-the-surveyor-who-built-clermont",
+      "lat": 37.83333,
+      "lon": -84.35273,
+      "mapConfidence": "override",
+      "matchedPlace": "Gen. Green Clay at White Hall (Clermont)",
+      "historyId": "gen-green-clay-white-hall-madison-1780-1828"
     },
     "hodgenville-from-hodgens-mill-to-county-seat": {
       "slug": "hodgenville-from-hodgens-mill-to-county-seat",
@@ -1087,6 +1159,14 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
+    },
+    "capt-billy-bush-and-the-bush-settlement": {
+      "slug": "capt-billy-bush-and-the-bush-settlement",
+      "lat": 37.9297898,
+      "lon": -84.2455158,
+      "mapConfidence": "override",
+      "matchedPlace": "Bush Settlement / Lower Howard's Creek",
+      "historyId": "bush-settlement-lower-howards-creek-clark-1783"
     },
     "col-thomas-marshall-at-buck-pond": {
       "slug": "col-thomas-marshall-at-buck-pond",
@@ -1226,6 +1306,14 @@
       "mapConfidence": "exact",
       "matchedPlace": "William Whitley / Sportsman's Hill",
       "historyId": "william-whitley-sportsmans-hill"
+    },
+    "col-james-smith-captive-scout-and-cane-ridge-elder": {
+      "slug": "col-james-smith-captive-scout-and-cane-ridge-elder",
+      "lat": 38.21113,
+      "lon": -84.11874,
+      "mapConfidence": "override",
+      "matchedPlace": "Col. James Smith at Cane Ridge",
+      "historyId": "col-james-smith-cane-ridge-bourbon-1788-1812"
     },
     "jenny-wileys-captivity-and-escape": {
       "slug": "jenny-wileys-captivity-and-escape",
@@ -1419,6 +1507,14 @@
       "matchedPlace": "Liberty Hall, 218 Wilkinson St., Frankfort (John Brown house)",
       "historyId": "liberty-hall-john-brown-frankfort-franklin-1796-1837"
     },
+    "zanes-trace-ends-at-maysville": {
+      "slug": "zanes-trace-ends-at-maysville",
+      "lat": 38.6412,
+      "lon": -83.7444,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Zane's Trace at Maysville",
+      "historyId": "zanes-trace-maysville-mason-1796-1797"
+    },
     "augusta-on-the-ohio-1797": {
       "slug": "augusta-on-the-ohio-1797",
       "lat": 38.7717376,
@@ -1451,6 +1547,14 @@
       "matchedPlace": "Prestonsburg founding / Preston’s Station",
       "historyId": "prestonsburg-founding-floyd-1797-1818"
     },
+    "princeton-grows-from-the-big-spring-at-eddy-grove": {
+      "slug": "princeton-grows-from-the-big-spring-at-eddy-grove",
+      "lat": 37.10813,
+      "lon": -87.8809,
+      "mapConfidence": "override",
+      "matchedPlace": "Big Spring at Eddy Grove, Princeton",
+      "historyId": "princeton-big-spring-caldwell-1797-1820"
+    },
     "bowling-green-takes-shape-on-the-barren-1798": {
       "slug": "bowling-green-takes-shape-on-the-barren-1798",
       "lat": 36.9931724,
@@ -1482,6 +1586,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Richmond Founding",
       "historyId": "richmond-founding"
+    },
+    "barbourville-the-knox-county-seat-on-the-cumberland": {
+      "slug": "barbourville-the-knox-county-seat-on-the-cumberland",
+      "lat": 36.86772,
+      "lon": -83.87992,
+      "mapConfidence": "override",
+      "matchedPlace": "Barbourville, Knox County seat",
+      "historyId": "barbourville-knox-county-seat-knox-1799-1861"
     },
     "burlington-boone-county-seat": {
       "slug": "burlington-boone-county-seat",
@@ -1595,6 +1707,14 @@
       "matchedPlace": "Saltpeter Cave (Carter Caves)",
       "historyId": "saltpeter-cave-carter-caves-15cr99"
     },
+    "tecumseh-falls-at-the-thames-oct-5-1813": {
+      "slug": "tecumseh-falls-at-the-thames-oct-5-1813",
+      "lat": null,
+      "lon": null,
+      "mapConfidence": null,
+      "matchedPlace": null,
+      "historyId": null
+    },
     "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes": {
       "slug": "catherine-spears-carpenter-1818-casey-county-sweet-mash-and-sour-mash-recipes",
       "lat": 37.3184064,
@@ -1675,6 +1795,14 @@
       "matchedPlace": "James C. Crow / Oscar Pepper",
       "historyId": "james-crow-oscar-pepper"
     },
+    "mount-washington-grows-from-the-crossroads": {
+      "slug": "mount-washington-grows-from-the-crossroads",
+      "lat": 38.05,
+      "lon": -85.7458,
+      "mapConfidence": "fuzzy",
+      "matchedPlace": "Mount Washington (The Crossroads)",
+      "historyId": "mount-washington-crossroads-bullitt-1833"
+    },
     "mantle-rock-and-the-trail-of-tears": {
       "slug": "mantle-rock-and-the-trail-of-tears",
       "lat": 37.3605167,
@@ -1690,6 +1818,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Bagdad / Consolation rail stop",
       "historyId": "bagdad-shelby-county"
+    },
+    "lexington-blind-hero-of-woodburn": {
+      "slug": "lexington-blind-hero-of-woodburn",
+      "lat": 38.1373,
+      "lon": -84.7373,
+      "mapConfidence": "override",
+      "matchedPlace": "Woodburn Stud near Midway",
+      "historyId": "lexington-horse-woodburn-woodford-1850-1875"
     },
     "louisville-nashville-railroad-opens-the-interior": {
       "slug": "louisville-nashville-railroad-opens-the-interior",
@@ -1734,6 +1870,14 @@
       "matchedPlace": "Old Forester / Whiskey Row (Louisville)",
       "historyId": "old-forester-whiskey-row-louisville-1870"
     },
+    "aristides-winner-of-the-first-kentucky-derby": {
+      "slug": "aristides-winner-of-the-first-kentucky-derby",
+      "lat": 38.20567,
+      "lon": -85.77173,
+      "mapConfidence": "override",
+      "matchedPlace": "Aristides at Churchill Downs",
+      "historyId": "aristides-first-derby-churchill-downs-jefferson-1875"
+    },
     "frederick-stitzels-barrel-racks-1879": {
       "slug": "frederick-stitzels-barrel-racks-1879",
       "lat": 38.24837,
@@ -1749,6 +1893,14 @@
       "mapConfidence": "override",
       "matchedPlace": "Jeptha’s Knob marker, Clay Village (KHS #161)",
       "historyId": "jeptha-knob-clay-village-shelby-1887-1925"
+    },
+    "middlesboro-a-town-built-inside-a-meteor-crater": {
+      "slug": "middlesboro-a-town-built-inside-a-meteor-crater",
+      "lat": 36.61083,
+      "lon": -83.70213,
+      "mapConfidence": "override",
+      "matchedPlace": "Middlesboro crater basin",
+      "historyId": "middlesboro-crater-basin-bell-1889"
     },
     "hidden-river-cave-under-horse-cave": {
       "slug": "hidden-river-cave-under-horse-cave",
@@ -1909,118 +2061,6 @@
       "mapConfidence": null,
       "matchedPlace": null,
       "historyId": null
-    },
-    "tecumseh-falls-at-the-thames-oct-5-1813": {
-      "slug": "tecumseh-falls-at-the-thames-oct-5-1813",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "capt-thomas-bullitts-1773-survey-party": {
-      "slug": "capt-thomas-bullitts-1773-survey-party",
-      "lat": 38.2589,
-      "lon": -85.7577,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Capt. Thomas Bullitt's 1773 survey at the Falls of the Ohio",
-      "historyId": "bullitt-survey-falls-of-the-ohio-jefferson-1773"
-    },
-    "lost-john-the-miner-under-the-boulder-in-mammoth-cave": {
-      "slug": "lost-john-the-miner-under-the-boulder-in-mammoth-cave",
-      "lat": 37.2,
-      "lon": -86.1,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Lost John, Mammoth Cave",
-      "historyId": "lost-john-mammoth-cave-edmonson-woodland"
-    },
-    "mount-washington-grows-from-the-crossroads": {
-      "slug": "mount-washington-grows-from-the-crossroads",
-      "lat": 38.05,
-      "lon": -85.7458,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Mount Washington (The Crossroads)",
-      "historyId": "mount-washington-crossroads-bullitt-1833"
-    },
-    "zanes-trace-ends-at-maysville": {
-      "slug": "zanes-trace-ends-at-maysville",
-      "lat": 38.6412,
-      "lon": -83.7444,
-      "mapConfidence": "fuzzy",
-      "matchedPlace": "Zane's Trace at Maysville",
-      "historyId": "zanes-trace-maysville-mason-1796-1797"
-    },
-    "lexington-blind-hero-of-woodburn": {
-      "slug": "lexington-blind-hero-of-woodburn",
-      "lat": 38.1373,
-      "lon": -84.7373,
-      "mapConfidence": "override",
-      "matchedPlace": "Woodburn Stud near Midway",
-      "historyId": "lexington-horse-woodburn-woodford-1850-1875"
-    },
-    "capt-billy-bush-and-the-bush-settlement": {
-      "slug": "capt-billy-bush-and-the-bush-settlement",
-      "lat": 37.9297898,
-      "lon": -84.2455158,
-      "mapConfidence": "override",
-      "matchedPlace": "Bush Settlement / Lower Howard's Creek",
-      "historyId": "bush-settlement-lower-howards-creek-clark-1783"
-    },
-    "greensburg-takes-shape-on-the-green-river": {
-      "slug": "greensburg-takes-shape-on-the-green-river",
-      "lat": 37.2607667,
-      "lon": -85.5019667,
-      "mapConfidence": "override",
-      "matchedPlace": "Greensburg public square",
-      "historyId": "greensburg-green-river-green-1794"
-    },
-    "when-the-neutral-fell-the-hunting-ground-opened": {
-      "slug": "when-the-neutral-fell-the-hunting-ground-opened",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "guilfoil-village-15fa176-fayette-county": {
-      "slug": "guilfoil-village-15fa176-fayette-county",
-      "lat": 38,
-      "lon": -84.5,
-      "mapConfidence": "override",
-      "matchedPlace": "Guilfoil Village, Fayette County",
-      "historyId": "guilfoil-village-15fa176-fayette-county"
-    },
-    "the-westo-erie-refugees-who-carried-the-beaver-wars-south": {
-      "slug": "the-westo-erie-refugees-who-carried-the-beaver-wars-south",
-      "lat": null,
-      "lon": null,
-      "mapConfidence": null,
-      "matchedPlace": null,
-      "historyId": null
-    },
-    "col-james-smith-captive-scout-and-cane-ridge-elder": {
-      "slug": "col-james-smith-captive-scout-and-cane-ridge-elder",
-      "lat": 38.21113,
-      "lon": -84.11874,
-      "mapConfidence": "override",
-      "matchedPlace": "Col. James Smith at Cane Ridge",
-      "historyId": "col-james-smith-cane-ridge-bourbon-1788-1812"
-    },
-    "princeton-grows-from-the-big-spring-at-eddy-grove": {
-      "slug": "princeton-grows-from-the-big-spring-at-eddy-grove",
-      "lat": 37.10813,
-      "lon": -87.8809,
-      "mapConfidence": "override",
-      "matchedPlace": "Big Spring at Eddy Grove, Princeton",
-      "historyId": "princeton-big-spring-caldwell-1797-1820"
-    },
-    "middlesboro-a-town-built-inside-a-meteor-crater": {
-      "slug": "middlesboro-a-town-built-inside-a-meteor-crater",
-      "lat": 36.61083,
-      "lon": -83.70213,
-      "mapConfidence": "override",
-      "matchedPlace": "Middlesboro crater basin",
-      "historyId": "middlesboro-crater-basin-bell-1889"
     }
   }
 }

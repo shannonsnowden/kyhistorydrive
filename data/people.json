@@ -793,7 +793,8 @@
       "stories": [
         "henry-skaggs-green-river-long-hunter",
         "james-knox",
-        "greensburg-takes-shape-on-the-green-river"
+        "greensburg-takes-shape-on-the-green-river",
+        "barbourville-the-knox-county-seat-on-the-cumberland"
       ],
       "role": "Long hunter",
       "native": false,
@@ -1668,7 +1669,8 @@
         "thomas-walker-and-cumberland-gap",
         "christopher-gist-1750-51",
         "croley-evans-site",
-        "john-finley-the-trader-who-put-kentucky-on-boones-map"
+        "john-finley-the-trader-who-put-kentucky-on-boones-map",
+        "barbourville-the-knox-county-seat-on-the-cumberland"
       ],
       "role": "Explorer, named Cumberland Gap",
       "native": false,
@@ -4924,7 +4926,8 @@
       "aliases": [],
       "lifeDates": null,
       "stories": [
-        "richmond-from-millers-barn"
+        "richmond-from-millers-barn",
+        "gen-green-clay-the-surveyor-who-built-clermont"
       ],
       "role": "Colonel, Richmond land",
       "native": false,
@@ -7519,6 +7522,55 @@
       "freeToUse": true,
       "verified": true,
       "notes": "Oil portrait painted from life c. 1800–1810 by an unknown Kentucky artist; Warren J. Shonert Americana Collection, Eva G. Farris Special Collections, W. Frank Steely Library, Northern Kentucky University (shown at the Fort Pitt Museum 2015–16, per Heinz History Center). Commons File:James-Smith.png, public domain. Square crop keeps the face in frame. Not the signer James Smith (1719–1806). Story sidebar is the 1799 title page, not the portrait.",
+      "ai": false
+    },
+    {
+      "id": "green-clay",
+      "name": "Gen. Green Clay",
+      "aliases": [
+        "Green Clay",
+        "General Green Clay"
+      ],
+      "lifeDates": "1757–1828",
+      "stories": [
+        "gen-green-clay-the-surveyor-who-built-clermont"
+      ],
+      "role": "Surveyor, Madison County planter, War of 1812 militia general",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/General_Green_Clay.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:General_Green_Clay.jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:General_Green_Clay.jpg",
+      "credit": "Unknown artist, probably Matthew Harris Jouett, early 19th century · White Hall State Historic Site · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Unsigned, undated early-19th-century oil portrait that hangs at White Hall State Historic Site; per Commons the site's curator reports several experts attribute it to Matthew Harris Jouett. Commons File:General_Green_Clay.jpg, public domain. Square crop keeps the face in frame. Not his grandson Green Clay Smith. Story sidebar is the 1968 HABS photo of White Hall, not the portrait.",
+      "ai": false
+    },
+    {
+      "id": "aristides-horse",
+      "name": "Aristides (horse)",
+      "aliases": [
+        "Aristides"
+      ],
+      "lifeDates": "1872–1893",
+      "stories": [
+        "aristides-winner-of-the-first-kentucky-derby"
+      ],
+      "role": "Racehorse, winner of the first Kentucky Derby",
+      "native": false,
+      "likeness": "portrait",
+      "timing": "life",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Aristides_%28horse%29.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Aristides_(horse).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aristides_(horse).jpg",
+      "credit": "C. Lloyd, etching, 1877 · Famous Horses of America · public domain",
+      "freeToUse": true,
+      "verified": true,
+      "notes": "Etching by C. Lloyd published as a plate in Famous Horses of America (Porter and Coates, Philadelphia, 1877). Commons File:Aristides_(horse).jpg, public domain. Square crop keeps the horse's head in frame. Story sidebar is the 1901 Churchill Downs view, not the portrait.",
       "ai": false
     }
   ]
